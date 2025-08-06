@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -76,8 +78,14 @@ public class DeleteControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleId")
   private String ruleId = null;
+
+  @SerializedName("RuleIdList")
+  private List<String> ruleIdList = null;
 
   public DeleteControlPolicyRequest direction(DirectionEnum direction) {
     this.direction = direction;
@@ -98,6 +106,24 @@ public class DeleteControlPolicyRequest {
     this.direction = direction;
   }
 
+  public DeleteControlPolicyRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
   public DeleteControlPolicyRequest ruleId(String ruleId) {
     this.ruleId = ruleId;
     return this;
@@ -107,14 +133,39 @@ public class DeleteControlPolicyRequest {
    * Get ruleId
    * @return ruleId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getRuleId() {
     return ruleId;
   }
 
   public void setRuleId(String ruleId) {
     this.ruleId = ruleId;
+  }
+
+  public DeleteControlPolicyRequest ruleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+    return this;
+  }
+
+  public DeleteControlPolicyRequest addRuleIdListItem(String ruleIdListItem) {
+    if (this.ruleIdList == null) {
+      this.ruleIdList = new ArrayList<String>();
+    }
+    this.ruleIdList.add(ruleIdListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleIdList
+   * @return ruleIdList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleIdList() {
+    return ruleIdList;
+  }
+
+  public void setRuleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
   }
 
 
@@ -128,12 +179,14 @@ public class DeleteControlPolicyRequest {
     }
     DeleteControlPolicyRequest deleteControlPolicyRequest = (DeleteControlPolicyRequest) o;
     return Objects.equals(this.direction, deleteControlPolicyRequest.direction) &&
-        Objects.equals(this.ruleId, deleteControlPolicyRequest.ruleId);
+        Objects.equals(this.internetFirewallId, deleteControlPolicyRequest.internetFirewallId) &&
+        Objects.equals(this.ruleId, deleteControlPolicyRequest.ruleId) &&
+        Objects.equals(this.ruleIdList, deleteControlPolicyRequest.ruleIdList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, ruleId);
+    return Objects.hash(direction, internetFirewallId, ruleId, ruleIdList);
   }
 
 
@@ -143,7 +196,9 @@ public class DeleteControlPolicyRequest {
     sb.append("class DeleteControlPolicyRequest {\n");
     
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
+    sb.append("    ruleIdList: ").append(toIndentedString(ruleIdList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

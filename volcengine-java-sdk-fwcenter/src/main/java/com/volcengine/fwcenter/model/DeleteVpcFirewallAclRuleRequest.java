@@ -32,11 +32,40 @@ import javax.validation.Valid;
 
 
 public class DeleteVpcFirewallAclRuleRequest {
+  @SerializedName("RuleIdList")
+  private List<String> ruleIdList = null;
+
   @SerializedName("RuleIds")
   private List<String> ruleIds = null;
 
   @SerializedName("VpcFirewallId")
   private String vpcFirewallId = null;
+
+  public DeleteVpcFirewallAclRuleRequest ruleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+    return this;
+  }
+
+  public DeleteVpcFirewallAclRuleRequest addRuleIdListItem(String ruleIdListItem) {
+    if (this.ruleIdList == null) {
+      this.ruleIdList = new ArrayList<String>();
+    }
+    this.ruleIdList.add(ruleIdListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleIdList
+   * @return ruleIdList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleIdList() {
+    return ruleIdList;
+  }
+
+  public void setRuleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+  }
 
   public DeleteVpcFirewallAclRuleRequest ruleIds(List<String> ruleIds) {
     this.ruleIds = ruleIds;
@@ -93,13 +122,14 @@ public class DeleteVpcFirewallAclRuleRequest {
       return false;
     }
     DeleteVpcFirewallAclRuleRequest deleteVpcFirewallAclRuleRequest = (DeleteVpcFirewallAclRuleRequest) o;
-    return Objects.equals(this.ruleIds, deleteVpcFirewallAclRuleRequest.ruleIds) &&
+    return Objects.equals(this.ruleIdList, deleteVpcFirewallAclRuleRequest.ruleIdList) &&
+        Objects.equals(this.ruleIds, deleteVpcFirewallAclRuleRequest.ruleIds) &&
         Objects.equals(this.vpcFirewallId, deleteVpcFirewallAclRuleRequest.vpcFirewallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleIds, vpcFirewallId);
+    return Objects.hash(ruleIdList, ruleIds, vpcFirewallId);
   }
 
 
@@ -108,6 +138,7 @@ public class DeleteVpcFirewallAclRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVpcFirewallAclRuleRequest {\n");
     
+    sb.append("    ruleIdList: ").append(toIndentedString(ruleIdList)).append("\n");
     sb.append("    ruleIds: ").append(toIndentedString(ruleIds)).append("\n");
     sb.append("    vpcFirewallId: ").append(toIndentedString(vpcFirewallId)).append("\n");
     sb.append("}");

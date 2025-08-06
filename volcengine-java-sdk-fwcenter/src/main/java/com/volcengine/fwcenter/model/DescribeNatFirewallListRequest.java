@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeNatFirewallListRequest {
+  @SerializedName("CloudFirewallId")
+  private String cloudFirewallId = null;
+
   @SerializedName("FirewallStatus")
   private List<String> firewallStatus = null;
 
@@ -53,6 +56,9 @@ public class DescribeNatFirewallListRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RegionCode")
   private List<String> regionCode = null;
 
@@ -61,6 +67,24 @@ public class DescribeNatFirewallListRequest {
 
   @SerializedName("VpcName")
   private String vpcName = null;
+
+  public DescribeNatFirewallListRequest cloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+    return this;
+  }
+
+   /**
+   * Get cloudFirewallId
+   * @return cloudFirewallId
+  **/
+  @Schema(description = "")
+  public String getCloudFirewallId() {
+    return cloudFirewallId;
+  }
+
+  public void setCloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+  }
 
   public DescribeNatFirewallListRequest firewallStatus(List<String> firewallStatus) {
     this.firewallStatus = firewallStatus;
@@ -185,15 +209,34 @@ public class DescribeNatFirewallListRequest {
 
    /**
    * Get pageSize
+   * maximum: 1000
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeNatFirewallListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeNatFirewallListRequest regionCode(List<String> regionCode) {
@@ -268,13 +311,15 @@ public class DescribeNatFirewallListRequest {
       return false;
     }
     DescribeNatFirewallListRequest describeNatFirewallListRequest = (DescribeNatFirewallListRequest) o;
-    return Objects.equals(this.firewallStatus, describeNatFirewallListRequest.firewallStatus) &&
+    return Objects.equals(this.cloudFirewallId, describeNatFirewallListRequest.cloudFirewallId) &&
+        Objects.equals(this.firewallStatus, describeNatFirewallListRequest.firewallStatus) &&
         Objects.equals(this.natFirewallId, describeNatFirewallListRequest.natFirewallId) &&
         Objects.equals(this.natFirewallName, describeNatFirewallListRequest.natFirewallName) &&
         Objects.equals(this.natGatewayId, describeNatFirewallListRequest.natGatewayId) &&
         Objects.equals(this.natGatewayName, describeNatFirewallListRequest.natGatewayName) &&
         Objects.equals(this.pageNumber, describeNatFirewallListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNatFirewallListRequest.pageSize) &&
+        Objects.equals(this.projectName, describeNatFirewallListRequest.projectName) &&
         Objects.equals(this.regionCode, describeNatFirewallListRequest.regionCode) &&
         Objects.equals(this.vpcId, describeNatFirewallListRequest.vpcId) &&
         Objects.equals(this.vpcName, describeNatFirewallListRequest.vpcName);
@@ -282,7 +327,7 @@ public class DescribeNatFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firewallStatus, natFirewallId, natFirewallName, natGatewayId, natGatewayName, pageNumber, pageSize, regionCode, vpcId, vpcName);
+    return Objects.hash(cloudFirewallId, firewallStatus, natFirewallId, natFirewallName, natGatewayId, natGatewayName, pageNumber, pageSize, projectName, regionCode, vpcId, vpcName);
   }
 
 
@@ -291,6 +336,7 @@ public class DescribeNatFirewallListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeNatFirewallListRequest {\n");
     
+    sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    natFirewallName: ").append(toIndentedString(natFirewallName)).append("\n");
@@ -298,6 +344,7 @@ public class DescribeNatFirewallListRequest {
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

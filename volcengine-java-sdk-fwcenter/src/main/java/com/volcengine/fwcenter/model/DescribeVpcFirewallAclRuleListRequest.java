@@ -41,6 +41,52 @@ public class DescribeVpcFirewallAclRuleListRequest {
   @SerializedName("Destination")
   private String destination = null;
 
+  /**
+   * Gets or Sets orderDir
+   */
+  @JsonAdapter(OrderDirEnum.Adapter.class)
+  public enum OrderDirEnum {
+    @SerializedName("asc")
+    ASC("asc"),
+    @SerializedName("desc")
+    DESC("desc");
+
+    private String value;
+
+    OrderDirEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static OrderDirEnum fromValue(String input) {
+      for (OrderDirEnum b : OrderDirEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<OrderDirEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrderDirEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public OrderDirEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return OrderDirEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("OrderDir")
+  private OrderDirEnum orderDir = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -127,6 +173,24 @@ public class DescribeVpcFirewallAclRuleListRequest {
     this.destination = destination;
   }
 
+  public DescribeVpcFirewallAclRuleListRequest orderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
+    return this;
+  }
+
+   /**
+   * Get orderDir
+   * @return orderDir
+  **/
+  @Schema(description = "")
+  public OrderDirEnum getOrderDir() {
+    return orderDir;
+  }
+
+  public void setOrderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
+  }
+
   public DescribeVpcFirewallAclRuleListRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -152,10 +216,10 @@ public class DescribeVpcFirewallAclRuleListRequest {
 
    /**
    * Get pageSize
-   * maximum: 100
+   * maximum: 1000
    * @return pageSize
   **/
- @Max(100)  @Schema(description = "")
+ @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -310,6 +374,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
     return Objects.equals(this.action, describeVpcFirewallAclRuleListRequest.action) &&
         Objects.equals(this.description, describeVpcFirewallAclRuleListRequest.description) &&
         Objects.equals(this.destination, describeVpcFirewallAclRuleListRequest.destination) &&
+        Objects.equals(this.orderDir, describeVpcFirewallAclRuleListRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeVpcFirewallAclRuleListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcFirewallAclRuleListRequest.pageSize) &&
         Objects.equals(this.proto, describeVpcFirewallAclRuleListRequest.proto) &&
@@ -322,7 +387,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destination, pageNumber, pageSize, proto, repeatType, ruleId, source, status, vpcFirewallId);
+    return Objects.hash(action, description, destination, orderDir, pageNumber, pageSize, proto, repeatType, ruleId, source, status, vpcFirewallId);
   }
 
 
@@ -334,6 +399,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");

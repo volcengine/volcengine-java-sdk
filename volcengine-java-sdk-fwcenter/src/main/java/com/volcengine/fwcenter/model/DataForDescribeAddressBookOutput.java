@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.AddressDetailListForDescribeAddressBookOutput;
+import com.volcengine.fwcenter.model.TagForDescribeAddressBookOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,8 +34,14 @@ import javax.validation.Valid;
 
 
 public class DataForDescribeAddressBookOutput {
+  @SerializedName("AddressDetailList")
+  private List<AddressDetailListForDescribeAddressBookOutput> addressDetailList = null;
+
   @SerializedName("AddressList")
   private List<String> addressList = null;
+
+  @SerializedName("AutoUpdateType")
+  private String autoUpdateType = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -47,8 +55,50 @@ public class DataForDescribeAddressBookOutput {
   @SerializedName("GroupUuid")
   private String groupUuid = null;
 
+  @SerializedName("InstanceTypeList")
+  private List<String> instanceTypeList = null;
+
   @SerializedName("RefCnt")
   private Integer refCnt = null;
+
+  @SerializedName("ResourceType")
+  private String resourceType = null;
+
+  @SerializedName("TagRelation")
+  private String tagRelation = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeAddressBookOutput> tags = null;
+
+  @SerializedName("Updated")
+  private Integer updated = null;
+
+  public DataForDescribeAddressBookOutput addressDetailList(List<AddressDetailListForDescribeAddressBookOutput> addressDetailList) {
+    this.addressDetailList = addressDetailList;
+    return this;
+  }
+
+  public DataForDescribeAddressBookOutput addAddressDetailListItem(AddressDetailListForDescribeAddressBookOutput addressDetailListItem) {
+    if (this.addressDetailList == null) {
+      this.addressDetailList = new ArrayList<AddressDetailListForDescribeAddressBookOutput>();
+    }
+    this.addressDetailList.add(addressDetailListItem);
+    return this;
+  }
+
+   /**
+   * Get addressDetailList
+   * @return addressDetailList
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AddressDetailListForDescribeAddressBookOutput> getAddressDetailList() {
+    return addressDetailList;
+  }
+
+  public void setAddressDetailList(List<AddressDetailListForDescribeAddressBookOutput> addressDetailList) {
+    this.addressDetailList = addressDetailList;
+  }
 
   public DataForDescribeAddressBookOutput addressList(List<String> addressList) {
     this.addressList = addressList;
@@ -74,6 +124,24 @@ public class DataForDescribeAddressBookOutput {
 
   public void setAddressList(List<String> addressList) {
     this.addressList = addressList;
+  }
+
+  public DataForDescribeAddressBookOutput autoUpdateType(String autoUpdateType) {
+    this.autoUpdateType = autoUpdateType;
+    return this;
+  }
+
+   /**
+   * Get autoUpdateType
+   * @return autoUpdateType
+  **/
+  @Schema(description = "")
+  public String getAutoUpdateType() {
+    return autoUpdateType;
+  }
+
+  public void setAutoUpdateType(String autoUpdateType) {
+    this.autoUpdateType = autoUpdateType;
   }
 
   public DataForDescribeAddressBookOutput description(String description) {
@@ -148,6 +216,32 @@ public class DataForDescribeAddressBookOutput {
     this.groupUuid = groupUuid;
   }
 
+  public DataForDescribeAddressBookOutput instanceTypeList(List<String> instanceTypeList) {
+    this.instanceTypeList = instanceTypeList;
+    return this;
+  }
+
+  public DataForDescribeAddressBookOutput addInstanceTypeListItem(String instanceTypeListItem) {
+    if (this.instanceTypeList == null) {
+      this.instanceTypeList = new ArrayList<String>();
+    }
+    this.instanceTypeList.add(instanceTypeListItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeList
+   * @return instanceTypeList
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypeList() {
+    return instanceTypeList;
+  }
+
+  public void setInstanceTypeList(List<String> instanceTypeList) {
+    this.instanceTypeList = instanceTypeList;
+  }
+
   public DataForDescribeAddressBookOutput refCnt(Integer refCnt) {
     this.refCnt = refCnt;
     return this;
@@ -166,6 +260,87 @@ public class DataForDescribeAddressBookOutput {
     this.refCnt = refCnt;
   }
 
+  public DataForDescribeAddressBookOutput resourceType(String resourceType) {
+    this.resourceType = resourceType;
+    return this;
+  }
+
+   /**
+   * Get resourceType
+   * @return resourceType
+  **/
+  @Schema(description = "")
+  public String getResourceType() {
+    return resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public DataForDescribeAddressBookOutput tagRelation(String tagRelation) {
+    this.tagRelation = tagRelation;
+    return this;
+  }
+
+   /**
+   * Get tagRelation
+   * @return tagRelation
+  **/
+  @Schema(description = "")
+  public String getTagRelation() {
+    return tagRelation;
+  }
+
+  public void setTagRelation(String tagRelation) {
+    this.tagRelation = tagRelation;
+  }
+
+  public DataForDescribeAddressBookOutput tags(List<TagForDescribeAddressBookOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DataForDescribeAddressBookOutput addTagsItem(TagForDescribeAddressBookOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeAddressBookOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeAddressBookOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeAddressBookOutput> tags) {
+    this.tags = tags;
+  }
+
+  public DataForDescribeAddressBookOutput updated(Integer updated) {
+    this.updated = updated;
+    return this;
+  }
+
+   /**
+   * Get updated
+   * @return updated
+  **/
+  @Schema(description = "")
+  public Integer getUpdated() {
+    return updated;
+  }
+
+  public void setUpdated(Integer updated) {
+    this.updated = updated;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,17 +351,24 @@ public class DataForDescribeAddressBookOutput {
       return false;
     }
     DataForDescribeAddressBookOutput dataForDescribeAddressBookOutput = (DataForDescribeAddressBookOutput) o;
-    return Objects.equals(this.addressList, dataForDescribeAddressBookOutput.addressList) &&
+    return Objects.equals(this.addressDetailList, dataForDescribeAddressBookOutput.addressDetailList) &&
+        Objects.equals(this.addressList, dataForDescribeAddressBookOutput.addressList) &&
+        Objects.equals(this.autoUpdateType, dataForDescribeAddressBookOutput.autoUpdateType) &&
         Objects.equals(this.description, dataForDescribeAddressBookOutput.description) &&
         Objects.equals(this.groupName, dataForDescribeAddressBookOutput.groupName) &&
         Objects.equals(this.groupType, dataForDescribeAddressBookOutput.groupType) &&
         Objects.equals(this.groupUuid, dataForDescribeAddressBookOutput.groupUuid) &&
-        Objects.equals(this.refCnt, dataForDescribeAddressBookOutput.refCnt);
+        Objects.equals(this.instanceTypeList, dataForDescribeAddressBookOutput.instanceTypeList) &&
+        Objects.equals(this.refCnt, dataForDescribeAddressBookOutput.refCnt) &&
+        Objects.equals(this.resourceType, dataForDescribeAddressBookOutput.resourceType) &&
+        Objects.equals(this.tagRelation, dataForDescribeAddressBookOutput.tagRelation) &&
+        Objects.equals(this.tags, dataForDescribeAddressBookOutput.tags) &&
+        Objects.equals(this.updated, dataForDescribeAddressBookOutput.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressList, description, groupName, groupType, groupUuid, refCnt);
+    return Objects.hash(addressDetailList, addressList, autoUpdateType, description, groupName, groupType, groupUuid, instanceTypeList, refCnt, resourceType, tagRelation, tags, updated);
   }
 
 
@@ -195,12 +377,19 @@ public class DataForDescribeAddressBookOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForDescribeAddressBookOutput {\n");
     
+    sb.append("    addressDetailList: ").append(toIndentedString(addressDetailList)).append("\n");
     sb.append("    addressList: ").append(toIndentedString(addressList)).append("\n");
+    sb.append("    autoUpdateType: ").append(toIndentedString(autoUpdateType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    groupUuid: ").append(toIndentedString(groupUuid)).append("\n");
+    sb.append("    instanceTypeList: ").append(toIndentedString(instanceTypeList)).append("\n");
     sb.append("    refCnt: ").append(toIndentedString(refCnt)).append("\n");
+    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    tagRelation: ").append(toIndentedString(tagRelation)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

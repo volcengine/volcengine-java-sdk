@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.AssetListForUpdateAssetSwitchOutput;
+import com.volcengine.fwcenter.model.ControlPolicyListForUpdateAssetSwitchOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,46 +34,64 @@ import javax.validation.Valid;
 
 
 public class UpdateAssetSwitchResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("IP")
-  private String IP = null;
+  @SerializedName("AssetList")
+  private List<AssetListForUpdateAssetSwitchOutput> assetList = null;
 
-  @SerializedName("Region")
-  private String region = null;
+  @SerializedName("ControlPolicyList")
+  private List<ControlPolicyListForUpdateAssetSwitchOutput> controlPolicyList = null;
 
-  public UpdateAssetSwitchResponse IP(String IP) {
-    this.IP = IP;
+  public UpdateAssetSwitchResponse assetList(List<AssetListForUpdateAssetSwitchOutput> assetList) {
+    this.assetList = assetList;
+    return this;
+  }
+
+  public UpdateAssetSwitchResponse addAssetListItem(AssetListForUpdateAssetSwitchOutput assetListItem) {
+    if (this.assetList == null) {
+      this.assetList = new ArrayList<AssetListForUpdateAssetSwitchOutput>();
+    }
+    this.assetList.add(assetListItem);
     return this;
   }
 
    /**
-   * Get IP
-   * @return IP
+   * Get assetList
+   * @return assetList
   **/
+  @Valid
   @Schema(description = "")
-  public String getIP() {
-    return IP;
+  public List<AssetListForUpdateAssetSwitchOutput> getAssetList() {
+    return assetList;
   }
 
-  public void setIP(String IP) {
-    this.IP = IP;
+  public void setAssetList(List<AssetListForUpdateAssetSwitchOutput> assetList) {
+    this.assetList = assetList;
   }
 
-  public UpdateAssetSwitchResponse region(String region) {
-    this.region = region;
+  public UpdateAssetSwitchResponse controlPolicyList(List<ControlPolicyListForUpdateAssetSwitchOutput> controlPolicyList) {
+    this.controlPolicyList = controlPolicyList;
+    return this;
+  }
+
+  public UpdateAssetSwitchResponse addControlPolicyListItem(ControlPolicyListForUpdateAssetSwitchOutput controlPolicyListItem) {
+    if (this.controlPolicyList == null) {
+      this.controlPolicyList = new ArrayList<ControlPolicyListForUpdateAssetSwitchOutput>();
+    }
+    this.controlPolicyList.add(controlPolicyListItem);
     return this;
   }
 
    /**
-   * Get region
-   * @return region
+   * Get controlPolicyList
+   * @return controlPolicyList
   **/
+  @Valid
   @Schema(description = "")
-  public String getRegion() {
-    return region;
+  public List<ControlPolicyListForUpdateAssetSwitchOutput> getControlPolicyList() {
+    return controlPolicyList;
   }
 
-  public void setRegion(String region) {
-    this.region = region;
+  public void setControlPolicyList(List<ControlPolicyListForUpdateAssetSwitchOutput> controlPolicyList) {
+    this.controlPolicyList = controlPolicyList;
   }
 
 
@@ -82,13 +104,13 @@ public class UpdateAssetSwitchResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     UpdateAssetSwitchResponse updateAssetSwitchResponse = (UpdateAssetSwitchResponse) o;
-    return Objects.equals(this.IP, updateAssetSwitchResponse.IP) &&
-        Objects.equals(this.region, updateAssetSwitchResponse.region);
+    return Objects.equals(this.assetList, updateAssetSwitchResponse.assetList) &&
+        Objects.equals(this.controlPolicyList, updateAssetSwitchResponse.controlPolicyList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(IP, region);
+    return Objects.hash(assetList, controlPolicyList);
   }
 
 
@@ -97,8 +119,8 @@ public class UpdateAssetSwitchResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAssetSwitchResponse {\n");
     
-    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    assetList: ").append(toIndentedString(assetList)).append("\n");
+    sb.append("    controlPolicyList: ").append(toIndentedString(controlPolicyList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

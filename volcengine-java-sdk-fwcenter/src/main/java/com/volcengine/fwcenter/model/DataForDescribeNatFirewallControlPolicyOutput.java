@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.DestPortListV1ForDescribeNatFirewallControlPolicyOutput;
+import com.volcengine.fwcenter.model.DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput;
+import com.volcengine.fwcenter.model.SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +56,9 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
   @SerializedName("DestPortList")
   private List<String> destPortList = null;
 
+  @SerializedName("DestPortListV1")
+  private List<DestPortListV1ForDescribeNatFirewallControlPolicyOutput> destPortListV1 = null;
+
   @SerializedName("DestPortType")
   private String destPortType = null;
 
@@ -61,6 +67,12 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   @SerializedName("DestinationCidrList")
   private List<String> destinationCidrList = null;
+
+  @SerializedName("DestinationCidrListV1")
+  private List<DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput> destinationCidrListV1 = null;
+
+  @SerializedName("DestinationDomainList")
+  private List<String> destinationDomainList = null;
 
   @SerializedName("DestinationGroupList")
   private List<String> destinationGroupList = null;
@@ -80,17 +92,20 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
   @SerializedName("EndTime")
   private Integer endTime = null;
 
+  @SerializedName("FirewallId")
+  private String firewallId = null;
+
   @SerializedName("HitCnt")
   private Integer hitCnt = null;
+
+  @SerializedName("IpType")
+  private String ipType = null;
 
   @SerializedName("IsEffected")
   private Boolean isEffected = null;
 
   @SerializedName("LastHitTime")
   private Integer lastHitTime = null;
-
-  @SerializedName("NatFirewallId")
-  private String natFirewallId = null;
 
   @SerializedName("Prio")
   private Integer prio = null;
@@ -118,6 +133,9 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   @SerializedName("SourceCidrList")
   private List<String> sourceCidrList = null;
+
+  @SerializedName("SourceCidrListV1")
+  private List<SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput> sourceCidrListV1 = null;
 
   @SerializedName("SourceGroupList")
   private List<String> sourceGroupList = null;
@@ -282,6 +300,33 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.destPortList = destPortList;
   }
 
+  public DataForDescribeNatFirewallControlPolicyOutput destPortListV1(List<DestPortListV1ForDescribeNatFirewallControlPolicyOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+    return this;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput addDestPortListV1Item(DestPortListV1ForDescribeNatFirewallControlPolicyOutput destPortListV1Item) {
+    if (this.destPortListV1 == null) {
+      this.destPortListV1 = new ArrayList<DestPortListV1ForDescribeNatFirewallControlPolicyOutput>();
+    }
+    this.destPortListV1.add(destPortListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destPortListV1
+   * @return destPortListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestPortListV1ForDescribeNatFirewallControlPolicyOutput> getDestPortListV1() {
+    return destPortListV1;
+  }
+
+  public void setDestPortListV1(List<DestPortListV1ForDescribeNatFirewallControlPolicyOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+  }
+
   public DataForDescribeNatFirewallControlPolicyOutput destPortType(String destPortType) {
     this.destPortType = destPortType;
     return this;
@@ -342,6 +387,59 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   public void setDestinationCidrList(List<String> destinationCidrList) {
     this.destinationCidrList = destinationCidrList;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput destinationCidrListV1(List<DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput addDestinationCidrListV1Item(DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput destinationCidrListV1Item) {
+    if (this.destinationCidrListV1 == null) {
+      this.destinationCidrListV1 = new ArrayList<DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput>();
+    }
+    this.destinationCidrListV1.add(destinationCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destinationCidrListV1
+   * @return destinationCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput> getDestinationCidrListV1() {
+    return destinationCidrListV1;
+  }
+
+  public void setDestinationCidrListV1(List<DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput destinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
+    return this;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput addDestinationDomainListItem(String destinationDomainListItem) {
+    if (this.destinationDomainList == null) {
+      this.destinationDomainList = new ArrayList<String>();
+    }
+    this.destinationDomainList.add(destinationDomainListItem);
+    return this;
+  }
+
+   /**
+   * Get destinationDomainList
+   * @return destinationDomainList
+  **/
+  @Schema(description = "")
+  public List<String> getDestinationDomainList() {
+    return destinationDomainList;
+  }
+
+  public void setDestinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
   }
 
   public DataForDescribeNatFirewallControlPolicyOutput destinationGroupList(List<String> destinationGroupList) {
@@ -460,6 +558,24 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.endTime = endTime;
   }
 
+  public DataForDescribeNatFirewallControlPolicyOutput firewallId(String firewallId) {
+    this.firewallId = firewallId;
+    return this;
+  }
+
+   /**
+   * Get firewallId
+   * @return firewallId
+  **/
+  @Schema(description = "")
+  public String getFirewallId() {
+    return firewallId;
+  }
+
+  public void setFirewallId(String firewallId) {
+    this.firewallId = firewallId;
+  }
+
   public DataForDescribeNatFirewallControlPolicyOutput hitCnt(Integer hitCnt) {
     this.hitCnt = hitCnt;
     return this;
@@ -476,6 +592,24 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   public void setHitCnt(Integer hitCnt) {
     this.hitCnt = hitCnt;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput ipType(String ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public String getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(String ipType) {
+    this.ipType = ipType;
   }
 
   public DataForDescribeNatFirewallControlPolicyOutput isEffected(Boolean isEffected) {
@@ -512,24 +646,6 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   public void setLastHitTime(Integer lastHitTime) {
     this.lastHitTime = lastHitTime;
-  }
-
-  public DataForDescribeNatFirewallControlPolicyOutput natFirewallId(String natFirewallId) {
-    this.natFirewallId = natFirewallId;
-    return this;
-  }
-
-   /**
-   * Get natFirewallId
-   * @return natFirewallId
-  **/
-  @Schema(description = "")
-  public String getNatFirewallId() {
-    return natFirewallId;
-  }
-
-  public void setNatFirewallId(String natFirewallId) {
-    this.natFirewallId = natFirewallId;
   }
 
   public DataForDescribeNatFirewallControlPolicyOutput prio(Integer prio) {
@@ -710,6 +826,33 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.sourceCidrList = sourceCidrList;
   }
 
+  public DataForDescribeNatFirewallControlPolicyOutput sourceCidrListV1(List<SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput addSourceCidrListV1Item(SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput sourceCidrListV1Item) {
+    if (this.sourceCidrListV1 == null) {
+      this.sourceCidrListV1 = new ArrayList<SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput>();
+    }
+    this.sourceCidrListV1.add(sourceCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get sourceCidrListV1
+   * @return sourceCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput> getSourceCidrListV1() {
+    return sourceCidrListV1;
+  }
+
+  public void setSourceCidrListV1(List<SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+  }
+
   public DataForDescribeNatFirewallControlPolicyOutput sourceGroupList(List<String> sourceGroupList) {
     this.sourceGroupList = sourceGroupList;
     return this;
@@ -861,19 +1004,23 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
         Objects.equals(this.destPortGroupList, dataForDescribeNatFirewallControlPolicyOutput.destPortGroupList) &&
         Objects.equals(this.destPortGroupType, dataForDescribeNatFirewallControlPolicyOutput.destPortGroupType) &&
         Objects.equals(this.destPortList, dataForDescribeNatFirewallControlPolicyOutput.destPortList) &&
+        Objects.equals(this.destPortListV1, dataForDescribeNatFirewallControlPolicyOutput.destPortListV1) &&
         Objects.equals(this.destPortType, dataForDescribeNatFirewallControlPolicyOutput.destPortType) &&
         Objects.equals(this.destination, dataForDescribeNatFirewallControlPolicyOutput.destination) &&
         Objects.equals(this.destinationCidrList, dataForDescribeNatFirewallControlPolicyOutput.destinationCidrList) &&
+        Objects.equals(this.destinationCidrListV1, dataForDescribeNatFirewallControlPolicyOutput.destinationCidrListV1) &&
+        Objects.equals(this.destinationDomainList, dataForDescribeNatFirewallControlPolicyOutput.destinationDomainList) &&
         Objects.equals(this.destinationGroupList, dataForDescribeNatFirewallControlPolicyOutput.destinationGroupList) &&
         Objects.equals(this.destinationGroupType, dataForDescribeNatFirewallControlPolicyOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeNatFirewallControlPolicyOutput.destinationType) &&
         Objects.equals(this.direction, dataForDescribeNatFirewallControlPolicyOutput.direction) &&
         Objects.equals(this.effectStatus, dataForDescribeNatFirewallControlPolicyOutput.effectStatus) &&
         Objects.equals(this.endTime, dataForDescribeNatFirewallControlPolicyOutput.endTime) &&
+        Objects.equals(this.firewallId, dataForDescribeNatFirewallControlPolicyOutput.firewallId) &&
         Objects.equals(this.hitCnt, dataForDescribeNatFirewallControlPolicyOutput.hitCnt) &&
+        Objects.equals(this.ipType, dataForDescribeNatFirewallControlPolicyOutput.ipType) &&
         Objects.equals(this.isEffected, dataForDescribeNatFirewallControlPolicyOutput.isEffected) &&
         Objects.equals(this.lastHitTime, dataForDescribeNatFirewallControlPolicyOutput.lastHitTime) &&
-        Objects.equals(this.natFirewallId, dataForDescribeNatFirewallControlPolicyOutput.natFirewallId) &&
         Objects.equals(this.prio, dataForDescribeNatFirewallControlPolicyOutput.prio) &&
         Objects.equals(this.proto, dataForDescribeNatFirewallControlPolicyOutput.proto) &&
         Objects.equals(this.repeatDays, dataForDescribeNatFirewallControlPolicyOutput.repeatDays) &&
@@ -883,6 +1030,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
         Objects.equals(this.ruleId, dataForDescribeNatFirewallControlPolicyOutput.ruleId) &&
         Objects.equals(this.source, dataForDescribeNatFirewallControlPolicyOutput.source) &&
         Objects.equals(this.sourceCidrList, dataForDescribeNatFirewallControlPolicyOutput.sourceCidrList) &&
+        Objects.equals(this.sourceCidrListV1, dataForDescribeNatFirewallControlPolicyOutput.sourceCidrListV1) &&
         Objects.equals(this.sourceGroupList, dataForDescribeNatFirewallControlPolicyOutput.sourceGroupList) &&
         Objects.equals(this.sourceGroupType, dataForDescribeNatFirewallControlPolicyOutput.sourceGroupType) &&
         Objects.equals(this.sourceType, dataForDescribeNatFirewallControlPolicyOutput.sourceType) &&
@@ -894,7 +1042,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupList, destPortGroupType, destPortList, destPortType, destination, destinationCidrList, destinationGroupList, destinationGroupType, destinationType, direction, effectStatus, endTime, hitCnt, isEffected, lastHitTime, natFirewallId, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceGroupList, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupList, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupList, destinationGroupType, destinationType, direction, effectStatus, endTime, firewallId, hitCnt, ipType, isEffected, lastHitTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupList, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
   }
 
 
@@ -910,19 +1058,23 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     sb.append("    destPortGroupList: ").append(toIndentedString(destPortGroupList)).append("\n");
     sb.append("    destPortGroupType: ").append(toIndentedString(destPortGroupType)).append("\n");
     sb.append("    destPortList: ").append(toIndentedString(destPortList)).append("\n");
+    sb.append("    destPortListV1: ").append(toIndentedString(destPortListV1)).append("\n");
     sb.append("    destPortType: ").append(toIndentedString(destPortType)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationCidrList: ").append(toIndentedString(destinationCidrList)).append("\n");
+    sb.append("    destinationCidrListV1: ").append(toIndentedString(destinationCidrListV1)).append("\n");
+    sb.append("    destinationDomainList: ").append(toIndentedString(destinationDomainList)).append("\n");
     sb.append("    destinationGroupList: ").append(toIndentedString(destinationGroupList)).append("\n");
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    firewallId: ").append(toIndentedString(firewallId)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    isEffected: ").append(toIndentedString(isEffected)).append("\n");
     sb.append("    lastHitTime: ").append(toIndentedString(lastHitTime)).append("\n");
-    sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
@@ -932,6 +1084,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceCidrList: ").append(toIndentedString(sourceCidrList)).append("\n");
+    sb.append("    sourceCidrListV1: ").append(toIndentedString(sourceCidrListV1)).append("\n");
     sb.append("    sourceGroupList: ").append(toIndentedString(sourceGroupList)).append("\n");
     sb.append("    sourceGroupType: ").append(toIndentedString(sourceGroupType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");

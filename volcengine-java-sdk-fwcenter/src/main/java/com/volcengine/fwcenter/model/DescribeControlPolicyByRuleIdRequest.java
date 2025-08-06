@@ -78,6 +78,9 @@ public class DescribeControlPolicyByRuleIdRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleIds")
   private List<String> ruleIds = null;
 
@@ -98,6 +101,24 @@ public class DescribeControlPolicyByRuleIdRequest {
 
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
+  }
+
+  public DescribeControlPolicyByRuleIdRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
   }
 
   public DescribeControlPolicyByRuleIdRequest ruleIds(List<String> ruleIds) {
@@ -137,12 +158,13 @@ public class DescribeControlPolicyByRuleIdRequest {
     }
     DescribeControlPolicyByRuleIdRequest describeControlPolicyByRuleIdRequest = (DescribeControlPolicyByRuleIdRequest) o;
     return Objects.equals(this.direction, describeControlPolicyByRuleIdRequest.direction) &&
+        Objects.equals(this.internetFirewallId, describeControlPolicyByRuleIdRequest.internetFirewallId) &&
         Objects.equals(this.ruleIds, describeControlPolicyByRuleIdRequest.ruleIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, ruleIds);
+    return Objects.hash(direction, internetFirewallId, ruleIds);
   }
 
 
@@ -152,6 +174,7 @@ public class DescribeControlPolicyByRuleIdRequest {
     sb.append("class DescribeControlPolicyByRuleIdRequest {\n");
     
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleIds: ").append(toIndentedString(ruleIds)).append("\n");
     sb.append("}");
     return sb.toString();

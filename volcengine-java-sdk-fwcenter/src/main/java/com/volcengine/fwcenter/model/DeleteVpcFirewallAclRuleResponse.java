@@ -32,8 +32,37 @@ import javax.validation.Valid;
 
 
 public class DeleteVpcFirewallAclRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RuleIdList")
+  private List<String> ruleIdList = null;
+
   @SerializedName("RuleIds")
   private List<String> ruleIds = null;
+
+  public DeleteVpcFirewallAclRuleResponse ruleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+    return this;
+  }
+
+  public DeleteVpcFirewallAclRuleResponse addRuleIdListItem(String ruleIdListItem) {
+    if (this.ruleIdList == null) {
+      this.ruleIdList = new ArrayList<String>();
+    }
+    this.ruleIdList.add(ruleIdListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleIdList
+   * @return ruleIdList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleIdList() {
+    return ruleIdList;
+  }
+
+  public void setRuleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+  }
 
   public DeleteVpcFirewallAclRuleResponse ruleIds(List<String> ruleIds) {
     this.ruleIds = ruleIds;
@@ -71,12 +100,13 @@ public class DeleteVpcFirewallAclRuleResponse extends com.volcengine.model.Abstr
       return false;
     }
     DeleteVpcFirewallAclRuleResponse deleteVpcFirewallAclRuleResponse = (DeleteVpcFirewallAclRuleResponse) o;
-    return Objects.equals(this.ruleIds, deleteVpcFirewallAclRuleResponse.ruleIds);
+    return Objects.equals(this.ruleIdList, deleteVpcFirewallAclRuleResponse.ruleIdList) &&
+        Objects.equals(this.ruleIds, deleteVpcFirewallAclRuleResponse.ruleIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleIds);
+    return Objects.hash(ruleIdList, ruleIds);
   }
 
 
@@ -85,6 +115,7 @@ public class DeleteVpcFirewallAclRuleResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVpcFirewallAclRuleResponse {\n");
     
+    sb.append("    ruleIdList: ").append(toIndentedString(ruleIdList)).append("\n");
     sb.append("    ruleIds: ").append(toIndentedString(ruleIds)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -85,6 +85,9 @@ public class AddDnsControlPolicyRequest {
   }  @SerializedName("DestinationType")
   private DestinationTypeEnum destinationType = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("Source")
   private List<SourceForAddDnsControlPolicyInput> source = null;
 
@@ -144,6 +147,24 @@ public class AddDnsControlPolicyRequest {
     this.destinationType = destinationType;
   }
 
+  public AddDnsControlPolicyRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
   public AddDnsControlPolicyRequest source(List<SourceForAddDnsControlPolicyInput> source) {
     this.source = source;
     return this;
@@ -184,12 +205,13 @@ public class AddDnsControlPolicyRequest {
     return Objects.equals(this.description, addDnsControlPolicyRequest.description) &&
         Objects.equals(this.destination, addDnsControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, addDnsControlPolicyRequest.destinationType) &&
+        Objects.equals(this.internetFirewallId, addDnsControlPolicyRequest.internetFirewallId) &&
         Objects.equals(this.source, addDnsControlPolicyRequest.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destination, destinationType, source);
+    return Objects.hash(description, destination, destinationType, internetFirewallId, source);
   }
 
 
@@ -201,6 +223,7 @@ public class AddDnsControlPolicyRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();

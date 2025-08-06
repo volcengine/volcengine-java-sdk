@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.AddressDetailListForModifyAddressBookInput;
+import com.volcengine.fwcenter.model.TagForModifyAddressBookInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,8 +34,60 @@ import javax.validation.Valid;
 
 
 public class ModifyAddressBookRequest {
+  @SerializedName("AddressDetailList")
+  private List<AddressDetailListForModifyAddressBookInput> addressDetailList = null;
+
   @SerializedName("AddressList")
   private List<String> addressList = null;
+
+  /**
+   * Gets or Sets autoUpdateType
+   */
+  @JsonAdapter(AutoUpdateTypeEnum.Adapter.class)
+  public enum AutoUpdateTypeEnum {
+    @SerializedName("Manual")
+    MANUAL("Manual"),
+    @SerializedName("Tag")
+    TAG("Tag");
+
+    private String value;
+
+    AutoUpdateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AutoUpdateTypeEnum fromValue(String input) {
+      for (AutoUpdateTypeEnum b : AutoUpdateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AutoUpdateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AutoUpdateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AutoUpdateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AutoUpdateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AutoUpdateType")
+  private AutoUpdateTypeEnum autoUpdateType = null;
+
+  @SerializedName("CloudFirewallId")
+  private String cloudFirewallId = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -43,6 +97,131 @@ public class ModifyAddressBookRequest {
 
   @SerializedName("GroupUuid")
   private String groupUuid = null;
+
+  @SerializedName("InstanceTypeList")
+  private List<String> instanceTypeList = null;
+
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("Eip")
+    EIP("Eip"),
+    @SerializedName("InternetAsset")
+    INTERNETASSET("InternetAsset");
+
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
+
+  /**
+   * Gets or Sets tagRelation
+   */
+  @JsonAdapter(TagRelationEnum.Adapter.class)
+  public enum TagRelationEnum {
+    @SerializedName("And")
+    AND("And"),
+    @SerializedName("Or")
+    OR("Or");
+
+    private String value;
+
+    TagRelationEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TagRelationEnum fromValue(String input) {
+      for (TagRelationEnum b : TagRelationEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TagRelationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TagRelationEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TagRelationEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TagRelationEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TagRelation")
+  private TagRelationEnum tagRelation = null;
+
+  @SerializedName("Tags")
+  private List<TagForModifyAddressBookInput> tags = null;
+
+  public ModifyAddressBookRequest addressDetailList(List<AddressDetailListForModifyAddressBookInput> addressDetailList) {
+    this.addressDetailList = addressDetailList;
+    return this;
+  }
+
+  public ModifyAddressBookRequest addAddressDetailListItem(AddressDetailListForModifyAddressBookInput addressDetailListItem) {
+    if (this.addressDetailList == null) {
+      this.addressDetailList = new ArrayList<AddressDetailListForModifyAddressBookInput>();
+    }
+    this.addressDetailList.add(addressDetailListItem);
+    return this;
+  }
+
+   /**
+   * Get addressDetailList
+   * @return addressDetailList
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AddressDetailListForModifyAddressBookInput> getAddressDetailList() {
+    return addressDetailList;
+  }
+
+  public void setAddressDetailList(List<AddressDetailListForModifyAddressBookInput> addressDetailList) {
+    this.addressDetailList = addressDetailList;
+  }
 
   public ModifyAddressBookRequest addressList(List<String> addressList) {
     this.addressList = addressList;
@@ -68,6 +247,42 @@ public class ModifyAddressBookRequest {
 
   public void setAddressList(List<String> addressList) {
     this.addressList = addressList;
+  }
+
+  public ModifyAddressBookRequest autoUpdateType(AutoUpdateTypeEnum autoUpdateType) {
+    this.autoUpdateType = autoUpdateType;
+    return this;
+  }
+
+   /**
+   * Get autoUpdateType
+   * @return autoUpdateType
+  **/
+  @Schema(description = "")
+  public AutoUpdateTypeEnum getAutoUpdateType() {
+    return autoUpdateType;
+  }
+
+  public void setAutoUpdateType(AutoUpdateTypeEnum autoUpdateType) {
+    this.autoUpdateType = autoUpdateType;
+  }
+
+  public ModifyAddressBookRequest cloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+    return this;
+  }
+
+   /**
+   * Get cloudFirewallId
+   * @return cloudFirewallId
+  **/
+  @Schema(description = "")
+  public String getCloudFirewallId() {
+    return cloudFirewallId;
+  }
+
+  public void setCloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
   }
 
   public ModifyAddressBookRequest description(String description) {
@@ -126,6 +341,95 @@ public class ModifyAddressBookRequest {
     this.groupUuid = groupUuid;
   }
 
+  public ModifyAddressBookRequest instanceTypeList(List<String> instanceTypeList) {
+    this.instanceTypeList = instanceTypeList;
+    return this;
+  }
+
+  public ModifyAddressBookRequest addInstanceTypeListItem(String instanceTypeListItem) {
+    if (this.instanceTypeList == null) {
+      this.instanceTypeList = new ArrayList<String>();
+    }
+    this.instanceTypeList.add(instanceTypeListItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeList
+   * @return instanceTypeList
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypeList() {
+    return instanceTypeList;
+  }
+
+  public void setInstanceTypeList(List<String> instanceTypeList) {
+    this.instanceTypeList = instanceTypeList;
+  }
+
+  public ModifyAddressBookRequest resourceType(ResourceTypeEnum resourceType) {
+    this.resourceType = resourceType;
+    return this;
+  }
+
+   /**
+   * Get resourceType
+   * @return resourceType
+  **/
+  @Schema(description = "")
+  public ResourceTypeEnum getResourceType() {
+    return resourceType;
+  }
+
+  public void setResourceType(ResourceTypeEnum resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public ModifyAddressBookRequest tagRelation(TagRelationEnum tagRelation) {
+    this.tagRelation = tagRelation;
+    return this;
+  }
+
+   /**
+   * Get tagRelation
+   * @return tagRelation
+  **/
+  @Schema(description = "")
+  public TagRelationEnum getTagRelation() {
+    return tagRelation;
+  }
+
+  public void setTagRelation(TagRelationEnum tagRelation) {
+    this.tagRelation = tagRelation;
+  }
+
+  public ModifyAddressBookRequest tags(List<TagForModifyAddressBookInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ModifyAddressBookRequest addTagsItem(TagForModifyAddressBookInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForModifyAddressBookInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForModifyAddressBookInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForModifyAddressBookInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,15 +440,22 @@ public class ModifyAddressBookRequest {
       return false;
     }
     ModifyAddressBookRequest modifyAddressBookRequest = (ModifyAddressBookRequest) o;
-    return Objects.equals(this.addressList, modifyAddressBookRequest.addressList) &&
+    return Objects.equals(this.addressDetailList, modifyAddressBookRequest.addressDetailList) &&
+        Objects.equals(this.addressList, modifyAddressBookRequest.addressList) &&
+        Objects.equals(this.autoUpdateType, modifyAddressBookRequest.autoUpdateType) &&
+        Objects.equals(this.cloudFirewallId, modifyAddressBookRequest.cloudFirewallId) &&
         Objects.equals(this.description, modifyAddressBookRequest.description) &&
         Objects.equals(this.groupName, modifyAddressBookRequest.groupName) &&
-        Objects.equals(this.groupUuid, modifyAddressBookRequest.groupUuid);
+        Objects.equals(this.groupUuid, modifyAddressBookRequest.groupUuid) &&
+        Objects.equals(this.instanceTypeList, modifyAddressBookRequest.instanceTypeList) &&
+        Objects.equals(this.resourceType, modifyAddressBookRequest.resourceType) &&
+        Objects.equals(this.tagRelation, modifyAddressBookRequest.tagRelation) &&
+        Objects.equals(this.tags, modifyAddressBookRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressList, description, groupName, groupUuid);
+    return Objects.hash(addressDetailList, addressList, autoUpdateType, cloudFirewallId, description, groupName, groupUuid, instanceTypeList, resourceType, tagRelation, tags);
   }
 
 
@@ -153,10 +464,17 @@ public class ModifyAddressBookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyAddressBookRequest {\n");
     
+    sb.append("    addressDetailList: ").append(toIndentedString(addressDetailList)).append("\n");
     sb.append("    addressList: ").append(toIndentedString(addressList)).append("\n");
+    sb.append("    autoUpdateType: ").append(toIndentedString(autoUpdateType)).append("\n");
+    sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    groupUuid: ").append(toIndentedString(groupUuid)).append("\n");
+    sb.append("    instanceTypeList: ").append(toIndentedString(instanceTypeList)).append("\n");
+    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    tagRelation: ").append(toIndentedString(tagRelation)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

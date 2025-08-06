@@ -76,6 +76,9 @@ public class ModifyControlPolicyPositionRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("NewPrio")
   private Integer newPrio = null;
 
@@ -99,6 +102,24 @@ public class ModifyControlPolicyPositionRequest {
 
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
+  }
+
+  public ModifyControlPolicyPositionRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
   }
 
   public ModifyControlPolicyPositionRequest newPrio(Integer newPrio) {
@@ -151,13 +172,14 @@ public class ModifyControlPolicyPositionRequest {
     }
     ModifyControlPolicyPositionRequest modifyControlPolicyPositionRequest = (ModifyControlPolicyPositionRequest) o;
     return Objects.equals(this.direction, modifyControlPolicyPositionRequest.direction) &&
+        Objects.equals(this.internetFirewallId, modifyControlPolicyPositionRequest.internetFirewallId) &&
         Objects.equals(this.newPrio, modifyControlPolicyPositionRequest.newPrio) &&
         Objects.equals(this.ruleId, modifyControlPolicyPositionRequest.ruleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, newPrio, ruleId);
+    return Objects.hash(direction, internetFirewallId, newPrio, ruleId);
   }
 
 
@@ -167,6 +189,7 @@ public class ModifyControlPolicyPositionRequest {
     sb.append("class ModifyControlPolicyPositionRequest {\n");
     
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    newPrio: ").append(toIndentedString(newPrio)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("}");
