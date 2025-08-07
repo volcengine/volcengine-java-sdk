@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class DescribeAddressBookRequest {
+  @SerializedName("CloudFirewallId")
+  private String cloudFirewallId = null;
+
   /**
    * Gets or Sets groupType
    */
@@ -37,6 +40,8 @@ public class DescribeAddressBookRequest {
   public enum GroupTypeEnum {
     @SerializedName("ip")
     IP("ip"),
+    @SerializedName("ipv6")
+    IPV6("ipv6"),
     @SerializedName("port")
     PORT("port"),
     @SerializedName("domain")
@@ -87,6 +92,24 @@ public class DescribeAddressBookRequest {
   @SerializedName("Query")
   private String query = null;
 
+  public DescribeAddressBookRequest cloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+    return this;
+  }
+
+   /**
+   * Get cloudFirewallId
+   * @return cloudFirewallId
+  **/
+  @Schema(description = "")
+  public String getCloudFirewallId() {
+    return cloudFirewallId;
+  }
+
+  public void setCloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+  }
+
   public DescribeAddressBookRequest groupType(GroupTypeEnum groupType) {
     this.groupType = groupType;
     return this;
@@ -131,9 +154,10 @@ public class DescribeAddressBookRequest {
 
    /**
    * Get pageSize
+   * maximum: 1000
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -170,7 +194,8 @@ public class DescribeAddressBookRequest {
       return false;
     }
     DescribeAddressBookRequest describeAddressBookRequest = (DescribeAddressBookRequest) o;
-    return Objects.equals(this.groupType, describeAddressBookRequest.groupType) &&
+    return Objects.equals(this.cloudFirewallId, describeAddressBookRequest.cloudFirewallId) &&
+        Objects.equals(this.groupType, describeAddressBookRequest.groupType) &&
         Objects.equals(this.pageNumber, describeAddressBookRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeAddressBookRequest.pageSize) &&
         Objects.equals(this.query, describeAddressBookRequest.query);
@@ -178,7 +203,7 @@ public class DescribeAddressBookRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupType, pageNumber, pageSize, query);
+    return Objects.hash(cloudFirewallId, groupType, pageNumber, pageSize, query);
   }
 
 
@@ -187,6 +212,7 @@ public class DescribeAddressBookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAddressBookRequest {\n");
     
+    sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

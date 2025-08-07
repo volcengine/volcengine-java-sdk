@@ -34,7 +34,7 @@ public class GenerateImagesRequest {
     public GenerateImagesRequest() {
     }
 
-    public GenerateImagesRequest(String model, String prompt, String image, String responseFormat, Integer seed, Double guidanceScale, String size) {
+    public GenerateImagesRequest(String model, String prompt, String image, String responseFormat, Integer seed, Double guidanceScale, String size, Boolean watermark, Boolean optimizePrompt) {
         this.model = model;
         this.prompt = prompt;
         this.image = image;
@@ -42,7 +42,8 @@ public class GenerateImagesRequest {
         this.seed = seed;
         this.guidanceScale = guidanceScale;
         this.size = size;
-        this.watermark = false;
+        this.watermark = watermark;
+        this.optimizePrompt = optimizePrompt;
     }
 
     public String getModel() {

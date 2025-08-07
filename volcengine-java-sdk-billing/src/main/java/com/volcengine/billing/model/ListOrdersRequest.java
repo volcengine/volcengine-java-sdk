@@ -57,8 +57,7 @@ public class ListOrdersRequest {
    * Get createTimeEnd
    * @return createTimeEnd
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCreateTimeEnd() {
     return createTimeEnd;
   }
@@ -76,8 +75,7 @@ public class ListOrdersRequest {
    * Get createTimeStart
    * @return createTimeStart
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCreateTimeStart() {
     return createTimeStart;
   }
@@ -95,8 +93,7 @@ public class ListOrdersRequest {
    * Get maxResults
    * @return maxResults
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getMaxResults() {
     return maxResults;
   }
@@ -114,8 +111,7 @@ public class ListOrdersRequest {
    * Get nextToken
    * @return nextToken
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getNextToken() {
     return nextToken;
   }
@@ -133,8 +129,7 @@ public class ListOrdersRequest {
    * Get orderType
    * @return orderType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getOrderType() {
     return orderType;
   }
@@ -152,8 +147,7 @@ public class ListOrdersRequest {
    * Get status
    * @return status
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getStatus() {
     return status;
   }

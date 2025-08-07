@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.DestPortListV1ForDescribeVpcFirewallAclRuleListOutput;
+import com.volcengine.fwcenter.model.DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput;
+import com.volcengine.fwcenter.model.SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +53,9 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
   @SerializedName("DestPortList")
   private List<String> destPortList = null;
 
+  @SerializedName("DestPortListV1")
+  private List<DestPortListV1ForDescribeVpcFirewallAclRuleListOutput> destPortListV1 = null;
+
   @SerializedName("DestPortType")
   private String destPortType = null;
 
@@ -58,6 +64,12 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   @SerializedName("DestinationCidrList")
   private List<String> destinationCidrList = null;
+
+  @SerializedName("DestinationCidrListV1")
+  private List<DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput> destinationCidrListV1 = null;
+
+  @SerializedName("DestinationDomainList")
+  private List<String> destinationDomainList = null;
 
   @SerializedName("DestinationGroupType")
   private String destinationGroupType = null;
@@ -103,6 +115,9 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   @SerializedName("SourceCidrList")
   private List<String> sourceCidrList = null;
+
+  @SerializedName("SourceCidrListV1")
+  private List<SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput> sourceCidrListV1 = null;
 
   @SerializedName("SourceGroupType")
   private String sourceGroupType = null;
@@ -244,6 +259,33 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.destPortList = destPortList;
   }
 
+  public DataForDescribeVpcFirewallAclRuleListOutput destPortListV1(List<DestPortListV1ForDescribeVpcFirewallAclRuleListOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+    return this;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput addDestPortListV1Item(DestPortListV1ForDescribeVpcFirewallAclRuleListOutput destPortListV1Item) {
+    if (this.destPortListV1 == null) {
+      this.destPortListV1 = new ArrayList<DestPortListV1ForDescribeVpcFirewallAclRuleListOutput>();
+    }
+    this.destPortListV1.add(destPortListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destPortListV1
+   * @return destPortListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestPortListV1ForDescribeVpcFirewallAclRuleListOutput> getDestPortListV1() {
+    return destPortListV1;
+  }
+
+  public void setDestPortListV1(List<DestPortListV1ForDescribeVpcFirewallAclRuleListOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+  }
+
   public DataForDescribeVpcFirewallAclRuleListOutput destPortType(String destPortType) {
     this.destPortType = destPortType;
     return this;
@@ -304,6 +346,59 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   public void setDestinationCidrList(List<String> destinationCidrList) {
     this.destinationCidrList = destinationCidrList;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput destinationCidrListV1(List<DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput addDestinationCidrListV1Item(DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput destinationCidrListV1Item) {
+    if (this.destinationCidrListV1 == null) {
+      this.destinationCidrListV1 = new ArrayList<DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput>();
+    }
+    this.destinationCidrListV1.add(destinationCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destinationCidrListV1
+   * @return destinationCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput> getDestinationCidrListV1() {
+    return destinationCidrListV1;
+  }
+
+  public void setDestinationCidrListV1(List<DestinationCidrListV1ForDescribeVpcFirewallAclRuleListOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput destinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
+    return this;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput addDestinationDomainListItem(String destinationDomainListItem) {
+    if (this.destinationDomainList == null) {
+      this.destinationDomainList = new ArrayList<String>();
+    }
+    this.destinationDomainList.add(destinationDomainListItem);
+    return this;
+  }
+
+   /**
+   * Get destinationDomainList
+   * @return destinationDomainList
+  **/
+  @Schema(description = "")
+  public List<String> getDestinationDomainList() {
+    return destinationDomainList;
+  }
+
+  public void setDestinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
   }
 
   public DataForDescribeVpcFirewallAclRuleListOutput destinationGroupType(String destinationGroupType) {
@@ -592,6 +687,33 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.sourceCidrList = sourceCidrList;
   }
 
+  public DataForDescribeVpcFirewallAclRuleListOutput sourceCidrListV1(List<SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeVpcFirewallAclRuleListOutput addSourceCidrListV1Item(SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput sourceCidrListV1Item) {
+    if (this.sourceCidrListV1 == null) {
+      this.sourceCidrListV1 = new ArrayList<SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput>();
+    }
+    this.sourceCidrListV1.add(sourceCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get sourceCidrListV1
+   * @return sourceCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput> getSourceCidrListV1() {
+    return sourceCidrListV1;
+  }
+
+  public void setSourceCidrListV1(List<SourceCidrListV1ForDescribeVpcFirewallAclRuleListOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+  }
+
   public DataForDescribeVpcFirewallAclRuleListOutput sourceGroupType(String sourceGroupType) {
     this.sourceGroupType = sourceGroupType;
     return this;
@@ -752,9 +874,12 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
         Objects.equals(this.destPort, dataForDescribeVpcFirewallAclRuleListOutput.destPort) &&
         Objects.equals(this.destPortGroupType, dataForDescribeVpcFirewallAclRuleListOutput.destPortGroupType) &&
         Objects.equals(this.destPortList, dataForDescribeVpcFirewallAclRuleListOutput.destPortList) &&
+        Objects.equals(this.destPortListV1, dataForDescribeVpcFirewallAclRuleListOutput.destPortListV1) &&
         Objects.equals(this.destPortType, dataForDescribeVpcFirewallAclRuleListOutput.destPortType) &&
         Objects.equals(this.destination, dataForDescribeVpcFirewallAclRuleListOutput.destination) &&
         Objects.equals(this.destinationCidrList, dataForDescribeVpcFirewallAclRuleListOutput.destinationCidrList) &&
+        Objects.equals(this.destinationCidrListV1, dataForDescribeVpcFirewallAclRuleListOutput.destinationCidrListV1) &&
+        Objects.equals(this.destinationDomainList, dataForDescribeVpcFirewallAclRuleListOutput.destinationDomainList) &&
         Objects.equals(this.destinationGroupType, dataForDescribeVpcFirewallAclRuleListOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeVpcFirewallAclRuleListOutput.destinationType) &&
         Objects.equals(this.effectStatus, dataForDescribeVpcFirewallAclRuleListOutput.effectStatus) &&
@@ -770,6 +895,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
         Objects.equals(this.ruleId, dataForDescribeVpcFirewallAclRuleListOutput.ruleId) &&
         Objects.equals(this.source, dataForDescribeVpcFirewallAclRuleListOutput.source) &&
         Objects.equals(this.sourceCidrList, dataForDescribeVpcFirewallAclRuleListOutput.sourceCidrList) &&
+        Objects.equals(this.sourceCidrListV1, dataForDescribeVpcFirewallAclRuleListOutput.sourceCidrListV1) &&
         Objects.equals(this.sourceGroupType, dataForDescribeVpcFirewallAclRuleListOutput.sourceGroupType) &&
         Objects.equals(this.sourceType, dataForDescribeVpcFirewallAclRuleListOutput.sourceType) &&
         Objects.equals(this.startTime, dataForDescribeVpcFirewallAclRuleListOutput.startTime) &&
@@ -782,7 +908,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortType, destination, destinationCidrList, destinationGroupType, destinationType, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -797,9 +923,12 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     sb.append("    destPort: ").append(toIndentedString(destPort)).append("\n");
     sb.append("    destPortGroupType: ").append(toIndentedString(destPortGroupType)).append("\n");
     sb.append("    destPortList: ").append(toIndentedString(destPortList)).append("\n");
+    sb.append("    destPortListV1: ").append(toIndentedString(destPortListV1)).append("\n");
     sb.append("    destPortType: ").append(toIndentedString(destPortType)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationCidrList: ").append(toIndentedString(destinationCidrList)).append("\n");
+    sb.append("    destinationCidrListV1: ").append(toIndentedString(destinationCidrListV1)).append("\n");
+    sb.append("    destinationDomainList: ").append(toIndentedString(destinationDomainList)).append("\n");
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
@@ -815,6 +944,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceCidrList: ").append(toIndentedString(sourceCidrList)).append("\n");
+    sb.append("    sourceCidrListV1: ").append(toIndentedString(sourceCidrListV1)).append("\n");
     sb.append("    sourceGroupType: ").append(toIndentedString(sourceGroupType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");

@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.DestPortListV1ForDescribeControlPolicyOutput;
+import com.volcengine.fwcenter.model.DestinationCidrListV1ForDescribeControlPolicyOutput;
+import com.volcengine.fwcenter.model.SourceCidrListV1ForDescribeControlPolicyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +53,9 @@ public class DataForDescribeControlPolicyOutput {
   @SerializedName("DestPortList")
   private List<String> destPortList = null;
 
+  @SerializedName("DestPortListV1")
+  private List<DestPortListV1ForDescribeControlPolicyOutput> destPortListV1 = null;
+
   @SerializedName("DestPortType")
   private String destPortType = null;
 
@@ -58,6 +64,12 @@ public class DataForDescribeControlPolicyOutput {
 
   @SerializedName("DestinationCidrList")
   private List<String> destinationCidrList = null;
+
+  @SerializedName("DestinationCidrListV1")
+  private List<DestinationCidrListV1ForDescribeControlPolicyOutput> destinationCidrListV1 = null;
+
+  @SerializedName("DestinationDomainList")
+  private List<String> destinationDomainList = null;
 
   @SerializedName("DestinationGroupType")
   private String destinationGroupType = null;
@@ -76,6 +88,9 @@ public class DataForDescribeControlPolicyOutput {
 
   @SerializedName("HitCnt")
   private Integer hitCnt = null;
+
+  @SerializedName("IpType")
+  private String ipType = null;
 
   @SerializedName("IsEffected")
   private Boolean isEffected = null;
@@ -106,6 +121,9 @@ public class DataForDescribeControlPolicyOutput {
 
   @SerializedName("SourceCidrList")
   private List<String> sourceCidrList = null;
+
+  @SerializedName("SourceCidrListV1")
+  private List<SourceCidrListV1ForDescribeControlPolicyOutput> sourceCidrListV1 = null;
 
   @SerializedName("SourceGroupType")
   private String sourceGroupType = null;
@@ -241,6 +259,33 @@ public class DataForDescribeControlPolicyOutput {
     this.destPortList = destPortList;
   }
 
+  public DataForDescribeControlPolicyOutput destPortListV1(List<DestPortListV1ForDescribeControlPolicyOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+    return this;
+  }
+
+  public DataForDescribeControlPolicyOutput addDestPortListV1Item(DestPortListV1ForDescribeControlPolicyOutput destPortListV1Item) {
+    if (this.destPortListV1 == null) {
+      this.destPortListV1 = new ArrayList<DestPortListV1ForDescribeControlPolicyOutput>();
+    }
+    this.destPortListV1.add(destPortListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destPortListV1
+   * @return destPortListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestPortListV1ForDescribeControlPolicyOutput> getDestPortListV1() {
+    return destPortListV1;
+  }
+
+  public void setDestPortListV1(List<DestPortListV1ForDescribeControlPolicyOutput> destPortListV1) {
+    this.destPortListV1 = destPortListV1;
+  }
+
   public DataForDescribeControlPolicyOutput destPortType(String destPortType) {
     this.destPortType = destPortType;
     return this;
@@ -301,6 +346,59 @@ public class DataForDescribeControlPolicyOutput {
 
   public void setDestinationCidrList(List<String> destinationCidrList) {
     this.destinationCidrList = destinationCidrList;
+  }
+
+  public DataForDescribeControlPolicyOutput destinationCidrListV1(List<DestinationCidrListV1ForDescribeControlPolicyOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeControlPolicyOutput addDestinationCidrListV1Item(DestinationCidrListV1ForDescribeControlPolicyOutput destinationCidrListV1Item) {
+    if (this.destinationCidrListV1 == null) {
+      this.destinationCidrListV1 = new ArrayList<DestinationCidrListV1ForDescribeControlPolicyOutput>();
+    }
+    this.destinationCidrListV1.add(destinationCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get destinationCidrListV1
+   * @return destinationCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DestinationCidrListV1ForDescribeControlPolicyOutput> getDestinationCidrListV1() {
+    return destinationCidrListV1;
+  }
+
+  public void setDestinationCidrListV1(List<DestinationCidrListV1ForDescribeControlPolicyOutput> destinationCidrListV1) {
+    this.destinationCidrListV1 = destinationCidrListV1;
+  }
+
+  public DataForDescribeControlPolicyOutput destinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
+    return this;
+  }
+
+  public DataForDescribeControlPolicyOutput addDestinationDomainListItem(String destinationDomainListItem) {
+    if (this.destinationDomainList == null) {
+      this.destinationDomainList = new ArrayList<String>();
+    }
+    this.destinationDomainList.add(destinationDomainListItem);
+    return this;
+  }
+
+   /**
+   * Get destinationDomainList
+   * @return destinationDomainList
+  **/
+  @Schema(description = "")
+  public List<String> getDestinationDomainList() {
+    return destinationDomainList;
+  }
+
+  public void setDestinationDomainList(List<String> destinationDomainList) {
+    this.destinationDomainList = destinationDomainList;
   }
 
   public DataForDescribeControlPolicyOutput destinationGroupType(String destinationGroupType) {
@@ -409,6 +507,24 @@ public class DataForDescribeControlPolicyOutput {
 
   public void setHitCnt(Integer hitCnt) {
     this.hitCnt = hitCnt;
+  }
+
+  public DataForDescribeControlPolicyOutput ipType(String ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public String getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(String ipType) {
+    this.ipType = ipType;
   }
 
   public DataForDescribeControlPolicyOutput isEffected(Boolean isEffected) {
@@ -607,6 +723,33 @@ public class DataForDescribeControlPolicyOutput {
     this.sourceCidrList = sourceCidrList;
   }
 
+  public DataForDescribeControlPolicyOutput sourceCidrListV1(List<SourceCidrListV1ForDescribeControlPolicyOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+    return this;
+  }
+
+  public DataForDescribeControlPolicyOutput addSourceCidrListV1Item(SourceCidrListV1ForDescribeControlPolicyOutput sourceCidrListV1Item) {
+    if (this.sourceCidrListV1 == null) {
+      this.sourceCidrListV1 = new ArrayList<SourceCidrListV1ForDescribeControlPolicyOutput>();
+    }
+    this.sourceCidrListV1.add(sourceCidrListV1Item);
+    return this;
+  }
+
+   /**
+   * Get sourceCidrListV1
+   * @return sourceCidrListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SourceCidrListV1ForDescribeControlPolicyOutput> getSourceCidrListV1() {
+    return sourceCidrListV1;
+  }
+
+  public void setSourceCidrListV1(List<SourceCidrListV1ForDescribeControlPolicyOutput> sourceCidrListV1) {
+    this.sourceCidrListV1 = sourceCidrListV1;
+  }
+
   public DataForDescribeControlPolicyOutput sourceGroupType(String sourceGroupType) {
     this.sourceGroupType = sourceGroupType;
     return this;
@@ -731,15 +874,19 @@ public class DataForDescribeControlPolicyOutput {
         Objects.equals(this.destPort, dataForDescribeControlPolicyOutput.destPort) &&
         Objects.equals(this.destPortGroupType, dataForDescribeControlPolicyOutput.destPortGroupType) &&
         Objects.equals(this.destPortList, dataForDescribeControlPolicyOutput.destPortList) &&
+        Objects.equals(this.destPortListV1, dataForDescribeControlPolicyOutput.destPortListV1) &&
         Objects.equals(this.destPortType, dataForDescribeControlPolicyOutput.destPortType) &&
         Objects.equals(this.destination, dataForDescribeControlPolicyOutput.destination) &&
         Objects.equals(this.destinationCidrList, dataForDescribeControlPolicyOutput.destinationCidrList) &&
+        Objects.equals(this.destinationCidrListV1, dataForDescribeControlPolicyOutput.destinationCidrListV1) &&
+        Objects.equals(this.destinationDomainList, dataForDescribeControlPolicyOutput.destinationDomainList) &&
         Objects.equals(this.destinationGroupType, dataForDescribeControlPolicyOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeControlPolicyOutput.destinationType) &&
         Objects.equals(this.direction, dataForDescribeControlPolicyOutput.direction) &&
         Objects.equals(this.effectStatus, dataForDescribeControlPolicyOutput.effectStatus) &&
         Objects.equals(this.endTime, dataForDescribeControlPolicyOutput.endTime) &&
         Objects.equals(this.hitCnt, dataForDescribeControlPolicyOutput.hitCnt) &&
+        Objects.equals(this.ipType, dataForDescribeControlPolicyOutput.ipType) &&
         Objects.equals(this.isEffected, dataForDescribeControlPolicyOutput.isEffected) &&
         Objects.equals(this.prio, dataForDescribeControlPolicyOutput.prio) &&
         Objects.equals(this.proto, dataForDescribeControlPolicyOutput.proto) &&
@@ -750,6 +897,7 @@ public class DataForDescribeControlPolicyOutput {
         Objects.equals(this.ruleId, dataForDescribeControlPolicyOutput.ruleId) &&
         Objects.equals(this.source, dataForDescribeControlPolicyOutput.source) &&
         Objects.equals(this.sourceCidrList, dataForDescribeControlPolicyOutput.sourceCidrList) &&
+        Objects.equals(this.sourceCidrListV1, dataForDescribeControlPolicyOutput.sourceCidrListV1) &&
         Objects.equals(this.sourceGroupType, dataForDescribeControlPolicyOutput.sourceGroupType) &&
         Objects.equals(this.sourceType, dataForDescribeControlPolicyOutput.sourceType) &&
         Objects.equals(this.startTime, dataForDescribeControlPolicyOutput.startTime) &&
@@ -760,7 +908,7 @@ public class DataForDescribeControlPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortType, destination, destinationCidrList, destinationGroupType, destinationType, direction, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, direction, effectStatus, endTime, hitCnt, ipType, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
   }
 
 
@@ -775,15 +923,19 @@ public class DataForDescribeControlPolicyOutput {
     sb.append("    destPort: ").append(toIndentedString(destPort)).append("\n");
     sb.append("    destPortGroupType: ").append(toIndentedString(destPortGroupType)).append("\n");
     sb.append("    destPortList: ").append(toIndentedString(destPortList)).append("\n");
+    sb.append("    destPortListV1: ").append(toIndentedString(destPortListV1)).append("\n");
     sb.append("    destPortType: ").append(toIndentedString(destPortType)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationCidrList: ").append(toIndentedString(destinationCidrList)).append("\n");
+    sb.append("    destinationCidrListV1: ").append(toIndentedString(destinationCidrListV1)).append("\n");
+    sb.append("    destinationDomainList: ").append(toIndentedString(destinationDomainList)).append("\n");
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    isEffected: ").append(toIndentedString(isEffected)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
@@ -794,6 +946,7 @@ public class DataForDescribeControlPolicyOutput {
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceCidrList: ").append(toIndentedString(sourceCidrList)).append("\n");
+    sb.append("    sourceCidrListV1: ").append(toIndentedString(sourceCidrListV1)).append("\n");
     sb.append("    sourceGroupType: ").append(toIndentedString(sourceGroupType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");

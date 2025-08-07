@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,8 +32,32 @@ import javax.validation.Valid;
 
 
 public class DeleteAddressBookRequest {
+  @SerializedName("CloudFirewallId")
+  private String cloudFirewallId = null;
+
   @SerializedName("GroupUuid")
   private String groupUuid = null;
+
+  @SerializedName("GroupUuidList")
+  private List<String> groupUuidList = null;
+
+  public DeleteAddressBookRequest cloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+    return this;
+  }
+
+   /**
+   * Get cloudFirewallId
+   * @return cloudFirewallId
+  **/
+  @Schema(description = "")
+  public String getCloudFirewallId() {
+    return cloudFirewallId;
+  }
+
+  public void setCloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+  }
 
   public DeleteAddressBookRequest groupUuid(String groupUuid) {
     this.groupUuid = groupUuid;
@@ -42,14 +68,39 @@ public class DeleteAddressBookRequest {
    * Get groupUuid
    * @return groupUuid
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getGroupUuid() {
     return groupUuid;
   }
 
   public void setGroupUuid(String groupUuid) {
     this.groupUuid = groupUuid;
+  }
+
+  public DeleteAddressBookRequest groupUuidList(List<String> groupUuidList) {
+    this.groupUuidList = groupUuidList;
+    return this;
+  }
+
+  public DeleteAddressBookRequest addGroupUuidListItem(String groupUuidListItem) {
+    if (this.groupUuidList == null) {
+      this.groupUuidList = new ArrayList<String>();
+    }
+    this.groupUuidList.add(groupUuidListItem);
+    return this;
+  }
+
+   /**
+   * Get groupUuidList
+   * @return groupUuidList
+  **/
+  @Schema(description = "")
+  public List<String> getGroupUuidList() {
+    return groupUuidList;
+  }
+
+  public void setGroupUuidList(List<String> groupUuidList) {
+    this.groupUuidList = groupUuidList;
   }
 
 
@@ -62,12 +113,14 @@ public class DeleteAddressBookRequest {
       return false;
     }
     DeleteAddressBookRequest deleteAddressBookRequest = (DeleteAddressBookRequest) o;
-    return Objects.equals(this.groupUuid, deleteAddressBookRequest.groupUuid);
+    return Objects.equals(this.cloudFirewallId, deleteAddressBookRequest.cloudFirewallId) &&
+        Objects.equals(this.groupUuid, deleteAddressBookRequest.groupUuid) &&
+        Objects.equals(this.groupUuidList, deleteAddressBookRequest.groupUuidList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupUuid);
+    return Objects.hash(cloudFirewallId, groupUuid, groupUuidList);
   }
 
 
@@ -76,7 +129,9 @@ public class DeleteAddressBookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteAddressBookRequest {\n");
     
+    sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    groupUuid: ").append(toIndentedString(groupUuid)).append("\n");
+    sb.append("    groupUuidList: ").append(toIndentedString(groupUuidList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

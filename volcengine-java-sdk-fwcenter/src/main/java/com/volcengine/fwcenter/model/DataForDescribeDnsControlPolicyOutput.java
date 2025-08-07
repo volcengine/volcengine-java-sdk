@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.fwcenter.model.DomainListV1ForDescribeDnsControlPolicyOutput;
 import com.volcengine.fwcenter.model.SourceForDescribeDnsControlPolicyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -50,6 +51,9 @@ public class DataForDescribeDnsControlPolicyOutput {
 
   @SerializedName("DomainList")
   private List<String> domainList = null;
+
+  @SerializedName("DomainListV1")
+  private List<DomainListV1ForDescribeDnsControlPolicyOutput> domainListV1 = null;
 
   @SerializedName("HitCnt")
   private Integer hitCnt = null;
@@ -193,6 +197,33 @@ public class DataForDescribeDnsControlPolicyOutput {
     this.domainList = domainList;
   }
 
+  public DataForDescribeDnsControlPolicyOutput domainListV1(List<DomainListV1ForDescribeDnsControlPolicyOutput> domainListV1) {
+    this.domainListV1 = domainListV1;
+    return this;
+  }
+
+  public DataForDescribeDnsControlPolicyOutput addDomainListV1Item(DomainListV1ForDescribeDnsControlPolicyOutput domainListV1Item) {
+    if (this.domainListV1 == null) {
+      this.domainListV1 = new ArrayList<DomainListV1ForDescribeDnsControlPolicyOutput>();
+    }
+    this.domainListV1.add(domainListV1Item);
+    return this;
+  }
+
+   /**
+   * Get domainListV1
+   * @return domainListV1
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DomainListV1ForDescribeDnsControlPolicyOutput> getDomainListV1() {
+    return domainListV1;
+  }
+
+  public void setDomainListV1(List<DomainListV1ForDescribeDnsControlPolicyOutput> domainListV1) {
+    this.domainListV1 = domainListV1;
+  }
+
   public DataForDescribeDnsControlPolicyOutput hitCnt(Integer hitCnt) {
     this.hitCnt = hitCnt;
     return this;
@@ -326,6 +357,7 @@ public class DataForDescribeDnsControlPolicyOutput {
         Objects.equals(this.destinationGroupList, dataForDescribeDnsControlPolicyOutput.destinationGroupList) &&
         Objects.equals(this.destinationType, dataForDescribeDnsControlPolicyOutput.destinationType) &&
         Objects.equals(this.domainList, dataForDescribeDnsControlPolicyOutput.domainList) &&
+        Objects.equals(this.domainListV1, dataForDescribeDnsControlPolicyOutput.domainListV1) &&
         Objects.equals(this.hitCnt, dataForDescribeDnsControlPolicyOutput.hitCnt) &&
         Objects.equals(this.lastHitTime, dataForDescribeDnsControlPolicyOutput.lastHitTime) &&
         Objects.equals(this.ruleId, dataForDescribeDnsControlPolicyOutput.ruleId) &&
@@ -336,7 +368,7 @@ public class DataForDescribeDnsControlPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, description, destination, destinationGroupList, destinationType, domainList, hitCnt, lastHitTime, ruleId, source, status, useCount);
+    return Objects.hash(accountId, description, destination, destinationGroupList, destinationType, domainList, domainListV1, hitCnt, lastHitTime, ruleId, source, status, useCount);
   }
 
 
@@ -351,6 +383,7 @@ public class DataForDescribeDnsControlPolicyOutput {
     sb.append("    destinationGroupList: ").append(toIndentedString(destinationGroupList)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    domainList: ").append(toIndentedString(domainList)).append("\n");
+    sb.append("    domainListV1: ").append(toIndentedString(domainListV1)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
     sb.append("    lastHitTime: ").append(toIndentedString(lastHitTime)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");

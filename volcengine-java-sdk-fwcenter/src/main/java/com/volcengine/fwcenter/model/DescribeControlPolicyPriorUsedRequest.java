@@ -76,6 +76,9 @@ public class DescribeControlPolicyPriorUsedRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   public DescribeControlPolicyPriorUsedRequest direction(DirectionEnum direction) {
     this.direction = direction;
     return this;
@@ -95,6 +98,24 @@ public class DescribeControlPolicyPriorUsedRequest {
     this.direction = direction;
   }
 
+  public DescribeControlPolicyPriorUsedRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class DescribeControlPolicyPriorUsedRequest {
       return false;
     }
     DescribeControlPolicyPriorUsedRequest describeControlPolicyPriorUsedRequest = (DescribeControlPolicyPriorUsedRequest) o;
-    return Objects.equals(this.direction, describeControlPolicyPriorUsedRequest.direction);
+    return Objects.equals(this.direction, describeControlPolicyPriorUsedRequest.direction) &&
+        Objects.equals(this.internetFirewallId, describeControlPolicyPriorUsedRequest.internetFirewallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction);
+    return Objects.hash(direction, internetFirewallId);
   }
 
 
@@ -120,6 +142,7 @@ public class DescribeControlPolicyPriorUsedRequest {
     sb.append("class DescribeControlPolicyPriorUsedRequest {\n");
     
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -85,6 +85,9 @@ public class ModifyDnsControlPolicyRequest {
   }  @SerializedName("DestinationType")
   private DestinationTypeEnum destinationType = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleId")
   private String ruleId = null;
 
@@ -148,6 +151,24 @@ public class ModifyDnsControlPolicyRequest {
 
   public void setDestinationType(DestinationTypeEnum destinationType) {
     this.destinationType = destinationType;
+  }
+
+  public ModifyDnsControlPolicyRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
   }
 
   public ModifyDnsControlPolicyRequest ruleId(String ruleId) {
@@ -227,6 +248,7 @@ public class ModifyDnsControlPolicyRequest {
     return Objects.equals(this.description, modifyDnsControlPolicyRequest.description) &&
         Objects.equals(this.destination, modifyDnsControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, modifyDnsControlPolicyRequest.destinationType) &&
+        Objects.equals(this.internetFirewallId, modifyDnsControlPolicyRequest.internetFirewallId) &&
         Objects.equals(this.ruleId, modifyDnsControlPolicyRequest.ruleId) &&
         Objects.equals(this.source, modifyDnsControlPolicyRequest.source) &&
         Objects.equals(this.status, modifyDnsControlPolicyRequest.status);
@@ -234,7 +256,7 @@ public class ModifyDnsControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destination, destinationType, ruleId, source, status);
+    return Objects.hash(description, destination, destinationType, internetFirewallId, ruleId, source, status);
   }
 
 
@@ -246,6 +268,7 @@ public class ModifyDnsControlPolicyRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

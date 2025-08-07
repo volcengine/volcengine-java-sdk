@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -82,6 +84,9 @@ public class DeleteNatFirewallControlPolicyRequest {
   @SerializedName("RuleId")
   private String ruleId = null;
 
+  @SerializedName("RuleIdList")
+  private List<String> ruleIdList = null;
+
   public DeleteNatFirewallControlPolicyRequest direction(DirectionEnum direction) {
     this.direction = direction;
     return this;
@@ -129,14 +134,39 @@ public class DeleteNatFirewallControlPolicyRequest {
    * Get ruleId
    * @return ruleId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getRuleId() {
     return ruleId;
   }
 
   public void setRuleId(String ruleId) {
     this.ruleId = ruleId;
+  }
+
+  public DeleteNatFirewallControlPolicyRequest ruleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+    return this;
+  }
+
+  public DeleteNatFirewallControlPolicyRequest addRuleIdListItem(String ruleIdListItem) {
+    if (this.ruleIdList == null) {
+      this.ruleIdList = new ArrayList<String>();
+    }
+    this.ruleIdList.add(ruleIdListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleIdList
+   * @return ruleIdList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleIdList() {
+    return ruleIdList;
+  }
+
+  public void setRuleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
   }
 
 
@@ -151,12 +181,13 @@ public class DeleteNatFirewallControlPolicyRequest {
     DeleteNatFirewallControlPolicyRequest deleteNatFirewallControlPolicyRequest = (DeleteNatFirewallControlPolicyRequest) o;
     return Objects.equals(this.direction, deleteNatFirewallControlPolicyRequest.direction) &&
         Objects.equals(this.natFirewallId, deleteNatFirewallControlPolicyRequest.natFirewallId) &&
-        Objects.equals(this.ruleId, deleteNatFirewallControlPolicyRequest.ruleId);
+        Objects.equals(this.ruleId, deleteNatFirewallControlPolicyRequest.ruleId) &&
+        Objects.equals(this.ruleIdList, deleteNatFirewallControlPolicyRequest.ruleIdList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, natFirewallId, ruleId);
+    return Objects.hash(direction, natFirewallId, ruleId, ruleIdList);
   }
 
 
@@ -168,6 +199,7 @@ public class DeleteNatFirewallControlPolicyRequest {
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
+    sb.append("    ruleIdList: ").append(toIndentedString(ruleIdList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

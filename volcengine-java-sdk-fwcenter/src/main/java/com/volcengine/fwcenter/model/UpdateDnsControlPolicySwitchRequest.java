@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class UpdateDnsControlPolicySwitchRequest {
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleId")
   private String ruleId = null;
 
   @SerializedName("Status")
   private Boolean status = null;
+
+  public UpdateDnsControlPolicySwitchRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
 
   public UpdateDnsControlPolicySwitchRequest ruleId(String ruleId) {
     this.ruleId = ruleId;
@@ -83,13 +104,14 @@ public class UpdateDnsControlPolicySwitchRequest {
       return false;
     }
     UpdateDnsControlPolicySwitchRequest updateDnsControlPolicySwitchRequest = (UpdateDnsControlPolicySwitchRequest) o;
-    return Objects.equals(this.ruleId, updateDnsControlPolicySwitchRequest.ruleId) &&
+    return Objects.equals(this.internetFirewallId, updateDnsControlPolicySwitchRequest.internetFirewallId) &&
+        Objects.equals(this.ruleId, updateDnsControlPolicySwitchRequest.ruleId) &&
         Objects.equals(this.status, updateDnsControlPolicySwitchRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleId, status);
+    return Objects.hash(internetFirewallId, ruleId, status);
   }
 
 
@@ -98,6 +120,7 @@ public class UpdateDnsControlPolicySwitchRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDnsControlPolicySwitchRequest {\n");
     
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

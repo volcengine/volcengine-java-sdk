@@ -48,8 +48,7 @@ public class ListOrderProductDetailsRequest {
    * Get maxResults
    * @return maxResults
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getMaxResults() {
     return maxResults;
   }
@@ -67,8 +66,7 @@ public class ListOrderProductDetailsRequest {
    * Get nextToken
    * @return nextToken
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getNextToken() {
     return nextToken;
   }

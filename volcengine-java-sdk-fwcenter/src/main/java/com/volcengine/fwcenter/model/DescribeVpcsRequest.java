@@ -14,6 +14,13 @@ package com.volcengine.fwcenter.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,27 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcsRequest {
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
+  public DescribeVpcsRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +60,13 @@ public class DescribeVpcsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeVpcsRequest describeVpcsRequest = (DescribeVpcsRequest) o;
+    return Objects.equals(this.internetFirewallId, describeVpcsRequest.internetFirewallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(internetFirewallId);
   }
 
 
@@ -46,6 +75,7 @@ public class DescribeVpcsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcsRequest {\n");
     
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

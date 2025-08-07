@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteDnsControlPolicyRequest {
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleId")
   private String ruleId = null;
+
+  public DeleteDnsControlPolicyRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
 
   public DeleteDnsControlPolicyRequest ruleId(String ruleId) {
     this.ruleId = ruleId;
@@ -62,12 +83,13 @@ public class DeleteDnsControlPolicyRequest {
       return false;
     }
     DeleteDnsControlPolicyRequest deleteDnsControlPolicyRequest = (DeleteDnsControlPolicyRequest) o;
-    return Objects.equals(this.ruleId, deleteDnsControlPolicyRequest.ruleId);
+    return Objects.equals(this.internetFirewallId, deleteDnsControlPolicyRequest.internetFirewallId) &&
+        Objects.equals(this.ruleId, deleteDnsControlPolicyRequest.ruleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleId);
+    return Objects.hash(internetFirewallId, ruleId);
   }
 
 
@@ -76,6 +98,7 @@ public class DeleteDnsControlPolicyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDnsControlPolicyRequest {\n");
     
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("}");
     return sb.toString();

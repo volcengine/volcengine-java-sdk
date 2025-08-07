@@ -42,8 +42,14 @@ public class DataForAssetListOutput {
   @SerializedName("enable")
   private Boolean enable = null;
 
+  @SerializedName("instance_type")
+  private String instanceType = null;
+
   @SerializedName("ip")
   private String ip = null;
+
+  @SerializedName("ip_type")
+  private String ipType = null;
 
   @SerializedName("latest_7_days_peak_traffic")
   private Integer latest7DaysPeakTraffic = null;
@@ -132,6 +138,24 @@ public class DataForAssetListOutput {
     this.enable = enable;
   }
 
+  public DataForAssetListOutput instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public DataForAssetListOutput ip(String ip) {
     this.ip = ip;
     return this;
@@ -148,6 +172,24 @@ public class DataForAssetListOutput {
 
   public void setIp(String ip) {
     this.ip = ip;
+  }
+
+  public DataForAssetListOutput ipType(String ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public String getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(String ipType) {
+    this.ipType = ipType;
   }
 
   public DataForAssetListOutput latest7DaysPeakTraffic(Integer latest7DaysPeakTraffic) {
@@ -254,7 +296,9 @@ public class DataForAssetListOutput {
         Objects.equals(this.instanceID, dataForAssetListOutput.instanceID) &&
         Objects.equals(this.eipId, dataForAssetListOutput.eipId) &&
         Objects.equals(this.enable, dataForAssetListOutput.enable) &&
+        Objects.equals(this.instanceType, dataForAssetListOutput.instanceType) &&
         Objects.equals(this.ip, dataForAssetListOutput.ip) &&
+        Objects.equals(this.ipType, dataForAssetListOutput.ipType) &&
         Objects.equals(this.latest7DaysPeakTraffic, dataForAssetListOutput.latest7DaysPeakTraffic) &&
         Objects.equals(this.name, dataForAssetListOutput.name) &&
         Objects.equals(this.region, dataForAssetListOutput.region) &&
@@ -264,7 +308,7 @@ public class DataForAssetListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, instanceID, eipId, enable, ip, latest7DaysPeakTraffic, name, region, regionN, type);
+    return Objects.hash(accountID, instanceID, eipId, enable, instanceType, ip, ipType, latest7DaysPeakTraffic, name, region, regionN, type);
   }
 
 
@@ -277,7 +321,9 @@ public class DataForAssetListOutput {
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    latest7DaysPeakTraffic: ").append(toIndentedString(latest7DaysPeakTraffic)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
