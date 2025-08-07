@@ -37,6 +37,12 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("ErrorCode")
+  private String errorCode = null;
+
+  @SerializedName("ErrorMessage")
+  private String errorMessage = null;
+
   @SerializedName("ExpireAt")
   private String expireAt = null;
 
@@ -51,6 +57,9 @@ public class SandboxForListSandboxesOutput {
 
   @SerializedName("Metadata")
   private MetadataForListSandboxesOutput metadata = null;
+
+  @SerializedName("Pending")
+  private Boolean pending = null;
 
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
@@ -92,6 +101,42 @@ public class SandboxForListSandboxesOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public SandboxForListSandboxesOutput errorCode(String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+   /**
+   * Get errorCode
+   * @return errorCode
+  **/
+  @Schema(description = "")
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+  public SandboxForListSandboxesOutput errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
   public SandboxForListSandboxesOutput expireAt(String expireAt) {
@@ -185,6 +230,24 @@ public class SandboxForListSandboxesOutput {
     this.metadata = metadata;
   }
 
+  public SandboxForListSandboxesOutput pending(Boolean pending) {
+    this.pending = pending;
+    return this;
+  }
+
+   /**
+   * Get pending
+   * @return pending
+  **/
+  @Schema(description = "")
+  public Boolean isPending() {
+    return pending;
+  }
+
+  public void setPending(Boolean pending) {
+    this.pending = pending;
+  }
+
   public SandboxForListSandboxesOutput revisionNumber(Integer revisionNumber) {
     this.revisionNumber = revisionNumber;
     return this;
@@ -233,18 +296,21 @@ public class SandboxForListSandboxesOutput {
     SandboxForListSandboxesOutput sandboxForListSandboxesOutput = (SandboxForListSandboxesOutput) o;
     return Objects.equals(this.availabilityZone, sandboxForListSandboxesOutput.availabilityZone) &&
         Objects.equals(this.createdAt, sandboxForListSandboxesOutput.createdAt) &&
+        Objects.equals(this.errorCode, sandboxForListSandboxesOutput.errorCode) &&
+        Objects.equals(this.errorMessage, sandboxForListSandboxesOutput.errorMessage) &&
         Objects.equals(this.expireAt, sandboxForListSandboxesOutput.expireAt) &&
         Objects.equals(this.functionId, sandboxForListSandboxesOutput.functionId) &&
         Objects.equals(this.id, sandboxForListSandboxesOutput.id) &&
         Objects.equals(this.instanceType, sandboxForListSandboxesOutput.instanceType) &&
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
+        Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
         Objects.equals(this.status, sandboxForListSandboxesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, createdAt, expireAt, functionId, id, instanceType, metadata, revisionNumber, status);
+    return Objects.hash(availabilityZone, createdAt, errorCode, errorMessage, expireAt, functionId, id, instanceType, metadata, pending, revisionNumber, status);
   }
 
 
@@ -255,11 +321,14 @@ public class SandboxForListSandboxesOutput {
     
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
