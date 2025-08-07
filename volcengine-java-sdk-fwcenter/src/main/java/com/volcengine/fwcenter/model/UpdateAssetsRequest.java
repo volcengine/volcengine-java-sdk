@@ -32,11 +32,32 @@ import javax.validation.Valid;
 
 
 public class UpdateAssetsRequest {
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("asset_ips")
   private List<String> assetIps = null;
 
   @SerializedName("enable")
   private Boolean enable = null;
+
+  public UpdateAssetsRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
 
   public UpdateAssetsRequest assetIps(List<String> assetIps) {
     this.assetIps = assetIps;
@@ -92,13 +113,14 @@ public class UpdateAssetsRequest {
       return false;
     }
     UpdateAssetsRequest updateAssetsRequest = (UpdateAssetsRequest) o;
-    return Objects.equals(this.assetIps, updateAssetsRequest.assetIps) &&
+    return Objects.equals(this.internetFirewallId, updateAssetsRequest.internetFirewallId) &&
+        Objects.equals(this.assetIps, updateAssetsRequest.assetIps) &&
         Objects.equals(this.enable, updateAssetsRequest.enable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetIps, enable);
+    return Objects.hash(internetFirewallId, assetIps, enable);
   }
 
 
@@ -107,6 +129,7 @@ public class UpdateAssetsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAssetsRequest {\n");
     
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    assetIps: ").append(toIndentedString(assetIps)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("}");

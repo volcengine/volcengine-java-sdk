@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class DeleteNatFirewallControlPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RuleId")
   private String ruleId = null;
+
+  @SerializedName("RuleIdList")
+  private List<String> ruleIdList = null;
 
   public DeleteNatFirewallControlPolicyResponse ruleId(String ruleId) {
     this.ruleId = ruleId;
@@ -51,6 +56,32 @@ public class DeleteNatFirewallControlPolicyResponse extends com.volcengine.model
     this.ruleId = ruleId;
   }
 
+  public DeleteNatFirewallControlPolicyResponse ruleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+    return this;
+  }
+
+  public DeleteNatFirewallControlPolicyResponse addRuleIdListItem(String ruleIdListItem) {
+    if (this.ruleIdList == null) {
+      this.ruleIdList = new ArrayList<String>();
+    }
+    this.ruleIdList.add(ruleIdListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleIdList
+   * @return ruleIdList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleIdList() {
+    return ruleIdList;
+  }
+
+  public void setRuleIdList(List<String> ruleIdList) {
+    this.ruleIdList = ruleIdList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class DeleteNatFirewallControlPolicyResponse extends com.volcengine.model
       return false;
     }
     DeleteNatFirewallControlPolicyResponse deleteNatFirewallControlPolicyResponse = (DeleteNatFirewallControlPolicyResponse) o;
-    return Objects.equals(this.ruleId, deleteNatFirewallControlPolicyResponse.ruleId);
+    return Objects.equals(this.ruleId, deleteNatFirewallControlPolicyResponse.ruleId) &&
+        Objects.equals(this.ruleIdList, deleteNatFirewallControlPolicyResponse.ruleIdList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleId);
+    return Objects.hash(ruleId, ruleIdList);
   }
 
 
@@ -76,6 +108,7 @@ public class DeleteNatFirewallControlPolicyResponse extends com.volcengine.model
     sb.append("class DeleteNatFirewallControlPolicyResponse {\n");
     
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
+    sb.append("    ruleIdList: ").append(toIndentedString(ruleIdList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

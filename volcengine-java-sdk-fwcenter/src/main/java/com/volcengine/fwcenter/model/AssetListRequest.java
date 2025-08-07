@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssetListRequest {
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("asset")
   private String asset = null;
 
@@ -40,6 +43,55 @@ public class AssetListRequest {
 
   @SerializedName("current_page")
   private Integer currentPage = null;
+
+  @SerializedName("instance_type")
+  private List<String> instanceType = null;
+
+  /**
+   * Gets or Sets ipType
+   */
+  @JsonAdapter(IpTypeEnum.Adapter.class)
+  public enum IpTypeEnum {
+    @SerializedName("v4")
+    V4("v4"),
+    @SerializedName("v6")
+    V6("v6");
+
+    private String value;
+
+    IpTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpTypeEnum fromValue(String input) {
+      for (IpTypeEnum b : IpTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ip_type")
+  private IpTypeEnum ipType = null;
 
   /**
    * Gets or Sets orderDir
@@ -90,8 +142,29 @@ public class AssetListRequest {
   @SerializedName("page_size")
   private Integer pageSize = null;
 
+  @SerializedName("region_code")
+  private List<String> regionCode = null;
+
   @SerializedName("stat")
   private Integer stat = null;
+
+  public AssetListRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
 
   public AssetListRequest asset(String asset) {
     this.asset = asset;
@@ -155,6 +228,50 @@ public class AssetListRequest {
     this.currentPage = currentPage;
   }
 
+  public AssetListRequest instanceType(List<String> instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+  public AssetListRequest addInstanceTypeItem(String instanceTypeItem) {
+    if (this.instanceType == null) {
+      this.instanceType = new ArrayList<String>();
+    }
+    this.instanceType.add(instanceTypeItem);
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(List<String> instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  public AssetListRequest ipType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public IpTypeEnum getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+  }
+
   public AssetListRequest orderDir(OrderDirEnum orderDir) {
     this.orderDir = orderDir;
     return this;
@@ -192,6 +309,32 @@ public class AssetListRequest {
     this.pageSize = pageSize;
   }
 
+  public AssetListRequest regionCode(List<String> regionCode) {
+    this.regionCode = regionCode;
+    return this;
+  }
+
+  public AssetListRequest addRegionCodeItem(String regionCodeItem) {
+    if (this.regionCode == null) {
+      this.regionCode = new ArrayList<String>();
+    }
+    this.regionCode.add(regionCodeItem);
+    return this;
+  }
+
+   /**
+   * Get regionCode
+   * @return regionCode
+  **/
+  @Schema(description = "")
+  public List<String> getRegionCode() {
+    return regionCode;
+  }
+
+  public void setRegionCode(List<String> regionCode) {
+    this.regionCode = regionCode;
+  }
+
   public AssetListRequest stat(Integer stat) {
     this.stat = stat;
     return this;
@@ -220,17 +363,21 @@ public class AssetListRequest {
       return false;
     }
     AssetListRequest assetListRequest = (AssetListRequest) o;
-    return Objects.equals(this.asset, assetListRequest.asset) &&
+    return Objects.equals(this.internetFirewallId, assetListRequest.internetFirewallId) &&
+        Objects.equals(this.asset, assetListRequest.asset) &&
         Objects.equals(this.assetType, assetListRequest.assetType) &&
         Objects.equals(this.currentPage, assetListRequest.currentPage) &&
+        Objects.equals(this.instanceType, assetListRequest.instanceType) &&
+        Objects.equals(this.ipType, assetListRequest.ipType) &&
         Objects.equals(this.orderDir, assetListRequest.orderDir) &&
         Objects.equals(this.pageSize, assetListRequest.pageSize) &&
+        Objects.equals(this.regionCode, assetListRequest.regionCode) &&
         Objects.equals(this.stat, assetListRequest.stat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asset, assetType, currentPage, orderDir, pageSize, stat);
+    return Objects.hash(internetFirewallId, asset, assetType, currentPage, instanceType, ipType, orderDir, pageSize, regionCode, stat);
   }
 
 
@@ -239,11 +386,15 @@ public class AssetListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssetListRequest {\n");
     
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    asset: ").append(toIndentedString(asset)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
     sb.append("}");
     return sb.toString();

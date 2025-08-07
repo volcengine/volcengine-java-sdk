@@ -42,8 +42,14 @@ public class DataForDescribeVpcFirewallListOutput {
   @SerializedName("FirewallStatus")
   private String firewallStatus = null;
 
+  @SerializedName("InstanceType")
+  private Integer instanceType = null;
+
   @SerializedName("PeakTrafficWithin7Day")
   private Integer peakTrafficWithin7Day = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -54,6 +60,12 @@ public class DataForDescribeVpcFirewallListOutput {
   @SerializedName("RoutePolicyStatus")
   private String routePolicyStatus = null;
 
+  @SerializedName("ScheduleEndTime")
+  private Integer scheduleEndTime = null;
+
+  @SerializedName("ScheduleStartTime")
+  private Integer scheduleStartTime = null;
+
   @SerializedName("TransitRouterDescription")
   private String transitRouterDescription = null;
 
@@ -62,6 +74,18 @@ public class DataForDescribeVpcFirewallListOutput {
 
   @SerializedName("TransitRouterName")
   private String transitRouterName = null;
+
+  @SerializedName("UpgradeProgress")
+  private Float upgradeProgress = null;
+
+  @SerializedName("UpgradeStatus")
+  private String upgradeStatus = null;
+
+  @SerializedName("UpgradeVersionCode")
+  private String upgradeVersionCode = null;
+
+  @SerializedName("VersionCode")
+  private String versionCode = null;
 
   @SerializedName("VpcFirewallId")
   private String vpcFirewallId = null;
@@ -141,6 +165,24 @@ public class DataForDescribeVpcFirewallListOutput {
     this.firewallStatus = firewallStatus;
   }
 
+  public DataForDescribeVpcFirewallListOutput instanceType(Integer instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public Integer getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(Integer instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public DataForDescribeVpcFirewallListOutput peakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
     return this;
@@ -157,6 +199,24 @@ public class DataForDescribeVpcFirewallListOutput {
 
   public void setPeakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
+  }
+
+  public DataForDescribeVpcFirewallListOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DataForDescribeVpcFirewallListOutput region(String region) {
@@ -213,6 +273,42 @@ public class DataForDescribeVpcFirewallListOutput {
     this.routePolicyStatus = routePolicyStatus;
   }
 
+  public DataForDescribeVpcFirewallListOutput scheduleEndTime(Integer scheduleEndTime) {
+    this.scheduleEndTime = scheduleEndTime;
+    return this;
+  }
+
+   /**
+   * Get scheduleEndTime
+   * @return scheduleEndTime
+  **/
+  @Schema(description = "")
+  public Integer getScheduleEndTime() {
+    return scheduleEndTime;
+  }
+
+  public void setScheduleEndTime(Integer scheduleEndTime) {
+    this.scheduleEndTime = scheduleEndTime;
+  }
+
+  public DataForDescribeVpcFirewallListOutput scheduleStartTime(Integer scheduleStartTime) {
+    this.scheduleStartTime = scheduleStartTime;
+    return this;
+  }
+
+   /**
+   * Get scheduleStartTime
+   * @return scheduleStartTime
+  **/
+  @Schema(description = "")
+  public Integer getScheduleStartTime() {
+    return scheduleStartTime;
+  }
+
+  public void setScheduleStartTime(Integer scheduleStartTime) {
+    this.scheduleStartTime = scheduleStartTime;
+  }
+
   public DataForDescribeVpcFirewallListOutput transitRouterDescription(String transitRouterDescription) {
     this.transitRouterDescription = transitRouterDescription;
     return this;
@@ -267,6 +363,78 @@ public class DataForDescribeVpcFirewallListOutput {
     this.transitRouterName = transitRouterName;
   }
 
+  public DataForDescribeVpcFirewallListOutput upgradeProgress(Float upgradeProgress) {
+    this.upgradeProgress = upgradeProgress;
+    return this;
+  }
+
+   /**
+   * Get upgradeProgress
+   * @return upgradeProgress
+  **/
+  @Schema(description = "")
+  public Float getUpgradeProgress() {
+    return upgradeProgress;
+  }
+
+  public void setUpgradeProgress(Float upgradeProgress) {
+    this.upgradeProgress = upgradeProgress;
+  }
+
+  public DataForDescribeVpcFirewallListOutput upgradeStatus(String upgradeStatus) {
+    this.upgradeStatus = upgradeStatus;
+    return this;
+  }
+
+   /**
+   * Get upgradeStatus
+   * @return upgradeStatus
+  **/
+  @Schema(description = "")
+  public String getUpgradeStatus() {
+    return upgradeStatus;
+  }
+
+  public void setUpgradeStatus(String upgradeStatus) {
+    this.upgradeStatus = upgradeStatus;
+  }
+
+  public DataForDescribeVpcFirewallListOutput upgradeVersionCode(String upgradeVersionCode) {
+    this.upgradeVersionCode = upgradeVersionCode;
+    return this;
+  }
+
+   /**
+   * Get upgradeVersionCode
+   * @return upgradeVersionCode
+  **/
+  @Schema(description = "")
+  public String getUpgradeVersionCode() {
+    return upgradeVersionCode;
+  }
+
+  public void setUpgradeVersionCode(String upgradeVersionCode) {
+    this.upgradeVersionCode = upgradeVersionCode;
+  }
+
+  public DataForDescribeVpcFirewallListOutput versionCode(String versionCode) {
+    this.versionCode = versionCode;
+    return this;
+  }
+
+   /**
+   * Get versionCode
+   * @return versionCode
+  **/
+  @Schema(description = "")
+  public String getVersionCode() {
+    return versionCode;
+  }
+
+  public void setVersionCode(String versionCode) {
+    this.versionCode = versionCode;
+  }
+
   public DataForDescribeVpcFirewallListOutput vpcFirewallId(String vpcFirewallId) {
     this.vpcFirewallId = vpcFirewallId;
     return this;
@@ -317,20 +485,28 @@ public class DataForDescribeVpcFirewallListOutput {
         Objects.equals(this.bypassStatus, dataForDescribeVpcFirewallListOutput.bypassStatus) &&
         Objects.equals(this.errMessage, dataForDescribeVpcFirewallListOutput.errMessage) &&
         Objects.equals(this.firewallStatus, dataForDescribeVpcFirewallListOutput.firewallStatus) &&
+        Objects.equals(this.instanceType, dataForDescribeVpcFirewallListOutput.instanceType) &&
         Objects.equals(this.peakTrafficWithin7Day, dataForDescribeVpcFirewallListOutput.peakTrafficWithin7Day) &&
+        Objects.equals(this.projectName, dataForDescribeVpcFirewallListOutput.projectName) &&
         Objects.equals(this.region, dataForDescribeVpcFirewallListOutput.region) &&
         Objects.equals(this.routeMode, dataForDescribeVpcFirewallListOutput.routeMode) &&
         Objects.equals(this.routePolicyStatus, dataForDescribeVpcFirewallListOutput.routePolicyStatus) &&
+        Objects.equals(this.scheduleEndTime, dataForDescribeVpcFirewallListOutput.scheduleEndTime) &&
+        Objects.equals(this.scheduleStartTime, dataForDescribeVpcFirewallListOutput.scheduleStartTime) &&
         Objects.equals(this.transitRouterDescription, dataForDescribeVpcFirewallListOutput.transitRouterDescription) &&
         Objects.equals(this.transitRouterId, dataForDescribeVpcFirewallListOutput.transitRouterId) &&
         Objects.equals(this.transitRouterName, dataForDescribeVpcFirewallListOutput.transitRouterName) &&
+        Objects.equals(this.upgradeProgress, dataForDescribeVpcFirewallListOutput.upgradeProgress) &&
+        Objects.equals(this.upgradeStatus, dataForDescribeVpcFirewallListOutput.upgradeStatus) &&
+        Objects.equals(this.upgradeVersionCode, dataForDescribeVpcFirewallListOutput.upgradeVersionCode) &&
+        Objects.equals(this.versionCode, dataForDescribeVpcFirewallListOutput.versionCode) &&
         Objects.equals(this.vpcFirewallId, dataForDescribeVpcFirewallListOutput.vpcFirewallId) &&
         Objects.equals(this.vpcFirewallName, dataForDescribeVpcFirewallListOutput.vpcFirewallName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bypassStatus, errMessage, firewallStatus, peakTrafficWithin7Day, region, routeMode, routePolicyStatus, transitRouterDescription, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(bandwidth, bypassStatus, errMessage, firewallStatus, instanceType, peakTrafficWithin7Day, projectName, region, routeMode, routePolicyStatus, scheduleEndTime, scheduleStartTime, transitRouterDescription, transitRouterId, transitRouterName, upgradeProgress, upgradeStatus, upgradeVersionCode, versionCode, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -343,13 +519,21 @@ public class DataForDescribeVpcFirewallListOutput {
     sb.append("    bypassStatus: ").append(toIndentedString(bypassStatus)).append("\n");
     sb.append("    errMessage: ").append(toIndentedString(errMessage)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    peakTrafficWithin7Day: ").append(toIndentedString(peakTrafficWithin7Day)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    routeMode: ").append(toIndentedString(routeMode)).append("\n");
     sb.append("    routePolicyStatus: ").append(toIndentedString(routePolicyStatus)).append("\n");
+    sb.append("    scheduleEndTime: ").append(toIndentedString(scheduleEndTime)).append("\n");
+    sb.append("    scheduleStartTime: ").append(toIndentedString(scheduleStartTime)).append("\n");
     sb.append("    transitRouterDescription: ").append(toIndentedString(transitRouterDescription)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    transitRouterName: ").append(toIndentedString(transitRouterName)).append("\n");
+    sb.append("    upgradeProgress: ").append(toIndentedString(upgradeProgress)).append("\n");
+    sb.append("    upgradeStatus: ").append(toIndentedString(upgradeStatus)).append("\n");
+    sb.append("    upgradeVersionCode: ").append(toIndentedString(upgradeVersionCode)).append("\n");
+    sb.append("    versionCode: ").append(toIndentedString(versionCode)).append("\n");
     sb.append("    vpcFirewallId: ").append(toIndentedString(vpcFirewallId)).append("\n");
     sb.append("    vpcFirewallName: ").append(toIndentedString(vpcFirewallName)).append("\n");
     sb.append("}");

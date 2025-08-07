@@ -14,6 +14,15 @@ package com.volcengine.fwcenter.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,35 @@ import javax.validation.Valid;
 
 
 public class UpdateAssetsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("asset_ips")
+  private List<String> assetIps = null;
+
+  public UpdateAssetsResponse assetIps(List<String> assetIps) {
+    this.assetIps = assetIps;
+    return this;
+  }
+
+  public UpdateAssetsResponse addAssetIpsItem(String assetIpsItem) {
+    if (this.assetIps == null) {
+      this.assetIps = new ArrayList<String>();
+    }
+    this.assetIps.add(assetIpsItem);
+    return this;
+  }
+
+   /**
+   * Get assetIps
+   * @return assetIps
+  **/
+  @Schema(description = "")
+  public List<String> getAssetIps() {
+    return assetIps;
+  }
+
+  public void setAssetIps(List<String> assetIps) {
+    this.assetIps = assetIps;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +70,13 @@ public class UpdateAssetsResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    UpdateAssetsResponse updateAssetsResponse = (UpdateAssetsResponse) o;
+    return Objects.equals(this.assetIps, updateAssetsResponse.assetIps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(assetIps);
   }
 
 
@@ -46,6 +85,7 @@ public class UpdateAssetsResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAssetsResponse {\n");
     
+    sb.append("    assetIps: ").append(toIndentedString(assetIps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class DeleteAddressBookResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("GroupUuid")
   private String groupUuid = null;
+
+  @SerializedName("GroupUuidList")
+  private List<String> groupUuidList = null;
 
   public DeleteAddressBookResponse groupUuid(String groupUuid) {
     this.groupUuid = groupUuid;
@@ -51,6 +56,32 @@ public class DeleteAddressBookResponse extends com.volcengine.model.AbstractResp
     this.groupUuid = groupUuid;
   }
 
+  public DeleteAddressBookResponse groupUuidList(List<String> groupUuidList) {
+    this.groupUuidList = groupUuidList;
+    return this;
+  }
+
+  public DeleteAddressBookResponse addGroupUuidListItem(String groupUuidListItem) {
+    if (this.groupUuidList == null) {
+      this.groupUuidList = new ArrayList<String>();
+    }
+    this.groupUuidList.add(groupUuidListItem);
+    return this;
+  }
+
+   /**
+   * Get groupUuidList
+   * @return groupUuidList
+  **/
+  @Schema(description = "")
+  public List<String> getGroupUuidList() {
+    return groupUuidList;
+  }
+
+  public void setGroupUuidList(List<String> groupUuidList) {
+    this.groupUuidList = groupUuidList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class DeleteAddressBookResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     DeleteAddressBookResponse deleteAddressBookResponse = (DeleteAddressBookResponse) o;
-    return Objects.equals(this.groupUuid, deleteAddressBookResponse.groupUuid);
+    return Objects.equals(this.groupUuid, deleteAddressBookResponse.groupUuid) &&
+        Objects.equals(this.groupUuidList, deleteAddressBookResponse.groupUuidList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupUuid);
+    return Objects.hash(groupUuid, groupUuidList);
   }
 
 
@@ -76,6 +108,7 @@ public class DeleteAddressBookResponse extends com.volcengine.model.AbstractResp
     sb.append("class DeleteAddressBookResponse {\n");
     
     sb.append("    groupUuid: ").append(toIndentedString(groupUuid)).append("\n");
+    sb.append("    groupUuidList: ").append(toIndentedString(groupUuidList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

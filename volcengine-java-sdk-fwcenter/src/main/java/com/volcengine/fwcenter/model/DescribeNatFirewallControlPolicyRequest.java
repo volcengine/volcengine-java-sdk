@@ -90,11 +90,11 @@ public class DescribeNatFirewallControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("IsEffect")
+  private List<Boolean> isEffect = null;
+
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
-
-  @SerializedName("OrderBy")
-  private String orderBy = null;
 
   /**
    * Gets or Sets orderDir
@@ -278,6 +278,32 @@ public class DescribeNatFirewallControlPolicyRequest {
     this.direction = direction;
   }
 
+  public DescribeNatFirewallControlPolicyRequest isEffect(List<Boolean> isEffect) {
+    this.isEffect = isEffect;
+    return this;
+  }
+
+  public DescribeNatFirewallControlPolicyRequest addIsEffectItem(Boolean isEffectItem) {
+    if (this.isEffect == null) {
+      this.isEffect = new ArrayList<Boolean>();
+    }
+    this.isEffect.add(isEffectItem);
+    return this;
+  }
+
+   /**
+   * Get isEffect
+   * @return isEffect
+  **/
+  @Schema(description = "")
+  public List<Boolean> getIsEffect() {
+    return isEffect;
+  }
+
+  public void setIsEffect(List<Boolean> isEffect) {
+    this.isEffect = isEffect;
+  }
+
   public DescribeNatFirewallControlPolicyRequest natFirewallId(String natFirewallId) {
     this.natFirewallId = natFirewallId;
     return this;
@@ -295,24 +321,6 @@ public class DescribeNatFirewallControlPolicyRequest {
 
   public void setNatFirewallId(String natFirewallId) {
     this.natFirewallId = natFirewallId;
-  }
-
-  public DescribeNatFirewallControlPolicyRequest orderBy(String orderBy) {
-    this.orderBy = orderBy;
-    return this;
-  }
-
-   /**
-   * Get orderBy
-   * @return orderBy
-  **/
-  @Schema(description = "")
-  public String getOrderBy() {
-    return orderBy;
-  }
-
-  public void setOrderBy(String orderBy) {
-    this.orderBy = orderBy;
   }
 
   public DescribeNatFirewallControlPolicyRequest orderDir(OrderDirEnum orderDir) {
@@ -358,9 +366,10 @@ public class DescribeNatFirewallControlPolicyRequest {
 
    /**
    * Get pageSize
+   * maximum: 1000
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -514,8 +523,8 @@ public class DescribeNatFirewallControlPolicyRequest {
         Objects.equals(this.destPort, describeNatFirewallControlPolicyRequest.destPort) &&
         Objects.equals(this.destination, describeNatFirewallControlPolicyRequest.destination) &&
         Objects.equals(this.direction, describeNatFirewallControlPolicyRequest.direction) &&
+        Objects.equals(this.isEffect, describeNatFirewallControlPolicyRequest.isEffect) &&
         Objects.equals(this.natFirewallId, describeNatFirewallControlPolicyRequest.natFirewallId) &&
-        Objects.equals(this.orderBy, describeNatFirewallControlPolicyRequest.orderBy) &&
         Objects.equals(this.orderDir, describeNatFirewallControlPolicyRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeNatFirewallControlPolicyRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNatFirewallControlPolicyRequest.pageSize) &&
@@ -528,7 +537,7 @@ public class DescribeNatFirewallControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destination, direction, natFirewallId, orderBy, orderDir, pageNumber, pageSize, proto, repeatType, ruleId, source, status);
+    return Objects.hash(action, description, destPort, destination, direction, isEffect, natFirewallId, orderDir, pageNumber, pageSize, proto, repeatType, ruleId, source, status);
   }
 
 
@@ -542,8 +551,8 @@ public class DescribeNatFirewallControlPolicyRequest {
     sb.append("    destPort: ").append(toIndentedString(destPort)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    isEffect: ").append(toIndentedString(isEffect)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
-    sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

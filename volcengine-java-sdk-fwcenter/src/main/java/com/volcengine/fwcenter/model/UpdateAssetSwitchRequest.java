@@ -39,6 +39,9 @@ public class UpdateAssetSwitchRequest {
   @SerializedName("Enable")
   private Integer enable = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   public UpdateAssetSwitchRequest assetList(List<AssetListForUpdateAssetSwitchInput> assetList) {
     this.assetList = assetList;
     return this;
@@ -85,6 +88,24 @@ public class UpdateAssetSwitchRequest {
     this.enable = enable;
   }
 
+  public UpdateAssetSwitchRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +117,13 @@ public class UpdateAssetSwitchRequest {
     }
     UpdateAssetSwitchRequest updateAssetSwitchRequest = (UpdateAssetSwitchRequest) o;
     return Objects.equals(this.assetList, updateAssetSwitchRequest.assetList) &&
-        Objects.equals(this.enable, updateAssetSwitchRequest.enable);
+        Objects.equals(this.enable, updateAssetSwitchRequest.enable) &&
+        Objects.equals(this.internetFirewallId, updateAssetSwitchRequest.internetFirewallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetList, enable);
+    return Objects.hash(assetList, enable, internetFirewallId);
   }
 
 
@@ -112,6 +134,7 @@ public class UpdateAssetSwitchRequest {
     
     sb.append("    assetList: ").append(toIndentedString(assetList)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

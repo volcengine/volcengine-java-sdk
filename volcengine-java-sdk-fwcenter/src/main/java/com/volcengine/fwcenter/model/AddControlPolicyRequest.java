@@ -234,6 +234,55 @@ public class AddControlPolicyRequest {
   @SerializedName("EndTime")
   private Integer endTime = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
+  /**
+   * Gets or Sets ipType
+   */
+  @JsonAdapter(IpTypeEnum.Adapter.class)
+  public enum IpTypeEnum {
+    @SerializedName("v4")
+    V4("v4"),
+    @SerializedName("v6")
+    V6("v6");
+
+    private String value;
+
+    IpTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpTypeEnum fromValue(String input) {
+      for (IpTypeEnum b : IpTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpType")
+  private IpTypeEnum ipType = null;
+
   @SerializedName("Prio")
   private Integer prio = null;
 
@@ -553,6 +602,42 @@ public class AddControlPolicyRequest {
     this.endTime = endTime;
   }
 
+  public AddControlPolicyRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+  }
+
+  public AddControlPolicyRequest ipType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public IpTypeEnum getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+  }
+
   public AddControlPolicyRequest prio(Integer prio) {
     this.prio = prio;
     return this;
@@ -762,6 +847,8 @@ public class AddControlPolicyRequest {
         Objects.equals(this.destinationType, addControlPolicyRequest.destinationType) &&
         Objects.equals(this.direction, addControlPolicyRequest.direction) &&
         Objects.equals(this.endTime, addControlPolicyRequest.endTime) &&
+        Objects.equals(this.internetFirewallId, addControlPolicyRequest.internetFirewallId) &&
+        Objects.equals(this.ipType, addControlPolicyRequest.ipType) &&
         Objects.equals(this.prio, addControlPolicyRequest.prio) &&
         Objects.equals(this.proto, addControlPolicyRequest.proto) &&
         Objects.equals(this.repeatDays, addControlPolicyRequest.repeatDays) &&
@@ -776,7 +863,7 @@ public class AddControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, internetFirewallId, ipType, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
   }
 
 
@@ -793,6 +880,8 @@ public class AddControlPolicyRequest {
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");

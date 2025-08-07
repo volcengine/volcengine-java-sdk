@@ -78,6 +78,9 @@ public class UpdateControlPolicySwitchRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  @SerializedName("InternetFirewallId")
+  private String internetFirewallId = null;
+
   @SerializedName("RuleIds")
   private List<String> ruleIds = null;
 
@@ -101,6 +104,24 @@ public class UpdateControlPolicySwitchRequest {
 
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
+  }
+
+  public UpdateControlPolicySwitchRequest internetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
+    return this;
+  }
+
+   /**
+   * Get internetFirewallId
+   * @return internetFirewallId
+  **/
+  @Schema(description = "")
+  public String getInternetFirewallId() {
+    return internetFirewallId;
+  }
+
+  public void setInternetFirewallId(String internetFirewallId) {
+    this.internetFirewallId = internetFirewallId;
   }
 
   public UpdateControlPolicySwitchRequest ruleIds(List<String> ruleIds) {
@@ -158,13 +179,14 @@ public class UpdateControlPolicySwitchRequest {
     }
     UpdateControlPolicySwitchRequest updateControlPolicySwitchRequest = (UpdateControlPolicySwitchRequest) o;
     return Objects.equals(this.direction, updateControlPolicySwitchRequest.direction) &&
+        Objects.equals(this.internetFirewallId, updateControlPolicySwitchRequest.internetFirewallId) &&
         Objects.equals(this.ruleIds, updateControlPolicySwitchRequest.ruleIds) &&
         Objects.equals(this.status, updateControlPolicySwitchRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, ruleIds, status);
+    return Objects.hash(direction, internetFirewallId, ruleIds, status);
   }
 
 
@@ -174,6 +196,7 @@ public class UpdateControlPolicySwitchRequest {
     sb.append("class UpdateControlPolicySwitchRequest {\n");
     
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ruleIds: ").append(toIndentedString(ruleIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

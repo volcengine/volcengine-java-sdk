@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcFirewallListRequest {
+  @SerializedName("CloudFirewallId")
+  private String cloudFirewallId = null;
+
   @SerializedName("FirewallStatus")
   private List<String> firewallStatus = null;
 
@@ -40,6 +43,9 @@ public class DescribeVpcFirewallListRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RegionCode")
   private List<String> regionCode = null;
@@ -61,6 +67,24 @@ public class DescribeVpcFirewallListRequest {
 
   @SerializedName("VpcFirewallName")
   private String vpcFirewallName = null;
+
+  public DescribeVpcFirewallListRequest cloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+    return this;
+  }
+
+   /**
+   * Get cloudFirewallId
+   * @return cloudFirewallId
+  **/
+  @Schema(description = "")
+  public String getCloudFirewallId() {
+    return cloudFirewallId;
+  }
+
+  public void setCloudFirewallId(String cloudFirewallId) {
+    this.cloudFirewallId = cloudFirewallId;
+  }
 
   public DescribeVpcFirewallListRequest firewallStatus(List<String> firewallStatus) {
     this.firewallStatus = firewallStatus;
@@ -113,15 +137,34 @@ public class DescribeVpcFirewallListRequest {
 
    /**
    * Get pageSize
+   * maximum: 1000
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVpcFirewallListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeVpcFirewallListRequest regionCode(List<String> regionCode) {
@@ -284,9 +327,11 @@ public class DescribeVpcFirewallListRequest {
       return false;
     }
     DescribeVpcFirewallListRequest describeVpcFirewallListRequest = (DescribeVpcFirewallListRequest) o;
-    return Objects.equals(this.firewallStatus, describeVpcFirewallListRequest.firewallStatus) &&
+    return Objects.equals(this.cloudFirewallId, describeVpcFirewallListRequest.cloudFirewallId) &&
+        Objects.equals(this.firewallStatus, describeVpcFirewallListRequest.firewallStatus) &&
         Objects.equals(this.pageNumber, describeVpcFirewallListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcFirewallListRequest.pageSize) &&
+        Objects.equals(this.projectName, describeVpcFirewallListRequest.projectName) &&
         Objects.equals(this.regionCode, describeVpcFirewallListRequest.regionCode) &&
         Objects.equals(this.routeMode, describeVpcFirewallListRequest.routeMode) &&
         Objects.equals(this.routePolicyStatus, describeVpcFirewallListRequest.routePolicyStatus) &&
@@ -298,7 +343,7 @@ public class DescribeVpcFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firewallStatus, pageNumber, pageSize, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(cloudFirewallId, firewallStatus, pageNumber, pageSize, projectName, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -307,9 +352,11 @@ public class DescribeVpcFirewallListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcFirewallListRequest {\n");
     
+    sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    routeMode: ").append(toIndentedString(routeMode)).append("\n");
     sb.append("    routePolicyStatus: ").append(toIndentedString(routePolicyStatus)).append("\n");

@@ -33,38 +33,8 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Count")
-  private Integer count = null;
-
   @SerializedName("Data")
   private List<DataForDescribeVpcsOutput> data = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
-
-  public DescribeVpcsResponse count(Integer count) {
-    this.count = count;
-    return this;
-  }
-
-   /**
-   * Get count
-   * @return count
-  **/
-  @Schema(description = "")
-  public Integer getCount() {
-    return count;
-  }
-
-  public void setCount(Integer count) {
-    this.count = count;
-  }
 
   public DescribeVpcsResponse data(List<DataForDescribeVpcsOutput> data) {
     this.data = data;
@@ -93,60 +63,6 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
     this.data = data;
   }
 
-  public DescribeVpcsResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeVpcsResponse pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public DescribeVpcsResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,16 +73,12 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     DescribeVpcsResponse describeVpcsResponse = (DescribeVpcsResponse) o;
-    return Objects.equals(this.count, describeVpcsResponse.count) &&
-        Objects.equals(this.data, describeVpcsResponse.data) &&
-        Objects.equals(this.pageNumber, describeVpcsResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeVpcsResponse.pageSize) &&
-        Objects.equals(this.totalCount, describeVpcsResponse.totalCount);
+    return Objects.equals(this.data, describeVpcsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, data, pageNumber, pageSize, totalCount);
+    return Objects.hash(data);
   }
 
 
@@ -175,11 +87,7 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcsResponse {\n");
     
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
