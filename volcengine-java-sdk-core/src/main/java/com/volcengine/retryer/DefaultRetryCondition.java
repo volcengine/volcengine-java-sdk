@@ -13,6 +13,7 @@ import java.net.UnknownServiceException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class DefaultRetryCondition extends RetryCondition{
@@ -52,8 +53,16 @@ public class DefaultRetryCondition extends RetryCondition{
         if (response != null) {
             statusCode = response.getStatusCode();
             if (response.getData() != null) {
-                AbstractResponse abstractResponse = (AbstractResponse)response.getData();
-                errorCode = getErrorCode(abstractResponse.getResponseMetadata());
+                if (response.getData() instanceof AbstractResponse) {
+                    AbstractResponse abstractResponse = (AbstractResponse)response.getData();
+                    errorCode = getErrorCode(abstractResponse.getResponseMetadata());
+                }
+
+                if (response.getData() instanceof Map){
+                    Map<String, Object> map = (Map<String, Object>)response.getData();
+                    errorCode = getErrorCodeFromMap(map, String.class,"ResponseMetadata", "Error", "Code");
+                }
+
             }
         }
 
@@ -66,6 +75,29 @@ public class DefaultRetryCondition extends RetryCondition{
         }
 
         return false;
+    }
+
+    private <T> T getErrorCodeFromMap(Map<String, Object> map, Class<T> responseType, String ... keys) {
+        if (map == null || keys == null || keys.length == 0) {
+            return null;
+        }
+        Map<String, Object> currentMap = map;
+        for (int i = 0; i < keys.length; i++) {
+            String key = keys[i];
+            if (!currentMap.containsKey(key)){
+                break;
+            }
+            Object value = currentMap.get(key);
+            if (i < keys.length - 1) {      // 还没到最后一层
+                if (!(value instanceof Map)){
+                    return null;
+                }
+                currentMap = (Map<String, Object>) value;
+            }else {
+                return responseType.cast(value);
+            }
+        }
+        return null;
     }
 
     private String getErrorCode(ResponseMetadata responseMetadata) {
