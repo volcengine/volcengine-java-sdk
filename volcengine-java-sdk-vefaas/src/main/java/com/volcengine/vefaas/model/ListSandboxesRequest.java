@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.MetadataForListSandboxesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,7 +37,7 @@ public class ListSandboxesRequest {
   private String functionId = null;
 
   @SerializedName("Metadata")
-  private MetadataForListSandboxesInput metadata = null;
+  private Map<String, String> metadata = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -65,8 +67,16 @@ public class ListSandboxesRequest {
     this.functionId = functionId;
   }
 
-  public ListSandboxesRequest metadata(MetadataForListSandboxesInput metadata) {
+  public ListSandboxesRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  public ListSandboxesRequest putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -74,13 +84,12 @@ public class ListSandboxesRequest {
    * Get metadata
    * @return metadata
   **/
-  @Valid
   @Schema(description = "")
-  public MetadataForListSandboxesInput getMetadata() {
+  public Map<String, String> getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(MetadataForListSandboxesInput metadata) {
+  public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
