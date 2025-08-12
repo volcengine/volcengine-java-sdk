@@ -152,6 +152,7 @@ public class ApiClient extends BaseClient{
         ConnectionPool connectionPool = new ConnectionPool(maxIdleConns, keepAliveDurationMs);
         httpClient = new OkHttpClient();
         httpClient.setConnectionPool(connectionPool);
+        httpClient.interceptors().add(new com.volcengine.interceptor.HttpLoggingInterceptor());
         verifyingSsl = true;
 
         json = new JSON();
@@ -464,21 +465,11 @@ public class ApiClient extends BaseClient{
 
     /**
      * Enable/disable debugging for this API client.
-     *
+     * @Deprecated
      * @param debugging To enable (true) or disable (false) debugging
      * @return ApiClient
      */
     public ApiClient setDebugging(boolean debugging) {
-        if (debugging != this.debugging) {
-            if (debugging) {
-                loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
-                httpClient.interceptors().add(loggingInterceptor);
-            } else {
-                httpClient.interceptors().remove(loggingInterceptor);
-                loggingInterceptor = null;
-            }
-        }
         this.debugging = debugging;
         return this;
     }
