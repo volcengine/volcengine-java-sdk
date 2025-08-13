@@ -49,6 +49,9 @@ public class HttpsForListDomainConfigOutput {
   @SerializedName("Http2")
   private Boolean http2 = null;
 
+  @SerializedName("OCSPStapling")
+  private Boolean ocSPStapling = null;
+
   @SerializedName("QUICSwitch")
   private Boolean quICSwitch = null;
 
@@ -148,6 +151,24 @@ public class HttpsForListDomainConfigOutput {
     this.http2 = http2;
   }
 
+  public HttpsForListDomainConfigOutput ocSPStapling(Boolean ocSPStapling) {
+    this.ocSPStapling = ocSPStapling;
+    return this;
+  }
+
+   /**
+   * Get ocSPStapling
+   * @return ocSPStapling
+  **/
+  @Schema(description = "")
+  public Boolean isOcSPStapling() {
+    return ocSPStapling;
+  }
+
+  public void setOcSPStapling(Boolean ocSPStapling) {
+    this.ocSPStapling = ocSPStapling;
+  }
+
   public HttpsForListDomainConfigOutput quICSwitch(Boolean quICSwitch) {
     this.quICSwitch = quICSwitch;
     return this;
@@ -200,13 +221,14 @@ public class HttpsForListDomainConfigOutput {
         Objects.equals(this.forceRedirect, httpsForListDomainConfigOutput.forceRedirect) &&
         Objects.equals(this.hsts, httpsForListDomainConfigOutput.hsts) &&
         Objects.equals(this.http2, httpsForListDomainConfigOutput.http2) &&
+        Objects.equals(this.ocSPStapling, httpsForListDomainConfigOutput.ocSPStapling) &&
         Objects.equals(this.quICSwitch, httpsForListDomainConfigOutput.quICSwitch) &&
         Objects.equals(this.tlsVersions, httpsForListDomainConfigOutput.tlsVersions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
+    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, ocSPStapling, quICSwitch, tlsVersions);
   }
 
 
@@ -220,6 +242,7 @@ public class HttpsForListDomainConfigOutput {
     sb.append("    forceRedirect: ").append(toIndentedString(forceRedirect)).append("\n");
     sb.append("    hsts: ").append(toIndentedString(hsts)).append("\n");
     sb.append("    http2: ").append(toIndentedString(http2)).append("\n");
+    sb.append("    ocSPStapling: ").append(toIndentedString(ocSPStapling)).append("\n");
     sb.append("    quICSwitch: ").append(toIndentedString(quICSwitch)).append("\n");
     sb.append("    tlsVersions: ").append(toIndentedString(tlsVersions)).append("\n");
     sb.append("}");
