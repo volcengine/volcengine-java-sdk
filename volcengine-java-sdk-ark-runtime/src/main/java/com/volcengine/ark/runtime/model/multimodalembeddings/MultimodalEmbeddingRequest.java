@@ -30,6 +30,20 @@ public class MultimodalEmbeddingRequest {
     @JsonProperty("dimensions")
     private Integer dimensions;
 
+    @JsonProperty("sparse_embedding")
+    private SparseEmbeddingInput sparseEmbedding;
+
+
+    @Override
+    public String toString() {
+        return "MultimodalEmbeddingRequest{" +
+                "model='" + model + '\'' +
+                ", input=" + input +
+                ", encodingFormat='" + encodingFormat + '\'' +
+                ", dimensions=" + dimensions +
+                ", sparseEmbedding=" + sparseEmbedding +
+                '}';
+    }
 
     public MultimodalEmbeddingRequest() {
     }
@@ -66,6 +80,13 @@ public class MultimodalEmbeddingRequest {
         return dimensions;
     }
 
+    public void setSparseEmbedding(SparseEmbeddingInput sparseEmbedding) {
+        this.sparseEmbedding = sparseEmbedding;
+    }
+    public SparseEmbeddingInput getSparseEmbedding() {
+        return sparseEmbedding;
+    }
+
     public static MultimodalEmbeddingRequest.Builder builder() {
         return new MultimodalEmbeddingRequest.Builder();
     }
@@ -75,6 +96,7 @@ public class MultimodalEmbeddingRequest {
         private List<MultimodalEmbeddingInput> input;
         private String encodingFormat;
         private Integer dimensions;
+        private SparseEmbeddingInput sparseEmbedding;
 
         private Builder() {
         }
@@ -99,12 +121,18 @@ public class MultimodalEmbeddingRequest {
             return this;
         }
 
+        public MultimodalEmbeddingRequest.Builder sparseEmbedding(SparseEmbeddingInput sparseEmbedding) {
+            this.sparseEmbedding = sparseEmbedding;
+            return this;
+        }
+
         public MultimodalEmbeddingRequest build() {
             MultimodalEmbeddingRequest embeddingRequest = new MultimodalEmbeddingRequest();
             embeddingRequest.setModel(model);
             embeddingRequest.setInput(input);
             embeddingRequest.setEncodingFormat(encodingFormat);
             embeddingRequest.setDimensions(dimensions);
+            embeddingRequest.setSparseEmbedding(sparseEmbedding);
             return embeddingRequest;
         }
     }
