@@ -11,7 +11,6 @@ import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
 import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
-import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
@@ -27,6 +26,14 @@ import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.images.generation.ImageGenStreamEvent;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
+import com.volcengine.ark.runtime.model.responses.event.StreamEvent;
+import com.volcengine.ark.runtime.model.responses.request.DeleteResponseRequest;
+import com.volcengine.ark.runtime.model.responses.request.GetResponseRequest;
+import com.volcengine.ark.runtime.model.responses.request.ListInputItemsRequest;
+import com.volcengine.ark.runtime.model.responses.request.CreateResponsesRequest;
+import com.volcengine.ark.runtime.model.responses.response.DeleteResponseResponse;
+import com.volcengine.ark.runtime.model.responses.response.ListInputItemsResponse;
+import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
@@ -144,7 +151,8 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             try {
                 Headers headers = e.response().raw().request().headers();
                 requestId = headers.get(Const.CLIENT_REQUEST_HEADER);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
 
             try {
                 if (e.response() == null || e.response().errorBody() == null) {
@@ -350,6 +358,47 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request, Map<String, String> customHeaders) {
         return execute(api.deleteContentGenerationTask(request.getTaskId(), customHeaders));
+    }
+
+
+    @Override
+    public ResponseObject createResponse(CreateResponsesRequest request) {
+        return execute(api.createResponse(request, request.getModel(), new HashMap<>()));
+    }
+
+    public ResponseObject createResponse(CreateResponsesRequest request, Map<String, String> customHeaders) {
+        return execute(api.createResponse(request, request.getModel(), customHeaders));
+    }
+
+    @Override
+    public Flowable<StreamEvent> streamResponse(CreateResponsesRequest request) {
+        return stream(api.streamResponse(request, request.getModel(), new HashMap<>()), StreamEvent.class);
+    }
+
+    public Flowable<StreamEvent> streamResponse(CreateResponsesRequest request, Map<String, String> customHeaders) {
+        return stream(api.streamResponse(request, request.getModel(), customHeaders), StreamEvent.class);
+    }
+
+    @Override
+    public ResponseObject getResponse(GetResponseRequest request) {
+        return execute(api.getResponse(request.getResponseId(), new HashMap<>()));
+    }
+
+    @Override
+    public DeleteResponseResponse deleteResponse(DeleteResponseRequest request) {
+        return execute(api.deleteResponse(request.getResponseId(), new HashMap<>()));
+    }
+
+    @Override
+    public ListInputItemsResponse listResponseInputItems(ListInputItemsRequest request) {
+        return execute(api.listResponseInputItems(
+                request.getResponseId(),
+                request.getAfter(),
+                request.getBefore(),
+                request.getLimit(),
+                request.getInclude(),
+                new HashMap<>()
+        ));
     }
 
     public void shutdownExecutor() {

@@ -74,6 +74,7 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
             while (!emitter.isCancelled() && (line = reader.readLine()) != null) {
                 if (line.startsWith("event:")) {
                     // do nothing
+                    continue;
                 } else if (line.startsWith("data:")) {
                     String data = line.substring(5).trim();
                     try {
