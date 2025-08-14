@@ -299,5 +299,6 @@
         <module>volcengine-java-sdk-hbase</module>
         <module>volcengine-java-sdk-vefaasdev</module>
         <module>volcengine-java-sdk-speechsaasprod</module>
+        <module>volcengine-java-sdk-graph20250815</module>
     </modules>
 </project>
