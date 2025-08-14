@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MetadataForListSandboxesInput
+ * TerminateDependencyInstallTaskResponse
  */
 
 
 
-public class MetadataForListSandboxesInput {
+public class TerminateDependencyInstallTaskResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class MetadataForListSandboxesInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetadataForListSandboxesInput {\n");
+    sb.append("class TerminateDependencyInstallTaskResponse {\n");
     
     sb.append("}");
     return sb.toString();

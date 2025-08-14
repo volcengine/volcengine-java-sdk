@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MetadataForCreateSandboxInput
+ * GetDependencyInstallTaskStatusResponse
  */
 
 
 
-public class MetadataForCreateSandboxInput {
+public class GetDependencyInstallTaskStatusResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class MetadataForCreateSandboxInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetadataForCreateSandboxInput {\n");
+    sb.append("class GetDependencyInstallTaskStatusResponse {\n");
     
     sb.append("}");
     return sb.toString();

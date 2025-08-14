@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * StatusCountForListSandboxesOutput
+ * CreateDependencyInstallTaskResponse
  */
 
 
 
-public class StatusCountForListSandboxesOutput {
+public class CreateDependencyInstallTaskResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class StatusCountForListSandboxesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusCountForListSandboxesOutput {\n");
+    sb.append("class CreateDependencyInstallTaskResponse {\n");
     
     sb.append("}");
     return sb.toString();
