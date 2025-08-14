@@ -39,6 +39,9 @@ public class ModifyEipAddressAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DirectMode")
+  private Boolean directMode = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -101,6 +104,24 @@ public class ModifyEipAddressAttributesRequest {
     this.description = description;
   }
 
+  public ModifyEipAddressAttributesRequest directMode(Boolean directMode) {
+    this.directMode = directMode;
+    return this;
+  }
+
+   /**
+   * Get directMode
+   * @return directMode
+  **/
+  @Schema(description = "")
+  public Boolean isDirectMode() {
+    return directMode;
+  }
+
+  public void setDirectMode(Boolean directMode) {
+    this.directMode = directMode;
+  }
+
   public ModifyEipAddressAttributesRequest name(String name) {
     this.name = name;
     return this;
@@ -150,13 +171,14 @@ public class ModifyEipAddressAttributesRequest {
     return Objects.equals(this.allocationId, modifyEipAddressAttributesRequest.allocationId) &&
         Objects.equals(this.bandwidth, modifyEipAddressAttributesRequest.bandwidth) &&
         Objects.equals(this.description, modifyEipAddressAttributesRequest.description) &&
+        Objects.equals(this.directMode, modifyEipAddressAttributesRequest.directMode) &&
         Objects.equals(this.name, modifyEipAddressAttributesRequest.name) &&
         Objects.equals(this.releaseWithInstance, modifyEipAddressAttributesRequest.releaseWithInstance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, description, name, releaseWithInstance);
+    return Objects.hash(allocationId, bandwidth, description, directMode, name, releaseWithInstance);
   }
 
 
@@ -168,6 +190,7 @@ public class ModifyEipAddressAttributesRequest {
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    directMode: ").append(toIndentedString(directMode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("}");
