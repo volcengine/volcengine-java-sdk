@@ -8,6 +8,9 @@ public class CompletionTokensDetails {
     @JsonProperty("reasoning_tokens")
     private Integer reasoningTokens;
 
+    @JsonProperty("provisioned_tokens")
+    private Integer provisionedTokens;
+
     public Integer getReasoningTokens() {
         return reasoningTokens;
     }
@@ -16,10 +19,19 @@ public class CompletionTokensDetails {
         this.reasoningTokens = reasoningTokens;
     }
 
+    public Integer getProvisionedTokens() {
+        return provisionedTokens;
+    }
+
+    public void setProvisionedTokens(Integer provisionedTokens) {
+        this.provisionedTokens = provisionedTokens;
+    }
+
     @Override
     public String toString() {
         return "CompletionTokensDetails{" +
                 "reasoningTokens=" + reasoningTokens +
+                ", provisionedTokens=" + provisionedTokens +
                 '}';
     }
 }

@@ -133,10 +133,22 @@ public class GetContentGenerationTaskResponse {
             this.videoUrl = videoUrl;
         }
 
+        @JsonProperty("last_frame_url")
+        private String lastFrameUrl;
+
+        public String getLastFrameUrl() {
+            return lastFrameUrl;
+        }
+
+        public void setLastFrameUrl(String lastFrameUrl) {
+            this.lastFrameUrl = lastFrameUrl;
+        }
+
         @Override
         public String toString() {
             return "Content{" +
                     "videoUrl='" + videoUrl + '\'' +
+                    ", lastFrameUrl='" + lastFrameUrl + '\'' +
                     '}';
         }
     }

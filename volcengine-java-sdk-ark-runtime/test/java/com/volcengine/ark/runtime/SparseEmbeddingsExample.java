@@ -3,6 +3,7 @@ package com.volcengine.ark.runtime;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingInput;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
+import com.volcengine.ark.runtime.model.multimodalembeddings.SparseEmbeddingInput;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
@@ -11,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MultiModalEmbeddingsExample {
-
+public class SparseEmbeddingsExample {
     /**
      * Authentication
      * 1.If you authorize your endpoint using an API key, you can set your api key to environment variable "ARK_API_KEY"
@@ -35,25 +35,21 @@ public class MultiModalEmbeddingsExample {
     static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
-        System.out.println("\n----- multimodal embeddings request -----");
+        System.out.println("\n----- sparse embeddings request -----");
 
         List<MultimodalEmbeddingInput> inputs = new ArrayList<>();
         inputs.add(MultimodalEmbeddingInput.builder().type("text").text(
-                "把图中的蓝天换成白云"
-        ).build());
-        inputs.add(MultimodalEmbeddingInput.builder().type("image_url").imageUrl(
-                new MultimodalEmbeddingInput.MultiModalEmbeddingContentPartImageURL(
-                        "https://ark-project.tos-cn-beijing.ivolces.com/images/view.jpeg"
-                )
+                "The food was delicious and the waiter..."
         ).build());
 
         MultimodalEmbeddingRequest multiModalEmbeddingRequest = MultimodalEmbeddingRequest.builder()
                 .model("doubao-embedding-vision-250615")
                 .input(inputs)
+                .sparseEmbedding(SparseEmbeddingInput.builder().type("enabled").build())
                 .build();
 
         MultimodalEmbeddingResult res = service.createMultiModalEmbeddings(multiModalEmbeddingRequest);
-        System.out.println(res);
+        System.out.println(res.getData().getSparseEmbedding());
 
         // shutdown service after all requests is finished
         service.shutdownExecutor();

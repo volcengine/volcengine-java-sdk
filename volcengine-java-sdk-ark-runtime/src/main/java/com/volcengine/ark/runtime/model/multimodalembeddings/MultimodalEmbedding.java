@@ -1,6 +1,8 @@
 package com.volcengine.ark.runtime.model.multimodalembeddings;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
@@ -16,6 +18,16 @@ public class MultimodalEmbedding {
      */
     private List<Double> embedding;
 
+    @JsonProperty("sparse_embedding")
+    private List<SparseEmbedding> sparseEmbedding;
+
+    public List<SparseEmbedding> getSparseEmbedding() {
+        return sparseEmbedding;
+    }
+
+    public void setSparseEmbedding(List<SparseEmbedding> sparseEmbedding) {
+        this.sparseEmbedding = sparseEmbedding;
+    }
 
     public String getObject() {
         return object;
@@ -38,6 +50,7 @@ public class MultimodalEmbedding {
         return "Embedding{" +
                 "object='" + object + '\'' +
                 ", embedding=" + embedding +
+                ", sparseEmbedding=" + sparseEmbedding +
                 '}';
     }
 }
