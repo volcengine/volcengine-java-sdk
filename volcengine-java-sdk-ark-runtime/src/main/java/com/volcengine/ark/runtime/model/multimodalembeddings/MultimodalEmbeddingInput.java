@@ -11,6 +11,8 @@ public class MultimodalEmbeddingInput {
 
     MultimodalEmbeddingInput.MultiModalEmbeddingContentPartImageURL imageUrl;
 
+    MultimodalEmbeddingInput.MultiModalEmbeddingContentPartVideoURL videoUrl;
+
     public String getType() {
         return type;
     }
@@ -35,6 +37,14 @@ public class MultimodalEmbeddingInput {
         this.imageUrl = imageUrl;
     }
 
+    public MultimodalEmbeddingInput.MultiModalEmbeddingContentPartVideoURL getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(MultimodalEmbeddingInput.MultiModalEmbeddingContentPartVideoURL videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
     public static MultimodalEmbeddingInput.Builder builder() {
         return new MultimodalEmbeddingInput.Builder();
     }
@@ -45,6 +55,7 @@ public class MultimodalEmbeddingInput {
                 "type='" + type + '\'' +
                 ", text='" + text + '\'' +
                 ", imageUrl=" + imageUrl +
+                ", videoUrl=" + videoUrl +
                 '}';
     }
 
@@ -90,10 +101,49 @@ public class MultimodalEmbeddingInput {
         }
     }
 
+    public static class MultiModalEmbeddingContentPartVideoURL {
+        String url;
+        double fps;
+
+        public MultiModalEmbeddingContentPartVideoURL(String url, double fps) {
+            this.url = url;
+            this.fps = fps;
+        }
+        public MultiModalEmbeddingContentPartVideoURL(String url) {
+            this.url = url;
+        }
+        public MultiModalEmbeddingContentPartVideoURL() {}
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public double getFps() {
+            return fps;
+        }
+
+        public void setFps(double fps) {
+            this.fps = fps;
+        }
+
+        @Override
+        public String toString() {
+            return "MultiModalEmbeddingContentPartVideoURL{" +
+                    "url='" + url + '\'' +
+                    ", fps=" + fps +
+                    '}';
+        }
+    }
+
     public static final class Builder {
         private String type;
         private String text;
         private MultimodalEmbeddingInput.MultiModalEmbeddingContentPartImageURL imageUrl;
+        private MultimodalEmbeddingInput.MultiModalEmbeddingContentPartVideoURL videoUrl;
 
         public MultimodalEmbeddingInput.Builder type(String type) {
             this.type = type;
@@ -110,11 +160,17 @@ public class MultimodalEmbeddingInput {
             return this;
         }
 
+        public MultimodalEmbeddingInput.Builder videoUrl(MultimodalEmbeddingInput.MultiModalEmbeddingContentPartVideoURL videoUrl) {
+            this.videoUrl = videoUrl;
+            return this;
+        }
+
         public MultimodalEmbeddingInput build() {
             MultimodalEmbeddingInput multiModalEmbeddingInput = new MultimodalEmbeddingInput();
             multiModalEmbeddingInput.setType(type);
             multiModalEmbeddingInput.setText(text);
             multiModalEmbeddingInput.setImageUrl(imageUrl);
+            multiModalEmbeddingInput.setVideoUrl(videoUrl);
             return multiModalEmbeddingInput;
         }
     }

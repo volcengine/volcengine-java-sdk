@@ -20,11 +20,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.SandboxForListSandboxesOutput;
-import com.volcengine.vefaas.model.StatusCountForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,7 +39,7 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
   private List<SandboxForListSandboxesOutput> sandboxes = null;
 
   @SerializedName("StatusCount")
-  private StatusCountForListSandboxesOutput statusCount = null;
+  private Map<String, Integer> statusCount = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -70,8 +71,16 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
     this.sandboxes = sandboxes;
   }
 
-  public ListSandboxesResponse statusCount(StatusCountForListSandboxesOutput statusCount) {
+  public ListSandboxesResponse statusCount(Map<String, Integer> statusCount) {
     this.statusCount = statusCount;
+    return this;
+  }
+
+  public ListSandboxesResponse putStatusCountItem(String key, Integer statusCountItem) {
+    if (this.statusCount == null) {
+      this.statusCount = new HashMap<String, Integer>();
+    }
+    this.statusCount.put(key, statusCountItem);
     return this;
   }
 
@@ -79,13 +88,12 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
    * Get statusCount
    * @return statusCount
   **/
-  @Valid
   @Schema(description = "")
-  public StatusCountForListSandboxesOutput getStatusCount() {
+  public Map<String, Integer> getStatusCount() {
     return statusCount;
   }
 
-  public void setStatusCount(StatusCountForListSandboxesOutput statusCount) {
+  public void setStatusCount(Map<String, Integer> statusCount) {
     this.statusCount = statusCount;
   }
 

@@ -9,6 +9,9 @@ public class PromptTokensDetails {
     @JsonProperty("cached_tokens")
     private Integer cachedTokens;
 
+    @JsonProperty("provisioned_tokens")
+    private Integer provisionedTokens;
+
     public Integer getCachedTokens() {
         return cachedTokens;
     }
@@ -17,10 +20,19 @@ public class PromptTokensDetails {
         this.cachedTokens = cachedTokens;
     }
 
+    public Integer getProvisionedTokens() {
+        return provisionedTokens;
+    }
+
+    public void setProvisionedTokens(Integer provisionedTokens) {
+        this.provisionedTokens = provisionedTokens;
+    }
+
     @Override
     public String toString() {
         return "PromptTokensDetails{" +
                 "cachedTokens=" + cachedTokens +
+                ", provisionedTokens=" + provisionedTokens +
                 '}';
     }
 }

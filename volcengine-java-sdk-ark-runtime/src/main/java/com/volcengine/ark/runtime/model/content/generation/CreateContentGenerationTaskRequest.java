@@ -17,6 +17,9 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("callback_url")
     private String callbackUrl;
 
+    @JsonProperty("return_last_frame")
+    private Boolean returnLastFrame;
+
     public CreateContentGenerationTaskRequest() {
     }
 
@@ -25,10 +28,11 @@ public class CreateContentGenerationTaskRequest {
         this.content = content;
     }
 
-    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl) {
+    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl, Boolean returnLastFrame) {
         this.model = model;
         this.content = content;
         this.callbackUrl = callbackUrl;
+        this.returnLastFrame = returnLastFrame;
     }
 
     public String getModel() {
@@ -55,12 +59,21 @@ public class CreateContentGenerationTaskRequest {
         this.callbackUrl = callbackUrl;
     }
 
+    public Boolean getReturnLastFrame() {
+        return returnLastFrame;
+    }
+
+    public void setReturnLastFrame(Boolean returnLastFrame) {
+        this.returnLastFrame = returnLastFrame;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
                 "model='" + model + '\'' +
                 ", content=" + content +
                 ", callbackUrl='" + callbackUrl + '\'' +
+                ", returnLastFrame=" + returnLastFrame +
                 '}';
     }
 
@@ -72,6 +85,7 @@ public class CreateContentGenerationTaskRequest {
         private String model;
         private List<Content> content;
         private String callbackUrl;
+        private Boolean returnLastFrame;
 
         private Builder() {
         }
@@ -91,11 +105,17 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder returnLastFrame(Boolean returnLastFrame) {
+            this.returnLastFrame = returnLastFrame;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
             createContentGenerationTaskRequest.setContent(content);
             createContentGenerationTaskRequest.setCallbackUrl(callbackUrl);
+            createContentGenerationTaskRequest.setReturnLastFrame(returnLastFrame);
             return createContentGenerationTaskRequest;
         }
     }

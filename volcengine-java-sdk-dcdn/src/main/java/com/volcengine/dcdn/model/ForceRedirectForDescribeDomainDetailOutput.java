@@ -33,6 +33,9 @@ public class ForceRedirectForDescribeDomainDetailOutput {
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("RedirectCode")
+  private Integer redirectCode = null;
+
   @SerializedName("RedirectType")
   private String redirectType = null;
 
@@ -52,6 +55,24 @@ public class ForceRedirectForDescribeDomainDetailOutput {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public ForceRedirectForDescribeDomainDetailOutput redirectCode(Integer redirectCode) {
+    this.redirectCode = redirectCode;
+    return this;
+  }
+
+   /**
+   * Get redirectCode
+   * @return redirectCode
+  **/
+  @Schema(description = "")
+  public Integer getRedirectCode() {
+    return redirectCode;
+  }
+
+  public void setRedirectCode(Integer redirectCode) {
+    this.redirectCode = redirectCode;
   }
 
   public ForceRedirectForDescribeDomainDetailOutput redirectType(String redirectType) {
@@ -83,12 +104,13 @@ public class ForceRedirectForDescribeDomainDetailOutput {
     }
     ForceRedirectForDescribeDomainDetailOutput forceRedirectForDescribeDomainDetailOutput = (ForceRedirectForDescribeDomainDetailOutput) o;
     return Objects.equals(this.enable, forceRedirectForDescribeDomainDetailOutput.enable) &&
+        Objects.equals(this.redirectCode, forceRedirectForDescribeDomainDetailOutput.redirectCode) &&
         Objects.equals(this.redirectType, forceRedirectForDescribeDomainDetailOutput.redirectType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, redirectType);
+    return Objects.hash(enable, redirectCode, redirectType);
   }
 
 
@@ -98,6 +120,7 @@ public class ForceRedirectForDescribeDomainDetailOutput {
     sb.append("class ForceRedirectForDescribeDomainDetailOutput {\n");
     
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    redirectCode: ").append(toIndentedString(redirectCode)).append("\n");
     sb.append("    redirectType: ").append(toIndentedString(redirectType)).append("\n");
     sb.append("}");
     return sb.toString();

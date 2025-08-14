@@ -48,7 +48,7 @@ public class MultiModalEmbeddingsExample {
         ).build());
 
         MultimodalEmbeddingRequest multiModalEmbeddingRequest = MultimodalEmbeddingRequest.builder()
-                .model("${YOUR_ENDPOINT_ID}")
+                .model("doubao-embedding-vision-250615")
                 .input(inputs)
                 .build();
 
