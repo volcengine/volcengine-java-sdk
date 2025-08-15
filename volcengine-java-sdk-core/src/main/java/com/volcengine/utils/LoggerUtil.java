@@ -2,11 +2,14 @@ package com.volcengine.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 import org.slf4j.spi.LocationAwareLogger;
 
 import java.util.function.Supplier;
 
 public class LoggerUtil {
+
+    public static final LoggerUtil CORE_LOGGER = LoggerUtil.loggerFor("com.volcengine.sdkcore");
 
     private static final String FQCN = LoggerUtil.class.getName();
 
@@ -51,6 +54,12 @@ public class LoggerUtil {
     public void debug(String msg, Object... args) {
         if (log.isDebugEnabled()) {
             doLog(LocationAwareLogger.DEBUG_INT, () -> msg, null, args);
+        }
+    }
+
+    public void debug(Marker marker, String msg, Object... args) {
+        if (log.isDebugEnabled()) {
+            doLog(marker, LocationAwareLogger.DEBUG_INT, () -> msg, null, args);
         }
     }
 
@@ -112,9 +121,13 @@ public class LoggerUtil {
     }
 
     private void doLog(int level, Supplier<String> supplier, Throwable t, Object... args) {
+        doLog(null, level, supplier, t, args);
+    }
+
+    private void doLog(Marker marker, int level, Supplier<String> supplier, Throwable t, Object... args) {
         if (log instanceof LocationAwareLogger) {
             ((LocationAwareLogger) log).log(
-                    null,
+                    marker,
                     FQCN,              // 关键：告诉实现要跳过哪一层
                     level,
                     supplier == null ? null : supplier.get(),

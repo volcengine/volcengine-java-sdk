@@ -27,9 +27,10 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import com.volcengine.auth.Authentication;
 import com.volcengine.auth.CredentialProvider;
+import com.volcengine.observability.debugger.LogLevel;
+import com.volcengine.observability.debugger.SdkConfigLog;
 import com.volcengine.endpoint.DefaultEndpointProvider;
 import com.volcengine.endpoint.EndpointResolver;
 import com.volcengine.interceptor.BuildRequestInterceptor;
@@ -42,6 +43,7 @@ import com.volcengine.interceptor.ResponseInterceptorContext;
 import com.volcengine.interceptor.SignRequestInterceptor;
 import com.volcengine.model.AbstractResponse;
 import com.volcengine.model.ResponseMetadata;
+import com.volcengine.observability.debugger.SdkDebugLog;
 import com.volcengine.retryer.BackoffStrategy;
 import com.volcengine.retryer.DefaultRetryerSetting;
 import com.volcengine.retryer.RetryCondition;
@@ -97,6 +99,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.volcengine.observability.debugger.LogLevel.LOG_DEBUG_WITH_CONFIG;
+import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
+
 public class ApiClient extends BaseClient{
     private final static String DefaultAuthentication = "volcengineSign";
 
@@ -144,6 +149,7 @@ public class ApiClient extends BaseClient{
 
     private String httpProxy;
     private String httpsProxy;
+    private SdkConfigLog sdkConfigLog;
 
     /*
      * Constructor for ApiClient
@@ -1082,6 +1088,7 @@ public class ApiClient extends BaseClient{
         responseInterceptorContext.setReturnType(returnType);
         context.setResponseContext(responseInterceptorContext);
         context.setApiClient(this);
+        logSdkConfig();
 
         int numMaxRetries = retryer.getNumMaxRetries();
         ApiException apiException;
@@ -1135,10 +1142,12 @@ public class ApiClient extends BaseClient{
 
     private boolean requestShouldRetry(ApiResponse apiResponse, int retryCount, ApiException lastException) throws ApiException {
         if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException)) {
+            SDK_CORE_LOGGER.debugRetry("maxReryCout:{}, currentRetryCount:{}, backoffStrategy:{}", retryer.getNumMaxRetries(), retryCount + 1, retryer.getBackoffStrategy().getClass().getSimpleName());
             try {
                 long delay = retryer.getBackoffDelay(retryCount);
                 Thread.sleep(delay);
             } catch (Exception e) {
+                SDK_CORE_LOGGER.error(()->"Failed to getBackoffDelay or sleep", e);
                 throw new ApiException(e);
             }
             return true;
@@ -1179,6 +1188,7 @@ public class ApiClient extends BaseClient{
         context.setResponseContext(responseInterceptorContext);
 
         context.setApiClient(this);
+        logSdkConfig();
 
         final int maxRetries = retryer.getNumMaxRetries();
         final AtomicInteger retryCount = new AtomicInteger(0);
@@ -1998,5 +2008,77 @@ public class ApiClient extends BaseClient{
     @Override
     public OkHttpClient getOkHttpClient() {
         return this.httpClient;
+    }
+
+    /**
+     * 设置日志级别。
+     *
+     * <p>logLevel 的值应来自 {@link LogLevel} 枚举的 {@link LogLevel#mask()}，
+     * 可以通过 {@link LogLevel#combine(LogLevel...)} 组合多个模式。</p>
+     *
+     * <p>常见用法示例：</p>
+     * <pre>{@code
+     * // 只启用请求日志
+     * logger.setLogLevel(LogLevel.LOG_DEBUG_WITH_REQUEST.mask());
+     *
+     * // 启用请求和响应日志
+     * logger.setLogLevel(LogLevel.combine(
+     *         LogLevel.LOG_DEBUG_WITH_REQUEST,
+     *         LogLevel.LOG_DEBUG_WITH_RESPONSE));
+     *
+     * // 启用所有调试日志
+     * logger.setLogLevel(LogLevel.LOG_DEBUG_ALL.mask());
+     * }</pre>
+     *
+     * @param logLevel 日志级别标志位，参考 {@link LogLevel}
+     */
+    public ApiClient setLogLevel(long logLevel) {
+        SdkDebugLog.SDK_CORE_LOGGER.setLogLevel(logLevel);
+        return this;
+    }
+
+    public long getLogLevel() {
+        return SdkDebugLog.SDK_CORE_LOGGER.getLogLevel();
+    }
+
+    private void logSdkConfig() {
+        if (!SDK_CORE_LOGGER.isDebugEnabled() || !SDK_CORE_LOGGER.matches(LOG_DEBUG_WITH_CONFIG)){
+            return;
+        }
+
+        if (this.sdkConfigLog != null) {
+            this.sdkConfigLog.log();
+        }
+        synchronized (this){
+
+            if (this.sdkConfigLog != null) {
+                this.sdkConfigLog.log();
+            }
+
+            SdkConfigLog sdkConfigLog = new SdkConfigLog();
+            sdkConfigLog.setMaxIdleConns(this.maxIdleConns);
+            sdkConfigLog.setKeepAliveDurationMs(this.keepAliveDurationMs);
+            sdkConfigLog.setDisableSSL(this.disableSSL);
+            sdkConfigLog.setVerifyingSsl(this.verifyingSsl);
+            sdkConfigLog.setHttpProxy(this.httpProxy);
+            sdkConfigLog.setHttpsProxy(this.httpsProxy);
+            sdkConfigLog.setConnectTimeout(this.getConnectTimeout());
+            sdkConfigLog.setReadTimeout(this.getReadTimeout());
+            sdkConfigLog.setWriteTimeout(this.getWriteTimeout());
+            sdkConfigLog.setAutoRetry(this.autoRetry);
+            sdkConfigLog.setMinRetryDelayMs(this.getMinRetryDelayMs());
+            sdkConfigLog.setMaxRetryDelayMs(this.getMaxRetryDelayMs());
+            sdkConfigLog.setRetryCondition(this.getRetryCondition());
+            sdkConfigLog.setBackoffStrategy(this.getBackoffStrategy());
+            sdkConfigLog.setRetryErrorCode(this.getRetryErrorCodes());
+            sdkConfigLog.setRegion(this.region);
+            sdkConfigLog.setEndpoint(this.endpoint);
+            sdkConfigLog.setUseDualStack(this.useDualStack);
+            sdkConfigLog.setCustomBootstrapRegion(this.customBootstrapRegion);
+            sdkConfigLog.setEndpointResolver(this.endpointResolver);
+            sdkConfigLog.log();
+            this.sdkConfigLog = sdkConfigLog;
+        }
+
     }
 }

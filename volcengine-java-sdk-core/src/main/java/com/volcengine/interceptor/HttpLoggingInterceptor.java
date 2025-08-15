@@ -13,15 +13,15 @@ import com.squareup.okhttp.internal.http.HttpEngine;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
-import com.volcengine.utils.LoggerUtil;
+import com.volcengine.ApiClient;
+import com.volcengine.observability.debugger.LogLevel;
 import okio.Buffer;
 import okio.BufferedSource;
 import static com.volcengine.utils.ConstantsUtil.NEW_LINE;
+import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
 public final class HttpLoggingInterceptor implements Interceptor {
 
-    private static final LoggerUtil REQUEST_LOGGER = LoggerUtil.loggerFor("com.volcengine.request");
-    private static final LoggerUtil REQUEST_ID_LOGGER = LoggerUtil.loggerFor("com.volcengine.request.requestId");
     private static final String HEAD_LOG_ID = "X-Tt-Logid";
 
     private static final Charset UTF8 = Charset.forName("UTF-8");
@@ -45,12 +45,13 @@ public final class HttpLoggingInterceptor implements Interceptor {
 
     private void logResponseLog(Response response, long tookMs) throws IOException {
         Headers headers = response.headers();
-        if (REQUEST_ID_LOGGER.isDebugEnabled()){
+        if (SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_REQUEST_ID) || SDK_CORE_LOGGER.isDebugEnabled()){
             String responseState = response.isSuccessful() ? "successful" : "failed";
-            REQUEST_ID_LOGGER.debug("Received " + responseState + " response: " + response.code() + ", " + "RequestId: " + headers.get(HEAD_LOG_ID));
+            SDK_CORE_LOGGER.debugRequestID("Received " + responseState + " response: " + response.code() + ", " + "RequestId: " + headers.get(HEAD_LOG_ID));
         }
 
-        if (REQUEST_LOGGER.isDebugEnabled() || REQUEST_LOGGER.isTraceEnabled()) {
+        boolean logBody = SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_RESPONSE_BODY);
+        if (SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_RESPONSE)) {
             StringBuilder responseInfo = new StringBuilder();
             ResponseBody responseBody = response.body();
             responseInfo.append(NEW_LINE + "<-- " + protocol(response.protocol()) + ' ' + response.code() + ' '
@@ -61,7 +62,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 responseInfo.append(NEW_LINE + headers.name(i) + ": " + headers.value(i));
             }
 
-            if (!REQUEST_LOGGER.isTraceEnabled() || !HttpEngine.hasBody(response)) {
+            if (!logBody || !HttpEngine.hasBody(response)) {
                 responseInfo.append(NEW_LINE + "<-- END HTTP");
             } else if (bodyEncoded(response.headers())) {
                 responseInfo.append(NEW_LINE + "<-- END HTTP (encoded body omitted)");
@@ -83,22 +84,21 @@ public final class HttpLoggingInterceptor implements Interceptor {
 
                 responseInfo.append(NEW_LINE + "<-- END HTTP (" + buffer.size() + "-byte body)");
             }
-            REQUEST_LOGGER.debug(responseInfo::toString);
-            REQUEST_LOGGER.trace(responseInfo::toString);
+
+            if (logBody){
+                SDK_CORE_LOGGER.debugResponseBody(responseInfo.toString());
+            }else {
+                SDK_CORE_LOGGER.debugResponse(responseInfo.toString());
+            }
+
         }
 
     }
 
     private void logRequestLog(Chain chain) throws IOException {
 
-        REQUEST_ID_LOGGER.debug(()->{
-            Request request = chain.request();
-            Connection connection = chain.connection();
-            Protocol protocol = connection != null ? connection.getProtocol() : Protocol.HTTP_1_1;
-            return request.method() + ' ' + request.httpUrl() + ' ' + protocol(protocol);
-        });
-
-        if (REQUEST_LOGGER.isDebugEnabled()){
+        boolean logBody = SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_REQUEST_BODY);
+        if (SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_REQUEST)){
             Request request = chain.request();
             RequestBody requestBody = request.body();
             boolean hasRequestBody = requestBody != null;
@@ -106,11 +106,11 @@ public final class HttpLoggingInterceptor implements Interceptor {
             Protocol protocol = connection != null ? connection.getProtocol() : Protocol.HTTP_1_1;
             StringBuilder requestLog = new StringBuilder();
             requestLog.append("--> " + request.method() + ' ' + request.httpUrl() + ' ' + protocol(protocol));
-            if (hasRequestBody) {
+            if (logBody && hasRequestBody) {
                 requestLog.append(" (" + requestBody.contentLength() + "-byte body)");
             }
 
-            if (hasRequestBody) {
+            if (logBody && hasRequestBody) {
                 // Request body headers are only present when installed as a network interceptor. Force
                 // them to be included (when available) so there values are known.
                 if (requestBody.contentType() != null) {
@@ -130,7 +130,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 }
             }
 
-            if (!hasRequestBody) {
+            if (!hasRequestBody || !logBody) {
                 requestLog.append(NEW_LINE + "--> END " + request.method());
             } else if (bodyEncoded(request.headers())) {
                 requestLog.append(NEW_LINE + "--> END " + request.method() + " (encoded body omitted)");
@@ -150,7 +150,12 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 requestLog.append("--> END " + request.method()
                         + " (" + requestBody.contentLength() + "-byte body)");
             }
-            REQUEST_LOGGER.debug(requestLog.toString());
+            if (logBody && hasRequestBody) {
+                SDK_CORE_LOGGER.debugRequestBody(requestLog.toString());
+            }else {
+                SDK_CORE_LOGGER.debugRequest(requestLog.toString());
+            }
+
         }
     }
 
