@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.EffectiveTimeForCreateEventRuleInput;
 import com.volcengine.volcobserve.model.MessageQueueForCreateEventRuleInput;
+import com.volcengine.volcobserve.model.NotifyTemplateForCreateEventRuleInput;
 import com.volcengine.volcobserve.model.TLSTargetForCreateEventRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -110,6 +111,9 @@ public class CreateEventRuleRequest {
 
   @SerializedName("MessageQueue")
   private List<MessageQueueForCreateEventRuleInput> messageQueue = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForCreateEventRuleInput> notifyTemplates = null;
 
   @SerializedName("RuleName")
   private String ruleName = null;
@@ -409,6 +413,33 @@ public class CreateEventRuleRequest {
     this.messageQueue = messageQueue;
   }
 
+  public CreateEventRuleRequest notifyTemplates(List<NotifyTemplateForCreateEventRuleInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public CreateEventRuleRequest addNotifyTemplatesItem(NotifyTemplateForCreateEventRuleInput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForCreateEventRuleInput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForCreateEventRuleInput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForCreateEventRuleInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public CreateEventRuleRequest ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
@@ -520,6 +551,7 @@ public class CreateEventRuleRequest {
         Objects.equals(this.filterPattern, createEventRuleRequest.filterPattern) &&
         Objects.equals(this.level, createEventRuleRequest.level) &&
         Objects.equals(this.messageQueue, createEventRuleRequest.messageQueue) &&
+        Objects.equals(this.notifyTemplates, createEventRuleRequest.notifyTemplates) &&
         Objects.equals(this.ruleName, createEventRuleRequest.ruleName) &&
         Objects.equals(this.status, createEventRuleRequest.status) &&
         Objects.equals(this.tlSTarget, createEventRuleRequest.tlSTarget) &&
@@ -528,7 +560,7 @@ public class CreateEventRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactGroupIds, contactMethods, description, effectiveTime, endpoint, eventBusName, eventSource, eventType, filterPattern, level, messageQueue, ruleName, status, tlSTarget, webhookIds);
+    return Objects.hash(contactGroupIds, contactMethods, description, effectiveTime, endpoint, eventBusName, eventSource, eventType, filterPattern, level, messageQueue, notifyTemplates, ruleName, status, tlSTarget, webhookIds);
   }
 
 
@@ -548,6 +580,7 @@ public class CreateEventRuleRequest {
     sb.append("    filterPattern: ").append(toIndentedString(filterPattern)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    messageQueue: ").append(toIndentedString(messageQueue)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tlSTarget: ").append(toIndentedString(tlSTarget)).append("\n");
