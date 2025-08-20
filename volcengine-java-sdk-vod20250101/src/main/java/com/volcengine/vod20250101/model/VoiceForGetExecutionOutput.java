@@ -36,6 +36,9 @@ public class VoiceForGetExecutionOutput {
   @SerializedName("Size")
   private String size = null;
 
+  @SerializedName("Vid")
+  private String vid = null;
+
   public VoiceForGetExecutionOutput fileName(String fileName) {
     this.fileName = fileName;
     return this;
@@ -72,6 +75,24 @@ public class VoiceForGetExecutionOutput {
     this.size = size;
   }
 
+  public VoiceForGetExecutionOutput vid(String vid) {
+    this.vid = vid;
+    return this;
+  }
+
+   /**
+   * Get vid
+   * @return vid
+  **/
+  @Schema(description = "")
+  public String getVid() {
+    return vid;
+  }
+
+  public void setVid(String vid) {
+    this.vid = vid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class VoiceForGetExecutionOutput {
     }
     VoiceForGetExecutionOutput voiceForGetExecutionOutput = (VoiceForGetExecutionOutput) o;
     return Objects.equals(this.fileName, voiceForGetExecutionOutput.fileName) &&
-        Objects.equals(this.size, voiceForGetExecutionOutput.size);
+        Objects.equals(this.size, voiceForGetExecutionOutput.size) &&
+        Objects.equals(this.vid, voiceForGetExecutionOutput.vid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName, size);
+    return Objects.hash(fileName, size, vid);
   }
 
 
@@ -99,6 +121,7 @@ public class VoiceForGetExecutionOutput {
     
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,6 +33,9 @@ public class SubtitleRecognitionConfigForGetAITranslationProjectOutput {
   @SerializedName("RecognitionType")
   private String recognitionType = null;
 
+  @SerializedName("SubtitleFileName")
+  private String subtitleFileName = null;
+
   public SubtitleRecognitionConfigForGetAITranslationProjectOutput recognitionType(String recognitionType) {
     this.recognitionType = recognitionType;
     return this;
@@ -51,6 +54,24 @@ public class SubtitleRecognitionConfigForGetAITranslationProjectOutput {
     this.recognitionType = recognitionType;
   }
 
+  public SubtitleRecognitionConfigForGetAITranslationProjectOutput subtitleFileName(String subtitleFileName) {
+    this.subtitleFileName = subtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get subtitleFileName
+   * @return subtitleFileName
+  **/
+  @Schema(description = "")
+  public String getSubtitleFileName() {
+    return subtitleFileName;
+  }
+
+  public void setSubtitleFileName(String subtitleFileName) {
+    this.subtitleFileName = subtitleFileName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class SubtitleRecognitionConfigForGetAITranslationProjectOutput {
       return false;
     }
     SubtitleRecognitionConfigForGetAITranslationProjectOutput subtitleRecognitionConfigForGetAITranslationProjectOutput = (SubtitleRecognitionConfigForGetAITranslationProjectOutput) o;
-    return Objects.equals(this.recognitionType, subtitleRecognitionConfigForGetAITranslationProjectOutput.recognitionType);
+    return Objects.equals(this.recognitionType, subtitleRecognitionConfigForGetAITranslationProjectOutput.recognitionType) &&
+        Objects.equals(this.subtitleFileName, subtitleRecognitionConfigForGetAITranslationProjectOutput.subtitleFileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recognitionType);
+    return Objects.hash(recognitionType, subtitleFileName);
   }
 
 
@@ -76,6 +98,7 @@ public class SubtitleRecognitionConfigForGetAITranslationProjectOutput {
     sb.append("class SubtitleRecognitionConfigForGetAITranslationProjectOutput {\n");
     
     sb.append("    recognitionType: ").append(toIndentedString(recognitionType)).append("\n");
+    sb.append("    subtitleFileName: ").append(toIndentedString(subtitleFileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

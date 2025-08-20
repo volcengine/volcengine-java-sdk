@@ -22,10 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AdAuditForStartExecutionInput;
 import com.volcengine.vod20250101.model.AsrForStartExecutionInput;
 import com.volcengine.vod20250101.model.AudioExtractForStartExecutionInput;
+import com.volcengine.vod20250101.model.EraseForStartExecutionInput;
+import com.volcengine.vod20250101.model.FileDeleteForStartExecutionInput;
 import com.volcengine.vod20250101.model.HighlightForStartExecutionInput;
 import com.volcengine.vod20250101.model.OcrForStartExecutionInput;
 import com.volcengine.vod20250101.model.SegmentForStartExecutionInput;
 import com.volcengine.vod20250101.model.StorylineForStartExecutionInput;
+import com.volcengine.vod20250101.model.VideoGenerationForStartExecutionInput;
+import com.volcengine.vod20250101.model.VideoSummaryForStartExecutionInput;
 import com.volcengine.vod20250101.model.VisionForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,6 +51,12 @@ public class TaskForStartExecutionInput {
   @SerializedName("AudioExtract")
   private AudioExtractForStartExecutionInput audioExtract = null;
 
+  @SerializedName("Erase")
+  private EraseForStartExecutionInput erase = null;
+
+  @SerializedName("FileDelete")
+  private FileDeleteForStartExecutionInput fileDelete = null;
+
   @SerializedName("Highlight")
   private HighlightForStartExecutionInput highlight = null;
 
@@ -61,6 +71,12 @@ public class TaskForStartExecutionInput {
 
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("VideoGeneration")
+  private VideoGenerationForStartExecutionInput videoGeneration = null;
+
+  @SerializedName("VideoSummary")
+  private VideoSummaryForStartExecutionInput videoSummary = null;
 
   @SerializedName("Vision")
   private VisionForStartExecutionInput vision = null;
@@ -120,6 +136,44 @@ public class TaskForStartExecutionInput {
 
   public void setAudioExtract(AudioExtractForStartExecutionInput audioExtract) {
     this.audioExtract = audioExtract;
+  }
+
+  public TaskForStartExecutionInput erase(EraseForStartExecutionInput erase) {
+    this.erase = erase;
+    return this;
+  }
+
+   /**
+   * Get erase
+   * @return erase
+  **/
+  @Valid
+  @Schema(description = "")
+  public EraseForStartExecutionInput getErase() {
+    return erase;
+  }
+
+  public void setErase(EraseForStartExecutionInput erase) {
+    this.erase = erase;
+  }
+
+  public TaskForStartExecutionInput fileDelete(FileDeleteForStartExecutionInput fileDelete) {
+    this.fileDelete = fileDelete;
+    return this;
+  }
+
+   /**
+   * Get fileDelete
+   * @return fileDelete
+  **/
+  @Valid
+  @Schema(description = "")
+  public FileDeleteForStartExecutionInput getFileDelete() {
+    return fileDelete;
+  }
+
+  public void setFileDelete(FileDeleteForStartExecutionInput fileDelete) {
+    this.fileDelete = fileDelete;
   }
 
   public TaskForStartExecutionInput highlight(HighlightForStartExecutionInput highlight) {
@@ -216,6 +270,44 @@ public class TaskForStartExecutionInput {
     this.type = type;
   }
 
+  public TaskForStartExecutionInput videoGeneration(VideoGenerationForStartExecutionInput videoGeneration) {
+    this.videoGeneration = videoGeneration;
+    return this;
+  }
+
+   /**
+   * Get videoGeneration
+   * @return videoGeneration
+  **/
+  @Valid
+  @Schema(description = "")
+  public VideoGenerationForStartExecutionInput getVideoGeneration() {
+    return videoGeneration;
+  }
+
+  public void setVideoGeneration(VideoGenerationForStartExecutionInput videoGeneration) {
+    this.videoGeneration = videoGeneration;
+  }
+
+  public TaskForStartExecutionInput videoSummary(VideoSummaryForStartExecutionInput videoSummary) {
+    this.videoSummary = videoSummary;
+    return this;
+  }
+
+   /**
+   * Get videoSummary
+   * @return videoSummary
+  **/
+  @Valid
+  @Schema(description = "")
+  public VideoSummaryForStartExecutionInput getVideoSummary() {
+    return videoSummary;
+  }
+
+  public void setVideoSummary(VideoSummaryForStartExecutionInput videoSummary) {
+    this.videoSummary = videoSummary;
+  }
+
   public TaskForStartExecutionInput vision(VisionForStartExecutionInput vision) {
     this.vision = vision;
     return this;
@@ -248,17 +340,21 @@ public class TaskForStartExecutionInput {
     return Objects.equals(this.adAudit, taskForStartExecutionInput.adAudit) &&
         Objects.equals(this.asr, taskForStartExecutionInput.asr) &&
         Objects.equals(this.audioExtract, taskForStartExecutionInput.audioExtract) &&
+        Objects.equals(this.erase, taskForStartExecutionInput.erase) &&
+        Objects.equals(this.fileDelete, taskForStartExecutionInput.fileDelete) &&
         Objects.equals(this.highlight, taskForStartExecutionInput.highlight) &&
         Objects.equals(this.ocr, taskForStartExecutionInput.ocr) &&
         Objects.equals(this.segment, taskForStartExecutionInput.segment) &&
         Objects.equals(this.storyline, taskForStartExecutionInput.storyline) &&
         Objects.equals(this.type, taskForStartExecutionInput.type) &&
+        Objects.equals(this.videoGeneration, taskForStartExecutionInput.videoGeneration) &&
+        Objects.equals(this.videoSummary, taskForStartExecutionInput.videoSummary) &&
         Objects.equals(this.vision, taskForStartExecutionInput.vision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, highlight, ocr, segment, storyline, type, vision);
+    return Objects.hash(adAudit, asr, audioExtract, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoSummary, vision);
   }
 
 
@@ -270,11 +366,15 @@ public class TaskForStartExecutionInput {
     sb.append("    adAudit: ").append(toIndentedString(adAudit)).append("\n");
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
+    sb.append("    erase: ").append(toIndentedString(erase)).append("\n");
+    sb.append("    fileDelete: ").append(toIndentedString(fileDelete)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    videoGeneration: ").append(toIndentedString(videoGeneration)).append("\n");
+    sb.append("    videoSummary: ").append(toIndentedString(videoSummary)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
     sb.append("}");
     return sb.toString();

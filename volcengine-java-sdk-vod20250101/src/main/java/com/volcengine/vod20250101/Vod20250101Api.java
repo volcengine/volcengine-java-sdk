@@ -29,6 +29,8 @@ import javax.validation.constraints.*;
 
 import com.volcengine.vod20250101.model.ContinueAITranslationWorkflowRequest;
 import com.volcengine.vod20250101.model.ContinueAITranslationWorkflowResponse;
+import com.volcengine.vod20250101.model.GenerateAITranslationUtteranceAudioRequest;
+import com.volcengine.vod20250101.model.GenerateAITranslationUtteranceAudioResponse;
 import com.volcengine.vod20250101.model.GetAITranslationProjectRequest;
 import com.volcengine.vod20250101.model.GetAITranslationProjectResponse;
 import com.volcengine.vod20250101.model.GetExecutionRequest;
@@ -41,6 +43,8 @@ import com.volcengine.vod20250101.model.StartExecutionRequest;
 import com.volcengine.vod20250101.model.StartExecutionResponse;
 import com.volcengine.vod20250101.model.SubmitAITranslationWorkflowRequest;
 import com.volcengine.vod20250101.model.SubmitAITranslationWorkflowResponse;
+import com.volcengine.vod20250101.model.UpdateAITranslationSpeakersRequest;
+import com.volcengine.vod20250101.model.UpdateAITranslationSpeakersResponse;
 import com.volcengine.vod20250101.model.UpdateAITranslationUtterancesRequest;
 import com.volcengine.vod20250101.model.UpdateAITranslationUtterancesResponse;
 
@@ -190,6 +194,130 @@ public class Vod20250101Api {
 
         com.squareup.okhttp.Call call = continueAITranslationWorkflowValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ContinueAITranslationWorkflowResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for generateAITranslationUtteranceAudio
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call generateAITranslationUtteranceAudioCall(GenerateAITranslationUtteranceAudioRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GenerateAITranslationUtteranceAudio/2025-01-01/vod/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call generateAITranslationUtteranceAudioValidateBeforeCall(GenerateAITranslationUtteranceAudioRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling generateAITranslationUtteranceAudio(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = generateAITranslationUtteranceAudioCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GenerateAITranslationUtteranceAudioResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenerateAITranslationUtteranceAudioResponse generateAITranslationUtteranceAudio(GenerateAITranslationUtteranceAudioRequest body) throws ApiException {
+        ApiResponse<GenerateAITranslationUtteranceAudioResponse> resp = generateAITranslationUtteranceAudioWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GenerateAITranslationUtteranceAudioResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenerateAITranslationUtteranceAudioResponse> generateAITranslationUtteranceAudioWithHttpInfo( @NotNull GenerateAITranslationUtteranceAudioRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = generateAITranslationUtteranceAudioValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GenerateAITranslationUtteranceAudioResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call generateAITranslationUtteranceAudioAsync(GenerateAITranslationUtteranceAudioRequest body, final ApiCallback<GenerateAITranslationUtteranceAudioResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = generateAITranslationUtteranceAudioValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GenerateAITranslationUtteranceAudioResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -934,6 +1062,130 @@ public class Vod20250101Api {
 
         com.squareup.okhttp.Call call = submitAITranslationWorkflowValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SubmitAITranslationWorkflowResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateAITranslationSpeakers
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateAITranslationSpeakersCall(UpdateAITranslationSpeakersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateAITranslationSpeakers/2025-01-01/vod/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateAITranslationSpeakersValidateBeforeCall(UpdateAITranslationSpeakersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateAITranslationSpeakers(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateAITranslationSpeakersCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateAITranslationSpeakersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateAITranslationSpeakersResponse updateAITranslationSpeakers(UpdateAITranslationSpeakersRequest body) throws ApiException {
+        ApiResponse<UpdateAITranslationSpeakersResponse> resp = updateAITranslationSpeakersWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateAITranslationSpeakersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateAITranslationSpeakersResponse> updateAITranslationSpeakersWithHttpInfo( @NotNull UpdateAITranslationSpeakersRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateAITranslationSpeakersValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateAITranslationSpeakersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateAITranslationSpeakersAsync(UpdateAITranslationSpeakersRequest body, final ApiCallback<UpdateAITranslationSpeakersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateAITranslationSpeakersValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateAITranslationSpeakersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

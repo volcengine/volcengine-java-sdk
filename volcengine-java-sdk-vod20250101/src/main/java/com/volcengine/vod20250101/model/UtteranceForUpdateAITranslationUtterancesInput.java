@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.TrimForUpdateAITranslationUtterancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,6 +39,12 @@ public class UtteranceForUpdateAITranslationUtterancesInput {
 
   @SerializedName("Text")
   private String text = null;
+
+  @SerializedName("Trim")
+  private TrimForUpdateAITranslationUtterancesInput trim = null;
+
+  @SerializedName("Volume")
+  private Integer volume = null;
 
   public UtteranceForUpdateAITranslationUtterancesInput id(String id) {
     this.id = id;
@@ -93,6 +100,43 @@ public class UtteranceForUpdateAITranslationUtterancesInput {
     this.text = text;
   }
 
+  public UtteranceForUpdateAITranslationUtterancesInput trim(TrimForUpdateAITranslationUtterancesInput trim) {
+    this.trim = trim;
+    return this;
+  }
+
+   /**
+   * Get trim
+   * @return trim
+  **/
+  @Valid
+  @Schema(description = "")
+  public TrimForUpdateAITranslationUtterancesInput getTrim() {
+    return trim;
+  }
+
+  public void setTrim(TrimForUpdateAITranslationUtterancesInput trim) {
+    this.trim = trim;
+  }
+
+  public UtteranceForUpdateAITranslationUtterancesInput volume(Integer volume) {
+    this.volume = volume;
+    return this;
+  }
+
+   /**
+   * Get volume
+   * @return volume
+  **/
+  @Schema(description = "")
+  public Integer getVolume() {
+    return volume;
+  }
+
+  public void setVolume(Integer volume) {
+    this.volume = volume;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +149,14 @@ public class UtteranceForUpdateAITranslationUtterancesInput {
     UtteranceForUpdateAITranslationUtterancesInput utteranceForUpdateAITranslationUtterancesInput = (UtteranceForUpdateAITranslationUtterancesInput) o;
     return Objects.equals(this.id, utteranceForUpdateAITranslationUtterancesInput.id) &&
         Objects.equals(this.speakerId, utteranceForUpdateAITranslationUtterancesInput.speakerId) &&
-        Objects.equals(this.text, utteranceForUpdateAITranslationUtterancesInput.text);
+        Objects.equals(this.text, utteranceForUpdateAITranslationUtterancesInput.text) &&
+        Objects.equals(this.trim, utteranceForUpdateAITranslationUtterancesInput.trim) &&
+        Objects.equals(this.volume, utteranceForUpdateAITranslationUtterancesInput.volume);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, speakerId, text);
+    return Objects.hash(id, speakerId, text, trim, volume);
   }
 
 
@@ -122,6 +168,8 @@ public class UtteranceForUpdateAITranslationUtterancesInput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    speakerId: ").append(toIndentedString(speakerId)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    trim: ").append(toIndentedString(trim)).append("\n");
+    sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
     sb.append("}");
     return sb.toString();
   }

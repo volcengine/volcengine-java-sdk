@@ -36,6 +36,15 @@ public class ConvertModelForGetExecutionOutput {
   @SerializedName("DoubaoOutputTokens")
   private Integer doubaoOutputTokens = null;
 
+  @SerializedName("DoubaoTextInputTokens")
+  private Integer doubaoTextInputTokens = null;
+
+  @SerializedName("DoubaoTextOutputTokens")
+  private Integer doubaoTextOutputTokens = null;
+
+  @SerializedName("DoubaoTextTotalTokens")
+  private Integer doubaoTextTotalTokens = null;
+
   @SerializedName("DoubaoTotalTokens")
   private Integer doubaoTotalTokens = null;
 
@@ -75,6 +84,60 @@ public class ConvertModelForGetExecutionOutput {
     this.doubaoOutputTokens = doubaoOutputTokens;
   }
 
+  public ConvertModelForGetExecutionOutput doubaoTextInputTokens(Integer doubaoTextInputTokens) {
+    this.doubaoTextInputTokens = doubaoTextInputTokens;
+    return this;
+  }
+
+   /**
+   * Get doubaoTextInputTokens
+   * @return doubaoTextInputTokens
+  **/
+  @Schema(description = "")
+  public Integer getDoubaoTextInputTokens() {
+    return doubaoTextInputTokens;
+  }
+
+  public void setDoubaoTextInputTokens(Integer doubaoTextInputTokens) {
+    this.doubaoTextInputTokens = doubaoTextInputTokens;
+  }
+
+  public ConvertModelForGetExecutionOutput doubaoTextOutputTokens(Integer doubaoTextOutputTokens) {
+    this.doubaoTextOutputTokens = doubaoTextOutputTokens;
+    return this;
+  }
+
+   /**
+   * Get doubaoTextOutputTokens
+   * @return doubaoTextOutputTokens
+  **/
+  @Schema(description = "")
+  public Integer getDoubaoTextOutputTokens() {
+    return doubaoTextOutputTokens;
+  }
+
+  public void setDoubaoTextOutputTokens(Integer doubaoTextOutputTokens) {
+    this.doubaoTextOutputTokens = doubaoTextOutputTokens;
+  }
+
+  public ConvertModelForGetExecutionOutput doubaoTextTotalTokens(Integer doubaoTextTotalTokens) {
+    this.doubaoTextTotalTokens = doubaoTextTotalTokens;
+    return this;
+  }
+
+   /**
+   * Get doubaoTextTotalTokens
+   * @return doubaoTextTotalTokens
+  **/
+  @Schema(description = "")
+  public Integer getDoubaoTextTotalTokens() {
+    return doubaoTextTotalTokens;
+  }
+
+  public void setDoubaoTextTotalTokens(Integer doubaoTextTotalTokens) {
+    this.doubaoTextTotalTokens = doubaoTextTotalTokens;
+  }
+
   public ConvertModelForGetExecutionOutput doubaoTotalTokens(Integer doubaoTotalTokens) {
     this.doubaoTotalTokens = doubaoTotalTokens;
     return this;
@@ -105,12 +168,15 @@ public class ConvertModelForGetExecutionOutput {
     ConvertModelForGetExecutionOutput convertModelForGetExecutionOutput = (ConvertModelForGetExecutionOutput) o;
     return Objects.equals(this.doubaoInputTokens, convertModelForGetExecutionOutput.doubaoInputTokens) &&
         Objects.equals(this.doubaoOutputTokens, convertModelForGetExecutionOutput.doubaoOutputTokens) &&
+        Objects.equals(this.doubaoTextInputTokens, convertModelForGetExecutionOutput.doubaoTextInputTokens) &&
+        Objects.equals(this.doubaoTextOutputTokens, convertModelForGetExecutionOutput.doubaoTextOutputTokens) &&
+        Objects.equals(this.doubaoTextTotalTokens, convertModelForGetExecutionOutput.doubaoTextTotalTokens) &&
         Objects.equals(this.doubaoTotalTokens, convertModelForGetExecutionOutput.doubaoTotalTokens);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(doubaoInputTokens, doubaoOutputTokens, doubaoTotalTokens);
+    return Objects.hash(doubaoInputTokens, doubaoOutputTokens, doubaoTextInputTokens, doubaoTextOutputTokens, doubaoTextTotalTokens, doubaoTotalTokens);
   }
 
 
@@ -121,6 +187,9 @@ public class ConvertModelForGetExecutionOutput {
     
     sb.append("    doubaoInputTokens: ").append(toIndentedString(doubaoInputTokens)).append("\n");
     sb.append("    doubaoOutputTokens: ").append(toIndentedString(doubaoOutputTokens)).append("\n");
+    sb.append("    doubaoTextInputTokens: ").append(toIndentedString(doubaoTextInputTokens)).append("\n");
+    sb.append("    doubaoTextOutputTokens: ").append(toIndentedString(doubaoTextOutputTokens)).append("\n");
+    sb.append("    doubaoTextTotalTokens: ").append(toIndentedString(doubaoTextTotalTokens)).append("\n");
     sb.append("    doubaoTotalTokens: ").append(toIndentedString(doubaoTotalTokens)).append("\n");
     sb.append("}");
     return sb.toString();

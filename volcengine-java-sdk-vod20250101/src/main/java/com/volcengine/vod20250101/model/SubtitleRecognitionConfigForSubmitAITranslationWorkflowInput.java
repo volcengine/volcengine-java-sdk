@@ -33,6 +33,9 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
   @SerializedName("RecognitionType")
   private String recognitionType = null;
 
+  @SerializedName("SubtitleFileName")
+  private String subtitleFileName = null;
+
   public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput recognitionType(String recognitionType) {
     this.recognitionType = recognitionType;
     return this;
@@ -51,6 +54,24 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     this.recognitionType = recognitionType;
   }
 
+  public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput subtitleFileName(String subtitleFileName) {
+    this.subtitleFileName = subtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get subtitleFileName
+   * @return subtitleFileName
+  **/
+  @Schema(description = "")
+  public String getSubtitleFileName() {
+    return subtitleFileName;
+  }
+
+  public void setSubtitleFileName(String subtitleFileName) {
+    this.subtitleFileName = subtitleFileName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
       return false;
     }
     SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput subtitleRecognitionConfigForSubmitAITranslationWorkflowInput = (SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) o;
-    return Objects.equals(this.recognitionType, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.recognitionType);
+    return Objects.equals(this.recognitionType, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.recognitionType) &&
+        Objects.equals(this.subtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.subtitleFileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recognitionType);
+    return Objects.hash(recognitionType, subtitleFileName);
   }
 
 
@@ -76,6 +98,7 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     sb.append("class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {\n");
     
     sb.append("    recognitionType: ").append(toIndentedString(recognitionType)).append("\n");
+    sb.append("    subtitleFileName: ").append(toIndentedString(subtitleFileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

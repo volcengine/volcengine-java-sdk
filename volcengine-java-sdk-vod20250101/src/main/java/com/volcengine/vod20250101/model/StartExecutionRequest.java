@@ -20,9 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ControlForStartExecutionInput;
+import com.volcengine.vod20250101.model.ConvertOperationForStartExecutionInput;
 import com.volcengine.vod20250101.model.InputForStartExecutionInput;
 import com.volcengine.vod20250101.model.MultiInputForStartExecutionInput;
-import com.volcengine.vod20250101.model.OperationForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +46,10 @@ public class StartExecutionRequest {
   private List<MultiInputForStartExecutionInput> multiInputs = null;
 
   @SerializedName("Operation")
-  private OperationForStartExecutionInput operation = null;
+  private ConvertOperationForStartExecutionInput operation = null;
+
+  @SerializedName("SpaceName")
+  private String spaceName = null;
 
   public StartExecutionRequest control(ControlForStartExecutionInput control) {
     this.control = control;
@@ -113,7 +116,7 @@ public class StartExecutionRequest {
     this.multiInputs = multiInputs;
   }
 
-  public StartExecutionRequest operation(OperationForStartExecutionInput operation) {
+  public StartExecutionRequest operation(ConvertOperationForStartExecutionInput operation) {
     this.operation = operation;
     return this;
   }
@@ -124,12 +127,30 @@ public class StartExecutionRequest {
   **/
   @Valid
   @Schema(description = "")
-  public OperationForStartExecutionInput getOperation() {
+  public ConvertOperationForStartExecutionInput getOperation() {
     return operation;
   }
 
-  public void setOperation(OperationForStartExecutionInput operation) {
+  public void setOperation(ConvertOperationForStartExecutionInput operation) {
     this.operation = operation;
+  }
+
+  public StartExecutionRequest spaceName(String spaceName) {
+    this.spaceName = spaceName;
+    return this;
+  }
+
+   /**
+   * Get spaceName
+   * @return spaceName
+  **/
+  @Schema(description = "")
+  public String getSpaceName() {
+    return spaceName;
+  }
+
+  public void setSpaceName(String spaceName) {
+    this.spaceName = spaceName;
   }
 
 
@@ -145,12 +166,13 @@ public class StartExecutionRequest {
     return Objects.equals(this.control, startExecutionRequest.control) &&
         Objects.equals(this.input, startExecutionRequest.input) &&
         Objects.equals(this.multiInputs, startExecutionRequest.multiInputs) &&
-        Objects.equals(this.operation, startExecutionRequest.operation);
+        Objects.equals(this.operation, startExecutionRequest.operation) &&
+        Objects.equals(this.spaceName, startExecutionRequest.spaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(control, input, multiInputs, operation);
+    return Objects.hash(control, input, multiInputs, operation, spaceName);
   }
 
 
@@ -163,6 +185,7 @@ public class StartExecutionRequest {
     sb.append("    input: ").append(toIndentedString(input)).append("\n");
     sb.append("    multiInputs: ").append(toIndentedString(multiInputs)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

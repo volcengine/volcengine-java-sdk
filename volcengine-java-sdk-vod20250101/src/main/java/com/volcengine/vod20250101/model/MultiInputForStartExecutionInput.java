@@ -38,6 +38,9 @@ public class MultiInputForStartExecutionInput {
   @SerializedName("FileId")
   private FileIdForStartExecutionInput fileId = null;
 
+  @SerializedName("Tag")
+  private String tag = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -80,6 +83,24 @@ public class MultiInputForStartExecutionInput {
 
   public void setFileId(FileIdForStartExecutionInput fileId) {
     this.fileId = fileId;
+  }
+
+  public MultiInputForStartExecutionInput tag(String tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @Schema(description = "")
+  public String getTag() {
+    return tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
   }
 
   public MultiInputForStartExecutionInput type(String type) {
@@ -130,13 +151,14 @@ public class MultiInputForStartExecutionInput {
     MultiInputForStartExecutionInput multiInputForStartExecutionInput = (MultiInputForStartExecutionInput) o;
     return Objects.equals(this.directUrl, multiInputForStartExecutionInput.directUrl) &&
         Objects.equals(this.fileId, multiInputForStartExecutionInput.fileId) &&
+        Objects.equals(this.tag, multiInputForStartExecutionInput.tag) &&
         Objects.equals(this.type, multiInputForStartExecutionInput.type) &&
         Objects.equals(this.vid, multiInputForStartExecutionInput.vid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directUrl, fileId, type, vid);
+    return Objects.hash(directUrl, fileId, tag, type, vid);
   }
 
 
@@ -147,6 +169,7 @@ public class MultiInputForStartExecutionInput {
     
     sb.append("    directUrl: ").append(toIndentedString(directUrl)).append("\n");
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
     sb.append("}");
