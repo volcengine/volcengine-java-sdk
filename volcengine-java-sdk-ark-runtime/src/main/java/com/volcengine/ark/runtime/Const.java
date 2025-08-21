@@ -22,6 +22,6 @@ public class Const {
     public static final String TRUNCATION_STRATEGY_TYPE_LAST_HISTORY_TOKENS = "last_history_tokens";
     public static final String TRUNCATION_STRATEGY_TYPE_ROLLING_TOKENS = "rolling_tokens";
 
-    public static final String BATCH_CHAT_PATH = "/api/v3/batch/chat/completions";
+    public static final String BATCH_PATH_PREFIX = "/api/v3/batch";
     public static final int MAX_RETRY_TIMES = 259200;
 }

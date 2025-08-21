@@ -43,7 +43,11 @@ public interface ArkBaseServiceImpl {
 
     EmbeddingResult createEmbeddings(EmbeddingRequest request);
 
+    EmbeddingResult createBatchEmbeddings(EmbeddingRequest request);
+
     MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request);
+
+    MultimodalEmbeddingResult createBatchMultiModalEmbeddings(MultimodalEmbeddingRequest request);
 
     ImagesResponse generateImages(GenerateImagesRequest request);
 

@@ -21,7 +21,7 @@ public class BatchInterceptor implements Interceptor  {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         HttpUrl url = request.url();
-        if (!url.encodedPath().equals(BATCH_CHAT_PATH)) {
+        if (!url.encodedPath().startsWith(BATCH_PATH_PREFIX)) {
             return chain.proceed(request);
         }
         String endpoint = request.header(REQUEST_MODEL);

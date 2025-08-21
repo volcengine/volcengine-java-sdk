@@ -203,12 +203,28 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return execute(api.createEmbeddings(request, request.getModel(), customHeaders));
     }
 
+    public EmbeddingResult createBatchEmbeddings(EmbeddingRequest request) {
+        return execute(api.createBatchEmbeddings(request, request.getModel(), new HashMap<>()));
+    }
+
+    public EmbeddingResult createBatchEmbeddings(EmbeddingRequest request, Map<String, String> customHeaders) {
+        return execute(api.createBatchEmbeddings(request, request.getModel(), customHeaders));
+    }
+
     public MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request) {
         return execute(api.createMultiModalEmbeddings(request, request.getModel(), new HashMap<>()));
     }
 
     public MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request, Map<String, String> customHeaders) {
         return execute(api.createMultiModalEmbeddings(request, request.getModel(), customHeaders));
+    }
+
+    public MultimodalEmbeddingResult createBatchMultiModalEmbeddings(MultimodalEmbeddingRequest request) {
+        return execute(api.createBatchMultiModalEmbeddings(request, request.getModel(), new HashMap<>()));
+    }
+
+    public MultimodalEmbeddingResult createBatchMultiModalEmbeddings(MultimodalEmbeddingRequest request, Map<String, String> customHeaders) {
+        return execute(api.createBatchMultiModalEmbeddings(request, request.getModel(), customHeaders));
     }
 
     @Override

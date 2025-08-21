@@ -4,7 +4,6 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import java.io.IOException;
 import java.io.InterruptedIOException;
 
 import static com.volcengine.ark.runtime.Const.*;
@@ -73,7 +72,7 @@ public class RetryInterceptor implements Interceptor {
 
     public int getRetryTimes(Request request) {
         String path = request.url().encodedPath();
-        if (path.equals(BATCH_CHAT_PATH)) {
+        if (path.startsWith(BATCH_PATH_PREFIX)) {
             return MAX_RETRY_TIMES;
         }
         return retryTimes;
