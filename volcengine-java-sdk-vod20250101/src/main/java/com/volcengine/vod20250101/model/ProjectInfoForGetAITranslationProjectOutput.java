@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.BackgroundAudioForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.BackgroundClipForGetAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.ErasedSubtitleVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.FacialTranslationVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.ForegroundAudioForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.InputVideoForGetAITranslationProjectOutput;
@@ -59,6 +60,9 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
+
+  @SerializedName("ErasedSubtitleVideo")
+  private ErasedSubtitleVideoForGetAITranslationProjectOutput erasedSubtitleVideo = null;
 
   @SerializedName("ErrorCode")
   private Integer errorCode = null;
@@ -192,6 +196,25 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public ProjectInfoForGetAITranslationProjectOutput erasedSubtitleVideo(ErasedSubtitleVideoForGetAITranslationProjectOutput erasedSubtitleVideo) {
+    this.erasedSubtitleVideo = erasedSubtitleVideo;
+    return this;
+  }
+
+   /**
+   * Get erasedSubtitleVideo
+   * @return erasedSubtitleVideo
+  **/
+  @Valid
+  @Schema(description = "")
+  public ErasedSubtitleVideoForGetAITranslationProjectOutput getErasedSubtitleVideo() {
+    return erasedSubtitleVideo;
+  }
+
+  public void setErasedSubtitleVideo(ErasedSubtitleVideoForGetAITranslationProjectOutput erasedSubtitleVideo) {
+    this.erasedSubtitleVideo = erasedSubtitleVideo;
   }
 
   public ProjectInfoForGetAITranslationProjectOutput errorCode(Integer errorCode) {
@@ -772,6 +795,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     return Objects.equals(this.backgroundAudio, projectInfoForGetAITranslationProjectOutput.backgroundAudio) &&
         Objects.equals(this.backgroundClip, projectInfoForGetAITranslationProjectOutput.backgroundClip) &&
         Objects.equals(this.createdAt, projectInfoForGetAITranslationProjectOutput.createdAt) &&
+        Objects.equals(this.erasedSubtitleVideo, projectInfoForGetAITranslationProjectOutput.erasedSubtitleVideo) &&
         Objects.equals(this.errorCode, projectInfoForGetAITranslationProjectOutput.errorCode) &&
         Objects.equals(this.errorMsg, projectInfoForGetAITranslationProjectOutput.errorMsg) &&
         Objects.equals(this.facialTranslationVideo, projectInfoForGetAITranslationProjectOutput.facialTranslationVideo) &&
@@ -802,7 +826,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundAudio, backgroundClip, createdAt, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputVideo, inputVideoTitle, operatorConfig, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
+    return Objects.hash(backgroundAudio, backgroundClip, createdAt, erasedSubtitleVideo, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputVideo, inputVideoTitle, operatorConfig, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
   }
 
 
@@ -814,6 +838,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     sb.append("    backgroundAudio: ").append(toIndentedString(backgroundAudio)).append("\n");
     sb.append("    backgroundClip: ").append(toIndentedString(backgroundClip)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    erasedSubtitleVideo: ").append(toIndentedString(erasedSubtitleVideo)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    facialTranslationVideo: ").append(toIndentedString(facialTranslationVideo)).append("\n");

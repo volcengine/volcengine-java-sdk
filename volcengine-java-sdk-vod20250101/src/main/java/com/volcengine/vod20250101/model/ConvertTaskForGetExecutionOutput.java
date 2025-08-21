@@ -22,10 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ConvertAdAuditForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertAsrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertAudioExtractForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertConvertSegmentForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertConvertStorylineForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertStorylineForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertEraseForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertFileDeleteForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertHighlightForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertOcrForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertVideoGenerationForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertVideoSummaryForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVisionForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,6 +51,12 @@ public class ConvertTaskForGetExecutionOutput {
   @SerializedName("AudioExtract")
   private ConvertAudioExtractForGetExecutionOutput audioExtract = null;
 
+  @SerializedName("Erase")
+  private ConvertEraseForGetExecutionOutput erase = null;
+
+  @SerializedName("FileDelete")
+  private ConvertFileDeleteForGetExecutionOutput fileDelete = null;
+
   @SerializedName("Highlight")
   private ConvertHighlightForGetExecutionOutput highlight = null;
 
@@ -54,13 +64,19 @@ public class ConvertTaskForGetExecutionOutput {
   private ConvertOcrForGetExecutionOutput ocr = null;
 
   @SerializedName("Segment")
-  private ConvertConvertSegmentForGetExecutionOutput segment = null;
+  private ConvertConvertConvertConvertSegmentForGetExecutionOutput segment = null;
 
   @SerializedName("Storyline")
-  private ConvertConvertStorylineForGetExecutionOutput storyline = null;
+  private ConvertConvertConvertStorylineForGetExecutionOutput storyline = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("VideoGeneration")
+  private ConvertVideoGenerationForGetExecutionOutput videoGeneration = null;
+
+  @SerializedName("VideoSummary")
+  private ConvertVideoSummaryForGetExecutionOutput videoSummary = null;
 
   @SerializedName("Vision")
   private ConvertVisionForGetExecutionOutput vision = null;
@@ -122,6 +138,44 @@ public class ConvertTaskForGetExecutionOutput {
     this.audioExtract = audioExtract;
   }
 
+  public ConvertTaskForGetExecutionOutput erase(ConvertEraseForGetExecutionOutput erase) {
+    this.erase = erase;
+    return this;
+  }
+
+   /**
+   * Get erase
+   * @return erase
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertEraseForGetExecutionOutput getErase() {
+    return erase;
+  }
+
+  public void setErase(ConvertEraseForGetExecutionOutput erase) {
+    this.erase = erase;
+  }
+
+  public ConvertTaskForGetExecutionOutput fileDelete(ConvertFileDeleteForGetExecutionOutput fileDelete) {
+    this.fileDelete = fileDelete;
+    return this;
+  }
+
+   /**
+   * Get fileDelete
+   * @return fileDelete
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertFileDeleteForGetExecutionOutput getFileDelete() {
+    return fileDelete;
+  }
+
+  public void setFileDelete(ConvertFileDeleteForGetExecutionOutput fileDelete) {
+    this.fileDelete = fileDelete;
+  }
+
   public ConvertTaskForGetExecutionOutput highlight(ConvertHighlightForGetExecutionOutput highlight) {
     this.highlight = highlight;
     return this;
@@ -160,7 +214,7 @@ public class ConvertTaskForGetExecutionOutput {
     this.ocr = ocr;
   }
 
-  public ConvertTaskForGetExecutionOutput segment(ConvertConvertSegmentForGetExecutionOutput segment) {
+  public ConvertTaskForGetExecutionOutput segment(ConvertConvertConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
     return this;
   }
@@ -171,15 +225,15 @@ public class ConvertTaskForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertConvertSegmentForGetExecutionOutput getSegment() {
+  public ConvertConvertConvertConvertSegmentForGetExecutionOutput getSegment() {
     return segment;
   }
 
-  public void setSegment(ConvertConvertSegmentForGetExecutionOutput segment) {
+  public void setSegment(ConvertConvertConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
   }
 
-  public ConvertTaskForGetExecutionOutput storyline(ConvertConvertStorylineForGetExecutionOutput storyline) {
+  public ConvertTaskForGetExecutionOutput storyline(ConvertConvertConvertStorylineForGetExecutionOutput storyline) {
     this.storyline = storyline;
     return this;
   }
@@ -190,11 +244,11 @@ public class ConvertTaskForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertConvertStorylineForGetExecutionOutput getStoryline() {
+  public ConvertConvertConvertStorylineForGetExecutionOutput getStoryline() {
     return storyline;
   }
 
-  public void setStoryline(ConvertConvertStorylineForGetExecutionOutput storyline) {
+  public void setStoryline(ConvertConvertConvertStorylineForGetExecutionOutput storyline) {
     this.storyline = storyline;
   }
 
@@ -214,6 +268,44 @@ public class ConvertTaskForGetExecutionOutput {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public ConvertTaskForGetExecutionOutput videoGeneration(ConvertVideoGenerationForGetExecutionOutput videoGeneration) {
+    this.videoGeneration = videoGeneration;
+    return this;
+  }
+
+   /**
+   * Get videoGeneration
+   * @return videoGeneration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertVideoGenerationForGetExecutionOutput getVideoGeneration() {
+    return videoGeneration;
+  }
+
+  public void setVideoGeneration(ConvertVideoGenerationForGetExecutionOutput videoGeneration) {
+    this.videoGeneration = videoGeneration;
+  }
+
+  public ConvertTaskForGetExecutionOutput videoSummary(ConvertVideoSummaryForGetExecutionOutput videoSummary) {
+    this.videoSummary = videoSummary;
+    return this;
+  }
+
+   /**
+   * Get videoSummary
+   * @return videoSummary
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertVideoSummaryForGetExecutionOutput getVideoSummary() {
+    return videoSummary;
+  }
+
+  public void setVideoSummary(ConvertVideoSummaryForGetExecutionOutput videoSummary) {
+    this.videoSummary = videoSummary;
   }
 
   public ConvertTaskForGetExecutionOutput vision(ConvertVisionForGetExecutionOutput vision) {
@@ -248,17 +340,21 @@ public class ConvertTaskForGetExecutionOutput {
     return Objects.equals(this.adAudit, convertTaskForGetExecutionOutput.adAudit) &&
         Objects.equals(this.asr, convertTaskForGetExecutionOutput.asr) &&
         Objects.equals(this.audioExtract, convertTaskForGetExecutionOutput.audioExtract) &&
+        Objects.equals(this.erase, convertTaskForGetExecutionOutput.erase) &&
+        Objects.equals(this.fileDelete, convertTaskForGetExecutionOutput.fileDelete) &&
         Objects.equals(this.highlight, convertTaskForGetExecutionOutput.highlight) &&
         Objects.equals(this.ocr, convertTaskForGetExecutionOutput.ocr) &&
         Objects.equals(this.segment, convertTaskForGetExecutionOutput.segment) &&
         Objects.equals(this.storyline, convertTaskForGetExecutionOutput.storyline) &&
         Objects.equals(this.type, convertTaskForGetExecutionOutput.type) &&
+        Objects.equals(this.videoGeneration, convertTaskForGetExecutionOutput.videoGeneration) &&
+        Objects.equals(this.videoSummary, convertTaskForGetExecutionOutput.videoSummary) &&
         Objects.equals(this.vision, convertTaskForGetExecutionOutput.vision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, highlight, ocr, segment, storyline, type, vision);
+    return Objects.hash(adAudit, asr, audioExtract, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoSummary, vision);
   }
 
 
@@ -270,11 +366,15 @@ public class ConvertTaskForGetExecutionOutput {
     sb.append("    adAudit: ").append(toIndentedString(adAudit)).append("\n");
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
+    sb.append("    erase: ").append(toIndentedString(erase)).append("\n");
+    sb.append("    fileDelete: ").append(toIndentedString(fileDelete)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    videoGeneration: ").append(toIndentedString(videoGeneration)).append("\n");
+    sb.append("    videoSummary: ").append(toIndentedString(videoSummary)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
     sb.append("}");
     return sb.toString();

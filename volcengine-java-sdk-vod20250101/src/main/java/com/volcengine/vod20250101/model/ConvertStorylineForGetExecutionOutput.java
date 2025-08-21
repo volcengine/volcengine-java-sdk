@@ -32,57 +32,78 @@ import javax.validation.Valid;
 
 
 public class ConvertStorylineForGetExecutionOutput {
-  @SerializedName("Clips")
-  private List<Integer> clips = null;
+  @SerializedName("Description")
+  private String description = null;
 
-  @SerializedName("Summary")
-  private String summary = null;
+  @SerializedName("Score")
+  private Double score = null;
+
+  @SerializedName("Segments")
+  private List<Integer> segments = null;
 
   @SerializedName("Title")
   private String title = null;
 
-  public ConvertStorylineForGetExecutionOutput clips(List<Integer> clips) {
-    this.clips = clips;
+  public ConvertStorylineForGetExecutionOutput description(String description) {
+    this.description = description;
     return this;
   }
 
-  public ConvertStorylineForGetExecutionOutput addClipsItem(Integer clipsItem) {
-    if (this.clips == null) {
-      this.clips = new ArrayList<Integer>();
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public ConvertStorylineForGetExecutionOutput score(Double score) {
+    this.score = score;
+    return this;
+  }
+
+   /**
+   * Get score
+   * @return score
+  **/
+  @Schema(description = "")
+  public Double getScore() {
+    return score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public ConvertStorylineForGetExecutionOutput segments(List<Integer> segments) {
+    this.segments = segments;
+    return this;
+  }
+
+  public ConvertStorylineForGetExecutionOutput addSegmentsItem(Integer segmentsItem) {
+    if (this.segments == null) {
+      this.segments = new ArrayList<Integer>();
     }
-    this.clips.add(clipsItem);
+    this.segments.add(segmentsItem);
     return this;
   }
 
    /**
-   * Get clips
-   * @return clips
+   * Get segments
+   * @return segments
   **/
   @Schema(description = "")
-  public List<Integer> getClips() {
-    return clips;
+  public List<Integer> getSegments() {
+    return segments;
   }
 
-  public void setClips(List<Integer> clips) {
-    this.clips = clips;
-  }
-
-  public ConvertStorylineForGetExecutionOutput summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
-
-   /**
-   * Get summary
-   * @return summary
-  **/
-  @Schema(description = "")
-  public String getSummary() {
-    return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
+  public void setSegments(List<Integer> segments) {
+    this.segments = segments;
   }
 
   public ConvertStorylineForGetExecutionOutput title(String title) {
@@ -113,14 +134,15 @@ public class ConvertStorylineForGetExecutionOutput {
       return false;
     }
     ConvertStorylineForGetExecutionOutput convertStorylineForGetExecutionOutput = (ConvertStorylineForGetExecutionOutput) o;
-    return Objects.equals(this.clips, convertStorylineForGetExecutionOutput.clips) &&
-        Objects.equals(this.summary, convertStorylineForGetExecutionOutput.summary) &&
+    return Objects.equals(this.description, convertStorylineForGetExecutionOutput.description) &&
+        Objects.equals(this.score, convertStorylineForGetExecutionOutput.score) &&
+        Objects.equals(this.segments, convertStorylineForGetExecutionOutput.segments) &&
         Objects.equals(this.title, convertStorylineForGetExecutionOutput.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clips, summary, title);
+    return Objects.hash(description, score, segments, title);
   }
 
 
@@ -129,8 +151,9 @@ public class ConvertStorylineForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertStorylineForGetExecutionOutput {\n");
     
-    sb.append("    clips: ").append(toIndentedString(clips)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    score: ").append(toIndentedString(score)).append("\n");
+    sb.append("    segments: ").append(toIndentedString(segments)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();

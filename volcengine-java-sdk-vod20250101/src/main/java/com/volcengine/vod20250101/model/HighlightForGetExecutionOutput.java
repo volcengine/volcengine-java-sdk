@@ -14,6 +14,14 @@ package com.volcengine.vod20250101.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.StorylineCutsForGetExecutionOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +31,49 @@ import javax.validation.Valid;
 
 
 public class HighlightForGetExecutionOutput {
+  @SerializedName("Mode")
+  private String mode = null;
+
+  @SerializedName("StorylineCuts")
+  private StorylineCutsForGetExecutionOutput storylineCuts = null;
+
+  public HighlightForGetExecutionOutput mode(String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
+  }
+
+  public HighlightForGetExecutionOutput storylineCuts(StorylineCutsForGetExecutionOutput storylineCuts) {
+    this.storylineCuts = storylineCuts;
+    return this;
+  }
+
+   /**
+   * Get storylineCuts
+   * @return storylineCuts
+  **/
+  @Valid
+  @Schema(description = "")
+  public StorylineCutsForGetExecutionOutput getStorylineCuts() {
+    return storylineCuts;
+  }
+
+  public void setStorylineCuts(StorylineCutsForGetExecutionOutput storylineCuts) {
+    this.storylineCuts = storylineCuts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +83,14 @@ public class HighlightForGetExecutionOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    HighlightForGetExecutionOutput highlightForGetExecutionOutput = (HighlightForGetExecutionOutput) o;
+    return Objects.equals(this.mode, highlightForGetExecutionOutput.mode) &&
+        Objects.equals(this.storylineCuts, highlightForGetExecutionOutput.storylineCuts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(mode, storylineCuts);
   }
 
 
@@ -46,6 +99,8 @@ public class HighlightForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HighlightForGetExecutionOutput {\n");
     
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    storylineCuts: ").append(toIndentedString(storylineCuts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

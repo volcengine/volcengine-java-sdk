@@ -19,9 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.AllTagForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertClipForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertStorylineForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,59 +32,23 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertStorylineForGetExecutionOutput {
-  @SerializedName("AllTags")
-  private List<AllTagForGetExecutionOutput> allTags = null;
-
   @SerializedName("Clips")
-  private List<ConvertClipForGetExecutionOutput> clips = null;
+  private List<Integer> clips = null;
 
-  @SerializedName("Duration")
-  private Double duration = null;
+  @SerializedName("Summary")
+  private String summary = null;
 
-  @SerializedName("Storylines")
-  private List<ConvertStorylineForGetExecutionOutput> storylines = null;
+  @SerializedName("Title")
+  private String title = null;
 
-  @SerializedName("Summaries")
-  private List<String> summaries = null;
-
-  @SerializedName("Titles")
-  private List<String> titles = null;
-
-  public ConvertConvertStorylineForGetExecutionOutput allTags(List<AllTagForGetExecutionOutput> allTags) {
-    this.allTags = allTags;
-    return this;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput addAllTagsItem(AllTagForGetExecutionOutput allTagsItem) {
-    if (this.allTags == null) {
-      this.allTags = new ArrayList<AllTagForGetExecutionOutput>();
-    }
-    this.allTags.add(allTagsItem);
-    return this;
-  }
-
-   /**
-   * Get allTags
-   * @return allTags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<AllTagForGetExecutionOutput> getAllTags() {
-    return allTags;
-  }
-
-  public void setAllTags(List<AllTagForGetExecutionOutput> allTags) {
-    this.allTags = allTags;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput clips(List<ConvertClipForGetExecutionOutput> clips) {
+  public ConvertConvertStorylineForGetExecutionOutput clips(List<Integer> clips) {
     this.clips = clips;
     return this;
   }
 
-  public ConvertConvertStorylineForGetExecutionOutput addClipsItem(ConvertClipForGetExecutionOutput clipsItem) {
+  public ConvertConvertStorylineForGetExecutionOutput addClipsItem(Integer clipsItem) {
     if (this.clips == null) {
-      this.clips = new ArrayList<ConvertClipForGetExecutionOutput>();
+      this.clips = new ArrayList<Integer>();
     }
     this.clips.add(clipsItem);
     return this;
@@ -97,111 +58,49 @@ public class ConvertConvertStorylineForGetExecutionOutput {
    * Get clips
    * @return clips
   **/
-  @Valid
   @Schema(description = "")
-  public List<ConvertClipForGetExecutionOutput> getClips() {
+  public List<Integer> getClips() {
     return clips;
   }
 
-  public void setClips(List<ConvertClipForGetExecutionOutput> clips) {
+  public void setClips(List<Integer> clips) {
     this.clips = clips;
   }
 
-  public ConvertConvertStorylineForGetExecutionOutput duration(Double duration) {
-    this.duration = duration;
+  public ConvertConvertStorylineForGetExecutionOutput summary(String summary) {
+    this.summary = summary;
     return this;
   }
 
    /**
-   * Get duration
-   * @return duration
+   * Get summary
+   * @return summary
   **/
   @Schema(description = "")
-  public Double getDuration() {
-    return duration;
+  public String getSummary() {
+    return summary;
   }
 
-  public void setDuration(Double duration) {
-    this.duration = duration;
+  public void setSummary(String summary) {
+    this.summary = summary;
   }
 
-  public ConvertConvertStorylineForGetExecutionOutput storylines(List<ConvertStorylineForGetExecutionOutput> storylines) {
-    this.storylines = storylines;
-    return this;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput addStorylinesItem(ConvertStorylineForGetExecutionOutput storylinesItem) {
-    if (this.storylines == null) {
-      this.storylines = new ArrayList<ConvertStorylineForGetExecutionOutput>();
-    }
-    this.storylines.add(storylinesItem);
+  public ConvertConvertStorylineForGetExecutionOutput title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * Get storylines
-   * @return storylines
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ConvertStorylineForGetExecutionOutput> getStorylines() {
-    return storylines;
-  }
-
-  public void setStorylines(List<ConvertStorylineForGetExecutionOutput> storylines) {
-    this.storylines = storylines;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput summaries(List<String> summaries) {
-    this.summaries = summaries;
-    return this;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput addSummariesItem(String summariesItem) {
-    if (this.summaries == null) {
-      this.summaries = new ArrayList<String>();
-    }
-    this.summaries.add(summariesItem);
-    return this;
-  }
-
-   /**
-   * Get summaries
-   * @return summaries
+   * Get title
+   * @return title
   **/
   @Schema(description = "")
-  public List<String> getSummaries() {
-    return summaries;
+  public String getTitle() {
+    return title;
   }
 
-  public void setSummaries(List<String> summaries) {
-    this.summaries = summaries;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput titles(List<String> titles) {
-    this.titles = titles;
-    return this;
-  }
-
-  public ConvertConvertStorylineForGetExecutionOutput addTitlesItem(String titlesItem) {
-    if (this.titles == null) {
-      this.titles = new ArrayList<String>();
-    }
-    this.titles.add(titlesItem);
-    return this;
-  }
-
-   /**
-   * Get titles
-   * @return titles
-  **/
-  @Schema(description = "")
-  public List<String> getTitles() {
-    return titles;
-  }
-
-  public void setTitles(List<String> titles) {
-    this.titles = titles;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -214,17 +113,14 @@ public class ConvertConvertStorylineForGetExecutionOutput {
       return false;
     }
     ConvertConvertStorylineForGetExecutionOutput convertConvertStorylineForGetExecutionOutput = (ConvertConvertStorylineForGetExecutionOutput) o;
-    return Objects.equals(this.allTags, convertConvertStorylineForGetExecutionOutput.allTags) &&
-        Objects.equals(this.clips, convertConvertStorylineForGetExecutionOutput.clips) &&
-        Objects.equals(this.duration, convertConvertStorylineForGetExecutionOutput.duration) &&
-        Objects.equals(this.storylines, convertConvertStorylineForGetExecutionOutput.storylines) &&
-        Objects.equals(this.summaries, convertConvertStorylineForGetExecutionOutput.summaries) &&
-        Objects.equals(this.titles, convertConvertStorylineForGetExecutionOutput.titles);
+    return Objects.equals(this.clips, convertConvertStorylineForGetExecutionOutput.clips) &&
+        Objects.equals(this.summary, convertConvertStorylineForGetExecutionOutput.summary) &&
+        Objects.equals(this.title, convertConvertStorylineForGetExecutionOutput.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allTags, clips, duration, storylines, summaries, titles);
+    return Objects.hash(clips, summary, title);
   }
 
 
@@ -233,12 +129,9 @@ public class ConvertConvertStorylineForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertStorylineForGetExecutionOutput {\n");
     
-    sb.append("    allTags: ").append(toIndentedString(allTags)).append("\n");
     sb.append("    clips: ").append(toIndentedString(clips)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    storylines: ").append(toIndentedString(storylines)).append("\n");
-    sb.append("    summaries: ").append(toIndentedString(summaries)).append("\n");
-    sb.append("    titles: ").append(toIndentedString(titles)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

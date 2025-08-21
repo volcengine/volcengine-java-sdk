@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ConvertTaskForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertTemplateForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 public class OutputForGetExecutionOutput {
   @SerializedName("Task")
   private ConvertTaskForGetExecutionOutput task = null;
-
-  @SerializedName("Template")
-  private ConvertTemplateForGetExecutionOutput template = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -58,25 +54,6 @@ public class OutputForGetExecutionOutput {
 
   public void setTask(ConvertTaskForGetExecutionOutput task) {
     this.task = task;
-  }
-
-  public OutputForGetExecutionOutput template(ConvertTemplateForGetExecutionOutput template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConvertTemplateForGetExecutionOutput getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(ConvertTemplateForGetExecutionOutput template) {
-    this.template = template;
   }
 
   public OutputForGetExecutionOutput type(String type) {
@@ -108,13 +85,12 @@ public class OutputForGetExecutionOutput {
     }
     OutputForGetExecutionOutput outputForGetExecutionOutput = (OutputForGetExecutionOutput) o;
     return Objects.equals(this.task, outputForGetExecutionOutput.task) &&
-        Objects.equals(this.template, outputForGetExecutionOutput.template) &&
         Objects.equals(this.type, outputForGetExecutionOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(task, template, type);
+    return Objects.hash(task, type);
   }
 
 
@@ -124,7 +100,6 @@ public class OutputForGetExecutionOutput {
     sb.append("class OutputForGetExecutionOutput {\n");
     
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

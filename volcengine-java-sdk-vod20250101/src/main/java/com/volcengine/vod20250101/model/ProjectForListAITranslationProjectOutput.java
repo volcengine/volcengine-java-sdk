@@ -23,6 +23,7 @@ import com.volcengine.vod20250101.model.InputVideoForListAITranslationProjectOut
 import com.volcengine.vod20250101.model.OperatorConfigForListAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.OutputVideoForListAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.SourceBlueprintForListAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.SubtitleConfigForListAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.TargetBlueprintForListAITranslationProjectOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -72,6 +73,9 @@ public class ProjectForListAITranslationProjectOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("SubtitleConfig")
+  private SubtitleConfigForListAITranslationProjectOutput subtitleConfig = null;
 
   @SerializedName("TargetBlueprints")
   private List<TargetBlueprintForListAITranslationProjectOutput> targetBlueprints = null;
@@ -313,6 +317,25 @@ public class ProjectForListAITranslationProjectOutput {
     this.status = status;
   }
 
+  public ProjectForListAITranslationProjectOutput subtitleConfig(SubtitleConfigForListAITranslationProjectOutput subtitleConfig) {
+    this.subtitleConfig = subtitleConfig;
+    return this;
+  }
+
+   /**
+   * Get subtitleConfig
+   * @return subtitleConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SubtitleConfigForListAITranslationProjectOutput getSubtitleConfig() {
+    return subtitleConfig;
+  }
+
+  public void setSubtitleConfig(SubtitleConfigForListAITranslationProjectOutput subtitleConfig) {
+    this.subtitleConfig = subtitleConfig;
+  }
+
   public ProjectForListAITranslationProjectOutput targetBlueprints(List<TargetBlueprintForListAITranslationProjectOutput> targetBlueprints) {
     this.targetBlueprints = targetBlueprints;
     return this;
@@ -424,6 +447,7 @@ public class ProjectForListAITranslationProjectOutput {
         Objects.equals(this.projectVersion, projectForListAITranslationProjectOutput.projectVersion) &&
         Objects.equals(this.sourceBlueprints, projectForListAITranslationProjectOutput.sourceBlueprints) &&
         Objects.equals(this.status, projectForListAITranslationProjectOutput.status) &&
+        Objects.equals(this.subtitleConfig, projectForListAITranslationProjectOutput.subtitleConfig) &&
         Objects.equals(this.targetBlueprints, projectForListAITranslationProjectOutput.targetBlueprints) &&
         Objects.equals(this.translationTypeList, projectForListAITranslationProjectOutput.translationTypeList) &&
         Objects.equals(this.updatedAt, projectForListAITranslationProjectOutput.updatedAt) &&
@@ -432,7 +456,7 @@ public class ProjectForListAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, errorCode, errorMsg, inputVideo, inputVideoPosterUrl, inputVideoTitle, operatorConfig, outputVideo, projectId, projectVersion, sourceBlueprints, status, targetBlueprints, translationTypeList, updatedAt, workflowId);
+    return Objects.hash(createdAt, errorCode, errorMsg, inputVideo, inputVideoPosterUrl, inputVideoTitle, operatorConfig, outputVideo, projectId, projectVersion, sourceBlueprints, status, subtitleConfig, targetBlueprints, translationTypeList, updatedAt, workflowId);
   }
 
 
@@ -453,6 +477,7 @@ public class ProjectForListAITranslationProjectOutput {
     sb.append("    projectVersion: ").append(toIndentedString(projectVersion)).append("\n");
     sb.append("    sourceBlueprints: ").append(toIndentedString(sourceBlueprints)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subtitleConfig: ").append(toIndentedString(subtitleConfig)).append("\n");
     sb.append("    targetBlueprints: ").append(toIndentedString(targetBlueprints)).append("\n");
     sb.append("    translationTypeList: ").append(toIndentedString(translationTypeList)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
