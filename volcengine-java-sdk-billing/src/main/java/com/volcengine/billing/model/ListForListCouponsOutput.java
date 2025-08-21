@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class ListForListCouponsOutput {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("AcquireTime")
   private String acquireTime = null;
@@ -43,7 +43,7 @@ public class ListForListCouponsOutput {
   private Double amountLimit = null;
 
   @SerializedName("AssignedOwnerIDList")
-  private List<Integer> assignedOwnerIDList = null;
+  private List<Long> assignedOwnerIDList = null;
 
   @SerializedName("BeginTime")
   private String beginTime = null;
@@ -75,10 +75,13 @@ public class ListForListCouponsOutput {
   @SerializedName("Status")
   private Integer status = null;
 
+  @SerializedName("TotalAmount")
+  private Double totalAmount = null;
+
   @SerializedName("UsageLimit")
   private Integer usageLimit = null;
 
-  public ListForListCouponsOutput accountID(Integer accountID) {
+  public ListForListCouponsOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -88,11 +91,11 @@ public class ListForListCouponsOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 
@@ -132,14 +135,14 @@ public class ListForListCouponsOutput {
     this.amountLimit = amountLimit;
   }
 
-  public ListForListCouponsOutput assignedOwnerIDList(List<Integer> assignedOwnerIDList) {
+  public ListForListCouponsOutput assignedOwnerIDList(List<Long> assignedOwnerIDList) {
     this.assignedOwnerIDList = assignedOwnerIDList;
     return this;
   }
 
-  public ListForListCouponsOutput addAssignedOwnerIDListItem(Integer assignedOwnerIDListItem) {
+  public ListForListCouponsOutput addAssignedOwnerIDListItem(Long assignedOwnerIDListItem) {
     if (this.assignedOwnerIDList == null) {
-      this.assignedOwnerIDList = new ArrayList<Integer>();
+      this.assignedOwnerIDList = new ArrayList<Long>();
     }
     this.assignedOwnerIDList.add(assignedOwnerIDListItem);
     return this;
@@ -150,11 +153,11 @@ public class ListForListCouponsOutput {
    * @return assignedOwnerIDList
   **/
   @Schema(description = "")
-  public List<Integer> getAssignedOwnerIDList() {
+  public List<Long> getAssignedOwnerIDList() {
     return assignedOwnerIDList;
   }
 
-  public void setAssignedOwnerIDList(List<Integer> assignedOwnerIDList) {
+  public void setAssignedOwnerIDList(List<Long> assignedOwnerIDList) {
     this.assignedOwnerIDList = assignedOwnerIDList;
   }
 
@@ -347,6 +350,24 @@ public class ListForListCouponsOutput {
     this.status = status;
   }
 
+  public ListForListCouponsOutput totalAmount(Double totalAmount) {
+    this.totalAmount = totalAmount;
+    return this;
+  }
+
+   /**
+   * Get totalAmount
+   * @return totalAmount
+  **/
+  @Schema(description = "")
+  public Double getTotalAmount() {
+    return totalAmount;
+  }
+
+  public void setTotalAmount(Double totalAmount) {
+    this.totalAmount = totalAmount;
+  }
+
   public ListForListCouponsOutput usageLimit(Integer usageLimit) {
     this.usageLimit = usageLimit;
     return this;
@@ -389,12 +410,13 @@ public class ListForListCouponsOutput {
         Objects.equals(this.remainingAmount, listForListCouponsOutput.remainingAmount) &&
         Objects.equals(this.remark, listForListCouponsOutput.remark) &&
         Objects.equals(this.status, listForListCouponsOutput.status) &&
+        Objects.equals(this.totalAmount, listForListCouponsOutput.totalAmount) &&
         Objects.equals(this.usageLimit, listForListCouponsOutput.usageLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, acquireTime, amountLimit, assignedOwnerIDList, beginTime, couponID, couponName, expiredTime, orderTypeLimit, payTypeLimit, productLimitList, remainingAmount, remark, status, usageLimit);
+    return Objects.hash(accountID, acquireTime, amountLimit, assignedOwnerIDList, beginTime, couponID, couponName, expiredTime, orderTypeLimit, payTypeLimit, productLimitList, remainingAmount, remark, status, totalAmount, usageLimit);
   }
 
 
@@ -417,6 +439,7 @@ public class ListForListCouponsOutput {
     sb.append("    remainingAmount: ").append(toIndentedString(remainingAmount)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    usageLimit: ").append(toIndentedString(usageLimit)).append("\n");
     sb.append("}");
     return sb.toString();
