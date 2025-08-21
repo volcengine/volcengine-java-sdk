@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.NotifyTemplateForEnablePresetAlertTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class EnablePresetAlertTemplateRequest {
 
   @SerializedName("NotificationId")
   private String notificationId = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForEnablePresetAlertTemplateInput> notifyTemplates = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -170,6 +174,33 @@ public class EnablePresetAlertTemplateRequest {
     this.notificationId = notificationId;
   }
 
+  public EnablePresetAlertTemplateRequest notifyTemplates(List<NotifyTemplateForEnablePresetAlertTemplateInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public EnablePresetAlertTemplateRequest addNotifyTemplatesItem(NotifyTemplateForEnablePresetAlertTemplateInput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForEnablePresetAlertTemplateInput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForEnablePresetAlertTemplateInput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForEnablePresetAlertTemplateInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public EnablePresetAlertTemplateRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -285,6 +316,7 @@ public class EnablePresetAlertTemplateRequest {
         Objects.equals(this.effectEndAt, enablePresetAlertTemplateRequest.effectEndAt) &&
         Objects.equals(this.effectStartAt, enablePresetAlertTemplateRequest.effectStartAt) &&
         Objects.equals(this.notificationId, enablePresetAlertTemplateRequest.notificationId) &&
+        Objects.equals(this.notifyTemplates, enablePresetAlertTemplateRequest.notifyTemplates) &&
         Objects.equals(this.projectName, enablePresetAlertTemplateRequest.projectName) &&
         Objects.equals(this.templateId, enablePresetAlertTemplateRequest.templateId) &&
         Objects.equals(this.upgradePresetAlertTemplate, enablePresetAlertTemplateRequest.upgradePresetAlertTemplate) &&
@@ -294,7 +326,7 @@ public class EnablePresetAlertTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, projectName, templateId, upgradePresetAlertTemplate, webhook, webhookIds);
+    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, notifyTemplates, projectName, templateId, upgradePresetAlertTemplate, webhook, webhookIds);
   }
 
 
@@ -308,6 +340,7 @@ public class EnablePresetAlertTemplateRequest {
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    upgradePresetAlertTemplate: ").append(toIndentedString(upgradePresetAlertTemplate)).append("\n");

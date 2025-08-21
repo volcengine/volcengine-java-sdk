@@ -23,6 +23,7 @@ import com.volcengine.volcobserve.model.ConditionForListRulesOutput;
 import com.volcengine.volcobserve.model.ConvertTagForListRulesOutput;
 import com.volcengine.volcobserve.model.DimensionConditionsForListRulesOutput;
 import com.volcengine.volcobserve.model.LevelConditionForListRulesOutput;
+import com.volcengine.volcobserve.model.NotifyTemplateForListRulesOutput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForListRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -93,6 +94,9 @@ public class DataForListRulesOutput {
   @SerializedName("NotificationId")
   private String notificationId = null;
 
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForListRulesOutput> notifyTemplates = null;
+
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
 
@@ -104,6 +108,9 @@ public class DataForListRulesOutput {
 
   @SerializedName("Regions")
   private List<String> regions = null;
+
+  @SerializedName("ResourceType")
+  private String resourceType = null;
 
   @SerializedName("RuleName")
   private String ruleName = null;
@@ -488,6 +495,33 @@ public class DataForListRulesOutput {
     this.notificationId = notificationId;
   }
 
+  public DataForListRulesOutput notifyTemplates(List<NotifyTemplateForListRulesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public DataForListRulesOutput addNotifyTemplatesItem(NotifyTemplateForListRulesOutput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForListRulesOutput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForListRulesOutput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForListRulesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public DataForListRulesOutput originalDimensions(Map<String, List<String>> originalDimensions) {
     this.originalDimensions = originalDimensions;
     return this;
@@ -576,6 +610,24 @@ public class DataForListRulesOutput {
 
   public void setRegions(List<String> regions) {
     this.regions = regions;
+  }
+
+  public DataForListRulesOutput resourceType(String resourceType) {
+    this.resourceType = resourceType;
+    return this;
+  }
+
+   /**
+   * Get resourceType
+   * @return resourceType
+  **/
+  @Schema(description = "")
+  public String getResourceType() {
+    return resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
   }
 
   public DataForListRulesOutput ruleName(String ruleName) {
@@ -767,10 +819,12 @@ public class DataForListRulesOutput {
         Objects.equals(this.multipleConditions, dataForListRulesOutput.multipleConditions) &&
         Objects.equals(this.namespace, dataForListRulesOutput.namespace) &&
         Objects.equals(this.notificationId, dataForListRulesOutput.notificationId) &&
+        Objects.equals(this.notifyTemplates, dataForListRulesOutput.notifyTemplates) &&
         Objects.equals(this.originalDimensions, dataForListRulesOutput.originalDimensions) &&
         Objects.equals(this.projectName, dataForListRulesOutput.projectName) &&
         Objects.equals(this.recoveryNotify, dataForListRulesOutput.recoveryNotify) &&
         Objects.equals(this.regions, dataForListRulesOutput.regions) &&
+        Objects.equals(this.resourceType, dataForListRulesOutput.resourceType) &&
         Objects.equals(this.ruleName, dataForListRulesOutput.ruleName) &&
         Objects.equals(this.ruleType, dataForListRulesOutput.ruleType) &&
         Objects.equals(this.silenceTime, dataForListRulesOutput.silenceTime) &&
@@ -783,7 +837,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, notifyTemplates, originalDimensions, projectName, recoveryNotify, regions, resourceType, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
   }
 
 
@@ -810,10 +864,12 @@ public class DataForListRulesOutput {
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
+    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");

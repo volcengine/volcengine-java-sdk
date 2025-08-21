@@ -36,6 +36,9 @@ public class ModelForGetExecutionOutput {
   @SerializedName("AsrAppType")
   private String asrAppType = null;
 
+  @SerializedName("DoubaoTextEndpoint")
+  private String doubaoTextEndpoint = null;
+
   @SerializedName("DoubaoVisionEndpoint")
   private String doubaoVisionEndpoint = null;
 
@@ -75,6 +78,24 @@ public class ModelForGetExecutionOutput {
     this.asrAppType = asrAppType;
   }
 
+  public ModelForGetExecutionOutput doubaoTextEndpoint(String doubaoTextEndpoint) {
+    this.doubaoTextEndpoint = doubaoTextEndpoint;
+    return this;
+  }
+
+   /**
+   * Get doubaoTextEndpoint
+   * @return doubaoTextEndpoint
+  **/
+  @Schema(description = "")
+  public String getDoubaoTextEndpoint() {
+    return doubaoTextEndpoint;
+  }
+
+  public void setDoubaoTextEndpoint(String doubaoTextEndpoint) {
+    this.doubaoTextEndpoint = doubaoTextEndpoint;
+  }
+
   public ModelForGetExecutionOutput doubaoVisionEndpoint(String doubaoVisionEndpoint) {
     this.doubaoVisionEndpoint = doubaoVisionEndpoint;
     return this;
@@ -105,12 +126,13 @@ public class ModelForGetExecutionOutput {
     ModelForGetExecutionOutput modelForGetExecutionOutput = (ModelForGetExecutionOutput) o;
     return Objects.equals(this.asrAppId, modelForGetExecutionOutput.asrAppId) &&
         Objects.equals(this.asrAppType, modelForGetExecutionOutput.asrAppType) &&
+        Objects.equals(this.doubaoTextEndpoint, modelForGetExecutionOutput.doubaoTextEndpoint) &&
         Objects.equals(this.doubaoVisionEndpoint, modelForGetExecutionOutput.doubaoVisionEndpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asrAppId, asrAppType, doubaoVisionEndpoint);
+    return Objects.hash(asrAppId, asrAppType, doubaoTextEndpoint, doubaoVisionEndpoint);
   }
 
 
@@ -121,6 +143,7 @@ public class ModelForGetExecutionOutput {
     
     sb.append("    asrAppId: ").append(toIndentedString(asrAppId)).append("\n");
     sb.append("    asrAppType: ").append(toIndentedString(asrAppType)).append("\n");
+    sb.append("    doubaoTextEndpoint: ").append(toIndentedString(doubaoTextEndpoint)).append("\n");
     sb.append("    doubaoVisionEndpoint: ").append(toIndentedString(doubaoVisionEndpoint)).append("\n");
     sb.append("}");
     return sb.toString();

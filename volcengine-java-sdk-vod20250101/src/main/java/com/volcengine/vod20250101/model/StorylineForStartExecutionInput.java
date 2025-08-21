@@ -33,6 +33,9 @@ public class StorylineForStartExecutionInput {
   @SerializedName("ClipDuration")
   private Double clipDuration = null;
 
+  @SerializedName("SampleMode")
+  private String sampleMode = null;
+
   @SerializedName("WithSnapshot")
   private Boolean withSnapshot = null;
 
@@ -52,6 +55,24 @@ public class StorylineForStartExecutionInput {
 
   public void setClipDuration(Double clipDuration) {
     this.clipDuration = clipDuration;
+  }
+
+  public StorylineForStartExecutionInput sampleMode(String sampleMode) {
+    this.sampleMode = sampleMode;
+    return this;
+  }
+
+   /**
+   * Get sampleMode
+   * @return sampleMode
+  **/
+  @Schema(description = "")
+  public String getSampleMode() {
+    return sampleMode;
+  }
+
+  public void setSampleMode(String sampleMode) {
+    this.sampleMode = sampleMode;
   }
 
   public StorylineForStartExecutionInput withSnapshot(Boolean withSnapshot) {
@@ -83,12 +104,13 @@ public class StorylineForStartExecutionInput {
     }
     StorylineForStartExecutionInput storylineForStartExecutionInput = (StorylineForStartExecutionInput) o;
     return Objects.equals(this.clipDuration, storylineForStartExecutionInput.clipDuration) &&
+        Objects.equals(this.sampleMode, storylineForStartExecutionInput.sampleMode) &&
         Objects.equals(this.withSnapshot, storylineForStartExecutionInput.withSnapshot);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clipDuration, withSnapshot);
+    return Objects.hash(clipDuration, sampleMode, withSnapshot);
   }
 
 
@@ -98,6 +120,7 @@ public class StorylineForStartExecutionInput {
     sb.append("class StorylineForStartExecutionInput {\n");
     
     sb.append("    clipDuration: ").append(toIndentedString(clipDuration)).append("\n");
+    sb.append("    sampleMode: ").append(toIndentedString(sampleMode)).append("\n");
     sb.append("    withSnapshot: ").append(toIndentedString(withSnapshot)).append("\n");
     sb.append("}");
     return sb.toString();

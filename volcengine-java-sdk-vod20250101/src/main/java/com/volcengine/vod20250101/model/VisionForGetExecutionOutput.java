@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ConvertSegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ModelForGetExecutionOutput;
+import com.volcengine.vod20250101.model.SnapshotParamForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,6 +38,12 @@ public class VisionForGetExecutionOutput {
 
   @SerializedName("Prompt")
   private String prompt = null;
+
+  @SerializedName("Segment")
+  private ConvertSegmentForGetExecutionOutput segment = null;
+
+  @SerializedName("SnapshotParam")
+  private SnapshotParamForGetExecutionOutput snapshotParam = null;
 
   public VisionForGetExecutionOutput model(ModelForGetExecutionOutput model) {
     this.model = model;
@@ -74,6 +82,44 @@ public class VisionForGetExecutionOutput {
     this.prompt = prompt;
   }
 
+  public VisionForGetExecutionOutput segment(ConvertSegmentForGetExecutionOutput segment) {
+    this.segment = segment;
+    return this;
+  }
+
+   /**
+   * Get segment
+   * @return segment
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertSegmentForGetExecutionOutput getSegment() {
+    return segment;
+  }
+
+  public void setSegment(ConvertSegmentForGetExecutionOutput segment) {
+    this.segment = segment;
+  }
+
+  public VisionForGetExecutionOutput snapshotParam(SnapshotParamForGetExecutionOutput snapshotParam) {
+    this.snapshotParam = snapshotParam;
+    return this;
+  }
+
+   /**
+   * Get snapshotParam
+   * @return snapshotParam
+  **/
+  @Valid
+  @Schema(description = "")
+  public SnapshotParamForGetExecutionOutput getSnapshotParam() {
+    return snapshotParam;
+  }
+
+  public void setSnapshotParam(SnapshotParamForGetExecutionOutput snapshotParam) {
+    this.snapshotParam = snapshotParam;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +131,14 @@ public class VisionForGetExecutionOutput {
     }
     VisionForGetExecutionOutput visionForGetExecutionOutput = (VisionForGetExecutionOutput) o;
     return Objects.equals(this.model, visionForGetExecutionOutput.model) &&
-        Objects.equals(this.prompt, visionForGetExecutionOutput.prompt);
+        Objects.equals(this.prompt, visionForGetExecutionOutput.prompt) &&
+        Objects.equals(this.segment, visionForGetExecutionOutput.segment) &&
+        Objects.equals(this.snapshotParam, visionForGetExecutionOutput.snapshotParam);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, prompt);
+    return Objects.hash(model, prompt, segment, snapshotParam);
   }
 
 
@@ -101,6 +149,8 @@ public class VisionForGetExecutionOutput {
     
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
+    sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    snapshotParam: ").append(toIndentedString(snapshotParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

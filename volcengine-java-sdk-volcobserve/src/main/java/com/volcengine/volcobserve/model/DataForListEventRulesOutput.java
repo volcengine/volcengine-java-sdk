@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.MessageQueueForListEventRulesOutput;
+import com.volcengine.volcobserve.model.NotifyTemplateForListEventRulesOutput;
 import com.volcengine.volcobserve.model.TLSTargetForListEventRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -77,6 +78,9 @@ public class DataForListEventRulesOutput {
 
   @SerializedName("MessageQueue")
   private MessageQueueForListEventRulesOutput messageQueue = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForListEventRulesOutput> notifyTemplates = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -384,6 +388,33 @@ public class DataForListEventRulesOutput {
     this.messageQueue = messageQueue;
   }
 
+  public DataForListEventRulesOutput notifyTemplates(List<NotifyTemplateForListEventRulesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public DataForListEventRulesOutput addNotifyTemplatesItem(NotifyTemplateForListEventRulesOutput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForListEventRulesOutput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForListEventRulesOutput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForListEventRulesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public DataForListEventRulesOutput region(String region) {
     this.region = region;
     return this;
@@ -551,6 +582,7 @@ public class DataForListEventRulesOutput {
         Objects.equals(this.filterPattern, dataForListEventRulesOutput.filterPattern) &&
         Objects.equals(this.level, dataForListEventRulesOutput.level) &&
         Objects.equals(this.messageQueue, dataForListEventRulesOutput.messageQueue) &&
+        Objects.equals(this.notifyTemplates, dataForListEventRulesOutput.notifyTemplates) &&
         Objects.equals(this.region, dataForListEventRulesOutput.region) &&
         Objects.equals(this.ruleId, dataForListEventRulesOutput.ruleId) &&
         Objects.equals(this.ruleName, dataForListEventRulesOutput.ruleName) &&
@@ -562,7 +594,7 @@ public class DataForListEventRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, contactGroupIds, contactMethods, createdAt, description, effectEndAt, effectStartAt, enableState, endpoint, eventBusName, eventType, filterPattern, level, messageQueue, region, ruleId, ruleName, source, tlSTarget, updatedAt, webhookIds);
+    return Objects.hash(accountId, contactGroupIds, contactMethods, createdAt, description, effectEndAt, effectStartAt, enableState, endpoint, eventBusName, eventType, filterPattern, level, messageQueue, notifyTemplates, region, ruleId, ruleName, source, tlSTarget, updatedAt, webhookIds);
   }
 
 
@@ -585,6 +617,7 @@ public class DataForListEventRulesOutput {
     sb.append("    filterPattern: ").append(toIndentedString(filterPattern)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    messageQueue: ").append(toIndentedString(messageQueue)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");

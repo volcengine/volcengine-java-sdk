@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ConvertSegmentForStartExecutionInput;
 import com.volcengine.vod20250101.model.ModelForStartExecutionInput;
+import com.volcengine.vod20250101.model.SnapshotParamForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,6 +38,12 @@ public class VisionForStartExecutionInput {
 
   @SerializedName("Prompt")
   private String prompt = null;
+
+  @SerializedName("Segment")
+  private ConvertSegmentForStartExecutionInput segment = null;
+
+  @SerializedName("SnapshotParam")
+  private SnapshotParamForStartExecutionInput snapshotParam = null;
 
   public VisionForStartExecutionInput model(ModelForStartExecutionInput model) {
     this.model = model;
@@ -74,6 +82,44 @@ public class VisionForStartExecutionInput {
     this.prompt = prompt;
   }
 
+  public VisionForStartExecutionInput segment(ConvertSegmentForStartExecutionInput segment) {
+    this.segment = segment;
+    return this;
+  }
+
+   /**
+   * Get segment
+   * @return segment
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertSegmentForStartExecutionInput getSegment() {
+    return segment;
+  }
+
+  public void setSegment(ConvertSegmentForStartExecutionInput segment) {
+    this.segment = segment;
+  }
+
+  public VisionForStartExecutionInput snapshotParam(SnapshotParamForStartExecutionInput snapshotParam) {
+    this.snapshotParam = snapshotParam;
+    return this;
+  }
+
+   /**
+   * Get snapshotParam
+   * @return snapshotParam
+  **/
+  @Valid
+  @Schema(description = "")
+  public SnapshotParamForStartExecutionInput getSnapshotParam() {
+    return snapshotParam;
+  }
+
+  public void setSnapshotParam(SnapshotParamForStartExecutionInput snapshotParam) {
+    this.snapshotParam = snapshotParam;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +131,14 @@ public class VisionForStartExecutionInput {
     }
     VisionForStartExecutionInput visionForStartExecutionInput = (VisionForStartExecutionInput) o;
     return Objects.equals(this.model, visionForStartExecutionInput.model) &&
-        Objects.equals(this.prompt, visionForStartExecutionInput.prompt);
+        Objects.equals(this.prompt, visionForStartExecutionInput.prompt) &&
+        Objects.equals(this.segment, visionForStartExecutionInput.segment) &&
+        Objects.equals(this.snapshotParam, visionForStartExecutionInput.snapshotParam);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, prompt);
+    return Objects.hash(model, prompt, segment, snapshotParam);
   }
 
 
@@ -101,6 +149,8 @@ public class VisionForStartExecutionInput {
     
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
+    sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    snapshotParam: ").append(toIndentedString(snapshotParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.NotifyTemplateForApplyObjectGroupsByAlertTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
 
   @SerializedName("NotificationId")
   private String notificationId = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForApplyObjectGroupsByAlertTemplateInput> notifyTemplates = null;
 
   @SerializedName("ObjectGroupId")
   private String objectGroupId = null;
@@ -162,6 +166,33 @@ public class ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
     this.notificationId = notificationId;
   }
 
+  public ApplyObjectForApplyObjectGroupsByAlertTemplateInput notifyTemplates(List<NotifyTemplateForApplyObjectGroupsByAlertTemplateInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public ApplyObjectForApplyObjectGroupsByAlertTemplateInput addNotifyTemplatesItem(NotifyTemplateForApplyObjectGroupsByAlertTemplateInput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForApplyObjectGroupsByAlertTemplateInput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForApplyObjectGroupsByAlertTemplateInput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForApplyObjectGroupsByAlertTemplateInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public ApplyObjectForApplyObjectGroupsByAlertTemplateInput objectGroupId(String objectGroupId) {
     this.objectGroupId = objectGroupId;
     return this;
@@ -239,6 +270,7 @@ public class ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
         Objects.equals(this.effectEndAt, applyObjectForApplyObjectGroupsByAlertTemplateInput.effectEndAt) &&
         Objects.equals(this.effectStartAt, applyObjectForApplyObjectGroupsByAlertTemplateInput.effectStartAt) &&
         Objects.equals(this.notificationId, applyObjectForApplyObjectGroupsByAlertTemplateInput.notificationId) &&
+        Objects.equals(this.notifyTemplates, applyObjectForApplyObjectGroupsByAlertTemplateInput.notifyTemplates) &&
         Objects.equals(this.objectGroupId, applyObjectForApplyObjectGroupsByAlertTemplateInput.objectGroupId) &&
         Objects.equals(this.webhook, applyObjectForApplyObjectGroupsByAlertTemplateInput.webhook) &&
         Objects.equals(this.webhookIds, applyObjectForApplyObjectGroupsByAlertTemplateInput.webhookIds);
@@ -246,7 +278,7 @@ public class ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, objectGroupId, webhook, webhookIds);
+    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, notifyTemplates, objectGroupId, webhook, webhookIds);
   }
 
 
@@ -260,6 +292,7 @@ public class ApplyObjectForApplyObjectGroupsByAlertTemplateInput {
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
     sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");

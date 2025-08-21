@@ -30,9 +30,6 @@ import javax.validation.Valid;
 
 
 public class RefreshAITranslationProjectRequest {
-  @SerializedName("CurrentVersion")
-  private String currentVersion = null;
-
   @SerializedName("ProjectId")
   private String projectId = null;
 
@@ -41,25 +38,6 @@ public class RefreshAITranslationProjectRequest {
 
   @SerializedName("SpaceName")
   private String spaceName = null;
-
-  public RefreshAITranslationProjectRequest currentVersion(String currentVersion) {
-    this.currentVersion = currentVersion;
-    return this;
-  }
-
-   /**
-   * Get currentVersion
-   * @return currentVersion
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getCurrentVersion() {
-    return currentVersion;
-  }
-
-  public void setCurrentVersion(String currentVersion) {
-    this.currentVersion = currentVersion;
-  }
 
   public RefreshAITranslationProjectRequest projectId(String projectId) {
     this.projectId = projectId;
@@ -128,15 +106,14 @@ public class RefreshAITranslationProjectRequest {
       return false;
     }
     RefreshAITranslationProjectRequest refreshAITranslationProjectRequest = (RefreshAITranslationProjectRequest) o;
-    return Objects.equals(this.currentVersion, refreshAITranslationProjectRequest.currentVersion) &&
-        Objects.equals(this.projectId, refreshAITranslationProjectRequest.projectId) &&
+    return Objects.equals(this.projectId, refreshAITranslationProjectRequest.projectId) &&
         Objects.equals(this.refreshType, refreshAITranslationProjectRequest.refreshType) &&
         Objects.equals(this.spaceName, refreshAITranslationProjectRequest.spaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentVersion, projectId, refreshType, spaceName);
+    return Objects.hash(projectId, refreshType, spaceName);
   }
 
 
@@ -145,7 +122,6 @@ public class RefreshAITranslationProjectRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefreshAITranslationProjectRequest {\n");
     
-    sb.append("    currentVersion: ").append(toIndentedString(currentVersion)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    refreshType: ").append(toIndentedString(refreshType)).append("\n");
     sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");

@@ -38,6 +38,9 @@ public class InputForGetExecutionOutput {
   @SerializedName("FileId")
   private FileIdForGetExecutionOutput fileId = null;
 
+  @SerializedName("Tag")
+  private String tag = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -80,6 +83,24 @@ public class InputForGetExecutionOutput {
 
   public void setFileId(FileIdForGetExecutionOutput fileId) {
     this.fileId = fileId;
+  }
+
+  public InputForGetExecutionOutput tag(String tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @Schema(description = "")
+  public String getTag() {
+    return tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
   }
 
   public InputForGetExecutionOutput type(String type) {
@@ -130,13 +151,14 @@ public class InputForGetExecutionOutput {
     InputForGetExecutionOutput inputForGetExecutionOutput = (InputForGetExecutionOutput) o;
     return Objects.equals(this.directUrl, inputForGetExecutionOutput.directUrl) &&
         Objects.equals(this.fileId, inputForGetExecutionOutput.fileId) &&
+        Objects.equals(this.tag, inputForGetExecutionOutput.tag) &&
         Objects.equals(this.type, inputForGetExecutionOutput.type) &&
         Objects.equals(this.vid, inputForGetExecutionOutput.vid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directUrl, fileId, type, vid);
+    return Objects.hash(directUrl, fileId, tag, type, vid);
   }
 
 
@@ -147,6 +169,7 @@ public class InputForGetExecutionOutput {
     
     sb.append("    directUrl: ").append(toIndentedString(directUrl)).append("\n");
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
     sb.append("}");

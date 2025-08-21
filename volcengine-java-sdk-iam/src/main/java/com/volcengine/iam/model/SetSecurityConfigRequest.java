@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class SetSecurityConfigRequest {
   @SerializedName("SafeAuthExemptDuration")
-  private String safeAuthExemptDuration = null;
+  private Integer safeAuthExemptDuration = null;
 
   @SerializedName("SafeAuthType")
   private String safeAuthType = null;
@@ -39,7 +39,7 @@ public class SetSecurityConfigRequest {
   @SerializedName("UserName")
   private String userName = null;
 
-  public SetSecurityConfigRequest safeAuthExemptDuration(String safeAuthExemptDuration) {
+  public SetSecurityConfigRequest safeAuthExemptDuration(Integer safeAuthExemptDuration) {
     this.safeAuthExemptDuration = safeAuthExemptDuration;
     return this;
   }
@@ -49,11 +49,11 @@ public class SetSecurityConfigRequest {
    * @return safeAuthExemptDuration
   **/
   @Schema(description = "")
-  public String getSafeAuthExemptDuration() {
+  public Integer getSafeAuthExemptDuration() {
     return safeAuthExemptDuration;
   }
 
-  public void setSafeAuthExemptDuration(String safeAuthExemptDuration) {
+  public void setSafeAuthExemptDuration(Integer safeAuthExemptDuration) {
     this.safeAuthExemptDuration = safeAuthExemptDuration;
   }
 

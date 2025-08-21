@@ -36,6 +36,15 @@ public class ListPresetAlertTemplatesResponse extends com.volcengine.model.Abstr
   @SerializedName("Data")
   private List<DataForListPresetAlertTemplatesOutput> data = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
   public ListPresetAlertTemplatesResponse data(List<DataForListPresetAlertTemplatesOutput> data) {
     this.data = data;
     return this;
@@ -63,6 +72,60 @@ public class ListPresetAlertTemplatesResponse extends com.volcengine.model.Abstr
     this.data = data;
   }
 
+  public ListPresetAlertTemplatesResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public ListPresetAlertTemplatesResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListPresetAlertTemplatesResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +136,15 @@ public class ListPresetAlertTemplatesResponse extends com.volcengine.model.Abstr
       return false;
     }
     ListPresetAlertTemplatesResponse listPresetAlertTemplatesResponse = (ListPresetAlertTemplatesResponse) o;
-    return Objects.equals(this.data, listPresetAlertTemplatesResponse.data);
+    return Objects.equals(this.data, listPresetAlertTemplatesResponse.data) &&
+        Objects.equals(this.pageNumber, listPresetAlertTemplatesResponse.pageNumber) &&
+        Objects.equals(this.pageSize, listPresetAlertTemplatesResponse.pageSize) &&
+        Objects.equals(this.totalCount, listPresetAlertTemplatesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, pageNumber, pageSize, totalCount);
   }
 
 
@@ -88,6 +154,9 @@ public class ListPresetAlertTemplatesResponse extends com.volcengine.model.Abstr
     sb.append("class ListPresetAlertTemplatesResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
