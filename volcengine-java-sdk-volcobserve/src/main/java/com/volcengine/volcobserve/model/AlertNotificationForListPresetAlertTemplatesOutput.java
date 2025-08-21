@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.NotifyTemplateForListPresetAlertTemplatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class AlertNotificationForListPresetAlertTemplatesOutput {
 
   @SerializedName("NotificationId")
   private String notificationId = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForListPresetAlertTemplatesOutput> notifyTemplates = null;
 
   @SerializedName("Webhook")
   private String webhook = null;
@@ -159,6 +163,33 @@ public class AlertNotificationForListPresetAlertTemplatesOutput {
     this.notificationId = notificationId;
   }
 
+  public AlertNotificationForListPresetAlertTemplatesOutput notifyTemplates(List<NotifyTemplateForListPresetAlertTemplatesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public AlertNotificationForListPresetAlertTemplatesOutput addNotifyTemplatesItem(NotifyTemplateForListPresetAlertTemplatesOutput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForListPresetAlertTemplatesOutput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForListPresetAlertTemplatesOutput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForListPresetAlertTemplatesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public AlertNotificationForListPresetAlertTemplatesOutput webhook(String webhook) {
     this.webhook = webhook;
     return this;
@@ -218,13 +249,14 @@ public class AlertNotificationForListPresetAlertTemplatesOutput {
         Objects.equals(this.effectEndAt, alertNotificationForListPresetAlertTemplatesOutput.effectEndAt) &&
         Objects.equals(this.effectStartAt, alertNotificationForListPresetAlertTemplatesOutput.effectStartAt) &&
         Objects.equals(this.notificationId, alertNotificationForListPresetAlertTemplatesOutput.notificationId) &&
+        Objects.equals(this.notifyTemplates, alertNotificationForListPresetAlertTemplatesOutput.notifyTemplates) &&
         Objects.equals(this.webhook, alertNotificationForListPresetAlertTemplatesOutput.webhook) &&
         Objects.equals(this.webhookIds, alertNotificationForListPresetAlertTemplatesOutput.webhookIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, webhook, webhookIds);
+    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, notifyTemplates, webhook, webhookIds);
   }
 
 
@@ -238,6 +270,7 @@ public class AlertNotificationForListPresetAlertTemplatesOutput {
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");

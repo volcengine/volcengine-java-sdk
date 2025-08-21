@@ -39,6 +39,8 @@ import com.volcengine.volcobserve.model.CreateEventRuleRequest;
 import com.volcengine.volcobserve.model.CreateEventRuleResponse;
 import com.volcengine.volcobserve.model.CreateNotificationRequest;
 import com.volcengine.volcobserve.model.CreateNotificationResponse;
+import com.volcengine.volcobserve.model.CreateNotifyTemplateRequest;
+import com.volcengine.volcobserve.model.CreateNotifyTemplateResponse;
 import com.volcengine.volcobserve.model.CreateObjectGroupRequest;
 import com.volcengine.volcobserve.model.CreateObjectGroupResponse;
 import com.volcengine.volcobserve.model.CreateRuleRequest;
@@ -57,6 +59,8 @@ import com.volcengine.volcobserve.model.DeleteEventRuleRequest;
 import com.volcengine.volcobserve.model.DeleteEventRuleResponse;
 import com.volcengine.volcobserve.model.DeleteNotificationsByIdsRequest;
 import com.volcengine.volcobserve.model.DeleteNotificationsByIdsResponse;
+import com.volcengine.volcobserve.model.DeleteNotifyTemplatesByIdsRequest;
+import com.volcengine.volcobserve.model.DeleteNotifyTemplatesByIdsResponse;
 import com.volcengine.volcobserve.model.DeleteObjectGroupRequest;
 import com.volcengine.volcobserve.model.DeleteObjectGroupResponse;
 import com.volcengine.volcobserve.model.DeleteRulesByIdsRequest;
@@ -89,12 +93,16 @@ import com.volcengine.volcobserve.model.ListContactsByIdsRequest;
 import com.volcengine.volcobserve.model.ListContactsByIdsResponse;
 import com.volcengine.volcobserve.model.ListContactsRequest;
 import com.volcengine.volcobserve.model.ListContactsResponse;
+import com.volcengine.volcobserve.model.ListDefaultNotifyTemplatesRequest;
+import com.volcengine.volcobserve.model.ListDefaultNotifyTemplatesResponse;
 import com.volcengine.volcobserve.model.ListEventRulesRequest;
 import com.volcengine.volcobserve.model.ListEventRulesResponse;
 import com.volcengine.volcobserve.model.ListEventsRequest;
 import com.volcengine.volcobserve.model.ListEventsResponse;
 import com.volcengine.volcobserve.model.ListNotificationsRequest;
 import com.volcengine.volcobserve.model.ListNotificationsResponse;
+import com.volcengine.volcobserve.model.ListNotifyTemplatesRequest;
+import com.volcengine.volcobserve.model.ListNotifyTemplatesResponse;
 import com.volcengine.volcobserve.model.ListObjectGroupsRequest;
 import com.volcengine.volcobserve.model.ListObjectGroupsResponse;
 import com.volcengine.volcobserve.model.ListPresetAlertTemplatesRequest;
@@ -133,6 +141,8 @@ import com.volcengine.volcobserve.model.UpdateEventRuleRequest;
 import com.volcengine.volcobserve.model.UpdateEventRuleResponse;
 import com.volcengine.volcobserve.model.UpdateNotificationRequest;
 import com.volcengine.volcobserve.model.UpdateNotificationResponse;
+import com.volcengine.volcobserve.model.UpdateNotifyTemplateRequest;
+import com.volcengine.volcobserve.model.UpdateNotifyTemplateResponse;
 import com.volcengine.volcobserve.model.UpdateObjectGroupRequest;
 import com.volcengine.volcobserve.model.UpdateObjectGroupResponse;
 import com.volcengine.volcobserve.model.UpdateRuleRequest;
@@ -908,6 +918,130 @@ public class VolcObserveApi {
 
         com.squareup.okhttp.Call call = createNotificationValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateNotificationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createNotifyTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNotifyTemplateCall(CreateNotifyTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateNotifyTemplate/2018-01-01/volc_observe/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createNotifyTemplateValidateBeforeCall(CreateNotifyTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createNotifyTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createNotifyTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateNotifyTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateNotifyTemplateResponse createNotifyTemplate(CreateNotifyTemplateRequest body) throws ApiException {
+        ApiResponse<CreateNotifyTemplateResponse> resp = createNotifyTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateNotifyTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateNotifyTemplateResponse> createNotifyTemplateWithHttpInfo( @NotNull CreateNotifyTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createNotifyTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateNotifyTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createNotifyTemplateAsync(CreateNotifyTemplateRequest body, final ApiCallback<CreateNotifyTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createNotifyTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateNotifyTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2024,6 +2158,130 @@ public class VolcObserveApi {
 
         com.squareup.okhttp.Call call = deleteNotificationsByIdsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteNotificationsByIdsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteNotifyTemplatesByIds
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteNotifyTemplatesByIdsCall(DeleteNotifyTemplatesByIdsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteNotifyTemplatesByIds/2018-01-01/volc_observe/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteNotifyTemplatesByIdsValidateBeforeCall(DeleteNotifyTemplatesByIdsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteNotifyTemplatesByIds(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteNotifyTemplatesByIdsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteNotifyTemplatesByIdsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteNotifyTemplatesByIdsResponse deleteNotifyTemplatesByIds(DeleteNotifyTemplatesByIdsRequest body) throws ApiException {
+        ApiResponse<DeleteNotifyTemplatesByIdsResponse> resp = deleteNotifyTemplatesByIdsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteNotifyTemplatesByIdsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteNotifyTemplatesByIdsResponse> deleteNotifyTemplatesByIdsWithHttpInfo( @NotNull DeleteNotifyTemplatesByIdsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteNotifyTemplatesByIdsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteNotifyTemplatesByIdsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteNotifyTemplatesByIdsAsync(DeleteNotifyTemplatesByIdsRequest body, final ApiCallback<DeleteNotifyTemplatesByIdsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteNotifyTemplatesByIdsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteNotifyTemplatesByIdsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4012,6 +4270,130 @@ public class VolcObserveApi {
         return call;
     }
     /**
+     * Build call for listDefaultNotifyTemplates
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listDefaultNotifyTemplatesCall(ListDefaultNotifyTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListDefaultNotifyTemplates/2018-01-01/volc_observe/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listDefaultNotifyTemplatesValidateBeforeCall(ListDefaultNotifyTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listDefaultNotifyTemplates(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listDefaultNotifyTemplatesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListDefaultNotifyTemplatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListDefaultNotifyTemplatesResponse listDefaultNotifyTemplates(ListDefaultNotifyTemplatesRequest body) throws ApiException {
+        ApiResponse<ListDefaultNotifyTemplatesResponse> resp = listDefaultNotifyTemplatesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListDefaultNotifyTemplatesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListDefaultNotifyTemplatesResponse> listDefaultNotifyTemplatesWithHttpInfo( @NotNull ListDefaultNotifyTemplatesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listDefaultNotifyTemplatesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListDefaultNotifyTemplatesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listDefaultNotifyTemplatesAsync(ListDefaultNotifyTemplatesRequest body, final ApiCallback<ListDefaultNotifyTemplatesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listDefaultNotifyTemplatesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListDefaultNotifyTemplatesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for listEventRules
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4380,6 +4762,130 @@ public class VolcObserveApi {
 
         com.squareup.okhttp.Call call = listNotificationsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListNotificationsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listNotifyTemplates
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listNotifyTemplatesCall(ListNotifyTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListNotifyTemplates/2018-01-01/volc_observe/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listNotifyTemplatesValidateBeforeCall(ListNotifyTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listNotifyTemplates(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listNotifyTemplatesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListNotifyTemplatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListNotifyTemplatesResponse listNotifyTemplates(ListNotifyTemplatesRequest body) throws ApiException {
+        ApiResponse<ListNotifyTemplatesResponse> resp = listNotifyTemplatesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListNotifyTemplatesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListNotifyTemplatesResponse> listNotifyTemplatesWithHttpInfo( @NotNull ListNotifyTemplatesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listNotifyTemplatesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListNotifyTemplatesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listNotifyTemplatesAsync(ListNotifyTemplatesRequest body, final ApiCallback<ListNotifyTemplatesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listNotifyTemplatesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListNotifyTemplatesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6736,6 +7242,130 @@ public class VolcObserveApi {
 
         com.squareup.okhttp.Call call = updateNotificationValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateNotificationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateNotifyTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateNotifyTemplateCall(UpdateNotifyTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateNotifyTemplate/2018-01-01/volc_observe/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateNotifyTemplateValidateBeforeCall(UpdateNotifyTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateNotifyTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateNotifyTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateNotifyTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateNotifyTemplateResponse updateNotifyTemplate(UpdateNotifyTemplateRequest body) throws ApiException {
+        ApiResponse<UpdateNotifyTemplateResponse> resp = updateNotifyTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateNotifyTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateNotifyTemplateResponse> updateNotifyTemplateWithHttpInfo( @NotNull UpdateNotifyTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateNotifyTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateNotifyTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateNotifyTemplateAsync(UpdateNotifyTemplateRequest body, final ApiCallback<UpdateNotifyTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateNotifyTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateNotifyTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

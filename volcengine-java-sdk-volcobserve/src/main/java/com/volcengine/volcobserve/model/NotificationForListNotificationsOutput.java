@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.NotifyTemplateForListNotificationsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -135,6 +136,9 @@ public class NotificationForListNotificationsOutput {
   }  @SerializedName("Level")
   private LevelEnum level = null;
 
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForListNotificationsOutput> notifyTemplates = null;
+
   @SerializedName("WebhookIds")
   private List<String> webhookIds = null;
 
@@ -208,6 +212,33 @@ public class NotificationForListNotificationsOutput {
     this.level = level;
   }
 
+  public NotificationForListNotificationsOutput notifyTemplates(List<NotifyTemplateForListNotificationsOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public NotificationForListNotificationsOutput addNotifyTemplatesItem(NotifyTemplateForListNotificationsOutput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForListNotificationsOutput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForListNotificationsOutput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForListNotificationsOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public NotificationForListNotificationsOutput webhookIds(List<String> webhookIds) {
     this.webhookIds = webhookIds;
     return this;
@@ -247,12 +278,13 @@ public class NotificationForListNotificationsOutput {
     return Objects.equals(this.alertMethods, notificationForListNotificationsOutput.alertMethods) &&
         Objects.equals(this.contactGroupIds, notificationForListNotificationsOutput.contactGroupIds) &&
         Objects.equals(this.level, notificationForListNotificationsOutput.level) &&
+        Objects.equals(this.notifyTemplates, notificationForListNotificationsOutput.notifyTemplates) &&
         Objects.equals(this.webhookIds, notificationForListNotificationsOutput.webhookIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, contactGroupIds, level, webhookIds);
+    return Objects.hash(alertMethods, contactGroupIds, level, notifyTemplates, webhookIds);
   }
 
 
@@ -264,6 +296,7 @@ public class NotificationForListNotificationsOutput {
     sb.append("    alertMethods: ").append(toIndentedString(alertMethods)).append("\n");
     sb.append("    contactGroupIds: ").append(toIndentedString(contactGroupIds)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");
     return sb.toString();

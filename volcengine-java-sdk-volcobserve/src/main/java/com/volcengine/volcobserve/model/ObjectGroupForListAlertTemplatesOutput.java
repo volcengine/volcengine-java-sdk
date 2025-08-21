@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.NotifyTemplateForListAlertTemplatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class ObjectGroupForListAlertTemplatesOutput {
 
   @SerializedName("NotificationId")
   private String notificationId = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForListAlertTemplatesOutput> notifyTemplates = null;
 
   @SerializedName("ObjectGroupId")
   private String objectGroupId = null;
@@ -165,6 +169,33 @@ public class ObjectGroupForListAlertTemplatesOutput {
     this.notificationId = notificationId;
   }
 
+  public ObjectGroupForListAlertTemplatesOutput notifyTemplates(List<NotifyTemplateForListAlertTemplatesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public ObjectGroupForListAlertTemplatesOutput addNotifyTemplatesItem(NotifyTemplateForListAlertTemplatesOutput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForListAlertTemplatesOutput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForListAlertTemplatesOutput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForListAlertTemplatesOutput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public ObjectGroupForListAlertTemplatesOutput objectGroupId(String objectGroupId) {
     this.objectGroupId = objectGroupId;
     return this;
@@ -260,6 +291,7 @@ public class ObjectGroupForListAlertTemplatesOutput {
         Objects.equals(this.effectEndAt, objectGroupForListAlertTemplatesOutput.effectEndAt) &&
         Objects.equals(this.effectStartAt, objectGroupForListAlertTemplatesOutput.effectStartAt) &&
         Objects.equals(this.notificationId, objectGroupForListAlertTemplatesOutput.notificationId) &&
+        Objects.equals(this.notifyTemplates, objectGroupForListAlertTemplatesOutput.notifyTemplates) &&
         Objects.equals(this.objectGroupId, objectGroupForListAlertTemplatesOutput.objectGroupId) &&
         Objects.equals(this.objectGroupName, objectGroupForListAlertTemplatesOutput.objectGroupName) &&
         Objects.equals(this.webhook, objectGroupForListAlertTemplatesOutput.webhook) &&
@@ -268,7 +300,7 @@ public class ObjectGroupForListAlertTemplatesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, objectGroupId, objectGroupName, webhook, webhookIds);
+    return Objects.hash(alertMethods, contactGroupIds, effectEndAt, effectStartAt, notificationId, notifyTemplates, objectGroupId, objectGroupName, webhook, webhookIds);
   }
 
 
@@ -282,6 +314,7 @@ public class ObjectGroupForListAlertTemplatesOutput {
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
     sb.append("    objectGroupName: ").append(toIndentedString(objectGroupName)).append("\n");
     sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");

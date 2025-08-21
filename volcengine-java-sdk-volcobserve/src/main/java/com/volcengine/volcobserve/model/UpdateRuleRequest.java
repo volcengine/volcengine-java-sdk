@@ -24,6 +24,7 @@ import com.volcengine.volcobserve.model.ConvertTagForUpdateRuleInput;
 import com.volcengine.volcobserve.model.DimensionConditionsForUpdateRuleInput;
 import com.volcengine.volcobserve.model.LevelConditionForUpdateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForUpdateRuleInput;
+import com.volcengine.volcobserve.model.NotifyTemplateForUpdateRuleInput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForUpdateRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -137,6 +138,9 @@ public class UpdateRuleRequest {
 
   @SerializedName("NotificationId")
   private String notificationId = null;
+
+  @SerializedName("NotifyTemplates")
+  private List<NotifyTemplateForUpdateRuleInput> notifyTemplates = null;
 
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
@@ -560,6 +564,33 @@ public class UpdateRuleRequest {
     this.notificationId = notificationId;
   }
 
+  public UpdateRuleRequest notifyTemplates(List<NotifyTemplateForUpdateRuleInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+    return this;
+  }
+
+  public UpdateRuleRequest addNotifyTemplatesItem(NotifyTemplateForUpdateRuleInput notifyTemplatesItem) {
+    if (this.notifyTemplates == null) {
+      this.notifyTemplates = new ArrayList<NotifyTemplateForUpdateRuleInput>();
+    }
+    this.notifyTemplates.add(notifyTemplatesItem);
+    return this;
+  }
+
+   /**
+   * Get notifyTemplates
+   * @return notifyTemplates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NotifyTemplateForUpdateRuleInput> getNotifyTemplates() {
+    return notifyTemplates;
+  }
+
+  public void setNotifyTemplates(List<NotifyTemplateForUpdateRuleInput> notifyTemplates) {
+    this.notifyTemplates = notifyTemplates;
+  }
+
   public UpdateRuleRequest originalDimensions(Map<String, List<String>> originalDimensions) {
     this.originalDimensions = originalDimensions;
     return this;
@@ -806,6 +837,7 @@ public class UpdateRuleRequest {
         Objects.equals(this.namespace, updateRuleRequest.namespace) &&
         Objects.equals(this.noData, updateRuleRequest.noData) &&
         Objects.equals(this.notificationId, updateRuleRequest.notificationId) &&
+        Objects.equals(this.notifyTemplates, updateRuleRequest.notifyTemplates) &&
         Objects.equals(this.originalDimensions, updateRuleRequest.originalDimensions) &&
         Objects.equals(this.recoveryNotify, updateRuleRequest.recoveryNotify) &&
         Objects.equals(this.regions, updateRuleRequest.regions) &&
@@ -820,7 +852,7 @@ public class UpdateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
   }
 
 
@@ -846,6 +878,7 @@ public class UpdateRuleRequest {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcobserve.model.DataForListSilencePolicyOutput;
+import com.volcengine.volcobserve.model.DataForListNotifyTemplatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,14 +27,14 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListSilencePolicyResponse
+ * ListNotifyTemplatesResponse
  */
 
 
 
-public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResponse {
+public class ListNotifyTemplatesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
-  private List<DataForListSilencePolicyOutput> data = null;
+  private List<DataForListNotifyTemplatesOutput> data = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -45,14 +45,14 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
   @SerializedName("TotalCount")
   private Integer totalCount = null;
 
-  public ListSilencePolicyResponse data(List<DataForListSilencePolicyOutput> data) {
+  public ListNotifyTemplatesResponse data(List<DataForListNotifyTemplatesOutput> data) {
     this.data = data;
     return this;
   }
 
-  public ListSilencePolicyResponse addDataItem(DataForListSilencePolicyOutput dataItem) {
+  public ListNotifyTemplatesResponse addDataItem(DataForListNotifyTemplatesOutput dataItem) {
     if (this.data == null) {
-      this.data = new ArrayList<DataForListSilencePolicyOutput>();
+      this.data = new ArrayList<DataForListNotifyTemplatesOutput>();
     }
     this.data.add(dataItem);
     return this;
@@ -64,15 +64,15 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
   **/
   @Valid
   @Schema(description = "")
-  public List<DataForListSilencePolicyOutput> getData() {
+  public List<DataForListNotifyTemplatesOutput> getData() {
     return data;
   }
 
-  public void setData(List<DataForListSilencePolicyOutput> data) {
+  public void setData(List<DataForListNotifyTemplatesOutput> data) {
     this.data = data;
   }
 
-  public ListSilencePolicyResponse pageNumber(Integer pageNumber) {
+  public ListNotifyTemplatesResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -90,7 +90,7 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
     this.pageNumber = pageNumber;
   }
 
-  public ListSilencePolicyResponse pageSize(Integer pageSize) {
+  public ListNotifyTemplatesResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -108,7 +108,7 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
     this.pageSize = pageSize;
   }
 
-  public ListSilencePolicyResponse totalCount(Integer totalCount) {
+  public ListNotifyTemplatesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -135,11 +135,11 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSilencePolicyResponse listSilencePolicyResponse = (ListSilencePolicyResponse) o;
-    return Objects.equals(this.data, listSilencePolicyResponse.data) &&
-        Objects.equals(this.pageNumber, listSilencePolicyResponse.pageNumber) &&
-        Objects.equals(this.pageSize, listSilencePolicyResponse.pageSize) &&
-        Objects.equals(this.totalCount, listSilencePolicyResponse.totalCount);
+    ListNotifyTemplatesResponse listNotifyTemplatesResponse = (ListNotifyTemplatesResponse) o;
+    return Objects.equals(this.data, listNotifyTemplatesResponse.data) &&
+        Objects.equals(this.pageNumber, listNotifyTemplatesResponse.pageNumber) &&
+        Objects.equals(this.pageSize, listNotifyTemplatesResponse.pageSize) &&
+        Objects.equals(this.totalCount, listNotifyTemplatesResponse.totalCount);
   }
 
   @Override
@@ -151,7 +151,7 @@ public class ListSilencePolicyResponse extends com.volcengine.model.AbstractResp
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSilencePolicyResponse {\n");
+    sb.append("class ListNotifyTemplatesResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
