@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class ListForListCouponUsageRecordsOutput {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("ChangeAmount")
   private Double changeAmount = null;
@@ -58,9 +58,9 @@ public class ListForListCouponUsageRecordsOutput {
   private String subBusinessID = null;
 
   @SerializedName("UserAccountID")
-  private Integer userAccountID = null;
+  private Long userAccountID = null;
 
-  public ListForListCouponUsageRecordsOutput accountID(Integer accountID) {
+  public ListForListCouponUsageRecordsOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -70,11 +70,11 @@ public class ListForListCouponUsageRecordsOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 
@@ -222,7 +222,7 @@ public class ListForListCouponUsageRecordsOutput {
     this.subBusinessID = subBusinessID;
   }
 
-  public ListForListCouponUsageRecordsOutput userAccountID(Integer userAccountID) {
+  public ListForListCouponUsageRecordsOutput userAccountID(Long userAccountID) {
     this.userAccountID = userAccountID;
     return this;
   }
@@ -232,11 +232,11 @@ public class ListForListCouponUsageRecordsOutput {
    * @return userAccountID
   **/
   @Schema(description = "")
-  public Integer getUserAccountID() {
+  public Long getUserAccountID() {
     return userAccountID;
   }
 
-  public void setUserAccountID(Integer userAccountID) {
+  public void setUserAccountID(Long userAccountID) {
     this.userAccountID = userAccountID;
   }
 
