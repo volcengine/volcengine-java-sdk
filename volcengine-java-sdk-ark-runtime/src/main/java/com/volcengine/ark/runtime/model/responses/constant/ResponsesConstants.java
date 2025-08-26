@@ -19,6 +19,10 @@ public class ResponsesConstants {
     public static final String ITEM_TYPE_ITEM_REFERENCE = "item_reference";
     public static final String ITEM_TYPE_WEB_SEARCH_CALL = "web_search_call";
     public static final String ITEM_TYPE_IMAGE_PROCESS = "image_process";
+    public static final String ITEM_TYPE_MCP_APPROVAL_REQUEST = "mcp_approval_request";
+    public static final String ITEM_TYPE_MCP_APPROVAL_RESPONSE = "mcp_approval_response";
+    public static final String ITEM_TYPE_MCP_LIST_TOOLS = "mcp_list_tools";
+    public static final String ITEM_TYPE_MCP_CALL = "mcp_call";
 
     // MessageRole.Enum
     public static final String MESSAGE_ROLE_USER = "user";
