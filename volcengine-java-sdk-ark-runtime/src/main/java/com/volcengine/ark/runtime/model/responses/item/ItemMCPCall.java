@@ -28,7 +28,7 @@ public class ItemMCPCall extends BaseItem implements InputItem, OutputItem {
     @JsonProperty("output")
     private String output;
 
-    public ItemMCPCall(String type) {
+    public ItemMCPCall() {
         super(ResponsesConstants.ITEM_TYPE_MCP_CALL);
     }
 
@@ -117,10 +117,6 @@ public class ItemMCPCall extends BaseItem implements InputItem, OutputItem {
         private Builder() {
         }
 
-        public static Builder anItemMCPCall() {
-            return new Builder();
-        }
-
         public Builder output(String output) {
             this.output = output;
             return this;
@@ -157,7 +153,7 @@ public class ItemMCPCall extends BaseItem implements InputItem, OutputItem {
         }
 
         public ItemMCPCall build() {
-            ItemMCPCall itemMCPCall = new ItemMCPCall(null);
+            ItemMCPCall itemMCPCall = new ItemMCPCall();
             itemMCPCall.setOutput(output);
             itemMCPCall.setName(name);
             itemMCPCall.setError(error);

@@ -16,8 +16,8 @@ import com.volcengine.ark.runtime.model.responses.item.*;
 import com.volcengine.ark.runtime.model.responses.request.ResponsesInput;
 import com.volcengine.ark.runtime.model.responses.request.CreateResponsesRequest;
 import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
-import com.volcengine.ark.runtime.model.responses.tool.ResponsesTool;
-import com.volcengine.ark.runtime.model.responses.tool.ToolFunction;
+import com.volcengine.ark.runtime.model.responses.tool.*;
+import com.volcengine.ark.runtime.model.responses.tool.mcp.MCPRequireApproval;
 import com.volcengine.ark.runtime.service.ArkService;
 import io.reactivex.Flowable;
 import okhttp3.ConnectionPool;
@@ -202,6 +202,95 @@ public class CreateResponseExample {
 
         } catch (Exception e) {
             System.err.println("Create Response 4 Error " + e.getMessage());
+        }
+
+        System.out.println("\n----- [Stream Request with MCP] Request 5-----");
+
+        CreateResponsesRequest request5 = CreateResponsesRequest.builder()
+                .model(modelName)
+                .stream(true)
+                .tools(Collections.singletonList(ToolMCP.builder().serverLabel("deepwiki-test").serverUrl("https://mcp.deepwiki.com/mcp")
+                        .requireApproval(MCPRequireApproval.builder().mode(ResponsesConstants.MCP_APPROVAL_MODE_NEVER).build()).build()))
+                .input(ResponsesInput.builder().stringValue("查看这个 repo的strcuture expressjs/express ").build())
+                .thinking(ResponsesThinking.builder().type(ResponsesConstants.THINKING_TYPE_ENABLED).build())
+                .build();
+
+        try {
+            service.streamResponse(request5)
+                    .doOnError(Throwable::printStackTrace)
+                    .blockingForEach(
+                            CreateResponseExample::printStreamEvent
+                    );
+        } catch (Exception e) {
+            System.err.println("Create Response 5 Error " + e.getMessage());
+        }
+
+        System.out.println("\n----- [Stream FunctionCall Request] Request 6-----");
+
+        try {
+            ResponsesTool weatherTool = ToolFunction.builder()
+                    .name("sum")
+                    .description("add two integers and get sum")
+                    .parameters(
+                            new ObjectMapper().readTree("{\"type\":\"object\",\"properties\":{\"a\":{\"type\":\"integer\",\"description\":\"first number to add\"},\"b\":{\"type\":\"integer\",\"description\":\"second number to add\"}},\"required\":[\"a\",\"b\"]}")
+                    ).build();
+
+            CreateResponsesRequest fcRequest = CreateResponsesRequest.builder()
+                    .model(modelName)
+                    .stream(true)
+                    .input(ResponsesInput.builder().stringValue("1000123+123 = ?").build())
+                    .thinking(ResponsesThinking.builder().type(ResponsesConstants.THINKING_TYPE_ENABLED).build())
+                    .tools(Collections.singletonList(weatherTool))
+                    .toolChoice(ResponsesToolChoice.builder().functionToolChoice(
+                            FunctionToolChoice.builder().type("function").name("sum").build()
+                    ).build())
+                    .build();
+
+            AtomicReference<String> fcResponseId = new AtomicReference<>();
+            AtomicReference<String> fcCallbackId = new AtomicReference<>();
+
+            Flowable<StreamEvent> fcResponse = service.streamResponse(fcRequest);
+            fcResponse.doOnError(Throwable::printStackTrace)
+                    .blockingForEach(
+                            event -> {
+                                printStreamEvent(event);
+                                if (event instanceof OutputItemDoneEvent) {
+                                    if (((OutputItemDoneEvent) event).getItem() instanceof ItemFunctionToolCall) {
+                                        fcCallbackId.set(((ItemFunctionToolCall) ((OutputItemDoneEvent) event).getItem()).getCallId());
+                                    }
+                                }
+                                if (event instanceof ResponseCompletedEvent) {
+                                    fcResponseId.set(((ResponseCompletedEvent) event).getResponse().getId());
+                                }
+                            }
+                    );
+
+            CreateResponsesRequest fcOutputRequest = CreateResponsesRequest.builder()
+                    .model(modelName)
+                    .stream(true)
+                    .previousResponseId(fcResponseId.get()) // use the context before
+                    .input(ResponsesInput.builder().addListItem(
+                            ItemFunctionToolCallOutput.builder()
+                                    .callId(fcCallbackId.get()) // with tool call id
+                                    .output("1000246") // mock a tool result
+                                    .build()
+                    ).build())
+                    .thinking(ResponsesThinking.builder().type(ResponsesConstants.THINKING_TYPE_ENABLED).build())
+                    .tools(Collections.singletonList(weatherTool))
+                    .build();
+
+            System.out.println(new ObjectMapper().writeValueAsString(fcOutputRequest));
+
+            System.out.println("=== fc final response ===");
+
+            service.streamResponse(fcOutputRequest)
+                    .doOnError(Throwable::printStackTrace)
+                    .blockingForEach(
+                            CreateResponseExample::printStreamEvent
+                    );
+
+        } catch (Exception e) {
+            System.err.println("Create Response 6 Error " + e.getMessage());
         }
 
         service.shutdownExecutor();

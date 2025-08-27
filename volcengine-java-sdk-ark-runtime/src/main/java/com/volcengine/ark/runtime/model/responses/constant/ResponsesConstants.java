@@ -73,6 +73,7 @@ public class ResponsesConstants {
     public static final String TOOL_TYPE_FUNCTION = "function";
     public static final String TOOL_TYPE_WEB_SEARCH = "web_search";
     public static final String TOOL_TYPE_IMAGE_PROCESS = "image_process";
+    public static final String TOOL_TYPE_MCP = "mcp";
 
     // UserLocationType.Enum
     public static final String USER_LOCATION_TYPE_APPROXIMATE = "approximate";
@@ -125,12 +126,25 @@ public class ResponsesConstants {
     public static final String EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_COMPLETED = "response.image_process_call.completed";
     public static final String EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_FAILED = "response.image_process_call.failed";
 
+    // MCP events
+    public static final String EVENT_TYPE_RESPONSE_MCP_LIST_TOOLS_IN_PROGRESS = "response.mcp_list_tools.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_MCP_LIST_TOOLS_COMPLETED = "response.mcp_list_tools.completed";
+    public static final String EVENT_TYPE_RESPONSE_MCP_CALL_IN_PROGRESS = "response.mcp_call.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_MCP_CALL_ARGUMENTS_DELTA = "response.mcp_call_arguments.delta";
+    public static final String EVENT_TYPE_RESPONSE_MCP_CALL_ARGUMENTS_DONE = "response.mcp_call_arguments.done";
+    public static final String EVENT_TYPE_RESPONSE_MCP_CALL_COMPLETED = "response.mcp_call.completed";
+    public static final String EVENT_TYPE_RESPONSE_MCP_CALL_FAILED = "response.mcp_call.failed";
+
     // IncludeType.Enum
     public static final String INCLUDE_TYPE_IMAGE_URL = "message.input_image.image_url";
 
     // CacheType.Enum
     public static final String CACHE_TYPE_DISABLED = "disabled";
     public static final String CACHE_TYPE_ENABLED = "enabled";
+
+    // MCP Enum
+    public static final String MCP_APPROVAL_MODE_ALWAYS = "always";
+    public static final String MCP_APPROVAL_MODE_NEVER = "never";
 
     private ResponsesConstants() {
         // Prevent instantiation

@@ -19,7 +19,7 @@ public class ItemMCPListTools extends BaseItem implements InputItem, OutputItem 
     @JsonProperty("tools")
     private List<MCPTool> tools;
 
-    public ItemMCPListTools(String type) {
+    public ItemMCPListTools() {
         super(ResponsesConstants.ITEM_TYPE_MCP_LIST_TOOLS);
     }
 
@@ -68,10 +68,6 @@ public class ItemMCPListTools extends BaseItem implements InputItem, OutputItem 
         private Builder() {
         }
 
-        public static Builder anItemMCPListTools() {
-            return new Builder();
-        }
-
         public Builder id(String id) {
             this.id = id;
             return this;
@@ -88,7 +84,7 @@ public class ItemMCPListTools extends BaseItem implements InputItem, OutputItem 
         }
 
         public ItemMCPListTools build() {
-            ItemMCPListTools itemMCPListTools = new ItemMCPListTools(null);
+            ItemMCPListTools itemMCPListTools = new ItemMCPListTools();
             itemMCPListTools.setId(id);
             itemMCPListTools.setServerLabel(serverLabel);
             itemMCPListTools.setTools(tools);

@@ -79,10 +79,6 @@ public class ItemMCPApprovalRequest extends BaseItem implements InputItem, Outpu
         private Builder() {
         }
 
-        public static Builder anItemMCPApprovalRequest() {
-            return new Builder();
-        }
-
         public Builder id(String id) {
             this.id = id;
             return this;

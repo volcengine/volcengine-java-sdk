@@ -7,14 +7,15 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(
-    use = JsonTypeInfo.Id.NAME,
-    include = JsonTypeInfo.As.EXISTING_PROPERTY,
-    property = "type"
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.EXISTING_PROPERTY,
+        property = "type"
 )
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = ToolFunction.class, name = "function"),
-    @JsonSubTypes.Type(value = ToolWebSearch.class, name = "web_search"),
-    @JsonSubTypes.Type(value = ToolImageProcess.class, name = "image_process")
+        @JsonSubTypes.Type(value = ToolFunction.class, name = "function"),
+        @JsonSubTypes.Type(value = ToolWebSearch.class, name = "web_search"),
+        @JsonSubTypes.Type(value = ToolImageProcess.class, name = "image_process"),
+        @JsonSubTypes.Type(value = ToolMCP.class, name = "mcp")
 })
 public abstract class ResponsesTool {
     @JsonProperty("type")
@@ -28,7 +29,8 @@ public abstract class ResponsesTool {
         this.type = type;
     }
 
-    public ResponsesTool() {}
+    public ResponsesTool() {
+    }
 
     public ResponsesTool(String type) {
         this.type = type;

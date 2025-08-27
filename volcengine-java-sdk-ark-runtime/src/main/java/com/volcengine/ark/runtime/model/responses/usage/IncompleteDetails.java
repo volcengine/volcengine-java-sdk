@@ -1,7 +1,9 @@
 package com.volcengine.ark.runtime.model.responses.usage;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class IncompleteDetails {
     @JsonProperty("reason")
     private String reason;

@@ -16,6 +16,7 @@ import okhttp3.Dispatcher;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class ResponseOperationsExample {
@@ -69,7 +70,7 @@ public class ResponseOperationsExample {
 
         ListInputItemsResponse listResult = service.listResponseInputItems(
                 ListInputItemsRequest.builder().responseId(getResult.getId())
-                        .include(Arrays.asList(ResponsesConstants.INCLUDE_TYPE_IMAGE_URL, "fff")).build()
+                        .include(Collections.singletonList(ResponsesConstants.INCLUDE_TYPE_IMAGE_URL)).build()
         );
 
         System.out.println(listResult);

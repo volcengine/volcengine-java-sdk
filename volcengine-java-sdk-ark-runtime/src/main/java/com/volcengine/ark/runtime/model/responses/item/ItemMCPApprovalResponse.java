@@ -13,7 +13,6 @@ public class ItemMCPApprovalResponse extends BaseItem implements InputItem {
     @JsonProperty("approval_request_id")
     private String approvalRequestId;
 
-
     public ItemMCPApprovalResponse(String type) {
         super(ResponsesConstants.ITEM_TYPE_MCP_APPROVAL_RESPONSE);
     }
@@ -51,10 +50,6 @@ public class ItemMCPApprovalResponse extends BaseItem implements InputItem {
         private String approvalRequestId;
 
         private Builder() {
-        }
-
-        public static Builder anItemMCPApprovalResponse() {
-            return new Builder();
         }
 
         public Builder approve(Boolean approve) {

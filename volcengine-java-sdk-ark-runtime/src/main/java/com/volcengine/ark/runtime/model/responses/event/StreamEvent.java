@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
+import com.volcengine.ark.runtime.model.responses.event.mcp.*;
 import com.volcengine.ark.runtime.model.responses.event.outputtext.AnnotationAddedEvent;
 import com.volcengine.ark.runtime.model.responses.event.contentpart.ContentPartAddedEvent;
 import com.volcengine.ark.runtime.model.responses.event.contentpart.ContentPartDoneEvent;
@@ -59,7 +60,16 @@ import com.volcengine.ark.runtime.model.responses.event.websearch.WebSearchCallC
         @JsonSubTypes.Type(value = ImageProcessCallInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_IN_PROGRESS),
         @JsonSubTypes.Type(value = ImageProcessCallProcessingEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_PROGRESSING),
         @JsonSubTypes.Type(value = ImageProcessCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_COMPLETED),
-        @JsonSubTypes.Type(value = ImageProcessCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_FAILED)
+        @JsonSubTypes.Type(value = ImageProcessCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_IMAGE_PROCESS_CALL_FAILED),
+        @JsonSubTypes.Type(value = MCPListToolInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_LIST_TOOLS_IN_PROGRESS),
+        @JsonSubTypes.Type(value = MCPListToolCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_LIST_TOOLS_COMPLETED),
+        @JsonSubTypes.Type(value = MCPCallInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_IN_PROGRESS),
+        @JsonSubTypes.Type(value = MCPCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_FAILED),
+        @JsonSubTypes.Type(value = MCPCallArgumentsDeltaEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_ARGUMENTS_DELTA),
+        @JsonSubTypes.Type(value = MCPCallArgumentsDoneEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_ARGUMENTS_DONE),
+        @JsonSubTypes.Type(value = MCPCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_COMPLETED),
+        @JsonSubTypes.Type(value = MCPCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_FAILED),
+
 })
 public abstract class StreamEvent {
 
