@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.EvictionHardForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.FeatureGatesForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.KubeReservedForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.SystemReservedForUpdateNodePoolConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class KubeletConfigForUpdateNodePoolConfigInput {
+  @SerializedName("CpuManagerPolicy")
+  private String cpuManagerPolicy = null;
+
   @SerializedName("EvictionHard")
   private List<EvictionHardForUpdateNodePoolConfigInput> evictionHard = null;
 
@@ -46,6 +51,12 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
   @SerializedName("KubeApiQps")
   private Integer kubeApiQps = null;
 
+  @SerializedName("KubeReserved")
+  private List<KubeReservedForUpdateNodePoolConfigInput> kubeReserved = null;
+
+  @SerializedName("MaxPods")
+  private Integer maxPods = null;
+
   @SerializedName("RegistryBurst")
   private Integer registryBurst = null;
 
@@ -54,6 +65,9 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("SerializeImagePulls")
   private Boolean serializeImagePulls = null;
+
+  @SerializedName("SystemReserved")
+  private List<SystemReservedForUpdateNodePoolConfigInput> systemReserved = null;
 
   /**
    * Gets or Sets topologyManagerPolicy
@@ -151,6 +165,24 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
   }  @SerializedName("TopologyManagerScope")
   private TopologyManagerScopeEnum topologyManagerScope = null;
 
+  public KubeletConfigForUpdateNodePoolConfigInput cpuManagerPolicy(String cpuManagerPolicy) {
+    this.cpuManagerPolicy = cpuManagerPolicy;
+    return this;
+  }
+
+   /**
+   * Get cpuManagerPolicy
+   * @return cpuManagerPolicy
+  **/
+  @Schema(description = "")
+  public String getCpuManagerPolicy() {
+    return cpuManagerPolicy;
+  }
+
+  public void setCpuManagerPolicy(String cpuManagerPolicy) {
+    this.cpuManagerPolicy = cpuManagerPolicy;
+  }
+
   public KubeletConfigForUpdateNodePoolConfigInput evictionHard(List<EvictionHardForUpdateNodePoolConfigInput> evictionHard) {
     this.evictionHard = evictionHard;
     return this;
@@ -237,6 +269,51 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
     this.kubeApiQps = kubeApiQps;
   }
 
+  public KubeletConfigForUpdateNodePoolConfigInput kubeReserved(List<KubeReservedForUpdateNodePoolConfigInput> kubeReserved) {
+    this.kubeReserved = kubeReserved;
+    return this;
+  }
+
+  public KubeletConfigForUpdateNodePoolConfigInput addKubeReservedItem(KubeReservedForUpdateNodePoolConfigInput kubeReservedItem) {
+    if (this.kubeReserved == null) {
+      this.kubeReserved = new ArrayList<KubeReservedForUpdateNodePoolConfigInput>();
+    }
+    this.kubeReserved.add(kubeReservedItem);
+    return this;
+  }
+
+   /**
+   * Get kubeReserved
+   * @return kubeReserved
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<KubeReservedForUpdateNodePoolConfigInput> getKubeReserved() {
+    return kubeReserved;
+  }
+
+  public void setKubeReserved(List<KubeReservedForUpdateNodePoolConfigInput> kubeReserved) {
+    this.kubeReserved = kubeReserved;
+  }
+
+  public KubeletConfigForUpdateNodePoolConfigInput maxPods(Integer maxPods) {
+    this.maxPods = maxPods;
+    return this;
+  }
+
+   /**
+   * Get maxPods
+   * @return maxPods
+  **/
+  @Schema(description = "")
+  public Integer getMaxPods() {
+    return maxPods;
+  }
+
+  public void setMaxPods(Integer maxPods) {
+    this.maxPods = maxPods;
+  }
+
   public KubeletConfigForUpdateNodePoolConfigInput registryBurst(Integer registryBurst) {
     this.registryBurst = registryBurst;
     return this;
@@ -295,6 +372,33 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
     this.serializeImagePulls = serializeImagePulls;
   }
 
+  public KubeletConfigForUpdateNodePoolConfigInput systemReserved(List<SystemReservedForUpdateNodePoolConfigInput> systemReserved) {
+    this.systemReserved = systemReserved;
+    return this;
+  }
+
+  public KubeletConfigForUpdateNodePoolConfigInput addSystemReservedItem(SystemReservedForUpdateNodePoolConfigInput systemReservedItem) {
+    if (this.systemReserved == null) {
+      this.systemReserved = new ArrayList<SystemReservedForUpdateNodePoolConfigInput>();
+    }
+    this.systemReserved.add(systemReservedItem);
+    return this;
+  }
+
+   /**
+   * Get systemReserved
+   * @return systemReserved
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SystemReservedForUpdateNodePoolConfigInput> getSystemReserved() {
+    return systemReserved;
+  }
+
+  public void setSystemReserved(List<SystemReservedForUpdateNodePoolConfigInput> systemReserved) {
+    this.systemReserved = systemReserved;
+  }
+
   public KubeletConfigForUpdateNodePoolConfigInput topologyManagerPolicy(TopologyManagerPolicyEnum topologyManagerPolicy) {
     this.topologyManagerPolicy = topologyManagerPolicy;
     return this;
@@ -341,20 +445,24 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
       return false;
     }
     KubeletConfigForUpdateNodePoolConfigInput kubeletConfigForUpdateNodePoolConfigInput = (KubeletConfigForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.evictionHard, kubeletConfigForUpdateNodePoolConfigInput.evictionHard) &&
+    return Objects.equals(this.cpuManagerPolicy, kubeletConfigForUpdateNodePoolConfigInput.cpuManagerPolicy) &&
+        Objects.equals(this.evictionHard, kubeletConfigForUpdateNodePoolConfigInput.evictionHard) &&
         Objects.equals(this.featureGates, kubeletConfigForUpdateNodePoolConfigInput.featureGates) &&
         Objects.equals(this.kubeApiBurst, kubeletConfigForUpdateNodePoolConfigInput.kubeApiBurst) &&
         Objects.equals(this.kubeApiQps, kubeletConfigForUpdateNodePoolConfigInput.kubeApiQps) &&
+        Objects.equals(this.kubeReserved, kubeletConfigForUpdateNodePoolConfigInput.kubeReserved) &&
+        Objects.equals(this.maxPods, kubeletConfigForUpdateNodePoolConfigInput.maxPods) &&
         Objects.equals(this.registryBurst, kubeletConfigForUpdateNodePoolConfigInput.registryBurst) &&
         Objects.equals(this.registryPullQps, kubeletConfigForUpdateNodePoolConfigInput.registryPullQps) &&
         Objects.equals(this.serializeImagePulls, kubeletConfigForUpdateNodePoolConfigInput.serializeImagePulls) &&
+        Objects.equals(this.systemReserved, kubeletConfigForUpdateNodePoolConfigInput.systemReserved) &&
         Objects.equals(this.topologyManagerPolicy, kubeletConfigForUpdateNodePoolConfigInput.topologyManagerPolicy) &&
         Objects.equals(this.topologyManagerScope, kubeletConfigForUpdateNodePoolConfigInput.topologyManagerScope);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evictionHard, featureGates, kubeApiBurst, kubeApiQps, registryBurst, registryPullQps, serializeImagePulls, topologyManagerPolicy, topologyManagerScope);
+    return Objects.hash(cpuManagerPolicy, evictionHard, featureGates, kubeApiBurst, kubeApiQps, kubeReserved, maxPods, registryBurst, registryPullQps, serializeImagePulls, systemReserved, topologyManagerPolicy, topologyManagerScope);
   }
 
 
@@ -363,13 +471,17 @@ public class KubeletConfigForUpdateNodePoolConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class KubeletConfigForUpdateNodePoolConfigInput {\n");
     
+    sb.append("    cpuManagerPolicy: ").append(toIndentedString(cpuManagerPolicy)).append("\n");
     sb.append("    evictionHard: ").append(toIndentedString(evictionHard)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    kubeApiBurst: ").append(toIndentedString(kubeApiBurst)).append("\n");
     sb.append("    kubeApiQps: ").append(toIndentedString(kubeApiQps)).append("\n");
+    sb.append("    kubeReserved: ").append(toIndentedString(kubeReserved)).append("\n");
+    sb.append("    maxPods: ").append(toIndentedString(maxPods)).append("\n");
     sb.append("    registryBurst: ").append(toIndentedString(registryBurst)).append("\n");
     sb.append("    registryPullQps: ").append(toIndentedString(registryPullQps)).append("\n");
     sb.append("    serializeImagePulls: ").append(toIndentedString(serializeImagePulls)).append("\n");
+    sb.append("    systemReserved: ").append(toIndentedString(systemReserved)).append("\n");
     sb.append("    topologyManagerPolicy: ").append(toIndentedString(topologyManagerPolicy)).append("\n");
     sb.append("    topologyManagerScope: ").append(toIndentedString(topologyManagerScope)).append("\n");
     sb.append("}");

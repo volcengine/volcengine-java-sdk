@@ -30,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class SystemVolumeForUpdateNodePoolConfigInput {
+  @SerializedName("PlacementGroupId")
+  private String placementGroupId = null;
+
   @SerializedName("Size")
   private Integer size = null;
+
+  @SerializedName("SubgroupNumber")
+  private Integer subgroupNumber = null;
 
   /**
    * Gets or Sets type
@@ -79,6 +85,24 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
+  public SystemVolumeForUpdateNodePoolConfigInput placementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+    return this;
+  }
+
+   /**
+   * Get placementGroupId
+   * @return placementGroupId
+  **/
+  @Schema(description = "")
+  public String getPlacementGroupId() {
+    return placementGroupId;
+  }
+
+  public void setPlacementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+  }
+
   public SystemVolumeForUpdateNodePoolConfigInput size(Integer size) {
     this.size = size;
     return this;
@@ -95,6 +119,24 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
 
   public void setSize(Integer size) {
     this.size = size;
+  }
+
+  public SystemVolumeForUpdateNodePoolConfigInput subgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+    return this;
+  }
+
+   /**
+   * Get subgroupNumber
+   * @return subgroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getSubgroupNumber() {
+    return subgroupNumber;
+  }
+
+  public void setSubgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
   }
 
   public SystemVolumeForUpdateNodePoolConfigInput type(TypeEnum type) {
@@ -125,13 +167,15 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
       return false;
     }
     SystemVolumeForUpdateNodePoolConfigInput systemVolumeForUpdateNodePoolConfigInput = (SystemVolumeForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.size, systemVolumeForUpdateNodePoolConfigInput.size) &&
+    return Objects.equals(this.placementGroupId, systemVolumeForUpdateNodePoolConfigInput.placementGroupId) &&
+        Objects.equals(this.size, systemVolumeForUpdateNodePoolConfigInput.size) &&
+        Objects.equals(this.subgroupNumber, systemVolumeForUpdateNodePoolConfigInput.subgroupNumber) &&
         Objects.equals(this.type, systemVolumeForUpdateNodePoolConfigInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, type);
+    return Objects.hash(placementGroupId, size, subgroupNumber, type);
   }
 
 
@@ -140,7 +184,9 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemVolumeForUpdateNodePoolConfigInput {\n");
     
+    sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
