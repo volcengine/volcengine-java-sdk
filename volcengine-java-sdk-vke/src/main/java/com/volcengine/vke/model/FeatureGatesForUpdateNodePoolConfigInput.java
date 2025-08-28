@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class FeatureGatesForUpdateNodePoolConfigInput {
+  @SerializedName("InPlacePodVerticalScaling")
+  private Boolean inPlacePodVerticalScaling = null;
+
   @SerializedName("QoSResourceManager")
   private Boolean qoSResourceManager = null;
+
+  public FeatureGatesForUpdateNodePoolConfigInput inPlacePodVerticalScaling(Boolean inPlacePodVerticalScaling) {
+    this.inPlacePodVerticalScaling = inPlacePodVerticalScaling;
+    return this;
+  }
+
+   /**
+   * Get inPlacePodVerticalScaling
+   * @return inPlacePodVerticalScaling
+  **/
+  @Schema(description = "")
+  public Boolean isInPlacePodVerticalScaling() {
+    return inPlacePodVerticalScaling;
+  }
+
+  public void setInPlacePodVerticalScaling(Boolean inPlacePodVerticalScaling) {
+    this.inPlacePodVerticalScaling = inPlacePodVerticalScaling;
+  }
 
   public FeatureGatesForUpdateNodePoolConfigInput qoSResourceManager(Boolean qoSResourceManager) {
     this.qoSResourceManager = qoSResourceManager;
@@ -61,12 +82,13 @@ public class FeatureGatesForUpdateNodePoolConfigInput {
       return false;
     }
     FeatureGatesForUpdateNodePoolConfigInput featureGatesForUpdateNodePoolConfigInput = (FeatureGatesForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.qoSResourceManager, featureGatesForUpdateNodePoolConfigInput.qoSResourceManager);
+    return Objects.equals(this.inPlacePodVerticalScaling, featureGatesForUpdateNodePoolConfigInput.inPlacePodVerticalScaling) &&
+        Objects.equals(this.qoSResourceManager, featureGatesForUpdateNodePoolConfigInput.qoSResourceManager);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(qoSResourceManager);
+    return Objects.hash(inPlacePodVerticalScaling, qoSResourceManager);
   }
 
 
@@ -75,6 +97,7 @@ public class FeatureGatesForUpdateNodePoolConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FeatureGatesForUpdateNodePoolConfigInput {\n");
     
+    sb.append("    inPlacePodVerticalScaling: ").append(toIndentedString(inPlacePodVerticalScaling)).append("\n");
     sb.append("    qoSResourceManager: ").append(toIndentedString(qoSResourceManager)).append("\n");
     sb.append("}");
     return sb.toString();
