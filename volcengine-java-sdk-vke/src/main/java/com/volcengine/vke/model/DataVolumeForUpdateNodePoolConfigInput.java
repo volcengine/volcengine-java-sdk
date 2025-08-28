@@ -79,11 +79,17 @@ public class DataVolumeForUpdateNodePoolConfigInput {
   @SerializedName("MountPoint")
   private String mountPoint = null;
 
+  @SerializedName("PlacementGroupId")
+  private String placementGroupId = null;
+
   @SerializedName("Size")
   private Integer size = null;
 
   @SerializedName("SnapshotId")
   private String snapshotId = null;
+
+  @SerializedName("SubgroupNumber")
+  private Integer subgroupNumber = null;
 
   /**
    * Gets or Sets type
@@ -167,6 +173,24 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     this.mountPoint = mountPoint;
   }
 
+  public DataVolumeForUpdateNodePoolConfigInput placementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+    return this;
+  }
+
+   /**
+   * Get placementGroupId
+   * @return placementGroupId
+  **/
+  @Schema(description = "")
+  public String getPlacementGroupId() {
+    return placementGroupId;
+  }
+
+  public void setPlacementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+  }
+
   public DataVolumeForUpdateNodePoolConfigInput size(Integer size) {
     this.size = size;
     return this;
@@ -203,6 +227,24 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     this.snapshotId = snapshotId;
   }
 
+  public DataVolumeForUpdateNodePoolConfigInput subgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+    return this;
+  }
+
+   /**
+   * Get subgroupNumber
+   * @return subgroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getSubgroupNumber() {
+    return subgroupNumber;
+  }
+
+  public void setSubgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+  }
+
   public DataVolumeForUpdateNodePoolConfigInput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -233,14 +275,16 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     DataVolumeForUpdateNodePoolConfigInput dataVolumeForUpdateNodePoolConfigInput = (DataVolumeForUpdateNodePoolConfigInput) o;
     return Objects.equals(this.fileSystem, dataVolumeForUpdateNodePoolConfigInput.fileSystem) &&
         Objects.equals(this.mountPoint, dataVolumeForUpdateNodePoolConfigInput.mountPoint) &&
+        Objects.equals(this.placementGroupId, dataVolumeForUpdateNodePoolConfigInput.placementGroupId) &&
         Objects.equals(this.size, dataVolumeForUpdateNodePoolConfigInput.size) &&
         Objects.equals(this.snapshotId, dataVolumeForUpdateNodePoolConfigInput.snapshotId) &&
+        Objects.equals(this.subgroupNumber, dataVolumeForUpdateNodePoolConfigInput.subgroupNumber) &&
         Objects.equals(this.type, dataVolumeForUpdateNodePoolConfigInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystem, mountPoint, size, snapshotId, type);
+    return Objects.hash(fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
   }
 
 
@@ -251,8 +295,10 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
+    sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
+    sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

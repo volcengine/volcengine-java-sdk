@@ -52,6 +52,9 @@ public class ListCdnDomainsRequest {
   @SerializedName("Pagination")
   private PaginationForListCdnDomainsInput pagination = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Region")
   private List<String> region = null;
 
@@ -66,6 +69,9 @@ public class ListCdnDomainsRequest {
 
   @SerializedName("Vendor")
   private List<String> vendor = null;
+
+  @SerializedName("WithConfigs")
+  private Boolean withConfigs = null;
 
   public ListCdnDomainsRequest bizNodeIds(List<String> bizNodeIds) {
     this.bizNodeIds = bizNodeIds;
@@ -192,6 +198,24 @@ public class ListCdnDomainsRequest {
     this.pagination = pagination;
   }
 
+  public ListCdnDomainsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListCdnDomainsRequest region(List<String> region) {
     this.region = region;
     return this;
@@ -315,6 +339,24 @@ public class ListCdnDomainsRequest {
     this.vendor = vendor;
   }
 
+  public ListCdnDomainsRequest withConfigs(Boolean withConfigs) {
+    this.withConfigs = withConfigs;
+    return this;
+  }
+
+   /**
+   * Get withConfigs
+   * @return withConfigs
+  **/
+  @Schema(description = "")
+  public Boolean isWithConfigs() {
+    return withConfigs;
+  }
+
+  public void setWithConfigs(Boolean withConfigs) {
+    this.withConfigs = withConfigs;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -331,16 +373,18 @@ public class ListCdnDomainsRequest {
         Objects.equals(this.exactName, listCdnDomainsRequest.exactName) &&
         Objects.equals(this.name, listCdnDomainsRequest.name) &&
         Objects.equals(this.pagination, listCdnDomainsRequest.pagination) &&
+        Objects.equals(this.projectName, listCdnDomainsRequest.projectName) &&
         Objects.equals(this.region, listCdnDomainsRequest.region) &&
         Objects.equals(this.scheduleCreated, listCdnDomainsRequest.scheduleCreated) &&
         Objects.equals(this.status, listCdnDomainsRequest.status) &&
         Objects.equals(this.tagFilters, listCdnDomainsRequest.tagFilters) &&
-        Objects.equals(this.vendor, listCdnDomainsRequest.vendor);
+        Objects.equals(this.vendor, listCdnDomainsRequest.vendor) &&
+        Objects.equals(this.withConfigs, listCdnDomainsRequest.withConfigs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bizNodeIds, cdnType, cloudAccountId, exactName, name, pagination, region, scheduleCreated, status, tagFilters, vendor);
+    return Objects.hash(bizNodeIds, cdnType, cloudAccountId, exactName, name, pagination, projectName, region, scheduleCreated, status, tagFilters, vendor, withConfigs);
   }
 
 
@@ -355,11 +399,13 @@ public class ListCdnDomainsRequest {
     sb.append("    exactName: ").append(toIndentedString(exactName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    scheduleCreated: ").append(toIndentedString(scheduleCreated)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
+    sb.append("    withConfigs: ").append(toIndentedString(withConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

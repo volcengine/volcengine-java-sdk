@@ -39,6 +39,9 @@ public class ModifyInstanceAttributeRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableJumboFrame")
+  private Boolean enableJumboFrame = null;
+
   @SerializedName("Hostname")
   private String hostname = null;
 
@@ -106,6 +109,24 @@ public class ModifyInstanceAttributeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyInstanceAttributeRequest enableJumboFrame(Boolean enableJumboFrame) {
+    this.enableJumboFrame = enableJumboFrame;
+    return this;
+  }
+
+   /**
+   * Get enableJumboFrame
+   * @return enableJumboFrame
+  **/
+  @Schema(description = "")
+  public Boolean isEnableJumboFrame() {
+    return enableJumboFrame;
+  }
+
+  public void setEnableJumboFrame(Boolean enableJumboFrame) {
+    this.enableJumboFrame = enableJumboFrame;
   }
 
   public ModifyInstanceAttributeRequest hostname(String hostname) {
@@ -212,6 +233,7 @@ public class ModifyInstanceAttributeRequest {
     return Objects.equals(this.clientToken, modifyInstanceAttributeRequest.clientToken) &&
         Objects.equals(this.deletionProtection, modifyInstanceAttributeRequest.deletionProtection) &&
         Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
+        Objects.equals(this.enableJumboFrame, modifyInstanceAttributeRequest.enableJumboFrame) &&
         Objects.equals(this.hostname, modifyInstanceAttributeRequest.hostname) &&
         Objects.equals(this.instanceId, modifyInstanceAttributeRequest.instanceId) &&
         Objects.equals(this.instanceName, modifyInstanceAttributeRequest.instanceName) &&
@@ -221,7 +243,7 @@ public class ModifyInstanceAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deletionProtection, description, hostname, instanceId, instanceName, password, userData);
+    return Objects.hash(clientToken, deletionProtection, description, enableJumboFrame, hostname, instanceId, instanceName, password, userData);
   }
 
 
@@ -233,6 +255,7 @@ public class ModifyInstanceAttributeRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableJumboFrame: ").append(toIndentedString(enableJumboFrame)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

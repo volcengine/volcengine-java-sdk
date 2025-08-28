@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,6 +37,12 @@ public class GlobalDomainForDescribeDnsScheduleOutput {
 
   @SerializedName("Cname")
   private String cname = null;
+
+  @SerializedName("IPv4List")
+  private List<String> ipv4List = null;
+
+  @SerializedName("IPv6List")
+  private List<String> ipv6List = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -91,6 +99,58 @@ public class GlobalDomainForDescribeDnsScheduleOutput {
 
   public void setCname(String cname) {
     this.cname = cname;
+  }
+
+  public GlobalDomainForDescribeDnsScheduleOutput ipv4List(List<String> ipv4List) {
+    this.ipv4List = ipv4List;
+    return this;
+  }
+
+  public GlobalDomainForDescribeDnsScheduleOutput addIpv4ListItem(String ipv4ListItem) {
+    if (this.ipv4List == null) {
+      this.ipv4List = new ArrayList<String>();
+    }
+    this.ipv4List.add(ipv4ListItem);
+    return this;
+  }
+
+   /**
+   * Get ipv4List
+   * @return ipv4List
+  **/
+  @Schema(description = "")
+  public List<String> getIpv4List() {
+    return ipv4List;
+  }
+
+  public void setIpv4List(List<String> ipv4List) {
+    this.ipv4List = ipv4List;
+  }
+
+  public GlobalDomainForDescribeDnsScheduleOutput ipv6List(List<String> ipv6List) {
+    this.ipv6List = ipv6List;
+    return this;
+  }
+
+  public GlobalDomainForDescribeDnsScheduleOutput addIpv6ListItem(String ipv6ListItem) {
+    if (this.ipv6List == null) {
+      this.ipv6List = new ArrayList<String>();
+    }
+    this.ipv6List.add(ipv6ListItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6List
+   * @return ipv6List
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6List() {
+    return ipv6List;
+  }
+
+  public void setIpv6List(List<String> ipv6List) {
+    this.ipv6List = ipv6List;
   }
 
   public GlobalDomainForDescribeDnsScheduleOutput id(String id) {
@@ -231,6 +291,8 @@ public class GlobalDomainForDescribeDnsScheduleOutput {
     GlobalDomainForDescribeDnsScheduleOutput globalDomainForDescribeDnsScheduleOutput = (GlobalDomainForDescribeDnsScheduleOutput) o;
     return Objects.equals(this.cloudAccountId, globalDomainForDescribeDnsScheduleOutput.cloudAccountId) &&
         Objects.equals(this.cname, globalDomainForDescribeDnsScheduleOutput.cname) &&
+        Objects.equals(this.ipv4List, globalDomainForDescribeDnsScheduleOutput.ipv4List) &&
+        Objects.equals(this.ipv6List, globalDomainForDescribeDnsScheduleOutput.ipv6List) &&
         Objects.equals(this.id, globalDomainForDescribeDnsScheduleOutput.id) &&
         Objects.equals(this.isEnabled, globalDomainForDescribeDnsScheduleOutput.isEnabled) &&
         Objects.equals(this.name, globalDomainForDescribeDnsScheduleOutput.name) &&
@@ -242,7 +304,7 @@ public class GlobalDomainForDescribeDnsScheduleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountId, cname, id, isEnabled, name, region, status, subProduct, vendor);
+    return Objects.hash(cloudAccountId, cname, ipv4List, ipv6List, id, isEnabled, name, region, status, subProduct, vendor);
   }
 
 
@@ -253,6 +315,8 @@ public class GlobalDomainForDescribeDnsScheduleOutput {
     
     sb.append("    cloudAccountId: ").append(toIndentedString(cloudAccountId)).append("\n");
     sb.append("    cname: ").append(toIndentedString(cname)).append("\n");
+    sb.append("    ipv4List: ").append(toIndentedString(ipv4List)).append("\n");
+    sb.append("    ipv6List: ").append(toIndentedString(ipv6List)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

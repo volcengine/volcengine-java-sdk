@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mcdn.model.CertificateForListCdnDomainsOutput;
+import com.volcengine.mcdn.model.ConfigsForListCdnDomainsOutput;
 import com.volcengine.mcdn.model.NetworkForListCdnDomainsOutput;
 import com.volcengine.mcdn.model.TagForListCdnDomainsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -58,6 +59,9 @@ public class DomainForListCdnDomainsOutput {
 
   @SerializedName("Cname")
   private String cname = null;
+
+  @SerializedName("Configs")
+  private ConfigsForListCdnDomainsOutput configs = null;
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -103,6 +107,9 @@ public class DomainForListCdnDomainsOutput {
 
   @SerializedName("VendorId")
   private String vendorId = null;
+
+  @SerializedName("VolcProjectPath")
+  private String volcProjectPath = null;
 
   public DomainForListCdnDomainsOutput bizNodeId(String bizNodeId) {
     this.bizNodeId = bizNodeId;
@@ -255,6 +262,25 @@ public class DomainForListCdnDomainsOutput {
 
   public void setCname(String cname) {
     this.cname = cname;
+  }
+
+  public DomainForListCdnDomainsOutput configs(ConfigsForListCdnDomainsOutput configs) {
+    this.configs = configs;
+    return this;
+  }
+
+   /**
+   * Get configs
+   * @return configs
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConfigsForListCdnDomainsOutput getConfigs() {
+    return configs;
+  }
+
+  public void setConfigs(ConfigsForListCdnDomainsOutput configs) {
+    this.configs = configs;
   }
 
   public DomainForListCdnDomainsOutput createdAt(String createdAt) {
@@ -545,6 +571,24 @@ public class DomainForListCdnDomainsOutput {
     this.vendorId = vendorId;
   }
 
+  public DomainForListCdnDomainsOutput volcProjectPath(String volcProjectPath) {
+    this.volcProjectPath = volcProjectPath;
+    return this;
+  }
+
+   /**
+   * Get volcProjectPath
+   * @return volcProjectPath
+  **/
+  @Schema(description = "")
+  public String getVolcProjectPath() {
+    return volcProjectPath;
+  }
+
+  public void setVolcProjectPath(String volcProjectPath) {
+    this.volcProjectPath = volcProjectPath;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -563,6 +607,7 @@ public class DomainForListCdnDomainsOutput {
         Objects.equals(this.cloudAccountId, domainForListCdnDomainsOutput.cloudAccountId) &&
         Objects.equals(this.cloudAccountName, domainForListCdnDomainsOutput.cloudAccountName) &&
         Objects.equals(this.cname, domainForListCdnDomainsOutput.cname) &&
+        Objects.equals(this.configs, domainForListCdnDomainsOutput.configs) &&
         Objects.equals(this.createdAt, domainForListCdnDomainsOutput.createdAt) &&
         Objects.equals(this.id, domainForListCdnDomainsOutput.id) &&
         Objects.equals(this.importedAt, domainForListCdnDomainsOutput.importedAt) &&
@@ -577,12 +622,13 @@ public class DomainForListCdnDomainsOutput {
         Objects.equals(this.topAccountId, domainForListCdnDomainsOutput.topAccountId) &&
         Objects.equals(this.updatedAt, domainForListCdnDomainsOutput.updatedAt) &&
         Objects.equals(this.vendor, domainForListCdnDomainsOutput.vendor) &&
-        Objects.equals(this.vendorId, domainForListCdnDomainsOutput.vendorId);
+        Objects.equals(this.vendorId, domainForListCdnDomainsOutput.vendorId) &&
+        Objects.equals(this.volcProjectPath, domainForListCdnDomainsOutput.volcProjectPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bizNodeId, bizNodeName, bizNodePath, cdnType, certificates, cloudAccountId, cloudAccountName, cname, createdAt, id, importedAt, name, networks, region, scheduleCreated, status, subProduct, syncedAt, tags, topAccountId, updatedAt, vendor, vendorId);
+    return Objects.hash(bizNodeId, bizNodeName, bizNodePath, cdnType, certificates, cloudAccountId, cloudAccountName, cname, configs, createdAt, id, importedAt, name, networks, region, scheduleCreated, status, subProduct, syncedAt, tags, topAccountId, updatedAt, vendor, vendorId, volcProjectPath);
   }
 
 
@@ -599,6 +645,7 @@ public class DomainForListCdnDomainsOutput {
     sb.append("    cloudAccountId: ").append(toIndentedString(cloudAccountId)).append("\n");
     sb.append("    cloudAccountName: ").append(toIndentedString(cloudAccountName)).append("\n");
     sb.append("    cname: ").append(toIndentedString(cname)).append("\n");
+    sb.append("    configs: ").append(toIndentedString(configs)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    importedAt: ").append(toIndentedString(importedAt)).append("\n");
@@ -614,6 +661,7 @@ public class DomainForListCdnDomainsOutput {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("    vendorId: ").append(toIndentedString(vendorId)).append("\n");
+    sb.append("    volcProjectPath: ").append(toIndentedString(volcProjectPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }

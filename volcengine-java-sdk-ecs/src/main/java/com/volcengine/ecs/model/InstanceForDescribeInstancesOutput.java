@@ -70,6 +70,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("ElasticScheduledInstanceType")
   private String elasticScheduledInstanceType = null;
 
+  @SerializedName("EnableJumboFrame")
+  private Boolean enableJumboFrame = null;
+
   @SerializedName("ExpiredAt")
   private String expiredAt = null;
 
@@ -343,6 +346,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setElasticScheduledInstanceType(String elasticScheduledInstanceType) {
     this.elasticScheduledInstanceType = elasticScheduledInstanceType;
+  }
+
+  public InstanceForDescribeInstancesOutput enableJumboFrame(Boolean enableJumboFrame) {
+    this.enableJumboFrame = enableJumboFrame;
+    return this;
+  }
+
+   /**
+   * Get enableJumboFrame
+   * @return enableJumboFrame
+  **/
+  @Schema(description = "")
+  public Boolean isEnableJumboFrame() {
+    return enableJumboFrame;
+  }
+
+  public void setEnableJumboFrame(Boolean enableJumboFrame) {
+    this.enableJumboFrame = enableJumboFrame;
   }
 
   public InstanceForDescribeInstancesOutput expiredAt(String expiredAt) {
@@ -969,6 +990,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
         Objects.equals(this.elasticScheduledInstanceType, instanceForDescribeInstancesOutput.elasticScheduledInstanceType) &&
+        Objects.equals(this.enableJumboFrame, instanceForDescribeInstancesOutput.enableJumboFrame) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
         Objects.equals(this.hostname, instanceForDescribeInstancesOutput.hostname) &&
@@ -1004,7 +1026,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, metadataOptions, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
+    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, enableJumboFrame, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, metadataOptions, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
   }
 
 
@@ -1023,6 +1045,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    elasticScheduledInstanceType: ").append(toIndentedString(elasticScheduledInstanceType)).append("\n");
+    sb.append("    enableJumboFrame: ").append(toIndentedString(enableJumboFrame)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");

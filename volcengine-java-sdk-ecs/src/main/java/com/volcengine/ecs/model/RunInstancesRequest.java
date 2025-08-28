@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.EipAddressForRunInstancesInput;
 import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
+import com.volcengine.ecs.model.NetworkOptionsForRunInstancesInput;
 import com.volcengine.ecs.model.PlacementForRunInstancesInput;
 import com.volcengine.ecs.model.TagForRunInstancesInput;
 import com.volcengine.ecs.model.VolumeForRunInstancesInput;
@@ -120,6 +121,9 @@ public class RunInstancesRequest {
 
   @SerializedName("NetworkInterfaces")
   private List<NetworkInterfaceForRunInstancesInput> networkInterfaces = null;
+
+  @SerializedName("NetworkOptions")
+  private NetworkOptionsForRunInstancesInput networkOptions = null;
 
   @SerializedName("Password")
   private String password = null;
@@ -679,6 +683,25 @@ public class RunInstancesRequest {
     this.networkInterfaces = networkInterfaces;
   }
 
+  public RunInstancesRequest networkOptions(NetworkOptionsForRunInstancesInput networkOptions) {
+    this.networkOptions = networkOptions;
+    return this;
+  }
+
+   /**
+   * Get networkOptions
+   * @return networkOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkOptionsForRunInstancesInput getNetworkOptions() {
+    return networkOptions;
+  }
+
+  public void setNetworkOptions(NetworkOptionsForRunInstancesInput networkOptions) {
+    this.networkOptions = networkOptions;
+  }
+
   public RunInstancesRequest password(String password) {
     this.password = password;
     return this;
@@ -989,6 +1012,7 @@ public class RunInstancesRequest {
         Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
         Objects.equals(this.minCount, runInstancesRequest.minCount) &&
         Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
+        Objects.equals(this.networkOptions, runInstancesRequest.networkOptions) &&
         Objects.equals(this.password, runInstancesRequest.password) &&
         Objects.equals(this.period, runInstancesRequest.period) &&
         Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
@@ -1007,7 +1031,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, networkOptions, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -1044,6 +1068,7 @@ public class RunInstancesRequest {
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    minCount: ").append(toIndentedString(minCount)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
+    sb.append("    networkOptions: ").append(toIndentedString(networkOptions)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
