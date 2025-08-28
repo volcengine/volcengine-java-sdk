@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeContentTaskByTaskIdRequest
+ * ErrorForDescribeCdnTopIpOutput
  */
 
 
 
-public class DescribeContentTaskByTaskIdRequest {
-  @SerializedName("ProjectName")
-  private String projectName = null;
+public class ErrorForDescribeCdnTopIpOutput {
+  @SerializedName("Code")
+  private String code = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
+  @SerializedName("Detail")
+  private String detail = null;
 
-  public DescribeContentTaskByTaskIdRequest projectName(String projectName) {
-    this.projectName = projectName;
+  public ErrorForDescribeCdnTopIpOutput code(String code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get code
+   * @return code
   **/
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public String getCode() {
+    return code;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setCode(String code) {
+    this.code = code;
   }
 
-  public DescribeContentTaskByTaskIdRequest taskId(String taskId) {
-    this.taskId = taskId;
+  public ErrorForDescribeCdnTopIpOutput detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get detail
+   * @return detail
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
+  @Schema(description = "")
+  public String getDetail() {
+    return detail;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setDetail(String detail) {
+    this.detail = detail;
   }
 
 
@@ -82,24 +81,24 @@ public class DescribeContentTaskByTaskIdRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeContentTaskByTaskIdRequest describeContentTaskByTaskIdRequest = (DescribeContentTaskByTaskIdRequest) o;
-    return Objects.equals(this.projectName, describeContentTaskByTaskIdRequest.projectName) &&
-        Objects.equals(this.taskId, describeContentTaskByTaskIdRequest.taskId);
+    ErrorForDescribeCdnTopIpOutput errorForDescribeCdnTopIpOutput = (ErrorForDescribeCdnTopIpOutput) o;
+    return Objects.equals(this.code, errorForDescribeCdnTopIpOutput.code) &&
+        Objects.equals(this.detail, errorForDescribeCdnTopIpOutput.detail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, taskId);
+    return Objects.hash(code, detail);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeContentTaskByTaskIdRequest {\n");
+    sb.append("class ErrorForDescribeCdnTopIpOutput {\n");
     
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

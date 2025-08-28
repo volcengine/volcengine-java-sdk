@@ -19,58 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mcdn.model.OriginForListCdnDomainsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeContentTaskByTaskIdRequest
+ * ConfigsForListCdnDomainsOutput
  */
 
 
 
-public class DescribeContentTaskByTaskIdRequest {
-  @SerializedName("ProjectName")
-  private String projectName = null;
+public class ConfigsForListCdnDomainsOutput {
+  @SerializedName("Origins")
+  private List<OriginForListCdnDomainsOutput> origins = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
+  public ConfigsForListCdnDomainsOutput origins(List<OriginForListCdnDomainsOutput> origins) {
+    this.origins = origins;
+    return this;
+  }
 
-  public DescribeContentTaskByTaskIdRequest projectName(String projectName) {
-    this.projectName = projectName;
+  public ConfigsForListCdnDomainsOutput addOriginsItem(OriginForListCdnDomainsOutput originsItem) {
+    if (this.origins == null) {
+      this.origins = new ArrayList<OriginForListCdnDomainsOutput>();
+    }
+    this.origins.add(originsItem);
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get origins
+   * @return origins
   **/
+  @Valid
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public List<OriginForListCdnDomainsOutput> getOrigins() {
+    return origins;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public DescribeContentTaskByTaskIdRequest taskId(String taskId) {
-    this.taskId = taskId;
-    return this;
-  }
-
-   /**
-   * Get taskId
-   * @return taskId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setOrigins(List<OriginForListCdnDomainsOutput> origins) {
+    this.origins = origins;
   }
 
 
@@ -82,24 +72,22 @@ public class DescribeContentTaskByTaskIdRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeContentTaskByTaskIdRequest describeContentTaskByTaskIdRequest = (DescribeContentTaskByTaskIdRequest) o;
-    return Objects.equals(this.projectName, describeContentTaskByTaskIdRequest.projectName) &&
-        Objects.equals(this.taskId, describeContentTaskByTaskIdRequest.taskId);
+    ConfigsForListCdnDomainsOutput configsForListCdnDomainsOutput = (ConfigsForListCdnDomainsOutput) o;
+    return Objects.equals(this.origins, configsForListCdnDomainsOutput.origins);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, taskId);
+    return Objects.hash(origins);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeContentTaskByTaskIdRequest {\n");
+    sb.append("class ConfigsForListCdnDomainsOutput {\n");
     
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    origins: ").append(toIndentedString(origins)).append("\n");
     sb.append("}");
     return sb.toString();
   }

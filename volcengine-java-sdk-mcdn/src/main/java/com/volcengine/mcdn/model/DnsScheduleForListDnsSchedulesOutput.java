@@ -38,11 +38,17 @@ public class DnsScheduleForListDnsSchedulesOutput {
   @SerializedName("CreatedAt")
   private Long createdAt = null;
 
+  @SerializedName("CreatedTime")
+  private String createdTime = null;
+
   @SerializedName("DomainName")
   private String domainName = null;
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -106,6 +112,24 @@ public class DnsScheduleForListDnsSchedulesOutput {
     this.createdAt = createdAt;
   }
 
+  public DnsScheduleForListDnsSchedulesOutput createdTime(String createdTime) {
+    this.createdTime = createdTime;
+    return this;
+  }
+
+   /**
+   * Get createdTime
+   * @return createdTime
+  **/
+  @Schema(description = "")
+  public String getCreatedTime() {
+    return createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
   public DnsScheduleForListDnsSchedulesOutput domainName(String domainName) {
     this.domainName = domainName;
     return this;
@@ -140,6 +164,24 @@ public class DnsScheduleForListDnsSchedulesOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public DnsScheduleForListDnsSchedulesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DnsScheduleForListDnsSchedulesOutput region(String region) {
@@ -278,8 +320,10 @@ public class DnsScheduleForListDnsSchedulesOutput {
     DnsScheduleForListDnsSchedulesOutput dnsScheduleForListDnsSchedulesOutput = (DnsScheduleForListDnsSchedulesOutput) o;
     return Objects.equals(this.cloudAccountIds, dnsScheduleForListDnsSchedulesOutput.cloudAccountIds) &&
         Objects.equals(this.createdAt, dnsScheduleForListDnsSchedulesOutput.createdAt) &&
+        Objects.equals(this.createdTime, dnsScheduleForListDnsSchedulesOutput.createdTime) &&
         Objects.equals(this.domainName, dnsScheduleForListDnsSchedulesOutput.domainName) &&
         Objects.equals(this.id, dnsScheduleForListDnsSchedulesOutput.id) &&
+        Objects.equals(this.projectName, dnsScheduleForListDnsSchedulesOutput.projectName) &&
         Objects.equals(this.region, dnsScheduleForListDnsSchedulesOutput.region) &&
         Objects.equals(this.scheduleCname, dnsScheduleForListDnsSchedulesOutput.scheduleCname) &&
         Objects.equals(this.scheduleStatus, dnsScheduleForListDnsSchedulesOutput.scheduleStatus) &&
@@ -290,7 +334,7 @@ public class DnsScheduleForListDnsSchedulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountIds, createdAt, domainName, id, region, scheduleCname, scheduleStatus, scheduleStrategies, updatedAt, vendors);
+    return Objects.hash(cloudAccountIds, createdAt, createdTime, domainName, id, projectName, region, scheduleCname, scheduleStatus, scheduleStrategies, updatedAt, vendors);
   }
 
 
@@ -301,8 +345,10 @@ public class DnsScheduleForListDnsSchedulesOutput {
     
     sb.append("    cloudAccountIds: ").append(toIndentedString(cloudAccountIds)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    createdTime: ").append(toIndentedString(createdTime)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    scheduleCname: ").append(toIndentedString(scheduleCname)).append("\n");
     sb.append("    scheduleStatus: ").append(toIndentedString(scheduleStatus)).append("\n");

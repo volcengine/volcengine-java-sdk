@@ -43,6 +43,9 @@ public class ListVendorContentTaskRequest {
   @SerializedName("ProductType")
   private String productType = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("StartTime")
   private Long startTime = null;
 
@@ -127,6 +130,24 @@ public class ListVendorContentTaskRequest {
 
   public void setProductType(String productType) {
     this.productType = productType;
+  }
+
+  public ListVendorContentTaskRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ListVendorContentTaskRequest startTime(Long startTime) {
@@ -216,6 +237,7 @@ public class ListVendorContentTaskRequest {
         Objects.equals(this.endTime, listVendorContentTaskRequest.endTime) &&
         Objects.equals(this.pagination, listVendorContentTaskRequest.pagination) &&
         Objects.equals(this.productType, listVendorContentTaskRequest.productType) &&
+        Objects.equals(this.projectName, listVendorContentTaskRequest.projectName) &&
         Objects.equals(this.startTime, listVendorContentTaskRequest.startTime) &&
         Objects.equals(this.subProduct, listVendorContentTaskRequest.subProduct) &&
         Objects.equals(this.taskType, listVendorContentTaskRequest.taskType) &&
@@ -224,7 +246,7 @@ public class ListVendorContentTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountId, endTime, pagination, productType, startTime, subProduct, taskType, vendorTaskId);
+    return Objects.hash(cloudAccountId, endTime, pagination, productType, projectName, startTime, subProduct, taskType, vendorTaskId);
   }
 
 
@@ -237,6 +259,7 @@ public class ListVendorContentTaskRequest {
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    subProduct: ").append(toIndentedString(subProduct)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");

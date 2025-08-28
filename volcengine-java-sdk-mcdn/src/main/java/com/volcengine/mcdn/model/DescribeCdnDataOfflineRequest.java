@@ -56,6 +56,9 @@ public class DescribeCdnDataOfflineRequest {
   @SerializedName("Metric")
   private String metric = null;
 
+  @SerializedName("ProjectNames")
+  private List<String> projectNames = null;
+
   @SerializedName("StartTime")
   private Long startTime = null;
 
@@ -244,6 +247,32 @@ public class DescribeCdnDataOfflineRequest {
     this.metric = metric;
   }
 
+  public DescribeCdnDataOfflineRequest projectNames(List<String> projectNames) {
+    this.projectNames = projectNames;
+    return this;
+  }
+
+  public DescribeCdnDataOfflineRequest addProjectNamesItem(String projectNamesItem) {
+    if (this.projectNames == null) {
+      this.projectNames = new ArrayList<String>();
+    }
+    this.projectNames.add(projectNamesItem);
+    return this;
+  }
+
+   /**
+   * Get projectNames
+   * @return projectNames
+  **/
+  @Schema(description = "")
+  public List<String> getProjectNames() {
+    return projectNames;
+  }
+
+  public void setProjectNames(List<String> projectNames) {
+    this.projectNames = projectNames;
+  }
+
   public DescribeCdnDataOfflineRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
@@ -333,6 +362,7 @@ public class DescribeCdnDataOfflineRequest {
         Objects.equals(this.groupBy, describeCdnDataOfflineRequest.groupBy) &&
         Objects.equals(this.interval, describeCdnDataOfflineRequest.interval) &&
         Objects.equals(this.metric, describeCdnDataOfflineRequest.metric) &&
+        Objects.equals(this.projectNames, describeCdnDataOfflineRequest.projectNames) &&
         Objects.equals(this.startTime, describeCdnDataOfflineRequest.startTime) &&
         Objects.equals(this.subProducts, describeCdnDataOfflineRequest.subProducts) &&
         Objects.equals(this.vendors, describeCdnDataOfflineRequest.vendors);
@@ -340,7 +370,7 @@ public class DescribeCdnDataOfflineRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnTypes, cloudAccountIds, domainIds, domains, endTime, groupBy, interval, metric, startTime, subProducts, vendors);
+    return Objects.hash(cdnTypes, cloudAccountIds, domainIds, domains, endTime, groupBy, interval, metric, projectNames, startTime, subProducts, vendors);
   }
 
 
@@ -357,6 +387,7 @@ public class DescribeCdnDataOfflineRequest {
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    projectNames: ").append(toIndentedString(projectNames)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    subProducts: ").append(toIndentedString(subProducts)).append("\n");
     sb.append("    vendors: ").append(toIndentedString(vendors)).append("\n");

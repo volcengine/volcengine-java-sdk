@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeContentTaskByTaskIdRequest
+ * HostForListCdnDomainsOutput
  */
 
 
 
-public class DescribeContentTaskByTaskIdRequest {
-  @SerializedName("ProjectName")
-  private String projectName = null;
+public class HostForListCdnDomainsOutput {
+  @SerializedName("HeaderHost")
+  private String headerHost = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
+  @SerializedName("Mode")
+  private String mode = null;
 
-  public DescribeContentTaskByTaskIdRequest projectName(String projectName) {
-    this.projectName = projectName;
+  public HostForListCdnDomainsOutput headerHost(String headerHost) {
+    this.headerHost = headerHost;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get headerHost
+   * @return headerHost
   **/
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public String getHeaderHost() {
+    return headerHost;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setHeaderHost(String headerHost) {
+    this.headerHost = headerHost;
   }
 
-  public DescribeContentTaskByTaskIdRequest taskId(String taskId) {
-    this.taskId = taskId;
+  public HostForListCdnDomainsOutput mode(String mode) {
+    this.mode = mode;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get mode
+   * @return mode
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setMode(String mode) {
+    this.mode = mode;
   }
 
 
@@ -82,24 +81,24 @@ public class DescribeContentTaskByTaskIdRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeContentTaskByTaskIdRequest describeContentTaskByTaskIdRequest = (DescribeContentTaskByTaskIdRequest) o;
-    return Objects.equals(this.projectName, describeContentTaskByTaskIdRequest.projectName) &&
-        Objects.equals(this.taskId, describeContentTaskByTaskIdRequest.taskId);
+    HostForListCdnDomainsOutput hostForListCdnDomainsOutput = (HostForListCdnDomainsOutput) o;
+    return Objects.equals(this.headerHost, hostForListCdnDomainsOutput.headerHost) &&
+        Objects.equals(this.mode, hostForListCdnDomainsOutput.mode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, taskId);
+    return Objects.hash(headerHost, mode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeContentTaskByTaskIdRequest {\n");
+    sb.append("class HostForListCdnDomainsOutput {\n");
     
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    headerHost: ").append(toIndentedString(headerHost)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
