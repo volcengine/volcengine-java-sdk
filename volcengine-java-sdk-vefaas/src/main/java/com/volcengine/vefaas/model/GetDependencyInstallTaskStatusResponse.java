@@ -14,6 +14,13 @@ package com.volcengine.vefaas.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,90 @@ import javax.validation.Valid;
 
 
 public class GetDependencyInstallTaskStatusResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CreateTime")
+  private String createTime = null;
+
+  @SerializedName("FinishTime")
+  private String finishTime = null;
+
+  @SerializedName("FunctionId")
+  private String functionId = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  public GetDependencyInstallTaskStatusResponse createTime(String createTime) {
+    this.createTime = createTime;
+    return this;
+  }
+
+   /**
+   * Get createTime
+   * @return createTime
+  **/
+  @Schema(description = "")
+  public String getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public GetDependencyInstallTaskStatusResponse finishTime(String finishTime) {
+    this.finishTime = finishTime;
+    return this;
+  }
+
+   /**
+   * Get finishTime
+   * @return finishTime
+  **/
+  @Schema(description = "")
+  public String getFinishTime() {
+    return finishTime;
+  }
+
+  public void setFinishTime(String finishTime) {
+    this.finishTime = finishTime;
+  }
+
+  public GetDependencyInstallTaskStatusResponse functionId(String functionId) {
+    this.functionId = functionId;
+    return this;
+  }
+
+   /**
+   * Get functionId
+   * @return functionId
+  **/
+  @Schema(description = "")
+  public String getFunctionId() {
+    return functionId;
+  }
+
+  public void setFunctionId(String functionId) {
+    this.functionId = functionId;
+  }
+
+  public GetDependencyInstallTaskStatusResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +123,16 @@ public class GetDependencyInstallTaskStatusResponse extends com.volcengine.model
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    GetDependencyInstallTaskStatusResponse getDependencyInstallTaskStatusResponse = (GetDependencyInstallTaskStatusResponse) o;
+    return Objects.equals(this.createTime, getDependencyInstallTaskStatusResponse.createTime) &&
+        Objects.equals(this.finishTime, getDependencyInstallTaskStatusResponse.finishTime) &&
+        Objects.equals(this.functionId, getDependencyInstallTaskStatusResponse.functionId) &&
+        Objects.equals(this.status, getDependencyInstallTaskStatusResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(createTime, finishTime, functionId, status);
   }
 
 
@@ -46,6 +141,10 @@ public class GetDependencyInstallTaskStatusResponse extends com.volcengine.model
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDependencyInstallTaskStatusResponse {\n");
     
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    finishTime: ").append(toIndentedString(finishTime)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
