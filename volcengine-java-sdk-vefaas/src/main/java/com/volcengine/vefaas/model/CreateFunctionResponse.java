@@ -98,6 +98,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
 
@@ -492,6 +495,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.requestTimeout = requestTimeout;
   }
 
+  public CreateFunctionResponse role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public CreateFunctionResponse runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -678,6 +699,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.owner, createFunctionResponse.owner) &&
         Objects.equals(this.projectName, createFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, createFunctionResponse.requestTimeout) &&
+        Objects.equals(this.role, createFunctionResponse.role) &&
         Objects.equals(this.runtime, createFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, createFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, createFunctionResponse.sourceType) &&
@@ -690,7 +712,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, role, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -719,6 +741,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");

@@ -97,8 +97,14 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
+
+  @SerializedName("Source")
+  private String source = null;
 
   @SerializedName("SourceLocation")
   private String sourceLocation = null;
@@ -488,6 +494,24 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     this.requestTimeout = requestTimeout;
   }
 
+  public GetFunctionResponse role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public GetFunctionResponse runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -504,6 +528,24 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setRuntime(String runtime) {
     this.runtime = runtime;
+  }
+
+  public GetFunctionResponse source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
   }
 
   public GetFunctionResponse sourceLocation(String sourceLocation) {
@@ -647,7 +689,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.port, getFunctionResponse.port) &&
         Objects.equals(this.projectName, getFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, getFunctionResponse.requestTimeout) &&
+        Objects.equals(this.role, getFunctionResponse.role) &&
         Objects.equals(this.runtime, getFunctionResponse.runtime) &&
+        Objects.equals(this.source, getFunctionResponse.source) &&
         Objects.equals(this.sourceLocation, getFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, getFunctionResponse.sourceType) &&
         Objects.equals(this.tlsConfig, getFunctionResponse.tlsConfig) &&
@@ -658,7 +702,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -687,7 +731,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");

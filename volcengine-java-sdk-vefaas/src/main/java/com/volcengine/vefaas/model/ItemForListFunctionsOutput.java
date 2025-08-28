@@ -104,8 +104,14 @@ public class ItemForListFunctionsOutput {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
+
+  @SerializedName("Source")
+  private String source = null;
 
   @SerializedName("SourceLocation")
   private String sourceLocation = null;
@@ -534,6 +540,24 @@ public class ItemForListFunctionsOutput {
     this.requestTimeout = requestTimeout;
   }
 
+  public ItemForListFunctionsOutput role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public ItemForListFunctionsOutput runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -550,6 +574,24 @@ public class ItemForListFunctionsOutput {
 
   public void setRuntime(String runtime) {
     this.runtime = runtime;
+  }
+
+  public ItemForListFunctionsOutput source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
   }
 
   public ItemForListFunctionsOutput sourceLocation(String sourceLocation) {
@@ -722,7 +764,9 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.port, itemForListFunctionsOutput.port) &&
         Objects.equals(this.projectName, itemForListFunctionsOutput.projectName) &&
         Objects.equals(this.requestTimeout, itemForListFunctionsOutput.requestTimeout) &&
+        Objects.equals(this.role, itemForListFunctionsOutput.role) &&
         Objects.equals(this.runtime, itemForListFunctionsOutput.runtime) &&
+        Objects.equals(this.source, itemForListFunctionsOutput.source) &&
         Objects.equals(this.sourceLocation, itemForListFunctionsOutput.sourceLocation) &&
         Objects.equals(this.sourceType, itemForListFunctionsOutput.sourceType) &&
         Objects.equals(this.tags, itemForListFunctionsOutput.tags) &&
@@ -734,7 +778,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -765,7 +809,9 @@ public class ItemForListFunctionsOutput {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
