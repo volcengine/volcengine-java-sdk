@@ -59,6 +59,9 @@ public class DescribeCdnOriginDataOfflineRequest {
   @SerializedName("Metric")
   private String metric = null;
 
+  @SerializedName("ProjectNames")
+  private List<String> projectNames = null;
+
   @SerializedName("StartTime")
   private Long startTime = null;
 
@@ -265,6 +268,32 @@ public class DescribeCdnOriginDataOfflineRequest {
     this.metric = metric;
   }
 
+  public DescribeCdnOriginDataOfflineRequest projectNames(List<String> projectNames) {
+    this.projectNames = projectNames;
+    return this;
+  }
+
+  public DescribeCdnOriginDataOfflineRequest addProjectNamesItem(String projectNamesItem) {
+    if (this.projectNames == null) {
+      this.projectNames = new ArrayList<String>();
+    }
+    this.projectNames.add(projectNamesItem);
+    return this;
+  }
+
+   /**
+   * Get projectNames
+   * @return projectNames
+  **/
+  @Schema(description = "")
+  public List<String> getProjectNames() {
+    return projectNames;
+  }
+
+  public void setProjectNames(List<String> projectNames) {
+    this.projectNames = projectNames;
+  }
+
   public DescribeCdnOriginDataOfflineRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
@@ -355,6 +384,7 @@ public class DescribeCdnOriginDataOfflineRequest {
         Objects.equals(this.interval, describeCdnOriginDataOfflineRequest.interval) &&
         Objects.equals(this.isTrimLatestData, describeCdnOriginDataOfflineRequest.isTrimLatestData) &&
         Objects.equals(this.metric, describeCdnOriginDataOfflineRequest.metric) &&
+        Objects.equals(this.projectNames, describeCdnOriginDataOfflineRequest.projectNames) &&
         Objects.equals(this.startTime, describeCdnOriginDataOfflineRequest.startTime) &&
         Objects.equals(this.subProducts, describeCdnOriginDataOfflineRequest.subProducts) &&
         Objects.equals(this.vendors, describeCdnOriginDataOfflineRequest.vendors);
@@ -362,7 +392,7 @@ public class DescribeCdnOriginDataOfflineRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnTypes, cloudAccountIds, domainIds, domains, endTime, groupBy, interval, isTrimLatestData, metric, startTime, subProducts, vendors);
+    return Objects.hash(cdnTypes, cloudAccountIds, domainIds, domains, endTime, groupBy, interval, isTrimLatestData, metric, projectNames, startTime, subProducts, vendors);
   }
 
 
@@ -380,6 +410,7 @@ public class DescribeCdnOriginDataOfflineRequest {
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    isTrimLatestData: ").append(toIndentedString(isTrimLatestData)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    projectNames: ").append(toIndentedString(projectNames)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    subProducts: ").append(toIndentedString(subProducts)).append("\n");
     sb.append("    vendors: ").append(toIndentedString(vendors)).append("\n");

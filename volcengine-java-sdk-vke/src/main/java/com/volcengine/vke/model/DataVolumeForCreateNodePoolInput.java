@@ -79,11 +79,17 @@ public class DataVolumeForCreateNodePoolInput {
   @SerializedName("MountPoint")
   private String mountPoint = null;
 
+  @SerializedName("PlacementGroupId")
+  private String placementGroupId = null;
+
   @SerializedName("Size")
   private Integer size = null;
 
   @SerializedName("SnapshotId")
   private String snapshotId = null;
+
+  @SerializedName("SubgroupNumber")
+  private Integer subgroupNumber = null;
 
   /**
    * Gets or Sets type
@@ -167,6 +173,24 @@ public class DataVolumeForCreateNodePoolInput {
     this.mountPoint = mountPoint;
   }
 
+  public DataVolumeForCreateNodePoolInput placementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+    return this;
+  }
+
+   /**
+   * Get placementGroupId
+   * @return placementGroupId
+  **/
+  @Schema(description = "")
+  public String getPlacementGroupId() {
+    return placementGroupId;
+  }
+
+  public void setPlacementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+  }
+
   public DataVolumeForCreateNodePoolInput size(Integer size) {
     this.size = size;
     return this;
@@ -203,6 +227,24 @@ public class DataVolumeForCreateNodePoolInput {
     this.snapshotId = snapshotId;
   }
 
+  public DataVolumeForCreateNodePoolInput subgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+    return this;
+  }
+
+   /**
+   * Get subgroupNumber
+   * @return subgroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getSubgroupNumber() {
+    return subgroupNumber;
+  }
+
+  public void setSubgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+  }
+
   public DataVolumeForCreateNodePoolInput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -233,14 +275,16 @@ public class DataVolumeForCreateNodePoolInput {
     DataVolumeForCreateNodePoolInput dataVolumeForCreateNodePoolInput = (DataVolumeForCreateNodePoolInput) o;
     return Objects.equals(this.fileSystem, dataVolumeForCreateNodePoolInput.fileSystem) &&
         Objects.equals(this.mountPoint, dataVolumeForCreateNodePoolInput.mountPoint) &&
+        Objects.equals(this.placementGroupId, dataVolumeForCreateNodePoolInput.placementGroupId) &&
         Objects.equals(this.size, dataVolumeForCreateNodePoolInput.size) &&
         Objects.equals(this.snapshotId, dataVolumeForCreateNodePoolInput.snapshotId) &&
+        Objects.equals(this.subgroupNumber, dataVolumeForCreateNodePoolInput.subgroupNumber) &&
         Objects.equals(this.type, dataVolumeForCreateNodePoolInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystem, mountPoint, size, snapshotId, type);
+    return Objects.hash(fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
   }
 
 
@@ -251,8 +295,10 @@ public class DataVolumeForCreateNodePoolInput {
     
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
+    sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
+    sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -45,6 +45,9 @@ public class ListDnsSchedulesRequest {
   @SerializedName("Pagination")
   private PaginationForListDnsSchedulesInput pagination = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -142,6 +145,24 @@ public class ListDnsSchedulesRequest {
 
   public void setPagination(PaginationForListDnsSchedulesInput pagination) {
     this.pagination = pagination;
+  }
+
+  public ListDnsSchedulesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ListDnsSchedulesRequest region(String region) {
@@ -274,6 +295,7 @@ public class ListDnsSchedulesRequest {
         Objects.equals(this.domainName, listDnsSchedulesRequest.domainName) &&
         Objects.equals(this.exactDomainName, listDnsSchedulesRequest.exactDomainName) &&
         Objects.equals(this.pagination, listDnsSchedulesRequest.pagination) &&
+        Objects.equals(this.projectName, listDnsSchedulesRequest.projectName) &&
         Objects.equals(this.region, listDnsSchedulesRequest.region) &&
         Objects.equals(this.scheduleStatus, listDnsSchedulesRequest.scheduleStatus) &&
         Objects.equals(this.scheduleStrategy, listDnsSchedulesRequest.scheduleStrategy) &&
@@ -284,7 +306,7 @@ public class ListDnsSchedulesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountIds, domainName, exactDomainName, pagination, region, scheduleStatus, scheduleStrategy, sortBy, sortOrder, vendors);
+    return Objects.hash(cloudAccountIds, domainName, exactDomainName, pagination, projectName, region, scheduleStatus, scheduleStrategy, sortBy, sortOrder, vendors);
   }
 
 
@@ -297,6 +319,7 @@ public class ListDnsSchedulesRequest {
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    exactDomainName: ").append(toIndentedString(exactDomainName)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    scheduleStatus: ").append(toIndentedString(scheduleStatus)).append("\n");
     sb.append("    scheduleStrategy: ").append(toIndentedString(scheduleStrategy)).append("\n");

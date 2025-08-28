@@ -98,6 +98,9 @@ public class ItemForListRevisionsOutput {
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
 
@@ -490,6 +493,24 @@ public class ItemForListRevisionsOutput {
     this.revisionNumber = revisionNumber;
   }
 
+  public ItemForListRevisionsOutput role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public ItemForListRevisionsOutput runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -649,6 +670,7 @@ public class ItemForListRevisionsOutput {
         Objects.equals(this.revisionCreationTime, itemForListRevisionsOutput.revisionCreationTime) &&
         Objects.equals(this.revisionDescription, itemForListRevisionsOutput.revisionDescription) &&
         Objects.equals(this.revisionNumber, itemForListRevisionsOutput.revisionNumber) &&
+        Objects.equals(this.role, itemForListRevisionsOutput.role) &&
         Objects.equals(this.runtime, itemForListRevisionsOutput.runtime) &&
         Objects.equals(this.source, itemForListRevisionsOutput.source) &&
         Objects.equals(this.sourceLocation, itemForListRevisionsOutput.sourceLocation) &&
@@ -660,7 +682,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -689,6 +711,7 @@ public class ItemForListRevisionsOutput {
     sb.append("    revisionCreationTime: ").append(toIndentedString(revisionCreationTime)).append("\n");
     sb.append("    revisionDescription: ").append(toIndentedString(revisionDescription)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");

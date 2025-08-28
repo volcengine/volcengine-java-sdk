@@ -36,6 +36,9 @@ public class ListSandboxesRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
+  @SerializedName("ImageUrl")
+  private String imageUrl = null;
+
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
 
@@ -47,6 +50,9 @@ public class ListSandboxesRequest {
 
   @SerializedName("SandboxId")
   private String sandboxId = null;
+
+  @SerializedName("Status")
+  private String status = null;
 
   public ListSandboxesRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -65,6 +71,24 @@ public class ListSandboxesRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public ListSandboxesRequest imageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+    return this;
+  }
+
+   /**
+   * Get imageUrl
+   * @return imageUrl
+  **/
+  @Schema(description = "")
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
 
   public ListSandboxesRequest metadata(Map<String, String> metadata) {
@@ -147,6 +171,24 @@ public class ListSandboxesRequest {
     this.sandboxId = sandboxId;
   }
 
+  public ListSandboxesRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,15 +200,17 @@ public class ListSandboxesRequest {
     }
     ListSandboxesRequest listSandboxesRequest = (ListSandboxesRequest) o;
     return Objects.equals(this.functionId, listSandboxesRequest.functionId) &&
+        Objects.equals(this.imageUrl, listSandboxesRequest.imageUrl) &&
         Objects.equals(this.metadata, listSandboxesRequest.metadata) &&
         Objects.equals(this.pageNumber, listSandboxesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listSandboxesRequest.pageSize) &&
-        Objects.equals(this.sandboxId, listSandboxesRequest.sandboxId);
+        Objects.equals(this.sandboxId, listSandboxesRequest.sandboxId) &&
+        Objects.equals(this.status, listSandboxesRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, metadata, pageNumber, pageSize, sandboxId);
+    return Objects.hash(functionId, imageUrl, metadata, pageNumber, pageSize, sandboxId, status);
   }
 
 
@@ -176,10 +220,12 @@ public class ListSandboxesRequest {
     sb.append("class ListSandboxesRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

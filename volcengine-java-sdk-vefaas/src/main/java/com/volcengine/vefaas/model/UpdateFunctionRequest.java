@@ -72,6 +72,9 @@ public class UpdateFunctionRequest {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Source")
   private String source = null;
 
@@ -302,6 +305,24 @@ public class UpdateFunctionRequest {
     this.requestTimeout = requestTimeout;
   }
 
+  public UpdateFunctionRequest role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public UpdateFunctionRequest source(String source) {
     this.source = source;
     return this;
@@ -462,6 +483,7 @@ public class UpdateFunctionRequest {
         Objects.equals(this.nasStorage, updateFunctionRequest.nasStorage) &&
         Objects.equals(this.projectName, updateFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, updateFunctionRequest.requestTimeout) &&
+        Objects.equals(this.role, updateFunctionRequest.role) &&
         Objects.equals(this.source, updateFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, updateFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, updateFunctionRequest.sourceType) &&
@@ -473,7 +495,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(cpuMilli, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -493,6 +515,7 @@ public class UpdateFunctionRequest {
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");

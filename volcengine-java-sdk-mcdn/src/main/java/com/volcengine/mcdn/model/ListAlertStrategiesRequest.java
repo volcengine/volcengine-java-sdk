@@ -40,6 +40,9 @@ public class ListAlertStrategiesRequest {
   @SerializedName("Pagination")
   private PaginationForListAlertStrategiesInput pagination = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -98,6 +101,24 @@ public class ListAlertStrategiesRequest {
     this.pagination = pagination;
   }
 
+  public ListAlertStrategiesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAlertStrategiesRequest status(String status) {
     this.status = status;
     return this;
@@ -129,12 +150,13 @@ public class ListAlertStrategiesRequest {
     return Objects.equals(this.level, listAlertStrategiesRequest.level) &&
         Objects.equals(this.name, listAlertStrategiesRequest.name) &&
         Objects.equals(this.pagination, listAlertStrategiesRequest.pagination) &&
+        Objects.equals(this.projectName, listAlertStrategiesRequest.projectName) &&
         Objects.equals(this.status, listAlertStrategiesRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(level, name, pagination, status);
+    return Objects.hash(level, name, pagination, projectName, status);
   }
 
 
@@ -146,6 +168,7 @@ public class ListAlertStrategiesRequest {
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

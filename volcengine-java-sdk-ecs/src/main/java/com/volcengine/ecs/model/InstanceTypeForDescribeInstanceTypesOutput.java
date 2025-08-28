@@ -60,6 +60,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("IsSupportAffinityGroup")
   private Boolean isSupportAffinityGroup = null;
 
+  @SerializedName("IsSupportJumboFrame")
+  private Boolean isSupportJumboFrame = null;
+
   @SerializedName("LocalVolumes")
   private List<LocalVolumeForDescribeInstanceTypesOutput> localVolumes = null;
 
@@ -213,6 +216,24 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.isSupportAffinityGroup = isSupportAffinityGroup;
   }
 
+  public InstanceTypeForDescribeInstanceTypesOutput isSupportJumboFrame(Boolean isSupportJumboFrame) {
+    this.isSupportJumboFrame = isSupportJumboFrame;
+    return this;
+  }
+
+   /**
+   * Get isSupportJumboFrame
+   * @return isSupportJumboFrame
+  **/
+  @Schema(description = "")
+  public Boolean isIsSupportJumboFrame() {
+    return isSupportJumboFrame;
+  }
+
+  public void setIsSupportJumboFrame(Boolean isSupportJumboFrame) {
+    this.isSupportJumboFrame = isSupportJumboFrame;
+  }
+
   public InstanceTypeForDescribeInstanceTypesOutput localVolumes(List<LocalVolumeForDescribeInstanceTypesOutput> localVolumes) {
     this.localVolumes = localVolumes;
     return this;
@@ -352,6 +373,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
         Objects.equals(this.instanceTypeFamily, instanceTypeForDescribeInstanceTypesOutput.instanceTypeFamily) &&
         Objects.equals(this.instanceTypeId, instanceTypeForDescribeInstanceTypesOutput.instanceTypeId) &&
         Objects.equals(this.isSupportAffinityGroup, instanceTypeForDescribeInstanceTypesOutput.isSupportAffinityGroup) &&
+        Objects.equals(this.isSupportJumboFrame, instanceTypeForDescribeInstanceTypesOutput.isSupportJumboFrame) &&
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
         Objects.equals(this.memory, instanceTypeForDescribeInstanceTypesOutput.memory) &&
         Objects.equals(this.network, instanceTypeForDescribeInstanceTypesOutput.network) &&
@@ -362,7 +384,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupSizes, baselineCredit, gpu, initialCredit, instanceTypeFamily, instanceTypeId, isSupportAffinityGroup, localVolumes, memory, network, processor, rdma, volume);
+    return Objects.hash(affinityGroupSizes, baselineCredit, gpu, initialCredit, instanceTypeFamily, instanceTypeId, isSupportAffinityGroup, isSupportJumboFrame, localVolumes, memory, network, processor, rdma, volume);
   }
 
 
@@ -378,6 +400,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    isSupportAffinityGroup: ").append(toIndentedString(isSupportAffinityGroup)).append("\n");
+    sb.append("    isSupportJumboFrame: ").append(toIndentedString(isSupportJumboFrame)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    network: ").append(toIndentedString(network)).append("\n");

@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DescribeContentTaskByTaskIdRequest {
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TaskId")
   private String taskId = null;
+
+  public DescribeContentTaskByTaskIdRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
   public DescribeContentTaskByTaskIdRequest taskId(String taskId) {
     this.taskId = taskId;
@@ -62,12 +83,13 @@ public class DescribeContentTaskByTaskIdRequest {
       return false;
     }
     DescribeContentTaskByTaskIdRequest describeContentTaskByTaskIdRequest = (DescribeContentTaskByTaskIdRequest) o;
-    return Objects.equals(this.taskId, describeContentTaskByTaskIdRequest.taskId);
+    return Objects.equals(this.projectName, describeContentTaskByTaskIdRequest.projectName) &&
+        Objects.equals(this.taskId, describeContentTaskByTaskIdRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(projectName, taskId);
   }
 
 
@@ -76,6 +98,7 @@ public class DescribeContentTaskByTaskIdRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeContentTaskByTaskIdRequest {\n");
     
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();

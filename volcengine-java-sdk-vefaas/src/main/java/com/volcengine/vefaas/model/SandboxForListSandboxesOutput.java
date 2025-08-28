@@ -36,6 +36,9 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("AvailabilityZone")
   private String availabilityZone = null;
 
+  @SerializedName("CpuMilli")
+  private Integer cpuMilli = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -54,8 +57,14 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("Image")
+  private String image = null;
+
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("MemoryMB")
+  private Integer memoryMB = null;
 
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
@@ -85,6 +94,24 @@ public class SandboxForListSandboxesOutput {
 
   public void setAvailabilityZone(String availabilityZone) {
     this.availabilityZone = availabilityZone;
+  }
+
+  public SandboxForListSandboxesOutput cpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+    return this;
+  }
+
+   /**
+   * Get cpuMilli
+   * @return cpuMilli
+  **/
+  @Schema(description = "")
+  public Integer getCpuMilli() {
+    return cpuMilli;
+  }
+
+  public void setCpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
   }
 
   public SandboxForListSandboxesOutput createdAt(String createdAt) {
@@ -195,6 +222,24 @@ public class SandboxForListSandboxesOutput {
     this.id = id;
   }
 
+  public SandboxForListSandboxesOutput image(String image) {
+    this.image = image;
+    return this;
+  }
+
+   /**
+   * Get image
+   * @return image
+  **/
+  @Schema(description = "")
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
+  }
+
   public SandboxForListSandboxesOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
@@ -211,6 +256,24 @@ public class SandboxForListSandboxesOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public SandboxForListSandboxesOutput memoryMB(Integer memoryMB) {
+    this.memoryMB = memoryMB;
+    return this;
+  }
+
+   /**
+   * Get memoryMB
+   * @return memoryMB
+  **/
+  @Schema(description = "")
+  public Integer getMemoryMB() {
+    return memoryMB;
+  }
+
+  public void setMemoryMB(Integer memoryMB) {
+    this.memoryMB = memoryMB;
   }
 
   public SandboxForListSandboxesOutput metadata(Map<String, String> metadata) {
@@ -304,13 +367,16 @@ public class SandboxForListSandboxesOutput {
     }
     SandboxForListSandboxesOutput sandboxForListSandboxesOutput = (SandboxForListSandboxesOutput) o;
     return Objects.equals(this.availabilityZone, sandboxForListSandboxesOutput.availabilityZone) &&
+        Objects.equals(this.cpuMilli, sandboxForListSandboxesOutput.cpuMilli) &&
         Objects.equals(this.createdAt, sandboxForListSandboxesOutput.createdAt) &&
         Objects.equals(this.errorCode, sandboxForListSandboxesOutput.errorCode) &&
         Objects.equals(this.errorMessage, sandboxForListSandboxesOutput.errorMessage) &&
         Objects.equals(this.expireAt, sandboxForListSandboxesOutput.expireAt) &&
         Objects.equals(this.functionId, sandboxForListSandboxesOutput.functionId) &&
         Objects.equals(this.id, sandboxForListSandboxesOutput.id) &&
+        Objects.equals(this.image, sandboxForListSandboxesOutput.image) &&
         Objects.equals(this.instanceType, sandboxForListSandboxesOutput.instanceType) &&
+        Objects.equals(this.memoryMB, sandboxForListSandboxesOutput.memoryMB) &&
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
         Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
@@ -319,7 +385,7 @@ public class SandboxForListSandboxesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, createdAt, errorCode, errorMessage, expireAt, functionId, id, instanceType, metadata, pending, revisionNumber, status);
+    return Objects.hash(availabilityZone, cpuMilli, createdAt, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pending, revisionNumber, status);
   }
 
 
@@ -329,13 +395,16 @@ public class SandboxForListSandboxesOutput {
     sb.append("class SandboxForListSandboxesOutput {\n");
     
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
+    sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
