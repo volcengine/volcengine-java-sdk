@@ -301,5 +301,6 @@
         <module>volcengine-java-sdk-speechsaasprod</module>
         <module>volcengine-java-sdk-graph20250815</module>
         <module>volcengine-java-sdk-speechsaasprod20250521</module>
+        <module>volcengine-java-sdk-llmshield</module>
     </modules>
 </project>
