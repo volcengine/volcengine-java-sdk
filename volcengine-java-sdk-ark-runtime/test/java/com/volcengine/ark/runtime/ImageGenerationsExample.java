@@ -63,6 +63,39 @@ public class ImageGenerationsExample {
         imagesResponse = service.generateImages(generateRequest);
         System.out.println(imagesResponse.getData().get(0).getUrl());
 
+        System.out.println("\n----- [Seedream] Streaming Generate Images Request -----");
+
+        GenerateImagesRequest.SequentialImageGenerationOptions sequentialImageGenerationOptions = new GenerateImagesRequest.SequentialImageGenerationOptions();
+        sequentialImageGenerationOptions.setMaxImages(9);
+
+        generateRequest = GenerateImagesRequest.builder()
+                .model(model)    // Replace with your Seedream endpoint ID
+                .prompt("龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原")
+                .responseFormat(ResponseFormat.Url)
+                .seed(1234567890)
+                .watermark(true)
+                .size("1024x1024")
+                .guidanceScale(2.5)
+                .sequentialImageGeneration("auto")
+                .sequentialImageGenerationOptions(sequentialImageGenerationOptions)
+                .stream(true)
+                .build();
+
+        System.out.println(generateRequest.toString());
+
+        service.streamGenerateImages(generateRequest)
+                .doOnError(Throwable::printStackTrace)
+                .blockingForEach(
+                        choice -> {
+                            if (!choice.getUrl().isEmpty()) {
+                                System.out.println(choice.getUrl());
+                            }
+                            if (choice.getType().equals("image_generation.completed")) {
+                                System.out.println(choice.getUsage().toString());
+                            }
+                        }
+                );
+
         service.shutdownExecutor();
     }
 }
