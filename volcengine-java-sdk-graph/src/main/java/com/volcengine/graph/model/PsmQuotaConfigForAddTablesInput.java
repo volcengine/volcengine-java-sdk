@@ -33,8 +33,14 @@ public class PsmQuotaConfigForAddTablesInput {
   @SerializedName("caller_psm")
   private String callerPsm = null;
 
+  @SerializedName("read_fetch_size")
+  private Long readFetchSize = null;
+
   @SerializedName("read_quota_size")
   private Long readQuotaSize = null;
+
+  @SerializedName("write_fetch_size")
+  private Long writeFetchSize = null;
 
   @SerializedName("write_quota_size")
   private Long writeQuotaSize = null;
@@ -57,6 +63,24 @@ public class PsmQuotaConfigForAddTablesInput {
     this.callerPsm = callerPsm;
   }
 
+  public PsmQuotaConfigForAddTablesInput readFetchSize(Long readFetchSize) {
+    this.readFetchSize = readFetchSize;
+    return this;
+  }
+
+   /**
+   * Get readFetchSize
+   * @return readFetchSize
+  **/
+  @Schema(description = "")
+  public Long getReadFetchSize() {
+    return readFetchSize;
+  }
+
+  public void setReadFetchSize(Long readFetchSize) {
+    this.readFetchSize = readFetchSize;
+  }
+
   public PsmQuotaConfigForAddTablesInput readQuotaSize(Long readQuotaSize) {
     this.readQuotaSize = readQuotaSize;
     return this;
@@ -73,6 +97,24 @@ public class PsmQuotaConfigForAddTablesInput {
 
   public void setReadQuotaSize(Long readQuotaSize) {
     this.readQuotaSize = readQuotaSize;
+  }
+
+  public PsmQuotaConfigForAddTablesInput writeFetchSize(Long writeFetchSize) {
+    this.writeFetchSize = writeFetchSize;
+    return this;
+  }
+
+   /**
+   * Get writeFetchSize
+   * @return writeFetchSize
+  **/
+  @Schema(description = "")
+  public Long getWriteFetchSize() {
+    return writeFetchSize;
+  }
+
+  public void setWriteFetchSize(Long writeFetchSize) {
+    this.writeFetchSize = writeFetchSize;
   }
 
   public PsmQuotaConfigForAddTablesInput writeQuotaSize(Long writeQuotaSize) {
@@ -104,13 +146,15 @@ public class PsmQuotaConfigForAddTablesInput {
     }
     PsmQuotaConfigForAddTablesInput psmQuotaConfigForAddTablesInput = (PsmQuotaConfigForAddTablesInput) o;
     return Objects.equals(this.callerPsm, psmQuotaConfigForAddTablesInput.callerPsm) &&
+        Objects.equals(this.readFetchSize, psmQuotaConfigForAddTablesInput.readFetchSize) &&
         Objects.equals(this.readQuotaSize, psmQuotaConfigForAddTablesInput.readQuotaSize) &&
+        Objects.equals(this.writeFetchSize, psmQuotaConfigForAddTablesInput.writeFetchSize) &&
         Objects.equals(this.writeQuotaSize, psmQuotaConfigForAddTablesInput.writeQuotaSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callerPsm, readQuotaSize, writeQuotaSize);
+    return Objects.hash(callerPsm, readFetchSize, readQuotaSize, writeFetchSize, writeQuotaSize);
   }
 
 
@@ -120,7 +164,9 @@ public class PsmQuotaConfigForAddTablesInput {
     sb.append("class PsmQuotaConfigForAddTablesInput {\n");
     
     sb.append("    callerPsm: ").append(toIndentedString(callerPsm)).append("\n");
+    sb.append("    readFetchSize: ").append(toIndentedString(readFetchSize)).append("\n");
     sb.append("    readQuotaSize: ").append(toIndentedString(readQuotaSize)).append("\n");
+    sb.append("    writeFetchSize: ").append(toIndentedString(writeFetchSize)).append("\n");
     sb.append("    writeQuotaSize: ").append(toIndentedString(writeQuotaSize)).append("\n");
     sb.append("}");
     return sb.toString();

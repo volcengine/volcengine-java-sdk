@@ -36,6 +36,9 @@ public class GetVersionSetAndComponentsInfoRequest {
   @SerializedName("pageSize")
   private Integer pageSize = null;
 
+  @SerializedName("versionSetPrefix")
+  private String versionSetPrefix = null;
+
   public GetVersionSetAndComponentsInfoRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -72,6 +75,24 @@ public class GetVersionSetAndComponentsInfoRequest {
     this.pageSize = pageSize;
   }
 
+  public GetVersionSetAndComponentsInfoRequest versionSetPrefix(String versionSetPrefix) {
+    this.versionSetPrefix = versionSetPrefix;
+    return this;
+  }
+
+   /**
+   * Get versionSetPrefix
+   * @return versionSetPrefix
+  **/
+  @Schema(description = "")
+  public String getVersionSetPrefix() {
+    return versionSetPrefix;
+  }
+
+  public void setVersionSetPrefix(String versionSetPrefix) {
+    this.versionSetPrefix = versionSetPrefix;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class GetVersionSetAndComponentsInfoRequest {
     }
     GetVersionSetAndComponentsInfoRequest getVersionSetAndComponentsInfoRequest = (GetVersionSetAndComponentsInfoRequest) o;
     return Objects.equals(this.pageNumber, getVersionSetAndComponentsInfoRequest.pageNumber) &&
-        Objects.equals(this.pageSize, getVersionSetAndComponentsInfoRequest.pageSize);
+        Objects.equals(this.pageSize, getVersionSetAndComponentsInfoRequest.pageSize) &&
+        Objects.equals(this.versionSetPrefix, getVersionSetAndComponentsInfoRequest.versionSetPrefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize);
+    return Objects.hash(pageNumber, pageSize, versionSetPrefix);
   }
 
 
@@ -99,6 +121,7 @@ public class GetVersionSetAndComponentsInfoRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    versionSetPrefix: ").append(toIndentedString(versionSetPrefix)).append("\n");
     sb.append("}");
     return sb.toString();
   }
