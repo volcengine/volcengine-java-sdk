@@ -33,6 +33,9 @@ public class GremlinQuotaConfigForAddTablesInput {
   @SerializedName("caller_psm")
   private String callerPsm = null;
 
+  @SerializedName("fetch_size")
+  private Long fetchSize = null;
+
   @SerializedName("quota_size")
   private Long quotaSize = null;
 
@@ -55,6 +58,24 @@ public class GremlinQuotaConfigForAddTablesInput {
 
   public void setCallerPsm(String callerPsm) {
     this.callerPsm = callerPsm;
+  }
+
+  public GremlinQuotaConfigForAddTablesInput fetchSize(Long fetchSize) {
+    this.fetchSize = fetchSize;
+    return this;
+  }
+
+   /**
+   * Get fetchSize
+   * @return fetchSize
+  **/
+  @Schema(description = "")
+  public Long getFetchSize() {
+    return fetchSize;
+  }
+
+  public void setFetchSize(Long fetchSize) {
+    this.fetchSize = fetchSize;
   }
 
   public GremlinQuotaConfigForAddTablesInput quotaSize(Long quotaSize) {
@@ -104,13 +125,14 @@ public class GremlinQuotaConfigForAddTablesInput {
     }
     GremlinQuotaConfigForAddTablesInput gremlinQuotaConfigForAddTablesInput = (GremlinQuotaConfigForAddTablesInput) o;
     return Objects.equals(this.callerPsm, gremlinQuotaConfigForAddTablesInput.callerPsm) &&
+        Objects.equals(this.fetchSize, gremlinQuotaConfigForAddTablesInput.fetchSize) &&
         Objects.equals(this.quotaSize, gremlinQuotaConfigForAddTablesInput.quotaSize) &&
         Objects.equals(this.template, gremlinQuotaConfigForAddTablesInput.template);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callerPsm, quotaSize, template);
+    return Objects.hash(callerPsm, fetchSize, quotaSize, template);
   }
 
 
@@ -120,6 +142,7 @@ public class GremlinQuotaConfigForAddTablesInput {
     sb.append("class GremlinQuotaConfigForAddTablesInput {\n");
     
     sb.append("    callerPsm: ").append(toIndentedString(callerPsm)).append("\n");
+    sb.append("    fetchSize: ").append(toIndentedString(fetchSize)).append("\n");
     sb.append("    quotaSize: ").append(toIndentedString(quotaSize)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("}");

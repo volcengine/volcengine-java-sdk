@@ -713,6 +713,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+
+        DEFAULT_ENDPOINT_MAP.put("cloudidentity", new ServiceEndpointInfo(
+                "cloudidentity",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

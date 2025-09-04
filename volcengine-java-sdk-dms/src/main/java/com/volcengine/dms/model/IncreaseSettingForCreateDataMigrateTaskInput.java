@@ -64,10 +64,10 @@ public class IncreaseSettingForCreateDataMigrateTaskInput {
    /**
    * Get times
    * minimum: 1
-   * maximum: 30
+   * maximum: 100
    * @return times
   **/
- @Min(1) @Max(30)  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Integer getTimes() {
     return times;
   }
