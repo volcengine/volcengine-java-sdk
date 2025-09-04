@@ -13,7 +13,7 @@ public class ItemMCPApprovalResponse extends BaseItem implements InputItem {
     @JsonProperty("approval_request_id")
     private String approvalRequestId;
 
-    public ItemMCPApprovalResponse(String type) {
+    public ItemMCPApprovalResponse() {
         super(ResponsesConstants.ITEM_TYPE_MCP_APPROVAL_RESPONSE);
     }
 
@@ -63,7 +63,7 @@ public class ItemMCPApprovalResponse extends BaseItem implements InputItem {
         }
 
         public ItemMCPApprovalResponse build() {
-            ItemMCPApprovalResponse itemMCPApprovalResponse = new ItemMCPApprovalResponse(null);
+            ItemMCPApprovalResponse itemMCPApprovalResponse = new ItemMCPApprovalResponse();
             itemMCPApprovalResponse.setApprove(approve);
             itemMCPApprovalResponse.setApprovalRequestId(approvalRequestId);
             return itemMCPApprovalResponse;

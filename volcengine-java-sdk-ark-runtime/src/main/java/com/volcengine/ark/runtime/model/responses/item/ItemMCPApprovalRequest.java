@@ -19,7 +19,7 @@ public class ItemMCPApprovalRequest extends BaseItem implements InputItem, Outpu
     @JsonProperty("server_label")
     private String serverLabel;
 
-    public ItemMCPApprovalRequest(String type) {
+    public ItemMCPApprovalRequest() {
         super(ResponsesConstants.ITEM_TYPE_MCP_APPROVAL_REQUEST);
     }
 
@@ -100,7 +100,7 @@ public class ItemMCPApprovalRequest extends BaseItem implements InputItem, Outpu
         }
 
         public ItemMCPApprovalRequest build() {
-            ItemMCPApprovalRequest itemMCPApprovalRequest = new ItemMCPApprovalRequest(null);
+            ItemMCPApprovalRequest itemMCPApprovalRequest = new ItemMCPApprovalRequest();
             itemMCPApprovalRequest.setId(id);
             itemMCPApprovalRequest.setName(name);
             itemMCPApprovalRequest.setArguments(arguments);
