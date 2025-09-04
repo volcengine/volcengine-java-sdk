@@ -303,5 +303,6 @@
         <module>volcengine-java-sdk-speechsaasprod20250521</module>
         <module>volcengine-java-sdk-graph</module>
         <module>volcengine-java-sdk-bmq</module>
+        <module>volcengine-java-sdk-cloudidentity</module>
     </modules>
 </project>
