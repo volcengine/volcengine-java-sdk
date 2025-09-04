@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class BasicConfigForCreateDataMigrateTaskInput {
   @SerializedName("Bandwidth")
-  private Integer bandwidth = null;
+  private Long bandwidth = null;
 
   @SerializedName("EnableRangeCheck")
   private Boolean enableRangeCheck = null;
@@ -202,23 +202,21 @@ public class BasicConfigForCreateDataMigrateTaskInput {
   @SerializedName("TaskName")
   private String taskName = null;
 
-  public BasicConfigForCreateDataMigrateTaskInput bandwidth(Integer bandwidth) {
+  public BasicConfigForCreateDataMigrateTaskInput bandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
 
    /**
    * Get bandwidth
-   * minimum: 1
-   * maximum: 1073741824
    * @return bandwidth
   **/
- @Min(1) @Max(1073741824)  @Schema(description = "")
-  public Integer getBandwidth() {
+  @Schema(description = "")
+  public Long getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(Integer bandwidth) {
+  public void setBandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
   }
 

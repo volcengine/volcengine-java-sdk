@@ -24,56 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * IncreaseSettingForCreateDataMigrateTaskInput
+ * DeleteDataMigrateTaskRequest
  */
 
 
 
-public class IncreaseSettingForCreateDataMigrateTaskInput {
-  @SerializedName("Interval")
-  private Integer interval = null;
+public class DeleteDataMigrateTaskRequest {
+  @SerializedName("ID")
+  private Long ID = null;
 
-  @SerializedName("Times")
-  private Integer times = null;
+  @SerializedName("TaskName")
+  private String taskName = null;
 
-  public IncreaseSettingForCreateDataMigrateTaskInput interval(Integer interval) {
-    this.interval = interval;
+  public DeleteDataMigrateTaskRequest ID(Long ID) {
+    this.ID = ID;
     return this;
   }
 
    /**
-   * Get interval
-   * minimum: 3600
-   * maximum: 86400
-   * @return interval
+   * Get ID
+   * @return ID
   **/
- @Min(3600) @Max(86400)  @Schema(description = "")
-  public Integer getInterval() {
-    return interval;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Long getID() {
+    return ID;
   }
 
-  public void setInterval(Integer interval) {
-    this.interval = interval;
+  public void setID(Long ID) {
+    this.ID = ID;
   }
 
-  public IncreaseSettingForCreateDataMigrateTaskInput times(Integer times) {
-    this.times = times;
+  public DeleteDataMigrateTaskRequest taskName(String taskName) {
+    this.taskName = taskName;
     return this;
   }
 
    /**
-   * Get times
-   * minimum: 1
-   * maximum: 100
-   * @return times
+   * Get taskName
+   * @return taskName
   **/
- @Min(1) @Max(100)  @Schema(description = "")
-  public Integer getTimes() {
-    return times;
+  @Schema(description = "")
+  public String getTaskName() {
+    return taskName;
   }
 
-  public void setTimes(Integer times) {
-    this.times = times;
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
   }
 
 
@@ -85,24 +82,24 @@ public class IncreaseSettingForCreateDataMigrateTaskInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncreaseSettingForCreateDataMigrateTaskInput increaseSettingForCreateDataMigrateTaskInput = (IncreaseSettingForCreateDataMigrateTaskInput) o;
-    return Objects.equals(this.interval, increaseSettingForCreateDataMigrateTaskInput.interval) &&
-        Objects.equals(this.times, increaseSettingForCreateDataMigrateTaskInput.times);
+    DeleteDataMigrateTaskRequest deleteDataMigrateTaskRequest = (DeleteDataMigrateTaskRequest) o;
+    return Objects.equals(this.ID, deleteDataMigrateTaskRequest.ID) &&
+        Objects.equals(this.taskName, deleteDataMigrateTaskRequest.taskName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interval, times);
+    return Objects.hash(ID, taskName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncreaseSettingForCreateDataMigrateTaskInput {\n");
+    sb.append("class DeleteDataMigrateTaskRequest {\n");
     
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
-    sb.append("    times: ").append(toIndentedString(times)).append("\n");
+    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
