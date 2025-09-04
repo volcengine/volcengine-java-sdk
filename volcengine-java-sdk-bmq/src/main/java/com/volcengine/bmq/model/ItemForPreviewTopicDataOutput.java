@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.bmq.model.HeaderForPreviewTopicDataOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,7 +34,7 @@ import javax.validation.Valid;
 
 public class ItemForPreviewTopicDataOutput {
   @SerializedName("Header")
-  private HeaderForPreviewTopicDataOutput header = null;
+  private List<HeaderForPreviewTopicDataOutput> header = null;
 
   @SerializedName("Key")
   private String key = null;
@@ -52,8 +54,16 @@ public class ItemForPreviewTopicDataOutput {
   @SerializedName("Value")
   private String value = null;
 
-  public ItemForPreviewTopicDataOutput header(HeaderForPreviewTopicDataOutput header) {
+  public ItemForPreviewTopicDataOutput header(List<HeaderForPreviewTopicDataOutput> header) {
     this.header = header;
+    return this;
+  }
+
+  public ItemForPreviewTopicDataOutput addHeaderItem(HeaderForPreviewTopicDataOutput headerItem) {
+    if (this.header == null) {
+      this.header = new ArrayList<HeaderForPreviewTopicDataOutput>();
+    }
+    this.header.add(headerItem);
     return this;
   }
 
@@ -63,11 +73,11 @@ public class ItemForPreviewTopicDataOutput {
   **/
   @Valid
   @Schema(description = "")
-  public HeaderForPreviewTopicDataOutput getHeader() {
+  public List<HeaderForPreviewTopicDataOutput> getHeader() {
     return header;
   }
 
-  public void setHeader(HeaderForPreviewTopicDataOutput header) {
+  public void setHeader(List<HeaderForPreviewTopicDataOutput> header) {
     this.header = header;
   }
 
