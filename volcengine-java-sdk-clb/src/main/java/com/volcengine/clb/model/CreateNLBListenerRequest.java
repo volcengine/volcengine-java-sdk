@@ -33,8 +33,20 @@ import javax.validation.Valid;
 
 
 public class CreateNLBListenerRequest {
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
+  @SerializedName("CAEnabled")
+  private Boolean caEnabled = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ConnectionTimeout")
   private Integer connectionTimeout = null;
@@ -54,6 +66,9 @@ public class CreateNLBListenerRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
+  @SerializedName("PCACertificateId")
+  private String pcACertificateId = null;
+
   @SerializedName("Port")
   private Integer port = null;
 
@@ -63,6 +78,9 @@ public class CreateNLBListenerRequest {
   @SerializedName("SecurityPolicyId")
   private String securityPolicyId = null;
 
+  @SerializedName("SecurityPolicyType")
+  private String securityPolicyType = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
@@ -71,6 +89,60 @@ public class CreateNLBListenerRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateNLBListenerInput> tags = null;
+
+  public CreateNLBListenerRequest caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public CreateNLBListenerRequest caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+  }
+
+  public CreateNLBListenerRequest caEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+  }
 
   public CreateNLBListenerRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -88,6 +160,24 @@ public class CreateNLBListenerRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public CreateNLBListenerRequest certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public CreateNLBListenerRequest connectionTimeout(Integer connectionTimeout) {
@@ -199,6 +289,24 @@ public class CreateNLBListenerRequest {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public CreateNLBListenerRequest pcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcACertificateId
+   * @return pcACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcACertificateId() {
+    return pcACertificateId;
+  }
+
+  public void setPcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+  }
+
   public CreateNLBListenerRequest port(Integer port) {
     this.port = port;
     return this;
@@ -253,6 +361,24 @@ public class CreateNLBListenerRequest {
 
   public void setSecurityPolicyId(String securityPolicyId) {
     this.securityPolicyId = securityPolicyId;
+  }
+
+  public CreateNLBListenerRequest securityPolicyType(String securityPolicyType) {
+    this.securityPolicyType = securityPolicyType;
+    return this;
+  }
+
+   /**
+   * Get securityPolicyType
+   * @return securityPolicyType
+  **/
+  @Schema(description = "")
+  public String getSecurityPolicyType() {
+    return securityPolicyType;
+  }
+
+  public void setSecurityPolicyType(String securityPolicyType) {
+    this.securityPolicyType = securityPolicyType;
   }
 
   public CreateNLBListenerRequest serverGroupId(String serverGroupId) {
@@ -329,16 +455,22 @@ public class CreateNLBListenerRequest {
       return false;
     }
     CreateNLBListenerRequest createNLBListenerRequest = (CreateNLBListenerRequest) o;
-    return Objects.equals(this.certificateId, createNLBListenerRequest.certificateId) &&
+    return Objects.equals(this.caCertificateId, createNLBListenerRequest.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, createNLBListenerRequest.caCertificateSource) &&
+        Objects.equals(this.caEnabled, createNLBListenerRequest.caEnabled) &&
+        Objects.equals(this.certificateId, createNLBListenerRequest.certificateId) &&
+        Objects.equals(this.certificateSource, createNLBListenerRequest.certificateSource) &&
         Objects.equals(this.connectionTimeout, createNLBListenerRequest.connectionTimeout) &&
         Objects.equals(this.description, createNLBListenerRequest.description) &&
         Objects.equals(this.enabled, createNLBListenerRequest.enabled) &&
         Objects.equals(this.endPort, createNLBListenerRequest.endPort) &&
         Objects.equals(this.listenerName, createNLBListenerRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, createNLBListenerRequest.loadBalancerId) &&
+        Objects.equals(this.pcACertificateId, createNLBListenerRequest.pcACertificateId) &&
         Objects.equals(this.port, createNLBListenerRequest.port) &&
         Objects.equals(this.protocol, createNLBListenerRequest.protocol) &&
         Objects.equals(this.securityPolicyId, createNLBListenerRequest.securityPolicyId) &&
+        Objects.equals(this.securityPolicyType, createNLBListenerRequest.securityPolicyType) &&
         Objects.equals(this.serverGroupId, createNLBListenerRequest.serverGroupId) &&
         Objects.equals(this.startPort, createNLBListenerRequest.startPort) &&
         Objects.equals(this.tags, createNLBListenerRequest.tags);
@@ -346,7 +478,7 @@ public class CreateNLBListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, connectionTimeout, description, enabled, endPort, listenerName, loadBalancerId, port, protocol, securityPolicyId, serverGroupId, startPort, tags);
+    return Objects.hash(caCertificateId, caCertificateSource, caEnabled, certificateId, certificateSource, connectionTimeout, description, enabled, endPort, listenerName, loadBalancerId, pcACertificateId, port, protocol, securityPolicyId, securityPolicyType, serverGroupId, startPort, tags);
   }
 
 
@@ -355,16 +487,22 @@ public class CreateNLBListenerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNLBListenerRequest {\n");
     
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    connectionTimeout: ").append(toIndentedString(connectionTimeout)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    pcACertificateId: ").append(toIndentedString(pcACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
+    sb.append("    securityPolicyType: ").append(toIndentedString(securityPolicyType)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    startPort: ").append(toIndentedString(startPort)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

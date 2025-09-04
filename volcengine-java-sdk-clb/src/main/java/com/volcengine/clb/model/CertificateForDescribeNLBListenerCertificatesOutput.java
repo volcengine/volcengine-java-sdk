@@ -33,6 +33,9 @@ public class CertificateForDescribeNLBListenerCertificatesOutput {
   @SerializedName("CertificateId")
   private String certificateId = null;
 
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
+
   @SerializedName("CertificateType")
   private String certificateType = null;
 
@@ -61,6 +64,24 @@ public class CertificateForDescribeNLBListenerCertificatesOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public CertificateForDescribeNLBListenerCertificatesOutput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public CertificateForDescribeNLBListenerCertificatesOutput certificateType(String certificateType) {
@@ -146,6 +167,7 @@ public class CertificateForDescribeNLBListenerCertificatesOutput {
     }
     CertificateForDescribeNLBListenerCertificatesOutput certificateForDescribeNLBListenerCertificatesOutput = (CertificateForDescribeNLBListenerCertificatesOutput) o;
     return Objects.equals(this.certificateId, certificateForDescribeNLBListenerCertificatesOutput.certificateId) &&
+        Objects.equals(this.certificateSource, certificateForDescribeNLBListenerCertificatesOutput.certificateSource) &&
         Objects.equals(this.certificateType, certificateForDescribeNLBListenerCertificatesOutput.certificateType) &&
         Objects.equals(this.domain, certificateForDescribeNLBListenerCertificatesOutput.domain) &&
         Objects.equals(this.isDefault, certificateForDescribeNLBListenerCertificatesOutput.isDefault) &&
@@ -154,7 +176,7 @@ public class CertificateForDescribeNLBListenerCertificatesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateType, domain, isDefault, status);
+    return Objects.hash(certificateId, certificateSource, certificateType, domain, isDefault, status);
   }
 
 
@@ -164,6 +186,7 @@ public class CertificateForDescribeNLBListenerCertificatesOutput {
     sb.append("class CertificateForDescribeNLBListenerCertificatesOutput {\n");
     
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    certificateType: ").append(toIndentedString(certificateType)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
