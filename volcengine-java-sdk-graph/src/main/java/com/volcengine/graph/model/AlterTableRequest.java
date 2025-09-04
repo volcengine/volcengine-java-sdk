@@ -20,8 +20,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.graph.model.IOQosOptionsForAlterTableInput;
+import com.volcengine.graph.model.IdcReplicaNumForAlterTableInput;
+import com.volcengine.graph.model.IdcRoNumForAlterTableInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,17 +38,29 @@ public class AlterTableRequest {
   @SerializedName("EnableRead")
   private Boolean enableRead = null;
 
+  @SerializedName("EnableRwSeperateSchedule")
+  private Boolean enableRwSeperateSchedule = null;
+
   @SerializedName("EnableWrite")
   private Boolean enableWrite = null;
 
   @SerializedName("IOQosOptions")
   private IOQosOptionsForAlterTableInput ioQosOptions = null;
 
+  @SerializedName("IdcReplicaNums")
+  private List<IdcReplicaNumForAlterTableInput> idcReplicaNums = null;
+
+  @SerializedName("IdcRoNums")
+  private List<IdcRoNumForAlterTableInput> idcRoNums = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("RwSchedulableIdcs")
+  private List<String> rwSchedulableIdcs = null;
+
   @SerializedName("State")
-  private Integer state = null;
+  private String state = null;
 
   @SerializedName("TableName")
   private String tableName = null;
@@ -65,6 +81,24 @@ public class AlterTableRequest {
 
   public void setEnableRead(Boolean enableRead) {
     this.enableRead = enableRead;
+  }
+
+  public AlterTableRequest enableRwSeperateSchedule(Boolean enableRwSeperateSchedule) {
+    this.enableRwSeperateSchedule = enableRwSeperateSchedule;
+    return this;
+  }
+
+   /**
+   * Get enableRwSeperateSchedule
+   * @return enableRwSeperateSchedule
+  **/
+  @Schema(description = "")
+  public Boolean isEnableRwSeperateSchedule() {
+    return enableRwSeperateSchedule;
+  }
+
+  public void setEnableRwSeperateSchedule(Boolean enableRwSeperateSchedule) {
+    this.enableRwSeperateSchedule = enableRwSeperateSchedule;
   }
 
   public AlterTableRequest enableWrite(Boolean enableWrite) {
@@ -104,6 +138,60 @@ public class AlterTableRequest {
     this.ioQosOptions = ioQosOptions;
   }
 
+  public AlterTableRequest idcReplicaNums(List<IdcReplicaNumForAlterTableInput> idcReplicaNums) {
+    this.idcReplicaNums = idcReplicaNums;
+    return this;
+  }
+
+  public AlterTableRequest addIdcReplicaNumsItem(IdcReplicaNumForAlterTableInput idcReplicaNumsItem) {
+    if (this.idcReplicaNums == null) {
+      this.idcReplicaNums = new ArrayList<IdcReplicaNumForAlterTableInput>();
+    }
+    this.idcReplicaNums.add(idcReplicaNumsItem);
+    return this;
+  }
+
+   /**
+   * Get idcReplicaNums
+   * @return idcReplicaNums
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IdcReplicaNumForAlterTableInput> getIdcReplicaNums() {
+    return idcReplicaNums;
+  }
+
+  public void setIdcReplicaNums(List<IdcReplicaNumForAlterTableInput> idcReplicaNums) {
+    this.idcReplicaNums = idcReplicaNums;
+  }
+
+  public AlterTableRequest idcRoNums(List<IdcRoNumForAlterTableInput> idcRoNums) {
+    this.idcRoNums = idcRoNums;
+    return this;
+  }
+
+  public AlterTableRequest addIdcRoNumsItem(IdcRoNumForAlterTableInput idcRoNumsItem) {
+    if (this.idcRoNums == null) {
+      this.idcRoNums = new ArrayList<IdcRoNumForAlterTableInput>();
+    }
+    this.idcRoNums.add(idcRoNumsItem);
+    return this;
+  }
+
+   /**
+   * Get idcRoNums
+   * @return idcRoNums
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IdcRoNumForAlterTableInput> getIdcRoNums() {
+    return idcRoNums;
+  }
+
+  public void setIdcRoNums(List<IdcRoNumForAlterTableInput> idcRoNums) {
+    this.idcRoNums = idcRoNums;
+  }
+
   public AlterTableRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -123,7 +211,33 @@ public class AlterTableRequest {
     this.instanceId = instanceId;
   }
 
-  public AlterTableRequest state(Integer state) {
+  public AlterTableRequest rwSchedulableIdcs(List<String> rwSchedulableIdcs) {
+    this.rwSchedulableIdcs = rwSchedulableIdcs;
+    return this;
+  }
+
+  public AlterTableRequest addRwSchedulableIdcsItem(String rwSchedulableIdcsItem) {
+    if (this.rwSchedulableIdcs == null) {
+      this.rwSchedulableIdcs = new ArrayList<String>();
+    }
+    this.rwSchedulableIdcs.add(rwSchedulableIdcsItem);
+    return this;
+  }
+
+   /**
+   * Get rwSchedulableIdcs
+   * @return rwSchedulableIdcs
+  **/
+  @Schema(description = "")
+  public List<String> getRwSchedulableIdcs() {
+    return rwSchedulableIdcs;
+  }
+
+  public void setRwSchedulableIdcs(List<String> rwSchedulableIdcs) {
+    this.rwSchedulableIdcs = rwSchedulableIdcs;
+  }
+
+  public AlterTableRequest state(String state) {
     this.state = state;
     return this;
   }
@@ -133,11 +247,11 @@ public class AlterTableRequest {
    * @return state
   **/
   @Schema(description = "")
-  public Integer getState() {
+  public String getState() {
     return state;
   }
 
-  public void setState(Integer state) {
+  public void setState(String state) {
     this.state = state;
   }
 
@@ -171,16 +285,20 @@ public class AlterTableRequest {
     }
     AlterTableRequest alterTableRequest = (AlterTableRequest) o;
     return Objects.equals(this.enableRead, alterTableRequest.enableRead) &&
+        Objects.equals(this.enableRwSeperateSchedule, alterTableRequest.enableRwSeperateSchedule) &&
         Objects.equals(this.enableWrite, alterTableRequest.enableWrite) &&
         Objects.equals(this.ioQosOptions, alterTableRequest.ioQosOptions) &&
+        Objects.equals(this.idcReplicaNums, alterTableRequest.idcReplicaNums) &&
+        Objects.equals(this.idcRoNums, alterTableRequest.idcRoNums) &&
         Objects.equals(this.instanceId, alterTableRequest.instanceId) &&
+        Objects.equals(this.rwSchedulableIdcs, alterTableRequest.rwSchedulableIdcs) &&
         Objects.equals(this.state, alterTableRequest.state) &&
         Objects.equals(this.tableName, alterTableRequest.tableName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableRead, enableWrite, ioQosOptions, instanceId, state, tableName);
+    return Objects.hash(enableRead, enableRwSeperateSchedule, enableWrite, ioQosOptions, idcReplicaNums, idcRoNums, instanceId, rwSchedulableIdcs, state, tableName);
   }
 
 
@@ -190,9 +308,13 @@ public class AlterTableRequest {
     sb.append("class AlterTableRequest {\n");
     
     sb.append("    enableRead: ").append(toIndentedString(enableRead)).append("\n");
+    sb.append("    enableRwSeperateSchedule: ").append(toIndentedString(enableRwSeperateSchedule)).append("\n");
     sb.append("    enableWrite: ").append(toIndentedString(enableWrite)).append("\n");
     sb.append("    ioQosOptions: ").append(toIndentedString(ioQosOptions)).append("\n");
+    sb.append("    idcReplicaNums: ").append(toIndentedString(idcReplicaNums)).append("\n");
+    sb.append("    idcRoNums: ").append(toIndentedString(idcRoNums)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    rwSchedulableIdcs: ").append(toIndentedString(rwSchedulableIdcs)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
     sb.append("}");

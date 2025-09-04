@@ -19,8 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.graph.model.IdcReplicaNumForGetTableOutput;
+import com.volcengine.graph.model.IdcRoNumForGetTableOutput;
+import com.volcengine.graph.model.IoQosOptionsForGetTableOutput;
+import com.volcengine.graph.model.TableQuotaForGetTableOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,8 +39,26 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EnableRead")
   private Boolean enableRead = null;
 
+  @SerializedName("EnableRwSeperateSchedule")
+  private Boolean enableRwSeperateSchedule = null;
+
   @SerializedName("EnableWrite")
   private Boolean enableWrite = null;
+
+  @SerializedName("IdcReplicaNums")
+  private List<IdcReplicaNumForGetTableOutput> idcReplicaNums = null;
+
+  @SerializedName("IdcRoNums")
+  private List<IdcRoNumForGetTableOutput> idcRoNums = null;
+
+  @SerializedName("IoQosOptions")
+  private IoQosOptionsForGetTableOutput ioQosOptions = null;
+
+  @SerializedName("PartitionNum")
+  private Long partitionNum = null;
+
+  @SerializedName("RwSchedulableIdcs")
+  private List<String> rwSchedulableIdcs = null;
 
   @SerializedName("State")
   private String state = null;
@@ -44,6 +68,12 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("TableName")
   private String tableName = null;
+
+  @SerializedName("TableQuota")
+  private TableQuotaForGetTableOutput tableQuota = null;
+
+  @SerializedName("TabletNum")
+  private Long tabletNum = null;
 
   public GetTableResponse enableRead(Boolean enableRead) {
     this.enableRead = enableRead;
@@ -63,6 +93,24 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     this.enableRead = enableRead;
   }
 
+  public GetTableResponse enableRwSeperateSchedule(Boolean enableRwSeperateSchedule) {
+    this.enableRwSeperateSchedule = enableRwSeperateSchedule;
+    return this;
+  }
+
+   /**
+   * Get enableRwSeperateSchedule
+   * @return enableRwSeperateSchedule
+  **/
+  @Schema(description = "")
+  public Boolean isEnableRwSeperateSchedule() {
+    return enableRwSeperateSchedule;
+  }
+
+  public void setEnableRwSeperateSchedule(Boolean enableRwSeperateSchedule) {
+    this.enableRwSeperateSchedule = enableRwSeperateSchedule;
+  }
+
   public GetTableResponse enableWrite(Boolean enableWrite) {
     this.enableWrite = enableWrite;
     return this;
@@ -79,6 +127,123 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
 
   public void setEnableWrite(Boolean enableWrite) {
     this.enableWrite = enableWrite;
+  }
+
+  public GetTableResponse idcReplicaNums(List<IdcReplicaNumForGetTableOutput> idcReplicaNums) {
+    this.idcReplicaNums = idcReplicaNums;
+    return this;
+  }
+
+  public GetTableResponse addIdcReplicaNumsItem(IdcReplicaNumForGetTableOutput idcReplicaNumsItem) {
+    if (this.idcReplicaNums == null) {
+      this.idcReplicaNums = new ArrayList<IdcReplicaNumForGetTableOutput>();
+    }
+    this.idcReplicaNums.add(idcReplicaNumsItem);
+    return this;
+  }
+
+   /**
+   * Get idcReplicaNums
+   * @return idcReplicaNums
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IdcReplicaNumForGetTableOutput> getIdcReplicaNums() {
+    return idcReplicaNums;
+  }
+
+  public void setIdcReplicaNums(List<IdcReplicaNumForGetTableOutput> idcReplicaNums) {
+    this.idcReplicaNums = idcReplicaNums;
+  }
+
+  public GetTableResponse idcRoNums(List<IdcRoNumForGetTableOutput> idcRoNums) {
+    this.idcRoNums = idcRoNums;
+    return this;
+  }
+
+  public GetTableResponse addIdcRoNumsItem(IdcRoNumForGetTableOutput idcRoNumsItem) {
+    if (this.idcRoNums == null) {
+      this.idcRoNums = new ArrayList<IdcRoNumForGetTableOutput>();
+    }
+    this.idcRoNums.add(idcRoNumsItem);
+    return this;
+  }
+
+   /**
+   * Get idcRoNums
+   * @return idcRoNums
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IdcRoNumForGetTableOutput> getIdcRoNums() {
+    return idcRoNums;
+  }
+
+  public void setIdcRoNums(List<IdcRoNumForGetTableOutput> idcRoNums) {
+    this.idcRoNums = idcRoNums;
+  }
+
+  public GetTableResponse ioQosOptions(IoQosOptionsForGetTableOutput ioQosOptions) {
+    this.ioQosOptions = ioQosOptions;
+    return this;
+  }
+
+   /**
+   * Get ioQosOptions
+   * @return ioQosOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public IoQosOptionsForGetTableOutput getIoQosOptions() {
+    return ioQosOptions;
+  }
+
+  public void setIoQosOptions(IoQosOptionsForGetTableOutput ioQosOptions) {
+    this.ioQosOptions = ioQosOptions;
+  }
+
+  public GetTableResponse partitionNum(Long partitionNum) {
+    this.partitionNum = partitionNum;
+    return this;
+  }
+
+   /**
+   * Get partitionNum
+   * @return partitionNum
+  **/
+  @Schema(description = "")
+  public Long getPartitionNum() {
+    return partitionNum;
+  }
+
+  public void setPartitionNum(Long partitionNum) {
+    this.partitionNum = partitionNum;
+  }
+
+  public GetTableResponse rwSchedulableIdcs(List<String> rwSchedulableIdcs) {
+    this.rwSchedulableIdcs = rwSchedulableIdcs;
+    return this;
+  }
+
+  public GetTableResponse addRwSchedulableIdcsItem(String rwSchedulableIdcsItem) {
+    if (this.rwSchedulableIdcs == null) {
+      this.rwSchedulableIdcs = new ArrayList<String>();
+    }
+    this.rwSchedulableIdcs.add(rwSchedulableIdcsItem);
+    return this;
+  }
+
+   /**
+   * Get rwSchedulableIdcs
+   * @return rwSchedulableIdcs
+  **/
+  @Schema(description = "")
+  public List<String> getRwSchedulableIdcs() {
+    return rwSchedulableIdcs;
+  }
+
+  public void setRwSchedulableIdcs(List<String> rwSchedulableIdcs) {
+    this.rwSchedulableIdcs = rwSchedulableIdcs;
   }
 
   public GetTableResponse state(String state) {
@@ -135,6 +300,43 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     this.tableName = tableName;
   }
 
+  public GetTableResponse tableQuota(TableQuotaForGetTableOutput tableQuota) {
+    this.tableQuota = tableQuota;
+    return this;
+  }
+
+   /**
+   * Get tableQuota
+   * @return tableQuota
+  **/
+  @Valid
+  @Schema(description = "")
+  public TableQuotaForGetTableOutput getTableQuota() {
+    return tableQuota;
+  }
+
+  public void setTableQuota(TableQuotaForGetTableOutput tableQuota) {
+    this.tableQuota = tableQuota;
+  }
+
+  public GetTableResponse tabletNum(Long tabletNum) {
+    this.tabletNum = tabletNum;
+    return this;
+  }
+
+   /**
+   * Get tabletNum
+   * @return tabletNum
+  **/
+  @Schema(description = "")
+  public Long getTabletNum() {
+    return tabletNum;
+  }
+
+  public void setTabletNum(Long tabletNum) {
+    this.tabletNum = tabletNum;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,15 +348,23 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     }
     GetTableResponse getTableResponse = (GetTableResponse) o;
     return Objects.equals(this.enableRead, getTableResponse.enableRead) &&
+        Objects.equals(this.enableRwSeperateSchedule, getTableResponse.enableRwSeperateSchedule) &&
         Objects.equals(this.enableWrite, getTableResponse.enableWrite) &&
+        Objects.equals(this.idcReplicaNums, getTableResponse.idcReplicaNums) &&
+        Objects.equals(this.idcRoNums, getTableResponse.idcRoNums) &&
+        Objects.equals(this.ioQosOptions, getTableResponse.ioQosOptions) &&
+        Objects.equals(this.partitionNum, getTableResponse.partitionNum) &&
+        Objects.equals(this.rwSchedulableIdcs, getTableResponse.rwSchedulableIdcs) &&
         Objects.equals(this.state, getTableResponse.state) &&
         Objects.equals(this.tableId, getTableResponse.tableId) &&
-        Objects.equals(this.tableName, getTableResponse.tableName);
+        Objects.equals(this.tableName, getTableResponse.tableName) &&
+        Objects.equals(this.tableQuota, getTableResponse.tableQuota) &&
+        Objects.equals(this.tabletNum, getTableResponse.tabletNum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableRead, enableWrite, state, tableId, tableName);
+    return Objects.hash(enableRead, enableRwSeperateSchedule, enableWrite, idcReplicaNums, idcRoNums, ioQosOptions, partitionNum, rwSchedulableIdcs, state, tableId, tableName, tableQuota, tabletNum);
   }
 
 
@@ -164,10 +374,18 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class GetTableResponse {\n");
     
     sb.append("    enableRead: ").append(toIndentedString(enableRead)).append("\n");
+    sb.append("    enableRwSeperateSchedule: ").append(toIndentedString(enableRwSeperateSchedule)).append("\n");
     sb.append("    enableWrite: ").append(toIndentedString(enableWrite)).append("\n");
+    sb.append("    idcReplicaNums: ").append(toIndentedString(idcReplicaNums)).append("\n");
+    sb.append("    idcRoNums: ").append(toIndentedString(idcRoNums)).append("\n");
+    sb.append("    ioQosOptions: ").append(toIndentedString(ioQosOptions)).append("\n");
+    sb.append("    partitionNum: ").append(toIndentedString(partitionNum)).append("\n");
+    sb.append("    rwSchedulableIdcs: ").append(toIndentedString(rwSchedulableIdcs)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tableId: ").append(toIndentedString(tableId)).append("\n");
     sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
+    sb.append("    tableQuota: ").append(toIndentedString(tableQuota)).append("\n");
+    sb.append("    tabletNum: ").append(toIndentedString(tabletNum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

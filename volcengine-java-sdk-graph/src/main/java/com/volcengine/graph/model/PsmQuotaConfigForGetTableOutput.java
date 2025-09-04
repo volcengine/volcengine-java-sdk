@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PsmQuotaConfigForGetTableQuotaOutput
+ * PsmQuotaConfigForGetTableOutput
  */
 
 
 
-public class PsmQuotaConfigForGetTableQuotaOutput {
+public class PsmQuotaConfigForGetTableOutput {
   @SerializedName("caller_psm")
   private String callerPsm = null;
 
@@ -45,7 +45,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
   @SerializedName("write_quota_size")
   private Long writeQuotaSize = null;
 
-  public PsmQuotaConfigForGetTableQuotaOutput callerPsm(String callerPsm) {
+  public PsmQuotaConfigForGetTableOutput callerPsm(String callerPsm) {
     this.callerPsm = callerPsm;
     return this;
   }
@@ -63,7 +63,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
     this.callerPsm = callerPsm;
   }
 
-  public PsmQuotaConfigForGetTableQuotaOutput readFetchSize(Long readFetchSize) {
+  public PsmQuotaConfigForGetTableOutput readFetchSize(Long readFetchSize) {
     this.readFetchSize = readFetchSize;
     return this;
   }
@@ -81,7 +81,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
     this.readFetchSize = readFetchSize;
   }
 
-  public PsmQuotaConfigForGetTableQuotaOutput readQuotaSize(Long readQuotaSize) {
+  public PsmQuotaConfigForGetTableOutput readQuotaSize(Long readQuotaSize) {
     this.readQuotaSize = readQuotaSize;
     return this;
   }
@@ -99,7 +99,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
     this.readQuotaSize = readQuotaSize;
   }
 
-  public PsmQuotaConfigForGetTableQuotaOutput writeFetchSize(Long writeFetchSize) {
+  public PsmQuotaConfigForGetTableOutput writeFetchSize(Long writeFetchSize) {
     this.writeFetchSize = writeFetchSize;
     return this;
   }
@@ -117,7 +117,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
     this.writeFetchSize = writeFetchSize;
   }
 
-  public PsmQuotaConfigForGetTableQuotaOutput writeQuotaSize(Long writeQuotaSize) {
+  public PsmQuotaConfigForGetTableOutput writeQuotaSize(Long writeQuotaSize) {
     this.writeQuotaSize = writeQuotaSize;
     return this;
   }
@@ -144,12 +144,12 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PsmQuotaConfigForGetTableQuotaOutput psmQuotaConfigForGetTableQuotaOutput = (PsmQuotaConfigForGetTableQuotaOutput) o;
-    return Objects.equals(this.callerPsm, psmQuotaConfigForGetTableQuotaOutput.callerPsm) &&
-        Objects.equals(this.readFetchSize, psmQuotaConfigForGetTableQuotaOutput.readFetchSize) &&
-        Objects.equals(this.readQuotaSize, psmQuotaConfigForGetTableQuotaOutput.readQuotaSize) &&
-        Objects.equals(this.writeFetchSize, psmQuotaConfigForGetTableQuotaOutput.writeFetchSize) &&
-        Objects.equals(this.writeQuotaSize, psmQuotaConfigForGetTableQuotaOutput.writeQuotaSize);
+    PsmQuotaConfigForGetTableOutput psmQuotaConfigForGetTableOutput = (PsmQuotaConfigForGetTableOutput) o;
+    return Objects.equals(this.callerPsm, psmQuotaConfigForGetTableOutput.callerPsm) &&
+        Objects.equals(this.readFetchSize, psmQuotaConfigForGetTableOutput.readFetchSize) &&
+        Objects.equals(this.readQuotaSize, psmQuotaConfigForGetTableOutput.readQuotaSize) &&
+        Objects.equals(this.writeFetchSize, psmQuotaConfigForGetTableOutput.writeFetchSize) &&
+        Objects.equals(this.writeQuotaSize, psmQuotaConfigForGetTableOutput.writeQuotaSize);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class PsmQuotaConfigForGetTableQuotaOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PsmQuotaConfigForGetTableQuotaOutput {\n");
+    sb.append("class PsmQuotaConfigForGetTableOutput {\n");
     
     sb.append("    callerPsm: ").append(toIndentedString(callerPsm)).append("\n");
     sb.append("    readFetchSize: ").append(toIndentedString(readFetchSize)).append("\n");

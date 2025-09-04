@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GremlinQuotaConfigForGetTableQuotaOutput
+ * GremlinQuotaConfigForGetTableOutput
  */
 
 
 
-public class GremlinQuotaConfigForGetTableQuotaOutput {
+public class GremlinQuotaConfigForGetTableOutput {
   @SerializedName("caller_psm")
   private String callerPsm = null;
 
@@ -42,7 +42,7 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
   @SerializedName("template")
   private String template = null;
 
-  public GremlinQuotaConfigForGetTableQuotaOutput callerPsm(String callerPsm) {
+  public GremlinQuotaConfigForGetTableOutput callerPsm(String callerPsm) {
     this.callerPsm = callerPsm;
     return this;
   }
@@ -60,7 +60,7 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
     this.callerPsm = callerPsm;
   }
 
-  public GremlinQuotaConfigForGetTableQuotaOutput fetchSize(Long fetchSize) {
+  public GremlinQuotaConfigForGetTableOutput fetchSize(Long fetchSize) {
     this.fetchSize = fetchSize;
     return this;
   }
@@ -78,7 +78,7 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
     this.fetchSize = fetchSize;
   }
 
-  public GremlinQuotaConfigForGetTableQuotaOutput quotaSize(Long quotaSize) {
+  public GremlinQuotaConfigForGetTableOutput quotaSize(Long quotaSize) {
     this.quotaSize = quotaSize;
     return this;
   }
@@ -96,7 +96,7 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
     this.quotaSize = quotaSize;
   }
 
-  public GremlinQuotaConfigForGetTableQuotaOutput template(String template) {
+  public GremlinQuotaConfigForGetTableOutput template(String template) {
     this.template = template;
     return this;
   }
@@ -123,11 +123,11 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GremlinQuotaConfigForGetTableQuotaOutput gremlinQuotaConfigForGetTableQuotaOutput = (GremlinQuotaConfigForGetTableQuotaOutput) o;
-    return Objects.equals(this.callerPsm, gremlinQuotaConfigForGetTableQuotaOutput.callerPsm) &&
-        Objects.equals(this.fetchSize, gremlinQuotaConfigForGetTableQuotaOutput.fetchSize) &&
-        Objects.equals(this.quotaSize, gremlinQuotaConfigForGetTableQuotaOutput.quotaSize) &&
-        Objects.equals(this.template, gremlinQuotaConfigForGetTableQuotaOutput.template);
+    GremlinQuotaConfigForGetTableOutput gremlinQuotaConfigForGetTableOutput = (GremlinQuotaConfigForGetTableOutput) o;
+    return Objects.equals(this.callerPsm, gremlinQuotaConfigForGetTableOutput.callerPsm) &&
+        Objects.equals(this.fetchSize, gremlinQuotaConfigForGetTableOutput.fetchSize) &&
+        Objects.equals(this.quotaSize, gremlinQuotaConfigForGetTableOutput.quotaSize) &&
+        Objects.equals(this.template, gremlinQuotaConfigForGetTableOutput.template);
   }
 
   @Override
@@ -139,7 +139,7 @@ public class GremlinQuotaConfigForGetTableQuotaOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GremlinQuotaConfigForGetTableQuotaOutput {\n");
+    sb.append("class GremlinQuotaConfigForGetTableOutput {\n");
     
     sb.append("    callerPsm: ").append(toIndentedString(callerPsm)).append("\n");
     sb.append("    fetchSize: ").append(toIndentedString(fetchSize)).append("\n");
