@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyCenBandwidthPackageAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

@@ -59,6 +59,8 @@ import com.volcengine.cen.model.DescribeCenAttributesRequest;
 import com.volcengine.cen.model.DescribeCenAttributesResponse;
 import com.volcengine.cen.model.DescribeCenBandwidthPackageAttributesRequest;
 import com.volcengine.cen.model.DescribeCenBandwidthPackageAttributesResponse;
+import com.volcengine.cen.model.DescribeCenBandwidthPackagesBillingRequest;
+import com.volcengine.cen.model.DescribeCenBandwidthPackagesBillingResponse;
 import com.volcengine.cen.model.DescribeCenBandwidthPackagesRequest;
 import com.volcengine.cen.model.DescribeCenBandwidthPackagesResponse;
 import com.volcengine.cen.model.DescribeCenInterRegionBandwidthAttributesRequest;
@@ -87,6 +89,8 @@ import com.volcengine.cen.model.ListTagsForResourcesRequest;
 import com.volcengine.cen.model.ListTagsForResourcesResponse;
 import com.volcengine.cen.model.ModifyCenAttributesRequest;
 import com.volcengine.cen.model.ModifyCenAttributesResponse;
+import com.volcengine.cen.model.ModifyCenBandwidthPackageAssociationRequest;
+import com.volcengine.cen.model.ModifyCenBandwidthPackageAssociationResponse;
 import com.volcengine.cen.model.ModifyCenBandwidthPackageAttributesRequest;
 import com.volcengine.cen.model.ModifyCenBandwidthPackageAttributesResponse;
 import com.volcengine.cen.model.ModifyCenInterRegionBandwidthAttributesRequest;
@@ -95,8 +99,12 @@ import com.volcengine.cen.model.ModifyCenServiceRouteEntryAttributesRequest;
 import com.volcengine.cen.model.ModifyCenServiceRouteEntryAttributesResponse;
 import com.volcengine.cen.model.PublishCenRouteEntryRequest;
 import com.volcengine.cen.model.PublishCenRouteEntryResponse;
+import com.volcengine.cen.model.RenewCenBandwidthPackageRequest;
+import com.volcengine.cen.model.RenewCenBandwidthPackageResponse;
 import com.volcengine.cen.model.RevokeInstanceFromCenRequest;
 import com.volcengine.cen.model.RevokeInstanceFromCenResponse;
+import com.volcengine.cen.model.SetCenBandwidthPackageRenewalRequest;
+import com.volcengine.cen.model.SetCenBandwidthPackageRenewalResponse;
 import com.volcengine.cen.model.TagResourcesRequest;
 import com.volcengine.cen.model.TagResourcesResponse;
 import com.volcengine.cen.model.UntagResourcesRequest;
@@ -2238,6 +2246,130 @@ public class CenApi {
         return call;
     }
     /**
+     * Build call for describeCenBandwidthPackagesBilling
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeCenBandwidthPackagesBillingCall(DescribeCenBandwidthPackagesBillingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeCenBandwidthPackagesBilling/2020-04-01/cen/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeCenBandwidthPackagesBillingValidateBeforeCall(DescribeCenBandwidthPackagesBillingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeCenBandwidthPackagesBilling(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeCenBandwidthPackagesBillingResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeCenBandwidthPackagesBillingResponse describeCenBandwidthPackagesBilling(DescribeCenBandwidthPackagesBillingRequest body) throws ApiException {
+        ApiResponse<DescribeCenBandwidthPackagesBillingResponse> resp = describeCenBandwidthPackagesBillingWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeCenBandwidthPackagesBillingResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeCenBandwidthPackagesBillingResponse> describeCenBandwidthPackagesBillingWithHttpInfo( @NotNull DescribeCenBandwidthPackagesBillingRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeCenBandwidthPackagesBillingResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeCenBandwidthPackagesBillingAsync(DescribeCenBandwidthPackagesBillingRequest body, final ApiCallback<DescribeCenBandwidthPackagesBillingResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeCenBandwidthPackagesBillingResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for describeCenInterRegionBandwidthAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3850,6 +3982,130 @@ public class CenApi {
         return call;
     }
     /**
+     * Build call for modifyCenBandwidthPackageAssociation
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyCenBandwidthPackageAssociationCall(ModifyCenBandwidthPackageAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyCenBandwidthPackageAssociation/2020-04-01/cen/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyCenBandwidthPackageAssociationValidateBeforeCall(ModifyCenBandwidthPackageAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyCenBandwidthPackageAssociation(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyCenBandwidthPackageAssociationCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyCenBandwidthPackageAssociationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyCenBandwidthPackageAssociationResponse modifyCenBandwidthPackageAssociation(ModifyCenBandwidthPackageAssociationRequest body) throws ApiException {
+        ApiResponse<ModifyCenBandwidthPackageAssociationResponse> resp = modifyCenBandwidthPackageAssociationWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyCenBandwidthPackageAssociationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyCenBandwidthPackageAssociationResponse> modifyCenBandwidthPackageAssociationWithHttpInfo( @NotNull ModifyCenBandwidthPackageAssociationRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyCenBandwidthPackageAssociationValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyCenBandwidthPackageAssociationResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyCenBandwidthPackageAssociationAsync(ModifyCenBandwidthPackageAssociationRequest body, final ApiCallback<ModifyCenBandwidthPackageAssociationResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyCenBandwidthPackageAssociationValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyCenBandwidthPackageAssociationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyCenBandwidthPackageAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4346,6 +4602,130 @@ public class CenApi {
         return call;
     }
     /**
+     * Build call for renewCenBandwidthPackage
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call renewCenBandwidthPackageCall(RenewCenBandwidthPackageRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/RenewCenBandwidthPackage/2020-04-01/cen/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renewCenBandwidthPackageValidateBeforeCall(RenewCenBandwidthPackageRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling renewCenBandwidthPackage(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = renewCenBandwidthPackageCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RenewCenBandwidthPackageResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RenewCenBandwidthPackageResponse renewCenBandwidthPackage(RenewCenBandwidthPackageRequest body) throws ApiException {
+        ApiResponse<RenewCenBandwidthPackageResponse> resp = renewCenBandwidthPackageWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RenewCenBandwidthPackageResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RenewCenBandwidthPackageResponse> renewCenBandwidthPackageWithHttpInfo( @NotNull RenewCenBandwidthPackageRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = renewCenBandwidthPackageValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RenewCenBandwidthPackageResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call renewCenBandwidthPackageAsync(RenewCenBandwidthPackageRequest body, final ApiCallback<RenewCenBandwidthPackageResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renewCenBandwidthPackageValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RenewCenBandwidthPackageResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for revokeInstanceFromCen
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4466,6 +4846,130 @@ public class CenApi {
 
         com.squareup.okhttp.Call call = revokeInstanceFromCenValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RevokeInstanceFromCenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for setCenBandwidthPackageRenewal
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setCenBandwidthPackageRenewalCall(SetCenBandwidthPackageRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/SetCenBandwidthPackageRenewal/2020-04-01/cen/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call setCenBandwidthPackageRenewalValidateBeforeCall(SetCenBandwidthPackageRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling setCenBandwidthPackageRenewal(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return SetCenBandwidthPackageRenewalResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SetCenBandwidthPackageRenewalResponse setCenBandwidthPackageRenewal(SetCenBandwidthPackageRenewalRequest body) throws ApiException {
+        ApiResponse<SetCenBandwidthPackageRenewalResponse> resp = setCenBandwidthPackageRenewalWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;SetCenBandwidthPackageRenewalResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SetCenBandwidthPackageRenewalResponse> setCenBandwidthPackageRenewalWithHttpInfo( @NotNull SetCenBandwidthPackageRenewalRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<SetCenBandwidthPackageRenewalResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setCenBandwidthPackageRenewalAsync(SetCenBandwidthPackageRenewalRequest body, final ApiCallback<SetCenBandwidthPackageRenewalResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SetCenBandwidthPackageRenewalResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

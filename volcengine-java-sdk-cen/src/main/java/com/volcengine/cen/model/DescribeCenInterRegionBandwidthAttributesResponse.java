@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenInterRegionBandwidthAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -49,9 +50,6 @@ public class DescribeCenInterRegionBandwidthAttributesResponse extends com.volce
 
   @SerializedName("PeerRegionId")
   private String peerRegionId = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -185,24 +183,6 @@ public class DescribeCenInterRegionBandwidthAttributesResponse extends com.volce
     this.peerRegionId = peerRegionId;
   }
 
-  public DescribeCenInterRegionBandwidthAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
   public DescribeCenInterRegionBandwidthAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -256,14 +236,13 @@ public class DescribeCenInterRegionBandwidthAttributesResponse extends com.volce
         Objects.equals(this.interRegionBandwidthId, describeCenInterRegionBandwidthAttributesResponse.interRegionBandwidthId) &&
         Objects.equals(this.localRegionId, describeCenInterRegionBandwidthAttributesResponse.localRegionId) &&
         Objects.equals(this.peerRegionId, describeCenInterRegionBandwidthAttributesResponse.peerRegionId) &&
-        Objects.equals(this.requestId, describeCenInterRegionBandwidthAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCenInterRegionBandwidthAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeCenInterRegionBandwidthAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, cenBandwidthPackageId, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, requestId, status, updateTime);
+    return Objects.hash(bandwidth, cenBandwidthPackageId, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status, updateTime);
   }
 
 
@@ -279,7 +258,6 @@ public class DescribeCenInterRegionBandwidthAttributesResponse extends com.volce
     sb.append("    interRegionBandwidthId: ").append(toIndentedString(interRegionBandwidthId)).append("\n");
     sb.append("    localRegionId: ").append(toIndentedString(localRegionId)).append("\n");
     sb.append("    peerRegionId: ").append(toIndentedString(peerRegionId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

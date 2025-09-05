@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -65,11 +66,11 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
+
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
-
-  @SerializedName("LocalGeographiclRegionSetId")
-  private String localGeographiclRegionSetId = null;
 
   @SerializedName("PeerGeographicRegionSetId")
   private String peerGeographicRegionSetId = null;
@@ -85,6 +86,9 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   @SerializedName("Tags")
   private List<TagForDescribeCenBandwidthPackagesOutput> tags = null;
+
+  @SerializedName("UpdateTime")
+  private String updateTime = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -295,6 +299,24 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     this.expiredTime = expiredTime;
   }
 
+  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+  }
+
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput localGeographicRegionSetId(String localGeographicRegionSetId) {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
     return this;
@@ -311,24 +333,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   public void setLocalGeographicRegionSetId(String localGeographicRegionSetId) {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
-  }
-
-  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput localGeographiclRegionSetId(String localGeographiclRegionSetId) {
-    this.localGeographiclRegionSetId = localGeographiclRegionSetId;
-    return this;
-  }
-
-   /**
-   * Get localGeographiclRegionSetId
-   * @return localGeographiclRegionSetId
-  **/
-  @Schema(description = "")
-  public String getLocalGeographiclRegionSetId() {
-    return localGeographiclRegionSetId;
-  }
-
-  public void setLocalGeographiclRegionSetId(String localGeographiclRegionSetId) {
-    this.localGeographiclRegionSetId = localGeographiclRegionSetId;
   }
 
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput peerGeographicRegionSetId(String peerGeographicRegionSetId) {
@@ -430,6 +434,24 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     this.tags = tags;
   }
 
+  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput updateTime(String updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -469,19 +491,20 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
         Objects.equals(this.deletedTime, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.deletedTime) &&
         Objects.equals(this.description, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.description) &&
         Objects.equals(this.expiredTime, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.expiredTime) &&
+        Objects.equals(this.lineOperator, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.lineOperator) &&
         Objects.equals(this.localGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.localGeographicRegionSetId) &&
-        Objects.equals(this.localGeographiclRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.localGeographiclRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.peerGeographicRegionSetId) &&
         Objects.equals(this.projectName, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.projectName) &&
         Objects.equals(this.remainingBandwidth, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.remainingBandwidth) &&
         Objects.equals(this.status, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.status) &&
         Objects.equals(this.tags, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.tags) &&
+        Objects.equals(this.updateTime, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.updateTime) &&
         Objects.equals(this.updatedAt, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, business, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, localGeographiclRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, updatedAt);
+    return Objects.hash(accountId, bandwidth, billingType, business, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, lineOperator, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, updateTime, updatedAt);
   }
 
 
@@ -501,13 +524,14 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
-    sb.append("    localGeographiclRegionSetId: ").append(toIndentedString(localGeographiclRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

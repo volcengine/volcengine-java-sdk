@@ -28,12 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenId")
   private String cenId = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   public CreateCenResponse cenId(String cenId) {
     this.cenId = cenId;
@@ -53,24 +51,6 @@ public class CreateCenResponse extends com.volcengine.model.AbstractResponse {
     this.cenId = cenId;
   }
 
-  public CreateCenResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +61,12 @@ public class CreateCenResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     CreateCenResponse createCenResponse = (CreateCenResponse) o;
-    return Objects.equals(this.cenId, createCenResponse.cenId) &&
-        Objects.equals(this.requestId, createCenResponse.requestId);
+    return Objects.equals(this.cenId, createCenResponse.cenId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, requestId);
+    return Objects.hash(cenId);
   }
 
 
@@ -97,7 +76,6 @@ public class CreateCenResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class CreateCenResponse {\n");
     
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

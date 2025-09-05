@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenGrantRules")
   private List<CenGrantRuleForDescribeInstanceGrantedRulesOutput> cenGrantRules = null;
@@ -40,9 +41,6 @@ public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.A
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -110,24 +108,6 @@ public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.A
     this.pageSize = pageSize;
   }
 
-  public DescribeInstanceGrantedRulesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
   public DescribeInstanceGrantedRulesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -159,13 +139,12 @@ public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.A
     return Objects.equals(this.cenGrantRules, describeInstanceGrantedRulesResponse.cenGrantRules) &&
         Objects.equals(this.pageNumber, describeInstanceGrantedRulesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeInstanceGrantedRulesResponse.pageSize) &&
-        Objects.equals(this.requestId, describeInstanceGrantedRulesResponse.requestId) &&
         Objects.equals(this.totalCount, describeInstanceGrantedRulesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenGrantRules, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(cenGrantRules, pageNumber, pageSize, totalCount);
   }
 
 
@@ -177,7 +156,6 @@ public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.A
     sb.append("    cenGrantRules: ").append(toIndentedString(cenGrantRules)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyCenInterRegionBandwidthAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("CenBandwidthPackageId")
+  private String cenBandwidthPackageId = null;
 
   @SerializedName("InterRegionBandwidthId")
   private String interRegionBandwidthId = null;
@@ -51,6 +55,24 @@ public class ModifyCenInterRegionBandwidthAttributesRequest {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public ModifyCenInterRegionBandwidthAttributesRequest cenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get cenBandwidthPackageId
+   * @return cenBandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getCenBandwidthPackageId() {
+    return cenBandwidthPackageId;
+  }
+
+  public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
   public ModifyCenInterRegionBandwidthAttributesRequest interRegionBandwidthId(String interRegionBandwidthId) {
@@ -83,12 +105,13 @@ public class ModifyCenInterRegionBandwidthAttributesRequest {
     }
     ModifyCenInterRegionBandwidthAttributesRequest modifyCenInterRegionBandwidthAttributesRequest = (ModifyCenInterRegionBandwidthAttributesRequest) o;
     return Objects.equals(this.bandwidth, modifyCenInterRegionBandwidthAttributesRequest.bandwidth) &&
+        Objects.equals(this.cenBandwidthPackageId, modifyCenInterRegionBandwidthAttributesRequest.cenBandwidthPackageId) &&
         Objects.equals(this.interRegionBandwidthId, modifyCenInterRegionBandwidthAttributesRequest.interRegionBandwidthId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, interRegionBandwidthId);
+    return Objects.hash(bandwidth, cenBandwidthPackageId, interRegionBandwidthId);
   }
 
 
@@ -98,6 +121,7 @@ public class ModifyCenInterRegionBandwidthAttributesRequest {
     sb.append("class ModifyCenInterRegionBandwidthAttributesRequest {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    interRegionBandwidthId: ").append(toIndentedString(interRegionBandwidthId)).append("\n");
     sb.append("}");
     return sb.toString();

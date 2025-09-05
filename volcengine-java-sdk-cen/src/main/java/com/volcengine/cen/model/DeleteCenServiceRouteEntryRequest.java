@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCenServiceRouteEntryRequest {
   @SerializedName("CenId")
   private String cenId = null;
