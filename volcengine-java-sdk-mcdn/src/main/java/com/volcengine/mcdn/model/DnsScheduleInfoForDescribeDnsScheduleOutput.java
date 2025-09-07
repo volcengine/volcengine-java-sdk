@@ -49,6 +49,9 @@ public class DnsScheduleInfoForDescribeDnsScheduleOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -173,6 +176,24 @@ public class DnsScheduleInfoForDescribeDnsScheduleOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public DnsScheduleInfoForDescribeDnsScheduleOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DnsScheduleInfoForDescribeDnsScheduleOutput region(String region) {
@@ -314,6 +335,7 @@ public class DnsScheduleInfoForDescribeDnsScheduleOutput {
         Objects.equals(this.domesticDomains, dnsScheduleInfoForDescribeDnsScheduleOutput.domesticDomains) &&
         Objects.equals(this.globalDomains, dnsScheduleInfoForDescribeDnsScheduleOutput.globalDomains) &&
         Objects.equals(this.id, dnsScheduleInfoForDescribeDnsScheduleOutput.id) &&
+        Objects.equals(this.projectName, dnsScheduleInfoForDescribeDnsScheduleOutput.projectName) &&
         Objects.equals(this.region, dnsScheduleInfoForDescribeDnsScheduleOutput.region) &&
         Objects.equals(this.scheduleCname, dnsScheduleInfoForDescribeDnsScheduleOutput.scheduleCname) &&
         Objects.equals(this.scheduleStatus, dnsScheduleInfoForDescribeDnsScheduleOutput.scheduleStatus) &&
@@ -324,7 +346,7 @@ public class DnsScheduleInfoForDescribeDnsScheduleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, domainName, domesticDomains, globalDomains, id, region, scheduleCname, scheduleStatus, scheduleStrategies, updatedAt, vendors);
+    return Objects.hash(createdAt, domainName, domesticDomains, globalDomains, id, projectName, region, scheduleCname, scheduleStatus, scheduleStrategies, updatedAt, vendors);
   }
 
 
@@ -338,6 +360,7 @@ public class DnsScheduleInfoForDescribeDnsScheduleOutput {
     sb.append("    domesticDomains: ").append(toIndentedString(domesticDomains)).append("\n");
     sb.append("    globalDomains: ").append(toIndentedString(globalDomains)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    scheduleCname: ").append(toIndentedString(scheduleCname)).append("\n");
     sb.append("    scheduleStatus: ").append(toIndentedString(scheduleStatus)).append("\n");

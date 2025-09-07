@@ -84,6 +84,9 @@ public class CreateFunctionRequest {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Role")
+  private String role = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
 
@@ -389,6 +392,24 @@ public class CreateFunctionRequest {
     this.requestTimeout = requestTimeout;
   }
 
+  public CreateFunctionRequest role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @Schema(description = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
   public CreateFunctionRequest runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -572,6 +593,7 @@ public class CreateFunctionRequest {
         Objects.equals(this.nasStorage, createFunctionRequest.nasStorage) &&
         Objects.equals(this.projectName, createFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, createFunctionRequest.requestTimeout) &&
+        Objects.equals(this.role, createFunctionRequest.role) &&
         Objects.equals(this.runtime, createFunctionRequest.runtime) &&
         Objects.equals(this.source, createFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, createFunctionRequest.sourceAccessConfig) &&
@@ -584,7 +606,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -608,6 +630,7 @@ public class CreateFunctionRequest {
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
