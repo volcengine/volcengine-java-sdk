@@ -2,14 +2,17 @@ package com.volcengine.ark.runtime.model.responses.tool;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.IOException;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize(using = ResponsesToolChoice.ResponsesToolChoiceSerializer.class)
+@JsonDeserialize(using = ResponsesToolChoice.ResponsesToolChoiceDeserializer.class)
 public class ResponsesToolChoice {
     private String mode;
     private FunctionToolChoice functionToolChoice;
@@ -30,6 +33,9 @@ public class ResponsesToolChoice {
         this.functionToolChoice = functionToolChoice;
     }
 
+    public ResponsesToolChoice() {
+    }
+
     @Override
     public String toString() {
         return "ResponsesToolChoice{" +
@@ -47,6 +53,22 @@ public class ResponsesToolChoice {
                 gen.writeObject(value.functionToolChoice);
             } else {
                 gen.writeNull();
+            }
+        }
+    }
+
+    public static class ResponsesToolChoiceDeserializer extends JsonDeserializer<ResponsesToolChoice> {
+        @Override
+        public ResponsesToolChoice deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode node = p.getCodec().readTree(p);
+            if (node.isTextual()) {
+                return ResponsesToolChoice.builder().mode(node.asText()).build();
+            } else if (node.isObject()) {
+                FunctionToolChoice functionToolChoice = p.getCodec().treeToValue(node, FunctionToolChoice.class);
+                return ResponsesToolChoice.builder().functionToolChoice(functionToolChoice).build();
+            } else {
+                // avoid exception
+                return null;
             }
         }
     }
