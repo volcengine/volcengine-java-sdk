@@ -36,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class DescribeServerGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CrossZoneEnabled")
+  private String crossZoneEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -83,6 +86,24 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeServerGroupAttributesResponse crossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+    return this;
+  }
+
+   /**
+   * Get crossZoneEnabled
+   * @return crossZoneEnabled
+  **/
+  @Schema(description = "")
+  public String getCrossZoneEnabled() {
+    return crossZoneEnabled;
+  }
+
+  public void setCrossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+  }
 
   public DescribeServerGroupAttributesResponse description(String description) {
     this.description = description;
@@ -410,7 +431,8 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
       return false;
     }
     DescribeServerGroupAttributesResponse describeServerGroupAttributesResponse = (DescribeServerGroupAttributesResponse) o;
-    return Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
+    return Objects.equals(this.crossZoneEnabled, describeServerGroupAttributesResponse.crossZoneEnabled) &&
+        Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
         Objects.equals(this.healthCheck, describeServerGroupAttributesResponse.healthCheck) &&
         Objects.equals(this.ipAddressType, describeServerGroupAttributesResponse.ipAddressType) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
@@ -430,7 +452,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, ipAddressType, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -439,6 +461,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeServerGroupAttributesResponse {\n");
     
+    sb.append("    crossZoneEnabled: ").append(toIndentedString(crossZoneEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");

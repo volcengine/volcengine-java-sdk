@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class CreateServerGroupRequest {
+  @SerializedName("CrossZoneEnabled")
+  private String crossZoneEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -67,6 +70,24 @@ public class CreateServerGroupRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateServerGroupRequest crossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+    return this;
+  }
+
+   /**
+   * Get crossZoneEnabled
+   * @return crossZoneEnabled
+  **/
+  @Schema(description = "")
+  public String getCrossZoneEnabled() {
+    return crossZoneEnabled;
+  }
+
+  public void setCrossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+  }
 
   public CreateServerGroupRequest description(String description) {
     this.description = description;
@@ -288,7 +309,8 @@ public class CreateServerGroupRequest {
       return false;
     }
     CreateServerGroupRequest createServerGroupRequest = (CreateServerGroupRequest) o;
-    return Objects.equals(this.description, createServerGroupRequest.description) &&
+    return Objects.equals(this.crossZoneEnabled, createServerGroupRequest.crossZoneEnabled) &&
+        Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.healthCheck, createServerGroupRequest.healthCheck) &&
         Objects.equals(this.ipAddressType, createServerGroupRequest.ipAddressType) &&
         Objects.equals(this.projectName, createServerGroupRequest.projectName) &&
@@ -303,7 +325,7 @@ public class CreateServerGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, ipAddressType, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -312,6 +334,7 @@ public class CreateServerGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateServerGroupRequest {\n");
     
+    sb.append("    crossZoneEnabled: ").append(toIndentedString(crossZoneEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");

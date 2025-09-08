@@ -50,6 +50,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -91,6 +94,15 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("PcaLeafCertificateId")
+  private String pcaLeafCertificateId = null;
+
+  @SerializedName("PcaRootCACertificateId")
+  private String pcaRootCACertificateId = null;
+
+  @SerializedName("PcaSubCACertificateId")
+  private String pcaSubCACertificateId = null;
 
   @SerializedName("Port")
   private Integer port = null;
@@ -218,6 +230,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setCaCertificateId(String caCertificateId) {
     this.caCertificateId = caCertificateId;
+  }
+
+  public DescribeListenerAttributesResponse caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
   }
 
   public DescribeListenerAttributesResponse certCenterCertificateId(String certCenterCertificateId) {
@@ -481,6 +511,60 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.loadBalancerId = loadBalancerId;
   }
 
+  public DescribeListenerAttributesResponse pcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaLeafCertificateId
+   * @return pcaLeafCertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaLeafCertificateId() {
+    return pcaLeafCertificateId;
+  }
+
+  public void setPcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+  }
+
+  public DescribeListenerAttributesResponse pcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaRootCACertificateId
+   * @return pcaRootCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaRootCACertificateId() {
+    return pcaRootCACertificateId;
+  }
+
+  public void setPcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+  }
+
+  public DescribeListenerAttributesResponse pcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaSubCACertificateId
+   * @return pcaSubCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaSubCACertificateId() {
+    return pcaSubCACertificateId;
+  }
+
+  public void setPcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+  }
+
   public DescribeListenerAttributesResponse port(Integer port) {
     this.port = port;
     return this;
@@ -694,6 +778,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.caCertificateId, describeListenerAttributesResponse.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, describeListenerAttributesResponse.caCertificateSource) &&
         Objects.equals(this.certCenterCertificateId, describeListenerAttributesResponse.certCenterCertificateId) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.certificateSource, describeListenerAttributesResponse.certificateSource) &&
@@ -708,6 +793,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.listenerId, describeListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
+        Objects.equals(this.pcaLeafCertificateId, describeListenerAttributesResponse.pcaLeafCertificateId) &&
+        Objects.equals(this.pcaRootCACertificateId, describeListenerAttributesResponse.pcaRootCACertificateId) &&
+        Objects.equals(this.pcaSubCACertificateId, describeListenerAttributesResponse.pcaSubCACertificateId) &&
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
         Objects.equals(this.projectName, describeListenerAttributesResponse.projectName) &&
         Objects.equals(this.protocol, describeListenerAttributesResponse.protocol) &&
@@ -722,7 +810,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, tags, updateTime);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, tags, updateTime);
   }
 
 
@@ -736,6 +824,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
@@ -750,6 +839,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
+    sb.append("    pcaRootCACertificateId: ").append(toIndentedString(pcaRootCACertificateId)).append("\n");
+    sb.append("    pcaSubCACertificateId: ").append(toIndentedString(pcaSubCACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");

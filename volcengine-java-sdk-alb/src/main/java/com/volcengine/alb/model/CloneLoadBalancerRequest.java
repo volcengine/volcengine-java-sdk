@@ -50,8 +50,8 @@ public class CloneLoadBalancerRequest {
   @SerializedName("Ipv6EipBillingConfig")
   private Ipv6EipBillingConfigForCloneLoadBalancerInput ipv6EipBillingConfig = null;
 
-  @SerializedName("LoadBalancerID")
-  private String loadBalancerID = null;
+  @SerializedName("LoadBalancerId")
+  private String loadBalancerId = null;
 
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
@@ -157,23 +157,23 @@ public class CloneLoadBalancerRequest {
     this.ipv6EipBillingConfig = ipv6EipBillingConfig;
   }
 
-  public CloneLoadBalancerRequest loadBalancerID(String loadBalancerID) {
-    this.loadBalancerID = loadBalancerID;
+  public CloneLoadBalancerRequest loadBalancerId(String loadBalancerId) {
+    this.loadBalancerId = loadBalancerId;
     return this;
   }
 
    /**
-   * Get loadBalancerID
-   * @return loadBalancerID
+   * Get loadBalancerId
+   * @return loadBalancerId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getLoadBalancerID() {
-    return loadBalancerID;
+  public String getLoadBalancerId() {
+    return loadBalancerId;
   }
 
-  public void setLoadBalancerID(String loadBalancerID) {
-    this.loadBalancerID = loadBalancerID;
+  public void setLoadBalancerId(String loadBalancerId) {
+    this.loadBalancerId = loadBalancerId;
   }
 
   public CloneLoadBalancerRequest loadBalancerName(String loadBalancerName) {
@@ -273,7 +273,7 @@ public class CloneLoadBalancerRequest {
         Objects.equals(this.description, cloneLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, cloneLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.ipv6EipBillingConfig, cloneLoadBalancerRequest.ipv6EipBillingConfig) &&
-        Objects.equals(this.loadBalancerID, cloneLoadBalancerRequest.loadBalancerID) &&
+        Objects.equals(this.loadBalancerId, cloneLoadBalancerRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, cloneLoadBalancerRequest.loadBalancerName) &&
         Objects.equals(this.projectName, cloneLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, cloneLoadBalancerRequest.regionId) &&
@@ -282,7 +282,7 @@ public class CloneLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerID, loadBalancerName, projectName, regionId, zoneMappings);
+    return Objects.hash(bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerId, loadBalancerName, projectName, regionId, zoneMappings);
   }
 
 
@@ -296,7 +296,7 @@ public class CloneLoadBalancerRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
-    sb.append("    loadBalancerID: ").append(toIndentedString(loadBalancerID)).append("\n");
+    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");

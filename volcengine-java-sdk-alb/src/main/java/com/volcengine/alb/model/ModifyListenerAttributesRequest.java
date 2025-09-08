@@ -48,6 +48,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -83,6 +86,15 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("ListenerName")
   private String listenerName = null;
+
+  @SerializedName("PcaLeafCertificateId")
+  private String pcaLeafCertificateId = null;
+
+  @SerializedName("PcaRootCACertificateId")
+  private String pcaRootCACertificateId = null;
+
+  @SerializedName("PcaSubCACertificateId")
+  private String pcaSubCACertificateId = null;
 
   @SerializedName("ProxyProtocolDisabled")
   private String proxyProtocolDisabled = null;
@@ -186,6 +198,24 @@ public class ModifyListenerAttributesRequest {
 
   public void setCaCertificateId(String caCertificateId) {
     this.caCertificateId = caCertificateId;
+  }
+
+  public ModifyListenerAttributesRequest caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
   }
 
   public ModifyListenerAttributesRequest certCenterCertificateId(String certCenterCertificateId) {
@@ -414,6 +444,60 @@ public class ModifyListenerAttributesRequest {
     this.listenerName = listenerName;
   }
 
+  public ModifyListenerAttributesRequest pcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaLeafCertificateId
+   * @return pcaLeafCertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaLeafCertificateId() {
+    return pcaLeafCertificateId;
+  }
+
+  public void setPcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+  }
+
+  public ModifyListenerAttributesRequest pcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaRootCACertificateId
+   * @return pcaRootCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaRootCACertificateId() {
+    return pcaRootCACertificateId;
+  }
+
+  public void setPcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+  }
+
+  public ModifyListenerAttributesRequest pcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaSubCACertificateId
+   * @return pcaSubCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaSubCACertificateId() {
+    return pcaSubCACertificateId;
+  }
+
+  public void setPcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+  }
+
   public ModifyListenerAttributesRequest proxyProtocolDisabled(String proxyProtocolDisabled) {
     this.proxyProtocolDisabled = proxyProtocolDisabled;
     return this;
@@ -465,6 +549,7 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.aclStatus, modifyListenerAttributesRequest.aclStatus) &&
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
         Objects.equals(this.caCertificateId, modifyListenerAttributesRequest.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, modifyListenerAttributesRequest.caCertificateSource) &&
         Objects.equals(this.certCenterCertificateId, modifyListenerAttributesRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.certificateSource, modifyListenerAttributesRequest.certificateSource) &&
@@ -477,13 +562,16 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.enabled, modifyListenerAttributesRequest.enabled) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
+        Objects.equals(this.pcaLeafCertificateId, modifyListenerAttributesRequest.pcaLeafCertificateId) &&
+        Objects.equals(this.pcaRootCACertificateId, modifyListenerAttributesRequest.pcaRootCACertificateId) &&
+        Objects.equals(this.pcaSubCACertificateId, modifyListenerAttributesRequest.pcaSubCACertificateId) &&
         Objects.equals(this.proxyProtocolDisabled, modifyListenerAttributesRequest.proxyProtocolDisabled) &&
         Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, proxyProtocolDisabled, serverGroupId);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, proxyProtocolDisabled, serverGroupId);
   }
 
 
@@ -497,6 +585,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
@@ -509,6 +598,9 @@ public class ModifyListenerAttributesRequest {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
+    sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
+    sb.append("    pcaRootCACertificateId: ").append(toIndentedString(pcaRootCACertificateId)).append("\n");
+    sb.append("    pcaSubCACertificateId: ").append(toIndentedString(pcaSubCACertificateId)).append("\n");
     sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
