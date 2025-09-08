@@ -80,6 +80,7 @@ public interface ArkApi {
     @POST("/api/v3/images/generations")
     Single<ImagesResponse> generateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
+    @Streaming
     @POST("/api/v3/images/generations")
     Call<ResponseBody> streamGenerateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 

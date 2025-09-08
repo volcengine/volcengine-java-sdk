@@ -158,6 +158,16 @@ public class ImageGenStreamEvent {
          */
         private int generatedImages;
 
+        /**
+         * The number of output tokens.
+         */
+        private int outputTokens;
+
+        /**
+         * The total number of tokens.
+         */
+        private int totalTokens;
+
         public int getGeneratedImages() {
             return generatedImages;
         }
@@ -166,10 +176,28 @@ public class ImageGenStreamEvent {
             this.generatedImages = generatedImages;
         }
 
+        public int getOutputTokens() {
+            return outputTokens;
+        }
+
+        public void setOutputTokens(int outputTokens) {
+            this.outputTokens = outputTokens;
+        }
+
+        public int getTotalTokens() {
+            return totalTokens;
+        }
+
+        public void setTotalTokens(int totalTokens) {
+            this.totalTokens = totalTokens;
+        }
+
         @Override
         public String toString() {
             return "Usage{" +
                     "generatedImages=" + generatedImages +
+                    "outputTokens=" + outputTokens +
+                    "totalTokens=" + totalTokens +
                     '}';
         }
     }

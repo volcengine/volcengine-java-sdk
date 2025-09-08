@@ -87,6 +87,9 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                     } catch (Exception ignored) {
                     }
 
+                    if (data.startsWith("[DONE]")) {
+                        break;
+                    }
                     sse = new SSE(data);
                 } else if (line.equals("") && sse != null) {
                     if (sse.isDone()) {
