@@ -5,6 +5,9 @@ import com.volcengine.waf.model.CheckLLMResponseStreamResponse;
  * 表示一个流会话的类，包含流缓冲区、流发送长度和消息 ID 等信息。
  */
 public class LLMStreamSession {
+    private static final int LLM_STREAM_SEND_BASE_WINDOW = 10 ;
+    private static final int LLM_STREAM_SEND_EXPONENT = 2 ;
+    private int  currentSendWindow = LLM_STREAM_SEND_BASE_WINDOW;
     // 流缓冲区，用于存储流数据
     private String streamBuf;
     // 流发送的长度
@@ -22,6 +25,7 @@ public class LLMStreamSession {
         this.streamSendLen = 0;
         this.msgID = "";
         this.defaultBody = null;
+        this.currentSendWindow = LLM_STREAM_SEND_BASE_WINDOW;
     }
 
     /**
@@ -37,6 +41,7 @@ public class LLMStreamSession {
         this.streamSendLen = streamSendLen;
         this.msgID = msgID;
         this.defaultBody = defaultBody;
+        this.currentSendWindow = LLM_STREAM_SEND_BASE_WINDOW;
     }
 
     /**
@@ -123,5 +128,19 @@ public class LLMStreamSession {
             this.streamSendLen += str.length();
         }
     }
+    // 获取发送窗口长度
+    public int getCurrentSendWindow() {
+        return this.currentSendWindow;
+    }
+
+    // 设置发送窗口长度
+    public void setCurrentSendWindow(int currentSendWindow) {
+        this.currentSendWindow = currentSendWindow;
+    }
+    // 窗口增长
+    public  void growSendWindow(){
+        this.currentSendWindow = currentSendWindow * LLM_STREAM_SEND_EXPONENT;
+    }
+
 
 }
