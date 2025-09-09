@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.30</version>
+    <version>0.2.31</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -304,5 +304,6 @@
         <module>volcengine-java-sdk-graph</module>
         <module>volcengine-java-sdk-bmq</module>
         <module>volcengine-java-sdk-cloudidentity</module>
+        <module>volcengine-java-sdk-mockprovider20301113</module>
     </modules>
 </project>
