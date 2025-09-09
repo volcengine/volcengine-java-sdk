@@ -39,10 +39,11 @@ public class WafApiRuntime extends WafApi {
         session.appendStreamBuf(content);
 
         // 发送长度小于10个字符并且不是第一次也不是最后一次的条件下则缓存content
-        if (session.getStreamSendLen() < 10 && body.getMsgID() != null && body.getUseStream() != 2) {
+        if (session.getStreamSendLen() < session.getCurrentSendWindow() && body.getMsgID() != null && body.getUseStream() != 2) {
             return session.getDefaultBody();
         }
         session.setStreamSendLen(0);
+        session.growSendWindow();
         body.setContent(session.getStreamBuf());
 
         String msgID = session.getMsgID();
