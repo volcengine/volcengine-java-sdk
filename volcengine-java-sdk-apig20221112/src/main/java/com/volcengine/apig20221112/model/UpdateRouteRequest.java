@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig20221112.model.AdvancedSettingForUpdateRouteInput;
+import com.volcengine.apig20221112.model.FallbackSettingForUpdateRouteInput;
 import com.volcengine.apig20221112.model.MatchRuleForUpdateRouteInput;
 import com.volcengine.apig20221112.model.UpstreamListForUpdateRouteInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,6 +41,9 @@ public class UpdateRouteRequest {
 
   @SerializedName("Enable")
   private Boolean enable = null;
+
+  @SerializedName("FallbackSetting")
+  private FallbackSettingForUpdateRouteInput fallbackSetting = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -91,6 +95,25 @@ public class UpdateRouteRequest {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public UpdateRouteRequest fallbackSetting(FallbackSettingForUpdateRouteInput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
+    return this;
+  }
+
+   /**
+   * Get fallbackSetting
+   * @return fallbackSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public FallbackSettingForUpdateRouteInput getFallbackSetting() {
+    return fallbackSetting;
+  }
+
+  public void setFallbackSetting(FallbackSettingForUpdateRouteInput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
   }
 
   public UpdateRouteRequest id(String id) {
@@ -207,6 +230,7 @@ public class UpdateRouteRequest {
     UpdateRouteRequest updateRouteRequest = (UpdateRouteRequest) o;
     return Objects.equals(this.advancedSetting, updateRouteRequest.advancedSetting) &&
         Objects.equals(this.enable, updateRouteRequest.enable) &&
+        Objects.equals(this.fallbackSetting, updateRouteRequest.fallbackSetting) &&
         Objects.equals(this.id, updateRouteRequest.id) &&
         Objects.equals(this.matchRule, updateRouteRequest.matchRule) &&
         Objects.equals(this.name, updateRouteRequest.name) &&
@@ -216,7 +240,7 @@ public class UpdateRouteRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advancedSetting, enable, id, matchRule, name, priority, upstreamList);
+    return Objects.hash(advancedSetting, enable, fallbackSetting, id, matchRule, name, priority, upstreamList);
   }
 
 
@@ -227,6 +251,7 @@ public class UpdateRouteRequest {
     
     sb.append("    advancedSetting: ").append(toIndentedString(advancedSetting)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    fallbackSetting: ").append(toIndentedString(fallbackSetting)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchRule: ").append(toIndentedString(matchRule)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

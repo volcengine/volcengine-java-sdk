@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig20221112.model.AdvancedSettingForGetRouteOutput;
 import com.volcengine.apig20221112.model.CustomDomainForGetRouteOutput;
 import com.volcengine.apig20221112.model.DomainForGetRouteOutput;
+import com.volcengine.apig20221112.model.FallbackSettingForGetRouteOutput;
 import com.volcengine.apig20221112.model.MatchRuleForGetRouteOutput;
-import com.volcengine.apig20221112.model.TagForGetRouteOutput;
 import com.volcengine.apig20221112.model.UpstreamListForGetRouteOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -53,6 +53,9 @@ public class RouteForGetRouteOutput {
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("FallbackSetting")
+  private FallbackSettingForGetRouteOutput fallbackSetting = null;
+
   @SerializedName("Id")
   private String id = null;
 
@@ -68,9 +71,6 @@ public class RouteForGetRouteOutput {
   @SerializedName("Reason")
   private String reason = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("ServiceId")
   private String serviceId = null;
 
@@ -79,9 +79,6 @@ public class RouteForGetRouteOutput {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("Tags")
-  private List<TagForGetRouteOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -198,6 +195,25 @@ public class RouteForGetRouteOutput {
     this.enable = enable;
   }
 
+  public RouteForGetRouteOutput fallbackSetting(FallbackSettingForGetRouteOutput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
+    return this;
+  }
+
+   /**
+   * Get fallbackSetting
+   * @return fallbackSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public FallbackSettingForGetRouteOutput getFallbackSetting() {
+    return fallbackSetting;
+  }
+
+  public void setFallbackSetting(FallbackSettingForGetRouteOutput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
+  }
+
   public RouteForGetRouteOutput id(String id) {
     this.id = id;
     return this;
@@ -289,24 +305,6 @@ public class RouteForGetRouteOutput {
     this.reason = reason;
   }
 
-  public RouteForGetRouteOutput resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public RouteForGetRouteOutput serviceId(String serviceId) {
     this.serviceId = serviceId;
     return this;
@@ -359,33 +357,6 @@ public class RouteForGetRouteOutput {
 
   public void setStatus(String status) {
     this.status = status;
-  }
-
-  public RouteForGetRouteOutput tags(List<TagForGetRouteOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public RouteForGetRouteOutput addTagsItem(TagForGetRouteOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForGetRouteOutput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForGetRouteOutput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForGetRouteOutput> tags) {
-    this.tags = tags;
   }
 
   public RouteForGetRouteOutput updateTime(String updateTime) {
@@ -448,23 +419,22 @@ public class RouteForGetRouteOutput {
         Objects.equals(this.customDomains, routeForGetRouteOutput.customDomains) &&
         Objects.equals(this.domains, routeForGetRouteOutput.domains) &&
         Objects.equals(this.enable, routeForGetRouteOutput.enable) &&
+        Objects.equals(this.fallbackSetting, routeForGetRouteOutput.fallbackSetting) &&
         Objects.equals(this.id, routeForGetRouteOutput.id) &&
         Objects.equals(this.matchRule, routeForGetRouteOutput.matchRule) &&
         Objects.equals(this.name, routeForGetRouteOutput.name) &&
         Objects.equals(this.priority, routeForGetRouteOutput.priority) &&
         Objects.equals(this.reason, routeForGetRouteOutput.reason) &&
-        Objects.equals(this.resourceType, routeForGetRouteOutput.resourceType) &&
         Objects.equals(this.serviceId, routeForGetRouteOutput.serviceId) &&
         Objects.equals(this.serviceName, routeForGetRouteOutput.serviceName) &&
         Objects.equals(this.status, routeForGetRouteOutput.status) &&
-        Objects.equals(this.tags, routeForGetRouteOutput.tags) &&
         Objects.equals(this.updateTime, routeForGetRouteOutput.updateTime) &&
         Objects.equals(this.upstreamList, routeForGetRouteOutput.upstreamList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advancedSetting, createTime, customDomains, domains, enable, id, matchRule, name, priority, reason, resourceType, serviceId, serviceName, status, tags, updateTime, upstreamList);
+    return Objects.hash(advancedSetting, createTime, customDomains, domains, enable, fallbackSetting, id, matchRule, name, priority, reason, serviceId, serviceName, status, updateTime, upstreamList);
   }
 
 
@@ -478,16 +448,15 @@ public class RouteForGetRouteOutput {
     sb.append("    customDomains: ").append(toIndentedString(customDomains)).append("\n");
     sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    fallbackSetting: ").append(toIndentedString(fallbackSetting)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchRule: ").append(toIndentedString(matchRule)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    upstreamList: ").append(toIndentedString(upstreamList)).append("\n");
     sb.append("}");

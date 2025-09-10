@@ -24,37 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForCreateRouteInput
+ * AllowOriginForUpdateRouteInput
  */
 
 
 
-public class TagForCreateRouteInput {
-  @SerializedName("Key")
-  private String key = null;
+public class AllowOriginForUpdateRouteInput {
+  @SerializedName("MatchType")
+  private String matchType = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForCreateRouteInput key(String key) {
-    this.key = key;
+  public AllowOriginForUpdateRouteInput matchType(String matchType) {
+    this.matchType = matchType;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get matchType
+   * @return matchType
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getMatchType() {
+    return matchType;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setMatchType(String matchType) {
+    this.matchType = matchType;
   }
 
-  public TagForCreateRouteInput value(String value) {
+  public AllowOriginForUpdateRouteInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,23 +81,23 @@ public class TagForCreateRouteInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForCreateRouteInput tagForCreateRouteInput = (TagForCreateRouteInput) o;
-    return Objects.equals(this.key, tagForCreateRouteInput.key) &&
-        Objects.equals(this.value, tagForCreateRouteInput.value);
+    AllowOriginForUpdateRouteInput allowOriginForUpdateRouteInput = (AllowOriginForUpdateRouteInput) o;
+    return Objects.equals(this.matchType, allowOriginForUpdateRouteInput.matchType) &&
+        Objects.equals(this.value, allowOriginForUpdateRouteInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(matchType, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForCreateRouteInput {\n");
+    sb.append("class AllowOriginForUpdateRouteInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

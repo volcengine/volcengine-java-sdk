@@ -24,37 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForGetRouteOutput
+ * AllowOriginForGetRouteOutput
  */
 
 
 
-public class TagForGetRouteOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class AllowOriginForGetRouteOutput {
+  @SerializedName("MatchType")
+  private String matchType = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForGetRouteOutput key(String key) {
-    this.key = key;
+  public AllowOriginForGetRouteOutput matchType(String matchType) {
+    this.matchType = matchType;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get matchType
+   * @return matchType
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getMatchType() {
+    return matchType;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setMatchType(String matchType) {
+    this.matchType = matchType;
   }
 
-  public TagForGetRouteOutput value(String value) {
+  public AllowOriginForGetRouteOutput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,23 +81,23 @@ public class TagForGetRouteOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForGetRouteOutput tagForGetRouteOutput = (TagForGetRouteOutput) o;
-    return Objects.equals(this.key, tagForGetRouteOutput.key) &&
-        Objects.equals(this.value, tagForGetRouteOutput.value);
+    AllowOriginForGetRouteOutput allowOriginForGetRouteOutput = (AllowOriginForGetRouteOutput) o;
+    return Objects.equals(this.matchType, allowOriginForGetRouteOutput.matchType) &&
+        Objects.equals(this.value, allowOriginForGetRouteOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(matchType, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForGetRouteOutput {\n");
+    sb.append("class AllowOriginForGetRouteOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
