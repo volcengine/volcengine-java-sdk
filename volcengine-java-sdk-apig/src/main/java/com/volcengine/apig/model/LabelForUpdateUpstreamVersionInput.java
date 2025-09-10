@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListGatewayServicesOutput
+ * LabelForUpdateUpstreamVersionInput
  */
 
 
 
-public class TagForListGatewayServicesOutput {
+public class LabelForUpdateUpstreamVersionInput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForListGatewayServicesOutput key(String key) {
+  public LabelForUpdateUpstreamVersionInput key(String key) {
     this.key = key;
     return this;
   }
@@ -54,7 +54,7 @@ public class TagForListGatewayServicesOutput {
     this.key = key;
   }
 
-  public TagForListGatewayServicesOutput value(String value) {
+  public LabelForUpdateUpstreamVersionInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,9 +81,9 @@ public class TagForListGatewayServicesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListGatewayServicesOutput tagForListGatewayServicesOutput = (TagForListGatewayServicesOutput) o;
-    return Objects.equals(this.key, tagForListGatewayServicesOutput.key) &&
-        Objects.equals(this.value, tagForListGatewayServicesOutput.value);
+    LabelForUpdateUpstreamVersionInput labelForUpdateUpstreamVersionInput = (LabelForUpdateUpstreamVersionInput) o;
+    return Objects.equals(this.key, labelForUpdateUpstreamVersionInput.key) &&
+        Objects.equals(this.value, labelForUpdateUpstreamVersionInput.value);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class TagForListGatewayServicesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListGatewayServicesOutput {\n");
+    sb.append("class LabelForUpdateUpstreamVersionInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

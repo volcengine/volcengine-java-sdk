@@ -43,9 +43,6 @@ public class ListUpstreamsRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("SourceType")
   private String sourceType = null;
 
@@ -122,24 +119,6 @@ public class ListUpstreamsRequest {
     this.pageSize = pageSize;
   }
 
-  public ListUpstreamsRequest resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public ListUpstreamsRequest sourceType(String sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -172,13 +151,12 @@ public class ListUpstreamsRequest {
         Objects.equals(this.gatewayId, listUpstreamsRequest.gatewayId) &&
         Objects.equals(this.pageNumber, listUpstreamsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listUpstreamsRequest.pageSize) &&
-        Objects.equals(this.resourceType, listUpstreamsRequest.resourceType) &&
         Objects.equals(this.sourceType, listUpstreamsRequest.sourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, gatewayId, pageNumber, pageSize, resourceType, sourceType);
+    return Objects.hash(filter, gatewayId, pageNumber, pageSize, sourceType);
   }
 
 
@@ -191,7 +169,6 @@ public class ListUpstreamsRequest {
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("}");
     return sb.toString();

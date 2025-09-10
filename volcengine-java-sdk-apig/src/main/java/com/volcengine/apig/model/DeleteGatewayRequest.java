@@ -30,29 +30,8 @@ import javax.validation.Valid;
 
 
 public class DeleteGatewayRequest {
-  @SerializedName("ForceDelete")
-  private Boolean forceDelete = null;
-
   @SerializedName("Id")
   private String id = null;
-
-  public DeleteGatewayRequest forceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
-    return this;
-  }
-
-   /**
-   * Get forceDelete
-   * @return forceDelete
-  **/
-  @Schema(description = "")
-  public Boolean isForceDelete() {
-    return forceDelete;
-  }
-
-  public void setForceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
-  }
 
   public DeleteGatewayRequest id(String id) {
     this.id = id;
@@ -83,13 +62,12 @@ public class DeleteGatewayRequest {
       return false;
     }
     DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.forceDelete, deleteGatewayRequest.forceDelete) &&
-        Objects.equals(this.id, deleteGatewayRequest.id);
+    return Objects.equals(this.id, deleteGatewayRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceDelete, id);
+    return Objects.hash(id);
   }
 
 
@@ -98,7 +76,6 @@ public class DeleteGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteGatewayRequest {\n");
     
-    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

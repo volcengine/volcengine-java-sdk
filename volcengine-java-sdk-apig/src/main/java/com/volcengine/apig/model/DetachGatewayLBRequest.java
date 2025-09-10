@@ -24,52 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForGetUpstreamOutput
+ * DetachGatewayLBRequest
  */
 
 
 
-public class TagForGetUpstreamOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class DetachGatewayLBRequest {
+  @SerializedName("Id")
+  private String id = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public TagForGetUpstreamOutput key(String key) {
-    this.key = key;
+  public DetachGatewayLBRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get id
+   * @return id
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getId() {
+    return id;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForGetUpstreamOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -81,24 +61,22 @@ public class TagForGetUpstreamOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForGetUpstreamOutput tagForGetUpstreamOutput = (TagForGetUpstreamOutput) o;
-    return Objects.equals(this.key, tagForGetUpstreamOutput.key) &&
-        Objects.equals(this.value, tagForGetUpstreamOutput.value);
+    DetachGatewayLBRequest detachGatewayLBRequest = (DetachGatewayLBRequest) o;
+    return Objects.equals(this.id, detachGatewayLBRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForGetUpstreamOutput {\n");
+    sb.append("class DetachGatewayLBRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

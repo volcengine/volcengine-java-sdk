@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.TagForListGatewaysInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,9 +40,6 @@ public class FilterForListGatewaysInput {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("Tags")
-  private List<TagForListGatewaysInput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -113,33 +109,6 @@ public class FilterForListGatewaysInput {
     this.status = status;
   }
 
-  public FilterForListGatewaysInput tags(List<TagForListGatewaysInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public FilterForListGatewaysInput addTagsItem(TagForListGatewaysInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForListGatewaysInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForListGatewaysInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForListGatewaysInput> tags) {
-    this.tags = tags;
-  }
-
   public FilterForListGatewaysInput type(String type) {
     this.type = type;
     return this;
@@ -197,14 +166,13 @@ public class FilterForListGatewaysInput {
     return Objects.equals(this.ids, filterForListGatewaysInput.ids) &&
         Objects.equals(this.name, filterForListGatewaysInput.name) &&
         Objects.equals(this.status, filterForListGatewaysInput.status) &&
-        Objects.equals(this.tags, filterForListGatewaysInput.tags) &&
         Objects.equals(this.type, filterForListGatewaysInput.type) &&
         Objects.equals(this.vpcIds, filterForListGatewaysInput.vpcIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, status, tags, type, vpcIds);
+    return Objects.hash(ids, name, status, type, vpcIds);
   }
 
 
@@ -216,7 +184,6 @@ public class FilterForListGatewaysInput {
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("}");

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AuthSpecForGetGatewayServiceOutput;
 import com.volcengine.apig.model.CustomDomainForGetGatewayServiceOutput;
 import com.volcengine.apig.model.DomainForGetGatewayServiceOutput;
-import com.volcengine.apig.model.TagForGetGatewayServiceOutput;
+import com.volcengine.apig.model.DomainSpecForGetGatewayServiceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,6 +48,9 @@ public class GatewayServiceForGetGatewayServiceOutput {
   @SerializedName("CustomDomains")
   private List<CustomDomainForGetGatewayServiceOutput> customDomains = null;
 
+  @SerializedName("DomainSpec")
+  private DomainSpecForGetGatewayServiceOutput domainSpec = null;
+
   @SerializedName("Domains")
   private List<DomainForGetGatewayServiceOutput> domains = null;
 
@@ -71,9 +74,6 @@ public class GatewayServiceForGetGatewayServiceOutput {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("Tags")
-  private List<TagForGetGatewayServiceOutput> tags = null;
 
   public GatewayServiceForGetGatewayServiceOutput authSpec(AuthSpecForGetGatewayServiceOutput authSpec) {
     this.authSpec = authSpec;
@@ -155,6 +155,25 @@ public class GatewayServiceForGetGatewayServiceOutput {
 
   public void setCustomDomains(List<CustomDomainForGetGatewayServiceOutput> customDomains) {
     this.customDomains = customDomains;
+  }
+
+  public GatewayServiceForGetGatewayServiceOutput domainSpec(DomainSpecForGetGatewayServiceOutput domainSpec) {
+    this.domainSpec = domainSpec;
+    return this;
+  }
+
+   /**
+   * Get domainSpec
+   * @return domainSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public DomainSpecForGetGatewayServiceOutput getDomainSpec() {
+    return domainSpec;
+  }
+
+  public void setDomainSpec(DomainSpecForGetGatewayServiceOutput domainSpec) {
+    this.domainSpec = domainSpec;
   }
 
   public GatewayServiceForGetGatewayServiceOutput domains(List<DomainForGetGatewayServiceOutput> domains) {
@@ -318,33 +337,6 @@ public class GatewayServiceForGetGatewayServiceOutput {
     this.status = status;
   }
 
-  public GatewayServiceForGetGatewayServiceOutput tags(List<TagForGetGatewayServiceOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public GatewayServiceForGetGatewayServiceOutput addTagsItem(TagForGetGatewayServiceOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForGetGatewayServiceOutput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForGetGatewayServiceOutput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForGetGatewayServiceOutput> tags) {
-    this.tags = tags;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -359,6 +351,7 @@ public class GatewayServiceForGetGatewayServiceOutput {
         Objects.equals(this.comments, gatewayServiceForGetGatewayServiceOutput.comments) &&
         Objects.equals(this.createTime, gatewayServiceForGetGatewayServiceOutput.createTime) &&
         Objects.equals(this.customDomains, gatewayServiceForGetGatewayServiceOutput.customDomains) &&
+        Objects.equals(this.domainSpec, gatewayServiceForGetGatewayServiceOutput.domainSpec) &&
         Objects.equals(this.domains, gatewayServiceForGetGatewayServiceOutput.domains) &&
         Objects.equals(this.gatewayId, gatewayServiceForGetGatewayServiceOutput.gatewayId) &&
         Objects.equals(this.gatewayName, gatewayServiceForGetGatewayServiceOutput.gatewayName) &&
@@ -366,13 +359,12 @@ public class GatewayServiceForGetGatewayServiceOutput {
         Objects.equals(this.message, gatewayServiceForGetGatewayServiceOutput.message) &&
         Objects.equals(this.name, gatewayServiceForGetGatewayServiceOutput.name) &&
         Objects.equals(this.protocol, gatewayServiceForGetGatewayServiceOutput.protocol) &&
-        Objects.equals(this.status, gatewayServiceForGetGatewayServiceOutput.status) &&
-        Objects.equals(this.tags, gatewayServiceForGetGatewayServiceOutput.tags);
+        Objects.equals(this.status, gatewayServiceForGetGatewayServiceOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, createTime, customDomains, domains, gatewayId, gatewayName, id, message, name, protocol, status, tags);
+    return Objects.hash(authSpec, comments, createTime, customDomains, domainSpec, domains, gatewayId, gatewayName, id, message, name, protocol, status);
   }
 
 
@@ -385,6 +377,7 @@ public class GatewayServiceForGetGatewayServiceOutput {
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customDomains: ").append(toIndentedString(customDomains)).append("\n");
+    sb.append("    domainSpec: ").append(toIndentedString(domainSpec)).append("\n");
     sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    gatewayName: ").append(toIndentedString(gatewayName)).append("\n");
@@ -393,7 +386,6 @@ public class GatewayServiceForGetGatewayServiceOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

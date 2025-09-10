@@ -27,6 +27,7 @@ import com.volcengine.apig.model.MonitorSpecForListGatewaysOutput;
 import com.volcengine.apig.model.NetworkSpecForListGatewaysOutput;
 import com.volcengine.apig.model.ResourceSpecForListGatewaysOutput;
 import com.volcengine.apig.model.TagForListGatewaysOutput;
+import com.volcengine.apig.model.TraceSpecForListGatewaysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,6 +88,9 @@ public class ItemForListGatewaysOutput {
 
   @SerializedName("Tags")
   private List<TagForListGatewaysOutput> tags = null;
+
+  @SerializedName("TraceSpec")
+  private TraceSpecForListGatewaysOutput traceSpec = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -406,6 +410,25 @@ public class ItemForListGatewaysOutput {
     this.tags = tags;
   }
 
+  public ItemForListGatewaysOutput traceSpec(TraceSpecForListGatewaysOutput traceSpec) {
+    this.traceSpec = traceSpec;
+    return this;
+  }
+
+   /**
+   * Get traceSpec
+   * @return traceSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public TraceSpecForListGatewaysOutput getTraceSpec() {
+    return traceSpec;
+  }
+
+  public void setTraceSpec(TraceSpecForListGatewaysOutput traceSpec) {
+    this.traceSpec = traceSpec;
+  }
+
   public ItemForListGatewaysOutput type(String type) {
     this.type = type;
     return this;
@@ -468,13 +491,14 @@ public class ItemForListGatewaysOutput {
         Objects.equals(this.resourceSpec, itemForListGatewaysOutput.resourceSpec) &&
         Objects.equals(this.status, itemForListGatewaysOutput.status) &&
         Objects.equals(this.tags, itemForListGatewaysOutput.tags) &&
+        Objects.equals(this.traceSpec, itemForListGatewaysOutput.traceSpec) &&
         Objects.equals(this.type, itemForListGatewaysOutput.type) &&
         Objects.equals(this.version, itemForListGatewaysOutput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendSpec, comments, createTime, customLog, events, id, logSpec, message, monitorSpec, name, networkSpec, projectName, region, resourceSpec, status, tags, type, version);
+    return Objects.hash(backendSpec, comments, createTime, customLog, events, id, logSpec, message, monitorSpec, name, networkSpec, projectName, region, resourceSpec, status, tags, traceSpec, type, version);
   }
 
 
@@ -499,6 +523,7 @@ public class ItemForListGatewaysOutput {
     sb.append("    resourceSpec: ").append(toIndentedString(resourceSpec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    traceSpec: ").append(toIndentedString(traceSpec)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
