@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vikingdb.model.DefaultValueForGetVikingdbCollectionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,7 +31,7 @@ import javax.validation.Valid;
 
 public class FieldForGetVikingdbCollectionOutput {
   @SerializedName("DefaultValue")
-  private DefaultValueForGetVikingdbCollectionOutput defaultValue = null;
+  private Object defaultValue = null;
 
   @SerializedName("Dim")
   private Integer dim = null;
@@ -107,7 +106,7 @@ public class FieldForGetVikingdbCollectionOutput {
   @SerializedName("IsPrimaryKey")
   private Boolean isPrimaryKey = null;
 
-  public FieldForGetVikingdbCollectionOutput defaultValue(DefaultValueForGetVikingdbCollectionOutput defaultValue) {
+  public FieldForGetVikingdbCollectionOutput defaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
     return this;
   }
@@ -118,11 +117,11 @@ public class FieldForGetVikingdbCollectionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public DefaultValueForGetVikingdbCollectionOutput getDefaultValue() {
+  public Object getDefaultValue() {
     return defaultValue;
   }
 
-  public void setDefaultValue(DefaultValueForGetVikingdbCollectionOutput defaultValue) {
+  public void setDefaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
   }
 

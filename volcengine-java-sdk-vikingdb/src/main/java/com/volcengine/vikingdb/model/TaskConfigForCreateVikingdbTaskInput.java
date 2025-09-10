@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vikingdb.model.FilterCondForCreateVikingdbTaskInput;
-import com.volcengine.vikingdb.model.UpdateFieldsForCreateVikingdbTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,7 +85,7 @@ public class TaskConfigForCreateVikingdbTaskInput {
   private FileTypeEnum fileType = null;
 
   @SerializedName("FilterConds")
-  private List<FilterCondForCreateVikingdbTaskInput> filterConds = null;
+  private List<Object> filterConds = null;
 
   @SerializedName("IgnoreError")
   private Boolean ignoreError = null;
@@ -105,7 +103,7 @@ public class TaskConfigForCreateVikingdbTaskInput {
   private String tosPath = null;
 
   @SerializedName("UpdateFields")
-  private UpdateFieldsForCreateVikingdbTaskInput updateFields = null;
+  private Object updateFields = null;
 
   @SerializedName("UsePublic")
   private Boolean usePublic = null;
@@ -164,14 +162,14 @@ public class TaskConfigForCreateVikingdbTaskInput {
     this.fileType = fileType;
   }
 
-  public TaskConfigForCreateVikingdbTaskInput filterConds(List<FilterCondForCreateVikingdbTaskInput> filterConds) {
+  public TaskConfigForCreateVikingdbTaskInput filterConds(List<Object> filterConds) {
     this.filterConds = filterConds;
     return this;
   }
 
-  public TaskConfigForCreateVikingdbTaskInput addFilterCondsItem(FilterCondForCreateVikingdbTaskInput filterCondsItem) {
+  public TaskConfigForCreateVikingdbTaskInput addFilterCondsItem(Object filterCondsItem) {
     if (this.filterConds == null) {
-      this.filterConds = new ArrayList<FilterCondForCreateVikingdbTaskInput>();
+      this.filterConds = new ArrayList<Object>();
     }
     this.filterConds.add(filterCondsItem);
     return this;
@@ -183,11 +181,11 @@ public class TaskConfigForCreateVikingdbTaskInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<FilterCondForCreateVikingdbTaskInput> getFilterConds() {
+  public List<Object> getFilterConds() {
     return filterConds;
   }
 
-  public void setFilterConds(List<FilterCondForCreateVikingdbTaskInput> filterConds) {
+  public void setFilterConds(List<Object> filterConds) {
     this.filterConds = filterConds;
   }
 
@@ -281,7 +279,7 @@ public class TaskConfigForCreateVikingdbTaskInput {
     this.tosPath = tosPath;
   }
 
-  public TaskConfigForCreateVikingdbTaskInput updateFields(UpdateFieldsForCreateVikingdbTaskInput updateFields) {
+  public TaskConfigForCreateVikingdbTaskInput updateFields(Object updateFields) {
     this.updateFields = updateFields;
     return this;
   }
@@ -292,11 +290,11 @@ public class TaskConfigForCreateVikingdbTaskInput {
   **/
   @Valid
   @Schema(description = "")
-  public UpdateFieldsForCreateVikingdbTaskInput getUpdateFields() {
+  public Object getUpdateFields() {
     return updateFields;
   }
 
-  public void setUpdateFields(UpdateFieldsForCreateVikingdbTaskInput updateFields) {
+  public void setUpdateFields(Object updateFields) {
     this.updateFields = updateFields;
   }
 
