@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk</artifactId>
-        <version>0.2.31</version>
+        <version>0.2.32</version>
     </parent>
     <artifactId>volcengine-java-sdk-llmshield</artifactId>
     <name>volcengine-java-sdk-llmshield</name>
@@ -19,7 +19,8 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.15</version> <!-- 安全版本 -->
+                <version>1.15</version>
+                <!-- 安全版本 -->
             </dependency>
         </dependencies>
     </dependencyManagement>
