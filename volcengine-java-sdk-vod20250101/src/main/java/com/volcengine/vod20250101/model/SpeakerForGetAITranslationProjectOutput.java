@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class SpeakerForGetAITranslationProjectOutput {
+  @SerializedName("CurrentVoice")
+  private String currentVoice = null;
+
   @SerializedName("Id")
   private String id = null;
 
@@ -41,6 +44,24 @@ public class SpeakerForGetAITranslationProjectOutput {
 
   @SerializedName("Voice")
   private String voice = null;
+
+  public SpeakerForGetAITranslationProjectOutput currentVoice(String currentVoice) {
+    this.currentVoice = currentVoice;
+    return this;
+  }
+
+   /**
+   * Get currentVoice
+   * @return currentVoice
+  **/
+  @Schema(description = "")
+  public String getCurrentVoice() {
+    return currentVoice;
+  }
+
+  public void setCurrentVoice(String currentVoice) {
+    this.currentVoice = currentVoice;
+  }
 
   public SpeakerForGetAITranslationProjectOutput id(String id) {
     this.id = id;
@@ -124,7 +145,8 @@ public class SpeakerForGetAITranslationProjectOutput {
       return false;
     }
     SpeakerForGetAITranslationProjectOutput speakerForGetAITranslationProjectOutput = (SpeakerForGetAITranslationProjectOutput) o;
-    return Objects.equals(this.id, speakerForGetAITranslationProjectOutput.id) &&
+    return Objects.equals(this.currentVoice, speakerForGetAITranslationProjectOutput.currentVoice) &&
+        Objects.equals(this.id, speakerForGetAITranslationProjectOutput.id) &&
         Objects.equals(this.name, speakerForGetAITranslationProjectOutput.name) &&
         Objects.equals(this.projectId, speakerForGetAITranslationProjectOutput.projectId) &&
         Objects.equals(this.voice, speakerForGetAITranslationProjectOutput.voice);
@@ -132,7 +154,7 @@ public class SpeakerForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, projectId, voice);
+    return Objects.hash(currentVoice, id, name, projectId, voice);
   }
 
 
@@ -141,6 +163,7 @@ public class SpeakerForGetAITranslationProjectOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpeakerForGetAITranslationProjectOutput {\n");
     
+    sb.append("    currentVoice: ").append(toIndentedString(currentVoice)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
