@@ -17,6 +17,10 @@ import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
+import com.volcengine.ark.runtime.model.responses.request.CreateResponsesRequest;
+import com.volcengine.ark.runtime.model.responses.response.DeleteResponseResponse;
+import com.volcengine.ark.runtime.model.responses.response.ListInputItemsResponse;
+import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
@@ -76,6 +80,10 @@ public interface ArkApi {
     @POST("/api/v3/images/generations")
     Single<ImagesResponse> generateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
+    @Streaming
+    @POST("/api/v3/images/generations")
+    Call<ResponseBody> streamGenerateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
     @POST("/api/v3/contents/generations/tasks")
     Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
@@ -94,4 +102,27 @@ public interface ArkApi {
 
     @DELETE("/api/v3/contents/generations/tasks/{taskId}")
     Single<DeleteContentGenerationTaskResponse> deleteContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/responses")
+    Single<ResponseObject> createResponse(@Body CreateResponsesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @Streaming
+    @POST("/api/v3/responses")
+    Call<ResponseBody> streamResponse(@Body CreateResponsesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/responses/{responseId}")
+    Single<ResponseObject> getResponse(@Path("responseId") String responsesId, @HeaderMap Map<String, String> customHeaders);
+
+    @DELETE("/api/v3/responses/{responseId}")
+    Single<DeleteResponseResponse> deleteResponse(@Path("responseId") String responsesId, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/responses/{responseId}/input_items")
+    Single<ListInputItemsResponse> listResponseInputItems(
+            @Path("responseId") String responsesId,
+            @Query("after") String after,
+            @Query("before") String before,
+            @Query("limit") Integer limit,
+            @Query("include[]") List<String> include,
+            @HeaderMap Map<String, String> customHeaders
+    );
 }
