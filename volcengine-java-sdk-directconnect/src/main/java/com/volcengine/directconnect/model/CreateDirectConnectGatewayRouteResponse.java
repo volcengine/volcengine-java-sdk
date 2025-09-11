@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectGatewayRouteResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirectConnectGatewayRouteId")
   private String directConnectGatewayRouteId = null;

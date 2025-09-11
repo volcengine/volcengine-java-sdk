@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectAccessPointsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirectConnectAccessPoints")
   private List<DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput> directConnectAccessPoints = null;

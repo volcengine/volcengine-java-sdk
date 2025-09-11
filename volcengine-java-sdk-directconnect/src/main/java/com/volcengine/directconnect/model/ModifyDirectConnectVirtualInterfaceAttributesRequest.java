@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -43,6 +44,9 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
 
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
+
+  @SerializedName("EnableBfdEcho")
+  private Boolean enableBfdEcho = null;
 
   @SerializedName("EnableNqa")
   private Boolean enableNqa = null;
@@ -157,6 +161,24 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
 
   public void setEnableBfd(Boolean enableBfd) {
     this.enableBfd = enableBfd;
+  }
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest enableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
+    return this;
+  }
+
+   /**
+   * Get enableBfdEcho
+   * @return enableBfdEcho
+  **/
+  @Schema(description = "")
+  public Boolean isEnableBfdEcho() {
+    return enableBfdEcho;
+  }
+
+  public void setEnableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
   }
 
   public ModifyDirectConnectVirtualInterfaceAttributesRequest enableNqa(Boolean enableNqa) {
@@ -305,6 +327,7 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
         Objects.equals(this.bfdDetectMultiplier, modifyDirectConnectVirtualInterfaceAttributesRequest.bfdDetectMultiplier) &&
         Objects.equals(this.description, modifyDirectConnectVirtualInterfaceAttributesRequest.description) &&
         Objects.equals(this.enableBfd, modifyDirectConnectVirtualInterfaceAttributesRequest.enableBfd) &&
+        Objects.equals(this.enableBfdEcho, modifyDirectConnectVirtualInterfaceAttributesRequest.enableBfdEcho) &&
         Objects.equals(this.enableNqa, modifyDirectConnectVirtualInterfaceAttributesRequest.enableNqa) &&
         Objects.equals(this.localIpv6Ip, modifyDirectConnectVirtualInterfaceAttributesRequest.localIpv6Ip) &&
         Objects.equals(this.nqaDetectInterval, modifyDirectConnectVirtualInterfaceAttributesRequest.nqaDetectInterval) &&
@@ -316,7 +339,7 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, enableBfd, enableNqa, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIpv6Ip, virtualInterfaceId, virtualInterfaceName);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, enableBfd, enableBfdEcho, enableNqa, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIpv6Ip, virtualInterfaceId, virtualInterfaceName);
   }
 
 
@@ -330,6 +353,7 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
     sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableBfdEcho: ").append(toIndentedString(enableBfdEcho)).append("\n");
     sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");

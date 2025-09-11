@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyBgpPeerAttributesRequest {
   @SerializedName("BgpPeerId")
   private String bgpPeerId = null;
