@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectConnectionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirectConnectConnectionId")
   private String directConnectConnectionId = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -52,6 +53,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
+
+  @SerializedName("EnableBfdEcho")
+  private Boolean enableBfdEcho = null;
 
   @SerializedName("EnableNqa")
   private Boolean enableNqa = null;
@@ -79,7 +83,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    */
   @JsonAdapter(RouteTypeEnum.Adapter.class)
   public enum RouteTypeEnum {
+    @SerializedName("Static")
     STATIC("Static"),
+    @SerializedName("BGP")
     BGP("BGP");
 
     private String value;
@@ -257,6 +263,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   public void setEnableBfd(Boolean enableBfd) {
     this.enableBfd = enableBfd;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest enableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
+    return this;
+  }
+
+   /**
+   * Get enableBfdEcho
+   * @return enableBfdEcho
+  **/
+  @Schema(description = "")
+  public Boolean isEnableBfdEcho() {
+    return enableBfdEcho;
+  }
+
+  public void setEnableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
   }
 
   public CreateDirectConnectVirtualInterfaceRequest enableNqa(Boolean enableNqa) {
@@ -490,6 +514,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
         Objects.equals(this.directConnectConnectionId, createDirectConnectVirtualInterfaceRequest.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, createDirectConnectVirtualInterfaceRequest.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, createDirectConnectVirtualInterfaceRequest.enableBfd) &&
+        Objects.equals(this.enableBfdEcho, createDirectConnectVirtualInterfaceRequest.enableBfdEcho) &&
         Objects.equals(this.enableNqa, createDirectConnectVirtualInterfaceRequest.enableNqa) &&
         Objects.equals(this.localIp, createDirectConnectVirtualInterfaceRequest.localIp) &&
         Objects.equals(this.localIpv6Ip, createDirectConnectVirtualInterfaceRequest.localIpv6Ip) &&
@@ -505,7 +530,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableBfdEcho, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
   }
 
 
@@ -521,6 +546,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableBfdEcho: ").append(toIndentedString(enableBfdEcho)).append("\n");
     sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");

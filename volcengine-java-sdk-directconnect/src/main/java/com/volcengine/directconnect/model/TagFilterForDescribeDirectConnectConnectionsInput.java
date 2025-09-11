@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagFilterForDescribeDirectConnectConnectionsInput {
   @SerializedName("Key")
   private String key = null;

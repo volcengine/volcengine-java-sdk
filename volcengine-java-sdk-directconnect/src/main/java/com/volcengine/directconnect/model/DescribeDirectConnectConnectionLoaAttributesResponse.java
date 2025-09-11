@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectConnectionLoaAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
