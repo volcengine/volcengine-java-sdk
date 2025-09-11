@@ -24,22 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SpeakerForUpdateAITranslationSpeakersInput
+ * SpeechForUpdateAITranslationSpeechesInput
  */
 
 
 
-public class SpeakerForUpdateAITranslationSpeakersInput {
+public class SpeechForUpdateAITranslationSpeechesInput {
   @SerializedName("Id")
   private String id = null;
 
-  @SerializedName("SpeakerName")
-  private String speakerName = null;
+  @SerializedName("SpeechName")
+  private String speechName = null;
 
-  @SerializedName("Voice")
-  private String voice = null;
-
-  public SpeakerForUpdateAITranslationSpeakersInput id(String id) {
+  public SpeechForUpdateAITranslationSpeechesInput id(String id) {
     this.id = id;
     return this;
   }
@@ -57,40 +54,22 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
     this.id = id;
   }
 
-  public SpeakerForUpdateAITranslationSpeakersInput speakerName(String speakerName) {
-    this.speakerName = speakerName;
+  public SpeechForUpdateAITranslationSpeechesInput speechName(String speechName) {
+    this.speechName = speechName;
     return this;
   }
 
    /**
-   * Get speakerName
-   * @return speakerName
+   * Get speechName
+   * @return speechName
   **/
   @Schema(description = "")
-  public String getSpeakerName() {
-    return speakerName;
+  public String getSpeechName() {
+    return speechName;
   }
 
-  public void setSpeakerName(String speakerName) {
-    this.speakerName = speakerName;
-  }
-
-  public SpeakerForUpdateAITranslationSpeakersInput voice(String voice) {
-    this.voice = voice;
-    return this;
-  }
-
-   /**
-   * Get voice
-   * @return voice
-  **/
-  @Schema(description = "")
-  public String getVoice() {
-    return voice;
-  }
-
-  public void setVoice(String voice) {
-    this.voice = voice;
+  public void setSpeechName(String speechName) {
+    this.speechName = speechName;
   }
 
 
@@ -102,26 +81,24 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SpeakerForUpdateAITranslationSpeakersInput speakerForUpdateAITranslationSpeakersInput = (SpeakerForUpdateAITranslationSpeakersInput) o;
-    return Objects.equals(this.id, speakerForUpdateAITranslationSpeakersInput.id) &&
-        Objects.equals(this.speakerName, speakerForUpdateAITranslationSpeakersInput.speakerName) &&
-        Objects.equals(this.voice, speakerForUpdateAITranslationSpeakersInput.voice);
+    SpeechForUpdateAITranslationSpeechesInput speechForUpdateAITranslationSpeechesInput = (SpeechForUpdateAITranslationSpeechesInput) o;
+    return Objects.equals(this.id, speechForUpdateAITranslationSpeechesInput.id) &&
+        Objects.equals(this.speechName, speechForUpdateAITranslationSpeechesInput.speechName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, speakerName, voice);
+    return Objects.hash(id, speechName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SpeakerForUpdateAITranslationSpeakersInput {\n");
+    sb.append("class SpeechForUpdateAITranslationSpeechesInput {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    speakerName: ").append(toIndentedString(speakerName)).append("\n");
-    sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
+    sb.append("    speechName: ").append(toIndentedString(speechName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

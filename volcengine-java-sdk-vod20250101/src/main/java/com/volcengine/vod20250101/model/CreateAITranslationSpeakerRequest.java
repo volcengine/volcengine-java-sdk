@@ -24,14 +24,17 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SpeakerForUpdateAITranslationSpeakersInput
+ * CreateAITranslationSpeakerRequest
  */
 
 
 
-public class SpeakerForUpdateAITranslationSpeakersInput {
-  @SerializedName("Id")
-  private String id = null;
+public class CreateAITranslationSpeakerRequest {
+  @SerializedName("ProjectId")
+  private String projectId = null;
+
+  @SerializedName("SpaceName")
+  private String spaceName = null;
 
   @SerializedName("SpeakerName")
   private String speakerName = null;
@@ -39,25 +42,45 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
   @SerializedName("Voice")
   private String voice = null;
 
-  public SpeakerForUpdateAITranslationSpeakersInput id(String id) {
-    this.id = id;
+  public CreateAITranslationSpeakerRequest projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get projectId
+   * @return projectId
   **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
-  public SpeakerForUpdateAITranslationSpeakersInput speakerName(String speakerName) {
+  public CreateAITranslationSpeakerRequest spaceName(String spaceName) {
+    this.spaceName = spaceName;
+    return this;
+  }
+
+   /**
+   * Get spaceName
+   * @return spaceName
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSpaceName() {
+    return spaceName;
+  }
+
+  public void setSpaceName(String spaceName) {
+    this.spaceName = spaceName;
+  }
+
+  public CreateAITranslationSpeakerRequest speakerName(String speakerName) {
     this.speakerName = speakerName;
     return this;
   }
@@ -66,7 +89,8 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
    * Get speakerName
    * @return speakerName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSpeakerName() {
     return speakerName;
   }
@@ -75,7 +99,7 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
     this.speakerName = speakerName;
   }
 
-  public SpeakerForUpdateAITranslationSpeakersInput voice(String voice) {
+  public CreateAITranslationSpeakerRequest voice(String voice) {
     this.voice = voice;
     return this;
   }
@@ -84,7 +108,8 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
    * Get voice
    * @return voice
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVoice() {
     return voice;
   }
@@ -102,24 +127,26 @@ public class SpeakerForUpdateAITranslationSpeakersInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SpeakerForUpdateAITranslationSpeakersInput speakerForUpdateAITranslationSpeakersInput = (SpeakerForUpdateAITranslationSpeakersInput) o;
-    return Objects.equals(this.id, speakerForUpdateAITranslationSpeakersInput.id) &&
-        Objects.equals(this.speakerName, speakerForUpdateAITranslationSpeakersInput.speakerName) &&
-        Objects.equals(this.voice, speakerForUpdateAITranslationSpeakersInput.voice);
+    CreateAITranslationSpeakerRequest createAITranslationSpeakerRequest = (CreateAITranslationSpeakerRequest) o;
+    return Objects.equals(this.projectId, createAITranslationSpeakerRequest.projectId) &&
+        Objects.equals(this.spaceName, createAITranslationSpeakerRequest.spaceName) &&
+        Objects.equals(this.speakerName, createAITranslationSpeakerRequest.speakerName) &&
+        Objects.equals(this.voice, createAITranslationSpeakerRequest.voice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, speakerName, voice);
+    return Objects.hash(projectId, spaceName, speakerName, voice);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SpeakerForUpdateAITranslationSpeakersInput {\n");
+    sb.append("class CreateAITranslationSpeakerRequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
     sb.append("    speakerName: ").append(toIndentedString(speakerName)).append("\n");
     sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
     sb.append("}");

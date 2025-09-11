@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SpeakerForGetAITranslationProjectOutput
+ * SpeakerForCreateAITranslationSpeakerOutput
  */
 
 
 
-public class SpeakerForGetAITranslationProjectOutput {
+public class SpeakerForCreateAITranslationSpeakerOutput {
   @SerializedName("CurrentVoice")
   private String currentVoice = null;
 
@@ -45,7 +45,7 @@ public class SpeakerForGetAITranslationProjectOutput {
   @SerializedName("Voice")
   private String voice = null;
 
-  public SpeakerForGetAITranslationProjectOutput currentVoice(String currentVoice) {
+  public SpeakerForCreateAITranslationSpeakerOutput currentVoice(String currentVoice) {
     this.currentVoice = currentVoice;
     return this;
   }
@@ -63,7 +63,7 @@ public class SpeakerForGetAITranslationProjectOutput {
     this.currentVoice = currentVoice;
   }
 
-  public SpeakerForGetAITranslationProjectOutput id(String id) {
+  public SpeakerForCreateAITranslationSpeakerOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -81,7 +81,7 @@ public class SpeakerForGetAITranslationProjectOutput {
     this.id = id;
   }
 
-  public SpeakerForGetAITranslationProjectOutput name(String name) {
+  public SpeakerForCreateAITranslationSpeakerOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -99,7 +99,7 @@ public class SpeakerForGetAITranslationProjectOutput {
     this.name = name;
   }
 
-  public SpeakerForGetAITranslationProjectOutput projectId(String projectId) {
+  public SpeakerForCreateAITranslationSpeakerOutput projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -117,7 +117,7 @@ public class SpeakerForGetAITranslationProjectOutput {
     this.projectId = projectId;
   }
 
-  public SpeakerForGetAITranslationProjectOutput voice(String voice) {
+  public SpeakerForCreateAITranslationSpeakerOutput voice(String voice) {
     this.voice = voice;
     return this;
   }
@@ -144,12 +144,12 @@ public class SpeakerForGetAITranslationProjectOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SpeakerForGetAITranslationProjectOutput speakerForGetAITranslationProjectOutput = (SpeakerForGetAITranslationProjectOutput) o;
-    return Objects.equals(this.currentVoice, speakerForGetAITranslationProjectOutput.currentVoice) &&
-        Objects.equals(this.id, speakerForGetAITranslationProjectOutput.id) &&
-        Objects.equals(this.name, speakerForGetAITranslationProjectOutput.name) &&
-        Objects.equals(this.projectId, speakerForGetAITranslationProjectOutput.projectId) &&
-        Objects.equals(this.voice, speakerForGetAITranslationProjectOutput.voice);
+    SpeakerForCreateAITranslationSpeakerOutput speakerForCreateAITranslationSpeakerOutput = (SpeakerForCreateAITranslationSpeakerOutput) o;
+    return Objects.equals(this.currentVoice, speakerForCreateAITranslationSpeakerOutput.currentVoice) &&
+        Objects.equals(this.id, speakerForCreateAITranslationSpeakerOutput.id) &&
+        Objects.equals(this.name, speakerForCreateAITranslationSpeakerOutput.name) &&
+        Objects.equals(this.projectId, speakerForCreateAITranslationSpeakerOutput.projectId) &&
+        Objects.equals(this.voice, speakerForCreateAITranslationSpeakerOutput.voice);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class SpeakerForGetAITranslationProjectOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SpeakerForGetAITranslationProjectOutput {\n");
+    sb.append("class SpeakerForCreateAITranslationSpeakerOutput {\n");
     
     sb.append("    currentVoice: ").append(toIndentedString(currentVoice)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

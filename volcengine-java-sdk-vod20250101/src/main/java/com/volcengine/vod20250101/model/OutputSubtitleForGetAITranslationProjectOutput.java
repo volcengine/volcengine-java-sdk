@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * OutputVideoForListAITranslationProjectOutput
+ * OutputSubtitleForGetAITranslationProjectOutput
  */
 
 
 
-public class OutputVideoForListAITranslationProjectOutput {
+public class OutputSubtitleForGetAITranslationProjectOutput {
   @SerializedName("DurationSecond")
   private Double durationSecond = null;
 
@@ -48,7 +48,7 @@ public class OutputVideoForListAITranslationProjectOutput {
   @SerializedName("Vid")
   private String vid = null;
 
-  public OutputVideoForListAITranslationProjectOutput durationSecond(Double durationSecond) {
+  public OutputSubtitleForGetAITranslationProjectOutput durationSecond(Double durationSecond) {
     this.durationSecond = durationSecond;
     return this;
   }
@@ -66,7 +66,7 @@ public class OutputVideoForListAITranslationProjectOutput {
     this.durationSecond = durationSecond;
   }
 
-  public OutputVideoForListAITranslationProjectOutput fileName(String fileName) {
+  public OutputSubtitleForGetAITranslationProjectOutput fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
@@ -84,7 +84,7 @@ public class OutputVideoForListAITranslationProjectOutput {
     this.fileName = fileName;
   }
 
-  public OutputVideoForListAITranslationProjectOutput isAudio(Boolean isAudio) {
+  public OutputSubtitleForGetAITranslationProjectOutput isAudio(Boolean isAudio) {
     this.isAudio = isAudio;
     return this;
   }
@@ -102,7 +102,7 @@ public class OutputVideoForListAITranslationProjectOutput {
     this.isAudio = isAudio;
   }
 
-  public OutputVideoForListAITranslationProjectOutput uri(String uri) {
+  public OutputSubtitleForGetAITranslationProjectOutput uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -120,7 +120,7 @@ public class OutputVideoForListAITranslationProjectOutput {
     this.uri = uri;
   }
 
-  public OutputVideoForListAITranslationProjectOutput url(String url) {
+  public OutputSubtitleForGetAITranslationProjectOutput url(String url) {
     this.url = url;
     return this;
   }
@@ -138,7 +138,7 @@ public class OutputVideoForListAITranslationProjectOutput {
     this.url = url;
   }
 
-  public OutputVideoForListAITranslationProjectOutput vid(String vid) {
+  public OutputSubtitleForGetAITranslationProjectOutput vid(String vid) {
     this.vid = vid;
     return this;
   }
@@ -165,13 +165,13 @@ public class OutputVideoForListAITranslationProjectOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OutputVideoForListAITranslationProjectOutput outputVideoForListAITranslationProjectOutput = (OutputVideoForListAITranslationProjectOutput) o;
-    return Objects.equals(this.durationSecond, outputVideoForListAITranslationProjectOutput.durationSecond) &&
-        Objects.equals(this.fileName, outputVideoForListAITranslationProjectOutput.fileName) &&
-        Objects.equals(this.isAudio, outputVideoForListAITranslationProjectOutput.isAudio) &&
-        Objects.equals(this.uri, outputVideoForListAITranslationProjectOutput.uri) &&
-        Objects.equals(this.url, outputVideoForListAITranslationProjectOutput.url) &&
-        Objects.equals(this.vid, outputVideoForListAITranslationProjectOutput.vid);
+    OutputSubtitleForGetAITranslationProjectOutput outputSubtitleForGetAITranslationProjectOutput = (OutputSubtitleForGetAITranslationProjectOutput) o;
+    return Objects.equals(this.durationSecond, outputSubtitleForGetAITranslationProjectOutput.durationSecond) &&
+        Objects.equals(this.fileName, outputSubtitleForGetAITranslationProjectOutput.fileName) &&
+        Objects.equals(this.isAudio, outputSubtitleForGetAITranslationProjectOutput.isAudio) &&
+        Objects.equals(this.uri, outputSubtitleForGetAITranslationProjectOutput.uri) &&
+        Objects.equals(this.url, outputSubtitleForGetAITranslationProjectOutput.url) &&
+        Objects.equals(this.vid, outputSubtitleForGetAITranslationProjectOutput.vid);
   }
 
   @Override
@@ -183,7 +183,7 @@ public class OutputVideoForListAITranslationProjectOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OutputVideoForListAITranslationProjectOutput {\n");
+    sb.append("class OutputSubtitleForGetAITranslationProjectOutput {\n");
     
     sb.append("    durationSecond: ").append(toIndentedString(durationSecond)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
