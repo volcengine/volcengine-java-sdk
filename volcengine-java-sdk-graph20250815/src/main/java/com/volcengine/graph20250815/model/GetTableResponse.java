@@ -39,11 +39,11 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("State")
   private String state = null;
 
-  @SerializedName("TabelName")
-  private String tabelName = null;
-
   @SerializedName("TableId")
   private Long tableId = null;
+
+  @SerializedName("TableName")
+  private String tableName = null;
 
   public GetTableResponse enableRead(Boolean enableRead) {
     this.enableRead = enableRead;
@@ -99,24 +99,6 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     this.state = state;
   }
 
-  public GetTableResponse tabelName(String tabelName) {
-    this.tabelName = tabelName;
-    return this;
-  }
-
-   /**
-   * Get tabelName
-   * @return tabelName
-  **/
-  @Schema(description = "")
-  public String getTabelName() {
-    return tabelName;
-  }
-
-  public void setTabelName(String tabelName) {
-    this.tabelName = tabelName;
-  }
-
   public GetTableResponse tableId(Long tableId) {
     this.tableId = tableId;
     return this;
@@ -135,6 +117,24 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     this.tableId = tableId;
   }
 
+  public GetTableResponse tableName(String tableName) {
+    this.tableName = tableName;
+    return this;
+  }
+
+   /**
+   * Get tableName
+   * @return tableName
+  **/
+  @Schema(description = "")
+  public String getTableName() {
+    return tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,13 +148,13 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     return Objects.equals(this.enableRead, getTableResponse.enableRead) &&
         Objects.equals(this.enableWrite, getTableResponse.enableWrite) &&
         Objects.equals(this.state, getTableResponse.state) &&
-        Objects.equals(this.tabelName, getTableResponse.tabelName) &&
-        Objects.equals(this.tableId, getTableResponse.tableId);
+        Objects.equals(this.tableId, getTableResponse.tableId) &&
+        Objects.equals(this.tableName, getTableResponse.tableName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableRead, enableWrite, state, tabelName, tableId);
+    return Objects.hash(enableRead, enableWrite, state, tableId, tableName);
   }
 
 
@@ -166,8 +166,8 @@ public class GetTableResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    enableRead: ").append(toIndentedString(enableRead)).append("\n");
     sb.append("    enableWrite: ").append(toIndentedString(enableWrite)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    tabelName: ").append(toIndentedString(tabelName)).append("\n");
     sb.append("    tableId: ").append(toIndentedString(tableId)).append("\n");
+    sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
