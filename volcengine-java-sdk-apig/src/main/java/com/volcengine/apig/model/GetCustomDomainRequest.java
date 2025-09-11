@@ -24,16 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * GetCustomDomainRequest
  */
 
 
 
-public class DeleteGatewayRequest {
+public class GetCustomDomainRequest {
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteGatewayRequest id(String id) {
+  public GetCustomDomainRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -61,8 +61,8 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    GetCustomDomainRequest getCustomDomainRequest = (GetCustomDomainRequest) o;
+    return Objects.equals(this.id, getCustomDomainRequest.id);
   }
 
   @Override
@@ -74,7 +74,7 @@ public class DeleteGatewayRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class GetCustomDomainRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

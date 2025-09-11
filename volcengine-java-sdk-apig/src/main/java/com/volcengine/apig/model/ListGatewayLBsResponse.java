@@ -19,57 +19,69 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.apig.model.ItemForListGatewayLBsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForCreateGatewayInput
+ * ListGatewayLBsResponse
  */
 
 
 
-public class TagForCreateGatewayInput {
-  @SerializedName("Key")
-  private String key = null;
+public class ListGatewayLBsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Items")
+  private List<ItemForListGatewayLBsOutput> items = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Total")
+  private Long total = null;
 
-  public TagForCreateGatewayInput key(String key) {
-    this.key = key;
+  public ListGatewayLBsResponse items(List<ItemForListGatewayLBsOutput> items) {
+    this.items = items;
+    return this;
+  }
+
+  public ListGatewayLBsResponse addItemsItem(ItemForListGatewayLBsOutput itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<ItemForListGatewayLBsOutput>();
+    }
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get items
+   * @return items
   **/
+  @Valid
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public List<ItemForListGatewayLBsOutput> getItems() {
+    return items;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setItems(List<ItemForListGatewayLBsOutput> items) {
+    this.items = items;
   }
 
-  public TagForCreateGatewayInput value(String value) {
-    this.value = value;
+  public ListGatewayLBsResponse total(Long total) {
+    this.total = total;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get total
+   * @return total
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public Long getTotal() {
+    return total;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setTotal(Long total) {
+    this.total = total;
   }
 
 
@@ -81,24 +93,24 @@ public class TagForCreateGatewayInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForCreateGatewayInput tagForCreateGatewayInput = (TagForCreateGatewayInput) o;
-    return Objects.equals(this.key, tagForCreateGatewayInput.key) &&
-        Objects.equals(this.value, tagForCreateGatewayInput.value);
+    ListGatewayLBsResponse listGatewayLBsResponse = (ListGatewayLBsResponse) o;
+    return Objects.equals(this.items, listGatewayLBsResponse.items) &&
+        Objects.equals(this.total, listGatewayLBsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(items, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForCreateGatewayInput {\n");
+    sb.append("class ListGatewayLBsResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,14 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.BackendSpecForGetGatewayOutput;
 import com.volcengine.apig.model.CustomLogForGetGatewayOutput;
 import com.volcengine.apig.model.EventForGetGatewayOutput;
 import com.volcengine.apig.model.LogSpecForGetGatewayOutput;
 import com.volcengine.apig.model.MonitorSpecForGetGatewayOutput;
 import com.volcengine.apig.model.NetworkSpecForGetGatewayOutput;
 import com.volcengine.apig.model.ResourceSpecForGetGatewayOutput;
-import com.volcengine.apig.model.TagForGetGatewayOutput;
+import com.volcengine.apig.model.TraceSpecForGetGatewayOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,9 +39,6 @@ import javax.validation.Valid;
 
 
 public class GatewayForGetGatewayOutput {
-  @SerializedName("BackendSpec")
-  private BackendSpecForGetGatewayOutput backendSpec = null;
-
   @SerializedName("Comments")
   private String comments = null;
 
@@ -85,33 +81,14 @@ public class GatewayForGetGatewayOutput {
   @SerializedName("Status")
   private String status = null;
 
-  @SerializedName("Tags")
-  private List<TagForGetGatewayOutput> tags = null;
+  @SerializedName("TraceSpec")
+  private TraceSpecForGetGatewayOutput traceSpec = null;
 
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("Version")
   private String version = null;
-
-  public GatewayForGetGatewayOutput backendSpec(BackendSpecForGetGatewayOutput backendSpec) {
-    this.backendSpec = backendSpec;
-    return this;
-  }
-
-   /**
-   * Get backendSpec
-   * @return backendSpec
-  **/
-  @Valid
-  @Schema(description = "")
-  public BackendSpecForGetGatewayOutput getBackendSpec() {
-    return backendSpec;
-  }
-
-  public void setBackendSpec(BackendSpecForGetGatewayOutput backendSpec) {
-    this.backendSpec = backendSpec;
-  }
 
   public GatewayForGetGatewayOutput comments(String comments) {
     this.comments = comments;
@@ -379,31 +356,23 @@ public class GatewayForGetGatewayOutput {
     this.status = status;
   }
 
-  public GatewayForGetGatewayOutput tags(List<TagForGetGatewayOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public GatewayForGetGatewayOutput addTagsItem(TagForGetGatewayOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForGetGatewayOutput>();
-    }
-    this.tags.add(tagsItem);
+  public GatewayForGetGatewayOutput traceSpec(TraceSpecForGetGatewayOutput traceSpec) {
+    this.traceSpec = traceSpec;
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get traceSpec
+   * @return traceSpec
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForGetGatewayOutput> getTags() {
-    return tags;
+  public TraceSpecForGetGatewayOutput getTraceSpec() {
+    return traceSpec;
   }
 
-  public void setTags(List<TagForGetGatewayOutput> tags) {
-    this.tags = tags;
+  public void setTraceSpec(TraceSpecForGetGatewayOutput traceSpec) {
+    this.traceSpec = traceSpec;
   }
 
   public GatewayForGetGatewayOutput type(String type) {
@@ -452,8 +421,7 @@ public class GatewayForGetGatewayOutput {
       return false;
     }
     GatewayForGetGatewayOutput gatewayForGetGatewayOutput = (GatewayForGetGatewayOutput) o;
-    return Objects.equals(this.backendSpec, gatewayForGetGatewayOutput.backendSpec) &&
-        Objects.equals(this.comments, gatewayForGetGatewayOutput.comments) &&
+    return Objects.equals(this.comments, gatewayForGetGatewayOutput.comments) &&
         Objects.equals(this.createTime, gatewayForGetGatewayOutput.createTime) &&
         Objects.equals(this.customLog, gatewayForGetGatewayOutput.customLog) &&
         Objects.equals(this.events, gatewayForGetGatewayOutput.events) &&
@@ -467,14 +435,14 @@ public class GatewayForGetGatewayOutput {
         Objects.equals(this.region, gatewayForGetGatewayOutput.region) &&
         Objects.equals(this.resourceSpec, gatewayForGetGatewayOutput.resourceSpec) &&
         Objects.equals(this.status, gatewayForGetGatewayOutput.status) &&
-        Objects.equals(this.tags, gatewayForGetGatewayOutput.tags) &&
+        Objects.equals(this.traceSpec, gatewayForGetGatewayOutput.traceSpec) &&
         Objects.equals(this.type, gatewayForGetGatewayOutput.type) &&
         Objects.equals(this.version, gatewayForGetGatewayOutput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendSpec, comments, createTime, customLog, events, id, logSpec, message, monitorSpec, name, networkSpec, projectName, region, resourceSpec, status, tags, type, version);
+    return Objects.hash(comments, createTime, customLog, events, id, logSpec, message, monitorSpec, name, networkSpec, projectName, region, resourceSpec, status, traceSpec, type, version);
   }
 
 
@@ -483,7 +451,6 @@ public class GatewayForGetGatewayOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayForGetGatewayOutput {\n");
     
-    sb.append("    backendSpec: ").append(toIndentedString(backendSpec)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customLog: ").append(toIndentedString(customLog)).append("\n");
@@ -498,7 +465,7 @@ public class GatewayForGetGatewayOutput {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    resourceSpec: ").append(toIndentedString(resourceSpec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    traceSpec: ").append(toIndentedString(traceSpec)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

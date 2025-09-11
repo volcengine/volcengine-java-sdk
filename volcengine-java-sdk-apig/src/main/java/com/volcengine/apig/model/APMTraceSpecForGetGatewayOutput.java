@@ -14,44 +14,15 @@ package com.volcengine.apig.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * APMTraceSpecForGetGatewayOutput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
-
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
+public class APMTraceSpecForGetGatewayOutput {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,22 +32,20 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class APMTraceSpecForGetGatewayOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

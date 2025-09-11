@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * PortForListGatewayLBsOutput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class PortForListGatewayLBsOutput {
+  @SerializedName("Number")
+  private Integer number = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  @SerializedName("Protocol")
+  private String protocol = null;
+
+  public PortForListGatewayLBsOutput number(Integer number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get number
+   * @return number
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Integer getNumber() {
+    return number;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public PortForListGatewayLBsOutput protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
   }
 
 
@@ -61,22 +81,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    PortForListGatewayLBsOutput portForListGatewayLBsOutput = (PortForListGatewayLBsOutput) o;
+    return Objects.equals(this.number, portForListGatewayLBsOutput.number) &&
+        Objects.equals(this.protocol, portForListGatewayLBsOutput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(number, protocol);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class PortForListGatewayLBsOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");
     return sb.toString();
   }

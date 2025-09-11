@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * CreateUpstreamVersionResponse
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class CreateUpstreamVersionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Name")
+  private String name = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  @SerializedName("UpstreamId")
+  private String upstreamId = null;
+
+  public CreateUpstreamVersionResponse name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get name
+   * @return name
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getName() {
+    return name;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public CreateUpstreamVersionResponse upstreamId(String upstreamId) {
+    this.upstreamId = upstreamId;
+    return this;
+  }
+
+   /**
+   * Get upstreamId
+   * @return upstreamId
+  **/
+  @Schema(description = "")
+  public String getUpstreamId() {
+    return upstreamId;
+  }
+
+  public void setUpstreamId(String upstreamId) {
+    this.upstreamId = upstreamId;
   }
 
 
@@ -61,22 +81,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    CreateUpstreamVersionResponse createUpstreamVersionResponse = (CreateUpstreamVersionResponse) o;
+    return Objects.equals(this.name, createUpstreamVersionResponse.name) &&
+        Objects.equals(this.upstreamId, createUpstreamVersionResponse.upstreamId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(name, upstreamId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class CreateUpstreamVersionResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    upstreamId: ").append(toIndentedString(upstreamId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

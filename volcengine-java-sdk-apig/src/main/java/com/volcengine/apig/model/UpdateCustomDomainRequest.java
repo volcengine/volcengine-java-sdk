@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.AuthSpecForUpdateGatewayServiceInput;
-import com.volcengine.apig.model.DomainSpecForUpdateGatewayServiceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,20 +26,17 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateGatewayServiceRequest
+ * UpdateCustomDomainRequest
  */
 
 
 
-public class UpdateGatewayServiceRequest {
-  @SerializedName("AuthSpec")
-  private AuthSpecForUpdateGatewayServiceInput authSpec = null;
+public class UpdateCustomDomainRequest {
+  @SerializedName("CertificateId")
+  private String certificateId = null;
 
   @SerializedName("Comments")
   private String comments = null;
-
-  @SerializedName("DomainSpec")
-  private DomainSpecForUpdateGatewayServiceInput domainSpec = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -49,26 +44,28 @@ public class UpdateGatewayServiceRequest {
   @SerializedName("Protocol")
   private List<String> protocol = null;
 
-  public UpdateGatewayServiceRequest authSpec(AuthSpecForUpdateGatewayServiceInput authSpec) {
-    this.authSpec = authSpec;
+  @SerializedName("SSLRedirect")
+  private Boolean ssLRedirect = null;
+
+  public UpdateCustomDomainRequest certificateId(String certificateId) {
+    this.certificateId = certificateId;
     return this;
   }
 
    /**
-   * Get authSpec
-   * @return authSpec
+   * Get certificateId
+   * @return certificateId
   **/
-  @Valid
   @Schema(description = "")
-  public AuthSpecForUpdateGatewayServiceInput getAuthSpec() {
-    return authSpec;
+  public String getCertificateId() {
+    return certificateId;
   }
 
-  public void setAuthSpec(AuthSpecForUpdateGatewayServiceInput authSpec) {
-    this.authSpec = authSpec;
+  public void setCertificateId(String certificateId) {
+    this.certificateId = certificateId;
   }
 
-  public UpdateGatewayServiceRequest comments(String comments) {
+  public UpdateCustomDomainRequest comments(String comments) {
     this.comments = comments;
     return this;
   }
@@ -86,26 +83,7 @@ public class UpdateGatewayServiceRequest {
     this.comments = comments;
   }
 
-  public UpdateGatewayServiceRequest domainSpec(DomainSpecForUpdateGatewayServiceInput domainSpec) {
-    this.domainSpec = domainSpec;
-    return this;
-  }
-
-   /**
-   * Get domainSpec
-   * @return domainSpec
-  **/
-  @Valid
-  @Schema(description = "")
-  public DomainSpecForUpdateGatewayServiceInput getDomainSpec() {
-    return domainSpec;
-  }
-
-  public void setDomainSpec(DomainSpecForUpdateGatewayServiceInput domainSpec) {
-    this.domainSpec = domainSpec;
-  }
-
-  public UpdateGatewayServiceRequest id(String id) {
+  public UpdateCustomDomainRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -124,12 +102,12 @@ public class UpdateGatewayServiceRequest {
     this.id = id;
   }
 
-  public UpdateGatewayServiceRequest protocol(List<String> protocol) {
+  public UpdateCustomDomainRequest protocol(List<String> protocol) {
     this.protocol = protocol;
     return this;
   }
 
-  public UpdateGatewayServiceRequest addProtocolItem(String protocolItem) {
+  public UpdateCustomDomainRequest addProtocolItem(String protocolItem) {
     if (this.protocol == null) {
       this.protocol = new ArrayList<String>();
     }
@@ -150,6 +128,24 @@ public class UpdateGatewayServiceRequest {
     this.protocol = protocol;
   }
 
+  public UpdateCustomDomainRequest ssLRedirect(Boolean ssLRedirect) {
+    this.ssLRedirect = ssLRedirect;
+    return this;
+  }
+
+   /**
+   * Get ssLRedirect
+   * @return ssLRedirect
+  **/
+  @Schema(description = "")
+  public Boolean isSsLRedirect() {
+    return ssLRedirect;
+  }
+
+  public void setSsLRedirect(Boolean ssLRedirect) {
+    this.ssLRedirect = ssLRedirect;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,30 +155,30 @@ public class UpdateGatewayServiceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateGatewayServiceRequest updateGatewayServiceRequest = (UpdateGatewayServiceRequest) o;
-    return Objects.equals(this.authSpec, updateGatewayServiceRequest.authSpec) &&
-        Objects.equals(this.comments, updateGatewayServiceRequest.comments) &&
-        Objects.equals(this.domainSpec, updateGatewayServiceRequest.domainSpec) &&
-        Objects.equals(this.id, updateGatewayServiceRequest.id) &&
-        Objects.equals(this.protocol, updateGatewayServiceRequest.protocol);
+    UpdateCustomDomainRequest updateCustomDomainRequest = (UpdateCustomDomainRequest) o;
+    return Objects.equals(this.certificateId, updateCustomDomainRequest.certificateId) &&
+        Objects.equals(this.comments, updateCustomDomainRequest.comments) &&
+        Objects.equals(this.id, updateCustomDomainRequest.id) &&
+        Objects.equals(this.protocol, updateCustomDomainRequest.protocol) &&
+        Objects.equals(this.ssLRedirect, updateCustomDomainRequest.ssLRedirect);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, domainSpec, id, protocol);
+    return Objects.hash(certificateId, comments, id, protocol, ssLRedirect);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateGatewayServiceRequest {\n");
+    sb.append("class UpdateCustomDomainRequest {\n");
     
-    sb.append("    authSpec: ").append(toIndentedString(authSpec)).append("\n");
+    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
-    sb.append("    domainSpec: ").append(toIndentedString(domainSpec)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    ssLRedirect: ").append(toIndentedString(ssLRedirect)).append("\n");
     sb.append("}");
     return sb.toString();
   }

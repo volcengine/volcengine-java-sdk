@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForCreateUpstreamInput
+ * TLSTraceSpecForGetGatewayOutput
  */
 
 
 
-public class TagForCreateUpstreamInput {
-  @SerializedName("Key")
-  private String key = null;
+public class TLSTraceSpecForGetGatewayOutput {
+  @SerializedName("ProjectId")
+  private String projectId = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("TraceId")
+  private String traceId = null;
 
-  public TagForCreateUpstreamInput key(String key) {
-    this.key = key;
+  public TLSTraceSpecForGetGatewayOutput projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get projectId
+   * @return projectId
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
-  public TagForCreateUpstreamInput value(String value) {
-    this.value = value;
+  public TLSTraceSpecForGetGatewayOutput traceId(String traceId) {
+    this.traceId = traceId;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get traceId
+   * @return traceId
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public String getTraceId() {
+    return traceId;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
   }
 
 
@@ -81,24 +81,24 @@ public class TagForCreateUpstreamInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForCreateUpstreamInput tagForCreateUpstreamInput = (TagForCreateUpstreamInput) o;
-    return Objects.equals(this.key, tagForCreateUpstreamInput.key) &&
-        Objects.equals(this.value, tagForCreateUpstreamInput.value);
+    TLSTraceSpecForGetGatewayOutput tlSTraceSpecForGetGatewayOutput = (TLSTraceSpecForGetGatewayOutput) o;
+    return Objects.equals(this.projectId, tlSTraceSpecForGetGatewayOutput.projectId) &&
+        Objects.equals(this.traceId, tlSTraceSpecForGetGatewayOutput.traceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(projectId, traceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForCreateUpstreamInput {\n");
+    sb.append("class TLSTraceSpecForGetGatewayOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

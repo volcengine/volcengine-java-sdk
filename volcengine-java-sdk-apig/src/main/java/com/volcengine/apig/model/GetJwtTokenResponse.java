@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * GetJwtTokenResponse
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class GetJwtTokenResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("JwtToken")
+  private String jwtToken = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  public GetJwtTokenResponse jwtToken(String jwtToken) {
+    this.jwtToken = jwtToken;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get jwtToken
+   * @return jwtToken
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getJwtToken() {
+    return jwtToken;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setJwtToken(String jwtToken) {
+    this.jwtToken = jwtToken;
   }
 
 
@@ -61,22 +60,22 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    GetJwtTokenResponse getJwtTokenResponse = (GetJwtTokenResponse) o;
+    return Objects.equals(this.jwtToken, getJwtTokenResponse.jwtToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(jwtToken);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class GetJwtTokenResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    jwtToken: ").append(toIndentedString(jwtToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

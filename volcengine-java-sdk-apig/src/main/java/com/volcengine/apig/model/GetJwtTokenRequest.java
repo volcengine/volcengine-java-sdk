@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * GetJwtTokenRequest
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class GetJwtTokenRequest {
+  @SerializedName("GatewayId")
+  private String gatewayId = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  public GetJwtTokenRequest gatewayId(String gatewayId) {
+    this.gatewayId = gatewayId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get gatewayId
+   * @return gatewayId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getGatewayId() {
+    return gatewayId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setGatewayId(String gatewayId) {
+    this.gatewayId = gatewayId;
   }
 
 
@@ -61,22 +60,22 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    GetJwtTokenRequest getJwtTokenRequest = (GetJwtTokenRequest) o;
+    return Objects.equals(this.gatewayId, getJwtTokenRequest.gatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(gatewayId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class GetJwtTokenRequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

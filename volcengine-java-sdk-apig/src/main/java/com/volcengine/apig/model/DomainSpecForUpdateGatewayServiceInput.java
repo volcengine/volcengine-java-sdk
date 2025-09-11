@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForGetGatewayServiceOutput
+ * DomainSpecForUpdateGatewayServiceInput
  */
 
 
 
-public class TagForGetGatewayServiceOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class DomainSpecForUpdateGatewayServiceInput {
+  @SerializedName("EnablePublicResolution")
+  private Boolean enablePublicResolution = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public TagForGetGatewayServiceOutput key(String key) {
-    this.key = key;
+  public DomainSpecForUpdateGatewayServiceInput enablePublicResolution(Boolean enablePublicResolution) {
+    this.enablePublicResolution = enablePublicResolution;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get enablePublicResolution
+   * @return enablePublicResolution
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public Boolean isEnablePublicResolution() {
+    return enablePublicResolution;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForGetGatewayServiceOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setEnablePublicResolution(Boolean enablePublicResolution) {
+    this.enablePublicResolution = enablePublicResolution;
   }
 
 
@@ -81,24 +60,22 @@ public class TagForGetGatewayServiceOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForGetGatewayServiceOutput tagForGetGatewayServiceOutput = (TagForGetGatewayServiceOutput) o;
-    return Objects.equals(this.key, tagForGetGatewayServiceOutput.key) &&
-        Objects.equals(this.value, tagForGetGatewayServiceOutput.value);
+    DomainSpecForUpdateGatewayServiceInput domainSpecForUpdateGatewayServiceInput = (DomainSpecForUpdateGatewayServiceInput) o;
+    return Objects.equals(this.enablePublicResolution, domainSpecForUpdateGatewayServiceInput.enablePublicResolution);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(enablePublicResolution);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForGetGatewayServiceOutput {\n");
+    sb.append("class DomainSpecForUpdateGatewayServiceInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    enablePublicResolution: ").append(toIndentedString(enablePublicResolution)).append("\n");
     sb.append("}");
     return sb.toString();
   }

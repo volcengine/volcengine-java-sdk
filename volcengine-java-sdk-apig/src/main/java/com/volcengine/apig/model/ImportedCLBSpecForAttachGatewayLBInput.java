@@ -24,16 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * ImportedCLBSpecForAttachGatewayLBInput
  */
 
 
 
-public class DeleteGatewayRequest {
+public class ImportedCLBSpecForAttachGatewayLBInput {
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteGatewayRequest id(String id) {
+  @SerializedName("Scheduler")
+  private String scheduler = null;
+
+  public ImportedCLBSpecForAttachGatewayLBInput id(String id) {
     this.id = id;
     return this;
   }
@@ -42,14 +45,31 @@ public class DeleteGatewayRequest {
    * Get id
    * @return id
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ImportedCLBSpecForAttachGatewayLBInput scheduler(String scheduler) {
+    this.scheduler = scheduler;
+    return this;
+  }
+
+   /**
+   * Get scheduler
+   * @return scheduler
+  **/
+  @Schema(description = "")
+  public String getScheduler() {
+    return scheduler;
+  }
+
+  public void setScheduler(String scheduler) {
+    this.scheduler = scheduler;
   }
 
 
@@ -61,22 +81,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    ImportedCLBSpecForAttachGatewayLBInput importedCLBSpecForAttachGatewayLBInput = (ImportedCLBSpecForAttachGatewayLBInput) o;
+    return Objects.equals(this.id, importedCLBSpecForAttachGatewayLBInput.id) &&
+        Objects.equals(this.scheduler, importedCLBSpecForAttachGatewayLBInput.scheduler);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, scheduler);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class ImportedCLBSpecForAttachGatewayLBInput {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("}");
     return sb.toString();
   }

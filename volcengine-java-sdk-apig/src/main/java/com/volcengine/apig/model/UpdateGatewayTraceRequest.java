@@ -19,21 +19,25 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.apig.model.TraceSpecForUpdateGatewayTraceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * UpdateGatewayTraceRequest
  */
 
 
 
-public class DeleteGatewayRequest {
+public class UpdateGatewayTraceRequest {
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteGatewayRequest id(String id) {
+  @SerializedName("TraceSpec")
+  private TraceSpecForUpdateGatewayTraceInput traceSpec = null;
+
+  public UpdateGatewayTraceRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -52,6 +56,25 @@ public class DeleteGatewayRequest {
     this.id = id;
   }
 
+  public UpdateGatewayTraceRequest traceSpec(TraceSpecForUpdateGatewayTraceInput traceSpec) {
+    this.traceSpec = traceSpec;
+    return this;
+  }
+
+   /**
+   * Get traceSpec
+   * @return traceSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public TraceSpecForUpdateGatewayTraceInput getTraceSpec() {
+    return traceSpec;
+  }
+
+  public void setTraceSpec(TraceSpecForUpdateGatewayTraceInput traceSpec) {
+    this.traceSpec = traceSpec;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,22 +84,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    UpdateGatewayTraceRequest updateGatewayTraceRequest = (UpdateGatewayTraceRequest) o;
+    return Objects.equals(this.id, updateGatewayTraceRequest.id) &&
+        Objects.equals(this.traceSpec, updateGatewayTraceRequest.traceSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, traceSpec);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class UpdateGatewayTraceRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    traceSpec: ").append(toIndentedString(traceSpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }

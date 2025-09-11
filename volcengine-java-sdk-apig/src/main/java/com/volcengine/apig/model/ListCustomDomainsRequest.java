@@ -19,21 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.FilterForListUpstreamsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListUpstreamsRequest
+ * ListCustomDomainsRequest
  */
 
 
 
-public class ListUpstreamsRequest {
-  @SerializedName("Filter")
-  private FilterForListUpstreamsInput filter = null;
-
+public class ListCustomDomainsRequest {
   @SerializedName("GatewayId")
   private String gatewayId = null;
 
@@ -43,29 +39,10 @@ public class ListUpstreamsRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
-  @SerializedName("SourceType")
-  private String sourceType = null;
+  @SerializedName("ServiceId")
+  private String serviceId = null;
 
-  public ListUpstreamsRequest filter(FilterForListUpstreamsInput filter) {
-    this.filter = filter;
-    return this;
-  }
-
-   /**
-   * Get filter
-   * @return filter
-  **/
-  @Valid
-  @Schema(description = "")
-  public FilterForListUpstreamsInput getFilter() {
-    return filter;
-  }
-
-  public void setFilter(FilterForListUpstreamsInput filter) {
-    this.filter = filter;
-  }
-
-  public ListUpstreamsRequest gatewayId(String gatewayId) {
+  public ListCustomDomainsRequest gatewayId(String gatewayId) {
     this.gatewayId = gatewayId;
     return this;
   }
@@ -83,7 +60,7 @@ public class ListUpstreamsRequest {
     this.gatewayId = gatewayId;
   }
 
-  public ListUpstreamsRequest pageNumber(Long pageNumber) {
+  public ListCustomDomainsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -101,7 +78,7 @@ public class ListUpstreamsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public ListUpstreamsRequest pageSize(Long pageSize) {
+  public ListCustomDomainsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -119,22 +96,22 @@ public class ListUpstreamsRequest {
     this.pageSize = pageSize;
   }
 
-  public ListUpstreamsRequest sourceType(String sourceType) {
-    this.sourceType = sourceType;
+  public ListCustomDomainsRequest serviceId(String serviceId) {
+    this.serviceId = serviceId;
     return this;
   }
 
    /**
-   * Get sourceType
-   * @return sourceType
+   * Get serviceId
+   * @return serviceId
   **/
   @Schema(description = "")
-  public String getSourceType() {
-    return sourceType;
+  public String getServiceId() {
+    return serviceId;
   }
 
-  public void setSourceType(String sourceType) {
-    this.sourceType = sourceType;
+  public void setServiceId(String serviceId) {
+    this.serviceId = serviceId;
   }
 
 
@@ -146,30 +123,28 @@ public class ListUpstreamsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListUpstreamsRequest listUpstreamsRequest = (ListUpstreamsRequest) o;
-    return Objects.equals(this.filter, listUpstreamsRequest.filter) &&
-        Objects.equals(this.gatewayId, listUpstreamsRequest.gatewayId) &&
-        Objects.equals(this.pageNumber, listUpstreamsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listUpstreamsRequest.pageSize) &&
-        Objects.equals(this.sourceType, listUpstreamsRequest.sourceType);
+    ListCustomDomainsRequest listCustomDomainsRequest = (ListCustomDomainsRequest) o;
+    return Objects.equals(this.gatewayId, listCustomDomainsRequest.gatewayId) &&
+        Objects.equals(this.pageNumber, listCustomDomainsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listCustomDomainsRequest.pageSize) &&
+        Objects.equals(this.serviceId, listCustomDomainsRequest.serviceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, gatewayId, pageNumber, pageSize, sourceType);
+    return Objects.hash(gatewayId, pageNumber, pageSize, serviceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListUpstreamsRequest {\n");
+    sb.append("class ListCustomDomainsRequest {\n");
     
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

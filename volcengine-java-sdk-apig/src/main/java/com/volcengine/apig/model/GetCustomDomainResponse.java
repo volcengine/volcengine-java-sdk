@@ -19,37 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.apig.model.CustomDomainForGetCustomDomainOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * GetCustomDomainResponse
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class GetCustomDomainResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CustomDomain")
+  private CustomDomainForGetCustomDomainOutput customDomain = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  public GetCustomDomainResponse customDomain(CustomDomainForGetCustomDomainOutput customDomain) {
+    this.customDomain = customDomain;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get customDomain
+   * @return customDomain
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Valid
+  @Schema(description = "")
+  public CustomDomainForGetCustomDomainOutput getCustomDomain() {
+    return customDomain;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setCustomDomain(CustomDomainForGetCustomDomainOutput customDomain) {
+    this.customDomain = customDomain;
   }
 
 
@@ -61,22 +62,22 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    GetCustomDomainResponse getCustomDomainResponse = (GetCustomDomainResponse) o;
+    return Objects.equals(this.customDomain, getCustomDomainResponse.customDomain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(customDomain);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class GetCustomDomainResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    customDomain: ").append(toIndentedString(customDomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

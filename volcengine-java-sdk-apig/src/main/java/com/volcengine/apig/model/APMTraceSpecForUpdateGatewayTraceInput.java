@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForGetGatewayOutput
+ * APMTraceSpecForUpdateGatewayTraceInput
  */
 
 
 
-public class TagForGetGatewayOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class APMTraceSpecForUpdateGatewayTraceInput {
+  @SerializedName("APIKey")
+  private String apIKey = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public TagForGetGatewayOutput key(String key) {
-    this.key = key;
+  public APMTraceSpecForUpdateGatewayTraceInput apIKey(String apIKey) {
+    this.apIKey = apIKey;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get apIKey
+   * @return apIKey
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getApIKey() {
+    return apIKey;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForGetGatewayOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setApIKey(String apIKey) {
+    this.apIKey = apIKey;
   }
 
 
@@ -81,24 +60,22 @@ public class TagForGetGatewayOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForGetGatewayOutput tagForGetGatewayOutput = (TagForGetGatewayOutput) o;
-    return Objects.equals(this.key, tagForGetGatewayOutput.key) &&
-        Objects.equals(this.value, tagForGetGatewayOutput.value);
+    APMTraceSpecForUpdateGatewayTraceInput apMTraceSpecForUpdateGatewayTraceInput = (APMTraceSpecForUpdateGatewayTraceInput) o;
+    return Objects.equals(this.apIKey, apMTraceSpecForUpdateGatewayTraceInput.apIKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(apIKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForGetGatewayOutput {\n");
+    sb.append("class APMTraceSpecForUpdateGatewayTraceInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    apIKey: ").append(toIndentedString(apIKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * TLSTraceSpecForListGatewaysOutput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class TLSTraceSpecForListGatewaysOutput {
+  @SerializedName("ProjectId")
+  private String projectId = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  @SerializedName("TraceId")
+  private String traceId = null;
+
+  public TLSTraceSpecForListGatewaysOutput projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get projectId
+   * @return projectId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+  public TLSTraceSpecForListGatewaysOutput traceId(String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Get traceId
+   * @return traceId
+  **/
+  @Schema(description = "")
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
   }
 
 
@@ -61,22 +81,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    TLSTraceSpecForListGatewaysOutput tlSTraceSpecForListGatewaysOutput = (TLSTraceSpecForListGatewaysOutput) o;
+    return Objects.equals(this.projectId, tlSTraceSpecForListGatewaysOutput.projectId) &&
+        Objects.equals(this.traceId, tlSTraceSpecForListGatewaysOutput.traceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(projectId, traceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class TLSTraceSpecForListGatewaysOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

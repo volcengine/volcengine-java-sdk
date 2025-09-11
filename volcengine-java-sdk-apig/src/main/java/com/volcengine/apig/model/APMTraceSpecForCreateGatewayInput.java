@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * APMTraceSpecForCreateGatewayInput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class APMTraceSpecForCreateGatewayInput {
+  @SerializedName("APIKey")
+  private String apIKey = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  public APMTraceSpecForCreateGatewayInput apIKey(String apIKey) {
+    this.apIKey = apIKey;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get apIKey
+   * @return apIKey
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getApIKey() {
+    return apIKey;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setApIKey(String apIKey) {
+    this.apIKey = apIKey;
   }
 
 
@@ -61,22 +60,22 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    APMTraceSpecForCreateGatewayInput apMTraceSpecForCreateGatewayInput = (APMTraceSpecForCreateGatewayInput) o;
+    return Objects.equals(this.apIKey, apMTraceSpecForCreateGatewayInput.apIKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(apIKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class APMTraceSpecForCreateGatewayInput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    apIKey: ").append(toIndentedString(apIKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

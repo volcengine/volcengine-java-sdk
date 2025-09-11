@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * IPListForListGatewayLBsOutput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class IPListForListGatewayLBsOutput {
+  @SerializedName("IP")
+  private String IP = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  @SerializedName("NetworkType")
+  private String networkType = null;
+
+  public IPListForListGatewayLBsOutput IP(String IP) {
+    this.IP = IP;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get IP
+   * @return IP
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getIP() {
+    return IP;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setIP(String IP) {
+    this.IP = IP;
+  }
+
+  public IPListForListGatewayLBsOutput networkType(String networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public String getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(String networkType) {
+    this.networkType = networkType;
   }
 
 
@@ -61,22 +81,24 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    IPListForListGatewayLBsOutput ipListForListGatewayLBsOutput = (IPListForListGatewayLBsOutput) o;
+    return Objects.equals(this.IP, ipListForListGatewayLBsOutput.IP) &&
+        Objects.equals(this.networkType, ipListForListGatewayLBsOutput.networkType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(IP, networkType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class IPListForListGatewayLBsOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

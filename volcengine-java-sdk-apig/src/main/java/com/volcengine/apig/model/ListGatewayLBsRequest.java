@@ -24,16 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * ListGatewayLBsRequest
  */
 
 
 
-public class DeleteGatewayRequest {
+public class ListGatewayLBsRequest {
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteGatewayRequest id(String id) {
+  public ListGatewayLBsRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -61,8 +61,8 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    ListGatewayLBsRequest listGatewayLBsRequest = (ListGatewayLBsRequest) o;
+    return Objects.equals(this.id, listGatewayLBsRequest.id);
   }
 
   @Override
@@ -74,7 +74,7 @@ public class DeleteGatewayRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class ListGatewayLBsRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListGatewaysInput
+ * UpdateUpstreamVersionResponse
  */
 
 
 
-public class TagForListGatewaysInput {
-  @SerializedName("Key")
-  private String key = null;
+public class UpdateUpstreamVersionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("UpstreamId")
+  private String upstreamId = null;
 
-  public TagForListGatewaysInput key(String key) {
-    this.key = key;
+  public UpdateUpstreamVersionResponse name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getName() {
+    return name;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public TagForListGatewaysInput value(String value) {
-    this.value = value;
+  public UpdateUpstreamVersionResponse upstreamId(String upstreamId) {
+    this.upstreamId = upstreamId;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get upstreamId
+   * @return upstreamId
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public String getUpstreamId() {
+    return upstreamId;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setUpstreamId(String upstreamId) {
+    this.upstreamId = upstreamId;
   }
 
 
@@ -81,24 +81,24 @@ public class TagForListGatewaysInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListGatewaysInput tagForListGatewaysInput = (TagForListGatewaysInput) o;
-    return Objects.equals(this.key, tagForListGatewaysInput.key) &&
-        Objects.equals(this.value, tagForListGatewaysInput.value);
+    UpdateUpstreamVersionResponse updateUpstreamVersionResponse = (UpdateUpstreamVersionResponse) o;
+    return Objects.equals(this.name, updateUpstreamVersionResponse.name) &&
+        Objects.equals(this.upstreamId, updateUpstreamVersionResponse.upstreamId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(name, upstreamId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListGatewaysInput {\n");
+    sb.append("class UpdateUpstreamVersionResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    upstreamId: ").append(toIndentedString(upstreamId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

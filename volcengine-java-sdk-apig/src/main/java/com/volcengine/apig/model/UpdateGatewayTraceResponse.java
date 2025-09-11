@@ -24,16 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * UpdateGatewayTraceResponse
  */
 
 
 
-public class DeleteGatewayRequest {
+public class UpdateGatewayTraceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteGatewayRequest id(String id) {
+  public UpdateGatewayTraceResponse id(String id) {
     this.id = id;
     return this;
   }
@@ -42,8 +42,7 @@ public class DeleteGatewayRequest {
    * Get id
    * @return id
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getId() {
     return id;
   }
@@ -61,8 +60,8 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    UpdateGatewayTraceResponse updateGatewayTraceResponse = (UpdateGatewayTraceResponse) o;
+    return Objects.equals(this.id, updateGatewayTraceResponse.id);
   }
 
   @Override
@@ -74,7 +73,7 @@ public class DeleteGatewayRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class UpdateGatewayTraceResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

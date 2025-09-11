@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteGatewayRequest
+ * DomainSpecForListGatewayServicesOutput
  */
 
 
 
-public class DeleteGatewayRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class DomainSpecForListGatewayServicesOutput {
+  @SerializedName("EnablePublicResolution")
+  private Boolean enablePublicResolution = null;
 
-  public DeleteGatewayRequest id(String id) {
-    this.id = id;
+  public DomainSpecForListGatewayServicesOutput enablePublicResolution(Boolean enablePublicResolution) {
+    this.enablePublicResolution = enablePublicResolution;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get enablePublicResolution
+   * @return enablePublicResolution
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Boolean isEnablePublicResolution() {
+    return enablePublicResolution;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setEnablePublicResolution(Boolean enablePublicResolution) {
+    this.enablePublicResolution = enablePublicResolution;
   }
 
 
@@ -61,22 +60,22 @@ public class DeleteGatewayRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteGatewayRequest deleteGatewayRequest = (DeleteGatewayRequest) o;
-    return Objects.equals(this.id, deleteGatewayRequest.id);
+    DomainSpecForListGatewayServicesOutput domainSpecForListGatewayServicesOutput = (DomainSpecForListGatewayServicesOutput) o;
+    return Objects.equals(this.enablePublicResolution, domainSpecForListGatewayServicesOutput.enablePublicResolution);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(enablePublicResolution);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteGatewayRequest {\n");
+    sb.append("class DomainSpecForListGatewayServicesOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    enablePublicResolution: ").append(toIndentedString(enablePublicResolution)).append("\n");
     sb.append("}");
     return sb.toString();
   }

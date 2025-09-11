@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListUpstreamsOutput
+ * LabelForCreateUpstreamVersionInput
  */
 
 
 
-public class TagForListUpstreamsOutput {
+public class LabelForCreateUpstreamVersionInput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForListUpstreamsOutput key(String key) {
+  public LabelForCreateUpstreamVersionInput key(String key) {
     this.key = key;
     return this;
   }
@@ -54,7 +54,7 @@ public class TagForListUpstreamsOutput {
     this.key = key;
   }
 
-  public TagForListUpstreamsOutput value(String value) {
+  public LabelForCreateUpstreamVersionInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,9 +81,9 @@ public class TagForListUpstreamsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListUpstreamsOutput tagForListUpstreamsOutput = (TagForListUpstreamsOutput) o;
-    return Objects.equals(this.key, tagForListUpstreamsOutput.key) &&
-        Objects.equals(this.value, tagForListUpstreamsOutput.value);
+    LabelForCreateUpstreamVersionInput labelForCreateUpstreamVersionInput = (LabelForCreateUpstreamVersionInput) o;
+    return Objects.equals(this.key, labelForCreateUpstreamVersionInput.key) &&
+        Objects.equals(this.value, labelForCreateUpstreamVersionInput.value);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class TagForListUpstreamsOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListUpstreamsOutput {\n");
+    sb.append("class LabelForCreateUpstreamVersionInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

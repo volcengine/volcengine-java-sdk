@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.BackendTargetListForGetUpstreamOutput;
 import com.volcengine.apig.model.CircuitBreakingSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.LoadBalancerSettingsForGetUpstreamOutput;
-import com.volcengine.apig.model.TagForGetUpstreamOutput;
 import com.volcengine.apig.model.TlsSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.UpstreamSpecForGetUpstreamOutput;
 import com.volcengine.apig.model.VersionDetailForGetUpstreamOutput;
@@ -66,14 +65,8 @@ public class UpstreamForGetUpstreamOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("SourceType")
   private String sourceType = null;
-
-  @SerializedName("Tags")
-  private List<TagForGetUpstreamOutput> tags = null;
 
   @SerializedName("TlsSettings")
   private TlsSettingsForGetUpstreamOutput tlsSettings = null;
@@ -260,24 +253,6 @@ public class UpstreamForGetUpstreamOutput {
     this.protocol = protocol;
   }
 
-  public UpstreamForGetUpstreamOutput resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public UpstreamForGetUpstreamOutput sourceType(String sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -294,33 +269,6 @@ public class UpstreamForGetUpstreamOutput {
 
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
-  }
-
-  public UpstreamForGetUpstreamOutput tags(List<TagForGetUpstreamOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public UpstreamForGetUpstreamOutput addTagsItem(TagForGetUpstreamOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForGetUpstreamOutput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForGetUpstreamOutput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForGetUpstreamOutput> tags) {
-    this.tags = tags;
   }
 
   public UpstreamForGetUpstreamOutput tlsSettings(TlsSettingsForGetUpstreamOutput tlsSettings) {
@@ -425,9 +373,7 @@ public class UpstreamForGetUpstreamOutput {
         Objects.equals(this.loadBalancerSettings, upstreamForGetUpstreamOutput.loadBalancerSettings) &&
         Objects.equals(this.name, upstreamForGetUpstreamOutput.name) &&
         Objects.equals(this.protocol, upstreamForGetUpstreamOutput.protocol) &&
-        Objects.equals(this.resourceType, upstreamForGetUpstreamOutput.resourceType) &&
         Objects.equals(this.sourceType, upstreamForGetUpstreamOutput.sourceType) &&
-        Objects.equals(this.tags, upstreamForGetUpstreamOutput.tags) &&
         Objects.equals(this.tlsSettings, upstreamForGetUpstreamOutput.tlsSettings) &&
         Objects.equals(this.updateTime, upstreamForGetUpstreamOutput.updateTime) &&
         Objects.equals(this.upstreamSpec, upstreamForGetUpstreamOutput.upstreamSpec) &&
@@ -436,7 +382,7 @@ public class UpstreamForGetUpstreamOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, createTime, gatewayId, id, loadBalancerSettings, name, protocol, resourceType, sourceType, tags, tlsSettings, updateTime, upstreamSpec, versionDetails);
+    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
   }
 
 
@@ -454,9 +400,7 @@ public class UpstreamForGetUpstreamOutput {
     sb.append("    loadBalancerSettings: ").append(toIndentedString(loadBalancerSettings)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsSettings: ").append(toIndentedString(tlsSettings)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    upstreamSpec: ").append(toIndentedString(upstreamSpec)).append("\n");
