@@ -67,6 +67,9 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PrivateNetworkConfig")
   private PrivateNetworkConfigForGetJobOutput privateNetworkConfig = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceConfig")
   private ResourceConfigForGetJobOutput resourceConfig = null;
 
@@ -261,6 +264,24 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
     this.privateNetworkConfig = privateNetworkConfig;
   }
 
+  public GetJobResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetJobResponse resourceConfig(ResourceConfigForGetJobOutput resourceConfig) {
     this.resourceConfig = resourceConfig;
     return this;
@@ -411,6 +432,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.name, getJobResponse.name) &&
         Objects.equals(this.observableConfig, getJobResponse.observableConfig) &&
         Objects.equals(this.privateNetworkConfig, getJobResponse.privateNetworkConfig) &&
+        Objects.equals(this.projectName, getJobResponse.projectName) &&
         Objects.equals(this.resourceConfig, getJobResponse.resourceConfig) &&
         Objects.equals(this.retryConfig, getJobResponse.retryConfig) &&
         Objects.equals(this.runtimeConfig, getJobResponse.runtimeConfig) &&
@@ -422,7 +444,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, name, observableConfig, privateNetworkConfig, resourceConfig, retryConfig, runtimeConfig, status, stopReason, storageConfig, updateTime);
+    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, name, observableConfig, privateNetworkConfig, projectName, resourceConfig, retryConfig, runtimeConfig, status, stopReason, storageConfig, updateTime);
   }
 
 
@@ -440,6 +462,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    observableConfig: ").append(toIndentedString(observableConfig)).append("\n");
     sb.append("    privateNetworkConfig: ").append(toIndentedString(privateNetworkConfig)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    retryConfig: ").append(toIndentedString(retryConfig)).append("\n");
     sb.append("    runtimeConfig: ").append(toIndentedString(runtimeConfig)).append("\n");

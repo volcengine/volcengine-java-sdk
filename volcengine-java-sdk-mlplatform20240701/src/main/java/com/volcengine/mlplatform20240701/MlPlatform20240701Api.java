@@ -97,6 +97,8 @@ import com.volcengine.mlplatform20240701.model.ListResourceGroupsRequest;
 import com.volcengine.mlplatform20240701.model.ListResourceGroupsResponse;
 import com.volcengine.mlplatform20240701.model.ListResourceQueuesRequest;
 import com.volcengine.mlplatform20240701.model.ListResourceQueuesResponse;
+import com.volcengine.mlplatform20240701.model.ListResourceReservationPlanAvailableResourcesRequest;
+import com.volcengine.mlplatform20240701.model.ListResourceReservationPlanAvailableResourcesResponse;
 import com.volcengine.mlplatform20240701.model.ListResourceReservationPlansRequest;
 import com.volcengine.mlplatform20240701.model.ListResourceReservationPlansResponse;
 import com.volcengine.mlplatform20240701.model.ListResourceReservationRecordsRequest;
@@ -119,6 +121,8 @@ import com.volcengine.mlplatform20240701.model.RebuildDevInstanceRequest;
 import com.volcengine.mlplatform20240701.model.RebuildDevInstanceResponse;
 import com.volcengine.mlplatform20240701.model.ResumeResourceQueueRequest;
 import com.volcengine.mlplatform20240701.model.ResumeResourceQueueResponse;
+import com.volcengine.mlplatform20240701.model.SignJwtTokenRequest;
+import com.volcengine.mlplatform20240701.model.SignJwtTokenResponse;
 import com.volcengine.mlplatform20240701.model.StartDeploymentRequest;
 import com.volcengine.mlplatform20240701.model.StartDeploymentResponse;
 import com.volcengine.mlplatform20240701.model.StartDevInstanceRequest;
@@ -4514,6 +4518,130 @@ public class MlPlatform20240701Api {
         return call;
     }
     /**
+     * Build call for listResourceReservationPlanAvailableResources
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listResourceReservationPlanAvailableResourcesCall(ListResourceReservationPlanAvailableResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListResourceReservationPlanAvailableResources/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listResourceReservationPlanAvailableResourcesValidateBeforeCall(ListResourceReservationPlanAvailableResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listResourceReservationPlanAvailableResources(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listResourceReservationPlanAvailableResourcesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListResourceReservationPlanAvailableResourcesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListResourceReservationPlanAvailableResourcesResponse listResourceReservationPlanAvailableResources(ListResourceReservationPlanAvailableResourcesRequest body) throws ApiException {
+        ApiResponse<ListResourceReservationPlanAvailableResourcesResponse> resp = listResourceReservationPlanAvailableResourcesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListResourceReservationPlanAvailableResourcesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListResourceReservationPlanAvailableResourcesResponse> listResourceReservationPlanAvailableResourcesWithHttpInfo( @NotNull ListResourceReservationPlanAvailableResourcesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listResourceReservationPlanAvailableResourcesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListResourceReservationPlanAvailableResourcesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listResourceReservationPlanAvailableResourcesAsync(ListResourceReservationPlanAvailableResourcesRequest body, final ApiCallback<ListResourceReservationPlanAvailableResourcesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listResourceReservationPlanAvailableResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListResourceReservationPlanAvailableResourcesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for listResourceReservationPlans
      * @param body  (required)
      * @param progressListener Progress listener
@@ -5874,6 +6002,130 @@ public class MlPlatform20240701Api {
 
         com.squareup.okhttp.Call call = resumeResourceQueueValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ResumeResourceQueueResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for signJwtToken
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call signJwtTokenCall(SignJwtTokenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/SignJwtToken/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call signJwtTokenValidateBeforeCall(SignJwtTokenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling signJwtToken(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = signJwtTokenCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return SignJwtTokenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SignJwtTokenResponse signJwtToken(SignJwtTokenRequest body) throws ApiException {
+        ApiResponse<SignJwtTokenResponse> resp = signJwtTokenWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;SignJwtTokenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SignJwtTokenResponse> signJwtTokenWithHttpInfo( @NotNull SignJwtTokenRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = signJwtTokenValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<SignJwtTokenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call signJwtTokenAsync(SignJwtTokenRequest body, final ApiCallback<SignJwtTokenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = signJwtTokenValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SignJwtTokenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

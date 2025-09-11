@@ -20,9 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForCreateJobInput;
+import com.volcengine.mlplatform20240701.model.NasAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.TosForCreateJobInput;
+import com.volcengine.mlplatform20240701.model.VepfsAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.VepfsForCreateJobInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +43,9 @@ public class ConfigForCreateJobInput {
   @SerializedName("Nas")
   private NasForCreateJobInput nas = null;
 
+  @SerializedName("NasAP")
+  private NasAPForCreateJobInput nasAP = null;
+
   @SerializedName("Sfcs")
   private SfcsForCreateJobInput sfcs = null;
 
@@ -49,6 +54,9 @@ public class ConfigForCreateJobInput {
 
   @SerializedName("Vepfs")
   private VepfsForCreateJobInput vepfs = null;
+
+  @SerializedName("VepfsAP")
+  private VepfsAPForCreateJobInput vepfsAP = null;
 
   public ConfigForCreateJobInput cfs(CfsForCreateJobInput cfs) {
     this.cfs = cfs;
@@ -86,6 +94,25 @@ public class ConfigForCreateJobInput {
 
   public void setNas(NasForCreateJobInput nas) {
     this.nas = nas;
+  }
+
+  public ConfigForCreateJobInput nasAP(NasAPForCreateJobInput nasAP) {
+    this.nasAP = nasAP;
+    return this;
+  }
+
+   /**
+   * Get nasAP
+   * @return nasAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public NasAPForCreateJobInput getNasAP() {
+    return nasAP;
+  }
+
+  public void setNasAP(NasAPForCreateJobInput nasAP) {
+    this.nasAP = nasAP;
   }
 
   public ConfigForCreateJobInput sfcs(SfcsForCreateJobInput sfcs) {
@@ -145,6 +172,25 @@ public class ConfigForCreateJobInput {
     this.vepfs = vepfs;
   }
 
+  public ConfigForCreateJobInput vepfsAP(VepfsAPForCreateJobInput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+    return this;
+  }
+
+   /**
+   * Get vepfsAP
+   * @return vepfsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public VepfsAPForCreateJobInput getVepfsAP() {
+    return vepfsAP;
+  }
+
+  public void setVepfsAP(VepfsAPForCreateJobInput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,14 +203,16 @@ public class ConfigForCreateJobInput {
     ConfigForCreateJobInput configForCreateJobInput = (ConfigForCreateJobInput) o;
     return Objects.equals(this.cfs, configForCreateJobInput.cfs) &&
         Objects.equals(this.nas, configForCreateJobInput.nas) &&
+        Objects.equals(this.nasAP, configForCreateJobInput.nasAP) &&
         Objects.equals(this.sfcs, configForCreateJobInput.sfcs) &&
         Objects.equals(this.tos, configForCreateJobInput.tos) &&
-        Objects.equals(this.vepfs, configForCreateJobInput.vepfs);
+        Objects.equals(this.vepfs, configForCreateJobInput.vepfs) &&
+        Objects.equals(this.vepfsAP, configForCreateJobInput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, sfcs, tos, vepfs);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
   }
 
 
@@ -175,9 +223,11 @@ public class ConfigForCreateJobInput {
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
+    sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
+    sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");
     return sb.toString();
   }

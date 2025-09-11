@@ -51,6 +51,9 @@ public class CreateServiceRequest {
   @SerializedName("Ports")
   private List<PortForCreateServiceInput> ports = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceGroupId")
   private String resourceGroupId = null;
 
@@ -161,6 +164,24 @@ public class CreateServiceRequest {
     this.ports = ports;
   }
 
+  public CreateServiceRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateServiceRequest resourceGroupId(String resourceGroupId) {
     this.resourceGroupId = resourceGroupId;
     return this;
@@ -233,6 +254,7 @@ public class CreateServiceRequest {
         Objects.equals(this.description, createServiceRequest.description) &&
         Objects.equals(this.dryRun, createServiceRequest.dryRun) &&
         Objects.equals(this.ports, createServiceRequest.ports) &&
+        Objects.equals(this.projectName, createServiceRequest.projectName) &&
         Objects.equals(this.resourceGroupId, createServiceRequest.resourceGroupId) &&
         Objects.equals(this.serviceName, createServiceRequest.serviceName) &&
         Objects.equals(this.trafficConfig, createServiceRequest.trafficConfig);
@@ -240,7 +262,7 @@ public class CreateServiceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apigConfig, clBConfig, description, dryRun, ports, resourceGroupId, serviceName, trafficConfig);
+    return Objects.hash(apigConfig, clBConfig, description, dryRun, ports, projectName, resourceGroupId, serviceName, trafficConfig);
   }
 
 
@@ -254,6 +276,7 @@ public class CreateServiceRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    trafficConfig: ").append(toIndentedString(trafficConfig)).append("\n");

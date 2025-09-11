@@ -20,9 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForUpdateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.NasAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.TosForUpdateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.VepfsAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.VepfsForUpdateDevInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +43,9 @@ public class ConfigForUpdateDevInstanceInput {
   @SerializedName("Nas")
   private NasForUpdateDevInstanceInput nas = null;
 
+  @SerializedName("NasAP")
+  private NasAPForUpdateDevInstanceInput nasAP = null;
+
   @SerializedName("Sfcs")
   private SfcsForUpdateDevInstanceInput sfcs = null;
 
@@ -49,6 +54,9 @@ public class ConfigForUpdateDevInstanceInput {
 
   @SerializedName("Vepfs")
   private VepfsForUpdateDevInstanceInput vepfs = null;
+
+  @SerializedName("VepfsAP")
+  private VepfsAPForUpdateDevInstanceInput vepfsAP = null;
 
   public ConfigForUpdateDevInstanceInput cfs(CfsForUpdateDevInstanceInput cfs) {
     this.cfs = cfs;
@@ -86,6 +94,25 @@ public class ConfigForUpdateDevInstanceInput {
 
   public void setNas(NasForUpdateDevInstanceInput nas) {
     this.nas = nas;
+  }
+
+  public ConfigForUpdateDevInstanceInput nasAP(NasAPForUpdateDevInstanceInput nasAP) {
+    this.nasAP = nasAP;
+    return this;
+  }
+
+   /**
+   * Get nasAP
+   * @return nasAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public NasAPForUpdateDevInstanceInput getNasAP() {
+    return nasAP;
+  }
+
+  public void setNasAP(NasAPForUpdateDevInstanceInput nasAP) {
+    this.nasAP = nasAP;
   }
 
   public ConfigForUpdateDevInstanceInput sfcs(SfcsForUpdateDevInstanceInput sfcs) {
@@ -145,6 +172,25 @@ public class ConfigForUpdateDevInstanceInput {
     this.vepfs = vepfs;
   }
 
+  public ConfigForUpdateDevInstanceInput vepfsAP(VepfsAPForUpdateDevInstanceInput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+    return this;
+  }
+
+   /**
+   * Get vepfsAP
+   * @return vepfsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public VepfsAPForUpdateDevInstanceInput getVepfsAP() {
+    return vepfsAP;
+  }
+
+  public void setVepfsAP(VepfsAPForUpdateDevInstanceInput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,14 +203,16 @@ public class ConfigForUpdateDevInstanceInput {
     ConfigForUpdateDevInstanceInput configForUpdateDevInstanceInput = (ConfigForUpdateDevInstanceInput) o;
     return Objects.equals(this.cfs, configForUpdateDevInstanceInput.cfs) &&
         Objects.equals(this.nas, configForUpdateDevInstanceInput.nas) &&
+        Objects.equals(this.nasAP, configForUpdateDevInstanceInput.nasAP) &&
         Objects.equals(this.sfcs, configForUpdateDevInstanceInput.sfcs) &&
         Objects.equals(this.tos, configForUpdateDevInstanceInput.tos) &&
-        Objects.equals(this.vepfs, configForUpdateDevInstanceInput.vepfs);
+        Objects.equals(this.vepfs, configForUpdateDevInstanceInput.vepfs) &&
+        Objects.equals(this.vepfsAP, configForUpdateDevInstanceInput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, sfcs, tos, vepfs);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
   }
 
 
@@ -175,9 +223,11 @@ public class ConfigForUpdateDevInstanceInput {
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
+    sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
+    sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");
     return sb.toString();
   }

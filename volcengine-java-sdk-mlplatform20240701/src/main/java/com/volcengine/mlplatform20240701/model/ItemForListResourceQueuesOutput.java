@@ -99,6 +99,9 @@ public class ItemForListResourceQueuesOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("QuotaAllocated")
   private QuotaAllocatedForListResourceQueuesOutput quotaAllocated = null;
 
@@ -229,6 +232,24 @@ public class ItemForListResourceQueuesOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ItemForListResourceQueuesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ItemForListResourceQueuesOutput quotaAllocated(QuotaAllocatedForListResourceQueuesOutput quotaAllocated) {
@@ -476,6 +497,7 @@ public class ItemForListResourceQueuesOutput {
         Objects.equals(this.description, itemForListResourceQueuesOutput.description) &&
         Objects.equals(this.id, itemForListResourceQueuesOutput.id) &&
         Objects.equals(this.name, itemForListResourceQueuesOutput.name) &&
+        Objects.equals(this.projectName, itemForListResourceQueuesOutput.projectName) &&
         Objects.equals(this.quotaAllocated, itemForListResourceQueuesOutput.quotaAllocated) &&
         Objects.equals(this.quotaCapability, itemForListResourceQueuesOutput.quotaCapability) &&
         Objects.equals(this.resourceGroupId, itemForListResourceQueuesOutput.resourceGroupId) &&
@@ -491,7 +513,7 @@ public class ItemForListResourceQueuesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, computeResources, description, id, name, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
+    return Objects.hash(chargeType, computeResources, description, id, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
   }
 
 
@@ -505,6 +527,7 @@ public class ItemForListResourceQueuesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quotaAllocated: ").append(toIndentedString(quotaAllocated)).append("\n");
     sb.append("    quotaCapability: ").append(toIndentedString(quotaCapability)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");

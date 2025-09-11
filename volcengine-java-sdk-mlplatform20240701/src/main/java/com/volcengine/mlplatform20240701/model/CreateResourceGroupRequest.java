@@ -148,11 +148,17 @@ public class CreateResourceGroupRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceConfig")
   private ResourceConfigForCreateResourceGroupInput resourceConfig = null;
 
   @SerializedName("StorageConfig")
   private StorageConfigForCreateResourceGroupInput storageConfig = null;
+
+  @SerializedName("VRdmaEnabled")
+  private Boolean vrdmaEnabled = null;
 
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForCreateResourceGroupInput workloadNetworkConfig = null;
@@ -326,6 +332,24 @@ public class CreateResourceGroupRequest {
     this.periodUnit = periodUnit;
   }
 
+  public CreateResourceGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateResourceGroupRequest resourceConfig(ResourceConfigForCreateResourceGroupInput resourceConfig) {
     this.resourceConfig = resourceConfig;
     return this;
@@ -362,6 +386,24 @@ public class CreateResourceGroupRequest {
 
   public void setStorageConfig(StorageConfigForCreateResourceGroupInput storageConfig) {
     this.storageConfig = storageConfig;
+  }
+
+  public CreateResourceGroupRequest vrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
+    return this;
+  }
+
+   /**
+   * Get vrdmaEnabled
+   * @return vrdmaEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isVrdmaEnabled() {
+    return vrdmaEnabled;
+  }
+
+  public void setVrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
   }
 
   public CreateResourceGroupRequest workloadNetworkConfig(WorkloadNetworkConfigForCreateResourceGroupInput workloadNetworkConfig) {
@@ -420,15 +462,17 @@ public class CreateResourceGroupRequest {
         Objects.equals(this.name, createResourceGroupRequest.name) &&
         Objects.equals(this.period, createResourceGroupRequest.period) &&
         Objects.equals(this.periodUnit, createResourceGroupRequest.periodUnit) &&
+        Objects.equals(this.projectName, createResourceGroupRequest.projectName) &&
         Objects.equals(this.resourceConfig, createResourceGroupRequest.resourceConfig) &&
         Objects.equals(this.storageConfig, createResourceGroupRequest.storageConfig) &&
+        Objects.equals(this.vrdmaEnabled, createResourceGroupRequest.vrdmaEnabled) &&
         Objects.equals(this.workloadNetworkConfig, createResourceGroupRequest.workloadNetworkConfig) &&
         Objects.equals(this.workloadNetworkMode, createResourceGroupRequest.workloadNetworkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, chargeType, description, dryRun, mgpuEnabled, name, period, periodUnit, resourceConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(autoRenew, autoRenewPeriod, chargeType, description, dryRun, mgpuEnabled, name, period, periodUnit, projectName, resourceConfig, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -446,8 +490,10 @@ public class CreateResourceGroupRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
+    sb.append("    vrdmaEnabled: ").append(toIndentedString(vrdmaEnabled)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
     sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("}");

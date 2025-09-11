@@ -47,6 +47,12 @@ public class ListResourceReservationPlansRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("ReservationTypes")
+  private List<String> reservationTypes = null;
+
   /**
    * Gets or Sets sortBy
    */
@@ -240,6 +246,50 @@ public class ListResourceReservationPlansRequest {
     this.pageSize = pageSize;
   }
 
+  public ListResourceReservationPlansRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public ListResourceReservationPlansRequest reservationTypes(List<String> reservationTypes) {
+    this.reservationTypes = reservationTypes;
+    return this;
+  }
+
+  public ListResourceReservationPlansRequest addReservationTypesItem(String reservationTypesItem) {
+    if (this.reservationTypes == null) {
+      this.reservationTypes = new ArrayList<String>();
+    }
+    this.reservationTypes.add(reservationTypesItem);
+    return this;
+  }
+
+   /**
+   * Get reservationTypes
+   * @return reservationTypes
+  **/
+  @Schema(description = "")
+  public List<String> getReservationTypes() {
+    return reservationTypes;
+  }
+
+  public void setReservationTypes(List<String> reservationTypes) {
+    this.reservationTypes = reservationTypes;
+  }
+
   public ListResourceReservationPlansRequest sortBy(SortByEnum sortBy) {
     this.sortBy = sortBy;
     return this;
@@ -317,6 +367,8 @@ public class ListResourceReservationPlansRequest {
         Objects.equals(this.nameContains, listResourceReservationPlansRequest.nameContains) &&
         Objects.equals(this.pageNumber, listResourceReservationPlansRequest.pageNumber) &&
         Objects.equals(this.pageSize, listResourceReservationPlansRequest.pageSize) &&
+        Objects.equals(this.projectName, listResourceReservationPlansRequest.projectName) &&
+        Objects.equals(this.reservationTypes, listResourceReservationPlansRequest.reservationTypes) &&
         Objects.equals(this.sortBy, listResourceReservationPlansRequest.sortBy) &&
         Objects.equals(this.sortOrder, listResourceReservationPlansRequest.sortOrder) &&
         Objects.equals(this.states, listResourceReservationPlansRequest.states);
@@ -324,7 +376,7 @@ public class ListResourceReservationPlansRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, nameContains, pageNumber, pageSize, sortBy, sortOrder, states);
+    return Objects.hash(ids, name, nameContains, pageNumber, pageSize, projectName, reservationTypes, sortBy, sortOrder, states);
   }
 
 
@@ -338,6 +390,8 @@ public class ListResourceReservationPlansRequest {
     sb.append("    nameContains: ").append(toIndentedString(nameContains)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    reservationTypes: ").append(toIndentedString(reservationTypes)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");

@@ -69,6 +69,9 @@ public class GetServiceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Ports")
   private List<PortForGetServiceOutput> ports = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private ConvertStatusForGetServiceOutput status = null;
 
@@ -290,6 +293,24 @@ public class GetServiceResponse extends com.volcengine.model.AbstractResponse {
     this.ports = ports;
   }
 
+  public GetServiceResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetServiceResponse status(ConvertStatusForGetServiceOutput status) {
     this.status = status;
     return this;
@@ -384,6 +405,7 @@ public class GetServiceResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.id, getServiceResponse.id) &&
         Objects.equals(this.name, getServiceResponse.name) &&
         Objects.equals(this.ports, getServiceResponse.ports) &&
+        Objects.equals(this.projectName, getServiceResponse.projectName) &&
         Objects.equals(this.status, getServiceResponse.status) &&
         Objects.equals(this.trafficConfig, getServiceResponse.trafficConfig) &&
         Objects.equals(this.updateTime, getServiceResponse.updateTime) &&
@@ -392,7 +414,7 @@ public class GetServiceResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apigConfig, clBConfig, createTime, createdBy, deployments, description, historyVersions, id, name, ports, status, trafficConfig, updateTime, vpcId);
+    return Objects.hash(apigConfig, clBConfig, createTime, createdBy, deployments, description, historyVersions, id, name, ports, projectName, status, trafficConfig, updateTime, vpcId);
   }
 
 
@@ -411,6 +433,7 @@ public class GetServiceResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trafficConfig: ").append(toIndentedString(trafficConfig)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
