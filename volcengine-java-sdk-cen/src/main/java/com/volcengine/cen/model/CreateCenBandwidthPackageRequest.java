@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenBandwidthPackageRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -50,6 +51,9 @@ public class CreateCenBandwidthPackageRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
+
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
 
@@ -64,7 +68,9 @@ public class CreateCenBandwidthPackageRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
+    @SerializedName("Month")
     MONTH("Month"),
+    @SerializedName("Year")
     YEAR("Year");
 
     private String value;
@@ -219,6 +225,24 @@ public class CreateCenBandwidthPackageRequest {
     this.description = description;
   }
 
+  public CreateCenBandwidthPackageRequest lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+  }
+
   public CreateCenBandwidthPackageRequest localGeographicRegionSetId(String localGeographicRegionSetId) {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
     return this;
@@ -354,6 +378,7 @@ public class CreateCenBandwidthPackageRequest {
         Objects.equals(this.cenId, createCenBandwidthPackageRequest.cenId) &&
         Objects.equals(this.clientToken, createCenBandwidthPackageRequest.clientToken) &&
         Objects.equals(this.description, createCenBandwidthPackageRequest.description) &&
+        Objects.equals(this.lineOperator, createCenBandwidthPackageRequest.lineOperator) &&
         Objects.equals(this.localGeographicRegionSetId, createCenBandwidthPackageRequest.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, createCenBandwidthPackageRequest.peerGeographicRegionSetId) &&
         Objects.equals(this.period, createCenBandwidthPackageRequest.period) &&
@@ -364,7 +389,7 @@ public class CreateCenBandwidthPackageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, clientToken, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, projectName, tags);
+    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, clientToken, description, lineOperator, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, projectName, tags);
   }
 
 
@@ -379,6 +404,7 @@ public class CreateCenBandwidthPackageRequest {
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

@@ -24,16 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteCenBandwidthPackageRequest
+ * RenewCenBandwidthPackageRequest
  */
 
 
 
-public class DeleteCenBandwidthPackageRequest {
+public class RenewCenBandwidthPackageRequest {
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
 
-  public DeleteCenBandwidthPackageRequest cenBandwidthPackageId(String cenBandwidthPackageId) {
+  @SerializedName("Period")
+  private Integer period = null;
+
+  @SerializedName("PeriodUnit")
+  private String periodUnit = null;
+
+  public RenewCenBandwidthPackageRequest cenBandwidthPackageId(String cenBandwidthPackageId) {
     this.cenBandwidthPackageId = cenBandwidthPackageId;
     return this;
   }
@@ -52,6 +58,42 @@ public class DeleteCenBandwidthPackageRequest {
     this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
+  public RenewCenBandwidthPackageRequest period(Integer period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public Integer getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
+  }
+
+  public RenewCenBandwidthPackageRequest periodUnit(String periodUnit) {
+    this.periodUnit = periodUnit;
+    return this;
+  }
+
+   /**
+   * Get periodUnit
+   * @return periodUnit
+  **/
+  @Schema(description = "")
+  public String getPeriodUnit() {
+    return periodUnit;
+  }
+
+  public void setPeriodUnit(String periodUnit) {
+    this.periodUnit = periodUnit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,22 +103,26 @@ public class DeleteCenBandwidthPackageRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteCenBandwidthPackageRequest deleteCenBandwidthPackageRequest = (DeleteCenBandwidthPackageRequest) o;
-    return Objects.equals(this.cenBandwidthPackageId, deleteCenBandwidthPackageRequest.cenBandwidthPackageId);
+    RenewCenBandwidthPackageRequest renewCenBandwidthPackageRequest = (RenewCenBandwidthPackageRequest) o;
+    return Objects.equals(this.cenBandwidthPackageId, renewCenBandwidthPackageRequest.cenBandwidthPackageId) &&
+        Objects.equals(this.period, renewCenBandwidthPackageRequest.period) &&
+        Objects.equals(this.periodUnit, renewCenBandwidthPackageRequest.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenBandwidthPackageId);
+    return Objects.hash(cenBandwidthPackageId, period, periodUnit);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteCenBandwidthPackageRequest {\n");
+    sb.append("class RenewCenBandwidthPackageRequest {\n");
     
     sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

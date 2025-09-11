@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -65,6 +66,9 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
+
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
 
@@ -77,17 +81,14 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
   @SerializedName("RemainingBandwidth")
   private Integer remainingBandwidth = null;
 
-  @SerializedName("RequestId")
-  private String requestId = null;
-
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeCenBandwidthPackageAttributesOutput> tags = null;
 
-  @SerializedName("UpdatedAt")
-  private String updatedAt = null;
+  @SerializedName("UpdateTime")
+  private String updateTime = null;
 
   public DescribeCenBandwidthPackageAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -295,6 +296,24 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     this.expiredTime = expiredTime;
   }
 
+  public DescribeCenBandwidthPackageAttributesResponse lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+  }
+
   public DescribeCenBandwidthPackageAttributesResponse localGeographicRegionSetId(String localGeographicRegionSetId) {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
     return this;
@@ -367,24 +386,6 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     this.remainingBandwidth = remainingBandwidth;
   }
 
-  public DescribeCenBandwidthPackageAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
   public DescribeCenBandwidthPackageAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -430,22 +431,22 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     this.tags = tags;
   }
 
-  public DescribeCenBandwidthPackageAttributesResponse updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public DescribeCenBandwidthPackageAttributesResponse updateTime(String updateTime) {
+    this.updateTime = updateTime;
     return this;
   }
 
    /**
-   * Get updatedAt
-   * @return updatedAt
+   * Get updateTime
+   * @return updateTime
   **/
   @Schema(description = "")
-  public String getUpdatedAt() {
-    return updatedAt;
+  public String getUpdateTime() {
+    return updateTime;
   }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
   }
 
 
@@ -469,19 +470,19 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
         Objects.equals(this.deletedTime, describeCenBandwidthPackageAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeCenBandwidthPackageAttributesResponse.description) &&
         Objects.equals(this.expiredTime, describeCenBandwidthPackageAttributesResponse.expiredTime) &&
+        Objects.equals(this.lineOperator, describeCenBandwidthPackageAttributesResponse.lineOperator) &&
         Objects.equals(this.localGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.peerGeographicRegionSetId) &&
         Objects.equals(this.projectName, describeCenBandwidthPackageAttributesResponse.projectName) &&
         Objects.equals(this.remainingBandwidth, describeCenBandwidthPackageAttributesResponse.remainingBandwidth) &&
-        Objects.equals(this.requestId, describeCenBandwidthPackageAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status) &&
         Objects.equals(this.tags, describeCenBandwidthPackageAttributesResponse.tags) &&
-        Objects.equals(this.updatedAt, describeCenBandwidthPackageAttributesResponse.updatedAt);
+        Objects.equals(this.updateTime, describeCenBandwidthPackageAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, requestId, status, tags, updatedAt);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, lineOperator, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, updateTime);
   }
 
 
@@ -501,14 +502,14 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput {
   @SerializedName("CenId")
   private String cenId = null;

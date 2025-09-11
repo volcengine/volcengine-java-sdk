@@ -30,12 +30,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagFilterForDescribeCensInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("Value")
-  private List<String> value = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeCensInput key(String key) {
     this.key = key;
@@ -55,30 +56,30 @@ public class TagFilterForDescribeCensInput {
     this.key = key;
   }
 
-  public TagFilterForDescribeCensInput value(List<String> value) {
-    this.value = value;
+  public TagFilterForDescribeCensInput values(List<String> values) {
+    this.values = values;
     return this;
   }
 
-  public TagFilterForDescribeCensInput addValueItem(String valueItem) {
-    if (this.value == null) {
-      this.value = new ArrayList<String>();
+  public TagFilterForDescribeCensInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
     }
-    this.value.add(valueItem);
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public List<String> getValue() {
-    return value;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setValue(List<String> value) {
-    this.value = value;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -92,12 +93,12 @@ public class TagFilterForDescribeCensInput {
     }
     TagFilterForDescribeCensInput tagFilterForDescribeCensInput = (TagFilterForDescribeCensInput) o;
     return Objects.equals(this.key, tagFilterForDescribeCensInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeCensInput.value);
+        Objects.equals(this.values, tagFilterForDescribeCensInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, values);
   }
 
 
@@ -107,7 +108,7 @@ public class TagFilterForDescribeCensInput {
     sb.append("class TagFilterForDescribeCensInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

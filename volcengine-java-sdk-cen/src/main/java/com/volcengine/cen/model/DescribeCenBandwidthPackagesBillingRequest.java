@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cen.model.CenForDescribeCensOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,14 +26,14 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeCensResponse
+ * DescribeCenBandwidthPackagesBillingRequest
  */
 
 
 
-public class DescribeCensResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Cens")
-  private List<CenForDescribeCensOutput> cens = null;
+public class DescribeCenBandwidthPackagesBillingRequest {
+  @SerializedName("CenBandwidthPackageIds")
+  private List<String> cenBandwidthPackageIds = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -42,37 +41,33 @@ public class DescribeCensResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
-
-  public DescribeCensResponse cens(List<CenForDescribeCensOutput> cens) {
-    this.cens = cens;
+  public DescribeCenBandwidthPackagesBillingRequest cenBandwidthPackageIds(List<String> cenBandwidthPackageIds) {
+    this.cenBandwidthPackageIds = cenBandwidthPackageIds;
     return this;
   }
 
-  public DescribeCensResponse addCensItem(CenForDescribeCensOutput censItem) {
-    if (this.cens == null) {
-      this.cens = new ArrayList<CenForDescribeCensOutput>();
+  public DescribeCenBandwidthPackagesBillingRequest addCenBandwidthPackageIdsItem(String cenBandwidthPackageIdsItem) {
+    if (this.cenBandwidthPackageIds == null) {
+      this.cenBandwidthPackageIds = new ArrayList<String>();
     }
-    this.cens.add(censItem);
+    this.cenBandwidthPackageIds.add(cenBandwidthPackageIdsItem);
     return this;
   }
 
    /**
-   * Get cens
-   * @return cens
+   * Get cenBandwidthPackageIds
+   * @return cenBandwidthPackageIds
   **/
-  @Valid
   @Schema(description = "")
-  public List<CenForDescribeCensOutput> getCens() {
-    return cens;
+  public List<String> getCenBandwidthPackageIds() {
+    return cenBandwidthPackageIds;
   }
 
-  public void setCens(List<CenForDescribeCensOutput> cens) {
-    this.cens = cens;
+  public void setCenBandwidthPackageIds(List<String> cenBandwidthPackageIds) {
+    this.cenBandwidthPackageIds = cenBandwidthPackageIds;
   }
 
-  public DescribeCensResponse pageNumber(Integer pageNumber) {
+  public DescribeCenBandwidthPackagesBillingRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -90,7 +85,7 @@ public class DescribeCensResponse extends com.volcengine.model.AbstractResponse 
     this.pageNumber = pageNumber;
   }
 
-  public DescribeCensResponse pageSize(Integer pageSize) {
+  public DescribeCenBandwidthPackagesBillingRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -108,24 +103,6 @@ public class DescribeCensResponse extends com.volcengine.model.AbstractResponse 
     this.pageSize = pageSize;
   }
 
-  public DescribeCensResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,28 +112,26 @@ public class DescribeCensResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeCensResponse describeCensResponse = (DescribeCensResponse) o;
-    return Objects.equals(this.cens, describeCensResponse.cens) &&
-        Objects.equals(this.pageNumber, describeCensResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeCensResponse.pageSize) &&
-        Objects.equals(this.totalCount, describeCensResponse.totalCount);
+    DescribeCenBandwidthPackagesBillingRequest describeCenBandwidthPackagesBillingRequest = (DescribeCenBandwidthPackagesBillingRequest) o;
+    return Objects.equals(this.cenBandwidthPackageIds, describeCenBandwidthPackagesBillingRequest.cenBandwidthPackageIds) &&
+        Objects.equals(this.pageNumber, describeCenBandwidthPackagesBillingRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeCenBandwidthPackagesBillingRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cens, pageNumber, pageSize, totalCount);
+    return Objects.hash(cenBandwidthPackageIds, pageNumber, pageSize);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeCensResponse {\n");
+    sb.append("class DescribeCenBandwidthPackagesBillingRequest {\n");
     
-    sb.append("    cens: ").append(toIndentedString(cens)).append("\n");
+    sb.append("    cenBandwidthPackageIds: ").append(toIndentedString(cenBandwidthPackageIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

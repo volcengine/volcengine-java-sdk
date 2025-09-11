@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenServiceRouteEntriesRequest {
   @SerializedName("CenId")
   private String cenId = null;

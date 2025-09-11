@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cen.model.ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput;
+import com.volcengine.cen.model.CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,25 +27,52 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeCenServiceRouteEntriesResponse
+ * DescribeCenBandwidthPackagesBillingResponse
  */
 
 
 
-public class DescribeCenServiceRouteEntriesResponse extends com.volcengine.model.AbstractResponse {
+public class DescribeCenBandwidthPackagesBillingResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CenBandwidthPackages")
+  private List<CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput> cenBandwidthPackages = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("ServiceRouteEntries")
-  private List<ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput> serviceRouteEntries = null;
-
   @SerializedName("TotalCount")
   private Integer totalCount = null;
 
-  public DescribeCenServiceRouteEntriesResponse pageNumber(Integer pageNumber) {
+  public DescribeCenBandwidthPackagesBillingResponse cenBandwidthPackages(List<CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput> cenBandwidthPackages) {
+    this.cenBandwidthPackages = cenBandwidthPackages;
+    return this;
+  }
+
+  public DescribeCenBandwidthPackagesBillingResponse addCenBandwidthPackagesItem(CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput cenBandwidthPackagesItem) {
+    if (this.cenBandwidthPackages == null) {
+      this.cenBandwidthPackages = new ArrayList<CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput>();
+    }
+    this.cenBandwidthPackages.add(cenBandwidthPackagesItem);
+    return this;
+  }
+
+   /**
+   * Get cenBandwidthPackages
+   * @return cenBandwidthPackages
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput> getCenBandwidthPackages() {
+    return cenBandwidthPackages;
+  }
+
+  public void setCenBandwidthPackages(List<CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput> cenBandwidthPackages) {
+    this.cenBandwidthPackages = cenBandwidthPackages;
+  }
+
+  public DescribeCenBandwidthPackagesBillingResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -63,7 +90,7 @@ public class DescribeCenServiceRouteEntriesResponse extends com.volcengine.model
     this.pageNumber = pageNumber;
   }
 
-  public DescribeCenServiceRouteEntriesResponse pageSize(Integer pageSize) {
+  public DescribeCenBandwidthPackagesBillingResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -81,34 +108,7 @@ public class DescribeCenServiceRouteEntriesResponse extends com.volcengine.model
     this.pageSize = pageSize;
   }
 
-  public DescribeCenServiceRouteEntriesResponse serviceRouteEntries(List<ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput> serviceRouteEntries) {
-    this.serviceRouteEntries = serviceRouteEntries;
-    return this;
-  }
-
-  public DescribeCenServiceRouteEntriesResponse addServiceRouteEntriesItem(ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput serviceRouteEntriesItem) {
-    if (this.serviceRouteEntries == null) {
-      this.serviceRouteEntries = new ArrayList<ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput>();
-    }
-    this.serviceRouteEntries.add(serviceRouteEntriesItem);
-    return this;
-  }
-
-   /**
-   * Get serviceRouteEntries
-   * @return serviceRouteEntries
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput> getServiceRouteEntries() {
-    return serviceRouteEntries;
-  }
-
-  public void setServiceRouteEntries(List<ServiceRouteEntryForDescribeCenServiceRouteEntriesOutput> serviceRouteEntries) {
-    this.serviceRouteEntries = serviceRouteEntries;
-  }
-
-  public DescribeCenServiceRouteEntriesResponse totalCount(Integer totalCount) {
+  public DescribeCenBandwidthPackagesBillingResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -135,27 +135,27 @@ public class DescribeCenServiceRouteEntriesResponse extends com.volcengine.model
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeCenServiceRouteEntriesResponse describeCenServiceRouteEntriesResponse = (DescribeCenServiceRouteEntriesResponse) o;
-    return Objects.equals(this.pageNumber, describeCenServiceRouteEntriesResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeCenServiceRouteEntriesResponse.pageSize) &&
-        Objects.equals(this.serviceRouteEntries, describeCenServiceRouteEntriesResponse.serviceRouteEntries) &&
-        Objects.equals(this.totalCount, describeCenServiceRouteEntriesResponse.totalCount);
+    DescribeCenBandwidthPackagesBillingResponse describeCenBandwidthPackagesBillingResponse = (DescribeCenBandwidthPackagesBillingResponse) o;
+    return Objects.equals(this.cenBandwidthPackages, describeCenBandwidthPackagesBillingResponse.cenBandwidthPackages) &&
+        Objects.equals(this.pageNumber, describeCenBandwidthPackagesBillingResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeCenBandwidthPackagesBillingResponse.pageSize) &&
+        Objects.equals(this.totalCount, describeCenBandwidthPackagesBillingResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, serviceRouteEntries, totalCount);
+    return Objects.hash(cenBandwidthPackages, pageNumber, pageSize, totalCount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeCenServiceRouteEntriesResponse {\n");
+    sb.append("class DescribeCenBandwidthPackagesBillingResponse {\n");
     
+    sb.append("    cenBandwidthPackages: ").append(toIndentedString(cenBandwidthPackages)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    serviceRouteEntries: ").append(toIndentedString(serviceRouteEntries)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

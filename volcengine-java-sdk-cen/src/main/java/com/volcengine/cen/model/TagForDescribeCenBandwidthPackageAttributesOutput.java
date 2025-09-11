@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeCenBandwidthPackageAttributesOutput {
   @SerializedName("Key")
   private String key = null;

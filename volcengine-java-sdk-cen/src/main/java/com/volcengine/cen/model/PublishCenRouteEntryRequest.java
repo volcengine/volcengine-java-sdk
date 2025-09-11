@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PublishCenRouteEntryRequest {
   @SerializedName("CenId")
   private String cenId = null;

@@ -24,16 +24,38 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteCenRequest
+ * ModifyCenBandwidthPackageAssociationRequest
  */
 
 
 
-public class DeleteCenRequest {
+public class ModifyCenBandwidthPackageAssociationRequest {
+  @SerializedName("CenBandwidthPackageId")
+  private String cenBandwidthPackageId = null;
+
   @SerializedName("CenId")
   private String cenId = null;
 
-  public DeleteCenRequest cenId(String cenId) {
+  public ModifyCenBandwidthPackageAssociationRequest cenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get cenBandwidthPackageId
+   * @return cenBandwidthPackageId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getCenBandwidthPackageId() {
+    return cenBandwidthPackageId;
+  }
+
+  public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
+  }
+
+  public ModifyCenBandwidthPackageAssociationRequest cenId(String cenId) {
     this.cenId = cenId;
     return this;
   }
@@ -61,21 +83,23 @@ public class DeleteCenRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteCenRequest deleteCenRequest = (DeleteCenRequest) o;
-    return Objects.equals(this.cenId, deleteCenRequest.cenId);
+    ModifyCenBandwidthPackageAssociationRequest modifyCenBandwidthPackageAssociationRequest = (ModifyCenBandwidthPackageAssociationRequest) o;
+    return Objects.equals(this.cenBandwidthPackageId, modifyCenBandwidthPackageAssociationRequest.cenBandwidthPackageId) &&
+        Objects.equals(this.cenId, modifyCenBandwidthPackageAssociationRequest.cenId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId);
+    return Objects.hash(cenBandwidthPackageId, cenId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteCenRequest {\n");
+    sb.append("class ModifyCenBandwidthPackageAssociationRequest {\n");
     
+    sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("}");
     return sb.toString();

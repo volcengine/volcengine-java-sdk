@@ -14,13 +14,6 @@ package com.volcengine.cen.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,28 +21,8 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyCenBandwidthPackageAttributesResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("RequestId")
-  private String requestId = null;
-
-  public ModifyCenBandwidthPackageAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,13 +32,12 @@ public class ModifyCenBandwidthPackageAttributesResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyCenBandwidthPackageAttributesResponse modifyCenBandwidthPackageAttributesResponse = (ModifyCenBandwidthPackageAttributesResponse) o;
-    return Objects.equals(this.requestId, modifyCenBandwidthPackageAttributesResponse.requestId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash();
   }
 
 
@@ -74,7 +46,6 @@ public class ModifyCenBandwidthPackageAttributesResponse extends com.volcengine.
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyCenBandwidthPackageAttributesResponse {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

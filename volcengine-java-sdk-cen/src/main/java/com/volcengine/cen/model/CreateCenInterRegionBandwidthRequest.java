@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenInterRegionBandwidthRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("CenBandwidthPackageId")
+  private String cenBandwidthPackageId = null;
 
   @SerializedName("CenId")
   private String cenId = null;
@@ -58,6 +62,24 @@ public class CreateCenInterRegionBandwidthRequest {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public CreateCenInterRegionBandwidthRequest cenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get cenBandwidthPackageId
+   * @return cenBandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getCenBandwidthPackageId() {
+    return cenBandwidthPackageId;
+  }
+
+  public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
   public CreateCenInterRegionBandwidthRequest cenId(String cenId) {
@@ -128,6 +150,7 @@ public class CreateCenInterRegionBandwidthRequest {
     }
     CreateCenInterRegionBandwidthRequest createCenInterRegionBandwidthRequest = (CreateCenInterRegionBandwidthRequest) o;
     return Objects.equals(this.bandwidth, createCenInterRegionBandwidthRequest.bandwidth) &&
+        Objects.equals(this.cenBandwidthPackageId, createCenInterRegionBandwidthRequest.cenBandwidthPackageId) &&
         Objects.equals(this.cenId, createCenInterRegionBandwidthRequest.cenId) &&
         Objects.equals(this.localRegionId, createCenInterRegionBandwidthRequest.localRegionId) &&
         Objects.equals(this.peerRegionId, createCenInterRegionBandwidthRequest.peerRegionId);
@@ -135,7 +158,7 @@ public class CreateCenInterRegionBandwidthRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, cenId, localRegionId, peerRegionId);
+    return Objects.hash(bandwidth, cenBandwidthPackageId, cenId, localRegionId, peerRegionId);
   }
 
 
@@ -145,6 +168,7 @@ public class CreateCenInterRegionBandwidthRequest {
     sb.append("class CreateCenInterRegionBandwidthRequest {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    localRegionId: ").append(toIndentedString(localRegionId)).append("\n");
     sb.append("    peerRegionId: ").append(toIndentedString(peerRegionId)).append("\n");

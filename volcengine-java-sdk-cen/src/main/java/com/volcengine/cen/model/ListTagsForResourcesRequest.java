@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListTagsForResourcesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -46,7 +47,9 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    @SerializedName("cen")
     CEN("cen"),
+    @SerializedName("cenbandwidthpackage")
     CENBANDWIDTHPACKAGE("cenbandwidthpackage");
 
     private String value;

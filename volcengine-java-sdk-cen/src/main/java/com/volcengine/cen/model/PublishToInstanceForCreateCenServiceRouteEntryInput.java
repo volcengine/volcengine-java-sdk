@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PublishToInstanceForCreateCenServiceRouteEntryInput {
   @SerializedName("InstanceId")
   private String instanceId = null;

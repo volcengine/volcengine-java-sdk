@@ -28,12 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenBandwidthPackageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   public CreateCenBandwidthPackageResponse cenBandwidthPackageId(String cenBandwidthPackageId) {
     this.cenBandwidthPackageId = cenBandwidthPackageId;
@@ -53,24 +51,6 @@ public class CreateCenBandwidthPackageResponse extends com.volcengine.model.Abst
     this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
-  public CreateCenBandwidthPackageResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +61,12 @@ public class CreateCenBandwidthPackageResponse extends com.volcengine.model.Abst
       return false;
     }
     CreateCenBandwidthPackageResponse createCenBandwidthPackageResponse = (CreateCenBandwidthPackageResponse) o;
-    return Objects.equals(this.cenBandwidthPackageId, createCenBandwidthPackageResponse.cenBandwidthPackageId) &&
-        Objects.equals(this.requestId, createCenBandwidthPackageResponse.requestId);
+    return Objects.equals(this.cenBandwidthPackageId, createCenBandwidthPackageResponse.cenBandwidthPackageId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenBandwidthPackageId, requestId);
+    return Objects.hash(cenBandwidthPackageId);
   }
 
 
@@ -97,7 +76,6 @@ public class CreateCenBandwidthPackageResponse extends com.volcengine.model.Abst
     sb.append("class CreateCenBandwidthPackageResponse {\n");
     
     sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
