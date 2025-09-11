@@ -34,7 +34,7 @@ public class ServerGroupStickySessionForModifyRulesInput {
   private String enabled = null;
 
   @SerializedName("Timeout")
-  private String timeout = null;
+  private Integer timeout = null;
 
   public ServerGroupStickySessionForModifyRulesInput enabled(String enabled) {
     this.enabled = enabled;
@@ -54,7 +54,7 @@ public class ServerGroupStickySessionForModifyRulesInput {
     this.enabled = enabled;
   }
 
-  public ServerGroupStickySessionForModifyRulesInput timeout(String timeout) {
+  public ServerGroupStickySessionForModifyRulesInput timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -64,11 +64,11 @@ public class ServerGroupStickySessionForModifyRulesInput {
    * @return timeout
   **/
   @Schema(description = "")
-  public String getTimeout() {
+  public Integer getTimeout() {
     return timeout;
   }
 
-  public void setTimeout(String timeout) {
+  public void setTimeout(Integer timeout) {
     this.timeout = timeout;
   }
 
