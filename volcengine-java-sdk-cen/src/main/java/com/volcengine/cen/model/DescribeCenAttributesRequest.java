@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenAttributesRequest {
   @SerializedName("CenId")
   private String cenId = null;

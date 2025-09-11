@@ -36,6 +36,9 @@ public class CreateTransitRouterForwardPolicyEntryRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DestinationCidrBlock")
+  private String destinationCidrBlock = null;
+
   @SerializedName("Priority")
   private Integer priority = null;
 
@@ -82,6 +85,24 @@ public class CreateTransitRouterForwardPolicyEntryRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateTransitRouterForwardPolicyEntryRequest destinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
+    return this;
+  }
+
+   /**
+   * Get destinationCidrBlock
+   * @return destinationCidrBlock
+  **/
+  @Schema(description = "")
+  public String getDestinationCidrBlock() {
+    return destinationCidrBlock;
+  }
+
+  public void setDestinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
   }
 
   public CreateTransitRouterForwardPolicyEntryRequest priority(Integer priority) {
@@ -172,6 +193,7 @@ public class CreateTransitRouterForwardPolicyEntryRequest {
     CreateTransitRouterForwardPolicyEntryRequest createTransitRouterForwardPolicyEntryRequest = (CreateTransitRouterForwardPolicyEntryRequest) o;
     return Objects.equals(this.clientToken, createTransitRouterForwardPolicyEntryRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterForwardPolicyEntryRequest.description) &&
+        Objects.equals(this.destinationCidrBlock, createTransitRouterForwardPolicyEntryRequest.destinationCidrBlock) &&
         Objects.equals(this.priority, createTransitRouterForwardPolicyEntryRequest.priority) &&
         Objects.equals(this.sourceCidrBlock, createTransitRouterForwardPolicyEntryRequest.sourceCidrBlock) &&
         Objects.equals(this.transitRouterForwardPolicyTableId, createTransitRouterForwardPolicyEntryRequest.transitRouterForwardPolicyTableId) &&
@@ -180,7 +202,7 @@ public class CreateTransitRouterForwardPolicyEntryRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, priority, sourceCidrBlock, transitRouterForwardPolicyTableId, transitRouterRouteTableId);
+    return Objects.hash(clientToken, description, destinationCidrBlock, priority, sourceCidrBlock, transitRouterForwardPolicyTableId, transitRouterRouteTableId);
   }
 
 
@@ -191,6 +213,7 @@ public class CreateTransitRouterForwardPolicyEntryRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    sourceCidrBlock: ").append(toIndentedString(sourceCidrBlock)).append("\n");
     sb.append("    transitRouterForwardPolicyTableId: ").append(toIndentedString(transitRouterForwardPolicyTableId)).append("\n");

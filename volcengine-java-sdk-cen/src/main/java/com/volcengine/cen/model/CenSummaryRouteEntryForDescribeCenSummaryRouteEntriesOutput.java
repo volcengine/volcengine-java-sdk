@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput {
   @SerializedName("CenId")
   private String cenId = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InterRegionBandwidths")
   private List<InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput> interRegionBandwidths = null;
@@ -40,9 +41,6 @@ public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.mod
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -110,24 +108,6 @@ public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.mod
     this.pageSize = pageSize;
   }
 
-  public DescribeCenInterRegionBandwidthsResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
   public DescribeCenInterRegionBandwidthsResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -159,13 +139,12 @@ public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.mod
     return Objects.equals(this.interRegionBandwidths, describeCenInterRegionBandwidthsResponse.interRegionBandwidths) &&
         Objects.equals(this.pageNumber, describeCenInterRegionBandwidthsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeCenInterRegionBandwidthsResponse.pageSize) &&
-        Objects.equals(this.requestId, describeCenInterRegionBandwidthsResponse.requestId) &&
         Objects.equals(this.totalCount, describeCenInterRegionBandwidthsResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interRegionBandwidths, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(interRegionBandwidths, pageNumber, pageSize, totalCount);
   }
 
 
@@ -177,7 +156,6 @@ public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.mod
     sb.append("    interRegionBandwidths: ").append(toIndentedString(interRegionBandwidths)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -38,9 +38,6 @@ public class DescribeNLBServerGroupAttributesResponse extends com.volcengine.mod
   @SerializedName("AccountId")
   private String accountId = null;
 
-  @SerializedName("AddressIpVersion")
-  private String addressIpVersion = null;
-
   @SerializedName("AnyPortEnabled")
   private Boolean anyPortEnabled = null;
 
@@ -138,24 +135,6 @@ public class DescribeNLBServerGroupAttributesResponse extends com.volcengine.mod
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
-  }
-
-  public DescribeNLBServerGroupAttributesResponse addressIpVersion(String addressIpVersion) {
-    this.addressIpVersion = addressIpVersion;
-    return this;
-  }
-
-   /**
-   * Get addressIpVersion
-   * @return addressIpVersion
-  **/
-  @Schema(description = "")
-  public String getAddressIpVersion() {
-    return addressIpVersion;
-  }
-
-  public void setAddressIpVersion(String addressIpVersion) {
-    this.addressIpVersion = addressIpVersion;
   }
 
   public DescribeNLBServerGroupAttributesResponse anyPortEnabled(Boolean anyPortEnabled) {
@@ -682,7 +661,6 @@ public class DescribeNLBServerGroupAttributesResponse extends com.volcengine.mod
     }
     DescribeNLBServerGroupAttributesResponse describeNLBServerGroupAttributesResponse = (DescribeNLBServerGroupAttributesResponse) o;
     return Objects.equals(this.accountId, describeNLBServerGroupAttributesResponse.accountId) &&
-        Objects.equals(this.addressIpVersion, describeNLBServerGroupAttributesResponse.addressIpVersion) &&
         Objects.equals(this.anyPortEnabled, describeNLBServerGroupAttributesResponse.anyPortEnabled) &&
         Objects.equals(this.bypassSecurityGroupEnabled, describeNLBServerGroupAttributesResponse.bypassSecurityGroupEnabled) &&
         Objects.equals(this.connectionDrainEnabled, describeNLBServerGroupAttributesResponse.connectionDrainEnabled) &&
@@ -714,7 +692,7 @@ public class DescribeNLBServerGroupAttributesResponse extends com.volcengine.mod
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, addressIpVersion, anyPortEnabled, bypassSecurityGroupEnabled, connectionDrainEnabled, connectionDrainTimeout, createTime, description, healthCheck, ipAddressVersion, preserveClientIpEnabled, projectName, protocol, proxyProtocolType, relatedLoadBalancerIds, requestId, scheduler, serverCount, serverGroupId, serverGroupName, servers, sessionPersistenceEnabled, sessionPersistenceTimeout, status, tags, timestampRemoveEnabled, type, updateTime, vpcId);
+    return Objects.hash(accountId, anyPortEnabled, bypassSecurityGroupEnabled, connectionDrainEnabled, connectionDrainTimeout, createTime, description, healthCheck, ipAddressVersion, preserveClientIpEnabled, projectName, protocol, proxyProtocolType, relatedLoadBalancerIds, requestId, scheduler, serverCount, serverGroupId, serverGroupName, servers, sessionPersistenceEnabled, sessionPersistenceTimeout, status, tags, timestampRemoveEnabled, type, updateTime, vpcId);
   }
 
 
@@ -724,7 +702,6 @@ public class DescribeNLBServerGroupAttributesResponse extends com.volcengine.mod
     sb.append("class DescribeNLBServerGroupAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    anyPortEnabled: ").append(toIndentedString(anyPortEnabled)).append("\n");
     sb.append("    bypassSecurityGroupEnabled: ").append(toIndentedString(bypassSecurityGroupEnabled)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");

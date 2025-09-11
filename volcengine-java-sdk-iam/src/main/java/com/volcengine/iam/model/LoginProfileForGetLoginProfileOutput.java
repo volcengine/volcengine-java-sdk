@@ -40,7 +40,7 @@ public class LoginProfileForGetLoginProfileOutput {
   private String lastLoginIp = null;
 
   @SerializedName("LastResetPasswordTime")
-  private Integer lastResetPasswordTime = null;
+  private Long lastResetPasswordTime = null;
 
   @SerializedName("LoginAllowed")
   private Boolean loginAllowed = null;
@@ -49,7 +49,7 @@ public class LoginProfileForGetLoginProfileOutput {
   private Boolean loginLocked = null;
 
   @SerializedName("PasswordExpireAt")
-  private Integer passwordExpireAt = null;
+  private Long passwordExpireAt = null;
 
   @SerializedName("PasswordResetRequired")
   private Boolean passwordResetRequired = null;
@@ -132,7 +132,7 @@ public class LoginProfileForGetLoginProfileOutput {
     this.lastLoginIp = lastLoginIp;
   }
 
-  public LoginProfileForGetLoginProfileOutput lastResetPasswordTime(Integer lastResetPasswordTime) {
+  public LoginProfileForGetLoginProfileOutput lastResetPasswordTime(Long lastResetPasswordTime) {
     this.lastResetPasswordTime = lastResetPasswordTime;
     return this;
   }
@@ -142,11 +142,11 @@ public class LoginProfileForGetLoginProfileOutput {
    * @return lastResetPasswordTime
   **/
   @Schema(description = "")
-  public Integer getLastResetPasswordTime() {
+  public Long getLastResetPasswordTime() {
     return lastResetPasswordTime;
   }
 
-  public void setLastResetPasswordTime(Integer lastResetPasswordTime) {
+  public void setLastResetPasswordTime(Long lastResetPasswordTime) {
     this.lastResetPasswordTime = lastResetPasswordTime;
   }
 
@@ -186,7 +186,7 @@ public class LoginProfileForGetLoginProfileOutput {
     this.loginLocked = loginLocked;
   }
 
-  public LoginProfileForGetLoginProfileOutput passwordExpireAt(Integer passwordExpireAt) {
+  public LoginProfileForGetLoginProfileOutput passwordExpireAt(Long passwordExpireAt) {
     this.passwordExpireAt = passwordExpireAt;
     return this;
   }
@@ -196,11 +196,11 @@ public class LoginProfileForGetLoginProfileOutput {
    * @return passwordExpireAt
   **/
   @Schema(description = "")
-  public Integer getPasswordExpireAt() {
+  public Long getPasswordExpireAt() {
     return passwordExpireAt;
   }
 
-  public void setPasswordExpireAt(Integer passwordExpireAt) {
+  public void setPasswordExpireAt(Long passwordExpireAt) {
     this.passwordExpireAt = passwordExpireAt;
   }
 

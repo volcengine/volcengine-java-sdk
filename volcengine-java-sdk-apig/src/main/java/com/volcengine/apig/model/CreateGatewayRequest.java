@@ -19,16 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.BackendSpecForCreateGatewayInput;
 import com.volcengine.apig.model.LogSpecForCreateGatewayInput;
 import com.volcengine.apig.model.MonitorSpecForCreateGatewayInput;
 import com.volcengine.apig.model.NetworkSpecForCreateGatewayInput;
 import com.volcengine.apig.model.ResourceSpecForCreateGatewayInput;
-import com.volcengine.apig.model.TagForCreateGatewayInput;
+import com.volcengine.apig.model.TraceSpecForCreateGatewayInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,9 +35,6 @@ import javax.validation.Valid;
 
 
 public class CreateGatewayRequest {
-  @SerializedName("BackendSpec")
-  private BackendSpecForCreateGatewayInput backendSpec = null;
-
   @SerializedName("Comments")
   private String comments = null;
 
@@ -65,30 +59,11 @@ public class CreateGatewayRequest {
   @SerializedName("ResourceSpec")
   private ResourceSpecForCreateGatewayInput resourceSpec = null;
 
-  @SerializedName("Tags")
-  private List<TagForCreateGatewayInput> tags = null;
+  @SerializedName("TraceSpec")
+  private TraceSpecForCreateGatewayInput traceSpec = null;
 
   @SerializedName("Type")
   private String type = null;
-
-  public CreateGatewayRequest backendSpec(BackendSpecForCreateGatewayInput backendSpec) {
-    this.backendSpec = backendSpec;
-    return this;
-  }
-
-   /**
-   * Get backendSpec
-   * @return backendSpec
-  **/
-  @Valid
-  @Schema(description = "")
-  public BackendSpecForCreateGatewayInput getBackendSpec() {
-    return backendSpec;
-  }
-
-  public void setBackendSpec(BackendSpecForCreateGatewayInput backendSpec) {
-    this.backendSpec = backendSpec;
-  }
 
   public CreateGatewayRequest comments(String comments) {
     this.comments = comments;
@@ -240,31 +215,23 @@ public class CreateGatewayRequest {
     this.resourceSpec = resourceSpec;
   }
 
-  public CreateGatewayRequest tags(List<TagForCreateGatewayInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateGatewayRequest addTagsItem(TagForCreateGatewayInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForCreateGatewayInput>();
-    }
-    this.tags.add(tagsItem);
+  public CreateGatewayRequest traceSpec(TraceSpecForCreateGatewayInput traceSpec) {
+    this.traceSpec = traceSpec;
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get traceSpec
+   * @return traceSpec
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForCreateGatewayInput> getTags() {
-    return tags;
+  public TraceSpecForCreateGatewayInput getTraceSpec() {
+    return traceSpec;
   }
 
-  public void setTags(List<TagForCreateGatewayInput> tags) {
-    this.tags = tags;
+  public void setTraceSpec(TraceSpecForCreateGatewayInput traceSpec) {
+    this.traceSpec = traceSpec;
   }
 
   public CreateGatewayRequest type(String type) {
@@ -295,8 +262,7 @@ public class CreateGatewayRequest {
       return false;
     }
     CreateGatewayRequest createGatewayRequest = (CreateGatewayRequest) o;
-    return Objects.equals(this.backendSpec, createGatewayRequest.backendSpec) &&
-        Objects.equals(this.comments, createGatewayRequest.comments) &&
+    return Objects.equals(this.comments, createGatewayRequest.comments) &&
         Objects.equals(this.logSpec, createGatewayRequest.logSpec) &&
         Objects.equals(this.monitorSpec, createGatewayRequest.monitorSpec) &&
         Objects.equals(this.name, createGatewayRequest.name) &&
@@ -304,13 +270,13 @@ public class CreateGatewayRequest {
         Objects.equals(this.projectName, createGatewayRequest.projectName) &&
         Objects.equals(this.region, createGatewayRequest.region) &&
         Objects.equals(this.resourceSpec, createGatewayRequest.resourceSpec) &&
-        Objects.equals(this.tags, createGatewayRequest.tags) &&
+        Objects.equals(this.traceSpec, createGatewayRequest.traceSpec) &&
         Objects.equals(this.type, createGatewayRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendSpec, comments, logSpec, monitorSpec, name, networkSpec, projectName, region, resourceSpec, tags, type);
+    return Objects.hash(comments, logSpec, monitorSpec, name, networkSpec, projectName, region, resourceSpec, traceSpec, type);
   }
 
 
@@ -319,7 +285,6 @@ public class CreateGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGatewayRequest {\n");
     
-    sb.append("    backendSpec: ").append(toIndentedString(backendSpec)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    logSpec: ").append(toIndentedString(logSpec)).append("\n");
     sb.append("    monitorSpec: ").append(toIndentedString(monitorSpec)).append("\n");
@@ -328,7 +293,7 @@ public class CreateGatewayRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    resourceSpec: ").append(toIndentedString(resourceSpec)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    traceSpec: ").append(toIndentedString(traceSpec)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

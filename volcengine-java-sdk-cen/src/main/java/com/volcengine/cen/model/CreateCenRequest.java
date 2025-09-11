@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenRequest {
   @SerializedName("CenName")
   private String cenName = null;
@@ -92,7 +93,7 @@ public class CreateCenRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }

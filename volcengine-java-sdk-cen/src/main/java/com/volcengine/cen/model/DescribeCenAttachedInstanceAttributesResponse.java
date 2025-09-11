@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenId")
   private String cenId = null;
+
+  @SerializedName("CreationTime")
+  private String creationTime = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -43,9 +47,6 @@ public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengin
 
   @SerializedName("InstanceType")
   private String instanceType = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -66,6 +67,24 @@ public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengin
 
   public void setCenId(String cenId) {
     this.cenId = cenId;
+  }
+
+  public DescribeCenAttachedInstanceAttributesResponse creationTime(String creationTime) {
+    this.creationTime = creationTime;
+    return this;
+  }
+
+   /**
+   * Get creationTime
+   * @return creationTime
+  **/
+  @Schema(description = "")
+  public String getCreationTime() {
+    return creationTime;
+  }
+
+  public void setCreationTime(String creationTime) {
+    this.creationTime = creationTime;
   }
 
   public DescribeCenAttachedInstanceAttributesResponse instanceId(String instanceId) {
@@ -140,24 +159,6 @@ public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengin
     this.instanceType = instanceType;
   }
 
-  public DescribeCenAttachedInstanceAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
   public DescribeCenAttachedInstanceAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -187,17 +188,17 @@ public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengin
     }
     DescribeCenAttachedInstanceAttributesResponse describeCenAttachedInstanceAttributesResponse = (DescribeCenAttachedInstanceAttributesResponse) o;
     return Objects.equals(this.cenId, describeCenAttachedInstanceAttributesResponse.cenId) &&
+        Objects.equals(this.creationTime, describeCenAttachedInstanceAttributesResponse.creationTime) &&
         Objects.equals(this.instanceId, describeCenAttachedInstanceAttributesResponse.instanceId) &&
         Objects.equals(this.instanceOwnerId, describeCenAttachedInstanceAttributesResponse.instanceOwnerId) &&
         Objects.equals(this.instanceRegionId, describeCenAttachedInstanceAttributesResponse.instanceRegionId) &&
         Objects.equals(this.instanceType, describeCenAttachedInstanceAttributesResponse.instanceType) &&
-        Objects.equals(this.requestId, describeCenAttachedInstanceAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCenAttachedInstanceAttributesResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, instanceId, instanceOwnerId, instanceRegionId, instanceType, requestId, status);
+    return Objects.hash(cenId, creationTime, instanceId, instanceOwnerId, instanceRegionId, instanceType, status);
   }
 
 
@@ -207,11 +208,11 @@ public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengin
     sb.append("class DescribeCenAttachedInstanceAttributesResponse {\n");
     
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
+    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceOwnerId: ").append(toIndentedString(instanceOwnerId)).append("\n");
     sb.append("    instanceRegionId: ").append(toIndentedString(instanceRegionId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

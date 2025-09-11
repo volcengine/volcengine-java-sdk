@@ -45,6 +45,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6Enabled")
+  private String ipv6Enabled = null;
+
   @SerializedName("PeerTransitRouterId")
   private String peerTransitRouterId = null;
 
@@ -154,6 +157,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput ipv6Enabled(String ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
+    return this;
+  }
+
+   /**
+   * Get ipv6Enabled
+   * @return ipv6Enabled
+  **/
+  @Schema(description = "")
+  public String getIpv6Enabled() {
+    return ipv6Enabled;
+  }
+
+  public void setIpv6Enabled(String ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput peerTransitRouterId(String peerTransitRouterId) {
@@ -413,6 +434,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
         Objects.equals(this.bandwidth, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.bandwidth) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.description) &&
+        Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.ipv6Enabled) &&
         Objects.equals(this.peerTransitRouterId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterId) &&
         Objects.equals(this.peerTransitRouterRegionId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterRegionId) &&
         Objects.equals(this.status, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.status) &&
@@ -430,7 +452,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, peerTransitRouterId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
+    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, ipv6Enabled, peerTransitRouterId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -443,6 +465,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    peerTransitRouterId: ").append(toIndentedString(peerTransitRouterId)).append("\n");
     sb.append("    peerTransitRouterRegionId: ").append(toIndentedString(peerTransitRouterRegionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

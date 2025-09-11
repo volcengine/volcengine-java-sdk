@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig20221112.model.AdvancedSettingForCreateRouteInput;
+import com.volcengine.apig20221112.model.FallbackSettingForCreateRouteInput;
 import com.volcengine.apig20221112.model.MatchRuleForCreateRouteInput;
-import com.volcengine.apig20221112.model.TagForCreateRouteInput;
 import com.volcengine.apig20221112.model.UpstreamListForCreateRouteInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -42,6 +42,9 @@ public class CreateRouteRequest {
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("FallbackSetting")
+  private FallbackSettingForCreateRouteInput fallbackSetting = null;
+
   @SerializedName("MatchRule")
   private MatchRuleForCreateRouteInput matchRule = null;
 
@@ -51,14 +54,8 @@ public class CreateRouteRequest {
   @SerializedName("Priority")
   private Long priority = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("ServiceId")
   private String serviceId = null;
-
-  @SerializedName("Tags")
-  private List<TagForCreateRouteInput> tags = null;
 
   @SerializedName("UpstreamList")
   private List<UpstreamListForCreateRouteInput> upstreamList = null;
@@ -98,6 +95,25 @@ public class CreateRouteRequest {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public CreateRouteRequest fallbackSetting(FallbackSettingForCreateRouteInput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
+    return this;
+  }
+
+   /**
+   * Get fallbackSetting
+   * @return fallbackSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public FallbackSettingForCreateRouteInput getFallbackSetting() {
+    return fallbackSetting;
+  }
+
+  public void setFallbackSetting(FallbackSettingForCreateRouteInput fallbackSetting) {
+    this.fallbackSetting = fallbackSetting;
   }
 
   public CreateRouteRequest matchRule(MatchRuleForCreateRouteInput matchRule) {
@@ -156,24 +172,6 @@ public class CreateRouteRequest {
     this.priority = priority;
   }
 
-  public CreateRouteRequest resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public CreateRouteRequest serviceId(String serviceId) {
     this.serviceId = serviceId;
     return this;
@@ -191,33 +189,6 @@ public class CreateRouteRequest {
 
   public void setServiceId(String serviceId) {
     this.serviceId = serviceId;
-  }
-
-  public CreateRouteRequest tags(List<TagForCreateRouteInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateRouteRequest addTagsItem(TagForCreateRouteInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForCreateRouteInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForCreateRouteInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForCreateRouteInput> tags) {
-    this.tags = tags;
   }
 
   public CreateRouteRequest upstreamList(List<UpstreamListForCreateRouteInput> upstreamList) {
@@ -259,18 +230,17 @@ public class CreateRouteRequest {
     CreateRouteRequest createRouteRequest = (CreateRouteRequest) o;
     return Objects.equals(this.advancedSetting, createRouteRequest.advancedSetting) &&
         Objects.equals(this.enable, createRouteRequest.enable) &&
+        Objects.equals(this.fallbackSetting, createRouteRequest.fallbackSetting) &&
         Objects.equals(this.matchRule, createRouteRequest.matchRule) &&
         Objects.equals(this.name, createRouteRequest.name) &&
         Objects.equals(this.priority, createRouteRequest.priority) &&
-        Objects.equals(this.resourceType, createRouteRequest.resourceType) &&
         Objects.equals(this.serviceId, createRouteRequest.serviceId) &&
-        Objects.equals(this.tags, createRouteRequest.tags) &&
         Objects.equals(this.upstreamList, createRouteRequest.upstreamList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advancedSetting, enable, matchRule, name, priority, resourceType, serviceId, tags, upstreamList);
+    return Objects.hash(advancedSetting, enable, fallbackSetting, matchRule, name, priority, serviceId, upstreamList);
   }
 
 
@@ -281,12 +251,11 @@ public class CreateRouteRequest {
     
     sb.append("    advancedSetting: ").append(toIndentedString(advancedSetting)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    fallbackSetting: ").append(toIndentedString(fallbackSetting)).append("\n");
     sb.append("    matchRule: ").append(toIndentedString(matchRule)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    upstreamList: ").append(toIndentedString(upstreamList)).append("\n");
     sb.append("}");
     return sb.toString();

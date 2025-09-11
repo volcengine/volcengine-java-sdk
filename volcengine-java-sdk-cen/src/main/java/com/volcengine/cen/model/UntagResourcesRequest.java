@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UntagResourcesRequest {
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
@@ -39,7 +40,9 @@ public class UntagResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    @SerializedName("cen")
     CEN("cen"),
+    @SerializedName("cenbandwidthpackage")
     CENBANDWIDTHPACKAGE("cenbandwidthpackage");
 
     private String value;

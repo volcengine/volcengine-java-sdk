@@ -30,8 +30,20 @@ import javax.validation.Valid;
 
 
 public class ModifyNLBListenerAttributesRequest {
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
+  @SerializedName("CAEnabled")
+  private Boolean caEnabled = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ConnectionTimeout")
   private Integer connectionTimeout = null;
@@ -48,11 +60,71 @@ public class ModifyNLBListenerAttributesRequest {
   @SerializedName("ListenerName")
   private String listenerName = null;
 
+  @SerializedName("PCACertificateId")
+  private String pcACertificateId = null;
+
   @SerializedName("SecurityPolicyId")
   private String securityPolicyId = null;
 
+  @SerializedName("SecurityPolicyType")
+  private String securityPolicyType = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  public ModifyNLBListenerAttributesRequest caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public ModifyNLBListenerAttributesRequest caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+  }
+
+  public ModifyNLBListenerAttributesRequest caEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+  }
 
   public ModifyNLBListenerAttributesRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -70,6 +142,24 @@ public class ModifyNLBListenerAttributesRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ModifyNLBListenerAttributesRequest certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public ModifyNLBListenerAttributesRequest connectionTimeout(Integer connectionTimeout) {
@@ -163,6 +253,24 @@ public class ModifyNLBListenerAttributesRequest {
     this.listenerName = listenerName;
   }
 
+  public ModifyNLBListenerAttributesRequest pcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcACertificateId
+   * @return pcACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcACertificateId() {
+    return pcACertificateId;
+  }
+
+  public void setPcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+  }
+
   public ModifyNLBListenerAttributesRequest securityPolicyId(String securityPolicyId) {
     this.securityPolicyId = securityPolicyId;
     return this;
@@ -179,6 +287,24 @@ public class ModifyNLBListenerAttributesRequest {
 
   public void setSecurityPolicyId(String securityPolicyId) {
     this.securityPolicyId = securityPolicyId;
+  }
+
+  public ModifyNLBListenerAttributesRequest securityPolicyType(String securityPolicyType) {
+    this.securityPolicyType = securityPolicyType;
+    return this;
+  }
+
+   /**
+   * Get securityPolicyType
+   * @return securityPolicyType
+  **/
+  @Schema(description = "")
+  public String getSecurityPolicyType() {
+    return securityPolicyType;
+  }
+
+  public void setSecurityPolicyType(String securityPolicyType) {
+    this.securityPolicyType = securityPolicyType;
   }
 
   public ModifyNLBListenerAttributesRequest serverGroupId(String serverGroupId) {
@@ -209,19 +335,25 @@ public class ModifyNLBListenerAttributesRequest {
       return false;
     }
     ModifyNLBListenerAttributesRequest modifyNLBListenerAttributesRequest = (ModifyNLBListenerAttributesRequest) o;
-    return Objects.equals(this.certificateId, modifyNLBListenerAttributesRequest.certificateId) &&
+    return Objects.equals(this.caCertificateId, modifyNLBListenerAttributesRequest.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, modifyNLBListenerAttributesRequest.caCertificateSource) &&
+        Objects.equals(this.caEnabled, modifyNLBListenerAttributesRequest.caEnabled) &&
+        Objects.equals(this.certificateId, modifyNLBListenerAttributesRequest.certificateId) &&
+        Objects.equals(this.certificateSource, modifyNLBListenerAttributesRequest.certificateSource) &&
         Objects.equals(this.connectionTimeout, modifyNLBListenerAttributesRequest.connectionTimeout) &&
         Objects.equals(this.description, modifyNLBListenerAttributesRequest.description) &&
         Objects.equals(this.enabled, modifyNLBListenerAttributesRequest.enabled) &&
         Objects.equals(this.listenerId, modifyNLBListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyNLBListenerAttributesRequest.listenerName) &&
+        Objects.equals(this.pcACertificateId, modifyNLBListenerAttributesRequest.pcACertificateId) &&
         Objects.equals(this.securityPolicyId, modifyNLBListenerAttributesRequest.securityPolicyId) &&
+        Objects.equals(this.securityPolicyType, modifyNLBListenerAttributesRequest.securityPolicyType) &&
         Objects.equals(this.serverGroupId, modifyNLBListenerAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, connectionTimeout, description, enabled, listenerId, listenerName, securityPolicyId, serverGroupId);
+    return Objects.hash(caCertificateId, caCertificateSource, caEnabled, certificateId, certificateSource, connectionTimeout, description, enabled, listenerId, listenerName, pcACertificateId, securityPolicyId, securityPolicyType, serverGroupId);
   }
 
 
@@ -230,13 +362,19 @@ public class ModifyNLBListenerAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyNLBListenerAttributesRequest {\n");
     
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    connectionTimeout: ").append(toIndentedString(connectionTimeout)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
+    sb.append("    pcACertificateId: ").append(toIndentedString(pcACertificateId)).append("\n");
     sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
+    sb.append("    securityPolicyType: ").append(toIndentedString(securityPolicyType)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

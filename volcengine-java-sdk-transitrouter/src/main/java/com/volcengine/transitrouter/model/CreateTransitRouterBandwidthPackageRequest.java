@@ -45,6 +45,9 @@ public class CreateTransitRouterBandwidthPackageRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
+
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
 
@@ -136,6 +139,24 @@ public class CreateTransitRouterBandwidthPackageRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateTransitRouterBandwidthPackageRequest lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
   }
 
   public CreateTransitRouterBandwidthPackageRequest localGeographicRegionSetId(String localGeographicRegionSetId) {
@@ -289,6 +310,7 @@ public class CreateTransitRouterBandwidthPackageRequest {
         Objects.equals(this.billingType, createTransitRouterBandwidthPackageRequest.billingType) &&
         Objects.equals(this.clientToken, createTransitRouterBandwidthPackageRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterBandwidthPackageRequest.description) &&
+        Objects.equals(this.lineOperator, createTransitRouterBandwidthPackageRequest.lineOperator) &&
         Objects.equals(this.localGeographicRegionSetId, createTransitRouterBandwidthPackageRequest.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, createTransitRouterBandwidthPackageRequest.peerGeographicRegionSetId) &&
         Objects.equals(this.period, createTransitRouterBandwidthPackageRequest.period) &&
@@ -300,7 +322,7 @@ public class CreateTransitRouterBandwidthPackageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, clientToken, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, projectName, tags, transitRouterBandwidthPackageName);
+    return Objects.hash(bandwidth, billingType, clientToken, description, lineOperator, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, projectName, tags, transitRouterBandwidthPackageName);
   }
 
 
@@ -313,6 +335,7 @@ public class CreateTransitRouterBandwidthPackageRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

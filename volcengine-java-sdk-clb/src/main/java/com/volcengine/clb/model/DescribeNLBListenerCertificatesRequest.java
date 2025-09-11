@@ -38,6 +38,9 @@ public class DescribeNLBListenerCertificatesRequest {
   @SerializedName("CertificateType")
   private String certificateType = null;
 
+  @SerializedName("Domain")
+  private String domain = null;
+
   @SerializedName("ListenerId")
   private String listenerId = null;
 
@@ -89,6 +92,24 @@ public class DescribeNLBListenerCertificatesRequest {
 
   public void setCertificateType(String certificateType) {
     this.certificateType = certificateType;
+  }
+
+  public DescribeNLBListenerCertificatesRequest domain(String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Get domain
+   * @return domain
+  **/
+  @Schema(description = "")
+  public String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
   }
 
   public DescribeNLBListenerCertificatesRequest listenerId(String listenerId) {
@@ -158,6 +179,7 @@ public class DescribeNLBListenerCertificatesRequest {
     DescribeNLBListenerCertificatesRequest describeNLBListenerCertificatesRequest = (DescribeNLBListenerCertificatesRequest) o;
     return Objects.equals(this.certificateIds, describeNLBListenerCertificatesRequest.certificateIds) &&
         Objects.equals(this.certificateType, describeNLBListenerCertificatesRequest.certificateType) &&
+        Objects.equals(this.domain, describeNLBListenerCertificatesRequest.domain) &&
         Objects.equals(this.listenerId, describeNLBListenerCertificatesRequest.listenerId) &&
         Objects.equals(this.maxResults, describeNLBListenerCertificatesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeNLBListenerCertificatesRequest.nextToken);
@@ -165,7 +187,7 @@ public class DescribeNLBListenerCertificatesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateIds, certificateType, listenerId, maxResults, nextToken);
+    return Objects.hash(certificateIds, certificateType, domain, listenerId, maxResults, nextToken);
   }
 
 
@@ -176,6 +198,7 @@ public class DescribeNLBListenerCertificatesRequest {
     
     sb.append("    certificateIds: ").append(toIndentedString(certificateIds)).append("\n");
     sb.append("    certificateType: ").append(toIndentedString(certificateType)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

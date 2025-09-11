@@ -30,9 +30,6 @@ import javax.validation.Valid;
 
 
 public class HeaderOperationForCreateRouteInput {
-  @SerializedName("DirectionType")
-  private String directionType = null;
-
   @SerializedName("Key")
   private String key = null;
 
@@ -41,24 +38,6 @@ public class HeaderOperationForCreateRouteInput {
 
   @SerializedName("Value")
   private String value = null;
-
-  public HeaderOperationForCreateRouteInput directionType(String directionType) {
-    this.directionType = directionType;
-    return this;
-  }
-
-   /**
-   * Get directionType
-   * @return directionType
-  **/
-  @Schema(description = "")
-  public String getDirectionType() {
-    return directionType;
-  }
-
-  public void setDirectionType(String directionType) {
-    this.directionType = directionType;
-  }
 
   public HeaderOperationForCreateRouteInput key(String key) {
     this.key = key;
@@ -124,15 +103,14 @@ public class HeaderOperationForCreateRouteInput {
       return false;
     }
     HeaderOperationForCreateRouteInput headerOperationForCreateRouteInput = (HeaderOperationForCreateRouteInput) o;
-    return Objects.equals(this.directionType, headerOperationForCreateRouteInput.directionType) &&
-        Objects.equals(this.key, headerOperationForCreateRouteInput.key) &&
+    return Objects.equals(this.key, headerOperationForCreateRouteInput.key) &&
         Objects.equals(this.operation, headerOperationForCreateRouteInput.operation) &&
         Objects.equals(this.value, headerOperationForCreateRouteInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directionType, key, operation, value);
+    return Objects.hash(key, operation, value);
   }
 
 
@@ -141,7 +119,6 @@ public class HeaderOperationForCreateRouteInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderOperationForCreateRouteInput {\n");
     
-    sb.append("    directionType: ").append(toIndentedString(directionType)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

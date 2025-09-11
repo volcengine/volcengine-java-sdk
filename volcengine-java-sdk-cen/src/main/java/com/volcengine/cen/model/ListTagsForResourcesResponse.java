@@ -31,12 +31,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListTagsForResourcesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
-
-  @SerializedName("RequestId")
-  private String requestId = null;
 
   @SerializedName("ResourceTags")
   private List<ResourceTagForListTagsForResourcesOutput> resourceTags = null;
@@ -57,24 +55,6 @@ public class ListTagsForResourcesResponse extends com.volcengine.model.AbstractR
 
   public void setNextToken(String nextToken) {
     this.nextToken = nextToken;
-  }
-
-  public ListTagsForResourcesResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
   }
 
   public ListTagsForResourcesResponse resourceTags(List<ResourceTagForListTagsForResourcesOutput> resourceTags) {
@@ -115,13 +95,12 @@ public class ListTagsForResourcesResponse extends com.volcengine.model.AbstractR
     }
     ListTagsForResourcesResponse listTagsForResourcesResponse = (ListTagsForResourcesResponse) o;
     return Objects.equals(this.nextToken, listTagsForResourcesResponse.nextToken) &&
-        Objects.equals(this.requestId, listTagsForResourcesResponse.requestId) &&
         Objects.equals(this.resourceTags, listTagsForResourcesResponse.resourceTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextToken, requestId, resourceTags);
+    return Objects.hash(nextToken, resourceTags);
   }
 
 
@@ -131,7 +110,6 @@ public class ListTagsForResourcesResponse extends com.volcengine.model.AbstractR
     sb.append("class ListTagsForResourcesResponse {\n");
     
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("}");
     return sb.toString();

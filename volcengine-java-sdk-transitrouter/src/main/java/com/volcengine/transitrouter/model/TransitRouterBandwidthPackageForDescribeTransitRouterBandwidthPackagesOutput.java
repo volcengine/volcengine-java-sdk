@@ -61,6 +61,9 @@ public class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPacka
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
+
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
 
@@ -259,6 +262,24 @@ public class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPacka
     this.expiredTime = expiredTime;
   }
 
+  public TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+  }
+
   public TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput localGeographicRegionSetId(String localGeographicRegionSetId) {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
     return this;
@@ -449,6 +470,7 @@ public class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPacka
         Objects.equals(this.deletedTime, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.deletedTime) &&
         Objects.equals(this.description, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.description) &&
         Objects.equals(this.expiredTime, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.expiredTime) &&
+        Objects.equals(this.lineOperator, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.lineOperator) &&
         Objects.equals(this.localGeographicRegionSetId, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.peerGeographicRegionSetId) &&
         Objects.equals(this.projectName, transitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput.projectName) &&
@@ -462,7 +484,7 @@ public class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPacka
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allocations, bandwidth, billingType, businessStatus, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, transitRouterBandwidthPackageId, transitRouterBandwidthPackageName, updateTime);
+    return Objects.hash(accountId, allocations, bandwidth, billingType, businessStatus, creationTime, deletedTime, description, expiredTime, lineOperator, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, transitRouterBandwidthPackageId, transitRouterBandwidthPackageName, updateTime);
   }
 
 
@@ -480,6 +502,7 @@ public class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPacka
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

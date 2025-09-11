@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AuthSpecForUpdateGatewayServiceInput;
+import com.volcengine.apig.model.DomainSpecForUpdateGatewayServiceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +39,9 @@ public class UpdateGatewayServiceRequest {
 
   @SerializedName("Comments")
   private String comments = null;
+
+  @SerializedName("DomainSpec")
+  private DomainSpecForUpdateGatewayServiceInput domainSpec = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -80,6 +84,25 @@ public class UpdateGatewayServiceRequest {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public UpdateGatewayServiceRequest domainSpec(DomainSpecForUpdateGatewayServiceInput domainSpec) {
+    this.domainSpec = domainSpec;
+    return this;
+  }
+
+   /**
+   * Get domainSpec
+   * @return domainSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public DomainSpecForUpdateGatewayServiceInput getDomainSpec() {
+    return domainSpec;
+  }
+
+  public void setDomainSpec(DomainSpecForUpdateGatewayServiceInput domainSpec) {
+    this.domainSpec = domainSpec;
   }
 
   public UpdateGatewayServiceRequest id(String id) {
@@ -139,13 +162,14 @@ public class UpdateGatewayServiceRequest {
     UpdateGatewayServiceRequest updateGatewayServiceRequest = (UpdateGatewayServiceRequest) o;
     return Objects.equals(this.authSpec, updateGatewayServiceRequest.authSpec) &&
         Objects.equals(this.comments, updateGatewayServiceRequest.comments) &&
+        Objects.equals(this.domainSpec, updateGatewayServiceRequest.domainSpec) &&
         Objects.equals(this.id, updateGatewayServiceRequest.id) &&
         Objects.equals(this.protocol, updateGatewayServiceRequest.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, id, protocol);
+    return Objects.hash(authSpec, comments, domainSpec, id, protocol);
   }
 
 
@@ -156,6 +180,7 @@ public class UpdateGatewayServiceRequest {
     
     sb.append("    authSpec: ").append(toIndentedString(authSpec)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    domainSpec: ").append(toIndentedString(domainSpec)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

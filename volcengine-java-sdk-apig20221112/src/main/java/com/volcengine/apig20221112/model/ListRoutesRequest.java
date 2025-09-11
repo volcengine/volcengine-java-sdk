@@ -43,9 +43,6 @@ public class ListRoutesRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("ServiceId")
   private String serviceId = null;
 
@@ -128,24 +125,6 @@ public class ListRoutesRequest {
     this.pageSize = pageSize;
   }
 
-  public ListRoutesRequest resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public ListRoutesRequest serviceId(String serviceId) {
     this.serviceId = serviceId;
     return this;
@@ -214,7 +193,6 @@ public class ListRoutesRequest {
         Objects.equals(this.gatewayId, listRoutesRequest.gatewayId) &&
         Objects.equals(this.pageNumber, listRoutesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listRoutesRequest.pageSize) &&
-        Objects.equals(this.resourceType, listRoutesRequest.resourceType) &&
         Objects.equals(this.serviceId, listRoutesRequest.serviceId) &&
         Objects.equals(this.upstreamId, listRoutesRequest.upstreamId) &&
         Objects.equals(this.upstreamVersion, listRoutesRequest.upstreamVersion);
@@ -222,7 +200,7 @@ public class ListRoutesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, gatewayId, pageNumber, pageSize, resourceType, serviceId, upstreamId, upstreamVersion);
+    return Objects.hash(filter, gatewayId, pageNumber, pageSize, serviceId, upstreamId, upstreamVersion);
   }
 
 
@@ -235,7 +213,6 @@ public class ListRoutesRequest {
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    upstreamId: ").append(toIndentedString(upstreamId)).append("\n");
     sb.append("    upstreamVersion: ").append(toIndentedString(upstreamVersion)).append("\n");

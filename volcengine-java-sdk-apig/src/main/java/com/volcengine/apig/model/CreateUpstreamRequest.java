@@ -21,13 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.CircuitBreakingSettingsForCreateUpstreamInput;
 import com.volcengine.apig.model.LoadBalancerSettingsForCreateUpstreamInput;
-import com.volcengine.apig.model.TagForCreateUpstreamInput;
 import com.volcengine.apig.model.TlsSettingsForCreateUpstreamInput;
 import com.volcengine.apig.model.UpstreamSpecForCreateUpstreamInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -55,14 +52,8 @@ public class CreateUpstreamRequest {
   @SerializedName("Protocol")
   private String protocol = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
-
   @SerializedName("SourceType")
   private String sourceType = null;
-
-  @SerializedName("Tags")
-  private List<TagForCreateUpstreamInput> tags = null;
 
   @SerializedName("TlsSettings")
   private TlsSettingsForCreateUpstreamInput tlsSettings = null;
@@ -182,24 +173,6 @@ public class CreateUpstreamRequest {
     this.protocol = protocol;
   }
 
-  public CreateUpstreamRequest resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-   /**
-   * Get resourceType
-   * @return resourceType
-  **/
-  @Schema(description = "")
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   public CreateUpstreamRequest sourceType(String sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -217,33 +190,6 @@ public class CreateUpstreamRequest {
 
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
-  }
-
-  public CreateUpstreamRequest tags(List<TagForCreateUpstreamInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateUpstreamRequest addTagsItem(TagForCreateUpstreamInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForCreateUpstreamInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForCreateUpstreamInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForCreateUpstreamInput> tags) {
-    this.tags = tags;
   }
 
   public CreateUpstreamRequest tlsSettings(TlsSettingsForCreateUpstreamInput tlsSettings) {
@@ -300,16 +246,14 @@ public class CreateUpstreamRequest {
         Objects.equals(this.loadBalancerSettings, createUpstreamRequest.loadBalancerSettings) &&
         Objects.equals(this.name, createUpstreamRequest.name) &&
         Objects.equals(this.protocol, createUpstreamRequest.protocol) &&
-        Objects.equals(this.resourceType, createUpstreamRequest.resourceType) &&
         Objects.equals(this.sourceType, createUpstreamRequest.sourceType) &&
-        Objects.equals(this.tags, createUpstreamRequest.tags) &&
         Objects.equals(this.tlsSettings, createUpstreamRequest.tlsSettings) &&
         Objects.equals(this.upstreamSpec, createUpstreamRequest.upstreamSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(circuitBreakingSettings, comments, gatewayId, loadBalancerSettings, name, protocol, resourceType, sourceType, tags, tlsSettings, upstreamSpec);
+    return Objects.hash(circuitBreakingSettings, comments, gatewayId, loadBalancerSettings, name, protocol, sourceType, tlsSettings, upstreamSpec);
   }
 
 
@@ -324,9 +268,7 @@ public class CreateUpstreamRequest {
     sb.append("    loadBalancerSettings: ").append(toIndentedString(loadBalancerSettings)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsSettings: ").append(toIndentedString(tlsSettings)).append("\n");
     sb.append("    upstreamSpec: ").append(toIndentedString(upstreamSpec)).append("\n");
     sb.append("}");

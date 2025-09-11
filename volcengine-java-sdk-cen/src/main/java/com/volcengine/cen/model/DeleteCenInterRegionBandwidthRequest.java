@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCenInterRegionBandwidthRequest {
   @SerializedName("InterRegionBandwidthId")
   private String interRegionBandwidthId = null;

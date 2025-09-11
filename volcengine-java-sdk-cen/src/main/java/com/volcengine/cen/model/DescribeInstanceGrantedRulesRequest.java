@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstanceGrantedRulesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -40,7 +41,9 @@ public class DescribeInstanceGrantedRulesRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("VPC")
     VPC("VPC"),
+    @SerializedName("DCGW")
     DCGW("DCGW");
 
     private String value;

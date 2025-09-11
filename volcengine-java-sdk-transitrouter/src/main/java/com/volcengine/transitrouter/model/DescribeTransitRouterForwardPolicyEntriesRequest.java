@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeTransitRouterForwardPolicyEntriesRequest {
+  @SerializedName("DestinationCidrBlock")
+  private String destinationCidrBlock = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -49,6 +52,24 @@ public class DescribeTransitRouterForwardPolicyEntriesRequest {
 
   @SerializedName("TransitRouterRouteTableId")
   private String transitRouterRouteTableId = null;
+
+  public DescribeTransitRouterForwardPolicyEntriesRequest destinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
+    return this;
+  }
+
+   /**
+   * Get destinationCidrBlock
+   * @return destinationCidrBlock
+  **/
+  @Schema(description = "")
+  public String getDestinationCidrBlock() {
+    return destinationCidrBlock;
+  }
+
+  public void setDestinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
+  }
 
   public DescribeTransitRouterForwardPolicyEntriesRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -177,7 +198,8 @@ public class DescribeTransitRouterForwardPolicyEntriesRequest {
       return false;
     }
     DescribeTransitRouterForwardPolicyEntriesRequest describeTransitRouterForwardPolicyEntriesRequest = (DescribeTransitRouterForwardPolicyEntriesRequest) o;
-    return Objects.equals(this.pageNumber, describeTransitRouterForwardPolicyEntriesRequest.pageNumber) &&
+    return Objects.equals(this.destinationCidrBlock, describeTransitRouterForwardPolicyEntriesRequest.destinationCidrBlock) &&
+        Objects.equals(this.pageNumber, describeTransitRouterForwardPolicyEntriesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeTransitRouterForwardPolicyEntriesRequest.pageSize) &&
         Objects.equals(this.sourceCidrBlock, describeTransitRouterForwardPolicyEntriesRequest.sourceCidrBlock) &&
         Objects.equals(this.transitRouterForwardPolicyEntryIds, describeTransitRouterForwardPolicyEntriesRequest.transitRouterForwardPolicyEntryIds) &&
@@ -187,7 +209,7 @@ public class DescribeTransitRouterForwardPolicyEntriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, sourceCidrBlock, transitRouterForwardPolicyEntryIds, transitRouterForwardPolicyTableId, transitRouterRouteTableId);
+    return Objects.hash(destinationCidrBlock, pageNumber, pageSize, sourceCidrBlock, transitRouterForwardPolicyEntryIds, transitRouterForwardPolicyTableId, transitRouterRouteTableId);
   }
 
 
@@ -196,6 +218,7 @@ public class DescribeTransitRouterForwardPolicyEntriesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTransitRouterForwardPolicyEntriesRequest {\n");
     
+    sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    sourceCidrBlock: ").append(toIndentedString(sourceCidrBlock)).append("\n");

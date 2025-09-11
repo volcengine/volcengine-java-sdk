@@ -45,6 +45,12 @@ public class DescribeTransitRouterRouteEntriesResponse extends com.volcengine.mo
   @SerializedName("TransitRouterRouteEntries")
   private List<TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput> transitRouterRouteEntries = null;
 
+  @SerializedName("TransitRouterRouteEntryNextHopResourceID")
+  private String transitRouterRouteEntryNextHopResourceID = null;
+
+  @SerializedName("TransitRouterRouteEntryNextHopResourceType")
+  private String transitRouterRouteEntryNextHopResourceType = null;
+
   public DescribeTransitRouterRouteEntriesResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -126,6 +132,42 @@ public class DescribeTransitRouterRouteEntriesResponse extends com.volcengine.mo
     this.transitRouterRouteEntries = transitRouterRouteEntries;
   }
 
+  public DescribeTransitRouterRouteEntriesResponse transitRouterRouteEntryNextHopResourceID(String transitRouterRouteEntryNextHopResourceID) {
+    this.transitRouterRouteEntryNextHopResourceID = transitRouterRouteEntryNextHopResourceID;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopResourceID
+   * @return transitRouterRouteEntryNextHopResourceID
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopResourceID() {
+    return transitRouterRouteEntryNextHopResourceID;
+  }
+
+  public void setTransitRouterRouteEntryNextHopResourceID(String transitRouterRouteEntryNextHopResourceID) {
+    this.transitRouterRouteEntryNextHopResourceID = transitRouterRouteEntryNextHopResourceID;
+  }
+
+  public DescribeTransitRouterRouteEntriesResponse transitRouterRouteEntryNextHopResourceType(String transitRouterRouteEntryNextHopResourceType) {
+    this.transitRouterRouteEntryNextHopResourceType = transitRouterRouteEntryNextHopResourceType;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopResourceType
+   * @return transitRouterRouteEntryNextHopResourceType
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopResourceType() {
+    return transitRouterRouteEntryNextHopResourceType;
+  }
+
+  public void setTransitRouterRouteEntryNextHopResourceType(String transitRouterRouteEntryNextHopResourceType) {
+    this.transitRouterRouteEntryNextHopResourceType = transitRouterRouteEntryNextHopResourceType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,12 +181,14 @@ public class DescribeTransitRouterRouteEntriesResponse extends com.volcengine.mo
     return Objects.equals(this.pageNumber, describeTransitRouterRouteEntriesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeTransitRouterRouteEntriesResponse.pageSize) &&
         Objects.equals(this.totalCount, describeTransitRouterRouteEntriesResponse.totalCount) &&
-        Objects.equals(this.transitRouterRouteEntries, describeTransitRouterRouteEntriesResponse.transitRouterRouteEntries);
+        Objects.equals(this.transitRouterRouteEntries, describeTransitRouterRouteEntriesResponse.transitRouterRouteEntries) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopResourceID, describeTransitRouterRouteEntriesResponse.transitRouterRouteEntryNextHopResourceID) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopResourceType, describeTransitRouterRouteEntriesResponse.transitRouterRouteEntryNextHopResourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, totalCount, transitRouterRouteEntries);
+    return Objects.hash(pageNumber, pageSize, totalCount, transitRouterRouteEntries, transitRouterRouteEntryNextHopResourceID, transitRouterRouteEntryNextHopResourceType);
   }
 
 
@@ -157,6 +201,8 @@ public class DescribeTransitRouterRouteEntriesResponse extends com.volcengine.mo
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    transitRouterRouteEntries: ").append(toIndentedString(transitRouterRouteEntries)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopResourceID: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceID)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopResourceType: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
