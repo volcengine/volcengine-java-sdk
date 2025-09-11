@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;

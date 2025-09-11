@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("ConnectionType")
   private String connectionType = null;

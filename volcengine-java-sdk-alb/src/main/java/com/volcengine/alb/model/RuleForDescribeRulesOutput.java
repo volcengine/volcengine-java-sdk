@@ -22,8 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.ForwardGroupConfigForDescribeRulesOutput;
 import com.volcengine.alb.model.RedirectConfigForDescribeRulesOutput;
 import com.volcengine.alb.model.RewriteConfigForDescribeRulesOutput;
+import com.volcengine.alb.model.RuleActionForDescribeRulesOutput;
+import com.volcengine.alb.model.RuleConditionForDescribeRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +46,9 @@ public class RuleForDescribeRulesOutput {
   @SerializedName("ForwardGroupConfig")
   private ForwardGroupConfigForDescribeRulesOutput forwardGroupConfig = null;
 
+  @SerializedName("Priority")
+  private Integer priority = null;
+
   @SerializedName("RedirectConfig")
   private RedirectConfigForDescribeRulesOutput redirectConfig = null;
 
@@ -53,6 +60,12 @@ public class RuleForDescribeRulesOutput {
 
   @SerializedName("RuleAction")
   private String ruleAction = null;
+
+  @SerializedName("RuleActions")
+  private List<RuleActionForDescribeRulesOutput> ruleActions = null;
+
+  @SerializedName("RuleConditions")
+  private List<RuleConditionForDescribeRulesOutput> ruleConditions = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -122,6 +135,24 @@ public class RuleForDescribeRulesOutput {
 
   public void setForwardGroupConfig(ForwardGroupConfigForDescribeRulesOutput forwardGroupConfig) {
     this.forwardGroupConfig = forwardGroupConfig;
+  }
+
+  public RuleForDescribeRulesOutput priority(Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * @return priority
+  **/
+  @Schema(description = "")
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
   }
 
   public RuleForDescribeRulesOutput redirectConfig(RedirectConfigForDescribeRulesOutput redirectConfig) {
@@ -196,6 +227,60 @@ public class RuleForDescribeRulesOutput {
 
   public void setRuleAction(String ruleAction) {
     this.ruleAction = ruleAction;
+  }
+
+  public RuleForDescribeRulesOutput ruleActions(List<RuleActionForDescribeRulesOutput> ruleActions) {
+    this.ruleActions = ruleActions;
+    return this;
+  }
+
+  public RuleForDescribeRulesOutput addRuleActionsItem(RuleActionForDescribeRulesOutput ruleActionsItem) {
+    if (this.ruleActions == null) {
+      this.ruleActions = new ArrayList<RuleActionForDescribeRulesOutput>();
+    }
+    this.ruleActions.add(ruleActionsItem);
+    return this;
+  }
+
+   /**
+   * Get ruleActions
+   * @return ruleActions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RuleActionForDescribeRulesOutput> getRuleActions() {
+    return ruleActions;
+  }
+
+  public void setRuleActions(List<RuleActionForDescribeRulesOutput> ruleActions) {
+    this.ruleActions = ruleActions;
+  }
+
+  public RuleForDescribeRulesOutput ruleConditions(List<RuleConditionForDescribeRulesOutput> ruleConditions) {
+    this.ruleConditions = ruleConditions;
+    return this;
+  }
+
+  public RuleForDescribeRulesOutput addRuleConditionsItem(RuleConditionForDescribeRulesOutput ruleConditionsItem) {
+    if (this.ruleConditions == null) {
+      this.ruleConditions = new ArrayList<RuleConditionForDescribeRulesOutput>();
+    }
+    this.ruleConditions.add(ruleConditionsItem);
+    return this;
+  }
+
+   /**
+   * Get ruleConditions
+   * @return ruleConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RuleConditionForDescribeRulesOutput> getRuleConditions() {
+    return ruleConditions;
+  }
+
+  public void setRuleConditions(List<RuleConditionForDescribeRulesOutput> ruleConditions) {
+    this.ruleConditions = ruleConditions;
   }
 
   public RuleForDescribeRulesOutput ruleId(String ruleId) {
@@ -301,10 +386,13 @@ public class RuleForDescribeRulesOutput {
     return Objects.equals(this.description, ruleForDescribeRulesOutput.description) &&
         Objects.equals(this.domain, ruleForDescribeRulesOutput.domain) &&
         Objects.equals(this.forwardGroupConfig, ruleForDescribeRulesOutput.forwardGroupConfig) &&
+        Objects.equals(this.priority, ruleForDescribeRulesOutput.priority) &&
         Objects.equals(this.redirectConfig, ruleForDescribeRulesOutput.redirectConfig) &&
         Objects.equals(this.rewriteConfig, ruleForDescribeRulesOutput.rewriteConfig) &&
         Objects.equals(this.rewriteEnabled, ruleForDescribeRulesOutput.rewriteEnabled) &&
         Objects.equals(this.ruleAction, ruleForDescribeRulesOutput.ruleAction) &&
+        Objects.equals(this.ruleActions, ruleForDescribeRulesOutput.ruleActions) &&
+        Objects.equals(this.ruleConditions, ruleForDescribeRulesOutput.ruleConditions) &&
         Objects.equals(this.ruleId, ruleForDescribeRulesOutput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForDescribeRulesOutput.serverGroupId) &&
         Objects.equals(this.trafficLimitEnabled, ruleForDescribeRulesOutput.trafficLimitEnabled) &&
@@ -314,7 +402,7 @@ public class RuleForDescribeRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, forwardGroupConfig, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS, url);
+    return Objects.hash(description, domain, forwardGroupConfig, priority, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleActions, ruleConditions, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS, url);
   }
 
 
@@ -326,10 +414,13 @@ public class RuleForDescribeRulesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    forwardGroupConfig: ").append(toIndentedString(forwardGroupConfig)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    rewriteConfig: ").append(toIndentedString(rewriteConfig)).append("\n");
     sb.append("    rewriteEnabled: ").append(toIndentedString(rewriteEnabled)).append("\n");
     sb.append("    ruleAction: ").append(toIndentedString(ruleAction)).append("\n");
+    sb.append("    ruleActions: ").append(toIndentedString(ruleActions)).append("\n");
+    sb.append("    ruleConditions: ").append(toIndentedString(ruleConditions)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");

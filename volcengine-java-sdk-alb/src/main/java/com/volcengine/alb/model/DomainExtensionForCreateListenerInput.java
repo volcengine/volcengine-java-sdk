@@ -42,6 +42,9 @@ public class DomainExtensionForCreateListenerInput {
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("PcaLeafCertificateId")
+  private String pcaLeafCertificateId = null;
+
   public DomainExtensionForCreateListenerInput certCenterCertificateId(String certCenterCertificateId) {
     this.certCenterCertificateId = certCenterCertificateId;
     return this;
@@ -114,6 +117,24 @@ public class DomainExtensionForCreateListenerInput {
     this.domain = domain;
   }
 
+  public DomainExtensionForCreateListenerInput pcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaLeafCertificateId
+   * @return pcaLeafCertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaLeafCertificateId() {
+    return pcaLeafCertificateId;
+  }
+
+  public void setPcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class DomainExtensionForCreateListenerInput {
     return Objects.equals(this.certCenterCertificateId, domainExtensionForCreateListenerInput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, domainExtensionForCreateListenerInput.certificateId) &&
         Objects.equals(this.certificateSource, domainExtensionForCreateListenerInput.certificateSource) &&
-        Objects.equals(this.domain, domainExtensionForCreateListenerInput.domain);
+        Objects.equals(this.domain, domainExtensionForCreateListenerInput.domain) &&
+        Objects.equals(this.pcaLeafCertificateId, domainExtensionForCreateListenerInput.pcaLeafCertificateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, pcaLeafCertificateId);
   }
 
 
@@ -145,6 +167,7 @@ public class DomainExtensionForCreateListenerInput {
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

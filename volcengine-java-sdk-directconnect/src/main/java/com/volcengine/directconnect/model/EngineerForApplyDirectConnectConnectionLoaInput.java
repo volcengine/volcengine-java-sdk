@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EngineerForApplyDirectConnectConnectionLoaInput {
   @SerializedName("CertificateNo")
   private String certificateNo = null;

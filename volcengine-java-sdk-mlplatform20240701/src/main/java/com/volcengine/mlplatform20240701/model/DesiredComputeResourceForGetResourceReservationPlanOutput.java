@@ -35,6 +35,9 @@ public class DesiredComputeResourceForGetResourceReservationPlanOutput {
   @SerializedName("Count")
   private Long count = null;
 
+  @SerializedName("GpuCount")
+  private Long gpuCount = null;
+
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
 
@@ -57,6 +60,24 @@ public class DesiredComputeResourceForGetResourceReservationPlanOutput {
 
   public void setCount(Long count) {
     this.count = count;
+  }
+
+  public DesiredComputeResourceForGetResourceReservationPlanOutput gpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
+    return this;
+  }
+
+   /**
+   * Get gpuCount
+   * @return gpuCount
+  **/
+  @Schema(description = "")
+  public Long getGpuCount() {
+    return gpuCount;
+  }
+
+  public void setGpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
   }
 
   public DesiredComputeResourceForGetResourceReservationPlanOutput instanceTypeId(String instanceTypeId) {
@@ -114,13 +135,14 @@ public class DesiredComputeResourceForGetResourceReservationPlanOutput {
     }
     DesiredComputeResourceForGetResourceReservationPlanOutput desiredComputeResourceForGetResourceReservationPlanOutput = (DesiredComputeResourceForGetResourceReservationPlanOutput) o;
     return Objects.equals(this.count, desiredComputeResourceForGetResourceReservationPlanOutput.count) &&
+        Objects.equals(this.gpuCount, desiredComputeResourceForGetResourceReservationPlanOutput.gpuCount) &&
         Objects.equals(this.instanceTypeId, desiredComputeResourceForGetResourceReservationPlanOutput.instanceTypeId) &&
         Objects.equals(this.zoneIds, desiredComputeResourceForGetResourceReservationPlanOutput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, instanceTypeId, zoneIds);
+    return Objects.hash(count, gpuCount, instanceTypeId, zoneIds);
   }
 
 
@@ -130,6 +152,7 @@ public class DesiredComputeResourceForGetResourceReservationPlanOutput {
     sb.append("class DesiredComputeResourceForGetResourceReservationPlanOutput {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");

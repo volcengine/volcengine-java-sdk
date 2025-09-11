@@ -42,6 +42,9 @@ public class CreateDevInstanceRequest {
   @SerializedName("Credential")
   private CredentialForCreateDevInstanceInput credential = null;
 
+  @SerializedName("DefaultFolder")
+  private String defaultFolder = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -60,11 +63,17 @@ public class CreateDevInstanceRequest {
   @SerializedName("Ports")
   private List<PortForCreateDevInstanceInput> ports = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceClaim")
   private ResourceClaimForCreateDevInstanceInput resourceClaim = null;
 
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
+
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
 
   @SerializedName("SshPublicKey")
   private String sshPublicKey = null;
@@ -92,6 +101,24 @@ public class CreateDevInstanceRequest {
 
   public void setCredential(CredentialForCreateDevInstanceInput credential) {
     this.credential = credential;
+  }
+
+  public CreateDevInstanceRequest defaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
+    return this;
+  }
+
+   /**
+   * Get defaultFolder
+   * @return defaultFolder
+  **/
+  @Schema(description = "")
+  public String getDefaultFolder() {
+    return defaultFolder;
+  }
+
+  public void setDefaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
   }
 
   public CreateDevInstanceRequest description(String description) {
@@ -214,6 +241,24 @@ public class CreateDevInstanceRequest {
     this.ports = ports;
   }
 
+  public CreateDevInstanceRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateDevInstanceRequest resourceClaim(ResourceClaimForCreateDevInstanceInput resourceClaim) {
     this.resourceClaim = resourceClaim;
     return this;
@@ -242,14 +287,31 @@ public class CreateDevInstanceRequest {
    * Get resourceQueueId
    * @return resourceQueueId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getResourceQueueId() {
     return resourceQueueId;
   }
 
   public void setResourceQueueId(String resourceQueueId) {
     this.resourceQueueId = resourceQueueId;
+  }
+
+  public CreateDevInstanceRequest resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
   }
 
   public CreateDevInstanceRequest sshPublicKey(String sshPublicKey) {
@@ -327,14 +389,17 @@ public class CreateDevInstanceRequest {
     }
     CreateDevInstanceRequest createDevInstanceRequest = (CreateDevInstanceRequest) o;
     return Objects.equals(this.credential, createDevInstanceRequest.credential) &&
+        Objects.equals(this.defaultFolder, createDevInstanceRequest.defaultFolder) &&
         Objects.equals(this.description, createDevInstanceRequest.description) &&
         Objects.equals(this.image, createDevInstanceRequest.image) &&
         Objects.equals(this.name, createDevInstanceRequest.name) &&
         Objects.equals(this.nodeAffinitySpec, createDevInstanceRequest.nodeAffinitySpec) &&
         Objects.equals(this.numaAffinity, createDevInstanceRequest.numaAffinity) &&
         Objects.equals(this.ports, createDevInstanceRequest.ports) &&
+        Objects.equals(this.projectName, createDevInstanceRequest.projectName) &&
         Objects.equals(this.resourceClaim, createDevInstanceRequest.resourceClaim) &&
         Objects.equals(this.resourceQueueId, createDevInstanceRequest.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, createDevInstanceRequest.resourceReservationPlanId) &&
         Objects.equals(this.sshPublicKey, createDevInstanceRequest.sshPublicKey) &&
         Objects.equals(this.storages, createDevInstanceRequest.storages) &&
         Objects.equals(this.volume, createDevInstanceRequest.volume);
@@ -342,7 +407,7 @@ public class CreateDevInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, description, image, name, nodeAffinitySpec, numaAffinity, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volume);
+    return Objects.hash(credential, defaultFolder, description, image, name, nodeAffinitySpec, numaAffinity, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, storages, volume);
   }
 
 
@@ -352,14 +417,17 @@ public class CreateDevInstanceRequest {
     sb.append("class CreateDevInstanceRequest {\n");
     
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
+    sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");
     sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    sshPublicKey: ").append(toIndentedString(sshPublicKey)).append("\n");
     sb.append("    storages: ").append(toIndentedString(storages)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");

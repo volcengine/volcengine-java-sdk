@@ -36,6 +36,9 @@ public class ListResourceClaimOptionsRequest {
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
 
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
+
   /**
    * Gets or Sets supportStatus
    */
@@ -118,6 +121,24 @@ public class ListResourceClaimOptionsRequest {
     this.resourceQueueId = resourceQueueId;
   }
 
+  public ListResourceClaimOptionsRequest resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+  }
+
   public ListResourceClaimOptionsRequest supportStatus(SupportStatusEnum supportStatus) {
     this.supportStatus = supportStatus;
     return this;
@@ -148,12 +169,13 @@ public class ListResourceClaimOptionsRequest {
     ListResourceClaimOptionsRequest listResourceClaimOptionsRequest = (ListResourceClaimOptionsRequest) o;
     return Objects.equals(this.preemptible, listResourceClaimOptionsRequest.preemptible) &&
         Objects.equals(this.resourceQueueId, listResourceClaimOptionsRequest.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, listResourceClaimOptionsRequest.resourceReservationPlanId) &&
         Objects.equals(this.supportStatus, listResourceClaimOptionsRequest.supportStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preemptible, resourceQueueId, supportStatus);
+    return Objects.hash(preemptible, resourceQueueId, resourceReservationPlanId, supportStatus);
   }
 
 
@@ -164,6 +186,7 @@ public class ListResourceClaimOptionsRequest {
     
     sb.append("    preemptible: ").append(toIndentedString(preemptible)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    supportStatus: ").append(toIndentedString(supportStatus)).append("\n");
     sb.append("}");
     return sb.toString();

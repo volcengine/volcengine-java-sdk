@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectConnectionOrderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderNumber")
   private String orderNumber = null;

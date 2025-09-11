@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectGatewaysRequest {
   @SerializedName("CenId")
   private String cenId = null;
@@ -46,6 +47,9 @@ public class DescribeDirectConnectGatewaysRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDirectConnectGatewaysInput> tagFilters = null;
@@ -148,6 +152,24 @@ public class DescribeDirectConnectGatewaysRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeDirectConnectGatewaysRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeDirectConnectGatewaysRequest tagFilters(List<TagFilterForDescribeDirectConnectGatewaysInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -190,12 +212,13 @@ public class DescribeDirectConnectGatewaysRequest {
         Objects.equals(this.directConnectGatewayName, describeDirectConnectGatewaysRequest.directConnectGatewayName) &&
         Objects.equals(this.pageNumber, describeDirectConnectGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDirectConnectGatewaysRequest.pageSize) &&
+        Objects.equals(this.projectName, describeDirectConnectGatewaysRequest.projectName) &&
         Objects.equals(this.tagFilters, describeDirectConnectGatewaysRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, directConnectGatewayIds, directConnectGatewayName, pageNumber, pageSize, tagFilters);
+    return Objects.hash(cenId, directConnectGatewayIds, directConnectGatewayName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -209,6 +232,7 @@ public class DescribeDirectConnectGatewaysRequest {
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

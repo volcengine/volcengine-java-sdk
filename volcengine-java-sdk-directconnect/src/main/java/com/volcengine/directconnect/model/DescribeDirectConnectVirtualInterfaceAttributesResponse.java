@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -58,6 +59,9 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
+
+  @SerializedName("EnableBfdEcho")
+  private Boolean enableBfdEcho = null;
 
   @SerializedName("EnableNqa")
   private Boolean enableNqa = null;
@@ -264,6 +268,24 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   public void setEnableBfd(Boolean enableBfd) {
     this.enableBfd = enableBfd;
+  }
+
+  public DescribeDirectConnectVirtualInterfaceAttributesResponse enableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
+    return this;
+  }
+
+   /**
+   * Get enableBfdEcho
+   * @return enableBfdEcho
+  **/
+  @Schema(description = "")
+  public Boolean isEnableBfdEcho() {
+    return enableBfdEcho;
+  }
+
+  public void setEnableBfdEcho(Boolean enableBfdEcho) {
+    this.enableBfdEcho = enableBfdEcho;
   }
 
   public DescribeDirectConnectVirtualInterfaceAttributesResponse enableNqa(Boolean enableNqa) {
@@ -564,6 +586,7 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
         Objects.equals(this.directConnectConnectionId, describeDirectConnectVirtualInterfaceAttributesResponse.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, describeDirectConnectVirtualInterfaceAttributesResponse.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, describeDirectConnectVirtualInterfaceAttributesResponse.enableBfd) &&
+        Objects.equals(this.enableBfdEcho, describeDirectConnectVirtualInterfaceAttributesResponse.enableBfdEcho) &&
         Objects.equals(this.enableNqa, describeDirectConnectVirtualInterfaceAttributesResponse.enableNqa) &&
         Objects.equals(this.localIp, describeDirectConnectVirtualInterfaceAttributesResponse.localIp) &&
         Objects.equals(this.localIpv6Ip, describeDirectConnectVirtualInterfaceAttributesResponse.localIpv6Ip) &&
@@ -583,7 +606,7 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, requestId, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
+    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableBfdEcho, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, requestId, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
   }
 
 
@@ -601,6 +624,7 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableBfdEcho: ").append(toIndentedString(enableBfdEcho)).append("\n");
     sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");

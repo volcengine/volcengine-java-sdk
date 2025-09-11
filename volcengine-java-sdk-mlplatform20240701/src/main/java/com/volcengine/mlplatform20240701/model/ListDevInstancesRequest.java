@@ -50,6 +50,9 @@ public class ListDevInstancesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   /**
    * Gets or Sets relationship
    */
@@ -101,6 +104,9 @@ public class ListDevInstancesRequest {
 
   @SerializedName("ResourceQueueIds")
   private List<String> resourceQueueIds = null;
+
+  @SerializedName("ResourceReservationPlanIds")
+  private List<String> resourceReservationPlanIds = null;
 
   /**
    * Gets or Sets sortBy
@@ -378,6 +384,24 @@ public class ListDevInstancesRequest {
     this.pageSize = pageSize;
   }
 
+  public ListDevInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListDevInstancesRequest relationship(RelationshipEnum relationship) {
     this.relationship = relationship;
     return this;
@@ -446,6 +470,32 @@ public class ListDevInstancesRequest {
 
   public void setResourceQueueIds(List<String> resourceQueueIds) {
     this.resourceQueueIds = resourceQueueIds;
+  }
+
+  public ListDevInstancesRequest resourceReservationPlanIds(List<String> resourceReservationPlanIds) {
+    this.resourceReservationPlanIds = resourceReservationPlanIds;
+    return this;
+  }
+
+  public ListDevInstancesRequest addResourceReservationPlanIdsItem(String resourceReservationPlanIdsItem) {
+    if (this.resourceReservationPlanIds == null) {
+      this.resourceReservationPlanIds = new ArrayList<String>();
+    }
+    this.resourceReservationPlanIds.add(resourceReservationPlanIdsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanIds
+   * @return resourceReservationPlanIds
+  **/
+  @Schema(description = "")
+  public List<String> getResourceReservationPlanIds() {
+    return resourceReservationPlanIds;
+  }
+
+  public void setResourceReservationPlanIds(List<String> resourceReservationPlanIds) {
+    this.resourceReservationPlanIds = resourceReservationPlanIds;
   }
 
   public ListDevInstancesRequest sortBy(SortByEnum sortBy) {
@@ -526,9 +576,11 @@ public class ListDevInstancesRequest {
         Objects.equals(this.nameContains, listDevInstancesRequest.nameContains) &&
         Objects.equals(this.pageNumber, listDevInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listDevInstancesRequest.pageSize) &&
+        Objects.equals(this.projectName, listDevInstancesRequest.projectName) &&
         Objects.equals(this.relationship, listDevInstancesRequest.relationship) &&
         Objects.equals(this.resourceGroupIds, listDevInstancesRequest.resourceGroupIds) &&
         Objects.equals(this.resourceQueueIds, listDevInstancesRequest.resourceQueueIds) &&
+        Objects.equals(this.resourceReservationPlanIds, listDevInstancesRequest.resourceReservationPlanIds) &&
         Objects.equals(this.sortBy, listDevInstancesRequest.sortBy) &&
         Objects.equals(this.sortOrder, listDevInstancesRequest.sortOrder) &&
         Objects.equals(this.states, listDevInstancesRequest.states);
@@ -536,7 +588,7 @@ public class ListDevInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createUserIds, idContains, ids, nameContains, pageNumber, pageSize, relationship, resourceGroupIds, resourceQueueIds, sortBy, sortOrder, states);
+    return Objects.hash(createUserIds, idContains, ids, nameContains, pageNumber, pageSize, projectName, relationship, resourceGroupIds, resourceQueueIds, resourceReservationPlanIds, sortBy, sortOrder, states);
   }
 
 
@@ -551,9 +603,11 @@ public class ListDevInstancesRequest {
     sb.append("    nameContains: ").append(toIndentedString(nameContains)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    relationship: ").append(toIndentedString(relationship)).append("\n");
     sb.append("    resourceGroupIds: ").append(toIndentedString(resourceGroupIds)).append("\n");
     sb.append("    resourceQueueIds: ").append(toIndentedString(resourceQueueIds)).append("\n");
+    sb.append("    resourceReservationPlanIds: ").append(toIndentedString(resourceReservationPlanIds)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");

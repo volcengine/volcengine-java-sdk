@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.DesiredComputeResourceForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.ReservationConfigForListResourceReservationPlansOutput;
+import com.volcengine.mlplatform20240701.model.ScheduleConfigForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.StatusForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.StorageConfigForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForListResourceReservationPlansOutput;
@@ -53,8 +54,14 @@ public class ItemForListResourceReservationPlansOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ReservationConfig")
   private ReservationConfigForListResourceReservationPlansOutput reservationConfig = null;
+
+  @SerializedName("ScheduleConfig")
+  private ScheduleConfigForListResourceReservationPlansOutput scheduleConfig = null;
 
   @SerializedName("Status")
   private StatusForListResourceReservationPlansOutput status = null;
@@ -67,6 +74,9 @@ public class ItemForListResourceReservationPlansOutput {
 
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForListResourceReservationPlansOutput workloadNetworkConfig = null;
+
+  @SerializedName("WorkloadNetworkMode")
+  private String workloadNetworkMode = null;
 
   public ItemForListResourceReservationPlansOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -177,6 +187,24 @@ public class ItemForListResourceReservationPlansOutput {
     this.name = name;
   }
 
+  public ItemForListResourceReservationPlansOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ItemForListResourceReservationPlansOutput reservationConfig(ReservationConfigForListResourceReservationPlansOutput reservationConfig) {
     this.reservationConfig = reservationConfig;
     return this;
@@ -194,6 +222,25 @@ public class ItemForListResourceReservationPlansOutput {
 
   public void setReservationConfig(ReservationConfigForListResourceReservationPlansOutput reservationConfig) {
     this.reservationConfig = reservationConfig;
+  }
+
+  public ItemForListResourceReservationPlansOutput scheduleConfig(ScheduleConfigForListResourceReservationPlansOutput scheduleConfig) {
+    this.scheduleConfig = scheduleConfig;
+    return this;
+  }
+
+   /**
+   * Get scheduleConfig
+   * @return scheduleConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScheduleConfigForListResourceReservationPlansOutput getScheduleConfig() {
+    return scheduleConfig;
+  }
+
+  public void setScheduleConfig(ScheduleConfigForListResourceReservationPlansOutput scheduleConfig) {
+    this.scheduleConfig = scheduleConfig;
   }
 
   public ItemForListResourceReservationPlansOutput status(StatusForListResourceReservationPlansOutput status) {
@@ -271,6 +318,24 @@ public class ItemForListResourceReservationPlansOutput {
     this.workloadNetworkConfig = workloadNetworkConfig;
   }
 
+  public ItemForListResourceReservationPlansOutput workloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+    return this;
+  }
+
+   /**
+   * Get workloadNetworkMode
+   * @return workloadNetworkMode
+  **/
+  @Schema(description = "")
+  public String getWorkloadNetworkMode() {
+    return workloadNetworkMode;
+  }
+
+  public void setWorkloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -287,16 +352,19 @@ public class ItemForListResourceReservationPlansOutput {
         Objects.equals(this.desiredComputeResource, itemForListResourceReservationPlansOutput.desiredComputeResource) &&
         Objects.equals(this.id, itemForListResourceReservationPlansOutput.id) &&
         Objects.equals(this.name, itemForListResourceReservationPlansOutput.name) &&
+        Objects.equals(this.projectName, itemForListResourceReservationPlansOutput.projectName) &&
         Objects.equals(this.reservationConfig, itemForListResourceReservationPlansOutput.reservationConfig) &&
+        Objects.equals(this.scheduleConfig, itemForListResourceReservationPlansOutput.scheduleConfig) &&
         Objects.equals(this.status, itemForListResourceReservationPlansOutput.status) &&
         Objects.equals(this.storageConfig, itemForListResourceReservationPlansOutput.storageConfig) &&
         Objects.equals(this.updateTime, itemForListResourceReservationPlansOutput.updateTime) &&
-        Objects.equals(this.workloadNetworkConfig, itemForListResourceReservationPlansOutput.workloadNetworkConfig);
+        Objects.equals(this.workloadNetworkConfig, itemForListResourceReservationPlansOutput.workloadNetworkConfig) &&
+        Objects.equals(this.workloadNetworkMode, itemForListResourceReservationPlansOutput.workloadNetworkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, creatorTrn, description, desiredComputeResource, id, name, reservationConfig, status, storageConfig, updateTime, workloadNetworkConfig);
+    return Objects.hash(createTime, creatorTrn, description, desiredComputeResource, id, name, projectName, reservationConfig, scheduleConfig, status, storageConfig, updateTime, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -311,11 +379,14 @@ public class ItemForListResourceReservationPlansOutput {
     sb.append("    desiredComputeResource: ").append(toIndentedString(desiredComputeResource)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    reservationConfig: ").append(toIndentedString(reservationConfig)).append("\n");
+    sb.append("    scheduleConfig: ").append(toIndentedString(scheduleConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
+    sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

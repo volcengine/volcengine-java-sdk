@@ -45,6 +45,9 @@ public class ListServicesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   /**
    * Gets or Sets sortBy
    */
@@ -293,6 +296,24 @@ public class ListServicesRequest {
     this.pageSize = pageSize;
   }
 
+  public ListServicesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListServicesRequest sortBy(SortByEnum sortBy) {
     this.sortBy = sortBy;
     return this;
@@ -398,6 +419,7 @@ public class ListServicesRequest {
         Objects.equals(this.nameContains, listServicesRequest.nameContains) &&
         Objects.equals(this.pageNumber, listServicesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listServicesRequest.pageSize) &&
+        Objects.equals(this.projectName, listServicesRequest.projectName) &&
         Objects.equals(this.sortBy, listServicesRequest.sortBy) &&
         Objects.equals(this.sortOrder, listServicesRequest.sortOrder) &&
         Objects.equals(this.state, listServicesRequest.state) &&
@@ -407,7 +429,7 @@ public class ListServicesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTimeAfter, createTimeBefore, nameContains, pageNumber, pageSize, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
+    return Objects.hash(createTimeAfter, createTimeBefore, nameContains, pageNumber, pageSize, projectName, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
   }
 
 
@@ -421,6 +443,7 @@ public class ListServicesRequest {
     sb.append("    nameContains: ").append(toIndentedString(nameContains)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

@@ -33,6 +33,9 @@ public class OutputVideoForGetAITranslationProjectOutput {
   @SerializedName("DurationSecond")
   private Double durationSecond = null;
 
+  @SerializedName("FileName")
+  private String fileName = null;
+
   @SerializedName("IsAudio")
   private Boolean isAudio = null;
 
@@ -61,6 +64,24 @@ public class OutputVideoForGetAITranslationProjectOutput {
 
   public void setDurationSecond(Double durationSecond) {
     this.durationSecond = durationSecond;
+  }
+
+  public OutputVideoForGetAITranslationProjectOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public OutputVideoForGetAITranslationProjectOutput isAudio(Boolean isAudio) {
@@ -146,6 +167,7 @@ public class OutputVideoForGetAITranslationProjectOutput {
     }
     OutputVideoForGetAITranslationProjectOutput outputVideoForGetAITranslationProjectOutput = (OutputVideoForGetAITranslationProjectOutput) o;
     return Objects.equals(this.durationSecond, outputVideoForGetAITranslationProjectOutput.durationSecond) &&
+        Objects.equals(this.fileName, outputVideoForGetAITranslationProjectOutput.fileName) &&
         Objects.equals(this.isAudio, outputVideoForGetAITranslationProjectOutput.isAudio) &&
         Objects.equals(this.uri, outputVideoForGetAITranslationProjectOutput.uri) &&
         Objects.equals(this.url, outputVideoForGetAITranslationProjectOutput.url) &&
@@ -154,7 +176,7 @@ public class OutputVideoForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationSecond, isAudio, uri, url, vid);
+    return Objects.hash(durationSecond, fileName, isAudio, uri, url, vid);
   }
 
 
@@ -164,6 +186,7 @@ public class OutputVideoForGetAITranslationProjectOutput {
     sb.append("class OutputVideoForGetAITranslationProjectOutput {\n");
     
     sb.append("    durationSecond: ").append(toIndentedString(durationSecond)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    isAudio: ").append(toIndentedString(isAudio)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

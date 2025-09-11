@@ -16,6 +16,14 @@ import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
+import com.volcengine.ark.runtime.model.responses.event.StreamEvent;
+import com.volcengine.ark.runtime.model.responses.request.DeleteResponseRequest;
+import com.volcengine.ark.runtime.model.responses.request.GetResponseRequest;
+import com.volcengine.ark.runtime.model.responses.request.ListInputItemsRequest;
+import com.volcengine.ark.runtime.model.responses.request.CreateResponsesRequest;
+import com.volcengine.ark.runtime.model.responses.response.DeleteResponseResponse;
+import com.volcengine.ark.runtime.model.responses.response.ListInputItemsResponse;
+import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import io.reactivex.Flowable;
@@ -36,6 +44,10 @@ public interface ArkBaseServiceImpl {
     CreateContextResult createContext(CreateContextRequest request);
 
     ChatCompletionResult createContextChatCompletion(ContextChatCompletionRequest request);
+
+    ResponseObject createResponse(CreateResponsesRequest request);
+
+    Flowable<StreamEvent> streamResponse(CreateResponsesRequest request);
 
     Flowable<ChatCompletionChunk> streamContextChatCompletion(ContextChatCompletionRequest request);
 
@@ -58,4 +70,10 @@ public interface ArkBaseServiceImpl {
     ListContentGenerationTasksResponse listContentGenerationTasks(ListContentGenerationTasksRequest request);
 
     DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request);
+
+    ResponseObject getResponse(GetResponseRequest request);
+
+    DeleteResponseResponse deleteResponse(DeleteResponseRequest request);
+
+    ListInputItemsResponse listResponseInputItems(ListInputItemsRequest request);
 }

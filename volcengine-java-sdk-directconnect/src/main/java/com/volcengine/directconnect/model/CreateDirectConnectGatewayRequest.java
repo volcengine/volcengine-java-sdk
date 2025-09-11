@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectGatewayRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -43,6 +44,9 @@ public class CreateDirectConnectGatewayRequest {
 
   @SerializedName("EnableIpv6")
   private Boolean enableIpv6 = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Tags")
   private List<TagForCreateDirectConnectGatewayInput> tags = null;
@@ -119,6 +123,24 @@ public class CreateDirectConnectGatewayRequest {
     this.enableIpv6 = enableIpv6;
   }
 
+  public CreateDirectConnectGatewayRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateDirectConnectGatewayRequest tags(List<TagForCreateDirectConnectGatewayInput> tags) {
     this.tags = tags;
     return this;
@@ -160,12 +182,13 @@ public class CreateDirectConnectGatewayRequest {
         Objects.equals(this.description, createDirectConnectGatewayRequest.description) &&
         Objects.equals(this.directConnectGatewayName, createDirectConnectGatewayRequest.directConnectGatewayName) &&
         Objects.equals(this.enableIpv6, createDirectConnectGatewayRequest.enableIpv6) &&
+        Objects.equals(this.projectName, createDirectConnectGatewayRequest.projectName) &&
         Objects.equals(this.tags, createDirectConnectGatewayRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, directConnectGatewayName, enableIpv6, tags);
+    return Objects.hash(clientToken, description, directConnectGatewayName, enableIpv6, projectName, tags);
   }
 
 
@@ -178,6 +201,7 @@ public class CreateDirectConnectGatewayRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
     sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

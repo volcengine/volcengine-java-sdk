@@ -42,6 +42,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DeleteProtection")
   private String deleteProtection = null;
 
@@ -124,6 +127,24 @@ public class CreateLoadBalancerRequest {
 
   public void setBandwidthPackageId(String bandwidthPackageId) {
     this.bandwidthPackageId = bandwidthPackageId;
+  }
+
+  public CreateLoadBalancerRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateLoadBalancerRequest deleteProtection(String deleteProtection) {
@@ -448,6 +469,7 @@ public class CreateLoadBalancerRequest {
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
     return Objects.equals(this.addressIpVersion, createLoadBalancerRequest.addressIpVersion) &&
         Objects.equals(this.bandwidthPackageId, createLoadBalancerRequest.bandwidthPackageId) &&
+        Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
         Objects.equals(this.deleteProtection, createLoadBalancerRequest.deleteProtection) &&
         Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
@@ -468,7 +490,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, clientToken, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -479,6 +501,7 @@ public class CreateLoadBalancerRequest {
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");

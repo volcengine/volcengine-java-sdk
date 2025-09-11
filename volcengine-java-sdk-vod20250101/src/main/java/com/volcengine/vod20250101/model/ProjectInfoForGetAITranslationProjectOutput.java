@@ -24,8 +24,10 @@ import com.volcengine.vod20250101.model.BackgroundClipForGetAITranslationProject
 import com.volcengine.vod20250101.model.ErasedSubtitleVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.FacialTranslationVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.ForegroundAudioForGetAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.InputSubtitleForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.InputVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.OperatorConfigForGetAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.OutputSubtitleForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.OutputVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.PreviewVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.PreviewVideoMutedForGetAITranslationProjectOutput;
@@ -76,6 +78,9 @@ public class ProjectInfoForGetAITranslationProjectOutput {
   @SerializedName("ForegroundAudio")
   private ForegroundAudioForGetAITranslationProjectOutput foregroundAudio = null;
 
+  @SerializedName("InputSubtitle")
+  private InputSubtitleForGetAITranslationProjectOutput inputSubtitle = null;
+
   @SerializedName("InputVideo")
   private InputVideoForGetAITranslationProjectOutput inputVideo = null;
 
@@ -84,6 +89,9 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @SerializedName("OperatorConfig")
   private OperatorConfigForGetAITranslationProjectOutput operatorConfig = null;
+
+  @SerializedName("OutputSubtitle")
+  private OutputSubtitleForGetAITranslationProjectOutput outputSubtitle = null;
 
   @SerializedName("OutputVideo")
   private OutputVideoForGetAITranslationProjectOutput outputVideo = null;
@@ -291,6 +299,25 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     this.foregroundAudio = foregroundAudio;
   }
 
+  public ProjectInfoForGetAITranslationProjectOutput inputSubtitle(InputSubtitleForGetAITranslationProjectOutput inputSubtitle) {
+    this.inputSubtitle = inputSubtitle;
+    return this;
+  }
+
+   /**
+   * Get inputSubtitle
+   * @return inputSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public InputSubtitleForGetAITranslationProjectOutput getInputSubtitle() {
+    return inputSubtitle;
+  }
+
+  public void setInputSubtitle(InputSubtitleForGetAITranslationProjectOutput inputSubtitle) {
+    this.inputSubtitle = inputSubtitle;
+  }
+
   public ProjectInfoForGetAITranslationProjectOutput inputVideo(InputVideoForGetAITranslationProjectOutput inputVideo) {
     this.inputVideo = inputVideo;
     return this;
@@ -345,6 +372,25 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   public void setOperatorConfig(OperatorConfigForGetAITranslationProjectOutput operatorConfig) {
     this.operatorConfig = operatorConfig;
+  }
+
+  public ProjectInfoForGetAITranslationProjectOutput outputSubtitle(OutputSubtitleForGetAITranslationProjectOutput outputSubtitle) {
+    this.outputSubtitle = outputSubtitle;
+    return this;
+  }
+
+   /**
+   * Get outputSubtitle
+   * @return outputSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public OutputSubtitleForGetAITranslationProjectOutput getOutputSubtitle() {
+    return outputSubtitle;
+  }
+
+  public void setOutputSubtitle(OutputSubtitleForGetAITranslationProjectOutput outputSubtitle) {
+    this.outputSubtitle = outputSubtitle;
   }
 
   public ProjectInfoForGetAITranslationProjectOutput outputVideo(OutputVideoForGetAITranslationProjectOutput outputVideo) {
@@ -800,9 +846,11 @@ public class ProjectInfoForGetAITranslationProjectOutput {
         Objects.equals(this.errorMsg, projectInfoForGetAITranslationProjectOutput.errorMsg) &&
         Objects.equals(this.facialTranslationVideo, projectInfoForGetAITranslationProjectOutput.facialTranslationVideo) &&
         Objects.equals(this.foregroundAudio, projectInfoForGetAITranslationProjectOutput.foregroundAudio) &&
+        Objects.equals(this.inputSubtitle, projectInfoForGetAITranslationProjectOutput.inputSubtitle) &&
         Objects.equals(this.inputVideo, projectInfoForGetAITranslationProjectOutput.inputVideo) &&
         Objects.equals(this.inputVideoTitle, projectInfoForGetAITranslationProjectOutput.inputVideoTitle) &&
         Objects.equals(this.operatorConfig, projectInfoForGetAITranslationProjectOutput.operatorConfig) &&
+        Objects.equals(this.outputSubtitle, projectInfoForGetAITranslationProjectOutput.outputSubtitle) &&
         Objects.equals(this.outputVideo, projectInfoForGetAITranslationProjectOutput.outputVideo) &&
         Objects.equals(this.previewVideo, projectInfoForGetAITranslationProjectOutput.previewVideo) &&
         Objects.equals(this.previewVideoMuted, projectInfoForGetAITranslationProjectOutput.previewVideoMuted) &&
@@ -826,7 +874,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundAudio, backgroundClip, createdAt, erasedSubtitleVideo, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputVideo, inputVideoTitle, operatorConfig, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
+    return Objects.hash(backgroundAudio, backgroundClip, createdAt, erasedSubtitleVideo, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputSubtitle, inputVideo, inputVideoTitle, operatorConfig, outputSubtitle, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
   }
 
 
@@ -843,9 +891,11 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    facialTranslationVideo: ").append(toIndentedString(facialTranslationVideo)).append("\n");
     sb.append("    foregroundAudio: ").append(toIndentedString(foregroundAudio)).append("\n");
+    sb.append("    inputSubtitle: ").append(toIndentedString(inputSubtitle)).append("\n");
     sb.append("    inputVideo: ").append(toIndentedString(inputVideo)).append("\n");
     sb.append("    inputVideoTitle: ").append(toIndentedString(inputVideoTitle)).append("\n");
     sb.append("    operatorConfig: ").append(toIndentedString(operatorConfig)).append("\n");
+    sb.append("    outputSubtitle: ").append(toIndentedString(outputSubtitle)).append("\n");
     sb.append("    outputVideo: ").append(toIndentedString(outputVideo)).append("\n");
     sb.append("    previewVideo: ").append(toIndentedString(previewVideo)).append("\n");
     sb.append("    previewVideoMuted: ").append(toIndentedString(previewVideoMuted)).append("\n");

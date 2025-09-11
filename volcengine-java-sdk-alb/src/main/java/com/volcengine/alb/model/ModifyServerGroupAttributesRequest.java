@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class ModifyServerGroupAttributesRequest {
+  @SerializedName("CrossZoneEnabled")
+  private String crossZoneEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -49,6 +52,24 @@ public class ModifyServerGroupAttributesRequest {
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig = null;
+
+  public ModifyServerGroupAttributesRequest crossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+    return this;
+  }
+
+   /**
+   * Get crossZoneEnabled
+   * @return crossZoneEnabled
+  **/
+  @Schema(description = "")
+  public String getCrossZoneEnabled() {
+    return crossZoneEnabled;
+  }
+
+  public void setCrossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+  }
 
   public ModifyServerGroupAttributesRequest description(String description) {
     this.description = description;
@@ -171,7 +192,8 @@ public class ModifyServerGroupAttributesRequest {
       return false;
     }
     ModifyServerGroupAttributesRequest modifyServerGroupAttributesRequest = (ModifyServerGroupAttributesRequest) o;
-    return Objects.equals(this.description, modifyServerGroupAttributesRequest.description) &&
+    return Objects.equals(this.crossZoneEnabled, modifyServerGroupAttributesRequest.crossZoneEnabled) &&
+        Objects.equals(this.description, modifyServerGroupAttributesRequest.description) &&
         Objects.equals(this.healthCheck, modifyServerGroupAttributesRequest.healthCheck) &&
         Objects.equals(this.scheduler, modifyServerGroupAttributesRequest.scheduler) &&
         Objects.equals(this.serverGroupId, modifyServerGroupAttributesRequest.serverGroupId) &&
@@ -181,7 +203,7 @@ public class ModifyServerGroupAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, scheduler, serverGroupId, serverGroupName, stickySessionConfig);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, scheduler, serverGroupId, serverGroupName, stickySessionConfig);
   }
 
 
@@ -190,6 +212,7 @@ public class ModifyServerGroupAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyServerGroupAttributesRequest {\n");
     
+    sb.append("    crossZoneEnabled: ").append(toIndentedString(crossZoneEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");

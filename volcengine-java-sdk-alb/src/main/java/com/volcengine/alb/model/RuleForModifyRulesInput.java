@@ -22,8 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.ForwardGroupConfigForModifyRulesInput;
 import com.volcengine.alb.model.RedirectConfigForModifyRulesInput;
 import com.volcengine.alb.model.RewriteConfigForModifyRulesInput;
+import com.volcengine.alb.model.RulesRuleActionForModifyRulesInput;
+import com.volcengine.alb.model.RulesRuleConditionForModifyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -39,6 +43,9 @@ public class RuleForModifyRulesInput {
   @SerializedName("ForwardGroupConfig")
   private ForwardGroupConfigForModifyRulesInput forwardGroupConfig = null;
 
+  @SerializedName("Priority")
+  private Integer priority = null;
+
   @SerializedName("RedirectConfig")
   private RedirectConfigForModifyRulesInput redirectConfig = null;
 
@@ -50,6 +57,12 @@ public class RuleForModifyRulesInput {
 
   @SerializedName("RuleAction")
   private String ruleAction = null;
+
+  @SerializedName("RuleActions")
+  private List<RulesRuleActionForModifyRulesInput> ruleActions = null;
+
+  @SerializedName("RuleConditions")
+  private List<RulesRuleConditionForModifyRulesInput> ruleConditions = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -98,6 +111,26 @@ public class RuleForModifyRulesInput {
 
   public void setForwardGroupConfig(ForwardGroupConfigForModifyRulesInput forwardGroupConfig) {
     this.forwardGroupConfig = forwardGroupConfig;
+  }
+
+  public RuleForModifyRulesInput priority(Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * minimum: 1
+   * maximum: 10000
+   * @return priority
+  **/
+ @Min(1) @Max(10000)  @Schema(description = "")
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
   }
 
   public RuleForModifyRulesInput redirectConfig(RedirectConfigForModifyRulesInput redirectConfig) {
@@ -172,6 +205,60 @@ public class RuleForModifyRulesInput {
 
   public void setRuleAction(String ruleAction) {
     this.ruleAction = ruleAction;
+  }
+
+  public RuleForModifyRulesInput ruleActions(List<RulesRuleActionForModifyRulesInput> ruleActions) {
+    this.ruleActions = ruleActions;
+    return this;
+  }
+
+  public RuleForModifyRulesInput addRuleActionsItem(RulesRuleActionForModifyRulesInput ruleActionsItem) {
+    if (this.ruleActions == null) {
+      this.ruleActions = new ArrayList<RulesRuleActionForModifyRulesInput>();
+    }
+    this.ruleActions.add(ruleActionsItem);
+    return this;
+  }
+
+   /**
+   * Get ruleActions
+   * @return ruleActions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RulesRuleActionForModifyRulesInput> getRuleActions() {
+    return ruleActions;
+  }
+
+  public void setRuleActions(List<RulesRuleActionForModifyRulesInput> ruleActions) {
+    this.ruleActions = ruleActions;
+  }
+
+  public RuleForModifyRulesInput ruleConditions(List<RulesRuleConditionForModifyRulesInput> ruleConditions) {
+    this.ruleConditions = ruleConditions;
+    return this;
+  }
+
+  public RuleForModifyRulesInput addRuleConditionsItem(RulesRuleConditionForModifyRulesInput ruleConditionsItem) {
+    if (this.ruleConditions == null) {
+      this.ruleConditions = new ArrayList<RulesRuleConditionForModifyRulesInput>();
+    }
+    this.ruleConditions.add(ruleConditionsItem);
+    return this;
+  }
+
+   /**
+   * Get ruleConditions
+   * @return ruleConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RulesRuleConditionForModifyRulesInput> getRuleConditions() {
+    return ruleConditions;
+  }
+
+  public void setRuleConditions(List<RulesRuleConditionForModifyRulesInput> ruleConditions) {
+    this.ruleConditions = ruleConditions;
   }
 
   public RuleForModifyRulesInput ruleId(String ruleId) {
@@ -259,10 +346,13 @@ public class RuleForModifyRulesInput {
     RuleForModifyRulesInput ruleForModifyRulesInput = (RuleForModifyRulesInput) o;
     return Objects.equals(this.description, ruleForModifyRulesInput.description) &&
         Objects.equals(this.forwardGroupConfig, ruleForModifyRulesInput.forwardGroupConfig) &&
+        Objects.equals(this.priority, ruleForModifyRulesInput.priority) &&
         Objects.equals(this.redirectConfig, ruleForModifyRulesInput.redirectConfig) &&
         Objects.equals(this.rewriteConfig, ruleForModifyRulesInput.rewriteConfig) &&
         Objects.equals(this.rewriteEnabled, ruleForModifyRulesInput.rewriteEnabled) &&
         Objects.equals(this.ruleAction, ruleForModifyRulesInput.ruleAction) &&
+        Objects.equals(this.ruleActions, ruleForModifyRulesInput.ruleActions) &&
+        Objects.equals(this.ruleConditions, ruleForModifyRulesInput.ruleConditions) &&
         Objects.equals(this.ruleId, ruleForModifyRulesInput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForModifyRulesInput.serverGroupId) &&
         Objects.equals(this.trafficLimitEnabled, ruleForModifyRulesInput.trafficLimitEnabled) &&
@@ -271,7 +361,7 @@ public class RuleForModifyRulesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, forwardGroupConfig, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS);
+    return Objects.hash(description, forwardGroupConfig, priority, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleActions, ruleConditions, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS);
   }
 
 
@@ -282,10 +372,13 @@ public class RuleForModifyRulesInput {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forwardGroupConfig: ").append(toIndentedString(forwardGroupConfig)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    rewriteConfig: ").append(toIndentedString(rewriteConfig)).append("\n");
     sb.append("    rewriteEnabled: ").append(toIndentedString(rewriteEnabled)).append("\n");
     sb.append("    ruleAction: ").append(toIndentedString(ruleAction)).append("\n");
+    sb.append("    ruleActions: ").append(toIndentedString(ruleActions)).append("\n");
+    sb.append("    ruleConditions: ").append(toIndentedString(ruleConditions)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");
