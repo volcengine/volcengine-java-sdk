@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.ScheduleConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.StorageConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForUpdateResourceReservationPlanInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -44,11 +45,17 @@ public class UpdateResourceReservationPlanRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ScheduleConfig")
+  private ScheduleConfigForUpdateResourceReservationPlanInput scheduleConfig = null;
+
   @SerializedName("StorageConfig")
   private StorageConfigForUpdateResourceReservationPlanInput storageConfig = null;
 
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForUpdateResourceReservationPlanInput workloadNetworkConfig = null;
+
+  @SerializedName("WorkloadNetworkMode")
+  private String workloadNetworkMode = null;
 
   public UpdateResourceReservationPlanRequest description(String description) {
     this.description = description;
@@ -123,6 +130,25 @@ public class UpdateResourceReservationPlanRequest {
     this.name = name;
   }
 
+  public UpdateResourceReservationPlanRequest scheduleConfig(ScheduleConfigForUpdateResourceReservationPlanInput scheduleConfig) {
+    this.scheduleConfig = scheduleConfig;
+    return this;
+  }
+
+   /**
+   * Get scheduleConfig
+   * @return scheduleConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScheduleConfigForUpdateResourceReservationPlanInput getScheduleConfig() {
+    return scheduleConfig;
+  }
+
+  public void setScheduleConfig(ScheduleConfigForUpdateResourceReservationPlanInput scheduleConfig) {
+    this.scheduleConfig = scheduleConfig;
+  }
+
   public UpdateResourceReservationPlanRequest storageConfig(StorageConfigForUpdateResourceReservationPlanInput storageConfig) {
     this.storageConfig = storageConfig;
     return this;
@@ -161,6 +187,24 @@ public class UpdateResourceReservationPlanRequest {
     this.workloadNetworkConfig = workloadNetworkConfig;
   }
 
+  public UpdateResourceReservationPlanRequest workloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+    return this;
+  }
+
+   /**
+   * Get workloadNetworkMode
+   * @return workloadNetworkMode
+  **/
+  @Schema(description = "")
+  public String getWorkloadNetworkMode() {
+    return workloadNetworkMode;
+  }
+
+  public void setWorkloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -175,13 +219,15 @@ public class UpdateResourceReservationPlanRequest {
         Objects.equals(this.dryRun, updateResourceReservationPlanRequest.dryRun) &&
         Objects.equals(this.id, updateResourceReservationPlanRequest.id) &&
         Objects.equals(this.name, updateResourceReservationPlanRequest.name) &&
+        Objects.equals(this.scheduleConfig, updateResourceReservationPlanRequest.scheduleConfig) &&
         Objects.equals(this.storageConfig, updateResourceReservationPlanRequest.storageConfig) &&
-        Objects.equals(this.workloadNetworkConfig, updateResourceReservationPlanRequest.workloadNetworkConfig);
+        Objects.equals(this.workloadNetworkConfig, updateResourceReservationPlanRequest.workloadNetworkConfig) &&
+        Objects.equals(this.workloadNetworkMode, updateResourceReservationPlanRequest.workloadNetworkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dryRun, id, name, storageConfig, workloadNetworkConfig);
+    return Objects.hash(description, dryRun, id, name, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -194,8 +240,10 @@ public class UpdateResourceReservationPlanRequest {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scheduleConfig: ").append(toIndentedString(scheduleConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
+    sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

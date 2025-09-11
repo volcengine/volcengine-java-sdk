@@ -63,8 +63,7 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
    * Get value
    * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getValue() {
     return value;
   }

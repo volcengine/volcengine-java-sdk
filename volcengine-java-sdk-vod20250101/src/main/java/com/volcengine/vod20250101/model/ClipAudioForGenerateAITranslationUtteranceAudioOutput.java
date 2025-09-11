@@ -33,6 +33,9 @@ public class ClipAudioForGenerateAITranslationUtteranceAudioOutput {
   @SerializedName("DurationSecond")
   private Double durationSecond = null;
 
+  @SerializedName("FileName")
+  private String fileName = null;
+
   @SerializedName("IsAudio")
   private Boolean isAudio = null;
 
@@ -61,6 +64,24 @@ public class ClipAudioForGenerateAITranslationUtteranceAudioOutput {
 
   public void setDurationSecond(Double durationSecond) {
     this.durationSecond = durationSecond;
+  }
+
+  public ClipAudioForGenerateAITranslationUtteranceAudioOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public ClipAudioForGenerateAITranslationUtteranceAudioOutput isAudio(Boolean isAudio) {
@@ -146,6 +167,7 @@ public class ClipAudioForGenerateAITranslationUtteranceAudioOutput {
     }
     ClipAudioForGenerateAITranslationUtteranceAudioOutput clipAudioForGenerateAITranslationUtteranceAudioOutput = (ClipAudioForGenerateAITranslationUtteranceAudioOutput) o;
     return Objects.equals(this.durationSecond, clipAudioForGenerateAITranslationUtteranceAudioOutput.durationSecond) &&
+        Objects.equals(this.fileName, clipAudioForGenerateAITranslationUtteranceAudioOutput.fileName) &&
         Objects.equals(this.isAudio, clipAudioForGenerateAITranslationUtteranceAudioOutput.isAudio) &&
         Objects.equals(this.uri, clipAudioForGenerateAITranslationUtteranceAudioOutput.uri) &&
         Objects.equals(this.url, clipAudioForGenerateAITranslationUtteranceAudioOutput.url) &&
@@ -154,7 +176,7 @@ public class ClipAudioForGenerateAITranslationUtteranceAudioOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationSecond, isAudio, uri, url, vid);
+    return Objects.hash(durationSecond, fileName, isAudio, uri, url, vid);
   }
 
 
@@ -164,6 +186,7 @@ public class ClipAudioForGenerateAITranslationUtteranceAudioOutput {
     sb.append("class ClipAudioForGenerateAITranslationUtteranceAudioOutput {\n");
     
     sb.append("    durationSecond: ").append(toIndentedString(durationSecond)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    isAudio: ").append(toIndentedString(isAudio)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

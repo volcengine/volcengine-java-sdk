@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ReservationConfigForCreateResourceReservationPlanInput {
+  @SerializedName("AvailableResourceId")
+  private String availableResourceId = null;
+
   @SerializedName("MaxDurationHours")
   private Long maxDurationHours = null;
 
@@ -47,6 +50,24 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
 
   @SerializedName("ReservationType")
   private String reservationType = null;
+
+  public ReservationConfigForCreateResourceReservationPlanInput availableResourceId(String availableResourceId) {
+    this.availableResourceId = availableResourceId;
+    return this;
+  }
+
+   /**
+   * Get availableResourceId
+   * @return availableResourceId
+  **/
+  @Schema(description = "")
+  public String getAvailableResourceId() {
+    return availableResourceId;
+  }
+
+  public void setAvailableResourceId(String availableResourceId) {
+    this.availableResourceId = availableResourceId;
+  }
 
   public ReservationConfigForCreateResourceReservationPlanInput maxDurationHours(Long maxDurationHours) {
     this.maxDurationHours = maxDurationHours;
@@ -170,7 +191,8 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
       return false;
     }
     ReservationConfigForCreateResourceReservationPlanInput reservationConfigForCreateResourceReservationPlanInput = (ReservationConfigForCreateResourceReservationPlanInput) o;
-    return Objects.equals(this.maxDurationHours, reservationConfigForCreateResourceReservationPlanInput.maxDurationHours) &&
+    return Objects.equals(this.availableResourceId, reservationConfigForCreateResourceReservationPlanInput.availableResourceId) &&
+        Objects.equals(this.maxDurationHours, reservationConfigForCreateResourceReservationPlanInput.maxDurationHours) &&
         Objects.equals(this.minDurationHours, reservationConfigForCreateResourceReservationPlanInput.minDurationHours) &&
         Objects.equals(this.recurrenceEndTime, reservationConfigForCreateResourceReservationPlanInput.recurrenceEndTime) &&
         Objects.equals(this.recurrenceInterval, reservationConfigForCreateResourceReservationPlanInput.recurrenceInterval) &&
@@ -180,7 +202,7 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDurationHours, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType);
+    return Objects.hash(availableResourceId, maxDurationHours, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType);
   }
 
 
@@ -189,6 +211,7 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReservationConfigForCreateResourceReservationPlanInput {\n");
     
+    sb.append("    availableResourceId: ").append(toIndentedString(availableResourceId)).append("\n");
     sb.append("    maxDurationHours: ").append(toIndentedString(maxDurationHours)).append("\n");
     sb.append("    minDurationHours: ").append(toIndentedString(minDurationHours)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");

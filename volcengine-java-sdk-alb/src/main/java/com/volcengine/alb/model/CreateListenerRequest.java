@@ -46,6 +46,9 @@ public class CreateListenerRequest {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -78,6 +81,15 @@ public class CreateListenerRequest {
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("PcaLeafCertificateId")
+  private String pcaLeafCertificateId = null;
+
+  @SerializedName("PcaRootCACertificateId")
+  private String pcaRootCACertificateId = null;
+
+  @SerializedName("PcaSubCACertificateId")
+  private String pcaSubCACertificateId = null;
 
   @SerializedName("Port")
   private Integer port = null;
@@ -172,6 +184,24 @@ public class CreateListenerRequest {
 
   public void setCaCertificateId(String caCertificateId) {
     this.caCertificateId = caCertificateId;
+  }
+
+  public CreateListenerRequest caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
   }
 
   public CreateListenerRequest certCenterCertificateId(String certCenterCertificateId) {
@@ -382,6 +412,60 @@ public class CreateListenerRequest {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public CreateListenerRequest pcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaLeafCertificateId
+   * @return pcaLeafCertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaLeafCertificateId() {
+    return pcaLeafCertificateId;
+  }
+
+  public void setPcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+  }
+
+  public CreateListenerRequest pcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaRootCACertificateId
+   * @return pcaRootCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaRootCACertificateId() {
+    return pcaRootCACertificateId;
+  }
+
+  public void setPcaRootCACertificateId(String pcaRootCACertificateId) {
+    this.pcaRootCACertificateId = pcaRootCACertificateId;
+  }
+
+  public CreateListenerRequest pcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaSubCACertificateId
+   * @return pcaSubCACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaSubCACertificateId() {
+    return pcaSubCACertificateId;
+  }
+
+  public void setPcaSubCACertificateId(String pcaSubCACertificateId) {
+    this.pcaSubCACertificateId = pcaSubCACertificateId;
+  }
+
   public CreateListenerRequest port(Integer port) {
     this.port = port;
     return this;
@@ -498,6 +582,7 @@ public class CreateListenerRequest {
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
         Objects.equals(this.caCertificateId, createListenerRequest.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, createListenerRequest.caCertificateSource) &&
         Objects.equals(this.certCenterCertificateId, createListenerRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.certificateSource, createListenerRequest.certificateSource) &&
@@ -509,6 +594,9 @@ public class CreateListenerRequest {
         Objects.equals(this.enabled, createListenerRequest.enabled) &&
         Objects.equals(this.listenerName, createListenerRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, createListenerRequest.loadBalancerId) &&
+        Objects.equals(this.pcaLeafCertificateId, createListenerRequest.pcaLeafCertificateId) &&
+        Objects.equals(this.pcaRootCACertificateId, createListenerRequest.pcaRootCACertificateId) &&
+        Objects.equals(this.pcaSubCACertificateId, createListenerRequest.pcaSubCACertificateId) &&
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
         Objects.equals(this.proxyProtocolDisabled, createListenerRequest.proxyProtocolDisabled) &&
@@ -518,7 +606,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, proxyProtocolDisabled, serverGroupId, tags);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, protocol, proxyProtocolDisabled, serverGroupId, tags);
   }
 
 
@@ -531,6 +619,7 @@ public class CreateListenerRequest {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
@@ -542,6 +631,9 @@ public class CreateListenerRequest {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
+    sb.append("    pcaRootCACertificateId: ").append(toIndentedString(pcaRootCACertificateId)).append("\n");
+    sb.append("    pcaSubCACertificateId: ").append(toIndentedString(pcaSubCACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");

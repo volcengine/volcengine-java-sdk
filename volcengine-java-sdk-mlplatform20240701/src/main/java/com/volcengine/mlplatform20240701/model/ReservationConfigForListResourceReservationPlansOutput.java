@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.ResourceSegmentForListResourceReservationPlansOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -47,6 +50,9 @@ public class ReservationConfigForListResourceReservationPlansOutput {
 
   @SerializedName("ReservationType")
   private String reservationType = null;
+
+  @SerializedName("ResourceSegments")
+  private List<ResourceSegmentForListResourceReservationPlansOutput> resourceSegments = null;
 
   public ReservationConfigForListResourceReservationPlansOutput maxDurationHours(Long maxDurationHours) {
     this.maxDurationHours = maxDurationHours;
@@ -160,6 +166,33 @@ public class ReservationConfigForListResourceReservationPlansOutput {
     this.reservationType = reservationType;
   }
 
+  public ReservationConfigForListResourceReservationPlansOutput resourceSegments(List<ResourceSegmentForListResourceReservationPlansOutput> resourceSegments) {
+    this.resourceSegments = resourceSegments;
+    return this;
+  }
+
+  public ReservationConfigForListResourceReservationPlansOutput addResourceSegmentsItem(ResourceSegmentForListResourceReservationPlansOutput resourceSegmentsItem) {
+    if (this.resourceSegments == null) {
+      this.resourceSegments = new ArrayList<ResourceSegmentForListResourceReservationPlansOutput>();
+    }
+    this.resourceSegments.add(resourceSegmentsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceSegments
+   * @return resourceSegments
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ResourceSegmentForListResourceReservationPlansOutput> getResourceSegments() {
+    return resourceSegments;
+  }
+
+  public void setResourceSegments(List<ResourceSegmentForListResourceReservationPlansOutput> resourceSegments) {
+    this.resourceSegments = resourceSegments;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -175,12 +208,13 @@ public class ReservationConfigForListResourceReservationPlansOutput {
         Objects.equals(this.recurrenceEndTime, reservationConfigForListResourceReservationPlansOutput.recurrenceEndTime) &&
         Objects.equals(this.recurrenceInterval, reservationConfigForListResourceReservationPlansOutput.recurrenceInterval) &&
         Objects.equals(this.recurrenceStartTime, reservationConfigForListResourceReservationPlansOutput.recurrenceStartTime) &&
-        Objects.equals(this.reservationType, reservationConfigForListResourceReservationPlansOutput.reservationType);
+        Objects.equals(this.reservationType, reservationConfigForListResourceReservationPlansOutput.reservationType) &&
+        Objects.equals(this.resourceSegments, reservationConfigForListResourceReservationPlansOutput.resourceSegments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDurationHours, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType);
+    return Objects.hash(maxDurationHours, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType, resourceSegments);
   }
 
 
@@ -195,6 +229,7 @@ public class ReservationConfigForListResourceReservationPlansOutput {
     sb.append("    recurrenceInterval: ").append(toIndentedString(recurrenceInterval)).append("\n");
     sb.append("    recurrenceStartTime: ").append(toIndentedString(recurrenceStartTime)).append("\n");
     sb.append("    reservationType: ").append(toIndentedString(reservationType)).append("\n");
+    sb.append("    resourceSegments: ").append(toIndentedString(resourceSegments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

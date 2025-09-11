@@ -33,6 +33,9 @@ public class BackgroundAudioForGetAITranslationProjectOutput {
   @SerializedName("DurationSecond")
   private Double durationSecond = null;
 
+  @SerializedName("FileName")
+  private String fileName = null;
+
   @SerializedName("IsAudio")
   private Boolean isAudio = null;
 
@@ -61,6 +64,24 @@ public class BackgroundAudioForGetAITranslationProjectOutput {
 
   public void setDurationSecond(Double durationSecond) {
     this.durationSecond = durationSecond;
+  }
+
+  public BackgroundAudioForGetAITranslationProjectOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public BackgroundAudioForGetAITranslationProjectOutput isAudio(Boolean isAudio) {
@@ -146,6 +167,7 @@ public class BackgroundAudioForGetAITranslationProjectOutput {
     }
     BackgroundAudioForGetAITranslationProjectOutput backgroundAudioForGetAITranslationProjectOutput = (BackgroundAudioForGetAITranslationProjectOutput) o;
     return Objects.equals(this.durationSecond, backgroundAudioForGetAITranslationProjectOutput.durationSecond) &&
+        Objects.equals(this.fileName, backgroundAudioForGetAITranslationProjectOutput.fileName) &&
         Objects.equals(this.isAudio, backgroundAudioForGetAITranslationProjectOutput.isAudio) &&
         Objects.equals(this.uri, backgroundAudioForGetAITranslationProjectOutput.uri) &&
         Objects.equals(this.url, backgroundAudioForGetAITranslationProjectOutput.url) &&
@@ -154,7 +176,7 @@ public class BackgroundAudioForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationSecond, isAudio, uri, url, vid);
+    return Objects.hash(durationSecond, fileName, isAudio, uri, url, vid);
   }
 
 
@@ -164,6 +186,7 @@ public class BackgroundAudioForGetAITranslationProjectOutput {
     sb.append("class BackgroundAudioForGetAITranslationProjectOutput {\n");
     
     sb.append("    durationSecond: ").append(toIndentedString(durationSecond)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    isAudio: ").append(toIndentedString(isAudio)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

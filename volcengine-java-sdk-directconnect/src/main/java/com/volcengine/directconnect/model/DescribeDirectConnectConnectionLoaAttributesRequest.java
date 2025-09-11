@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectConnectionLoaAttributesRequest {
   @SerializedName("Action")
   private String action = null;

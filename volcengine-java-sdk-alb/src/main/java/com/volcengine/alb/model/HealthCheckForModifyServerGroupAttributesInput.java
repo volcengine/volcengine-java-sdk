@@ -203,8 +203,7 @@ public class HealthCheckForModifyServerGroupAttributesInput {
    * maximum: 65535
    * @return port
   **/
-  @NotNull
- @Min(0) @Max(65535)  @Schema(required = true, description = "")
+ @Min(0) @Max(65535)  @Schema(description = "")
   public Integer getPort() {
     return port;
   }

@@ -60,6 +60,9 @@ public class GetDeploymentResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("Priority")
   private Integer priority = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
 
@@ -237,6 +240,24 @@ public class GetDeploymentResponse extends com.volcengine.model.AbstractResponse
     this.priority = priority;
   }
 
+  public GetDeploymentResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetDeploymentResponse resourceQueueId(String resourceQueueId) {
     this.resourceQueueId = resourceQueueId;
     return this;
@@ -355,6 +376,7 @@ public class GetDeploymentResponse extends com.volcengine.model.AbstractResponse
         Objects.equals(this.instanceItems, getDeploymentResponse.instanceItems) &&
         Objects.equals(this.name, getDeploymentResponse.name) &&
         Objects.equals(this.priority, getDeploymentResponse.priority) &&
+        Objects.equals(this.projectName, getDeploymentResponse.projectName) &&
         Objects.equals(this.resourceQueueId, getDeploymentResponse.resourceQueueId) &&
         Objects.equals(this.roles, getDeploymentResponse.roles) &&
         Objects.equals(this.serviceId, getDeploymentResponse.serviceId) &&
@@ -364,7 +386,7 @@ public class GetDeploymentResponse extends com.volcengine.model.AbstractResponse
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, historyVersions, id, instanceItems, name, priority, resourceQueueId, roles, serviceId, status, updateTime);
+    return Objects.hash(createTime, createdBy, description, historyVersions, id, instanceItems, name, priority, projectName, resourceQueueId, roles, serviceId, status, updateTime);
   }
 
 
@@ -381,6 +403,7 @@ public class GetDeploymentResponse extends com.volcengine.model.AbstractResponse
     sb.append("    instanceItems: ").append(toIndentedString(instanceItems)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");

@@ -61,6 +61,9 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RemainAutoRenewTimes")
   private Integer remainAutoRenewTimes = null;
 
@@ -78,6 +81,9 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
 
   @SerializedName("StorageConfig")
   private StorageConfigForGetResourceGroupOutput storageConfig = null;
+
+  @SerializedName("VRdmaEnabled")
+  private Boolean vrdmaEnabled = null;
 
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForGetResourceGroupOutput workloadNetworkConfig = null;
@@ -232,6 +238,24 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
     this.periodUnit = periodUnit;
   }
 
+  public GetResourceGroupResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetResourceGroupResponse remainAutoRenewTimes(Integer remainAutoRenewTimes) {
     this.remainAutoRenewTimes = remainAutoRenewTimes;
     return this;
@@ -344,6 +368,24 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
     this.storageConfig = storageConfig;
   }
 
+  public GetResourceGroupResponse vrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
+    return this;
+  }
+
+   /**
+   * Get vrdmaEnabled
+   * @return vrdmaEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isVrdmaEnabled() {
+    return vrdmaEnabled;
+  }
+
+  public void setVrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
+  }
+
   public GetResourceGroupResponse workloadNetworkConfig(WorkloadNetworkConfigForGetResourceGroupOutput workloadNetworkConfig) {
     this.workloadNetworkConfig = workloadNetworkConfig;
     return this;
@@ -425,12 +467,14 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.mgpuEnabled, getResourceGroupResponse.mgpuEnabled) &&
         Objects.equals(this.name, getResourceGroupResponse.name) &&
         Objects.equals(this.periodUnit, getResourceGroupResponse.periodUnit) &&
+        Objects.equals(this.projectName, getResourceGroupResponse.projectName) &&
         Objects.equals(this.remainAutoRenewTimes, getResourceGroupResponse.remainAutoRenewTimes) &&
         Objects.equals(this.renewType, getResourceGroupResponse.renewType) &&
         Objects.equals(this.resourceAllocated, getResourceGroupResponse.resourceAllocated) &&
         Objects.equals(this.resourceCapability, getResourceGroupResponse.resourceCapability) &&
         Objects.equals(this.status, getResourceGroupResponse.status) &&
         Objects.equals(this.storageConfig, getResourceGroupResponse.storageConfig) &&
+        Objects.equals(this.vrdmaEnabled, getResourceGroupResponse.vrdmaEnabled) &&
         Objects.equals(this.workloadNetworkConfig, getResourceGroupResponse.workloadNetworkConfig) &&
         Objects.equals(this.workloadNetworkMode, getResourceGroupResponse.workloadNetworkMode) &&
         Objects.equals(this.zoneIds, getResourceGroupResponse.zoneIds);
@@ -438,7 +482,7 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenewPeriod, chargeType, description, expireTime, id, mgpuEnabled, name, periodUnit, remainAutoRenewTimes, renewType, resourceAllocated, resourceCapability, status, storageConfig, workloadNetworkConfig, workloadNetworkMode, zoneIds);
+    return Objects.hash(autoRenewPeriod, chargeType, description, expireTime, id, mgpuEnabled, name, periodUnit, projectName, remainAutoRenewTimes, renewType, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
   }
 
 
@@ -455,12 +499,14 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
     sb.append("    mgpuEnabled: ").append(toIndentedString(mgpuEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainAutoRenewTimes: ").append(toIndentedString(remainAutoRenewTimes)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    resourceAllocated: ").append(toIndentedString(resourceAllocated)).append("\n");
     sb.append("    resourceCapability: ").append(toIndentedString(resourceCapability)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
+    sb.append("    vrdmaEnabled: ").append(toIndentedString(vrdmaEnabled)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
     sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");

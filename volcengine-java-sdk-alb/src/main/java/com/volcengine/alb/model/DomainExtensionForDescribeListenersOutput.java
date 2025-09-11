@@ -48,6 +48,9 @@ public class DomainExtensionForDescribeListenersOutput {
   @SerializedName("ListenerId")
   private String listenerId = null;
 
+  @SerializedName("PcaLeafCertificateId")
+  private String pcaLeafCertificateId = null;
+
   public DomainExtensionForDescribeListenersOutput certCenterCertificateId(String certCenterCertificateId) {
     this.certCenterCertificateId = certCenterCertificateId;
     return this;
@@ -156,6 +159,24 @@ public class DomainExtensionForDescribeListenersOutput {
     this.listenerId = listenerId;
   }
 
+  public DomainExtensionForDescribeListenersOutput pcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcaLeafCertificateId
+   * @return pcaLeafCertificateId
+  **/
+  @Schema(description = "")
+  public String getPcaLeafCertificateId() {
+    return pcaLeafCertificateId;
+  }
+
+  public void setPcaLeafCertificateId(String pcaLeafCertificateId) {
+    this.pcaLeafCertificateId = pcaLeafCertificateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +192,13 @@ public class DomainExtensionForDescribeListenersOutput {
         Objects.equals(this.certificateSource, domainExtensionForDescribeListenersOutput.certificateSource) &&
         Objects.equals(this.domain, domainExtensionForDescribeListenersOutput.domain) &&
         Objects.equals(this.domainExtensionId, domainExtensionForDescribeListenersOutput.domainExtensionId) &&
-        Objects.equals(this.listenerId, domainExtensionForDescribeListenersOutput.listenerId);
+        Objects.equals(this.listenerId, domainExtensionForDescribeListenersOutput.listenerId) &&
+        Objects.equals(this.pcaLeafCertificateId, domainExtensionForDescribeListenersOutput.pcaLeafCertificateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId, pcaLeafCertificateId);
   }
 
 
@@ -191,6 +213,7 @@ public class DomainExtensionForDescribeListenersOutput {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    domainExtensionId: ").append(toIndentedString(domainExtensionId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
+    sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

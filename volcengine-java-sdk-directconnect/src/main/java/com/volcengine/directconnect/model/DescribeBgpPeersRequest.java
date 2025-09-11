@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBgpPeersRequest {
   @SerializedName("BgpPeerIds")
   private List<String> bgpPeerIds = null;

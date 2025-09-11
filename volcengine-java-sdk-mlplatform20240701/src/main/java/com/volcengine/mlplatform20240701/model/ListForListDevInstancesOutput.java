@@ -48,6 +48,9 @@ public class ListForListDevInstancesOutput {
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
 
+  @SerializedName("DefaultFolder")
+  private String defaultFolder = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -81,11 +84,17 @@ public class ListForListDevInstancesOutput {
   @SerializedName("Ports")
   private List<PortForListDevInstancesOutput> ports = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceClaim")
   private ResourceClaimForListDevInstancesOutput resourceClaim = null;
 
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
+
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
 
   @SerializedName("SshPublicKey")
   private String sshPublicKey = null;
@@ -163,6 +172,24 @@ public class ListForListDevInstancesOutput {
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public ListForListDevInstancesOutput defaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
+    return this;
+  }
+
+   /**
+   * Get defaultFolder
+   * @return defaultFolder
+  **/
+  @Schema(description = "")
+  public String getDefaultFolder() {
+    return defaultFolder;
+  }
+
+  public void setDefaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
   }
 
   public ListForListDevInstancesOutput description(String description) {
@@ -374,6 +401,24 @@ public class ListForListDevInstancesOutput {
     this.ports = ports;
   }
 
+  public ListForListDevInstancesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListForListDevInstancesOutput resourceClaim(ResourceClaimForListDevInstancesOutput resourceClaim) {
     this.resourceClaim = resourceClaim;
     return this;
@@ -409,6 +454,24 @@ public class ListForListDevInstancesOutput {
 
   public void setResourceQueueId(String resourceQueueId) {
     this.resourceQueueId = resourceQueueId;
+  }
+
+  public ListForListDevInstancesOutput resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
   }
 
   public ListForListDevInstancesOutput sshPublicKey(String sshPublicKey) {
@@ -579,6 +642,7 @@ public class ListForListDevInstancesOutput {
     return Objects.equals(this.allowImageBuild, listForListDevInstancesOutput.allowImageBuild) &&
         Objects.equals(this.createTime, listForListDevInstancesOutput.createTime) &&
         Objects.equals(this.creatorTrn, listForListDevInstancesOutput.creatorTrn) &&
+        Objects.equals(this.defaultFolder, listForListDevInstancesOutput.defaultFolder) &&
         Objects.equals(this.description, listForListDevInstancesOutput.description) &&
         Objects.equals(this.expectedStopTime, listForListDevInstancesOutput.expectedStopTime) &&
         Objects.equals(this.id, listForListDevInstancesOutput.id) &&
@@ -590,8 +654,10 @@ public class ListForListDevInstancesOutput {
         Objects.equals(this.numaAffinity, listForListDevInstancesOutput.numaAffinity) &&
         Objects.equals(this.numaStatus, listForListDevInstancesOutput.numaStatus) &&
         Objects.equals(this.ports, listForListDevInstancesOutput.ports) &&
+        Objects.equals(this.projectName, listForListDevInstancesOutput.projectName) &&
         Objects.equals(this.resourceClaim, listForListDevInstancesOutput.resourceClaim) &&
         Objects.equals(this.resourceQueueId, listForListDevInstancesOutput.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, listForListDevInstancesOutput.resourceReservationPlanId) &&
         Objects.equals(this.sshPublicKey, listForListDevInstancesOutput.sshPublicKey) &&
         Objects.equals(this.status, listForListDevInstancesOutput.status) &&
         Objects.equals(this.stopTime, listForListDevInstancesOutput.stopTime) &&
@@ -604,7 +670,7 @@ public class ListForListDevInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -616,6 +682,7 @@ public class ListForListDevInstancesOutput {
     sb.append("    allowImageBuild: ").append(toIndentedString(allowImageBuild)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expectedStopTime: ").append(toIndentedString(expectedStopTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -627,8 +694,10 @@ public class ListForListDevInstancesOutput {
     sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    numaStatus: ").append(toIndentedString(numaStatus)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    sshPublicKey: ").append(toIndentedString(sshPublicKey)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stopTime: ").append(toIndentedString(stopTime)).append("\n");
