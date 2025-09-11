@@ -42,6 +42,9 @@ public class CreateTransitRouterRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("MulticastEnabled")
+  private Boolean multicastEnabled = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -103,6 +106,24 @@ public class CreateTransitRouterRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateTransitRouterRequest multicastEnabled(Boolean multicastEnabled) {
+    this.multicastEnabled = multicastEnabled;
+    return this;
+  }
+
+   /**
+   * Get multicastEnabled
+   * @return multicastEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isMulticastEnabled() {
+    return multicastEnabled;
+  }
+
+  public void setMulticastEnabled(Boolean multicastEnabled) {
+    this.multicastEnabled = multicastEnabled;
   }
 
   public CreateTransitRouterRequest projectName(String projectName) {
@@ -181,6 +202,7 @@ public class CreateTransitRouterRequest {
     return Objects.equals(this.asn, createTransitRouterRequest.asn) &&
         Objects.equals(this.clientToken, createTransitRouterRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterRequest.description) &&
+        Objects.equals(this.multicastEnabled, createTransitRouterRequest.multicastEnabled) &&
         Objects.equals(this.projectName, createTransitRouterRequest.projectName) &&
         Objects.equals(this.tags, createTransitRouterRequest.tags) &&
         Objects.equals(this.transitRouterName, createTransitRouterRequest.transitRouterName);
@@ -188,7 +210,7 @@ public class CreateTransitRouterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asn, clientToken, description, projectName, tags, transitRouterName);
+    return Objects.hash(asn, clientToken, description, multicastEnabled, projectName, tags, transitRouterName);
   }
 
 
@@ -200,6 +222,7 @@ public class CreateTransitRouterRequest {
     sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    multicastEnabled: ").append(toIndentedString(multicastEnabled)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterName: ").append(toIndentedString(transitRouterName)).append("\n");

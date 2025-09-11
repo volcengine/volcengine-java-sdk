@@ -48,6 +48,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;
 
+  @SerializedName("Ipv6Enabled")
+  private String ipv6Enabled = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -154,6 +157,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
 
   public void setDirectConnectGatewayId(String directConnectGatewayId) {
     this.directConnectGatewayId = directConnectGatewayId;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput ipv6Enabled(String ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
+    return this;
+  }
+
+   /**
+   * Get ipv6Enabled
+   * @return ipv6Enabled
+  **/
+  @Schema(description = "")
+  public String getIpv6Enabled() {
+    return ipv6Enabled;
+  }
+
+  public void setIpv6Enabled(String ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput status(String status) {
@@ -288,6 +309,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.description) &&
         Objects.equals(this.directConnectGatewayId, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.directConnectGatewayId) &&
+        Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.ipv6Enabled) &&
         Objects.equals(this.status, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.status) &&
         Objects.equals(this.tags, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.tags) &&
         Objects.equals(this.transitRouterAttachmentId, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.transitRouterAttachmentId) &&
@@ -298,7 +320,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, autoPublishRouteEnabled, creationTime, description, directConnectGatewayId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime);
+    return Objects.hash(accountId, autoPublishRouteEnabled, creationTime, description, directConnectGatewayId, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime);
   }
 
 
@@ -312,6 +334,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
+    sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");

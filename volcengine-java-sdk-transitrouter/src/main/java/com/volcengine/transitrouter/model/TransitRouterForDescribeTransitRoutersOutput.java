@@ -54,6 +54,9 @@ public class TransitRouterForDescribeTransitRoutersOutput {
   @SerializedName("GrantStatus")
   private String grantStatus = null;
 
+  @SerializedName("MulticastEnabled")
+  private Boolean multicastEnabled = null;
+
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
@@ -199,6 +202,24 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   public void setGrantStatus(String grantStatus) {
     this.grantStatus = grantStatus;
+  }
+
+  public TransitRouterForDescribeTransitRoutersOutput multicastEnabled(Boolean multicastEnabled) {
+    this.multicastEnabled = multicastEnabled;
+    return this;
+  }
+
+   /**
+   * Get multicastEnabled
+   * @return multicastEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isMulticastEnabled() {
+    return multicastEnabled;
+  }
+
+  public void setMulticastEnabled(Boolean multicastEnabled) {
+    this.multicastEnabled = multicastEnabled;
   }
 
   public TransitRouterForDescribeTransitRoutersOutput overdueTime(String overdueTime) {
@@ -353,6 +374,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
         Objects.equals(this.deletedTime, transitRouterForDescribeTransitRoutersOutput.deletedTime) &&
         Objects.equals(this.description, transitRouterForDescribeTransitRoutersOutput.description) &&
         Objects.equals(this.grantStatus, transitRouterForDescribeTransitRoutersOutput.grantStatus) &&
+        Objects.equals(this.multicastEnabled, transitRouterForDescribeTransitRoutersOutput.multicastEnabled) &&
         Objects.equals(this.overdueTime, transitRouterForDescribeTransitRoutersOutput.overdueTime) &&
         Objects.equals(this.projectName, transitRouterForDescribeTransitRoutersOutput.projectName) &&
         Objects.equals(this.status, transitRouterForDescribeTransitRoutersOutput.status) &&
@@ -364,7 +386,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, businessStatus, creationTime, deletedTime, description, grantStatus, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
+    return Objects.hash(accountId, asn, businessStatus, creationTime, deletedTime, description, grantStatus, multicastEnabled, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
   }
 
 
@@ -380,6 +402,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    grantStatus: ").append(toIndentedString(grantStatus)).append("\n");
+    sb.append("    multicastEnabled: ").append(toIndentedString(multicastEnabled)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -33,6 +33,9 @@ public class ModifyTransitRouterForwardPolicyEntryAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DestinationCidrBlock")
+  private String destinationCidrBlock = null;
+
   @SerializedName("Priority")
   private Integer priority = null;
 
@@ -61,6 +64,24 @@ public class ModifyTransitRouterForwardPolicyEntryAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyTransitRouterForwardPolicyEntryAttributesRequest destinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
+    return this;
+  }
+
+   /**
+   * Get destinationCidrBlock
+   * @return destinationCidrBlock
+  **/
+  @Schema(description = "")
+  public String getDestinationCidrBlock() {
+    return destinationCidrBlock;
+  }
+
+  public void setDestinationCidrBlock(String destinationCidrBlock) {
+    this.destinationCidrBlock = destinationCidrBlock;
   }
 
   public ModifyTransitRouterForwardPolicyEntryAttributesRequest priority(Integer priority) {
@@ -147,6 +168,7 @@ public class ModifyTransitRouterForwardPolicyEntryAttributesRequest {
     }
     ModifyTransitRouterForwardPolicyEntryAttributesRequest modifyTransitRouterForwardPolicyEntryAttributesRequest = (ModifyTransitRouterForwardPolicyEntryAttributesRequest) o;
     return Objects.equals(this.description, modifyTransitRouterForwardPolicyEntryAttributesRequest.description) &&
+        Objects.equals(this.destinationCidrBlock, modifyTransitRouterForwardPolicyEntryAttributesRequest.destinationCidrBlock) &&
         Objects.equals(this.priority, modifyTransitRouterForwardPolicyEntryAttributesRequest.priority) &&
         Objects.equals(this.sourceCidrBlock, modifyTransitRouterForwardPolicyEntryAttributesRequest.sourceCidrBlock) &&
         Objects.equals(this.transitRouterForwardPolicyEntryId, modifyTransitRouterForwardPolicyEntryAttributesRequest.transitRouterForwardPolicyEntryId) &&
@@ -155,7 +177,7 @@ public class ModifyTransitRouterForwardPolicyEntryAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, priority, sourceCidrBlock, transitRouterForwardPolicyEntryId, transitRouterRouteTableId);
+    return Objects.hash(description, destinationCidrBlock, priority, sourceCidrBlock, transitRouterForwardPolicyEntryId, transitRouterRouteTableId);
   }
 
 
@@ -165,6 +187,7 @@ public class ModifyTransitRouterForwardPolicyEntryAttributesRequest {
     sb.append("class ModifyTransitRouterForwardPolicyEntryAttributesRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    sourceCidrBlock: ").append(toIndentedString(sourceCidrBlock)).append("\n");
     sb.append("    transitRouterForwardPolicyEntryId: ").append(toIndentedString(transitRouterForwardPolicyEntryId)).append("\n");
