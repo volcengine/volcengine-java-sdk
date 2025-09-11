@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.CertificateForDescribeCertificatesOutput;
-import com.volcengine.clb.model.TagForDescribeCertificatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,12 +44,6 @@ public class DescribeCertificatesResponse extends com.volcengine.model.AbstractR
 
   @SerializedName("RequestId")
   private String requestId = null;
-
-  @SerializedName("ServiceManaged")
-  private Boolean serviceManaged = null;
-
-  @SerializedName("Tags")
-  private List<TagForDescribeCertificatesOutput> tags = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -136,51 +129,6 @@ public class DescribeCertificatesResponse extends com.volcengine.model.AbstractR
     this.requestId = requestId;
   }
 
-  public DescribeCertificatesResponse serviceManaged(Boolean serviceManaged) {
-    this.serviceManaged = serviceManaged;
-    return this;
-  }
-
-   /**
-   * Get serviceManaged
-   * @return serviceManaged
-  **/
-  @Schema(description = "")
-  public Boolean isServiceManaged() {
-    return serviceManaged;
-  }
-
-  public void setServiceManaged(Boolean serviceManaged) {
-    this.serviceManaged = serviceManaged;
-  }
-
-  public DescribeCertificatesResponse tags(List<TagForDescribeCertificatesOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public DescribeCertificatesResponse addTagsItem(TagForDescribeCertificatesOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForDescribeCertificatesOutput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForDescribeCertificatesOutput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForDescribeCertificatesOutput> tags) {
-    this.tags = tags;
-  }
-
   public DescribeCertificatesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -213,14 +161,12 @@ public class DescribeCertificatesResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.pageNumber, describeCertificatesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeCertificatesResponse.pageSize) &&
         Objects.equals(this.requestId, describeCertificatesResponse.requestId) &&
-        Objects.equals(this.serviceManaged, describeCertificatesResponse.serviceManaged) &&
-        Objects.equals(this.tags, describeCertificatesResponse.tags) &&
         Objects.equals(this.totalCount, describeCertificatesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificates, pageNumber, pageSize, requestId, serviceManaged, tags, totalCount);
+    return Objects.hash(certificates, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -233,8 +179,6 @@ public class DescribeCertificatesResponse extends com.volcengine.model.AbstractR
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

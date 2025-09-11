@@ -36,8 +36,20 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
+  @SerializedName("CAEnabled")
+  private Boolean caEnabled = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ConnectionTimeout")
   private Integer connectionTimeout = null;
@@ -62,6 +74,9 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("PCACertificateId")
+  private String pcACertificateId = null;
 
   @SerializedName("Port")
   private Integer port = null;
@@ -111,6 +126,60 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
     this.accountId = accountId;
   }
 
+  public DescribeNLBListenerAttributesResponse caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public DescribeNLBListenerAttributesResponse caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+  }
+
+  public DescribeNLBListenerAttributesResponse caEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+  }
+
   public DescribeNLBListenerAttributesResponse certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -127,6 +196,24 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DescribeNLBListenerAttributesResponse certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public DescribeNLBListenerAttributesResponse connectionTimeout(Integer connectionTimeout) {
@@ -271,6 +358,24 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public DescribeNLBListenerAttributesResponse pcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcACertificateId
+   * @return pcACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcACertificateId() {
+    return pcACertificateId;
+  }
+
+  public void setPcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
   }
 
   public DescribeNLBListenerAttributesResponse port(Integer port) {
@@ -473,7 +578,11 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
     }
     DescribeNLBListenerAttributesResponse describeNLBListenerAttributesResponse = (DescribeNLBListenerAttributesResponse) o;
     return Objects.equals(this.accountId, describeNLBListenerAttributesResponse.accountId) &&
+        Objects.equals(this.caCertificateId, describeNLBListenerAttributesResponse.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, describeNLBListenerAttributesResponse.caCertificateSource) &&
+        Objects.equals(this.caEnabled, describeNLBListenerAttributesResponse.caEnabled) &&
         Objects.equals(this.certificateId, describeNLBListenerAttributesResponse.certificateId) &&
+        Objects.equals(this.certificateSource, describeNLBListenerAttributesResponse.certificateSource) &&
         Objects.equals(this.connectionTimeout, describeNLBListenerAttributesResponse.connectionTimeout) &&
         Objects.equals(this.createTime, describeNLBListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeNLBListenerAttributesResponse.description) &&
@@ -482,6 +591,7 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
         Objects.equals(this.listenerId, describeNLBListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeNLBListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeNLBListenerAttributesResponse.loadBalancerId) &&
+        Objects.equals(this.pcACertificateId, describeNLBListenerAttributesResponse.pcACertificateId) &&
         Objects.equals(this.port, describeNLBListenerAttributesResponse.port) &&
         Objects.equals(this.protocol, describeNLBListenerAttributesResponse.protocol) &&
         Objects.equals(this.requestId, describeNLBListenerAttributesResponse.requestId) &&
@@ -496,7 +606,7 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, certificateId, connectionTimeout, createTime, description, enabled, endPort, listenerId, listenerName, loadBalancerId, port, protocol, requestId, securityPolicyId, securityPolicyType, serverGroupId, startPort, status, tags, updateTime);
+    return Objects.hash(accountId, caCertificateId, caCertificateSource, caEnabled, certificateId, certificateSource, connectionTimeout, createTime, description, enabled, endPort, listenerId, listenerName, loadBalancerId, pcACertificateId, port, protocol, requestId, securityPolicyId, securityPolicyType, serverGroupId, startPort, status, tags, updateTime);
   }
 
 
@@ -506,7 +616,11 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
     sb.append("class DescribeNLBListenerAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    connectionTimeout: ").append(toIndentedString(connectionTimeout)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -515,6 +629,7 @@ public class DescribeNLBListenerAttributesResponse extends com.volcengine.model.
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    pcACertificateId: ").append(toIndentedString(pcACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

@@ -42,6 +42,12 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("EniAddress")
   private String eniAddress = null;
 
+  @SerializedName("InstanceIds")
+  private List<String> instanceIds = null;
+
+  @SerializedName("InstanceIps")
+  private List<String> instanceIps = null;
+
   @SerializedName("LoadBalancerIds")
   private List<String> loadBalancerIds = null;
 
@@ -124,6 +130,58 @@ public class DescribeLoadBalancersRequest {
 
   public void setEniAddress(String eniAddress) {
     this.eniAddress = eniAddress;
+  }
+
+  public DescribeLoadBalancersRequest instanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+    return this;
+  }
+
+  public DescribeLoadBalancersRequest addInstanceIdsItem(String instanceIdsItem) {
+    if (this.instanceIds == null) {
+      this.instanceIds = new ArrayList<String>();
+    }
+    this.instanceIds.add(instanceIdsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceIds
+   * @return instanceIds
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceIds() {
+    return instanceIds;
+  }
+
+  public void setInstanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+  }
+
+  public DescribeLoadBalancersRequest instanceIps(List<String> instanceIps) {
+    this.instanceIps = instanceIps;
+    return this;
+  }
+
+  public DescribeLoadBalancersRequest addInstanceIpsItem(String instanceIpsItem) {
+    if (this.instanceIps == null) {
+      this.instanceIps = new ArrayList<String>();
+    }
+    this.instanceIps.add(instanceIpsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceIps
+   * @return instanceIps
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceIps() {
+    return instanceIps;
+  }
+
+  public void setInstanceIps(List<String> instanceIps) {
+    this.instanceIps = instanceIps;
   }
 
   public DescribeLoadBalancersRequest loadBalancerIds(List<String> loadBalancerIds) {
@@ -336,6 +394,8 @@ public class DescribeLoadBalancersRequest {
     return Objects.equals(this.addressIpVersion, describeLoadBalancersRequest.addressIpVersion) &&
         Objects.equals(this.eipAddress, describeLoadBalancersRequest.eipAddress) &&
         Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
+        Objects.equals(this.instanceIds, describeLoadBalancersRequest.instanceIds) &&
+        Objects.equals(this.instanceIps, describeLoadBalancersRequest.instanceIps) &&
         Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
         Objects.equals(this.masterZoneId, describeLoadBalancersRequest.masterZoneId) &&
@@ -350,7 +410,7 @@ public class DescribeLoadBalancersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, eipAddress, eniAddress, loadBalancerIds, loadBalancerName, masterZoneId, pageNumber, pageSize, projectName, status, tagFilters, type, vpcId);
+    return Objects.hash(addressIpVersion, eipAddress, eniAddress, instanceIds, instanceIps, loadBalancerIds, loadBalancerName, masterZoneId, pageNumber, pageSize, projectName, status, tagFilters, type, vpcId);
   }
 
 
@@ -362,6 +422,8 @@ public class DescribeLoadBalancersRequest {
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
+    sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    instanceIps: ").append(toIndentedString(instanceIps)).append("\n");
     sb.append("    loadBalancerIds: ").append(toIndentedString(loadBalancerIds)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");

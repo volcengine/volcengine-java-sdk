@@ -153,6 +153,8 @@ import com.volcengine.clb.model.ModifyLoadBalancerAttributesRequest;
 import com.volcengine.clb.model.ModifyLoadBalancerAttributesResponse;
 import com.volcengine.clb.model.ModifyNLBBackendServersAttributesRequest;
 import com.volcengine.clb.model.ModifyNLBBackendServersAttributesResponse;
+import com.volcengine.clb.model.ModifyNLBListenerAdditionalCertificatesRequest;
+import com.volcengine.clb.model.ModifyNLBListenerAdditionalCertificatesResponse;
 import com.volcengine.clb.model.ModifyNLBListenerAttributesRequest;
 import com.volcengine.clb.model.ModifyNLBListenerAttributesResponse;
 import com.volcengine.clb.model.ModifyNLBSecurityPolicyAttributesRequest;
@@ -8028,6 +8030,130 @@ public class ClbApi {
 
         com.squareup.okhttp.Call call = modifyNLBBackendServersAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyNLBBackendServersAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyNLBListenerAdditionalCertificates
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyNLBListenerAdditionalCertificatesCall(ModifyNLBListenerAdditionalCertificatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyNLBListenerAdditionalCertificates/2020-04-01/clb/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyNLBListenerAdditionalCertificatesValidateBeforeCall(ModifyNLBListenerAdditionalCertificatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyNLBListenerAdditionalCertificates(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyNLBListenerAdditionalCertificatesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyNLBListenerAdditionalCertificatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyNLBListenerAdditionalCertificatesResponse modifyNLBListenerAdditionalCertificates(ModifyNLBListenerAdditionalCertificatesRequest body) throws ApiException {
+        ApiResponse<ModifyNLBListenerAdditionalCertificatesResponse> resp = modifyNLBListenerAdditionalCertificatesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyNLBListenerAdditionalCertificatesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyNLBListenerAdditionalCertificatesResponse> modifyNLBListenerAdditionalCertificatesWithHttpInfo( @NotNull ModifyNLBListenerAdditionalCertificatesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyNLBListenerAdditionalCertificatesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyNLBListenerAdditionalCertificatesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyNLBListenerAdditionalCertificatesAsync(ModifyNLBListenerAdditionalCertificatesRequest body, final ApiCallback<ModifyNLBListenerAdditionalCertificatesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyNLBListenerAdditionalCertificatesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyNLBListenerAdditionalCertificatesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
