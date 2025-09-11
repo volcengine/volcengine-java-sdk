@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput
+ * ServerGroupStickySessionForCreateRulesInput
  */
 
 
 
-public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
-  @SerializedName("Key")
-  private String key = null;
+public class ServerGroupStickySessionForCreateRulesInput {
+  @SerializedName("Enabled")
+  private String enabled = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Timeout")
+  private String timeout = null;
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput key(String key) {
-    this.key = key;
+  public ServerGroupStickySessionForCreateRulesInput enabled(String enabled) {
+    this.enabled = enabled;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get enabled
+   * @return enabled
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getEnabled() {
+    return enabled;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setEnabled(String enabled) {
+    this.enabled = enabled;
   }
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput value(String value) {
-    this.value = value;
+  public ServerGroupStickySessionForCreateRulesInput timeout(String timeout) {
+    this.timeout = timeout;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get timeout
+   * @return timeout
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public String getTimeout() {
+    return timeout;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setTimeout(String timeout) {
+    this.timeout = timeout;
   }
 
 
@@ -81,24 +81,24 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput healthCheckTemplatesTagForCreateHealthCheckTemplatesInput = (HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) o;
-    return Objects.equals(this.key, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.key) &&
-        Objects.equals(this.value, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.value);
+    ServerGroupStickySessionForCreateRulesInput serverGroupStickySessionForCreateRulesInput = (ServerGroupStickySessionForCreateRulesInput) o;
+    return Objects.equals(this.enabled, serverGroupStickySessionForCreateRulesInput.enabled) &&
+        Objects.equals(this.timeout, serverGroupStickySessionForCreateRulesInput.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(enabled, timeout);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {\n");
+    sb.append("class ServerGroupStickySessionForCreateRulesInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("}");
     return sb.toString();
   }

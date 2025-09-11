@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput
+ * TrafficLimitConfigForDescribeRulesOutput
  */
 
 
 
-public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
-  @SerializedName("Key")
-  private String key = null;
+public class TrafficLimitConfigForDescribeRulesOutput {
+  @SerializedName("QPS")
+  private Integer QPS = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput key(String key) {
-    this.key = key;
+  public TrafficLimitConfigForDescribeRulesOutput QPS(Integer QPS) {
+    this.QPS = QPS;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get QPS
+   * @return QPS
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public Integer getQPS() {
+    return QPS;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setQPS(Integer QPS) {
+    this.QPS = QPS;
   }
 
 
@@ -81,24 +60,22 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput healthCheckTemplatesTagForCreateHealthCheckTemplatesInput = (HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) o;
-    return Objects.equals(this.key, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.key) &&
-        Objects.equals(this.value, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.value);
+    TrafficLimitConfigForDescribeRulesOutput trafficLimitConfigForDescribeRulesOutput = (TrafficLimitConfigForDescribeRulesOutput) o;
+    return Objects.equals(this.QPS, trafficLimitConfigForDescribeRulesOutput.QPS);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(QPS);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {\n");
+    sb.append("class TrafficLimitConfigForDescribeRulesOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    QPS: ").append(toIndentedString(QPS)).append("\n");
     sb.append("}");
     return sb.toString();
   }

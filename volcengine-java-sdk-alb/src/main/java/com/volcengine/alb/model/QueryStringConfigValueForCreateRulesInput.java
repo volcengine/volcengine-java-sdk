@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput
+ * QueryStringConfigValueForCreateRulesInput
  */
 
 
 
-public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
+public class QueryStringConfigValueForCreateRulesInput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput key(String key) {
+  public QueryStringConfigValueForCreateRulesInput key(String key) {
     this.key = key;
     return this;
   }
@@ -54,7 +54,7 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     this.key = key;
   }
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput value(String value) {
+  public QueryStringConfigValueForCreateRulesInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,9 +81,9 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput healthCheckTemplatesTagForCreateHealthCheckTemplatesInput = (HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) o;
-    return Objects.equals(this.key, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.key) &&
-        Objects.equals(this.value, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.value);
+    QueryStringConfigValueForCreateRulesInput queryStringConfigValueForCreateRulesInput = (QueryStringConfigValueForCreateRulesInput) o;
+    return Objects.equals(this.key, queryStringConfigValueForCreateRulesInput.key) &&
+        Objects.equals(this.value, queryStringConfigValueForCreateRulesInput.value);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {\n");
+    sb.append("class QueryStringConfigValueForCreateRulesInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

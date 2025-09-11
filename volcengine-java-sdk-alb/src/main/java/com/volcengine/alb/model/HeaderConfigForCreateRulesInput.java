@@ -21,22 +21,24 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput
+ * HeaderConfigForCreateRulesInput
  */
 
 
 
-public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
+public class HeaderConfigForCreateRulesInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput key(String key) {
+  public HeaderConfigForCreateRulesInput key(String key) {
     this.key = key;
     return this;
   }
@@ -54,22 +56,30 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     this.key = key;
   }
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput value(String value) {
-    this.value = value;
+  public HeaderConfigForCreateRulesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public HeaderConfigForCreateRulesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +91,24 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput healthCheckTemplatesTagForCreateHealthCheckTemplatesInput = (HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) o;
-    return Objects.equals(this.key, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.key) &&
-        Objects.equals(this.value, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.value);
+    HeaderConfigForCreateRulesInput headerConfigForCreateRulesInput = (HeaderConfigForCreateRulesInput) o;
+    return Objects.equals(this.key, headerConfigForCreateRulesInput.key) &&
+        Objects.equals(this.values, headerConfigForCreateRulesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {\n");
+    sb.append("class HeaderConfigForCreateRulesInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

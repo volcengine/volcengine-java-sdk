@@ -38,6 +38,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("CrossZoneEnabled")
+  private String crossZoneEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -102,6 +105,24 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public ServerGroupForDescribeServerGroupsOutput crossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
+    return this;
+  }
+
+   /**
+   * Get crossZoneEnabled
+   * @return crossZoneEnabled
+  **/
+  @Schema(description = "")
+  public String getCrossZoneEnabled() {
+    return crossZoneEnabled;
+  }
+
+  public void setCrossZoneEnabled(String crossZoneEnabled) {
+    this.crossZoneEnabled = crossZoneEnabled;
   }
 
   public ServerGroupForDescribeServerGroupsOutput description(String description) {
@@ -422,6 +443,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     }
     ServerGroupForDescribeServerGroupsOutput serverGroupForDescribeServerGroupsOutput = (ServerGroupForDescribeServerGroupsOutput) o;
     return Objects.equals(this.createTime, serverGroupForDescribeServerGroupsOutput.createTime) &&
+        Objects.equals(this.crossZoneEnabled, serverGroupForDescribeServerGroupsOutput.crossZoneEnabled) &&
         Objects.equals(this.description, serverGroupForDescribeServerGroupsOutput.description) &&
         Objects.equals(this.healthCheck, serverGroupForDescribeServerGroupsOutput.healthCheck) &&
         Objects.equals(this.ipAddressType, serverGroupForDescribeServerGroupsOutput.ipAddressType) &&
@@ -442,7 +464,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, healthCheck, ipAddressType, listeners, projectName, protocol, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, tags, updateTime, vpcId);
+    return Objects.hash(createTime, crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, tags, updateTime, vpcId);
   }
 
 
@@ -452,6 +474,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("class ServerGroupForDescribeServerGroupsOutput {\n");
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    crossZoneEnabled: ").append(toIndentedString(crossZoneEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");

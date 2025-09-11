@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.QueryStringConfigValueForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput
+ * QueryStringConfigForCreateRulesInput
  */
 
 
 
-public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
-  @SerializedName("Key")
-  private String key = null;
+public class QueryStringConfigForCreateRulesInput {
+  @SerializedName("Values")
+  private List<QueryStringConfigValueForCreateRulesInput> values = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  public QueryStringConfigForCreateRulesInput values(List<QueryStringConfigValueForCreateRulesInput> values) {
+    this.values = values;
+    return this;
+  }
 
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput key(String key) {
-    this.key = key;
+  public QueryStringConfigForCreateRulesInput addValuesItem(QueryStringConfigValueForCreateRulesInput valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<QueryStringConfigValueForCreateRulesInput>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get values
+   * @return values
   **/
+  @Valid
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public List<QueryStringConfigValueForCreateRulesInput> getValues() {
+    return values;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setValues(List<QueryStringConfigValueForCreateRulesInput> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +72,22 @@ public class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput healthCheckTemplatesTagForCreateHealthCheckTemplatesInput = (HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput) o;
-    return Objects.equals(this.key, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.key) &&
-        Objects.equals(this.value, healthCheckTemplatesTagForCreateHealthCheckTemplatesInput.value);
+    QueryStringConfigForCreateRulesInput queryStringConfigForCreateRulesInput = (QueryStringConfigForCreateRulesInput) o;
+    return Objects.equals(this.values, queryStringConfigForCreateRulesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput {\n");
+    sb.append("class QueryStringConfigForCreateRulesInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
