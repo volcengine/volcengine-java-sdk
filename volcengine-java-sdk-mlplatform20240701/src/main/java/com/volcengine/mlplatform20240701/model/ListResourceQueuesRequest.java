@@ -94,6 +94,9 @@ public class ListResourceQueuesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceGroupIds")
   private List<String> resourceGroupIds = null;
 
@@ -342,6 +345,24 @@ public class ListResourceQueuesRequest {
     this.pageSize = pageSize;
   }
 
+  public ListResourceQueuesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListResourceQueuesRequest resourceGroupIds(List<String> resourceGroupIds) {
     this.resourceGroupIds = resourceGroupIds;
     return this;
@@ -515,6 +536,7 @@ public class ListResourceQueuesRequest {
         Objects.equals(this.nameContains, listResourceQueuesRequest.nameContains) &&
         Objects.equals(this.pageNumber, listResourceQueuesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listResourceQueuesRequest.pageSize) &&
+        Objects.equals(this.projectName, listResourceQueuesRequest.projectName) &&
         Objects.equals(this.resourceGroupIds, listResourceQueuesRequest.resourceGroupIds) &&
         Objects.equals(this.shareable, listResourceQueuesRequest.shareable) &&
         Objects.equals(this.sortBy, listResourceQueuesRequest.sortBy) &&
@@ -526,7 +548,7 @@ public class ListResourceQueuesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, ids, nameContains, pageNumber, pageSize, resourceGroupIds, shareable, sortBy, sortOrder, status, workloadTypes, zoneIds);
+    return Objects.hash(chargeType, ids, nameContains, pageNumber, pageSize, projectName, resourceGroupIds, shareable, sortBy, sortOrder, status, workloadTypes, zoneIds);
   }
 
 
@@ -540,6 +562,7 @@ public class ListResourceQueuesRequest {
     sb.append("    nameContains: ").append(toIndentedString(nameContains)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceGroupIds: ").append(toIndentedString(resourceGroupIds)).append("\n");
     sb.append("    shareable: ").append(toIndentedString(shareable)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");

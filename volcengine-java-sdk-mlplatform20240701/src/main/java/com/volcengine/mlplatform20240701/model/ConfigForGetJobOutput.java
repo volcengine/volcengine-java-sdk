@@ -20,9 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForGetJobOutput;
+import com.volcengine.mlplatform20240701.model.NasAPForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.NasForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.TosForGetJobOutput;
+import com.volcengine.mlplatform20240701.model.VepfsAPForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.VepfsForGetJobOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +43,9 @@ public class ConfigForGetJobOutput {
   @SerializedName("Nas")
   private NasForGetJobOutput nas = null;
 
+  @SerializedName("NasAP")
+  private NasAPForGetJobOutput nasAP = null;
+
   @SerializedName("Sfcs")
   private SfcsForGetJobOutput sfcs = null;
 
@@ -49,6 +54,9 @@ public class ConfigForGetJobOutput {
 
   @SerializedName("Vepfs")
   private VepfsForGetJobOutput vepfs = null;
+
+  @SerializedName("VepfsAP")
+  private VepfsAPForGetJobOutput vepfsAP = null;
 
   public ConfigForGetJobOutput cfs(CfsForGetJobOutput cfs) {
     this.cfs = cfs;
@@ -86,6 +94,25 @@ public class ConfigForGetJobOutput {
 
   public void setNas(NasForGetJobOutput nas) {
     this.nas = nas;
+  }
+
+  public ConfigForGetJobOutput nasAP(NasAPForGetJobOutput nasAP) {
+    this.nasAP = nasAP;
+    return this;
+  }
+
+   /**
+   * Get nasAP
+   * @return nasAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public NasAPForGetJobOutput getNasAP() {
+    return nasAP;
+  }
+
+  public void setNasAP(NasAPForGetJobOutput nasAP) {
+    this.nasAP = nasAP;
   }
 
   public ConfigForGetJobOutput sfcs(SfcsForGetJobOutput sfcs) {
@@ -145,6 +172,25 @@ public class ConfigForGetJobOutput {
     this.vepfs = vepfs;
   }
 
+  public ConfigForGetJobOutput vepfsAP(VepfsAPForGetJobOutput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+    return this;
+  }
+
+   /**
+   * Get vepfsAP
+   * @return vepfsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public VepfsAPForGetJobOutput getVepfsAP() {
+    return vepfsAP;
+  }
+
+  public void setVepfsAP(VepfsAPForGetJobOutput vepfsAP) {
+    this.vepfsAP = vepfsAP;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,14 +203,16 @@ public class ConfigForGetJobOutput {
     ConfigForGetJobOutput configForGetJobOutput = (ConfigForGetJobOutput) o;
     return Objects.equals(this.cfs, configForGetJobOutput.cfs) &&
         Objects.equals(this.nas, configForGetJobOutput.nas) &&
+        Objects.equals(this.nasAP, configForGetJobOutput.nasAP) &&
         Objects.equals(this.sfcs, configForGetJobOutput.sfcs) &&
         Objects.equals(this.tos, configForGetJobOutput.tos) &&
-        Objects.equals(this.vepfs, configForGetJobOutput.vepfs);
+        Objects.equals(this.vepfs, configForGetJobOutput.vepfs) &&
+        Objects.equals(this.vepfsAP, configForGetJobOutput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, sfcs, tos, vepfs);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
   }
 
 
@@ -175,9 +223,11 @@ public class ConfigForGetJobOutput {
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
+    sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
+    sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");
     return sb.toString();
   }

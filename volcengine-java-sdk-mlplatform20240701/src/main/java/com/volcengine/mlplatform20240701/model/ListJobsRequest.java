@@ -100,6 +100,9 @@ public class ListJobsRequest {
   @SerializedName("Priority")
   private Integer priority = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceGroupId")
   private String resourceGroupId = null;
 
@@ -393,6 +396,24 @@ public class ListJobsRequest {
     this.priority = priority;
   }
 
+  public ListJobsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListJobsRequest resourceGroupId(String resourceGroupId) {
     this.resourceGroupId = resourceGroupId;
     return this;
@@ -554,6 +575,7 @@ public class ListJobsRequest {
         Objects.equals(this.pageNumber, listJobsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listJobsRequest.pageSize) &&
         Objects.equals(this.priority, listJobsRequest.priority) &&
+        Objects.equals(this.projectName, listJobsRequest.projectName) &&
         Objects.equals(this.resourceGroupId, listJobsRequest.resourceGroupId) &&
         Objects.equals(this.resourceQueueId, listJobsRequest.resourceQueueId) &&
         Objects.equals(this.resourceReservationPlanId, listJobsRequest.resourceReservationPlanId) &&
@@ -566,7 +588,7 @@ public class ListJobsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTimeAfter, createTimeBefore, diagnoseState, nameContains, pageNumber, pageSize, priority, resourceGroupId, resourceQueueId, resourceReservationPlanId, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
+    return Objects.hash(createTimeAfter, createTimeBefore, diagnoseState, nameContains, pageNumber, pageSize, priority, projectName, resourceGroupId, resourceQueueId, resourceReservationPlanId, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
   }
 
 
@@ -582,6 +604,7 @@ public class ListJobsRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
     sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");

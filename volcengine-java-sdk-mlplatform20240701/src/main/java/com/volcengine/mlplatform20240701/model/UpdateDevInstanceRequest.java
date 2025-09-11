@@ -40,6 +40,9 @@ public class UpdateDevInstanceRequest {
   @SerializedName("Credential")
   private CredentialForUpdateDevInstanceInput credential = null;
 
+  @SerializedName("DefaultFolder")
+  private String defaultFolder = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -63,6 +66,9 @@ public class UpdateDevInstanceRequest {
 
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
+
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
 
   @SerializedName("SshPublicKey")
   private String sshPublicKey = null;
@@ -90,6 +96,24 @@ public class UpdateDevInstanceRequest {
 
   public void setCredential(CredentialForUpdateDevInstanceInput credential) {
     this.credential = credential;
+  }
+
+  public UpdateDevInstanceRequest defaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
+    return this;
+  }
+
+   /**
+   * Get defaultFolder
+   * @return defaultFolder
+  **/
+  @Schema(description = "")
+  public String getDefaultFolder() {
+    return defaultFolder;
+  }
+
+  public void setDefaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
   }
 
   public UpdateDevInstanceRequest description(String description) {
@@ -248,6 +272,24 @@ public class UpdateDevInstanceRequest {
     this.resourceQueueId = resourceQueueId;
   }
 
+  public UpdateDevInstanceRequest resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+  }
+
   public UpdateDevInstanceRequest sshPublicKey(String sshPublicKey) {
     this.sshPublicKey = sshPublicKey;
     return this;
@@ -322,6 +364,7 @@ public class UpdateDevInstanceRequest {
     }
     UpdateDevInstanceRequest updateDevInstanceRequest = (UpdateDevInstanceRequest) o;
     return Objects.equals(this.credential, updateDevInstanceRequest.credential) &&
+        Objects.equals(this.defaultFolder, updateDevInstanceRequest.defaultFolder) &&
         Objects.equals(this.description, updateDevInstanceRequest.description) &&
         Objects.equals(this.id, updateDevInstanceRequest.id) &&
         Objects.equals(this.name, updateDevInstanceRequest.name) &&
@@ -330,6 +373,7 @@ public class UpdateDevInstanceRequest {
         Objects.equals(this.ports, updateDevInstanceRequest.ports) &&
         Objects.equals(this.resourceClaim, updateDevInstanceRequest.resourceClaim) &&
         Objects.equals(this.resourceQueueId, updateDevInstanceRequest.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, updateDevInstanceRequest.resourceReservationPlanId) &&
         Objects.equals(this.sshPublicKey, updateDevInstanceRequest.sshPublicKey) &&
         Objects.equals(this.storages, updateDevInstanceRequest.storages) &&
         Objects.equals(this.volumeSize, updateDevInstanceRequest.volumeSize);
@@ -337,7 +381,7 @@ public class UpdateDevInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, description, id, name, nodeAffinitySpec, numaAffinity, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volumeSize);
+    return Objects.hash(credential, defaultFolder, description, id, name, nodeAffinitySpec, numaAffinity, ports, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, storages, volumeSize);
   }
 
 
@@ -347,6 +391,7 @@ public class UpdateDevInstanceRequest {
     sb.append("class UpdateDevInstanceRequest {\n");
     
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
+    sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -355,6 +400,7 @@ public class UpdateDevInstanceRequest {
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    sshPublicKey: ").append(toIndentedString(sshPublicKey)).append("\n");
     sb.append("    storages: ").append(toIndentedString(storages)).append("\n");
     sb.append("    volumeSize: ").append(toIndentedString(volumeSize)).append("\n");

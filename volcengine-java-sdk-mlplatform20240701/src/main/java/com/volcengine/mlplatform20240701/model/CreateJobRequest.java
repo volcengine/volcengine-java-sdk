@@ -53,6 +53,9 @@ public class CreateJobRequest {
   @SerializedName("ObservableConfig")
   private ObservableConfigForCreateJobInput observableConfig = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceConfig")
   private ResourceConfigForCreateJobInput resourceConfig = null;
 
@@ -165,6 +168,24 @@ public class CreateJobRequest {
     this.observableConfig = observableConfig;
   }
 
+  public CreateJobRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateJobRequest resourceConfig(ResourceConfigForCreateJobInput resourceConfig) {
     this.resourceConfig = resourceConfig;
     return this;
@@ -256,6 +277,7 @@ public class CreateJobRequest {
         Objects.equals(this.dryRun, createJobRequest.dryRun) &&
         Objects.equals(this.name, createJobRequest.name) &&
         Objects.equals(this.observableConfig, createJobRequest.observableConfig) &&
+        Objects.equals(this.projectName, createJobRequest.projectName) &&
         Objects.equals(this.resourceConfig, createJobRequest.resourceConfig) &&
         Objects.equals(this.retryConfig, createJobRequest.retryConfig) &&
         Objects.equals(this.runtimeConfig, createJobRequest.runtimeConfig) &&
@@ -264,7 +286,7 @@ public class CreateJobRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, diagnoseConfig, dryRun, name, observableConfig, resourceConfig, retryConfig, runtimeConfig, storageConfig);
+    return Objects.hash(description, diagnoseConfig, dryRun, name, observableConfig, projectName, resourceConfig, retryConfig, runtimeConfig, storageConfig);
   }
 
 
@@ -278,6 +300,7 @@ public class CreateJobRequest {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    observableConfig: ").append(toIndentedString(observableConfig)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    retryConfig: ").append(toIndentedString(retryConfig)).append("\n");
     sb.append("    runtimeConfig: ").append(toIndentedString(runtimeConfig)).append("\n");

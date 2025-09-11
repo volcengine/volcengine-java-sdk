@@ -49,6 +49,9 @@ public class CreateResourceQueueRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Quota")
   private QuotaForCreateResourceQueueInput quota = null;
 
@@ -147,6 +150,24 @@ public class CreateResourceQueueRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateResourceQueueRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateResourceQueueRequest quota(QuotaForCreateResourceQueueInput quota) {
@@ -292,6 +313,7 @@ public class CreateResourceQueueRequest {
         Objects.equals(this.description, createResourceQueueRequest.description) &&
         Objects.equals(this.dryRun, createResourceQueueRequest.dryRun) &&
         Objects.equals(this.name, createResourceQueueRequest.name) &&
+        Objects.equals(this.projectName, createResourceQueueRequest.projectName) &&
         Objects.equals(this.quota, createResourceQueueRequest.quota) &&
         Objects.equals(this.resourceGroupId, createResourceQueueRequest.resourceGroupId) &&
         Objects.equals(this.rules, createResourceQueueRequest.rules) &&
@@ -302,7 +324,7 @@ public class CreateResourceQueueRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(computeResources, description, dryRun, name, quota, resourceGroupId, rules, shareable, volumeResources, workloadInfos);
+    return Objects.hash(computeResources, description, dryRun, name, projectName, quota, resourceGroupId, rules, shareable, volumeResources, workloadInfos);
   }
 
 
@@ -315,6 +337,7 @@ public class CreateResourceQueueRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");

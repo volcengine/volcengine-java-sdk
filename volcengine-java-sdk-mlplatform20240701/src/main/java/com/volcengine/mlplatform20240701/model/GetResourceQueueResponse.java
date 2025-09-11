@@ -56,6 +56,9 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("QuotaAllocated")
   private QuotaAllocatedForGetResourceQueueOutput quotaAllocated = null;
 
@@ -186,6 +189,24 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public GetResourceQueueResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public GetResourceQueueResponse quotaAllocated(QuotaAllocatedForGetResourceQueueOutput quotaAllocated) {
@@ -433,6 +454,7 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.description, getResourceQueueResponse.description) &&
         Objects.equals(this.id, getResourceQueueResponse.id) &&
         Objects.equals(this.name, getResourceQueueResponse.name) &&
+        Objects.equals(this.projectName, getResourceQueueResponse.projectName) &&
         Objects.equals(this.quotaAllocated, getResourceQueueResponse.quotaAllocated) &&
         Objects.equals(this.quotaCapability, getResourceQueueResponse.quotaCapability) &&
         Objects.equals(this.resourceGroupId, getResourceQueueResponse.resourceGroupId) &&
@@ -448,7 +470,7 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, computeResources, description, id, name, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
+    return Objects.hash(chargeType, computeResources, description, id, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
   }
 
 
@@ -462,6 +484,7 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quotaAllocated: ").append(toIndentedString(quotaAllocated)).append("\n");
     sb.append("    quotaCapability: ").append(toIndentedString(quotaCapability)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");

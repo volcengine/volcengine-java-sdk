@@ -55,6 +55,9 @@ public class ItemForListResourceGroupsOutput {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceAllocated")
   private ResourceAllocatedForListResourceGroupsOutput resourceAllocated = null;
 
@@ -66,6 +69,9 @@ public class ItemForListResourceGroupsOutput {
 
   @SerializedName("StorageConfig")
   private StorageConfigForListResourceGroupsOutput storageConfig = null;
+
+  @SerializedName("VRdmaEnabled")
+  private Boolean vrdmaEnabled = null;
 
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForListResourceGroupsOutput workloadNetworkConfig = null;
@@ -184,6 +190,24 @@ public class ItemForListResourceGroupsOutput {
     this.periodUnit = periodUnit;
   }
 
+  public ItemForListResourceGroupsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+ @Size(min=1,max=64)  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ItemForListResourceGroupsOutput resourceAllocated(ResourceAllocatedForListResourceGroupsOutput resourceAllocated) {
     this.resourceAllocated = resourceAllocated;
     return this;
@@ -258,6 +282,24 @@ public class ItemForListResourceGroupsOutput {
 
   public void setStorageConfig(StorageConfigForListResourceGroupsOutput storageConfig) {
     this.storageConfig = storageConfig;
+  }
+
+  public ItemForListResourceGroupsOutput vrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
+    return this;
+  }
+
+   /**
+   * Get vrdmaEnabled
+   * @return vrdmaEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isVrdmaEnabled() {
+    return vrdmaEnabled;
+  }
+
+  public void setVrdmaEnabled(Boolean vrdmaEnabled) {
+    this.vrdmaEnabled = vrdmaEnabled;
   }
 
   public ItemForListResourceGroupsOutput workloadNetworkConfig(WorkloadNetworkConfigForListResourceGroupsOutput workloadNetworkConfig) {
@@ -339,10 +381,12 @@ public class ItemForListResourceGroupsOutput {
         Objects.equals(this.id, itemForListResourceGroupsOutput.id) &&
         Objects.equals(this.name, itemForListResourceGroupsOutput.name) &&
         Objects.equals(this.periodUnit, itemForListResourceGroupsOutput.periodUnit) &&
+        Objects.equals(this.projectName, itemForListResourceGroupsOutput.projectName) &&
         Objects.equals(this.resourceAllocated, itemForListResourceGroupsOutput.resourceAllocated) &&
         Objects.equals(this.resourceCapability, itemForListResourceGroupsOutput.resourceCapability) &&
         Objects.equals(this.status, itemForListResourceGroupsOutput.status) &&
         Objects.equals(this.storageConfig, itemForListResourceGroupsOutput.storageConfig) &&
+        Objects.equals(this.vrdmaEnabled, itemForListResourceGroupsOutput.vrdmaEnabled) &&
         Objects.equals(this.workloadNetworkConfig, itemForListResourceGroupsOutput.workloadNetworkConfig) &&
         Objects.equals(this.workloadNetworkMode, itemForListResourceGroupsOutput.workloadNetworkMode) &&
         Objects.equals(this.zoneIds, itemForListResourceGroupsOutput.zoneIds);
@@ -350,7 +394,7 @@ public class ItemForListResourceGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, description, expireTime, id, name, periodUnit, resourceAllocated, resourceCapability, status, storageConfig, workloadNetworkConfig, workloadNetworkMode, zoneIds);
+    return Objects.hash(chargeType, description, expireTime, id, name, periodUnit, projectName, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
   }
 
 
@@ -365,10 +409,12 @@ public class ItemForListResourceGroupsOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceAllocated: ").append(toIndentedString(resourceAllocated)).append("\n");
     sb.append("    resourceCapability: ").append(toIndentedString(resourceCapability)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
+    sb.append("    vrdmaEnabled: ").append(toIndentedString(vrdmaEnabled)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
     sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");

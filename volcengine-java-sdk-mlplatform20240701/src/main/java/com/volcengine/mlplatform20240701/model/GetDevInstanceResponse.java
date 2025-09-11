@@ -48,6 +48,9 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
 
+  @SerializedName("DefaultFolder")
+  private String defaultFolder = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -81,11 +84,17 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("Ports")
   private List<PortForGetDevInstanceOutput> ports = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceClaim")
   private ResourceClaimForGetDevInstanceOutput resourceClaim = null;
 
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
+
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
 
   @SerializedName("SshPublicKey")
   private String sshPublicKey = null;
@@ -163,6 +172,24 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public GetDevInstanceResponse defaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
+    return this;
+  }
+
+   /**
+   * Get defaultFolder
+   * @return defaultFolder
+  **/
+  @Schema(description = "")
+  public String getDefaultFolder() {
+    return defaultFolder;
+  }
+
+  public void setDefaultFolder(String defaultFolder) {
+    this.defaultFolder = defaultFolder;
   }
 
   public GetDevInstanceResponse description(String description) {
@@ -374,6 +401,24 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     this.ports = ports;
   }
 
+  public GetDevInstanceResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetDevInstanceResponse resourceClaim(ResourceClaimForGetDevInstanceOutput resourceClaim) {
     this.resourceClaim = resourceClaim;
     return this;
@@ -409,6 +454,24 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   public void setResourceQueueId(String resourceQueueId) {
     this.resourceQueueId = resourceQueueId;
+  }
+
+  public GetDevInstanceResponse resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
   }
 
   public GetDevInstanceResponse sshPublicKey(String sshPublicKey) {
@@ -579,6 +642,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     return Objects.equals(this.allowImageBuild, getDevInstanceResponse.allowImageBuild) &&
         Objects.equals(this.createTime, getDevInstanceResponse.createTime) &&
         Objects.equals(this.creatorTrn, getDevInstanceResponse.creatorTrn) &&
+        Objects.equals(this.defaultFolder, getDevInstanceResponse.defaultFolder) &&
         Objects.equals(this.description, getDevInstanceResponse.description) &&
         Objects.equals(this.expectedStopTime, getDevInstanceResponse.expectedStopTime) &&
         Objects.equals(this.id, getDevInstanceResponse.id) &&
@@ -590,8 +654,10 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.numaAffinity, getDevInstanceResponse.numaAffinity) &&
         Objects.equals(this.numaStatus, getDevInstanceResponse.numaStatus) &&
         Objects.equals(this.ports, getDevInstanceResponse.ports) &&
+        Objects.equals(this.projectName, getDevInstanceResponse.projectName) &&
         Objects.equals(this.resourceClaim, getDevInstanceResponse.resourceClaim) &&
         Objects.equals(this.resourceQueueId, getDevInstanceResponse.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, getDevInstanceResponse.resourceReservationPlanId) &&
         Objects.equals(this.sshPublicKey, getDevInstanceResponse.sshPublicKey) &&
         Objects.equals(this.status, getDevInstanceResponse.status) &&
         Objects.equals(this.stopTime, getDevInstanceResponse.stopTime) &&
@@ -604,7 +670,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -616,6 +682,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     sb.append("    allowImageBuild: ").append(toIndentedString(allowImageBuild)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expectedStopTime: ").append(toIndentedString(expectedStopTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -627,8 +694,10 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    numaStatus: ").append(toIndentedString(numaStatus)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    sshPublicKey: ").append(toIndentedString(sshPublicKey)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stopTime: ").append(toIndentedString(stopTime)).append("\n");
