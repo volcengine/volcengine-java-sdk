@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.apig20221112.model.AllowOriginForUpdateRouteInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,8 +33,123 @@ import javax.validation.Valid;
 
 
 public class CorsPolicySettingForUpdateRouteInput {
+  @SerializedName("AllowCredentials")
+  private Boolean allowCredentials = null;
+
+  @SerializedName("AllowHeaders")
+  private List<String> allowHeaders = null;
+
+  @SerializedName("AllowMethods")
+  private List<String> allowMethods = null;
+
+  @SerializedName("AllowOrigins")
+  private List<AllowOriginForUpdateRouteInput> allowOrigins = null;
+
   @SerializedName("Enable")
   private Boolean enable = null;
+
+  @SerializedName("ExposeHeaders")
+  private List<String> exposeHeaders = null;
+
+  @SerializedName("MaxAge")
+  private Long maxAge = null;
+
+  public CorsPolicySettingForUpdateRouteInput allowCredentials(Boolean allowCredentials) {
+    this.allowCredentials = allowCredentials;
+    return this;
+  }
+
+   /**
+   * Get allowCredentials
+   * @return allowCredentials
+  **/
+  @Schema(description = "")
+  public Boolean isAllowCredentials() {
+    return allowCredentials;
+  }
+
+  public void setAllowCredentials(Boolean allowCredentials) {
+    this.allowCredentials = allowCredentials;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput allowHeaders(List<String> allowHeaders) {
+    this.allowHeaders = allowHeaders;
+    return this;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput addAllowHeadersItem(String allowHeadersItem) {
+    if (this.allowHeaders == null) {
+      this.allowHeaders = new ArrayList<String>();
+    }
+    this.allowHeaders.add(allowHeadersItem);
+    return this;
+  }
+
+   /**
+   * Get allowHeaders
+   * @return allowHeaders
+  **/
+  @Schema(description = "")
+  public List<String> getAllowHeaders() {
+    return allowHeaders;
+  }
+
+  public void setAllowHeaders(List<String> allowHeaders) {
+    this.allowHeaders = allowHeaders;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput allowMethods(List<String> allowMethods) {
+    this.allowMethods = allowMethods;
+    return this;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput addAllowMethodsItem(String allowMethodsItem) {
+    if (this.allowMethods == null) {
+      this.allowMethods = new ArrayList<String>();
+    }
+    this.allowMethods.add(allowMethodsItem);
+    return this;
+  }
+
+   /**
+   * Get allowMethods
+   * @return allowMethods
+  **/
+  @Schema(description = "")
+  public List<String> getAllowMethods() {
+    return allowMethods;
+  }
+
+  public void setAllowMethods(List<String> allowMethods) {
+    this.allowMethods = allowMethods;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput allowOrigins(List<AllowOriginForUpdateRouteInput> allowOrigins) {
+    this.allowOrigins = allowOrigins;
+    return this;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput addAllowOriginsItem(AllowOriginForUpdateRouteInput allowOriginsItem) {
+    if (this.allowOrigins == null) {
+      this.allowOrigins = new ArrayList<AllowOriginForUpdateRouteInput>();
+    }
+    this.allowOrigins.add(allowOriginsItem);
+    return this;
+  }
+
+   /**
+   * Get allowOrigins
+   * @return allowOrigins
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AllowOriginForUpdateRouteInput> getAllowOrigins() {
+    return allowOrigins;
+  }
+
+  public void setAllowOrigins(List<AllowOriginForUpdateRouteInput> allowOrigins) {
+    this.allowOrigins = allowOrigins;
+  }
 
   public CorsPolicySettingForUpdateRouteInput enable(Boolean enable) {
     this.enable = enable;
@@ -51,6 +169,50 @@ public class CorsPolicySettingForUpdateRouteInput {
     this.enable = enable;
   }
 
+  public CorsPolicySettingForUpdateRouteInput exposeHeaders(List<String> exposeHeaders) {
+    this.exposeHeaders = exposeHeaders;
+    return this;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput addExposeHeadersItem(String exposeHeadersItem) {
+    if (this.exposeHeaders == null) {
+      this.exposeHeaders = new ArrayList<String>();
+    }
+    this.exposeHeaders.add(exposeHeadersItem);
+    return this;
+  }
+
+   /**
+   * Get exposeHeaders
+   * @return exposeHeaders
+  **/
+  @Schema(description = "")
+  public List<String> getExposeHeaders() {
+    return exposeHeaders;
+  }
+
+  public void setExposeHeaders(List<String> exposeHeaders) {
+    this.exposeHeaders = exposeHeaders;
+  }
+
+  public CorsPolicySettingForUpdateRouteInput maxAge(Long maxAge) {
+    this.maxAge = maxAge;
+    return this;
+  }
+
+   /**
+   * Get maxAge
+   * @return maxAge
+  **/
+  @Schema(description = "")
+  public Long getMaxAge() {
+    return maxAge;
+  }
+
+  public void setMaxAge(Long maxAge) {
+    this.maxAge = maxAge;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +223,18 @@ public class CorsPolicySettingForUpdateRouteInput {
       return false;
     }
     CorsPolicySettingForUpdateRouteInput corsPolicySettingForUpdateRouteInput = (CorsPolicySettingForUpdateRouteInput) o;
-    return Objects.equals(this.enable, corsPolicySettingForUpdateRouteInput.enable);
+    return Objects.equals(this.allowCredentials, corsPolicySettingForUpdateRouteInput.allowCredentials) &&
+        Objects.equals(this.allowHeaders, corsPolicySettingForUpdateRouteInput.allowHeaders) &&
+        Objects.equals(this.allowMethods, corsPolicySettingForUpdateRouteInput.allowMethods) &&
+        Objects.equals(this.allowOrigins, corsPolicySettingForUpdateRouteInput.allowOrigins) &&
+        Objects.equals(this.enable, corsPolicySettingForUpdateRouteInput.enable) &&
+        Objects.equals(this.exposeHeaders, corsPolicySettingForUpdateRouteInput.exposeHeaders) &&
+        Objects.equals(this.maxAge, corsPolicySettingForUpdateRouteInput.maxAge);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable);
+    return Objects.hash(allowCredentials, allowHeaders, allowMethods, allowOrigins, enable, exposeHeaders, maxAge);
   }
 
 
@@ -75,7 +243,13 @@ public class CorsPolicySettingForUpdateRouteInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CorsPolicySettingForUpdateRouteInput {\n");
     
+    sb.append("    allowCredentials: ").append(toIndentedString(allowCredentials)).append("\n");
+    sb.append("    allowHeaders: ").append(toIndentedString(allowHeaders)).append("\n");
+    sb.append("    allowMethods: ").append(toIndentedString(allowMethods)).append("\n");
+    sb.append("    allowOrigins: ").append(toIndentedString(allowOrigins)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    exposeHeaders: ").append(toIndentedString(exposeHeaders)).append("\n");
+    sb.append("    maxAge: ").append(toIndentedString(maxAge)).append("\n");
     sb.append("}");
     return sb.toString();
   }

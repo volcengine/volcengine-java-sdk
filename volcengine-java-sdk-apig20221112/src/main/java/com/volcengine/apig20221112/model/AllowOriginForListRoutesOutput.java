@@ -24,37 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListRoutesOutput
+ * AllowOriginForListRoutesOutput
  */
 
 
 
-public class TagForListRoutesOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class AllowOriginForListRoutesOutput {
+  @SerializedName("MatchType")
+  private String matchType = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForListRoutesOutput key(String key) {
-    this.key = key;
+  public AllowOriginForListRoutesOutput matchType(String matchType) {
+    this.matchType = matchType;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get matchType
+   * @return matchType
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getMatchType() {
+    return matchType;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setMatchType(String matchType) {
+    this.matchType = matchType;
   }
 
-  public TagForListRoutesOutput value(String value) {
+  public AllowOriginForListRoutesOutput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,23 +81,23 @@ public class TagForListRoutesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListRoutesOutput tagForListRoutesOutput = (TagForListRoutesOutput) o;
-    return Objects.equals(this.key, tagForListRoutesOutput.key) &&
-        Objects.equals(this.value, tagForListRoutesOutput.value);
+    AllowOriginForListRoutesOutput allowOriginForListRoutesOutput = (AllowOriginForListRoutesOutput) o;
+    return Objects.equals(this.matchType, allowOriginForListRoutesOutput.matchType) &&
+        Objects.equals(this.value, allowOriginForListRoutesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(matchType, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListRoutesOutput {\n");
+    sb.append("class AllowOriginForListRoutesOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
