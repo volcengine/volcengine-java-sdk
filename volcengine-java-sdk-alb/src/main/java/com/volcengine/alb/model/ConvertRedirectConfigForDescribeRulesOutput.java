@@ -34,13 +34,13 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
   private String host = null;
 
   @SerializedName("HttpCode")
-  private Integer httpCode = null;
+  private String httpCode = null;
 
   @SerializedName("Path")
   private String path = null;
 
   @SerializedName("Port")
-  private Integer port = null;
+  private String port = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
@@ -63,7 +63,7 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
     this.host = host;
   }
 
-  public ConvertRedirectConfigForDescribeRulesOutput httpCode(Integer httpCode) {
+  public ConvertRedirectConfigForDescribeRulesOutput httpCode(String httpCode) {
     this.httpCode = httpCode;
     return this;
   }
@@ -73,11 +73,11 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
    * @return httpCode
   **/
   @Schema(description = "")
-  public Integer getHttpCode() {
+  public String getHttpCode() {
     return httpCode;
   }
 
-  public void setHttpCode(Integer httpCode) {
+  public void setHttpCode(String httpCode) {
     this.httpCode = httpCode;
   }
 
@@ -99,7 +99,7 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
     this.path = path;
   }
 
-  public ConvertRedirectConfigForDescribeRulesOutput port(Integer port) {
+  public ConvertRedirectConfigForDescribeRulesOutput port(String port) {
     this.port = port;
     return this;
   }
@@ -109,11 +109,11 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
    * @return port
   **/
   @Schema(description = "")
-  public Integer getPort() {
+  public String getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(String port) {
     this.port = port;
   }
 
