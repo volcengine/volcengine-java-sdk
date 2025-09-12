@@ -72,6 +72,9 @@ public class ImagesResponse {
         @JsonProperty("b64_json")
         private String b64Json;
 
+        @JsonProperty("size")
+        private String size;
+
         public String getUrl() {
             return url;
         }
@@ -88,11 +91,20 @@ public class ImagesResponse {
             this.b64Json = b64Json;
         }
 
+        public String getSize() {
+            return size;
+        }
+
+        public void setSize(String size) {
+            this.size = size;
+        }
+
         @Override
         public String toString() {
             return "Image{" +
                     "url=" + url +
                     "b64Json=" + b64Json +
+                    "size=" + size +
                     '}';
         }
     }
