@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.alb.model.ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput;
+import com.volcengine.alb.model.ForwardGroupConfigServerGroupTupleForModifyRulesInput;
 import com.volcengine.alb.model.ServerGroupStickySessionForModifyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class ConvertForwardGroupConfigForModifyRulesInput {
   private ServerGroupStickySessionForModifyRulesInput serverGroupStickySession = null;
 
   @SerializedName("ServerGroupTuples")
-  private List<ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples = null;
+  private List<ForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples = null;
 
   public ConvertForwardGroupConfigForModifyRulesInput serverGroupStickySession(ServerGroupStickySessionForModifyRulesInput serverGroupStickySession) {
     this.serverGroupStickySession = serverGroupStickySession;
@@ -59,14 +59,14 @@ public class ConvertForwardGroupConfigForModifyRulesInput {
     this.serverGroupStickySession = serverGroupStickySession;
   }
 
-  public ConvertForwardGroupConfigForModifyRulesInput serverGroupTuples(List<ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples) {
+  public ConvertForwardGroupConfigForModifyRulesInput serverGroupTuples(List<ForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples) {
     this.serverGroupTuples = serverGroupTuples;
     return this;
   }
 
-  public ConvertForwardGroupConfigForModifyRulesInput addServerGroupTuplesItem(ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput serverGroupTuplesItem) {
+  public ConvertForwardGroupConfigForModifyRulesInput addServerGroupTuplesItem(ForwardGroupConfigServerGroupTupleForModifyRulesInput serverGroupTuplesItem) {
     if (this.serverGroupTuples == null) {
-      this.serverGroupTuples = new ArrayList<ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput>();
+      this.serverGroupTuples = new ArrayList<ForwardGroupConfigServerGroupTupleForModifyRulesInput>();
     }
     this.serverGroupTuples.add(serverGroupTuplesItem);
     return this;
@@ -78,11 +78,11 @@ public class ConvertForwardGroupConfigForModifyRulesInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput> getServerGroupTuples() {
+  public List<ForwardGroupConfigServerGroupTupleForModifyRulesInput> getServerGroupTuples() {
     return serverGroupTuples;
   }
 
-  public void setServerGroupTuples(List<ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples) {
+  public void setServerGroupTuples(List<ForwardGroupConfigServerGroupTupleForModifyRulesInput> serverGroupTuples) {
     this.serverGroupTuples = serverGroupTuples;
   }
 

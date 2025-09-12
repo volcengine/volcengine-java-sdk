@@ -31,9 +31,9 @@ import javax.validation.Valid;
 
 public class TrafficLimitConfigForCreateRulesInput {
   @SerializedName("QPS")
-  private String QPS = null;
+  private Integer QPS = null;
 
-  public TrafficLimitConfigForCreateRulesInput QPS(String QPS) {
+  public TrafficLimitConfigForCreateRulesInput QPS(Integer QPS) {
     this.QPS = QPS;
     return this;
   }
@@ -43,11 +43,11 @@ public class TrafficLimitConfigForCreateRulesInput {
    * @return QPS
   **/
   @Schema(description = "")
-  public String getQPS() {
+  public Integer getQPS() {
     return QPS;
   }
 
-  public void setQPS(String QPS) {
+  public void setQPS(Integer QPS) {
     this.QPS = QPS;
   }
 
