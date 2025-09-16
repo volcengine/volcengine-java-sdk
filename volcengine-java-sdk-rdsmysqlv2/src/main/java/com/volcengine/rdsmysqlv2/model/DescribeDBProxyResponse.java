@@ -19,57 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ProxyDetailForDescribeDBProxyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestoreToCrossRegionInstanceResponse
+ * DescribeDBProxyResponse
  */
 
 
 
-public class RestoreToCrossRegionInstanceResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeDBProxyResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ProxyDetail")
+  private ProxyDetailForDescribeDBProxyOutput proxyDetail = null;
 
-  @SerializedName("OrderId")
-  private String orderId = null;
-
-  public RestoreToCrossRegionInstanceResponse instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeDBProxyResponse proxyDetail(ProxyDetailForDescribeDBProxyOutput proxyDetail) {
+    this.proxyDetail = proxyDetail;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get proxyDetail
+   * @return proxyDetail
   **/
+  @Valid
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public ProxyDetailForDescribeDBProxyOutput getProxyDetail() {
+    return proxyDetail;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public RestoreToCrossRegionInstanceResponse orderId(String orderId) {
-    this.orderId = orderId;
-    return this;
-  }
-
-   /**
-   * Get orderId
-   * @return orderId
-  **/
-  @Schema(description = "")
-  public String getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
+  public void setProxyDetail(ProxyDetailForDescribeDBProxyOutput proxyDetail) {
+    this.proxyDetail = proxyDetail;
   }
 
 
@@ -81,24 +62,22 @@ public class RestoreToCrossRegionInstanceResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestoreToCrossRegionInstanceResponse restoreToCrossRegionInstanceResponse = (RestoreToCrossRegionInstanceResponse) o;
-    return Objects.equals(this.instanceId, restoreToCrossRegionInstanceResponse.instanceId) &&
-        Objects.equals(this.orderId, restoreToCrossRegionInstanceResponse.orderId);
+    DescribeDBProxyResponse describeDBProxyResponse = (DescribeDBProxyResponse) o;
+    return Objects.equals(this.proxyDetail, describeDBProxyResponse.proxyDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, orderId);
+    return Objects.hash(proxyDetail);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestoreToCrossRegionInstanceResponse {\n");
+    sb.append("class DescribeDBProxyResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    proxyDetail: ").append(toIndentedString(proxyDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

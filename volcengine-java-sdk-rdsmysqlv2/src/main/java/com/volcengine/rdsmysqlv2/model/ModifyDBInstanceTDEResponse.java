@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpgradeDBInstanceKernelVersionResponse
+ * ModifyDBInstanceTDEResponse
  */
 
 
 
-public class UpgradeDBInstanceKernelVersionResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyDBInstanceTDEResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class UpgradeDBInstanceKernelVersionResponse extends com.volcengine.model
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpgradeDBInstanceKernelVersionResponse {\n");
+    sb.append("class ModifyDBInstanceTDEResponse {\n");
     
     sb.append("}");
     return sb.toString();

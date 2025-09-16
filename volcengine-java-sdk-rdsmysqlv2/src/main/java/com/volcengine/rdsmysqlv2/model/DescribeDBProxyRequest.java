@@ -14,15 +14,44 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBInstanceAutoUpgradeMinorVersionResponse
+ * DescribeDBProxyRequest
  */
 
 
 
-public class ModifyDBInstanceAutoUpgradeMinorVersionResponse extends com.volcengine.model.AbstractResponse {
+public class DescribeDBProxyRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  public DescribeDBProxyRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,20 +61,22 @@ public class ModifyDBInstanceAutoUpgradeMinorVersionResponse extends com.volceng
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeDBProxyRequest describeDBProxyRequest = (DescribeDBProxyRequest) o;
+    return Objects.equals(this.instanceId, describeDBProxyRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBInstanceAutoUpgradeMinorVersionResponse {\n");
+    sb.append("class DescribeDBProxyRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

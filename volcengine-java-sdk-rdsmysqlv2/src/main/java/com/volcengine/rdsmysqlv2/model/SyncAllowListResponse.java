@@ -19,37 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ChangeObjectForSyncAllowListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeCrossBackupPolicyRequest
+ * SyncAllowListResponse
  */
 
 
 
-public class DescribeCrossBackupPolicyRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class SyncAllowListResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ChangeObjects")
+  private List<ChangeObjectForSyncAllowListOutput> changeObjects = null;
 
-  public DescribeCrossBackupPolicyRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public SyncAllowListResponse changeObjects(List<ChangeObjectForSyncAllowListOutput> changeObjects) {
+    this.changeObjects = changeObjects;
+    return this;
+  }
+
+  public SyncAllowListResponse addChangeObjectsItem(ChangeObjectForSyncAllowListOutput changeObjectsItem) {
+    if (this.changeObjects == null) {
+      this.changeObjects = new ArrayList<ChangeObjectForSyncAllowListOutput>();
+    }
+    this.changeObjects.add(changeObjectsItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get changeObjects
+   * @return changeObjects
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Valid
+  @Schema(description = "")
+  public List<ChangeObjectForSyncAllowListOutput> getChangeObjects() {
+    return changeObjects;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setChangeObjects(List<ChangeObjectForSyncAllowListOutput> changeObjects) {
+    this.changeObjects = changeObjects;
   }
 
 
@@ -61,22 +72,22 @@ public class DescribeCrossBackupPolicyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeCrossBackupPolicyRequest describeCrossBackupPolicyRequest = (DescribeCrossBackupPolicyRequest) o;
-    return Objects.equals(this.instanceId, describeCrossBackupPolicyRequest.instanceId);
+    SyncAllowListResponse syncAllowListResponse = (SyncAllowListResponse) o;
+    return Objects.equals(this.changeObjects, syncAllowListResponse.changeObjects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(changeObjects);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeCrossBackupPolicyRequest {\n");
+    sb.append("class SyncAllowListResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    changeObjects: ").append(toIndentedString(changeObjects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

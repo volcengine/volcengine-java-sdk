@@ -83,6 +83,12 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
   @SerializedName("DataKeepPolicyAfterReleased")
   private String dataKeepPolicyAfterReleased = null;
 
+  @SerializedName("HighFrequencySnapshotBackupEnable")
+  private Boolean highFrequencySnapshotBackupEnable = null;
+
+  @SerializedName("HighFrequencySnapshotBackupSecondPeriod")
+  private Integer highFrequencySnapshotBackupSecondPeriod = null;
+
   @SerializedName("HourlyIncrBackupEnable")
   private Boolean hourlyIncrBackupEnable = null;
 
@@ -426,6 +432,42 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     this.dataKeepPolicyAfterReleased = dataKeepPolicyAfterReleased;
   }
 
+  public ModifyBackupPolicyResponse highFrequencySnapshotBackupEnable(Boolean highFrequencySnapshotBackupEnable) {
+    this.highFrequencySnapshotBackupEnable = highFrequencySnapshotBackupEnable;
+    return this;
+  }
+
+   /**
+   * Get highFrequencySnapshotBackupEnable
+   * @return highFrequencySnapshotBackupEnable
+  **/
+  @Schema(description = "")
+  public Boolean isHighFrequencySnapshotBackupEnable() {
+    return highFrequencySnapshotBackupEnable;
+  }
+
+  public void setHighFrequencySnapshotBackupEnable(Boolean highFrequencySnapshotBackupEnable) {
+    this.highFrequencySnapshotBackupEnable = highFrequencySnapshotBackupEnable;
+  }
+
+  public ModifyBackupPolicyResponse highFrequencySnapshotBackupSecondPeriod(Integer highFrequencySnapshotBackupSecondPeriod) {
+    this.highFrequencySnapshotBackupSecondPeriod = highFrequencySnapshotBackupSecondPeriod;
+    return this;
+  }
+
+   /**
+   * Get highFrequencySnapshotBackupSecondPeriod
+   * @return highFrequencySnapshotBackupSecondPeriod
+  **/
+  @Schema(description = "")
+  public Integer getHighFrequencySnapshotBackupSecondPeriod() {
+    return highFrequencySnapshotBackupSecondPeriod;
+  }
+
+  public void setHighFrequencySnapshotBackupSecondPeriod(Integer highFrequencySnapshotBackupSecondPeriod) {
+    this.highFrequencySnapshotBackupSecondPeriod = highFrequencySnapshotBackupSecondPeriod;
+  }
+
   public ModifyBackupPolicyResponse hourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
     this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
     return this;
@@ -579,6 +621,8 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
         Objects.equals(this.dataIncrBackupPeriods, modifyBackupPolicyResponse.dataIncrBackupPeriods) &&
         Objects.equals(this.dataKeepDaysAfterReleased, modifyBackupPolicyResponse.dataKeepDaysAfterReleased) &&
         Objects.equals(this.dataKeepPolicyAfterReleased, modifyBackupPolicyResponse.dataKeepPolicyAfterReleased) &&
+        Objects.equals(this.highFrequencySnapshotBackupEnable, modifyBackupPolicyResponse.highFrequencySnapshotBackupEnable) &&
+        Objects.equals(this.highFrequencySnapshotBackupSecondPeriod, modifyBackupPolicyResponse.highFrequencySnapshotBackupSecondPeriod) &&
         Objects.equals(this.hourlyIncrBackupEnable, modifyBackupPolicyResponse.hourlyIncrBackupEnable) &&
         Objects.equals(this.incrBackupHourPeriod, modifyBackupPolicyResponse.incrBackupHourPeriod) &&
         Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId) &&
@@ -590,7 +634,7 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, publicDownloadEnable, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, publicDownloadEnable, retentionPolicySynced);
   }
 
 
@@ -616,6 +660,8 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    dataKeepDaysAfterReleased: ").append(toIndentedString(dataKeepDaysAfterReleased)).append("\n");
     sb.append("    dataKeepPolicyAfterReleased: ").append(toIndentedString(dataKeepPolicyAfterReleased)).append("\n");
+    sb.append("    highFrequencySnapshotBackupEnable: ").append(toIndentedString(highFrequencySnapshotBackupEnable)).append("\n");
+    sb.append("    highFrequencySnapshotBackupSecondPeriod: ").append(toIndentedString(highFrequencySnapshotBackupSecondPeriod)).append("\n");
     sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
     sb.append("    incrBackupHourPeriod: ").append(toIndentedString(incrBackupHourPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

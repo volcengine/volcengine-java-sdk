@@ -24,22 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpgradeDBInstanceKernelVersionRequest
+ * ModifyDBInstanceTypeResponse
  */
 
 
 
-public class UpgradeDBInstanceKernelVersionRequest {
+public class ModifyDBInstanceTypeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("SwitchType")
-  private String switchType = null;
+  @SerializedName("OrderId")
+  private String orderId = null;
 
-  @SerializedName("TargetMinorVersion")
-  private String targetMinorVersion = null;
-
-  public UpgradeDBInstanceKernelVersionRequest instanceId(String instanceId) {
+  public ModifyDBInstanceTypeResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -48,8 +45,7 @@ public class UpgradeDBInstanceKernelVersionRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -58,41 +54,22 @@ public class UpgradeDBInstanceKernelVersionRequest {
     this.instanceId = instanceId;
   }
 
-  public UpgradeDBInstanceKernelVersionRequest switchType(String switchType) {
-    this.switchType = switchType;
+  public ModifyDBInstanceTypeResponse orderId(String orderId) {
+    this.orderId = orderId;
     return this;
   }
 
    /**
-   * Get switchType
-   * @return switchType
+   * Get orderId
+   * @return orderId
   **/
   @Schema(description = "")
-  public String getSwitchType() {
-    return switchType;
+  public String getOrderId() {
+    return orderId;
   }
 
-  public void setSwitchType(String switchType) {
-    this.switchType = switchType;
-  }
-
-  public UpgradeDBInstanceKernelVersionRequest targetMinorVersion(String targetMinorVersion) {
-    this.targetMinorVersion = targetMinorVersion;
-    return this;
-  }
-
-   /**
-   * Get targetMinorVersion
-   * @return targetMinorVersion
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTargetMinorVersion() {
-    return targetMinorVersion;
-  }
-
-  public void setTargetMinorVersion(String targetMinorVersion) {
-    this.targetMinorVersion = targetMinorVersion;
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
   }
 
 
@@ -104,26 +81,24 @@ public class UpgradeDBInstanceKernelVersionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpgradeDBInstanceKernelVersionRequest upgradeDBInstanceKernelVersionRequest = (UpgradeDBInstanceKernelVersionRequest) o;
-    return Objects.equals(this.instanceId, upgradeDBInstanceKernelVersionRequest.instanceId) &&
-        Objects.equals(this.switchType, upgradeDBInstanceKernelVersionRequest.switchType) &&
-        Objects.equals(this.targetMinorVersion, upgradeDBInstanceKernelVersionRequest.targetMinorVersion);
+    ModifyDBInstanceTypeResponse modifyDBInstanceTypeResponse = (ModifyDBInstanceTypeResponse) o;
+    return Objects.equals(this.instanceId, modifyDBInstanceTypeResponse.instanceId) &&
+        Objects.equals(this.orderId, modifyDBInstanceTypeResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, switchType, targetMinorVersion);
+    return Objects.hash(instanceId, orderId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpgradeDBInstanceKernelVersionRequest {\n");
+    sb.append("class ModifyDBInstanceTypeResponse {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
-    sb.append("    targetMinorVersion: ").append(toIndentedString(targetMinorVersion)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

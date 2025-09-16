@@ -52,6 +52,9 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableConnectionPersistent")
+  private Boolean enableConnectionPersistent = null;
+
   @SerializedName("EnableReadOnly")
   private String enableReadOnly = null;
 
@@ -220,6 +223,24 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput enableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
+    return this;
+  }
+
+   /**
+   * Get enableConnectionPersistent
+   * @return enableConnectionPersistent
+  **/
+  @Schema(description = "")
+  public Boolean isEnableConnectionPersistent() {
+    return enableConnectionPersistent;
+  }
+
+  public void setEnableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
   }
 
   public EndpointForDescribeDBInstanceDetailOutput enableReadOnly(String enableReadOnly) {
@@ -517,6 +538,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
         Objects.equals(this.connectionMode, endpointForDescribeDBInstanceDetailOutput.connectionMode) &&
         Objects.equals(this.connectionPoolType, endpointForDescribeDBInstanceDetailOutput.connectionPoolType) &&
         Objects.equals(this.description, endpointForDescribeDBInstanceDetailOutput.description) &&
+        Objects.equals(this.enableConnectionPersistent, endpointForDescribeDBInstanceDetailOutput.enableConnectionPersistent) &&
         Objects.equals(this.enableReadOnly, endpointForDescribeDBInstanceDetailOutput.enableReadOnly) &&
         Objects.equals(this.enableReadWriteSplitting, endpointForDescribeDBInstanceDetailOutput.enableReadWriteSplitting) &&
         Objects.equals(this.endpointId, endpointForDescribeDBInstanceDetailOutput.endpointId) &&
@@ -536,7 +558,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, connectionInfoTags, connectionMode, connectionPoolType, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, connectionInfoTags, connectionMode, connectionPoolType, description, enableConnectionPersistent, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -551,6 +573,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableConnectionPersistent: ").append(toIndentedString(enableConnectionPersistent)).append("\n");
     sb.append("    enableReadOnly: ").append(toIndentedString(enableReadOnly)).append("\n");
     sb.append("    enableReadWriteSplitting: ").append(toIndentedString(enableReadWriteSplitting)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");

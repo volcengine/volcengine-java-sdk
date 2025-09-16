@@ -34,6 +34,9 @@ public class DescribeDBInstancePriceDetailResponse extends com.volcengine.model.
   @SerializedName("DescribeDBInstancePriceDetailStr")
   private DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput describeDBInstancePriceDetailStr = null;
 
+  @SerializedName("HidePriceInfo")
+  private Boolean hidePriceInfo = null;
+
   public DescribeDBInstancePriceDetailResponse describeDBInstancePriceDetailStr(DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput describeDBInstancePriceDetailStr) {
     this.describeDBInstancePriceDetailStr = describeDBInstancePriceDetailStr;
     return this;
@@ -53,6 +56,24 @@ public class DescribeDBInstancePriceDetailResponse extends com.volcengine.model.
     this.describeDBInstancePriceDetailStr = describeDBInstancePriceDetailStr;
   }
 
+  public DescribeDBInstancePriceDetailResponse hidePriceInfo(Boolean hidePriceInfo) {
+    this.hidePriceInfo = hidePriceInfo;
+    return this;
+  }
+
+   /**
+   * Get hidePriceInfo
+   * @return hidePriceInfo
+  **/
+  @Schema(description = "")
+  public Boolean isHidePriceInfo() {
+    return hidePriceInfo;
+  }
+
+  public void setHidePriceInfo(Boolean hidePriceInfo) {
+    this.hidePriceInfo = hidePriceInfo;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +84,13 @@ public class DescribeDBInstancePriceDetailResponse extends com.volcengine.model.
       return false;
     }
     DescribeDBInstancePriceDetailResponse describeDBInstancePriceDetailResponse = (DescribeDBInstancePriceDetailResponse) o;
-    return Objects.equals(this.describeDBInstancePriceDetailStr, describeDBInstancePriceDetailResponse.describeDBInstancePriceDetailStr);
+    return Objects.equals(this.describeDBInstancePriceDetailStr, describeDBInstancePriceDetailResponse.describeDBInstancePriceDetailStr) &&
+        Objects.equals(this.hidePriceInfo, describeDBInstancePriceDetailResponse.hidePriceInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(describeDBInstancePriceDetailStr);
+    return Objects.hash(describeDBInstancePriceDetailStr, hidePriceInfo);
   }
 
 
@@ -78,6 +100,7 @@ public class DescribeDBInstancePriceDetailResponse extends com.volcengine.model.
     sb.append("class DescribeDBInstancePriceDetailResponse {\n");
     
     sb.append("    describeDBInstancePriceDetailStr: ").append(toIndentedString(describeDBInstancePriceDetailStr)).append("\n");
+    sb.append("    hidePriceInfo: ").append(toIndentedString(hidePriceInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

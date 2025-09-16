@@ -21,44 +21,55 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailableCrossRegionResponse
+ * TagForDescribeDBInstanceAttributeOutput
  */
 
 
 
-public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Regions")
-  private List<String> regions = null;
+public class TagForDescribeDBInstanceAttributeOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public DescribeAvailableCrossRegionResponse regions(List<String> regions) {
-    this.regions = regions;
-    return this;
-  }
+  @SerializedName("Value")
+  private String value = null;
 
-  public DescribeAvailableCrossRegionResponse addRegionsItem(String regionsItem) {
-    if (this.regions == null) {
-      this.regions = new ArrayList<String>();
-    }
-    this.regions.add(regionsItem);
+  public TagForDescribeDBInstanceAttributeOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get regions
-   * @return regions
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public List<String> getRegions() {
-    return regions;
+  public String getKey() {
+    return key;
   }
 
-  public void setRegions(List<String> regions) {
-    this.regions = regions;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeDBInstanceAttributeOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -70,22 +81,24 @@ public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailableCrossRegionResponse describeAvailableCrossRegionResponse = (DescribeAvailableCrossRegionResponse) o;
-    return Objects.equals(this.regions, describeAvailableCrossRegionResponse.regions);
+    TagForDescribeDBInstanceAttributeOutput tagForDescribeDBInstanceAttributeOutput = (TagForDescribeDBInstanceAttributeOutput) o;
+    return Objects.equals(this.key, tagForDescribeDBInstanceAttributeOutput.key) &&
+        Objects.equals(this.value, tagForDescribeDBInstanceAttributeOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regions);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailableCrossRegionResponse {\n");
+    sb.append("class TagForDescribeDBInstanceAttributeOutput {\n");
     
-    sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
