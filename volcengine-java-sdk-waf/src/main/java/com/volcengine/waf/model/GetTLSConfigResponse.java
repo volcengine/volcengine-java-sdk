@@ -65,10 +65,10 @@ public class GetTLSConfigResponse extends com.volcengine.model.AbstractResponse 
   private Integer tlSStorageTime = null;
 
   @SerializedName("TLSTotalCapacity")
-  private Integer tlSTotalCapacity = null;
+  private Long tlSTotalCapacity = null;
 
   @SerializedName("TLSTotalUsage")
-  private Integer tlSTotalUsage = null;
+  private Long tlSTotalUsage = null;
 
   @SerializedName("TopicID")
   private String topicID = null;
@@ -274,7 +274,7 @@ public class GetTLSConfigResponse extends com.volcengine.model.AbstractResponse 
     this.tlSStorageTime = tlSStorageTime;
   }
 
-  public GetTLSConfigResponse tlSTotalCapacity(Integer tlSTotalCapacity) {
+  public GetTLSConfigResponse tlSTotalCapacity(Long tlSTotalCapacity) {
     this.tlSTotalCapacity = tlSTotalCapacity;
     return this;
   }
@@ -284,15 +284,15 @@ public class GetTLSConfigResponse extends com.volcengine.model.AbstractResponse 
    * @return tlSTotalCapacity
   **/
   @Schema(description = "")
-  public Integer getTlSTotalCapacity() {
+  public Long getTlSTotalCapacity() {
     return tlSTotalCapacity;
   }
 
-  public void setTlSTotalCapacity(Integer tlSTotalCapacity) {
+  public void setTlSTotalCapacity(Long tlSTotalCapacity) {
     this.tlSTotalCapacity = tlSTotalCapacity;
   }
 
-  public GetTLSConfigResponse tlSTotalUsage(Integer tlSTotalUsage) {
+  public GetTLSConfigResponse tlSTotalUsage(Long tlSTotalUsage) {
     this.tlSTotalUsage = tlSTotalUsage;
     return this;
   }
@@ -302,11 +302,11 @@ public class GetTLSConfigResponse extends com.volcengine.model.AbstractResponse 
    * @return tlSTotalUsage
   **/
   @Schema(description = "")
-  public Integer getTlSTotalUsage() {
+  public Long getTlSTotalUsage() {
     return tlSTotalUsage;
   }
 
-  public void setTlSTotalUsage(Integer tlSTotalUsage) {
+  public void setTlSTotalUsage(Long tlSTotalUsage) {
     this.tlSTotalUsage = tlSTotalUsage;
   }
 
