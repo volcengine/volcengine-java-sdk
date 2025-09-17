@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.privatezone.model.IpConfigsForUpdateResolverEndpointInput;
+import com.volcengine.privatezone.model.IpConfigForUpdateResolverEndpointInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,7 +43,7 @@ public class UpdateResolverEndpointRequest {
   private String endpointType = null;
 
   @SerializedName("IpConfigs")
-  private IpConfigsForUpdateResolverEndpointInput ipConfigs = null;
+  private List<IpConfigForUpdateResolverEndpointInput> ipConfigs = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -101,8 +103,16 @@ public class UpdateResolverEndpointRequest {
     this.endpointType = endpointType;
   }
 
-  public UpdateResolverEndpointRequest ipConfigs(IpConfigsForUpdateResolverEndpointInput ipConfigs) {
+  public UpdateResolverEndpointRequest ipConfigs(List<IpConfigForUpdateResolverEndpointInput> ipConfigs) {
     this.ipConfigs = ipConfigs;
+    return this;
+  }
+
+  public UpdateResolverEndpointRequest addIpConfigsItem(IpConfigForUpdateResolverEndpointInput ipConfigsItem) {
+    if (this.ipConfigs == null) {
+      this.ipConfigs = new ArrayList<IpConfigForUpdateResolverEndpointInput>();
+    }
+    this.ipConfigs.add(ipConfigsItem);
     return this;
   }
 
@@ -112,11 +122,11 @@ public class UpdateResolverEndpointRequest {
   **/
   @Valid
   @Schema(description = "")
-  public IpConfigsForUpdateResolverEndpointInput getIpConfigs() {
+  public List<IpConfigForUpdateResolverEndpointInput> getIpConfigs() {
     return ipConfigs;
   }
 
-  public void setIpConfigs(IpConfigsForUpdateResolverEndpointInput ipConfigs) {
+  public void setIpConfigs(List<IpConfigForUpdateResolverEndpointInput> ipConfigs) {
     this.ipConfigs = ipConfigs;
   }
 

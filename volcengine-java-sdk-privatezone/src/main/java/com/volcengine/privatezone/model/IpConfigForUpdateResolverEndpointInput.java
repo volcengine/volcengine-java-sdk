@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * IpConfigsForUpdateResolverEndpointInput
+ * IpConfigForUpdateResolverEndpointInput
  */
 
 
 
-public class IpConfigsForUpdateResolverEndpointInput {
+public class IpConfigForUpdateResolverEndpointInput {
   @SerializedName("AzID")
   private String azID = null;
 
@@ -42,7 +42,7 @@ public class IpConfigsForUpdateResolverEndpointInput {
   @SerializedName("SubnetID")
   private String subnetID = null;
 
-  public IpConfigsForUpdateResolverEndpointInput azID(String azID) {
+  public IpConfigForUpdateResolverEndpointInput azID(String azID) {
     this.azID = azID;
     return this;
   }
@@ -60,7 +60,7 @@ public class IpConfigsForUpdateResolverEndpointInput {
     this.azID = azID;
   }
 
-  public IpConfigsForUpdateResolverEndpointInput IP(String IP) {
+  public IpConfigForUpdateResolverEndpointInput IP(String IP) {
     this.IP = IP;
     return this;
   }
@@ -78,7 +78,7 @@ public class IpConfigsForUpdateResolverEndpointInput {
     this.IP = IP;
   }
 
-  public IpConfigsForUpdateResolverEndpointInput ipv6(String ipv6) {
+  public IpConfigForUpdateResolverEndpointInput ipv6(String ipv6) {
     this.ipv6 = ipv6;
     return this;
   }
@@ -96,7 +96,7 @@ public class IpConfigsForUpdateResolverEndpointInput {
     this.ipv6 = ipv6;
   }
 
-  public IpConfigsForUpdateResolverEndpointInput subnetID(String subnetID) {
+  public IpConfigForUpdateResolverEndpointInput subnetID(String subnetID) {
     this.subnetID = subnetID;
     return this;
   }
@@ -123,11 +123,11 @@ public class IpConfigsForUpdateResolverEndpointInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IpConfigsForUpdateResolverEndpointInput ipConfigsForUpdateResolverEndpointInput = (IpConfigsForUpdateResolverEndpointInput) o;
-    return Objects.equals(this.azID, ipConfigsForUpdateResolverEndpointInput.azID) &&
-        Objects.equals(this.IP, ipConfigsForUpdateResolverEndpointInput.IP) &&
-        Objects.equals(this.ipv6, ipConfigsForUpdateResolverEndpointInput.ipv6) &&
-        Objects.equals(this.subnetID, ipConfigsForUpdateResolverEndpointInput.subnetID);
+    IpConfigForUpdateResolverEndpointInput ipConfigForUpdateResolverEndpointInput = (IpConfigForUpdateResolverEndpointInput) o;
+    return Objects.equals(this.azID, ipConfigForUpdateResolverEndpointInput.azID) &&
+        Objects.equals(this.IP, ipConfigForUpdateResolverEndpointInput.IP) &&
+        Objects.equals(this.ipv6, ipConfigForUpdateResolverEndpointInput.ipv6) &&
+        Objects.equals(this.subnetID, ipConfigForUpdateResolverEndpointInput.subnetID);
   }
 
   @Override
@@ -139,7 +139,7 @@ public class IpConfigsForUpdateResolverEndpointInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IpConfigsForUpdateResolverEndpointInput {\n");
+    sb.append("class IpConfigForUpdateResolverEndpointInput {\n");
     
     sb.append("    azID: ").append(toIndentedString(azID)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
