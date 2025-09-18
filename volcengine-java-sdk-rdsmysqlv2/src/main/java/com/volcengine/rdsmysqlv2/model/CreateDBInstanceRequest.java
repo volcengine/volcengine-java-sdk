@@ -24,6 +24,7 @@ import com.volcengine.rdsmysqlv2.model.ChargeInfoForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForCreateDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -81,6 +82,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ProxyNodeCustom")
+  private ProxyNodeCustomForCreateDBInstanceInput proxyNodeCustom = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -400,6 +404,25 @@ public class CreateDBInstanceRequest {
     this.projectName = projectName;
   }
 
+  public CreateDBInstanceRequest proxyNodeCustom(ProxyNodeCustomForCreateDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+    return this;
+  }
+
+   /**
+   * Get proxyNodeCustom
+   * @return proxyNodeCustom
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyNodeCustomForCreateDBInstanceInput getProxyNodeCustom() {
+    return proxyNodeCustom;
+  }
+
+  public void setProxyNodeCustom(ProxyNodeCustomForCreateDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+  }
+
   public CreateDBInstanceRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -537,6 +560,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
+        Objects.equals(this.proxyNodeCustom, createDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, createDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
@@ -547,7 +571,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, proxyNodeCustom, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -571,6 +595,7 @@ public class CreateDBInstanceRequest {
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

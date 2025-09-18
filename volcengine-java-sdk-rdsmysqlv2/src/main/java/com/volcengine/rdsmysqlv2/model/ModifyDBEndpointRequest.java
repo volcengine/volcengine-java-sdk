@@ -36,11 +36,17 @@ public class ModifyDBEndpointRequest {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
+  @SerializedName("ConnectAllSlaveNodes")
+  private Boolean connectAllSlaveNodes = null;
+
   @SerializedName("ConnectionPoolType")
   private String connectionPoolType = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EnableConnectionPersistent")
+  private Boolean enableConnectionPersistent = null;
 
   @SerializedName("EndpointId")
   private String endpointId = null;
@@ -105,6 +111,24 @@ public class ModifyDBEndpointRequest {
     this.autoAddNewNodes = autoAddNewNodes;
   }
 
+  public ModifyDBEndpointRequest connectAllSlaveNodes(Boolean connectAllSlaveNodes) {
+    this.connectAllSlaveNodes = connectAllSlaveNodes;
+    return this;
+  }
+
+   /**
+   * Get connectAllSlaveNodes
+   * @return connectAllSlaveNodes
+  **/
+  @Schema(description = "")
+  public Boolean isConnectAllSlaveNodes() {
+    return connectAllSlaveNodes;
+  }
+
+  public void setConnectAllSlaveNodes(Boolean connectAllSlaveNodes) {
+    this.connectAllSlaveNodes = connectAllSlaveNodes;
+  }
+
   public ModifyDBEndpointRequest connectionPoolType(String connectionPoolType) {
     this.connectionPoolType = connectionPoolType;
     return this;
@@ -139,6 +163,24 @@ public class ModifyDBEndpointRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyDBEndpointRequest enableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
+    return this;
+  }
+
+   /**
+   * Get enableConnectionPersistent
+   * @return enableConnectionPersistent
+  **/
+  @Schema(description = "")
+  public Boolean isEnableConnectionPersistent() {
+    return enableConnectionPersistent;
+  }
+
+  public void setEnableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
   }
 
   public ModifyDBEndpointRequest endpointId(String endpointId) {
@@ -433,8 +475,10 @@ public class ModifyDBEndpointRequest {
     }
     ModifyDBEndpointRequest modifyDBEndpointRequest = (ModifyDBEndpointRequest) o;
     return Objects.equals(this.autoAddNewNodes, modifyDBEndpointRequest.autoAddNewNodes) &&
+        Objects.equals(this.connectAllSlaveNodes, modifyDBEndpointRequest.connectAllSlaveNodes) &&
         Objects.equals(this.connectionPoolType, modifyDBEndpointRequest.connectionPoolType) &&
         Objects.equals(this.description, modifyDBEndpointRequest.description) &&
+        Objects.equals(this.enableConnectionPersistent, modifyDBEndpointRequest.enableConnectionPersistent) &&
         Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
         Objects.equals(this.endpointName, modifyDBEndpointRequest.endpointName) &&
         Objects.equals(this.idleConnectionReclaim, modifyDBEndpointRequest.idleConnectionReclaim) &&
@@ -454,7 +498,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, connectionPoolType, description, endpointId, endpointName, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectAllSlaveNodes, connectionPoolType, description, enableConnectionPersistent, endpointId, endpointName, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -464,8 +508,10 @@ public class ModifyDBEndpointRequest {
     sb.append("class ModifyDBEndpointRequest {\n");
     
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectAllSlaveNodes: ").append(toIndentedString(connectAllSlaveNodes)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableConnectionPersistent: ").append(toIndentedString(enableConnectionPersistent)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");

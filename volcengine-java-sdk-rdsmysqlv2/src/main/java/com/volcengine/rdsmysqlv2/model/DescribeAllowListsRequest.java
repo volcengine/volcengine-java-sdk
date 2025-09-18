@@ -45,6 +45,9 @@ public class DescribeAllowListsRequest {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("WithIpList")
+  private Boolean withIpList = null;
+
   public DescribeAllowListsRequest ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
@@ -135,6 +138,24 @@ public class DescribeAllowListsRequest {
     this.regionId = regionId;
   }
 
+  public DescribeAllowListsRequest withIpList(Boolean withIpList) {
+    this.withIpList = withIpList;
+    return this;
+  }
+
+   /**
+   * Get withIpList
+   * @return withIpList
+  **/
+  @Schema(description = "")
+  public Boolean isWithIpList() {
+    return withIpList;
+  }
+
+  public void setWithIpList(Boolean withIpList) {
+    this.withIpList = withIpList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class DescribeAllowListsRequest {
         Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
         Objects.equals(this.projectName, describeAllowListsRequest.projectName) &&
         Objects.equals(this.queryDefault, describeAllowListsRequest.queryDefault) &&
-        Objects.equals(this.regionId, describeAllowListsRequest.regionId);
+        Objects.equals(this.regionId, describeAllowListsRequest.regionId) &&
+        Objects.equals(this.withIpList, describeAllowListsRequest.withIpList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, instanceId, projectName, queryDefault, regionId);
+    return Objects.hash(ipAddress, instanceId, projectName, queryDefault, regionId, withIpList);
   }
 
 
@@ -168,6 +190,7 @@ public class DescribeAllowListsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    queryDefault: ").append(toIndentedString(queryDefault)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    withIpList: ").append(toIndentedString(withIpList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

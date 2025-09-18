@@ -40,18 +40,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("AutoUpgradeMinorVersion")
   private String autoUpgradeMinorVersion = null;
 
-  @SerializedName("BackupFreeQuotaSize")
-  private Long backupFreeQuotaSize = null;
-
-  @SerializedName("BackupUse")
-  private Double backupUse = null;
-
-  @SerializedName("BasicBackupBinlogSize")
-  private Long basicBackupBinlogSize = null;
-
-  @SerializedName("BasicBackupDataSize")
-  private Long basicBackupDataSize = null;
-
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -185,78 +173,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
     this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupFreeQuotaSize(Long backupFreeQuotaSize) {
-    this.backupFreeQuotaSize = backupFreeQuotaSize;
-    return this;
-  }
-
-   /**
-   * Get backupFreeQuotaSize
-   * @return backupFreeQuotaSize
-  **/
-  @Schema(description = "")
-  public Long getBackupFreeQuotaSize() {
-    return backupFreeQuotaSize;
-  }
-
-  public void setBackupFreeQuotaSize(Long backupFreeQuotaSize) {
-    this.backupFreeQuotaSize = backupFreeQuotaSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupUse(Double backupUse) {
-    this.backupUse = backupUse;
-    return this;
-  }
-
-   /**
-   * Get backupUse
-   * @return backupUse
-  **/
-  @Schema(description = "")
-  public Double getBackupUse() {
-    return backupUse;
-  }
-
-  public void setBackupUse(Double backupUse) {
-    this.backupUse = backupUse;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput basicBackupBinlogSize(Long basicBackupBinlogSize) {
-    this.basicBackupBinlogSize = basicBackupBinlogSize;
-    return this;
-  }
-
-   /**
-   * Get basicBackupBinlogSize
-   * @return basicBackupBinlogSize
-  **/
-  @Schema(description = "")
-  public Long getBasicBackupBinlogSize() {
-    return basicBackupBinlogSize;
-  }
-
-  public void setBasicBackupBinlogSize(Long basicBackupBinlogSize) {
-    this.basicBackupBinlogSize = basicBackupBinlogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput basicBackupDataSize(Long basicBackupDataSize) {
-    this.basicBackupDataSize = basicBackupDataSize;
-    return this;
-  }
-
-   /**
-   * Get basicBackupDataSize
-   * @return basicBackupDataSize
-  **/
-  @Schema(description = "")
-  public Long getBasicBackupDataSize() {
-    return basicBackupDataSize;
-  }
-
-  public void setBasicBackupDataSize(Long basicBackupDataSize) {
-    this.basicBackupDataSize = basicBackupDataSize;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput createTime(String createTime) {
@@ -875,10 +791,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     BasicInfoForDescribeDBInstanceDetailOutput basicInfoForDescribeDBInstanceDetailOutput = (BasicInfoForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.allowListVersion, basicInfoForDescribeDBInstanceDetailOutput.allowListVersion) &&
         Objects.equals(this.autoUpgradeMinorVersion, basicInfoForDescribeDBInstanceDetailOutput.autoUpgradeMinorVersion) &&
-        Objects.equals(this.backupFreeQuotaSize, basicInfoForDescribeDBInstanceDetailOutput.backupFreeQuotaSize) &&
-        Objects.equals(this.backupUse, basicInfoForDescribeDBInstanceDetailOutput.backupUse) &&
-        Objects.equals(this.basicBackupBinlogSize, basicInfoForDescribeDBInstanceDetailOutput.basicBackupBinlogSize) &&
-        Objects.equals(this.basicBackupDataSize, basicInfoForDescribeDBInstanceDetailOutput.basicBackupDataSize) &&
         Objects.equals(this.createTime, basicInfoForDescribeDBInstanceDetailOutput.createTime) &&
         Objects.equals(this.currentKernelVersion, basicInfoForDescribeDBInstanceDetailOutput.currentKernelVersion) &&
         Objects.equals(this.dbEngineVersion, basicInfoForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
@@ -916,7 +828,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, backupFreeQuotaSize, backupUse, basicBackupBinlogSize, basicBackupDataSize, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -927,10 +839,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
     sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
-    sb.append("    backupFreeQuotaSize: ").append(toIndentedString(backupFreeQuotaSize)).append("\n");
-    sb.append("    backupUse: ").append(toIndentedString(backupUse)).append("\n");
-    sb.append("    basicBackupBinlogSize: ").append(toIndentedString(basicBackupBinlogSize)).append("\n");
-    sb.append("    basicBackupDataSize: ").append(toIndentedString(basicBackupDataSize)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");

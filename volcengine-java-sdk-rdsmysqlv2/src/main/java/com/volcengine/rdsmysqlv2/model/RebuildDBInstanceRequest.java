@@ -23,6 +23,7 @@ import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForRebuildDBInsta
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForRebuildDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForRebuildDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForRebuildDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForRebuildDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -71,6 +72,9 @@ public class RebuildDBInstanceRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ProxyNodeCustom")
+  private ProxyNodeCustomForRebuildDBInstanceInput proxyNodeCustom = null;
 
   @SerializedName("RequestSource")
   private String requestSource = null;
@@ -332,6 +336,25 @@ public class RebuildDBInstanceRequest {
     this.projectName = projectName;
   }
 
+  public RebuildDBInstanceRequest proxyNodeCustom(ProxyNodeCustomForRebuildDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+    return this;
+  }
+
+   /**
+   * Get proxyNodeCustom
+   * @return proxyNodeCustom
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyNodeCustomForRebuildDBInstanceInput getProxyNodeCustom() {
+    return proxyNodeCustom;
+  }
+
+  public void setProxyNodeCustom(ProxyNodeCustomForRebuildDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+  }
+
   public RebuildDBInstanceRequest requestSource(String requestSource) {
     this.requestSource = requestSource;
     return this;
@@ -444,6 +467,7 @@ public class RebuildDBInstanceRequest {
         Objects.equals(this.nodeInfo, rebuildDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, rebuildDBInstanceRequest.port) &&
         Objects.equals(this.projectName, rebuildDBInstanceRequest.projectName) &&
+        Objects.equals(this.proxyNodeCustom, rebuildDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.requestSource, rebuildDBInstanceRequest.requestSource) &&
         Objects.equals(this.storageSpace, rebuildDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, rebuildDBInstanceRequest.storageType) &&
@@ -453,7 +477,7 @@ public class RebuildDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceTags, nodeInfo, port, projectName, requestSource, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, requestSource, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -474,6 +498,7 @@ public class RebuildDBInstanceRequest {
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    requestSource: ").append(toIndentedString(requestSource)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");

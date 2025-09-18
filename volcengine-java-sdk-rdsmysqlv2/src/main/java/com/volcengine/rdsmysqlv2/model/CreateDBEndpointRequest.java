@@ -45,6 +45,9 @@ public class CreateDBEndpointRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableConnectionPersistent")
+  private Boolean enableConnectionPersistent = null;
+
   @SerializedName("EndpointName")
   private String endpointName = null;
 
@@ -160,6 +163,24 @@ public class CreateDBEndpointRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateDBEndpointRequest enableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
+    return this;
+  }
+
+   /**
+   * Get enableConnectionPersistent
+   * @return enableConnectionPersistent
+  **/
+  @Schema(description = "")
+  public Boolean isEnableConnectionPersistent() {
+    return enableConnectionPersistent;
+  }
+
+  public void setEnableConnectionPersistent(Boolean enableConnectionPersistent) {
+    this.enableConnectionPersistent = enableConnectionPersistent;
   }
 
   public CreateDBEndpointRequest endpointName(String endpointName) {
@@ -457,6 +478,7 @@ public class CreateDBEndpointRequest {
         Objects.equals(this.connectionMode, createDBEndpointRequest.connectionMode) &&
         Objects.equals(this.connectionPoolType, createDBEndpointRequest.connectionPoolType) &&
         Objects.equals(this.description, createDBEndpointRequest.description) &&
+        Objects.equals(this.enableConnectionPersistent, createDBEndpointRequest.enableConnectionPersistent) &&
         Objects.equals(this.endpointName, createDBEndpointRequest.endpointName) &&
         Objects.equals(this.endpointType, createDBEndpointRequest.endpointType) &&
         Objects.equals(this.idleConnectionReclaim, createDBEndpointRequest.idleConnectionReclaim) &&
@@ -476,7 +498,7 @@ public class CreateDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, connectionMode, connectionPoolType, description, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectionMode, connectionPoolType, description, enableConnectionPersistent, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -489,6 +511,7 @@ public class CreateDBEndpointRequest {
     sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableConnectionPersistent: ").append(toIndentedString(enableConnectionPersistent)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
