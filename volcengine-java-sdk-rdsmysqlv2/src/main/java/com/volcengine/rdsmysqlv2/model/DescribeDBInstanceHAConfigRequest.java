@@ -24,52 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstanceTagForRestoreToCrossRegionInstanceInput
+ * DescribeDBInstanceHAConfigRequest
  */
 
 
 
-public class InstanceTagForRestoreToCrossRegionInstanceInput {
-  @SerializedName("Key")
-  private String key = null;
+public class DescribeDBInstanceHAConfigRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public InstanceTagForRestoreToCrossRegionInstanceInput key(String key) {
-    this.key = key;
+  public DescribeDBInstanceHAConfigRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public InstanceTagForRestoreToCrossRegionInstanceInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +61,22 @@ public class InstanceTagForRestoreToCrossRegionInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstanceTagForRestoreToCrossRegionInstanceInput instanceTagForRestoreToCrossRegionInstanceInput = (InstanceTagForRestoreToCrossRegionInstanceInput) o;
-    return Objects.equals(this.key, instanceTagForRestoreToCrossRegionInstanceInput.key) &&
-        Objects.equals(this.value, instanceTagForRestoreToCrossRegionInstanceInput.value);
+    DescribeDBInstanceHAConfigRequest describeDBInstanceHAConfigRequest = (DescribeDBInstanceHAConfigRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceHAConfigRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstanceTagForRestoreToCrossRegionInstanceInput {\n");
+    sb.append("class DescribeDBInstanceHAConfigRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

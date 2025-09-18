@@ -24,38 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBInstanceAutoUpgradeMinorVersionRequest
+ * DescribeDBInstanceChargeDetailRequest
  */
 
 
 
-public class ModifyDBInstanceAutoUpgradeMinorVersionRequest {
-  @SerializedName("AutoUpgradeMinorVersion")
-  private String autoUpgradeMinorVersion = null;
-
+public class DescribeDBInstanceChargeDetailRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public ModifyDBInstanceAutoUpgradeMinorVersionRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
-    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-    return this;
-  }
-
-   /**
-   * Get autoUpgradeMinorVersion
-   * @return autoUpgradeMinorVersion
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAutoUpgradeMinorVersion() {
-    return autoUpgradeMinorVersion;
-  }
-
-  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
-    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-  }
-
-  public ModifyDBInstanceAutoUpgradeMinorVersionRequest instanceId(String instanceId) {
+  public DescribeDBInstanceChargeDetailRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -83,23 +61,21 @@ public class ModifyDBInstanceAutoUpgradeMinorVersionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBInstanceAutoUpgradeMinorVersionRequest modifyDBInstanceAutoUpgradeMinorVersionRequest = (ModifyDBInstanceAutoUpgradeMinorVersionRequest) o;
-    return Objects.equals(this.autoUpgradeMinorVersion, modifyDBInstanceAutoUpgradeMinorVersionRequest.autoUpgradeMinorVersion) &&
-        Objects.equals(this.instanceId, modifyDBInstanceAutoUpgradeMinorVersionRequest.instanceId);
+    DescribeDBInstanceChargeDetailRequest describeDBInstanceChargeDetailRequest = (DescribeDBInstanceChargeDetailRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceChargeDetailRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoUpgradeMinorVersion, instanceId);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBInstanceAutoUpgradeMinorVersionRequest {\n");
+    sb.append("class DescribeDBInstanceChargeDetailRequest {\n");
     
-    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

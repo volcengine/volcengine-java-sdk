@@ -53,6 +53,9 @@ public class DescribeDBProxyPriceDetailResponse extends com.volcengine.model.Abs
   @SerializedName("DiscountPrice")
   private Double discountPrice = null;
 
+  @SerializedName("HidePriceInfo")
+  private Boolean hidePriceInfo = null;
+
   @SerializedName("OriginalPrice")
   private Double originalPrice = null;
 
@@ -184,6 +187,24 @@ public class DescribeDBProxyPriceDetailResponse extends com.volcengine.model.Abs
     this.discountPrice = discountPrice;
   }
 
+  public DescribeDBProxyPriceDetailResponse hidePriceInfo(Boolean hidePriceInfo) {
+    this.hidePriceInfo = hidePriceInfo;
+    return this;
+  }
+
+   /**
+   * Get hidePriceInfo
+   * @return hidePriceInfo
+  **/
+  @Schema(description = "")
+  public Boolean isHidePriceInfo() {
+    return hidePriceInfo;
+  }
+
+  public void setHidePriceInfo(Boolean hidePriceInfo) {
+    this.hidePriceInfo = hidePriceInfo;
+  }
+
   public DescribeDBProxyPriceDetailResponse originalPrice(Double originalPrice) {
     this.originalPrice = originalPrice;
     return this;
@@ -272,6 +293,7 @@ public class DescribeDBProxyPriceDetailResponse extends com.volcengine.model.Abs
         Objects.equals(this.describeDBInstancePriceDetailStr, describeDBProxyPriceDetailResponse.describeDBInstancePriceDetailStr) &&
         Objects.equals(this.describeDBProxyPriceDetailStr, describeDBProxyPriceDetailResponse.describeDBProxyPriceDetailStr) &&
         Objects.equals(this.discountPrice, describeDBProxyPriceDetailResponse.discountPrice) &&
+        Objects.equals(this.hidePriceInfo, describeDBProxyPriceDetailResponse.hidePriceInfo) &&
         Objects.equals(this.originalPrice, describeDBProxyPriceDetailResponse.originalPrice) &&
         Objects.equals(this.payablePrice, describeDBProxyPriceDetailResponse.payablePrice) &&
         Objects.equals(this.quantity, describeDBProxyPriceDetailResponse.quantity) &&
@@ -280,7 +302,7 @@ public class DescribeDBProxyPriceDetailResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingMethod, chargeItemPrices, currency, describeDBInstancePriceDetailStr, describeDBProxyPriceDetailStr, discountPrice, originalPrice, payablePrice, quantity, refundAmount);
+    return Objects.hash(billingMethod, chargeItemPrices, currency, describeDBInstancePriceDetailStr, describeDBProxyPriceDetailStr, discountPrice, hidePriceInfo, originalPrice, payablePrice, quantity, refundAmount);
   }
 
 
@@ -295,6 +317,7 @@ public class DescribeDBProxyPriceDetailResponse extends com.volcengine.model.Abs
     sb.append("    describeDBInstancePriceDetailStr: ").append(toIndentedString(describeDBInstancePriceDetailStr)).append("\n");
     sb.append("    describeDBProxyPriceDetailStr: ").append(toIndentedString(describeDBProxyPriceDetailStr)).append("\n");
     sb.append("    discountPrice: ").append(toIndentedString(discountPrice)).append("\n");
+    sb.append("    hidePriceInfo: ").append(toIndentedString(hidePriceInfo)).append("\n");
     sb.append("    originalPrice: ").append(toIndentedString(originalPrice)).append("\n");
     sb.append("    payablePrice: ").append(toIndentedString(payablePrice)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");

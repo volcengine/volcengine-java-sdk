@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForDescribeDBInstanceDetailOutput;
-import com.volcengine.rdsmysqlv2.model.TagForDescribeDBInstanceDetailOutput;
+import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForDescribeDBInstanceAttributeOutput;
+import com.volcengine.rdsmysqlv2.model.TagForDescribeDBInstanceAttributeOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,12 +28,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BasicInfoForDescribeDBInstanceDetailOutput
+ * DBInstanceAttributeForDescribeDBInstanceAttributeOutput
  */
 
 
 
-public class BasicInfoForDescribeDBInstanceDetailOutput {
+public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
   @SerializedName("AllowListVersion")
   private String allowListVersion = null;
 
@@ -49,23 +49,14 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
-  @SerializedName("DataSyncMode")
-  private String dataSyncMode = null;
-
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
-  @SerializedName("DrDtsTaskId")
-  private String drDtsTaskId = null;
+  @SerializedName("HasDisasterRecoveryInstances")
+  private Boolean hasDisasterRecoveryInstances = null;
 
-  @SerializedName("DrDtsTaskName")
-  private String drDtsTaskName = null;
-
-  @SerializedName("DrDtsTaskStatus")
-  private String drDtsTaskStatus = null;
-
-  @SerializedName("DrSecondsBehindMaster")
-  private Integer drSecondsBehindMaster = null;
+  @SerializedName("HasGreenInstance")
+  private Boolean hasGreenInstance = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -83,16 +74,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   private String lowerCaseTableNames = null;
 
   @SerializedName("MaintenanceWindow")
-  private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
-
-  @SerializedName("MasterInstanceId")
-  private String masterInstanceId = null;
-
-  @SerializedName("MasterInstanceName")
-  private String masterInstanceName = null;
-
-  @SerializedName("MasterRegion")
-  private String masterRegion = null;
+  private MaintenanceWindowForDescribeDBInstanceAttributeOutput maintenanceWindow = null;
 
   @SerializedName("Memory")
   private Integer memory = null;
@@ -115,14 +97,11 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("StorageType")
   private String storageType = null;
 
-  @SerializedName("StorageUse")
-  private Double storageUse = null;
-
   @SerializedName("SubnetId")
   private String subnetId = null;
 
   @SerializedName("Tags")
-  private List<TagForDescribeDBInstanceDetailOutput> tags = null;
+  private List<TagForDescribeDBInstanceAttributeOutput> tags = null;
 
   @SerializedName("TimeZone")
   private String timeZone = null;
@@ -139,7 +118,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public BasicInfoForDescribeDBInstanceDetailOutput allowListVersion(String allowListVersion) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput allowListVersion(String allowListVersion) {
     this.allowListVersion = allowListVersion;
     return this;
   }
@@ -157,7 +136,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.allowListVersion = allowListVersion;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
     this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
     return this;
   }
@@ -175,7 +154,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput createTime(String createTime) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -193,7 +172,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.createTime = createTime;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput currentKernelVersion(String currentKernelVersion) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput currentKernelVersion(String currentKernelVersion) {
     this.currentKernelVersion = currentKernelVersion;
     return this;
   }
@@ -211,7 +190,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.currentKernelVersion = currentKernelVersion;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput dbEngineVersion(String dbEngineVersion) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -229,25 +208,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.dbEngineVersion = dbEngineVersion;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput dataSyncMode(String dataSyncMode) {
-    this.dataSyncMode = dataSyncMode;
-    return this;
-  }
-
-   /**
-   * Get dataSyncMode
-   * @return dataSyncMode
-  **/
-  @Schema(description = "")
-  public String getDataSyncMode() {
-    return dataSyncMode;
-  }
-
-  public void setDataSyncMode(String dataSyncMode) {
-    this.dataSyncMode = dataSyncMode;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput deletionProtection(String deletionProtection) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput deletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
     return this;
   }
@@ -265,79 +226,43 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.deletionProtection = deletionProtection;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskId(String drDtsTaskId) {
-    this.drDtsTaskId = drDtsTaskId;
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput hasDisasterRecoveryInstances(Boolean hasDisasterRecoveryInstances) {
+    this.hasDisasterRecoveryInstances = hasDisasterRecoveryInstances;
     return this;
   }
 
    /**
-   * Get drDtsTaskId
-   * @return drDtsTaskId
+   * Get hasDisasterRecoveryInstances
+   * @return hasDisasterRecoveryInstances
   **/
   @Schema(description = "")
-  public String getDrDtsTaskId() {
-    return drDtsTaskId;
+  public Boolean isHasDisasterRecoveryInstances() {
+    return hasDisasterRecoveryInstances;
   }
 
-  public void setDrDtsTaskId(String drDtsTaskId) {
-    this.drDtsTaskId = drDtsTaskId;
+  public void setHasDisasterRecoveryInstances(Boolean hasDisasterRecoveryInstances) {
+    this.hasDisasterRecoveryInstances = hasDisasterRecoveryInstances;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskName(String drDtsTaskName) {
-    this.drDtsTaskName = drDtsTaskName;
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput hasGreenInstance(Boolean hasGreenInstance) {
+    this.hasGreenInstance = hasGreenInstance;
     return this;
   }
 
    /**
-   * Get drDtsTaskName
-   * @return drDtsTaskName
+   * Get hasGreenInstance
+   * @return hasGreenInstance
   **/
   @Schema(description = "")
-  public String getDrDtsTaskName() {
-    return drDtsTaskName;
+  public Boolean isHasGreenInstance() {
+    return hasGreenInstance;
   }
 
-  public void setDrDtsTaskName(String drDtsTaskName) {
-    this.drDtsTaskName = drDtsTaskName;
+  public void setHasGreenInstance(Boolean hasGreenInstance) {
+    this.hasGreenInstance = hasGreenInstance;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskStatus(String drDtsTaskStatus) {
-    this.drDtsTaskStatus = drDtsTaskStatus;
-    return this;
-  }
-
-   /**
-   * Get drDtsTaskStatus
-   * @return drDtsTaskStatus
-  **/
-  @Schema(description = "")
-  public String getDrDtsTaskStatus() {
-    return drDtsTaskStatus;
-  }
-
-  public void setDrDtsTaskStatus(String drDtsTaskStatus) {
-    this.drDtsTaskStatus = drDtsTaskStatus;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput drSecondsBehindMaster(Integer drSecondsBehindMaster) {
-    this.drSecondsBehindMaster = drSecondsBehindMaster;
-    return this;
-  }
-
-   /**
-   * Get drSecondsBehindMaster
-   * @return drSecondsBehindMaster
-  **/
-  @Schema(description = "")
-  public Integer getDrSecondsBehindMaster() {
-    return drSecondsBehindMaster;
-  }
-
-  public void setDrSecondsBehindMaster(Integer drSecondsBehindMaster) {
-    this.drSecondsBehindMaster = drSecondsBehindMaster;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -355,7 +280,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.instanceId = instanceId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput instanceName(String instanceName) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput instanceName(String instanceName) {
     this.instanceName = instanceName;
     return this;
   }
@@ -373,7 +298,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.instanceName = instanceName;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput instanceStatus(String instanceStatus) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput instanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -391,7 +316,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.instanceStatus = instanceStatus;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput instanceType(String instanceType) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -409,7 +334,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.instanceType = instanceType;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput lowerCaseTableNames(String lowerCaseTableNames) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput lowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
   }
@@ -427,7 +352,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.lowerCaseTableNames = lowerCaseTableNames;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceAttributeOutput maintenanceWindow) {
     this.maintenanceWindow = maintenanceWindow;
     return this;
   }
@@ -438,69 +363,15 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   **/
   @Valid
   @Schema(description = "")
-  public MaintenanceWindowForDescribeDBInstanceDetailOutput getMaintenanceWindow() {
+  public MaintenanceWindowForDescribeDBInstanceAttributeOutput getMaintenanceWindow() {
     return maintenanceWindow;
   }
 
-  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceAttributeOutput maintenanceWindow) {
     this.maintenanceWindow = maintenanceWindow;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput masterInstanceId(String masterInstanceId) {
-    this.masterInstanceId = masterInstanceId;
-    return this;
-  }
-
-   /**
-   * Get masterInstanceId
-   * @return masterInstanceId
-  **/
-  @Schema(description = "")
-  public String getMasterInstanceId() {
-    return masterInstanceId;
-  }
-
-  public void setMasterInstanceId(String masterInstanceId) {
-    this.masterInstanceId = masterInstanceId;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput masterInstanceName(String masterInstanceName) {
-    this.masterInstanceName = masterInstanceName;
-    return this;
-  }
-
-   /**
-   * Get masterInstanceName
-   * @return masterInstanceName
-  **/
-  @Schema(description = "")
-  public String getMasterInstanceName() {
-    return masterInstanceName;
-  }
-
-  public void setMasterInstanceName(String masterInstanceName) {
-    this.masterInstanceName = masterInstanceName;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput masterRegion(String masterRegion) {
-    this.masterRegion = masterRegion;
-    return this;
-  }
-
-   /**
-   * Get masterRegion
-   * @return masterRegion
-  **/
-  @Schema(description = "")
-  public String getMasterRegion() {
-    return masterRegion;
-  }
-
-  public void setMasterRegion(String masterRegion) {
-    this.masterRegion = masterRegion;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput memory(Integer memory) {
     this.memory = memory;
     return this;
   }
@@ -518,7 +389,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.memory = memory;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput nodeNumber(String nodeNumber) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput nodeNumber(String nodeNumber) {
     this.nodeNumber = nodeNumber;
     return this;
   }
@@ -536,7 +407,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.nodeNumber = nodeNumber;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput nodeSpec(String nodeSpec) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput nodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -554,7 +425,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput projectName(String projectName) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -572,7 +443,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.projectName = projectName;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput regionId(String regionId) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
   }
@@ -590,7 +461,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput storageSpace(Long storageSpace) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput storageSpace(Long storageSpace) {
     this.storageSpace = storageSpace;
     return this;
   }
@@ -608,7 +479,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.storageSpace = storageSpace;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput storageType(String storageType) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput storageType(String storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -626,25 +497,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.storageType = storageType;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput storageUse(Double storageUse) {
-    this.storageUse = storageUse;
-    return this;
-  }
-
-   /**
-   * Get storageUse
-   * @return storageUse
-  **/
-  @Schema(description = "")
-  public Double getStorageUse() {
-    return storageUse;
-  }
-
-  public void setStorageUse(Double storageUse) {
-    this.storageUse = storageUse;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput subnetId(String subnetId) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
   }
@@ -662,14 +515,14 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.subnetId = subnetId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput tags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput tags(List<TagForDescribeDBInstanceAttributeOutput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput addTagsItem(TagForDescribeDBInstanceDetailOutput tagsItem) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput addTagsItem(TagForDescribeDBInstanceAttributeOutput tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<TagForDescribeDBInstanceDetailOutput>();
+      this.tags = new ArrayList<TagForDescribeDBInstanceAttributeOutput>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -681,15 +534,15 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForDescribeDBInstanceDetailOutput> getTags() {
+  public List<TagForDescribeDBInstanceAttributeOutput> getTags() {
     return tags;
   }
 
-  public void setTags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+  public void setTags(List<TagForDescribeDBInstanceAttributeOutput> tags) {
     this.tags = tags;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput timeZone(String timeZone) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
   }
@@ -707,7 +560,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.timeZone = timeZone;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput updateTime(String updateTime) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -725,7 +578,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.updateTime = updateTime;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput VCPU(Integer VCPU) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput VCPU(Integer VCPU) {
     this.VCPU = VCPU;
     return this;
   }
@@ -743,7 +596,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.VCPU = VCPU;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput vpcId(String vpcId) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
   }
@@ -761,7 +614,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.vpcId = vpcId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput zoneId(String zoneId) {
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -788,75 +641,62 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BasicInfoForDescribeDBInstanceDetailOutput basicInfoForDescribeDBInstanceDetailOutput = (BasicInfoForDescribeDBInstanceDetailOutput) o;
-    return Objects.equals(this.allowListVersion, basicInfoForDescribeDBInstanceDetailOutput.allowListVersion) &&
-        Objects.equals(this.autoUpgradeMinorVersion, basicInfoForDescribeDBInstanceDetailOutput.autoUpgradeMinorVersion) &&
-        Objects.equals(this.createTime, basicInfoForDescribeDBInstanceDetailOutput.createTime) &&
-        Objects.equals(this.currentKernelVersion, basicInfoForDescribeDBInstanceDetailOutput.currentKernelVersion) &&
-        Objects.equals(this.dbEngineVersion, basicInfoForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
-        Objects.equals(this.dataSyncMode, basicInfoForDescribeDBInstanceDetailOutput.dataSyncMode) &&
-        Objects.equals(this.deletionProtection, basicInfoForDescribeDBInstanceDetailOutput.deletionProtection) &&
-        Objects.equals(this.drDtsTaskId, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskId) &&
-        Objects.equals(this.drDtsTaskName, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskName) &&
-        Objects.equals(this.drDtsTaskStatus, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskStatus) &&
-        Objects.equals(this.drSecondsBehindMaster, basicInfoForDescribeDBInstanceDetailOutput.drSecondsBehindMaster) &&
-        Objects.equals(this.instanceId, basicInfoForDescribeDBInstanceDetailOutput.instanceId) &&
-        Objects.equals(this.instanceName, basicInfoForDescribeDBInstanceDetailOutput.instanceName) &&
-        Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
-        Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
-        Objects.equals(this.lowerCaseTableNames, basicInfoForDescribeDBInstanceDetailOutput.lowerCaseTableNames) &&
-        Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
-        Objects.equals(this.masterInstanceId, basicInfoForDescribeDBInstanceDetailOutput.masterInstanceId) &&
-        Objects.equals(this.masterInstanceName, basicInfoForDescribeDBInstanceDetailOutput.masterInstanceName) &&
-        Objects.equals(this.masterRegion, basicInfoForDescribeDBInstanceDetailOutput.masterRegion) &&
-        Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
-        Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
-        Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
-        Objects.equals(this.projectName, basicInfoForDescribeDBInstanceDetailOutput.projectName) &&
-        Objects.equals(this.regionId, basicInfoForDescribeDBInstanceDetailOutput.regionId) &&
-        Objects.equals(this.storageSpace, basicInfoForDescribeDBInstanceDetailOutput.storageSpace) &&
-        Objects.equals(this.storageType, basicInfoForDescribeDBInstanceDetailOutput.storageType) &&
-        Objects.equals(this.storageUse, basicInfoForDescribeDBInstanceDetailOutput.storageUse) &&
-        Objects.equals(this.subnetId, basicInfoForDescribeDBInstanceDetailOutput.subnetId) &&
-        Objects.equals(this.tags, basicInfoForDescribeDBInstanceDetailOutput.tags) &&
-        Objects.equals(this.timeZone, basicInfoForDescribeDBInstanceDetailOutput.timeZone) &&
-        Objects.equals(this.updateTime, basicInfoForDescribeDBInstanceDetailOutput.updateTime) &&
-        Objects.equals(this.VCPU, basicInfoForDescribeDBInstanceDetailOutput.VCPU) &&
-        Objects.equals(this.vpcId, basicInfoForDescribeDBInstanceDetailOutput.vpcId) &&
-        Objects.equals(this.zoneId, basicInfoForDescribeDBInstanceDetailOutput.zoneId);
+    DBInstanceAttributeForDescribeDBInstanceAttributeOutput dbInstanceAttributeForDescribeDBInstanceAttributeOutput = (DBInstanceAttributeForDescribeDBInstanceAttributeOutput) o;
+    return Objects.equals(this.allowListVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.allowListVersion) &&
+        Objects.equals(this.autoUpgradeMinorVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.autoUpgradeMinorVersion) &&
+        Objects.equals(this.createTime, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.createTime) &&
+        Objects.equals(this.currentKernelVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.currentKernelVersion) &&
+        Objects.equals(this.dbEngineVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.dbEngineVersion) &&
+        Objects.equals(this.deletionProtection, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.deletionProtection) &&
+        Objects.equals(this.hasDisasterRecoveryInstances, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.hasDisasterRecoveryInstances) &&
+        Objects.equals(this.hasGreenInstance, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.hasGreenInstance) &&
+        Objects.equals(this.instanceId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.instanceId) &&
+        Objects.equals(this.instanceName, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.instanceName) &&
+        Objects.equals(this.instanceStatus, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.instanceStatus) &&
+        Objects.equals(this.instanceType, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.instanceType) &&
+        Objects.equals(this.lowerCaseTableNames, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.lowerCaseTableNames) &&
+        Objects.equals(this.maintenanceWindow, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.maintenanceWindow) &&
+        Objects.equals(this.memory, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.memory) &&
+        Objects.equals(this.nodeNumber, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.nodeNumber) &&
+        Objects.equals(this.nodeSpec, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.nodeSpec) &&
+        Objects.equals(this.projectName, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.projectName) &&
+        Objects.equals(this.regionId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.regionId) &&
+        Objects.equals(this.storageSpace, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.storageSpace) &&
+        Objects.equals(this.storageType, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.storageType) &&
+        Objects.equals(this.subnetId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.subnetId) &&
+        Objects.equals(this.tags, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.tags) &&
+        Objects.equals(this.timeZone, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.timeZone) &&
+        Objects.equals(this.updateTime, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.updateTime) &&
+        Objects.equals(this.VCPU, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.VCPU) &&
+        Objects.equals(this.vpcId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.vpcId) &&
+        Objects.equals(this.zoneId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, hasDisasterRecoveryInstances, hasGreenInstance, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BasicInfoForDescribeDBInstanceDetailOutput {\n");
+    sb.append("class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {\n");
     
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
     sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
-    sb.append("    dataSyncMode: ").append(toIndentedString(dataSyncMode)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
-    sb.append("    drDtsTaskId: ").append(toIndentedString(drDtsTaskId)).append("\n");
-    sb.append("    drDtsTaskName: ").append(toIndentedString(drDtsTaskName)).append("\n");
-    sb.append("    drDtsTaskStatus: ").append(toIndentedString(drDtsTaskStatus)).append("\n");
-    sb.append("    drSecondsBehindMaster: ").append(toIndentedString(drSecondsBehindMaster)).append("\n");
+    sb.append("    hasDisasterRecoveryInstances: ").append(toIndentedString(hasDisasterRecoveryInstances)).append("\n");
+    sb.append("    hasGreenInstance: ").append(toIndentedString(hasGreenInstance)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
-    sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");
-    sb.append("    masterInstanceName: ").append(toIndentedString(masterInstanceName)).append("\n");
-    sb.append("    masterRegion: ").append(toIndentedString(masterRegion)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
@@ -864,7 +704,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
-    sb.append("    storageUse: ").append(toIndentedString(storageUse)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");

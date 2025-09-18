@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeDBAutoScalingConfigRequest
+ * DescribeDBInstanceTDEResponse
  */
 
 
 
-public class DescribeDBAutoScalingConfigRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeDBInstanceTDEResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("TDEStatus")
+  private String tdEStatus = null;
 
-  public DescribeDBAutoScalingConfigRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeDBInstanceTDEResponse tdEStatus(String tdEStatus) {
+    this.tdEStatus = tdEStatus;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get tdEStatus
+   * @return tdEStatus
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Schema(description = "")
+  public String getTdEStatus() {
+    return tdEStatus;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setTdEStatus(String tdEStatus) {
+    this.tdEStatus = tdEStatus;
   }
 
 
@@ -61,22 +60,22 @@ public class DescribeDBAutoScalingConfigRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeDBAutoScalingConfigRequest describeDBAutoScalingConfigRequest = (DescribeDBAutoScalingConfigRequest) o;
-    return Objects.equals(this.instanceId, describeDBAutoScalingConfigRequest.instanceId);
+    DescribeDBInstanceTDEResponse describeDBInstanceTDEResponse = (DescribeDBInstanceTDEResponse) o;
+    return Objects.equals(this.tdEStatus, describeDBInstanceTDEResponse.tdEStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(tdEStatus);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeDBAutoScalingConfigRequest {\n");
+    sb.append("class DescribeDBInstanceTDEResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    tdEStatus: ").append(toIndentedString(tdEStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

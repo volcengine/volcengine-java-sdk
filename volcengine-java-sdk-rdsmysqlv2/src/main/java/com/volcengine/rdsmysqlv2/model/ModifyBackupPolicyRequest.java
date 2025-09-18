@@ -83,6 +83,12 @@ public class ModifyBackupPolicyRequest {
   @SerializedName("DataKeepPolicyAfterReleased")
   private String dataKeepPolicyAfterReleased = null;
 
+  @SerializedName("HighFrequencySnapshotBackupEnable")
+  private Boolean highFrequencySnapshotBackupEnable = null;
+
+  @SerializedName("HighFrequencySnapshotBackupSecondPeriod")
+  private Integer highFrequencySnapshotBackupSecondPeriod = null;
+
   @SerializedName("HourlyIncrBackupEnable")
   private Boolean hourlyIncrBackupEnable = null;
 
@@ -423,6 +429,42 @@ public class ModifyBackupPolicyRequest {
     this.dataKeepPolicyAfterReleased = dataKeepPolicyAfterReleased;
   }
 
+  public ModifyBackupPolicyRequest highFrequencySnapshotBackupEnable(Boolean highFrequencySnapshotBackupEnable) {
+    this.highFrequencySnapshotBackupEnable = highFrequencySnapshotBackupEnable;
+    return this;
+  }
+
+   /**
+   * Get highFrequencySnapshotBackupEnable
+   * @return highFrequencySnapshotBackupEnable
+  **/
+  @Schema(description = "")
+  public Boolean isHighFrequencySnapshotBackupEnable() {
+    return highFrequencySnapshotBackupEnable;
+  }
+
+  public void setHighFrequencySnapshotBackupEnable(Boolean highFrequencySnapshotBackupEnable) {
+    this.highFrequencySnapshotBackupEnable = highFrequencySnapshotBackupEnable;
+  }
+
+  public ModifyBackupPolicyRequest highFrequencySnapshotBackupSecondPeriod(Integer highFrequencySnapshotBackupSecondPeriod) {
+    this.highFrequencySnapshotBackupSecondPeriod = highFrequencySnapshotBackupSecondPeriod;
+    return this;
+  }
+
+   /**
+   * Get highFrequencySnapshotBackupSecondPeriod
+   * @return highFrequencySnapshotBackupSecondPeriod
+  **/
+  @Schema(description = "")
+  public Integer getHighFrequencySnapshotBackupSecondPeriod() {
+    return highFrequencySnapshotBackupSecondPeriod;
+  }
+
+  public void setHighFrequencySnapshotBackupSecondPeriod(Integer highFrequencySnapshotBackupSecondPeriod) {
+    this.highFrequencySnapshotBackupSecondPeriod = highFrequencySnapshotBackupSecondPeriod;
+  }
+
   public ModifyBackupPolicyRequest hourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
     this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
     return this;
@@ -559,6 +601,8 @@ public class ModifyBackupPolicyRequest {
         Objects.equals(this.dataIncrBackupPeriods, modifyBackupPolicyRequest.dataIncrBackupPeriods) &&
         Objects.equals(this.dataKeepDaysAfterReleased, modifyBackupPolicyRequest.dataKeepDaysAfterReleased) &&
         Objects.equals(this.dataKeepPolicyAfterReleased, modifyBackupPolicyRequest.dataKeepPolicyAfterReleased) &&
+        Objects.equals(this.highFrequencySnapshotBackupEnable, modifyBackupPolicyRequest.highFrequencySnapshotBackupEnable) &&
+        Objects.equals(this.highFrequencySnapshotBackupSecondPeriod, modifyBackupPolicyRequest.highFrequencySnapshotBackupSecondPeriod) &&
         Objects.equals(this.hourlyIncrBackupEnable, modifyBackupPolicyRequest.hourlyIncrBackupEnable) &&
         Objects.equals(this.incrBackupHourPeriod, modifyBackupPolicyRequest.incrBackupHourPeriod) &&
         Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId) &&
@@ -569,7 +613,7 @@ public class ModifyBackupPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
   }
 
 
@@ -595,6 +639,8 @@ public class ModifyBackupPolicyRequest {
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    dataKeepDaysAfterReleased: ").append(toIndentedString(dataKeepDaysAfterReleased)).append("\n");
     sb.append("    dataKeepPolicyAfterReleased: ").append(toIndentedString(dataKeepPolicyAfterReleased)).append("\n");
+    sb.append("    highFrequencySnapshotBackupEnable: ").append(toIndentedString(highFrequencySnapshotBackupEnable)).append("\n");
+    sb.append("    highFrequencySnapshotBackupSecondPeriod: ").append(toIndentedString(highFrequencySnapshotBackupSecondPeriod)).append("\n");
     sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
     sb.append("    incrBackupHourPeriod: ").append(toIndentedString(incrBackupHourPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

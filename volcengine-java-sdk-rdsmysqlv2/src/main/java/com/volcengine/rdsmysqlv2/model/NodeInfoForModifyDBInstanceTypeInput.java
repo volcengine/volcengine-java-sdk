@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * NodeInfoForRestoreToCrossRegionInstanceInput
+ * NodeInfoForModifyDBInstanceTypeInput
  */
 
 
 
-public class NodeInfoForRestoreToCrossRegionInstanceInput {
+public class NodeInfoForModifyDBInstanceTypeInput {
   @SerializedName("NodeId")
   private String nodeId = null;
 
@@ -45,7 +45,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public NodeInfoForRestoreToCrossRegionInstanceInput nodeId(String nodeId) {
+  public NodeInfoForModifyDBInstanceTypeInput nodeId(String nodeId) {
     this.nodeId = nodeId;
     return this;
   }
@@ -63,7 +63,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
     this.nodeId = nodeId;
   }
 
-  public NodeInfoForRestoreToCrossRegionInstanceInput nodeOperateType(String nodeOperateType) {
+  public NodeInfoForModifyDBInstanceTypeInput nodeOperateType(String nodeOperateType) {
     this.nodeOperateType = nodeOperateType;
     return this;
   }
@@ -81,7 +81,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
     this.nodeOperateType = nodeOperateType;
   }
 
-  public NodeInfoForRestoreToCrossRegionInstanceInput nodeSpec(String nodeSpec) {
+  public NodeInfoForModifyDBInstanceTypeInput nodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -99,7 +99,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
     this.nodeSpec = nodeSpec;
   }
 
-  public NodeInfoForRestoreToCrossRegionInstanceInput nodeType(String nodeType) {
+  public NodeInfoForModifyDBInstanceTypeInput nodeType(String nodeType) {
     this.nodeType = nodeType;
     return this;
   }
@@ -117,7 +117,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
     this.nodeType = nodeType;
   }
 
-  public NodeInfoForRestoreToCrossRegionInstanceInput zoneId(String zoneId) {
+  public NodeInfoForModifyDBInstanceTypeInput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -144,12 +144,12 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NodeInfoForRestoreToCrossRegionInstanceInput nodeInfoForRestoreToCrossRegionInstanceInput = (NodeInfoForRestoreToCrossRegionInstanceInput) o;
-    return Objects.equals(this.nodeId, nodeInfoForRestoreToCrossRegionInstanceInput.nodeId) &&
-        Objects.equals(this.nodeOperateType, nodeInfoForRestoreToCrossRegionInstanceInput.nodeOperateType) &&
-        Objects.equals(this.nodeSpec, nodeInfoForRestoreToCrossRegionInstanceInput.nodeSpec) &&
-        Objects.equals(this.nodeType, nodeInfoForRestoreToCrossRegionInstanceInput.nodeType) &&
-        Objects.equals(this.zoneId, nodeInfoForRestoreToCrossRegionInstanceInput.zoneId);
+    NodeInfoForModifyDBInstanceTypeInput nodeInfoForModifyDBInstanceTypeInput = (NodeInfoForModifyDBInstanceTypeInput) o;
+    return Objects.equals(this.nodeId, nodeInfoForModifyDBInstanceTypeInput.nodeId) &&
+        Objects.equals(this.nodeOperateType, nodeInfoForModifyDBInstanceTypeInput.nodeOperateType) &&
+        Objects.equals(this.nodeSpec, nodeInfoForModifyDBInstanceTypeInput.nodeSpec) &&
+        Objects.equals(this.nodeType, nodeInfoForModifyDBInstanceTypeInput.nodeType) &&
+        Objects.equals(this.zoneId, nodeInfoForModifyDBInstanceTypeInput.zoneId);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class NodeInfoForRestoreToCrossRegionInstanceInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NodeInfoForRestoreToCrossRegionInstanceInput {\n");
+    sb.append("class NodeInfoForModifyDBInstanceTypeInput {\n");
     
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeOperateType: ").append(toIndentedString(nodeOperateType)).append("\n");

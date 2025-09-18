@@ -19,25 +19,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.StorageConfigForModifyDBAutoScalingConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBAutoScalingConfigRequest
+ * DescribeDBInstanceAttributeRequest
  */
 
 
 
-public class ModifyDBAutoScalingConfigRequest {
+public class DescribeDBInstanceAttributeRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("StorageConfig")
-  private StorageConfigForModifyDBAutoScalingConfigInput storageConfig = null;
-
-  public ModifyDBAutoScalingConfigRequest instanceId(String instanceId) {
+  public DescribeDBInstanceAttributeRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -56,25 +52,6 @@ public class ModifyDBAutoScalingConfigRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyDBAutoScalingConfigRequest storageConfig(StorageConfigForModifyDBAutoScalingConfigInput storageConfig) {
-    this.storageConfig = storageConfig;
-    return this;
-  }
-
-   /**
-   * Get storageConfig
-   * @return storageConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public StorageConfigForModifyDBAutoScalingConfigInput getStorageConfig() {
-    return storageConfig;
-  }
-
-  public void setStorageConfig(StorageConfigForModifyDBAutoScalingConfigInput storageConfig) {
-    this.storageConfig = storageConfig;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,24 +61,22 @@ public class ModifyDBAutoScalingConfigRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBAutoScalingConfigRequest modifyDBAutoScalingConfigRequest = (ModifyDBAutoScalingConfigRequest) o;
-    return Objects.equals(this.instanceId, modifyDBAutoScalingConfigRequest.instanceId) &&
-        Objects.equals(this.storageConfig, modifyDBAutoScalingConfigRequest.storageConfig);
+    DescribeDBInstanceAttributeRequest describeDBInstanceAttributeRequest = (DescribeDBInstanceAttributeRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceAttributeRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, storageConfig);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBAutoScalingConfigRequest {\n");
+    sb.append("class DescribeDBInstanceAttributeRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

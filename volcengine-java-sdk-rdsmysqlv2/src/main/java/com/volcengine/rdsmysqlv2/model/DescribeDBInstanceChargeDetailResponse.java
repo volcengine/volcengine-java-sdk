@@ -19,58 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ChargeDetailForDescribeDBInstanceChargeDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailableCrossRegionRequest
+ * DescribeDBInstanceChargeDetailResponse
  */
 
 
 
-public class DescribeAvailableCrossRegionRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeDBInstanceChargeDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ChargeDetail")
+  private ChargeDetailForDescribeDBInstanceChargeDetailOutput chargeDetail = null;
 
-  @SerializedName("RegionId")
-  private String regionId = null;
-
-  public DescribeAvailableCrossRegionRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeDBInstanceChargeDetailResponse chargeDetail(ChargeDetailForDescribeDBInstanceChargeDetailOutput chargeDetail) {
+    this.chargeDetail = chargeDetail;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get chargeDetail
+   * @return chargeDetail
   **/
+  @Valid
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public ChargeDetailForDescribeDBInstanceChargeDetailOutput getChargeDetail() {
+    return chargeDetail;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public DescribeAvailableCrossRegionRequest regionId(String regionId) {
-    this.regionId = regionId;
-    return this;
-  }
-
-   /**
-   * Get regionId
-   * @return regionId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getRegionId() {
-    return regionId;
-  }
-
-  public void setRegionId(String regionId) {
-    this.regionId = regionId;
+  public void setChargeDetail(ChargeDetailForDescribeDBInstanceChargeDetailOutput chargeDetail) {
+    this.chargeDetail = chargeDetail;
   }
 
 
@@ -82,24 +62,22 @@ public class DescribeAvailableCrossRegionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailableCrossRegionRequest describeAvailableCrossRegionRequest = (DescribeAvailableCrossRegionRequest) o;
-    return Objects.equals(this.instanceId, describeAvailableCrossRegionRequest.instanceId) &&
-        Objects.equals(this.regionId, describeAvailableCrossRegionRequest.regionId);
+    DescribeDBInstanceChargeDetailResponse describeDBInstanceChargeDetailResponse = (DescribeDBInstanceChargeDetailResponse) o;
+    return Objects.equals(this.chargeDetail, describeDBInstanceChargeDetailResponse.chargeDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, regionId);
+    return Objects.hash(chargeDetail);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailableCrossRegionRequest {\n");
+    sb.append("class DescribeDBInstanceChargeDetailResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
