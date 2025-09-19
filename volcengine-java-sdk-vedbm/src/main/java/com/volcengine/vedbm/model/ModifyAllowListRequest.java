@@ -50,10 +50,10 @@ public class ModifyAllowListRequest {
    */
   @JsonAdapter(ModifyModeEnum.Adapter.class)
   public enum ModifyModeEnum {
-    @SerializedName("Cover")
-    COVER("Cover"),
     @SerializedName("Append")
     APPEND("Append"),
+    @SerializedName("Cover")
+    COVER("Cover"),
     @SerializedName("Delete")
     DELETE("Delete");
 

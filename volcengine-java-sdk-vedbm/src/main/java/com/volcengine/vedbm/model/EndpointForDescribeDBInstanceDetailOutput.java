@@ -46,10 +46,10 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   public enum ConsistLevelEnum {
     @SerializedName("Eventual")
     EVENTUAL("Eventual"),
-    @SerializedName("Session")
-    SESSION("Session"),
     @SerializedName("Global")
-    GLOBAL("Global");
+    GLOBAL("Global"),
+    @SerializedName("Session")
+    SESSION("Session");
 
     private String value;
 
@@ -95,10 +95,10 @@ public class EndpointForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(ConsistTimeoutActionEnum.Adapter.class)
   public enum ConsistTimeoutActionEnum {
-    @SerializedName("ReturnError")
-    RETURNERROR("ReturnError"),
     @SerializedName("ReadMaster")
-    READMASTER("ReadMaster");
+    READMASTER("ReadMaster"),
+    @SerializedName("ReturnError")
+    RETURNERROR("ReturnError");
 
     private String value;
 
@@ -155,10 +155,10 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   public enum EndpointTypeEnum {
     @SerializedName("Cluster")
     CLUSTER("Cluster"),
-    @SerializedName("Primary")
-    PRIMARY("Primary"),
     @SerializedName("Custom")
-    CUSTOM("Custom");
+    CUSTOM("Custom"),
+    @SerializedName("Primary")
+    PRIMARY("Primary");
 
     private String value;
 
@@ -207,10 +207,10 @@ public class EndpointForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(ReadWriteModeEnum.Adapter.class)
   public enum ReadWriteModeEnum {
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite"),
     @SerializedName("ReadOnly")
-    READONLY("ReadOnly");
+    READONLY("ReadOnly"),
+    @SerializedName("ReadWrite")
+    READWRITE("ReadWrite");
 
     private String value;
 
