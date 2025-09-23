@@ -54,6 +54,9 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -207,6 +210,24 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     this.ipAddress = ipAddress;
   }
 
+  public CustomerGatewayForDescribeCustomerGatewaysOutput ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+  }
+
   public CustomerGatewayForDescribeCustomerGatewaysOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -279,6 +300,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
         Objects.equals(this.customerGatewayName, customerGatewayForDescribeCustomerGatewaysOutput.customerGatewayName) &&
         Objects.equals(this.description, customerGatewayForDescribeCustomerGatewaysOutput.description) &&
         Objects.equals(this.ipAddress, customerGatewayForDescribeCustomerGatewaysOutput.ipAddress) &&
+        Objects.equals(this.ipVersion, customerGatewayForDescribeCustomerGatewaysOutput.ipVersion) &&
         Objects.equals(this.projectName, customerGatewayForDescribeCustomerGatewaysOutput.projectName) &&
         Objects.equals(this.status, customerGatewayForDescribeCustomerGatewaysOutput.status) &&
         Objects.equals(this.updateTime, customerGatewayForDescribeCustomerGatewaysOutput.updateTime);
@@ -286,7 +308,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, status, updateTime);
+    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, ipVersion, projectName, status, updateTime);
   }
 
 
@@ -303,6 +325,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

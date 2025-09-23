@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.BgpInfoForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IkeConfigForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IpsecConfigForDescribeVpnConnectionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -52,6 +53,9 @@ public class TunnelOptionForDescribeVpnConnectionsOutput {
 
   @SerializedName("Role")
   private String role = null;
+
+  @SerializedName("TunnelBgpInfo")
+  private BgpInfoForDescribeVpnConnectionsOutput tunnelBgpInfo = null;
 
   @SerializedName("TunnelId")
   private String tunnelId = null;
@@ -184,6 +188,25 @@ public class TunnelOptionForDescribeVpnConnectionsOutput {
     this.role = role;
   }
 
+  public TunnelOptionForDescribeVpnConnectionsOutput tunnelBgpInfo(BgpInfoForDescribeVpnConnectionsOutput tunnelBgpInfo) {
+    this.tunnelBgpInfo = tunnelBgpInfo;
+    return this;
+  }
+
+   /**
+   * Get tunnelBgpInfo
+   * @return tunnelBgpInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public BgpInfoForDescribeVpnConnectionsOutput getTunnelBgpInfo() {
+    return tunnelBgpInfo;
+  }
+
+  public void setTunnelBgpInfo(BgpInfoForDescribeVpnConnectionsOutput tunnelBgpInfo) {
+    this.tunnelBgpInfo = tunnelBgpInfo;
+  }
+
   public TunnelOptionForDescribeVpnConnectionsOutput tunnelId(String tunnelId) {
     this.tunnelId = tunnelId;
     return this;
@@ -219,12 +242,13 @@ public class TunnelOptionForDescribeVpnConnectionsOutput {
         Objects.equals(this.ipsecConfig, tunnelOptionForDescribeVpnConnectionsOutput.ipsecConfig) &&
         Objects.equals(this.natTraversal, tunnelOptionForDescribeVpnConnectionsOutput.natTraversal) &&
         Objects.equals(this.role, tunnelOptionForDescribeVpnConnectionsOutput.role) &&
+        Objects.equals(this.tunnelBgpInfo, tunnelOptionForDescribeVpnConnectionsOutput.tunnelBgpInfo) &&
         Objects.equals(this.tunnelId, tunnelOptionForDescribeVpnConnectionsOutput.tunnelId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectStatus, customerGatewayId, dpdAction, ikeConfig, ipsecConfig, natTraversal, role, tunnelId);
+    return Objects.hash(connectStatus, customerGatewayId, dpdAction, ikeConfig, ipsecConfig, natTraversal, role, tunnelBgpInfo, tunnelId);
   }
 
 
@@ -240,6 +264,7 @@ public class TunnelOptionForDescribeVpnConnectionsOutput {
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    tunnelBgpInfo: ").append(toIndentedString(tunnelBgpInfo)).append("\n");
     sb.append("    tunnelId: ").append(toIndentedString(tunnelId)).append("\n");
     sb.append("}");
     return sb.toString();

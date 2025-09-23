@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BgpInfoForDescribeVpnConnectionAttributesOutput
+ * TunnelBgpInfoForDescribeVpnConnectionAttributesOutput
  */
 
 
 
-public class BgpInfoForDescribeVpnConnectionAttributesOutput {
+public class TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {
   @SerializedName("EnableBgp")
   private Boolean enableBgp = null;
 
@@ -94,7 +94,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
   @SerializedName("TunnelCidr")
   private String tunnelCidr = null;
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput enableBgp(Boolean enableBgp) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput enableBgp(Boolean enableBgp) {
     this.enableBgp = enableBgp;
     return this;
   }
@@ -112,7 +112,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.enableBgp = enableBgp;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput localAsn(Integer localAsn) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput localAsn(Integer localAsn) {
     this.localAsn = localAsn;
     return this;
   }
@@ -130,7 +130,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.localAsn = localAsn;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput localBgpIp(String localBgpIp) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput localBgpIp(String localBgpIp) {
     this.localBgpIp = localBgpIp;
     return this;
   }
@@ -148,7 +148,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.localBgpIp = localBgpIp;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput peerAsn(Integer peerAsn) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput peerAsn(Integer peerAsn) {
     this.peerAsn = peerAsn;
     return this;
   }
@@ -166,7 +166,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.peerAsn = peerAsn;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput peerBgpIp(String peerBgpIp) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput peerBgpIp(String peerBgpIp) {
     this.peerBgpIp = peerBgpIp;
     return this;
   }
@@ -184,7 +184,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.peerBgpIp = peerBgpIp;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput sessionStatus(SessionStatusEnum sessionStatus) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput sessionStatus(SessionStatusEnum sessionStatus) {
     this.sessionStatus = sessionStatus;
     return this;
   }
@@ -202,7 +202,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     this.sessionStatus = sessionStatus;
   }
 
-  public BgpInfoForDescribeVpnConnectionAttributesOutput tunnelCidr(String tunnelCidr) {
+  public TunnelBgpInfoForDescribeVpnConnectionAttributesOutput tunnelCidr(String tunnelCidr) {
     this.tunnelCidr = tunnelCidr;
     return this;
   }
@@ -229,14 +229,14 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BgpInfoForDescribeVpnConnectionAttributesOutput bgpInfoForDescribeVpnConnectionAttributesOutput = (BgpInfoForDescribeVpnConnectionAttributesOutput) o;
-    return Objects.equals(this.enableBgp, bgpInfoForDescribeVpnConnectionAttributesOutput.enableBgp) &&
-        Objects.equals(this.localAsn, bgpInfoForDescribeVpnConnectionAttributesOutput.localAsn) &&
-        Objects.equals(this.localBgpIp, bgpInfoForDescribeVpnConnectionAttributesOutput.localBgpIp) &&
-        Objects.equals(this.peerAsn, bgpInfoForDescribeVpnConnectionAttributesOutput.peerAsn) &&
-        Objects.equals(this.peerBgpIp, bgpInfoForDescribeVpnConnectionAttributesOutput.peerBgpIp) &&
-        Objects.equals(this.sessionStatus, bgpInfoForDescribeVpnConnectionAttributesOutput.sessionStatus) &&
-        Objects.equals(this.tunnelCidr, bgpInfoForDescribeVpnConnectionAttributesOutput.tunnelCidr);
+    TunnelBgpInfoForDescribeVpnConnectionAttributesOutput tunnelBgpInfoForDescribeVpnConnectionAttributesOutput = (TunnelBgpInfoForDescribeVpnConnectionAttributesOutput) o;
+    return Objects.equals(this.enableBgp, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.enableBgp) &&
+        Objects.equals(this.localAsn, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.localAsn) &&
+        Objects.equals(this.localBgpIp, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.localBgpIp) &&
+        Objects.equals(this.peerAsn, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.peerAsn) &&
+        Objects.equals(this.peerBgpIp, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.peerBgpIp) &&
+        Objects.equals(this.sessionStatus, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.sessionStatus) &&
+        Objects.equals(this.tunnelCidr, tunnelBgpInfoForDescribeVpnConnectionAttributesOutput.tunnelCidr);
   }
 
   @Override
@@ -248,7 +248,7 @@ public class BgpInfoForDescribeVpnConnectionAttributesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BgpInfoForDescribeVpnConnectionAttributesOutput {\n");
+    sb.append("class TunnelBgpInfoForDescribeVpnConnectionAttributesOutput {\n");
     
     sb.append("    enableBgp: ").append(toIndentedString(enableBgp)).append("\n");
     sb.append("    localAsn: ").append(toIndentedString(localAsn)).append("\n");

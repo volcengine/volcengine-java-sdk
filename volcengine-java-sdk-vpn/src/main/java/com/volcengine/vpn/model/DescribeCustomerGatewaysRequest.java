@@ -42,6 +42,9 @@ public class DescribeCustomerGatewaysRequest {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -117,6 +120,24 @@ public class DescribeCustomerGatewaysRequest {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public DescribeCustomerGatewaysRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public DescribeCustomerGatewaysRequest pageNumber(Integer pageNumber) {
@@ -231,6 +252,7 @@ public class DescribeCustomerGatewaysRequest {
     return Objects.equals(this.customerGatewayIds, describeCustomerGatewaysRequest.customerGatewayIds) &&
         Objects.equals(this.customerGatewayName, describeCustomerGatewaysRequest.customerGatewayName) &&
         Objects.equals(this.ipAddress, describeCustomerGatewaysRequest.ipAddress) &&
+        Objects.equals(this.ipVersion, describeCustomerGatewaysRequest.ipVersion) &&
         Objects.equals(this.pageNumber, describeCustomerGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCustomerGatewaysRequest.pageSize) &&
         Objects.equals(this.projectName, describeCustomerGatewaysRequest.projectName) &&
@@ -240,7 +262,7 @@ public class DescribeCustomerGatewaysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, projectName, status, tagFilters);
+    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, ipVersion, pageNumber, pageSize, projectName, status, tagFilters);
   }
 
 
@@ -252,6 +274,7 @@ public class DescribeCustomerGatewaysRequest {
     sb.append("    customerGatewayIds: ").append(toIndentedString(customerGatewayIds)).append("\n");
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
