@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForDescribeHpcClustersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,12 @@ public class HpcClusterForDescribeHpcClustersOutput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeHpcClustersOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -123,6 +132,51 @@ public class HpcClusterForDescribeHpcClustersOutput {
     this.name = name;
   }
 
+  public HpcClusterForDescribeHpcClustersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public HpcClusterForDescribeHpcClustersOutput tags(List<TagForDescribeHpcClustersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public HpcClusterForDescribeHpcClustersOutput addTagsItem(TagForDescribeHpcClustersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeHpcClustersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeHpcClustersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeHpcClustersOutput> tags) {
+    this.tags = tags;
+  }
+
   public HpcClusterForDescribeHpcClustersOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -191,6 +245,8 @@ public class HpcClusterForDescribeHpcClustersOutput {
         Objects.equals(this.description, hpcClusterForDescribeHpcClustersOutput.description) &&
         Objects.equals(this.hpcClusterId, hpcClusterForDescribeHpcClustersOutput.hpcClusterId) &&
         Objects.equals(this.name, hpcClusterForDescribeHpcClustersOutput.name) &&
+        Objects.equals(this.projectName, hpcClusterForDescribeHpcClustersOutput.projectName) &&
+        Objects.equals(this.tags, hpcClusterForDescribeHpcClustersOutput.tags) &&
         Objects.equals(this.updatedAt, hpcClusterForDescribeHpcClustersOutput.updatedAt) &&
         Objects.equals(this.vpcId, hpcClusterForDescribeHpcClustersOutput.vpcId) &&
         Objects.equals(this.zoneId, hpcClusterForDescribeHpcClustersOutput.zoneId);
@@ -198,7 +254,7 @@ public class HpcClusterForDescribeHpcClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, hpcClusterId, name, updatedAt, vpcId, zoneId);
+    return Objects.hash(createdAt, description, hpcClusterId, name, projectName, tags, updatedAt, vpcId, zoneId);
   }
 
 
@@ -211,6 +267,8 @@ public class HpcClusterForDescribeHpcClustersOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
