@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AcceptSharedTransitRouterRequest
+ * TagForDescribeTransitRouterFlowLogsOutput
  */
 
 
 
-public class AcceptSharedTransitRouterRequest {
-  @SerializedName("TransitRouterId")
-  private String transitRouterId = null;
+public class TagForDescribeTransitRouterFlowLogsOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public AcceptSharedTransitRouterRequest transitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForDescribeTransitRouterFlowLogsOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get transitRouterId
-   * @return transitRouterId
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTransitRouterId() {
-    return transitRouterId;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setTransitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeTransitRouterFlowLogsOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -61,22 +81,24 @@ public class AcceptSharedTransitRouterRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AcceptSharedTransitRouterRequest acceptSharedTransitRouterRequest = (AcceptSharedTransitRouterRequest) o;
-    return Objects.equals(this.transitRouterId, acceptSharedTransitRouterRequest.transitRouterId);
+    TagForDescribeTransitRouterFlowLogsOutput tagForDescribeTransitRouterFlowLogsOutput = (TagForDescribeTransitRouterFlowLogsOutput) o;
+    return Objects.equals(this.key, tagForDescribeTransitRouterFlowLogsOutput.key) &&
+        Objects.equals(this.value, tagForDescribeTransitRouterFlowLogsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transitRouterId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AcceptSharedTransitRouterRequest {\n");
+    sb.append("class TagForDescribeTransitRouterFlowLogsOutput {\n");
     
-    sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

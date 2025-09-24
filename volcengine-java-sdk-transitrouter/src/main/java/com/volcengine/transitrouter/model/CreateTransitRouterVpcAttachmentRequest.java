@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateTransitRouterVpcAttachmentRequest {
+  @SerializedName("ApplianceModeEnabled")
+  private Boolean applianceModeEnabled = null;
+
   @SerializedName("AttachPoints")
   private List<AttachPointForCreateTransitRouterVpcAttachmentInput> attachPoints = null;
 
@@ -60,6 +63,24 @@ public class CreateTransitRouterVpcAttachmentRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateTransitRouterVpcAttachmentRequest applianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get applianceModeEnabled
+   * @return applianceModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isApplianceModeEnabled() {
+    return applianceModeEnabled;
+  }
+
+  public void setApplianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+  }
 
   public CreateTransitRouterVpcAttachmentRequest attachPoints(List<AttachPointForCreateTransitRouterVpcAttachmentInput> attachPoints) {
     this.attachPoints = attachPoints;
@@ -253,7 +274,8 @@ public class CreateTransitRouterVpcAttachmentRequest {
       return false;
     }
     CreateTransitRouterVpcAttachmentRequest createTransitRouterVpcAttachmentRequest = (CreateTransitRouterVpcAttachmentRequest) o;
-    return Objects.equals(this.attachPoints, createTransitRouterVpcAttachmentRequest.attachPoints) &&
+    return Objects.equals(this.applianceModeEnabled, createTransitRouterVpcAttachmentRequest.applianceModeEnabled) &&
+        Objects.equals(this.attachPoints, createTransitRouterVpcAttachmentRequest.attachPoints) &&
         Objects.equals(this.autoPublishRouteEnabled, createTransitRouterVpcAttachmentRequest.autoPublishRouteEnabled) &&
         Objects.equals(this.clientToken, createTransitRouterVpcAttachmentRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterVpcAttachmentRequest.description) &&
@@ -266,7 +288,7 @@ public class CreateTransitRouterVpcAttachmentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachPoints, autoPublishRouteEnabled, clientToken, description, ipv6Enabled, tags, transitRouterAttachmentName, transitRouterId, vpcId);
+    return Objects.hash(applianceModeEnabled, attachPoints, autoPublishRouteEnabled, clientToken, description, ipv6Enabled, tags, transitRouterAttachmentName, transitRouterId, vpcId);
   }
 
 
@@ -275,6 +297,7 @@ public class CreateTransitRouterVpcAttachmentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTransitRouterVpcAttachmentRequest {\n");
     
+    sb.append("    applianceModeEnabled: ").append(toIndentedString(applianceModeEnabled)).append("\n");
     sb.append("    attachPoints: ").append(toIndentedString(attachPoints)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");

@@ -34,11 +34,17 @@ import javax.validation.Valid;
 
 
 public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
+  @SerializedName("ApplianceModeEnabled")
+  private Boolean applianceModeEnabled = null;
+
   @SerializedName("AttachPoints")
   private List<AttachPointForDescribeTransitRouterVpcAttachmentsOutput> attachPoints = null;
 
   @SerializedName("AutoPublishRouteEnabled")
   private Boolean autoPublishRouteEnabled = null;
+
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -69,6 +75,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput applianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get applianceModeEnabled
+   * @return applianceModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isApplianceModeEnabled() {
+    return applianceModeEnabled;
+  }
+
+  public void setApplianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+  }
 
   public TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput attachPoints(List<AttachPointForDescribeTransitRouterVpcAttachmentsOutput> attachPoints) {
     this.attachPoints = attachPoints;
@@ -113,6 +137,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput
 
   public void setAutoPublishRouteEnabled(Boolean autoPublishRouteEnabled) {
     this.autoPublishRouteEnabled = autoPublishRouteEnabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput creationTime(String creationTime) {
@@ -314,8 +356,10 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput
       return false;
     }
     TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput = (TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) o;
-    return Objects.equals(this.attachPoints, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.attachPoints) &&
+    return Objects.equals(this.applianceModeEnabled, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.applianceModeEnabled) &&
+        Objects.equals(this.attachPoints, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.attachPoints) &&
         Objects.equals(this.autoPublishRouteEnabled, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.autoPublishRouteEnabled) &&
+        Objects.equals(this.bandwidth, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.bandwidth) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.description) &&
         Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.ipv6Enabled) &&
@@ -330,7 +374,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachPoints, autoPublishRouteEnabled, creationTime, description, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpcId);
+    return Objects.hash(applianceModeEnabled, attachPoints, autoPublishRouteEnabled, bandwidth, creationTime, description, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpcId);
   }
 
 
@@ -339,8 +383,10 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput
     StringBuilder sb = new StringBuilder();
     sb.append("class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {\n");
     
+    sb.append("    applianceModeEnabled: ").append(toIndentedString(applianceModeEnabled)).append("\n");
     sb.append("    attachPoints: ").append(toIndentedString(attachPoints)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
