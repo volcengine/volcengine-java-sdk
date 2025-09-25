@@ -50,6 +50,9 @@ public class DescribeTransitRouterRouteEntriesRequest {
   @SerializedName("TransitRouterRouteEntryName")
   private String transitRouterRouteEntryName = null;
 
+  @SerializedName("TransitRouterRouteEntryNextHopId")
+  private String transitRouterRouteEntryNextHopId = null;
+
   @SerializedName("TransitRouterRouteEntryNextHopResourceType")
   private String transitRouterRouteEntryNextHopResourceType = null;
 
@@ -178,6 +181,24 @@ public class DescribeTransitRouterRouteEntriesRequest {
     this.transitRouterRouteEntryName = transitRouterRouteEntryName;
   }
 
+  public DescribeTransitRouterRouteEntriesRequest transitRouterRouteEntryNextHopId(String transitRouterRouteEntryNextHopId) {
+    this.transitRouterRouteEntryNextHopId = transitRouterRouteEntryNextHopId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopId
+   * @return transitRouterRouteEntryNextHopId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopId() {
+    return transitRouterRouteEntryNextHopId;
+  }
+
+  public void setTransitRouterRouteEntryNextHopId(String transitRouterRouteEntryNextHopId) {
+    this.transitRouterRouteEntryNextHopId = transitRouterRouteEntryNextHopId;
+  }
+
   public DescribeTransitRouterRouteEntriesRequest transitRouterRouteEntryNextHopResourceType(String transitRouterRouteEntryNextHopResourceType) {
     this.transitRouterRouteEntryNextHopResourceType = transitRouterRouteEntryNextHopResourceType;
     return this;
@@ -267,6 +288,7 @@ public class DescribeTransitRouterRouteEntriesRequest {
         Objects.equals(this.status, describeTransitRouterRouteEntriesRequest.status) &&
         Objects.equals(this.transitRouterRouteEntryIds, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryIds) &&
         Objects.equals(this.transitRouterRouteEntryName, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryName) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopId, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryNextHopId) &&
         Objects.equals(this.transitRouterRouteEntryNextHopResourceType, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryNextHopResourceType) &&
         Objects.equals(this.transitRouterRouteEntryNextHopType, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryNextHopType) &&
         Objects.equals(this.transitRouterRouteEntryType, describeTransitRouterRouteEntriesRequest.transitRouterRouteEntryType) &&
@@ -275,7 +297,7 @@ public class DescribeTransitRouterRouteEntriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationCidrBlock, pageNumber, pageSize, status, transitRouterRouteEntryIds, transitRouterRouteEntryName, transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryNextHopType, transitRouterRouteEntryType, transitRouterRouteTableId);
+    return Objects.hash(destinationCidrBlock, pageNumber, pageSize, status, transitRouterRouteEntryIds, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryNextHopType, transitRouterRouteEntryType, transitRouterRouteTableId);
   }
 
 
@@ -290,6 +312,7 @@ public class DescribeTransitRouterRouteEntriesRequest {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transitRouterRouteEntryIds: ").append(toIndentedString(transitRouterRouteEntryIds)).append("\n");
     sb.append("    transitRouterRouteEntryName: ").append(toIndentedString(transitRouterRouteEntryName)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopId: ").append(toIndentedString(transitRouterRouteEntryNextHopId)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopResourceType: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceType)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopType: ").append(toIndentedString(transitRouterRouteEntryNextHopType)).append("\n");
     sb.append("    transitRouterRouteEntryType: ").append(toIndentedString(transitRouterRouteEntryType)).append("\n");

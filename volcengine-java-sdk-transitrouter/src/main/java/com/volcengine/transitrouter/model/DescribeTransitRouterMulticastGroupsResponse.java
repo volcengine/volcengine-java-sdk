@@ -33,8 +33,71 @@ import javax.validation.Valid;
 
 
 public class DescribeTransitRouterMulticastGroupsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
   @SerializedName("TransitRouterMulticastGroups")
   private List<TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput> transitRouterMulticastGroups = null;
+
+  public DescribeTransitRouterMulticastGroupsResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeTransitRouterMulticastGroupsResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public DescribeTransitRouterMulticastGroupsResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
 
   public DescribeTransitRouterMulticastGroupsResponse transitRouterMulticastGroups(List<TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput> transitRouterMulticastGroups) {
     this.transitRouterMulticastGroups = transitRouterMulticastGroups;
@@ -73,12 +136,15 @@ public class DescribeTransitRouterMulticastGroupsResponse extends com.volcengine
       return false;
     }
     DescribeTransitRouterMulticastGroupsResponse describeTransitRouterMulticastGroupsResponse = (DescribeTransitRouterMulticastGroupsResponse) o;
-    return Objects.equals(this.transitRouterMulticastGroups, describeTransitRouterMulticastGroupsResponse.transitRouterMulticastGroups);
+    return Objects.equals(this.pageNumber, describeTransitRouterMulticastGroupsResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeTransitRouterMulticastGroupsResponse.pageSize) &&
+        Objects.equals(this.totalCount, describeTransitRouterMulticastGroupsResponse.totalCount) &&
+        Objects.equals(this.transitRouterMulticastGroups, describeTransitRouterMulticastGroupsResponse.transitRouterMulticastGroups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transitRouterMulticastGroups);
+    return Objects.hash(pageNumber, pageSize, totalCount, transitRouterMulticastGroups);
   }
 
 
@@ -87,6 +153,9 @@ public class DescribeTransitRouterMulticastGroupsResponse extends com.volcengine
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTransitRouterMulticastGroupsResponse {\n");
     
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    transitRouterMulticastGroups: ").append(toIndentedString(transitRouterMulticastGroups)).append("\n");
     sb.append("}");
     return sb.toString();

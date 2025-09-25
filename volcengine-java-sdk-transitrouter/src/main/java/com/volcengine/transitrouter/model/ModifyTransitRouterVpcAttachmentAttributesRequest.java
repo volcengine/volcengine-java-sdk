@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ModifyTransitRouterVpcAttachmentAttributesRequest {
+  @SerializedName("ApplianceModeEnabled")
+  private Boolean applianceModeEnabled = null;
+
   @SerializedName("AttachPoints")
   private List<AttachPointForModifyTransitRouterVpcAttachmentAttributesInput> attachPoints = null;
 
@@ -50,6 +53,24 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
 
   @SerializedName("TransitRouterAttachmentName")
   private String transitRouterAttachmentName = null;
+
+  public ModifyTransitRouterVpcAttachmentAttributesRequest applianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get applianceModeEnabled
+   * @return applianceModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isApplianceModeEnabled() {
+    return applianceModeEnabled;
+  }
+
+  public void setApplianceModeEnabled(Boolean applianceModeEnabled) {
+    this.applianceModeEnabled = applianceModeEnabled;
+  }
 
   public ModifyTransitRouterVpcAttachmentAttributesRequest attachPoints(List<AttachPointForModifyTransitRouterVpcAttachmentAttributesInput> attachPoints) {
     this.attachPoints = attachPoints;
@@ -179,7 +200,8 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
       return false;
     }
     ModifyTransitRouterVpcAttachmentAttributesRequest modifyTransitRouterVpcAttachmentAttributesRequest = (ModifyTransitRouterVpcAttachmentAttributesRequest) o;
-    return Objects.equals(this.attachPoints, modifyTransitRouterVpcAttachmentAttributesRequest.attachPoints) &&
+    return Objects.equals(this.applianceModeEnabled, modifyTransitRouterVpcAttachmentAttributesRequest.applianceModeEnabled) &&
+        Objects.equals(this.attachPoints, modifyTransitRouterVpcAttachmentAttributesRequest.attachPoints) &&
         Objects.equals(this.autoPublishRouteEnabled, modifyTransitRouterVpcAttachmentAttributesRequest.autoPublishRouteEnabled) &&
         Objects.equals(this.description, modifyTransitRouterVpcAttachmentAttributesRequest.description) &&
         Objects.equals(this.ipv6Enabled, modifyTransitRouterVpcAttachmentAttributesRequest.ipv6Enabled) &&
@@ -189,7 +211,7 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachPoints, autoPublishRouteEnabled, description, ipv6Enabled, transitRouterAttachmentId, transitRouterAttachmentName);
+    return Objects.hash(applianceModeEnabled, attachPoints, autoPublishRouteEnabled, description, ipv6Enabled, transitRouterAttachmentId, transitRouterAttachmentName);
   }
 
 
@@ -198,6 +220,7 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTransitRouterVpcAttachmentAttributesRequest {\n");
     
+    sb.append("    applianceModeEnabled: ").append(toIndentedString(applianceModeEnabled)).append("\n");
     sb.append("    attachPoints: ").append(toIndentedString(attachPoints)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

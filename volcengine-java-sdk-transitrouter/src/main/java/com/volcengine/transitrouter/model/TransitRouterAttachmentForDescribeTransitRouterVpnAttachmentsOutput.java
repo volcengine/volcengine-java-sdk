@@ -42,8 +42,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("HealthCheckRevokeRouteEnabled")
+  private Boolean healthCheckRevokeRouteEnabled = null;
+
   @SerializedName("Ipv6Enabled")
-  private String ipv6Enabled = null;
+  private Boolean ipv6Enabled = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -123,7 +126,25 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
     this.description = description;
   }
 
-  public TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput ipv6Enabled(String ipv6Enabled) {
+  public TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput healthCheckRevokeRouteEnabled(Boolean healthCheckRevokeRouteEnabled) {
+    this.healthCheckRevokeRouteEnabled = healthCheckRevokeRouteEnabled;
+    return this;
+  }
+
+   /**
+   * Get healthCheckRevokeRouteEnabled
+   * @return healthCheckRevokeRouteEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isHealthCheckRevokeRouteEnabled() {
+    return healthCheckRevokeRouteEnabled;
+  }
+
+  public void setHealthCheckRevokeRouteEnabled(Boolean healthCheckRevokeRouteEnabled) {
+    this.healthCheckRevokeRouteEnabled = healthCheckRevokeRouteEnabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput ipv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
     return this;
   }
@@ -133,11 +154,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
    * @return ipv6Enabled
   **/
   @Schema(description = "")
-  public String getIpv6Enabled() {
+  public Boolean isIpv6Enabled() {
     return ipv6Enabled;
   }
 
-  public void setIpv6Enabled(String ipv6Enabled) {
+  public void setIpv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
   }
 
@@ -307,6 +328,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
     return Objects.equals(this.autoPublishRouteEnabled, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.autoPublishRouteEnabled) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.description) &&
+        Objects.equals(this.healthCheckRevokeRouteEnabled, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.healthCheckRevokeRouteEnabled) &&
         Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.ipv6Enabled) &&
         Objects.equals(this.status, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.status) &&
         Objects.equals(this.tags, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.tags) &&
@@ -320,7 +342,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, creationTime, description, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpnConnectionId, zoneId);
+    return Objects.hash(autoPublishRouteEnabled, creationTime, description, healthCheckRevokeRouteEnabled, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpnConnectionId, zoneId);
   }
 
 
@@ -332,6 +354,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    healthCheckRevokeRouteEnabled: ").append(toIndentedString(healthCheckRevokeRouteEnabled)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

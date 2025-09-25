@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.transitrouter.model.TagForDescribeTransitRouterFlowLogsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -53,6 +56,9 @@ public class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeTransitRouterFlowLogsOutput> tags = null;
 
   @SerializedName("TlsProjectId")
   private String tlsProjectId = null;
@@ -222,6 +228,33 @@ public class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
     this.status = status;
   }
 
+  public TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput tags(List<TagForDescribeTransitRouterFlowLogsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput addTagsItem(TagForDescribeTransitRouterFlowLogsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeTransitRouterFlowLogsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeTransitRouterFlowLogsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeTransitRouterFlowLogsOutput> tags) {
+    this.tags = tags;
+  }
+
   public TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput tlsProjectId(String tlsProjectId) {
     this.tlsProjectId = tlsProjectId;
     return this;
@@ -384,6 +417,7 @@ public class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
         Objects.equals(this.resourceId, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.resourceId) &&
         Objects.equals(this.resourceType, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.resourceType) &&
         Objects.equals(this.status, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.status) &&
+        Objects.equals(this.tags, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.tags) &&
         Objects.equals(this.tlsProjectId, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.tlsProjectId) &&
         Objects.equals(this.tlsProjectName, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.tlsProjectName) &&
         Objects.equals(this.tlsTopicId, transitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.tlsTopicId) &&
@@ -396,7 +430,7 @@ public class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, aggregationInterval, createdAt, description, logFormatString, resourceId, resourceType, status, tlsProjectId, tlsProjectName, tlsTopicId, tlsTopicName, transitRouterFlowLogId, transitRouterFlowLogName, transitRouterId, updatedAt);
+    return Objects.hash(accountID, aggregationInterval, createdAt, description, logFormatString, resourceId, resourceType, status, tags, tlsProjectId, tlsProjectName, tlsTopicId, tlsTopicName, transitRouterFlowLogId, transitRouterFlowLogName, transitRouterId, updatedAt);
   }
 
 
@@ -413,6 +447,7 @@ public class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput {
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsProjectId: ").append(toIndentedString(tlsProjectId)).append("\n");
     sb.append("    tlsProjectName: ").append(toIndentedString(tlsProjectName)).append("\n");
     sb.append("    tlsTopicId: ").append(toIndentedString(tlsTopicId)).append("\n");

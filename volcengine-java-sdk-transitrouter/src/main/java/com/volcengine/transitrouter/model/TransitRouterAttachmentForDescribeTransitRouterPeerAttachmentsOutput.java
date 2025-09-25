@@ -46,7 +46,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
   private String description = null;
 
   @SerializedName("Ipv6Enabled")
-  private String ipv6Enabled = null;
+  private Boolean ipv6Enabled = null;
 
   @SerializedName("PeerTransitRouterId")
   private String peerTransitRouterId = null;
@@ -159,7 +159,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     this.description = description;
   }
 
-  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput ipv6Enabled(String ipv6Enabled) {
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput ipv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
     return this;
   }
@@ -169,11 +169,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
    * @return ipv6Enabled
   **/
   @Schema(description = "")
-  public String getIpv6Enabled() {
+  public Boolean isIpv6Enabled() {
     return ipv6Enabled;
   }
 
-  public void setIpv6Enabled(String ipv6Enabled) {
+  public void setIpv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
   }
 
