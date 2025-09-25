@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForCreateDrDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForCreateDrDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForCreateDrDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +52,9 @@ public class CreateDrDBInstanceRequest {
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDrDBInstanceInput> nodeInfo = null;
+
+  @SerializedName("ProxyNodeCustom")
+  private ProxyNodeCustomForCreateDrDBInstanceInput proxyNodeCustom = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -181,6 +185,25 @@ public class CreateDrDBInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
+  public CreateDrDBInstanceRequest proxyNodeCustom(ProxyNodeCustomForCreateDrDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+    return this;
+  }
+
+   /**
+   * Get proxyNodeCustom
+   * @return proxyNodeCustom
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyNodeCustomForCreateDrDBInstanceInput getProxyNodeCustom() {
+    return proxyNodeCustom;
+  }
+
+  public void setProxyNodeCustom(ProxyNodeCustomForCreateDrDBInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+  }
+
   public CreateDrDBInstanceRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -254,6 +277,7 @@ public class CreateDrDBInstanceRequest {
         Objects.equals(this.masterInstanceId, createDrDBInstanceRequest.masterInstanceId) &&
         Objects.equals(this.masterRegion, createDrDBInstanceRequest.masterRegion) &&
         Objects.equals(this.nodeInfo, createDrDBInstanceRequest.nodeInfo) &&
+        Objects.equals(this.proxyNodeCustom, createDrDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, createDrDBInstanceRequest.storageSpace) &&
         Objects.equals(this.subnetId, createDrDBInstanceRequest.subnetId) &&
         Objects.equals(this.vpcId, createDrDBInstanceRequest.vpcId);
@@ -261,7 +285,7 @@ public class CreateDrDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, storageSpace, subnetId, vpcId);
+    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, proxyNodeCustom, storageSpace, subnetId, vpcId);
   }
 
 
@@ -276,6 +300,7 @@ public class CreateDrDBInstanceRequest {
     sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");
     sb.append("    masterRegion: ").append(toIndentedString(masterRegion)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

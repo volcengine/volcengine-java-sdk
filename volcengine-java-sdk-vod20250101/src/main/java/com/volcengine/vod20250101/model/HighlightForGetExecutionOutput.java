@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.HighlightCutsForGetExecutionOutput;
+import com.volcengine.vod20250101.model.OpeningHookForGetExecutionOutput;
 import com.volcengine.vod20250101.model.StorylineCutsForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,11 +33,36 @@ import javax.validation.Valid;
 
 
 public class HighlightForGetExecutionOutput {
+  @SerializedName("HighlightCuts")
+  private HighlightCutsForGetExecutionOutput highlightCuts = null;
+
   @SerializedName("Mode")
   private String mode = null;
 
+  @SerializedName("OpeningHook")
+  private OpeningHookForGetExecutionOutput openingHook = null;
+
   @SerializedName("StorylineCuts")
   private StorylineCutsForGetExecutionOutput storylineCuts = null;
+
+  public HighlightForGetExecutionOutput highlightCuts(HighlightCutsForGetExecutionOutput highlightCuts) {
+    this.highlightCuts = highlightCuts;
+    return this;
+  }
+
+   /**
+   * Get highlightCuts
+   * @return highlightCuts
+  **/
+  @Valid
+  @Schema(description = "")
+  public HighlightCutsForGetExecutionOutput getHighlightCuts() {
+    return highlightCuts;
+  }
+
+  public void setHighlightCuts(HighlightCutsForGetExecutionOutput highlightCuts) {
+    this.highlightCuts = highlightCuts;
+  }
 
   public HighlightForGetExecutionOutput mode(String mode) {
     this.mode = mode;
@@ -53,6 +80,25 @@ public class HighlightForGetExecutionOutput {
 
   public void setMode(String mode) {
     this.mode = mode;
+  }
+
+  public HighlightForGetExecutionOutput openingHook(OpeningHookForGetExecutionOutput openingHook) {
+    this.openingHook = openingHook;
+    return this;
+  }
+
+   /**
+   * Get openingHook
+   * @return openingHook
+  **/
+  @Valid
+  @Schema(description = "")
+  public OpeningHookForGetExecutionOutput getOpeningHook() {
+    return openingHook;
+  }
+
+  public void setOpeningHook(OpeningHookForGetExecutionOutput openingHook) {
+    this.openingHook = openingHook;
   }
 
   public HighlightForGetExecutionOutput storylineCuts(StorylineCutsForGetExecutionOutput storylineCuts) {
@@ -84,13 +130,15 @@ public class HighlightForGetExecutionOutput {
       return false;
     }
     HighlightForGetExecutionOutput highlightForGetExecutionOutput = (HighlightForGetExecutionOutput) o;
-    return Objects.equals(this.mode, highlightForGetExecutionOutput.mode) &&
+    return Objects.equals(this.highlightCuts, highlightForGetExecutionOutput.highlightCuts) &&
+        Objects.equals(this.mode, highlightForGetExecutionOutput.mode) &&
+        Objects.equals(this.openingHook, highlightForGetExecutionOutput.openingHook) &&
         Objects.equals(this.storylineCuts, highlightForGetExecutionOutput.storylineCuts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mode, storylineCuts);
+    return Objects.hash(highlightCuts, mode, openingHook, storylineCuts);
   }
 
 
@@ -99,7 +147,9 @@ public class HighlightForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HighlightForGetExecutionOutput {\n");
     
+    sb.append("    highlightCuts: ").append(toIndentedString(highlightCuts)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    openingHook: ").append(toIndentedString(openingHook)).append("\n");
     sb.append("    storylineCuts: ").append(toIndentedString(storylineCuts)).append("\n");
     sb.append("}");
     return sb.toString();

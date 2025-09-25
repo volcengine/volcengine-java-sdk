@@ -23,6 +23,7 @@ import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForRestoreToNewIn
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToNewInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForRestoreToNewInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,6 +69,9 @@ public class RestoreToNewInstanceRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ProxyNodeCustom")
+  private ProxyNodeCustomForRestoreToNewInstanceInput proxyNodeCustom = null;
 
   @SerializedName("RestoreTime")
   private String restoreTime = null;
@@ -313,6 +317,25 @@ public class RestoreToNewInstanceRequest {
     this.projectName = projectName;
   }
 
+  public RestoreToNewInstanceRequest proxyNodeCustom(ProxyNodeCustomForRestoreToNewInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+    return this;
+  }
+
+   /**
+   * Get proxyNodeCustom
+   * @return proxyNodeCustom
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyNodeCustomForRestoreToNewInstanceInput getProxyNodeCustom() {
+    return proxyNodeCustom;
+  }
+
+  public void setProxyNodeCustom(ProxyNodeCustomForRestoreToNewInstanceInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+  }
+
   public RestoreToNewInstanceRequest restoreTime(String restoreTime) {
     this.restoreTime = restoreTime;
     return this;
@@ -446,6 +469,7 @@ public class RestoreToNewInstanceRequest {
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, restoreToNewInstanceRequest.port) &&
         Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
+        Objects.equals(this.proxyNodeCustom, restoreToNewInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
         Objects.equals(this.srcInstanceId, restoreToNewInstanceRequest.srcInstanceId) &&
         Objects.equals(this.storageSpace, restoreToNewInstanceRequest.storageSpace) &&
@@ -456,7 +480,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceName, instanceTags, nodeInfo, port, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -476,6 +500,7 @@ public class RestoreToNewInstanceRequest {
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
     sb.append("    srcInstanceId: ").append(toIndentedString(srcInstanceId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");

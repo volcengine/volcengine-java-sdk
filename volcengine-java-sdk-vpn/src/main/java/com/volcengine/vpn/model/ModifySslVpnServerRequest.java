@@ -38,6 +38,52 @@ public class ModifySslVpnServerRequest {
   @SerializedName("Cipher")
   private String cipher = null;
 
+  /**
+   * Gets or Sets clientCertSessionPolicy
+   */
+  @JsonAdapter(ClientCertSessionPolicyEnum.Adapter.class)
+  public enum ClientCertSessionPolicyEnum {
+    @SerializedName("AllowConcurrent")
+    ALLOWCONCURRENT("AllowConcurrent"),
+    @SerializedName("PreemptExisting")
+    PREEMPTEXISTING("PreemptExisting");
+
+    private String value;
+
+    ClientCertSessionPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ClientCertSessionPolicyEnum fromValue(String input) {
+      for (ClientCertSessionPolicyEnum b : ClientCertSessionPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ClientCertSessionPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ClientCertSessionPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ClientCertSessionPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ClientCertSessionPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ClientCertSessionPolicy")
+  private ClientCertSessionPolicyEnum clientCertSessionPolicy = null;
+
   @SerializedName("ClientIpPool")
   private String clientIpPool = null;
 
@@ -96,6 +142,24 @@ public class ModifySslVpnServerRequest {
 
   public void setCipher(String cipher) {
     this.cipher = cipher;
+  }
+
+  public ModifySslVpnServerRequest clientCertSessionPolicy(ClientCertSessionPolicyEnum clientCertSessionPolicy) {
+    this.clientCertSessionPolicy = clientCertSessionPolicy;
+    return this;
+  }
+
+   /**
+   * Get clientCertSessionPolicy
+   * @return clientCertSessionPolicy
+  **/
+  @Schema(description = "")
+  public ClientCertSessionPolicyEnum getClientCertSessionPolicy() {
+    return clientCertSessionPolicy;
+  }
+
+  public void setClientCertSessionPolicy(ClientCertSessionPolicyEnum clientCertSessionPolicy) {
+    this.clientCertSessionPolicy = clientCertSessionPolicy;
   }
 
   public ModifySslVpnServerRequest clientIpPool(String clientIpPool) {
@@ -263,6 +327,7 @@ public class ModifySslVpnServerRequest {
     ModifySslVpnServerRequest modifySslVpnServerRequest = (ModifySslVpnServerRequest) o;
     return Objects.equals(this.auth, modifySslVpnServerRequest.auth) &&
         Objects.equals(this.cipher, modifySslVpnServerRequest.cipher) &&
+        Objects.equals(this.clientCertSessionPolicy, modifySslVpnServerRequest.clientCertSessionPolicy) &&
         Objects.equals(this.clientIpPool, modifySslVpnServerRequest.clientIpPool) &&
         Objects.equals(this.compress, modifySslVpnServerRequest.compress) &&
         Objects.equals(this.description, modifySslVpnServerRequest.description) &&
@@ -275,7 +340,7 @@ public class ModifySslVpnServerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, cipher, clientIpPool, compress, description, localSubnets, port, protocol, sslVpnServerId, sslVpnServerName);
+    return Objects.hash(auth, cipher, clientCertSessionPolicy, clientIpPool, compress, description, localSubnets, port, protocol, sslVpnServerId, sslVpnServerName);
   }
 
 
@@ -286,6 +351,7 @@ public class ModifySslVpnServerRequest {
     
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    cipher: ").append(toIndentedString(cipher)).append("\n");
+    sb.append("    clientCertSessionPolicy: ").append(toIndentedString(clientCertSessionPolicy)).append("\n");
     sb.append("    clientIpPool: ").append(toIndentedString(clientIpPool)).append("\n");
     sb.append("    compress: ").append(toIndentedString(compress)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

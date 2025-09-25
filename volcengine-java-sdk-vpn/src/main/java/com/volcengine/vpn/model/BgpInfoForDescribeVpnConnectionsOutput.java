@@ -40,7 +40,7 @@ public class BgpInfoForDescribeVpnConnectionsOutput {
   private String localBgpIp = null;
 
   @SerializedName("PeerAsn")
-  private String peerAsn = null;
+  private Integer peerAsn = null;
 
   @SerializedName("PeerBgpIp")
   private String peerBgpIp = null;
@@ -148,7 +148,7 @@ public class BgpInfoForDescribeVpnConnectionsOutput {
     this.localBgpIp = localBgpIp;
   }
 
-  public BgpInfoForDescribeVpnConnectionsOutput peerAsn(String peerAsn) {
+  public BgpInfoForDescribeVpnConnectionsOutput peerAsn(Integer peerAsn) {
     this.peerAsn = peerAsn;
     return this;
   }
@@ -158,11 +158,11 @@ public class BgpInfoForDescribeVpnConnectionsOutput {
    * @return peerAsn
   **/
   @Schema(description = "")
-  public String getPeerAsn() {
+  public Integer getPeerAsn() {
     return peerAsn;
   }
 
-  public void setPeerAsn(String peerAsn) {
+  public void setPeerAsn(Integer peerAsn) {
     this.peerAsn = peerAsn;
   }
 

@@ -56,6 +56,12 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
   @SerializedName("TransitRouterRouteEntryNextHopId")
   private String transitRouterRouteEntryNextHopId = null;
 
+  @SerializedName("TransitRouterRouteEntryNextHopResourceId")
+  private String transitRouterRouteEntryNextHopResourceId = null;
+
+  @SerializedName("TransitRouterRouteEntryNextHopResourceType")
+  private String transitRouterRouteEntryNextHopResourceType = null;
+
   @SerializedName("TransitRouterRouteEntryNextHopType")
   private String transitRouterRouteEntryNextHopType = null;
 
@@ -217,6 +223,42 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
     this.transitRouterRouteEntryNextHopId = transitRouterRouteEntryNextHopId;
   }
 
+  public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput transitRouterRouteEntryNextHopResourceId(String transitRouterRouteEntryNextHopResourceId) {
+    this.transitRouterRouteEntryNextHopResourceId = transitRouterRouteEntryNextHopResourceId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopResourceId
+   * @return transitRouterRouteEntryNextHopResourceId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopResourceId() {
+    return transitRouterRouteEntryNextHopResourceId;
+  }
+
+  public void setTransitRouterRouteEntryNextHopResourceId(String transitRouterRouteEntryNextHopResourceId) {
+    this.transitRouterRouteEntryNextHopResourceId = transitRouterRouteEntryNextHopResourceId;
+  }
+
+  public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput transitRouterRouteEntryNextHopResourceType(String transitRouterRouteEntryNextHopResourceType) {
+    this.transitRouterRouteEntryNextHopResourceType = transitRouterRouteEntryNextHopResourceType;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopResourceType
+   * @return transitRouterRouteEntryNextHopResourceType
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopResourceType() {
+    return transitRouterRouteEntryNextHopResourceType;
+  }
+
+  public void setTransitRouterRouteEntryNextHopResourceType(String transitRouterRouteEntryNextHopResourceType) {
+    this.transitRouterRouteEntryNextHopResourceType = transitRouterRouteEntryNextHopResourceType;
+  }
+
   public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput transitRouterRouteEntryNextHopType(String transitRouterRouteEntryNextHopType) {
     this.transitRouterRouteEntryNextHopType = transitRouterRouteEntryNextHopType;
     return this;
@@ -289,6 +331,8 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
         Objects.equals(this.transitRouterRouteEntryId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryId) &&
         Objects.equals(this.transitRouterRouteEntryName, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryName) &&
         Objects.equals(this.transitRouterRouteEntryNextHopId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopId) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopResourceId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopResourceId) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopResourceType) &&
         Objects.equals(this.transitRouterRouteEntryNextHopType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopType) &&
         Objects.equals(this.transitRouterRouteEntryType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryType) &&
         Objects.equals(this.updateTime, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.updateTime);
@@ -296,7 +340,7 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asPath, creationTime, description, destinationCidrBlock, status, transitRouterRouteEntryId, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopType, transitRouterRouteEntryType, updateTime);
+    return Objects.hash(asPath, creationTime, description, destinationCidrBlock, status, transitRouterRouteEntryId, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopResourceId, transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryNextHopType, transitRouterRouteEntryType, updateTime);
   }
 
 
@@ -313,6 +357,8 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
     sb.append("    transitRouterRouteEntryId: ").append(toIndentedString(transitRouterRouteEntryId)).append("\n");
     sb.append("    transitRouterRouteEntryName: ").append(toIndentedString(transitRouterRouteEntryName)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopId: ").append(toIndentedString(transitRouterRouteEntryNextHopId)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopResourceId: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceId)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopResourceType: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceType)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopType: ").append(toIndentedString(transitRouterRouteEntryNextHopType)).append("\n");
     sb.append("    transitRouterRouteEntryType: ").append(toIndentedString(transitRouterRouteEntryType)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

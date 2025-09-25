@@ -36,8 +36,14 @@ public class VisionForGetExecutionOutput {
   @SerializedName("Model")
   private ModelForGetExecutionOutput model = null;
 
+  @SerializedName("NeedAsrSpeaker")
+  private Boolean needAsrSpeaker = null;
+
   @SerializedName("Prompt")
   private String prompt = null;
+
+  @SerializedName("ResponseFormatType")
+  private String responseFormatType = null;
 
   @SerializedName("Segment")
   private ConvertSegmentForGetExecutionOutput segment = null;
@@ -64,6 +70,24 @@ public class VisionForGetExecutionOutput {
     this.model = model;
   }
 
+  public VisionForGetExecutionOutput needAsrSpeaker(Boolean needAsrSpeaker) {
+    this.needAsrSpeaker = needAsrSpeaker;
+    return this;
+  }
+
+   /**
+   * Get needAsrSpeaker
+   * @return needAsrSpeaker
+  **/
+  @Schema(description = "")
+  public Boolean isNeedAsrSpeaker() {
+    return needAsrSpeaker;
+  }
+
+  public void setNeedAsrSpeaker(Boolean needAsrSpeaker) {
+    this.needAsrSpeaker = needAsrSpeaker;
+  }
+
   public VisionForGetExecutionOutput prompt(String prompt) {
     this.prompt = prompt;
     return this;
@@ -80,6 +104,24 @@ public class VisionForGetExecutionOutput {
 
   public void setPrompt(String prompt) {
     this.prompt = prompt;
+  }
+
+  public VisionForGetExecutionOutput responseFormatType(String responseFormatType) {
+    this.responseFormatType = responseFormatType;
+    return this;
+  }
+
+   /**
+   * Get responseFormatType
+   * @return responseFormatType
+  **/
+  @Schema(description = "")
+  public String getResponseFormatType() {
+    return responseFormatType;
+  }
+
+  public void setResponseFormatType(String responseFormatType) {
+    this.responseFormatType = responseFormatType;
   }
 
   public VisionForGetExecutionOutput segment(ConvertSegmentForGetExecutionOutput segment) {
@@ -131,14 +173,16 @@ public class VisionForGetExecutionOutput {
     }
     VisionForGetExecutionOutput visionForGetExecutionOutput = (VisionForGetExecutionOutput) o;
     return Objects.equals(this.model, visionForGetExecutionOutput.model) &&
+        Objects.equals(this.needAsrSpeaker, visionForGetExecutionOutput.needAsrSpeaker) &&
         Objects.equals(this.prompt, visionForGetExecutionOutput.prompt) &&
+        Objects.equals(this.responseFormatType, visionForGetExecutionOutput.responseFormatType) &&
         Objects.equals(this.segment, visionForGetExecutionOutput.segment) &&
         Objects.equals(this.snapshotParam, visionForGetExecutionOutput.snapshotParam);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, prompt, segment, snapshotParam);
+    return Objects.hash(model, needAsrSpeaker, prompt, responseFormatType, segment, snapshotParam);
   }
 
 
@@ -148,7 +192,9 @@ public class VisionForGetExecutionOutput {
     sb.append("class VisionForGetExecutionOutput {\n");
     
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    needAsrSpeaker: ").append(toIndentedString(needAsrSpeaker)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
+    sb.append("    responseFormatType: ").append(toIndentedString(responseFormatType)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    snapshotParam: ").append(toIndentedString(snapshotParam)).append("\n");
     sb.append("}");

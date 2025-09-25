@@ -33,6 +33,9 @@ public class ModifyTransitRouterVpnAttachmentAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("HealthCheckRevokeRouteEnabled")
+  private String healthCheckRevokeRouteEnabled = null;
+
   @SerializedName("TransitRouterAttachmentId")
   private String transitRouterAttachmentId = null;
 
@@ -55,6 +58,24 @@ public class ModifyTransitRouterVpnAttachmentAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyTransitRouterVpnAttachmentAttributesRequest healthCheckRevokeRouteEnabled(String healthCheckRevokeRouteEnabled) {
+    this.healthCheckRevokeRouteEnabled = healthCheckRevokeRouteEnabled;
+    return this;
+  }
+
+   /**
+   * Get healthCheckRevokeRouteEnabled
+   * @return healthCheckRevokeRouteEnabled
+  **/
+  @Schema(description = "")
+  public String getHealthCheckRevokeRouteEnabled() {
+    return healthCheckRevokeRouteEnabled;
+  }
+
+  public void setHealthCheckRevokeRouteEnabled(String healthCheckRevokeRouteEnabled) {
+    this.healthCheckRevokeRouteEnabled = healthCheckRevokeRouteEnabled;
   }
 
   public ModifyTransitRouterVpnAttachmentAttributesRequest transitRouterAttachmentId(String transitRouterAttachmentId) {
@@ -105,13 +126,14 @@ public class ModifyTransitRouterVpnAttachmentAttributesRequest {
     }
     ModifyTransitRouterVpnAttachmentAttributesRequest modifyTransitRouterVpnAttachmentAttributesRequest = (ModifyTransitRouterVpnAttachmentAttributesRequest) o;
     return Objects.equals(this.description, modifyTransitRouterVpnAttachmentAttributesRequest.description) &&
+        Objects.equals(this.healthCheckRevokeRouteEnabled, modifyTransitRouterVpnAttachmentAttributesRequest.healthCheckRevokeRouteEnabled) &&
         Objects.equals(this.transitRouterAttachmentId, modifyTransitRouterVpnAttachmentAttributesRequest.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterAttachmentName, modifyTransitRouterVpnAttachmentAttributesRequest.transitRouterAttachmentName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, transitRouterAttachmentId, transitRouterAttachmentName);
+    return Objects.hash(description, healthCheckRevokeRouteEnabled, transitRouterAttachmentId, transitRouterAttachmentName);
   }
 
 
@@ -121,6 +143,7 @@ public class ModifyTransitRouterVpnAttachmentAttributesRequest {
     sb.append("class ModifyTransitRouterVpnAttachmentAttributesRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    healthCheckRevokeRouteEnabled: ").append(toIndentedString(healthCheckRevokeRouteEnabled)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
     sb.append("}");

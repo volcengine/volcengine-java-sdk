@@ -54,6 +54,9 @@ public class AllowListForDescribeAllowListsOutput {
   @SerializedName("AssociatedInstanceNum")
   private Integer associatedInstanceNum = null;
 
+  @SerializedName("IpList")
+  private List<String> ipList = null;
+
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForDescribeAllowListsOutput> securityGroupBindInfos = null;
 
@@ -183,6 +186,32 @@ public class AllowListForDescribeAllowListsOutput {
     this.associatedInstanceNum = associatedInstanceNum;
   }
 
+  public AllowListForDescribeAllowListsOutput ipList(List<String> ipList) {
+    this.ipList = ipList;
+    return this;
+  }
+
+  public AllowListForDescribeAllowListsOutput addIpListItem(String ipListItem) {
+    if (this.ipList == null) {
+      this.ipList = new ArrayList<String>();
+    }
+    this.ipList.add(ipListItem);
+    return this;
+  }
+
+   /**
+   * Get ipList
+   * @return ipList
+  **/
+  @Schema(description = "")
+  public List<String> getIpList() {
+    return ipList;
+  }
+
+  public void setIpList(List<String> ipList) {
+    this.ipList = ipList;
+  }
+
   public AllowListForDescribeAllowListsOutput securityGroupBindInfos(List<SecurityGroupBindInfoForDescribeAllowListsOutput> securityGroupBindInfos) {
     this.securityGroupBindInfos = securityGroupBindInfos;
     return this;
@@ -227,12 +256,13 @@ public class AllowListForDescribeAllowListsOutput {
         Objects.equals(this.allowListName, allowListForDescribeAllowListsOutput.allowListName) &&
         Objects.equals(this.allowListType, allowListForDescribeAllowListsOutput.allowListType) &&
         Objects.equals(this.associatedInstanceNum, allowListForDescribeAllowListsOutput.associatedInstanceNum) &&
+        Objects.equals(this.ipList, allowListForDescribeAllowListsOutput.ipList) &&
         Objects.equals(this.securityGroupBindInfos, allowListForDescribeAllowListsOutput.securityGroupBindInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListCategory, allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum, securityGroupBindInfos);
+    return Objects.hash(allowListCategory, allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum, ipList, securityGroupBindInfos);
   }
 
 
@@ -248,6 +278,7 @@ public class AllowListForDescribeAllowListsOutput {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstanceNum: ").append(toIndentedString(associatedInstanceNum)).append("\n");
+    sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("}");
     return sb.toString();
