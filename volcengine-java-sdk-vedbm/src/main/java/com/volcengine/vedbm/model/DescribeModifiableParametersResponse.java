@@ -19,58 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vedbm.model.ParameterForDescribeModifiableParametersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * DescribeModifiableParametersResponse
  */
 
 
 
-public class RestartDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeModifiableParametersResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Parameters")
+  private List<ParameterForDescribeModifiableParametersOutput> parameters = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  public DescribeModifiableParametersResponse parameters(List<ParameterForDescribeModifiableParametersOutput> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeModifiableParametersResponse addParametersItem(ParameterForDescribeModifiableParametersOutput parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<ParameterForDescribeModifiableParametersOutput>();
+    }
+    this.parameters.add(parametersItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get parameters
+   * @return parameters
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
+  @Valid
   @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  public List<ParameterForDescribeModifiableParametersOutput> getParameters() {
+    return parameters;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setParameters(List<ParameterForDescribeModifiableParametersOutput> parameters) {
+    this.parameters = parameters;
   }
 
 
@@ -82,24 +72,22 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    DescribeModifiableParametersResponse describeModifiableParametersResponse = (DescribeModifiableParametersResponse) o;
+    return Objects.equals(this.parameters, describeModifiableParametersResponse.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(parameters);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class DescribeModifiableParametersResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

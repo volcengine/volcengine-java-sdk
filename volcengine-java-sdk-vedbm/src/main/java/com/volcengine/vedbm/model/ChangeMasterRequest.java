@@ -24,53 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * ChangeMasterRequest
  */
 
 
 
-public class RestartDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class ChangeMasterRequest {
+  @SerializedName("ClusterName")
+  private String clusterName = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  @SerializedName("TargetNode")
+  private String targetNode = null;
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public ChangeMasterRequest clusterName(String clusterName) {
+    this.clusterName = clusterName;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get clusterName
+   * @return clusterName
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public String getClusterName() {
+    return clusterName;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
   }
 
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public ChangeMasterRequest targetNode(String targetNode) {
+    this.targetNode = targetNode;
     return this;
   }
 
    /**
-   * Get nodeId
-   * @return nodeId
+   * Get targetNode
+   * @return targetNode
   **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getTargetNode() {
+    return targetNode;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setTargetNode(String targetNode) {
+    this.targetNode = targetNode;
   }
 
 
@@ -82,24 +83,24 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    ChangeMasterRequest changeMasterRequest = (ChangeMasterRequest) o;
+    return Objects.equals(this.clusterName, changeMasterRequest.clusterName) &&
+        Objects.equals(this.targetNode, changeMasterRequest.targetNode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(clusterName, targetNode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class ChangeMasterRequest {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
+    sb.append("    targetNode: ").append(toIndentedString(targetNode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

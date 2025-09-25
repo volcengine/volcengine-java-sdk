@@ -24,19 +24,40 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * ModifyDBNodeConfigRequest
  */
 
 
 
-public class RestartDBInstanceRequest {
+public class ModifyDBNodeConfigRequest {
+  @SerializedName("FailoverPriority")
+  private Integer failoverPriority = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
+  public ModifyDBNodeConfigRequest failoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+    return this;
+  }
+
+   /**
+   * Get failoverPriority
+   * @return failoverPriority
+  **/
+  @Schema(description = "")
+  public Integer getFailoverPriority() {
+    return failoverPriority;
+  }
+
+  public void setFailoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+  }
+
+  public ModifyDBNodeConfigRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -55,7 +76,7 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
-  public RestartDBInstanceRequest nodeId(String nodeId) {
+  public ModifyDBNodeConfigRequest nodeId(String nodeId) {
     this.nodeId = nodeId;
     return this;
   }
@@ -82,22 +103,24 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    ModifyDBNodeConfigRequest modifyDBNodeConfigRequest = (ModifyDBNodeConfigRequest) o;
+    return Objects.equals(this.failoverPriority, modifyDBNodeConfigRequest.failoverPriority) &&
+        Objects.equals(this.instanceId, modifyDBNodeConfigRequest.instanceId) &&
+        Objects.equals(this.nodeId, modifyDBNodeConfigRequest.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(failoverPriority, instanceId, nodeId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class ModifyDBNodeConfigRequest {\n");
     
+    sb.append("    failoverPriority: ").append(toIndentedString(failoverPriority)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");

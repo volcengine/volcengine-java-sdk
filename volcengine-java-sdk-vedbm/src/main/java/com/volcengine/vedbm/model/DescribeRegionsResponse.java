@@ -19,58 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vedbm.model.RegionForDescribeRegionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * DescribeRegionsResponse
  */
 
 
 
-public class RestartDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeRegionsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Regions")
+  private List<RegionForDescribeRegionsOutput> regions = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  public DescribeRegionsResponse regions(List<RegionForDescribeRegionsOutput> regions) {
+    this.regions = regions;
+    return this;
+  }
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeRegionsResponse addRegionsItem(RegionForDescribeRegionsOutput regionsItem) {
+    if (this.regions == null) {
+      this.regions = new ArrayList<RegionForDescribeRegionsOutput>();
+    }
+    this.regions.add(regionsItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get regions
+   * @return regions
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
+  @Valid
   @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  public List<RegionForDescribeRegionsOutput> getRegions() {
+    return regions;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setRegions(List<RegionForDescribeRegionsOutput> regions) {
+    this.regions = regions;
   }
 
 
@@ -82,24 +72,22 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    DescribeRegionsResponse describeRegionsResponse = (DescribeRegionsResponse) o;
+    return Objects.equals(this.regions, describeRegionsResponse.regions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(regions);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class DescribeRegionsResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

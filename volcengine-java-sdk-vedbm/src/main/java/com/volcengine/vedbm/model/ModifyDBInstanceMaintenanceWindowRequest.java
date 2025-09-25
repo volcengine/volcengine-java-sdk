@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * ModifyDBInstanceMaintenanceWindowRequest
  */
 
 
 
-public class RestartDBInstanceRequest {
+public class ModifyDBInstanceMaintenanceWindowRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  @SerializedName("MaintenanceTime")
+  private String maintenanceTime = null;
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
+  public ModifyDBInstanceMaintenanceWindowRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -55,22 +55,23 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public ModifyDBInstanceMaintenanceWindowRequest maintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
     return this;
   }
 
    /**
-   * Get nodeId
-   * @return nodeId
+   * Get maintenanceTime
+   * @return maintenanceTime
   **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getMaintenanceTime() {
+    return maintenanceTime;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setMaintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
   }
 
 
@@ -82,24 +83,24 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    ModifyDBInstanceMaintenanceWindowRequest modifyDBInstanceMaintenanceWindowRequest = (ModifyDBInstanceMaintenanceWindowRequest) o;
+    return Objects.equals(this.instanceId, modifyDBInstanceMaintenanceWindowRequest.instanceId) &&
+        Objects.equals(this.maintenanceTime, modifyDBInstanceMaintenanceWindowRequest.maintenanceTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(instanceId, maintenanceTime);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class ModifyDBInstanceMaintenanceWindowRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

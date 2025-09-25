@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * RegionForDescribeRegionsOutput
  */
 
 
 
-public class RestartDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class RegionForDescribeRegionsOutput {
+  @SerializedName("RegionId")
+  private String regionId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  @SerializedName("RegionName")
+  private String regionName = null;
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public RegionForDescribeRegionsOutput regionId(String regionId) {
+    this.regionId = regionId;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
+   * Get regionId
+   * @return regionId
   **/
   @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  public String getRegionId() {
+    return regionId;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setRegionId(String regionId) {
+    this.regionId = regionId;
+  }
+
+  public RegionForDescribeRegionsOutput regionName(String regionName) {
+    this.regionName = regionName;
+    return this;
+  }
+
+   /**
+   * Get regionName
+   * @return regionName
+  **/
+  @Schema(description = "")
+  public String getRegionName() {
+    return regionName;
+  }
+
+  public void setRegionName(String regionName) {
+    this.regionName = regionName;
   }
 
 
@@ -82,24 +81,24 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    RegionForDescribeRegionsOutput regionForDescribeRegionsOutput = (RegionForDescribeRegionsOutput) o;
+    return Objects.equals(this.regionId, regionForDescribeRegionsOutput.regionId) &&
+        Objects.equals(this.regionName, regionForDescribeRegionsOutput.regionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(regionId, regionName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class RegionForDescribeRegionsOutput {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

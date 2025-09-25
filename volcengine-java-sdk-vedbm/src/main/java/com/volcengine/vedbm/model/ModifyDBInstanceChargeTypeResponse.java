@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * ModifyDBInstanceChargeTypeResponse
  */
 
 
 
-public class RestartDBInstanceRequest {
+public class ModifyDBInstanceChargeTypeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
+  @SerializedName("OrderNO")
+  private String orderNO = null;
 
-  public RestartDBInstanceRequest instanceId(String instanceId) {
+  public ModifyDBInstanceChargeTypeResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -45,8 +45,7 @@ public class RestartDBInstanceRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -55,22 +54,22 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public ModifyDBInstanceChargeTypeResponse orderNO(String orderNO) {
+    this.orderNO = orderNO;
     return this;
   }
 
    /**
-   * Get nodeId
-   * @return nodeId
+   * Get orderNO
+   * @return orderNO
   **/
   @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
+  public String getOrderNO() {
+    return orderNO;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setOrderNO(String orderNO) {
+    this.orderNO = orderNO;
   }
 
 
@@ -82,24 +81,24 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    ModifyDBInstanceChargeTypeResponse modifyDBInstanceChargeTypeResponse = (ModifyDBInstanceChargeTypeResponse) o;
+    return Objects.equals(this.instanceId, modifyDBInstanceChargeTypeResponse.instanceId) &&
+        Objects.equals(this.orderNO, modifyDBInstanceChargeTypeResponse.orderNO);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(instanceId, orderNO);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class ModifyDBInstanceChargeTypeResponse {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    orderNO: ").append(toIndentedString(orderNO)).append("\n");
     sb.append("}");
     return sb.toString();
   }

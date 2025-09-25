@@ -24,19 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestartDBInstanceRequest
+ * DescribeDBInstanceVersionRequest
  */
 
 
 
-public class RestartDBInstanceRequest {
+public class DescribeDBInstanceVersionRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
-  public RestartDBInstanceRequest instanceId(String instanceId) {
+  public DescribeDBInstanceVersionRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -55,24 +52,6 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
-  public RestartDBInstanceRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,24 +61,22 @@ public class RestartDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
+    DescribeDBInstanceVersionRequest describeDBInstanceVersionRequest = (DescribeDBInstanceVersionRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceVersionRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestartDBInstanceRequest {\n");
+    sb.append("class DescribeDBInstanceVersionRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
