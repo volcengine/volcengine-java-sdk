@@ -306,6 +306,7 @@
         <module>volcengine-java-sdk-bmq</module>
         <module>volcengine-java-sdk-cloudidentity</module>
         <module>volcengine-java-sdk-vikingdb</module>
+        <module>volcengine-java-sdk-cloudmonitor</module>
         <module>volcengine-java-sdk-resourceshare</module>
     </modules>
 </project>
