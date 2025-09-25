@@ -35,6 +35,54 @@ public class GetTagsRequest {
   @SerializedName("CountResources")
   private Boolean countResources = null;
 
+  /**
+   * Gets or Sets matchType
+   */
+  @JsonAdapter(MatchTypeEnum.Adapter.class)
+  public enum MatchTypeEnum {
+    @SerializedName("prefix")
+    PREFIX("prefix"),
+    @SerializedName("equals")
+    EQUALS("equals"),
+    @SerializedName("contain")
+    CONTAIN("contain");
+
+    private String value;
+
+    MatchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static MatchTypeEnum fromValue(String input) {
+      for (MatchTypeEnum b : MatchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<MatchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MatchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public MatchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return MatchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("MatchType")
+  private MatchTypeEnum matchType = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -63,6 +111,24 @@ public class GetTagsRequest {
 
   public void setCountResources(Boolean countResources) {
     this.countResources = countResources;
+  }
+
+  public GetTagsRequest matchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
+    return this;
+  }
+
+   /**
+   * Get matchType
+   * @return matchType
+  **/
+  @Schema(description = "")
+  public MatchTypeEnum getMatchType() {
+    return matchType;
+  }
+
+  public void setMatchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
   }
 
   public GetTagsRequest maxResults(Integer maxResults) {
@@ -156,6 +222,7 @@ public class GetTagsRequest {
     }
     GetTagsRequest getTagsRequest = (GetTagsRequest) o;
     return Objects.equals(this.countResources, getTagsRequest.countResources) &&
+        Objects.equals(this.matchType, getTagsRequest.matchType) &&
         Objects.equals(this.maxResults, getTagsRequest.maxResults) &&
         Objects.equals(this.nextToken, getTagsRequest.nextToken) &&
         Objects.equals(this.tagKeys, getTagsRequest.tagKeys) &&
@@ -164,7 +231,7 @@ public class GetTagsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countResources, maxResults, nextToken, tagKeys, tagType);
+    return Objects.hash(countResources, matchType, maxResults, nextToken, tagKeys, tagType);
   }
 
 
@@ -174,6 +241,7 @@ public class GetTagsRequest {
     sb.append("class GetTagsRequest {\n");
     
     sb.append("    countResources: ").append(toIndentedString(countResources)).append("\n");
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    tagKeys: ").append(toIndentedString(tagKeys)).append("\n");

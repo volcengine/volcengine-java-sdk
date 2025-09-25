@@ -1,6 +1,6 @@
 package com.volcengine.interceptor;
 
-import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.volcengine.ApiException;
 import com.volcengine.Pair;
@@ -9,15 +9,13 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.CredentialValue;
 import com.volcengine.sign.Credentials;
 import com.volcengine.sign.ServiceInfo;
+import com.volcengine.sign.VolcstackSign;
+import okio.Buffer;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
-import com.volcengine.sign.VolcstackSign;
-import okio.Buffer;
-import org.apache.commons.lang.StringUtils;
-import com.squareup.okhttp.Request;
 
 public class SignRequestInterceptor implements RequestInterceptor {
 

@@ -39,6 +39,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
   @SerializedName("AutoPublishRouteEnabled")
   private Boolean autoPublishRouteEnabled = null;
 
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -49,7 +52,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
   private String directConnectGatewayId = null;
 
   @SerializedName("Ipv6Enabled")
-  private String ipv6Enabled = null;
+  private Boolean ipv6Enabled = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -103,6 +106,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
 
   public void setAutoPublishRouteEnabled(Boolean autoPublishRouteEnabled) {
     this.autoPublishRouteEnabled = autoPublishRouteEnabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput creationTime(String creationTime) {
@@ -159,7 +180,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
     this.directConnectGatewayId = directConnectGatewayId;
   }
 
-  public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput ipv6Enabled(String ipv6Enabled) {
+  public TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput ipv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
     return this;
   }
@@ -169,11 +190,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
    * @return ipv6Enabled
   **/
   @Schema(description = "")
-  public String getIpv6Enabled() {
+  public Boolean isIpv6Enabled() {
     return ipv6Enabled;
   }
 
-  public void setIpv6Enabled(String ipv6Enabled) {
+  public void setIpv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
   }
 
@@ -306,6 +327,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
     TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput = (TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput) o;
     return Objects.equals(this.accountId, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.accountId) &&
         Objects.equals(this.autoPublishRouteEnabled, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.autoPublishRouteEnabled) &&
+        Objects.equals(this.bandwidth, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.bandwidth) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.description) &&
         Objects.equals(this.directConnectGatewayId, transitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput.directConnectGatewayId) &&
@@ -320,7 +342,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, autoPublishRouteEnabled, creationTime, description, directConnectGatewayId, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime);
+    return Objects.hash(accountId, autoPublishRouteEnabled, bandwidth, creationTime, description, directConnectGatewayId, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime);
   }
 
 
@@ -331,6 +353,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGateway
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");

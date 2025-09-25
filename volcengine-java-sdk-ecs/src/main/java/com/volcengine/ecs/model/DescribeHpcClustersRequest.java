@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeHpcClustersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,12 @@ public class DescribeHpcClustersRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeHpcClustersInput> tagFilters = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -148,6 +155,51 @@ public class DescribeHpcClustersRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeHpcClustersRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeHpcClustersRequest tagFilters(List<TagFilterForDescribeHpcClustersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeHpcClustersRequest addTagFiltersItem(TagFilterForDescribeHpcClustersInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeHpcClustersInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeHpcClustersInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeHpcClustersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeHpcClustersRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -181,12 +233,14 @@ public class DescribeHpcClustersRequest {
         Objects.equals(this.maxResults, describeHpcClustersRequest.maxResults) &&
         Objects.equals(this.name, describeHpcClustersRequest.name) &&
         Objects.equals(this.nextToken, describeHpcClustersRequest.nextToken) &&
+        Objects.equals(this.projectName, describeHpcClustersRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeHpcClustersRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeHpcClustersRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, hpcClusterIds, maxResults, name, nextToken, zoneId);
+    return Objects.hash(clientToken, hpcClusterIds, maxResults, name, nextToken, projectName, tagFilters, zoneId);
   }
 
 
@@ -200,6 +254,8 @@ public class DescribeHpcClustersRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

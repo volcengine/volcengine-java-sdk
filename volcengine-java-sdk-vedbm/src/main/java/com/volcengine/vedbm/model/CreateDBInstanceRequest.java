@@ -140,7 +140,9 @@ public class CreateDBInstanceRequest {
     @SerializedName("3.1")
     _3_1("3.1"),
     @SerializedName("3.2")
-    _3_2("3.2");
+    _3_2("3.2"),
+    @SerializedName("3.3")
+    _3_3("3.3");
 
     private String value;
 

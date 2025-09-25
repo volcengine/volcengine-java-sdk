@@ -69,6 +69,12 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IpStackType")
+  private String ipStackType = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("IpsecEnabled")
   private Boolean ipsecEnabled = null;
 
@@ -334,6 +340,42 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput ipStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+    return this;
+  }
+
+   /**
+   * Get ipStackType
+   * @return ipStackType
+  **/
+  @Schema(description = "")
+  public String getIpStackType() {
+    return ipStackType;
+  }
+
+  public void setIpStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public VpnGatewayForDescribeVpnGatewaysBillingOutput ipsecEnabled(Boolean ipsecEnabled) {
@@ -673,6 +715,8 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
         Objects.equals(this.dualTunnelEnabled, vpnGatewayForDescribeVpnGatewaysBillingOutput.dualTunnelEnabled) &&
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.expiredTime) &&
         Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysBillingOutput.ipAddress) &&
+        Objects.equals(this.ipStackType, vpnGatewayForDescribeVpnGatewaysBillingOutput.ipStackType) &&
+        Objects.equals(this.ipVersion, vpnGatewayForDescribeVpnGatewaysBillingOutput.ipVersion) &&
         Objects.equals(this.ipsecEnabled, vpnGatewayForDescribeVpnGatewaysBillingOutput.ipsecEnabled) &&
         Objects.equals(this.isBlocked, vpnGatewayForDescribeVpnGatewaysBillingOutput.isBlocked) &&
         Objects.equals(this.lockReason, vpnGatewayForDescribeVpnGatewaysBillingOutput.lockReason) &&
@@ -694,7 +738,7 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, dualTunnelEnabled, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, routeCount, secondaryIpAddress, secondarySubnetId, sslEnabled, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, dualTunnelEnabled, expiredTime, ipAddress, ipStackType, ipVersion, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, routeCount, secondaryIpAddress, secondarySubnetId, sslEnabled, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -715,6 +759,8 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
     sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipStackType: ").append(toIndentedString(ipStackType)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");

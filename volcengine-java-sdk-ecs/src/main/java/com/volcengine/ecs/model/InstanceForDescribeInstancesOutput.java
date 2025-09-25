@@ -25,6 +25,7 @@ import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.MetadataOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
 import com.volcengine.ecs.model.PlacementForDescribeInstancesOutput;
+import com.volcengine.ecs.model.RdmaNetworkInterfaceDetailForDescribeInstancesOutput;
 import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
 import com.volcengine.ecs.model.VolumeForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -132,6 +133,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
+
+  @SerializedName("RdmaNetworkInterfaceDetails")
+  private List<RdmaNetworkInterfaceDetailForDescribeInstancesOutput> rdmaNetworkInterfaceDetails = null;
 
   @SerializedName("ScheduledInstanceId")
   private String scheduledInstanceId = null;
@@ -754,6 +758,33 @@ public class InstanceForDescribeInstancesOutput {
     this.rdmaIpAddresses = rdmaIpAddresses;
   }
 
+  public InstanceForDescribeInstancesOutput rdmaNetworkInterfaceDetails(List<RdmaNetworkInterfaceDetailForDescribeInstancesOutput> rdmaNetworkInterfaceDetails) {
+    this.rdmaNetworkInterfaceDetails = rdmaNetworkInterfaceDetails;
+    return this;
+  }
+
+  public InstanceForDescribeInstancesOutput addRdmaNetworkInterfaceDetailsItem(RdmaNetworkInterfaceDetailForDescribeInstancesOutput rdmaNetworkInterfaceDetailsItem) {
+    if (this.rdmaNetworkInterfaceDetails == null) {
+      this.rdmaNetworkInterfaceDetails = new ArrayList<RdmaNetworkInterfaceDetailForDescribeInstancesOutput>();
+    }
+    this.rdmaNetworkInterfaceDetails.add(rdmaNetworkInterfaceDetailsItem);
+    return this;
+  }
+
+   /**
+   * Get rdmaNetworkInterfaceDetails
+   * @return rdmaNetworkInterfaceDetails
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RdmaNetworkInterfaceDetailForDescribeInstancesOutput> getRdmaNetworkInterfaceDetails() {
+    return rdmaNetworkInterfaceDetails;
+  }
+
+  public void setRdmaNetworkInterfaceDetails(List<RdmaNetworkInterfaceDetailForDescribeInstancesOutput> rdmaNetworkInterfaceDetails) {
+    this.rdmaNetworkInterfaceDetails = rdmaNetworkInterfaceDetails;
+  }
+
   public InstanceForDescribeInstancesOutput scheduledInstanceId(String scheduledInstanceId) {
     this.scheduledInstanceId = scheduledInstanceId;
     return this;
@@ -1011,6 +1042,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.placement, instanceForDescribeInstancesOutput.placement) &&
         Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
+        Objects.equals(this.rdmaNetworkInterfaceDetails, instanceForDescribeInstancesOutput.rdmaNetworkInterfaceDetails) &&
         Objects.equals(this.scheduledInstanceId, instanceForDescribeInstancesOutput.scheduledInstanceId) &&
         Objects.equals(this.spotPriceLimit, instanceForDescribeInstancesOutput.spotPriceLimit) &&
         Objects.equals(this.spotStrategy, instanceForDescribeInstancesOutput.spotStrategy) &&
@@ -1026,7 +1058,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, enableJumboFrame, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, metadataOptions, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
+    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, enableJumboFrame, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, metadataOptions, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, rdmaNetworkInterfaceDetails, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
   }
 
 
@@ -1066,6 +1098,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    placement: ").append(toIndentedString(placement)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
+    sb.append("    rdmaNetworkInterfaceDetails: ").append(toIndentedString(rdmaNetworkInterfaceDetails)).append("\n");
     sb.append("    scheduledInstanceId: ").append(toIndentedString(scheduledInstanceId)).append("\n");
     sb.append("    spotPriceLimit: ").append(toIndentedString(spotPriceLimit)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");

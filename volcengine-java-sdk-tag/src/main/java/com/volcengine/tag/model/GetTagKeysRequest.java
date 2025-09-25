@@ -30,14 +30,83 @@ import javax.validation.Valid;
 
 
 public class GetTagKeysRequest {
+  /**
+   * Gets or Sets matchType
+   */
+  @JsonAdapter(MatchTypeEnum.Adapter.class)
+  public enum MatchTypeEnum {
+    @SerializedName("prefix")
+    PREFIX("prefix"),
+    @SerializedName("equals")
+    EQUALS("equals"),
+    @SerializedName("contain")
+    CONTAIN("contain");
+
+    private String value;
+
+    MatchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static MatchTypeEnum fromValue(String input) {
+      for (MatchTypeEnum b : MatchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<MatchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MatchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public MatchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return MatchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("MatchType")
+  private MatchTypeEnum matchType = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("TagKey")
+  private String tagKey = null;
+
   @SerializedName("TagType")
   private String tagType = null;
+
+  public GetTagKeysRequest matchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
+    return this;
+  }
+
+   /**
+   * Get matchType
+   * @return matchType
+  **/
+  @Schema(description = "")
+  public MatchTypeEnum getMatchType() {
+    return matchType;
+  }
+
+  public void setMatchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
+  }
 
   public GetTagKeysRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -75,6 +144,24 @@ public class GetTagKeysRequest {
     this.nextToken = nextToken;
   }
 
+  public GetTagKeysRequest tagKey(String tagKey) {
+    this.tagKey = tagKey;
+    return this;
+  }
+
+   /**
+   * Get tagKey
+   * @return tagKey
+  **/
+  @Schema(description = "")
+  public String getTagKey() {
+    return tagKey;
+  }
+
+  public void setTagKey(String tagKey) {
+    this.tagKey = tagKey;
+  }
+
   public GetTagKeysRequest tagType(String tagType) {
     this.tagType = tagType;
     return this;
@@ -103,14 +190,16 @@ public class GetTagKeysRequest {
       return false;
     }
     GetTagKeysRequest getTagKeysRequest = (GetTagKeysRequest) o;
-    return Objects.equals(this.maxResults, getTagKeysRequest.maxResults) &&
+    return Objects.equals(this.matchType, getTagKeysRequest.matchType) &&
+        Objects.equals(this.maxResults, getTagKeysRequest.maxResults) &&
         Objects.equals(this.nextToken, getTagKeysRequest.nextToken) &&
+        Objects.equals(this.tagKey, getTagKeysRequest.tagKey) &&
         Objects.equals(this.tagType, getTagKeysRequest.tagType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, tagType);
+    return Objects.hash(matchType, maxResults, nextToken, tagKey, tagType);
   }
 
 
@@ -119,8 +208,10 @@ public class GetTagKeysRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTagKeysRequest {\n");
     
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
     sb.append("    tagType: ").append(toIndentedString(tagType)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -32,6 +32,54 @@ import javax.validation.Valid;
 
 
 public class GetTagValuesRequest {
+  /**
+   * Gets or Sets matchType
+   */
+  @JsonAdapter(MatchTypeEnum.Adapter.class)
+  public enum MatchTypeEnum {
+    @SerializedName("prefix")
+    PREFIX("prefix"),
+    @SerializedName("equals")
+    EQUALS("equals"),
+    @SerializedName("contain")
+    CONTAIN("contain");
+
+    private String value;
+
+    MatchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static MatchTypeEnum fromValue(String input) {
+      for (MatchTypeEnum b : MatchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<MatchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MatchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public MatchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return MatchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("MatchType")
+  private MatchTypeEnum matchType = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -40,6 +88,27 @@ public class GetTagValuesRequest {
 
   @SerializedName("TagKeys")
   private List<String> tagKeys = null;
+
+  @SerializedName("TagValue")
+  private String tagValue = null;
+
+  public GetTagValuesRequest matchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
+    return this;
+  }
+
+   /**
+   * Get matchType
+   * @return matchType
+  **/
+  @Schema(description = "")
+  public MatchTypeEnum getMatchType() {
+    return matchType;
+  }
+
+  public void setMatchType(MatchTypeEnum matchType) {
+    this.matchType = matchType;
+  }
 
   public GetTagValuesRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -103,6 +172,24 @@ public class GetTagValuesRequest {
     this.tagKeys = tagKeys;
   }
 
+  public GetTagValuesRequest tagValue(String tagValue) {
+    this.tagValue = tagValue;
+    return this;
+  }
+
+   /**
+   * Get tagValue
+   * @return tagValue
+  **/
+  @Schema(description = "")
+  public String getTagValue() {
+    return tagValue;
+  }
+
+  public void setTagValue(String tagValue) {
+    this.tagValue = tagValue;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -113,14 +200,16 @@ public class GetTagValuesRequest {
       return false;
     }
     GetTagValuesRequest getTagValuesRequest = (GetTagValuesRequest) o;
-    return Objects.equals(this.maxResults, getTagValuesRequest.maxResults) &&
+    return Objects.equals(this.matchType, getTagValuesRequest.matchType) &&
+        Objects.equals(this.maxResults, getTagValuesRequest.maxResults) &&
         Objects.equals(this.nextToken, getTagValuesRequest.nextToken) &&
-        Objects.equals(this.tagKeys, getTagValuesRequest.tagKeys);
+        Objects.equals(this.tagKeys, getTagValuesRequest.tagKeys) &&
+        Objects.equals(this.tagValue, getTagValuesRequest.tagValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, tagKeys);
+    return Objects.hash(matchType, maxResults, nextToken, tagKeys, tagValue);
   }
 
 
@@ -129,9 +218,11 @@ public class GetTagValuesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTagValuesRequest {\n");
     
+    sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    tagKeys: ").append(toIndentedString(tagKeys)).append("\n");
+    sb.append("    tagValue: ").append(toIndentedString(tagValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

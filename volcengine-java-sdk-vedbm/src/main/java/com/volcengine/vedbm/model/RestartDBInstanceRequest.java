@@ -33,6 +33,9 @@ public class RestartDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
   public RestartDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -52,6 +55,24 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
+  public RestartDBInstanceRequest nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Get nodeId
+   * @return nodeId
+  **/
+  @Schema(description = "")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class RestartDBInstanceRequest {
       return false;
     }
     RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId);
+    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
+        Objects.equals(this.nodeId, restartDBInstanceRequest.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(instanceId, nodeId);
   }
 
 
@@ -77,6 +99,7 @@ public class RestartDBInstanceRequest {
     sb.append("class RestartDBInstanceRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
