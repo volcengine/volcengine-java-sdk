@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.BackgroundAudioForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.BackgroundClipForGetAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.BilingualSubtitleForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.ErasedSubtitleVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.FacialTranslationVideoForGetAITranslationProjectOutput;
 import com.volcengine.vod20250101.model.ForegroundAudioForGetAITranslationProjectOutput;
@@ -59,6 +60,9 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @SerializedName("BackgroundClip")
   private BackgroundClipForGetAITranslationProjectOutput backgroundClip = null;
+
+  @SerializedName("BilingualSubtitle")
+  private BilingualSubtitleForGetAITranslationProjectOutput bilingualSubtitle = null;
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -186,6 +190,25 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   public void setBackgroundClip(BackgroundClipForGetAITranslationProjectOutput backgroundClip) {
     this.backgroundClip = backgroundClip;
+  }
+
+  public ProjectInfoForGetAITranslationProjectOutput bilingualSubtitle(BilingualSubtitleForGetAITranslationProjectOutput bilingualSubtitle) {
+    this.bilingualSubtitle = bilingualSubtitle;
+    return this;
+  }
+
+   /**
+   * Get bilingualSubtitle
+   * @return bilingualSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public BilingualSubtitleForGetAITranslationProjectOutput getBilingualSubtitle() {
+    return bilingualSubtitle;
+  }
+
+  public void setBilingualSubtitle(BilingualSubtitleForGetAITranslationProjectOutput bilingualSubtitle) {
+    this.bilingualSubtitle = bilingualSubtitle;
   }
 
   public ProjectInfoForGetAITranslationProjectOutput createdAt(String createdAt) {
@@ -840,6 +863,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     ProjectInfoForGetAITranslationProjectOutput projectInfoForGetAITranslationProjectOutput = (ProjectInfoForGetAITranslationProjectOutput) o;
     return Objects.equals(this.backgroundAudio, projectInfoForGetAITranslationProjectOutput.backgroundAudio) &&
         Objects.equals(this.backgroundClip, projectInfoForGetAITranslationProjectOutput.backgroundClip) &&
+        Objects.equals(this.bilingualSubtitle, projectInfoForGetAITranslationProjectOutput.bilingualSubtitle) &&
         Objects.equals(this.createdAt, projectInfoForGetAITranslationProjectOutput.createdAt) &&
         Objects.equals(this.erasedSubtitleVideo, projectInfoForGetAITranslationProjectOutput.erasedSubtitleVideo) &&
         Objects.equals(this.errorCode, projectInfoForGetAITranslationProjectOutput.errorCode) &&
@@ -874,7 +898,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundAudio, backgroundClip, createdAt, erasedSubtitleVideo, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputSubtitle, inputVideo, inputVideoTitle, operatorConfig, outputSubtitle, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
+    return Objects.hash(backgroundAudio, backgroundClip, bilingualSubtitle, createdAt, erasedSubtitleVideo, errorCode, errorMsg, facialTranslationVideo, foregroundAudio, inputSubtitle, inputVideo, inputVideoTitle, operatorConfig, outputSubtitle, outputVideo, previewVideo, previewVideoMuted, projectId, projectVersion, sourceBlueprints, sourceClips, sourceTracks, sourceUtterances, speakers, status, targetBlueprints, targetClips, targetTracks, targetUtterances, translationTypeList, updatedAt, voiceTranslationVideo, workflowId);
   }
 
 
@@ -885,6 +909,7 @@ public class ProjectInfoForGetAITranslationProjectOutput {
     
     sb.append("    backgroundAudio: ").append(toIndentedString(backgroundAudio)).append("\n");
     sb.append("    backgroundClip: ").append(toIndentedString(backgroundClip)).append("\n");
+    sb.append("    bilingualSubtitle: ").append(toIndentedString(bilingualSubtitle)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    erasedSubtitleVideo: ").append(toIndentedString(erasedSubtitleVideo)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");

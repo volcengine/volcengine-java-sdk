@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class UpdateAITranslationUtterancesRequest {
+  @SerializedName("BilingualSubtitleFileName")
+  private String bilingualSubtitleFileName = null;
+
   @SerializedName("InputSubtitleFileName")
   private String inputSubtitleFileName = null;
 
@@ -50,6 +53,24 @@ public class UpdateAITranslationUtterancesRequest {
 
   @SerializedName("Utterances")
   private List<UtteranceForUpdateAITranslationUtterancesInput> utterances = null;
+
+  public UpdateAITranslationUtterancesRequest bilingualSubtitleFileName(String bilingualSubtitleFileName) {
+    this.bilingualSubtitleFileName = bilingualSubtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get bilingualSubtitleFileName
+   * @return bilingualSubtitleFileName
+  **/
+  @Schema(description = "")
+  public String getBilingualSubtitleFileName() {
+    return bilingualSubtitleFileName;
+  }
+
+  public void setBilingualSubtitleFileName(String bilingualSubtitleFileName) {
+    this.bilingualSubtitleFileName = bilingualSubtitleFileName;
+  }
 
   public UpdateAITranslationUtterancesRequest inputSubtitleFileName(String inputSubtitleFileName) {
     this.inputSubtitleFileName = inputSubtitleFileName;
@@ -181,7 +202,8 @@ public class UpdateAITranslationUtterancesRequest {
       return false;
     }
     UpdateAITranslationUtterancesRequest updateAITranslationUtterancesRequest = (UpdateAITranslationUtterancesRequest) o;
-    return Objects.equals(this.inputSubtitleFileName, updateAITranslationUtterancesRequest.inputSubtitleFileName) &&
+    return Objects.equals(this.bilingualSubtitleFileName, updateAITranslationUtterancesRequest.bilingualSubtitleFileName) &&
+        Objects.equals(this.inputSubtitleFileName, updateAITranslationUtterancesRequest.inputSubtitleFileName) &&
         Objects.equals(this.outputSubtitleFileName, updateAITranslationUtterancesRequest.outputSubtitleFileName) &&
         Objects.equals(this.projectId, updateAITranslationUtterancesRequest.projectId) &&
         Objects.equals(this.spaceName, updateAITranslationUtterancesRequest.spaceName) &&
@@ -191,7 +213,7 @@ public class UpdateAITranslationUtterancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputSubtitleFileName, outputSubtitleFileName, projectId, spaceName, updateType, utterances);
+    return Objects.hash(bilingualSubtitleFileName, inputSubtitleFileName, outputSubtitleFileName, projectId, spaceName, updateType, utterances);
   }
 
 
@@ -200,6 +222,7 @@ public class UpdateAITranslationUtterancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAITranslationUtterancesRequest {\n");
     
+    sb.append("    bilingualSubtitleFileName: ").append(toIndentedString(bilingualSubtitleFileName)).append("\n");
     sb.append("    inputSubtitleFileName: ").append(toIndentedString(inputSubtitleFileName)).append("\n");
     sb.append("    outputSubtitleFileName: ").append(toIndentedString(outputSubtitleFileName)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");

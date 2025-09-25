@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ClipForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertHighlightCutsForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertStorylineCutsForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,6 +40,9 @@ public class ConvertHighlightForGetExecutionOutput {
 
   @SerializedName("Duration")
   private Double duration = null;
+
+  @SerializedName("HighlightCuts")
+  private ConvertHighlightCutsForGetExecutionOutput highlightCuts = null;
 
   @SerializedName("StorylineCuts")
   private ConvertStorylineCutsForGetExecutionOutput storylineCuts = null;
@@ -88,6 +92,25 @@ public class ConvertHighlightForGetExecutionOutput {
     this.duration = duration;
   }
 
+  public ConvertHighlightForGetExecutionOutput highlightCuts(ConvertHighlightCutsForGetExecutionOutput highlightCuts) {
+    this.highlightCuts = highlightCuts;
+    return this;
+  }
+
+   /**
+   * Get highlightCuts
+   * @return highlightCuts
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertHighlightCutsForGetExecutionOutput getHighlightCuts() {
+    return highlightCuts;
+  }
+
+  public void setHighlightCuts(ConvertHighlightCutsForGetExecutionOutput highlightCuts) {
+    this.highlightCuts = highlightCuts;
+  }
+
   public ConvertHighlightForGetExecutionOutput storylineCuts(ConvertStorylineCutsForGetExecutionOutput storylineCuts) {
     this.storylineCuts = storylineCuts;
     return this;
@@ -119,12 +142,13 @@ public class ConvertHighlightForGetExecutionOutput {
     ConvertHighlightForGetExecutionOutput convertHighlightForGetExecutionOutput = (ConvertHighlightForGetExecutionOutput) o;
     return Objects.equals(this.clips, convertHighlightForGetExecutionOutput.clips) &&
         Objects.equals(this.duration, convertHighlightForGetExecutionOutput.duration) &&
+        Objects.equals(this.highlightCuts, convertHighlightForGetExecutionOutput.highlightCuts) &&
         Objects.equals(this.storylineCuts, convertHighlightForGetExecutionOutput.storylineCuts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clips, duration, storylineCuts);
+    return Objects.hash(clips, duration, highlightCuts, storylineCuts);
   }
 
 
@@ -135,6 +159,7 @@ public class ConvertHighlightForGetExecutionOutput {
     
     sb.append("    clips: ").append(toIndentedString(clips)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    highlightCuts: ").append(toIndentedString(highlightCuts)).append("\n");
     sb.append("    storylineCuts: ").append(toIndentedString(storylineCuts)).append("\n");
     sb.append("}");
     return sb.toString();
