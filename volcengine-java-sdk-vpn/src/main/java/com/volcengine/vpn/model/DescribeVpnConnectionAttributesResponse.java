@@ -74,6 +74,9 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
   @SerializedName("DualTunnelEnabled")
   private Boolean dualTunnelEnabled = null;
 
+  @SerializedName("EnableTunnelsBgp")
+  private Boolean enableTunnelsBgp = null;
+
   @SerializedName("HealthCheckers")
   private List<HealthCheckerForDescribeVpnConnectionAttributesOutput> healthCheckers = null;
 
@@ -358,6 +361,24 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
     this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
+  public DescribeVpnConnectionAttributesResponse enableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
+    return this;
+  }
+
+   /**
+   * Get enableTunnelsBgp
+   * @return enableTunnelsBgp
+  **/
+  @Schema(description = "")
+  public Boolean isEnableTunnelsBgp() {
+    return enableTunnelsBgp;
+  }
+
+  public void setEnableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
   }
 
   public DescribeVpnConnectionAttributesResponse healthCheckers(List<HealthCheckerForDescribeVpnConnectionAttributesOutput> healthCheckers) {
@@ -841,6 +862,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
         Objects.equals(this.description, describeVpnConnectionAttributesResponse.description) &&
         Objects.equals(this.dpdAction, describeVpnConnectionAttributesResponse.dpdAction) &&
         Objects.equals(this.dualTunnelEnabled, describeVpnConnectionAttributesResponse.dualTunnelEnabled) &&
+        Objects.equals(this.enableTunnelsBgp, describeVpnConnectionAttributesResponse.enableTunnelsBgp) &&
         Objects.equals(this.healthCheckers, describeVpnConnectionAttributesResponse.healthCheckers) &&
         Objects.equals(this.ikeConfig, describeVpnConnectionAttributesResponse.ikeConfig) &&
         Objects.equals(this.ipAddress, describeVpnConnectionAttributesResponse.ipAddress) &&
@@ -868,7 +890,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, attachType, bgpInfo, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, dualTunnelEnabled, healthCheckers, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, spec, status, tags, transitRouterId, tunnelOptions, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
+    return Objects.hash(accountId, attachStatus, attachType, bgpInfo, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, dualTunnelEnabled, enableTunnelsBgp, healthCheckers, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, spec, status, tags, transitRouterId, tunnelOptions, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
   }
 
 
@@ -889,6 +911,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
+    sb.append("    enableTunnelsBgp: ").append(toIndentedString(enableTunnelsBgp)).append("\n");
     sb.append("    healthCheckers: ").append(toIndentedString(healthCheckers)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");

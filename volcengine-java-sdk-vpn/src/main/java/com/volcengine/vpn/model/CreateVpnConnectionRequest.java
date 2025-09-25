@@ -54,6 +54,9 @@ public class CreateVpnConnectionRequest {
   @SerializedName("DpdAction")
   private String dpdAction = null;
 
+  @SerializedName("EnableTunnelsBgp")
+  private Boolean enableTunnelsBgp = null;
+
   @SerializedName("IkeConfig")
   private IkeConfigForCreateVpnConnectionInput ikeConfig = null;
 
@@ -197,6 +200,24 @@ public class CreateVpnConnectionRequest {
 
   public void setDpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
+  }
+
+  public CreateVpnConnectionRequest enableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
+    return this;
+  }
+
+   /**
+   * Get enableTunnelsBgp
+   * @return enableTunnelsBgp
+  **/
+  @Schema(description = "")
+  public Boolean isEnableTunnelsBgp() {
+    return enableTunnelsBgp;
+  }
+
+  public void setEnableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
   }
 
   public CreateVpnConnectionRequest ikeConfig(IkeConfigForCreateVpnConnectionInput ikeConfig) {
@@ -458,6 +479,7 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
         Objects.equals(this.description, createVpnConnectionRequest.description) &&
         Objects.equals(this.dpdAction, createVpnConnectionRequest.dpdAction) &&
+        Objects.equals(this.enableTunnelsBgp, createVpnConnectionRequest.enableTunnelsBgp) &&
         Objects.equals(this.ikeConfig, createVpnConnectionRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
         Objects.equals(this.localSubnet, createVpnConnectionRequest.localSubnet) &&
@@ -474,7 +496,7 @@ public class CreateVpnConnectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, tunnelOptions, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, enableTunnelsBgp, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, tunnelOptions, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -489,6 +511,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
+    sb.append("    enableTunnelsBgp: ").append(toIndentedString(enableTunnelsBgp)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
