@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.36</version>
+    <version>0.2.37</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -315,5 +315,6 @@
         <module>volcengine-java-sdk-vikingdb</module>
         <module>volcengine-java-sdk-cloudmonitor</module>
         <module>volcengine-java-sdk-resourceshare</module>
+        <module>volcengine-java-sdk-na</module>
     </modules>
 </project>
