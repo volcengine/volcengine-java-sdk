@@ -33,8 +33,71 @@ import javax.validation.Valid;
 
 
 public class DescribeTransitRouterFlowLogsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
   @SerializedName("TransitRouterFlowLogs")
   private List<TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput> transitRouterFlowLogs = null;
+
+  public DescribeTransitRouterFlowLogsResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeTransitRouterFlowLogsResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public DescribeTransitRouterFlowLogsResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
 
   public DescribeTransitRouterFlowLogsResponse transitRouterFlowLogs(List<TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput> transitRouterFlowLogs) {
     this.transitRouterFlowLogs = transitRouterFlowLogs;
@@ -73,12 +136,15 @@ public class DescribeTransitRouterFlowLogsResponse extends com.volcengine.model.
       return false;
     }
     DescribeTransitRouterFlowLogsResponse describeTransitRouterFlowLogsResponse = (DescribeTransitRouterFlowLogsResponse) o;
-    return Objects.equals(this.transitRouterFlowLogs, describeTransitRouterFlowLogsResponse.transitRouterFlowLogs);
+    return Objects.equals(this.pageNumber, describeTransitRouterFlowLogsResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeTransitRouterFlowLogsResponse.pageSize) &&
+        Objects.equals(this.totalCount, describeTransitRouterFlowLogsResponse.totalCount) &&
+        Objects.equals(this.transitRouterFlowLogs, describeTransitRouterFlowLogsResponse.transitRouterFlowLogs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transitRouterFlowLogs);
+    return Objects.hash(pageNumber, pageSize, totalCount, transitRouterFlowLogs);
   }
 
 
@@ -87,6 +153,9 @@ public class DescribeTransitRouterFlowLogsResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTransitRouterFlowLogsResponse {\n");
     
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    transitRouterFlowLogs: ").append(toIndentedString(transitRouterFlowLogs)).append("\n");
     sb.append("}");
     return sb.toString();

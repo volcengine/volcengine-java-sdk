@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class NodeForDescribeDBInstancesOutput {
+  @SerializedName("FailoverPriority")
+  private Integer failoverPriority = null;
+
   @SerializedName("Memory")
   private Integer memory = null;
 
@@ -162,6 +165,24 @@ public class NodeForDescribeDBInstancesOutput {
   @SerializedName("vCPU")
   private Integer vCPU = null;
 
+  public NodeForDescribeDBInstancesOutput failoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+    return this;
+  }
+
+   /**
+   * Get failoverPriority
+   * @return failoverPriority
+  **/
+  @Schema(description = "")
+  public Integer getFailoverPriority() {
+    return failoverPriority;
+  }
+
+  public void setFailoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+  }
+
   public NodeForDescribeDBInstancesOutput memory(Integer memory) {
     this.memory = memory;
     return this;
@@ -280,7 +301,8 @@ public class NodeForDescribeDBInstancesOutput {
       return false;
     }
     NodeForDescribeDBInstancesOutput nodeForDescribeDBInstancesOutput = (NodeForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.memory, nodeForDescribeDBInstancesOutput.memory) &&
+    return Objects.equals(this.failoverPriority, nodeForDescribeDBInstancesOutput.failoverPriority) &&
+        Objects.equals(this.memory, nodeForDescribeDBInstancesOutput.memory) &&
         Objects.equals(this.nodeId, nodeForDescribeDBInstancesOutput.nodeId) &&
         Objects.equals(this.nodeSpec, nodeForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.nodeType, nodeForDescribeDBInstancesOutput.nodeType) &&
@@ -290,7 +312,7 @@ public class NodeForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(memory, nodeId, nodeSpec, nodeType, zoneId, vCPU);
+    return Objects.hash(failoverPriority, memory, nodeId, nodeSpec, nodeType, zoneId, vCPU);
   }
 
 
@@ -299,6 +321,7 @@ public class NodeForDescribeDBInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeForDescribeDBInstancesOutput {\n");
     
+    sb.append("    failoverPriority: ").append(toIndentedString(failoverPriority)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");

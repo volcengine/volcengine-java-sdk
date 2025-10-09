@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.ConvertBGPConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class TunnelOptionForCreateVpnConnectionInput {
+  @SerializedName("BGPConfig")
+  private ConvertBGPConfigForCreateVpnConnectionInput bgPConfig = null;
+
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 
@@ -49,6 +53,25 @@ public class TunnelOptionForCreateVpnConnectionInput {
 
   @SerializedName("Role")
   private String role = null;
+
+  public TunnelOptionForCreateVpnConnectionInput bgPConfig(ConvertBGPConfigForCreateVpnConnectionInput bgPConfig) {
+    this.bgPConfig = bgPConfig;
+    return this;
+  }
+
+   /**
+   * Get bgPConfig
+   * @return bgPConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertBGPConfigForCreateVpnConnectionInput getBgPConfig() {
+    return bgPConfig;
+  }
+
+  public void setBgPConfig(ConvertBGPConfigForCreateVpnConnectionInput bgPConfig) {
+    this.bgPConfig = bgPConfig;
+  }
 
   public TunnelOptionForCreateVpnConnectionInput customerGatewayId(String customerGatewayId) {
     this.customerGatewayId = customerGatewayId;
@@ -170,7 +193,8 @@ public class TunnelOptionForCreateVpnConnectionInput {
       return false;
     }
     TunnelOptionForCreateVpnConnectionInput tunnelOptionForCreateVpnConnectionInput = (TunnelOptionForCreateVpnConnectionInput) o;
-    return Objects.equals(this.customerGatewayId, tunnelOptionForCreateVpnConnectionInput.customerGatewayId) &&
+    return Objects.equals(this.bgPConfig, tunnelOptionForCreateVpnConnectionInput.bgPConfig) &&
+        Objects.equals(this.customerGatewayId, tunnelOptionForCreateVpnConnectionInput.customerGatewayId) &&
         Objects.equals(this.dpdAction, tunnelOptionForCreateVpnConnectionInput.dpdAction) &&
         Objects.equals(this.ikeConfig, tunnelOptionForCreateVpnConnectionInput.ikeConfig) &&
         Objects.equals(this.ipsecConfig, tunnelOptionForCreateVpnConnectionInput.ipsecConfig) &&
@@ -180,7 +204,7 @@ public class TunnelOptionForCreateVpnConnectionInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayId, dpdAction, ikeConfig, ipsecConfig, natTraversal, role);
+    return Objects.hash(bgPConfig, customerGatewayId, dpdAction, ikeConfig, ipsecConfig, natTraversal, role);
   }
 
 
@@ -189,6 +213,7 @@ public class TunnelOptionForCreateVpnConnectionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TunnelOptionForCreateVpnConnectionInput {\n");
     
+    sb.append("    bgPConfig: ").append(toIndentedString(bgPConfig)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");

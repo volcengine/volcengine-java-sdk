@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vpn.model.BgpConfigForModifyVpnConnectionAttributesInput;
+import com.volcengine.vpn.model.ConvertBgpConfigForModifyVpnConnectionAttributesInput;
 import com.volcengine.vpn.model.IkeConfigForModifyVpnConnectionAttributesInput;
 import com.volcengine.vpn.model.IpsecConfigForModifyVpnConnectionAttributesInput;
 import com.volcengine.vpn.model.TunnelOptionForModifyVpnConnectionAttributesInput;
@@ -37,7 +37,7 @@ import javax.validation.Valid;
 
 public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("BgpConfig")
-  private BgpConfigForModifyVpnConnectionAttributesInput bgpConfig = null;
+  private ConvertBgpConfigForModifyVpnConnectionAttributesInput bgpConfig = null;
 
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
@@ -47,6 +47,9 @@ public class ModifyVpnConnectionAttributesRequest {
 
   @SerializedName("DpdAction")
   private String dpdAction = null;
+
+  @SerializedName("EnableTunnelsBgp")
+  private Boolean enableTunnelsBgp = null;
 
   @SerializedName("IkeConfig")
   private IkeConfigForModifyVpnConnectionAttributesInput ikeConfig = null;
@@ -69,6 +72,9 @@ public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
 
+  @SerializedName("Spec")
+  private String spec = null;
+
   @SerializedName("TunnelOptions")
   private List<TunnelOptionForModifyVpnConnectionAttributesInput> tunnelOptions = null;
 
@@ -78,7 +84,7 @@ public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
 
-  public ModifyVpnConnectionAttributesRequest bgpConfig(BgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
+  public ModifyVpnConnectionAttributesRequest bgpConfig(ConvertBgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
     this.bgpConfig = bgpConfig;
     return this;
   }
@@ -89,11 +95,11 @@ public class ModifyVpnConnectionAttributesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public BgpConfigForModifyVpnConnectionAttributesInput getBgpConfig() {
+  public ConvertBgpConfigForModifyVpnConnectionAttributesInput getBgpConfig() {
     return bgpConfig;
   }
 
-  public void setBgpConfig(BgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
+  public void setBgpConfig(ConvertBgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
     this.bgpConfig = bgpConfig;
   }
 
@@ -149,6 +155,24 @@ public class ModifyVpnConnectionAttributesRequest {
 
   public void setDpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
+  }
+
+  public ModifyVpnConnectionAttributesRequest enableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
+    return this;
+  }
+
+   /**
+   * Get enableTunnelsBgp
+   * @return enableTunnelsBgp
+  **/
+  @Schema(description = "")
+  public Boolean isEnableTunnelsBgp() {
+    return enableTunnelsBgp;
+  }
+
+  public void setEnableTunnelsBgp(Boolean enableTunnelsBgp) {
+    this.enableTunnelsBgp = enableTunnelsBgp;
   }
 
   public ModifyVpnConnectionAttributesRequest ikeConfig(IkeConfigForModifyVpnConnectionAttributesInput ikeConfig) {
@@ -295,6 +319,24 @@ public class ModifyVpnConnectionAttributesRequest {
     this.remoteSubnet = remoteSubnet;
   }
 
+  public ModifyVpnConnectionAttributesRequest spec(String spec) {
+    this.spec = spec;
+    return this;
+  }
+
+   /**
+   * Get spec
+   * @return spec
+  **/
+  @Schema(description = "")
+  public String getSpec() {
+    return spec;
+  }
+
+  public void setSpec(String spec) {
+    this.spec = spec;
+  }
+
   public ModifyVpnConnectionAttributesRequest tunnelOptions(List<TunnelOptionForModifyVpnConnectionAttributesInput> tunnelOptions) {
     this.tunnelOptions = tunnelOptions;
     return this;
@@ -373,6 +415,7 @@ public class ModifyVpnConnectionAttributesRequest {
         Objects.equals(this.customerGatewayId, modifyVpnConnectionAttributesRequest.customerGatewayId) &&
         Objects.equals(this.description, modifyVpnConnectionAttributesRequest.description) &&
         Objects.equals(this.dpdAction, modifyVpnConnectionAttributesRequest.dpdAction) &&
+        Objects.equals(this.enableTunnelsBgp, modifyVpnConnectionAttributesRequest.enableTunnelsBgp) &&
         Objects.equals(this.ikeConfig, modifyVpnConnectionAttributesRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, modifyVpnConnectionAttributesRequest.ipsecConfig) &&
         Objects.equals(this.localSubnet, modifyVpnConnectionAttributesRequest.localSubnet) &&
@@ -380,6 +423,7 @@ public class ModifyVpnConnectionAttributesRequest {
         Objects.equals(this.natTraversal, modifyVpnConnectionAttributesRequest.natTraversal) &&
         Objects.equals(this.negotiateInstantly, modifyVpnConnectionAttributesRequest.negotiateInstantly) &&
         Objects.equals(this.remoteSubnet, modifyVpnConnectionAttributesRequest.remoteSubnet) &&
+        Objects.equals(this.spec, modifyVpnConnectionAttributesRequest.spec) &&
         Objects.equals(this.tunnelOptions, modifyVpnConnectionAttributesRequest.tunnelOptions) &&
         Objects.equals(this.vpnConnectionId, modifyVpnConnectionAttributesRequest.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, modifyVpnConnectionAttributesRequest.vpnConnectionName);
@@ -387,7 +431,7 @@ public class ModifyVpnConnectionAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bgpConfig, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, remoteSubnet, tunnelOptions, vpnConnectionId, vpnConnectionName);
+    return Objects.hash(bgpConfig, customerGatewayId, description, dpdAction, enableTunnelsBgp, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, remoteSubnet, spec, tunnelOptions, vpnConnectionId, vpnConnectionName);
   }
 
 
@@ -400,6 +444,7 @@ public class ModifyVpnConnectionAttributesRequest {
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
+    sb.append("    enableTunnelsBgp: ").append(toIndentedString(enableTunnelsBgp)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
@@ -407,6 +452,7 @@ public class ModifyVpnConnectionAttributesRequest {
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
     sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
+    sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tunnelOptions: ").append(toIndentedString(tunnelOptions)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");

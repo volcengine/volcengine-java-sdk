@@ -33,8 +33,17 @@ import javax.validation.Valid;
 
 
 public class DescribeVpnGatewaysRequest {
+  @SerializedName("DualTunnelEnabled")
+  private Boolean dualTunnelEnabled = null;
+
   @SerializedName("IpAddress")
   private String ipAddress = null;
+
+  @SerializedName("IpStackType")
+  private String ipStackType = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
 
   @SerializedName("IpsecEnabled")
   private Boolean ipsecEnabled = null;
@@ -66,6 +75,24 @@ public class DescribeVpnGatewaysRequest {
   @SerializedName("VpnGatewayName")
   private String vpnGatewayName = null;
 
+  public DescribeVpnGatewaysRequest dualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+    return this;
+  }
+
+   /**
+   * Get dualTunnelEnabled
+   * @return dualTunnelEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDualTunnelEnabled() {
+    return dualTunnelEnabled;
+  }
+
+  public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
   public DescribeVpnGatewaysRequest ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
@@ -82,6 +109,42 @@ public class DescribeVpnGatewaysRequest {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public DescribeVpnGatewaysRequest ipStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+    return this;
+  }
+
+   /**
+   * Get ipStackType
+   * @return ipStackType
+  **/
+  @Schema(description = "")
+  public String getIpStackType() {
+    return ipStackType;
+  }
+
+  public void setIpStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+  }
+
+  public DescribeVpnGatewaysRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public DescribeVpnGatewaysRequest ipsecEnabled(Boolean ipsecEnabled) {
@@ -291,7 +354,10 @@ public class DescribeVpnGatewaysRequest {
       return false;
     }
     DescribeVpnGatewaysRequest describeVpnGatewaysRequest = (DescribeVpnGatewaysRequest) o;
-    return Objects.equals(this.ipAddress, describeVpnGatewaysRequest.ipAddress) &&
+    return Objects.equals(this.dualTunnelEnabled, describeVpnGatewaysRequest.dualTunnelEnabled) &&
+        Objects.equals(this.ipAddress, describeVpnGatewaysRequest.ipAddress) &&
+        Objects.equals(this.ipStackType, describeVpnGatewaysRequest.ipStackType) &&
+        Objects.equals(this.ipVersion, describeVpnGatewaysRequest.ipVersion) &&
         Objects.equals(this.ipsecEnabled, describeVpnGatewaysRequest.ipsecEnabled) &&
         Objects.equals(this.pageNumber, describeVpnGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnGatewaysRequest.pageSize) &&
@@ -306,7 +372,7 @@ public class DescribeVpnGatewaysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, ipsecEnabled, pageNumber, pageSize, projectName, sslEnabled, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
+    return Objects.hash(dualTunnelEnabled, ipAddress, ipStackType, ipVersion, ipsecEnabled, pageNumber, pageSize, projectName, sslEnabled, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
   }
 
 
@@ -315,7 +381,10 @@ public class DescribeVpnGatewaysRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpnGatewaysRequest {\n");
     
+    sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipStackType: ").append(toIndentedString(ipStackType)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

@@ -30,11 +30,38 @@ import javax.validation.Valid;
 
 
 public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
+  @SerializedName("BilingualSubtitleFileName")
+  private String bilingualSubtitleFileName = null;
+
   @SerializedName("RecognitionType")
   private String recognitionType = null;
 
+  @SerializedName("SourceSubtitleFileName")
+  private String sourceSubtitleFileName = null;
+
   @SerializedName("SubtitleFileName")
   private String subtitleFileName = null;
+
+  @SerializedName("TargetSubtitleFileName")
+  private String targetSubtitleFileName = null;
+
+  public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput bilingualSubtitleFileName(String bilingualSubtitleFileName) {
+    this.bilingualSubtitleFileName = bilingualSubtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get bilingualSubtitleFileName
+   * @return bilingualSubtitleFileName
+  **/
+  @Schema(description = "")
+  public String getBilingualSubtitleFileName() {
+    return bilingualSubtitleFileName;
+  }
+
+  public void setBilingualSubtitleFileName(String bilingualSubtitleFileName) {
+    this.bilingualSubtitleFileName = bilingualSubtitleFileName;
+  }
 
   public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput recognitionType(String recognitionType) {
     this.recognitionType = recognitionType;
@@ -52,6 +79,24 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 
   public void setRecognitionType(String recognitionType) {
     this.recognitionType = recognitionType;
+  }
+
+  public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput sourceSubtitleFileName(String sourceSubtitleFileName) {
+    this.sourceSubtitleFileName = sourceSubtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get sourceSubtitleFileName
+   * @return sourceSubtitleFileName
+  **/
+  @Schema(description = "")
+  public String getSourceSubtitleFileName() {
+    return sourceSubtitleFileName;
+  }
+
+  public void setSourceSubtitleFileName(String sourceSubtitleFileName) {
+    this.sourceSubtitleFileName = sourceSubtitleFileName;
   }
 
   public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput subtitleFileName(String subtitleFileName) {
@@ -72,6 +117,24 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     this.subtitleFileName = subtitleFileName;
   }
 
+  public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput targetSubtitleFileName(String targetSubtitleFileName) {
+    this.targetSubtitleFileName = targetSubtitleFileName;
+    return this;
+  }
+
+   /**
+   * Get targetSubtitleFileName
+   * @return targetSubtitleFileName
+  **/
+  @Schema(description = "")
+  public String getTargetSubtitleFileName() {
+    return targetSubtitleFileName;
+  }
+
+  public void setTargetSubtitleFileName(String targetSubtitleFileName) {
+    this.targetSubtitleFileName = targetSubtitleFileName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +145,16 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
       return false;
     }
     SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput subtitleRecognitionConfigForSubmitAITranslationWorkflowInput = (SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) o;
-    return Objects.equals(this.recognitionType, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.recognitionType) &&
-        Objects.equals(this.subtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.subtitleFileName);
+    return Objects.equals(this.bilingualSubtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.bilingualSubtitleFileName) &&
+        Objects.equals(this.recognitionType, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.recognitionType) &&
+        Objects.equals(this.sourceSubtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.sourceSubtitleFileName) &&
+        Objects.equals(this.subtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.subtitleFileName) &&
+        Objects.equals(this.targetSubtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.targetSubtitleFileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recognitionType, subtitleFileName);
+    return Objects.hash(bilingualSubtitleFileName, recognitionType, sourceSubtitleFileName, subtitleFileName, targetSubtitleFileName);
   }
 
 
@@ -97,8 +163,11 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {\n");
     
+    sb.append("    bilingualSubtitleFileName: ").append(toIndentedString(bilingualSubtitleFileName)).append("\n");
     sb.append("    recognitionType: ").append(toIndentedString(recognitionType)).append("\n");
+    sb.append("    sourceSubtitleFileName: ").append(toIndentedString(sourceSubtitleFileName)).append("\n");
     sb.append("    subtitleFileName: ").append(toIndentedString(subtitleFileName)).append("\n");
+    sb.append("    targetSubtitleFileName: ").append(toIndentedString(targetSubtitleFileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

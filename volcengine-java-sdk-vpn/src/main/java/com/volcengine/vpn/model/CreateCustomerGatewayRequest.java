@@ -45,6 +45,52 @@ public class CreateCustomerGatewayRequest {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  /**
+   * Gets or Sets ipVersion
+   */
+  @JsonAdapter(IpVersionEnum.Adapter.class)
+  public enum IpVersionEnum {
+    @SerializedName("ipv4")
+    IPV4("ipv4"),
+    @SerializedName("ipv6")
+    IPV6("ipv6");
+
+    private String value;
+
+    IpVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpVersionEnum fromValue(String input) {
+      for (IpVersionEnum b : IpVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpVersion")
+  private IpVersionEnum ipVersion = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -139,6 +185,24 @@ public class CreateCustomerGatewayRequest {
     this.ipAddress = ipAddress;
   }
 
+  public CreateCustomerGatewayRequest ipVersion(IpVersionEnum ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public IpVersionEnum getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(IpVersionEnum ipVersion) {
+    this.ipVersion = ipVersion;
+  }
+
   public CreateCustomerGatewayRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -172,12 +236,13 @@ public class CreateCustomerGatewayRequest {
         Objects.equals(this.customerGatewayName, createCustomerGatewayRequest.customerGatewayName) &&
         Objects.equals(this.description, createCustomerGatewayRequest.description) &&
         Objects.equals(this.ipAddress, createCustomerGatewayRequest.ipAddress) &&
+        Objects.equals(this.ipVersion, createCustomerGatewayRequest.ipVersion) &&
         Objects.equals(this.projectName, createCustomerGatewayRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asn, clientToken, customerGatewayName, description, ipAddress, projectName);
+    return Objects.hash(asn, clientToken, customerGatewayName, description, ipAddress, ipVersion, projectName);
   }
 
 
@@ -191,6 +256,7 @@ public class CreateCustomerGatewayRequest {
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

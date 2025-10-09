@@ -51,6 +51,12 @@ public class CreateVpnGatewayRequest {
   @SerializedName("DualTunnelEnabled")
   private Boolean dualTunnelEnabled = null;
 
+  @SerializedName("IpStackType")
+  private String ipStackType = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("IpsecEnabled")
   private Boolean ipsecEnabled = null;
 
@@ -191,6 +197,42 @@ public class CreateVpnGatewayRequest {
 
   public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
     this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
+  public CreateVpnGatewayRequest ipStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+    return this;
+  }
+
+   /**
+   * Get ipStackType
+   * @return ipStackType
+  **/
+  @Schema(description = "")
+  public String getIpStackType() {
+    return ipStackType;
+  }
+
+  public void setIpStackType(String ipStackType) {
+    this.ipStackType = ipStackType;
+  }
+
+  public CreateVpnGatewayRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public CreateVpnGatewayRequest ipsecEnabled(Boolean ipsecEnabled) {
@@ -418,6 +460,8 @@ public class CreateVpnGatewayRequest {
         Objects.equals(this.clientToken, createVpnGatewayRequest.clientToken) &&
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
         Objects.equals(this.dualTunnelEnabled, createVpnGatewayRequest.dualTunnelEnabled) &&
+        Objects.equals(this.ipStackType, createVpnGatewayRequest.ipStackType) &&
+        Objects.equals(this.ipVersion, createVpnGatewayRequest.ipVersion) &&
         Objects.equals(this.ipsecEnabled, createVpnGatewayRequest.ipsecEnabled) &&
         Objects.equals(this.period, createVpnGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createVpnGatewayRequest.periodUnit) &&
@@ -433,7 +477,7 @@ public class CreateVpnGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asn, bandwidth, billingType, clientToken, description, dualTunnelEnabled, ipsecEnabled, period, periodUnit, projectName, secondarySubnetId, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
+    return Objects.hash(asn, bandwidth, billingType, clientToken, description, dualTunnelEnabled, ipStackType, ipVersion, ipsecEnabled, period, periodUnit, projectName, secondarySubnetId, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
   }
 
 
@@ -448,6 +492,8 @@ public class CreateVpnGatewayRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
+    sb.append("    ipStackType: ").append(toIndentedString(ipStackType)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");

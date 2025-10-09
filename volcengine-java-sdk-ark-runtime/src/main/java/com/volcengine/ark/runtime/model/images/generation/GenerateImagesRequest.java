@@ -1,5 +1,6 @@
 package com.volcengine.ark.runtime.model.images.generation;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonParser;
@@ -115,6 +116,7 @@ public class GenerateImagesRequest {
         this.image = image;
     }
 
+    @JsonIgnore
     public void setImage(String image) {
         this.image = image == null ? null : Collections.singletonList(image);
     }

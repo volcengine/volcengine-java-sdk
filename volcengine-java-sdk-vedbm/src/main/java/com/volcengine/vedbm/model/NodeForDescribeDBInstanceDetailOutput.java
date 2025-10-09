@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class NodeForDescribeDBInstanceDetailOutput {
+  @SerializedName("FailoverPriority")
+  private Integer failoverPriority = null;
+
   @SerializedName("Memory")
   private Integer memory = null;
 
@@ -162,6 +165,24 @@ public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("vCPU")
   private Integer vCPU = null;
 
+  public NodeForDescribeDBInstanceDetailOutput failoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+    return this;
+  }
+
+   /**
+   * Get failoverPriority
+   * @return failoverPriority
+  **/
+  @Schema(description = "")
+  public Integer getFailoverPriority() {
+    return failoverPriority;
+  }
+
+  public void setFailoverPriority(Integer failoverPriority) {
+    this.failoverPriority = failoverPriority;
+  }
+
   public NodeForDescribeDBInstanceDetailOutput memory(Integer memory) {
     this.memory = memory;
     return this;
@@ -280,7 +301,8 @@ public class NodeForDescribeDBInstanceDetailOutput {
       return false;
     }
     NodeForDescribeDBInstanceDetailOutput nodeForDescribeDBInstanceDetailOutput = (NodeForDescribeDBInstanceDetailOutput) o;
-    return Objects.equals(this.memory, nodeForDescribeDBInstanceDetailOutput.memory) &&
+    return Objects.equals(this.failoverPriority, nodeForDescribeDBInstanceDetailOutput.failoverPriority) &&
+        Objects.equals(this.memory, nodeForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeId, nodeForDescribeDBInstanceDetailOutput.nodeId) &&
         Objects.equals(this.nodeSpec, nodeForDescribeDBInstanceDetailOutput.nodeSpec) &&
         Objects.equals(this.nodeType, nodeForDescribeDBInstanceDetailOutput.nodeType) &&
@@ -290,7 +312,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(memory, nodeId, nodeSpec, nodeType, zoneId, vCPU);
+    return Objects.hash(failoverPriority, memory, nodeId, nodeSpec, nodeType, zoneId, vCPU);
   }
 
 
@@ -299,6 +321,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeForDescribeDBInstanceDetailOutput {\n");
     
+    sb.append("    failoverPriority: ").append(toIndentedString(failoverPriority)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");

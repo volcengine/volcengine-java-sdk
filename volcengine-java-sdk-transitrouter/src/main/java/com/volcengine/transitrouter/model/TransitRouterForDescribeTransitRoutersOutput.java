@@ -51,6 +51,9 @@ public class TransitRouterForDescribeTransitRoutersOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("GrantSourceType")
+  private String grantSourceType = null;
+
   @SerializedName("GrantStatus")
   private String grantStatus = null;
 
@@ -184,6 +187,24 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TransitRouterForDescribeTransitRoutersOutput grantSourceType(String grantSourceType) {
+    this.grantSourceType = grantSourceType;
+    return this;
+  }
+
+   /**
+   * Get grantSourceType
+   * @return grantSourceType
+  **/
+  @Schema(description = "")
+  public String getGrantSourceType() {
+    return grantSourceType;
+  }
+
+  public void setGrantSourceType(String grantSourceType) {
+    this.grantSourceType = grantSourceType;
   }
 
   public TransitRouterForDescribeTransitRoutersOutput grantStatus(String grantStatus) {
@@ -373,6 +394,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
         Objects.equals(this.creationTime, transitRouterForDescribeTransitRoutersOutput.creationTime) &&
         Objects.equals(this.deletedTime, transitRouterForDescribeTransitRoutersOutput.deletedTime) &&
         Objects.equals(this.description, transitRouterForDescribeTransitRoutersOutput.description) &&
+        Objects.equals(this.grantSourceType, transitRouterForDescribeTransitRoutersOutput.grantSourceType) &&
         Objects.equals(this.grantStatus, transitRouterForDescribeTransitRoutersOutput.grantStatus) &&
         Objects.equals(this.multicastEnabled, transitRouterForDescribeTransitRoutersOutput.multicastEnabled) &&
         Objects.equals(this.overdueTime, transitRouterForDescribeTransitRoutersOutput.overdueTime) &&
@@ -386,7 +408,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, businessStatus, creationTime, deletedTime, description, grantStatus, multicastEnabled, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
+    return Objects.hash(accountId, asn, businessStatus, creationTime, deletedTime, description, grantSourceType, grantStatus, multicastEnabled, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
   }
 
 
@@ -401,6 +423,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    grantSourceType: ").append(toIndentedString(grantSourceType)).append("\n");
     sb.append("    grantStatus: ").append(toIndentedString(grantStatus)).append("\n");
     sb.append("    multicastEnabled: ").append(toIndentedString(multicastEnabled)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");

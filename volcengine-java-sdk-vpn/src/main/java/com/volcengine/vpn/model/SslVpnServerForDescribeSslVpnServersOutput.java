@@ -39,6 +39,9 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
   @SerializedName("Cipher")
   private String cipher = null;
 
+  @SerializedName("ClientCertSessionPolicy")
+  private String clientCertSessionPolicy = null;
+
   @SerializedName("ClientIpPool")
   private String clientIpPool = null;
 
@@ -118,6 +121,24 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
 
   public void setCipher(String cipher) {
     this.cipher = cipher;
+  }
+
+  public SslVpnServerForDescribeSslVpnServersOutput clientCertSessionPolicy(String clientCertSessionPolicy) {
+    this.clientCertSessionPolicy = clientCertSessionPolicy;
+    return this;
+  }
+
+   /**
+   * Get clientCertSessionPolicy
+   * @return clientCertSessionPolicy
+  **/
+  @Schema(description = "")
+  public String getClientCertSessionPolicy() {
+    return clientCertSessionPolicy;
+  }
+
+  public void setClientCertSessionPolicy(String clientCertSessionPolicy) {
+    this.clientCertSessionPolicy = clientCertSessionPolicy;
   }
 
   public SslVpnServerForDescribeSslVpnServersOutput clientIpPool(String clientIpPool) {
@@ -419,6 +440,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     SslVpnServerForDescribeSslVpnServersOutput sslVpnServerForDescribeSslVpnServersOutput = (SslVpnServerForDescribeSslVpnServersOutput) o;
     return Objects.equals(this.auth, sslVpnServerForDescribeSslVpnServersOutput.auth) &&
         Objects.equals(this.cipher, sslVpnServerForDescribeSslVpnServersOutput.cipher) &&
+        Objects.equals(this.clientCertSessionPolicy, sslVpnServerForDescribeSslVpnServersOutput.clientCertSessionPolicy) &&
         Objects.equals(this.clientIpPool, sslVpnServerForDescribeSslVpnServersOutput.clientIpPool) &&
         Objects.equals(this.compress, sslVpnServerForDescribeSslVpnServersOutput.compress) &&
         Objects.equals(this.creationTime, sslVpnServerForDescribeSslVpnServersOutput.creationTime) &&
@@ -438,7 +460,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, cipher, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, projectName, protocol, sslVpnServerId, sslVpnServerName, status, tags, updateTime, vpnGatewayId);
+    return Objects.hash(auth, cipher, clientCertSessionPolicy, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, projectName, protocol, sslVpnServerId, sslVpnServerName, status, tags, updateTime, vpnGatewayId);
   }
 
 
@@ -449,6 +471,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    cipher: ").append(toIndentedString(cipher)).append("\n");
+    sb.append("    clientCertSessionPolicy: ").append(toIndentedString(clientCertSessionPolicy)).append("\n");
     sb.append("    clientIpPool: ").append(toIndentedString(clientIpPool)).append("\n");
     sb.append("    compress: ").append(toIndentedString(compress)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
