@@ -73,6 +73,9 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("PrivateAddress")
   private String privateAddress = null;
 
+  @SerializedName("PrivatePort")
+  private String privatePort = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -344,6 +347,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.privateAddress = privateAddress;
   }
 
+  public InstanceForDescribeDBInstancesOutput privatePort(String privatePort) {
+    this.privatePort = privatePort;
+    return this;
+  }
+
+   /**
+   * Get privatePort
+   * @return privatePort
+  **/
+  @Schema(description = "")
+  public String getPrivatePort() {
+    return privatePort;
+  }
+
+  public void setPrivatePort(String privatePort) {
+    this.privatePort = privatePort;
+  }
+
   public InstanceForDescribeDBInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -600,6 +621,7 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.multiAZ, instanceForDescribeDBInstancesOutput.multiAZ) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
         Objects.equals(this.privateAddress, instanceForDescribeDBInstancesOutput.privateAddress) &&
+        Objects.equals(this.privatePort, instanceForDescribeDBInstancesOutput.privatePort) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
         Objects.equals(this.serviceType, instanceForDescribeDBInstancesOutput.serviceType) &&
@@ -616,7 +638,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, privateAddress, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, VIP, viPv6, vpcId, zoneIds);
+    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, privateAddress, privatePort, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, VIP, viPv6, vpcId, zoneIds);
   }
 
 
@@ -638,6 +660,7 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    privateAddress: ").append(toIndentedString(privateAddress)).append("\n");
+    sb.append("    privatePort: ").append(toIndentedString(privatePort)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
