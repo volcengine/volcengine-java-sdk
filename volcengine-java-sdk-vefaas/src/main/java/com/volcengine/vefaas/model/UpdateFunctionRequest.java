@@ -39,11 +39,17 @@ import javax.validation.Valid;
 
 
 public class UpdateFunctionRequest {
+  @SerializedName("Command")
+  private String command = null;
+
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EnableApmplus")
+  private Boolean enableApmplus = null;
 
   @SerializedName("Envs")
   private List<EnvForUpdateFunctionInput> envs = null;
@@ -96,6 +102,24 @@ public class UpdateFunctionRequest {
   @SerializedName("VpcConfig")
   private VpcConfigForUpdateFunctionInput vpcConfig = null;
 
+  public UpdateFunctionRequest command(String command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
+  }
+
   public UpdateFunctionRequest cpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
     return this;
@@ -130,6 +154,24 @@ public class UpdateFunctionRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateFunctionRequest enableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
+    return this;
+  }
+
+   /**
+   * Get enableApmplus
+   * @return enableApmplus
+  **/
+  @Schema(description = "")
+  public Boolean isEnableApmplus() {
+    return enableApmplus;
+  }
+
+  public void setEnableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
   }
 
   public UpdateFunctionRequest envs(List<EnvForUpdateFunctionInput> envs) {
@@ -472,8 +514,10 @@ public class UpdateFunctionRequest {
       return false;
     }
     UpdateFunctionRequest updateFunctionRequest = (UpdateFunctionRequest) o;
-    return Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
+    return Objects.equals(this.command, updateFunctionRequest.command) &&
+        Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
         Objects.equals(this.description, updateFunctionRequest.description) &&
+        Objects.equals(this.enableApmplus, updateFunctionRequest.enableApmplus) &&
         Objects.equals(this.envs, updateFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, updateFunctionRequest.exclusiveMode) &&
         Objects.equals(this.id, updateFunctionRequest.id) &&
@@ -495,7 +539,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -504,8 +548,10 @@ public class UpdateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionRequest {\n");
     
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
