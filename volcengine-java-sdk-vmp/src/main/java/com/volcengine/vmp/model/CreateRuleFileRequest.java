@@ -39,6 +39,9 @@ public class CreateRuleFileRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("TargetWorkspaceId")
+  private String targetWorkspaceId = null;
+
   @SerializedName("WorkspaceId")
   private String workspaceId = null;
 
@@ -98,6 +101,24 @@ public class CreateRuleFileRequest {
     this.name = name;
   }
 
+  public CreateRuleFileRequest targetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+    return this;
+  }
+
+   /**
+   * Get targetWorkspaceId
+   * @return targetWorkspaceId
+  **/
+  @Schema(description = "")
+  public String getTargetWorkspaceId() {
+    return targetWorkspaceId;
+  }
+
+  public void setTargetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+  }
+
   public CreateRuleFileRequest workspaceId(String workspaceId) {
     this.workspaceId = workspaceId;
     return this;
@@ -130,12 +151,13 @@ public class CreateRuleFileRequest {
     return Objects.equals(this.content, createRuleFileRequest.content) &&
         Objects.equals(this.description, createRuleFileRequest.description) &&
         Objects.equals(this.name, createRuleFileRequest.name) &&
+        Objects.equals(this.targetWorkspaceId, createRuleFileRequest.targetWorkspaceId) &&
         Objects.equals(this.workspaceId, createRuleFileRequest.workspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, description, name, workspaceId);
+    return Objects.hash(content, description, name, targetWorkspaceId, workspaceId);
   }
 
 
@@ -147,6 +169,7 @@ public class CreateRuleFileRequest {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targetWorkspaceId: ").append(toIndentedString(targetWorkspaceId)).append("\n");
     sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
     sb.append("}");
     return sb.toString();

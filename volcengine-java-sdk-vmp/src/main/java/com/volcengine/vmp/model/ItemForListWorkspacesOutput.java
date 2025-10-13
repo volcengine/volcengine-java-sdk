@@ -33,6 +33,12 @@ import javax.validation.Valid;
 
 
 public class ItemForListWorkspacesOutput {
+  @SerializedName("AccountId")
+  private Integer accountId = null;
+
+  @SerializedName("AccountName")
+  private String accountName = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -66,6 +72,15 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("PrometheusWriteIntranetEndpoint")
   private String prometheusWriteIntranetEndpoint = null;
 
+  @SerializedName("PublicAccessEnabled")
+  private Boolean publicAccessEnabled = null;
+
+  @SerializedName("Region")
+  private String region = null;
+
+  @SerializedName("SearchLatencyOffset")
+  private String searchLatencyOffset = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -74,6 +89,42 @@ public class ItemForListWorkspacesOutput {
 
   @SerializedName("Username")
   private String username = null;
+
+  public ItemForListWorkspacesOutput accountId(Integer accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public Integer getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(Integer accountId) {
+    this.accountId = accountId;
+  }
+
+  public ItemForListWorkspacesOutput accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+   /**
+   * Get accountName
+   * @return accountName
+  **/
+  @Schema(description = "")
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
 
   public ItemForListWorkspacesOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -273,6 +324,60 @@ public class ItemForListWorkspacesOutput {
     this.prometheusWriteIntranetEndpoint = prometheusWriteIntranetEndpoint;
   }
 
+  public ItemForListWorkspacesOutput publicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+    return this;
+  }
+
+   /**
+   * Get publicAccessEnabled
+   * @return publicAccessEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPublicAccessEnabled() {
+    return publicAccessEnabled;
+  }
+
+  public void setPublicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+  }
+
+  public ItemForListWorkspacesOutput region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Get region
+   * @return region
+  **/
+  @Schema(description = "")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public ItemForListWorkspacesOutput searchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
+    return this;
+  }
+
+   /**
+   * Get searchLatencyOffset
+   * @return searchLatencyOffset
+  **/
+  @Schema(description = "")
+  public String getSearchLatencyOffset() {
+    return searchLatencyOffset;
+  }
+
+  public void setSearchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
+  }
+
   public ItemForListWorkspacesOutput status(String status) {
     this.status = status;
     return this;
@@ -346,7 +451,9 @@ public class ItemForListWorkspacesOutput {
       return false;
     }
     ItemForListWorkspacesOutput itemForListWorkspacesOutput = (ItemForListWorkspacesOutput) o;
-    return Objects.equals(this.createTime, itemForListWorkspacesOutput.createTime) &&
+    return Objects.equals(this.accountId, itemForListWorkspacesOutput.accountId) &&
+        Objects.equals(this.accountName, itemForListWorkspacesOutput.accountName) &&
+        Objects.equals(this.createTime, itemForListWorkspacesOutput.createTime) &&
         Objects.equals(this.deleteProtectionEnabled, itemForListWorkspacesOutput.deleteProtectionEnabled) &&
         Objects.equals(this.description, itemForListWorkspacesOutput.description) &&
         Objects.equals(this.id, itemForListWorkspacesOutput.id) &&
@@ -357,6 +464,9 @@ public class ItemForListWorkspacesOutput {
         Objects.equals(this.prometheusPushIntranetEndpoint, itemForListWorkspacesOutput.prometheusPushIntranetEndpoint) &&
         Objects.equals(this.prometheusQueryIntranetEndpoint, itemForListWorkspacesOutput.prometheusQueryIntranetEndpoint) &&
         Objects.equals(this.prometheusWriteIntranetEndpoint, itemForListWorkspacesOutput.prometheusWriteIntranetEndpoint) &&
+        Objects.equals(this.publicAccessEnabled, itemForListWorkspacesOutput.publicAccessEnabled) &&
+        Objects.equals(this.region, itemForListWorkspacesOutput.region) &&
+        Objects.equals(this.searchLatencyOffset, itemForListWorkspacesOutput.searchLatencyOffset) &&
         Objects.equals(this.status, itemForListWorkspacesOutput.status) &&
         Objects.equals(this.tags, itemForListWorkspacesOutput.tags) &&
         Objects.equals(this.username, itemForListWorkspacesOutput.username);
@@ -364,7 +474,7 @@ public class ItemForListWorkspacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, status, tags, username);
+    return Objects.hash(accountId, accountName, createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, region, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -373,6 +483,8 @@ public class ItemForListWorkspacesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListWorkspacesOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -384,6 +496,9 @@ public class ItemForListWorkspacesOutput {
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
+    sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    searchLatencyOffset: ").append(toIndentedString(searchLatencyOffset)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

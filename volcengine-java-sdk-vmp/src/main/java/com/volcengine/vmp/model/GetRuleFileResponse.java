@@ -54,6 +54,9 @@ public class GetRuleFileResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("TargetWorkspaceId")
+  private String targetWorkspaceId = null;
+
   public GetRuleFileResponse content(String content) {
     this.content = content;
     return this;
@@ -198,6 +201,24 @@ public class GetRuleFileResponse extends com.volcengine.model.AbstractResponse {
     this.status = status;
   }
 
+  public GetRuleFileResponse targetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+    return this;
+  }
+
+   /**
+   * Get targetWorkspaceId
+   * @return targetWorkspaceId
+  **/
+  @Schema(description = "")
+  public String getTargetWorkspaceId() {
+    return targetWorkspaceId;
+  }
+
+  public void setTargetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,12 +236,13 @@ public class GetRuleFileResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.lastUpdateTime, getRuleFileResponse.lastUpdateTime) &&
         Objects.equals(this.name, getRuleFileResponse.name) &&
         Objects.equals(this.ruleCount, getRuleFileResponse.ruleCount) &&
-        Objects.equals(this.status, getRuleFileResponse.status);
+        Objects.equals(this.status, getRuleFileResponse.status) &&
+        Objects.equals(this.targetWorkspaceId, getRuleFileResponse.targetWorkspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, createTime, description, id, lastUpdateTime, name, ruleCount, status);
+    return Objects.hash(content, createTime, description, id, lastUpdateTime, name, ruleCount, status, targetWorkspaceId);
   }
 
 
@@ -237,6 +259,7 @@ public class GetRuleFileResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    targetWorkspaceId: ").append(toIndentedString(targetWorkspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,6 +51,9 @@ public class CreateWorkspaceRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("PublicAccessEnabled")
+  private Boolean publicAccessEnabled = null;
+
   @SerializedName("Tags")
   private List<TagForCreateWorkspaceInput> tags = null;
 
@@ -167,6 +170,24 @@ public class CreateWorkspaceRequest {
     this.projectName = projectName;
   }
 
+  public CreateWorkspaceRequest publicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+    return this;
+  }
+
+   /**
+   * Get publicAccessEnabled
+   * @return publicAccessEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPublicAccessEnabled() {
+    return publicAccessEnabled;
+  }
+
+  public void setPublicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+  }
+
   public CreateWorkspaceRequest tags(List<TagForCreateWorkspaceInput> tags) {
     this.tags = tags;
     return this;
@@ -228,13 +249,14 @@ public class CreateWorkspaceRequest {
         Objects.equals(this.name, createWorkspaceRequest.name) &&
         Objects.equals(this.password, createWorkspaceRequest.password) &&
         Objects.equals(this.projectName, createWorkspaceRequest.projectName) &&
+        Objects.equals(this.publicAccessEnabled, createWorkspaceRequest.publicAccessEnabled) &&
         Objects.equals(this.tags, createWorkspaceRequest.tags) &&
         Objects.equals(this.username, createWorkspaceRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtectionEnabled, description, instanceTypeId, name, password, projectName, tags, username);
+    return Objects.hash(deleteProtectionEnabled, description, instanceTypeId, name, password, projectName, publicAccessEnabled, tags, username);
   }
 
 
@@ -249,6 +271,7 @@ public class CreateWorkspaceRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");

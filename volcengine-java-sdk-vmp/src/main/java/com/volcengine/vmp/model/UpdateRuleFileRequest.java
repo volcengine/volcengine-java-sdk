@@ -42,6 +42,9 @@ public class UpdateRuleFileRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("TargetWorkspaceId")
+  private String targetWorkspaceId = null;
+
   @SerializedName("WorkspaceId")
   private String workspaceId = null;
 
@@ -117,6 +120,24 @@ public class UpdateRuleFileRequest {
     this.name = name;
   }
 
+  public UpdateRuleFileRequest targetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+    return this;
+  }
+
+   /**
+   * Get targetWorkspaceId
+   * @return targetWorkspaceId
+  **/
+  @Schema(description = "")
+  public String getTargetWorkspaceId() {
+    return targetWorkspaceId;
+  }
+
+  public void setTargetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+  }
+
   public UpdateRuleFileRequest workspaceId(String workspaceId) {
     this.workspaceId = workspaceId;
     return this;
@@ -149,12 +170,13 @@ public class UpdateRuleFileRequest {
         Objects.equals(this.description, updateRuleFileRequest.description) &&
         Objects.equals(this.id, updateRuleFileRequest.id) &&
         Objects.equals(this.name, updateRuleFileRequest.name) &&
+        Objects.equals(this.targetWorkspaceId, updateRuleFileRequest.targetWorkspaceId) &&
         Objects.equals(this.workspaceId, updateRuleFileRequest.workspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, description, id, name, workspaceId);
+    return Objects.hash(content, description, id, name, targetWorkspaceId, workspaceId);
   }
 
 
@@ -167,6 +189,7 @@ public class UpdateRuleFileRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targetWorkspaceId: ").append(toIndentedString(targetWorkspaceId)).append("\n");
     sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
     sb.append("}");
     return sb.toString();

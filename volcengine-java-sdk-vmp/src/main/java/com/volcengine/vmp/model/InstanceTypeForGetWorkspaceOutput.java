@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vmp.model.CalculatePriceParamForGetWorkspaceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   @SerializedName("AvailabilityZoneReplicas")
   private Integer availabilityZoneReplicas = null;
+
+  @SerializedName("CalculatePriceParams")
+  private List<CalculatePriceParamForGetWorkspaceOutput> calculatePriceParams = null;
 
   @SerializedName("DownsamplingPeriods")
   private List<String> downsamplingPeriods = null;
@@ -99,6 +103,33 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   public void setAvailabilityZoneReplicas(Integer availabilityZoneReplicas) {
     this.availabilityZoneReplicas = availabilityZoneReplicas;
+  }
+
+  public InstanceTypeForGetWorkspaceOutput calculatePriceParams(List<CalculatePriceParamForGetWorkspaceOutput> calculatePriceParams) {
+    this.calculatePriceParams = calculatePriceParams;
+    return this;
+  }
+
+  public InstanceTypeForGetWorkspaceOutput addCalculatePriceParamsItem(CalculatePriceParamForGetWorkspaceOutput calculatePriceParamsItem) {
+    if (this.calculatePriceParams == null) {
+      this.calculatePriceParams = new ArrayList<CalculatePriceParamForGetWorkspaceOutput>();
+    }
+    this.calculatePriceParams.add(calculatePriceParamsItem);
+    return this;
+  }
+
+   /**
+   * Get calculatePriceParams
+   * @return calculatePriceParams
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CalculatePriceParamForGetWorkspaceOutput> getCalculatePriceParams() {
+    return calculatePriceParams;
+  }
+
+  public void setCalculatePriceParams(List<CalculatePriceParamForGetWorkspaceOutput> calculatePriceParams) {
+    this.calculatePriceParams = calculatePriceParams;
   }
 
   public InstanceTypeForGetWorkspaceOutput downsamplingPeriods(List<String> downsamplingPeriods) {
@@ -283,6 +314,7 @@ public class InstanceTypeForGetWorkspaceOutput {
     InstanceTypeForGetWorkspaceOutput instanceTypeForGetWorkspaceOutput = (InstanceTypeForGetWorkspaceOutput) o;
     return Objects.equals(this.activeSeries, instanceTypeForGetWorkspaceOutput.activeSeries) &&
         Objects.equals(this.availabilityZoneReplicas, instanceTypeForGetWorkspaceOutput.availabilityZoneReplicas) &&
+        Objects.equals(this.calculatePriceParams, instanceTypeForGetWorkspaceOutput.calculatePriceParams) &&
         Objects.equals(this.downsamplingPeriods, instanceTypeForGetWorkspaceOutput.downsamplingPeriods) &&
         Objects.equals(this.id, instanceTypeForGetWorkspaceOutput.id) &&
         Objects.equals(this.ingestSamplesPerSecond, instanceTypeForGetWorkspaceOutput.ingestSamplesPerSecond) &&
@@ -296,7 +328,7 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeSeries, availabilityZoneReplicas, downsamplingPeriods, id, ingestSamplesPerSecond, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
+    return Objects.hash(activeSeries, availabilityZoneReplicas, calculatePriceParams, downsamplingPeriods, id, ingestSamplesPerSecond, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
   }
 
 
@@ -307,6 +339,7 @@ public class InstanceTypeForGetWorkspaceOutput {
     
     sb.append("    activeSeries: ").append(toIndentedString(activeSeries)).append("\n");
     sb.append("    availabilityZoneReplicas: ").append(toIndentedString(availabilityZoneReplicas)).append("\n");
+    sb.append("    calculatePriceParams: ").append(toIndentedString(calculatePriceParams)).append("\n");
     sb.append("    downsamplingPeriods: ").append(toIndentedString(downsamplingPeriods)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ingestSamplesPerSecond: ").append(toIndentedString(ingestSamplesPerSecond)).append("\n");

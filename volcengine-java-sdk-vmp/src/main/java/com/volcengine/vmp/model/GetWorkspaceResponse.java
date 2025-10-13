@@ -71,8 +71,20 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("PrometheusWriteIntranetEndpoint")
   private String prometheusWriteIntranetEndpoint = null;
 
+  @SerializedName("PublicAccessEnabled")
+  private Boolean publicAccessEnabled = null;
+
+  @SerializedName("PublicQueryBandwidth")
+  private Long publicQueryBandwidth = null;
+
+  @SerializedName("PublicWriteBandwidth")
+  private Long publicWriteBandwidth = null;
+
   @SerializedName("Quota")
   private QuotaForGetWorkspaceOutput quota = null;
+
+  @SerializedName("SearchLatencyOffset")
+  private String searchLatencyOffset = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -300,6 +312,60 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     this.prometheusWriteIntranetEndpoint = prometheusWriteIntranetEndpoint;
   }
 
+  public GetWorkspaceResponse publicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+    return this;
+  }
+
+   /**
+   * Get publicAccessEnabled
+   * @return publicAccessEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPublicAccessEnabled() {
+    return publicAccessEnabled;
+  }
+
+  public void setPublicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+  }
+
+  public GetWorkspaceResponse publicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicQueryBandwidth
+   * @return publicQueryBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicQueryBandwidth() {
+    return publicQueryBandwidth;
+  }
+
+  public void setPublicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+  }
+
+  public GetWorkspaceResponse publicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicWriteBandwidth
+   * @return publicWriteBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicWriteBandwidth() {
+    return publicWriteBandwidth;
+  }
+
+  public void setPublicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
+  }
+
   public GetWorkspaceResponse quota(QuotaForGetWorkspaceOutput quota) {
     this.quota = quota;
     return this;
@@ -317,6 +383,24 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   public void setQuota(QuotaForGetWorkspaceOutput quota) {
     this.quota = quota;
+  }
+
+  public GetWorkspaceResponse searchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
+    return this;
+  }
+
+   /**
+   * Get searchLatencyOffset
+   * @return searchLatencyOffset
+  **/
+  @Schema(description = "")
+  public String getSearchLatencyOffset() {
+    return searchLatencyOffset;
+  }
+
+  public void setSearchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
   }
 
   public GetWorkspaceResponse status(String status) {
@@ -404,7 +488,11 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
         Objects.equals(this.prometheusPushIntranetEndpoint, getWorkspaceResponse.prometheusPushIntranetEndpoint) &&
         Objects.equals(this.prometheusQueryIntranetEndpoint, getWorkspaceResponse.prometheusQueryIntranetEndpoint) &&
         Objects.equals(this.prometheusWriteIntranetEndpoint, getWorkspaceResponse.prometheusWriteIntranetEndpoint) &&
+        Objects.equals(this.publicAccessEnabled, getWorkspaceResponse.publicAccessEnabled) &&
+        Objects.equals(this.publicQueryBandwidth, getWorkspaceResponse.publicQueryBandwidth) &&
+        Objects.equals(this.publicWriteBandwidth, getWorkspaceResponse.publicWriteBandwidth) &&
         Objects.equals(this.quota, getWorkspaceResponse.quota) &&
+        Objects.equals(this.searchLatencyOffset, getWorkspaceResponse.searchLatencyOffset) &&
         Objects.equals(this.status, getWorkspaceResponse.status) &&
         Objects.equals(this.tags, getWorkspaceResponse.tags) &&
         Objects.equals(this.username, getWorkspaceResponse.username);
@@ -412,7 +500,7 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, quota, status, tags, username);
+    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -433,7 +521,11 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
+    sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
+    sb.append("    publicQueryBandwidth: ").append(toIndentedString(publicQueryBandwidth)).append("\n");
+    sb.append("    publicWriteBandwidth: ").append(toIndentedString(publicWriteBandwidth)).append("\n");
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
+    sb.append("    searchLatencyOffset: ").append(toIndentedString(searchLatencyOffset)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

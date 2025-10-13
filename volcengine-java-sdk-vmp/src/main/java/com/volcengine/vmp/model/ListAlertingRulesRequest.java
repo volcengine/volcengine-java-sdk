@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vmp.model.FilterForListAlertingRulesInput;
+import com.volcengine.vmp.model.TagFilterForListAlertingRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -40,11 +43,17 @@ public class ListAlertingRulesRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SortBy")
   private String sortBy = null;
 
   @SerializedName("SortOrder")
   private String sortOrder = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForListAlertingRulesInput> tagFilters = null;
 
   public ListAlertingRulesRequest filter(FilterForListAlertingRulesInput filter) {
     this.filter = filter;
@@ -101,6 +110,24 @@ public class ListAlertingRulesRequest {
     this.pageSize = pageSize;
   }
 
+  public ListAlertingRulesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAlertingRulesRequest sortBy(String sortBy) {
     this.sortBy = sortBy;
     return this;
@@ -137,6 +164,33 @@ public class ListAlertingRulesRequest {
     this.sortOrder = sortOrder;
   }
 
+  public ListAlertingRulesRequest tagFilters(List<TagFilterForListAlertingRulesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListAlertingRulesRequest addTagFiltersItem(TagFilterForListAlertingRulesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListAlertingRulesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListAlertingRulesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListAlertingRulesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,13 +204,15 @@ public class ListAlertingRulesRequest {
     return Objects.equals(this.filter, listAlertingRulesRequest.filter) &&
         Objects.equals(this.pageNumber, listAlertingRulesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listAlertingRulesRequest.pageSize) &&
+        Objects.equals(this.projectName, listAlertingRulesRequest.projectName) &&
         Objects.equals(this.sortBy, listAlertingRulesRequest.sortBy) &&
-        Objects.equals(this.sortOrder, listAlertingRulesRequest.sortOrder);
+        Objects.equals(this.sortOrder, listAlertingRulesRequest.sortOrder) &&
+        Objects.equals(this.tagFilters, listAlertingRulesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, sortBy, sortOrder);
+    return Objects.hash(filter, pageNumber, pageSize, projectName, sortBy, sortOrder, tagFilters);
   }
 
 
@@ -168,8 +224,10 @@ public class ListAlertingRulesRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
