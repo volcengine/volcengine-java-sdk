@@ -48,6 +48,9 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
   @SerializedName("VIPv6")
   private String viPv6 = null;
 
+  @SerializedName("Zone")
+  private String zone = null;
+
   public VisitAddrForDescribeDBInstanceDetailOutput addrType(String addrType) {
     this.addrType = addrType;
     return this;
@@ -156,6 +159,24 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
     this.viPv6 = viPv6;
   }
 
+  public VisitAddrForDescribeDBInstanceDetailOutput zone(String zone) {
+    this.zone = zone;
+    return this;
+  }
+
+   /**
+   * Get zone
+   * @return zone
+  **/
+  @Schema(description = "")
+  public String getZone() {
+    return zone;
+  }
+
+  public void setZone(String zone) {
+    this.zone = zone;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +192,13 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
         Objects.equals(this.eipId, visitAddrForDescribeDBInstanceDetailOutput.eipId) &&
         Objects.equals(this.port, visitAddrForDescribeDBInstanceDetailOutput.port) &&
         Objects.equals(this.VIP, visitAddrForDescribeDBInstanceDetailOutput.VIP) &&
-        Objects.equals(this.viPv6, visitAddrForDescribeDBInstanceDetailOutput.viPv6);
+        Objects.equals(this.viPv6, visitAddrForDescribeDBInstanceDetailOutput.viPv6) &&
+        Objects.equals(this.zone, visitAddrForDescribeDBInstanceDetailOutput.zone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addrType, address, eipId, port, VIP, viPv6);
+    return Objects.hash(addrType, address, eipId, port, VIP, viPv6, zone);
   }
 
 
@@ -191,6 +213,7 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    VIP: ").append(toIndentedString(VIP)).append("\n");
     sb.append("    viPv6: ").append(toIndentedString(viPv6)).append("\n");
+    sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

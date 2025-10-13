@@ -40,6 +40,9 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
   @SerializedName("AssociateCens")
   private List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens = null;
 
+  @SerializedName("BgpAsn")
+  private Integer bgpAsn = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -122,6 +125,24 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
 
   public void setAssociateCens(List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens) {
     this.associateCens = associateCens;
+  }
+
+  public DescribeDirectConnectGatewayAttributesResponse bgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
+    return this;
+  }
+
+   /**
+   * Get bgpAsn
+   * @return bgpAsn
+  **/
+  @Schema(description = "")
+  public Integer getBgpAsn() {
+    return bgpAsn;
+  }
+
+  public void setBgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
   }
 
   public DescribeDirectConnectGatewayAttributesResponse businessStatus(String businessStatus) {
@@ -379,6 +400,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
     DescribeDirectConnectGatewayAttributesResponse describeDirectConnectGatewayAttributesResponse = (DescribeDirectConnectGatewayAttributesResponse) o;
     return Objects.equals(this.accountId, describeDirectConnectGatewayAttributesResponse.accountId) &&
         Objects.equals(this.associateCens, describeDirectConnectGatewayAttributesResponse.associateCens) &&
+        Objects.equals(this.bgpAsn, describeDirectConnectGatewayAttributesResponse.bgpAsn) &&
         Objects.equals(this.businessStatus, describeDirectConnectGatewayAttributesResponse.businessStatus) &&
         Objects.equals(this.creationTime, describeDirectConnectGatewayAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeDirectConnectGatewayAttributesResponse.deletedTime) &&
@@ -396,7 +418,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, requestId, status, tags, updateTime);
+    return Objects.hash(accountId, associateCens, bgpAsn, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, requestId, status, tags, updateTime);
   }
 
 
@@ -407,6 +429,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associateCens: ").append(toIndentedString(associateCens)).append("\n");
+    sb.append("    bgpAsn: ").append(toIndentedString(bgpAsn)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");

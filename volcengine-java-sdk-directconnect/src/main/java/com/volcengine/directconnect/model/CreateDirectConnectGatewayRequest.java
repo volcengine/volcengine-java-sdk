@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateDirectConnectGatewayRequest {
+  @SerializedName("BgpAsn")
+  private Integer bgpAsn = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -50,6 +53,24 @@ public class CreateDirectConnectGatewayRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateDirectConnectGatewayInput> tags = null;
+
+  public CreateDirectConnectGatewayRequest bgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
+    return this;
+  }
+
+   /**
+   * Get bgpAsn
+   * @return bgpAsn
+  **/
+  @Schema(description = "")
+  public Integer getBgpAsn() {
+    return bgpAsn;
+  }
+
+  public void setBgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
+  }
 
   public CreateDirectConnectGatewayRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -178,7 +199,8 @@ public class CreateDirectConnectGatewayRequest {
       return false;
     }
     CreateDirectConnectGatewayRequest createDirectConnectGatewayRequest = (CreateDirectConnectGatewayRequest) o;
-    return Objects.equals(this.clientToken, createDirectConnectGatewayRequest.clientToken) &&
+    return Objects.equals(this.bgpAsn, createDirectConnectGatewayRequest.bgpAsn) &&
+        Objects.equals(this.clientToken, createDirectConnectGatewayRequest.clientToken) &&
         Objects.equals(this.description, createDirectConnectGatewayRequest.description) &&
         Objects.equals(this.directConnectGatewayName, createDirectConnectGatewayRequest.directConnectGatewayName) &&
         Objects.equals(this.enableIpv6, createDirectConnectGatewayRequest.enableIpv6) &&
@@ -188,7 +210,7 @@ public class CreateDirectConnectGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, directConnectGatewayName, enableIpv6, projectName, tags);
+    return Objects.hash(bgpAsn, clientToken, description, directConnectGatewayName, enableIpv6, projectName, tags);
   }
 
 
@@ -197,6 +219,7 @@ public class CreateDirectConnectGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDirectConnectGatewayRequest {\n");
     
+    sb.append("    bgpAsn: ").append(toIndentedString(bgpAsn)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
