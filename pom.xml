@@ -315,6 +315,7 @@
         <module>volcengine-java-sdk-vikingdb</module>
         <module>volcengine-java-sdk-cloudmonitor</module>
         <module>volcengine-java-sdk-resourceshare</module>
+        <module>volcengine-java-sdk-na</module>
         <module>volcengine-java-sdk-dms20250101</module>
     </modules>
 </project>
