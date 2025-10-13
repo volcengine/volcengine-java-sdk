@@ -51,6 +51,9 @@ public class ItemForListRuleFilesOutput {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("TargetWorkspaceId")
+  private String targetWorkspaceId = null;
+
   public ItemForListRuleFilesOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -177,6 +180,24 @@ public class ItemForListRuleFilesOutput {
     this.status = status;
   }
 
+  public ItemForListRuleFilesOutput targetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+    return this;
+  }
+
+   /**
+   * Get targetWorkspaceId
+   * @return targetWorkspaceId
+  **/
+  @Schema(description = "")
+  public String getTargetWorkspaceId() {
+    return targetWorkspaceId;
+  }
+
+  public void setTargetWorkspaceId(String targetWorkspaceId) {
+    this.targetWorkspaceId = targetWorkspaceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,12 +214,13 @@ public class ItemForListRuleFilesOutput {
         Objects.equals(this.lastUpdateTime, itemForListRuleFilesOutput.lastUpdateTime) &&
         Objects.equals(this.name, itemForListRuleFilesOutput.name) &&
         Objects.equals(this.ruleCount, itemForListRuleFilesOutput.ruleCount) &&
-        Objects.equals(this.status, itemForListRuleFilesOutput.status);
+        Objects.equals(this.status, itemForListRuleFilesOutput.status) &&
+        Objects.equals(this.targetWorkspaceId, itemForListRuleFilesOutput.targetWorkspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, id, lastUpdateTime, name, ruleCount, status);
+    return Objects.hash(createTime, description, id, lastUpdateTime, name, ruleCount, status, targetWorkspaceId);
   }
 
 
@@ -214,6 +236,7 @@ public class ItemForListRuleFilesOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    targetWorkspaceId: ").append(toIndentedString(targetWorkspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

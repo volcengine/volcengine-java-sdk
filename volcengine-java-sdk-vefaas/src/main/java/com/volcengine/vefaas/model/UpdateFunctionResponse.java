@@ -59,6 +59,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableApmplus")
+  private Boolean enableApmplus = null;
+
   @SerializedName("Envs")
   private List<EnvForUpdateFunctionOutput> envs = null;
 
@@ -258,6 +261,24 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateFunctionResponse enableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
+    return this;
+  }
+
+   /**
+   * Get enableApmplus
+   * @return enableApmplus
+  **/
+  @Schema(description = "")
+  public Boolean isEnableApmplus() {
+    return enableApmplus;
+  }
+
+  public void setEnableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
   }
 
   public UpdateFunctionResponse envs(List<EnvForUpdateFunctionOutput> envs) {
@@ -749,6 +770,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.cpuStrategy, updateFunctionResponse.cpuStrategy) &&
         Objects.equals(this.creationTime, updateFunctionResponse.creationTime) &&
         Objects.equals(this.description, updateFunctionResponse.description) &&
+        Objects.equals(this.enableApmplus, updateFunctionResponse.enableApmplus) &&
         Objects.equals(this.envs, updateFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, updateFunctionResponse.exclusiveMode) &&
         Objects.equals(this.functionType, updateFunctionResponse.functionType) &&
@@ -778,7 +800,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -794,6 +816,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");

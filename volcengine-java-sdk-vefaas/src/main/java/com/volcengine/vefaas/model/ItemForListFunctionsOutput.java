@@ -50,6 +50,9 @@ public class ItemForListFunctionsOutput {
   @SerializedName("Command")
   private String command = null;
 
+  @SerializedName("Cpu")
+  private Integer cpu = null;
+
   @SerializedName("CpuStrategy")
   private String cpuStrategy = null;
 
@@ -204,6 +207,24 @@ public class ItemForListFunctionsOutput {
 
   public void setCommand(String command) {
     this.command = command;
+  }
+
+  public ItemForListFunctionsOutput cpu(Integer cpu) {
+    this.cpu = cpu;
+    return this;
+  }
+
+   /**
+   * Get cpu
+   * @return cpu
+  **/
+  @Schema(description = "")
+  public Integer getCpu() {
+    return cpu;
+  }
+
+  public void setCpu(Integer cpu) {
+    this.cpu = cpu;
   }
 
   public ItemForListFunctionsOutput cpuStrategy(String cpuStrategy) {
@@ -746,6 +767,7 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.codeSize, itemForListFunctionsOutput.codeSize) &&
         Objects.equals(this.codeSizeLimit, itemForListFunctionsOutput.codeSizeLimit) &&
         Objects.equals(this.command, itemForListFunctionsOutput.command) &&
+        Objects.equals(this.cpu, itemForListFunctionsOutput.cpu) &&
         Objects.equals(this.cpuStrategy, itemForListFunctionsOutput.cpuStrategy) &&
         Objects.equals(this.creationTime, itemForListFunctionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
@@ -778,7 +800,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -791,6 +813,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

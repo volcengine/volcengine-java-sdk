@@ -50,11 +50,17 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("Command")
   private String command = null;
 
+  @SerializedName("Cpu")
+  private Integer cpu = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EnableApmplus")
+  private Boolean enableApmplus = null;
 
   @SerializedName("Envs")
   private List<EnvForCreateFunctionOutput> envs = null;
@@ -197,6 +203,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.command = command;
   }
 
+  public CreateFunctionResponse cpu(Integer cpu) {
+    this.cpu = cpu;
+    return this;
+  }
+
+   /**
+   * Get cpu
+   * @return cpu
+  **/
+  @Schema(description = "")
+  public Integer getCpu() {
+    return cpu;
+  }
+
+  public void setCpu(Integer cpu) {
+    this.cpu = cpu;
+  }
+
   public CreateFunctionResponse creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
@@ -231,6 +255,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateFunctionResponse enableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
+    return this;
+  }
+
+   /**
+   * Get enableApmplus
+   * @return enableApmplus
+  **/
+  @Schema(description = "")
+  public Boolean isEnableApmplus() {
+    return enableApmplus;
+  }
+
+  public void setEnableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
   }
 
   public CreateFunctionResponse envs(List<EnvForCreateFunctionOutput> envs) {
@@ -683,8 +725,10 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.codeSize, createFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, createFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.command, createFunctionResponse.command) &&
+        Objects.equals(this.cpu, createFunctionResponse.cpu) &&
         Objects.equals(this.creationTime, createFunctionResponse.creationTime) &&
         Objects.equals(this.description, createFunctionResponse.description) &&
+        Objects.equals(this.enableApmplus, createFunctionResponse.enableApmplus) &&
         Objects.equals(this.envs, createFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, createFunctionResponse.exclusiveMode) &&
         Objects.equals(this.functionType, createFunctionResponse.functionType) &&
@@ -712,7 +756,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, role, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, role, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -725,8 +769,10 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");

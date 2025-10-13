@@ -23,6 +23,7 @@ import com.volcengine.vmp.model.AnnotationForCreateAlertingRuleInput;
 import com.volcengine.vmp.model.LabelForCreateAlertingRuleInput;
 import com.volcengine.vmp.model.LevelForCreateAlertingRuleInput;
 import com.volcengine.vmp.model.QueryForCreateAlertingRuleInput;
+import com.volcengine.vmp.model.TagForCreateAlertingRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,8 +58,14 @@ public class CreateAlertingRuleRequest {
   @SerializedName("NotifyPolicyId")
   private String notifyPolicyId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Query")
   private QueryForCreateAlertingRuleInput query = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateAlertingRuleInput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -218,6 +225,24 @@ public class CreateAlertingRuleRequest {
     this.notifyPolicyId = notifyPolicyId;
   }
 
+  public CreateAlertingRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateAlertingRuleRequest query(QueryForCreateAlertingRuleInput query) {
     this.query = query;
     return this;
@@ -235,6 +260,33 @@ public class CreateAlertingRuleRequest {
 
   public void setQuery(QueryForCreateAlertingRuleInput query) {
     this.query = query;
+  }
+
+  public CreateAlertingRuleRequest tags(List<TagForCreateAlertingRuleInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateAlertingRuleRequest addTagsItem(TagForCreateAlertingRuleInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateAlertingRuleInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateAlertingRuleInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateAlertingRuleInput> tags) {
+    this.tags = tags;
   }
 
   public CreateAlertingRuleRequest type(String type) {
@@ -273,13 +325,15 @@ public class CreateAlertingRuleRequest {
         Objects.equals(this.name, createAlertingRuleRequest.name) &&
         Objects.equals(this.notifyGroupPolicyId, createAlertingRuleRequest.notifyGroupPolicyId) &&
         Objects.equals(this.notifyPolicyId, createAlertingRuleRequest.notifyPolicyId) &&
+        Objects.equals(this.projectName, createAlertingRuleRequest.projectName) &&
         Objects.equals(this.query, createAlertingRuleRequest.query) &&
+        Objects.equals(this.tags, createAlertingRuleRequest.tags) &&
         Objects.equals(this.type, createAlertingRuleRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, description, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, query, type);
+    return Objects.hash(annotations, description, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, projectName, query, tags, type);
   }
 
 
@@ -295,7 +349,9 @@ public class CreateAlertingRuleRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyGroupPolicyId: ").append(toIndentedString(notifyGroupPolicyId)).append("\n");
     sb.append("    notifyPolicyId: ").append(toIndentedString(notifyPolicyId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

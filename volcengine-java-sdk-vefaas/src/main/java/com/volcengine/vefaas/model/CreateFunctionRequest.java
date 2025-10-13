@@ -54,6 +54,9 @@ public class CreateFunctionRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableApmplus")
+  private Boolean enableApmplus = null;
+
   @SerializedName("Envs")
   private List<EnvForCreateFunctionInput> envs = null;
 
@@ -77,6 +80,9 @@ public class CreateFunctionRequest {
 
   @SerializedName("NasStorage")
   private NasStorageForCreateFunctionInput nasStorage = null;
+
+  @SerializedName("Port")
+  private Integer port = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -199,6 +205,24 @@ public class CreateFunctionRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateFunctionRequest enableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
+    return this;
+  }
+
+   /**
+   * Get enableApmplus
+   * @return enableApmplus
+  **/
+  @Schema(description = "")
+  public Boolean isEnableApmplus() {
+    return enableApmplus;
+  }
+
+  public void setEnableApmplus(Boolean enableApmplus) {
+    this.enableApmplus = enableApmplus;
   }
 
   public CreateFunctionRequest envs(List<EnvForCreateFunctionInput> envs) {
@@ -354,6 +378,24 @@ public class CreateFunctionRequest {
 
   public void setNasStorage(NasStorageForCreateFunctionInput nasStorage) {
     this.nasStorage = nasStorage;
+  }
+
+  public CreateFunctionRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
   }
 
   public CreateFunctionRequest projectName(String projectName) {
@@ -583,6 +625,7 @@ public class CreateFunctionRequest {
         Objects.equals(this.cpuMilli, createFunctionRequest.cpuMilli) &&
         Objects.equals(this.cpuStrategy, createFunctionRequest.cpuStrategy) &&
         Objects.equals(this.description, createFunctionRequest.description) &&
+        Objects.equals(this.enableApmplus, createFunctionRequest.enableApmplus) &&
         Objects.equals(this.envs, createFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, createFunctionRequest.exclusiveMode) &&
         Objects.equals(this.initializerSec, createFunctionRequest.initializerSec) &&
@@ -591,6 +634,7 @@ public class CreateFunctionRequest {
         Objects.equals(this.memoryMB, createFunctionRequest.memoryMB) &&
         Objects.equals(this.name, createFunctionRequest.name) &&
         Objects.equals(this.nasStorage, createFunctionRequest.nasStorage) &&
+        Objects.equals(this.port, createFunctionRequest.port) &&
         Objects.equals(this.projectName, createFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, createFunctionRequest.requestTimeout) &&
         Objects.equals(this.role, createFunctionRequest.role) &&
@@ -606,7 +650,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, enableApmplus, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, port, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -620,6 +664,7 @@ public class CreateFunctionRequest {
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
@@ -628,6 +673,7 @@ public class CreateFunctionRequest {
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

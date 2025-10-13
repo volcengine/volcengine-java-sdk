@@ -23,6 +23,7 @@ import com.volcengine.vmp.model.AnnotationForListAlertingRulesOutput;
 import com.volcengine.vmp.model.LabelForListAlertingRulesOutput;
 import com.volcengine.vmp.model.LevelForListAlertingRulesOutput;
 import com.volcengine.vmp.model.QueryForListAlertingRulesOutput;
+import com.volcengine.vmp.model.TagForListAlertingRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,11 +67,17 @@ public class ItemForListAlertingRulesOutput {
   @SerializedName("NotifyPolicyId")
   private String notifyPolicyId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Query")
   private QueryForListAlertingRulesOutput query = null;
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForListAlertingRulesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -285,6 +292,24 @@ public class ItemForListAlertingRulesOutput {
     this.notifyPolicyId = notifyPolicyId;
   }
 
+  public ItemForListAlertingRulesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ItemForListAlertingRulesOutput query(QueryForListAlertingRulesOutput query) {
     this.query = query;
     return this;
@@ -320,6 +345,33 @@ public class ItemForListAlertingRulesOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public ItemForListAlertingRulesOutput tags(List<TagForListAlertingRulesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ItemForListAlertingRulesOutput addTagsItem(TagForListAlertingRulesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListAlertingRulesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListAlertingRulesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListAlertingRulesOutput> tags) {
+    this.tags = tags;
   }
 
   public ItemForListAlertingRulesOutput type(String type) {
@@ -378,15 +430,17 @@ public class ItemForListAlertingRulesOutput {
         Objects.equals(this.name, itemForListAlertingRulesOutput.name) &&
         Objects.equals(this.notifyGroupPolicyId, itemForListAlertingRulesOutput.notifyGroupPolicyId) &&
         Objects.equals(this.notifyPolicyId, itemForListAlertingRulesOutput.notifyPolicyId) &&
+        Objects.equals(this.projectName, itemForListAlertingRulesOutput.projectName) &&
         Objects.equals(this.query, itemForListAlertingRulesOutput.query) &&
         Objects.equals(this.status, itemForListAlertingRulesOutput.status) &&
+        Objects.equals(this.tags, itemForListAlertingRulesOutput.tags) &&
         Objects.equals(this.type, itemForListAlertingRulesOutput.type) &&
         Objects.equals(this.updateTime, itemForListAlertingRulesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, query, status, type, updateTime);
+    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, projectName, query, status, tags, type, updateTime);
   }
 
 
@@ -405,8 +459,10 @@ public class ItemForListAlertingRulesOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyGroupPolicyId: ").append(toIndentedString(notifyGroupPolicyId)).append("\n");
     sb.append("    notifyPolicyId: ").append(toIndentedString(notifyPolicyId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

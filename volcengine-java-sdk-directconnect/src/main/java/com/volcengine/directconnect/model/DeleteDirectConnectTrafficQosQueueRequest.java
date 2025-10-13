@@ -30,26 +30,26 @@ import javax.validation.Valid;
 
 
 public class DeleteDirectConnectTrafficQosQueueRequest {
-  @SerializedName("DeleteDirectConnectTrafficQosQueue")
-  private String deleteDirectConnectTrafficQosQueue = null;
+  @SerializedName("DirectConnectTrafficQosQueueId")
+  private String directConnectTrafficQosQueueId = null;
 
-  public DeleteDirectConnectTrafficQosQueueRequest deleteDirectConnectTrafficQosQueue(String deleteDirectConnectTrafficQosQueue) {
-    this.deleteDirectConnectTrafficQosQueue = deleteDirectConnectTrafficQosQueue;
+  public DeleteDirectConnectTrafficQosQueueRequest directConnectTrafficQosQueueId(String directConnectTrafficQosQueueId) {
+    this.directConnectTrafficQosQueueId = directConnectTrafficQosQueueId;
     return this;
   }
 
    /**
-   * Get deleteDirectConnectTrafficQosQueue
-   * @return deleteDirectConnectTrafficQosQueue
+   * Get directConnectTrafficQosQueueId
+   * @return directConnectTrafficQosQueueId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getDeleteDirectConnectTrafficQosQueue() {
-    return deleteDirectConnectTrafficQosQueue;
+  public String getDirectConnectTrafficQosQueueId() {
+    return directConnectTrafficQosQueueId;
   }
 
-  public void setDeleteDirectConnectTrafficQosQueue(String deleteDirectConnectTrafficQosQueue) {
-    this.deleteDirectConnectTrafficQosQueue = deleteDirectConnectTrafficQosQueue;
+  public void setDirectConnectTrafficQosQueueId(String directConnectTrafficQosQueueId) {
+    this.directConnectTrafficQosQueueId = directConnectTrafficQosQueueId;
   }
 
 
@@ -62,12 +62,12 @@ public class DeleteDirectConnectTrafficQosQueueRequest {
       return false;
     }
     DeleteDirectConnectTrafficQosQueueRequest deleteDirectConnectTrafficQosQueueRequest = (DeleteDirectConnectTrafficQosQueueRequest) o;
-    return Objects.equals(this.deleteDirectConnectTrafficQosQueue, deleteDirectConnectTrafficQosQueueRequest.deleteDirectConnectTrafficQosQueue);
+    return Objects.equals(this.directConnectTrafficQosQueueId, deleteDirectConnectTrafficQosQueueRequest.directConnectTrafficQosQueueId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteDirectConnectTrafficQosQueue);
+    return Objects.hash(directConnectTrafficQosQueueId);
   }
 
 
@@ -76,7 +76,7 @@ public class DeleteDirectConnectTrafficQosQueueRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDirectConnectTrafficQosQueueRequest {\n");
     
-    sb.append("    deleteDirectConnectTrafficQosQueue: ").append(toIndentedString(deleteDirectConnectTrafficQosQueue)).append("\n");
+    sb.append("    directConnectTrafficQosQueueId: ").append(toIndentedString(directConnectTrafficQosQueueId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,6 +23,7 @@ import com.volcengine.vmp.model.AnnotationForGetAlertingRuleOutput;
 import com.volcengine.vmp.model.LabelForGetAlertingRuleOutput;
 import com.volcengine.vmp.model.LevelForGetAlertingRuleOutput;
 import com.volcengine.vmp.model.QueryForGetAlertingRuleOutput;
+import com.volcengine.vmp.model.TagForGetAlertingRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,11 +67,17 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("NotifyPolicyId")
   private String notifyPolicyId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Query")
   private QueryForGetAlertingRuleOutput query = null;
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForGetAlertingRuleOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -285,6 +292,24 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
     this.notifyPolicyId = notifyPolicyId;
   }
 
+  public GetAlertingRuleResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetAlertingRuleResponse query(QueryForGetAlertingRuleOutput query) {
     this.query = query;
     return this;
@@ -320,6 +345,33 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public GetAlertingRuleResponse tags(List<TagForGetAlertingRuleOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public GetAlertingRuleResponse addTagsItem(TagForGetAlertingRuleOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForGetAlertingRuleOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForGetAlertingRuleOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForGetAlertingRuleOutput> tags) {
+    this.tags = tags;
   }
 
   public GetAlertingRuleResponse type(String type) {
@@ -378,15 +430,17 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.name, getAlertingRuleResponse.name) &&
         Objects.equals(this.notifyGroupPolicyId, getAlertingRuleResponse.notifyGroupPolicyId) &&
         Objects.equals(this.notifyPolicyId, getAlertingRuleResponse.notifyPolicyId) &&
+        Objects.equals(this.projectName, getAlertingRuleResponse.projectName) &&
         Objects.equals(this.query, getAlertingRuleResponse.query) &&
         Objects.equals(this.status, getAlertingRuleResponse.status) &&
+        Objects.equals(this.tags, getAlertingRuleResponse.tags) &&
         Objects.equals(this.type, getAlertingRuleResponse.type) &&
         Objects.equals(this.updateTime, getAlertingRuleResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, query, status, type, updateTime);
+    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, projectName, query, status, tags, type, updateTime);
   }
 
 
@@ -405,8 +459,10 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyGroupPolicyId: ").append(toIndentedString(notifyGroupPolicyId)).append("\n");
     sb.append("    notifyPolicyId: ").append(toIndentedString(notifyPolicyId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
