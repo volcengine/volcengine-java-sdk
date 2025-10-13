@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vmp.model.CalculatePriceParamForListWorkspaceInstanceTypesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class ItemForListWorkspaceInstanceTypesOutput {
 
   @SerializedName("AvailabilityZoneReplicas")
   private Integer availabilityZoneReplicas = null;
+
+  @SerializedName("CalculatePriceParams")
+  private List<CalculatePriceParamForListWorkspaceInstanceTypesOutput> calculatePriceParams = null;
 
   @SerializedName("DownsamplingPeriods")
   private List<String> downsamplingPeriods = null;
@@ -99,6 +103,33 @@ public class ItemForListWorkspaceInstanceTypesOutput {
 
   public void setAvailabilityZoneReplicas(Integer availabilityZoneReplicas) {
     this.availabilityZoneReplicas = availabilityZoneReplicas;
+  }
+
+  public ItemForListWorkspaceInstanceTypesOutput calculatePriceParams(List<CalculatePriceParamForListWorkspaceInstanceTypesOutput> calculatePriceParams) {
+    this.calculatePriceParams = calculatePriceParams;
+    return this;
+  }
+
+  public ItemForListWorkspaceInstanceTypesOutput addCalculatePriceParamsItem(CalculatePriceParamForListWorkspaceInstanceTypesOutput calculatePriceParamsItem) {
+    if (this.calculatePriceParams == null) {
+      this.calculatePriceParams = new ArrayList<CalculatePriceParamForListWorkspaceInstanceTypesOutput>();
+    }
+    this.calculatePriceParams.add(calculatePriceParamsItem);
+    return this;
+  }
+
+   /**
+   * Get calculatePriceParams
+   * @return calculatePriceParams
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CalculatePriceParamForListWorkspaceInstanceTypesOutput> getCalculatePriceParams() {
+    return calculatePriceParams;
+  }
+
+  public void setCalculatePriceParams(List<CalculatePriceParamForListWorkspaceInstanceTypesOutput> calculatePriceParams) {
+    this.calculatePriceParams = calculatePriceParams;
   }
 
   public ItemForListWorkspaceInstanceTypesOutput downsamplingPeriods(List<String> downsamplingPeriods) {
@@ -283,6 +314,7 @@ public class ItemForListWorkspaceInstanceTypesOutput {
     ItemForListWorkspaceInstanceTypesOutput itemForListWorkspaceInstanceTypesOutput = (ItemForListWorkspaceInstanceTypesOutput) o;
     return Objects.equals(this.activeSeries, itemForListWorkspaceInstanceTypesOutput.activeSeries) &&
         Objects.equals(this.availabilityZoneReplicas, itemForListWorkspaceInstanceTypesOutput.availabilityZoneReplicas) &&
+        Objects.equals(this.calculatePriceParams, itemForListWorkspaceInstanceTypesOutput.calculatePriceParams) &&
         Objects.equals(this.downsamplingPeriods, itemForListWorkspaceInstanceTypesOutput.downsamplingPeriods) &&
         Objects.equals(this.id, itemForListWorkspaceInstanceTypesOutput.id) &&
         Objects.equals(this.ingestSamplesPerSecond, itemForListWorkspaceInstanceTypesOutput.ingestSamplesPerSecond) &&
@@ -296,7 +328,7 @@ public class ItemForListWorkspaceInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeSeries, availabilityZoneReplicas, downsamplingPeriods, id, ingestSamplesPerSecond, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
+    return Objects.hash(activeSeries, availabilityZoneReplicas, calculatePriceParams, downsamplingPeriods, id, ingestSamplesPerSecond, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
   }
 
 
@@ -307,6 +339,7 @@ public class ItemForListWorkspaceInstanceTypesOutput {
     
     sb.append("    activeSeries: ").append(toIndentedString(activeSeries)).append("\n");
     sb.append("    availabilityZoneReplicas: ").append(toIndentedString(availabilityZoneReplicas)).append("\n");
+    sb.append("    calculatePriceParams: ").append(toIndentedString(calculatePriceParams)).append("\n");
     sb.append("    downsamplingPeriods: ").append(toIndentedString(downsamplingPeriods)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ingestSamplesPerSecond: ").append(toIndentedString(ingestSamplesPerSecond)).append("\n");

@@ -40,14 +40,29 @@ public class UpdateWorkspaceRequest {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
+
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Password")
   private String password = null;
 
+  @SerializedName("PublicAccessEnabled")
+  private Boolean publicAccessEnabled = null;
+
+  @SerializedName("PublicQueryBandwidth")
+  private Long publicQueryBandwidth = null;
+
+  @SerializedName("PublicWriteBandwidth")
+  private Long publicWriteBandwidth = null;
+
   @SerializedName("Quota")
   private QuotaForUpdateWorkspaceInput quota = null;
+
+  @SerializedName("SearchLatencyOffset")
+  private String searchLatencyOffset = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -107,6 +122,24 @@ public class UpdateWorkspaceRequest {
     this.id = id;
   }
 
+  public UpdateWorkspaceRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+  }
+
   public UpdateWorkspaceRequest name(String name) {
     this.name = name;
     return this;
@@ -143,6 +176,60 @@ public class UpdateWorkspaceRequest {
     this.password = password;
   }
 
+  public UpdateWorkspaceRequest publicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+    return this;
+  }
+
+   /**
+   * Get publicAccessEnabled
+   * @return publicAccessEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPublicAccessEnabled() {
+    return publicAccessEnabled;
+  }
+
+  public void setPublicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+  }
+
+  public UpdateWorkspaceRequest publicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicQueryBandwidth
+   * @return publicQueryBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicQueryBandwidth() {
+    return publicQueryBandwidth;
+  }
+
+  public void setPublicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+  }
+
+  public UpdateWorkspaceRequest publicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicWriteBandwidth
+   * @return publicWriteBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicWriteBandwidth() {
+    return publicWriteBandwidth;
+  }
+
+  public void setPublicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
+  }
+
   public UpdateWorkspaceRequest quota(QuotaForUpdateWorkspaceInput quota) {
     this.quota = quota;
     return this;
@@ -160,6 +247,24 @@ public class UpdateWorkspaceRequest {
 
   public void setQuota(QuotaForUpdateWorkspaceInput quota) {
     this.quota = quota;
+  }
+
+  public UpdateWorkspaceRequest searchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
+    return this;
+  }
+
+   /**
+   * Get searchLatencyOffset
+   * @return searchLatencyOffset
+  **/
+  @Schema(description = "")
+  public String getSearchLatencyOffset() {
+    return searchLatencyOffset;
+  }
+
+  public void setSearchLatencyOffset(String searchLatencyOffset) {
+    this.searchLatencyOffset = searchLatencyOffset;
   }
 
   public UpdateWorkspaceRequest username(String username) {
@@ -193,15 +298,20 @@ public class UpdateWorkspaceRequest {
     return Objects.equals(this.deleteProtectionEnabled, updateWorkspaceRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, updateWorkspaceRequest.description) &&
         Objects.equals(this.id, updateWorkspaceRequest.id) &&
+        Objects.equals(this.instanceTypeId, updateWorkspaceRequest.instanceTypeId) &&
         Objects.equals(this.name, updateWorkspaceRequest.name) &&
         Objects.equals(this.password, updateWorkspaceRequest.password) &&
+        Objects.equals(this.publicAccessEnabled, updateWorkspaceRequest.publicAccessEnabled) &&
+        Objects.equals(this.publicQueryBandwidth, updateWorkspaceRequest.publicQueryBandwidth) &&
+        Objects.equals(this.publicWriteBandwidth, updateWorkspaceRequest.publicWriteBandwidth) &&
         Objects.equals(this.quota, updateWorkspaceRequest.quota) &&
+        Objects.equals(this.searchLatencyOffset, updateWorkspaceRequest.searchLatencyOffset) &&
         Objects.equals(this.username, updateWorkspaceRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtectionEnabled, description, id, name, password, quota, username);
+    return Objects.hash(deleteProtectionEnabled, description, id, instanceTypeId, name, password, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, username);
   }
 
 
@@ -213,9 +323,14 @@ public class UpdateWorkspaceRequest {
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
+    sb.append("    publicQueryBandwidth: ").append(toIndentedString(publicQueryBandwidth)).append("\n");
+    sb.append("    publicWriteBandwidth: ").append(toIndentedString(publicWriteBandwidth)).append("\n");
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
+    sb.append("    searchLatencyOffset: ").append(toIndentedString(searchLatencyOffset)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

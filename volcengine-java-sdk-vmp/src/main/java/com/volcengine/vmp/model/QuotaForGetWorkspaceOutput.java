@@ -36,6 +36,12 @@ public class QuotaForGetWorkspaceOutput {
   @SerializedName("IngestSamplesPerSecond")
   private Integer ingestSamplesPerSecond = null;
 
+  @SerializedName("PublicQueryBandwidth")
+  private Long publicQueryBandwidth = null;
+
+  @SerializedName("PublicWriteBandwidth")
+  private Long publicWriteBandwidth = null;
+
   @SerializedName("QueryPerSecond")
   private Integer queryPerSecond = null;
 
@@ -79,6 +85,42 @@ public class QuotaForGetWorkspaceOutput {
 
   public void setIngestSamplesPerSecond(Integer ingestSamplesPerSecond) {
     this.ingestSamplesPerSecond = ingestSamplesPerSecond;
+  }
+
+  public QuotaForGetWorkspaceOutput publicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicQueryBandwidth
+   * @return publicQueryBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicQueryBandwidth() {
+    return publicQueryBandwidth;
+  }
+
+  public void setPublicQueryBandwidth(Long publicQueryBandwidth) {
+    this.publicQueryBandwidth = publicQueryBandwidth;
+  }
+
+  public QuotaForGetWorkspaceOutput publicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
+    return this;
+  }
+
+   /**
+   * Get publicWriteBandwidth
+   * @return publicWriteBandwidth
+  **/
+  @Schema(description = "")
+  public Long getPublicWriteBandwidth() {
+    return publicWriteBandwidth;
+  }
+
+  public void setPublicWriteBandwidth(Long publicWriteBandwidth) {
+    this.publicWriteBandwidth = publicWriteBandwidth;
   }
 
   public QuotaForGetWorkspaceOutput queryPerSecond(Integer queryPerSecond) {
@@ -147,6 +189,8 @@ public class QuotaForGetWorkspaceOutput {
     QuotaForGetWorkspaceOutput quotaForGetWorkspaceOutput = (QuotaForGetWorkspaceOutput) o;
     return Objects.equals(this.activeSeries, quotaForGetWorkspaceOutput.activeSeries) &&
         Objects.equals(this.ingestSamplesPerSecond, quotaForGetWorkspaceOutput.ingestSamplesPerSecond) &&
+        Objects.equals(this.publicQueryBandwidth, quotaForGetWorkspaceOutput.publicQueryBandwidth) &&
+        Objects.equals(this.publicWriteBandwidth, quotaForGetWorkspaceOutput.publicWriteBandwidth) &&
         Objects.equals(this.queryPerSecond, quotaForGetWorkspaceOutput.queryPerSecond) &&
         Objects.equals(this.scanSamplesPerSecond, quotaForGetWorkspaceOutput.scanSamplesPerSecond) &&
         Objects.equals(this.scanSeriesPerSecond, quotaForGetWorkspaceOutput.scanSeriesPerSecond);
@@ -154,7 +198,7 @@ public class QuotaForGetWorkspaceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeSeries, ingestSamplesPerSecond, queryPerSecond, scanSamplesPerSecond, scanSeriesPerSecond);
+    return Objects.hash(activeSeries, ingestSamplesPerSecond, publicQueryBandwidth, publicWriteBandwidth, queryPerSecond, scanSamplesPerSecond, scanSeriesPerSecond);
   }
 
 
@@ -165,6 +209,8 @@ public class QuotaForGetWorkspaceOutput {
     
     sb.append("    activeSeries: ").append(toIndentedString(activeSeries)).append("\n");
     sb.append("    ingestSamplesPerSecond: ").append(toIndentedString(ingestSamplesPerSecond)).append("\n");
+    sb.append("    publicQueryBandwidth: ").append(toIndentedString(publicQueryBandwidth)).append("\n");
+    sb.append("    publicWriteBandwidth: ").append(toIndentedString(publicWriteBandwidth)).append("\n");
     sb.append("    queryPerSecond: ").append(toIndentedString(queryPerSecond)).append("\n");
     sb.append("    scanSamplesPerSecond: ").append(toIndentedString(scanSamplesPerSecond)).append("\n");
     sb.append("    scanSeriesPerSecond: ").append(toIndentedString(scanSeriesPerSecond)).append("\n");
