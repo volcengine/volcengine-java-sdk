@@ -63,6 +63,12 @@ public class CreateNodesRequest {
   @SerializedName("NodePoolId")
   private String nodePoolId = null;
 
+  @SerializedName("PreScript")
+  private String preScript = null;
+
+  @SerializedName("SkipReplaceSystem")
+  private Boolean skipReplaceSystem = null;
+
   public CreateNodesRequest additionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
     return this;
@@ -253,6 +259,42 @@ public class CreateNodesRequest {
     this.nodePoolId = nodePoolId;
   }
 
+  public CreateNodesRequest preScript(String preScript) {
+    this.preScript = preScript;
+    return this;
+  }
+
+   /**
+   * Get preScript
+   * @return preScript
+  **/
+  @Schema(description = "")
+  public String getPreScript() {
+    return preScript;
+  }
+
+  public void setPreScript(String preScript) {
+    this.preScript = preScript;
+  }
+
+  public CreateNodesRequest skipReplaceSystem(Boolean skipReplaceSystem) {
+    this.skipReplaceSystem = skipReplaceSystem;
+    return this;
+  }
+
+   /**
+   * Get skipReplaceSystem
+   * @return skipReplaceSystem
+  **/
+  @Schema(description = "")
+  public Boolean isSkipReplaceSystem() {
+    return skipReplaceSystem;
+  }
+
+  public void setSkipReplaceSystem(Boolean skipReplaceSystem) {
+    this.skipReplaceSystem = skipReplaceSystem;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -272,12 +314,14 @@ public class CreateNodesRequest {
         Objects.equals(this.instanceIds, createNodesRequest.instanceIds) &&
         Objects.equals(this.keepInstanceName, createNodesRequest.keepInstanceName) &&
         Objects.equals(this.kubernetesConfig, createNodesRequest.kubernetesConfig) &&
-        Objects.equals(this.nodePoolId, createNodesRequest.nodePoolId);
+        Objects.equals(this.nodePoolId, createNodesRequest.nodePoolId) &&
+        Objects.equals(this.preScript, createNodesRequest.preScript) &&
+        Objects.equals(this.skipReplaceSystem, createNodesRequest.skipReplaceSystem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
   }
 
 
@@ -296,6 +340,8 @@ public class CreateNodesRequest {
     sb.append("    keepInstanceName: ").append(toIndentedString(keepInstanceName)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
+    sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
+    sb.append("    skipReplaceSystem: ").append(toIndentedString(skipReplaceSystem)).append("\n");
     sb.append("}");
     return sb.toString();
   }

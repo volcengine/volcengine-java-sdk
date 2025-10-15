@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AutoScalingForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.KubernetesConfigForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.ManagementForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.NodeConfigForUpdateNodePoolConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,6 +48,9 @@ public class UpdateNodePoolConfigRequest {
 
   @SerializedName("KubernetesConfig")
   private KubernetesConfigForUpdateNodePoolConfigInput kubernetesConfig = null;
+
+  @SerializedName("Management")
+  private ManagementForUpdateNodePoolConfigInput management = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -148,6 +152,25 @@ public class UpdateNodePoolConfigRequest {
     this.kubernetesConfig = kubernetesConfig;
   }
 
+  public UpdateNodePoolConfigRequest management(ManagementForUpdateNodePoolConfigInput management) {
+    this.management = management;
+    return this;
+  }
+
+   /**
+   * Get management
+   * @return management
+  **/
+  @Valid
+  @Schema(description = "")
+  public ManagementForUpdateNodePoolConfigInput getManagement() {
+    return management;
+  }
+
+  public void setManagement(ManagementForUpdateNodePoolConfigInput management) {
+    this.management = management;
+  }
+
   public UpdateNodePoolConfigRequest name(String name) {
     this.name = name;
     return this;
@@ -200,13 +223,14 @@ public class UpdateNodePoolConfigRequest {
         Objects.equals(this.clusterId, updateNodePoolConfigRequest.clusterId) &&
         Objects.equals(this.id, updateNodePoolConfigRequest.id) &&
         Objects.equals(this.kubernetesConfig, updateNodePoolConfigRequest.kubernetesConfig) &&
+        Objects.equals(this.management, updateNodePoolConfigRequest.management) &&
         Objects.equals(this.name, updateNodePoolConfigRequest.name) &&
         Objects.equals(this.nodeConfig, updateNodePoolConfigRequest.nodeConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clientToken, clusterId, id, kubernetesConfig, name, nodeConfig);
+    return Objects.hash(autoScaling, clientToken, clusterId, id, kubernetesConfig, management, name, nodeConfig);
   }
 
 
@@ -220,6 +244,7 @@ public class UpdateNodePoolConfigRequest {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
+    sb.append("    management: ").append(toIndentedString(management)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeConfig: ").append(toIndentedString(nodeConfig)).append("\n");
     sb.append("}");
