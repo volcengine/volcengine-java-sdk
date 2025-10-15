@@ -41,6 +41,9 @@ public class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput 
   @SerializedName("DirectConnectAccessPointName")
   private String directConnectAccessPointName = null;
 
+  @SerializedName("IntegrationType")
+  private String integrationType = null;
+
   @SerializedName("LineOperators")
   private List<String> lineOperators = null;
 
@@ -102,6 +105,24 @@ public class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput 
 
   public void setDirectConnectAccessPointName(String directConnectAccessPointName) {
     this.directConnectAccessPointName = directConnectAccessPointName;
+  }
+
+  public DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput integrationType(String integrationType) {
+    this.integrationType = integrationType;
+    return this;
+  }
+
+   /**
+   * Get integrationType
+   * @return integrationType
+  **/
+  @Schema(description = "")
+  public String getIntegrationType() {
+    return integrationType;
+  }
+
+  public void setIntegrationType(String integrationType) {
+    this.integrationType = integrationType;
   }
 
   public DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput lineOperators(List<String> lineOperators) {
@@ -179,6 +200,7 @@ public class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput 
     return Objects.equals(this.description, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.description) &&
         Objects.equals(this.directConnectAccessPointId, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.directConnectAccessPointId) &&
         Objects.equals(this.directConnectAccessPointName, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.directConnectAccessPointName) &&
+        Objects.equals(this.integrationType, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.integrationType) &&
         Objects.equals(this.lineOperators, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.lineOperators) &&
         Objects.equals(this.location, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.location) &&
         Objects.equals(this.status, directConnectAccessPointForDescribeDirectConnectAccessPointsOutput.status);
@@ -186,7 +208,7 @@ public class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput 
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, directConnectAccessPointId, directConnectAccessPointName, lineOperators, location, status);
+    return Objects.hash(description, directConnectAccessPointId, directConnectAccessPointName, integrationType, lineOperators, location, status);
   }
 
 
@@ -198,6 +220,7 @@ public class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput 
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectAccessPointName: ").append(toIndentedString(directConnectAccessPointName)).append("\n");
+    sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
     sb.append("    lineOperators: ").append(toIndentedString(lineOperators)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
