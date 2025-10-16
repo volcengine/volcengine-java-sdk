@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.graph.model.IOQosOptionsForAlterTableInput;
 import com.volcengine.graph.model.IdcReplicaNumForAlterTableInput;
 import com.volcengine.graph.model.IdcRoNumForAlterTableInput;
+import com.volcengine.graph.model.TableQuotaForAlterTableInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,6 +65,9 @@ public class AlterTableRequest {
 
   @SerializedName("TableName")
   private String tableName = null;
+
+  @SerializedName("TableQuota")
+  private TableQuotaForAlterTableInput tableQuota = null;
 
   public AlterTableRequest enableRead(Boolean enableRead) {
     this.enableRead = enableRead;
@@ -274,6 +278,25 @@ public class AlterTableRequest {
     this.tableName = tableName;
   }
 
+  public AlterTableRequest tableQuota(TableQuotaForAlterTableInput tableQuota) {
+    this.tableQuota = tableQuota;
+    return this;
+  }
+
+   /**
+   * Get tableQuota
+   * @return tableQuota
+  **/
+  @Valid
+  @Schema(description = "")
+  public TableQuotaForAlterTableInput getTableQuota() {
+    return tableQuota;
+  }
+
+  public void setTableQuota(TableQuotaForAlterTableInput tableQuota) {
+    this.tableQuota = tableQuota;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -293,12 +316,13 @@ public class AlterTableRequest {
         Objects.equals(this.instanceId, alterTableRequest.instanceId) &&
         Objects.equals(this.rwSchedulableIdcs, alterTableRequest.rwSchedulableIdcs) &&
         Objects.equals(this.state, alterTableRequest.state) &&
-        Objects.equals(this.tableName, alterTableRequest.tableName);
+        Objects.equals(this.tableName, alterTableRequest.tableName) &&
+        Objects.equals(this.tableQuota, alterTableRequest.tableQuota);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableRead, enableRwSeperateSchedule, enableWrite, ioQosOptions, idcReplicaNums, idcRoNums, instanceId, rwSchedulableIdcs, state, tableName);
+    return Objects.hash(enableRead, enableRwSeperateSchedule, enableWrite, ioQosOptions, idcReplicaNums, idcRoNums, instanceId, rwSchedulableIdcs, state, tableName, tableQuota);
   }
 
 
@@ -317,6 +341,7 @@ public class AlterTableRequest {
     sb.append("    rwSchedulableIdcs: ").append(toIndentedString(rwSchedulableIdcs)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
+    sb.append("    tableQuota: ").append(toIndentedString(tableQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

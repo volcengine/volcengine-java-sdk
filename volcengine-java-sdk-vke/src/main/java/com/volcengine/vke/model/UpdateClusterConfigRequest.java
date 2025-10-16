@@ -50,6 +50,9 @@ public class UpdateClusterConfigRequest {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("IrsaEnabled")
+  private Boolean irsaEnabled = null;
+
   @SerializedName("LoggingConfig")
   private LoggingConfigForUpdateClusterConfigInput loggingConfig = null;
 
@@ -158,6 +161,24 @@ public class UpdateClusterConfigRequest {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public UpdateClusterConfigRequest irsaEnabled(Boolean irsaEnabled) {
+    this.irsaEnabled = irsaEnabled;
+    return this;
+  }
+
+   /**
+   * Get irsaEnabled
+   * @return irsaEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isIrsaEnabled() {
+    return irsaEnabled;
+  }
+
+  public void setIrsaEnabled(Boolean irsaEnabled) {
+    this.irsaEnabled = irsaEnabled;
   }
 
   public UpdateClusterConfigRequest loggingConfig(LoggingConfigForUpdateClusterConfigInput loggingConfig) {
@@ -287,6 +308,7 @@ public class UpdateClusterConfigRequest {
         Objects.equals(this.deleteProtectionEnabled, updateClusterConfigRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, updateClusterConfigRequest.description) &&
         Objects.equals(this.id, updateClusterConfigRequest.id) &&
+        Objects.equals(this.irsaEnabled, updateClusterConfigRequest.irsaEnabled) &&
         Objects.equals(this.loggingConfig, updateClusterConfigRequest.loggingConfig) &&
         Objects.equals(this.monitoringConfig, updateClusterConfigRequest.monitoringConfig) &&
         Objects.equals(this.name, updateClusterConfigRequest.name) &&
@@ -297,7 +319,7 @@ public class UpdateClusterConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, loggingConfig, monitoringConfig, name, podsConfig, registerMonitoringConfig, sourceRegion);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, irsaEnabled, loggingConfig, monitoringConfig, name, podsConfig, registerMonitoringConfig, sourceRegion);
   }
 
 
@@ -311,6 +333,7 @@ public class UpdateClusterConfigRequest {
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    irsaEnabled: ").append(toIndentedString(irsaEnabled)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -51,8 +51,7 @@ public class EngineerForApplyDirectConnectConnectionLoaInput {
    * Get certificateNo
    * @return certificateNo
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCertificateNo() {
     return certificateNo;
   }
@@ -70,8 +69,7 @@ public class EngineerForApplyDirectConnectConnectionLoaInput {
    * Get certificateType
    * @return certificateType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCertificateType() {
     return certificateType;
   }
@@ -89,8 +87,7 @@ public class EngineerForApplyDirectConnectConnectionLoaInput {
    * Get contactPhone
    * @return contactPhone
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getContactPhone() {
     return contactPhone;
   }
@@ -108,8 +105,7 @@ public class EngineerForApplyDirectConnectConnectionLoaInput {
    * Get name
    * @return name
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getName() {
     return name;
   }

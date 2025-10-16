@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.directconnect.model.AssociateCenForDescribeDirectConnectGatewaysOutput;
+import com.volcengine.directconnect.model.AssociateEicForDescribeDirectConnectGatewaysOutput;
 import com.volcengine.directconnect.model.TagForDescribeDirectConnectGatewaysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,6 +40,12 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 
   @SerializedName("AssociateCens")
   private List<AssociateCenForDescribeDirectConnectGatewaysOutput> associateCens = null;
+
+  @SerializedName("AssociateEic")
+  private AssociateEicForDescribeDirectConnectGatewaysOutput associateEic = null;
+
+  @SerializedName("BgpAsn")
+  private Integer bgpAsn = null;
 
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -119,6 +126,43 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 
   public void setAssociateCens(List<AssociateCenForDescribeDirectConnectGatewaysOutput> associateCens) {
     this.associateCens = associateCens;
+  }
+
+  public DirectConnectGatewayForDescribeDirectConnectGatewaysOutput associateEic(AssociateEicForDescribeDirectConnectGatewaysOutput associateEic) {
+    this.associateEic = associateEic;
+    return this;
+  }
+
+   /**
+   * Get associateEic
+   * @return associateEic
+  **/
+  @Valid
+  @Schema(description = "")
+  public AssociateEicForDescribeDirectConnectGatewaysOutput getAssociateEic() {
+    return associateEic;
+  }
+
+  public void setAssociateEic(AssociateEicForDescribeDirectConnectGatewaysOutput associateEic) {
+    this.associateEic = associateEic;
+  }
+
+  public DirectConnectGatewayForDescribeDirectConnectGatewaysOutput bgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
+    return this;
+  }
+
+   /**
+   * Get bgpAsn
+   * @return bgpAsn
+  **/
+  @Schema(description = "")
+  public Integer getBgpAsn() {
+    return bgpAsn;
+  }
+
+  public void setBgpAsn(Integer bgpAsn) {
+    this.bgpAsn = bgpAsn;
   }
 
   public DirectConnectGatewayForDescribeDirectConnectGatewaysOutput businessStatus(String businessStatus) {
@@ -358,6 +402,8 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
     DirectConnectGatewayForDescribeDirectConnectGatewaysOutput directConnectGatewayForDescribeDirectConnectGatewaysOutput = (DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) o;
     return Objects.equals(this.accountId, directConnectGatewayForDescribeDirectConnectGatewaysOutput.accountId) &&
         Objects.equals(this.associateCens, directConnectGatewayForDescribeDirectConnectGatewaysOutput.associateCens) &&
+        Objects.equals(this.associateEic, directConnectGatewayForDescribeDirectConnectGatewaysOutput.associateEic) &&
+        Objects.equals(this.bgpAsn, directConnectGatewayForDescribeDirectConnectGatewaysOutput.bgpAsn) &&
         Objects.equals(this.businessStatus, directConnectGatewayForDescribeDirectConnectGatewaysOutput.businessStatus) &&
         Objects.equals(this.creationTime, directConnectGatewayForDescribeDirectConnectGatewaysOutput.creationTime) &&
         Objects.equals(this.deletedTime, directConnectGatewayForDescribeDirectConnectGatewaysOutput.deletedTime) &&
@@ -374,7 +420,7 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, status, tags, updateTime);
+    return Objects.hash(accountId, associateCens, associateEic, bgpAsn, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, status, tags, updateTime);
   }
 
 
@@ -385,6 +431,8 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associateCens: ").append(toIndentedString(associateCens)).append("\n");
+    sb.append("    associateEic: ").append(toIndentedString(associateEic)).append("\n");
+    sb.append("    bgpAsn: ").append(toIndentedString(bgpAsn)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
