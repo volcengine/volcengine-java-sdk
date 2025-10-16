@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.DataVolumeForListNodePoolsOutput;
+import com.volcengine.vke.model.InstancesDistributionForListNodePoolsOutput;
 import com.volcengine.vke.model.PublicAccessConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.SecurityForListNodePoolsOutput;
 import com.volcengine.vke.model.SystemVolumeForListNodePoolsOutput;
@@ -113,11 +114,17 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
+  @SerializedName("InstancesDistribution")
+  private InstancesDistributionForListNodePoolsOutput instancesDistribution = null;
+
   @SerializedName("NamePrefix")
   private String namePrefix = null;
 
   @SerializedName("Period")
   private Integer period = null;
+
+  @SerializedName("PreScript")
+  private String preScript = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -130,6 +137,52 @@ public class NodeConfigForListNodePoolsOutput {
 
   @SerializedName("Security")
   private SecurityForListNodePoolsOutput security = null;
+
+  /**
+   * Gets or Sets spotStrategy
+   */
+  @JsonAdapter(SpotStrategyEnum.Adapter.class)
+  public enum SpotStrategyEnum {
+    @SerializedName("NoSpot")
+    NOSPOT("NoSpot"),
+    @SerializedName("SpotAsPriceGo")
+    SPOTASPRICEGO("SpotAsPriceGo");
+
+    private String value;
+
+    SpotStrategyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SpotStrategyEnum fromValue(String input) {
+      for (SpotStrategyEnum b : SpotStrategyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SpotStrategyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SpotStrategyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SpotStrategyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SpotStrategyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SpotStrategy")
+  private SpotStrategyEnum spotStrategy = null;
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
@@ -363,6 +416,25 @@ public class NodeConfigForListNodePoolsOutput {
     this.instanceTypeIds = instanceTypeIds;
   }
 
+  public NodeConfigForListNodePoolsOutput instancesDistribution(InstancesDistributionForListNodePoolsOutput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+    return this;
+  }
+
+   /**
+   * Get instancesDistribution
+   * @return instancesDistribution
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstancesDistributionForListNodePoolsOutput getInstancesDistribution() {
+    return instancesDistribution;
+  }
+
+  public void setInstancesDistribution(InstancesDistributionForListNodePoolsOutput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+  }
+
   public NodeConfigForListNodePoolsOutput namePrefix(String namePrefix) {
     this.namePrefix = namePrefix;
     return this;
@@ -397,6 +469,24 @@ public class NodeConfigForListNodePoolsOutput {
 
   public void setPeriod(Integer period) {
     this.period = period;
+  }
+
+  public NodeConfigForListNodePoolsOutput preScript(String preScript) {
+    this.preScript = preScript;
+    return this;
+  }
+
+   /**
+   * Get preScript
+   * @return preScript
+  **/
+  @Schema(description = "")
+  public String getPreScript() {
+    return preScript;
+  }
+
+  public void setPreScript(String preScript) {
+    this.preScript = preScript;
   }
 
   public NodeConfigForListNodePoolsOutput projectName(String projectName) {
@@ -471,6 +561,24 @@ public class NodeConfigForListNodePoolsOutput {
 
   public void setSecurity(SecurityForListNodePoolsOutput security) {
     this.security = security;
+  }
+
+  public NodeConfigForListNodePoolsOutput spotStrategy(SpotStrategyEnum spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public SpotStrategyEnum getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(SpotStrategyEnum spotStrategy) {
+    this.spotStrategy = spotStrategy;
   }
 
   public NodeConfigForListNodePoolsOutput subnetIds(List<String> subnetIds) {
@@ -566,12 +674,15 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.initializeScript, nodeConfigForListNodePoolsOutput.initializeScript) &&
         Objects.equals(this.instanceChargeType, nodeConfigForListNodePoolsOutput.instanceChargeType) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForListNodePoolsOutput.instanceTypeIds) &&
+        Objects.equals(this.instancesDistribution, nodeConfigForListNodePoolsOutput.instancesDistribution) &&
         Objects.equals(this.namePrefix, nodeConfigForListNodePoolsOutput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForListNodePoolsOutput.period) &&
+        Objects.equals(this.preScript, nodeConfigForListNodePoolsOutput.preScript) &&
         Objects.equals(this.projectName, nodeConfigForListNodePoolsOutput.projectName) &&
         Objects.equals(this.publicAccessConfig, nodeConfigForListNodePoolsOutput.publicAccessConfig) &&
         Objects.equals(this.publicAccessEnabled, nodeConfigForListNodePoolsOutput.publicAccessEnabled) &&
         Objects.equals(this.security, nodeConfigForListNodePoolsOutput.security) &&
+        Objects.equals(this.spotStrategy, nodeConfigForListNodePoolsOutput.spotStrategy) &&
         Objects.equals(this.subnetIds, nodeConfigForListNodePoolsOutput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume) &&
         Objects.equals(this.tags, nodeConfigForListNodePoolsOutput.tags);
@@ -579,7 +690,7 @@ public class NodeConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, instancesDistribution, namePrefix, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotStrategy, subnetIds, systemVolume, tags);
   }
 
 
@@ -599,12 +710,15 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
+    sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicAccessConfig: ").append(toIndentedString(publicAccessConfig)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

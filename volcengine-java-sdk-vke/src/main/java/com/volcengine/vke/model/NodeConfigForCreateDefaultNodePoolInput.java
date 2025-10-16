@@ -40,6 +40,9 @@ public class NodeConfigForCreateDefaultNodePoolInput {
   @SerializedName("NamePrefix")
   private String namePrefix = null;
 
+  @SerializedName("PreScript")
+  private String preScript = null;
+
   @SerializedName("Security")
   private SecurityForCreateDefaultNodePoolInput security = null;
 
@@ -80,6 +83,24 @@ public class NodeConfigForCreateDefaultNodePoolInput {
 
   public void setNamePrefix(String namePrefix) {
     this.namePrefix = namePrefix;
+  }
+
+  public NodeConfigForCreateDefaultNodePoolInput preScript(String preScript) {
+    this.preScript = preScript;
+    return this;
+  }
+
+   /**
+   * Get preScript
+   * @return preScript
+  **/
+  @Schema(description = "")
+  public String getPreScript() {
+    return preScript;
+  }
+
+  public void setPreScript(String preScript) {
+    this.preScript = preScript;
   }
 
   public NodeConfigForCreateDefaultNodePoolInput security(SecurityForCreateDefaultNodePoolInput security) {
@@ -140,13 +161,14 @@ public class NodeConfigForCreateDefaultNodePoolInput {
     NodeConfigForCreateDefaultNodePoolInput nodeConfigForCreateDefaultNodePoolInput = (NodeConfigForCreateDefaultNodePoolInput) o;
     return Objects.equals(this.initializeScript, nodeConfigForCreateDefaultNodePoolInput.initializeScript) &&
         Objects.equals(this.namePrefix, nodeConfigForCreateDefaultNodePoolInput.namePrefix) &&
+        Objects.equals(this.preScript, nodeConfigForCreateDefaultNodePoolInput.preScript) &&
         Objects.equals(this.security, nodeConfigForCreateDefaultNodePoolInput.security) &&
         Objects.equals(this.tags, nodeConfigForCreateDefaultNodePoolInput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initializeScript, namePrefix, security, tags);
+    return Objects.hash(initializeScript, namePrefix, preScript, security, tags);
   }
 
 
@@ -157,6 +179,7 @@ public class NodeConfigForCreateDefaultNodePoolInput {
     
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
+    sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

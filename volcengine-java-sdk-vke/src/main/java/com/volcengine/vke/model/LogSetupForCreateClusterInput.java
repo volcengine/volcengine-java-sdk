@@ -52,7 +52,9 @@ public class LogSetupForCreateClusterInput {
     @SerializedName("CloudControllerManager")
     CLOUDCONTROLLERMANAGER("CloudControllerManager"),
     @SerializedName("Etcd")
-    ETCD("Etcd");
+    ETCD("Etcd"),
+    @SerializedName("ClusterAutoscaler")
+    CLUSTERAUTOSCALER("ClusterAutoscaler");
 
     private String value;
 
