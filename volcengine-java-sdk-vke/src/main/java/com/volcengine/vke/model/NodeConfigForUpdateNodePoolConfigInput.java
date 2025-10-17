@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.DataVolumeForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.InstancesDistributionForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.PublicAccessConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.SecurityForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.SystemVolumeForUpdateNodePoolConfigInput;
@@ -61,11 +62,17 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
+  @SerializedName("InstancesDistribution")
+  private InstancesDistributionForUpdateNodePoolConfigInput instancesDistribution = null;
+
   @SerializedName("NamePrefix")
   private String namePrefix = null;
 
   @SerializedName("Period")
   private Integer period = null;
+
+  @SerializedName("PreScript")
+  private String preScript = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -257,6 +264,25 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     this.instanceTypeIds = instanceTypeIds;
   }
 
+  public NodeConfigForUpdateNodePoolConfigInput instancesDistribution(InstancesDistributionForUpdateNodePoolConfigInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+    return this;
+  }
+
+   /**
+   * Get instancesDistribution
+   * @return instancesDistribution
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstancesDistributionForUpdateNodePoolConfigInput getInstancesDistribution() {
+    return instancesDistribution;
+  }
+
+  public void setInstancesDistribution(InstancesDistributionForUpdateNodePoolConfigInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+  }
+
   public NodeConfigForUpdateNodePoolConfigInput namePrefix(String namePrefix) {
     this.namePrefix = namePrefix;
     return this;
@@ -291,6 +317,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setPeriod(Integer period) {
     this.period = period;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput preScript(String preScript) {
+    this.preScript = preScript;
+    return this;
+  }
+
+   /**
+   * Get preScript
+   * @return preScript
+  **/
+  @Schema(description = "")
+  public String getPreScript() {
+    return preScript;
+  }
+
+  public void setPreScript(String preScript) {
+    this.preScript = preScript;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput projectName(String projectName) {
@@ -457,8 +501,10 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.imageId, nodeConfigForUpdateNodePoolConfigInput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForUpdateNodePoolConfigInput.initializeScript) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForUpdateNodePoolConfigInput.instanceTypeIds) &&
+        Objects.equals(this.instancesDistribution, nodeConfigForUpdateNodePoolConfigInput.instancesDistribution) &&
         Objects.equals(this.namePrefix, nodeConfigForUpdateNodePoolConfigInput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForUpdateNodePoolConfigInput.period) &&
+        Objects.equals(this.preScript, nodeConfigForUpdateNodePoolConfigInput.preScript) &&
         Objects.equals(this.projectName, nodeConfigForUpdateNodePoolConfigInput.projectName) &&
         Objects.equals(this.publicAccessConfig, nodeConfigForUpdateNodePoolConfigInput.publicAccessConfig) &&
         Objects.equals(this.publicAccessEnabled, nodeConfigForUpdateNodePoolConfigInput.publicAccessEnabled) &&
@@ -470,7 +516,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, namePrefix, period, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, instancesDistribution, namePrefix, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -487,8 +533,10 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
+    sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicAccessConfig: ").append(toIndentedString(publicAccessConfig)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");

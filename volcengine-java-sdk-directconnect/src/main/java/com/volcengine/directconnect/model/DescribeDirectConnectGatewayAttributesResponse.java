@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.directconnect.model.AssociateCenForDescribeDirectConnectGatewayAttributesOutput;
+import com.volcengine.directconnect.model.AssociateEicForDescribeDirectConnectGatewayAttributesOutput;
 import com.volcengine.directconnect.model.TagForDescribeDirectConnectGatewayAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,6 +40,9 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
 
   @SerializedName("AssociateCens")
   private List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens = null;
+
+  @SerializedName("AssociateEic")
+  private AssociateEicForDescribeDirectConnectGatewayAttributesOutput associateEic = null;
 
   @SerializedName("BgpAsn")
   private Integer bgpAsn = null;
@@ -125,6 +129,25 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
 
   public void setAssociateCens(List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens) {
     this.associateCens = associateCens;
+  }
+
+  public DescribeDirectConnectGatewayAttributesResponse associateEic(AssociateEicForDescribeDirectConnectGatewayAttributesOutput associateEic) {
+    this.associateEic = associateEic;
+    return this;
+  }
+
+   /**
+   * Get associateEic
+   * @return associateEic
+  **/
+  @Valid
+  @Schema(description = "")
+  public AssociateEicForDescribeDirectConnectGatewayAttributesOutput getAssociateEic() {
+    return associateEic;
+  }
+
+  public void setAssociateEic(AssociateEicForDescribeDirectConnectGatewayAttributesOutput associateEic) {
+    this.associateEic = associateEic;
   }
 
   public DescribeDirectConnectGatewayAttributesResponse bgpAsn(Integer bgpAsn) {
@@ -400,6 +423,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
     DescribeDirectConnectGatewayAttributesResponse describeDirectConnectGatewayAttributesResponse = (DescribeDirectConnectGatewayAttributesResponse) o;
     return Objects.equals(this.accountId, describeDirectConnectGatewayAttributesResponse.accountId) &&
         Objects.equals(this.associateCens, describeDirectConnectGatewayAttributesResponse.associateCens) &&
+        Objects.equals(this.associateEic, describeDirectConnectGatewayAttributesResponse.associateEic) &&
         Objects.equals(this.bgpAsn, describeDirectConnectGatewayAttributesResponse.bgpAsn) &&
         Objects.equals(this.businessStatus, describeDirectConnectGatewayAttributesResponse.businessStatus) &&
         Objects.equals(this.creationTime, describeDirectConnectGatewayAttributesResponse.creationTime) &&
@@ -418,7 +442,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, bgpAsn, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, requestId, status, tags, updateTime);
+    return Objects.hash(accountId, associateCens, associateEic, bgpAsn, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, requestId, status, tags, updateTime);
   }
 
 
@@ -429,6 +453,7 @@ public class DescribeDirectConnectGatewayAttributesResponse extends com.volcengi
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associateCens: ").append(toIndentedString(associateCens)).append("\n");
+    sb.append("    associateEic: ").append(toIndentedString(associateEic)).append("\n");
     sb.append("    bgpAsn: ").append(toIndentedString(bgpAsn)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");

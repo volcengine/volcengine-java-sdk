@@ -317,5 +317,6 @@
         <module>volcengine-java-sdk-resourceshare</module>
         <module>volcengine-java-sdk-na</module>
         <module>volcengine-java-sdk-dms20250101</module>
+        <module>volcengine-java-sdk-metakms</module>
     </modules>
 </project>

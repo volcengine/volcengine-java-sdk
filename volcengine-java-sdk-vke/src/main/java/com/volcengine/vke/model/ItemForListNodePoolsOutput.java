@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AutoScalingForListNodePoolsOutput;
 import com.volcengine.vke.model.ConvertTagForListNodePoolsOutput;
 import com.volcengine.vke.model.KubernetesConfigForListNodePoolsOutput;
+import com.volcengine.vke.model.ManagementForListNodePoolsOutput;
 import com.volcengine.vke.model.NodeConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.NodeStatisticsForListNodePoolsOutput;
 import com.volcengine.vke.model.StatusForListNodePoolsOutput;
@@ -55,6 +56,9 @@ public class ItemForListNodePoolsOutput {
 
   @SerializedName("KubernetesConfig")
   private KubernetesConfigForListNodePoolsOutput kubernetesConfig = null;
+
+  @SerializedName("Management")
+  private ManagementForListNodePoolsOutput management = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -185,6 +189,25 @@ public class ItemForListNodePoolsOutput {
 
   public void setKubernetesConfig(KubernetesConfigForListNodePoolsOutput kubernetesConfig) {
     this.kubernetesConfig = kubernetesConfig;
+  }
+
+  public ItemForListNodePoolsOutput management(ManagementForListNodePoolsOutput management) {
+    this.management = management;
+    return this;
+  }
+
+   /**
+   * Get management
+   * @return management
+  **/
+  @Valid
+  @Schema(description = "")
+  public ManagementForListNodePoolsOutput getManagement() {
+    return management;
+  }
+
+  public void setManagement(ManagementForListNodePoolsOutput management) {
+    this.management = management;
   }
 
   public ItemForListNodePoolsOutput name(String name) {
@@ -341,6 +364,7 @@ public class ItemForListNodePoolsOutput {
         Objects.equals(this.createTime, itemForListNodePoolsOutput.createTime) &&
         Objects.equals(this.id, itemForListNodePoolsOutput.id) &&
         Objects.equals(this.kubernetesConfig, itemForListNodePoolsOutput.kubernetesConfig) &&
+        Objects.equals(this.management, itemForListNodePoolsOutput.management) &&
         Objects.equals(this.name, itemForListNodePoolsOutput.name) &&
         Objects.equals(this.nodeConfig, itemForListNodePoolsOutput.nodeConfig) &&
         Objects.equals(this.nodeStatistics, itemForListNodePoolsOutput.nodeStatistics) &&
@@ -352,7 +376,7 @@ public class ItemForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clusterId, createClientToken, createTime, id, kubernetesConfig, name, nodeConfig, nodeStatistics, status, tags, updateClientToken, updateTime);
+    return Objects.hash(autoScaling, clusterId, createClientToken, createTime, id, kubernetesConfig, management, name, nodeConfig, nodeStatistics, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -367,6 +391,7 @@ public class ItemForListNodePoolsOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
+    sb.append("    management: ").append(toIndentedString(management)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeConfig: ").append(toIndentedString(nodeConfig)).append("\n");
     sb.append("    nodeStatistics: ").append(toIndentedString(nodeStatistics)).append("\n");

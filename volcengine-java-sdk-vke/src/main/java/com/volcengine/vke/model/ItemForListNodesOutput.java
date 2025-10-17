@@ -73,6 +73,9 @@ public class ItemForListNodesOutput {
   @SerializedName("NodePoolId")
   private String nodePoolId = null;
 
+  @SerializedName("PreScript")
+  private String preScript = null;
+
   @SerializedName("Roles")
   private List<String> roles = null;
 
@@ -320,6 +323,24 @@ public class ItemForListNodesOutput {
     this.nodePoolId = nodePoolId;
   }
 
+  public ItemForListNodesOutput preScript(String preScript) {
+    this.preScript = preScript;
+    return this;
+  }
+
+   /**
+   * Get preScript
+   * @return preScript
+  **/
+  @Schema(description = "")
+  public String getPreScript() {
+    return preScript;
+  }
+
+  public void setPreScript(String preScript) {
+    this.preScript = preScript;
+  }
+
   public ItemForListNodesOutput roles(List<String> roles) {
     this.roles = roles;
     return this;
@@ -424,6 +445,7 @@ public class ItemForListNodesOutput {
         Objects.equals(this.kubernetesConfig, itemForListNodesOutput.kubernetesConfig) &&
         Objects.equals(this.name, itemForListNodesOutput.name) &&
         Objects.equals(this.nodePoolId, itemForListNodesOutput.nodePoolId) &&
+        Objects.equals(this.preScript, itemForListNodesOutput.preScript) &&
         Objects.equals(this.roles, itemForListNodesOutput.roles) &&
         Objects.equals(this.status, itemForListNodesOutput.status) &&
         Objects.equals(this.updateTime, itemForListNodesOutput.updateTime) &&
@@ -432,7 +454,7 @@ public class ItemForListNodesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, roles, status, updateTime, zoneId);
+    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, preScript, roles, status, updateTime, zoneId);
   }
 
 
@@ -454,6 +476,7 @@ public class ItemForListNodesOutput {
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
+    sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
