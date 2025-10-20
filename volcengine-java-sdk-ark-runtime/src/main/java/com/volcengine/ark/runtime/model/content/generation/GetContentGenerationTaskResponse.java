@@ -27,6 +27,18 @@ public class GetContentGenerationTaskResponse {
     @JsonProperty("usage")
     private Usage usage;
 
+    @JsonProperty("subdivisionlevel")
+    private String subdivisionlevel;
+
+    @JsonProperty("fileformat")
+    private String fileformat;
+
+    @JsonProperty("frames")
+    private java.lang.Long frames;
+
+    @JsonProperty("framespersecond")
+    private java.lang.Long framespersecond;
+
     @JsonProperty("created_at")
     private java.lang.Long createdAt;
 
@@ -87,6 +99,38 @@ public class GetContentGenerationTaskResponse {
         this.usage = usage;
     }
 
+    public String getSubdivisionLevel() {
+        return subdivisionlevel;
+    }
+
+    public void setSubdivisionLevel(String subdivisionlevel) {
+        this.subdivisionlevel = subdivisionlevel;
+    }
+
+    public String getFileFormat() {
+        return fileformat;
+    }
+
+    public void setFileFormat(String fileformat) {
+        this.fileformat = fileformat;
+    }
+
+    public java.lang.Long getFrames() {
+        return frames;
+    }
+
+    public void setFrames(java.lang.Long frames) {
+        this.frames = frames;
+    }
+
+    public java.lang.Long getFramesPerSecond() {
+        return framespersecond;
+    }
+
+    public void setFramesPerSecond(java.lang.Long framespersecond) {
+        this.framespersecond = framespersecond;
+    }
+
     public java.lang.Long getCreatedAt() {
         return createdAt;
     }
@@ -144,11 +188,23 @@ public class GetContentGenerationTaskResponse {
             this.lastFrameUrl = lastFrameUrl;
         }
 
+        @JsonProperty("file_url")
+        private String fileUrl;
+
+        public String getFileUrl() {
+            return fileUrl;
+        }
+
+        public void setFileUrl(String fileUrl) {
+            this.fileUrl = fileUrl;
+        }
+
         @Override
         public String toString() {
             return "Content{" +
                     "videoUrl='" + videoUrl + '\'' +
                     ", lastFrameUrl='" + lastFrameUrl + '\'' +
+                    ", fileUrl='" + fileUrl + '\'' +
                     '}';
         }
     }
@@ -210,6 +266,10 @@ public class GetContentGenerationTaskResponse {
                 ", error='" + error + '\'' +
                 ", content=" + (content != null ? content.toString() : "null") +
                 ", usage=" + usage +
+                ", subdivisionlevel=" + subdivisionlevel +
+                ", fileformat=" + fileformat +
+                ", frames=" + frames +
+                ", framespersecond=" + framespersecond +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
 				", seed=" + seed +
