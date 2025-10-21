@@ -6,13 +6,15 @@ import com.volcengine.endpoint.ResolveEndpointOption;
 import com.volcengine.endpoint.ResolvedEndpoint;
 import org.apache.commons.lang.StringUtils;
 
+import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
+
 public class ResolveEndpointInterceptor implements RequestInterceptor {
 
     public final static String name = "volcengine-resolve-endpoint-interceptor";
 
     @Override
-    public String name() {
-        return name;
+        public String name() {
+            return name;
     }
 
     @Override
@@ -44,6 +46,7 @@ public class ResolveEndpointInterceptor implements RequestInterceptor {
             option.setCustomBootstrapRegion(context.getApiClient().getCustomBootstrapRegion());
             option.setUseDualStack(context.getApiClient().getUseDualStack());
             ResolvedEndpoint resolvedEndpoint = endpointResolver.endpointFor(option);
+            SDK_CORE_LOGGER.debugEndpoint("Using endpoint: {}", resolvedEndpoint.getEndpoint());
             context.getRequestContext().setHost(resolvedEndpoint.getEndpoint());
         }
         return context;
