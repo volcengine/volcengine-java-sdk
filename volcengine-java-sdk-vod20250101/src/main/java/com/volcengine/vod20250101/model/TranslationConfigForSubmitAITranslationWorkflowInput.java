@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.TermbaseConfigForSubmitAITranslationWorkflowInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class TranslationConfigForSubmitAITranslationWorkflowInput {
 
   @SerializedName("TargetLanguage")
   private String targetLanguage = null;
+
+  @SerializedName("TermbaseConfig")
+  private TermbaseConfigForSubmitAITranslationWorkflowInput termbaseConfig = null;
 
   @SerializedName("TranslationTypeList")
   private List<String> translationTypeList = null;
@@ -77,6 +81,25 @@ public class TranslationConfigForSubmitAITranslationWorkflowInput {
     this.targetLanguage = targetLanguage;
   }
 
+  public TranslationConfigForSubmitAITranslationWorkflowInput termbaseConfig(TermbaseConfigForSubmitAITranslationWorkflowInput termbaseConfig) {
+    this.termbaseConfig = termbaseConfig;
+    return this;
+  }
+
+   /**
+   * Get termbaseConfig
+   * @return termbaseConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TermbaseConfigForSubmitAITranslationWorkflowInput getTermbaseConfig() {
+    return termbaseConfig;
+  }
+
+  public void setTermbaseConfig(TermbaseConfigForSubmitAITranslationWorkflowInput termbaseConfig) {
+    this.termbaseConfig = termbaseConfig;
+  }
+
   public TranslationConfigForSubmitAITranslationWorkflowInput translationTypeList(List<String> translationTypeList) {
     this.translationTypeList = translationTypeList;
     return this;
@@ -115,12 +138,13 @@ public class TranslationConfigForSubmitAITranslationWorkflowInput {
     TranslationConfigForSubmitAITranslationWorkflowInput translationConfigForSubmitAITranslationWorkflowInput = (TranslationConfigForSubmitAITranslationWorkflowInput) o;
     return Objects.equals(this.sourceLanguage, translationConfigForSubmitAITranslationWorkflowInput.sourceLanguage) &&
         Objects.equals(this.targetLanguage, translationConfigForSubmitAITranslationWorkflowInput.targetLanguage) &&
+        Objects.equals(this.termbaseConfig, translationConfigForSubmitAITranslationWorkflowInput.termbaseConfig) &&
         Objects.equals(this.translationTypeList, translationConfigForSubmitAITranslationWorkflowInput.translationTypeList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceLanguage, targetLanguage, translationTypeList);
+    return Objects.hash(sourceLanguage, targetLanguage, termbaseConfig, translationTypeList);
   }
 
 
@@ -131,6 +155,7 @@ public class TranslationConfigForSubmitAITranslationWorkflowInput {
     
     sb.append("    sourceLanguage: ").append(toIndentedString(sourceLanguage)).append("\n");
     sb.append("    targetLanguage: ").append(toIndentedString(targetLanguage)).append("\n");
+    sb.append("    termbaseConfig: ").append(toIndentedString(termbaseConfig)).append("\n");
     sb.append("    translationTypeList: ").append(toIndentedString(translationTypeList)).append("\n");
     sb.append("}");
     return sb.toString();
