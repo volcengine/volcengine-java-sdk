@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.DomainExtensionForDescribeListenerAttributesOutput;
 import com.volcengine.clb.model.HealthCheckForDescribeListenerAttributesOutput;
 import com.volcengine.clb.model.TagForDescribeListenerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -84,6 +85,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DomainExtensions")
+  private List<DomainExtensionForDescribeListenerAttributesOutput> domainExtensions = null;
 
   @SerializedName("Enabled")
   private String enabled = null;
@@ -490,6 +494,33 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DescribeListenerAttributesResponse domainExtensions(List<DomainExtensionForDescribeListenerAttributesOutput> domainExtensions) {
+    this.domainExtensions = domainExtensions;
+    return this;
+  }
+
+  public DescribeListenerAttributesResponse addDomainExtensionsItem(DomainExtensionForDescribeListenerAttributesOutput domainExtensionsItem) {
+    if (this.domainExtensions == null) {
+      this.domainExtensions = new ArrayList<DomainExtensionForDescribeListenerAttributesOutput>();
+    }
+    this.domainExtensions.add(domainExtensionsItem);
+    return this;
+  }
+
+   /**
+   * Get domainExtensions
+   * @return domainExtensions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DomainExtensionForDescribeListenerAttributesOutput> getDomainExtensions() {
+    return domainExtensions;
+  }
+
+  public void setDomainExtensions(List<DomainExtensionForDescribeListenerAttributesOutput> domainExtensions) {
+    this.domainExtensions = domainExtensions;
   }
 
   public DescribeListenerAttributesResponse enabled(String enabled) {
@@ -1087,6 +1118,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.cps, describeListenerAttributesResponse.cps) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
+        Objects.equals(this.domainExtensions, describeListenerAttributesResponse.domainExtensions) &&
         Objects.equals(this.enabled, describeListenerAttributesResponse.enabled) &&
         Objects.equals(this.endPort, describeListenerAttributesResponse.endPort) &&
         Objects.equals(this.enhancedSchedulerEnable, describeListenerAttributesResponse.enhancedSchedulerEnable) &&
@@ -1122,7 +1154,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, createTime, description, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, createTime, description, domainExtensions, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
   }
 
 
@@ -1148,6 +1180,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    cps: ").append(toIndentedString(cps)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    enhancedSchedulerEnable: ").append(toIndentedString(enhancedSchedulerEnable)).append("\n");

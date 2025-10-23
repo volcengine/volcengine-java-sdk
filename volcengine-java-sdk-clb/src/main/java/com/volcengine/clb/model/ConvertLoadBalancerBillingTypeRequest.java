@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ConvertLoadBalancerBillingTypeRequest {
+  @SerializedName("AutoRenewal")
+  private Boolean autoRenewal = null;
+
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
 
@@ -44,6 +47,24 @@ public class ConvertLoadBalancerBillingTypeRequest {
 
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
+
+  public ConvertLoadBalancerBillingTypeRequest autoRenewal(Boolean autoRenewal) {
+    this.autoRenewal = autoRenewal;
+    return this;
+  }
+
+   /**
+   * Get autoRenewal
+   * @return autoRenewal
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenewal() {
+    return autoRenewal;
+  }
+
+  public void setAutoRenewal(Boolean autoRenewal) {
+    this.autoRenewal = autoRenewal;
+  }
 
   public ConvertLoadBalancerBillingTypeRequest loadBalancerBillingType(Integer loadBalancerBillingType) {
     this.loadBalancerBillingType = loadBalancerBillingType;
@@ -147,7 +168,8 @@ public class ConvertLoadBalancerBillingTypeRequest {
       return false;
     }
     ConvertLoadBalancerBillingTypeRequest convertLoadBalancerBillingTypeRequest = (ConvertLoadBalancerBillingTypeRequest) o;
-    return Objects.equals(this.loadBalancerBillingType, convertLoadBalancerBillingTypeRequest.loadBalancerBillingType) &&
+    return Objects.equals(this.autoRenewal, convertLoadBalancerBillingTypeRequest.autoRenewal) &&
+        Objects.equals(this.loadBalancerBillingType, convertLoadBalancerBillingTypeRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerId, convertLoadBalancerBillingTypeRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerSpec, convertLoadBalancerBillingTypeRequest.loadBalancerSpec) &&
         Objects.equals(this.period, convertLoadBalancerBillingTypeRequest.period) &&
@@ -156,7 +178,7 @@ public class ConvertLoadBalancerBillingTypeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerBillingType, loadBalancerId, loadBalancerSpec, period, periodUnit);
+    return Objects.hash(autoRenewal, loadBalancerBillingType, loadBalancerId, loadBalancerSpec, period, periodUnit);
   }
 
 
@@ -165,6 +187,7 @@ public class ConvertLoadBalancerBillingTypeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertLoadBalancerBillingTypeRequest {\n");
     
+    sb.append("    autoRenewal: ").append(toIndentedString(autoRenewal)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
