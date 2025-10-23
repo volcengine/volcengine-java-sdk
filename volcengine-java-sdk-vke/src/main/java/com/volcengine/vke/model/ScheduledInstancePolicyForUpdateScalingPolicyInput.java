@@ -33,6 +33,9 @@ public class ScheduledInstancePolicyForUpdateScalingPolicyInput {
   @SerializedName("AutoReleaseTime")
   private String autoReleaseTime = null;
 
+  @SerializedName("BestEffort")
+  private Boolean bestEffort = null;
+
   /**
    * Gets or Sets deliveryType
    */
@@ -149,6 +152,24 @@ public class ScheduledInstancePolicyForUpdateScalingPolicyInput {
     this.autoReleaseTime = autoReleaseTime;
   }
 
+  public ScheduledInstancePolicyForUpdateScalingPolicyInput bestEffort(Boolean bestEffort) {
+    this.bestEffort = bestEffort;
+    return this;
+  }
+
+   /**
+   * Get bestEffort
+   * @return bestEffort
+  **/
+  @Schema(description = "")
+  public Boolean isBestEffort() {
+    return bestEffort;
+  }
+
+  public void setBestEffort(Boolean bestEffort) {
+    this.bestEffort = bestEffort;
+  }
+
   public ScheduledInstancePolicyForUpdateScalingPolicyInput deliveryType(DeliveryTypeEnum deliveryType) {
     this.deliveryType = deliveryType;
     return this;
@@ -232,6 +253,7 @@ public class ScheduledInstancePolicyForUpdateScalingPolicyInput {
     }
     ScheduledInstancePolicyForUpdateScalingPolicyInput scheduledInstancePolicyForUpdateScalingPolicyInput = (ScheduledInstancePolicyForUpdateScalingPolicyInput) o;
     return Objects.equals(this.autoReleaseTime, scheduledInstancePolicyForUpdateScalingPolicyInput.autoReleaseTime) &&
+        Objects.equals(this.bestEffort, scheduledInstancePolicyForUpdateScalingPolicyInput.bestEffort) &&
         Objects.equals(this.deliveryType, scheduledInstancePolicyForUpdateScalingPolicyInput.deliveryType) &&
         Objects.equals(this.elasticScheduledInstanceType, scheduledInstancePolicyForUpdateScalingPolicyInput.elasticScheduledInstanceType) &&
         Objects.equals(this.endDeliveryTime, scheduledInstancePolicyForUpdateScalingPolicyInput.endDeliveryTime) &&
@@ -240,7 +262,7 @@ public class ScheduledInstancePolicyForUpdateScalingPolicyInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoReleaseTime, deliveryType, elasticScheduledInstanceType, endDeliveryTime, startDeliveryTime);
+    return Objects.hash(autoReleaseTime, bestEffort, deliveryType, elasticScheduledInstanceType, endDeliveryTime, startDeliveryTime);
   }
 
 
@@ -250,6 +272,7 @@ public class ScheduledInstancePolicyForUpdateScalingPolicyInput {
     sb.append("class ScheduledInstancePolicyForUpdateScalingPolicyInput {\n");
     
     sb.append("    autoReleaseTime: ").append(toIndentedString(autoReleaseTime)).append("\n");
+    sb.append("    bestEffort: ").append(toIndentedString(bestEffort)).append("\n");
     sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    elasticScheduledInstanceType: ").append(toIndentedString(elasticScheduledInstanceType)).append("\n");
     sb.append("    endDeliveryTime: ").append(toIndentedString(endDeliveryTime)).append("\n");
