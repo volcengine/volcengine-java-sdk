@@ -2,6 +2,7 @@ package com.volcengine.ark.runtime.model.responses.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesCaching;
+import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesText;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.tool.ResponsesTool;
@@ -24,6 +25,9 @@ public class CreateResponsesRequest {
 
     @JsonProperty("thinking")
     private ResponsesThinking thinking;
+
+    @JsonProperty("reasoning")
+    private ResponsesReasoning reasoning;
 
     @JsonProperty("service_tier")
     private String serviceTier;
@@ -105,6 +109,14 @@ public class CreateResponsesRequest {
 
     public void setThinking(ResponsesThinking thinking) {
         this.thinking = thinking;
+    }
+
+    public ResponsesReasoning getReasoning() {
+        return reasoning;
+    }
+
+    public void setReasoning(ResponsesReasoning reasoning) {
+        this.reasoning = reasoning;
     }
 
     public String getServiceTier() {
@@ -227,6 +239,7 @@ public class CreateResponsesRequest {
                 ", maxOutputTokens=" + maxOutputTokens +
                 ", previousResponseId='" + previousResponseId + '\'' +
                 ", thinking=" + thinking +
+                ", reasoning=" + reasoning +
                 ", serviceTier='" + serviceTier + '\'' +
                 ", store=" + store +
                 ", stream=" + stream +
@@ -254,6 +267,7 @@ public class CreateResponsesRequest {
         private Long maxOutputTokens;
         private String previousResponseId;
         private ResponsesThinking thinking;
+        private ResponsesReasoning reasoning;
         private String serviceTier;
         private Boolean store;
         private Boolean stream;
@@ -291,6 +305,11 @@ public class CreateResponsesRequest {
 
         public Builder thinking(ResponsesThinking thinking) {
             this.thinking = thinking;
+            return this;
+        }
+
+        public Builder reasoning(ResponsesReasoning reasoning) {
+            this.reasoning = reasoning;
             return this;
         }
 
@@ -371,6 +390,7 @@ public class CreateResponsesRequest {
             responsesRequest.setMaxOutputTokens(maxOutputTokens);
             responsesRequest.setPreviousResponseId(previousResponseId);
             responsesRequest.setThinking(thinking);
+            responsesRequest.setReasoning(reasoning);
             responsesRequest.setServiceTier(serviceTier);
             responsesRequest.setStore(store);
             responsesRequest.setStream(stream);
