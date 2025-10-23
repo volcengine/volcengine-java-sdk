@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.AccessLogForDescribeNetworkLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.TagForDescribeNetworkLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.ZoneMappingForDescribeNetworkLoadBalancerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class DescribeNetworkLoadBalancerAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccessLog")
+  private AccessLogForDescribeNetworkLoadBalancerAttributesOutput accessLog = null;
+
   @SerializedName("AccountId")
   private String accountId = null;
 
@@ -114,6 +118,25 @@ public class DescribeNetworkLoadBalancerAttributesResponse extends com.volcengin
 
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForDescribeNetworkLoadBalancerAttributesOutput> zoneMappings = null;
+
+  public DescribeNetworkLoadBalancerAttributesResponse accessLog(AccessLogForDescribeNetworkLoadBalancerAttributesOutput accessLog) {
+    this.accessLog = accessLog;
+    return this;
+  }
+
+   /**
+   * Get accessLog
+   * @return accessLog
+  **/
+  @Valid
+  @Schema(description = "")
+  public AccessLogForDescribeNetworkLoadBalancerAttributesOutput getAccessLog() {
+    return accessLog;
+  }
+
+  public void setAccessLog(AccessLogForDescribeNetworkLoadBalancerAttributesOutput accessLog) {
+    this.accessLog = accessLog;
+  }
 
   public DescribeNetworkLoadBalancerAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -637,7 +660,8 @@ public class DescribeNetworkLoadBalancerAttributesResponse extends com.volcengin
       return false;
     }
     DescribeNetworkLoadBalancerAttributesResponse describeNetworkLoadBalancerAttributesResponse = (DescribeNetworkLoadBalancerAttributesResponse) o;
-    return Objects.equals(this.accountId, describeNetworkLoadBalancerAttributesResponse.accountId) &&
+    return Objects.equals(this.accessLog, describeNetworkLoadBalancerAttributesResponse.accessLog) &&
+        Objects.equals(this.accountId, describeNetworkLoadBalancerAttributesResponse.accountId) &&
         Objects.equals(this.billingStatus, describeNetworkLoadBalancerAttributesResponse.billingStatus) &&
         Objects.equals(this.billingType, describeNetworkLoadBalancerAttributesResponse.billingType) &&
         Objects.equals(this.createTime, describeNetworkLoadBalancerAttributesResponse.createTime) &&
@@ -668,7 +692,7 @@ public class DescribeNetworkLoadBalancerAttributesResponse extends com.volcengin
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, billingStatus, billingType, createTime, crossZoneEnabled, dnSName, description, expectedOverdueTime, ipAddressVersion, ipv4BandwidthPackageId, ipv4NetworkType, ipv6BandwidthPackageId, ipv6NetworkType, loadBalancerId, loadBalancerName, managedSecurityGroupId, modificationProtectionStatus, overdueTime, projectName, reclaimedTime, requestId, securityGroupIds, status, tags, updateTime, vpcId, zoneMappings);
+    return Objects.hash(accessLog, accountId, billingStatus, billingType, createTime, crossZoneEnabled, dnSName, description, expectedOverdueTime, ipAddressVersion, ipv4BandwidthPackageId, ipv4NetworkType, ipv6BandwidthPackageId, ipv6NetworkType, loadBalancerId, loadBalancerName, managedSecurityGroupId, modificationProtectionStatus, overdueTime, projectName, reclaimedTime, requestId, securityGroupIds, status, tags, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -677,6 +701,7 @@ public class DescribeNetworkLoadBalancerAttributesResponse extends com.volcengin
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeNetworkLoadBalancerAttributesResponse {\n");
     
+    sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    billingStatus: ").append(toIndentedString(billingStatus)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
