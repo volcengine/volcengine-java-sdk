@@ -32,8 +32,50 @@ import javax.validation.Valid;
 
 
 public class ProcessConfigForSubmitAITranslationWorkflowInput {
+  @SerializedName("DisableSmartSubtitleRewrite")
+  private Boolean disableSmartSubtitleRewrite = null;
+
+  @SerializedName("DisableSubtitlePunctSplit")
+  private Boolean disableSubtitlePunctSplit = null;
+
   @SerializedName("SuspensionStageList")
   private List<String> suspensionStageList = null;
+
+  public ProcessConfigForSubmitAITranslationWorkflowInput disableSmartSubtitleRewrite(Boolean disableSmartSubtitleRewrite) {
+    this.disableSmartSubtitleRewrite = disableSmartSubtitleRewrite;
+    return this;
+  }
+
+   /**
+   * Get disableSmartSubtitleRewrite
+   * @return disableSmartSubtitleRewrite
+  **/
+  @Schema(description = "")
+  public Boolean isDisableSmartSubtitleRewrite() {
+    return disableSmartSubtitleRewrite;
+  }
+
+  public void setDisableSmartSubtitleRewrite(Boolean disableSmartSubtitleRewrite) {
+    this.disableSmartSubtitleRewrite = disableSmartSubtitleRewrite;
+  }
+
+  public ProcessConfigForSubmitAITranslationWorkflowInput disableSubtitlePunctSplit(Boolean disableSubtitlePunctSplit) {
+    this.disableSubtitlePunctSplit = disableSubtitlePunctSplit;
+    return this;
+  }
+
+   /**
+   * Get disableSubtitlePunctSplit
+   * @return disableSubtitlePunctSplit
+  **/
+  @Schema(description = "")
+  public Boolean isDisableSubtitlePunctSplit() {
+    return disableSubtitlePunctSplit;
+  }
+
+  public void setDisableSubtitlePunctSplit(Boolean disableSubtitlePunctSplit) {
+    this.disableSubtitlePunctSplit = disableSubtitlePunctSplit;
+  }
 
   public ProcessConfigForSubmitAITranslationWorkflowInput suspensionStageList(List<String> suspensionStageList) {
     this.suspensionStageList = suspensionStageList;
@@ -71,12 +113,14 @@ public class ProcessConfigForSubmitAITranslationWorkflowInput {
       return false;
     }
     ProcessConfigForSubmitAITranslationWorkflowInput processConfigForSubmitAITranslationWorkflowInput = (ProcessConfigForSubmitAITranslationWorkflowInput) o;
-    return Objects.equals(this.suspensionStageList, processConfigForSubmitAITranslationWorkflowInput.suspensionStageList);
+    return Objects.equals(this.disableSmartSubtitleRewrite, processConfigForSubmitAITranslationWorkflowInput.disableSmartSubtitleRewrite) &&
+        Objects.equals(this.disableSubtitlePunctSplit, processConfigForSubmitAITranslationWorkflowInput.disableSubtitlePunctSplit) &&
+        Objects.equals(this.suspensionStageList, processConfigForSubmitAITranslationWorkflowInput.suspensionStageList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(suspensionStageList);
+    return Objects.hash(disableSmartSubtitleRewrite, disableSubtitlePunctSplit, suspensionStageList);
   }
 
 
@@ -85,6 +129,8 @@ public class ProcessConfigForSubmitAITranslationWorkflowInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessConfigForSubmitAITranslationWorkflowInput {\n");
     
+    sb.append("    disableSmartSubtitleRewrite: ").append(toIndentedString(disableSmartSubtitleRewrite)).append("\n");
+    sb.append("    disableSubtitlePunctSplit: ").append(toIndentedString(disableSubtitlePunctSplit)).append("\n");
     sb.append("    suspensionStageList: ").append(toIndentedString(suspensionStageList)).append("\n");
     sb.append("}");
     return sb.toString();
