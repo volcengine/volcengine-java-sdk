@@ -52,6 +52,18 @@ public class ListContentGenerationTasksResponse {
         @JsonProperty("usage")
         private Usage usage;
 
+        @JsonProperty("subdivisionlevel")
+        private String subdivisionlevel;
+
+        @JsonProperty("fileformat")
+        private String fileformat;
+
+        @JsonProperty("frames")
+        private java.lang.Long frames;
+
+        @JsonProperty("framespersecond")
+        private java.lang.Long framespersecond;
+
         @JsonProperty("created_at")
         private java.lang.Long createdAt;
 
@@ -110,6 +122,38 @@ public class ListContentGenerationTasksResponse {
             this.usage = usage;
         }
 
+        public String getSubdivisionLevel() {
+            return subdivisionlevel;
+        }
+
+        public void setSubdivisionLevel(String subdivisionlevel) {
+            this.subdivisionlevel = subdivisionlevel;
+        }
+
+        public String getFileFormat() {
+            return fileformat;
+        }
+
+        public void setFileFormat(String fileformat) {
+            this.fileformat = fileformat;
+        }
+
+        public java.lang.Long getFrames() {
+            return frames;
+        }
+
+        public void setFrames(java.lang.Long frames) {
+            this.frames = frames;
+        }
+
+        public java.lang.Long getFramesPerSecond() {
+            return framespersecond;
+        }
+
+        public void setFramesPerSecond(java.lang.Long framespersecond) {
+            this.framespersecond = framespersecond;
+        }
+
         public java.lang.Long getCreatedAt() {
             return createdAt;
         }
@@ -148,6 +192,12 @@ public class ListContentGenerationTasksResponse {
             @JsonProperty("video_url")
             private String videoUrl;
 
+            @JsonProperty("last_frame_url")
+            private String lastFrameUrl;
+
+            @JsonProperty("file_url")
+            private String fileUrl;
+
             public String getVideoUrl() {
                 return videoUrl;
             }
@@ -156,10 +206,28 @@ public class ListContentGenerationTasksResponse {
                 this.videoUrl = videoUrl;
             }
 
+            public String getLastFrameUrl() {
+                return lastFrameUrl;
+            }
+
+            public void setLastFrameUrl(String lastFrameUrl) {
+                this.lastFrameUrl = lastFrameUrl;
+            }
+
+            public String getFileUrl() {
+                return fileUrl;
+            }
+
+            public void setFileUrl(String fileUrl) {
+                this.fileUrl = fileUrl;
+            }
+
             @Override
             public String toString() {
                 return "Content{" +
                         "videoUrl='" + videoUrl + '\'' +
+                        "lastFrameUrl='" + lastFrameUrl + '\'' +
+                        "fileUrl='" + fileUrl + '\'' +
                         '}';
             }
         }
@@ -221,6 +289,10 @@ public class ListContentGenerationTasksResponse {
                     ", error='" + error + '\'' +
                     ", content=" + (content != null ? content.toString() : "null") +
                     ", usage=" + usage +
+                    ", subdivisionlevel=" + subdivisionlevel +
+                    ", fileformat=" + fileformat +
+                    ", frames=" + frames +
+                    ", framespersecond=" + framespersecond +
                     ", createdAt=" + createdAt +
                     ", updatedAt=" + updatedAt +
 					", seed=" + seed +
