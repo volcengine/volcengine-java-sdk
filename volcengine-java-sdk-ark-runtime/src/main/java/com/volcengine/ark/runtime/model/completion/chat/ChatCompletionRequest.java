@@ -2,8 +2,6 @@ package com.volcengine.ark.runtime.model.completion.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
-import com.volcengine.ark.runtime.utils.JacksonUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -167,6 +165,10 @@ public class ChatCompletionRequest {
     @JsonProperty("thinking")
     ChatCompletionRequestThinking thinking;
 
+    @JsonProperty("reasoning_effort")
+    String reasoningEffort;
+
+
     @Override
     public String toString() {
         return "ChatCompletionRequest{" +
@@ -194,9 +196,18 @@ public class ChatCompletionRequest {
                 ", toolChoice=" + toolChoice +
                 ", responseFormat=" + responseFormat +
                 ", thinking=" + thinking +
+                ", reasoningEffort='" + reasoningEffort + '\'' +
                 '}';
     }
 
+
+    public String getReasoningEffort() {
+        return reasoningEffort;
+    }
+
+    public void setReasoningEffort(String reasoningEffort) {
+        this.reasoningEffort = reasoningEffort;
+    }
 
     public Integer getMaxCompletionTokens() {
         return maxCompletionTokens;
@@ -573,6 +584,7 @@ public class ChatCompletionRequest {
         private ChatCompletionRequestResponseFormat responseFormat;
         private ChatCompletionRequestThinking thinking;
         private Integer maxCompletionTokens;
+        private String reasoningEffort;
 
         public ChatCompletionRequest.Builder model(String model) {
             this.model = model;
@@ -698,6 +710,12 @@ public class ChatCompletionRequest {
             this.thinking = thinking;
             return this;
         }
+
+        public ChatCompletionRequest.Builder reasoningEffort(String reasoningEffort) {
+            this.reasoningEffort = reasoningEffort;
+            return this;
+        }
+
         public ChatCompletionRequest build() {
             ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
             chatCompletionRequest.setModel(model);
@@ -724,6 +742,7 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setResponseFormat(responseFormat);
             chatCompletionRequest.setThinking(thinking);
             chatCompletionRequest.setMaxCompletionTokens(maxCompletionTokens);
+            chatCompletionRequest.setReasoningEffort(reasoningEffort);
             return chatCompletionRequest;
         }
     }
