@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ScenarioForCreateAITermbaseInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,7 +37,7 @@ public class CreateAITermbaseRequest {
   private String name = null;
 
   @SerializedName("Scenario")
-  private ScenarioForCreateAITermbaseInput scenario = null;
+  private String scenario = null;
 
   @SerializedName("SourceLanguage")
   private String sourceLanguage = null;
@@ -86,7 +85,7 @@ public class CreateAITermbaseRequest {
     this.name = name;
   }
 
-  public CreateAITermbaseRequest scenario(ScenarioForCreateAITermbaseInput scenario) {
+  public CreateAITermbaseRequest scenario(String scenario) {
     this.scenario = scenario;
     return this;
   }
@@ -95,13 +94,13 @@ public class CreateAITermbaseRequest {
    * Get scenario
    * @return scenario
   **/
-  @Valid
-  @Schema(description = "")
-  public ScenarioForCreateAITermbaseInput getScenario() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getScenario() {
     return scenario;
   }
 
-  public void setScenario(ScenarioForCreateAITermbaseInput scenario) {
+  public void setScenario(String scenario) {
     this.scenario = scenario;
   }
 
