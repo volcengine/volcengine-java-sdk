@@ -59,6 +59,9 @@ public class DescribeDnatEntriesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("PortType")
+  private String portType = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -233,6 +236,24 @@ public class DescribeDnatEntriesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeDnatEntriesRequest portType(String portType) {
+    this.portType = portType;
+    return this;
+  }
+
+   /**
+   * Get portType
+   * @return portType
+  **/
+  @Schema(description = "")
+  public String getPortType() {
+    return portType;
+  }
+
+  public void setPortType(String portType) {
+    this.portType = portType;
+  }
+
   public DescribeDnatEntriesRequest protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -270,12 +291,13 @@ public class DescribeDnatEntriesRequest {
         Objects.equals(this.natGatewayId, describeDnatEntriesRequest.natGatewayId) &&
         Objects.equals(this.pageNumber, describeDnatEntriesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDnatEntriesRequest.pageSize) &&
+        Objects.equals(this.portType, describeDnatEntriesRequest.portType) &&
         Objects.equals(this.protocol, describeDnatEntriesRequest.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnatEntryIds, dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, pageNumber, pageSize, protocol);
+    return Objects.hash(dnatEntryIds, dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, pageNumber, pageSize, portType, protocol);
   }
 
 
@@ -293,6 +315,7 @@ public class DescribeDnatEntriesRequest {
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");
     return sb.toString();

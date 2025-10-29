@@ -39,6 +39,9 @@ public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.Ab
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
+  @SerializedName("NatIpId")
+  private String natIpId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -109,6 +112,24 @@ public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.Ab
 
   public void setNatGatewayId(String natGatewayId) {
     this.natGatewayId = natGatewayId;
+  }
+
+  public DescribeSnatEntryAttributesResponse natIpId(String natIpId) {
+    this.natIpId = natIpId;
+    return this;
+  }
+
+   /**
+   * Get natIpId
+   * @return natIpId
+  **/
+  @Schema(description = "")
+  public String getNatIpId() {
+    return natIpId;
+  }
+
+  public void setNatIpId(String natIpId) {
+    this.natIpId = natIpId;
   }
 
   public DescribeSnatEntryAttributesResponse requestId(String requestId) {
@@ -232,6 +253,7 @@ public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.Ab
     return Objects.equals(this.eipAddress, describeSnatEntryAttributesResponse.eipAddress) &&
         Objects.equals(this.eipId, describeSnatEntryAttributesResponse.eipId) &&
         Objects.equals(this.natGatewayId, describeSnatEntryAttributesResponse.natGatewayId) &&
+        Objects.equals(this.natIpId, describeSnatEntryAttributesResponse.natIpId) &&
         Objects.equals(this.requestId, describeSnatEntryAttributesResponse.requestId) &&
         Objects.equals(this.snatEntryId, describeSnatEntryAttributesResponse.snatEntryId) &&
         Objects.equals(this.snatEntryName, describeSnatEntryAttributesResponse.snatEntryName) &&
@@ -242,7 +264,7 @@ public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.Ab
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eipId, natGatewayId, requestId, snatEntryId, snatEntryName, sourceCidr, status, subnetId);
+    return Objects.hash(eipAddress, eipId, natGatewayId, natIpId, requestId, snatEntryId, snatEntryName, sourceCidr, status, subnetId);
   }
 
 
@@ -254,6 +276,7 @@ public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.Ab
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    natIpId: ").append(toIndentedString(natIpId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    snatEntryId: ").append(toIndentedString(snatEntryId)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");

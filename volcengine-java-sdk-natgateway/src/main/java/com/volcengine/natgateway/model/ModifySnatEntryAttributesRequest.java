@@ -33,6 +33,9 @@ public class ModifySnatEntryAttributesRequest {
   @SerializedName("EipId")
   private String eipId = null;
 
+  @SerializedName("NatIpId")
+  private String natIpId = null;
+
   @SerializedName("SnatEntryId")
   private String snatEntryId = null;
 
@@ -55,6 +58,24 @@ public class ModifySnatEntryAttributesRequest {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public ModifySnatEntryAttributesRequest natIpId(String natIpId) {
+    this.natIpId = natIpId;
+    return this;
+  }
+
+   /**
+   * Get natIpId
+   * @return natIpId
+  **/
+  @Schema(description = "")
+  public String getNatIpId() {
+    return natIpId;
+  }
+
+  public void setNatIpId(String natIpId) {
+    this.natIpId = natIpId;
   }
 
   public ModifySnatEntryAttributesRequest snatEntryId(String snatEntryId) {
@@ -105,13 +126,14 @@ public class ModifySnatEntryAttributesRequest {
     }
     ModifySnatEntryAttributesRequest modifySnatEntryAttributesRequest = (ModifySnatEntryAttributesRequest) o;
     return Objects.equals(this.eipId, modifySnatEntryAttributesRequest.eipId) &&
+        Objects.equals(this.natIpId, modifySnatEntryAttributesRequest.natIpId) &&
         Objects.equals(this.snatEntryId, modifySnatEntryAttributesRequest.snatEntryId) &&
         Objects.equals(this.snatEntryName, modifySnatEntryAttributesRequest.snatEntryName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, snatEntryId, snatEntryName);
+    return Objects.hash(eipId, natIpId, snatEntryId, snatEntryName);
   }
 
 
@@ -121,6 +143,7 @@ public class ModifySnatEntryAttributesRequest {
     sb.append("class ModifySnatEntryAttributesRequest {\n");
     
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    natIpId: ").append(toIndentedString(natIpId)).append("\n");
     sb.append("    snatEntryId: ").append(toIndentedString(snatEntryId)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");
     sb.append("}");

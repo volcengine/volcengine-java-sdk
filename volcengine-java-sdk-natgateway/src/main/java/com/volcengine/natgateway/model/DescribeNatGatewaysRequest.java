@@ -42,6 +42,9 @@ public class DescribeNatGatewaysRequest {
   @SerializedName("NatGatewayName")
   private String natGatewayName = null;
 
+  @SerializedName("NetworkType")
+  private String networkType = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -51,53 +54,8 @@ public class DescribeNatGatewaysRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  /**
-   * Gets or Sets spec
-   */
-  @JsonAdapter(SpecEnum.Adapter.class)
-  public enum SpecEnum {
-    @SerializedName("Small")
-    SMALL("Small"),
-    @SerializedName("Medium")
-    MEDIUM("Medium"),
-    @SerializedName("Large")
-    LARGE("Large");
-
-    private String value;
-
-    SpecEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SpecEnum fromValue(String input) {
-      for (SpecEnum b : SpecEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SpecEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SpecEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SpecEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SpecEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Spec")
-  private SpecEnum spec = null;
+  @SerializedName("Spec")
+  private String spec = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -170,6 +128,24 @@ public class DescribeNatGatewaysRequest {
     this.natGatewayName = natGatewayName;
   }
 
+  public DescribeNatGatewaysRequest networkType(String networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public String getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(String networkType) {
+    this.networkType = networkType;
+  }
+
   public DescribeNatGatewaysRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -225,7 +201,7 @@ public class DescribeNatGatewaysRequest {
     this.projectName = projectName;
   }
 
-  public DescribeNatGatewaysRequest spec(SpecEnum spec) {
+  public DescribeNatGatewaysRequest spec(String spec) {
     this.spec = spec;
     return this;
   }
@@ -235,11 +211,11 @@ public class DescribeNatGatewaysRequest {
    * @return spec
   **/
   @Schema(description = "")
-  public SpecEnum getSpec() {
+  public String getSpec() {
     return spec;
   }
 
-  public void setSpec(SpecEnum spec) {
+  public void setSpec(String spec) {
     this.spec = spec;
   }
 
@@ -319,6 +295,7 @@ public class DescribeNatGatewaysRequest {
     return Objects.equals(this.description, describeNatGatewaysRequest.description) &&
         Objects.equals(this.natGatewayIds, describeNatGatewaysRequest.natGatewayIds) &&
         Objects.equals(this.natGatewayName, describeNatGatewaysRequest.natGatewayName) &&
+        Objects.equals(this.networkType, describeNatGatewaysRequest.networkType) &&
         Objects.equals(this.pageNumber, describeNatGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNatGatewaysRequest.pageSize) &&
         Objects.equals(this.projectName, describeNatGatewaysRequest.projectName) &&
@@ -330,7 +307,7 @@ public class DescribeNatGatewaysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, natGatewayIds, natGatewayName, pageNumber, pageSize, projectName, spec, subnetId, tagFilters, vpcId);
+    return Objects.hash(description, natGatewayIds, natGatewayName, networkType, pageNumber, pageSize, projectName, spec, subnetId, tagFilters, vpcId);
   }
 
 
@@ -342,6 +319,7 @@ public class DescribeNatGatewaysRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
