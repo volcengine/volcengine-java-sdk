@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class DataForListBaselineCheckResOutput {
   @SerializedName("ChecklistID")
-  private Integer checklistID = null;
+  private Long checklistID = null;
 
   @SerializedName("ChecklistName")
   private String checklistName = null;
@@ -54,7 +54,7 @@ public class DataForListBaselineCheckResOutput {
   @SerializedName("WhitelistStatus")
   private Boolean whitelistStatus = null;
 
-  public DataForListBaselineCheckResOutput checklistID(Integer checklistID) {
+  public DataForListBaselineCheckResOutput checklistID(Long checklistID) {
     this.checklistID = checklistID;
     return this;
   }
@@ -64,11 +64,11 @@ public class DataForListBaselineCheckResOutput {
    * @return checklistID
   **/
   @Schema(description = "")
-  public Integer getChecklistID() {
+  public Long getChecklistID() {
     return checklistID;
   }
 
-  public void setChecklistID(Integer checklistID) {
+  public void setChecklistID(Long checklistID) {
     this.checklistID = checklistID;
   }
 

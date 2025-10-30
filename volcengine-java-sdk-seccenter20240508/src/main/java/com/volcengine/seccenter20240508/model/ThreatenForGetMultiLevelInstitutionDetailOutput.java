@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class ThreatenForGetMultiLevelInstitutionDetailOutput {
   @SerializedName("Alert")
-  private Integer alert = null;
+  private Long alert = null;
 
   @SerializedName("Baseline")
-  private Integer baseline = null;
+  private Long baseline = null;
 
   @SerializedName("Hosts")
-  private Integer hosts = null;
+  private Long hosts = null;
 
   @SerializedName("Virus")
-  private Integer virus = null;
+  private Long virus = null;
 
   @SerializedName("Vuln")
-  private Integer vuln = null;
+  private Long vuln = null;
 
-  public ThreatenForGetMultiLevelInstitutionDetailOutput alert(Integer alert) {
+  public ThreatenForGetMultiLevelInstitutionDetailOutput alert(Long alert) {
     this.alert = alert;
     return this;
   }
@@ -55,15 +55,15 @@ public class ThreatenForGetMultiLevelInstitutionDetailOutput {
    * @return alert
   **/
   @Schema(description = "")
-  public Integer getAlert() {
+  public Long getAlert() {
     return alert;
   }
 
-  public void setAlert(Integer alert) {
+  public void setAlert(Long alert) {
     this.alert = alert;
   }
 
-  public ThreatenForGetMultiLevelInstitutionDetailOutput baseline(Integer baseline) {
+  public ThreatenForGetMultiLevelInstitutionDetailOutput baseline(Long baseline) {
     this.baseline = baseline;
     return this;
   }
@@ -73,15 +73,15 @@ public class ThreatenForGetMultiLevelInstitutionDetailOutput {
    * @return baseline
   **/
   @Schema(description = "")
-  public Integer getBaseline() {
+  public Long getBaseline() {
     return baseline;
   }
 
-  public void setBaseline(Integer baseline) {
+  public void setBaseline(Long baseline) {
     this.baseline = baseline;
   }
 
-  public ThreatenForGetMultiLevelInstitutionDetailOutput hosts(Integer hosts) {
+  public ThreatenForGetMultiLevelInstitutionDetailOutput hosts(Long hosts) {
     this.hosts = hosts;
     return this;
   }
@@ -91,15 +91,15 @@ public class ThreatenForGetMultiLevelInstitutionDetailOutput {
    * @return hosts
   **/
   @Schema(description = "")
-  public Integer getHosts() {
+  public Long getHosts() {
     return hosts;
   }
 
-  public void setHosts(Integer hosts) {
+  public void setHosts(Long hosts) {
     this.hosts = hosts;
   }
 
-  public ThreatenForGetMultiLevelInstitutionDetailOutput virus(Integer virus) {
+  public ThreatenForGetMultiLevelInstitutionDetailOutput virus(Long virus) {
     this.virus = virus;
     return this;
   }
@@ -109,15 +109,15 @@ public class ThreatenForGetMultiLevelInstitutionDetailOutput {
    * @return virus
   **/
   @Schema(description = "")
-  public Integer getVirus() {
+  public Long getVirus() {
     return virus;
   }
 
-  public void setVirus(Integer virus) {
+  public void setVirus(Long virus) {
     this.virus = virus;
   }
 
-  public ThreatenForGetMultiLevelInstitutionDetailOutput vuln(Integer vuln) {
+  public ThreatenForGetMultiLevelInstitutionDetailOutput vuln(Long vuln) {
     this.vuln = vuln;
     return this;
   }
@@ -127,11 +127,11 @@ public class ThreatenForGetMultiLevelInstitutionDetailOutput {
    * @return vuln
   **/
   @Schema(description = "")
-  public Integer getVuln() {
+  public Long getVuln() {
     return vuln;
   }
 
-  public void setVuln(Integer vuln) {
+  public void setVuln(Long vuln) {
     this.vuln = vuln;
   }
 

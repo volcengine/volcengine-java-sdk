@@ -41,19 +41,19 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
   private BasicQuotaForGetTenantQuotaOutput basicQuota = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("ID")
   private String ID = null;
 
   @SerializedName("InsertTime")
-  private Integer insertTime = null;
+  private Long insertTime = null;
 
   @SerializedName("Labels")
   private List<String> labels = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("ValueAdded")
   private ValueAddedForGetTenantQuotaOutput valueAdded = null;
@@ -95,7 +95,7 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     this.basicQuota = basicQuota;
   }
 
-  public GetTenantQuotaResponse expireTime(Integer expireTime) {
+  public GetTenantQuotaResponse expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -105,11 +105,11 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -131,7 +131,7 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     this.ID = ID;
   }
 
-  public GetTenantQuotaResponse insertTime(Integer insertTime) {
+  public GetTenantQuotaResponse insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
   }
@@ -141,11 +141,11 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
    * @return insertTime
   **/
   @Schema(description = "")
-  public Integer getInsertTime() {
+  public Long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(Integer insertTime) {
+  public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
   }
 
@@ -175,7 +175,7 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     this.labels = labels;
   }
 
-  public GetTenantQuotaResponse updateTime(Integer updateTime) {
+  public GetTenantQuotaResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -185,11 +185,11 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

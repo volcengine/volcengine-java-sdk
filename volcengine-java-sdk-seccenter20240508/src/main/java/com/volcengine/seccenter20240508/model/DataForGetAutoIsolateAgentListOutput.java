@@ -61,7 +61,7 @@ public class DataForGetAutoIsolateAgentListOutput {
   private List<String> tags = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForGetAutoIsolateAgentListOutput agentID(String agentID) {
     this.agentID = agentID;
@@ -266,7 +266,7 @@ public class DataForGetAutoIsolateAgentListOutput {
     this.tags = tags;
   }
 
-  public DataForGetAutoIsolateAgentListOutput updateTime(Integer updateTime) {
+  public DataForGetAutoIsolateAgentListOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -276,11 +276,11 @@ public class DataForGetAutoIsolateAgentListOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

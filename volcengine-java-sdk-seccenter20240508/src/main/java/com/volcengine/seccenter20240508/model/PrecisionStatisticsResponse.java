@@ -37,10 +37,10 @@ public class PrecisionStatisticsResponse extends com.volcengine.model.AbstractRe
   private List<DistributionForPrecisionStatisticsOutput> distribution = null;
 
   @SerializedName("TodayNewCount")
-  private Integer todayNewCount = null;
+  private Long todayNewCount = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   public PrecisionStatisticsResponse distribution(List<DistributionForPrecisionStatisticsOutput> distribution) {
     this.distribution = distribution;
@@ -69,7 +69,7 @@ public class PrecisionStatisticsResponse extends com.volcengine.model.AbstractRe
     this.distribution = distribution;
   }
 
-  public PrecisionStatisticsResponse todayNewCount(Integer todayNewCount) {
+  public PrecisionStatisticsResponse todayNewCount(Long todayNewCount) {
     this.todayNewCount = todayNewCount;
     return this;
   }
@@ -79,15 +79,15 @@ public class PrecisionStatisticsResponse extends com.volcengine.model.AbstractRe
    * @return todayNewCount
   **/
   @Schema(description = "")
-  public Integer getTodayNewCount() {
+  public Long getTodayNewCount() {
     return todayNewCount;
   }
 
-  public void setTodayNewCount(Integer todayNewCount) {
+  public void setTodayNewCount(Long todayNewCount) {
     this.todayNewCount = todayNewCount;
   }
 
-  public PrecisionStatisticsResponse totalCount(Integer totalCount) {
+  public PrecisionStatisticsResponse totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -97,11 +97,11 @@ public class PrecisionStatisticsResponse extends com.volcengine.model.AbstractRe
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 

@@ -37,31 +37,31 @@ public class DataForListScanTasksOutput {
   private String action = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("FilePath")
   private String filePath = null;
 
   @SerializedName("IDCount")
-  private Integer idCount = null;
+  private Long idCount = null;
 
   @SerializedName("ResultNum")
-  private Integer resultNum = null;
+  private Long resultNum = null;
 
   @SerializedName("SubTaskCreated")
-  private Integer subTaskCreated = null;
+  private Long subTaskCreated = null;
 
   @SerializedName("SubTaskFailed")
-  private Integer subTaskFailed = null;
+  private Long subTaskFailed = null;
 
   @SerializedName("SubTaskRunning")
-  private Integer subTaskRunning = null;
+  private Long subTaskRunning = null;
 
   @SerializedName("SubTaskStopped")
-  private Integer subTaskStopped = null;
+  private Long subTaskStopped = null;
 
   @SerializedName("SubTaskSucceed")
-  private Integer subTaskSucceed = null;
+  private Long subTaskSucceed = null;
 
   @SerializedName("Tag")
   private String tag = null;
@@ -76,7 +76,7 @@ public class DataForListScanTasksOutput {
   private String taskStatus = null;
 
   @SerializedName("TaskTimeout")
-  private Integer taskTimeout = null;
+  private Long taskTimeout = null;
 
   @SerializedName("TaskType")
   private String taskType = null;
@@ -88,7 +88,7 @@ public class DataForListScanTasksOutput {
   private String topGroupID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("VirusTaskID")
   private String virusTaskID = null;
@@ -129,7 +129,7 @@ public class DataForListScanTasksOutput {
     this.action = action;
   }
 
-  public DataForListScanTasksOutput createTime(Integer createTime) {
+  public DataForListScanTasksOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -139,11 +139,11 @@ public class DataForListScanTasksOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -165,7 +165,7 @@ public class DataForListScanTasksOutput {
     this.filePath = filePath;
   }
 
-  public DataForListScanTasksOutput idCount(Integer idCount) {
+  public DataForListScanTasksOutput idCount(Long idCount) {
     this.idCount = idCount;
     return this;
   }
@@ -175,15 +175,15 @@ public class DataForListScanTasksOutput {
    * @return idCount
   **/
   @Schema(description = "")
-  public Integer getIdCount() {
+  public Long getIdCount() {
     return idCount;
   }
 
-  public void setIdCount(Integer idCount) {
+  public void setIdCount(Long idCount) {
     this.idCount = idCount;
   }
 
-  public DataForListScanTasksOutput resultNum(Integer resultNum) {
+  public DataForListScanTasksOutput resultNum(Long resultNum) {
     this.resultNum = resultNum;
     return this;
   }
@@ -193,15 +193,15 @@ public class DataForListScanTasksOutput {
    * @return resultNum
   **/
   @Schema(description = "")
-  public Integer getResultNum() {
+  public Long getResultNum() {
     return resultNum;
   }
 
-  public void setResultNum(Integer resultNum) {
+  public void setResultNum(Long resultNum) {
     this.resultNum = resultNum;
   }
 
-  public DataForListScanTasksOutput subTaskCreated(Integer subTaskCreated) {
+  public DataForListScanTasksOutput subTaskCreated(Long subTaskCreated) {
     this.subTaskCreated = subTaskCreated;
     return this;
   }
@@ -211,15 +211,15 @@ public class DataForListScanTasksOutput {
    * @return subTaskCreated
   **/
   @Schema(description = "")
-  public Integer getSubTaskCreated() {
+  public Long getSubTaskCreated() {
     return subTaskCreated;
   }
 
-  public void setSubTaskCreated(Integer subTaskCreated) {
+  public void setSubTaskCreated(Long subTaskCreated) {
     this.subTaskCreated = subTaskCreated;
   }
 
-  public DataForListScanTasksOutput subTaskFailed(Integer subTaskFailed) {
+  public DataForListScanTasksOutput subTaskFailed(Long subTaskFailed) {
     this.subTaskFailed = subTaskFailed;
     return this;
   }
@@ -229,15 +229,15 @@ public class DataForListScanTasksOutput {
    * @return subTaskFailed
   **/
   @Schema(description = "")
-  public Integer getSubTaskFailed() {
+  public Long getSubTaskFailed() {
     return subTaskFailed;
   }
 
-  public void setSubTaskFailed(Integer subTaskFailed) {
+  public void setSubTaskFailed(Long subTaskFailed) {
     this.subTaskFailed = subTaskFailed;
   }
 
-  public DataForListScanTasksOutput subTaskRunning(Integer subTaskRunning) {
+  public DataForListScanTasksOutput subTaskRunning(Long subTaskRunning) {
     this.subTaskRunning = subTaskRunning;
     return this;
   }
@@ -247,15 +247,15 @@ public class DataForListScanTasksOutput {
    * @return subTaskRunning
   **/
   @Schema(description = "")
-  public Integer getSubTaskRunning() {
+  public Long getSubTaskRunning() {
     return subTaskRunning;
   }
 
-  public void setSubTaskRunning(Integer subTaskRunning) {
+  public void setSubTaskRunning(Long subTaskRunning) {
     this.subTaskRunning = subTaskRunning;
   }
 
-  public DataForListScanTasksOutput subTaskStopped(Integer subTaskStopped) {
+  public DataForListScanTasksOutput subTaskStopped(Long subTaskStopped) {
     this.subTaskStopped = subTaskStopped;
     return this;
   }
@@ -265,15 +265,15 @@ public class DataForListScanTasksOutput {
    * @return subTaskStopped
   **/
   @Schema(description = "")
-  public Integer getSubTaskStopped() {
+  public Long getSubTaskStopped() {
     return subTaskStopped;
   }
 
-  public void setSubTaskStopped(Integer subTaskStopped) {
+  public void setSubTaskStopped(Long subTaskStopped) {
     this.subTaskStopped = subTaskStopped;
   }
 
-  public DataForListScanTasksOutput subTaskSucceed(Integer subTaskSucceed) {
+  public DataForListScanTasksOutput subTaskSucceed(Long subTaskSucceed) {
     this.subTaskSucceed = subTaskSucceed;
     return this;
   }
@@ -283,11 +283,11 @@ public class DataForListScanTasksOutput {
    * @return subTaskSucceed
   **/
   @Schema(description = "")
-  public Integer getSubTaskSucceed() {
+  public Long getSubTaskSucceed() {
     return subTaskSucceed;
   }
 
-  public void setSubTaskSucceed(Integer subTaskSucceed) {
+  public void setSubTaskSucceed(Long subTaskSucceed) {
     this.subTaskSucceed = subTaskSucceed;
   }
 
@@ -363,7 +363,7 @@ public class DataForListScanTasksOutput {
     this.taskStatus = taskStatus;
   }
 
-  public DataForListScanTasksOutput taskTimeout(Integer taskTimeout) {
+  public DataForListScanTasksOutput taskTimeout(Long taskTimeout) {
     this.taskTimeout = taskTimeout;
     return this;
   }
@@ -373,11 +373,11 @@ public class DataForListScanTasksOutput {
    * @return taskTimeout
   **/
   @Schema(description = "")
-  public Integer getTaskTimeout() {
+  public Long getTaskTimeout() {
     return taskTimeout;
   }
 
-  public void setTaskTimeout(Integer taskTimeout) {
+  public void setTaskTimeout(Long taskTimeout) {
     this.taskTimeout = taskTimeout;
   }
 
@@ -435,7 +435,7 @@ public class DataForListScanTasksOutput {
     this.topGroupID = topGroupID;
   }
 
-  public DataForListScanTasksOutput updateTime(Integer updateTime) {
+  public DataForListScanTasksOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -445,11 +445,11 @@ public class DataForListScanTasksOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

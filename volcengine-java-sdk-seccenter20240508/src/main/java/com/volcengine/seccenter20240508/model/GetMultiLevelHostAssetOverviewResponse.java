@@ -31,42 +31,42 @@ import javax.validation.Valid;
 
 public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Alarm")
-  private Integer alarm = null;
+  private Long alarm = null;
 
   @SerializedName("Baseline")
-  private Integer baseline = null;
+  private Long baseline = null;
 
   @SerializedName("Cpu")
-  private Integer cpu = null;
+  private Long cpu = null;
 
   @SerializedName("HostNum")
-  private Integer hostNum = null;
+  private Long hostNum = null;
 
   @SerializedName("Offline")
-  private Integer offline = null;
+  private Long offline = null;
 
   @SerializedName("Protecting")
-  private Integer protecting = null;
+  private Long protecting = null;
 
   @SerializedName("ProtectionException")
-  private Integer protectionException = null;
+  private Long protectionException = null;
 
   @SerializedName("Risk")
-  private Integer risk = null;
+  private Long risk = null;
 
   @SerializedName("Unprotected")
-  private Integer unprotected = null;
+  private Long unprotected = null;
 
   @SerializedName("UnprotectedCpu")
-  private Integer unprotectedCpu = null;
+  private Long unprotectedCpu = null;
 
   @SerializedName("Virus")
-  private Integer virus = null;
+  private Long virus = null;
 
   @SerializedName("Vuln")
-  private Integer vuln = null;
+  private Long vuln = null;
 
-  public GetMultiLevelHostAssetOverviewResponse alarm(Integer alarm) {
+  public GetMultiLevelHostAssetOverviewResponse alarm(Long alarm) {
     this.alarm = alarm;
     return this;
   }
@@ -76,15 +76,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return alarm
   **/
   @Schema(description = "")
-  public Integer getAlarm() {
+  public Long getAlarm() {
     return alarm;
   }
 
-  public void setAlarm(Integer alarm) {
+  public void setAlarm(Long alarm) {
     this.alarm = alarm;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse baseline(Integer baseline) {
+  public GetMultiLevelHostAssetOverviewResponse baseline(Long baseline) {
     this.baseline = baseline;
     return this;
   }
@@ -94,15 +94,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return baseline
   **/
   @Schema(description = "")
-  public Integer getBaseline() {
+  public Long getBaseline() {
     return baseline;
   }
 
-  public void setBaseline(Integer baseline) {
+  public void setBaseline(Long baseline) {
     this.baseline = baseline;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse cpu(Integer cpu) {
+  public GetMultiLevelHostAssetOverviewResponse cpu(Long cpu) {
     this.cpu = cpu;
     return this;
   }
@@ -112,15 +112,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return cpu
   **/
   @Schema(description = "")
-  public Integer getCpu() {
+  public Long getCpu() {
     return cpu;
   }
 
-  public void setCpu(Integer cpu) {
+  public void setCpu(Long cpu) {
     this.cpu = cpu;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse hostNum(Integer hostNum) {
+  public GetMultiLevelHostAssetOverviewResponse hostNum(Long hostNum) {
     this.hostNum = hostNum;
     return this;
   }
@@ -130,15 +130,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return hostNum
   **/
   @Schema(description = "")
-  public Integer getHostNum() {
+  public Long getHostNum() {
     return hostNum;
   }
 
-  public void setHostNum(Integer hostNum) {
+  public void setHostNum(Long hostNum) {
     this.hostNum = hostNum;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse offline(Integer offline) {
+  public GetMultiLevelHostAssetOverviewResponse offline(Long offline) {
     this.offline = offline;
     return this;
   }
@@ -148,15 +148,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return offline
   **/
   @Schema(description = "")
-  public Integer getOffline() {
+  public Long getOffline() {
     return offline;
   }
 
-  public void setOffline(Integer offline) {
+  public void setOffline(Long offline) {
     this.offline = offline;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse protecting(Integer protecting) {
+  public GetMultiLevelHostAssetOverviewResponse protecting(Long protecting) {
     this.protecting = protecting;
     return this;
   }
@@ -166,15 +166,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return protecting
   **/
   @Schema(description = "")
-  public Integer getProtecting() {
+  public Long getProtecting() {
     return protecting;
   }
 
-  public void setProtecting(Integer protecting) {
+  public void setProtecting(Long protecting) {
     this.protecting = protecting;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse protectionException(Integer protectionException) {
+  public GetMultiLevelHostAssetOverviewResponse protectionException(Long protectionException) {
     this.protectionException = protectionException;
     return this;
   }
@@ -184,15 +184,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return protectionException
   **/
   @Schema(description = "")
-  public Integer getProtectionException() {
+  public Long getProtectionException() {
     return protectionException;
   }
 
-  public void setProtectionException(Integer protectionException) {
+  public void setProtectionException(Long protectionException) {
     this.protectionException = protectionException;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse risk(Integer risk) {
+  public GetMultiLevelHostAssetOverviewResponse risk(Long risk) {
     this.risk = risk;
     return this;
   }
@@ -202,15 +202,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return risk
   **/
   @Schema(description = "")
-  public Integer getRisk() {
+  public Long getRisk() {
     return risk;
   }
 
-  public void setRisk(Integer risk) {
+  public void setRisk(Long risk) {
     this.risk = risk;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse unprotected(Integer unprotected) {
+  public GetMultiLevelHostAssetOverviewResponse unprotected(Long unprotected) {
     this.unprotected = unprotected;
     return this;
   }
@@ -220,15 +220,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return unprotected
   **/
   @Schema(description = "")
-  public Integer getUnprotected() {
+  public Long getUnprotected() {
     return unprotected;
   }
 
-  public void setUnprotected(Integer unprotected) {
+  public void setUnprotected(Long unprotected) {
     this.unprotected = unprotected;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse unprotectedCpu(Integer unprotectedCpu) {
+  public GetMultiLevelHostAssetOverviewResponse unprotectedCpu(Long unprotectedCpu) {
     this.unprotectedCpu = unprotectedCpu;
     return this;
   }
@@ -238,15 +238,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return unprotectedCpu
   **/
   @Schema(description = "")
-  public Integer getUnprotectedCpu() {
+  public Long getUnprotectedCpu() {
     return unprotectedCpu;
   }
 
-  public void setUnprotectedCpu(Integer unprotectedCpu) {
+  public void setUnprotectedCpu(Long unprotectedCpu) {
     this.unprotectedCpu = unprotectedCpu;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse virus(Integer virus) {
+  public GetMultiLevelHostAssetOverviewResponse virus(Long virus) {
     this.virus = virus;
     return this;
   }
@@ -256,15 +256,15 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return virus
   **/
   @Schema(description = "")
-  public Integer getVirus() {
+  public Long getVirus() {
     return virus;
   }
 
-  public void setVirus(Integer virus) {
+  public void setVirus(Long virus) {
     this.virus = virus;
   }
 
-  public GetMultiLevelHostAssetOverviewResponse vuln(Integer vuln) {
+  public GetMultiLevelHostAssetOverviewResponse vuln(Long vuln) {
     this.vuln = vuln;
     return this;
   }
@@ -274,11 +274,11 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
    * @return vuln
   **/
   @Schema(description = "")
-  public Integer getVuln() {
+  public Long getVuln() {
     return vuln;
   }
 
-  public void setVuln(Integer vuln) {
+  public void setVuln(Long vuln) {
     this.vuln = vuln;
   }
 

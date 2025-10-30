@@ -57,10 +57,10 @@ public class ListIsolationFilesRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -69,13 +69,13 @@ public class ListIsolationFilesRequest {
   private String sortOrder = null;
 
   @SerializedName("Status")
-  private List<Integer> status = null;
+  private List<Long> status = null;
 
   @SerializedName("TimeEnd")
-  private Integer timeEnd = null;
+  private Long timeEnd = null;
 
   @SerializedName("TimeStart")
-  private Integer timeStart = null;
+  private Long timeStart = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -240,7 +240,7 @@ public class ListIsolationFilesRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListIsolationFilesRequest pageNumber(Integer pageNumber) {
+  public ListIsolationFilesRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -251,15 +251,15 @@ public class ListIsolationFilesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListIsolationFilesRequest pageSize(Integer pageSize) {
+  public ListIsolationFilesRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -270,11 +270,11 @@ public class ListIsolationFilesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -314,14 +314,14 @@ public class ListIsolationFilesRequest {
     this.sortOrder = sortOrder;
   }
 
-  public ListIsolationFilesRequest status(List<Integer> status) {
+  public ListIsolationFilesRequest status(List<Long> status) {
     this.status = status;
     return this;
   }
 
-  public ListIsolationFilesRequest addStatusItem(Integer statusItem) {
+  public ListIsolationFilesRequest addStatusItem(Long statusItem) {
     if (this.status == null) {
-      this.status = new ArrayList<Integer>();
+      this.status = new ArrayList<Long>();
     }
     this.status.add(statusItem);
     return this;
@@ -332,15 +332,15 @@ public class ListIsolationFilesRequest {
    * @return status
   **/
   @Schema(description = "")
-  public List<Integer> getStatus() {
+  public List<Long> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Integer> status) {
+  public void setStatus(List<Long> status) {
     this.status = status;
   }
 
-  public ListIsolationFilesRequest timeEnd(Integer timeEnd) {
+  public ListIsolationFilesRequest timeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
     return this;
   }
@@ -350,15 +350,15 @@ public class ListIsolationFilesRequest {
    * @return timeEnd
   **/
   @Schema(description = "")
-  public Integer getTimeEnd() {
+  public Long getTimeEnd() {
     return timeEnd;
   }
 
-  public void setTimeEnd(Integer timeEnd) {
+  public void setTimeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
   }
 
-  public ListIsolationFilesRequest timeStart(Integer timeStart) {
+  public ListIsolationFilesRequest timeStart(Long timeStart) {
     this.timeStart = timeStart;
     return this;
   }
@@ -368,11 +368,11 @@ public class ListIsolationFilesRequest {
    * @return timeStart
   **/
   @Schema(description = "")
-  public Integer getTimeStart() {
+  public Long getTimeStart() {
     return timeStart;
   }
 
-  public void setTimeStart(Integer timeStart) {
+  public void setTimeStart(Long timeStart) {
     this.timeStart = timeStart;
   }
 

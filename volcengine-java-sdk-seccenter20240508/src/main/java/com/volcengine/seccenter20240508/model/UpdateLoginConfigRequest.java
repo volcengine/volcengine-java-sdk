@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.LoginLocationForUpdateLoginConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class UpdateLoginConfigRequest {
 
   @SerializedName("LoginConfigRules")
   private List<String> loginConfigRules = null;
+
+  @SerializedName("LoginLocations")
+  private List<LoginLocationForUpdateLoginConfigInput> loginLocations = null;
 
   @SerializedName("TimeIntervals")
   private List<String> timeIntervals = null;
@@ -247,6 +251,33 @@ public class UpdateLoginConfigRequest {
     this.loginConfigRules = loginConfigRules;
   }
 
+  public UpdateLoginConfigRequest loginLocations(List<LoginLocationForUpdateLoginConfigInput> loginLocations) {
+    this.loginLocations = loginLocations;
+    return this;
+  }
+
+  public UpdateLoginConfigRequest addLoginLocationsItem(LoginLocationForUpdateLoginConfigInput loginLocationsItem) {
+    if (this.loginLocations == null) {
+      this.loginLocations = new ArrayList<LoginLocationForUpdateLoginConfigInput>();
+    }
+    this.loginLocations.add(loginLocationsItem);
+    return this;
+  }
+
+   /**
+   * Get loginLocations
+   * @return loginLocations
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LoginLocationForUpdateLoginConfigInput> getLoginLocations() {
+    return loginLocations;
+  }
+
+  public void setLoginLocations(List<LoginLocationForUpdateLoginConfigInput> loginLocations) {
+    this.loginLocations = loginLocations;
+  }
+
   public UpdateLoginConfigRequest timeIntervals(List<String> timeIntervals) {
     this.timeIntervals = timeIntervals;
     return this;
@@ -309,13 +340,14 @@ public class UpdateLoginConfigRequest {
         Objects.equals(this.leafGroupIDs, updateLoginConfigRequest.leafGroupIDs) &&
         Objects.equals(this.legalUser, updateLoginConfigRequest.legalUser) &&
         Objects.equals(this.loginConfigRules, updateLoginConfigRequest.loginConfigRules) &&
+        Objects.equals(this.loginLocations, updateLoginConfigRequest.loginLocations) &&
         Objects.equals(this.timeIntervals, updateLoginConfigRequest.timeIntervals) &&
         Objects.equals(this.topGroupID, updateLoginConfigRequest.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentIDList, description, ID, ipList, ifAllHost, leafGroupIDs, legalUser, loginConfigRules, timeIntervals, topGroupID);
+    return Objects.hash(agentIDList, description, ID, ipList, ifAllHost, leafGroupIDs, legalUser, loginConfigRules, loginLocations, timeIntervals, topGroupID);
   }
 
 
@@ -332,6 +364,7 @@ public class UpdateLoginConfigRequest {
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    legalUser: ").append(toIndentedString(legalUser)).append("\n");
     sb.append("    loginConfigRules: ").append(toIndentedString(loginConfigRules)).append("\n");
+    sb.append("    loginLocations: ").append(toIndentedString(loginLocations)).append("\n");
     sb.append("    timeIntervals: ").append(toIndentedString(timeIntervals)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");

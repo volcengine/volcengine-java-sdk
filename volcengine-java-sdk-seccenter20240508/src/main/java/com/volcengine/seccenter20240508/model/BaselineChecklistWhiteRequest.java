@@ -86,10 +86,10 @@ public class BaselineChecklistWhiteRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("ChecklistIdList")
-  private List<Integer> checklistIdList = null;
+  private List<Long> checklistIdList = null;
 
   @SerializedName("Conditions")
   private ConditionsForBaselineChecklistWhiteInput conditions = null;
@@ -170,7 +170,7 @@ public class BaselineChecklistWhiteRequest {
     this.assetType = assetType;
   }
 
-  public BaselineChecklistWhiteRequest baselineID(Integer baselineID) {
+  public BaselineChecklistWhiteRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -180,22 +180,22 @@ public class BaselineChecklistWhiteRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public BaselineChecklistWhiteRequest checklistIdList(List<Integer> checklistIdList) {
+  public BaselineChecklistWhiteRequest checklistIdList(List<Long> checklistIdList) {
     this.checklistIdList = checklistIdList;
     return this;
   }
 
-  public BaselineChecklistWhiteRequest addChecklistIdListItem(Integer checklistIdListItem) {
+  public BaselineChecklistWhiteRequest addChecklistIdListItem(Long checklistIdListItem) {
     if (this.checklistIdList == null) {
-      this.checklistIdList = new ArrayList<Integer>();
+      this.checklistIdList = new ArrayList<Long>();
     }
     this.checklistIdList.add(checklistIdListItem);
     return this;
@@ -206,11 +206,11 @@ public class BaselineChecklistWhiteRequest {
    * @return checklistIdList
   **/
   @Schema(description = "")
-  public List<Integer> getChecklistIdList() {
+  public List<Long> getChecklistIdList() {
     return checklistIdList;
   }
 
-  public void setChecklistIdList(List<Integer> checklistIdList) {
+  public void setChecklistIdList(List<Long> checklistIdList) {
     this.checklistIdList = checklistIdList;
   }
 

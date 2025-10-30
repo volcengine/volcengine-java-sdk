@@ -37,7 +37,7 @@ public class RuleListForAddWhiteListInput {
   private String matchKey = null;
 
   @SerializedName("MatchType")
-  private Integer matchType = null;
+  private Long matchType = null;
 
   public RuleListForAddWhiteListInput matchContent(String matchContent) {
     this.matchContent = matchContent;
@@ -75,7 +75,7 @@ public class RuleListForAddWhiteListInput {
     this.matchKey = matchKey;
   }
 
-  public RuleListForAddWhiteListInput matchType(Integer matchType) {
+  public RuleListForAddWhiteListInput matchType(Long matchType) {
     this.matchType = matchType;
     return this;
   }
@@ -85,11 +85,11 @@ public class RuleListForAddWhiteListInput {
    * @return matchType
   **/
   @Schema(description = "")
-  public Integer getMatchType() {
+  public Long getMatchType() {
     return matchType;
   }
 
-  public void setMatchType(Integer matchType) {
+  public void setMatchType(Long matchType) {
     this.matchType = matchType;
   }
 

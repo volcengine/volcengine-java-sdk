@@ -54,7 +54,7 @@ public class DataForGetFingerprintIntegrityOutput {
   private String ID = null;
 
   @SerializedName("ModifyTime")
-  private Integer modifyTime = null;
+  private Long modifyTime = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -66,10 +66,10 @@ public class DataForGetFingerprintIntegrityOutput {
   private String primaryIpAddress = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Version")
   private String version = null;
@@ -208,7 +208,7 @@ public class DataForGetFingerprintIntegrityOutput {
     this.ID = ID;
   }
 
-  public DataForGetFingerprintIntegrityOutput modifyTime(Integer modifyTime) {
+  public DataForGetFingerprintIntegrityOutput modifyTime(Long modifyTime) {
     this.modifyTime = modifyTime;
     return this;
   }
@@ -218,11 +218,11 @@ public class DataForGetFingerprintIntegrityOutput {
    * @return modifyTime
   **/
   @Schema(description = "")
-  public Integer getModifyTime() {
+  public Long getModifyTime() {
     return modifyTime;
   }
 
-  public void setModifyTime(Integer modifyTime) {
+  public void setModifyTime(Long modifyTime) {
     this.modifyTime = modifyTime;
   }
 
@@ -280,7 +280,7 @@ public class DataForGetFingerprintIntegrityOutput {
     this.primaryIpAddress = primaryIpAddress;
   }
 
-  public DataForGetFingerprintIntegrityOutput startTime(Integer startTime) {
+  public DataForGetFingerprintIntegrityOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -290,15 +290,15 @@ public class DataForGetFingerprintIntegrityOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
-  public DataForGetFingerprintIntegrityOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintIntegrityOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -308,11 +308,11 @@ public class DataForGetFingerprintIntegrityOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

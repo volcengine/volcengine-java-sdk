@@ -94,10 +94,10 @@ public class ListBaselineCheckItemHostsRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CheckID")
-  private Integer checkID = null;
+  private Long checkID = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -121,10 +121,10 @@ public class ListBaselineCheckItemHostsRequest {
   private String nodeName = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -268,7 +268,7 @@ public class ListBaselineCheckItemHostsRequest {
     this.assetType = assetType;
   }
 
-  public ListBaselineCheckItemHostsRequest baselineID(Integer baselineID) {
+  public ListBaselineCheckItemHostsRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -279,15 +279,15 @@ public class ListBaselineCheckItemHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public ListBaselineCheckItemHostsRequest checkID(Integer checkID) {
+  public ListBaselineCheckItemHostsRequest checkID(Long checkID) {
     this.checkID = checkID;
     return this;
   }
@@ -297,11 +297,11 @@ public class ListBaselineCheckItemHostsRequest {
    * @return checkID
   **/
   @Schema(description = "")
-  public Integer getCheckID() {
+  public Long getCheckID() {
     return checkID;
   }
 
-  public void setCheckID(Integer checkID) {
+  public void setCheckID(Long checkID) {
     this.checkID = checkID;
   }
 
@@ -447,7 +447,7 @@ public class ListBaselineCheckItemHostsRequest {
     this.nodeName = nodeName;
   }
 
-  public ListBaselineCheckItemHostsRequest pageNumber(Integer pageNumber) {
+  public ListBaselineCheckItemHostsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -458,15 +458,15 @@ public class ListBaselineCheckItemHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListBaselineCheckItemHostsRequest pageSize(Integer pageSize) {
+  public ListBaselineCheckItemHostsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -477,11 +477,11 @@ public class ListBaselineCheckItemHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

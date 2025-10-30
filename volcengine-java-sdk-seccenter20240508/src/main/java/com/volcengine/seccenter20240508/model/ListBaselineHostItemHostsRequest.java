@@ -88,7 +88,7 @@ public class ListBaselineHostItemHostsRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -115,10 +115,10 @@ public class ListBaselineHostItemHostsRequest {
   private String nodeName = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -207,7 +207,7 @@ public class ListBaselineHostItemHostsRequest {
     this.assetType = assetType;
   }
 
-  public ListBaselineHostItemHostsRequest baselineID(Integer baselineID) {
+  public ListBaselineHostItemHostsRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -217,11 +217,11 @@ public class ListBaselineHostItemHostsRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -385,7 +385,7 @@ public class ListBaselineHostItemHostsRequest {
     this.nodeName = nodeName;
   }
 
-  public ListBaselineHostItemHostsRequest pageNumber(Integer pageNumber) {
+  public ListBaselineHostItemHostsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -396,15 +396,15 @@ public class ListBaselineHostItemHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListBaselineHostItemHostsRequest pageSize(Integer pageSize) {
+  public ListBaselineHostItemHostsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -415,11 +415,11 @@ public class ListBaselineHostItemHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

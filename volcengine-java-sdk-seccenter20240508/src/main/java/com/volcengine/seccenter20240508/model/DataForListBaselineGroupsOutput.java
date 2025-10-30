@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class DataForListBaselineGroupsOutput {
   @SerializedName("GroupID")
-  private Integer groupID = null;
+  private Long groupID = null;
 
   @SerializedName("GroupName")
   private String groupName = null;
@@ -39,7 +39,7 @@ public class DataForListBaselineGroupsOutput {
   @SerializedName("GroupNameEn")
   private String groupNameEn = null;
 
-  public DataForListBaselineGroupsOutput groupID(Integer groupID) {
+  public DataForListBaselineGroupsOutput groupID(Long groupID) {
     this.groupID = groupID;
     return this;
   }
@@ -49,11 +49,11 @@ public class DataForListBaselineGroupsOutput {
    * @return groupID
   **/
   @Schema(description = "")
-  public Integer getGroupID() {
+  public Long getGroupID() {
     return groupID;
   }
 
-  public void setGroupID(Integer groupID) {
+  public void setGroupID(Long groupID) {
     this.groupID = groupID;
   }
 

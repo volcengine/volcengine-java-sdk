@@ -38,7 +38,19 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
   private List<String> autoAgentIDs = null;
 
   @SerializedName("AutoCount")
-  private Integer autoCount = null;
+  private Long autoCount = null;
+
+  @SerializedName("AutoEnableCount")
+  private Long autoEnableCount = null;
+
+  @SerializedName("AutoEnableIDs")
+  private List<String> autoEnableIDs = null;
+
+  @SerializedName("AutoInstallAndEnableCount")
+  private Long autoInstallAndEnableCount = null;
+
+  @SerializedName("AutoInstallAndEnableIDs")
+  private List<String> autoInstallAndEnableIDs = null;
 
   @SerializedName("CurrentQuota")
   private CurrentQuotaForCheckInstallAgentClientOutput currentQuota = null;
@@ -47,7 +59,7 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
   private Boolean hitLimit = null;
 
   @SerializedName("ManualCount")
-  private Integer manualCount = null;
+  private Long manualCount = null;
 
   @SerializedName("RequestQuota")
   private RequestQuotaForCheckInstallAgentClientOutput requestQuota = null;
@@ -78,7 +90,7 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
     this.autoAgentIDs = autoAgentIDs;
   }
 
-  public CheckInstallAgentClientResponse autoCount(Integer autoCount) {
+  public CheckInstallAgentClientResponse autoCount(Long autoCount) {
     this.autoCount = autoCount;
     return this;
   }
@@ -88,12 +100,100 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
    * @return autoCount
   **/
   @Schema(description = "")
-  public Integer getAutoCount() {
+  public Long getAutoCount() {
     return autoCount;
   }
 
-  public void setAutoCount(Integer autoCount) {
+  public void setAutoCount(Long autoCount) {
     this.autoCount = autoCount;
+  }
+
+  public CheckInstallAgentClientResponse autoEnableCount(Long autoEnableCount) {
+    this.autoEnableCount = autoEnableCount;
+    return this;
+  }
+
+   /**
+   * Get autoEnableCount
+   * @return autoEnableCount
+  **/
+  @Schema(description = "")
+  public Long getAutoEnableCount() {
+    return autoEnableCount;
+  }
+
+  public void setAutoEnableCount(Long autoEnableCount) {
+    this.autoEnableCount = autoEnableCount;
+  }
+
+  public CheckInstallAgentClientResponse autoEnableIDs(List<String> autoEnableIDs) {
+    this.autoEnableIDs = autoEnableIDs;
+    return this;
+  }
+
+  public CheckInstallAgentClientResponse addAutoEnableIDsItem(String autoEnableIDsItem) {
+    if (this.autoEnableIDs == null) {
+      this.autoEnableIDs = new ArrayList<String>();
+    }
+    this.autoEnableIDs.add(autoEnableIDsItem);
+    return this;
+  }
+
+   /**
+   * Get autoEnableIDs
+   * @return autoEnableIDs
+  **/
+  @Schema(description = "")
+  public List<String> getAutoEnableIDs() {
+    return autoEnableIDs;
+  }
+
+  public void setAutoEnableIDs(List<String> autoEnableIDs) {
+    this.autoEnableIDs = autoEnableIDs;
+  }
+
+  public CheckInstallAgentClientResponse autoInstallAndEnableCount(Long autoInstallAndEnableCount) {
+    this.autoInstallAndEnableCount = autoInstallAndEnableCount;
+    return this;
+  }
+
+   /**
+   * Get autoInstallAndEnableCount
+   * @return autoInstallAndEnableCount
+  **/
+  @Schema(description = "")
+  public Long getAutoInstallAndEnableCount() {
+    return autoInstallAndEnableCount;
+  }
+
+  public void setAutoInstallAndEnableCount(Long autoInstallAndEnableCount) {
+    this.autoInstallAndEnableCount = autoInstallAndEnableCount;
+  }
+
+  public CheckInstallAgentClientResponse autoInstallAndEnableIDs(List<String> autoInstallAndEnableIDs) {
+    this.autoInstallAndEnableIDs = autoInstallAndEnableIDs;
+    return this;
+  }
+
+  public CheckInstallAgentClientResponse addAutoInstallAndEnableIDsItem(String autoInstallAndEnableIDsItem) {
+    if (this.autoInstallAndEnableIDs == null) {
+      this.autoInstallAndEnableIDs = new ArrayList<String>();
+    }
+    this.autoInstallAndEnableIDs.add(autoInstallAndEnableIDsItem);
+    return this;
+  }
+
+   /**
+   * Get autoInstallAndEnableIDs
+   * @return autoInstallAndEnableIDs
+  **/
+  @Schema(description = "")
+  public List<String> getAutoInstallAndEnableIDs() {
+    return autoInstallAndEnableIDs;
+  }
+
+  public void setAutoInstallAndEnableIDs(List<String> autoInstallAndEnableIDs) {
+    this.autoInstallAndEnableIDs = autoInstallAndEnableIDs;
   }
 
   public CheckInstallAgentClientResponse currentQuota(CurrentQuotaForCheckInstallAgentClientOutput currentQuota) {
@@ -133,7 +233,7 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
     this.hitLimit = hitLimit;
   }
 
-  public CheckInstallAgentClientResponse manualCount(Integer manualCount) {
+  public CheckInstallAgentClientResponse manualCount(Long manualCount) {
     this.manualCount = manualCount;
     return this;
   }
@@ -143,11 +243,11 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
    * @return manualCount
   **/
   @Schema(description = "")
-  public Integer getManualCount() {
+  public Long getManualCount() {
     return manualCount;
   }
 
-  public void setManualCount(Integer manualCount) {
+  public void setManualCount(Long manualCount) {
     this.manualCount = manualCount;
   }
 
@@ -182,6 +282,10 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
     CheckInstallAgentClientResponse checkInstallAgentClientResponse = (CheckInstallAgentClientResponse) o;
     return Objects.equals(this.autoAgentIDs, checkInstallAgentClientResponse.autoAgentIDs) &&
         Objects.equals(this.autoCount, checkInstallAgentClientResponse.autoCount) &&
+        Objects.equals(this.autoEnableCount, checkInstallAgentClientResponse.autoEnableCount) &&
+        Objects.equals(this.autoEnableIDs, checkInstallAgentClientResponse.autoEnableIDs) &&
+        Objects.equals(this.autoInstallAndEnableCount, checkInstallAgentClientResponse.autoInstallAndEnableCount) &&
+        Objects.equals(this.autoInstallAndEnableIDs, checkInstallAgentClientResponse.autoInstallAndEnableIDs) &&
         Objects.equals(this.currentQuota, checkInstallAgentClientResponse.currentQuota) &&
         Objects.equals(this.hitLimit, checkInstallAgentClientResponse.hitLimit) &&
         Objects.equals(this.manualCount, checkInstallAgentClientResponse.manualCount) &&
@@ -190,7 +294,7 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAgentIDs, autoCount, currentQuota, hitLimit, manualCount, requestQuota);
+    return Objects.hash(autoAgentIDs, autoCount, autoEnableCount, autoEnableIDs, autoInstallAndEnableCount, autoInstallAndEnableIDs, currentQuota, hitLimit, manualCount, requestQuota);
   }
 
 
@@ -201,6 +305,10 @@ public class CheckInstallAgentClientResponse extends com.volcengine.model.Abstra
     
     sb.append("    autoAgentIDs: ").append(toIndentedString(autoAgentIDs)).append("\n");
     sb.append("    autoCount: ").append(toIndentedString(autoCount)).append("\n");
+    sb.append("    autoEnableCount: ").append(toIndentedString(autoEnableCount)).append("\n");
+    sb.append("    autoEnableIDs: ").append(toIndentedString(autoEnableIDs)).append("\n");
+    sb.append("    autoInstallAndEnableCount: ").append(toIndentedString(autoInstallAndEnableCount)).append("\n");
+    sb.append("    autoInstallAndEnableIDs: ").append(toIndentedString(autoInstallAndEnableIDs)).append("\n");
     sb.append("    currentQuota: ").append(toIndentedString(currentQuota)).append("\n");
     sb.append("    hitLimit: ").append(toIndentedString(hitLimit)).append("\n");
     sb.append("    manualCount: ").append(toIndentedString(manualCount)).append("\n");

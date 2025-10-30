@@ -43,7 +43,7 @@ public class CurrentForListInstallCommandsOutput {
   private String commandId = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("GroupId")
   private String groupId = null;
@@ -52,7 +52,7 @@ public class CurrentForListInstallCommandsOutput {
   private String groupName = null;
 
   @SerializedName("HostEngine")
-  private Integer hostEngine = null;
+  private Long hostEngine = null;
 
   @SerializedName("InstallationMethod")
   private String installationMethod = null;
@@ -135,7 +135,7 @@ public class CurrentForListInstallCommandsOutput {
     this.commandId = commandId;
   }
 
-  public CurrentForListInstallCommandsOutput expireTime(Integer expireTime) {
+  public CurrentForListInstallCommandsOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -145,11 +145,11 @@ public class CurrentForListInstallCommandsOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -189,7 +189,7 @@ public class CurrentForListInstallCommandsOutput {
     this.groupName = groupName;
   }
 
-  public CurrentForListInstallCommandsOutput hostEngine(Integer hostEngine) {
+  public CurrentForListInstallCommandsOutput hostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
     return this;
   }
@@ -199,11 +199,11 @@ public class CurrentForListInstallCommandsOutput {
    * @return hostEngine
   **/
   @Schema(description = "")
-  public Integer getHostEngine() {
+  public Long getHostEngine() {
     return hostEngine;
   }
 
-  public void setHostEngine(Integer hostEngine) {
+  public void setHostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
   }
 

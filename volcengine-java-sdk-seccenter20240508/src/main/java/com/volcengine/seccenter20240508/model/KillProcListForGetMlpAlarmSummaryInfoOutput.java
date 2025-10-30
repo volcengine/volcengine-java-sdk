@@ -34,7 +34,7 @@ public class KillProcListForGetMlpAlarmSummaryInfoOutput {
   private String cmdline = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   public KillProcListForGetMlpAlarmSummaryInfoOutput cmdline(String cmdline) {
     this.cmdline = cmdline;
@@ -54,7 +54,7 @@ public class KillProcListForGetMlpAlarmSummaryInfoOutput {
     this.cmdline = cmdline;
   }
 
-  public KillProcListForGetMlpAlarmSummaryInfoOutput pid(Integer pid) {
+  public KillProcListForGetMlpAlarmSummaryInfoOutput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -64,11 +64,11 @@ public class KillProcListForGetMlpAlarmSummaryInfoOutput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

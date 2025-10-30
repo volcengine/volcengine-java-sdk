@@ -37,13 +37,13 @@ public class GenerateInstallCommandRequest {
   private String cloudProvider = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("GroupId")
   private String groupId = null;
 
   @SerializedName("HostEngine")
-  private Integer hostEngine = null;
+  private Long hostEngine = null;
 
   @SerializedName("InstallationMethod")
   private String installationMethod = null;
@@ -90,7 +90,7 @@ public class GenerateInstallCommandRequest {
     this.cloudProvider = cloudProvider;
   }
 
-  public GenerateInstallCommandRequest expireTime(Integer expireTime) {
+  public GenerateInstallCommandRequest expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -100,11 +100,11 @@ public class GenerateInstallCommandRequest {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -126,7 +126,7 @@ public class GenerateInstallCommandRequest {
     this.groupId = groupId;
   }
 
-  public GenerateInstallCommandRequest hostEngine(Integer hostEngine) {
+  public GenerateInstallCommandRequest hostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
     return this;
   }
@@ -136,11 +136,11 @@ public class GenerateInstallCommandRequest {
    * @return hostEngine
   **/
   @Schema(description = "")
-  public Integer getHostEngine() {
+  public Long getHostEngine() {
     return hostEngine;
   }
 
-  public void setHostEngine(Integer hostEngine) {
+  public void setHostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
   }
 

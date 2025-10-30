@@ -31,10 +31,10 @@ import javax.validation.Valid;
 
 public class ListAgentProxyServersRequest {
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("ProxyName")
   private String proxyName = null;
@@ -45,7 +45,7 @@ public class ListAgentProxyServersRequest {
   @SerializedName("SortOrder")
   private String sortOrder = null;
 
-  public ListAgentProxyServersRequest pageNumber(Integer pageNumber) {
+  public ListAgentProxyServersRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -56,15 +56,15 @@ public class ListAgentProxyServersRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListAgentProxyServersRequest pageSize(Integer pageSize) {
+  public ListAgentProxyServersRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -75,11 +75,11 @@ public class ListAgentProxyServersRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

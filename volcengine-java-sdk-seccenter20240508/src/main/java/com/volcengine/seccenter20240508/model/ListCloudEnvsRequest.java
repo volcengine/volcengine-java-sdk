@@ -40,10 +40,10 @@ public class ListCloudEnvsRequest {
   private String comment = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -52,10 +52,10 @@ public class ListCloudEnvsRequest {
   private String sortOrder = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("SyncStatus")
-  private Integer syncStatus = null;
+  private Long syncStatus = null;
 
   public ListCloudEnvsRequest accessKey(String accessKey) {
     this.accessKey = accessKey;
@@ -111,7 +111,7 @@ public class ListCloudEnvsRequest {
     this.comment = comment;
   }
 
-  public ListCloudEnvsRequest pageNumber(Integer pageNumber) {
+  public ListCloudEnvsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -123,15 +123,15 @@ public class ListCloudEnvsRequest {
   **/
   @NotNull
  @Min(1)  @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListCloudEnvsRequest pageSize(Integer pageSize) {
+  public ListCloudEnvsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -144,11 +144,11 @@ public class ListCloudEnvsRequest {
   **/
   @NotNull
  @Min(1) @Max(5000)  @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -188,7 +188,7 @@ public class ListCloudEnvsRequest {
     this.sortOrder = sortOrder;
   }
 
-  public ListCloudEnvsRequest status(Integer status) {
+  public ListCloudEnvsRequest status(Long status) {
     this.status = status;
     return this;
   }
@@ -198,15 +198,15 @@ public class ListCloudEnvsRequest {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
-  public ListCloudEnvsRequest syncStatus(Integer syncStatus) {
+  public ListCloudEnvsRequest syncStatus(Long syncStatus) {
     this.syncStatus = syncStatus;
     return this;
   }
@@ -216,11 +216,11 @@ public class ListCloudEnvsRequest {
    * @return syncStatus
   **/
   @Schema(description = "")
-  public Integer getSyncStatus() {
+  public Long getSyncStatus() {
     return syncStatus;
   }
 
-  public void setSyncStatus(Integer syncStatus) {
+  public void setSyncStatus(Long syncStatus) {
     this.syncStatus = syncStatus;
   }
 

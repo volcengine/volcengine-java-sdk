@@ -31,27 +31,27 @@ import javax.validation.Valid;
 
 public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Alarm")
-  private Integer alarm = null;
+  private Long alarm = null;
 
   @SerializedName("Baseline")
-  private Integer baseline = null;
+  private Long baseline = null;
 
   @SerializedName("HasRisk")
-  private Integer hasRisk = null;
+  private Long hasRisk = null;
 
   @SerializedName("Running")
-  private Integer running = null;
+  private Long running = null;
 
   @SerializedName("Stopped")
-  private Integer stopped = null;
+  private Long stopped = null;
 
   @SerializedName("Total")
-  private Integer total = null;
+  private Long total = null;
 
   @SerializedName("Vul")
-  private Integer vul = null;
+  private Long vul = null;
 
-  public GetDevAssetOverviewResponse alarm(Integer alarm) {
+  public GetDevAssetOverviewResponse alarm(Long alarm) {
     this.alarm = alarm;
     return this;
   }
@@ -61,15 +61,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return alarm
   **/
   @Schema(description = "")
-  public Integer getAlarm() {
+  public Long getAlarm() {
     return alarm;
   }
 
-  public void setAlarm(Integer alarm) {
+  public void setAlarm(Long alarm) {
     this.alarm = alarm;
   }
 
-  public GetDevAssetOverviewResponse baseline(Integer baseline) {
+  public GetDevAssetOverviewResponse baseline(Long baseline) {
     this.baseline = baseline;
     return this;
   }
@@ -79,15 +79,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return baseline
   **/
   @Schema(description = "")
-  public Integer getBaseline() {
+  public Long getBaseline() {
     return baseline;
   }
 
-  public void setBaseline(Integer baseline) {
+  public void setBaseline(Long baseline) {
     this.baseline = baseline;
   }
 
-  public GetDevAssetOverviewResponse hasRisk(Integer hasRisk) {
+  public GetDevAssetOverviewResponse hasRisk(Long hasRisk) {
     this.hasRisk = hasRisk;
     return this;
   }
@@ -97,15 +97,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return hasRisk
   **/
   @Schema(description = "")
-  public Integer getHasRisk() {
+  public Long getHasRisk() {
     return hasRisk;
   }
 
-  public void setHasRisk(Integer hasRisk) {
+  public void setHasRisk(Long hasRisk) {
     this.hasRisk = hasRisk;
   }
 
-  public GetDevAssetOverviewResponse running(Integer running) {
+  public GetDevAssetOverviewResponse running(Long running) {
     this.running = running;
     return this;
   }
@@ -115,15 +115,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return running
   **/
   @Schema(description = "")
-  public Integer getRunning() {
+  public Long getRunning() {
     return running;
   }
 
-  public void setRunning(Integer running) {
+  public void setRunning(Long running) {
     this.running = running;
   }
 
-  public GetDevAssetOverviewResponse stopped(Integer stopped) {
+  public GetDevAssetOverviewResponse stopped(Long stopped) {
     this.stopped = stopped;
     return this;
   }
@@ -133,15 +133,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return stopped
   **/
   @Schema(description = "")
-  public Integer getStopped() {
+  public Long getStopped() {
     return stopped;
   }
 
-  public void setStopped(Integer stopped) {
+  public void setStopped(Long stopped) {
     this.stopped = stopped;
   }
 
-  public GetDevAssetOverviewResponse total(Integer total) {
+  public GetDevAssetOverviewResponse total(Long total) {
     this.total = total;
     return this;
   }
@@ -151,15 +151,15 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return total
   **/
   @Schema(description = "")
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 
-  public GetDevAssetOverviewResponse vul(Integer vul) {
+  public GetDevAssetOverviewResponse vul(Long vul) {
     this.vul = vul;
     return this;
   }
@@ -169,11 +169,11 @@ public class GetDevAssetOverviewResponse extends com.volcengine.model.AbstractRe
    * @return vul
   **/
   @Schema(description = "")
-  public Integer getVul() {
+  public Long getVul() {
     return vul;
   }
 
-  public void setVul(Integer vul) {
+  public void setVul(Long vul) {
     this.vul = vul;
   }
 

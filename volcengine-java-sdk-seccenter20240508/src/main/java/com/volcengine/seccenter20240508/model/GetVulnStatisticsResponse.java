@@ -32,13 +32,13 @@ import javax.validation.Valid;
 
 public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AutoUpdateTime")
-  private Integer autoUpdateTime = null;
+  private Long autoUpdateTime = null;
 
   @SerializedName("Danger")
-  private Integer danger = null;
+  private Long danger = null;
 
   @SerializedName("High")
-  private Integer high = null;
+  private Long high = null;
 
   @SerializedName("IfAutoUpdate")
   private Boolean ifAutoUpdate = null;
@@ -47,33 +47,33 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
   private Boolean ifLargeAgent = null;
 
   @SerializedName("Ignore")
-  private Integer ignore = null;
+  private Long ignore = null;
 
   @SerializedName("Increase")
-  private Integer increase = null;
+  private Long increase = null;
 
   @SerializedName("Low")
-  private Integer low = null;
+  private Long low = null;
 
   @SerializedName("Mid")
-  private Integer mid = null;
+  private Long mid = null;
 
   @SerializedName("Processed")
-  private Integer processed = null;
+  private Long processed = null;
 
   @SerializedName("Unknown")
-  private Integer unknown = null;
+  private Long unknown = null;
 
   @SerializedName("Unprocessed")
-  private Integer unprocessed = null;
+  private Long unprocessed = null;
 
   @SerializedName("VulnLibVersion")
-  private Integer vulnLibVersion = null;
+  private Long vulnLibVersion = null;
 
   @SerializedName("VulnType")
   private VulnTypeForGetVulnStatisticsOutput vulnType = null;
 
-  public GetVulnStatisticsResponse autoUpdateTime(Integer autoUpdateTime) {
+  public GetVulnStatisticsResponse autoUpdateTime(Long autoUpdateTime) {
     this.autoUpdateTime = autoUpdateTime;
     return this;
   }
@@ -83,15 +83,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return autoUpdateTime
   **/
   @Schema(description = "")
-  public Integer getAutoUpdateTime() {
+  public Long getAutoUpdateTime() {
     return autoUpdateTime;
   }
 
-  public void setAutoUpdateTime(Integer autoUpdateTime) {
+  public void setAutoUpdateTime(Long autoUpdateTime) {
     this.autoUpdateTime = autoUpdateTime;
   }
 
-  public GetVulnStatisticsResponse danger(Integer danger) {
+  public GetVulnStatisticsResponse danger(Long danger) {
     this.danger = danger;
     return this;
   }
@@ -101,15 +101,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return danger
   **/
   @Schema(description = "")
-  public Integer getDanger() {
+  public Long getDanger() {
     return danger;
   }
 
-  public void setDanger(Integer danger) {
+  public void setDanger(Long danger) {
     this.danger = danger;
   }
 
-  public GetVulnStatisticsResponse high(Integer high) {
+  public GetVulnStatisticsResponse high(Long high) {
     this.high = high;
     return this;
   }
@@ -119,11 +119,11 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return high
   **/
   @Schema(description = "")
-  public Integer getHigh() {
+  public Long getHigh() {
     return high;
   }
 
-  public void setHigh(Integer high) {
+  public void setHigh(Long high) {
     this.high = high;
   }
 
@@ -163,7 +163,7 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
     this.ifLargeAgent = ifLargeAgent;
   }
 
-  public GetVulnStatisticsResponse ignore(Integer ignore) {
+  public GetVulnStatisticsResponse ignore(Long ignore) {
     this.ignore = ignore;
     return this;
   }
@@ -173,15 +173,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return ignore
   **/
   @Schema(description = "")
-  public Integer getIgnore() {
+  public Long getIgnore() {
     return ignore;
   }
 
-  public void setIgnore(Integer ignore) {
+  public void setIgnore(Long ignore) {
     this.ignore = ignore;
   }
 
-  public GetVulnStatisticsResponse increase(Integer increase) {
+  public GetVulnStatisticsResponse increase(Long increase) {
     this.increase = increase;
     return this;
   }
@@ -191,15 +191,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return increase
   **/
   @Schema(description = "")
-  public Integer getIncrease() {
+  public Long getIncrease() {
     return increase;
   }
 
-  public void setIncrease(Integer increase) {
+  public void setIncrease(Long increase) {
     this.increase = increase;
   }
 
-  public GetVulnStatisticsResponse low(Integer low) {
+  public GetVulnStatisticsResponse low(Long low) {
     this.low = low;
     return this;
   }
@@ -209,15 +209,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return low
   **/
   @Schema(description = "")
-  public Integer getLow() {
+  public Long getLow() {
     return low;
   }
 
-  public void setLow(Integer low) {
+  public void setLow(Long low) {
     this.low = low;
   }
 
-  public GetVulnStatisticsResponse mid(Integer mid) {
+  public GetVulnStatisticsResponse mid(Long mid) {
     this.mid = mid;
     return this;
   }
@@ -227,15 +227,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return mid
   **/
   @Schema(description = "")
-  public Integer getMid() {
+  public Long getMid() {
     return mid;
   }
 
-  public void setMid(Integer mid) {
+  public void setMid(Long mid) {
     this.mid = mid;
   }
 
-  public GetVulnStatisticsResponse processed(Integer processed) {
+  public GetVulnStatisticsResponse processed(Long processed) {
     this.processed = processed;
     return this;
   }
@@ -245,15 +245,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return processed
   **/
   @Schema(description = "")
-  public Integer getProcessed() {
+  public Long getProcessed() {
     return processed;
   }
 
-  public void setProcessed(Integer processed) {
+  public void setProcessed(Long processed) {
     this.processed = processed;
   }
 
-  public GetVulnStatisticsResponse unknown(Integer unknown) {
+  public GetVulnStatisticsResponse unknown(Long unknown) {
     this.unknown = unknown;
     return this;
   }
@@ -263,15 +263,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return unknown
   **/
   @Schema(description = "")
-  public Integer getUnknown() {
+  public Long getUnknown() {
     return unknown;
   }
 
-  public void setUnknown(Integer unknown) {
+  public void setUnknown(Long unknown) {
     this.unknown = unknown;
   }
 
-  public GetVulnStatisticsResponse unprocessed(Integer unprocessed) {
+  public GetVulnStatisticsResponse unprocessed(Long unprocessed) {
     this.unprocessed = unprocessed;
     return this;
   }
@@ -281,15 +281,15 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return unprocessed
   **/
   @Schema(description = "")
-  public Integer getUnprocessed() {
+  public Long getUnprocessed() {
     return unprocessed;
   }
 
-  public void setUnprocessed(Integer unprocessed) {
+  public void setUnprocessed(Long unprocessed) {
     this.unprocessed = unprocessed;
   }
 
-  public GetVulnStatisticsResponse vulnLibVersion(Integer vulnLibVersion) {
+  public GetVulnStatisticsResponse vulnLibVersion(Long vulnLibVersion) {
     this.vulnLibVersion = vulnLibVersion;
     return this;
   }
@@ -299,11 +299,11 @@ public class GetVulnStatisticsResponse extends com.volcengine.model.AbstractResp
    * @return vulnLibVersion
   **/
   @Schema(description = "")
-  public Integer getVulnLibVersion() {
+  public Long getVulnLibVersion() {
     return vulnLibVersion;
   }
 
-  public void setVulnLibVersion(Integer vulnLibVersion) {
+  public void setVulnLibVersion(Long vulnLibVersion) {
     this.vulnLibVersion = vulnLibVersion;
   }
 

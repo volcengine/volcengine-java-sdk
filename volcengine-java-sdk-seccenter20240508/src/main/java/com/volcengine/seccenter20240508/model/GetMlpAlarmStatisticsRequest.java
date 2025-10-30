@@ -37,13 +37,13 @@ public class GetMlpAlarmStatisticsRequest {
   private String clusterID = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("MlpInstanceID")
   private String mlpInstanceID = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   public GetMlpAlarmStatisticsRequest agentID(String agentID) {
     this.agentID = agentID;
@@ -81,7 +81,7 @@ public class GetMlpAlarmStatisticsRequest {
     this.clusterID = clusterID;
   }
 
-  public GetMlpAlarmStatisticsRequest endTime(Integer endTime) {
+  public GetMlpAlarmStatisticsRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -91,11 +91,11 @@ public class GetMlpAlarmStatisticsRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -117,7 +117,7 @@ public class GetMlpAlarmStatisticsRequest {
     this.mlpInstanceID = mlpInstanceID;
   }
 
-  public GetMlpAlarmStatisticsRequest startTime(Integer startTime) {
+  public GetMlpAlarmStatisticsRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -127,11 +127,11 @@ public class GetMlpAlarmStatisticsRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 

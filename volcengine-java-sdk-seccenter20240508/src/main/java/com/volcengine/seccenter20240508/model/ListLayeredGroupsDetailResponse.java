@@ -37,7 +37,7 @@ public class ListLayeredGroupsDetailResponse extends com.volcengine.model.Abstra
   private List<GroupForListLayeredGroupsDetailOutput> groups = null;
 
   @SerializedName("Total")
-  private Integer total = null;
+  private Long total = null;
 
   public ListLayeredGroupsDetailResponse groups(List<GroupForListLayeredGroupsDetailOutput> groups) {
     this.groups = groups;
@@ -66,7 +66,7 @@ public class ListLayeredGroupsDetailResponse extends com.volcengine.model.Abstra
     this.groups = groups;
   }
 
-  public ListLayeredGroupsDetailResponse total(Integer total) {
+  public ListLayeredGroupsDetailResponse total(Long total) {
     this.total = total;
     return this;
   }
@@ -76,11 +76,11 @@ public class ListLayeredGroupsDetailResponse extends com.volcengine.model.Abstra
    * @return total
   **/
   @Schema(description = "")
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 

@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class DataForListAgentProxyServersOutput {
   @SerializedName("ClientNumber")
-  private Integer clientNumber = null;
+  private Long clientNumber = null;
 
   @SerializedName("Hostname")
   private String hostname = null;
@@ -50,7 +50,7 @@ public class DataForListAgentProxyServersOutput {
   @SerializedName("Status")
   private String status = null;
 
-  public DataForListAgentProxyServersOutput clientNumber(Integer clientNumber) {
+  public DataForListAgentProxyServersOutput clientNumber(Long clientNumber) {
     this.clientNumber = clientNumber;
     return this;
   }
@@ -60,11 +60,11 @@ public class DataForListAgentProxyServersOutput {
    * @return clientNumber
   **/
   @Schema(description = "")
-  public Integer getClientNumber() {
+  public Long getClientNumber() {
     return clientNumber;
   }
 
-  public void setClientNumber(Integer clientNumber) {
+  public void setClientNumber(Long clientNumber) {
     this.clientNumber = clientNumber;
   }
 

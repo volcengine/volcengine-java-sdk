@@ -83,10 +83,10 @@ public class ListBaselineCheckDetailRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("ChecklistID")
-  private Integer checklistID = null;
+  private Long checklistID = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -145,7 +145,7 @@ public class ListBaselineCheckDetailRequest {
     this.assetType = assetType;
   }
 
-  public ListBaselineCheckDetailRequest baselineID(Integer baselineID) {
+  public ListBaselineCheckDetailRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -155,15 +155,15 @@ public class ListBaselineCheckDetailRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public ListBaselineCheckDetailRequest checklistID(Integer checklistID) {
+  public ListBaselineCheckDetailRequest checklistID(Long checklistID) {
     this.checklistID = checklistID;
     return this;
   }
@@ -173,11 +173,11 @@ public class ListBaselineCheckDetailRequest {
    * @return checklistID
   **/
   @Schema(description = "")
-  public Integer getChecklistID() {
+  public Long getChecklistID() {
     return checklistID;
   }
 
-  public void setChecklistID(Integer checklistID) {
+  public void setChecklistID(Long checklistID) {
     this.checklistID = checklistID;
   }
 

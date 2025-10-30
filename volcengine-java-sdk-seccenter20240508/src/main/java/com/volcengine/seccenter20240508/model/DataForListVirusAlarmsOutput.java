@@ -42,7 +42,7 @@ public class DataForListVirusAlarmsOutput {
   private String agentID = null;
 
   @SerializedName("AlarmHandleResult")
-  private Integer alarmHandleResult = null;
+  private Long alarmHandleResult = null;
 
   @SerializedName("AlarmHostname")
   private String alarmHostname = null;
@@ -51,7 +51,7 @@ public class DataForListVirusAlarmsOutput {
   private String alarmID = null;
 
   @SerializedName("AlarmTime")
-  private Integer alarmTime = null;
+  private Long alarmTime = null;
 
   @SerializedName("AlertTags")
   private List<String> alertTags = null;
@@ -102,7 +102,7 @@ public class DataForListVirusAlarmsOutput {
   private String groupPath = null;
 
   @SerializedName("HandleTime")
-  private Integer handleTime = null;
+  private Long handleTime = null;
 
   @SerializedName("Host")
   private HostForListVirusAlarmsOutput host = null;
@@ -156,7 +156,7 @@ public class DataForListVirusAlarmsOutput {
   private String stackTraceHash = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("TraceID")
   private String traceID = null;
@@ -200,7 +200,7 @@ public class DataForListVirusAlarmsOutput {
     this.agentID = agentID;
   }
 
-  public DataForListVirusAlarmsOutput alarmHandleResult(Integer alarmHandleResult) {
+  public DataForListVirusAlarmsOutput alarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
     return this;
   }
@@ -210,11 +210,11 @@ public class DataForListVirusAlarmsOutput {
    * @return alarmHandleResult
   **/
   @Schema(description = "")
-  public Integer getAlarmHandleResult() {
+  public Long getAlarmHandleResult() {
     return alarmHandleResult;
   }
 
-  public void setAlarmHandleResult(Integer alarmHandleResult) {
+  public void setAlarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
   }
 
@@ -254,7 +254,7 @@ public class DataForListVirusAlarmsOutput {
     this.alarmID = alarmID;
   }
 
-  public DataForListVirusAlarmsOutput alarmTime(Integer alarmTime) {
+  public DataForListVirusAlarmsOutput alarmTime(Long alarmTime) {
     this.alarmTime = alarmTime;
     return this;
   }
@@ -264,11 +264,11 @@ public class DataForListVirusAlarmsOutput {
    * @return alarmTime
   **/
   @Schema(description = "")
-  public Integer getAlarmTime() {
+  public Long getAlarmTime() {
     return alarmTime;
   }
 
-  public void setAlarmTime(Integer alarmTime) {
+  public void setAlarmTime(Long alarmTime) {
     this.alarmTime = alarmTime;
   }
 
@@ -602,7 +602,7 @@ public class DataForListVirusAlarmsOutput {
     this.groupPath = groupPath;
   }
 
-  public DataForListVirusAlarmsOutput handleTime(Integer handleTime) {
+  public DataForListVirusAlarmsOutput handleTime(Long handleTime) {
     this.handleTime = handleTime;
     return this;
   }
@@ -612,11 +612,11 @@ public class DataForListVirusAlarmsOutput {
    * @return handleTime
   **/
   @Schema(description = "")
-  public Integer getHandleTime() {
+  public Long getHandleTime() {
     return handleTime;
   }
 
-  public void setHandleTime(Integer handleTime) {
+  public void setHandleTime(Long handleTime) {
     this.handleTime = handleTime;
   }
 
@@ -927,7 +927,7 @@ public class DataForListVirusAlarmsOutput {
     this.stackTraceHash = stackTraceHash;
   }
 
-  public DataForListVirusAlarmsOutput status(Integer status) {
+  public DataForListVirusAlarmsOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -937,11 +937,11 @@ public class DataForListVirusAlarmsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

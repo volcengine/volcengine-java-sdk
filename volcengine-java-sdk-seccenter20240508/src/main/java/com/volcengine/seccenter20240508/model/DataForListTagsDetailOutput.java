@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class DataForListTagsDetailOutput {
   @SerializedName("TagHostNum")
-  private Integer tagHostNum = null;
+  private Long tagHostNum = null;
 
   @SerializedName("TagName")
   private String tagName = null;
 
-  public DataForListTagsDetailOutput tagHostNum(Integer tagHostNum) {
+  public DataForListTagsDetailOutput tagHostNum(Long tagHostNum) {
     this.tagHostNum = tagHostNum;
     return this;
   }
@@ -46,11 +46,11 @@ public class DataForListTagsDetailOutput {
    * @return tagHostNum
   **/
   @Schema(description = "")
-  public Integer getTagHostNum() {
+  public Long getTagHostNum() {
     return tagHostNum;
   }
 
-  public void setTagHostNum(Integer tagHostNum) {
+  public void setTagHostNum(Long tagHostNum) {
     this.tagHostNum = tagHostNum;
   }
 

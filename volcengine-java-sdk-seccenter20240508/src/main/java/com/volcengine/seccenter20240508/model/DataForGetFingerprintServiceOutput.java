@@ -38,6 +38,9 @@ public class DataForGetFingerprintServiceOutput {
   @SerializedName("AgentTags")
   private List<String> agentTags = null;
 
+  @SerializedName("BootState")
+  private String bootState = null;
+
   @SerializedName("Checksum")
   private String checksum = null;
 
@@ -56,6 +59,9 @@ public class DataForGetFingerprintServiceOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("OnBoot")
+  private String onBoot = null;
+
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
 
@@ -63,13 +69,13 @@ public class DataForGetFingerprintServiceOutput {
   private String restart = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("WorkingDirectory")
   private String workingDirectory = null;
@@ -116,6 +122,24 @@ public class DataForGetFingerprintServiceOutput {
 
   public void setAgentTags(List<String> agentTags) {
     this.agentTags = agentTags;
+  }
+
+  public DataForGetFingerprintServiceOutput bootState(String bootState) {
+    this.bootState = bootState;
+    return this;
+  }
+
+   /**
+   * Get bootState
+   * @return bootState
+  **/
+  @Schema(description = "")
+  public String getBootState() {
+    return bootState;
+  }
+
+  public void setBootState(String bootState) {
+    this.bootState = bootState;
   }
 
   public DataForGetFingerprintServiceOutput checksum(String checksum) {
@@ -226,6 +250,24 @@ public class DataForGetFingerprintServiceOutput {
     this.name = name;
   }
 
+  public DataForGetFingerprintServiceOutput onBoot(String onBoot) {
+    this.onBoot = onBoot;
+    return this;
+  }
+
+   /**
+   * Get onBoot
+   * @return onBoot
+  **/
+  @Schema(description = "")
+  public String getOnBoot() {
+    return onBoot;
+  }
+
+  public void setOnBoot(String onBoot) {
+    this.onBoot = onBoot;
+  }
+
   public DataForGetFingerprintServiceOutput primaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
     return this;
@@ -262,7 +304,7 @@ public class DataForGetFingerprintServiceOutput {
     this.restart = restart;
   }
 
-  public DataForGetFingerprintServiceOutput startTime(Integer startTime) {
+  public DataForGetFingerprintServiceOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -272,11 +314,11 @@ public class DataForGetFingerprintServiceOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -298,7 +340,7 @@ public class DataForGetFingerprintServiceOutput {
     this.type = type;
   }
 
-  public DataForGetFingerprintServiceOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintServiceOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -308,11 +350,11 @@ public class DataForGetFingerprintServiceOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -346,12 +388,14 @@ public class DataForGetFingerprintServiceOutput {
     DataForGetFingerprintServiceOutput dataForGetFingerprintServiceOutput = (DataForGetFingerprintServiceOutput) o;
     return Objects.equals(this.agentID, dataForGetFingerprintServiceOutput.agentID) &&
         Objects.equals(this.agentTags, dataForGetFingerprintServiceOutput.agentTags) &&
+        Objects.equals(this.bootState, dataForGetFingerprintServiceOutput.bootState) &&
         Objects.equals(this.checksum, dataForGetFingerprintServiceOutput.checksum) &&
         Objects.equals(this.command, dataForGetFingerprintServiceOutput.command) &&
         Objects.equals(this.eipAddress, dataForGetFingerprintServiceOutput.eipAddress) &&
         Objects.equals(this.hostname, dataForGetFingerprintServiceOutput.hostname) &&
         Objects.equals(this.ID, dataForGetFingerprintServiceOutput.ID) &&
         Objects.equals(this.name, dataForGetFingerprintServiceOutput.name) &&
+        Objects.equals(this.onBoot, dataForGetFingerprintServiceOutput.onBoot) &&
         Objects.equals(this.primaryIpAddress, dataForGetFingerprintServiceOutput.primaryIpAddress) &&
         Objects.equals(this.restart, dataForGetFingerprintServiceOutput.restart) &&
         Objects.equals(this.startTime, dataForGetFingerprintServiceOutput.startTime) &&
@@ -362,7 +406,7 @@ public class DataForGetFingerprintServiceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, agentTags, checksum, command, eipAddress, hostname, ID, name, primaryIpAddress, restart, startTime, type, updateTime, workingDirectory);
+    return Objects.hash(agentID, agentTags, bootState, checksum, command, eipAddress, hostname, ID, name, onBoot, primaryIpAddress, restart, startTime, type, updateTime, workingDirectory);
   }
 
 
@@ -373,12 +417,14 @@ public class DataForGetFingerprintServiceOutput {
     
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    agentTags: ").append(toIndentedString(agentTags)).append("\n");
+    sb.append("    bootState: ").append(toIndentedString(bootState)).append("\n");
     sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    onBoot: ").append(toIndentedString(onBoot)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");

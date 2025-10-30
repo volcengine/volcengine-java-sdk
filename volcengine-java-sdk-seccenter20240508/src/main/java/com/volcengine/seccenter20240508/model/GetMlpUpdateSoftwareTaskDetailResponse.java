@@ -34,10 +34,10 @@ public class GetMlpUpdateSoftwareTaskDetailResponse extends com.volcengine.model
   private String accountId = null;
 
   @SerializedName("LastCheckTime")
-  private Integer lastCheckTime = null;
+  private Long lastCheckTime = null;
 
   @SerializedName("Progress")
-  private Integer progress = null;
+  private Long progress = null;
 
   @SerializedName("TaskId")
   private String taskId = null;
@@ -60,7 +60,7 @@ public class GetMlpUpdateSoftwareTaskDetailResponse extends com.volcengine.model
     this.accountId = accountId;
   }
 
-  public GetMlpUpdateSoftwareTaskDetailResponse lastCheckTime(Integer lastCheckTime) {
+  public GetMlpUpdateSoftwareTaskDetailResponse lastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
     return this;
   }
@@ -70,15 +70,15 @@ public class GetMlpUpdateSoftwareTaskDetailResponse extends com.volcengine.model
    * @return lastCheckTime
   **/
   @Schema(description = "")
-  public Integer getLastCheckTime() {
+  public Long getLastCheckTime() {
     return lastCheckTime;
   }
 
-  public void setLastCheckTime(Integer lastCheckTime) {
+  public void setLastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
   }
 
-  public GetMlpUpdateSoftwareTaskDetailResponse progress(Integer progress) {
+  public GetMlpUpdateSoftwareTaskDetailResponse progress(Long progress) {
     this.progress = progress;
     return this;
   }
@@ -88,11 +88,11 @@ public class GetMlpUpdateSoftwareTaskDetailResponse extends com.volcengine.model
    * @return progress
   **/
   @Schema(description = "")
-  public Integer getProgress() {
+  public Long getProgress() {
     return progress;
   }
 
-  public void setProgress(Integer progress) {
+  public void setProgress(Long progress) {
     this.progress = progress;
   }
 

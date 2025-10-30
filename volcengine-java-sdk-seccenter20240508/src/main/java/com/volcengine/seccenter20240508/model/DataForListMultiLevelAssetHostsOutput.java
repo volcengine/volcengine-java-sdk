@@ -59,7 +59,7 @@ public class DataForListMultiLevelAssetHostsOutput {
   private EcsInstanceForListMultiLevelAssetHostsOutput ecsInstance = null;
 
   @SerializedName("FirstHeartbeatTime")
-  private Integer firstHeartbeatTime = null;
+  private Long firstHeartbeatTime = null;
 
   @SerializedName("Gateway")
   private String gateway = null;
@@ -77,7 +77,7 @@ public class DataForListMultiLevelAssetHostsOutput {
   private String kernelVersion = null;
 
   @SerializedName("LastHeartbeatTime")
-  private Integer lastHeartbeatTime = null;
+  private Long lastHeartbeatTime = null;
 
   @SerializedName("MemUsage")
   private Double memUsage = null;
@@ -104,7 +104,7 @@ public class DataForListMultiLevelAssetHostsOutput {
   private Boolean securityEnhancement = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -113,10 +113,10 @@ public class DataForListMultiLevelAssetHostsOutput {
   private List<String> tags = null;
 
   @SerializedName("TotalMem")
-  private Integer totalMem = null;
+  private Long totalMem = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UserStatus")
   private String userStatus = null;
@@ -269,7 +269,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.ecsInstance = ecsInstance;
   }
 
-  public DataForListMultiLevelAssetHostsOutput firstHeartbeatTime(Integer firstHeartbeatTime) {
+  public DataForListMultiLevelAssetHostsOutput firstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
     return this;
   }
@@ -279,11 +279,11 @@ public class DataForListMultiLevelAssetHostsOutput {
    * @return firstHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getFirstHeartbeatTime() {
+  public Long getFirstHeartbeatTime() {
     return firstHeartbeatTime;
   }
 
-  public void setFirstHeartbeatTime(Integer firstHeartbeatTime) {
+  public void setFirstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
   }
 
@@ -377,7 +377,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.kernelVersion = kernelVersion;
   }
 
-  public DataForListMultiLevelAssetHostsOutput lastHeartbeatTime(Integer lastHeartbeatTime) {
+  public DataForListMultiLevelAssetHostsOutput lastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
     return this;
   }
@@ -387,11 +387,11 @@ public class DataForListMultiLevelAssetHostsOutput {
    * @return lastHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getLastHeartbeatTime() {
+  public Long getLastHeartbeatTime() {
     return lastHeartbeatTime;
   }
 
-  public void setLastHeartbeatTime(Integer lastHeartbeatTime) {
+  public void setLastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
   }
 
@@ -540,7 +540,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.securityEnhancement = securityEnhancement;
   }
 
-  public DataForListMultiLevelAssetHostsOutput startTime(Integer startTime) {
+  public DataForListMultiLevelAssetHostsOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -550,11 +550,11 @@ public class DataForListMultiLevelAssetHostsOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -602,7 +602,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.tags = tags;
   }
 
-  public DataForListMultiLevelAssetHostsOutput totalMem(Integer totalMem) {
+  public DataForListMultiLevelAssetHostsOutput totalMem(Long totalMem) {
     this.totalMem = totalMem;
     return this;
   }
@@ -612,15 +612,15 @@ public class DataForListMultiLevelAssetHostsOutput {
    * @return totalMem
   **/
   @Schema(description = "")
-  public Integer getTotalMem() {
+  public Long getTotalMem() {
     return totalMem;
   }
 
-  public void setTotalMem(Integer totalMem) {
+  public void setTotalMem(Long totalMem) {
     this.totalMem = totalMem;
   }
 
-  public DataForListMultiLevelAssetHostsOutput updateTime(Integer updateTime) {
+  public DataForListMultiLevelAssetHostsOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -630,11 +630,11 @@ public class DataForListMultiLevelAssetHostsOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

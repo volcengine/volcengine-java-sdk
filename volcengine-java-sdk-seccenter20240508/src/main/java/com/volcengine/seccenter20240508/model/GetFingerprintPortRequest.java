@@ -60,10 +60,10 @@ public class GetFingerprintPortRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Sip")
   private String sip = null;
@@ -84,7 +84,7 @@ public class GetFingerprintPortRequest {
   private String topGroupID = null;
 
   @SerializedName("Type")
-  private List<Integer> type = null;
+  private List<Long> type = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -267,7 +267,7 @@ public class GetFingerprintPortRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetFingerprintPortRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintPortRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -278,15 +278,15 @@ public class GetFingerprintPortRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintPortRequest pageSize(Integer pageSize) {
+  public GetFingerprintPortRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -297,11 +297,11 @@ public class GetFingerprintPortRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -421,14 +421,14 @@ public class GetFingerprintPortRequest {
     this.topGroupID = topGroupID;
   }
 
-  public GetFingerprintPortRequest type(List<Integer> type) {
+  public GetFingerprintPortRequest type(List<Long> type) {
     this.type = type;
     return this;
   }
 
-  public GetFingerprintPortRequest addTypeItem(Integer typeItem) {
+  public GetFingerprintPortRequest addTypeItem(Long typeItem) {
     if (this.type == null) {
-      this.type = new ArrayList<Integer>();
+      this.type = new ArrayList<Long>();
     }
     this.type.add(typeItem);
     return this;
@@ -439,11 +439,11 @@ public class GetFingerprintPortRequest {
    * @return type
   **/
   @Schema(description = "")
-  public List<Integer> getType() {
+  public List<Long> getType() {
     return type;
   }
 
-  public void setType(List<Integer> type) {
+  public void setType(List<Long> type) {
     this.type = type;
   }
 

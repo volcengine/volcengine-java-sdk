@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class ClusterSecForGetMultiLevelAuthDetailOutput {
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   @SerializedName("UsedCount")
-  private Integer usedCount = null;
+  private Long usedCount = null;
 
-  public ClusterSecForGetMultiLevelAuthDetailOutput expireTime(Integer expireTime) {
+  public ClusterSecForGetMultiLevelAuthDetailOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -49,15 +49,15 @@ public class ClusterSecForGetMultiLevelAuthDetailOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public ClusterSecForGetMultiLevelAuthDetailOutput totalCount(Integer totalCount) {
+  public ClusterSecForGetMultiLevelAuthDetailOutput totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -67,15 +67,15 @@ public class ClusterSecForGetMultiLevelAuthDetailOutput {
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
-  public ClusterSecForGetMultiLevelAuthDetailOutput usedCount(Integer usedCount) {
+  public ClusterSecForGetMultiLevelAuthDetailOutput usedCount(Long usedCount) {
     this.usedCount = usedCount;
     return this;
   }
@@ -85,11 +85,11 @@ public class ClusterSecForGetMultiLevelAuthDetailOutput {
    * @return usedCount
   **/
   @Schema(description = "")
-  public Integer getUsedCount() {
+  public Long getUsedCount() {
     return usedCount;
   }
 
-  public void setUsedCount(Integer usedCount) {
+  public void setUsedCount(Long usedCount) {
     this.usedCount = usedCount;
   }
 

@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class VulnRiskForGetSecurityOverviewOutput {
   @SerializedName("RiskCount")
-  private Integer riskCount = null;
+  private Long riskCount = null;
 
   @SerializedName("SubjectCount")
-  private Integer subjectCount = null;
+  private Long subjectCount = null;
 
-  public VulnRiskForGetSecurityOverviewOutput riskCount(Integer riskCount) {
+  public VulnRiskForGetSecurityOverviewOutput riskCount(Long riskCount) {
     this.riskCount = riskCount;
     return this;
   }
@@ -46,15 +46,15 @@ public class VulnRiskForGetSecurityOverviewOutput {
    * @return riskCount
   **/
   @Schema(description = "")
-  public Integer getRiskCount() {
+  public Long getRiskCount() {
     return riskCount;
   }
 
-  public void setRiskCount(Integer riskCount) {
+  public void setRiskCount(Long riskCount) {
     this.riskCount = riskCount;
   }
 
-  public VulnRiskForGetSecurityOverviewOutput subjectCount(Integer subjectCount) {
+  public VulnRiskForGetSecurityOverviewOutput subjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
     return this;
   }
@@ -64,11 +64,11 @@ public class VulnRiskForGetSecurityOverviewOutput {
    * @return subjectCount
   **/
   @Schema(description = "")
-  public Integer getSubjectCount() {
+  public Long getSubjectCount() {
     return subjectCount;
   }
 
-  public void setSubjectCount(Integer subjectCount) {
+  public void setSubjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
   }
 

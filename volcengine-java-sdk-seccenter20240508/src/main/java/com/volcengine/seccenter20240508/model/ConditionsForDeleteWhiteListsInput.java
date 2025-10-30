@@ -65,10 +65,10 @@ public class ConditionsForDeleteWhiteListsInput {
   private String topGroupID = null;
 
   @SerializedName("UpdateTimeEnd")
-  private Integer updateTimeEnd = null;
+  private Long updateTimeEnd = null;
 
   @SerializedName("UpdateTimeStart")
-  private Integer updateTimeStart = null;
+  private Long updateTimeStart = null;
 
   @SerializedName("User")
   private String user = null;
@@ -274,7 +274,7 @@ public class ConditionsForDeleteWhiteListsInput {
     this.topGroupID = topGroupID;
   }
 
-  public ConditionsForDeleteWhiteListsInput updateTimeEnd(Integer updateTimeEnd) {
+  public ConditionsForDeleteWhiteListsInput updateTimeEnd(Long updateTimeEnd) {
     this.updateTimeEnd = updateTimeEnd;
     return this;
   }
@@ -284,15 +284,15 @@ public class ConditionsForDeleteWhiteListsInput {
    * @return updateTimeEnd
   **/
   @Schema(description = "")
-  public Integer getUpdateTimeEnd() {
+  public Long getUpdateTimeEnd() {
     return updateTimeEnd;
   }
 
-  public void setUpdateTimeEnd(Integer updateTimeEnd) {
+  public void setUpdateTimeEnd(Long updateTimeEnd) {
     this.updateTimeEnd = updateTimeEnd;
   }
 
-  public ConditionsForDeleteWhiteListsInput updateTimeStart(Integer updateTimeStart) {
+  public ConditionsForDeleteWhiteListsInput updateTimeStart(Long updateTimeStart) {
     this.updateTimeStart = updateTimeStart;
     return this;
   }
@@ -302,11 +302,11 @@ public class ConditionsForDeleteWhiteListsInput {
    * @return updateTimeStart
   **/
   @Schema(description = "")
-  public Integer getUpdateTimeStart() {
+  public Long getUpdateTimeStart() {
     return updateTimeStart;
   }
 
-  public void setUpdateTimeStart(Integer updateTimeStart) {
+  public void setUpdateTimeStart(Long updateTimeStart) {
     this.updateTimeStart = updateTimeStart;
   }
 

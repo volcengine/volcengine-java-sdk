@@ -55,7 +55,7 @@ public class WeakPasswordForListWeakPasswordCheckDetailOutput {
   private String weakUsername = null;
 
   @SerializedName("check_id")
-  private Integer checkId = null;
+  private Long checkId = null;
 
   @SerializedName("description_cn")
   private String descriptionCn = null;
@@ -204,7 +204,7 @@ public class WeakPasswordForListWeakPasswordCheckDetailOutput {
     this.weakUsername = weakUsername;
   }
 
-  public WeakPasswordForListWeakPasswordCheckDetailOutput checkId(Integer checkId) {
+  public WeakPasswordForListWeakPasswordCheckDetailOutput checkId(Long checkId) {
     this.checkId = checkId;
     return this;
   }
@@ -214,11 +214,11 @@ public class WeakPasswordForListWeakPasswordCheckDetailOutput {
    * @return checkId
   **/
   @Schema(description = "")
-  public Integer getCheckId() {
+  public Long getCheckId() {
     return checkId;
   }
 
-  public void setCheckId(Integer checkId) {
+  public void setCheckId(Long checkId) {
     this.checkId = checkId;
   }
 

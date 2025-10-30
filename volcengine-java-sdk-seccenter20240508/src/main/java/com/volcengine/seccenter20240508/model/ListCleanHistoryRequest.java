@@ -48,10 +48,10 @@ public class ListCleanHistoryRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Platforms")
   private List<String> platforms = null;
@@ -174,7 +174,7 @@ public class ListCleanHistoryRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListCleanHistoryRequest pageNumber(Integer pageNumber) {
+  public ListCleanHistoryRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -185,15 +185,15 @@ public class ListCleanHistoryRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListCleanHistoryRequest pageSize(Integer pageSize) {
+  public ListCleanHistoryRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -204,11 +204,11 @@ public class ListCleanHistoryRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

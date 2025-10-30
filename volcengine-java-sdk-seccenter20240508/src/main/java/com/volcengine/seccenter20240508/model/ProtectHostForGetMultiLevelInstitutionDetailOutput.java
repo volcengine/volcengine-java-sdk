@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class ProtectHostForGetMultiLevelInstitutionDetailOutput {
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   @SerializedName("UsedCount")
-  private Integer usedCount = null;
+  private Long usedCount = null;
 
-  public ProtectHostForGetMultiLevelInstitutionDetailOutput expireTime(Integer expireTime) {
+  public ProtectHostForGetMultiLevelInstitutionDetailOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -49,15 +49,15 @@ public class ProtectHostForGetMultiLevelInstitutionDetailOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public ProtectHostForGetMultiLevelInstitutionDetailOutput totalCount(Integer totalCount) {
+  public ProtectHostForGetMultiLevelInstitutionDetailOutput totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -67,15 +67,15 @@ public class ProtectHostForGetMultiLevelInstitutionDetailOutput {
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
-  public ProtectHostForGetMultiLevelInstitutionDetailOutput usedCount(Integer usedCount) {
+  public ProtectHostForGetMultiLevelInstitutionDetailOutput usedCount(Long usedCount) {
     this.usedCount = usedCount;
     return this;
   }
@@ -85,11 +85,11 @@ public class ProtectHostForGetMultiLevelInstitutionDetailOutput {
    * @return usedCount
   **/
   @Schema(description = "")
-  public Integer getUsedCount() {
+  public Long getUsedCount() {
     return usedCount;
   }
 
-  public void setUsedCount(Integer usedCount) {
+  public void setUsedCount(Long usedCount) {
     this.usedCount = usedCount;
   }
 

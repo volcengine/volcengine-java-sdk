@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class RiskNumForListBaselineHostItemHostsOutput {
   @SerializedName("HighNum")
-  private Integer highNum = null;
+  private Long highNum = null;
 
   @SerializedName("LowNum")
-  private Integer lowNum = null;
+  private Long lowNum = null;
 
   @SerializedName("MediumNum")
-  private Integer mediumNum = null;
+  private Long mediumNum = null;
 
-  public RiskNumForListBaselineHostItemHostsOutput highNum(Integer highNum) {
+  public RiskNumForListBaselineHostItemHostsOutput highNum(Long highNum) {
     this.highNum = highNum;
     return this;
   }
@@ -49,15 +49,15 @@ public class RiskNumForListBaselineHostItemHostsOutput {
    * @return highNum
   **/
   @Schema(description = "")
-  public Integer getHighNum() {
+  public Long getHighNum() {
     return highNum;
   }
 
-  public void setHighNum(Integer highNum) {
+  public void setHighNum(Long highNum) {
     this.highNum = highNum;
   }
 
-  public RiskNumForListBaselineHostItemHostsOutput lowNum(Integer lowNum) {
+  public RiskNumForListBaselineHostItemHostsOutput lowNum(Long lowNum) {
     this.lowNum = lowNum;
     return this;
   }
@@ -67,15 +67,15 @@ public class RiskNumForListBaselineHostItemHostsOutput {
    * @return lowNum
   **/
   @Schema(description = "")
-  public Integer getLowNum() {
+  public Long getLowNum() {
     return lowNum;
   }
 
-  public void setLowNum(Integer lowNum) {
+  public void setLowNum(Long lowNum) {
     this.lowNum = lowNum;
   }
 
-  public RiskNumForListBaselineHostItemHostsOutput mediumNum(Integer mediumNum) {
+  public RiskNumForListBaselineHostItemHostsOutput mediumNum(Long mediumNum) {
     this.mediumNum = mediumNum;
     return this;
   }
@@ -85,11 +85,11 @@ public class RiskNumForListBaselineHostItemHostsOutput {
    * @return mediumNum
   **/
   @Schema(description = "")
-  public Integer getMediumNum() {
+  public Long getMediumNum() {
     return mediumNum;
   }
 
-  public void setMediumNum(Integer mediumNum) {
+  public void setMediumNum(Long mediumNum) {
     this.mediumNum = mediumNum;
   }
 

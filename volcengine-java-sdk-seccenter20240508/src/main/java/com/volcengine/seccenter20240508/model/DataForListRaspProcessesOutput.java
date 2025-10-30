@@ -54,7 +54,7 @@ public class DataForListRaspProcessesOutput {
   private List<String> innerIPList = null;
 
   @SerializedName("InspectPort")
-  private Integer inspectPort = null;
+  private Long inspectPort = null;
 
   @SerializedName("OuterIPList")
   private List<String> outerIPList = null;
@@ -81,7 +81,7 @@ public class DataForListRaspProcessesOutput {
   private String runtime = null;
 
   @SerializedName("StartTimeUnix")
-  private Integer startTimeUnix = null;
+  private Long startTimeUnix = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -228,7 +228,7 @@ public class DataForListRaspProcessesOutput {
     this.innerIPList = innerIPList;
   }
 
-  public DataForListRaspProcessesOutput inspectPort(Integer inspectPort) {
+  public DataForListRaspProcessesOutput inspectPort(Long inspectPort) {
     this.inspectPort = inspectPort;
     return this;
   }
@@ -238,11 +238,11 @@ public class DataForListRaspProcessesOutput {
    * @return inspectPort
   **/
   @Schema(description = "")
-  public Integer getInspectPort() {
+  public Long getInspectPort() {
     return inspectPort;
   }
 
-  public void setInspectPort(Integer inspectPort) {
+  public void setInspectPort(Long inspectPort) {
     this.inspectPort = inspectPort;
   }
 
@@ -398,7 +398,7 @@ public class DataForListRaspProcessesOutput {
     this.runtime = runtime;
   }
 
-  public DataForListRaspProcessesOutput startTimeUnix(Integer startTimeUnix) {
+  public DataForListRaspProcessesOutput startTimeUnix(Long startTimeUnix) {
     this.startTimeUnix = startTimeUnix;
     return this;
   }
@@ -408,11 +408,11 @@ public class DataForListRaspProcessesOutput {
    * @return startTimeUnix
   **/
   @Schema(description = "")
-  public Integer getStartTimeUnix() {
+  public Long getStartTimeUnix() {
     return startTimeUnix;
   }
 
-  public void setStartTimeUnix(Integer startTimeUnix) {
+  public void setStartTimeUnix(Long startTimeUnix) {
     this.startTimeUnix = startTimeUnix;
   }
 

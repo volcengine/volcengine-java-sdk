@@ -37,7 +37,7 @@ public class ProcessForHandleAlarmByAgentInput {
   private String exe = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   public ProcessForHandleAlarmByAgentInput cmdline(String cmdline) {
     this.cmdline = cmdline;
@@ -75,7 +75,7 @@ public class ProcessForHandleAlarmByAgentInput {
     this.exe = exe;
   }
 
-  public ProcessForHandleAlarmByAgentInput pid(Integer pid) {
+  public ProcessForHandleAlarmByAgentInput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -85,11 +85,11 @@ public class ProcessForHandleAlarmByAgentInput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

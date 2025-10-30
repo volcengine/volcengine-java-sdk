@@ -34,10 +34,10 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
   private String baselineCheck = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CheckID")
-  private Integer checkID = null;
+  private Long checkID = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -46,7 +46,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
   private String descriptionCn = null;
 
   @SerializedName("PassRate")
-  private Integer passRate = null;
+  private Long passRate = null;
 
   @SerializedName("Security")
   private String security = null;
@@ -73,7 +73,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
   private String typeCn = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public BaselineInfoForListBaselineCheckItemsOutput baselineCheck(String baselineCheck) {
     this.baselineCheck = baselineCheck;
@@ -93,7 +93,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
     this.baselineCheck = baselineCheck;
   }
 
-  public BaselineInfoForListBaselineCheckItemsOutput baselineID(Integer baselineID) {
+  public BaselineInfoForListBaselineCheckItemsOutput baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -103,15 +103,15 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public BaselineInfoForListBaselineCheckItemsOutput checkID(Integer checkID) {
+  public BaselineInfoForListBaselineCheckItemsOutput checkID(Long checkID) {
     this.checkID = checkID;
     return this;
   }
@@ -121,11 +121,11 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
    * @return checkID
   **/
   @Schema(description = "")
-  public Integer getCheckID() {
+  public Long getCheckID() {
     return checkID;
   }
 
-  public void setCheckID(Integer checkID) {
+  public void setCheckID(Long checkID) {
     this.checkID = checkID;
   }
 
@@ -165,7 +165,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
     this.descriptionCn = descriptionCn;
   }
 
-  public BaselineInfoForListBaselineCheckItemsOutput passRate(Integer passRate) {
+  public BaselineInfoForListBaselineCheckItemsOutput passRate(Long passRate) {
     this.passRate = passRate;
     return this;
   }
@@ -175,11 +175,11 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
    * @return passRate
   **/
   @Schema(description = "")
-  public Integer getPassRate() {
+  public Long getPassRate() {
     return passRate;
   }
 
-  public void setPassRate(Integer passRate) {
+  public void setPassRate(Long passRate) {
     this.passRate = passRate;
   }
 
@@ -327,7 +327,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
     this.typeCn = typeCn;
   }
 
-  public BaselineInfoForListBaselineCheckItemsOutput updateTime(Integer updateTime) {
+  public BaselineInfoForListBaselineCheckItemsOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -337,11 +337,11 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

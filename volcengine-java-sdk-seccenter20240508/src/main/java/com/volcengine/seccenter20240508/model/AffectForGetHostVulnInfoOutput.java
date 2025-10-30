@@ -106,7 +106,7 @@ public class AffectForGetHostVulnInfoOutput {
   private String type = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("action")
   private String action = null;
@@ -118,10 +118,10 @@ public class AffectForGetHostVulnInfoOutput {
   private String clusterName = null;
 
   @SerializedName("control_time")
-  private Integer controlTime = null;
+  private Long controlTime = null;
 
   @SerializedName("create_time")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("cve_id")
   private String cveId = null;
@@ -611,7 +611,7 @@ public class AffectForGetHostVulnInfoOutput {
     this.type = type;
   }
 
-  public AffectForGetHostVulnInfoOutput updateTime(Integer updateTime) {
+  public AffectForGetHostVulnInfoOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -621,11 +621,11 @@ public class AffectForGetHostVulnInfoOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -683,7 +683,7 @@ public class AffectForGetHostVulnInfoOutput {
     this.clusterName = clusterName;
   }
 
-  public AffectForGetHostVulnInfoOutput controlTime(Integer controlTime) {
+  public AffectForGetHostVulnInfoOutput controlTime(Long controlTime) {
     this.controlTime = controlTime;
     return this;
   }
@@ -693,15 +693,15 @@ public class AffectForGetHostVulnInfoOutput {
    * @return controlTime
   **/
   @Schema(description = "")
-  public Integer getControlTime() {
+  public Long getControlTime() {
     return controlTime;
   }
 
-  public void setControlTime(Integer controlTime) {
+  public void setControlTime(Long controlTime) {
     this.controlTime = controlTime;
   }
 
-  public AffectForGetHostVulnInfoOutput createTime(Integer createTime) {
+  public AffectForGetHostVulnInfoOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -711,11 +711,11 @@ public class AffectForGetHostVulnInfoOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 

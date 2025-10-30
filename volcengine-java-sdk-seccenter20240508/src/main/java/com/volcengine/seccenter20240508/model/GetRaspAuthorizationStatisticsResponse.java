@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class GetRaspAuthorizationStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AuthorizationCount")
-  private Integer authorizationCount = null;
+  private Long authorizationCount = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("LeftAuthorizationCount")
-  private Integer leftAuthorizationCount = null;
+  private Long leftAuthorizationCount = null;
 
-  public GetRaspAuthorizationStatisticsResponse authorizationCount(Integer authorizationCount) {
+  public GetRaspAuthorizationStatisticsResponse authorizationCount(Long authorizationCount) {
     this.authorizationCount = authorizationCount;
     return this;
   }
@@ -49,15 +49,15 @@ public class GetRaspAuthorizationStatisticsResponse extends com.volcengine.model
    * @return authorizationCount
   **/
   @Schema(description = "")
-  public Integer getAuthorizationCount() {
+  public Long getAuthorizationCount() {
     return authorizationCount;
   }
 
-  public void setAuthorizationCount(Integer authorizationCount) {
+  public void setAuthorizationCount(Long authorizationCount) {
     this.authorizationCount = authorizationCount;
   }
 
-  public GetRaspAuthorizationStatisticsResponse expireTime(Integer expireTime) {
+  public GetRaspAuthorizationStatisticsResponse expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -67,15 +67,15 @@ public class GetRaspAuthorizationStatisticsResponse extends com.volcengine.model
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public GetRaspAuthorizationStatisticsResponse leftAuthorizationCount(Integer leftAuthorizationCount) {
+  public GetRaspAuthorizationStatisticsResponse leftAuthorizationCount(Long leftAuthorizationCount) {
     this.leftAuthorizationCount = leftAuthorizationCount;
     return this;
   }
@@ -85,11 +85,11 @@ public class GetRaspAuthorizationStatisticsResponse extends com.volcengine.model
    * @return leftAuthorizationCount
   **/
   @Schema(description = "")
-  public Integer getLeftAuthorizationCount() {
+  public Long getLeftAuthorizationCount() {
     return leftAuthorizationCount;
   }
 
-  public void setLeftAuthorizationCount(Integer leftAuthorizationCount) {
+  public void setLeftAuthorizationCount(Long leftAuthorizationCount) {
     this.leftAuthorizationCount = leftAuthorizationCount;
   }
 

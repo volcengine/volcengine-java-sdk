@@ -34,7 +34,7 @@ public class ContainerInfoForGetHidsAlarmSummaryInfoOutput {
   private String containerCreateTime = null;
 
   @SerializedName("ContainerCreateTimestamp")
-  private Integer containerCreateTimestamp = null;
+  private Long containerCreateTimestamp = null;
 
   @SerializedName("ContainerHostName")
   private String containerHostName = null;
@@ -93,7 +93,7 @@ public class ContainerInfoForGetHidsAlarmSummaryInfoOutput {
     this.containerCreateTime = containerCreateTime;
   }
 
-  public ContainerInfoForGetHidsAlarmSummaryInfoOutput containerCreateTimestamp(Integer containerCreateTimestamp) {
+  public ContainerInfoForGetHidsAlarmSummaryInfoOutput containerCreateTimestamp(Long containerCreateTimestamp) {
     this.containerCreateTimestamp = containerCreateTimestamp;
     return this;
   }
@@ -103,11 +103,11 @@ public class ContainerInfoForGetHidsAlarmSummaryInfoOutput {
    * @return containerCreateTimestamp
   **/
   @Schema(description = "")
-  public Integer getContainerCreateTimestamp() {
+  public Long getContainerCreateTimestamp() {
     return containerCreateTimestamp;
   }
 
-  public void setContainerCreateTimestamp(Integer containerCreateTimestamp) {
+  public void setContainerCreateTimestamp(Long containerCreateTimestamp) {
     this.containerCreateTimestamp = containerCreateTimestamp;
   }
 

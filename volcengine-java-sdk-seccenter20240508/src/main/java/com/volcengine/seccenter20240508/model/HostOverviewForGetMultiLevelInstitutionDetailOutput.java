@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
   @SerializedName("HostNum")
-  private Integer hostNum = null;
+  private Long hostNum = null;
 
   @SerializedName("Offline")
-  private Integer offline = null;
+  private Long offline = null;
 
   @SerializedName("Protecting")
-  private Integer protecting = null;
+  private Long protecting = null;
 
   @SerializedName("ProtectionException")
-  private Integer protectionException = null;
+  private Long protectionException = null;
 
   @SerializedName("Unprotected")
-  private Integer unprotected = null;
+  private Long unprotected = null;
 
-  public HostOverviewForGetMultiLevelInstitutionDetailOutput hostNum(Integer hostNum) {
+  public HostOverviewForGetMultiLevelInstitutionDetailOutput hostNum(Long hostNum) {
     this.hostNum = hostNum;
     return this;
   }
@@ -55,15 +55,15 @@ public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
    * @return hostNum
   **/
   @Schema(description = "")
-  public Integer getHostNum() {
+  public Long getHostNum() {
     return hostNum;
   }
 
-  public void setHostNum(Integer hostNum) {
+  public void setHostNum(Long hostNum) {
     this.hostNum = hostNum;
   }
 
-  public HostOverviewForGetMultiLevelInstitutionDetailOutput offline(Integer offline) {
+  public HostOverviewForGetMultiLevelInstitutionDetailOutput offline(Long offline) {
     this.offline = offline;
     return this;
   }
@@ -73,15 +73,15 @@ public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
    * @return offline
   **/
   @Schema(description = "")
-  public Integer getOffline() {
+  public Long getOffline() {
     return offline;
   }
 
-  public void setOffline(Integer offline) {
+  public void setOffline(Long offline) {
     this.offline = offline;
   }
 
-  public HostOverviewForGetMultiLevelInstitutionDetailOutput protecting(Integer protecting) {
+  public HostOverviewForGetMultiLevelInstitutionDetailOutput protecting(Long protecting) {
     this.protecting = protecting;
     return this;
   }
@@ -91,15 +91,15 @@ public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
    * @return protecting
   **/
   @Schema(description = "")
-  public Integer getProtecting() {
+  public Long getProtecting() {
     return protecting;
   }
 
-  public void setProtecting(Integer protecting) {
+  public void setProtecting(Long protecting) {
     this.protecting = protecting;
   }
 
-  public HostOverviewForGetMultiLevelInstitutionDetailOutput protectionException(Integer protectionException) {
+  public HostOverviewForGetMultiLevelInstitutionDetailOutput protectionException(Long protectionException) {
     this.protectionException = protectionException;
     return this;
   }
@@ -109,15 +109,15 @@ public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
    * @return protectionException
   **/
   @Schema(description = "")
-  public Integer getProtectionException() {
+  public Long getProtectionException() {
     return protectionException;
   }
 
-  public void setProtectionException(Integer protectionException) {
+  public void setProtectionException(Long protectionException) {
     this.protectionException = protectionException;
   }
 
-  public HostOverviewForGetMultiLevelInstitutionDetailOutput unprotected(Integer unprotected) {
+  public HostOverviewForGetMultiLevelInstitutionDetailOutput unprotected(Long unprotected) {
     this.unprotected = unprotected;
     return this;
   }
@@ -127,11 +127,11 @@ public class HostOverviewForGetMultiLevelInstitutionDetailOutput {
    * @return unprotected
   **/
   @Schema(description = "")
-  public Integer getUnprotected() {
+  public Long getUnprotected() {
     return unprotected;
   }
 
-  public void setUnprotected(Integer unprotected) {
+  public void setUnprotected(Long unprotected) {
     this.unprotected = unprotected;
   }
 
