@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class CreatFileScanTaskResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Count")
-  private Integer count = null;
+  private Long count = null;
 
   @SerializedName("TaskID")
   private String taskID = null;
 
-  public CreatFileScanTaskResponse count(Integer count) {
+  public CreatFileScanTaskResponse count(Long count) {
     this.count = count;
     return this;
   }
@@ -46,11 +46,11 @@ public class CreatFileScanTaskResponse extends com.volcengine.model.AbstractResp
    * @return count
   **/
   @Schema(description = "")
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(Integer count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 

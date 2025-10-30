@@ -73,7 +73,7 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
   private String exploitLink = null;
 
   @SerializedName("IfExp")
-  private Integer ifExp = null;
+  private Long ifExp = null;
 
   @SerializedName("IfRasp")
   private Boolean ifRasp = null;
@@ -100,10 +100,10 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
   private String suggestEn = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UploadAt")
-  private Integer uploadAt = null;
+  private Long uploadAt = null;
 
   @SerializedName("UploadName")
   private String uploadName = null;
@@ -368,7 +368,7 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     this.exploitLink = exploitLink;
   }
 
-  public GetVulnInfoResponse ifExp(Integer ifExp) {
+  public GetVulnInfoResponse ifExp(Long ifExp) {
     this.ifExp = ifExp;
     return this;
   }
@@ -378,11 +378,11 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
    * @return ifExp
   **/
   @Schema(description = "")
-  public Integer getIfExp() {
+  public Long getIfExp() {
     return ifExp;
   }
 
-  public void setIfExp(Integer ifExp) {
+  public void setIfExp(Long ifExp) {
     this.ifExp = ifExp;
   }
 
@@ -538,7 +538,7 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     this.suggestEn = suggestEn;
   }
 
-  public GetVulnInfoResponse updateTime(Integer updateTime) {
+  public GetVulnInfoResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -548,15 +548,15 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
-  public GetVulnInfoResponse uploadAt(Integer uploadAt) {
+  public GetVulnInfoResponse uploadAt(Long uploadAt) {
     this.uploadAt = uploadAt;
     return this;
   }
@@ -566,11 +566,11 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
    * @return uploadAt
   **/
   @Schema(description = "")
-  public Integer getUploadAt() {
+  public Long getUploadAt() {
     return uploadAt;
   }
 
-  public void setUploadAt(Integer uploadAt) {
+  public void setUploadAt(Long uploadAt) {
     this.uploadAt = uploadAt;
   }
 

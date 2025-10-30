@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("HitLen")
-  private Integer hitLen = null;
+  private Long hitLen = null;
 
   @SerializedName("Offset")
-  private Integer offset = null;
+  private Long offset = null;
 
   @SerializedName("RuleID")
   private String ruleID = null;
 
-  public VirusHitDataListForGetVirusAlarmSummaryInfoOutput hitLen(Integer hitLen) {
+  public VirusHitDataListForGetVirusAlarmSummaryInfoOutput hitLen(Long hitLen) {
     this.hitLen = hitLen;
     return this;
   }
@@ -49,15 +49,15 @@ public class VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
    * @return hitLen
   **/
   @Schema(description = "")
-  public Integer getHitLen() {
+  public Long getHitLen() {
     return hitLen;
   }
 
-  public void setHitLen(Integer hitLen) {
+  public void setHitLen(Long hitLen) {
     this.hitLen = hitLen;
   }
 
-  public VirusHitDataListForGetVirusAlarmSummaryInfoOutput offset(Integer offset) {
+  public VirusHitDataListForGetVirusAlarmSummaryInfoOutput offset(Long offset) {
     this.offset = offset;
     return this;
   }
@@ -67,11 +67,11 @@ public class VirusHitDataListForGetVirusAlarmSummaryInfoOutput {
    * @return offset
   **/
   @Schema(description = "")
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(Integer offset) {
+  public void setOffset(Long offset) {
     this.offset = offset;
   }
 

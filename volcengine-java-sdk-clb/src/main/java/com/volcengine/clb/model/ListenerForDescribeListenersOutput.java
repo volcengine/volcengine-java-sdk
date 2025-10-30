@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.DomainExtensionForDescribeListenersOutput;
 import com.volcengine.clb.model.HealthCheckForDescribeListenersOutput;
 import com.volcengine.clb.model.TagForDescribeListenersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -84,6 +85,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DomainExtensions")
+  private List<DomainExtensionForDescribeListenersOutput> domainExtensions = null;
 
   @SerializedName("Enabled")
   private String enabled = null;
@@ -487,6 +491,33 @@ public class ListenerForDescribeListenersOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ListenerForDescribeListenersOutput domainExtensions(List<DomainExtensionForDescribeListenersOutput> domainExtensions) {
+    this.domainExtensions = domainExtensions;
+    return this;
+  }
+
+  public ListenerForDescribeListenersOutput addDomainExtensionsItem(DomainExtensionForDescribeListenersOutput domainExtensionsItem) {
+    if (this.domainExtensions == null) {
+      this.domainExtensions = new ArrayList<DomainExtensionForDescribeListenersOutput>();
+    }
+    this.domainExtensions.add(domainExtensionsItem);
+    return this;
+  }
+
+   /**
+   * Get domainExtensions
+   * @return domainExtensions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DomainExtensionForDescribeListenersOutput> getDomainExtensions() {
+    return domainExtensions;
+  }
+
+  public void setDomainExtensions(List<DomainExtensionForDescribeListenersOutput> domainExtensions) {
+    this.domainExtensions = domainExtensions;
   }
 
   public ListenerForDescribeListenersOutput enabled(String enabled) {
@@ -1066,6 +1097,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.cps, listenerForDescribeListenersOutput.cps) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
+        Objects.equals(this.domainExtensions, listenerForDescribeListenersOutput.domainExtensions) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
         Objects.equals(this.endPort, listenerForDescribeListenersOutput.endPort) &&
         Objects.equals(this.enhancedSchedulerEnable, listenerForDescribeListenersOutput.enhancedSchedulerEnable) &&
@@ -1100,7 +1132,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, createTime, description, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, createTime, description, domainExtensions, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
   }
 
 
@@ -1126,6 +1158,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    cps: ").append(toIndentedString(cps)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    enhancedSchedulerEnable: ").append(toIndentedString(enhancedSchedulerEnable)).append("\n");

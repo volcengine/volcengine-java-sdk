@@ -48,10 +48,10 @@ public class GetAutoIsolateAgentListRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -171,7 +171,7 @@ public class GetAutoIsolateAgentListRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetAutoIsolateAgentListRequest pageNumber(Integer pageNumber) {
+  public GetAutoIsolateAgentListRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -182,15 +182,15 @@ public class GetAutoIsolateAgentListRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetAutoIsolateAgentListRequest pageSize(Integer pageSize) {
+  public GetAutoIsolateAgentListRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -201,11 +201,11 @@ public class GetAutoIsolateAgentListRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

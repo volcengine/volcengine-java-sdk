@@ -37,7 +37,7 @@ public class ProcListForListEndpointHandleMethodsOutput {
   private String exe = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   public ProcListForListEndpointHandleMethodsOutput cmdline(String cmdline) {
     this.cmdline = cmdline;
@@ -75,7 +75,7 @@ public class ProcListForListEndpointHandleMethodsOutput {
     this.exe = exe;
   }
 
-  public ProcListForListEndpointHandleMethodsOutput pid(Integer pid) {
+  public ProcListForListEndpointHandleMethodsOutput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -85,11 +85,11 @@ public class ProcListForListEndpointHandleMethodsOutput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

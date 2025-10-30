@@ -40,13 +40,13 @@ public class DataForMultiCloudAccessStatisticsOutput {
   private String cloudPlatform = null;
 
   @SerializedName("Count")
-  private Integer count = null;
+  private Long count = null;
 
   @SerializedName("IsActive")
   private Boolean isActive = null;
 
   @SerializedName("LastSyncTime")
-  private Integer lastSyncTime = null;
+  private Long lastSyncTime = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -105,7 +105,7 @@ public class DataForMultiCloudAccessStatisticsOutput {
     this.cloudPlatform = cloudPlatform;
   }
 
-  public DataForMultiCloudAccessStatisticsOutput count(Integer count) {
+  public DataForMultiCloudAccessStatisticsOutput count(Long count) {
     this.count = count;
     return this;
   }
@@ -115,11 +115,11 @@ public class DataForMultiCloudAccessStatisticsOutput {
    * @return count
   **/
   @Schema(description = "")
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(Integer count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 
@@ -141,7 +141,7 @@ public class DataForMultiCloudAccessStatisticsOutput {
     this.isActive = isActive;
   }
 
-  public DataForMultiCloudAccessStatisticsOutput lastSyncTime(Integer lastSyncTime) {
+  public DataForMultiCloudAccessStatisticsOutput lastSyncTime(Long lastSyncTime) {
     this.lastSyncTime = lastSyncTime;
     return this;
   }
@@ -151,11 +151,11 @@ public class DataForMultiCloudAccessStatisticsOutput {
    * @return lastSyncTime
   **/
   @Schema(description = "")
-  public Integer getLastSyncTime() {
+  public Long getLastSyncTime() {
     return lastSyncTime;
   }
 
-  public void setLastSyncTime(Integer lastSyncTime) {
+  public void setLastSyncTime(Long lastSyncTime) {
     this.lastSyncTime = lastSyncTime;
   }
 

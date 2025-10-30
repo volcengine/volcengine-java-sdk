@@ -40,7 +40,7 @@ public class ListInstallCommandsRequest {
   private String groupId = null;
 
   @SerializedName("HostEngine")
-  private Integer hostEngine = null;
+  private Long hostEngine = null;
 
   @SerializedName("InstallationMethod")
   private String installationMethod = null;
@@ -105,7 +105,7 @@ public class ListInstallCommandsRequest {
     this.groupId = groupId;
   }
 
-  public ListInstallCommandsRequest hostEngine(Integer hostEngine) {
+  public ListInstallCommandsRequest hostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
     return this;
   }
@@ -115,11 +115,11 @@ public class ListInstallCommandsRequest {
    * @return hostEngine
   **/
   @Schema(description = "")
-  public Integer getHostEngine() {
+  public Long getHostEngine() {
     return hostEngine;
   }
 
-  public void setHostEngine(Integer hostEngine) {
+  public void setHostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
   }
 

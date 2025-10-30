@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class GetVirusTaskStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("FininshedTaskNum")
-  private Integer fininshedTaskNum = null;
+  private Long fininshedTaskNum = null;
 
   @SerializedName("LastScanTime")
-  private Integer lastScanTime = null;
+  private Long lastScanTime = null;
 
   @SerializedName("RunningTaskNum")
-  private Integer runningTaskNum = null;
+  private Long runningTaskNum = null;
 
-  public GetVirusTaskStatisticsResponse fininshedTaskNum(Integer fininshedTaskNum) {
+  public GetVirusTaskStatisticsResponse fininshedTaskNum(Long fininshedTaskNum) {
     this.fininshedTaskNum = fininshedTaskNum;
     return this;
   }
@@ -49,15 +49,15 @@ public class GetVirusTaskStatisticsResponse extends com.volcengine.model.Abstrac
    * @return fininshedTaskNum
   **/
   @Schema(description = "")
-  public Integer getFininshedTaskNum() {
+  public Long getFininshedTaskNum() {
     return fininshedTaskNum;
   }
 
-  public void setFininshedTaskNum(Integer fininshedTaskNum) {
+  public void setFininshedTaskNum(Long fininshedTaskNum) {
     this.fininshedTaskNum = fininshedTaskNum;
   }
 
-  public GetVirusTaskStatisticsResponse lastScanTime(Integer lastScanTime) {
+  public GetVirusTaskStatisticsResponse lastScanTime(Long lastScanTime) {
     this.lastScanTime = lastScanTime;
     return this;
   }
@@ -67,15 +67,15 @@ public class GetVirusTaskStatisticsResponse extends com.volcengine.model.Abstrac
    * @return lastScanTime
   **/
   @Schema(description = "")
-  public Integer getLastScanTime() {
+  public Long getLastScanTime() {
     return lastScanTime;
   }
 
-  public void setLastScanTime(Integer lastScanTime) {
+  public void setLastScanTime(Long lastScanTime) {
     this.lastScanTime = lastScanTime;
   }
 
-  public GetVirusTaskStatisticsResponse runningTaskNum(Integer runningTaskNum) {
+  public GetVirusTaskStatisticsResponse runningTaskNum(Long runningTaskNum) {
     this.runningTaskNum = runningTaskNum;
     return this;
   }
@@ -85,11 +85,11 @@ public class GetVirusTaskStatisticsResponse extends com.volcengine.model.Abstrac
    * @return runningTaskNum
   **/
   @Schema(description = "")
-  public Integer getRunningTaskNum() {
+  public Long getRunningTaskNum() {
     return runningTaskNum;
   }
 
-  public void setRunningTaskNum(Integer runningTaskNum) {
+  public void setRunningTaskNum(Long runningTaskNum) {
     this.runningTaskNum = runningTaskNum;
   }
 

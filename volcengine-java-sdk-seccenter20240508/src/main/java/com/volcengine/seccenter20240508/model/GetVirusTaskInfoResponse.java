@@ -40,10 +40,10 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
   private ConfigForGetVirusTaskInfoOutput config = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("DistributedCount")
-  private Integer distributedCount = null;
+  private Long distributedCount = null;
 
   @SerializedName("IDCount")
   private Double idCount = null;
@@ -52,16 +52,16 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
   private List<String> idList = null;
 
   @SerializedName("SubTaskCreated")
-  private Integer subTaskCreated = null;
+  private Long subTaskCreated = null;
 
   @SerializedName("SubTaskFailed")
-  private Integer subTaskFailed = null;
+  private Long subTaskFailed = null;
 
   @SerializedName("SubTaskRunning")
-  private Integer subTaskRunning = null;
+  private Long subTaskRunning = null;
 
   @SerializedName("SubTaskSucceed")
-  private Integer subTaskSucceed = null;
+  private Long subTaskSucceed = null;
 
   @SerializedName("Tag")
   private String tag = null;
@@ -82,7 +82,7 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
   private String taskUser = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public GetVirusTaskInfoResponse action(String action) {
     this.action = action;
@@ -121,7 +121,7 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
     this.config = config;
   }
 
-  public GetVirusTaskInfoResponse createTime(Integer createTime) {
+  public GetVirusTaskInfoResponse createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -131,15 +131,15 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
-  public GetVirusTaskInfoResponse distributedCount(Integer distributedCount) {
+  public GetVirusTaskInfoResponse distributedCount(Long distributedCount) {
     this.distributedCount = distributedCount;
     return this;
   }
@@ -149,11 +149,11 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return distributedCount
   **/
   @Schema(description = "")
-  public Integer getDistributedCount() {
+  public Long getDistributedCount() {
     return distributedCount;
   }
 
-  public void setDistributedCount(Integer distributedCount) {
+  public void setDistributedCount(Long distributedCount) {
     this.distributedCount = distributedCount;
   }
 
@@ -201,7 +201,7 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
     this.idList = idList;
   }
 
-  public GetVirusTaskInfoResponse subTaskCreated(Integer subTaskCreated) {
+  public GetVirusTaskInfoResponse subTaskCreated(Long subTaskCreated) {
     this.subTaskCreated = subTaskCreated;
     return this;
   }
@@ -211,15 +211,15 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return subTaskCreated
   **/
   @Schema(description = "")
-  public Integer getSubTaskCreated() {
+  public Long getSubTaskCreated() {
     return subTaskCreated;
   }
 
-  public void setSubTaskCreated(Integer subTaskCreated) {
+  public void setSubTaskCreated(Long subTaskCreated) {
     this.subTaskCreated = subTaskCreated;
   }
 
-  public GetVirusTaskInfoResponse subTaskFailed(Integer subTaskFailed) {
+  public GetVirusTaskInfoResponse subTaskFailed(Long subTaskFailed) {
     this.subTaskFailed = subTaskFailed;
     return this;
   }
@@ -229,15 +229,15 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return subTaskFailed
   **/
   @Schema(description = "")
-  public Integer getSubTaskFailed() {
+  public Long getSubTaskFailed() {
     return subTaskFailed;
   }
 
-  public void setSubTaskFailed(Integer subTaskFailed) {
+  public void setSubTaskFailed(Long subTaskFailed) {
     this.subTaskFailed = subTaskFailed;
   }
 
-  public GetVirusTaskInfoResponse subTaskRunning(Integer subTaskRunning) {
+  public GetVirusTaskInfoResponse subTaskRunning(Long subTaskRunning) {
     this.subTaskRunning = subTaskRunning;
     return this;
   }
@@ -247,15 +247,15 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return subTaskRunning
   **/
   @Schema(description = "")
-  public Integer getSubTaskRunning() {
+  public Long getSubTaskRunning() {
     return subTaskRunning;
   }
 
-  public void setSubTaskRunning(Integer subTaskRunning) {
+  public void setSubTaskRunning(Long subTaskRunning) {
     this.subTaskRunning = subTaskRunning;
   }
 
-  public GetVirusTaskInfoResponse subTaskSucceed(Integer subTaskSucceed) {
+  public GetVirusTaskInfoResponse subTaskSucceed(Long subTaskSucceed) {
     this.subTaskSucceed = subTaskSucceed;
     return this;
   }
@@ -265,11 +265,11 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return subTaskSucceed
   **/
   @Schema(description = "")
-  public Integer getSubTaskSucceed() {
+  public Long getSubTaskSucceed() {
     return subTaskSucceed;
   }
 
-  public void setSubTaskSucceed(Integer subTaskSucceed) {
+  public void setSubTaskSucceed(Long subTaskSucceed) {
     this.subTaskSucceed = subTaskSucceed;
   }
 
@@ -381,7 +381,7 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
     this.taskUser = taskUser;
   }
 
-  public GetVirusTaskInfoResponse updateTime(Integer updateTime) {
+  public GetVirusTaskInfoResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -391,11 +391,11 @@ public class GetVirusTaskInfoResponse extends com.volcengine.model.AbstractRespo
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

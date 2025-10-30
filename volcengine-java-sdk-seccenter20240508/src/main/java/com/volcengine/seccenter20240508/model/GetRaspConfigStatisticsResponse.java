@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class GetRaspConfigStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ProcessWhiteListCount")
-  private Integer processWhiteListCount = null;
+  private Long processWhiteListCount = null;
 
   @SerializedName("RaspCloseCount")
-  private Integer raspCloseCount = null;
+  private Long raspCloseCount = null;
 
-  public GetRaspConfigStatisticsResponse processWhiteListCount(Integer processWhiteListCount) {
+  public GetRaspConfigStatisticsResponse processWhiteListCount(Long processWhiteListCount) {
     this.processWhiteListCount = processWhiteListCount;
     return this;
   }
@@ -46,15 +46,15 @@ public class GetRaspConfigStatisticsResponse extends com.volcengine.model.Abstra
    * @return processWhiteListCount
   **/
   @Schema(description = "")
-  public Integer getProcessWhiteListCount() {
+  public Long getProcessWhiteListCount() {
     return processWhiteListCount;
   }
 
-  public void setProcessWhiteListCount(Integer processWhiteListCount) {
+  public void setProcessWhiteListCount(Long processWhiteListCount) {
     this.processWhiteListCount = processWhiteListCount;
   }
 
-  public GetRaspConfigStatisticsResponse raspCloseCount(Integer raspCloseCount) {
+  public GetRaspConfigStatisticsResponse raspCloseCount(Long raspCloseCount) {
     this.raspCloseCount = raspCloseCount;
     return this;
   }
@@ -64,11 +64,11 @@ public class GetRaspConfigStatisticsResponse extends com.volcengine.model.Abstra
    * @return raspCloseCount
   **/
   @Schema(description = "")
-  public Integer getRaspCloseCount() {
+  public Long getRaspCloseCount() {
     return raspCloseCount;
   }
 
-  public void setRaspCloseCount(Integer raspCloseCount) {
+  public void setRaspCloseCount(Long raspCloseCount) {
     this.raspCloseCount = raspCloseCount;
   }
 

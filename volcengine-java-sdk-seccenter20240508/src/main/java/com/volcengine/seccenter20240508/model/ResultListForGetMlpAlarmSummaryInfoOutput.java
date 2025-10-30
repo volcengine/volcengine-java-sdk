@@ -97,7 +97,7 @@ public class ResultListForGetMlpAlarmSummaryInfoOutput {
   private String pgid = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -519,7 +519,7 @@ public class ResultListForGetMlpAlarmSummaryInfoOutput {
     this.pgid = pgid;
   }
 
-  public ResultListForGetMlpAlarmSummaryInfoOutput pid(Integer pid) {
+  public ResultListForGetMlpAlarmSummaryInfoOutput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -529,11 +529,11 @@ public class ResultListForGetMlpAlarmSummaryInfoOutput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

@@ -63,7 +63,7 @@ public class DataForGetFingerprintUserOutput {
   private String lastLoginIP = null;
 
   @SerializedName("LastLoginTime")
-  private Integer lastLoginTime = null;
+  private Long lastLoginTime = null;
 
   @SerializedName("Password")
   private String password = null;
@@ -75,7 +75,7 @@ public class DataForGetFingerprintUserOutput {
   private String shell = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Sudoers")
   private String sudoers = null;
@@ -84,7 +84,7 @@ public class DataForGetFingerprintUserOutput {
   private String uid = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -277,7 +277,7 @@ public class DataForGetFingerprintUserOutput {
     this.lastLoginIP = lastLoginIP;
   }
 
-  public DataForGetFingerprintUserOutput lastLoginTime(Integer lastLoginTime) {
+  public DataForGetFingerprintUserOutput lastLoginTime(Long lastLoginTime) {
     this.lastLoginTime = lastLoginTime;
     return this;
   }
@@ -287,11 +287,11 @@ public class DataForGetFingerprintUserOutput {
    * @return lastLoginTime
   **/
   @Schema(description = "")
-  public Integer getLastLoginTime() {
+  public Long getLastLoginTime() {
     return lastLoginTime;
   }
 
-  public void setLastLoginTime(Integer lastLoginTime) {
+  public void setLastLoginTime(Long lastLoginTime) {
     this.lastLoginTime = lastLoginTime;
   }
 
@@ -349,7 +349,7 @@ public class DataForGetFingerprintUserOutput {
     this.shell = shell;
   }
 
-  public DataForGetFingerprintUserOutput startTime(Integer startTime) {
+  public DataForGetFingerprintUserOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -359,11 +359,11 @@ public class DataForGetFingerprintUserOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -403,7 +403,7 @@ public class DataForGetFingerprintUserOutput {
     this.uid = uid;
   }
 
-  public DataForGetFingerprintUserOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintUserOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -413,11 +413,11 @@ public class DataForGetFingerprintUserOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -40,10 +40,10 @@ public class ListHostsBasicInfosRequest {
   private List<String> idList = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -96,7 +96,7 @@ public class ListHostsBasicInfosRequest {
     this.idList = idList;
   }
 
-  public ListHostsBasicInfosRequest pageNumber(Integer pageNumber) {
+  public ListHostsBasicInfosRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -107,15 +107,15 @@ public class ListHostsBasicInfosRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListHostsBasicInfosRequest pageSize(Integer pageSize) {
+  public ListHostsBasicInfosRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -126,11 +126,11 @@ public class ListHostsBasicInfosRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

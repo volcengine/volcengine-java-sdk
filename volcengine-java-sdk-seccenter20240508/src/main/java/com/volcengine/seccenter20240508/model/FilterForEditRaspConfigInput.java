@@ -37,7 +37,7 @@ public class FilterForEditRaspConfigInput {
   private List<String> hookFunc = null;
 
   @SerializedName("HookParam")
-  private Integer hookParam = null;
+  private Long hookParam = null;
 
   @SerializedName("Rules")
   private List<RuleForEditRaspConfigInput> rules = null;
@@ -71,7 +71,7 @@ public class FilterForEditRaspConfigInput {
     this.hookFunc = hookFunc;
   }
 
-  public FilterForEditRaspConfigInput hookParam(Integer hookParam) {
+  public FilterForEditRaspConfigInput hookParam(Long hookParam) {
     this.hookParam = hookParam;
     return this;
   }
@@ -81,11 +81,11 @@ public class FilterForEditRaspConfigInput {
    * @return hookParam
   **/
   @Schema(description = "")
-  public Integer getHookParam() {
+  public Long getHookParam() {
     return hookParam;
   }
 
-  public void setHookParam(Integer hookParam) {
+  public void setHookParam(Long hookParam) {
     this.hookParam = hookParam;
   }
 

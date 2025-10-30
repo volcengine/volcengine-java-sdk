@@ -319,5 +319,6 @@
         <module>volcengine-java-sdk-dms20250101</module>
         <module>volcengine-java-sdk-metakms</module>
         <module>volcengine-java-sdk-cbr</module>
+        <module>volcengine-java-sdk-milvus</module>
     </modules>
 </project>

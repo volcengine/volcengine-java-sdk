@@ -46,7 +46,7 @@ public class DataForListScanSubTasksOutput {
   private String taskID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForListScanSubTasksOutput agentID(String agentID) {
     this.agentID = agentID;
@@ -138,7 +138,7 @@ public class DataForListScanSubTasksOutput {
     this.taskID = taskID;
   }
 
-  public DataForListScanSubTasksOutput updateTime(Integer updateTime) {
+  public DataForListScanSubTasksOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -148,11 +148,11 @@ public class DataForListScanSubTasksOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

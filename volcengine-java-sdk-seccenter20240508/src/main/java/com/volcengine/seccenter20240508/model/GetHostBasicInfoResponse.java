@@ -65,7 +65,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   private EcsInstanceForGetHostBasicInfoOutput ecsInstance = null;
 
   @SerializedName("FirstHeartbeatTime")
-  private Integer firstHeartbeatTime = null;
+  private Long firstHeartbeatTime = null;
 
   @SerializedName("Gateway")
   private String gateway = null;
@@ -80,7 +80,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   private String kernelVersion = null;
 
   @SerializedName("LastHeartbeatTime")
-  private Integer lastHeartbeatTime = null;
+  private Long lastHeartbeatTime = null;
 
   @SerializedName("MemUsage")
   private Double memUsage = null;
@@ -104,7 +104,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   private Boolean securityEnhancement = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -113,7 +113,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   private List<String> tags = null;
 
   @SerializedName("TotalMem")
-  private Integer totalMem = null;
+  private Long totalMem = null;
 
   @SerializedName("UserStatus")
   private String userStatus = null;
@@ -292,7 +292,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.ecsInstance = ecsInstance;
   }
 
-  public GetHostBasicInfoResponse firstHeartbeatTime(Integer firstHeartbeatTime) {
+  public GetHostBasicInfoResponse firstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
     return this;
   }
@@ -302,11 +302,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
    * @return firstHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getFirstHeartbeatTime() {
+  public Long getFirstHeartbeatTime() {
     return firstHeartbeatTime;
   }
 
-  public void setFirstHeartbeatTime(Integer firstHeartbeatTime) {
+  public void setFirstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
   }
 
@@ -382,7 +382,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.kernelVersion = kernelVersion;
   }
 
-  public GetHostBasicInfoResponse lastHeartbeatTime(Integer lastHeartbeatTime) {
+  public GetHostBasicInfoResponse lastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
     return this;
   }
@@ -392,11 +392,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
    * @return lastHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getLastHeartbeatTime() {
+  public Long getLastHeartbeatTime() {
     return lastHeartbeatTime;
   }
 
-  public void setLastHeartbeatTime(Integer lastHeartbeatTime) {
+  public void setLastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
   }
 
@@ -526,7 +526,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.securityEnhancement = securityEnhancement;
   }
 
-  public GetHostBasicInfoResponse startTime(Integer startTime) {
+  public GetHostBasicInfoResponse startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -536,11 +536,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -588,7 +588,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.tags = tags;
   }
 
-  public GetHostBasicInfoResponse totalMem(Integer totalMem) {
+  public GetHostBasicInfoResponse totalMem(Long totalMem) {
     this.totalMem = totalMem;
     return this;
   }
@@ -598,11 +598,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
    * @return totalMem
   **/
   @Schema(description = "")
-  public Integer getTotalMem() {
+  public Long getTotalMem() {
     return totalMem;
   }
 
-  public void setTotalMem(Integer totalMem) {
+  public void setTotalMem(Long totalMem) {
     this.totalMem = totalMem;
   }
 

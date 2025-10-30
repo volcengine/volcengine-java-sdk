@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class GetRegularCleanResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CleanDays")
-  private Integer cleanDays = null;
+  private Long cleanDays = null;
 
   @SerializedName("Switch")
   private Boolean _switch = null;
 
-  public GetRegularCleanResponse cleanDays(Integer cleanDays) {
+  public GetRegularCleanResponse cleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
     return this;
   }
@@ -46,11 +46,11 @@ public class GetRegularCleanResponse extends com.volcengine.model.AbstractRespon
    * @return cleanDays
   **/
   @Schema(description = "")
-  public Integer getCleanDays() {
+  public Long getCleanDays() {
     return cleanDays;
   }
 
-  public void setCleanDays(Integer cleanDays) {
+  public void setCleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
   }
 

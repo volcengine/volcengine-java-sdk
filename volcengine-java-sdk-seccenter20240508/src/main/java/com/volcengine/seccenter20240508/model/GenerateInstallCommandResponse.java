@@ -40,7 +40,7 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
   private String command = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("GroupId")
   private String groupId = null;
@@ -49,7 +49,7 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
   private String groupName = null;
 
   @SerializedName("HostEngine")
-  private Integer hostEngine = null;
+  private Long hostEngine = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -117,7 +117,7 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
     this.command = command;
   }
 
-  public GenerateInstallCommandResponse expireTime(Integer expireTime) {
+  public GenerateInstallCommandResponse expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -127,11 +127,11 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -171,7 +171,7 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
     this.groupName = groupName;
   }
 
-  public GenerateInstallCommandResponse hostEngine(Integer hostEngine) {
+  public GenerateInstallCommandResponse hostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
     return this;
   }
@@ -181,11 +181,11 @@ public class GenerateInstallCommandResponse extends com.volcengine.model.Abstrac
    * @return hostEngine
   **/
   @Schema(description = "")
-  public Integer getHostEngine() {
+  public Long getHostEngine() {
     return hostEngine;
   }
 
-  public void setHostEngine(Integer hostEngine) {
+  public void setHostEngine(Long hostEngine) {
     this.hostEngine = hostEngine;
   }
 

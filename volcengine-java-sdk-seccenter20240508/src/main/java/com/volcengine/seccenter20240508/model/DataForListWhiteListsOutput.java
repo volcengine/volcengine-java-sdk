@@ -53,7 +53,7 @@ public class DataForListWhiteListsOutput {
   private List<RuleListForListWhiteListsOutput> ruleList = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("User")
   private String user = null;
@@ -176,7 +176,7 @@ public class DataForListWhiteListsOutput {
     this.ruleList = ruleList;
   }
 
-  public DataForListWhiteListsOutput updateTime(Integer updateTime) {
+  public DataForListWhiteListsOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -186,11 +186,11 @@ public class DataForListWhiteListsOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

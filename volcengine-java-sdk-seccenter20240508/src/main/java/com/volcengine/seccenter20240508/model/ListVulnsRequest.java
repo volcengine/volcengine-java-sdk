@@ -88,10 +88,10 @@ public class ListVulnsRequest {
   private List<String> cloudProviders = null;
 
   @SerializedName("CreateTimeEnd")
-  private Integer createTimeEnd = null;
+  private Long createTimeEnd = null;
 
   @SerializedName("CreateTimeStart")
-  private Integer createTimeStart = null;
+  private Long createTimeStart = null;
 
   @SerializedName("CveID")
   private String cveID = null;
@@ -106,10 +106,10 @@ public class ListVulnsRequest {
   private List<String> level = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -212,7 +212,7 @@ public class ListVulnsRequest {
     this.cloudProviders = cloudProviders;
   }
 
-  public ListVulnsRequest createTimeEnd(Integer createTimeEnd) {
+  public ListVulnsRequest createTimeEnd(Long createTimeEnd) {
     this.createTimeEnd = createTimeEnd;
     return this;
   }
@@ -222,15 +222,15 @@ public class ListVulnsRequest {
    * @return createTimeEnd
   **/
   @Schema(description = "")
-  public Integer getCreateTimeEnd() {
+  public Long getCreateTimeEnd() {
     return createTimeEnd;
   }
 
-  public void setCreateTimeEnd(Integer createTimeEnd) {
+  public void setCreateTimeEnd(Long createTimeEnd) {
     this.createTimeEnd = createTimeEnd;
   }
 
-  public ListVulnsRequest createTimeStart(Integer createTimeStart) {
+  public ListVulnsRequest createTimeStart(Long createTimeStart) {
     this.createTimeStart = createTimeStart;
     return this;
   }
@@ -240,11 +240,11 @@ public class ListVulnsRequest {
    * @return createTimeStart
   **/
   @Schema(description = "")
-  public Integer getCreateTimeStart() {
+  public Long getCreateTimeStart() {
     return createTimeStart;
   }
 
-  public void setCreateTimeStart(Integer createTimeStart) {
+  public void setCreateTimeStart(Long createTimeStart) {
     this.createTimeStart = createTimeStart;
   }
 
@@ -336,7 +336,7 @@ public class ListVulnsRequest {
     this.level = level;
   }
 
-  public ListVulnsRequest pageNumber(Integer pageNumber) {
+  public ListVulnsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -347,15 +347,15 @@ public class ListVulnsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListVulnsRequest pageSize(Integer pageSize) {
+  public ListVulnsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -366,11 +366,11 @@ public class ListVulnsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

@@ -63,13 +63,13 @@ public class DataForGetFingerprintKmodOutput {
   private String size = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UsedBy")
   private String usedBy = null;
@@ -262,7 +262,7 @@ public class DataForGetFingerprintKmodOutput {
     this.size = size;
   }
 
-  public DataForGetFingerprintKmodOutput startTime(Integer startTime) {
+  public DataForGetFingerprintKmodOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -272,11 +272,11 @@ public class DataForGetFingerprintKmodOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -298,7 +298,7 @@ public class DataForGetFingerprintKmodOutput {
     this.state = state;
   }
 
-  public DataForGetFingerprintKmodOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintKmodOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -308,11 +308,11 @@ public class DataForGetFingerprintKmodOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

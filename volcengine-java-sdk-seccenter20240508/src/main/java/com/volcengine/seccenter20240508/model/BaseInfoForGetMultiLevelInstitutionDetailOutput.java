@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class BaseInfoForGetMultiLevelInstitutionDetailOutput {
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("ElkeidupID")
   private String elkeidupID = null;
@@ -46,9 +46,9 @@ public class BaseInfoForGetMultiLevelInstitutionDetailOutput {
   private String remark = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
-  public BaseInfoForGetMultiLevelInstitutionDetailOutput createTime(Integer createTime) {
+  public BaseInfoForGetMultiLevelInstitutionDetailOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -58,11 +58,11 @@ public class BaseInfoForGetMultiLevelInstitutionDetailOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -138,7 +138,7 @@ public class BaseInfoForGetMultiLevelInstitutionDetailOutput {
     this.remark = remark;
   }
 
-  public BaseInfoForGetMultiLevelInstitutionDetailOutput updateTime(Integer updateTime) {
+  public BaseInfoForGetMultiLevelInstitutionDetailOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -148,11 +148,11 @@ public class BaseInfoForGetMultiLevelInstitutionDetailOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

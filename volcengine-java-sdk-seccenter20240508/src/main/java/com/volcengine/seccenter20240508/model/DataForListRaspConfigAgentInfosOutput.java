@@ -55,10 +55,10 @@ public class DataForListRaspConfigAgentInfosOutput {
   private String groupPath = null;
 
   @SerializedName("HitWhiteProcessCount")
-  private Integer hitWhiteProcessCount = null;
+  private Long hitWhiteProcessCount = null;
 
   @SerializedName("InsertTime")
-  private Integer insertTime = null;
+  private Long insertTime = null;
 
   @SerializedName("ManualClose")
   private Boolean manualClose = null;
@@ -67,13 +67,13 @@ public class DataForListRaspConfigAgentInfosOutput {
   private String platform = null;
 
   @SerializedName("ProcessCount")
-  private Integer processCount = null;
+  private Long processCount = null;
 
   @SerializedName("ProtectAbnormalProcessCount")
-  private Integer protectAbnormalProcessCount = null;
+  private Long protectAbnormalProcessCount = null;
 
   @SerializedName("ProtectedProcessCount")
-  private Integer protectedProcessCount = null;
+  private Long protectedProcessCount = null;
 
   @SerializedName("RaspConfigs")
   private List<String> raspConfigs = null;
@@ -88,13 +88,13 @@ public class DataForListRaspConfigAgentInfosOutput {
   private List<String> tags = null;
 
   @SerializedName("ToBeProtectedProcessCount")
-  private Integer toBeProtectedProcessCount = null;
+  private Long toBeProtectedProcessCount = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForListRaspConfigAgentInfosOutput accountID(String accountID) {
     this.accountID = accountID;
@@ -223,7 +223,7 @@ public class DataForListRaspConfigAgentInfosOutput {
     this.groupPath = groupPath;
   }
 
-  public DataForListRaspConfigAgentInfosOutput hitWhiteProcessCount(Integer hitWhiteProcessCount) {
+  public DataForListRaspConfigAgentInfosOutput hitWhiteProcessCount(Long hitWhiteProcessCount) {
     this.hitWhiteProcessCount = hitWhiteProcessCount;
     return this;
   }
@@ -233,15 +233,15 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return hitWhiteProcessCount
   **/
   @Schema(description = "")
-  public Integer getHitWhiteProcessCount() {
+  public Long getHitWhiteProcessCount() {
     return hitWhiteProcessCount;
   }
 
-  public void setHitWhiteProcessCount(Integer hitWhiteProcessCount) {
+  public void setHitWhiteProcessCount(Long hitWhiteProcessCount) {
     this.hitWhiteProcessCount = hitWhiteProcessCount;
   }
 
-  public DataForListRaspConfigAgentInfosOutput insertTime(Integer insertTime) {
+  public DataForListRaspConfigAgentInfosOutput insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
   }
@@ -251,11 +251,11 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return insertTime
   **/
   @Schema(description = "")
-  public Integer getInsertTime() {
+  public Long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(Integer insertTime) {
+  public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
   }
 
@@ -295,7 +295,7 @@ public class DataForListRaspConfigAgentInfosOutput {
     this.platform = platform;
   }
 
-  public DataForListRaspConfigAgentInfosOutput processCount(Integer processCount) {
+  public DataForListRaspConfigAgentInfosOutput processCount(Long processCount) {
     this.processCount = processCount;
     return this;
   }
@@ -305,15 +305,15 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return processCount
   **/
   @Schema(description = "")
-  public Integer getProcessCount() {
+  public Long getProcessCount() {
     return processCount;
   }
 
-  public void setProcessCount(Integer processCount) {
+  public void setProcessCount(Long processCount) {
     this.processCount = processCount;
   }
 
-  public DataForListRaspConfigAgentInfosOutput protectAbnormalProcessCount(Integer protectAbnormalProcessCount) {
+  public DataForListRaspConfigAgentInfosOutput protectAbnormalProcessCount(Long protectAbnormalProcessCount) {
     this.protectAbnormalProcessCount = protectAbnormalProcessCount;
     return this;
   }
@@ -323,15 +323,15 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return protectAbnormalProcessCount
   **/
   @Schema(description = "")
-  public Integer getProtectAbnormalProcessCount() {
+  public Long getProtectAbnormalProcessCount() {
     return protectAbnormalProcessCount;
   }
 
-  public void setProtectAbnormalProcessCount(Integer protectAbnormalProcessCount) {
+  public void setProtectAbnormalProcessCount(Long protectAbnormalProcessCount) {
     this.protectAbnormalProcessCount = protectAbnormalProcessCount;
   }
 
-  public DataForListRaspConfigAgentInfosOutput protectedProcessCount(Integer protectedProcessCount) {
+  public DataForListRaspConfigAgentInfosOutput protectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
     return this;
   }
@@ -341,11 +341,11 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return protectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getProtectedProcessCount() {
+  public Long getProtectedProcessCount() {
     return protectedProcessCount;
   }
 
-  public void setProtectedProcessCount(Integer protectedProcessCount) {
+  public void setProtectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
   }
 
@@ -445,7 +445,7 @@ public class DataForListRaspConfigAgentInfosOutput {
     this.tags = tags;
   }
 
-  public DataForListRaspConfigAgentInfosOutput toBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public DataForListRaspConfigAgentInfosOutput toBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
     return this;
   }
@@ -455,11 +455,11 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return toBeProtectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getToBeProtectedProcessCount() {
+  public Long getToBeProtectedProcessCount() {
     return toBeProtectedProcessCount;
   }
 
-  public void setToBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public void setToBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
   }
 
@@ -481,7 +481,7 @@ public class DataForListRaspConfigAgentInfosOutput {
     this.topGroupID = topGroupID;
   }
 
-  public DataForListRaspConfigAgentInfosOutput updateTime(Integer updateTime) {
+  public DataForListRaspConfigAgentInfosOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -491,11 +491,11 @@ public class DataForListRaspConfigAgentInfosOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

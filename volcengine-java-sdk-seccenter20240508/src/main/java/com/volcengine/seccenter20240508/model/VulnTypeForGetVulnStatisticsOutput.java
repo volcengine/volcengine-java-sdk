@@ -31,24 +31,24 @@ import javax.validation.Valid;
 
 public class VulnTypeForGetVulnStatisticsOutput {
   @SerializedName("App")
-  private Integer app = null;
+  private Long app = null;
 
   @SerializedName("DevLinux")
-  private Integer devLinux = null;
+  private Long devLinux = null;
 
   @SerializedName("DevPy")
-  private Integer devPy = null;
+  private Long devPy = null;
 
   @SerializedName("Linux")
-  private Integer linux = null;
+  private Long linux = null;
 
   @SerializedName("Webcms")
-  private Integer webcms = null;
+  private Long webcms = null;
 
   @SerializedName("Windows")
-  private Integer windows = null;
+  private Long windows = null;
 
-  public VulnTypeForGetVulnStatisticsOutput app(Integer app) {
+  public VulnTypeForGetVulnStatisticsOutput app(Long app) {
     this.app = app;
     return this;
   }
@@ -58,15 +58,15 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return app
   **/
   @Schema(description = "")
-  public Integer getApp() {
+  public Long getApp() {
     return app;
   }
 
-  public void setApp(Integer app) {
+  public void setApp(Long app) {
     this.app = app;
   }
 
-  public VulnTypeForGetVulnStatisticsOutput devLinux(Integer devLinux) {
+  public VulnTypeForGetVulnStatisticsOutput devLinux(Long devLinux) {
     this.devLinux = devLinux;
     return this;
   }
@@ -76,15 +76,15 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return devLinux
   **/
   @Schema(description = "")
-  public Integer getDevLinux() {
+  public Long getDevLinux() {
     return devLinux;
   }
 
-  public void setDevLinux(Integer devLinux) {
+  public void setDevLinux(Long devLinux) {
     this.devLinux = devLinux;
   }
 
-  public VulnTypeForGetVulnStatisticsOutput devPy(Integer devPy) {
+  public VulnTypeForGetVulnStatisticsOutput devPy(Long devPy) {
     this.devPy = devPy;
     return this;
   }
@@ -94,15 +94,15 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return devPy
   **/
   @Schema(description = "")
-  public Integer getDevPy() {
+  public Long getDevPy() {
     return devPy;
   }
 
-  public void setDevPy(Integer devPy) {
+  public void setDevPy(Long devPy) {
     this.devPy = devPy;
   }
 
-  public VulnTypeForGetVulnStatisticsOutput linux(Integer linux) {
+  public VulnTypeForGetVulnStatisticsOutput linux(Long linux) {
     this.linux = linux;
     return this;
   }
@@ -112,15 +112,15 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return linux
   **/
   @Schema(description = "")
-  public Integer getLinux() {
+  public Long getLinux() {
     return linux;
   }
 
-  public void setLinux(Integer linux) {
+  public void setLinux(Long linux) {
     this.linux = linux;
   }
 
-  public VulnTypeForGetVulnStatisticsOutput webcms(Integer webcms) {
+  public VulnTypeForGetVulnStatisticsOutput webcms(Long webcms) {
     this.webcms = webcms;
     return this;
   }
@@ -130,15 +130,15 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return webcms
   **/
   @Schema(description = "")
-  public Integer getWebcms() {
+  public Long getWebcms() {
     return webcms;
   }
 
-  public void setWebcms(Integer webcms) {
+  public void setWebcms(Long webcms) {
     this.webcms = webcms;
   }
 
-  public VulnTypeForGetVulnStatisticsOutput windows(Integer windows) {
+  public VulnTypeForGetVulnStatisticsOutput windows(Long windows) {
     this.windows = windows;
     return this;
   }
@@ -148,11 +148,11 @@ public class VulnTypeForGetVulnStatisticsOutput {
    * @return windows
   **/
   @Schema(description = "")
-  public Integer getWindows() {
+  public Long getWindows() {
     return windows;
   }
 
-  public void setWindows(Integer windows) {
+  public void setWindows(Long windows) {
     this.windows = windows;
   }
 

@@ -43,7 +43,7 @@ public class UpdateMlpAlarmStatusRequest {
   private List<String> customTagList = null;
 
   @SerializedName("HandleMethod")
-  private Integer handleMethod = null;
+  private Long handleMethod = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -119,7 +119,7 @@ public class UpdateMlpAlarmStatusRequest {
     this.customTagList = customTagList;
   }
 
-  public UpdateMlpAlarmStatusRequest handleMethod(Integer handleMethod) {
+  public UpdateMlpAlarmStatusRequest handleMethod(Long handleMethod) {
     this.handleMethod = handleMethod;
     return this;
   }
@@ -129,11 +129,11 @@ public class UpdateMlpAlarmStatusRequest {
    * @return handleMethod
   **/
   @Schema(description = "")
-  public Integer getHandleMethod() {
+  public Long getHandleMethod() {
     return handleMethod;
   }
 
-  public void setHandleMethod(Integer handleMethod) {
+  public void setHandleMethod(Long handleMethod) {
     this.handleMethod = handleMethod;
   }
 

@@ -34,7 +34,7 @@ public class DistributionForPrecisionStatisticsOutput {
   private String key = null;
 
   @SerializedName("Value")
-  private Integer value = null;
+  private Long value = null;
 
   public DistributionForPrecisionStatisticsOutput key(String key) {
     this.key = key;
@@ -54,7 +54,7 @@ public class DistributionForPrecisionStatisticsOutput {
     this.key = key;
   }
 
-  public DistributionForPrecisionStatisticsOutput value(Integer value) {
+  public DistributionForPrecisionStatisticsOutput value(Long value) {
     this.value = value;
     return this;
   }
@@ -64,11 +64,11 @@ public class DistributionForPrecisionStatisticsOutput {
    * @return value
   **/
   @Schema(description = "")
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

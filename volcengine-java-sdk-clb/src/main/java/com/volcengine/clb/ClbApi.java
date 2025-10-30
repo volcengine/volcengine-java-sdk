@@ -149,6 +149,8 @@ import com.volcengine.clb.model.ModifyCertificateAttributesRequest;
 import com.volcengine.clb.model.ModifyCertificateAttributesResponse;
 import com.volcengine.clb.model.ModifyListenerAttributesRequest;
 import com.volcengine.clb.model.ModifyListenerAttributesResponse;
+import com.volcengine.clb.model.ModifyListenerDomainExtensionsRequest;
+import com.volcengine.clb.model.ModifyListenerDomainExtensionsResponse;
 import com.volcengine.clb.model.ModifyLoadBalancerAttributesRequest;
 import com.volcengine.clb.model.ModifyLoadBalancerAttributesResponse;
 import com.volcengine.clb.model.ModifyNLBBackendServersAttributesRequest;
@@ -161,6 +163,8 @@ import com.volcengine.clb.model.ModifyNLBSecurityPolicyAttributesRequest;
 import com.volcengine.clb.model.ModifyNLBSecurityPolicyAttributesResponse;
 import com.volcengine.clb.model.ModifyNLBServerGroupAttributesRequest;
 import com.volcengine.clb.model.ModifyNLBServerGroupAttributesResponse;
+import com.volcengine.clb.model.ModifyNetworkLoadBalancerAccessLogRequest;
+import com.volcengine.clb.model.ModifyNetworkLoadBalancerAccessLogResponse;
 import com.volcengine.clb.model.ModifyNetworkLoadBalancerAttributesRequest;
 import com.volcengine.clb.model.ModifyNetworkLoadBalancerAttributesResponse;
 import com.volcengine.clb.model.ModifyNetworkLoadBalancerBandwidthPackageRequest;
@@ -7786,6 +7790,130 @@ public class ClbApi {
         return call;
     }
     /**
+     * Build call for modifyListenerDomainExtensions
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyListenerDomainExtensionsCall(ModifyListenerDomainExtensionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyListenerDomainExtensions/2020-04-01/clb/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyListenerDomainExtensionsValidateBeforeCall(ModifyListenerDomainExtensionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyListenerDomainExtensions(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyListenerDomainExtensionsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyListenerDomainExtensionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyListenerDomainExtensionsResponse modifyListenerDomainExtensions(ModifyListenerDomainExtensionsRequest body) throws ApiException {
+        ApiResponse<ModifyListenerDomainExtensionsResponse> resp = modifyListenerDomainExtensionsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyListenerDomainExtensionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyListenerDomainExtensionsResponse> modifyListenerDomainExtensionsWithHttpInfo( @NotNull ModifyListenerDomainExtensionsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyListenerDomainExtensionsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyListenerDomainExtensionsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyListenerDomainExtensionsAsync(ModifyListenerDomainExtensionsRequest body, final ApiCallback<ModifyListenerDomainExtensionsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyListenerDomainExtensionsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyListenerDomainExtensionsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyLoadBalancerAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -8526,6 +8654,130 @@ public class ClbApi {
 
         com.squareup.okhttp.Call call = modifyNLBServerGroupAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyNLBServerGroupAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyNetworkLoadBalancerAccessLog
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyNetworkLoadBalancerAccessLogCall(ModifyNetworkLoadBalancerAccessLogRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyNetworkLoadBalancerAccessLog/2020-04-01/clb/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyNetworkLoadBalancerAccessLogValidateBeforeCall(ModifyNetworkLoadBalancerAccessLogRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyNetworkLoadBalancerAccessLog(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyNetworkLoadBalancerAccessLogCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyNetworkLoadBalancerAccessLogResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyNetworkLoadBalancerAccessLogResponse modifyNetworkLoadBalancerAccessLog(ModifyNetworkLoadBalancerAccessLogRequest body) throws ApiException {
+        ApiResponse<ModifyNetworkLoadBalancerAccessLogResponse> resp = modifyNetworkLoadBalancerAccessLogWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyNetworkLoadBalancerAccessLogResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyNetworkLoadBalancerAccessLogResponse> modifyNetworkLoadBalancerAccessLogWithHttpInfo( @NotNull ModifyNetworkLoadBalancerAccessLogRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyNetworkLoadBalancerAccessLogValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyNetworkLoadBalancerAccessLogResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyNetworkLoadBalancerAccessLogAsync(ModifyNetworkLoadBalancerAccessLogRequest body, final ApiCallback<ModifyNetworkLoadBalancerAccessLogResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyNetworkLoadBalancerAccessLogValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyNetworkLoadBalancerAccessLogResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

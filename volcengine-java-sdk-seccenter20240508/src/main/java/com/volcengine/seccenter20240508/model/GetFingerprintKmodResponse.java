@@ -37,13 +37,13 @@ public class GetFingerprintKmodResponse extends com.volcengine.model.AbstractRes
   private List<DataForGetFingerprintKmodOutput> data = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   public GetFingerprintKmodResponse data(List<DataForGetFingerprintKmodOutput> data) {
     this.data = data;
@@ -72,7 +72,7 @@ public class GetFingerprintKmodResponse extends com.volcengine.model.AbstractRes
     this.data = data;
   }
 
-  public GetFingerprintKmodResponse pageNumber(Integer pageNumber) {
+  public GetFingerprintKmodResponse pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -82,15 +82,15 @@ public class GetFingerprintKmodResponse extends com.volcengine.model.AbstractRes
    * @return pageNumber
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintKmodResponse pageSize(Integer pageSize) {
+  public GetFingerprintKmodResponse pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -100,15 +100,15 @@ public class GetFingerprintKmodResponse extends com.volcengine.model.AbstractRes
    * @return pageSize
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
-  public GetFingerprintKmodResponse totalCount(Integer totalCount) {
+  public GetFingerprintKmodResponse totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -118,11 +118,11 @@ public class GetFingerprintKmodResponse extends com.volcengine.model.AbstractRes
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 

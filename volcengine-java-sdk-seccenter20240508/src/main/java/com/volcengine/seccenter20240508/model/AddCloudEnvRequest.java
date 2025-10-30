@@ -46,7 +46,7 @@ public class AddCloudEnvRequest {
   private String secretKey = null;
 
   @SerializedName("SyncPeriod")
-  private Integer syncPeriod = null;
+  private Long syncPeriod = null;
 
   public AddCloudEnvRequest accessKey(String accessKey) {
     this.accessKey = accessKey;
@@ -142,7 +142,7 @@ public class AddCloudEnvRequest {
     this.secretKey = secretKey;
   }
 
-  public AddCloudEnvRequest syncPeriod(Integer syncPeriod) {
+  public AddCloudEnvRequest syncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
     return this;
   }
@@ -153,11 +153,11 @@ public class AddCloudEnvRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSyncPeriod() {
+  public Long getSyncPeriod() {
     return syncPeriod;
   }
 
-  public void setSyncPeriod(Integer syncPeriod) {
+  public void setSyncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
   }
 

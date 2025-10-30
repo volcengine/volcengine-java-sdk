@@ -39,7 +39,7 @@ public class ConfigurationForGetMultiLevelInstitutionDetailOutput {
   private List<String> reportContent = null;
 
   @SerializedName("ReportPeriod")
-  private Integer reportPeriod = null;
+  private Long reportPeriod = null;
 
   @SerializedName("ReportSwitchOpen")
   private Boolean reportSwitchOpen = null;
@@ -88,7 +88,7 @@ public class ConfigurationForGetMultiLevelInstitutionDetailOutput {
     this.reportContent = reportContent;
   }
 
-  public ConfigurationForGetMultiLevelInstitutionDetailOutput reportPeriod(Integer reportPeriod) {
+  public ConfigurationForGetMultiLevelInstitutionDetailOutput reportPeriod(Long reportPeriod) {
     this.reportPeriod = reportPeriod;
     return this;
   }
@@ -98,11 +98,11 @@ public class ConfigurationForGetMultiLevelInstitutionDetailOutput {
    * @return reportPeriod
   **/
   @Schema(description = "")
-  public Integer getReportPeriod() {
+  public Long getReportPeriod() {
     return reportPeriod;
   }
 
-  public void setReportPeriod(Integer reportPeriod) {
+  public void setReportPeriod(Long reportPeriod) {
     this.reportPeriod = reportPeriod;
   }
 

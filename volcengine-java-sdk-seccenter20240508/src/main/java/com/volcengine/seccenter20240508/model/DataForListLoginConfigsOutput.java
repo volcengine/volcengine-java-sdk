@@ -69,7 +69,7 @@ public class DataForListLoginConfigsOutput {
   private String topGroupID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UpdateUser")
   private String updateUser = null;
@@ -338,7 +338,7 @@ public class DataForListLoginConfigsOutput {
     this.topGroupID = topGroupID;
   }
 
-  public DataForListLoginConfigsOutput updateTime(Integer updateTime) {
+  public DataForListLoginConfigsOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -348,11 +348,11 @@ public class DataForListLoginConfigsOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -72,10 +72,10 @@ public class GetFingerprintProcessRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -84,10 +84,10 @@ public class GetFingerprintProcessRequest {
   private String sortOrder = null;
 
   @SerializedName("StartTimeEnd")
-  private Integer startTimeEnd = null;
+  private Long startTimeEnd = null;
 
   @SerializedName("StartTimeStart")
-  private Integer startTimeStart = null;
+  private Long startTimeStart = null;
 
   @SerializedName("Tags")
   private List<String> tags = null;
@@ -348,7 +348,7 @@ public class GetFingerprintProcessRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetFingerprintProcessRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintProcessRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -359,15 +359,15 @@ public class GetFingerprintProcessRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintProcessRequest pageSize(Integer pageSize) {
+  public GetFingerprintProcessRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -378,11 +378,11 @@ public class GetFingerprintProcessRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -422,7 +422,7 @@ public class GetFingerprintProcessRequest {
     this.sortOrder = sortOrder;
   }
 
-  public GetFingerprintProcessRequest startTimeEnd(Integer startTimeEnd) {
+  public GetFingerprintProcessRequest startTimeEnd(Long startTimeEnd) {
     this.startTimeEnd = startTimeEnd;
     return this;
   }
@@ -432,15 +432,15 @@ public class GetFingerprintProcessRequest {
    * @return startTimeEnd
   **/
   @Schema(description = "")
-  public Integer getStartTimeEnd() {
+  public Long getStartTimeEnd() {
     return startTimeEnd;
   }
 
-  public void setStartTimeEnd(Integer startTimeEnd) {
+  public void setStartTimeEnd(Long startTimeEnd) {
     this.startTimeEnd = startTimeEnd;
   }
 
-  public GetFingerprintProcessRequest startTimeStart(Integer startTimeStart) {
+  public GetFingerprintProcessRequest startTimeStart(Long startTimeStart) {
     this.startTimeStart = startTimeStart;
     return this;
   }
@@ -450,11 +450,11 @@ public class GetFingerprintProcessRequest {
    * @return startTimeStart
   **/
   @Schema(description = "")
-  public Integer getStartTimeStart() {
+  public Long getStartTimeStart() {
     return startTimeStart;
   }
 
-  public void setStartTimeStart(Integer startTimeStart) {
+  public void setStartTimeStart(Long startTimeStart) {
     this.startTimeStart = startTimeStart;
   }
 

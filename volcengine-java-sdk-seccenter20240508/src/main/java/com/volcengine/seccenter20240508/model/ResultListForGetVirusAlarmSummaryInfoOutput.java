@@ -97,7 +97,7 @@ public class ResultListForGetVirusAlarmSummaryInfoOutput {
   private String pgid = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -519,7 +519,7 @@ public class ResultListForGetVirusAlarmSummaryInfoOutput {
     this.pgid = pgid;
   }
 
-  public ResultListForGetVirusAlarmSummaryInfoOutput pid(Integer pid) {
+  public ResultListForGetVirusAlarmSummaryInfoOutput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -529,11 +529,11 @@ public class ResultListForGetVirusAlarmSummaryInfoOutput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

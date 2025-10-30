@@ -60,10 +60,10 @@ public class ListRaspProcessesRequest {
   private String PID = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("RaspConfigName")
   private String raspConfigName = null;
@@ -264,7 +264,7 @@ public class ListRaspProcessesRequest {
     this.PID = PID;
   }
 
-  public ListRaspProcessesRequest pageNumber(Integer pageNumber) {
+  public ListRaspProcessesRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -275,15 +275,15 @@ public class ListRaspProcessesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListRaspProcessesRequest pageSize(Integer pageSize) {
+  public ListRaspProcessesRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -294,11 +294,11 @@ public class ListRaspProcessesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

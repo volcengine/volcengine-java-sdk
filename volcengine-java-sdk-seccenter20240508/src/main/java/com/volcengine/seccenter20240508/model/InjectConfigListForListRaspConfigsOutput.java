@@ -39,7 +39,7 @@ public class InjectConfigListForListRaspConfigsOutput {
   private String matchKey = null;
 
   @SerializedName("MatchType")
-  private Integer matchType = null;
+  private Long matchType = null;
 
   public InjectConfigListForListRaspConfigsOutput matchContent(List<String> matchContent) {
     this.matchContent = matchContent;
@@ -85,7 +85,7 @@ public class InjectConfigListForListRaspConfigsOutput {
     this.matchKey = matchKey;
   }
 
-  public InjectConfigListForListRaspConfigsOutput matchType(Integer matchType) {
+  public InjectConfigListForListRaspConfigsOutput matchType(Long matchType) {
     this.matchType = matchType;
     return this;
   }
@@ -95,11 +95,11 @@ public class InjectConfigListForListRaspConfigsOutput {
    * @return matchType
   **/
   @Schema(description = "")
-  public Integer getMatchType() {
+  public Long getMatchType() {
     return matchType;
   }
 
-  public void setMatchType(Integer matchType) {
+  public void setMatchType(Long matchType) {
     this.matchType = matchType;
   }
 

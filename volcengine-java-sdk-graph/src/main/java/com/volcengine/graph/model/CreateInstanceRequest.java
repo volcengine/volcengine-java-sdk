@@ -56,6 +56,9 @@ public class CreateInstanceRequest {
   @SerializedName("VersionSetId")
   private Integer versionSetId = null;
 
+  @SerializedName("WithGraphRAG")
+  private Boolean withGraphRAG = null;
+
   public CreateInstanceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -201,6 +204,24 @@ public class CreateInstanceRequest {
     this.versionSetId = versionSetId;
   }
 
+  public CreateInstanceRequest withGraphRAG(Boolean withGraphRAG) {
+    this.withGraphRAG = withGraphRAG;
+    return this;
+  }
+
+   /**
+   * Get withGraphRAG
+   * @return withGraphRAG
+  **/
+  @Schema(description = "")
+  public Boolean isWithGraphRAG() {
+    return withGraphRAG;
+  }
+
+  public void setWithGraphRAG(Boolean withGraphRAG) {
+    this.withGraphRAG = withGraphRAG;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -217,12 +238,13 @@ public class CreateInstanceRequest {
         Objects.equals(this.instanceTags, createInstanceRequest.instanceTags) &&
         Objects.equals(this.networkDescriptions, createInstanceRequest.networkDescriptions) &&
         Objects.equals(this.oneStep, createInstanceRequest.oneStep) &&
-        Objects.equals(this.versionSetId, createInstanceRequest.versionSetId);
+        Objects.equals(this.versionSetId, createInstanceRequest.versionSetId) &&
+        Objects.equals(this.withGraphRAG, createInstanceRequest.withGraphRAG);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deletionProtection, info, instanceTags, networkDescriptions, oneStep, versionSetId);
+    return Objects.hash(clientToken, deletionProtection, info, instanceTags, networkDescriptions, oneStep, versionSetId, withGraphRAG);
   }
 
 
@@ -238,6 +260,7 @@ public class CreateInstanceRequest {
     sb.append("    networkDescriptions: ").append(toIndentedString(networkDescriptions)).append("\n");
     sb.append("    oneStep: ").append(toIndentedString(oneStep)).append("\n");
     sb.append("    versionSetId: ").append(toIndentedString(versionSetId)).append("\n");
+    sb.append("    withGraphRAG: ").append(toIndentedString(withGraphRAG)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -45,6 +45,9 @@ public class GenerateImagesRequest {
     @JsonProperty("optimize_prompt")
     private Boolean optimizePrompt;
 
+    @JsonProperty("optimize_prompt_options")
+    private OptimizePromptOptions optimizePromptOptions;
+
     @JsonProperty("sequential_image_generation")
     private String sequentialImageGeneration;
 
@@ -53,6 +56,37 @@ public class GenerateImagesRequest {
 
     @JsonProperty("stream")
     private Boolean stream;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class OptimizePromptOptions {
+        private String thinking;
+
+        private String mode;
+
+        public String getThinking() {
+            return thinking;
+        }
+
+        public void setThinking(String thinking) {
+            this.thinking = thinking;
+        }
+
+        public String getMode() {
+            return mode;
+        }
+
+        public void setMode(String mode) {
+            this.mode = mode;
+        }
+
+        @Override
+        public String toString() {
+            return "OptimizePromptOptions{" +
+                    "thinking=" + thinking +
+                    "mode=" + mode +
+                    '}';
+        }
+    }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class SequentialImageGenerationOptions {
@@ -77,7 +111,7 @@ public class GenerateImagesRequest {
     public GenerateImagesRequest() {
     }
 
-    public GenerateImagesRequest(String model, String prompt, List<String> image, String responseFormat, Integer seed, Double guidanceScale, String size, Boolean watermark, String sequentialImageGeneration, SequentialImageGenerationOptions sequentialImageGenerationOptions, Boolean optimizePrompt, Boolean stream) {
+    public GenerateImagesRequest(String model, String prompt, List<String> image, String responseFormat, Integer seed, Double guidanceScale, String size, Boolean watermark, String sequentialImageGeneration, SequentialImageGenerationOptions sequentialImageGenerationOptions, Boolean optimizePrompt, OptimizePromptOptions optimizePromptOptions, Boolean stream) {
         this.model = model;
         this.prompt = prompt;
         this.image = image;
@@ -87,6 +121,7 @@ public class GenerateImagesRequest {
         this.size = size;
         this.watermark = watermark;
         this.optimizePrompt = optimizePrompt;
+        this.optimizePromptOptions = optimizePromptOptions;
         this.sequentialImageGeneration = sequentialImageGeneration;
         this.sequentialImageGenerationOptions = sequentialImageGenerationOptions;
         this.stream = stream;
@@ -169,6 +204,14 @@ public class GenerateImagesRequest {
         this.optimizePrompt = optimizePrompt;
     }
 
+    public OptimizePromptOptions getOptimizePromptOptions() {
+        return this.optimizePromptOptions;
+    }
+
+    public void setOptimizePromptOptions(OptimizePromptOptions optimizePromptOptions) {
+        this.optimizePromptOptions = optimizePromptOptions;
+    }
+
     public Boolean getStream() {
         return this.stream;
     }
@@ -205,6 +248,7 @@ public class GenerateImagesRequest {
                 ", size=" + size +
                 ", watermark=" + watermark +
                 ", optimizePrompt=" + optimizePrompt +
+                ", optimizePromptOptions=" + optimizePromptOptions +
                 ", stream=" + stream +
                 ", sequentialImageGeneration=" + sequentialImageGeneration +
                 ", sequentialImageGenerationOptions=" + sequentialImageGenerationOptions +
@@ -226,6 +270,7 @@ public class GenerateImagesRequest {
         private String size;
         private Boolean watermark;
         private Boolean optimizePrompt;
+        private OptimizePromptOptions optimizePromptOptions;
         private String sequentialImageGeneration;
 
         private SequentialImageGenerationOptions sequentialImageGenerationOptions;
@@ -285,6 +330,11 @@ public class GenerateImagesRequest {
             return this;
         }
 
+        public GenerateImagesRequest.Builder optimizePromptOptions(OptimizePromptOptions optimizePromptOptions) {
+            this.optimizePromptOptions = optimizePromptOptions;
+            return this;
+        }
+
         public GenerateImagesRequest.Builder sequentialImageGeneration(String sequentialImageGeneration) {
             this.sequentialImageGeneration = sequentialImageGeneration;
             return this;
@@ -311,6 +361,7 @@ public class GenerateImagesRequest {
             generateImagesRequest.setSize(size);
             generateImagesRequest.setWatermark(watermark);
             generateImagesRequest.setOptimizePrompt(optimizePrompt);
+            generateImagesRequest.setOptimizePromptOptions(optimizePromptOptions);
             generateImagesRequest.setSequentialImageGeneration(sequentialImageGeneration);
             generateImagesRequest.setSequentialImageGenerationOptions(sequentialImageGenerationOptions);
             generateImagesRequest.setStream(stream);

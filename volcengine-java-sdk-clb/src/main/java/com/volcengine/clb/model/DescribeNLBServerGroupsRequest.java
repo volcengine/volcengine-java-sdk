@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeNLBServerGroupsRequest {
+  @SerializedName("InstanceIds")
+  private List<String> instanceIds = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -48,6 +51,9 @@ public class DescribeNLBServerGroupsRequest {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("ServerIps")
+  private List<String> serverIps = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeNLBServerGroupsInput> tagFilters = null;
 
@@ -56,6 +62,32 @@ public class DescribeNLBServerGroupsRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeNLBServerGroupsRequest instanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+    return this;
+  }
+
+  public DescribeNLBServerGroupsRequest addInstanceIdsItem(String instanceIdsItem) {
+    if (this.instanceIds == null) {
+      this.instanceIds = new ArrayList<String>();
+    }
+    this.instanceIds.add(instanceIdsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceIds
+   * @return instanceIds
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceIds() {
+    return instanceIds;
+  }
+
+  public void setInstanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+  }
 
   public DescribeNLBServerGroupsRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -155,6 +187,32 @@ public class DescribeNLBServerGroupsRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public DescribeNLBServerGroupsRequest serverIps(List<String> serverIps) {
+    this.serverIps = serverIps;
+    return this;
+  }
+
+  public DescribeNLBServerGroupsRequest addServerIpsItem(String serverIpsItem) {
+    if (this.serverIps == null) {
+      this.serverIps = new ArrayList<String>();
+    }
+    this.serverIps.add(serverIpsItem);
+    return this;
+  }
+
+   /**
+   * Get serverIps
+   * @return serverIps
+  **/
+  @Schema(description = "")
+  public List<String> getServerIps() {
+    return serverIps;
+  }
+
+  public void setServerIps(List<String> serverIps) {
+    this.serverIps = serverIps;
+  }
+
   public DescribeNLBServerGroupsRequest tagFilters(List<TagFilterForDescribeNLBServerGroupsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -228,11 +286,13 @@ public class DescribeNLBServerGroupsRequest {
       return false;
     }
     DescribeNLBServerGroupsRequest describeNLBServerGroupsRequest = (DescribeNLBServerGroupsRequest) o;
-    return Objects.equals(this.maxResults, describeNLBServerGroupsRequest.maxResults) &&
+    return Objects.equals(this.instanceIds, describeNLBServerGroupsRequest.instanceIds) &&
+        Objects.equals(this.maxResults, describeNLBServerGroupsRequest.maxResults) &&
         Objects.equals(this.nextToken, describeNLBServerGroupsRequest.nextToken) &&
         Objects.equals(this.projectName, describeNLBServerGroupsRequest.projectName) &&
         Objects.equals(this.serverGroupIds, describeNLBServerGroupsRequest.serverGroupIds) &&
         Objects.equals(this.serverGroupName, describeNLBServerGroupsRequest.serverGroupName) &&
+        Objects.equals(this.serverIps, describeNLBServerGroupsRequest.serverIps) &&
         Objects.equals(this.tagFilters, describeNLBServerGroupsRequest.tagFilters) &&
         Objects.equals(this.type, describeNLBServerGroupsRequest.type) &&
         Objects.equals(this.vpcId, describeNLBServerGroupsRequest.vpcId);
@@ -240,7 +300,7 @@ public class DescribeNLBServerGroupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, projectName, serverGroupIds, serverGroupName, tagFilters, type, vpcId);
+    return Objects.hash(instanceIds, maxResults, nextToken, projectName, serverGroupIds, serverGroupName, serverIps, tagFilters, type, vpcId);
   }
 
 
@@ -249,11 +309,13 @@ public class DescribeNLBServerGroupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeNLBServerGroupsRequest {\n");
     
+    sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    serverIps: ").append(toIndentedString(serverIps)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
