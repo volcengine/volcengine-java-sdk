@@ -15,4 +15,11 @@ public class InputTokensDetails {
     public void setCachedTokens(Long cachedTokens) {
         this.cachedTokens = cachedTokens;
     }
+
+    @Override
+    public String toString() {
+        return "InputTokensDetails{" +
+                "cachedTokens=" + cachedTokens +
+                '}';
+    }
 }
