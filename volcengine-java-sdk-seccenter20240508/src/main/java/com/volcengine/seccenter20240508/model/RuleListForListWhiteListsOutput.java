@@ -37,7 +37,7 @@ public class RuleListForListWhiteListsOutput {
   private String matchKey = null;
 
   @SerializedName("MatchType")
-  private Integer matchType = null;
+  private Long matchType = null;
 
   public RuleListForListWhiteListsOutput matchContent(String matchContent) {
     this.matchContent = matchContent;
@@ -75,7 +75,7 @@ public class RuleListForListWhiteListsOutput {
     this.matchKey = matchKey;
   }
 
-  public RuleListForListWhiteListsOutput matchType(Integer matchType) {
+  public RuleListForListWhiteListsOutput matchType(Long matchType) {
     this.matchType = matchType;
     return this;
   }
@@ -85,11 +85,11 @@ public class RuleListForListWhiteListsOutput {
    * @return matchType
   **/
   @Schema(description = "")
-  public Integer getMatchType() {
+  public Long getMatchType() {
     return matchType;
   }
 
-  public void setMatchType(Integer matchType) {
+  public void setMatchType(Long matchType) {
     this.matchType = matchType;
   }
 

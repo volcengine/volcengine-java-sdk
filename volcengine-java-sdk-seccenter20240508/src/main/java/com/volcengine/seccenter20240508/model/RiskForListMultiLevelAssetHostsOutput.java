@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class RiskForListMultiLevelAssetHostsOutput {
   @SerializedName("Alarm")
-  private Integer alarm = null;
+  private Long alarm = null;
 
   @SerializedName("Baseline")
-  private Integer baseline = null;
+  private Long baseline = null;
 
   @SerializedName("Virus")
-  private Integer virus = null;
+  private Long virus = null;
 
   @SerializedName("Vuln")
-  private Integer vuln = null;
+  private Long vuln = null;
 
-  public RiskForListMultiLevelAssetHostsOutput alarm(Integer alarm) {
+  public RiskForListMultiLevelAssetHostsOutput alarm(Long alarm) {
     this.alarm = alarm;
     return this;
   }
@@ -52,15 +52,15 @@ public class RiskForListMultiLevelAssetHostsOutput {
    * @return alarm
   **/
   @Schema(description = "")
-  public Integer getAlarm() {
+  public Long getAlarm() {
     return alarm;
   }
 
-  public void setAlarm(Integer alarm) {
+  public void setAlarm(Long alarm) {
     this.alarm = alarm;
   }
 
-  public RiskForListMultiLevelAssetHostsOutput baseline(Integer baseline) {
+  public RiskForListMultiLevelAssetHostsOutput baseline(Long baseline) {
     this.baseline = baseline;
     return this;
   }
@@ -70,15 +70,15 @@ public class RiskForListMultiLevelAssetHostsOutput {
    * @return baseline
   **/
   @Schema(description = "")
-  public Integer getBaseline() {
+  public Long getBaseline() {
     return baseline;
   }
 
-  public void setBaseline(Integer baseline) {
+  public void setBaseline(Long baseline) {
     this.baseline = baseline;
   }
 
-  public RiskForListMultiLevelAssetHostsOutput virus(Integer virus) {
+  public RiskForListMultiLevelAssetHostsOutput virus(Long virus) {
     this.virus = virus;
     return this;
   }
@@ -88,15 +88,15 @@ public class RiskForListMultiLevelAssetHostsOutput {
    * @return virus
   **/
   @Schema(description = "")
-  public Integer getVirus() {
+  public Long getVirus() {
     return virus;
   }
 
-  public void setVirus(Integer virus) {
+  public void setVirus(Long virus) {
     this.virus = virus;
   }
 
-  public RiskForListMultiLevelAssetHostsOutput vuln(Integer vuln) {
+  public RiskForListMultiLevelAssetHostsOutput vuln(Long vuln) {
     this.vuln = vuln;
     return this;
   }
@@ -106,11 +106,11 @@ public class RiskForListMultiLevelAssetHostsOutput {
    * @return vuln
   **/
   @Schema(description = "")
-  public Integer getVuln() {
+  public Long getVuln() {
     return vuln;
   }
 
-  public void setVuln(Integer vuln) {
+  public void setVuln(Long vuln) {
     this.vuln = vuln;
   }
 

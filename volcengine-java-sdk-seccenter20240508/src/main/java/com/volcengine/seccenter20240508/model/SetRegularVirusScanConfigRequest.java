@@ -60,7 +60,7 @@ public class SetRegularVirusScanConfigRequest {
   private String operateUser = null;
 
   @SerializedName("ScanInterval")
-  private Integer scanInterval = null;
+  private Long scanInterval = null;
 
   @SerializedName("ScanSwitchOn")
   private Boolean scanSwitchOn = null;
@@ -264,7 +264,7 @@ public class SetRegularVirusScanConfigRequest {
     this.operateUser = operateUser;
   }
 
-  public SetRegularVirusScanConfigRequest scanInterval(Integer scanInterval) {
+  public SetRegularVirusScanConfigRequest scanInterval(Long scanInterval) {
     this.scanInterval = scanInterval;
     return this;
   }
@@ -274,11 +274,11 @@ public class SetRegularVirusScanConfigRequest {
    * @return scanInterval
   **/
   @Schema(description = "")
-  public Integer getScanInterval() {
+  public Long getScanInterval() {
     return scanInterval;
   }
 
-  public void setScanInterval(Integer scanInterval) {
+  public void setScanInterval(Long scanInterval) {
     this.scanInterval = scanInterval;
   }
 

@@ -36,7 +36,7 @@ public class BatchDetectWeakPasswordRequest {
   private String agentID = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -77,7 +77,7 @@ public class BatchDetectWeakPasswordRequest {
     this.agentID = agentID;
   }
 
-  public BatchDetectWeakPasswordRequest baselineID(Integer baselineID) {
+  public BatchDetectWeakPasswordRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -87,11 +87,11 @@ public class BatchDetectWeakPasswordRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 

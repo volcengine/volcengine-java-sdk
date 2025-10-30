@@ -34,7 +34,7 @@ public class SwitchCloudEnvSyncRequest {
   private String ID = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   public SwitchCloudEnvSyncRequest ID(String ID) {
     this.ID = ID;
@@ -55,7 +55,7 @@ public class SwitchCloudEnvSyncRequest {
     this.ID = ID;
   }
 
-  public SwitchCloudEnvSyncRequest status(Integer status) {
+  public SwitchCloudEnvSyncRequest status(Long status) {
     this.status = status;
     return this;
   }
@@ -66,11 +66,11 @@ public class SwitchCloudEnvSyncRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

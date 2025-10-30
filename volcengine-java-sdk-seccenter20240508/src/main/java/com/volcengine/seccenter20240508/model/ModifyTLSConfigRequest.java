@@ -19,6 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.AlarmTopicConfigForModifyTLSConfigInput;
+import com.volcengine.seccenter20240508.model.LoginTopicConfigForModifyTLSConfigInput;
+import com.volcengine.seccenter20240508.model.PortChangeTopicConfigForModifyTLSConfigInput;
+import com.volcengine.seccenter20240508.model.ProcessStartTopicConfigForModifyTLSConfigInput;
+import com.volcengine.seccenter20240508.model.VulnTopicConfigForModifyTLSConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,13 +35,104 @@ import javax.validation.Valid;
 
 
 public class ModifyTLSConfigRequest {
+  @SerializedName("AlarmTopicConfig")
+  private AlarmTopicConfigForModifyTLSConfigInput alarmTopicConfig = null;
+
+  @SerializedName("LoginTopicConfig")
+  private LoginTopicConfigForModifyTLSConfigInput loginTopicConfig = null;
+
+  @SerializedName("PortChangeTopicConfig")
+  private PortChangeTopicConfigForModifyTLSConfigInput portChangeTopicConfig = null;
+
+  @SerializedName("ProcessStartTopicConfig")
+  private ProcessStartTopicConfigForModifyTLSConfigInput processStartTopicConfig = null;
+
   @SerializedName("StorageDays")
-  private Integer storageDays = null;
+  private Long storageDays = null;
 
   @SerializedName("Threshold")
-  private Integer threshold = null;
+  private Long threshold = null;
 
-  public ModifyTLSConfigRequest storageDays(Integer storageDays) {
+  @SerializedName("VulnTopicConfig")
+  private VulnTopicConfigForModifyTLSConfigInput vulnTopicConfig = null;
+
+  public ModifyTLSConfigRequest alarmTopicConfig(AlarmTopicConfigForModifyTLSConfigInput alarmTopicConfig) {
+    this.alarmTopicConfig = alarmTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get alarmTopicConfig
+   * @return alarmTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AlarmTopicConfigForModifyTLSConfigInput getAlarmTopicConfig() {
+    return alarmTopicConfig;
+  }
+
+  public void setAlarmTopicConfig(AlarmTopicConfigForModifyTLSConfigInput alarmTopicConfig) {
+    this.alarmTopicConfig = alarmTopicConfig;
+  }
+
+  public ModifyTLSConfigRequest loginTopicConfig(LoginTopicConfigForModifyTLSConfigInput loginTopicConfig) {
+    this.loginTopicConfig = loginTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get loginTopicConfig
+   * @return loginTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public LoginTopicConfigForModifyTLSConfigInput getLoginTopicConfig() {
+    return loginTopicConfig;
+  }
+
+  public void setLoginTopicConfig(LoginTopicConfigForModifyTLSConfigInput loginTopicConfig) {
+    this.loginTopicConfig = loginTopicConfig;
+  }
+
+  public ModifyTLSConfigRequest portChangeTopicConfig(PortChangeTopicConfigForModifyTLSConfigInput portChangeTopicConfig) {
+    this.portChangeTopicConfig = portChangeTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get portChangeTopicConfig
+   * @return portChangeTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public PortChangeTopicConfigForModifyTLSConfigInput getPortChangeTopicConfig() {
+    return portChangeTopicConfig;
+  }
+
+  public void setPortChangeTopicConfig(PortChangeTopicConfigForModifyTLSConfigInput portChangeTopicConfig) {
+    this.portChangeTopicConfig = portChangeTopicConfig;
+  }
+
+  public ModifyTLSConfigRequest processStartTopicConfig(ProcessStartTopicConfigForModifyTLSConfigInput processStartTopicConfig) {
+    this.processStartTopicConfig = processStartTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get processStartTopicConfig
+   * @return processStartTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProcessStartTopicConfigForModifyTLSConfigInput getProcessStartTopicConfig() {
+    return processStartTopicConfig;
+  }
+
+  public void setProcessStartTopicConfig(ProcessStartTopicConfigForModifyTLSConfigInput processStartTopicConfig) {
+    this.processStartTopicConfig = processStartTopicConfig;
+  }
+
+  public ModifyTLSConfigRequest storageDays(Long storageDays) {
     this.storageDays = storageDays;
     return this;
   }
@@ -46,15 +142,15 @@ public class ModifyTLSConfigRequest {
    * @return storageDays
   **/
   @Schema(description = "")
-  public Integer getStorageDays() {
+  public Long getStorageDays() {
     return storageDays;
   }
 
-  public void setStorageDays(Integer storageDays) {
+  public void setStorageDays(Long storageDays) {
     this.storageDays = storageDays;
   }
 
-  public ModifyTLSConfigRequest threshold(Integer threshold) {
+  public ModifyTLSConfigRequest threshold(Long threshold) {
     this.threshold = threshold;
     return this;
   }
@@ -64,12 +160,31 @@ public class ModifyTLSConfigRequest {
    * @return threshold
   **/
   @Schema(description = "")
-  public Integer getThreshold() {
+  public Long getThreshold() {
     return threshold;
   }
 
-  public void setThreshold(Integer threshold) {
+  public void setThreshold(Long threshold) {
     this.threshold = threshold;
+  }
+
+  public ModifyTLSConfigRequest vulnTopicConfig(VulnTopicConfigForModifyTLSConfigInput vulnTopicConfig) {
+    this.vulnTopicConfig = vulnTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get vulnTopicConfig
+   * @return vulnTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public VulnTopicConfigForModifyTLSConfigInput getVulnTopicConfig() {
+    return vulnTopicConfig;
+  }
+
+  public void setVulnTopicConfig(VulnTopicConfigForModifyTLSConfigInput vulnTopicConfig) {
+    this.vulnTopicConfig = vulnTopicConfig;
   }
 
 
@@ -82,13 +197,18 @@ public class ModifyTLSConfigRequest {
       return false;
     }
     ModifyTLSConfigRequest modifyTLSConfigRequest = (ModifyTLSConfigRequest) o;
-    return Objects.equals(this.storageDays, modifyTLSConfigRequest.storageDays) &&
-        Objects.equals(this.threshold, modifyTLSConfigRequest.threshold);
+    return Objects.equals(this.alarmTopicConfig, modifyTLSConfigRequest.alarmTopicConfig) &&
+        Objects.equals(this.loginTopicConfig, modifyTLSConfigRequest.loginTopicConfig) &&
+        Objects.equals(this.portChangeTopicConfig, modifyTLSConfigRequest.portChangeTopicConfig) &&
+        Objects.equals(this.processStartTopicConfig, modifyTLSConfigRequest.processStartTopicConfig) &&
+        Objects.equals(this.storageDays, modifyTLSConfigRequest.storageDays) &&
+        Objects.equals(this.threshold, modifyTLSConfigRequest.threshold) &&
+        Objects.equals(this.vulnTopicConfig, modifyTLSConfigRequest.vulnTopicConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageDays, threshold);
+    return Objects.hash(alarmTopicConfig, loginTopicConfig, portChangeTopicConfig, processStartTopicConfig, storageDays, threshold, vulnTopicConfig);
   }
 
 
@@ -97,8 +217,13 @@ public class ModifyTLSConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTLSConfigRequest {\n");
     
+    sb.append("    alarmTopicConfig: ").append(toIndentedString(alarmTopicConfig)).append("\n");
+    sb.append("    loginTopicConfig: ").append(toIndentedString(loginTopicConfig)).append("\n");
+    sb.append("    portChangeTopicConfig: ").append(toIndentedString(portChangeTopicConfig)).append("\n");
+    sb.append("    processStartTopicConfig: ").append(toIndentedString(processStartTopicConfig)).append("\n");
     sb.append("    storageDays: ").append(toIndentedString(storageDays)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
+    sb.append("    vulnTopicConfig: ").append(toIndentedString(vulnTopicConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

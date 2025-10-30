@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class AlarmForGetHostBasicInfoOutput {
   @SerializedName("Critical")
-  private Integer critical = null;
+  private Long critical = null;
 
   @SerializedName("High")
-  private Integer high = null;
+  private Long high = null;
 
   @SerializedName("Low")
-  private Integer low = null;
+  private Long low = null;
 
   @SerializedName("Medium")
-  private Integer medium = null;
+  private Long medium = null;
 
-  public AlarmForGetHostBasicInfoOutput critical(Integer critical) {
+  public AlarmForGetHostBasicInfoOutput critical(Long critical) {
     this.critical = critical;
     return this;
   }
@@ -52,15 +52,15 @@ public class AlarmForGetHostBasicInfoOutput {
    * @return critical
   **/
   @Schema(description = "")
-  public Integer getCritical() {
+  public Long getCritical() {
     return critical;
   }
 
-  public void setCritical(Integer critical) {
+  public void setCritical(Long critical) {
     this.critical = critical;
   }
 
-  public AlarmForGetHostBasicInfoOutput high(Integer high) {
+  public AlarmForGetHostBasicInfoOutput high(Long high) {
     this.high = high;
     return this;
   }
@@ -70,15 +70,15 @@ public class AlarmForGetHostBasicInfoOutput {
    * @return high
   **/
   @Schema(description = "")
-  public Integer getHigh() {
+  public Long getHigh() {
     return high;
   }
 
-  public void setHigh(Integer high) {
+  public void setHigh(Long high) {
     this.high = high;
   }
 
-  public AlarmForGetHostBasicInfoOutput low(Integer low) {
+  public AlarmForGetHostBasicInfoOutput low(Long low) {
     this.low = low;
     return this;
   }
@@ -88,15 +88,15 @@ public class AlarmForGetHostBasicInfoOutput {
    * @return low
   **/
   @Schema(description = "")
-  public Integer getLow() {
+  public Long getLow() {
     return low;
   }
 
-  public void setLow(Integer low) {
+  public void setLow(Long low) {
     this.low = low;
   }
 
-  public AlarmForGetHostBasicInfoOutput medium(Integer medium) {
+  public AlarmForGetHostBasicInfoOutput medium(Long medium) {
     this.medium = medium;
     return this;
   }
@@ -106,11 +106,11 @@ public class AlarmForGetHostBasicInfoOutput {
    * @return medium
   **/
   @Schema(description = "")
-  public Integer getMedium() {
+  public Long getMedium() {
     return medium;
   }
 
-  public void setMedium(Integer medium) {
+  public void setMedium(Long medium) {
     this.medium = medium;
   }
 

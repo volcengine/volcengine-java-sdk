@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class ProtectHostForGetTenantQuotaOutput {
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   @SerializedName("UsedCount")
-  private Integer usedCount = null;
+  private Long usedCount = null;
 
   @SerializedName("Version")
-  private Integer version = null;
+  private Long version = null;
 
-  public ProtectHostForGetTenantQuotaOutput expireTime(Integer expireTime) {
+  public ProtectHostForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -52,15 +52,15 @@ public class ProtectHostForGetTenantQuotaOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public ProtectHostForGetTenantQuotaOutput totalCount(Integer totalCount) {
+  public ProtectHostForGetTenantQuotaOutput totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -70,15 +70,15 @@ public class ProtectHostForGetTenantQuotaOutput {
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
-  public ProtectHostForGetTenantQuotaOutput usedCount(Integer usedCount) {
+  public ProtectHostForGetTenantQuotaOutput usedCount(Long usedCount) {
     this.usedCount = usedCount;
     return this;
   }
@@ -88,15 +88,15 @@ public class ProtectHostForGetTenantQuotaOutput {
    * @return usedCount
   **/
   @Schema(description = "")
-  public Integer getUsedCount() {
+  public Long getUsedCount() {
     return usedCount;
   }
 
-  public void setUsedCount(Integer usedCount) {
+  public void setUsedCount(Long usedCount) {
     this.usedCount = usedCount;
   }
 
-  public ProtectHostForGetTenantQuotaOutput version(Integer version) {
+  public ProtectHostForGetTenantQuotaOutput version(Long version) {
     this.version = version;
     return this;
   }
@@ -106,11 +106,11 @@ public class ProtectHostForGetTenantQuotaOutput {
    * @return version
   **/
   @Schema(description = "")
-  public Integer getVersion() {
+  public Long getVersion() {
     return version;
   }
 
-  public void setVersion(Integer version) {
+  public void setVersion(Long version) {
     this.version = version;
   }
 

@@ -48,7 +48,7 @@ public class ConditionsForGetNeighboringAlarmInput {
   private List<String> agentTags = null;
 
   @SerializedName("AlarmHandleResultList")
-  private List<Integer> alarmHandleResultList = null;
+  private List<Long> alarmHandleResultList = null;
 
   @SerializedName("AlarmID")
   private String alarmID = null;
@@ -123,7 +123,7 @@ public class ConditionsForGetNeighboringAlarmInput {
   private String raspArgv = null;
 
   @SerializedName("Status")
-  private List<Integer> status = null;
+  private List<Long> status = null;
 
   @SerializedName("Tags")
   private List<String> tags = null;
@@ -132,10 +132,10 @@ public class ConditionsForGetNeighboringAlarmInput {
   private String taskID = null;
 
   @SerializedName("TimeEnd")
-  private Integer timeEnd = null;
+  private Long timeEnd = null;
 
   @SerializedName("TimeStart")
-  private Integer timeStart = null;
+  private Long timeStart = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -266,14 +266,14 @@ public class ConditionsForGetNeighboringAlarmInput {
     this.agentTags = agentTags;
   }
 
-  public ConditionsForGetNeighboringAlarmInput alarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public ConditionsForGetNeighboringAlarmInput alarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
     return this;
   }
 
-  public ConditionsForGetNeighboringAlarmInput addAlarmHandleResultListItem(Integer alarmHandleResultListItem) {
+  public ConditionsForGetNeighboringAlarmInput addAlarmHandleResultListItem(Long alarmHandleResultListItem) {
     if (this.alarmHandleResultList == null) {
-      this.alarmHandleResultList = new ArrayList<Integer>();
+      this.alarmHandleResultList = new ArrayList<Long>();
     }
     this.alarmHandleResultList.add(alarmHandleResultListItem);
     return this;
@@ -284,11 +284,11 @@ public class ConditionsForGetNeighboringAlarmInput {
    * @return alarmHandleResultList
   **/
   @Schema(description = "")
-  public List<Integer> getAlarmHandleResultList() {
+  public List<Long> getAlarmHandleResultList() {
     return alarmHandleResultList;
   }
 
-  public void setAlarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public void setAlarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
   }
 
@@ -764,14 +764,14 @@ public class ConditionsForGetNeighboringAlarmInput {
     this.raspArgv = raspArgv;
   }
 
-  public ConditionsForGetNeighboringAlarmInput status(List<Integer> status) {
+  public ConditionsForGetNeighboringAlarmInput status(List<Long> status) {
     this.status = status;
     return this;
   }
 
-  public ConditionsForGetNeighboringAlarmInput addStatusItem(Integer statusItem) {
+  public ConditionsForGetNeighboringAlarmInput addStatusItem(Long statusItem) {
     if (this.status == null) {
-      this.status = new ArrayList<Integer>();
+      this.status = new ArrayList<Long>();
     }
     this.status.add(statusItem);
     return this;
@@ -782,11 +782,11 @@ public class ConditionsForGetNeighboringAlarmInput {
    * @return status
   **/
   @Schema(description = "")
-  public List<Integer> getStatus() {
+  public List<Long> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Integer> status) {
+  public void setStatus(List<Long> status) {
     this.status = status;
   }
 
@@ -834,7 +834,7 @@ public class ConditionsForGetNeighboringAlarmInput {
     this.taskID = taskID;
   }
 
-  public ConditionsForGetNeighboringAlarmInput timeEnd(Integer timeEnd) {
+  public ConditionsForGetNeighboringAlarmInput timeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
     return this;
   }
@@ -844,15 +844,15 @@ public class ConditionsForGetNeighboringAlarmInput {
    * @return timeEnd
   **/
   @Schema(description = "")
-  public Integer getTimeEnd() {
+  public Long getTimeEnd() {
     return timeEnd;
   }
 
-  public void setTimeEnd(Integer timeEnd) {
+  public void setTimeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
   }
 
-  public ConditionsForGetNeighboringAlarmInput timeStart(Integer timeStart) {
+  public ConditionsForGetNeighboringAlarmInput timeStart(Long timeStart) {
     this.timeStart = timeStart;
     return this;
   }
@@ -862,11 +862,11 @@ public class ConditionsForGetNeighboringAlarmInput {
    * @return timeStart
   **/
   @Schema(description = "")
-  public Integer getTimeStart() {
+  public Long getTimeStart() {
     return timeStart;
   }
 
-  public void setTimeStart(Integer timeStart) {
+  public void setTimeStart(Long timeStart) {
     this.timeStart = timeStart;
   }
 

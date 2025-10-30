@@ -31,42 +31,42 @@ import javax.validation.Valid;
 
 public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ChecklistNum")
-  private Integer checklistNum = null;
+  private Long checklistNum = null;
 
   @SerializedName("HighRiskNum")
-  private Integer highRiskNum = null;
+  private Long highRiskNum = null;
 
   @SerializedName("HostNum")
-  private Integer hostNum = null;
+  private Long hostNum = null;
 
   @SerializedName("LastCheckTime")
-  private Integer lastCheckTime = null;
+  private Long lastCheckTime = null;
 
   @SerializedName("LowRiskNum")
-  private Integer lowRiskNum = null;
+  private Long lowRiskNum = null;
 
   @SerializedName("MidRiskNum")
-  private Integer midRiskNum = null;
+  private Long midRiskNum = null;
 
   @SerializedName("PassHostNum")
-  private Integer passHostNum = null;
+  private Long passHostNum = null;
 
   @SerializedName("PassNum")
-  private Integer passNum = null;
+  private Long passNum = null;
 
   @SerializedName("PassRate")
-  private Integer passRate = null;
+  private Long passRate = null;
 
   @SerializedName("RiskHostNum")
-  private Integer riskHostNum = null;
+  private Long riskHostNum = null;
 
   @SerializedName("RiskNum")
-  private Integer riskNum = null;
+  private Long riskNum = null;
 
   @SerializedName("Status")
   private String status = null;
 
-  public GetBaselineGroupStatisticsResponse checklistNum(Integer checklistNum) {
+  public GetBaselineGroupStatisticsResponse checklistNum(Long checklistNum) {
     this.checklistNum = checklistNum;
     return this;
   }
@@ -76,15 +76,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return checklistNum
   **/
   @Schema(description = "")
-  public Integer getChecklistNum() {
+  public Long getChecklistNum() {
     return checklistNum;
   }
 
-  public void setChecklistNum(Integer checklistNum) {
+  public void setChecklistNum(Long checklistNum) {
     this.checklistNum = checklistNum;
   }
 
-  public GetBaselineGroupStatisticsResponse highRiskNum(Integer highRiskNum) {
+  public GetBaselineGroupStatisticsResponse highRiskNum(Long highRiskNum) {
     this.highRiskNum = highRiskNum;
     return this;
   }
@@ -94,15 +94,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return highRiskNum
   **/
   @Schema(description = "")
-  public Integer getHighRiskNum() {
+  public Long getHighRiskNum() {
     return highRiskNum;
   }
 
-  public void setHighRiskNum(Integer highRiskNum) {
+  public void setHighRiskNum(Long highRiskNum) {
     this.highRiskNum = highRiskNum;
   }
 
-  public GetBaselineGroupStatisticsResponse hostNum(Integer hostNum) {
+  public GetBaselineGroupStatisticsResponse hostNum(Long hostNum) {
     this.hostNum = hostNum;
     return this;
   }
@@ -112,15 +112,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return hostNum
   **/
   @Schema(description = "")
-  public Integer getHostNum() {
+  public Long getHostNum() {
     return hostNum;
   }
 
-  public void setHostNum(Integer hostNum) {
+  public void setHostNum(Long hostNum) {
     this.hostNum = hostNum;
   }
 
-  public GetBaselineGroupStatisticsResponse lastCheckTime(Integer lastCheckTime) {
+  public GetBaselineGroupStatisticsResponse lastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
     return this;
   }
@@ -130,15 +130,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return lastCheckTime
   **/
   @Schema(description = "")
-  public Integer getLastCheckTime() {
+  public Long getLastCheckTime() {
     return lastCheckTime;
   }
 
-  public void setLastCheckTime(Integer lastCheckTime) {
+  public void setLastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
   }
 
-  public GetBaselineGroupStatisticsResponse lowRiskNum(Integer lowRiskNum) {
+  public GetBaselineGroupStatisticsResponse lowRiskNum(Long lowRiskNum) {
     this.lowRiskNum = lowRiskNum;
     return this;
   }
@@ -148,15 +148,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return lowRiskNum
   **/
   @Schema(description = "")
-  public Integer getLowRiskNum() {
+  public Long getLowRiskNum() {
     return lowRiskNum;
   }
 
-  public void setLowRiskNum(Integer lowRiskNum) {
+  public void setLowRiskNum(Long lowRiskNum) {
     this.lowRiskNum = lowRiskNum;
   }
 
-  public GetBaselineGroupStatisticsResponse midRiskNum(Integer midRiskNum) {
+  public GetBaselineGroupStatisticsResponse midRiskNum(Long midRiskNum) {
     this.midRiskNum = midRiskNum;
     return this;
   }
@@ -166,15 +166,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return midRiskNum
   **/
   @Schema(description = "")
-  public Integer getMidRiskNum() {
+  public Long getMidRiskNum() {
     return midRiskNum;
   }
 
-  public void setMidRiskNum(Integer midRiskNum) {
+  public void setMidRiskNum(Long midRiskNum) {
     this.midRiskNum = midRiskNum;
   }
 
-  public GetBaselineGroupStatisticsResponse passHostNum(Integer passHostNum) {
+  public GetBaselineGroupStatisticsResponse passHostNum(Long passHostNum) {
     this.passHostNum = passHostNum;
     return this;
   }
@@ -184,15 +184,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return passHostNum
   **/
   @Schema(description = "")
-  public Integer getPassHostNum() {
+  public Long getPassHostNum() {
     return passHostNum;
   }
 
-  public void setPassHostNum(Integer passHostNum) {
+  public void setPassHostNum(Long passHostNum) {
     this.passHostNum = passHostNum;
   }
 
-  public GetBaselineGroupStatisticsResponse passNum(Integer passNum) {
+  public GetBaselineGroupStatisticsResponse passNum(Long passNum) {
     this.passNum = passNum;
     return this;
   }
@@ -202,15 +202,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return passNum
   **/
   @Schema(description = "")
-  public Integer getPassNum() {
+  public Long getPassNum() {
     return passNum;
   }
 
-  public void setPassNum(Integer passNum) {
+  public void setPassNum(Long passNum) {
     this.passNum = passNum;
   }
 
-  public GetBaselineGroupStatisticsResponse passRate(Integer passRate) {
+  public GetBaselineGroupStatisticsResponse passRate(Long passRate) {
     this.passRate = passRate;
     return this;
   }
@@ -220,15 +220,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return passRate
   **/
   @Schema(description = "")
-  public Integer getPassRate() {
+  public Long getPassRate() {
     return passRate;
   }
 
-  public void setPassRate(Integer passRate) {
+  public void setPassRate(Long passRate) {
     this.passRate = passRate;
   }
 
-  public GetBaselineGroupStatisticsResponse riskHostNum(Integer riskHostNum) {
+  public GetBaselineGroupStatisticsResponse riskHostNum(Long riskHostNum) {
     this.riskHostNum = riskHostNum;
     return this;
   }
@@ -238,15 +238,15 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return riskHostNum
   **/
   @Schema(description = "")
-  public Integer getRiskHostNum() {
+  public Long getRiskHostNum() {
     return riskHostNum;
   }
 
-  public void setRiskHostNum(Integer riskHostNum) {
+  public void setRiskHostNum(Long riskHostNum) {
     this.riskHostNum = riskHostNum;
   }
 
-  public GetBaselineGroupStatisticsResponse riskNum(Integer riskNum) {
+  public GetBaselineGroupStatisticsResponse riskNum(Long riskNum) {
     this.riskNum = riskNum;
     return this;
   }
@@ -256,11 +256,11 @@ public class GetBaselineGroupStatisticsResponse extends com.volcengine.model.Abs
    * @return riskNum
   **/
   @Schema(description = "")
-  public Integer getRiskNum() {
+  public Long getRiskNum() {
     return riskNum;
   }
 
-  public void setRiskNum(Integer riskNum) {
+  public void setRiskNum(Long riskNum) {
     this.riskNum = riskNum;
   }
 

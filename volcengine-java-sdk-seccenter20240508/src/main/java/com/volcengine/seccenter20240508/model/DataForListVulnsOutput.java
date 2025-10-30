@@ -40,10 +40,10 @@ public class DataForListVulnsOutput {
   private String action = null;
 
   @SerializedName("ControlTime")
-  private Integer controlTime = null;
+  private Long controlTime = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("CveID")
   private List<String> cveID = null;
@@ -52,7 +52,7 @@ public class DataForListVulnsOutput {
   private String cwppID = null;
 
   @SerializedName("InfectNum")
-  private Integer infectNum = null;
+  private Long infectNum = null;
 
   @SerializedName("InfectStatus")
   private InfectStatusForListVulnsOutput infectStatus = null;
@@ -70,7 +70,7 @@ public class DataForListVulnsOutput {
   private List<String> tag = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("VulnName")
   private String vulnName = null;
@@ -117,7 +117,7 @@ public class DataForListVulnsOutput {
     this.action = action;
   }
 
-  public DataForListVulnsOutput controlTime(Integer controlTime) {
+  public DataForListVulnsOutput controlTime(Long controlTime) {
     this.controlTime = controlTime;
     return this;
   }
@@ -127,15 +127,15 @@ public class DataForListVulnsOutput {
    * @return controlTime
   **/
   @Schema(description = "")
-  public Integer getControlTime() {
+  public Long getControlTime() {
     return controlTime;
   }
 
-  public void setControlTime(Integer controlTime) {
+  public void setControlTime(Long controlTime) {
     this.controlTime = controlTime;
   }
 
-  public DataForListVulnsOutput createTime(Integer createTime) {
+  public DataForListVulnsOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -145,11 +145,11 @@ public class DataForListVulnsOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -197,7 +197,7 @@ public class DataForListVulnsOutput {
     this.cwppID = cwppID;
   }
 
-  public DataForListVulnsOutput infectNum(Integer infectNum) {
+  public DataForListVulnsOutput infectNum(Long infectNum) {
     this.infectNum = infectNum;
     return this;
   }
@@ -207,11 +207,11 @@ public class DataForListVulnsOutput {
    * @return infectNum
   **/
   @Schema(description = "")
-  public Integer getInfectNum() {
+  public Long getInfectNum() {
     return infectNum;
   }
 
-  public void setInfectNum(Integer infectNum) {
+  public void setInfectNum(Long infectNum) {
     this.infectNum = infectNum;
   }
 
@@ -314,7 +314,7 @@ public class DataForListVulnsOutput {
     this.tag = tag;
   }
 
-  public DataForListVulnsOutput updateTime(Integer updateTime) {
+  public DataForListVulnsOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -324,11 +324,11 @@ public class DataForListVulnsOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

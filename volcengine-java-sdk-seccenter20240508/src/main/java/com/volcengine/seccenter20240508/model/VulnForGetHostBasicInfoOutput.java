@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class VulnForGetHostBasicInfoOutput {
   @SerializedName("Critical")
-  private Integer critical = null;
+  private Long critical = null;
 
   @SerializedName("High")
-  private Integer high = null;
+  private Long high = null;
 
   @SerializedName("Low")
-  private Integer low = null;
+  private Long low = null;
 
   @SerializedName("Medium")
-  private Integer medium = null;
+  private Long medium = null;
 
   @SerializedName("Unknown")
-  private Integer unknown = null;
+  private Long unknown = null;
 
-  public VulnForGetHostBasicInfoOutput critical(Integer critical) {
+  public VulnForGetHostBasicInfoOutput critical(Long critical) {
     this.critical = critical;
     return this;
   }
@@ -55,15 +55,15 @@ public class VulnForGetHostBasicInfoOutput {
    * @return critical
   **/
   @Schema(description = "")
-  public Integer getCritical() {
+  public Long getCritical() {
     return critical;
   }
 
-  public void setCritical(Integer critical) {
+  public void setCritical(Long critical) {
     this.critical = critical;
   }
 
-  public VulnForGetHostBasicInfoOutput high(Integer high) {
+  public VulnForGetHostBasicInfoOutput high(Long high) {
     this.high = high;
     return this;
   }
@@ -73,15 +73,15 @@ public class VulnForGetHostBasicInfoOutput {
    * @return high
   **/
   @Schema(description = "")
-  public Integer getHigh() {
+  public Long getHigh() {
     return high;
   }
 
-  public void setHigh(Integer high) {
+  public void setHigh(Long high) {
     this.high = high;
   }
 
-  public VulnForGetHostBasicInfoOutput low(Integer low) {
+  public VulnForGetHostBasicInfoOutput low(Long low) {
     this.low = low;
     return this;
   }
@@ -91,15 +91,15 @@ public class VulnForGetHostBasicInfoOutput {
    * @return low
   **/
   @Schema(description = "")
-  public Integer getLow() {
+  public Long getLow() {
     return low;
   }
 
-  public void setLow(Integer low) {
+  public void setLow(Long low) {
     this.low = low;
   }
 
-  public VulnForGetHostBasicInfoOutput medium(Integer medium) {
+  public VulnForGetHostBasicInfoOutput medium(Long medium) {
     this.medium = medium;
     return this;
   }
@@ -109,15 +109,15 @@ public class VulnForGetHostBasicInfoOutput {
    * @return medium
   **/
   @Schema(description = "")
-  public Integer getMedium() {
+  public Long getMedium() {
     return medium;
   }
 
-  public void setMedium(Integer medium) {
+  public void setMedium(Long medium) {
     this.medium = medium;
   }
 
-  public VulnForGetHostBasicInfoOutput unknown(Integer unknown) {
+  public VulnForGetHostBasicInfoOutput unknown(Long unknown) {
     this.unknown = unknown;
     return this;
   }
@@ -127,11 +127,11 @@ public class VulnForGetHostBasicInfoOutput {
    * @return unknown
   **/
   @Schema(description = "")
-  public Integer getUnknown() {
+  public Long getUnknown() {
     return unknown;
   }
 
-  public void setUnknown(Integer unknown) {
+  public void setUnknown(Long unknown) {
     this.unknown = unknown;
   }
 

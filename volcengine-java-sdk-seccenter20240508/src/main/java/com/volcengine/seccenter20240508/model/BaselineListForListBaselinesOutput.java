@@ -32,10 +32,10 @@ import javax.validation.Valid;
 
 public class BaselineListForListBaselinesOutput {
   @SerializedName("AffectedHost")
-  private Integer affectedHost = null;
+  private Long affectedHost = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("BaselineName")
   private String baselineName = null;
@@ -44,21 +44,21 @@ public class BaselineListForListBaselinesOutput {
   private String baselineNameEn = null;
 
   @SerializedName("CheckListNum")
-  private Integer checkListNum = null;
+  private Long checkListNum = null;
 
   @SerializedName("DetectProgress")
-  private Integer detectProgress = null;
+  private Long detectProgress = null;
 
   @SerializedName("DetectStatus")
   private String detectStatus = null;
 
   @SerializedName("LastDetectedTime")
-  private Integer lastDetectedTime = null;
+  private Long lastDetectedTime = null;
 
   @SerializedName("RiskNum")
   private RiskNumForListBaselinesOutput riskNum = null;
 
-  public BaselineListForListBaselinesOutput affectedHost(Integer affectedHost) {
+  public BaselineListForListBaselinesOutput affectedHost(Long affectedHost) {
     this.affectedHost = affectedHost;
     return this;
   }
@@ -68,15 +68,15 @@ public class BaselineListForListBaselinesOutput {
    * @return affectedHost
   **/
   @Schema(description = "")
-  public Integer getAffectedHost() {
+  public Long getAffectedHost() {
     return affectedHost;
   }
 
-  public void setAffectedHost(Integer affectedHost) {
+  public void setAffectedHost(Long affectedHost) {
     this.affectedHost = affectedHost;
   }
 
-  public BaselineListForListBaselinesOutput baselineID(Integer baselineID) {
+  public BaselineListForListBaselinesOutput baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -86,11 +86,11 @@ public class BaselineListForListBaselinesOutput {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -130,7 +130,7 @@ public class BaselineListForListBaselinesOutput {
     this.baselineNameEn = baselineNameEn;
   }
 
-  public BaselineListForListBaselinesOutput checkListNum(Integer checkListNum) {
+  public BaselineListForListBaselinesOutput checkListNum(Long checkListNum) {
     this.checkListNum = checkListNum;
     return this;
   }
@@ -140,15 +140,15 @@ public class BaselineListForListBaselinesOutput {
    * @return checkListNum
   **/
   @Schema(description = "")
-  public Integer getCheckListNum() {
+  public Long getCheckListNum() {
     return checkListNum;
   }
 
-  public void setCheckListNum(Integer checkListNum) {
+  public void setCheckListNum(Long checkListNum) {
     this.checkListNum = checkListNum;
   }
 
-  public BaselineListForListBaselinesOutput detectProgress(Integer detectProgress) {
+  public BaselineListForListBaselinesOutput detectProgress(Long detectProgress) {
     this.detectProgress = detectProgress;
     return this;
   }
@@ -158,11 +158,11 @@ public class BaselineListForListBaselinesOutput {
    * @return detectProgress
   **/
   @Schema(description = "")
-  public Integer getDetectProgress() {
+  public Long getDetectProgress() {
     return detectProgress;
   }
 
-  public void setDetectProgress(Integer detectProgress) {
+  public void setDetectProgress(Long detectProgress) {
     this.detectProgress = detectProgress;
   }
 
@@ -184,7 +184,7 @@ public class BaselineListForListBaselinesOutput {
     this.detectStatus = detectStatus;
   }
 
-  public BaselineListForListBaselinesOutput lastDetectedTime(Integer lastDetectedTime) {
+  public BaselineListForListBaselinesOutput lastDetectedTime(Long lastDetectedTime) {
     this.lastDetectedTime = lastDetectedTime;
     return this;
   }
@@ -194,11 +194,11 @@ public class BaselineListForListBaselinesOutput {
    * @return lastDetectedTime
   **/
   @Schema(description = "")
-  public Integer getLastDetectedTime() {
+  public Long getLastDetectedTime() {
     return lastDetectedTime;
   }
 
-  public void setLastDetectedTime(Integer lastDetectedTime) {
+  public void setLastDetectedTime(Long lastDetectedTime) {
     this.lastDetectedTime = lastDetectedTime;
   }
 

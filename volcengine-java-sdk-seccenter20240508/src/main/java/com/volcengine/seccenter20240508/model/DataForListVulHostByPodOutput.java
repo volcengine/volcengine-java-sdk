@@ -39,10 +39,10 @@ public class DataForListVulHostByPodOutput {
   private List<String> agentTags = null;
 
   @SerializedName("ControlTime")
-  private Integer controlTime = null;
+  private Long controlTime = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("CwppID")
   private String cwppID = null;
@@ -63,7 +63,7 @@ public class DataForListVulHostByPodOutput {
   private String status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForListVulHostByPodOutput agentID(String agentID) {
     this.agentID = agentID;
@@ -109,7 +109,7 @@ public class DataForListVulHostByPodOutput {
     this.agentTags = agentTags;
   }
 
-  public DataForListVulHostByPodOutput controlTime(Integer controlTime) {
+  public DataForListVulHostByPodOutput controlTime(Long controlTime) {
     this.controlTime = controlTime;
     return this;
   }
@@ -119,15 +119,15 @@ public class DataForListVulHostByPodOutput {
    * @return controlTime
   **/
   @Schema(description = "")
-  public Integer getControlTime() {
+  public Long getControlTime() {
     return controlTime;
   }
 
-  public void setControlTime(Integer controlTime) {
+  public void setControlTime(Long controlTime) {
     this.controlTime = controlTime;
   }
 
-  public DataForListVulHostByPodOutput createTime(Integer createTime) {
+  public DataForListVulHostByPodOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -137,11 +137,11 @@ public class DataForListVulHostByPodOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -253,7 +253,7 @@ public class DataForListVulHostByPodOutput {
     this.status = status;
   }
 
-  public DataForListVulHostByPodOutput updateTime(Integer updateTime) {
+  public DataForListVulHostByPodOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -263,11 +263,11 @@ public class DataForListVulHostByPodOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

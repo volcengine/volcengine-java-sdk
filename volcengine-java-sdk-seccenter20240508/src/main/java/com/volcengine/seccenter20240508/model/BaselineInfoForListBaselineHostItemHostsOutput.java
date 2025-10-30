@@ -73,7 +73,7 @@ public class BaselineInfoForListBaselineHostItemHostsOutput {
   private String nodeName = null;
 
   @SerializedName("PassNum")
-  private Integer passNum = null;
+  private Long passNum = null;
 
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
@@ -326,7 +326,7 @@ public class BaselineInfoForListBaselineHostItemHostsOutput {
     this.nodeName = nodeName;
   }
 
-  public BaselineInfoForListBaselineHostItemHostsOutput passNum(Integer passNum) {
+  public BaselineInfoForListBaselineHostItemHostsOutput passNum(Long passNum) {
     this.passNum = passNum;
     return this;
   }
@@ -336,11 +336,11 @@ public class BaselineInfoForListBaselineHostItemHostsOutput {
    * @return passNum
   **/
   @Schema(description = "")
-  public Integer getPassNum() {
+  public Long getPassNum() {
     return passNum;
   }
 
-  public void setPassNum(Integer passNum) {
+  public void setPassNum(Long passNum) {
     this.passNum = passNum;
   }
 

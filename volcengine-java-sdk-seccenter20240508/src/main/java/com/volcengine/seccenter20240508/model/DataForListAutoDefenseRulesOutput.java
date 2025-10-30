@@ -35,13 +35,13 @@ public class DataForListAutoDefenseRulesOutput {
   private String action = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("CreateUser")
   private String createUser = null;
 
   @SerializedName("DataType")
-  private Integer dataType = null;
+  private Long dataType = null;
 
   @SerializedName("Enable")
   private Boolean enable = null;
@@ -62,7 +62,7 @@ public class DataForListAutoDefenseRulesOutput {
   private String type = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UpdateUser")
   private String updateUser = null;
@@ -85,7 +85,7 @@ public class DataForListAutoDefenseRulesOutput {
     this.action = action;
   }
 
-  public DataForListAutoDefenseRulesOutput createTime(Integer createTime) {
+  public DataForListAutoDefenseRulesOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -95,11 +95,11 @@ public class DataForListAutoDefenseRulesOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -121,7 +121,7 @@ public class DataForListAutoDefenseRulesOutput {
     this.createUser = createUser;
   }
 
-  public DataForListAutoDefenseRulesOutput dataType(Integer dataType) {
+  public DataForListAutoDefenseRulesOutput dataType(Long dataType) {
     this.dataType = dataType;
     return this;
   }
@@ -131,11 +131,11 @@ public class DataForListAutoDefenseRulesOutput {
    * @return dataType
   **/
   @Schema(description = "")
-  public Integer getDataType() {
+  public Long getDataType() {
     return dataType;
   }
 
-  public void setDataType(Integer dataType) {
+  public void setDataType(Long dataType) {
     this.dataType = dataType;
   }
 
@@ -248,7 +248,7 @@ public class DataForListAutoDefenseRulesOutput {
     this.type = type;
   }
 
-  public DataForListAutoDefenseRulesOutput updateTime(Integer updateTime) {
+  public DataForListAutoDefenseRulesOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -258,11 +258,11 @@ public class DataForListAutoDefenseRulesOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

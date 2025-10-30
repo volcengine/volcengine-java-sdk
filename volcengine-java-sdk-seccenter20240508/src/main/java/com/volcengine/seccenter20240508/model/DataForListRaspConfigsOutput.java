@@ -65,10 +65,10 @@ public class DataForListRaspConfigsOutput {
   private String protectMethod = null;
 
   @SerializedName("ProtectedAgentCount")
-  private Integer protectedAgentCount = null;
+  private Long protectedAgentCount = null;
 
   @SerializedName("ProtectedProcessCount")
-  private Integer protectedProcessCount = null;
+  private Long protectedProcessCount = null;
 
   @SerializedName("Range")
   private RangeForListRaspConfigsOutput range = null;
@@ -80,10 +80,10 @@ public class DataForListRaspConfigsOutput {
   private SwitchForListRaspConfigsOutput _switch = null;
 
   @SerializedName("ToBeProtectedAgentCount")
-  private Integer toBeProtectedAgentCount = null;
+  private Long toBeProtectedAgentCount = null;
 
   @SerializedName("ToBeProtectedProcessCount")
-  private Integer toBeProtectedProcessCount = null;
+  private Long toBeProtectedProcessCount = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -277,7 +277,7 @@ public class DataForListRaspConfigsOutput {
     this.protectMethod = protectMethod;
   }
 
-  public DataForListRaspConfigsOutput protectedAgentCount(Integer protectedAgentCount) {
+  public DataForListRaspConfigsOutput protectedAgentCount(Long protectedAgentCount) {
     this.protectedAgentCount = protectedAgentCount;
     return this;
   }
@@ -287,15 +287,15 @@ public class DataForListRaspConfigsOutput {
    * @return protectedAgentCount
   **/
   @Schema(description = "")
-  public Integer getProtectedAgentCount() {
+  public Long getProtectedAgentCount() {
     return protectedAgentCount;
   }
 
-  public void setProtectedAgentCount(Integer protectedAgentCount) {
+  public void setProtectedAgentCount(Long protectedAgentCount) {
     this.protectedAgentCount = protectedAgentCount;
   }
 
-  public DataForListRaspConfigsOutput protectedProcessCount(Integer protectedProcessCount) {
+  public DataForListRaspConfigsOutput protectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
     return this;
   }
@@ -305,11 +305,11 @@ public class DataForListRaspConfigsOutput {
    * @return protectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getProtectedProcessCount() {
+  public Long getProtectedProcessCount() {
     return protectedProcessCount;
   }
 
-  public void setProtectedProcessCount(Integer protectedProcessCount) {
+  public void setProtectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
   }
 
@@ -369,7 +369,7 @@ public class DataForListRaspConfigsOutput {
     this._switch = _switch;
   }
 
-  public DataForListRaspConfigsOutput toBeProtectedAgentCount(Integer toBeProtectedAgentCount) {
+  public DataForListRaspConfigsOutput toBeProtectedAgentCount(Long toBeProtectedAgentCount) {
     this.toBeProtectedAgentCount = toBeProtectedAgentCount;
     return this;
   }
@@ -379,15 +379,15 @@ public class DataForListRaspConfigsOutput {
    * @return toBeProtectedAgentCount
   **/
   @Schema(description = "")
-  public Integer getToBeProtectedAgentCount() {
+  public Long getToBeProtectedAgentCount() {
     return toBeProtectedAgentCount;
   }
 
-  public void setToBeProtectedAgentCount(Integer toBeProtectedAgentCount) {
+  public void setToBeProtectedAgentCount(Long toBeProtectedAgentCount) {
     this.toBeProtectedAgentCount = toBeProtectedAgentCount;
   }
 
-  public DataForListRaspConfigsOutput toBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public DataForListRaspConfigsOutput toBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
     return this;
   }
@@ -397,11 +397,11 @@ public class DataForListRaspConfigsOutput {
    * @return toBeProtectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getToBeProtectedProcessCount() {
+  public Long getToBeProtectedProcessCount() {
     return toBeProtectedProcessCount;
   }
 
-  public void setToBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public void setToBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
   }
 

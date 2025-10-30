@@ -40,7 +40,7 @@ public class CreateMultiLevelInstitutionRequest {
   private Boolean clusterSec = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("InstitutionID")
   private String institutionID = null;
@@ -49,7 +49,7 @@ public class CreateMultiLevelInstitutionRequest {
   private String institutionName = null;
 
   @SerializedName("Licenses")
-  private Integer licenses = null;
+  private Long licenses = null;
 
   @SerializedName("Remark")
   private String remark = null;
@@ -108,7 +108,7 @@ public class CreateMultiLevelInstitutionRequest {
     this.clusterSec = clusterSec;
   }
 
-  public CreateMultiLevelInstitutionRequest expireTime(Integer expireTime) {
+  public CreateMultiLevelInstitutionRequest expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -118,11 +118,11 @@ public class CreateMultiLevelInstitutionRequest {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -162,7 +162,7 @@ public class CreateMultiLevelInstitutionRequest {
     this.institutionName = institutionName;
   }
 
-  public CreateMultiLevelInstitutionRequest licenses(Integer licenses) {
+  public CreateMultiLevelInstitutionRequest licenses(Long licenses) {
     this.licenses = licenses;
     return this;
   }
@@ -172,11 +172,11 @@ public class CreateMultiLevelInstitutionRequest {
    * @return licenses
   **/
   @Schema(description = "")
-  public Integer getLicenses() {
+  public Long getLicenses() {
     return licenses;
   }
 
-  public void setLicenses(Integer licenses) {
+  public void setLicenses(Long licenses) {
     this.licenses = licenses;
   }
 

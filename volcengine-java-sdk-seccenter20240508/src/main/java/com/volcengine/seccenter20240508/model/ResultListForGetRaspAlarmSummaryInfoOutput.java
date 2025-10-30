@@ -97,7 +97,7 @@ public class ResultListForGetRaspAlarmSummaryInfoOutput {
   private String pgid = null;
 
   @SerializedName("Pid")
-  private Integer pid = null;
+  private Long pid = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -519,7 +519,7 @@ public class ResultListForGetRaspAlarmSummaryInfoOutput {
     this.pgid = pgid;
   }
 
-  public ResultListForGetRaspAlarmSummaryInfoOutput pid(Integer pid) {
+  public ResultListForGetRaspAlarmSummaryInfoOutput pid(Long pid) {
     this.pid = pid;
     return this;
   }
@@ -529,11 +529,11 @@ public class ResultListForGetRaspAlarmSummaryInfoOutput {
    * @return pid
   **/
   @Schema(description = "")
-  public Integer getPid() {
+  public Long getPid() {
     return pid;
   }
 
-  public void setPid(Integer pid) {
+  public void setPid(Long pid) {
     this.pid = pid;
   }
 

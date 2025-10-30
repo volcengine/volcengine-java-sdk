@@ -86,13 +86,13 @@ public class ExportBaselineCheckListRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("Conditions")
   private ConditionsForExportBaselineCheckListInput conditions = null;
 
   @SerializedName("IDList")
-  private List<Integer> idList = null;
+  private List<Long> idList = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -151,7 +151,7 @@ public class ExportBaselineCheckListRequest {
     this.assetType = assetType;
   }
 
-  public ExportBaselineCheckListRequest baselineID(Integer baselineID) {
+  public ExportBaselineCheckListRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -161,11 +161,11 @@ public class ExportBaselineCheckListRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -188,14 +188,14 @@ public class ExportBaselineCheckListRequest {
     this.conditions = conditions;
   }
 
-  public ExportBaselineCheckListRequest idList(List<Integer> idList) {
+  public ExportBaselineCheckListRequest idList(List<Long> idList) {
     this.idList = idList;
     return this;
   }
 
-  public ExportBaselineCheckListRequest addIdListItem(Integer idListItem) {
+  public ExportBaselineCheckListRequest addIdListItem(Long idListItem) {
     if (this.idList == null) {
-      this.idList = new ArrayList<Integer>();
+      this.idList = new ArrayList<Long>();
     }
     this.idList.add(idListItem);
     return this;
@@ -206,11 +206,11 @@ public class ExportBaselineCheckListRequest {
    * @return idList
   **/
   @Schema(description = "")
-  public List<Integer> getIdList() {
+  public List<Long> getIdList() {
     return idList;
   }
 
-  public void setIdList(List<Integer> idList) {
+  public void setIdList(List<Long> idList) {
     this.idList = idList;
   }
 

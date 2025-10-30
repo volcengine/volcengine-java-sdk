@@ -37,13 +37,13 @@ public class GetHidsAlarmStatisticsRequest {
   private String clusterID = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("MlpInstanceID")
   private String mlpInstanceID = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   public GetHidsAlarmStatisticsRequest agentID(String agentID) {
     this.agentID = agentID;
@@ -81,7 +81,7 @@ public class GetHidsAlarmStatisticsRequest {
     this.clusterID = clusterID;
   }
 
-  public GetHidsAlarmStatisticsRequest endTime(Integer endTime) {
+  public GetHidsAlarmStatisticsRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -91,11 +91,11 @@ public class GetHidsAlarmStatisticsRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -117,7 +117,7 @@ public class GetHidsAlarmStatisticsRequest {
     this.mlpInstanceID = mlpInstanceID;
   }
 
-  public GetHidsAlarmStatisticsRequest startTime(Integer startTime) {
+  public GetHidsAlarmStatisticsRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -127,11 +127,11 @@ public class GetHidsAlarmStatisticsRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 

@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class DataForListCleanHistoryOutput {
   @SerializedName("CleanTime")
-  private Integer cleanTime = null;
+  private Long cleanTime = null;
 
   @SerializedName("CloudProvider")
   private String cloudProvider = null;
@@ -48,7 +48,7 @@ public class DataForListCleanHistoryOutput {
   private String hostName = null;
 
   @SerializedName("OfflineTime")
-  private Integer offlineTime = null;
+  private Long offlineTime = null;
 
   @SerializedName("Platform")
   private String platform = null;
@@ -68,7 +68,7 @@ public class DataForListCleanHistoryOutput {
   @SerializedName("VpcId")
   private String vpcId = null;
 
-  public DataForListCleanHistoryOutput cleanTime(Integer cleanTime) {
+  public DataForListCleanHistoryOutput cleanTime(Long cleanTime) {
     this.cleanTime = cleanTime;
     return this;
   }
@@ -78,11 +78,11 @@ public class DataForListCleanHistoryOutput {
    * @return cleanTime
   **/
   @Schema(description = "")
-  public Integer getCleanTime() {
+  public Long getCleanTime() {
     return cleanTime;
   }
 
-  public void setCleanTime(Integer cleanTime) {
+  public void setCleanTime(Long cleanTime) {
     this.cleanTime = cleanTime;
   }
 
@@ -158,7 +158,7 @@ public class DataForListCleanHistoryOutput {
     this.hostName = hostName;
   }
 
-  public DataForListCleanHistoryOutput offlineTime(Integer offlineTime) {
+  public DataForListCleanHistoryOutput offlineTime(Long offlineTime) {
     this.offlineTime = offlineTime;
     return this;
   }
@@ -168,11 +168,11 @@ public class DataForListCleanHistoryOutput {
    * @return offlineTime
   **/
   @Schema(description = "")
-  public Integer getOfflineTime() {
+  public Long getOfflineTime() {
     return offlineTime;
   }
 
-  public void setOfflineTime(Integer offlineTime) {
+  public void setOfflineTime(Long offlineTime) {
     this.offlineTime = offlineTime;
   }
 

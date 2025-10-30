@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class BaselineForGetHostBasicInfoOutput {
   @SerializedName("High")
-  private Integer high = null;
+  private Long high = null;
 
   @SerializedName("Low")
-  private Integer low = null;
+  private Long low = null;
 
   @SerializedName("Medium")
-  private Integer medium = null;
+  private Long medium = null;
 
   @SerializedName("Pass")
-  private Integer pass = null;
+  private Long pass = null;
 
-  public BaselineForGetHostBasicInfoOutput high(Integer high) {
+  public BaselineForGetHostBasicInfoOutput high(Long high) {
     this.high = high;
     return this;
   }
@@ -52,15 +52,15 @@ public class BaselineForGetHostBasicInfoOutput {
    * @return high
   **/
   @Schema(description = "")
-  public Integer getHigh() {
+  public Long getHigh() {
     return high;
   }
 
-  public void setHigh(Integer high) {
+  public void setHigh(Long high) {
     this.high = high;
   }
 
-  public BaselineForGetHostBasicInfoOutput low(Integer low) {
+  public BaselineForGetHostBasicInfoOutput low(Long low) {
     this.low = low;
     return this;
   }
@@ -70,15 +70,15 @@ public class BaselineForGetHostBasicInfoOutput {
    * @return low
   **/
   @Schema(description = "")
-  public Integer getLow() {
+  public Long getLow() {
     return low;
   }
 
-  public void setLow(Integer low) {
+  public void setLow(Long low) {
     this.low = low;
   }
 
-  public BaselineForGetHostBasicInfoOutput medium(Integer medium) {
+  public BaselineForGetHostBasicInfoOutput medium(Long medium) {
     this.medium = medium;
     return this;
   }
@@ -88,15 +88,15 @@ public class BaselineForGetHostBasicInfoOutput {
    * @return medium
   **/
   @Schema(description = "")
-  public Integer getMedium() {
+  public Long getMedium() {
     return medium;
   }
 
-  public void setMedium(Integer medium) {
+  public void setMedium(Long medium) {
     this.medium = medium;
   }
 
-  public BaselineForGetHostBasicInfoOutput pass(Integer pass) {
+  public BaselineForGetHostBasicInfoOutput pass(Long pass) {
     this.pass = pass;
     return this;
   }
@@ -106,11 +106,11 @@ public class BaselineForGetHostBasicInfoOutput {
    * @return pass
   **/
   @Schema(description = "")
-  public Integer getPass() {
+  public Long getPass() {
     return pass;
   }
 
-  public void setPass(Integer pass) {
+  public void setPass(Long pass) {
     this.pass = pass;
   }
 

@@ -37,13 +37,13 @@ public class PortForGetDevDetailOutput {
   private String externalIp = null;
 
   @SerializedName("ExternalPort")
-  private Integer externalPort = null;
+  private Long externalPort = null;
 
   @SerializedName("InternalIp")
   private String internalIp = null;
 
   @SerializedName("InternalPort")
-  private Integer internalPort = null;
+  private Long internalPort = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -99,7 +99,7 @@ public class PortForGetDevDetailOutput {
     this.externalIp = externalIp;
   }
 
-  public PortForGetDevDetailOutput externalPort(Integer externalPort) {
+  public PortForGetDevDetailOutput externalPort(Long externalPort) {
     this.externalPort = externalPort;
     return this;
   }
@@ -109,11 +109,11 @@ public class PortForGetDevDetailOutput {
    * @return externalPort
   **/
   @Schema(description = "")
-  public Integer getExternalPort() {
+  public Long getExternalPort() {
     return externalPort;
   }
 
-  public void setExternalPort(Integer externalPort) {
+  public void setExternalPort(Long externalPort) {
     this.externalPort = externalPort;
   }
 
@@ -135,7 +135,7 @@ public class PortForGetDevDetailOutput {
     this.internalIp = internalIp;
   }
 
-  public PortForGetDevDetailOutput internalPort(Integer internalPort) {
+  public PortForGetDevDetailOutput internalPort(Long internalPort) {
     this.internalPort = internalPort;
     return this;
   }
@@ -145,11 +145,11 @@ public class PortForGetDevDetailOutput {
    * @return internalPort
   **/
   @Schema(description = "")
-  public Integer getInternalPort() {
+  public Long getInternalPort() {
     return internalPort;
   }
 
-  public void setInternalPort(Integer internalPort) {
+  public void setInternalPort(Long internalPort) {
     this.internalPort = internalPort;
   }
 

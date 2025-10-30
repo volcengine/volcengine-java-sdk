@@ -39,7 +39,10 @@ public class EcsInstanceForListAssetCenterHostsOutput {
   private String accountID = null;
 
   @SerializedName("Cpu")
-  private Integer cpu = null;
+  private Long cpu = null;
+
+  @SerializedName("CreatedAt")
+  private String createdAt = null;
 
   @SerializedName("ECSUpdateAt")
   private String ecSUpdateAt = null;
@@ -57,7 +60,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
   private String instanceName = null;
 
   @SerializedName("Mem")
-  private Integer mem = null;
+  private Long mem = null;
 
   @SerializedName("OsName")
   private String osName = null;
@@ -76,6 +79,9 @@ public class EcsInstanceForListAssetCenterHostsOutput {
 
   @SerializedName("Region")
   private String region = null;
+
+  @SerializedName("SecurityEnhancementStrategy")
+  private String securityEnhancementStrategy = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -128,7 +134,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     this.accountID = accountID;
   }
 
-  public EcsInstanceForListAssetCenterHostsOutput cpu(Integer cpu) {
+  public EcsInstanceForListAssetCenterHostsOutput cpu(Long cpu) {
     this.cpu = cpu;
     return this;
   }
@@ -138,12 +144,30 @@ public class EcsInstanceForListAssetCenterHostsOutput {
    * @return cpu
   **/
   @Schema(description = "")
-  public Integer getCpu() {
+  public Long getCpu() {
     return cpu;
   }
 
-  public void setCpu(Integer cpu) {
+  public void setCpu(Long cpu) {
     this.cpu = cpu;
+  }
+
+  public EcsInstanceForListAssetCenterHostsOutput createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @Schema(description = "")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
   public EcsInstanceForListAssetCenterHostsOutput ecSUpdateAt(String ecSUpdateAt) {
@@ -244,7 +268,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     this.instanceName = instanceName;
   }
 
-  public EcsInstanceForListAssetCenterHostsOutput mem(Integer mem) {
+  public EcsInstanceForListAssetCenterHostsOutput mem(Long mem) {
     this.mem = mem;
     return this;
   }
@@ -254,11 +278,11 @@ public class EcsInstanceForListAssetCenterHostsOutput {
    * @return mem
   **/
   @Schema(description = "")
-  public Integer getMem() {
+  public Long getMem() {
     return mem;
   }
 
-  public void setMem(Integer mem) {
+  public void setMem(Long mem) {
     this.mem = mem;
   }
 
@@ -370,6 +394,24 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     this.region = region;
   }
 
+  public EcsInstanceForListAssetCenterHostsOutput securityEnhancementStrategy(String securityEnhancementStrategy) {
+    this.securityEnhancementStrategy = securityEnhancementStrategy;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancementStrategy
+   * @return securityEnhancementStrategy
+  **/
+  @Schema(description = "")
+  public String getSecurityEnhancementStrategy() {
+    return securityEnhancementStrategy;
+  }
+
+  public void setSecurityEnhancementStrategy(String securityEnhancementStrategy) {
+    this.securityEnhancementStrategy = securityEnhancementStrategy;
+  }
+
   public EcsInstanceForListAssetCenterHostsOutput status(String status) {
     this.status = status;
     return this;
@@ -473,6 +515,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     return Objects.equals(this.accessKey, ecsInstanceForListAssetCenterHostsOutput.accessKey) &&
         Objects.equals(this.accountID, ecsInstanceForListAssetCenterHostsOutput.accountID) &&
         Objects.equals(this.cpu, ecsInstanceForListAssetCenterHostsOutput.cpu) &&
+        Objects.equals(this.createdAt, ecsInstanceForListAssetCenterHostsOutput.createdAt) &&
         Objects.equals(this.ecSUpdateAt, ecsInstanceForListAssetCenterHostsOutput.ecSUpdateAt) &&
         Objects.equals(this.eipAddress, ecsInstanceForListAssetCenterHostsOutput.eipAddress) &&
         Objects.equals(this.hostName, ecsInstanceForListAssetCenterHostsOutput.hostName) &&
@@ -485,6 +528,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
         Objects.equals(this.platformVersion, ecsInstanceForListAssetCenterHostsOutput.platformVersion) &&
         Objects.equals(this.primaryIpAddress, ecsInstanceForListAssetCenterHostsOutput.primaryIpAddress) &&
         Objects.equals(this.region, ecsInstanceForListAssetCenterHostsOutput.region) &&
+        Objects.equals(this.securityEnhancementStrategy, ecsInstanceForListAssetCenterHostsOutput.securityEnhancementStrategy) &&
         Objects.equals(this.status, ecsInstanceForListAssetCenterHostsOutput.status) &&
         Objects.equals(this.visibility, ecsInstanceForListAssetCenterHostsOutput.visibility) &&
         Objects.equals(this.vpcId, ecsInstanceForListAssetCenterHostsOutput.vpcId) &&
@@ -494,7 +538,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accountID, cpu, ecSUpdateAt, eipAddress, hostName, ipList, instanceName, mem, osName, osType, platform, platformVersion, primaryIpAddress, region, status, visibility, vpcId, vpcName, zoneId);
+    return Objects.hash(accessKey, accountID, cpu, createdAt, ecSUpdateAt, eipAddress, hostName, ipList, instanceName, mem, osName, osType, platform, platformVersion, primaryIpAddress, region, securityEnhancementStrategy, status, visibility, vpcId, vpcName, zoneId);
   }
 
 
@@ -506,6 +550,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    ecSUpdateAt: ").append(toIndentedString(ecSUpdateAt)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
@@ -518,6 +563,7 @@ public class EcsInstanceForListAssetCenterHostsOutput {
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

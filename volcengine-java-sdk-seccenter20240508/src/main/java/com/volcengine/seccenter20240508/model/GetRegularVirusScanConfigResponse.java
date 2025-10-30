@@ -60,7 +60,7 @@ public class GetRegularVirusScanConfigResponse extends com.volcengine.model.Abst
   private String operateUser = null;
 
   @SerializedName("ScanInterval")
-  private Integer scanInterval = null;
+  private Long scanInterval = null;
 
   @SerializedName("ScanSwitchOn")
   private Boolean scanSwitchOn = null;
@@ -263,7 +263,7 @@ public class GetRegularVirusScanConfigResponse extends com.volcengine.model.Abst
     this.operateUser = operateUser;
   }
 
-  public GetRegularVirusScanConfigResponse scanInterval(Integer scanInterval) {
+  public GetRegularVirusScanConfigResponse scanInterval(Long scanInterval) {
     this.scanInterval = scanInterval;
     return this;
   }
@@ -273,11 +273,11 @@ public class GetRegularVirusScanConfigResponse extends com.volcengine.model.Abst
    * @return scanInterval
   **/
   @Schema(description = "")
-  public Integer getScanInterval() {
+  public Long getScanInterval() {
     return scanInterval;
   }
 
-  public void setScanInterval(Integer scanInterval) {
+  public void setScanInterval(Long scanInterval) {
     this.scanInterval = scanInterval;
   }
 

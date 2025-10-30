@@ -56,7 +56,7 @@ public class DataForListAutoDefenseHostsOutput {
   private EcsInstanceForListAutoDefenseHostsOutput ecsInstance = null;
 
   @SerializedName("FirstHeartbeatTime")
-  private Integer firstHeartbeatTime = null;
+  private Long firstHeartbeatTime = null;
 
   @SerializedName("Gateway")
   private String gateway = null;
@@ -71,7 +71,7 @@ public class DataForListAutoDefenseHostsOutput {
   private String kernelVersion = null;
 
   @SerializedName("LastHeartbeatTime")
-  private Integer lastHeartbeatTime = null;
+  private Long lastHeartbeatTime = null;
 
   @SerializedName("MemUsage")
   private Double memUsage = null;
@@ -98,7 +98,7 @@ public class DataForListAutoDefenseHostsOutput {
   private Boolean securityEnhancement = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -107,7 +107,7 @@ public class DataForListAutoDefenseHostsOutput {
   private List<String> tags = null;
 
   @SerializedName("TotalMem")
-  private Integer totalMem = null;
+  private Long totalMem = null;
 
   @SerializedName("UserStatus")
   private String userStatus = null;
@@ -242,7 +242,7 @@ public class DataForListAutoDefenseHostsOutput {
     this.ecsInstance = ecsInstance;
   }
 
-  public DataForListAutoDefenseHostsOutput firstHeartbeatTime(Integer firstHeartbeatTime) {
+  public DataForListAutoDefenseHostsOutput firstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
     return this;
   }
@@ -252,11 +252,11 @@ public class DataForListAutoDefenseHostsOutput {
    * @return firstHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getFirstHeartbeatTime() {
+  public Long getFirstHeartbeatTime() {
     return firstHeartbeatTime;
   }
 
-  public void setFirstHeartbeatTime(Integer firstHeartbeatTime) {
+  public void setFirstHeartbeatTime(Long firstHeartbeatTime) {
     this.firstHeartbeatTime = firstHeartbeatTime;
   }
 
@@ -332,7 +332,7 @@ public class DataForListAutoDefenseHostsOutput {
     this.kernelVersion = kernelVersion;
   }
 
-  public DataForListAutoDefenseHostsOutput lastHeartbeatTime(Integer lastHeartbeatTime) {
+  public DataForListAutoDefenseHostsOutput lastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
     return this;
   }
@@ -342,11 +342,11 @@ public class DataForListAutoDefenseHostsOutput {
    * @return lastHeartbeatTime
   **/
   @Schema(description = "")
-  public Integer getLastHeartbeatTime() {
+  public Long getLastHeartbeatTime() {
     return lastHeartbeatTime;
   }
 
-  public void setLastHeartbeatTime(Integer lastHeartbeatTime) {
+  public void setLastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
   }
 
@@ -495,7 +495,7 @@ public class DataForListAutoDefenseHostsOutput {
     this.securityEnhancement = securityEnhancement;
   }
 
-  public DataForListAutoDefenseHostsOutput startTime(Integer startTime) {
+  public DataForListAutoDefenseHostsOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -505,11 +505,11 @@ public class DataForListAutoDefenseHostsOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -557,7 +557,7 @@ public class DataForListAutoDefenseHostsOutput {
     this.tags = tags;
   }
 
-  public DataForListAutoDefenseHostsOutput totalMem(Integer totalMem) {
+  public DataForListAutoDefenseHostsOutput totalMem(Long totalMem) {
     this.totalMem = totalMem;
     return this;
   }
@@ -567,11 +567,11 @@ public class DataForListAutoDefenseHostsOutput {
    * @return totalMem
   **/
   @Schema(description = "")
-  public Integer getTotalMem() {
+  public Long getTotalMem() {
     return totalMem;
   }
 
-  public void setTotalMem(Integer totalMem) {
+  public void setTotalMem(Long totalMem) {
     this.totalMem = totalMem;
   }
 

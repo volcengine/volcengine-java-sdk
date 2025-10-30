@@ -37,10 +37,10 @@ public class InstallAgentClientResponse extends com.volcengine.model.AbstractRes
   private List<DetailForInstallAgentClientOutput> detail = null;
 
   @SerializedName("FailureCount")
-  private Integer failureCount = null;
+  private Long failureCount = null;
 
   @SerializedName("SuccessCount")
-  private Integer successCount = null;
+  private Long successCount = null;
 
   public InstallAgentClientResponse detail(List<DetailForInstallAgentClientOutput> detail) {
     this.detail = detail;
@@ -69,7 +69,7 @@ public class InstallAgentClientResponse extends com.volcengine.model.AbstractRes
     this.detail = detail;
   }
 
-  public InstallAgentClientResponse failureCount(Integer failureCount) {
+  public InstallAgentClientResponse failureCount(Long failureCount) {
     this.failureCount = failureCount;
     return this;
   }
@@ -79,15 +79,15 @@ public class InstallAgentClientResponse extends com.volcengine.model.AbstractRes
    * @return failureCount
   **/
   @Schema(description = "")
-  public Integer getFailureCount() {
+  public Long getFailureCount() {
     return failureCount;
   }
 
-  public void setFailureCount(Integer failureCount) {
+  public void setFailureCount(Long failureCount) {
     this.failureCount = failureCount;
   }
 
-  public InstallAgentClientResponse successCount(Integer successCount) {
+  public InstallAgentClientResponse successCount(Long successCount) {
     this.successCount = successCount;
     return this;
   }
@@ -97,11 +97,11 @@ public class InstallAgentClientResponse extends com.volcengine.model.AbstractRes
    * @return successCount
   **/
   @Schema(description = "")
-  public Integer getSuccessCount() {
+  public Long getSuccessCount() {
     return successCount;
   }
 
-  public void setSuccessCount(Integer successCount) {
+  public void setSuccessCount(Long successCount) {
     this.successCount = successCount;
   }
 

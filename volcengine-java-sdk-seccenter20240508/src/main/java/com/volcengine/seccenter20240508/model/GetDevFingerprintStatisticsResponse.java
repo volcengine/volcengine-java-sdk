@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class GetDevFingerprintStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Port")
-  private Integer port = null;
+  private Long port = null;
 
   @SerializedName("Process")
-  private Integer process = null;
+  private Long process = null;
 
   @SerializedName("Software")
-  private Integer software = null;
+  private Long software = null;
 
-  public GetDevFingerprintStatisticsResponse port(Integer port) {
+  public GetDevFingerprintStatisticsResponse port(Long port) {
     this.port = port;
     return this;
   }
@@ -49,15 +49,15 @@ public class GetDevFingerprintStatisticsResponse extends com.volcengine.model.Ab
    * @return port
   **/
   @Schema(description = "")
-  public Integer getPort() {
+  public Long getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(Long port) {
     this.port = port;
   }
 
-  public GetDevFingerprintStatisticsResponse process(Integer process) {
+  public GetDevFingerprintStatisticsResponse process(Long process) {
     this.process = process;
     return this;
   }
@@ -67,15 +67,15 @@ public class GetDevFingerprintStatisticsResponse extends com.volcengine.model.Ab
    * @return process
   **/
   @Schema(description = "")
-  public Integer getProcess() {
+  public Long getProcess() {
     return process;
   }
 
-  public void setProcess(Integer process) {
+  public void setProcess(Long process) {
     this.process = process;
   }
 
-  public GetDevFingerprintStatisticsResponse software(Integer software) {
+  public GetDevFingerprintStatisticsResponse software(Long software) {
     this.software = software;
     return this;
   }
@@ -85,11 +85,11 @@ public class GetDevFingerprintStatisticsResponse extends com.volcengine.model.Ab
    * @return software
   **/
   @Schema(description = "")
-  public Integer getSoftware() {
+  public Long getSoftware() {
     return software;
   }
 
-  public void setSoftware(Integer software) {
+  public void setSoftware(Long software) {
     this.software = software;
   }
 

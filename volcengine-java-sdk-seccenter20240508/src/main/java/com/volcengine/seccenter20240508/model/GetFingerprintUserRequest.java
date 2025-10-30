@@ -51,10 +51,10 @@ public class GetFingerprintUserRequest {
   private String lastLoginIP = null;
 
   @SerializedName("LastLoginTimeEnd")
-  private Integer lastLoginTimeEnd = null;
+  private Long lastLoginTimeEnd = null;
 
   @SerializedName("LastLoginTimeStart")
-  private Integer lastLoginTimeStart = null;
+  private Long lastLoginTimeStart = null;
 
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
@@ -63,7 +63,7 @@ public class GetFingerprintUserRequest {
   private String pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -196,7 +196,7 @@ public class GetFingerprintUserRequest {
     this.lastLoginIP = lastLoginIP;
   }
 
-  public GetFingerprintUserRequest lastLoginTimeEnd(Integer lastLoginTimeEnd) {
+  public GetFingerprintUserRequest lastLoginTimeEnd(Long lastLoginTimeEnd) {
     this.lastLoginTimeEnd = lastLoginTimeEnd;
     return this;
   }
@@ -206,15 +206,15 @@ public class GetFingerprintUserRequest {
    * @return lastLoginTimeEnd
   **/
   @Schema(description = "")
-  public Integer getLastLoginTimeEnd() {
+  public Long getLastLoginTimeEnd() {
     return lastLoginTimeEnd;
   }
 
-  public void setLastLoginTimeEnd(Integer lastLoginTimeEnd) {
+  public void setLastLoginTimeEnd(Long lastLoginTimeEnd) {
     this.lastLoginTimeEnd = lastLoginTimeEnd;
   }
 
-  public GetFingerprintUserRequest lastLoginTimeStart(Integer lastLoginTimeStart) {
+  public GetFingerprintUserRequest lastLoginTimeStart(Long lastLoginTimeStart) {
     this.lastLoginTimeStart = lastLoginTimeStart;
     return this;
   }
@@ -224,11 +224,11 @@ public class GetFingerprintUserRequest {
    * @return lastLoginTimeStart
   **/
   @Schema(description = "")
-  public Integer getLastLoginTimeStart() {
+  public Long getLastLoginTimeStart() {
     return lastLoginTimeStart;
   }
 
-  public void setLastLoginTimeStart(Integer lastLoginTimeStart) {
+  public void setLastLoginTimeStart(Long lastLoginTimeStart) {
     this.lastLoginTimeStart = lastLoginTimeStart;
   }
 
@@ -277,7 +277,7 @@ public class GetFingerprintUserRequest {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintUserRequest pageSize(Integer pageSize) {
+  public GetFingerprintUserRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -288,11 +288,11 @@ public class GetFingerprintUserRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

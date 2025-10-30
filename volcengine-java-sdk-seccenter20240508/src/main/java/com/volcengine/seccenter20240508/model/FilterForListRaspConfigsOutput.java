@@ -37,7 +37,7 @@ public class FilterForListRaspConfigsOutput {
   private List<String> hookFunc = null;
 
   @SerializedName("HookParam")
-  private Integer hookParam = null;
+  private Long hookParam = null;
 
   @SerializedName("Rules")
   private List<RuleForListRaspConfigsOutput> rules = null;
@@ -71,7 +71,7 @@ public class FilterForListRaspConfigsOutput {
     this.hookFunc = hookFunc;
   }
 
-  public FilterForListRaspConfigsOutput hookParam(Integer hookParam) {
+  public FilterForListRaspConfigsOutput hookParam(Long hookParam) {
     this.hookParam = hookParam;
     return this;
   }
@@ -81,11 +81,11 @@ public class FilterForListRaspConfigsOutput {
    * @return hookParam
   **/
   @Schema(description = "")
-  public Integer getHookParam() {
+  public Long getHookParam() {
     return hookParam;
   }
 
-  public void setHookParam(Integer hookParam) {
+  public void setHookParam(Long hookParam) {
     this.hookParam = hookParam;
   }
 

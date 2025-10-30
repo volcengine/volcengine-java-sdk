@@ -90,19 +90,19 @@ public class DataForGetFingerprintPortOutput {
   private String sport = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
 
   @SerializedName("Type")
-  private Integer type = null;
+  private Long type = null;
 
   @SerializedName("Uid")
   private String uid = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -457,7 +457,7 @@ public class DataForGetFingerprintPortOutput {
     this.sport = sport;
   }
 
-  public DataForGetFingerprintPortOutput startTime(Integer startTime) {
+  public DataForGetFingerprintPortOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -467,11 +467,11 @@ public class DataForGetFingerprintPortOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -493,7 +493,7 @@ public class DataForGetFingerprintPortOutput {
     this.state = state;
   }
 
-  public DataForGetFingerprintPortOutput type(Integer type) {
+  public DataForGetFingerprintPortOutput type(Long type) {
     this.type = type;
     return this;
   }
@@ -503,11 +503,11 @@ public class DataForGetFingerprintPortOutput {
    * @return type
   **/
   @Schema(description = "")
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(Integer type) {
+  public void setType(Long type) {
     this.type = type;
   }
 
@@ -529,7 +529,7 @@ public class DataForGetFingerprintPortOutput {
     this.uid = uid;
   }
 
-  public DataForGetFingerprintPortOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintPortOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -539,11 +539,11 @@ public class DataForGetFingerprintPortOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

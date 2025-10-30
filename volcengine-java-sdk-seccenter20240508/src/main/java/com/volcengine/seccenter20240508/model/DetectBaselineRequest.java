@@ -83,16 +83,16 @@ public class DetectBaselineRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineList")
-  private List<Integer> baselineList = null;
+  private List<Long> baselineList = null;
 
   @SerializedName("CheckList")
-  private List<Integer> checkList = null;
+  private List<Long> checkList = null;
 
   @SerializedName("Conditions")
   private ConditionsForDetectBaselineInput conditions = null;
 
   @SerializedName("GroupID")
-  private Integer groupID = null;
+  private Long groupID = null;
 
   @SerializedName("HostList")
   private List<String> hostList = null;
@@ -153,14 +153,14 @@ public class DetectBaselineRequest {
     this.assetType = assetType;
   }
 
-  public DetectBaselineRequest baselineList(List<Integer> baselineList) {
+  public DetectBaselineRequest baselineList(List<Long> baselineList) {
     this.baselineList = baselineList;
     return this;
   }
 
-  public DetectBaselineRequest addBaselineListItem(Integer baselineListItem) {
+  public DetectBaselineRequest addBaselineListItem(Long baselineListItem) {
     if (this.baselineList == null) {
-      this.baselineList = new ArrayList<Integer>();
+      this.baselineList = new ArrayList<Long>();
     }
     this.baselineList.add(baselineListItem);
     return this;
@@ -171,22 +171,22 @@ public class DetectBaselineRequest {
    * @return baselineList
   **/
   @Schema(description = "")
-  public List<Integer> getBaselineList() {
+  public List<Long> getBaselineList() {
     return baselineList;
   }
 
-  public void setBaselineList(List<Integer> baselineList) {
+  public void setBaselineList(List<Long> baselineList) {
     this.baselineList = baselineList;
   }
 
-  public DetectBaselineRequest checkList(List<Integer> checkList) {
+  public DetectBaselineRequest checkList(List<Long> checkList) {
     this.checkList = checkList;
     return this;
   }
 
-  public DetectBaselineRequest addCheckListItem(Integer checkListItem) {
+  public DetectBaselineRequest addCheckListItem(Long checkListItem) {
     if (this.checkList == null) {
-      this.checkList = new ArrayList<Integer>();
+      this.checkList = new ArrayList<Long>();
     }
     this.checkList.add(checkListItem);
     return this;
@@ -197,11 +197,11 @@ public class DetectBaselineRequest {
    * @return checkList
   **/
   @Schema(description = "")
-  public List<Integer> getCheckList() {
+  public List<Long> getCheckList() {
     return checkList;
   }
 
-  public void setCheckList(List<Integer> checkList) {
+  public void setCheckList(List<Long> checkList) {
     this.checkList = checkList;
   }
 
@@ -224,7 +224,7 @@ public class DetectBaselineRequest {
     this.conditions = conditions;
   }
 
-  public DetectBaselineRequest groupID(Integer groupID) {
+  public DetectBaselineRequest groupID(Long groupID) {
     this.groupID = groupID;
     return this;
   }
@@ -234,11 +234,11 @@ public class DetectBaselineRequest {
    * @return groupID
   **/
   @Schema(description = "")
-  public Integer getGroupID() {
+  public Long getGroupID() {
     return groupID;
   }
 
-  public void setGroupID(Integer groupID) {
+  public void setGroupID(Long groupID) {
     this.groupID = groupID;
   }
 

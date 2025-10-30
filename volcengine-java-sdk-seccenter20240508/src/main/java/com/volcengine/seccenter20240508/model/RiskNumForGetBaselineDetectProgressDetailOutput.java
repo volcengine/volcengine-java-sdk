@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class RiskNumForGetBaselineDetectProgressDetailOutput {
   @SerializedName("FailedNum")
-  private Integer failedNum = null;
+  private Long failedNum = null;
 
   @SerializedName("HighNum")
-  private Integer highNum = null;
+  private Long highNum = null;
 
   @SerializedName("LowNum")
-  private Integer lowNum = null;
+  private Long lowNum = null;
 
   @SerializedName("MediumNum")
-  private Integer mediumNum = null;
+  private Long mediumNum = null;
 
   @SerializedName("PassNum")
-  private Integer passNum = null;
+  private Long passNum = null;
 
-  public RiskNumForGetBaselineDetectProgressDetailOutput failedNum(Integer failedNum) {
+  public RiskNumForGetBaselineDetectProgressDetailOutput failedNum(Long failedNum) {
     this.failedNum = failedNum;
     return this;
   }
@@ -55,15 +55,15 @@ public class RiskNumForGetBaselineDetectProgressDetailOutput {
    * @return failedNum
   **/
   @Schema(description = "")
-  public Integer getFailedNum() {
+  public Long getFailedNum() {
     return failedNum;
   }
 
-  public void setFailedNum(Integer failedNum) {
+  public void setFailedNum(Long failedNum) {
     this.failedNum = failedNum;
   }
 
-  public RiskNumForGetBaselineDetectProgressDetailOutput highNum(Integer highNum) {
+  public RiskNumForGetBaselineDetectProgressDetailOutput highNum(Long highNum) {
     this.highNum = highNum;
     return this;
   }
@@ -73,15 +73,15 @@ public class RiskNumForGetBaselineDetectProgressDetailOutput {
    * @return highNum
   **/
   @Schema(description = "")
-  public Integer getHighNum() {
+  public Long getHighNum() {
     return highNum;
   }
 
-  public void setHighNum(Integer highNum) {
+  public void setHighNum(Long highNum) {
     this.highNum = highNum;
   }
 
-  public RiskNumForGetBaselineDetectProgressDetailOutput lowNum(Integer lowNum) {
+  public RiskNumForGetBaselineDetectProgressDetailOutput lowNum(Long lowNum) {
     this.lowNum = lowNum;
     return this;
   }
@@ -91,15 +91,15 @@ public class RiskNumForGetBaselineDetectProgressDetailOutput {
    * @return lowNum
   **/
   @Schema(description = "")
-  public Integer getLowNum() {
+  public Long getLowNum() {
     return lowNum;
   }
 
-  public void setLowNum(Integer lowNum) {
+  public void setLowNum(Long lowNum) {
     this.lowNum = lowNum;
   }
 
-  public RiskNumForGetBaselineDetectProgressDetailOutput mediumNum(Integer mediumNum) {
+  public RiskNumForGetBaselineDetectProgressDetailOutput mediumNum(Long mediumNum) {
     this.mediumNum = mediumNum;
     return this;
   }
@@ -109,15 +109,15 @@ public class RiskNumForGetBaselineDetectProgressDetailOutput {
    * @return mediumNum
   **/
   @Schema(description = "")
-  public Integer getMediumNum() {
+  public Long getMediumNum() {
     return mediumNum;
   }
 
-  public void setMediumNum(Integer mediumNum) {
+  public void setMediumNum(Long mediumNum) {
     this.mediumNum = mediumNum;
   }
 
-  public RiskNumForGetBaselineDetectProgressDetailOutput passNum(Integer passNum) {
+  public RiskNumForGetBaselineDetectProgressDetailOutput passNum(Long passNum) {
     this.passNum = passNum;
     return this;
   }
@@ -127,11 +127,11 @@ public class RiskNumForGetBaselineDetectProgressDetailOutput {
    * @return passNum
   **/
   @Schema(description = "")
-  public Integer getPassNum() {
+  public Long getPassNum() {
     return passNum;
   }
 
-  public void setPassNum(Integer passNum) {
+  public void setPassNum(Long passNum) {
     this.passNum = passNum;
   }
 

@@ -45,7 +45,7 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
   private String assetName = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("FlavorId")
   private String flavorId = null;
@@ -134,7 +134,7 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
     this.assetName = assetName;
   }
 
-  public GetDevDetailResponse createTime(Integer createTime) {
+  public GetDevDetailResponse createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -144,11 +144,11 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 

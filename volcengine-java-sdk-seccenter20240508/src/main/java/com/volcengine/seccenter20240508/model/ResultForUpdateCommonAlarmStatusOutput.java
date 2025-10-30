@@ -34,7 +34,7 @@ public class ResultForUpdateCommonAlarmStatusOutput {
   private String alarmID = null;
 
   @SerializedName("Code")
-  private Integer code = null;
+  private Long code = null;
 
   @SerializedName("Msg")
   private String msg = null;
@@ -57,7 +57,7 @@ public class ResultForUpdateCommonAlarmStatusOutput {
     this.alarmID = alarmID;
   }
 
-  public ResultForUpdateCommonAlarmStatusOutput code(Integer code) {
+  public ResultForUpdateCommonAlarmStatusOutput code(Long code) {
     this.code = code;
     return this;
   }
@@ -67,11 +67,11 @@ public class ResultForUpdateCommonAlarmStatusOutput {
    * @return code
   **/
   @Schema(description = "")
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(Integer code) {
+  public void setCode(Long code) {
     this.code = code;
   }
 

@@ -36,7 +36,7 @@ public class ListLayeredGroupRelatedHostResponse extends com.volcengine.model.Ab
   private List<String> agentIds = null;
 
   @SerializedName("Total")
-  private Integer total = null;
+  private Long total = null;
 
   public ListLayeredGroupRelatedHostResponse agentIds(List<String> agentIds) {
     this.agentIds = agentIds;
@@ -64,7 +64,7 @@ public class ListLayeredGroupRelatedHostResponse extends com.volcengine.model.Ab
     this.agentIds = agentIds;
   }
 
-  public ListLayeredGroupRelatedHostResponse total(Integer total) {
+  public ListLayeredGroupRelatedHostResponse total(Long total) {
     this.total = total;
     return this;
   }
@@ -74,11 +74,11 @@ public class ListLayeredGroupRelatedHostResponse extends com.volcengine.model.Ab
    * @return total
   **/
   @Schema(description = "")
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 

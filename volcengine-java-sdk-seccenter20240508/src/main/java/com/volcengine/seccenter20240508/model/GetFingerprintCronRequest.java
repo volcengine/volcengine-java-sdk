@@ -54,10 +54,10 @@ public class GetFingerprintCronRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Path")
   private String path = null;
@@ -219,7 +219,7 @@ public class GetFingerprintCronRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetFingerprintCronRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintCronRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -230,15 +230,15 @@ public class GetFingerprintCronRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintCronRequest pageSize(Integer pageSize) {
+  public GetFingerprintCronRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -249,11 +249,11 @@ public class GetFingerprintCronRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

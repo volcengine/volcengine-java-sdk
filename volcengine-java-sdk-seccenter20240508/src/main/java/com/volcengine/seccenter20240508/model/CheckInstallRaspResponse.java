@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class CheckInstallRaspResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ChosenCount")
-  private Integer chosenCount = null;
+  private Long chosenCount = null;
 
   @SerializedName("HitLimit")
   private Boolean hitLimit = null;
 
   @SerializedName("LeftAuthorizationCount")
-  private Integer leftAuthorizationCount = null;
+  private Long leftAuthorizationCount = null;
 
   @SerializedName("OpenCount")
-  private Integer openCount = null;
+  private Long openCount = null;
 
-  public CheckInstallRaspResponse chosenCount(Integer chosenCount) {
+  public CheckInstallRaspResponse chosenCount(Long chosenCount) {
     this.chosenCount = chosenCount;
     return this;
   }
@@ -52,11 +52,11 @@ public class CheckInstallRaspResponse extends com.volcengine.model.AbstractRespo
    * @return chosenCount
   **/
   @Schema(description = "")
-  public Integer getChosenCount() {
+  public Long getChosenCount() {
     return chosenCount;
   }
 
-  public void setChosenCount(Integer chosenCount) {
+  public void setChosenCount(Long chosenCount) {
     this.chosenCount = chosenCount;
   }
 
@@ -78,7 +78,7 @@ public class CheckInstallRaspResponse extends com.volcengine.model.AbstractRespo
     this.hitLimit = hitLimit;
   }
 
-  public CheckInstallRaspResponse leftAuthorizationCount(Integer leftAuthorizationCount) {
+  public CheckInstallRaspResponse leftAuthorizationCount(Long leftAuthorizationCount) {
     this.leftAuthorizationCount = leftAuthorizationCount;
     return this;
   }
@@ -88,15 +88,15 @@ public class CheckInstallRaspResponse extends com.volcengine.model.AbstractRespo
    * @return leftAuthorizationCount
   **/
   @Schema(description = "")
-  public Integer getLeftAuthorizationCount() {
+  public Long getLeftAuthorizationCount() {
     return leftAuthorizationCount;
   }
 
-  public void setLeftAuthorizationCount(Integer leftAuthorizationCount) {
+  public void setLeftAuthorizationCount(Long leftAuthorizationCount) {
     this.leftAuthorizationCount = leftAuthorizationCount;
   }
 
-  public CheckInstallRaspResponse openCount(Integer openCount) {
+  public CheckInstallRaspResponse openCount(Long openCount) {
     this.openCount = openCount;
     return this;
   }
@@ -106,11 +106,11 @@ public class CheckInstallRaspResponse extends com.volcengine.model.AbstractRespo
    * @return openCount
   **/
   @Schema(description = "")
-  public Integer getOpenCount() {
+  public Long getOpenCount() {
     return openCount;
   }
 
-  public void setOpenCount(Integer openCount) {
+  public void setOpenCount(Long openCount) {
     this.openCount = openCount;
   }
 

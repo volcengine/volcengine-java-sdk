@@ -60,10 +60,10 @@ public class GetFingerprintWebRequest {
   private String name = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Path")
   private String path = null;
@@ -78,10 +78,10 @@ public class GetFingerprintWebRequest {
   private String sortOrder = null;
 
   @SerializedName("StartTimeEnd")
-  private Integer startTimeEnd = null;
+  private Long startTimeEnd = null;
 
   @SerializedName("StartTimeStart")
-  private Integer startTimeStart = null;
+  private Long startTimeStart = null;
 
   @SerializedName("Tags")
   private List<String> tags = null;
@@ -270,7 +270,7 @@ public class GetFingerprintWebRequest {
     this.name = name;
   }
 
-  public GetFingerprintWebRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintWebRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -281,15 +281,15 @@ public class GetFingerprintWebRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintWebRequest pageSize(Integer pageSize) {
+  public GetFingerprintWebRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -300,11 +300,11 @@ public class GetFingerprintWebRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -380,7 +380,7 @@ public class GetFingerprintWebRequest {
     this.sortOrder = sortOrder;
   }
 
-  public GetFingerprintWebRequest startTimeEnd(Integer startTimeEnd) {
+  public GetFingerprintWebRequest startTimeEnd(Long startTimeEnd) {
     this.startTimeEnd = startTimeEnd;
     return this;
   }
@@ -390,15 +390,15 @@ public class GetFingerprintWebRequest {
    * @return startTimeEnd
   **/
   @Schema(description = "")
-  public Integer getStartTimeEnd() {
+  public Long getStartTimeEnd() {
     return startTimeEnd;
   }
 
-  public void setStartTimeEnd(Integer startTimeEnd) {
+  public void setStartTimeEnd(Long startTimeEnd) {
     this.startTimeEnd = startTimeEnd;
   }
 
-  public GetFingerprintWebRequest startTimeStart(Integer startTimeStart) {
+  public GetFingerprintWebRequest startTimeStart(Long startTimeStart) {
     this.startTimeStart = startTimeStart;
     return this;
   }
@@ -408,11 +408,11 @@ public class GetFingerprintWebRequest {
    * @return startTimeStart
   **/
   @Schema(description = "")
-  public Integer getStartTimeStart() {
+  public Long getStartTimeStart() {
     return startTimeStart;
   }
 
-  public void setStartTimeStart(Integer startTimeStart) {
+  public void setStartTimeStart(Long startTimeStart) {
     this.startTimeStart = startTimeStart;
   }
 

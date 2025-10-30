@@ -37,13 +37,13 @@ public class GetRaspAlarmStatisticsRequest {
   private String clusterID = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("MlpInstanceID")
   private String mlpInstanceID = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   public GetRaspAlarmStatisticsRequest agentID(String agentID) {
     this.agentID = agentID;
@@ -81,7 +81,7 @@ public class GetRaspAlarmStatisticsRequest {
     this.clusterID = clusterID;
   }
 
-  public GetRaspAlarmStatisticsRequest endTime(Integer endTime) {
+  public GetRaspAlarmStatisticsRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -91,11 +91,11 @@ public class GetRaspAlarmStatisticsRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -117,7 +117,7 @@ public class GetRaspAlarmStatisticsRequest {
     this.mlpInstanceID = mlpInstanceID;
   }
 
-  public GetRaspAlarmStatisticsRequest startTime(Integer startTime) {
+  public GetRaspAlarmStatisticsRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -127,11 +127,11 @@ public class GetRaspAlarmStatisticsRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 

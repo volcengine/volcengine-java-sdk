@@ -37,7 +37,7 @@ public class ModifyCloudEnvRequest {
   private String ID = null;
 
   @SerializedName("SyncPeriod")
-  private Integer syncPeriod = null;
+  private Long syncPeriod = null;
 
   public ModifyCloudEnvRequest comment(String comment) {
     this.comment = comment;
@@ -76,7 +76,7 @@ public class ModifyCloudEnvRequest {
     this.ID = ID;
   }
 
-  public ModifyCloudEnvRequest syncPeriod(Integer syncPeriod) {
+  public ModifyCloudEnvRequest syncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
     return this;
   }
@@ -86,11 +86,11 @@ public class ModifyCloudEnvRequest {
    * @return syncPeriod
   **/
   @Schema(description = "")
-  public Integer getSyncPeriod() {
+  public Long getSyncPeriod() {
     return syncPeriod;
   }
 
-  public void setSyncPeriod(Integer syncPeriod) {
+  public void setSyncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
   }
 

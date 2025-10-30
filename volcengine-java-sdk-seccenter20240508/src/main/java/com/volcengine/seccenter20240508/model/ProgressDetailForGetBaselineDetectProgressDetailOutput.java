@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class ProgressDetailForGetBaselineDetectProgressDetailOutput {
   @SerializedName("Progress")
-  private Integer progress = null;
+  private Long progress = null;
 
   @SerializedName("TimeLeft")
-  private Integer timeLeft = null;
+  private Long timeLeft = null;
 
-  public ProgressDetailForGetBaselineDetectProgressDetailOutput progress(Integer progress) {
+  public ProgressDetailForGetBaselineDetectProgressDetailOutput progress(Long progress) {
     this.progress = progress;
     return this;
   }
@@ -46,15 +46,15 @@ public class ProgressDetailForGetBaselineDetectProgressDetailOutput {
    * @return progress
   **/
   @Schema(description = "")
-  public Integer getProgress() {
+  public Long getProgress() {
     return progress;
   }
 
-  public void setProgress(Integer progress) {
+  public void setProgress(Long progress) {
     this.progress = progress;
   }
 
-  public ProgressDetailForGetBaselineDetectProgressDetailOutput timeLeft(Integer timeLeft) {
+  public ProgressDetailForGetBaselineDetectProgressDetailOutput timeLeft(Long timeLeft) {
     this.timeLeft = timeLeft;
     return this;
   }
@@ -64,11 +64,11 @@ public class ProgressDetailForGetBaselineDetectProgressDetailOutput {
    * @return timeLeft
   **/
   @Schema(description = "")
-  public Integer getTimeLeft() {
+  public Long getTimeLeft() {
     return timeLeft;
   }
 
-  public void setTimeLeft(Integer timeLeft) {
+  public void setTimeLeft(Long timeLeft) {
     this.timeLeft = timeLeft;
   }
 

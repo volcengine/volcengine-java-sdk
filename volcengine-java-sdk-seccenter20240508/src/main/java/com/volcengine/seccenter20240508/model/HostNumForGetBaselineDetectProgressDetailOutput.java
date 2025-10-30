@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class HostNumForGetBaselineDetectProgressDetailOutput {
   @SerializedName("Finished")
-  private Integer finished = null;
+  private Long finished = null;
 
   @SerializedName("Total")
-  private Integer total = null;
+  private Long total = null;
 
-  public HostNumForGetBaselineDetectProgressDetailOutput finished(Integer finished) {
+  public HostNumForGetBaselineDetectProgressDetailOutput finished(Long finished) {
     this.finished = finished;
     return this;
   }
@@ -46,15 +46,15 @@ public class HostNumForGetBaselineDetectProgressDetailOutput {
    * @return finished
   **/
   @Schema(description = "")
-  public Integer getFinished() {
+  public Long getFinished() {
     return finished;
   }
 
-  public void setFinished(Integer finished) {
+  public void setFinished(Long finished) {
     this.finished = finished;
   }
 
-  public HostNumForGetBaselineDetectProgressDetailOutput total(Integer total) {
+  public HostNumForGetBaselineDetectProgressDetailOutput total(Long total) {
     this.total = total;
     return this;
   }
@@ -64,11 +64,11 @@ public class HostNumForGetBaselineDetectProgressDetailOutput {
    * @return total
   **/
   @Schema(description = "")
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 

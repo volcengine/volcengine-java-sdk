@@ -40,7 +40,7 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
   private Boolean fullData = null;
 
   @SerializedName("InsertTime")
-  private Integer insertTime = null;
+  private Long insertTime = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -52,7 +52,7 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
   private TraceResForGetAlarmTraceOutput traceRes = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public GetAlarmTraceResponse c2List(List<String> c2List) {
     this.c2List = c2List;
@@ -98,7 +98,7 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
     this.fullData = fullData;
   }
 
-  public GetAlarmTraceResponse insertTime(Integer insertTime) {
+  public GetAlarmTraceResponse insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
   }
@@ -108,11 +108,11 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
    * @return insertTime
   **/
   @Schema(description = "")
-  public Integer getInsertTime() {
+  public Long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(Integer insertTime) {
+  public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
   }
 
@@ -171,7 +171,7 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
     this.traceRes = traceRes;
   }
 
-  public GetAlarmTraceResponse updateTime(Integer updateTime) {
+  public GetAlarmTraceResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -181,11 +181,11 @@ public class GetAlarmTraceResponse extends com.volcengine.model.AbstractResponse
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

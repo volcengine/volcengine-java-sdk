@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("AlarmHandleResult")
-  private Integer alarmHandleResult = null;
+  private Long alarmHandleResult = null;
 
   @SerializedName("AlarmID")
   private String alarmID = null;
@@ -78,7 +78,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   private String errorReason = null;
 
   @SerializedName("HandleTime")
-  private Integer handleTime = null;
+  private Long handleTime = null;
 
   @SerializedName("HandleUser")
   private String handleUser = null;
@@ -87,7 +87,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   private String hidsLevel = null;
 
   @SerializedName("InsertTime")
-  private Integer insertTime = null;
+  private Long insertTime = null;
 
   @SerializedName("KubeLevel")
   private String kubeLevel = null;
@@ -108,7 +108,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   private String ruleName = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("Suggestion")
   private String suggestion = null;
@@ -116,7 +116,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("TraceID")
   private String traceID = null;
 
-  public AlarmDescForGetMlpAlarmSummaryInfoOutput alarmHandleResult(Integer alarmHandleResult) {
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput alarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
     return this;
   }
@@ -126,11 +126,11 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
    * @return alarmHandleResult
   **/
   @Schema(description = "")
-  public Integer getAlarmHandleResult() {
+  public Long getAlarmHandleResult() {
     return alarmHandleResult;
   }
 
-  public void setAlarmHandleResult(Integer alarmHandleResult) {
+  public void setAlarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
   }
 
@@ -394,7 +394,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.errorReason = errorReason;
   }
 
-  public AlarmDescForGetMlpAlarmSummaryInfoOutput handleTime(Integer handleTime) {
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput handleTime(Long handleTime) {
     this.handleTime = handleTime;
     return this;
   }
@@ -404,11 +404,11 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
    * @return handleTime
   **/
   @Schema(description = "")
-  public Integer getHandleTime() {
+  public Long getHandleTime() {
     return handleTime;
   }
 
-  public void setHandleTime(Integer handleTime) {
+  public void setHandleTime(Long handleTime) {
     this.handleTime = handleTime;
   }
 
@@ -448,7 +448,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.hidsLevel = hidsLevel;
   }
 
-  public AlarmDescForGetMlpAlarmSummaryInfoOutput insertTime(Integer insertTime) {
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
   }
@@ -458,11 +458,11 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
    * @return insertTime
   **/
   @Schema(description = "")
-  public Integer getInsertTime() {
+  public Long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(Integer insertTime) {
+  public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
   }
 
@@ -574,7 +574,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.ruleName = ruleName;
   }
 
-  public AlarmDescForGetMlpAlarmSummaryInfoOutput status(Integer status) {
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -584,11 +584,11 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

@@ -34,13 +34,13 @@ public class DataForListAlarmArchiveRecordsOutput {
   private String accountID = null;
 
   @SerializedName("AlarmCount")
-  private Integer alarmCount = null;
+  private Long alarmCount = null;
 
   @SerializedName("AlarmType")
   private String alarmType = null;
 
   @SerializedName("ArchiveTime")
-  private Integer archiveTime = null;
+  private Long archiveTime = null;
 
   @SerializedName("FileName")
   private String fileName = null;
@@ -63,7 +63,7 @@ public class DataForListAlarmArchiveRecordsOutput {
     this.accountID = accountID;
   }
 
-  public DataForListAlarmArchiveRecordsOutput alarmCount(Integer alarmCount) {
+  public DataForListAlarmArchiveRecordsOutput alarmCount(Long alarmCount) {
     this.alarmCount = alarmCount;
     return this;
   }
@@ -73,11 +73,11 @@ public class DataForListAlarmArchiveRecordsOutput {
    * @return alarmCount
   **/
   @Schema(description = "")
-  public Integer getAlarmCount() {
+  public Long getAlarmCount() {
     return alarmCount;
   }
 
-  public void setAlarmCount(Integer alarmCount) {
+  public void setAlarmCount(Long alarmCount) {
     this.alarmCount = alarmCount;
   }
 
@@ -99,7 +99,7 @@ public class DataForListAlarmArchiveRecordsOutput {
     this.alarmType = alarmType;
   }
 
-  public DataForListAlarmArchiveRecordsOutput archiveTime(Integer archiveTime) {
+  public DataForListAlarmArchiveRecordsOutput archiveTime(Long archiveTime) {
     this.archiveTime = archiveTime;
     return this;
   }
@@ -109,11 +109,11 @@ public class DataForListAlarmArchiveRecordsOutput {
    * @return archiveTime
   **/
   @Schema(description = "")
-  public Integer getArchiveTime() {
+  public Long getArchiveTime() {
     return archiveTime;
   }
 
-  public void setArchiveTime(Integer archiveTime) {
+  public void setArchiveTime(Long archiveTime) {
     this.archiveTime = archiveTime;
   }
 

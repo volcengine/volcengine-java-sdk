@@ -48,7 +48,7 @@ public class ListVirusAlarmsRequest {
   private List<String> agentTags = null;
 
   @SerializedName("AlarmHandleResultList")
-  private List<Integer> alarmHandleResultList = null;
+  private List<Long> alarmHandleResultList = null;
 
   @SerializedName("AlarmID")
   private String alarmID = null;
@@ -120,10 +120,10 @@ public class ListVirusAlarmsRequest {
   private String name = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("ProbeHook")
   private String probeHook = null;
@@ -138,16 +138,16 @@ public class ListVirusAlarmsRequest {
   private String sortOrder = null;
 
   @SerializedName("Status")
-  private List<Integer> status = null;
+  private List<Long> status = null;
 
   @SerializedName("TaskID")
   private String taskID = null;
 
   @SerializedName("TimeEnd")
-  private Integer timeEnd = null;
+  private Long timeEnd = null;
 
   @SerializedName("TimeStart")
-  private Integer timeStart = null;
+  private Long timeStart = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -278,14 +278,14 @@ public class ListVirusAlarmsRequest {
     this.agentTags = agentTags;
   }
 
-  public ListVirusAlarmsRequest alarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public ListVirusAlarmsRequest alarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
     return this;
   }
 
-  public ListVirusAlarmsRequest addAlarmHandleResultListItem(Integer alarmHandleResultListItem) {
+  public ListVirusAlarmsRequest addAlarmHandleResultListItem(Long alarmHandleResultListItem) {
     if (this.alarmHandleResultList == null) {
-      this.alarmHandleResultList = new ArrayList<Integer>();
+      this.alarmHandleResultList = new ArrayList<Long>();
     }
     this.alarmHandleResultList.add(alarmHandleResultListItem);
     return this;
@@ -296,11 +296,11 @@ public class ListVirusAlarmsRequest {
    * @return alarmHandleResultList
   **/
   @Schema(description = "")
-  public List<Integer> getAlarmHandleResultList() {
+  public List<Long> getAlarmHandleResultList() {
     return alarmHandleResultList;
   }
 
-  public void setAlarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public void setAlarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
   }
 
@@ -758,7 +758,7 @@ public class ListVirusAlarmsRequest {
     this.name = name;
   }
 
-  public ListVirusAlarmsRequest pageNumber(Integer pageNumber) {
+  public ListVirusAlarmsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -769,15 +769,15 @@ public class ListVirusAlarmsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListVirusAlarmsRequest pageSize(Integer pageSize) {
+  public ListVirusAlarmsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -788,11 +788,11 @@ public class ListVirusAlarmsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -868,14 +868,14 @@ public class ListVirusAlarmsRequest {
     this.sortOrder = sortOrder;
   }
 
-  public ListVirusAlarmsRequest status(List<Integer> status) {
+  public ListVirusAlarmsRequest status(List<Long> status) {
     this.status = status;
     return this;
   }
 
-  public ListVirusAlarmsRequest addStatusItem(Integer statusItem) {
+  public ListVirusAlarmsRequest addStatusItem(Long statusItem) {
     if (this.status == null) {
-      this.status = new ArrayList<Integer>();
+      this.status = new ArrayList<Long>();
     }
     this.status.add(statusItem);
     return this;
@@ -886,11 +886,11 @@ public class ListVirusAlarmsRequest {
    * @return status
   **/
   @Schema(description = "")
-  public List<Integer> getStatus() {
+  public List<Long> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Integer> status) {
+  public void setStatus(List<Long> status) {
     this.status = status;
   }
 
@@ -912,7 +912,7 @@ public class ListVirusAlarmsRequest {
     this.taskID = taskID;
   }
 
-  public ListVirusAlarmsRequest timeEnd(Integer timeEnd) {
+  public ListVirusAlarmsRequest timeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
     return this;
   }
@@ -922,15 +922,15 @@ public class ListVirusAlarmsRequest {
    * @return timeEnd
   **/
   @Schema(description = "")
-  public Integer getTimeEnd() {
+  public Long getTimeEnd() {
     return timeEnd;
   }
 
-  public void setTimeEnd(Integer timeEnd) {
+  public void setTimeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
   }
 
-  public ListVirusAlarmsRequest timeStart(Integer timeStart) {
+  public ListVirusAlarmsRequest timeStart(Long timeStart) {
     this.timeStart = timeStart;
     return this;
   }
@@ -940,11 +940,11 @@ public class ListVirusAlarmsRequest {
    * @return timeStart
   **/
   @Schema(description = "")
-  public Integer getTimeStart() {
+  public Long getTimeStart() {
     return timeStart;
   }
 
-  public void setTimeStart(Integer timeStart) {
+  public void setTimeStart(Long timeStart) {
     this.timeStart = timeStart;
   }
 

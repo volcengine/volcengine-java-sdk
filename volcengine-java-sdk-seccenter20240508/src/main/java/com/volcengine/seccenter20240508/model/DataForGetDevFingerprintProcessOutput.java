@@ -67,7 +67,7 @@ public class DataForGetDevFingerprintProcessOutput {
   private String publicIP = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
@@ -79,7 +79,7 @@ public class DataForGetDevFingerprintProcessOutput {
   private String uid = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -300,7 +300,7 @@ public class DataForGetDevFingerprintProcessOutput {
     this.publicIP = publicIP;
   }
 
-  public DataForGetDevFingerprintProcessOutput startTime(Integer startTime) {
+  public DataForGetDevFingerprintProcessOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -310,11 +310,11 @@ public class DataForGetDevFingerprintProcessOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -372,7 +372,7 @@ public class DataForGetDevFingerprintProcessOutput {
     this.uid = uid;
   }
 
-  public DataForGetDevFingerprintProcessOutput updateTime(Integer updateTime) {
+  public DataForGetDevFingerprintProcessOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -382,11 +382,11 @@ public class DataForGetDevFingerprintProcessOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
