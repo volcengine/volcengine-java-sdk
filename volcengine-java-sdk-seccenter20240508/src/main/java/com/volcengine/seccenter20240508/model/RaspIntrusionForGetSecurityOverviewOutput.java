@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class RaspIntrusionForGetSecurityOverviewOutput {
   @SerializedName("RiskCount")
-  private Integer riskCount = null;
+  private Long riskCount = null;
 
   @SerializedName("SubjectCount")
-  private Integer subjectCount = null;
+  private Long subjectCount = null;
 
-  public RaspIntrusionForGetSecurityOverviewOutput riskCount(Integer riskCount) {
+  public RaspIntrusionForGetSecurityOverviewOutput riskCount(Long riskCount) {
     this.riskCount = riskCount;
     return this;
   }
@@ -46,15 +46,15 @@ public class RaspIntrusionForGetSecurityOverviewOutput {
    * @return riskCount
   **/
   @Schema(description = "")
-  public Integer getRiskCount() {
+  public Long getRiskCount() {
     return riskCount;
   }
 
-  public void setRiskCount(Integer riskCount) {
+  public void setRiskCount(Long riskCount) {
     this.riskCount = riskCount;
   }
 
-  public RaspIntrusionForGetSecurityOverviewOutput subjectCount(Integer subjectCount) {
+  public RaspIntrusionForGetSecurityOverviewOutput subjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
     return this;
   }
@@ -64,11 +64,11 @@ public class RaspIntrusionForGetSecurityOverviewOutput {
    * @return subjectCount
   **/
   @Schema(description = "")
-  public Integer getSubjectCount() {
+  public Long getSubjectCount() {
     return subjectCount;
   }
 
-  public void setSubjectCount(Integer subjectCount) {
+  public void setSubjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
   }
 

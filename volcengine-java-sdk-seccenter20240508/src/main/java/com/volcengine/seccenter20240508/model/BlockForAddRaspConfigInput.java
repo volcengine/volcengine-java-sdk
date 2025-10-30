@@ -37,7 +37,7 @@ public class BlockForAddRaspConfigInput {
   private List<String> hookFunc = null;
 
   @SerializedName("HookParam")
-  private Integer hookParam = null;
+  private Long hookParam = null;
 
   @SerializedName("Rules")
   private List<RuleForAddRaspConfigInput> rules = null;
@@ -71,7 +71,7 @@ public class BlockForAddRaspConfigInput {
     this.hookFunc = hookFunc;
   }
 
-  public BlockForAddRaspConfigInput hookParam(Integer hookParam) {
+  public BlockForAddRaspConfigInput hookParam(Long hookParam) {
     this.hookParam = hookParam;
     return this;
   }
@@ -81,11 +81,11 @@ public class BlockForAddRaspConfigInput {
    * @return hookParam
   **/
   @Schema(description = "")
-  public Integer getHookParam() {
+  public Long getHookParam() {
     return hookParam;
   }
 
-  public void setHookParam(Integer hookParam) {
+  public void setHookParam(Long hookParam) {
     this.hookParam = hookParam;
   }
 

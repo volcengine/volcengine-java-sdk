@@ -83,10 +83,10 @@ public class DownloadBaselineCheckHostsRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CheckID")
-  private Integer checkID = null;
+  private Long checkID = null;
 
   @SerializedName("Conditions")
   private ConditionsForDownloadBaselineCheckHostsInput conditions = null;
@@ -138,7 +138,7 @@ public class DownloadBaselineCheckHostsRequest {
     this.assetType = assetType;
   }
 
-  public DownloadBaselineCheckHostsRequest baselineID(Integer baselineID) {
+  public DownloadBaselineCheckHostsRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -148,15 +148,15 @@ public class DownloadBaselineCheckHostsRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public DownloadBaselineCheckHostsRequest checkID(Integer checkID) {
+  public DownloadBaselineCheckHostsRequest checkID(Long checkID) {
     this.checkID = checkID;
     return this;
   }
@@ -166,11 +166,11 @@ public class DownloadBaselineCheckHostsRequest {
    * @return checkID
   **/
   @Schema(description = "")
-  public Integer getCheckID() {
+  public Long getCheckID() {
     return checkID;
   }
 
-  public void setCheckID(Integer checkID) {
+  public void setCheckID(Long checkID) {
     this.checkID = checkID;
   }
 

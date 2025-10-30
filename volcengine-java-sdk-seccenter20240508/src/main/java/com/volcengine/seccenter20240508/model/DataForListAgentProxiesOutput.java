@@ -34,13 +34,13 @@ public class DataForListAgentProxiesOutput {
   private String address = null;
 
   @SerializedName("ClientNumber")
-  private Integer clientNumber = null;
+  private Long clientNumber = null;
 
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("ServerNumber")
-  private Integer serverNumber = null;
+  private Long serverNumber = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -63,7 +63,7 @@ public class DataForListAgentProxiesOutput {
     this.address = address;
   }
 
-  public DataForListAgentProxiesOutput clientNumber(Integer clientNumber) {
+  public DataForListAgentProxiesOutput clientNumber(Long clientNumber) {
     this.clientNumber = clientNumber;
     return this;
   }
@@ -73,11 +73,11 @@ public class DataForListAgentProxiesOutput {
    * @return clientNumber
   **/
   @Schema(description = "")
-  public Integer getClientNumber() {
+  public Long getClientNumber() {
     return clientNumber;
   }
 
-  public void setClientNumber(Integer clientNumber) {
+  public void setClientNumber(Long clientNumber) {
     this.clientNumber = clientNumber;
   }
 
@@ -99,7 +99,7 @@ public class DataForListAgentProxiesOutput {
     this.name = name;
   }
 
-  public DataForListAgentProxiesOutput serverNumber(Integer serverNumber) {
+  public DataForListAgentProxiesOutput serverNumber(Long serverNumber) {
     this.serverNumber = serverNumber;
     return this;
   }
@@ -109,11 +109,11 @@ public class DataForListAgentProxiesOutput {
    * @return serverNumber
   **/
   @Schema(description = "")
-  public Integer getServerNumber() {
+  public Long getServerNumber() {
     return serverNumber;
   }
 
-  public void setServerNumber(Integer serverNumber) {
+  public void setServerNumber(Long serverNumber) {
     this.serverNumber = serverNumber;
   }
 

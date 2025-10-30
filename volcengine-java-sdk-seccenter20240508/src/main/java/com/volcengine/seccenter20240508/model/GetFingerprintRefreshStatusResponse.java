@@ -31,18 +31,18 @@ import javax.validation.Valid;
 
 public class GetFingerprintRefreshStatusResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CooldownTime")
-  private Integer cooldownTime = null;
+  private Long cooldownTime = null;
 
   @SerializedName("Percent")
-  private Integer percent = null;
+  private Long percent = null;
 
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
-  public GetFingerprintRefreshStatusResponse cooldownTime(Integer cooldownTime) {
+  public GetFingerprintRefreshStatusResponse cooldownTime(Long cooldownTime) {
     this.cooldownTime = cooldownTime;
     return this;
   }
@@ -52,15 +52,15 @@ public class GetFingerprintRefreshStatusResponse extends com.volcengine.model.Ab
    * @return cooldownTime
   **/
   @Schema(description = "")
-  public Integer getCooldownTime() {
+  public Long getCooldownTime() {
     return cooldownTime;
   }
 
-  public void setCooldownTime(Integer cooldownTime) {
+  public void setCooldownTime(Long cooldownTime) {
     this.cooldownTime = cooldownTime;
   }
 
-  public GetFingerprintRefreshStatusResponse percent(Integer percent) {
+  public GetFingerprintRefreshStatusResponse percent(Long percent) {
     this.percent = percent;
     return this;
   }
@@ -70,11 +70,11 @@ public class GetFingerprintRefreshStatusResponse extends com.volcengine.model.Ab
    * @return percent
   **/
   @Schema(description = "")
-  public Integer getPercent() {
+  public Long getPercent() {
     return percent;
   }
 
-  public void setPercent(Integer percent) {
+  public void setPercent(Long percent) {
     this.percent = percent;
   }
 
@@ -96,7 +96,7 @@ public class GetFingerprintRefreshStatusResponse extends com.volcengine.model.Ab
     this.status = status;
   }
 
-  public GetFingerprintRefreshStatusResponse updateTime(Integer updateTime) {
+  public GetFingerprintRefreshStatusResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -106,11 +106,11 @@ public class GetFingerprintRefreshStatusResponse extends com.volcengine.model.Ab
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -36,7 +36,7 @@ public class ListDevAssetIDsResponse extends com.volcengine.model.AbstractRespon
   private List<String> assetIDs = null;
 
   @SerializedName("Total")
-  private Integer total = null;
+  private Long total = null;
 
   public ListDevAssetIDsResponse assetIDs(List<String> assetIDs) {
     this.assetIDs = assetIDs;
@@ -64,7 +64,7 @@ public class ListDevAssetIDsResponse extends com.volcengine.model.AbstractRespon
     this.assetIDs = assetIDs;
   }
 
-  public ListDevAssetIDsResponse total(Integer total) {
+  public ListDevAssetIDsResponse total(Long total) {
     this.total = total;
     return this;
   }
@@ -74,11 +74,11 @@ public class ListDevAssetIDsResponse extends com.volcengine.model.AbstractRespon
    * @return total
   **/
   @Schema(description = "")
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 

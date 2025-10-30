@@ -2,6 +2,7 @@ package com.volcengine.ark.runtime.model.responses.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.volcengine.ark.runtime.model.responses.common.Error;
+import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
 import com.volcengine.ark.runtime.model.responses.item.BaseItem;
 import com.volcengine.ark.runtime.model.responses.usage.IncompleteDetails;
 import com.volcengine.ark.runtime.model.responses.usage.Usage;
@@ -44,6 +45,9 @@ public class ResponseObject {
 
     @JsonProperty("thinking")
     private ResponsesThinking thinking;
+
+    @JsonProperty("reasoning")
+    private ResponsesReasoning reasoning;
 
     @JsonProperty("service_tier")
     private String serviceTier;
@@ -165,6 +169,14 @@ public class ResponseObject {
 
     public void setThinking(ResponsesThinking thinking) {
         this.thinking = thinking;
+    }
+
+    public ResponsesReasoning getReasoning() {
+        return reasoning;
+    }
+
+    public void setReasoning(ResponsesReasoning reasoning) {
+        this.reasoning = reasoning;
     }
 
     public String getServiceTier() {
@@ -292,6 +304,7 @@ public class ResponseObject {
                 ", output=" + output +
                 ", previousResponseId='" + previousResponseId + '\'' +
                 ", thinking=" + thinking +
+                ", reasoning=" + reasoning +
                 ", serviceTier='" + serviceTier + '\'' +
                 ", status='" + status + '\'' +
                 ", temperature=" + temperature +

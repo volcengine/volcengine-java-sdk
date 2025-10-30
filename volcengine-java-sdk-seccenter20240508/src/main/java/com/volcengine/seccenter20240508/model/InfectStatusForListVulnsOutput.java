@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class InfectStatusForListVulnsOutput {
   @SerializedName("Ignore")
-  private Integer ignore = null;
+  private Long ignore = null;
 
   @SerializedName("Processed")
-  private Integer processed = null;
+  private Long processed = null;
 
   @SerializedName("UnProcessed")
-  private Integer unProcessed = null;
+  private Long unProcessed = null;
 
-  public InfectStatusForListVulnsOutput ignore(Integer ignore) {
+  public InfectStatusForListVulnsOutput ignore(Long ignore) {
     this.ignore = ignore;
     return this;
   }
@@ -49,15 +49,15 @@ public class InfectStatusForListVulnsOutput {
    * @return ignore
   **/
   @Schema(description = "")
-  public Integer getIgnore() {
+  public Long getIgnore() {
     return ignore;
   }
 
-  public void setIgnore(Integer ignore) {
+  public void setIgnore(Long ignore) {
     this.ignore = ignore;
   }
 
-  public InfectStatusForListVulnsOutput processed(Integer processed) {
+  public InfectStatusForListVulnsOutput processed(Long processed) {
     this.processed = processed;
     return this;
   }
@@ -67,15 +67,15 @@ public class InfectStatusForListVulnsOutput {
    * @return processed
   **/
   @Schema(description = "")
-  public Integer getProcessed() {
+  public Long getProcessed() {
     return processed;
   }
 
-  public void setProcessed(Integer processed) {
+  public void setProcessed(Long processed) {
     this.processed = processed;
   }
 
-  public InfectStatusForListVulnsOutput unProcessed(Integer unProcessed) {
+  public InfectStatusForListVulnsOutput unProcessed(Long unProcessed) {
     this.unProcessed = unProcessed;
     return this;
   }
@@ -85,11 +85,11 @@ public class InfectStatusForListVulnsOutput {
    * @return unProcessed
   **/
   @Schema(description = "")
-  public Integer getUnProcessed() {
+  public Long getUnProcessed() {
     return unProcessed;
   }
 
-  public void setUnProcessed(Integer unProcessed) {
+  public void setUnProcessed(Long unProcessed) {
     this.unProcessed = unProcessed;
   }
 

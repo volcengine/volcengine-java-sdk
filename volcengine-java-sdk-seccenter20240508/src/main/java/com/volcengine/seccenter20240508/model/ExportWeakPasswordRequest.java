@@ -36,7 +36,7 @@ public class ExportWeakPasswordRequest {
   private String agentID = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -77,7 +77,7 @@ public class ExportWeakPasswordRequest {
     this.agentID = agentID;
   }
 
-  public ExportWeakPasswordRequest baselineID(Integer baselineID) {
+  public ExportWeakPasswordRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -87,11 +87,11 @@ public class ExportWeakPasswordRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 

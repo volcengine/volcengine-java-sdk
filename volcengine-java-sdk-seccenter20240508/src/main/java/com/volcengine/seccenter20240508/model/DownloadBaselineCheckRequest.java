@@ -34,18 +34,18 @@ import javax.validation.Valid;
 
 public class DownloadBaselineCheckRequest {
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("Conditions")
   private ConditionsForDownloadBaselineCheckInput conditions = null;
 
   @SerializedName("IDList")
-  private List<Integer> idList = null;
+  private List<Long> idList = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
 
-  public DownloadBaselineCheckRequest baselineID(Integer baselineID) {
+  public DownloadBaselineCheckRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -55,11 +55,11 @@ public class DownloadBaselineCheckRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -82,14 +82,14 @@ public class DownloadBaselineCheckRequest {
     this.conditions = conditions;
   }
 
-  public DownloadBaselineCheckRequest idList(List<Integer> idList) {
+  public DownloadBaselineCheckRequest idList(List<Long> idList) {
     this.idList = idList;
     return this;
   }
 
-  public DownloadBaselineCheckRequest addIdListItem(Integer idListItem) {
+  public DownloadBaselineCheckRequest addIdListItem(Long idListItem) {
     if (this.idList == null) {
-      this.idList = new ArrayList<Integer>();
+      this.idList = new ArrayList<Long>();
     }
     this.idList.add(idListItem);
     return this;
@@ -100,11 +100,11 @@ public class DownloadBaselineCheckRequest {
    * @return idList
   **/
   @Schema(description = "")
-  public List<Integer> getIdList() {
+  public List<Long> getIdList() {
     return idList;
   }
 
-  public void setIdList(List<Integer> idList) {
+  public void setIdList(List<Long> idList) {
     this.idList = idList;
   }
 

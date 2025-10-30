@@ -77,6 +77,9 @@ public class DataForGetFingerprintProcessOutput {
   @SerializedName("Integrity")
   private Boolean integrity = null;
 
+  @SerializedName("Pexe")
+  private String pexe = null;
+
   @SerializedName("Pid")
   private String pid = null;
 
@@ -87,7 +90,7 @@ public class DataForGetFingerprintProcessOutput {
   private String primaryIpAddress = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
@@ -96,7 +99,7 @@ public class DataForGetFingerprintProcessOutput {
   private String uid = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -379,6 +382,24 @@ public class DataForGetFingerprintProcessOutput {
     this.integrity = integrity;
   }
 
+  public DataForGetFingerprintProcessOutput pexe(String pexe) {
+    this.pexe = pexe;
+    return this;
+  }
+
+   /**
+   * Get pexe
+   * @return pexe
+  **/
+  @Schema(description = "")
+  public String getPexe() {
+    return pexe;
+  }
+
+  public void setPexe(String pexe) {
+    this.pexe = pexe;
+  }
+
   public DataForGetFingerprintProcessOutput pid(String pid) {
     this.pid = pid;
     return this;
@@ -433,7 +454,7 @@ public class DataForGetFingerprintProcessOutput {
     this.primaryIpAddress = primaryIpAddress;
   }
 
-  public DataForGetFingerprintProcessOutput startTime(Integer startTime) {
+  public DataForGetFingerprintProcessOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -443,11 +464,11 @@ public class DataForGetFingerprintProcessOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -487,7 +508,7 @@ public class DataForGetFingerprintProcessOutput {
     this.uid = uid;
   }
 
-  public DataForGetFingerprintProcessOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintProcessOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -497,11 +518,11 @@ public class DataForGetFingerprintProcessOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -548,6 +569,7 @@ public class DataForGetFingerprintProcessOutput {
         Objects.equals(this.hostname, dataForGetFingerprintProcessOutput.hostname) &&
         Objects.equals(this.ID, dataForGetFingerprintProcessOutput.ID) &&
         Objects.equals(this.integrity, dataForGetFingerprintProcessOutput.integrity) &&
+        Objects.equals(this.pexe, dataForGetFingerprintProcessOutput.pexe) &&
         Objects.equals(this.pid, dataForGetFingerprintProcessOutput.pid) &&
         Objects.equals(this.ppid, dataForGetFingerprintProcessOutput.ppid) &&
         Objects.equals(this.primaryIpAddress, dataForGetFingerprintProcessOutput.primaryIpAddress) &&
@@ -560,7 +582,7 @@ public class DataForGetFingerprintProcessOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, agentTags, checksum, cmdline, comm, common, containerID, containerName, eipAddress, euid, eusername, exe, hostname, ID, integrity, pid, ppid, primaryIpAddress, startTime, state, uid, updateTime, username);
+    return Objects.hash(agentID, agentTags, checksum, cmdline, comm, common, containerID, containerName, eipAddress, euid, eusername, exe, hostname, ID, integrity, pexe, pid, ppid, primaryIpAddress, startTime, state, uid, updateTime, username);
   }
 
 
@@ -584,6 +606,7 @@ public class DataForGetFingerprintProcessOutput {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    integrity: ").append(toIndentedString(integrity)).append("\n");
+    sb.append("    pexe: ").append(toIndentedString(pexe)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
     sb.append("    ppid: ").append(toIndentedString(ppid)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");

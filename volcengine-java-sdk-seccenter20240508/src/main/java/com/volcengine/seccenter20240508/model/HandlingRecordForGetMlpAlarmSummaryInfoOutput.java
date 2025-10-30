@@ -42,7 +42,7 @@ public class HandlingRecordForGetMlpAlarmSummaryInfoOutput {
   private String extraDescription = null;
 
   @SerializedName("HandleTime")
-  private Integer handleTime = null;
+  private Long handleTime = null;
 
   @SerializedName("Language")
   private String language = null;
@@ -120,7 +120,7 @@ public class HandlingRecordForGetMlpAlarmSummaryInfoOutput {
     this.extraDescription = extraDescription;
   }
 
-  public HandlingRecordForGetMlpAlarmSummaryInfoOutput handleTime(Integer handleTime) {
+  public HandlingRecordForGetMlpAlarmSummaryInfoOutput handleTime(Long handleTime) {
     this.handleTime = handleTime;
     return this;
   }
@@ -130,11 +130,11 @@ public class HandlingRecordForGetMlpAlarmSummaryInfoOutput {
    * @return handleTime
   **/
   @Schema(description = "")
-  public Integer getHandleTime() {
+  public Long getHandleTime() {
     return handleTime;
   }
 
-  public void setHandleTime(Integer handleTime) {
+  public void setHandleTime(Long handleTime) {
     this.handleTime = handleTime;
   }
 

@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class VirusFileForGetSecurityOverviewOutput {
   @SerializedName("RiskCount")
-  private Integer riskCount = null;
+  private Long riskCount = null;
 
   @SerializedName("SubjectCount")
-  private Integer subjectCount = null;
+  private Long subjectCount = null;
 
-  public VirusFileForGetSecurityOverviewOutput riskCount(Integer riskCount) {
+  public VirusFileForGetSecurityOverviewOutput riskCount(Long riskCount) {
     this.riskCount = riskCount;
     return this;
   }
@@ -46,15 +46,15 @@ public class VirusFileForGetSecurityOverviewOutput {
    * @return riskCount
   **/
   @Schema(description = "")
-  public Integer getRiskCount() {
+  public Long getRiskCount() {
     return riskCount;
   }
 
-  public void setRiskCount(Integer riskCount) {
+  public void setRiskCount(Long riskCount) {
     this.riskCount = riskCount;
   }
 
-  public VirusFileForGetSecurityOverviewOutput subjectCount(Integer subjectCount) {
+  public VirusFileForGetSecurityOverviewOutput subjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
     return this;
   }
@@ -64,11 +64,11 @@ public class VirusFileForGetSecurityOverviewOutput {
    * @return subjectCount
   **/
   @Schema(description = "")
-  public Integer getSubjectCount() {
+  public Long getSubjectCount() {
     return subjectCount;
   }
 
-  public void setSubjectCount(Integer subjectCount) {
+  public void setSubjectCount(Long subjectCount) {
     this.subjectCount = subjectCount;
   }
 

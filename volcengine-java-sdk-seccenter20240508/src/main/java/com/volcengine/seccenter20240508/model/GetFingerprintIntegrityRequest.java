@@ -54,10 +54,10 @@ public class GetFingerprintIntegrityRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("ModifyTimeEnd")
-  private Integer modifyTimeEnd = null;
+  private Long modifyTimeEnd = null;
 
   @SerializedName("ModifyTimeStart")
-  private Integer modifyTimeStart = null;
+  private Long modifyTimeStart = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -66,10 +66,10 @@ public class GetFingerprintIntegrityRequest {
   private String originDigest = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -228,7 +228,7 @@ public class GetFingerprintIntegrityRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetFingerprintIntegrityRequest modifyTimeEnd(Integer modifyTimeEnd) {
+  public GetFingerprintIntegrityRequest modifyTimeEnd(Long modifyTimeEnd) {
     this.modifyTimeEnd = modifyTimeEnd;
     return this;
   }
@@ -238,15 +238,15 @@ public class GetFingerprintIntegrityRequest {
    * @return modifyTimeEnd
   **/
   @Schema(description = "")
-  public Integer getModifyTimeEnd() {
+  public Long getModifyTimeEnd() {
     return modifyTimeEnd;
   }
 
-  public void setModifyTimeEnd(Integer modifyTimeEnd) {
+  public void setModifyTimeEnd(Long modifyTimeEnd) {
     this.modifyTimeEnd = modifyTimeEnd;
   }
 
-  public GetFingerprintIntegrityRequest modifyTimeStart(Integer modifyTimeStart) {
+  public GetFingerprintIntegrityRequest modifyTimeStart(Long modifyTimeStart) {
     this.modifyTimeStart = modifyTimeStart;
     return this;
   }
@@ -256,11 +256,11 @@ public class GetFingerprintIntegrityRequest {
    * @return modifyTimeStart
   **/
   @Schema(description = "")
-  public Integer getModifyTimeStart() {
+  public Long getModifyTimeStart() {
     return modifyTimeStart;
   }
 
-  public void setModifyTimeStart(Integer modifyTimeStart) {
+  public void setModifyTimeStart(Long modifyTimeStart) {
     this.modifyTimeStart = modifyTimeStart;
   }
 
@@ -300,7 +300,7 @@ public class GetFingerprintIntegrityRequest {
     this.originDigest = originDigest;
   }
 
-  public GetFingerprintIntegrityRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintIntegrityRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -311,15 +311,15 @@ public class GetFingerprintIntegrityRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintIntegrityRequest pageSize(Integer pageSize) {
+  public GetFingerprintIntegrityRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -330,11 +330,11 @@ public class GetFingerprintIntegrityRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

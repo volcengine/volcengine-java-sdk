@@ -65,7 +65,7 @@ public class DataForListIsolationFilesOutput {
   private HostForListIsolationFilesOutput host = null;
 
   @SerializedName("InsertTime")
-  private Integer insertTime = null;
+  private Long insertTime = null;
 
   @SerializedName("IsUpload")
   private Boolean isUpload = null;
@@ -74,7 +74,7 @@ public class DataForListIsolationFilesOutput {
   private String savedFileName = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("TaskID")
   private String taskID = null;
@@ -83,7 +83,7 @@ public class DataForListIsolationFilesOutput {
   private String topGroupID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForListIsolationFilesOutput accountID(String accountID) {
     this.accountID = accountID;
@@ -284,7 +284,7 @@ public class DataForListIsolationFilesOutput {
     this.host = host;
   }
 
-  public DataForListIsolationFilesOutput insertTime(Integer insertTime) {
+  public DataForListIsolationFilesOutput insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
   }
@@ -294,11 +294,11 @@ public class DataForListIsolationFilesOutput {
    * @return insertTime
   **/
   @Schema(description = "")
-  public Integer getInsertTime() {
+  public Long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(Integer insertTime) {
+  public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
   }
 
@@ -338,7 +338,7 @@ public class DataForListIsolationFilesOutput {
     this.savedFileName = savedFileName;
   }
 
-  public DataForListIsolationFilesOutput status(Integer status) {
+  public DataForListIsolationFilesOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -348,11 +348,11 @@ public class DataForListIsolationFilesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
@@ -392,7 +392,7 @@ public class DataForListIsolationFilesOutput {
     this.topGroupID = topGroupID;
   }
 
-  public DataForListIsolationFilesOutput updateTime(Integer updateTime) {
+  public DataForListIsolationFilesOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -402,11 +402,11 @@ public class DataForListIsolationFilesOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

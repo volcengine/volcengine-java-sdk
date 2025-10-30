@@ -31,10 +31,10 @@ import javax.validation.Valid;
 
 public class GetDownloadStatusResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ExportCount")
-  private Integer exportCount = null;
+  private Long exportCount = null;
 
   @SerializedName("ExportTotal")
-  private Integer exportTotal = null;
+  private Long exportTotal = null;
 
   @SerializedName("FileName")
   private String fileName = null;
@@ -42,7 +42,7 @@ public class GetDownloadStatusResponse extends com.volcengine.model.AbstractResp
   @SerializedName("Status")
   private String status = null;
 
-  public GetDownloadStatusResponse exportCount(Integer exportCount) {
+  public GetDownloadStatusResponse exportCount(Long exportCount) {
     this.exportCount = exportCount;
     return this;
   }
@@ -52,15 +52,15 @@ public class GetDownloadStatusResponse extends com.volcengine.model.AbstractResp
    * @return exportCount
   **/
   @Schema(description = "")
-  public Integer getExportCount() {
+  public Long getExportCount() {
     return exportCount;
   }
 
-  public void setExportCount(Integer exportCount) {
+  public void setExportCount(Long exportCount) {
     this.exportCount = exportCount;
   }
 
-  public GetDownloadStatusResponse exportTotal(Integer exportTotal) {
+  public GetDownloadStatusResponse exportTotal(Long exportTotal) {
     this.exportTotal = exportTotal;
     return this;
   }
@@ -70,11 +70,11 @@ public class GetDownloadStatusResponse extends com.volcengine.model.AbstractResp
    * @return exportTotal
   **/
   @Schema(description = "")
-  public Integer getExportTotal() {
+  public Long getExportTotal() {
     return exportTotal;
   }
 
-  public void setExportTotal(Integer exportTotal) {
+  public void setExportTotal(Long exportTotal) {
     this.exportTotal = exportTotal;
   }
 

@@ -57,59 +57,16 @@ public class GetFingerprintServiceRequest {
   private String name = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Path")
   private String path = null;
 
-  /**
-   * Gets or Sets restart
-   */
-  @JsonAdapter(RestartEnum.Adapter.class)
-  public enum RestartEnum {
-    @SerializedName("false")
-    FALSE("false"),
-    @SerializedName("true")
-    TRUE("true");
-
-    private String value;
-
-    RestartEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RestartEnum fromValue(String input) {
-      for (RestartEnum b : RestartEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RestartEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RestartEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RestartEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RestartEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Restart")
-  private RestartEnum restart = null;
+  @SerializedName("Restart")
+  private String restart = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -286,7 +243,7 @@ public class GetFingerprintServiceRequest {
     this.name = name;
   }
 
-  public GetFingerprintServiceRequest pageNumber(Integer pageNumber) {
+  public GetFingerprintServiceRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -297,15 +254,15 @@ public class GetFingerprintServiceRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetFingerprintServiceRequest pageSize(Integer pageSize) {
+  public GetFingerprintServiceRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -316,11 +273,11 @@ public class GetFingerprintServiceRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -342,7 +299,7 @@ public class GetFingerprintServiceRequest {
     this.path = path;
   }
 
-  public GetFingerprintServiceRequest restart(RestartEnum restart) {
+  public GetFingerprintServiceRequest restart(String restart) {
     this.restart = restart;
     return this;
   }
@@ -352,11 +309,11 @@ public class GetFingerprintServiceRequest {
    * @return restart
   **/
   @Schema(description = "")
-  public RestartEnum getRestart() {
+  public String getRestart() {
     return restart;
   }
 
-  public void setRestart(RestartEnum restart) {
+  public void setRestart(String restart) {
     this.restart = restart;
   }
 

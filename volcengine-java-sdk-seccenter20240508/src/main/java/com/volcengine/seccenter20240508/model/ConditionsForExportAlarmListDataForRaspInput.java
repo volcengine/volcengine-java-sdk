@@ -48,7 +48,7 @@ public class ConditionsForExportAlarmListDataForRaspInput {
   private List<String> agentTags = null;
 
   @SerializedName("AlarmHandleResultList")
-  private List<Integer> alarmHandleResultList = null;
+  private List<Long> alarmHandleResultList = null;
 
   @SerializedName("AlarmID")
   private String alarmID = null;
@@ -123,7 +123,7 @@ public class ConditionsForExportAlarmListDataForRaspInput {
   private String raspArgv = null;
 
   @SerializedName("Status")
-  private List<Integer> status = null;
+  private List<Long> status = null;
 
   @SerializedName("Tags")
   private List<String> tags = null;
@@ -132,10 +132,10 @@ public class ConditionsForExportAlarmListDataForRaspInput {
   private String taskID = null;
 
   @SerializedName("TimeEnd")
-  private Integer timeEnd = null;
+  private Long timeEnd = null;
 
   @SerializedName("TimeStart")
-  private Integer timeStart = null;
+  private Long timeStart = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -266,14 +266,14 @@ public class ConditionsForExportAlarmListDataForRaspInput {
     this.agentTags = agentTags;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput alarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public ConditionsForExportAlarmListDataForRaspInput alarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
     return this;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput addAlarmHandleResultListItem(Integer alarmHandleResultListItem) {
+  public ConditionsForExportAlarmListDataForRaspInput addAlarmHandleResultListItem(Long alarmHandleResultListItem) {
     if (this.alarmHandleResultList == null) {
-      this.alarmHandleResultList = new ArrayList<Integer>();
+      this.alarmHandleResultList = new ArrayList<Long>();
     }
     this.alarmHandleResultList.add(alarmHandleResultListItem);
     return this;
@@ -284,11 +284,11 @@ public class ConditionsForExportAlarmListDataForRaspInput {
    * @return alarmHandleResultList
   **/
   @Schema(description = "")
-  public List<Integer> getAlarmHandleResultList() {
+  public List<Long> getAlarmHandleResultList() {
     return alarmHandleResultList;
   }
 
-  public void setAlarmHandleResultList(List<Integer> alarmHandleResultList) {
+  public void setAlarmHandleResultList(List<Long> alarmHandleResultList) {
     this.alarmHandleResultList = alarmHandleResultList;
   }
 
@@ -764,14 +764,14 @@ public class ConditionsForExportAlarmListDataForRaspInput {
     this.raspArgv = raspArgv;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput status(List<Integer> status) {
+  public ConditionsForExportAlarmListDataForRaspInput status(List<Long> status) {
     this.status = status;
     return this;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput addStatusItem(Integer statusItem) {
+  public ConditionsForExportAlarmListDataForRaspInput addStatusItem(Long statusItem) {
     if (this.status == null) {
-      this.status = new ArrayList<Integer>();
+      this.status = new ArrayList<Long>();
     }
     this.status.add(statusItem);
     return this;
@@ -782,11 +782,11 @@ public class ConditionsForExportAlarmListDataForRaspInput {
    * @return status
   **/
   @Schema(description = "")
-  public List<Integer> getStatus() {
+  public List<Long> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Integer> status) {
+  public void setStatus(List<Long> status) {
     this.status = status;
   }
 
@@ -834,7 +834,7 @@ public class ConditionsForExportAlarmListDataForRaspInput {
     this.taskID = taskID;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput timeEnd(Integer timeEnd) {
+  public ConditionsForExportAlarmListDataForRaspInput timeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
     return this;
   }
@@ -844,15 +844,15 @@ public class ConditionsForExportAlarmListDataForRaspInput {
    * @return timeEnd
   **/
   @Schema(description = "")
-  public Integer getTimeEnd() {
+  public Long getTimeEnd() {
     return timeEnd;
   }
 
-  public void setTimeEnd(Integer timeEnd) {
+  public void setTimeEnd(Long timeEnd) {
     this.timeEnd = timeEnd;
   }
 
-  public ConditionsForExportAlarmListDataForRaspInput timeStart(Integer timeStart) {
+  public ConditionsForExportAlarmListDataForRaspInput timeStart(Long timeStart) {
     this.timeStart = timeStart;
     return this;
   }
@@ -862,11 +862,11 @@ public class ConditionsForExportAlarmListDataForRaspInput {
    * @return timeStart
   **/
   @Schema(description = "")
-  public Integer getTimeStart() {
+  public Long getTimeStart() {
     return timeStart;
   }
 
-  public void setTimeStart(Integer timeStart) {
+  public void setTimeStart(Long timeStart) {
     this.timeStart = timeStart;
   }
 

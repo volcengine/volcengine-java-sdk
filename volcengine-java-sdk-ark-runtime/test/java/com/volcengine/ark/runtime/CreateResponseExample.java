@@ -1,6 +1,7 @@
 package com.volcengine.ark.runtime;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.volcengine.ark.runtime.model.responses.common.ResponsesCaching;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
 import com.volcengine.ark.runtime.model.responses.content.*;
@@ -291,6 +292,46 @@ public class CreateResponseExample {
 
         } catch (Exception e) {
             System.err.println("Create Response 6 Error " + e.getMessage());
+        }
+
+        System.out.println("\n----- [Request with Caching] Request 7-----");
+        String longPrompt = "你是豆包，你必须用4个字回答我的问题";
+        for (int i = 0; i < 1000; i++) {
+            longPrompt += "你是豆包，你必须用4个字回答我的问题";
+        }
+        CreateResponsesRequest request7 = CreateResponsesRequest.builder()
+                .model(modelName)
+                .stream(false)
+                .caching(ResponsesCaching.builder().type(ResponsesConstants.CACHE_TYPE_ENABLED).prefix(true).build())
+                .input(ResponsesInput.builder().stringValue(longPrompt).build())
+                .thinking(ResponsesThinking.builder().type(ResponsesConstants.THINKING_TYPE_DISABLED).build())
+                .build();
+
+        String cacheResponseId = null;
+
+        try {
+            ResponseObject cachePrefix = service.createResponse(request7);
+            System.out.println("=== cache prefix response ===");
+            printResponseObject(cachePrefix);
+            cacheResponseId = cachePrefix.getId();
+        } catch (Exception e) {
+            System.err.println("Create Response 7 Error " + e.getMessage());
+        }
+
+        CreateResponsesRequest cachedRequest = CreateResponsesRequest.builder()
+                .model(modelName)
+                .stream(false)
+                .previousResponseId(cacheResponseId)
+                .input(ResponsesInput.builder().stringValue("你好").build())
+                .thinking(ResponsesThinking.builder().type(ResponsesConstants.THINKING_TYPE_DISABLED).build())
+                .build();
+
+        try {
+            ResponseObject cacheHitResponse = service.createResponse(cachedRequest);
+            System.out.println("=== cache hit response ===");
+            printResponseObject(cacheHitResponse);
+        } catch (Exception e) {
+            System.err.println("Create Cached Response Error " + e.getMessage());
         }
 
         service.shutdownExecutor();

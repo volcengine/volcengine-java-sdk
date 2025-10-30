@@ -37,13 +37,13 @@ public class ListDevBasicInfosResponse extends com.volcengine.model.AbstractResp
   private List<DataForListDevBasicInfosOutput> data = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   public ListDevBasicInfosResponse data(List<DataForListDevBasicInfosOutput> data) {
     this.data = data;
@@ -72,7 +72,7 @@ public class ListDevBasicInfosResponse extends com.volcengine.model.AbstractResp
     this.data = data;
   }
 
-  public ListDevBasicInfosResponse pageNumber(Integer pageNumber) {
+  public ListDevBasicInfosResponse pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -82,15 +82,15 @@ public class ListDevBasicInfosResponse extends com.volcengine.model.AbstractResp
    * @return pageNumber
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListDevBasicInfosResponse pageSize(Integer pageSize) {
+  public ListDevBasicInfosResponse pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -100,15 +100,15 @@ public class ListDevBasicInfosResponse extends com.volcengine.model.AbstractResp
    * @return pageSize
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
-  public ListDevBasicInfosResponse totalCount(Integer totalCount) {
+  public ListDevBasicInfosResponse totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -118,11 +118,11 @@ public class ListDevBasicInfosResponse extends com.volcengine.model.AbstractResp
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 

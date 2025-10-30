@@ -38,10 +38,10 @@ public class AuthInfoForGetMultiLevelInstitutionDetailOutput {
   private Boolean clusterSecOpen = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("LastActiveTime")
-  private Integer lastActiveTime = null;
+  private Long lastActiveTime = null;
 
   @SerializedName("ProtectHost")
   private ProtectHostForGetMultiLevelInstitutionDetailOutput protectHost = null;
@@ -82,7 +82,7 @@ public class AuthInfoForGetMultiLevelInstitutionDetailOutput {
     this.clusterSecOpen = clusterSecOpen;
   }
 
-  public AuthInfoForGetMultiLevelInstitutionDetailOutput expireTime(Integer expireTime) {
+  public AuthInfoForGetMultiLevelInstitutionDetailOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -92,15 +92,15 @@ public class AuthInfoForGetMultiLevelInstitutionDetailOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public AuthInfoForGetMultiLevelInstitutionDetailOutput lastActiveTime(Integer lastActiveTime) {
+  public AuthInfoForGetMultiLevelInstitutionDetailOutput lastActiveTime(Long lastActiveTime) {
     this.lastActiveTime = lastActiveTime;
     return this;
   }
@@ -110,11 +110,11 @@ public class AuthInfoForGetMultiLevelInstitutionDetailOutput {
    * @return lastActiveTime
   **/
   @Schema(description = "")
-  public Integer getLastActiveTime() {
+  public Long getLastActiveTime() {
     return lastActiveTime;
   }
 
-  public void setLastActiveTime(Integer lastActiveTime) {
+  public void setLastActiveTime(Long lastActiveTime) {
     this.lastActiveTime = lastActiveTime;
   }
 

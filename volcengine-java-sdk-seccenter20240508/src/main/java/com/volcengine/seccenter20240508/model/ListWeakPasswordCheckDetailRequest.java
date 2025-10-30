@@ -36,7 +36,7 @@ public class ListWeakPasswordCheckDetailRequest {
   private String agentID = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("CheckName")
   private String checkName = null;
@@ -54,10 +54,10 @@ public class ListWeakPasswordCheckDetailRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -89,7 +89,7 @@ public class ListWeakPasswordCheckDetailRequest {
     this.agentID = agentID;
   }
 
-  public ListWeakPasswordCheckDetailRequest baselineID(Integer baselineID) {
+  public ListWeakPasswordCheckDetailRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -100,11 +100,11 @@ public class ListWeakPasswordCheckDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -214,7 +214,7 @@ public class ListWeakPasswordCheckDetailRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListWeakPasswordCheckDetailRequest pageNumber(Integer pageNumber) {
+  public ListWeakPasswordCheckDetailRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -225,15 +225,15 @@ public class ListWeakPasswordCheckDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListWeakPasswordCheckDetailRequest pageSize(Integer pageSize) {
+  public ListWeakPasswordCheckDetailRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -244,11 +244,11 @@ public class ListWeakPasswordCheckDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

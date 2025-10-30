@@ -37,7 +37,7 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
   private String alarmID = null;
 
   @SerializedName("AlarmTime")
-  private Integer alarmTime = null;
+  private Long alarmTime = null;
 
   @SerializedName("AlarmType")
   private String alarmType = null;
@@ -58,7 +58,7 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
   private String name = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("TraceID")
   private String traceID = null;
@@ -99,7 +99,7 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
     this.alarmID = alarmID;
   }
 
-  public DataForGetIntrusionRealTimeUpdatesOutput alarmTime(Integer alarmTime) {
+  public DataForGetIntrusionRealTimeUpdatesOutput alarmTime(Long alarmTime) {
     this.alarmTime = alarmTime;
     return this;
   }
@@ -109,11 +109,11 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
    * @return alarmTime
   **/
   @Schema(description = "")
-  public Integer getAlarmTime() {
+  public Long getAlarmTime() {
     return alarmTime;
   }
 
-  public void setAlarmTime(Integer alarmTime) {
+  public void setAlarmTime(Long alarmTime) {
     this.alarmTime = alarmTime;
   }
 
@@ -225,7 +225,7 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
     this.name = name;
   }
 
-  public DataForGetIntrusionRealTimeUpdatesOutput status(Integer status) {
+  public DataForGetIntrusionRealTimeUpdatesOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -235,11 +235,11 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

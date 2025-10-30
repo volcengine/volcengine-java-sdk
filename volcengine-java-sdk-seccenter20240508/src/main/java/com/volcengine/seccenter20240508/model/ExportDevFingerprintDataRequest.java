@@ -43,10 +43,10 @@ public class ExportDevFingerprintDataRequest {
   public enum FingerprintTypeEnum {
     @SerializedName("process")
     PROCESS("process"),
-    @SerializedName(" port")
-    _PORT(" port"),
-    @SerializedName(" software")
-    _SOFTWARE(" software");
+    @SerializedName("port")
+    PORT("port"),
+    @SerializedName("software")
+    SOFTWARE("software");
 
     private String value;
 

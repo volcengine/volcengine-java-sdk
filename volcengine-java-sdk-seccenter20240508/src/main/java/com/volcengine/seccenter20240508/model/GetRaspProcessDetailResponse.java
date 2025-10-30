@@ -49,7 +49,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
   private String exePath = null;
 
   @SerializedName("InspectPort")
-  private Integer inspectPort = null;
+  private Long inspectPort = null;
 
   @SerializedName("Pid")
   private String pid = null;
@@ -58,7 +58,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
   private String processState = null;
 
   @SerializedName("ProtectTime")
-  private Integer protectTime = null;
+  private Long protectTime = null;
 
   @SerializedName("Reason")
   private String reason = null;
@@ -76,13 +76,13 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
   private String runtimeVersion = null;
 
   @SerializedName("StartTimeUnix")
-  private Integer startTimeUnix = null;
+  private Long startTimeUnix = null;
 
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public GetRaspProcessDetailResponse agentID(String agentID) {
     this.agentID = agentID;
@@ -183,7 +183,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
     this.exePath = exePath;
   }
 
-  public GetRaspProcessDetailResponse inspectPort(Integer inspectPort) {
+  public GetRaspProcessDetailResponse inspectPort(Long inspectPort) {
     this.inspectPort = inspectPort;
     return this;
   }
@@ -193,11 +193,11 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
    * @return inspectPort
   **/
   @Schema(description = "")
-  public Integer getInspectPort() {
+  public Long getInspectPort() {
     return inspectPort;
   }
 
-  public void setInspectPort(Integer inspectPort) {
+  public void setInspectPort(Long inspectPort) {
     this.inspectPort = inspectPort;
   }
 
@@ -237,7 +237,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
     this.processState = processState;
   }
 
-  public GetRaspProcessDetailResponse protectTime(Integer protectTime) {
+  public GetRaspProcessDetailResponse protectTime(Long protectTime) {
     this.protectTime = protectTime;
     return this;
   }
@@ -247,11 +247,11 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
    * @return protectTime
   **/
   @Schema(description = "")
-  public Integer getProtectTime() {
+  public Long getProtectTime() {
     return protectTime;
   }
 
-  public void setProtectTime(Integer protectTime) {
+  public void setProtectTime(Long protectTime) {
     this.protectTime = protectTime;
   }
 
@@ -345,7 +345,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
     this.runtimeVersion = runtimeVersion;
   }
 
-  public GetRaspProcessDetailResponse startTimeUnix(Integer startTimeUnix) {
+  public GetRaspProcessDetailResponse startTimeUnix(Long startTimeUnix) {
     this.startTimeUnix = startTimeUnix;
     return this;
   }
@@ -355,11 +355,11 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
    * @return startTimeUnix
   **/
   @Schema(description = "")
-  public Integer getStartTimeUnix() {
+  public Long getStartTimeUnix() {
     return startTimeUnix;
   }
 
-  public void setStartTimeUnix(Integer startTimeUnix) {
+  public void setStartTimeUnix(Long startTimeUnix) {
     this.startTimeUnix = startTimeUnix;
   }
 
@@ -381,7 +381,7 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
     this.status = status;
   }
 
-  public GetRaspProcessDetailResponse updateTime(Integer updateTime) {
+  public GetRaspProcessDetailResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -391,11 +391,11 @@ public class GetRaspProcessDetailResponse extends com.volcengine.model.AbstractR
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

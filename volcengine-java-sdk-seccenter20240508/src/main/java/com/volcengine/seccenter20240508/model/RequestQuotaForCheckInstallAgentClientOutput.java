@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class RequestQuotaForCheckInstallAgentClientOutput {
   @SerializedName("Core")
-  private Integer core = null;
+  private Long core = null;
 
   @SerializedName("HostsCount")
-  private Integer hostsCount = null;
+  private Long hostsCount = null;
 
-  public RequestQuotaForCheckInstallAgentClientOutput core(Integer core) {
+  public RequestQuotaForCheckInstallAgentClientOutput core(Long core) {
     this.core = core;
     return this;
   }
@@ -46,15 +46,15 @@ public class RequestQuotaForCheckInstallAgentClientOutput {
    * @return core
   **/
   @Schema(description = "")
-  public Integer getCore() {
+  public Long getCore() {
     return core;
   }
 
-  public void setCore(Integer core) {
+  public void setCore(Long core) {
     this.core = core;
   }
 
-  public RequestQuotaForCheckInstallAgentClientOutput hostsCount(Integer hostsCount) {
+  public RequestQuotaForCheckInstallAgentClientOutput hostsCount(Long hostsCount) {
     this.hostsCount = hostsCount;
     return this;
   }
@@ -64,11 +64,11 @@ public class RequestQuotaForCheckInstallAgentClientOutput {
    * @return hostsCount
   **/
   @Schema(description = "")
-  public Integer getHostsCount() {
+  public Long getHostsCount() {
     return hostsCount;
   }
 
-  public void setHostsCount(Integer hostsCount) {
+  public void setHostsCount(Long hostsCount) {
     this.hostsCount = hostsCount;
   }
 

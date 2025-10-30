@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class GetVulnCheckStatusResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LastCheckTime")
-  private Integer lastCheckTime = null;
+  private Long lastCheckTime = null;
 
   @SerializedName("Progress")
-  private Integer progress = null;
+  private Long progress = null;
 
   @SerializedName("Status")
   private String status = null;
 
-  public GetVulnCheckStatusResponse lastCheckTime(Integer lastCheckTime) {
+  public GetVulnCheckStatusResponse lastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
     return this;
   }
@@ -49,15 +49,15 @@ public class GetVulnCheckStatusResponse extends com.volcengine.model.AbstractRes
    * @return lastCheckTime
   **/
   @Schema(description = "")
-  public Integer getLastCheckTime() {
+  public Long getLastCheckTime() {
     return lastCheckTime;
   }
 
-  public void setLastCheckTime(Integer lastCheckTime) {
+  public void setLastCheckTime(Long lastCheckTime) {
     this.lastCheckTime = lastCheckTime;
   }
 
-  public GetVulnCheckStatusResponse progress(Integer progress) {
+  public GetVulnCheckStatusResponse progress(Long progress) {
     this.progress = progress;
     return this;
   }
@@ -67,11 +67,11 @@ public class GetVulnCheckStatusResponse extends com.volcengine.model.AbstractRes
    * @return progress
   **/
   @Schema(description = "")
-  public Integer getProgress() {
+  public Long getProgress() {
     return progress;
   }
 
-  public void setProgress(Integer progress) {
+  public void setProgress(Long progress) {
     this.progress = progress;
   }
 

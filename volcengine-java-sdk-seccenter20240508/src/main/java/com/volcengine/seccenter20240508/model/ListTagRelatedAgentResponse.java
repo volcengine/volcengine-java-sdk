@@ -36,7 +36,7 @@ public class ListTagRelatedAgentResponse extends com.volcengine.model.AbstractRe
   private List<String> agentIdList = null;
 
   @SerializedName("HostNum")
-  private Integer hostNum = null;
+  private Long hostNum = null;
 
   public ListTagRelatedAgentResponse agentIdList(List<String> agentIdList) {
     this.agentIdList = agentIdList;
@@ -64,7 +64,7 @@ public class ListTagRelatedAgentResponse extends com.volcengine.model.AbstractRe
     this.agentIdList = agentIdList;
   }
 
-  public ListTagRelatedAgentResponse hostNum(Integer hostNum) {
+  public ListTagRelatedAgentResponse hostNum(Long hostNum) {
     this.hostNum = hostNum;
     return this;
   }
@@ -74,11 +74,11 @@ public class ListTagRelatedAgentResponse extends com.volcengine.model.AbstractRe
    * @return hostNum
   **/
   @Schema(description = "")
-  public Integer getHostNum() {
+  public Long getHostNum() {
     return hostNum;
   }
 
-  public void setHostNum(Integer hostNum) {
+  public void setHostNum(Long hostNum) {
     this.hostNum = hostNum;
   }
 

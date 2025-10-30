@@ -34,7 +34,7 @@ public class DetailForInstallAgentClientOutput {
   private String agentID = null;
 
   @SerializedName("Code")
-  private Integer code = null;
+  private Long code = null;
 
   @SerializedName("Msg")
   private String msg = null;
@@ -57,7 +57,7 @@ public class DetailForInstallAgentClientOutput {
     this.agentID = agentID;
   }
 
-  public DetailForInstallAgentClientOutput code(Integer code) {
+  public DetailForInstallAgentClientOutput code(Long code) {
     this.code = code;
     return this;
   }
@@ -67,11 +67,11 @@ public class DetailForInstallAgentClientOutput {
    * @return code
   **/
   @Schema(description = "")
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(Integer code) {
+  public void setCode(Long code) {
     this.code = code;
   }
 

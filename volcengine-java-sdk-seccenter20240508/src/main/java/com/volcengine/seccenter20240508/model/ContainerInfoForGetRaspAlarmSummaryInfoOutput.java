@@ -34,7 +34,7 @@ public class ContainerInfoForGetRaspAlarmSummaryInfoOutput {
   private String containerCreateTime = null;
 
   @SerializedName("ContainerCreateTimestamp")
-  private Integer containerCreateTimestamp = null;
+  private Long containerCreateTimestamp = null;
 
   @SerializedName("ContainerHostName")
   private String containerHostName = null;
@@ -93,7 +93,7 @@ public class ContainerInfoForGetRaspAlarmSummaryInfoOutput {
     this.containerCreateTime = containerCreateTime;
   }
 
-  public ContainerInfoForGetRaspAlarmSummaryInfoOutput containerCreateTimestamp(Integer containerCreateTimestamp) {
+  public ContainerInfoForGetRaspAlarmSummaryInfoOutput containerCreateTimestamp(Long containerCreateTimestamp) {
     this.containerCreateTimestamp = containerCreateTimestamp;
     return this;
   }
@@ -103,11 +103,11 @@ public class ContainerInfoForGetRaspAlarmSummaryInfoOutput {
    * @return containerCreateTimestamp
   **/
   @Schema(description = "")
-  public Integer getContainerCreateTimestamp() {
+  public Long getContainerCreateTimestamp() {
     return containerCreateTimestamp;
   }
 
-  public void setContainerCreateTimestamp(Integer containerCreateTimestamp) {
+  public void setContainerCreateTimestamp(Long containerCreateTimestamp) {
     this.containerCreateTimestamp = containerCreateTimestamp;
   }
 

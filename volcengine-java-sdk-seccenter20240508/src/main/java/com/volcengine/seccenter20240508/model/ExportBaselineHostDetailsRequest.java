@@ -83,7 +83,7 @@ public class ExportBaselineHostDetailsRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("Conditions")
   private ConditionsForExportBaselineHostDetailsInput conditions = null;
@@ -135,7 +135,7 @@ public class ExportBaselineHostDetailsRequest {
     this.assetType = assetType;
   }
 
-  public ExportBaselineHostDetailsRequest baselineID(Integer baselineID) {
+  public ExportBaselineHostDetailsRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -145,11 +145,11 @@ public class ExportBaselineHostDetailsRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 

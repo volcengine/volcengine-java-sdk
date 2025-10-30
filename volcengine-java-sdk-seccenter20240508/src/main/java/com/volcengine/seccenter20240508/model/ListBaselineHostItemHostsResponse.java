@@ -35,13 +35,13 @@ public class ListBaselineHostItemHostsResponse extends com.volcengine.model.Abst
   private DataForListBaselineHostItemHostsOutput data = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   public ListBaselineHostItemHostsResponse data(DataForListBaselineHostItemHostsOutput data) {
     this.data = data;
@@ -62,7 +62,7 @@ public class ListBaselineHostItemHostsResponse extends com.volcengine.model.Abst
     this.data = data;
   }
 
-  public ListBaselineHostItemHostsResponse pageNumber(Integer pageNumber) {
+  public ListBaselineHostItemHostsResponse pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -72,15 +72,15 @@ public class ListBaselineHostItemHostsResponse extends com.volcengine.model.Abst
    * @return pageNumber
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListBaselineHostItemHostsResponse pageSize(Integer pageSize) {
+  public ListBaselineHostItemHostsResponse pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -90,15 +90,15 @@ public class ListBaselineHostItemHostsResponse extends com.volcengine.model.Abst
    * @return pageSize
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 
-  public ListBaselineHostItemHostsResponse totalCount(Integer totalCount) {
+  public ListBaselineHostItemHostsResponse totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -108,11 +108,11 @@ public class ListBaselineHostItemHostsResponse extends com.volcengine.model.Abst
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 

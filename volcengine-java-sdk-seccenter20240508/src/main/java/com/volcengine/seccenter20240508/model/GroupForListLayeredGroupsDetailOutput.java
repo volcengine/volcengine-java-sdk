@@ -45,10 +45,10 @@ public class GroupForListLayeredGroupsDetailOutput {
   private String groupPath = null;
 
   @SerializedName("HostCount")
-  private Integer hostCount = null;
+  private Long hostCount = null;
 
   @SerializedName("Level")
-  private Integer level = null;
+  private Long level = null;
 
   @SerializedName("ParentID")
   private String parentID = null;
@@ -139,7 +139,7 @@ public class GroupForListLayeredGroupsDetailOutput {
     this.groupPath = groupPath;
   }
 
-  public GroupForListLayeredGroupsDetailOutput hostCount(Integer hostCount) {
+  public GroupForListLayeredGroupsDetailOutput hostCount(Long hostCount) {
     this.hostCount = hostCount;
     return this;
   }
@@ -149,15 +149,15 @@ public class GroupForListLayeredGroupsDetailOutput {
    * @return hostCount
   **/
   @Schema(description = "")
-  public Integer getHostCount() {
+  public Long getHostCount() {
     return hostCount;
   }
 
-  public void setHostCount(Integer hostCount) {
+  public void setHostCount(Long hostCount) {
     this.hostCount = hostCount;
   }
 
-  public GroupForListLayeredGroupsDetailOutput level(Integer level) {
+  public GroupForListLayeredGroupsDetailOutput level(Long level) {
     this.level = level;
     return this;
   }
@@ -167,11 +167,11 @@ public class GroupForListLayeredGroupsDetailOutput {
    * @return level
   **/
   @Schema(description = "")
-  public Integer getLevel() {
+  public Long getLevel() {
     return level;
   }
 
-  public void setLevel(Integer level) {
+  public void setLevel(Long level) {
     this.level = level;
   }
 

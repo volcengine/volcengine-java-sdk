@@ -40,16 +40,16 @@ public class DataForListMultiLevelInstitutionOutput {
   private Boolean clusterSecOpen = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("HostTotalCount")
-  private Integer hostTotalCount = null;
+  private Long hostTotalCount = null;
 
   @SerializedName("HostUsedCount")
-  private Integer hostUsedCount = null;
+  private Long hostUsedCount = null;
 
   @SerializedName("ID")
   private String ID = null;
@@ -64,7 +64,7 @@ public class DataForListMultiLevelInstitutionOutput {
   private String institutionStatus = null;
 
   @SerializedName("LastActiveTime")
-  private Integer lastActiveTime = null;
+  private Long lastActiveTime = null;
 
   @SerializedName("Remark")
   private String remark = null;
@@ -73,7 +73,7 @@ public class DataForListMultiLevelInstitutionOutput {
   private Boolean reportSwitchOpen = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public DataForListMultiLevelInstitutionOutput accountID(String accountID) {
     this.accountID = accountID;
@@ -129,7 +129,7 @@ public class DataForListMultiLevelInstitutionOutput {
     this.clusterSecOpen = clusterSecOpen;
   }
 
-  public DataForListMultiLevelInstitutionOutput createTime(Integer createTime) {
+  public DataForListMultiLevelInstitutionOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -139,15 +139,15 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
-  public DataForListMultiLevelInstitutionOutput expireTime(Integer expireTime) {
+  public DataForListMultiLevelInstitutionOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -157,15 +157,15 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
-  public DataForListMultiLevelInstitutionOutput hostTotalCount(Integer hostTotalCount) {
+  public DataForListMultiLevelInstitutionOutput hostTotalCount(Long hostTotalCount) {
     this.hostTotalCount = hostTotalCount;
     return this;
   }
@@ -175,15 +175,15 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return hostTotalCount
   **/
   @Schema(description = "")
-  public Integer getHostTotalCount() {
+  public Long getHostTotalCount() {
     return hostTotalCount;
   }
 
-  public void setHostTotalCount(Integer hostTotalCount) {
+  public void setHostTotalCount(Long hostTotalCount) {
     this.hostTotalCount = hostTotalCount;
   }
 
-  public DataForListMultiLevelInstitutionOutput hostUsedCount(Integer hostUsedCount) {
+  public DataForListMultiLevelInstitutionOutput hostUsedCount(Long hostUsedCount) {
     this.hostUsedCount = hostUsedCount;
     return this;
   }
@@ -193,11 +193,11 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return hostUsedCount
   **/
   @Schema(description = "")
-  public Integer getHostUsedCount() {
+  public Long getHostUsedCount() {
     return hostUsedCount;
   }
 
-  public void setHostUsedCount(Integer hostUsedCount) {
+  public void setHostUsedCount(Long hostUsedCount) {
     this.hostUsedCount = hostUsedCount;
   }
 
@@ -273,7 +273,7 @@ public class DataForListMultiLevelInstitutionOutput {
     this.institutionStatus = institutionStatus;
   }
 
-  public DataForListMultiLevelInstitutionOutput lastActiveTime(Integer lastActiveTime) {
+  public DataForListMultiLevelInstitutionOutput lastActiveTime(Long lastActiveTime) {
     this.lastActiveTime = lastActiveTime;
     return this;
   }
@@ -283,11 +283,11 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return lastActiveTime
   **/
   @Schema(description = "")
-  public Integer getLastActiveTime() {
+  public Long getLastActiveTime() {
     return lastActiveTime;
   }
 
-  public void setLastActiveTime(Integer lastActiveTime) {
+  public void setLastActiveTime(Long lastActiveTime) {
     this.lastActiveTime = lastActiveTime;
   }
 
@@ -327,7 +327,7 @@ public class DataForListMultiLevelInstitutionOutput {
     this.reportSwitchOpen = reportSwitchOpen;
   }
 
-  public DataForListMultiLevelInstitutionOutput updateTime(Integer updateTime) {
+  public DataForListMultiLevelInstitutionOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -337,11 +337,11 @@ public class DataForListMultiLevelInstitutionOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -31,9 +31,9 @@ import javax.validation.Valid;
 
 public class GetVirusDatabaseUpdateTimeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
-  public GetVirusDatabaseUpdateTimeResponse updateTime(Integer updateTime) {
+  public GetVirusDatabaseUpdateTimeResponse updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -43,11 +43,11 @@ public class GetVirusDatabaseUpdateTimeResponse extends com.volcengine.model.Abs
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -39,10 +39,10 @@ public class ListAutoDefenseHostsRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("RuleID")
   private String ruleID = null;
@@ -108,7 +108,7 @@ public class ListAutoDefenseHostsRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListAutoDefenseHostsRequest pageNumber(Integer pageNumber) {
+  public ListAutoDefenseHostsRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -119,15 +119,15 @@ public class ListAutoDefenseHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListAutoDefenseHostsRequest pageSize(Integer pageSize) {
+  public ListAutoDefenseHostsRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -138,11 +138,11 @@ public class ListAutoDefenseHostsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

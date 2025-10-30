@@ -49,13 +49,13 @@ public class DataForListCloudEnvsOutput {
   private String keyType = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("SyncPeriod")
-  private Integer syncPeriod = null;
+  private Long syncPeriod = null;
 
   @SerializedName("SyncStatus")
-  private Integer syncStatus = null;
+  private Long syncStatus = null;
 
   public DataForListCloudEnvsOutput accessKey(String accessKey) {
     this.accessKey = accessKey;
@@ -165,7 +165,7 @@ public class DataForListCloudEnvsOutput {
     this.keyType = keyType;
   }
 
-  public DataForListCloudEnvsOutput status(Integer status) {
+  public DataForListCloudEnvsOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -175,15 +175,15 @@ public class DataForListCloudEnvsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
-  public DataForListCloudEnvsOutput syncPeriod(Integer syncPeriod) {
+  public DataForListCloudEnvsOutput syncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
     return this;
   }
@@ -193,15 +193,15 @@ public class DataForListCloudEnvsOutput {
    * @return syncPeriod
   **/
   @Schema(description = "")
-  public Integer getSyncPeriod() {
+  public Long getSyncPeriod() {
     return syncPeriod;
   }
 
-  public void setSyncPeriod(Integer syncPeriod) {
+  public void setSyncPeriod(Long syncPeriod) {
     this.syncPeriod = syncPeriod;
   }
 
-  public DataForListCloudEnvsOutput syncStatus(Integer syncStatus) {
+  public DataForListCloudEnvsOutput syncStatus(Long syncStatus) {
     this.syncStatus = syncStatus;
     return this;
   }
@@ -211,11 +211,11 @@ public class DataForListCloudEnvsOutput {
    * @return syncStatus
   **/
   @Schema(description = "")
-  public Integer getSyncStatus() {
+  public Long getSyncStatus() {
     return syncStatus;
   }
 
-  public void setSyncStatus(Integer syncStatus) {
+  public void setSyncStatus(Long syncStatus) {
     this.syncStatus = syncStatus;
   }
 

@@ -39,7 +39,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
   private List<String> attackIDList = null;
 
   @SerializedName("CreateTime")
-  private Integer createTime = null;
+  private Long createTime = null;
 
   @SerializedName("Desc")
   private String desc = null;
@@ -48,7 +48,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
   private String docker = null;
 
   @SerializedName("HandleTime")
-  private Integer handleTime = null;
+  private Long handleTime = null;
 
   @SerializedName("HandleUser")
   private String handleUser = null;
@@ -60,7 +60,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
   private String name = null;
 
   @SerializedName("Status")
-  private Integer status = null;
+  private Long status = null;
 
   @SerializedName("Suggest")
   private String suggest = null;
@@ -69,7 +69,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
   private String traceID = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   public BaseAlarmInfoForGetAlarmBySmithKeyOutput alarmType(String alarmType) {
     this.alarmType = alarmType;
@@ -115,7 +115,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
     this.attackIDList = attackIDList;
   }
 
-  public BaseAlarmInfoForGetAlarmBySmithKeyOutput createTime(Integer createTime) {
+  public BaseAlarmInfoForGetAlarmBySmithKeyOutput createTime(Long createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -125,11 +125,11 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public Long getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(Long createTime) {
     this.createTime = createTime;
   }
 
@@ -169,7 +169,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
     this.docker = docker;
   }
 
-  public BaseAlarmInfoForGetAlarmBySmithKeyOutput handleTime(Integer handleTime) {
+  public BaseAlarmInfoForGetAlarmBySmithKeyOutput handleTime(Long handleTime) {
     this.handleTime = handleTime;
     return this;
   }
@@ -179,11 +179,11 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
    * @return handleTime
   **/
   @Schema(description = "")
-  public Integer getHandleTime() {
+  public Long getHandleTime() {
     return handleTime;
   }
 
-  public void setHandleTime(Integer handleTime) {
+  public void setHandleTime(Long handleTime) {
     this.handleTime = handleTime;
   }
 
@@ -241,7 +241,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
     this.name = name;
   }
 
-  public BaseAlarmInfoForGetAlarmBySmithKeyOutput status(Integer status) {
+  public BaseAlarmInfoForGetAlarmBySmithKeyOutput status(Long status) {
     this.status = status;
     return this;
   }
@@ -251,11 +251,11 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
    * @return status
   **/
   @Schema(description = "")
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
@@ -295,7 +295,7 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
     this.traceID = traceID;
   }
 
-  public BaseAlarmInfoForGetAlarmBySmithKeyOutput updateTime(Integer updateTime) {
+  public BaseAlarmInfoForGetAlarmBySmithKeyOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -305,11 +305,11 @@ public class BaseAlarmInfoForGetAlarmBySmithKeyOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

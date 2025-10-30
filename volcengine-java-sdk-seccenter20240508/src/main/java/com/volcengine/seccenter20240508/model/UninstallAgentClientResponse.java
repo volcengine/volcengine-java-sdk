@@ -37,10 +37,10 @@ public class UninstallAgentClientResponse extends com.volcengine.model.AbstractR
   private List<DetailForUninstallAgentClientOutput> detail = null;
 
   @SerializedName("FailureCount")
-  private Integer failureCount = null;
+  private Long failureCount = null;
 
   @SerializedName("SuccessCount")
-  private Integer successCount = null;
+  private Long successCount = null;
 
   public UninstallAgentClientResponse detail(List<DetailForUninstallAgentClientOutput> detail) {
     this.detail = detail;
@@ -69,7 +69,7 @@ public class UninstallAgentClientResponse extends com.volcengine.model.AbstractR
     this.detail = detail;
   }
 
-  public UninstallAgentClientResponse failureCount(Integer failureCount) {
+  public UninstallAgentClientResponse failureCount(Long failureCount) {
     this.failureCount = failureCount;
     return this;
   }
@@ -79,15 +79,15 @@ public class UninstallAgentClientResponse extends com.volcengine.model.AbstractR
    * @return failureCount
   **/
   @Schema(description = "")
-  public Integer getFailureCount() {
+  public Long getFailureCount() {
     return failureCount;
   }
 
-  public void setFailureCount(Integer failureCount) {
+  public void setFailureCount(Long failureCount) {
     this.failureCount = failureCount;
   }
 
-  public UninstallAgentClientResponse successCount(Integer successCount) {
+  public UninstallAgentClientResponse successCount(Long successCount) {
     this.successCount = successCount;
     return this;
   }
@@ -97,11 +97,11 @@ public class UninstallAgentClientResponse extends com.volcengine.model.AbstractR
    * @return successCount
   **/
   @Schema(description = "")
-  public Integer getSuccessCount() {
+  public Long getSuccessCount() {
     return successCount;
   }
 
-  public void setSuccessCount(Integer successCount) {
+  public void setSuccessCount(Long successCount) {
     this.successCount = successCount;
   }
 

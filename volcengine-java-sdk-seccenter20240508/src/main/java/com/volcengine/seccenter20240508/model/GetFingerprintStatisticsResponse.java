@@ -31,39 +31,42 @@ import javax.validation.Valid;
 
 public class GetFingerprintStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("App")
-  private Integer app = null;
+  private Long app = null;
 
   @SerializedName("Container")
-  private Integer container = null;
+  private Long container = null;
 
   @SerializedName("Cron")
-  private Integer cron = null;
+  private Long cron = null;
+
+  @SerializedName("Env")
+  private Long env = null;
 
   @SerializedName("Integrity")
-  private Integer integrity = null;
+  private Long integrity = null;
 
   @SerializedName("Kmod")
-  private Integer kmod = null;
+  private Long kmod = null;
 
   @SerializedName("Port")
-  private Integer port = null;
+  private Long port = null;
 
   @SerializedName("Process")
-  private Integer process = null;
+  private Long process = null;
 
   @SerializedName("Service")
-  private Integer service = null;
+  private Long service = null;
 
   @SerializedName("Software")
-  private Integer software = null;
+  private Long software = null;
 
   @SerializedName("User")
-  private Integer user = null;
+  private Long user = null;
 
   @SerializedName("Web")
-  private Integer web = null;
+  private Long web = null;
 
-  public GetFingerprintStatisticsResponse app(Integer app) {
+  public GetFingerprintStatisticsResponse app(Long app) {
     this.app = app;
     return this;
   }
@@ -73,15 +76,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return app
   **/
   @Schema(description = "")
-  public Integer getApp() {
+  public Long getApp() {
     return app;
   }
 
-  public void setApp(Integer app) {
+  public void setApp(Long app) {
     this.app = app;
   }
 
-  public GetFingerprintStatisticsResponse container(Integer container) {
+  public GetFingerprintStatisticsResponse container(Long container) {
     this.container = container;
     return this;
   }
@@ -91,15 +94,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return container
   **/
   @Schema(description = "")
-  public Integer getContainer() {
+  public Long getContainer() {
     return container;
   }
 
-  public void setContainer(Integer container) {
+  public void setContainer(Long container) {
     this.container = container;
   }
 
-  public GetFingerprintStatisticsResponse cron(Integer cron) {
+  public GetFingerprintStatisticsResponse cron(Long cron) {
     this.cron = cron;
     return this;
   }
@@ -109,15 +112,33 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return cron
   **/
   @Schema(description = "")
-  public Integer getCron() {
+  public Long getCron() {
     return cron;
   }
 
-  public void setCron(Integer cron) {
+  public void setCron(Long cron) {
     this.cron = cron;
   }
 
-  public GetFingerprintStatisticsResponse integrity(Integer integrity) {
+  public GetFingerprintStatisticsResponse env(Long env) {
+    this.env = env;
+    return this;
+  }
+
+   /**
+   * Get env
+   * @return env
+  **/
+  @Schema(description = "")
+  public Long getEnv() {
+    return env;
+  }
+
+  public void setEnv(Long env) {
+    this.env = env;
+  }
+
+  public GetFingerprintStatisticsResponse integrity(Long integrity) {
     this.integrity = integrity;
     return this;
   }
@@ -127,15 +148,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return integrity
   **/
   @Schema(description = "")
-  public Integer getIntegrity() {
+  public Long getIntegrity() {
     return integrity;
   }
 
-  public void setIntegrity(Integer integrity) {
+  public void setIntegrity(Long integrity) {
     this.integrity = integrity;
   }
 
-  public GetFingerprintStatisticsResponse kmod(Integer kmod) {
+  public GetFingerprintStatisticsResponse kmod(Long kmod) {
     this.kmod = kmod;
     return this;
   }
@@ -145,15 +166,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return kmod
   **/
   @Schema(description = "")
-  public Integer getKmod() {
+  public Long getKmod() {
     return kmod;
   }
 
-  public void setKmod(Integer kmod) {
+  public void setKmod(Long kmod) {
     this.kmod = kmod;
   }
 
-  public GetFingerprintStatisticsResponse port(Integer port) {
+  public GetFingerprintStatisticsResponse port(Long port) {
     this.port = port;
     return this;
   }
@@ -163,15 +184,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return port
   **/
   @Schema(description = "")
-  public Integer getPort() {
+  public Long getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(Long port) {
     this.port = port;
   }
 
-  public GetFingerprintStatisticsResponse process(Integer process) {
+  public GetFingerprintStatisticsResponse process(Long process) {
     this.process = process;
     return this;
   }
@@ -181,15 +202,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return process
   **/
   @Schema(description = "")
-  public Integer getProcess() {
+  public Long getProcess() {
     return process;
   }
 
-  public void setProcess(Integer process) {
+  public void setProcess(Long process) {
     this.process = process;
   }
 
-  public GetFingerprintStatisticsResponse service(Integer service) {
+  public GetFingerprintStatisticsResponse service(Long service) {
     this.service = service;
     return this;
   }
@@ -199,15 +220,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return service
   **/
   @Schema(description = "")
-  public Integer getService() {
+  public Long getService() {
     return service;
   }
 
-  public void setService(Integer service) {
+  public void setService(Long service) {
     this.service = service;
   }
 
-  public GetFingerprintStatisticsResponse software(Integer software) {
+  public GetFingerprintStatisticsResponse software(Long software) {
     this.software = software;
     return this;
   }
@@ -217,15 +238,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return software
   **/
   @Schema(description = "")
-  public Integer getSoftware() {
+  public Long getSoftware() {
     return software;
   }
 
-  public void setSoftware(Integer software) {
+  public void setSoftware(Long software) {
     this.software = software;
   }
 
-  public GetFingerprintStatisticsResponse user(Integer user) {
+  public GetFingerprintStatisticsResponse user(Long user) {
     this.user = user;
     return this;
   }
@@ -235,15 +256,15 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return user
   **/
   @Schema(description = "")
-  public Integer getUser() {
+  public Long getUser() {
     return user;
   }
 
-  public void setUser(Integer user) {
+  public void setUser(Long user) {
     this.user = user;
   }
 
-  public GetFingerprintStatisticsResponse web(Integer web) {
+  public GetFingerprintStatisticsResponse web(Long web) {
     this.web = web;
     return this;
   }
@@ -253,11 +274,11 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
    * @return web
   **/
   @Schema(description = "")
-  public Integer getWeb() {
+  public Long getWeb() {
     return web;
   }
 
-  public void setWeb(Integer web) {
+  public void setWeb(Long web) {
     this.web = web;
   }
 
@@ -274,6 +295,7 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
     return Objects.equals(this.app, getFingerprintStatisticsResponse.app) &&
         Objects.equals(this.container, getFingerprintStatisticsResponse.container) &&
         Objects.equals(this.cron, getFingerprintStatisticsResponse.cron) &&
+        Objects.equals(this.env, getFingerprintStatisticsResponse.env) &&
         Objects.equals(this.integrity, getFingerprintStatisticsResponse.integrity) &&
         Objects.equals(this.kmod, getFingerprintStatisticsResponse.kmod) &&
         Objects.equals(this.port, getFingerprintStatisticsResponse.port) &&
@@ -286,7 +308,7 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, container, cron, integrity, kmod, port, process, service, software, user, web);
+    return Objects.hash(app, container, cron, env, integrity, kmod, port, process, service, software, user, web);
   }
 
 
@@ -298,6 +320,7 @@ public class GetFingerprintStatisticsResponse extends com.volcengine.model.Abstr
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("    cron: ").append(toIndentedString(cron)).append("\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    integrity: ").append(toIndentedString(integrity)).append("\n");
     sb.append("    kmod: ").append(toIndentedString(kmod)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

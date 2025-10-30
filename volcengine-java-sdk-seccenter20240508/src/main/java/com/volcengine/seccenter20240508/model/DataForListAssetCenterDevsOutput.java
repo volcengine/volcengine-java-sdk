@@ -34,7 +34,7 @@ public class DataForListAssetCenterDevsOutput {
   private String accountId = null;
 
   @SerializedName("Alarm")
-  private Integer alarm = null;
+  private Long alarm = null;
 
   @SerializedName("AssetId")
   private String assetId = null;
@@ -49,7 +49,7 @@ public class DataForListAssetCenterDevsOutput {
   private String assetUk = null;
 
   @SerializedName("Baseline")
-  private Integer baseline = null;
+  private Long baseline = null;
 
   @SerializedName("Ip")
   private String ip = null;
@@ -64,7 +64,7 @@ public class DataForListAssetCenterDevsOutput {
   private String status = null;
 
   @SerializedName("Vul")
-  private Integer vul = null;
+  private Long vul = null;
 
   public DataForListAssetCenterDevsOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -84,7 +84,7 @@ public class DataForListAssetCenterDevsOutput {
     this.accountId = accountId;
   }
 
-  public DataForListAssetCenterDevsOutput alarm(Integer alarm) {
+  public DataForListAssetCenterDevsOutput alarm(Long alarm) {
     this.alarm = alarm;
     return this;
   }
@@ -94,11 +94,11 @@ public class DataForListAssetCenterDevsOutput {
    * @return alarm
   **/
   @Schema(description = "")
-  public Integer getAlarm() {
+  public Long getAlarm() {
     return alarm;
   }
 
-  public void setAlarm(Integer alarm) {
+  public void setAlarm(Long alarm) {
     this.alarm = alarm;
   }
 
@@ -174,7 +174,7 @@ public class DataForListAssetCenterDevsOutput {
     this.assetUk = assetUk;
   }
 
-  public DataForListAssetCenterDevsOutput baseline(Integer baseline) {
+  public DataForListAssetCenterDevsOutput baseline(Long baseline) {
     this.baseline = baseline;
     return this;
   }
@@ -184,11 +184,11 @@ public class DataForListAssetCenterDevsOutput {
    * @return baseline
   **/
   @Schema(description = "")
-  public Integer getBaseline() {
+  public Long getBaseline() {
     return baseline;
   }
 
-  public void setBaseline(Integer baseline) {
+  public void setBaseline(Long baseline) {
     this.baseline = baseline;
   }
 
@@ -264,7 +264,7 @@ public class DataForListAssetCenterDevsOutput {
     this.status = status;
   }
 
-  public DataForListAssetCenterDevsOutput vul(Integer vul) {
+  public DataForListAssetCenterDevsOutput vul(Long vul) {
     this.vul = vul;
     return this;
   }
@@ -274,11 +274,11 @@ public class DataForListAssetCenterDevsOutput {
    * @return vul
   **/
   @Schema(description = "")
-  public Integer getVul() {
+  public Long getVul() {
     return vul;
   }
 
-  public void setVul(Integer vul) {
+  public void setVul(Long vul) {
     this.vul = vul;
   }
 

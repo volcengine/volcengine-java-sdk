@@ -72,13 +72,13 @@ public class DataForGetFingerprintAppOutput {
   private String primaryIpAddress = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("Version")
   private String version = null;
@@ -325,7 +325,7 @@ public class DataForGetFingerprintAppOutput {
     this.primaryIpAddress = primaryIpAddress;
   }
 
-  public DataForGetFingerprintAppOutput startTime(Integer startTime) {
+  public DataForGetFingerprintAppOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -335,11 +335,11 @@ public class DataForGetFingerprintAppOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -361,7 +361,7 @@ public class DataForGetFingerprintAppOutput {
     this.type = type;
   }
 
-  public DataForGetFingerprintAppOutput updateTime(Integer updateTime) {
+  public DataForGetFingerprintAppOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -371,11 +371,11 @@ public class DataForGetFingerprintAppOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 

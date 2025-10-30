@@ -34,7 +34,7 @@ public class VolumeForGetDevDetailOutput {
   private String id = null;
 
   @SerializedName("Size")
-  private Integer size = null;
+  private Long size = null;
 
   @SerializedName("State")
   private String state = null;
@@ -66,7 +66,7 @@ public class VolumeForGetDevDetailOutput {
     this.id = id;
   }
 
-  public VolumeForGetDevDetailOutput size(Integer size) {
+  public VolumeForGetDevDetailOutput size(Long size) {
     this.size = size;
     return this;
   }
@@ -76,11 +76,11 @@ public class VolumeForGetDevDetailOutput {
    * @return size
   **/
   @Schema(description = "")
-  public Integer getSize() {
+  public Long getSize() {
     return size;
   }
 
-  public void setSize(Integer size) {
+  public void setSize(Long size) {
     this.size = size;
   }
 

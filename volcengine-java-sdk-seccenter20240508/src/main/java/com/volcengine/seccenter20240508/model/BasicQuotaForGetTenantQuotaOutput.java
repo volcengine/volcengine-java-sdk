@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class BasicQuotaForGetTenantQuotaOutput {
   @SerializedName("ExpireTime")
-  private Integer expireTime = null;
+  private Long expireTime = null;
 
   @SerializedName("PaidType")
   private String paidType = null;
 
   @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  private Long totalCount = null;
 
   @SerializedName("UsedCount")
-  private Integer usedCount = null;
+  private Long usedCount = null;
 
   @SerializedName("Version")
-  private Integer version = null;
+  private Long version = null;
 
-  public BasicQuotaForGetTenantQuotaOutput expireTime(Integer expireTime) {
+  public BasicQuotaForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
   }
@@ -55,11 +55,11 @@ public class BasicQuotaForGetTenantQuotaOutput {
    * @return expireTime
   **/
   @Schema(description = "")
-  public Integer getExpireTime() {
+  public Long getExpireTime() {
     return expireTime;
   }
 
-  public void setExpireTime(Integer expireTime) {
+  public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
   }
 
@@ -81,7 +81,7 @@ public class BasicQuotaForGetTenantQuotaOutput {
     this.paidType = paidType;
   }
 
-  public BasicQuotaForGetTenantQuotaOutput totalCount(Integer totalCount) {
+  public BasicQuotaForGetTenantQuotaOutput totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -91,15 +91,15 @@ public class BasicQuotaForGetTenantQuotaOutput {
    * @return totalCount
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
-  public BasicQuotaForGetTenantQuotaOutput usedCount(Integer usedCount) {
+  public BasicQuotaForGetTenantQuotaOutput usedCount(Long usedCount) {
     this.usedCount = usedCount;
     return this;
   }
@@ -109,15 +109,15 @@ public class BasicQuotaForGetTenantQuotaOutput {
    * @return usedCount
   **/
   @Schema(description = "")
-  public Integer getUsedCount() {
+  public Long getUsedCount() {
     return usedCount;
   }
 
-  public void setUsedCount(Integer usedCount) {
+  public void setUsedCount(Long usedCount) {
     this.usedCount = usedCount;
   }
 
-  public BasicQuotaForGetTenantQuotaOutput version(Integer version) {
+  public BasicQuotaForGetTenantQuotaOutput version(Long version) {
     this.version = version;
     return this;
   }
@@ -127,11 +127,11 @@ public class BasicQuotaForGetTenantQuotaOutput {
    * @return version
   **/
   @Schema(description = "")
-  public Integer getVersion() {
+  public Long getVersion() {
     return version;
   }
 
-  public void setVersion(Integer version) {
+  public void setVersion(Long version) {
     this.version = version;
   }
 

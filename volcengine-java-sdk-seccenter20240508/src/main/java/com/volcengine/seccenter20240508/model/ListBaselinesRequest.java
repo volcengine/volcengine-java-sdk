@@ -94,22 +94,22 @@ public class ListBaselinesRequest {
   private String clusterID = null;
 
   @SerializedName("GroupID")
-  private Integer groupID = null;
+  private Long groupID = null;
 
   @SerializedName("LastDetectedTimeEnd")
-  private Integer lastDetectedTimeEnd = null;
+  private Long lastDetectedTimeEnd = null;
 
   @SerializedName("LastDetectedTimeStart")
-  private Integer lastDetectedTimeStart = null;
+  private Long lastDetectedTimeStart = null;
 
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -239,7 +239,7 @@ public class ListBaselinesRequest {
     this.clusterID = clusterID;
   }
 
-  public ListBaselinesRequest groupID(Integer groupID) {
+  public ListBaselinesRequest groupID(Long groupID) {
     this.groupID = groupID;
     return this;
   }
@@ -249,15 +249,15 @@ public class ListBaselinesRequest {
    * @return groupID
   **/
   @Schema(description = "")
-  public Integer getGroupID() {
+  public Long getGroupID() {
     return groupID;
   }
 
-  public void setGroupID(Integer groupID) {
+  public void setGroupID(Long groupID) {
     this.groupID = groupID;
   }
 
-  public ListBaselinesRequest lastDetectedTimeEnd(Integer lastDetectedTimeEnd) {
+  public ListBaselinesRequest lastDetectedTimeEnd(Long lastDetectedTimeEnd) {
     this.lastDetectedTimeEnd = lastDetectedTimeEnd;
     return this;
   }
@@ -267,15 +267,15 @@ public class ListBaselinesRequest {
    * @return lastDetectedTimeEnd
   **/
   @Schema(description = "")
-  public Integer getLastDetectedTimeEnd() {
+  public Long getLastDetectedTimeEnd() {
     return lastDetectedTimeEnd;
   }
 
-  public void setLastDetectedTimeEnd(Integer lastDetectedTimeEnd) {
+  public void setLastDetectedTimeEnd(Long lastDetectedTimeEnd) {
     this.lastDetectedTimeEnd = lastDetectedTimeEnd;
   }
 
-  public ListBaselinesRequest lastDetectedTimeStart(Integer lastDetectedTimeStart) {
+  public ListBaselinesRequest lastDetectedTimeStart(Long lastDetectedTimeStart) {
     this.lastDetectedTimeStart = lastDetectedTimeStart;
     return this;
   }
@@ -285,11 +285,11 @@ public class ListBaselinesRequest {
    * @return lastDetectedTimeStart
   **/
   @Schema(description = "")
-  public Integer getLastDetectedTimeStart() {
+  public Long getLastDetectedTimeStart() {
     return lastDetectedTimeStart;
   }
 
-  public void setLastDetectedTimeStart(Integer lastDetectedTimeStart) {
+  public void setLastDetectedTimeStart(Long lastDetectedTimeStart) {
     this.lastDetectedTimeStart = lastDetectedTimeStart;
   }
 
@@ -319,7 +319,7 @@ public class ListBaselinesRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListBaselinesRequest pageNumber(Integer pageNumber) {
+  public ListBaselinesRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -330,15 +330,15 @@ public class ListBaselinesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListBaselinesRequest pageSize(Integer pageSize) {
+  public ListBaselinesRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -349,11 +349,11 @@ public class ListBaselinesRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

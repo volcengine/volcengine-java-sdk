@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class DataForGetFingerprintAppGroupOutput {
   @SerializedName("Count")
-  private Integer count = null;
+  private Long count = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  public DataForGetFingerprintAppGroupOutput count(Integer count) {
+  public DataForGetFingerprintAppGroupOutput count(Long count) {
     this.count = count;
     return this;
   }
@@ -46,11 +46,11 @@ public class DataForGetFingerprintAppGroupOutput {
    * @return count
   **/
   @Schema(description = "")
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(Integer count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 

@@ -31,42 +31,42 @@ import javax.validation.Valid;
 
 public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AlarmCriticalCount")
-  private Integer alarmCriticalCount = null;
+  private Long alarmCriticalCount = null;
 
   @SerializedName("AlarmHighCount")
-  private Integer alarmHighCount = null;
+  private Long alarmHighCount = null;
 
   @SerializedName("AlarmLowCount")
-  private Integer alarmLowCount = null;
+  private Long alarmLowCount = null;
 
   @SerializedName("AlarmMediumCount")
-  private Integer alarmMediumCount = null;
+  private Long alarmMediumCount = null;
 
   @SerializedName("AlarmProcessedCount")
-  private Integer alarmProcessedCount = null;
+  private Long alarmProcessedCount = null;
 
   @SerializedName("AlarmTotal")
-  private Integer alarmTotal = null;
+  private Long alarmTotal = null;
 
   @SerializedName("AlarmWhiteCount")
-  private Integer alarmWhiteCount = null;
+  private Long alarmWhiteCount = null;
 
   @SerializedName("IsolateFileCount")
-  private Integer isolateFileCount = null;
+  private Long isolateFileCount = null;
 
   @SerializedName("IsolateTodayCount")
-  private Integer isolateTodayCount = null;
+  private Long isolateTodayCount = null;
 
   @SerializedName("PrecisionDefenseCount")
-  private Integer precisionDefenseCount = null;
+  private Long precisionDefenseCount = null;
 
   @SerializedName("PrecisionDefenseTodayCount")
-  private Integer precisionDefenseTodayCount = null;
+  private Long precisionDefenseTodayCount = null;
 
   @SerializedName("UnhandledTodayCount")
-  private Integer unhandledTodayCount = null;
+  private Long unhandledTodayCount = null;
 
-  public GetMlpAlarmStatisticsResponse alarmCriticalCount(Integer alarmCriticalCount) {
+  public GetMlpAlarmStatisticsResponse alarmCriticalCount(Long alarmCriticalCount) {
     this.alarmCriticalCount = alarmCriticalCount;
     return this;
   }
@@ -76,15 +76,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmCriticalCount
   **/
   @Schema(description = "")
-  public Integer getAlarmCriticalCount() {
+  public Long getAlarmCriticalCount() {
     return alarmCriticalCount;
   }
 
-  public void setAlarmCriticalCount(Integer alarmCriticalCount) {
+  public void setAlarmCriticalCount(Long alarmCriticalCount) {
     this.alarmCriticalCount = alarmCriticalCount;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmHighCount(Integer alarmHighCount) {
+  public GetMlpAlarmStatisticsResponse alarmHighCount(Long alarmHighCount) {
     this.alarmHighCount = alarmHighCount;
     return this;
   }
@@ -94,15 +94,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmHighCount
   **/
   @Schema(description = "")
-  public Integer getAlarmHighCount() {
+  public Long getAlarmHighCount() {
     return alarmHighCount;
   }
 
-  public void setAlarmHighCount(Integer alarmHighCount) {
+  public void setAlarmHighCount(Long alarmHighCount) {
     this.alarmHighCount = alarmHighCount;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmLowCount(Integer alarmLowCount) {
+  public GetMlpAlarmStatisticsResponse alarmLowCount(Long alarmLowCount) {
     this.alarmLowCount = alarmLowCount;
     return this;
   }
@@ -112,15 +112,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmLowCount
   **/
   @Schema(description = "")
-  public Integer getAlarmLowCount() {
+  public Long getAlarmLowCount() {
     return alarmLowCount;
   }
 
-  public void setAlarmLowCount(Integer alarmLowCount) {
+  public void setAlarmLowCount(Long alarmLowCount) {
     this.alarmLowCount = alarmLowCount;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmMediumCount(Integer alarmMediumCount) {
+  public GetMlpAlarmStatisticsResponse alarmMediumCount(Long alarmMediumCount) {
     this.alarmMediumCount = alarmMediumCount;
     return this;
   }
@@ -130,15 +130,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmMediumCount
   **/
   @Schema(description = "")
-  public Integer getAlarmMediumCount() {
+  public Long getAlarmMediumCount() {
     return alarmMediumCount;
   }
 
-  public void setAlarmMediumCount(Integer alarmMediumCount) {
+  public void setAlarmMediumCount(Long alarmMediumCount) {
     this.alarmMediumCount = alarmMediumCount;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmProcessedCount(Integer alarmProcessedCount) {
+  public GetMlpAlarmStatisticsResponse alarmProcessedCount(Long alarmProcessedCount) {
     this.alarmProcessedCount = alarmProcessedCount;
     return this;
   }
@@ -148,15 +148,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmProcessedCount
   **/
   @Schema(description = "")
-  public Integer getAlarmProcessedCount() {
+  public Long getAlarmProcessedCount() {
     return alarmProcessedCount;
   }
 
-  public void setAlarmProcessedCount(Integer alarmProcessedCount) {
+  public void setAlarmProcessedCount(Long alarmProcessedCount) {
     this.alarmProcessedCount = alarmProcessedCount;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmTotal(Integer alarmTotal) {
+  public GetMlpAlarmStatisticsResponse alarmTotal(Long alarmTotal) {
     this.alarmTotal = alarmTotal;
     return this;
   }
@@ -166,15 +166,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmTotal
   **/
   @Schema(description = "")
-  public Integer getAlarmTotal() {
+  public Long getAlarmTotal() {
     return alarmTotal;
   }
 
-  public void setAlarmTotal(Integer alarmTotal) {
+  public void setAlarmTotal(Long alarmTotal) {
     this.alarmTotal = alarmTotal;
   }
 
-  public GetMlpAlarmStatisticsResponse alarmWhiteCount(Integer alarmWhiteCount) {
+  public GetMlpAlarmStatisticsResponse alarmWhiteCount(Long alarmWhiteCount) {
     this.alarmWhiteCount = alarmWhiteCount;
     return this;
   }
@@ -184,15 +184,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return alarmWhiteCount
   **/
   @Schema(description = "")
-  public Integer getAlarmWhiteCount() {
+  public Long getAlarmWhiteCount() {
     return alarmWhiteCount;
   }
 
-  public void setAlarmWhiteCount(Integer alarmWhiteCount) {
+  public void setAlarmWhiteCount(Long alarmWhiteCount) {
     this.alarmWhiteCount = alarmWhiteCount;
   }
 
-  public GetMlpAlarmStatisticsResponse isolateFileCount(Integer isolateFileCount) {
+  public GetMlpAlarmStatisticsResponse isolateFileCount(Long isolateFileCount) {
     this.isolateFileCount = isolateFileCount;
     return this;
   }
@@ -202,15 +202,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return isolateFileCount
   **/
   @Schema(description = "")
-  public Integer getIsolateFileCount() {
+  public Long getIsolateFileCount() {
     return isolateFileCount;
   }
 
-  public void setIsolateFileCount(Integer isolateFileCount) {
+  public void setIsolateFileCount(Long isolateFileCount) {
     this.isolateFileCount = isolateFileCount;
   }
 
-  public GetMlpAlarmStatisticsResponse isolateTodayCount(Integer isolateTodayCount) {
+  public GetMlpAlarmStatisticsResponse isolateTodayCount(Long isolateTodayCount) {
     this.isolateTodayCount = isolateTodayCount;
     return this;
   }
@@ -220,15 +220,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return isolateTodayCount
   **/
   @Schema(description = "")
-  public Integer getIsolateTodayCount() {
+  public Long getIsolateTodayCount() {
     return isolateTodayCount;
   }
 
-  public void setIsolateTodayCount(Integer isolateTodayCount) {
+  public void setIsolateTodayCount(Long isolateTodayCount) {
     this.isolateTodayCount = isolateTodayCount;
   }
 
-  public GetMlpAlarmStatisticsResponse precisionDefenseCount(Integer precisionDefenseCount) {
+  public GetMlpAlarmStatisticsResponse precisionDefenseCount(Long precisionDefenseCount) {
     this.precisionDefenseCount = precisionDefenseCount;
     return this;
   }
@@ -238,15 +238,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return precisionDefenseCount
   **/
   @Schema(description = "")
-  public Integer getPrecisionDefenseCount() {
+  public Long getPrecisionDefenseCount() {
     return precisionDefenseCount;
   }
 
-  public void setPrecisionDefenseCount(Integer precisionDefenseCount) {
+  public void setPrecisionDefenseCount(Long precisionDefenseCount) {
     this.precisionDefenseCount = precisionDefenseCount;
   }
 
-  public GetMlpAlarmStatisticsResponse precisionDefenseTodayCount(Integer precisionDefenseTodayCount) {
+  public GetMlpAlarmStatisticsResponse precisionDefenseTodayCount(Long precisionDefenseTodayCount) {
     this.precisionDefenseTodayCount = precisionDefenseTodayCount;
     return this;
   }
@@ -256,15 +256,15 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return precisionDefenseTodayCount
   **/
   @Schema(description = "")
-  public Integer getPrecisionDefenseTodayCount() {
+  public Long getPrecisionDefenseTodayCount() {
     return precisionDefenseTodayCount;
   }
 
-  public void setPrecisionDefenseTodayCount(Integer precisionDefenseTodayCount) {
+  public void setPrecisionDefenseTodayCount(Long precisionDefenseTodayCount) {
     this.precisionDefenseTodayCount = precisionDefenseTodayCount;
   }
 
-  public GetMlpAlarmStatisticsResponse unhandledTodayCount(Integer unhandledTodayCount) {
+  public GetMlpAlarmStatisticsResponse unhandledTodayCount(Long unhandledTodayCount) {
     this.unhandledTodayCount = unhandledTodayCount;
     return this;
   }
@@ -274,11 +274,11 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
    * @return unhandledTodayCount
   **/
   @Schema(description = "")
-  public Integer getUnhandledTodayCount() {
+  public Long getUnhandledTodayCount() {
     return unhandledTodayCount;
   }
 
-  public void setUnhandledTodayCount(Integer unhandledTodayCount) {
+  public void setUnhandledTodayCount(Long unhandledTodayCount) {
     this.unhandledTodayCount = unhandledTodayCount;
   }
 

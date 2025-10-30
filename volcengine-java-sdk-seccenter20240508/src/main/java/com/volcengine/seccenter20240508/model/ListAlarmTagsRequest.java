@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,19 +33,27 @@ import javax.validation.Valid;
 
 public class ListAlarmTagsRequest {
   @SerializedName("AlarmIDList")
-  private String alarmIDList = null;
+  private List<String> alarmIDList = null;
 
   @SerializedName("AlarmType")
   private String alarmType = null;
 
   @SerializedName("AlertTags")
-  private String alertTags = null;
+  private List<String> alertTags = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
 
-  public ListAlarmTagsRequest alarmIDList(String alarmIDList) {
+  public ListAlarmTagsRequest alarmIDList(List<String> alarmIDList) {
     this.alarmIDList = alarmIDList;
+    return this;
+  }
+
+  public ListAlarmTagsRequest addAlarmIDListItem(String alarmIDListItem) {
+    if (this.alarmIDList == null) {
+      this.alarmIDList = new ArrayList<String>();
+    }
+    this.alarmIDList.add(alarmIDListItem);
     return this;
   }
 
@@ -52,11 +62,11 @@ public class ListAlarmTagsRequest {
    * @return alarmIDList
   **/
   @Schema(description = "")
-  public String getAlarmIDList() {
+  public List<String> getAlarmIDList() {
     return alarmIDList;
   }
 
-  public void setAlarmIDList(String alarmIDList) {
+  public void setAlarmIDList(List<String> alarmIDList) {
     this.alarmIDList = alarmIDList;
   }
 
@@ -78,8 +88,16 @@ public class ListAlarmTagsRequest {
     this.alarmType = alarmType;
   }
 
-  public ListAlarmTagsRequest alertTags(String alertTags) {
+  public ListAlarmTagsRequest alertTags(List<String> alertTags) {
     this.alertTags = alertTags;
+    return this;
+  }
+
+  public ListAlarmTagsRequest addAlertTagsItem(String alertTagsItem) {
+    if (this.alertTags == null) {
+      this.alertTags = new ArrayList<String>();
+    }
+    this.alertTags.add(alertTagsItem);
     return this;
   }
 
@@ -88,11 +106,11 @@ public class ListAlarmTagsRequest {
    * @return alertTags
   **/
   @Schema(description = "")
-  public String getAlertTags() {
+  public List<String> getAlertTags() {
     return alertTags;
   }
 
-  public void setAlertTags(String alertTags) {
+  public void setAlertTags(List<String> alertTags) {
     this.alertTags = alertTags;
   }
 

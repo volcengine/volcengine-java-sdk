@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class UpdateRegularCleanRequest {
   @SerializedName("CleanDays")
-  private Integer cleanDays = null;
+  private Long cleanDays = null;
 
   @SerializedName("Switch")
   private Boolean _switch = null;
 
-  public UpdateRegularCleanRequest cleanDays(Integer cleanDays) {
+  public UpdateRegularCleanRequest cleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
     return this;
   }
@@ -46,11 +46,11 @@ public class UpdateRegularCleanRequest {
    * @return cleanDays
   **/
   @Schema(description = "")
-  public Integer getCleanDays() {
+  public Long getCleanDays() {
     return cleanDays;
   }
 
-  public void setCleanDays(Integer cleanDays) {
+  public void setCleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
   }
 

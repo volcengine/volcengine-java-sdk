@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class GetGroupCheckStatusRequest {
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("GroupID")
-  private Integer groupID = null;
+  private Long groupID = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
 
-  public GetGroupCheckStatusRequest baselineID(Integer baselineID) {
+  public GetGroupCheckStatusRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -49,15 +49,15 @@ public class GetGroupCheckStatusRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
-  public GetGroupCheckStatusRequest groupID(Integer groupID) {
+  public GetGroupCheckStatusRequest groupID(Long groupID) {
     this.groupID = groupID;
     return this;
   }
@@ -67,11 +67,11 @@ public class GetGroupCheckStatusRequest {
    * @return groupID
   **/
   @Schema(description = "")
-  public Integer getGroupID() {
+  public Long getGroupID() {
     return groupID;
   }
 
-  public void setGroupID(Integer groupID) {
+  public void setGroupID(Long groupID) {
     this.groupID = groupID;
   }
 

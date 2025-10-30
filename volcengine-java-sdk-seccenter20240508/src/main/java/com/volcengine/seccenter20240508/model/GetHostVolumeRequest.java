@@ -34,10 +34,10 @@ public class GetHostVolumeRequest {
   private String agentID = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -63,7 +63,7 @@ public class GetHostVolumeRequest {
     this.agentID = agentID;
   }
 
-  public GetHostVolumeRequest pageNumber(Integer pageNumber) {
+  public GetHostVolumeRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -74,15 +74,15 @@ public class GetHostVolumeRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public GetHostVolumeRequest pageSize(Integer pageSize) {
+  public GetHostVolumeRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -93,11 +93,11 @@ public class GetHostVolumeRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class GetIntrusionRiskTrendsRequest {
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
-  public GetIntrusionRiskTrendsRequest endTime(Integer endTime) {
+  public GetIntrusionRiskTrendsRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -46,15 +46,15 @@ public class GetIntrusionRiskTrendsRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
-  public GetIntrusionRiskTrendsRequest startTime(Integer startTime) {
+  public GetIntrusionRiskTrendsRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -64,11 +64,11 @@ public class GetIntrusionRiskTrendsRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 

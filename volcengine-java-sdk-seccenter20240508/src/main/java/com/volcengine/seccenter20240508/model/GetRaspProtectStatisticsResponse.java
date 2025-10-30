@@ -31,30 +31,30 @@ import javax.validation.Valid;
 
 public class GetRaspProtectStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("HitWhiteProcessCount")
-  private Integer hitWhiteProcessCount = null;
+  private Long hitWhiteProcessCount = null;
 
   @SerializedName("ProcessCount")
-  private Integer processCount = null;
+  private Long processCount = null;
 
   @SerializedName("ProtectAbnormalProcessCount")
-  private Integer protectAbnormalProcessCount = null;
+  private Long protectAbnormalProcessCount = null;
 
   @SerializedName("ProtectedProcessCount")
-  private Integer protectedProcessCount = null;
+  private Long protectedProcessCount = null;
 
   @SerializedName("RaspCloseCount")
-  private Integer raspCloseCount = null;
+  private Long raspCloseCount = null;
 
   @SerializedName("RaspOpenCount")
-  private Integer raspOpenCount = null;
+  private Long raspOpenCount = null;
 
   @SerializedName("RaspOpenFailCount")
-  private Integer raspOpenFailCount = null;
+  private Long raspOpenFailCount = null;
 
   @SerializedName("ToBeProtectedProcessCount")
-  private Integer toBeProtectedProcessCount = null;
+  private Long toBeProtectedProcessCount = null;
 
-  public GetRaspProtectStatisticsResponse hitWhiteProcessCount(Integer hitWhiteProcessCount) {
+  public GetRaspProtectStatisticsResponse hitWhiteProcessCount(Long hitWhiteProcessCount) {
     this.hitWhiteProcessCount = hitWhiteProcessCount;
     return this;
   }
@@ -64,15 +64,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return hitWhiteProcessCount
   **/
   @Schema(description = "")
-  public Integer getHitWhiteProcessCount() {
+  public Long getHitWhiteProcessCount() {
     return hitWhiteProcessCount;
   }
 
-  public void setHitWhiteProcessCount(Integer hitWhiteProcessCount) {
+  public void setHitWhiteProcessCount(Long hitWhiteProcessCount) {
     this.hitWhiteProcessCount = hitWhiteProcessCount;
   }
 
-  public GetRaspProtectStatisticsResponse processCount(Integer processCount) {
+  public GetRaspProtectStatisticsResponse processCount(Long processCount) {
     this.processCount = processCount;
     return this;
   }
@@ -82,15 +82,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return processCount
   **/
   @Schema(description = "")
-  public Integer getProcessCount() {
+  public Long getProcessCount() {
     return processCount;
   }
 
-  public void setProcessCount(Integer processCount) {
+  public void setProcessCount(Long processCount) {
     this.processCount = processCount;
   }
 
-  public GetRaspProtectStatisticsResponse protectAbnormalProcessCount(Integer protectAbnormalProcessCount) {
+  public GetRaspProtectStatisticsResponse protectAbnormalProcessCount(Long protectAbnormalProcessCount) {
     this.protectAbnormalProcessCount = protectAbnormalProcessCount;
     return this;
   }
@@ -100,15 +100,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return protectAbnormalProcessCount
   **/
   @Schema(description = "")
-  public Integer getProtectAbnormalProcessCount() {
+  public Long getProtectAbnormalProcessCount() {
     return protectAbnormalProcessCount;
   }
 
-  public void setProtectAbnormalProcessCount(Integer protectAbnormalProcessCount) {
+  public void setProtectAbnormalProcessCount(Long protectAbnormalProcessCount) {
     this.protectAbnormalProcessCount = protectAbnormalProcessCount;
   }
 
-  public GetRaspProtectStatisticsResponse protectedProcessCount(Integer protectedProcessCount) {
+  public GetRaspProtectStatisticsResponse protectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
     return this;
   }
@@ -118,15 +118,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return protectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getProtectedProcessCount() {
+  public Long getProtectedProcessCount() {
     return protectedProcessCount;
   }
 
-  public void setProtectedProcessCount(Integer protectedProcessCount) {
+  public void setProtectedProcessCount(Long protectedProcessCount) {
     this.protectedProcessCount = protectedProcessCount;
   }
 
-  public GetRaspProtectStatisticsResponse raspCloseCount(Integer raspCloseCount) {
+  public GetRaspProtectStatisticsResponse raspCloseCount(Long raspCloseCount) {
     this.raspCloseCount = raspCloseCount;
     return this;
   }
@@ -136,15 +136,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return raspCloseCount
   **/
   @Schema(description = "")
-  public Integer getRaspCloseCount() {
+  public Long getRaspCloseCount() {
     return raspCloseCount;
   }
 
-  public void setRaspCloseCount(Integer raspCloseCount) {
+  public void setRaspCloseCount(Long raspCloseCount) {
     this.raspCloseCount = raspCloseCount;
   }
 
-  public GetRaspProtectStatisticsResponse raspOpenCount(Integer raspOpenCount) {
+  public GetRaspProtectStatisticsResponse raspOpenCount(Long raspOpenCount) {
     this.raspOpenCount = raspOpenCount;
     return this;
   }
@@ -154,15 +154,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return raspOpenCount
   **/
   @Schema(description = "")
-  public Integer getRaspOpenCount() {
+  public Long getRaspOpenCount() {
     return raspOpenCount;
   }
 
-  public void setRaspOpenCount(Integer raspOpenCount) {
+  public void setRaspOpenCount(Long raspOpenCount) {
     this.raspOpenCount = raspOpenCount;
   }
 
-  public GetRaspProtectStatisticsResponse raspOpenFailCount(Integer raspOpenFailCount) {
+  public GetRaspProtectStatisticsResponse raspOpenFailCount(Long raspOpenFailCount) {
     this.raspOpenFailCount = raspOpenFailCount;
     return this;
   }
@@ -172,15 +172,15 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return raspOpenFailCount
   **/
   @Schema(description = "")
-  public Integer getRaspOpenFailCount() {
+  public Long getRaspOpenFailCount() {
     return raspOpenFailCount;
   }
 
-  public void setRaspOpenFailCount(Integer raspOpenFailCount) {
+  public void setRaspOpenFailCount(Long raspOpenFailCount) {
     this.raspOpenFailCount = raspOpenFailCount;
   }
 
-  public GetRaspProtectStatisticsResponse toBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public GetRaspProtectStatisticsResponse toBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
     return this;
   }
@@ -190,11 +190,11 @@ public class GetRaspProtectStatisticsResponse extends com.volcengine.model.Abstr
    * @return toBeProtectedProcessCount
   **/
   @Schema(description = "")
-  public Integer getToBeProtectedProcessCount() {
+  public Long getToBeProtectedProcessCount() {
     return toBeProtectedProcessCount;
   }
 
-  public void setToBeProtectedProcessCount(Integer toBeProtectedProcessCount) {
+  public void setToBeProtectedProcessCount(Long toBeProtectedProcessCount) {
     this.toBeProtectedProcessCount = toBeProtectedProcessCount;
   }
 

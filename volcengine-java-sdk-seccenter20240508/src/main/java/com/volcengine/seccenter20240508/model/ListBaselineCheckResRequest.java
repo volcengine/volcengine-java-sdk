@@ -85,7 +85,7 @@ public class ListBaselineCheckResRequest {
   private AssetTypeEnum assetType = null;
 
   @SerializedName("BaselineID")
-  private Integer baselineID = null;
+  private Long baselineID = null;
 
   @SerializedName("ChecklistName")
   private String checklistName = null;
@@ -100,10 +100,10 @@ public class ListBaselineCheckResRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("Result")
   private List<String> result = null;
@@ -171,7 +171,7 @@ public class ListBaselineCheckResRequest {
     this.assetType = assetType;
   }
 
-  public ListBaselineCheckResRequest baselineID(Integer baselineID) {
+  public ListBaselineCheckResRequest baselineID(Long baselineID) {
     this.baselineID = baselineID;
     return this;
   }
@@ -181,11 +181,11 @@ public class ListBaselineCheckResRequest {
    * @return baselineID
   **/
   @Schema(description = "")
-  public Integer getBaselineID() {
+  public Long getBaselineID() {
     return baselineID;
   }
 
-  public void setBaselineID(Integer baselineID) {
+  public void setBaselineID(Long baselineID) {
     this.baselineID = baselineID;
   }
 
@@ -277,7 +277,7 @@ public class ListBaselineCheckResRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ListBaselineCheckResRequest pageNumber(Integer pageNumber) {
+  public ListBaselineCheckResRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -288,15 +288,15 @@ public class ListBaselineCheckResRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListBaselineCheckResRequest pageSize(Integer pageSize) {
+  public ListBaselineCheckResRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -307,11 +307,11 @@ public class ListBaselineCheckResRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

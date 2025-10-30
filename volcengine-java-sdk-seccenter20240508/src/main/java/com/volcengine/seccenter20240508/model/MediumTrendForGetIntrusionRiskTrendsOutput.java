@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class MediumTrendForGetIntrusionRiskTrendsOutput {
   @SerializedName("TimeStamp")
-  private Integer timeStamp = null;
+  private Long timeStamp = null;
 
   @SerializedName("Value")
-  private Integer value = null;
+  private Long value = null;
 
-  public MediumTrendForGetIntrusionRiskTrendsOutput timeStamp(Integer timeStamp) {
+  public MediumTrendForGetIntrusionRiskTrendsOutput timeStamp(Long timeStamp) {
     this.timeStamp = timeStamp;
     return this;
   }
@@ -46,15 +46,15 @@ public class MediumTrendForGetIntrusionRiskTrendsOutput {
    * @return timeStamp
   **/
   @Schema(description = "")
-  public Integer getTimeStamp() {
+  public Long getTimeStamp() {
     return timeStamp;
   }
 
-  public void setTimeStamp(Integer timeStamp) {
+  public void setTimeStamp(Long timeStamp) {
     this.timeStamp = timeStamp;
   }
 
-  public MediumTrendForGetIntrusionRiskTrendsOutput value(Integer value) {
+  public MediumTrendForGetIntrusionRiskTrendsOutput value(Long value) {
     this.value = value;
     return this;
   }
@@ -64,11 +64,11 @@ public class MediumTrendForGetIntrusionRiskTrendsOutput {
    * @return value
   **/
   @Schema(description = "")
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

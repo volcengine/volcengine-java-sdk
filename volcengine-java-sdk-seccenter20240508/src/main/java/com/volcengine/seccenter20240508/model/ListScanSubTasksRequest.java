@@ -36,10 +36,10 @@ public class ListScanSubTasksRequest {
   private String hostname = null;
 
   @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
-  private Integer pageSize = null;
+  private Long pageSize = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -71,7 +71,7 @@ public class ListScanSubTasksRequest {
     this.hostname = hostname;
   }
 
-  public ListScanSubTasksRequest pageNumber(Integer pageNumber) {
+  public ListScanSubTasksRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -82,15 +82,15 @@ public class ListScanSubTasksRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Integer pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public ListScanSubTasksRequest pageSize(Integer pageSize) {
+  public ListScanSubTasksRequest pageSize(Long pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -101,11 +101,11 @@ public class ListScanSubTasksRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getPageSize() {
+  public Long getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
   }
 

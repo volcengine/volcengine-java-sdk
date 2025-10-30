@@ -37,7 +37,7 @@ public class RangeForListAutoDefenseRulesOutput {
   private List<HostListForListAutoDefenseRulesOutput> hostList = null;
 
   @SerializedName("HostNum")
-  private Integer hostNum = null;
+  private Long hostNum = null;
 
   @SerializedName("IfAllHost")
   private Boolean ifAllHost = null;
@@ -75,7 +75,7 @@ public class RangeForListAutoDefenseRulesOutput {
     this.hostList = hostList;
   }
 
-  public RangeForListAutoDefenseRulesOutput hostNum(Integer hostNum) {
+  public RangeForListAutoDefenseRulesOutput hostNum(Long hostNum) {
     this.hostNum = hostNum;
     return this;
   }
@@ -85,11 +85,11 @@ public class RangeForListAutoDefenseRulesOutput {
    * @return hostNum
   **/
   @Schema(description = "")
-  public Integer getHostNum() {
+  public Long getHostNum() {
     return hostNum;
   }
 
-  public void setHostNum(Integer hostNum) {
+  public void setHostNum(Long hostNum) {
     this.hostNum = hostNum;
   }
 
