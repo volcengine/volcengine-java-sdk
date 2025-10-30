@@ -25,7 +25,7 @@ public class ArkHttpException extends RuntimeException {
     }
 
     public String getMessage() {
-        return this.toString();
+        return super.getMessage();
     }
 
     @Override
