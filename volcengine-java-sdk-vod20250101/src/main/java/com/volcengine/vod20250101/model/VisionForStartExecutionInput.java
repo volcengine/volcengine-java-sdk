@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertSegmentForStartExecutionInput;
-import com.volcengine.vod20250101.model.ModelForStartExecutionInput;
+import com.volcengine.vod20250101.model.ConvertConvertSegmentForStartExecutionInput;
+import com.volcengine.vod20250101.model.ConvertModelForStartExecutionInput;
 import com.volcengine.vod20250101.model.SnapshotParamForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class VisionForStartExecutionInput {
   @SerializedName("Model")
-  private ModelForStartExecutionInput model = null;
+  private ConvertModelForStartExecutionInput model = null;
 
   @SerializedName("NeedAsrSpeaker")
   private Boolean needAsrSpeaker = null;
@@ -46,12 +46,12 @@ public class VisionForStartExecutionInput {
   private String responseFormatType = null;
 
   @SerializedName("Segment")
-  private ConvertSegmentForStartExecutionInput segment = null;
+  private ConvertConvertSegmentForStartExecutionInput segment = null;
 
   @SerializedName("SnapshotParam")
   private SnapshotParamForStartExecutionInput snapshotParam = null;
 
-  public VisionForStartExecutionInput model(ModelForStartExecutionInput model) {
+  public VisionForStartExecutionInput model(ConvertModelForStartExecutionInput model) {
     this.model = model;
     return this;
   }
@@ -62,11 +62,11 @@ public class VisionForStartExecutionInput {
   **/
   @Valid
   @Schema(description = "")
-  public ModelForStartExecutionInput getModel() {
+  public ConvertModelForStartExecutionInput getModel() {
     return model;
   }
 
-  public void setModel(ModelForStartExecutionInput model) {
+  public void setModel(ConvertModelForStartExecutionInput model) {
     this.model = model;
   }
 
@@ -124,7 +124,7 @@ public class VisionForStartExecutionInput {
     this.responseFormatType = responseFormatType;
   }
 
-  public VisionForStartExecutionInput segment(ConvertSegmentForStartExecutionInput segment) {
+  public VisionForStartExecutionInput segment(ConvertConvertSegmentForStartExecutionInput segment) {
     this.segment = segment;
     return this;
   }
@@ -135,11 +135,11 @@ public class VisionForStartExecutionInput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertSegmentForStartExecutionInput getSegment() {
+  public ConvertConvertSegmentForStartExecutionInput getSegment() {
     return segment;
   }
 
-  public void setSegment(ConvertSegmentForStartExecutionInput segment) {
+  public void setSegment(ConvertConvertSegmentForStartExecutionInput segment) {
     this.segment = segment;
   }
 

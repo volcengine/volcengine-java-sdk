@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.EditForGetExecutionOutput;
 import com.volcengine.vod20250101.model.HighlightCutsForGetExecutionOutput;
 import com.volcengine.vod20250101.model.OpeningHookForGetExecutionOutput;
 import com.volcengine.vod20250101.model.StorylineCutsForGetExecutionOutput;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class HighlightForGetExecutionOutput {
+  @SerializedName("Edit")
+  private EditForGetExecutionOutput edit = null;
+
   @SerializedName("HighlightCuts")
   private HighlightCutsForGetExecutionOutput highlightCuts = null;
 
@@ -44,6 +48,25 @@ public class HighlightForGetExecutionOutput {
 
   @SerializedName("StorylineCuts")
   private StorylineCutsForGetExecutionOutput storylineCuts = null;
+
+  public HighlightForGetExecutionOutput edit(EditForGetExecutionOutput edit) {
+    this.edit = edit;
+    return this;
+  }
+
+   /**
+   * Get edit
+   * @return edit
+  **/
+  @Valid
+  @Schema(description = "")
+  public EditForGetExecutionOutput getEdit() {
+    return edit;
+  }
+
+  public void setEdit(EditForGetExecutionOutput edit) {
+    this.edit = edit;
+  }
 
   public HighlightForGetExecutionOutput highlightCuts(HighlightCutsForGetExecutionOutput highlightCuts) {
     this.highlightCuts = highlightCuts;
@@ -130,7 +153,8 @@ public class HighlightForGetExecutionOutput {
       return false;
     }
     HighlightForGetExecutionOutput highlightForGetExecutionOutput = (HighlightForGetExecutionOutput) o;
-    return Objects.equals(this.highlightCuts, highlightForGetExecutionOutput.highlightCuts) &&
+    return Objects.equals(this.edit, highlightForGetExecutionOutput.edit) &&
+        Objects.equals(this.highlightCuts, highlightForGetExecutionOutput.highlightCuts) &&
         Objects.equals(this.mode, highlightForGetExecutionOutput.mode) &&
         Objects.equals(this.openingHook, highlightForGetExecutionOutput.openingHook) &&
         Objects.equals(this.storylineCuts, highlightForGetExecutionOutput.storylineCuts);
@@ -138,7 +162,7 @@ public class HighlightForGetExecutionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(highlightCuts, mode, openingHook, storylineCuts);
+    return Objects.hash(edit, highlightCuts, mode, openingHook, storylineCuts);
   }
 
 
@@ -147,6 +171,7 @@ public class HighlightForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HighlightForGetExecutionOutput {\n");
     
+    sb.append("    edit: ").append(toIndentedString(edit)).append("\n");
     sb.append("    highlightCuts: ").append(toIndentedString(highlightCuts)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    openingHook: ").append(toIndentedString(openingHook)).append("\n");

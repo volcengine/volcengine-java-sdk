@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ControlForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertOutputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertOperationForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertOutputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.InputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.MetaForGetExecutionOutput;
 import com.volcengine.vod20250101.model.MultiInputForGetExecutionOutput;
@@ -57,10 +57,13 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
   private ConvertOperationForGetExecutionOutput operation = null;
 
   @SerializedName("Output")
-  private ConvertOutputForGetExecutionOutput output = null;
+  private ConvertConvertOutputForGetExecutionOutput output = null;
 
   @SerializedName("RunId")
   private String runId = null;
+
+  @SerializedName("SpaceName")
+  private String spaceName = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -186,7 +189,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
     this.operation = operation;
   }
 
-  public GetExecutionResponse output(ConvertOutputForGetExecutionOutput output) {
+  public GetExecutionResponse output(ConvertConvertOutputForGetExecutionOutput output) {
     this.output = output;
     return this;
   }
@@ -197,11 +200,11 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
   **/
   @Valid
   @Schema(description = "")
-  public ConvertOutputForGetExecutionOutput getOutput() {
+  public ConvertConvertOutputForGetExecutionOutput getOutput() {
     return output;
   }
 
-  public void setOutput(ConvertOutputForGetExecutionOutput output) {
+  public void setOutput(ConvertConvertOutputForGetExecutionOutput output) {
     this.output = output;
   }
 
@@ -221,6 +224,24 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
 
   public void setRunId(String runId) {
     this.runId = runId;
+  }
+
+  public GetExecutionResponse spaceName(String spaceName) {
+    this.spaceName = spaceName;
+    return this;
+  }
+
+   /**
+   * Get spaceName
+   * @return spaceName
+  **/
+  @Schema(description = "")
+  public String getSpaceName() {
+    return spaceName;
+  }
+
+  public void setSpaceName(String spaceName) {
+    this.spaceName = spaceName;
   }
 
   public GetExecutionResponse status(String status) {
@@ -259,12 +280,13 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
         Objects.equals(this.operation, getExecutionResponse.operation) &&
         Objects.equals(this.output, getExecutionResponse.output) &&
         Objects.equals(this.runId, getExecutionResponse.runId) &&
+        Objects.equals(this.spaceName, getExecutionResponse.spaceName) &&
         Objects.equals(this.status, getExecutionResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, control, input, meta, multiInputs, operation, output, runId, status);
+    return Objects.hash(code, control, input, meta, multiInputs, operation, output, runId, spaceName, status);
   }
 
 
@@ -281,6 +303,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    output: ").append(toIndentedString(output)).append("\n");
     sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
+    sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
