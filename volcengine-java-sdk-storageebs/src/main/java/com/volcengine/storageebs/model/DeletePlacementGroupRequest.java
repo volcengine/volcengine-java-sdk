@@ -24,31 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ServicePurchaseRscPreorderResponse
+ * DeletePlacementGroupRequest
  */
 
 
 
-public class ServicePurchaseRscPreorderResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ReservedStorageCapacityId")
-  private String reservedStorageCapacityId = null;
+public class DeletePlacementGroupRequest {
+  @SerializedName("Id")
+  private String id = null;
 
-  public ServicePurchaseRscPreorderResponse reservedStorageCapacityId(String reservedStorageCapacityId) {
-    this.reservedStorageCapacityId = reservedStorageCapacityId;
+  public DeletePlacementGroupRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get reservedStorageCapacityId
-   * @return reservedStorageCapacityId
+   * Get id
+   * @return id
   **/
-  @Schema(description = "")
-  public String getReservedStorageCapacityId() {
-    return reservedStorageCapacityId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getId() {
+    return id;
   }
 
-  public void setReservedStorageCapacityId(String reservedStorageCapacityId) {
-    this.reservedStorageCapacityId = reservedStorageCapacityId;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -60,22 +61,22 @@ public class ServicePurchaseRscPreorderResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServicePurchaseRscPreorderResponse servicePurchaseRscPreorderResponse = (ServicePurchaseRscPreorderResponse) o;
-    return Objects.equals(this.reservedStorageCapacityId, servicePurchaseRscPreorderResponse.reservedStorageCapacityId);
+    DeletePlacementGroupRequest deletePlacementGroupRequest = (DeletePlacementGroupRequest) o;
+    return Objects.equals(this.id, deletePlacementGroupRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reservedStorageCapacityId);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServicePurchaseRscPreorderResponse {\n");
+    sb.append("class DeletePlacementGroupRequest {\n");
     
-    sb.append("    reservedStorageCapacityId: ").append(toIndentedString(reservedStorageCapacityId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

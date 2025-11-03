@@ -14,43 +14,15 @@ package com.volcengine.storageebs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CheckUserRscPermitResponse
+ * DeletePlacementGroupResponse
  */
 
 
 
-public class CheckUserRscPermitResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Permit")
-  private Boolean permit = null;
-
-  public CheckUserRscPermitResponse permit(Boolean permit) {
-    this.permit = permit;
-    return this;
-  }
-
-   /**
-   * Get permit
-   * @return permit
-  **/
-  @Schema(description = "")
-  public Boolean isPermit() {
-    return permit;
-  }
-
-  public void setPermit(Boolean permit) {
-    this.permit = permit;
-  }
-
+public class DeletePlacementGroupResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,22 +32,20 @@ public class CheckUserRscPermitResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckUserRscPermitResponse checkUserRscPermitResponse = (CheckUserRscPermitResponse) o;
-    return Objects.equals(this.permit, checkUserRscPermitResponse.permit);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permit);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckUserRscPermitResponse {\n");
+    sb.append("class DeletePlacementGroupResponse {\n");
     
-    sb.append("    permit: ").append(toIndentedString(permit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

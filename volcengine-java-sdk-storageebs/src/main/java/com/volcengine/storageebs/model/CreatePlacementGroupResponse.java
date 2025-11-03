@@ -24,31 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ManualRenewReservedStorageCapacityResponse
+ * CreatePlacementGroupResponse
  */
 
 
 
-public class ManualRenewReservedStorageCapacityResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ReservedStorageCapacityId")
-  private String reservedStorageCapacityId = null;
+public class CreatePlacementGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Id")
+  private String id = null;
 
-  public ManualRenewReservedStorageCapacityResponse reservedStorageCapacityId(String reservedStorageCapacityId) {
-    this.reservedStorageCapacityId = reservedStorageCapacityId;
+  public CreatePlacementGroupResponse id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get reservedStorageCapacityId
-   * @return reservedStorageCapacityId
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getReservedStorageCapacityId() {
-    return reservedStorageCapacityId;
+  public String getId() {
+    return id;
   }
 
-  public void setReservedStorageCapacityId(String reservedStorageCapacityId) {
-    this.reservedStorageCapacityId = reservedStorageCapacityId;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -60,22 +60,22 @@ public class ManualRenewReservedStorageCapacityResponse extends com.volcengine.m
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ManualRenewReservedStorageCapacityResponse manualRenewReservedStorageCapacityResponse = (ManualRenewReservedStorageCapacityResponse) o;
-    return Objects.equals(this.reservedStorageCapacityId, manualRenewReservedStorageCapacityResponse.reservedStorageCapacityId);
+    CreatePlacementGroupResponse createPlacementGroupResponse = (CreatePlacementGroupResponse) o;
+    return Objects.equals(this.id, createPlacementGroupResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reservedStorageCapacityId);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ManualRenewReservedStorageCapacityResponse {\n");
+    sb.append("class CreatePlacementGroupResponse {\n");
     
-    sb.append("    reservedStorageCapacityId: ").append(toIndentedString(reservedStorageCapacityId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

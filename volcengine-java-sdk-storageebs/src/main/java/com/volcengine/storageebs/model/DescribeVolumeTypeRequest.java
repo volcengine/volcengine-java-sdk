@@ -44,9 +44,6 @@ public class DescribeVolumeTypeRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("ResourceClass")
-  private String resourceClass = null;
-
   @SerializedName("VolumeTypeIds")
   private List<String> volumeTypeIds = null;
 
@@ -125,24 +122,6 @@ public class DescribeVolumeTypeRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeVolumeTypeRequest resourceClass(String resourceClass) {
-    this.resourceClass = resourceClass;
-    return this;
-  }
-
-   /**
-   * Get resourceClass
-   * @return resourceClass
-  **/
-  @Schema(description = "")
-  public String getResourceClass() {
-    return resourceClass;
-  }
-
-  public void setResourceClass(String resourceClass) {
-    this.resourceClass = resourceClass;
-  }
-
   public DescribeVolumeTypeRequest volumeTypeIds(List<String> volumeTypeIds) {
     this.volumeTypeIds = volumeTypeIds;
     return this;
@@ -201,14 +180,13 @@ public class DescribeVolumeTypeRequest {
         Objects.equals(this.orderBy, describeVolumeTypeRequest.orderBy) &&
         Objects.equals(this.pageNumber, describeVolumeTypeRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVolumeTypeRequest.pageSize) &&
-        Objects.equals(this.resourceClass, describeVolumeTypeRequest.resourceClass) &&
         Objects.equals(this.volumeTypeIds, describeVolumeTypeRequest.volumeTypeIds) &&
         Objects.equals(this.zoneId, describeVolumeTypeRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, orderBy, pageNumber, pageSize, resourceClass, volumeTypeIds, zoneId);
+    return Objects.hash(filter, orderBy, pageNumber, pageSize, volumeTypeIds, zoneId);
   }
 
 
@@ -221,7 +199,6 @@ public class DescribeVolumeTypeRequest {
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    resourceClass: ").append(toIndentedString(resourceClass)).append("\n");
     sb.append("    volumeTypeIds: ").append(toIndentedString(volumeTypeIds)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
