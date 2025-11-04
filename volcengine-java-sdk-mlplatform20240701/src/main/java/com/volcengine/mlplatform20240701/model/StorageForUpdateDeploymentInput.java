@@ -19,9 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.ConfigForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.AdvancedOptionsForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConvertCredentialForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.NasAccessPointOptionsForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.SfcsAdvancedOptionsForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.VepfsAccessPointOptionsForUpdateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,35 +37,410 @@ import javax.validation.Valid;
 
 
 public class StorageForUpdateDeploymentInput {
-  @SerializedName("Config")
-  private ConfigForUpdateDeploymentInput config = null;
+  @SerializedName("AdvancedOptions")
+  private AdvancedOptionsForUpdateDeploymentInput advancedOptions = null;
+
+  @SerializedName("AnnotationId")
+  private String annotationId = null;
+
+  @SerializedName("AssetId")
+  private String assetId = null;
+
+  @SerializedName("AssetName")
+  private String assetName = null;
+
+  @SerializedName("AssetVersion")
+  private String assetVersion = null;
+
+  @SerializedName("Bucket")
+  private String bucket = null;
+
+  @SerializedName("CachePolicyId")
+  private String cachePolicyId = null;
+
+  @SerializedName("CloudfsType")
+  private String cloudfsType = null;
+
+  @SerializedName("Credential")
+  private ConvertCredentialForUpdateDeploymentInput credential = null;
+
+  @SerializedName("DatasetId")
+  private String datasetId = null;
+
+  @SerializedName("ExternalCFS")
+  private Boolean externalCFS = null;
+
+  @SerializedName("ExternalSfcs")
+  private Boolean externalSfcs = null;
+
+  @SerializedName("ExternalTos")
+  private Boolean externalTos = null;
+
+  @SerializedName("FsName")
+  private String fsName = null;
+
+  @SerializedName("MetaURL")
+  private String metaURL = null;
+
+  @SerializedName("MountOptions")
+  private List<String> mountOptions = null;
 
   @SerializedName("MountPath")
   private String mountPath = null;
 
+  @SerializedName("NasAccessPointOptions")
+  private NasAccessPointOptionsForUpdateDeploymentInput nasAccessPointOptions = null;
+
+  @SerializedName("NasAddr")
+  private String nasAddr = null;
+
+  @SerializedName("NasId")
+  private String nasId = null;
+
+  @SerializedName("NasName")
+  private String nasName = null;
+
+  @SerializedName("NsId")
+  private String nsId = null;
+
+  @SerializedName("Prefix")
+  private String prefix = null;
+
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
+
+  @SerializedName("RoleName")
+  private String roleName = null;
+
+  @SerializedName("SfcsAdvancedOptions")
+  private SfcsAdvancedOptionsForUpdateDeploymentInput sfcsAdvancedOptions = null;
+
+  @SerializedName("SfcsId")
+  private String sfcsId = null;
+
+  @SerializedName("SubPath")
+  private String subPath = null;
+
+  @SerializedName("TenantAccount")
+  private Long tenantAccount = null;
 
   @SerializedName("Type")
   private String type = null;
 
-  public StorageForUpdateDeploymentInput config(ConfigForUpdateDeploymentInput config) {
-    this.config = config;
+  @SerializedName("UseAsDefaultMountPath")
+  private Boolean useAsDefaultMountPath = null;
+
+  @SerializedName("UseEic")
+  private Boolean useEic = null;
+
+  @SerializedName("VepfsAccessPointOptions")
+  private VepfsAccessPointOptionsForUpdateDeploymentInput vepfsAccessPointOptions = null;
+
+  @SerializedName("VepfsHostPath")
+  private String vepfsHostPath = null;
+
+  @SerializedName("VepfsId")
+  private String vepfsId = null;
+
+  @SerializedName("VepfsName")
+  private String vepfsName = null;
+
+  public StorageForUpdateDeploymentInput advancedOptions(AdvancedOptionsForUpdateDeploymentInput advancedOptions) {
+    this.advancedOptions = advancedOptions;
     return this;
   }
 
    /**
-   * Get config
-   * @return config
+   * Get advancedOptions
+   * @return advancedOptions
   **/
   @Valid
   @Schema(description = "")
-  public ConfigForUpdateDeploymentInput getConfig() {
-    return config;
+  public AdvancedOptionsForUpdateDeploymentInput getAdvancedOptions() {
+    return advancedOptions;
   }
 
-  public void setConfig(ConfigForUpdateDeploymentInput config) {
-    this.config = config;
+  public void setAdvancedOptions(AdvancedOptionsForUpdateDeploymentInput advancedOptions) {
+    this.advancedOptions = advancedOptions;
+  }
+
+  public StorageForUpdateDeploymentInput annotationId(String annotationId) {
+    this.annotationId = annotationId;
+    return this;
+  }
+
+   /**
+   * Get annotationId
+   * @return annotationId
+  **/
+  @Schema(description = "")
+  public String getAnnotationId() {
+    return annotationId;
+  }
+
+  public void setAnnotationId(String annotationId) {
+    this.annotationId = annotationId;
+  }
+
+  public StorageForUpdateDeploymentInput assetId(String assetId) {
+    this.assetId = assetId;
+    return this;
+  }
+
+   /**
+   * Get assetId
+   * @return assetId
+  **/
+  @Schema(description = "")
+  public String getAssetId() {
+    return assetId;
+  }
+
+  public void setAssetId(String assetId) {
+    this.assetId = assetId;
+  }
+
+  public StorageForUpdateDeploymentInput assetName(String assetName) {
+    this.assetName = assetName;
+    return this;
+  }
+
+   /**
+   * Get assetName
+   * @return assetName
+  **/
+  @Schema(description = "")
+  public String getAssetName() {
+    return assetName;
+  }
+
+  public void setAssetName(String assetName) {
+    this.assetName = assetName;
+  }
+
+  public StorageForUpdateDeploymentInput assetVersion(String assetVersion) {
+    this.assetVersion = assetVersion;
+    return this;
+  }
+
+   /**
+   * Get assetVersion
+   * @return assetVersion
+  **/
+  @Schema(description = "")
+  public String getAssetVersion() {
+    return assetVersion;
+  }
+
+  public void setAssetVersion(String assetVersion) {
+    this.assetVersion = assetVersion;
+  }
+
+  public StorageForUpdateDeploymentInput bucket(String bucket) {
+    this.bucket = bucket;
+    return this;
+  }
+
+   /**
+   * Get bucket
+   * @return bucket
+  **/
+  @Schema(description = "")
+  public String getBucket() {
+    return bucket;
+  }
+
+  public void setBucket(String bucket) {
+    this.bucket = bucket;
+  }
+
+  public StorageForUpdateDeploymentInput cachePolicyId(String cachePolicyId) {
+    this.cachePolicyId = cachePolicyId;
+    return this;
+  }
+
+   /**
+   * Get cachePolicyId
+   * @return cachePolicyId
+  **/
+  @Schema(description = "")
+  public String getCachePolicyId() {
+    return cachePolicyId;
+  }
+
+  public void setCachePolicyId(String cachePolicyId) {
+    this.cachePolicyId = cachePolicyId;
+  }
+
+  public StorageForUpdateDeploymentInput cloudfsType(String cloudfsType) {
+    this.cloudfsType = cloudfsType;
+    return this;
+  }
+
+   /**
+   * Get cloudfsType
+   * @return cloudfsType
+  **/
+  @Schema(description = "")
+  public String getCloudfsType() {
+    return cloudfsType;
+  }
+
+  public void setCloudfsType(String cloudfsType) {
+    this.cloudfsType = cloudfsType;
+  }
+
+  public StorageForUpdateDeploymentInput credential(ConvertCredentialForUpdateDeploymentInput credential) {
+    this.credential = credential;
+    return this;
+  }
+
+   /**
+   * Get credential
+   * @return credential
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertCredentialForUpdateDeploymentInput getCredential() {
+    return credential;
+  }
+
+  public void setCredential(ConvertCredentialForUpdateDeploymentInput credential) {
+    this.credential = credential;
+  }
+
+  public StorageForUpdateDeploymentInput datasetId(String datasetId) {
+    this.datasetId = datasetId;
+    return this;
+  }
+
+   /**
+   * Get datasetId
+   * @return datasetId
+  **/
+  @Schema(description = "")
+  public String getDatasetId() {
+    return datasetId;
+  }
+
+  public void setDatasetId(String datasetId) {
+    this.datasetId = datasetId;
+  }
+
+  public StorageForUpdateDeploymentInput externalCFS(Boolean externalCFS) {
+    this.externalCFS = externalCFS;
+    return this;
+  }
+
+   /**
+   * Get externalCFS
+   * @return externalCFS
+  **/
+  @Schema(description = "")
+  public Boolean isExternalCFS() {
+    return externalCFS;
+  }
+
+  public void setExternalCFS(Boolean externalCFS) {
+    this.externalCFS = externalCFS;
+  }
+
+  public StorageForUpdateDeploymentInput externalSfcs(Boolean externalSfcs) {
+    this.externalSfcs = externalSfcs;
+    return this;
+  }
+
+   /**
+   * Get externalSfcs
+   * @return externalSfcs
+  **/
+  @Schema(description = "")
+  public Boolean isExternalSfcs() {
+    return externalSfcs;
+  }
+
+  public void setExternalSfcs(Boolean externalSfcs) {
+    this.externalSfcs = externalSfcs;
+  }
+
+  public StorageForUpdateDeploymentInput externalTos(Boolean externalTos) {
+    this.externalTos = externalTos;
+    return this;
+  }
+
+   /**
+   * Get externalTos
+   * @return externalTos
+  **/
+  @Schema(description = "")
+  public Boolean isExternalTos() {
+    return externalTos;
+  }
+
+  public void setExternalTos(Boolean externalTos) {
+    this.externalTos = externalTos;
+  }
+
+  public StorageForUpdateDeploymentInput fsName(String fsName) {
+    this.fsName = fsName;
+    return this;
+  }
+
+   /**
+   * Get fsName
+   * @return fsName
+  **/
+  @Schema(description = "")
+  public String getFsName() {
+    return fsName;
+  }
+
+  public void setFsName(String fsName) {
+    this.fsName = fsName;
+  }
+
+  public StorageForUpdateDeploymentInput metaURL(String metaURL) {
+    this.metaURL = metaURL;
+    return this;
+  }
+
+   /**
+   * Get metaURL
+   * @return metaURL
+  **/
+  @Schema(description = "")
+  public String getMetaURL() {
+    return metaURL;
+  }
+
+  public void setMetaURL(String metaURL) {
+    this.metaURL = metaURL;
+  }
+
+  public StorageForUpdateDeploymentInput mountOptions(List<String> mountOptions) {
+    this.mountOptions = mountOptions;
+    return this;
+  }
+
+  public StorageForUpdateDeploymentInput addMountOptionsItem(String mountOptionsItem) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList<String>();
+    }
+    this.mountOptions.add(mountOptionsItem);
+    return this;
+  }
+
+   /**
+   * Get mountOptions
+   * @return mountOptions
+  **/
+  @Schema(description = "")
+  public List<String> getMountOptions() {
+    return mountOptions;
+  }
+
+  public void setMountOptions(List<String> mountOptions) {
+    this.mountOptions = mountOptions;
   }
 
   public StorageForUpdateDeploymentInput mountPath(String mountPath) {
@@ -80,6 +461,115 @@ public class StorageForUpdateDeploymentInput {
     this.mountPath = mountPath;
   }
 
+  public StorageForUpdateDeploymentInput nasAccessPointOptions(NasAccessPointOptionsForUpdateDeploymentInput nasAccessPointOptions) {
+    this.nasAccessPointOptions = nasAccessPointOptions;
+    return this;
+  }
+
+   /**
+   * Get nasAccessPointOptions
+   * @return nasAccessPointOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public NasAccessPointOptionsForUpdateDeploymentInput getNasAccessPointOptions() {
+    return nasAccessPointOptions;
+  }
+
+  public void setNasAccessPointOptions(NasAccessPointOptionsForUpdateDeploymentInput nasAccessPointOptions) {
+    this.nasAccessPointOptions = nasAccessPointOptions;
+  }
+
+  public StorageForUpdateDeploymentInput nasAddr(String nasAddr) {
+    this.nasAddr = nasAddr;
+    return this;
+  }
+
+   /**
+   * Get nasAddr
+   * @return nasAddr
+  **/
+  @Schema(description = "")
+  public String getNasAddr() {
+    return nasAddr;
+  }
+
+  public void setNasAddr(String nasAddr) {
+    this.nasAddr = nasAddr;
+  }
+
+  public StorageForUpdateDeploymentInput nasId(String nasId) {
+    this.nasId = nasId;
+    return this;
+  }
+
+   /**
+   * Get nasId
+   * @return nasId
+  **/
+  @Schema(description = "")
+  public String getNasId() {
+    return nasId;
+  }
+
+  public void setNasId(String nasId) {
+    this.nasId = nasId;
+  }
+
+  public StorageForUpdateDeploymentInput nasName(String nasName) {
+    this.nasName = nasName;
+    return this;
+  }
+
+   /**
+   * Get nasName
+   * @return nasName
+  **/
+  @Schema(description = "")
+  public String getNasName() {
+    return nasName;
+  }
+
+  public void setNasName(String nasName) {
+    this.nasName = nasName;
+  }
+
+  public StorageForUpdateDeploymentInput nsId(String nsId) {
+    this.nsId = nsId;
+    return this;
+  }
+
+   /**
+   * Get nsId
+   * @return nsId
+  **/
+  @Schema(description = "")
+  public String getNsId() {
+    return nsId;
+  }
+
+  public void setNsId(String nsId) {
+    this.nsId = nsId;
+  }
+
+  public StorageForUpdateDeploymentInput prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Get prefix
+   * @return prefix
+  **/
+  @Schema(description = "")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
   public StorageForUpdateDeploymentInput readOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
@@ -96,6 +586,97 @@ public class StorageForUpdateDeploymentInput {
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
+  }
+
+  public StorageForUpdateDeploymentInput roleName(String roleName) {
+    this.roleName = roleName;
+    return this;
+  }
+
+   /**
+   * Get roleName
+   * @return roleName
+  **/
+  @Schema(description = "")
+  public String getRoleName() {
+    return roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
+  public StorageForUpdateDeploymentInput sfcsAdvancedOptions(SfcsAdvancedOptionsForUpdateDeploymentInput sfcsAdvancedOptions) {
+    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
+    return this;
+  }
+
+   /**
+   * Get sfcsAdvancedOptions
+   * @return sfcsAdvancedOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public SfcsAdvancedOptionsForUpdateDeploymentInput getSfcsAdvancedOptions() {
+    return sfcsAdvancedOptions;
+  }
+
+  public void setSfcsAdvancedOptions(SfcsAdvancedOptionsForUpdateDeploymentInput sfcsAdvancedOptions) {
+    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
+  }
+
+  public StorageForUpdateDeploymentInput sfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+    return this;
+  }
+
+   /**
+   * Get sfcsId
+   * @return sfcsId
+  **/
+  @Schema(description = "")
+  public String getSfcsId() {
+    return sfcsId;
+  }
+
+  public void setSfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+  }
+
+  public StorageForUpdateDeploymentInput subPath(String subPath) {
+    this.subPath = subPath;
+    return this;
+  }
+
+   /**
+   * Get subPath
+   * @return subPath
+  **/
+  @Schema(description = "")
+  public String getSubPath() {
+    return subPath;
+  }
+
+  public void setSubPath(String subPath) {
+    this.subPath = subPath;
+  }
+
+  public StorageForUpdateDeploymentInput tenantAccount(Long tenantAccount) {
+    this.tenantAccount = tenantAccount;
+    return this;
+  }
+
+   /**
+   * Get tenantAccount
+   * @return tenantAccount
+  **/
+  @Schema(description = "")
+  public Long getTenantAccount() {
+    return tenantAccount;
+  }
+
+  public void setTenantAccount(Long tenantAccount) {
+    this.tenantAccount = tenantAccount;
   }
 
   public StorageForUpdateDeploymentInput type(String type) {
@@ -116,6 +697,115 @@ public class StorageForUpdateDeploymentInput {
     this.type = type;
   }
 
+  public StorageForUpdateDeploymentInput useAsDefaultMountPath(Boolean useAsDefaultMountPath) {
+    this.useAsDefaultMountPath = useAsDefaultMountPath;
+    return this;
+  }
+
+   /**
+   * Get useAsDefaultMountPath
+   * @return useAsDefaultMountPath
+  **/
+  @Schema(description = "")
+  public Boolean isUseAsDefaultMountPath() {
+    return useAsDefaultMountPath;
+  }
+
+  public void setUseAsDefaultMountPath(Boolean useAsDefaultMountPath) {
+    this.useAsDefaultMountPath = useAsDefaultMountPath;
+  }
+
+  public StorageForUpdateDeploymentInput useEic(Boolean useEic) {
+    this.useEic = useEic;
+    return this;
+  }
+
+   /**
+   * Get useEic
+   * @return useEic
+  **/
+  @Schema(description = "")
+  public Boolean isUseEic() {
+    return useEic;
+  }
+
+  public void setUseEic(Boolean useEic) {
+    this.useEic = useEic;
+  }
+
+  public StorageForUpdateDeploymentInput vepfsAccessPointOptions(VepfsAccessPointOptionsForUpdateDeploymentInput vepfsAccessPointOptions) {
+    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
+    return this;
+  }
+
+   /**
+   * Get vepfsAccessPointOptions
+   * @return vepfsAccessPointOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public VepfsAccessPointOptionsForUpdateDeploymentInput getVepfsAccessPointOptions() {
+    return vepfsAccessPointOptions;
+  }
+
+  public void setVepfsAccessPointOptions(VepfsAccessPointOptionsForUpdateDeploymentInput vepfsAccessPointOptions) {
+    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
+  }
+
+  public StorageForUpdateDeploymentInput vepfsHostPath(String vepfsHostPath) {
+    this.vepfsHostPath = vepfsHostPath;
+    return this;
+  }
+
+   /**
+   * Get vepfsHostPath
+   * @return vepfsHostPath
+  **/
+  @Schema(description = "")
+  public String getVepfsHostPath() {
+    return vepfsHostPath;
+  }
+
+  public void setVepfsHostPath(String vepfsHostPath) {
+    this.vepfsHostPath = vepfsHostPath;
+  }
+
+  public StorageForUpdateDeploymentInput vepfsId(String vepfsId) {
+    this.vepfsId = vepfsId;
+    return this;
+  }
+
+   /**
+   * Get vepfsId
+   * @return vepfsId
+  **/
+  @Schema(description = "")
+  public String getVepfsId() {
+    return vepfsId;
+  }
+
+  public void setVepfsId(String vepfsId) {
+    this.vepfsId = vepfsId;
+  }
+
+  public StorageForUpdateDeploymentInput vepfsName(String vepfsName) {
+    this.vepfsName = vepfsName;
+    return this;
+  }
+
+   /**
+   * Get vepfsName
+   * @return vepfsName
+  **/
+  @Schema(description = "")
+  public String getVepfsName() {
+    return vepfsName;
+  }
+
+  public void setVepfsName(String vepfsName) {
+    this.vepfsName = vepfsName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,15 +816,47 @@ public class StorageForUpdateDeploymentInput {
       return false;
     }
     StorageForUpdateDeploymentInput storageForUpdateDeploymentInput = (StorageForUpdateDeploymentInput) o;
-    return Objects.equals(this.config, storageForUpdateDeploymentInput.config) &&
+    return Objects.equals(this.advancedOptions, storageForUpdateDeploymentInput.advancedOptions) &&
+        Objects.equals(this.annotationId, storageForUpdateDeploymentInput.annotationId) &&
+        Objects.equals(this.assetId, storageForUpdateDeploymentInput.assetId) &&
+        Objects.equals(this.assetName, storageForUpdateDeploymentInput.assetName) &&
+        Objects.equals(this.assetVersion, storageForUpdateDeploymentInput.assetVersion) &&
+        Objects.equals(this.bucket, storageForUpdateDeploymentInput.bucket) &&
+        Objects.equals(this.cachePolicyId, storageForUpdateDeploymentInput.cachePolicyId) &&
+        Objects.equals(this.cloudfsType, storageForUpdateDeploymentInput.cloudfsType) &&
+        Objects.equals(this.credential, storageForUpdateDeploymentInput.credential) &&
+        Objects.equals(this.datasetId, storageForUpdateDeploymentInput.datasetId) &&
+        Objects.equals(this.externalCFS, storageForUpdateDeploymentInput.externalCFS) &&
+        Objects.equals(this.externalSfcs, storageForUpdateDeploymentInput.externalSfcs) &&
+        Objects.equals(this.externalTos, storageForUpdateDeploymentInput.externalTos) &&
+        Objects.equals(this.fsName, storageForUpdateDeploymentInput.fsName) &&
+        Objects.equals(this.metaURL, storageForUpdateDeploymentInput.metaURL) &&
+        Objects.equals(this.mountOptions, storageForUpdateDeploymentInput.mountOptions) &&
         Objects.equals(this.mountPath, storageForUpdateDeploymentInput.mountPath) &&
+        Objects.equals(this.nasAccessPointOptions, storageForUpdateDeploymentInput.nasAccessPointOptions) &&
+        Objects.equals(this.nasAddr, storageForUpdateDeploymentInput.nasAddr) &&
+        Objects.equals(this.nasId, storageForUpdateDeploymentInput.nasId) &&
+        Objects.equals(this.nasName, storageForUpdateDeploymentInput.nasName) &&
+        Objects.equals(this.nsId, storageForUpdateDeploymentInput.nsId) &&
+        Objects.equals(this.prefix, storageForUpdateDeploymentInput.prefix) &&
         Objects.equals(this.readOnly, storageForUpdateDeploymentInput.readOnly) &&
-        Objects.equals(this.type, storageForUpdateDeploymentInput.type);
+        Objects.equals(this.roleName, storageForUpdateDeploymentInput.roleName) &&
+        Objects.equals(this.sfcsAdvancedOptions, storageForUpdateDeploymentInput.sfcsAdvancedOptions) &&
+        Objects.equals(this.sfcsId, storageForUpdateDeploymentInput.sfcsId) &&
+        Objects.equals(this.subPath, storageForUpdateDeploymentInput.subPath) &&
+        Objects.equals(this.tenantAccount, storageForUpdateDeploymentInput.tenantAccount) &&
+        Objects.equals(this.type, storageForUpdateDeploymentInput.type) &&
+        Objects.equals(this.useAsDefaultMountPath, storageForUpdateDeploymentInput.useAsDefaultMountPath) &&
+        Objects.equals(this.useEic, storageForUpdateDeploymentInput.useEic) &&
+        Objects.equals(this.vepfsAccessPointOptions, storageForUpdateDeploymentInput.vepfsAccessPointOptions) &&
+        Objects.equals(this.vepfsHostPath, storageForUpdateDeploymentInput.vepfsHostPath) &&
+        Objects.equals(this.vepfsId, storageForUpdateDeploymentInput.vepfsId) &&
+        Objects.equals(this.vepfsName, storageForUpdateDeploymentInput.vepfsName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, mountPath, readOnly, type);
+    return Objects.hash(advancedOptions, annotationId, assetId, assetName, assetVersion, bucket, cachePolicyId, cloudfsType, credential, datasetId, externalCFS, externalSfcs, externalTos, fsName, metaURL, mountOptions, mountPath, nasAccessPointOptions, nasAddr, nasId, nasName, nsId, prefix, readOnly, roleName, sfcsAdvancedOptions, sfcsId, subPath, tenantAccount, type, useAsDefaultMountPath, useEic, vepfsAccessPointOptions, vepfsHostPath, vepfsId, vepfsName);
   }
 
 
@@ -143,10 +865,42 @@ public class StorageForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageForUpdateDeploymentInput {\n");
     
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    advancedOptions: ").append(toIndentedString(advancedOptions)).append("\n");
+    sb.append("    annotationId: ").append(toIndentedString(annotationId)).append("\n");
+    sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
+    sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
+    sb.append("    assetVersion: ").append(toIndentedString(assetVersion)).append("\n");
+    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    cachePolicyId: ").append(toIndentedString(cachePolicyId)).append("\n");
+    sb.append("    cloudfsType: ").append(toIndentedString(cloudfsType)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
+    sb.append("    datasetId: ").append(toIndentedString(datasetId)).append("\n");
+    sb.append("    externalCFS: ").append(toIndentedString(externalCFS)).append("\n");
+    sb.append("    externalSfcs: ").append(toIndentedString(externalSfcs)).append("\n");
+    sb.append("    externalTos: ").append(toIndentedString(externalTos)).append("\n");
+    sb.append("    fsName: ").append(toIndentedString(fsName)).append("\n");
+    sb.append("    metaURL: ").append(toIndentedString(metaURL)).append("\n");
+    sb.append("    mountOptions: ").append(toIndentedString(mountOptions)).append("\n");
     sb.append("    mountPath: ").append(toIndentedString(mountPath)).append("\n");
+    sb.append("    nasAccessPointOptions: ").append(toIndentedString(nasAccessPointOptions)).append("\n");
+    sb.append("    nasAddr: ").append(toIndentedString(nasAddr)).append("\n");
+    sb.append("    nasId: ").append(toIndentedString(nasId)).append("\n");
+    sb.append("    nasName: ").append(toIndentedString(nasName)).append("\n");
+    sb.append("    nsId: ").append(toIndentedString(nsId)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    sfcsAdvancedOptions: ").append(toIndentedString(sfcsAdvancedOptions)).append("\n");
+    sb.append("    sfcsId: ").append(toIndentedString(sfcsId)).append("\n");
+    sb.append("    subPath: ").append(toIndentedString(subPath)).append("\n");
+    sb.append("    tenantAccount: ").append(toIndentedString(tenantAccount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    useAsDefaultMountPath: ").append(toIndentedString(useAsDefaultMountPath)).append("\n");
+    sb.append("    useEic: ").append(toIndentedString(useEic)).append("\n");
+    sb.append("    vepfsAccessPointOptions: ").append(toIndentedString(vepfsAccessPointOptions)).append("\n");
+    sb.append("    vepfsHostPath: ").append(toIndentedString(vepfsHostPath)).append("\n");
+    sb.append("    vepfsId: ").append(toIndentedString(vepfsId)).append("\n");
+    sb.append("    vepfsName: ").append(toIndentedString(vepfsName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

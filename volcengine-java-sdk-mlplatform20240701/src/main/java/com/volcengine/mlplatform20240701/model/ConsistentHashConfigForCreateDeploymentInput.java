@@ -30,54 +30,13 @@ import javax.validation.Valid;
 
 
 public class ConsistentHashConfigForCreateDeploymentInput {
-  /**
-   * Gets or Sets hashKeyType
-   */
-  @JsonAdapter(HashKeyTypeEnum.Adapter.class)
-  public enum HashKeyTypeEnum {
-    @SerializedName("HttpHeaderName")
-    HTTPHEADERNAME("HttpHeaderName");
-
-    private String value;
-
-    HashKeyTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static HashKeyTypeEnum fromValue(String input) {
-      for (HashKeyTypeEnum b : HashKeyTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<HashKeyTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final HashKeyTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public HashKeyTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return HashKeyTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("HashKeyType")
-  private HashKeyTypeEnum hashKeyType = null;
+  @SerializedName("HashKeyType")
+  private String hashKeyType = null;
 
   @SerializedName("HttpHeaderName")
   private String httpHeaderName = null;
 
-  public ConsistentHashConfigForCreateDeploymentInput hashKeyType(HashKeyTypeEnum hashKeyType) {
+  public ConsistentHashConfigForCreateDeploymentInput hashKeyType(String hashKeyType) {
     this.hashKeyType = hashKeyType;
     return this;
   }
@@ -87,11 +46,11 @@ public class ConsistentHashConfigForCreateDeploymentInput {
    * @return hashKeyType
   **/
   @Schema(description = "")
-  public HashKeyTypeEnum getHashKeyType() {
+  public String getHashKeyType() {
     return hashKeyType;
   }
 
-  public void setHashKeyType(HashKeyTypeEnum hashKeyType) {
+  public void setHashKeyType(String hashKeyType) {
     this.hashKeyType = hashKeyType;
   }
 

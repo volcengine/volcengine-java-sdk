@@ -30,28 +30,28 @@ import javax.validation.Valid;
 
 
 public class CredentialForUpdateDevInstanceInput {
-  @SerializedName("AccessKey")
-  private String accessKey = null;
+  @SerializedName("AccessKeyId")
+  private String accessKeyId = null;
 
   @SerializedName("SecretAccessKey")
   private String secretAccessKey = null;
 
-  public CredentialForUpdateDevInstanceInput accessKey(String accessKey) {
-    this.accessKey = accessKey;
+  public CredentialForUpdateDevInstanceInput accessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
     return this;
   }
 
    /**
-   * Get accessKey
-   * @return accessKey
+   * Get accessKeyId
+   * @return accessKeyId
   **/
   @Schema(description = "")
-  public String getAccessKey() {
-    return accessKey;
+  public String getAccessKeyId() {
+    return accessKeyId;
   }
 
-  public void setAccessKey(String accessKey) {
-    this.accessKey = accessKey;
+  public void setAccessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
   }
 
   public CredentialForUpdateDevInstanceInput secretAccessKey(String secretAccessKey) {
@@ -82,13 +82,13 @@ public class CredentialForUpdateDevInstanceInput {
       return false;
     }
     CredentialForUpdateDevInstanceInput credentialForUpdateDevInstanceInput = (CredentialForUpdateDevInstanceInput) o;
-    return Objects.equals(this.accessKey, credentialForUpdateDevInstanceInput.accessKey) &&
+    return Objects.equals(this.accessKeyId, credentialForUpdateDevInstanceInput.accessKeyId) &&
         Objects.equals(this.secretAccessKey, credentialForUpdateDevInstanceInput.secretAccessKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, secretAccessKey);
+    return Objects.hash(accessKeyId, secretAccessKey);
   }
 
 
@@ -97,7 +97,7 @@ public class CredentialForUpdateDevInstanceInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CredentialForUpdateDevInstanceInput {\n");
     
-    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
+    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("}");
     return sb.toString();

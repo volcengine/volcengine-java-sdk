@@ -36,6 +36,12 @@ public class ReservationConfigForGetResourceReservationPlanOutput {
   @SerializedName("MaxDurationHours")
   private Long maxDurationHours = null;
 
+  @SerializedName("MaxTaskLifetimeSeconds")
+  private Long maxTaskLifetimeSeconds = null;
+
+  @SerializedName("MinContinuousResourceDurationSeconds")
+  private Long minContinuousResourceDurationSeconds = null;
+
   @SerializedName("MinDurationHours")
   private Long minDurationHours = null;
 
@@ -72,6 +78,42 @@ public class ReservationConfigForGetResourceReservationPlanOutput {
 
   public void setMaxDurationHours(Long maxDurationHours) {
     this.maxDurationHours = maxDurationHours;
+  }
+
+  public ReservationConfigForGetResourceReservationPlanOutput maxTaskLifetimeSeconds(Long maxTaskLifetimeSeconds) {
+    this.maxTaskLifetimeSeconds = maxTaskLifetimeSeconds;
+    return this;
+  }
+
+   /**
+   * Get maxTaskLifetimeSeconds
+   * @return maxTaskLifetimeSeconds
+  **/
+  @Schema(description = "")
+  public Long getMaxTaskLifetimeSeconds() {
+    return maxTaskLifetimeSeconds;
+  }
+
+  public void setMaxTaskLifetimeSeconds(Long maxTaskLifetimeSeconds) {
+    this.maxTaskLifetimeSeconds = maxTaskLifetimeSeconds;
+  }
+
+  public ReservationConfigForGetResourceReservationPlanOutput minContinuousResourceDurationSeconds(Long minContinuousResourceDurationSeconds) {
+    this.minContinuousResourceDurationSeconds = minContinuousResourceDurationSeconds;
+    return this;
+  }
+
+   /**
+   * Get minContinuousResourceDurationSeconds
+   * @return minContinuousResourceDurationSeconds
+  **/
+  @Schema(description = "")
+  public Long getMinContinuousResourceDurationSeconds() {
+    return minContinuousResourceDurationSeconds;
+  }
+
+  public void setMinContinuousResourceDurationSeconds(Long minContinuousResourceDurationSeconds) {
+    this.minContinuousResourceDurationSeconds = minContinuousResourceDurationSeconds;
   }
 
   public ReservationConfigForGetResourceReservationPlanOutput minDurationHours(Long minDurationHours) {
@@ -204,6 +246,8 @@ public class ReservationConfigForGetResourceReservationPlanOutput {
     }
     ReservationConfigForGetResourceReservationPlanOutput reservationConfigForGetResourceReservationPlanOutput = (ReservationConfigForGetResourceReservationPlanOutput) o;
     return Objects.equals(this.maxDurationHours, reservationConfigForGetResourceReservationPlanOutput.maxDurationHours) &&
+        Objects.equals(this.maxTaskLifetimeSeconds, reservationConfigForGetResourceReservationPlanOutput.maxTaskLifetimeSeconds) &&
+        Objects.equals(this.minContinuousResourceDurationSeconds, reservationConfigForGetResourceReservationPlanOutput.minContinuousResourceDurationSeconds) &&
         Objects.equals(this.minDurationHours, reservationConfigForGetResourceReservationPlanOutput.minDurationHours) &&
         Objects.equals(this.recurrenceEndTime, reservationConfigForGetResourceReservationPlanOutput.recurrenceEndTime) &&
         Objects.equals(this.recurrenceInterval, reservationConfigForGetResourceReservationPlanOutput.recurrenceInterval) &&
@@ -214,7 +258,7 @@ public class ReservationConfigForGetResourceReservationPlanOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDurationHours, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType, resourceSegments);
+    return Objects.hash(maxDurationHours, maxTaskLifetimeSeconds, minContinuousResourceDurationSeconds, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType, resourceSegments);
   }
 
 
@@ -224,6 +268,8 @@ public class ReservationConfigForGetResourceReservationPlanOutput {
     sb.append("class ReservationConfigForGetResourceReservationPlanOutput {\n");
     
     sb.append("    maxDurationHours: ").append(toIndentedString(maxDurationHours)).append("\n");
+    sb.append("    maxTaskLifetimeSeconds: ").append(toIndentedString(maxTaskLifetimeSeconds)).append("\n");
+    sb.append("    minContinuousResourceDurationSeconds: ").append(toIndentedString(minContinuousResourceDurationSeconds)).append("\n");
     sb.append("    minDurationHours: ").append(toIndentedString(minDurationHours)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    recurrenceInterval: ").append(toIndentedString(recurrenceInterval)).append("\n");

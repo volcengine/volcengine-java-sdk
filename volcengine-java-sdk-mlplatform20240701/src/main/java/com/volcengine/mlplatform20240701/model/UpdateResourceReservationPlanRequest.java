@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.ScheduleConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.StorageConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForUpdateResourceReservationPlanInput;
@@ -41,6 +42,9 @@ public class UpdateResourceReservationPlanRequest {
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("MatchingReservationPlanTimeConfig")
+  private MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput matchingReservationPlanTimeConfig = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -110,6 +114,25 @@ public class UpdateResourceReservationPlanRequest {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public UpdateResourceReservationPlanRequest matchingReservationPlanTimeConfig(MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput matchingReservationPlanTimeConfig) {
+    this.matchingReservationPlanTimeConfig = matchingReservationPlanTimeConfig;
+    return this;
+  }
+
+   /**
+   * Get matchingReservationPlanTimeConfig
+   * @return matchingReservationPlanTimeConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput getMatchingReservationPlanTimeConfig() {
+    return matchingReservationPlanTimeConfig;
+  }
+
+  public void setMatchingReservationPlanTimeConfig(MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput matchingReservationPlanTimeConfig) {
+    this.matchingReservationPlanTimeConfig = matchingReservationPlanTimeConfig;
   }
 
   public UpdateResourceReservationPlanRequest name(String name) {
@@ -218,6 +241,7 @@ public class UpdateResourceReservationPlanRequest {
     return Objects.equals(this.description, updateResourceReservationPlanRequest.description) &&
         Objects.equals(this.dryRun, updateResourceReservationPlanRequest.dryRun) &&
         Objects.equals(this.id, updateResourceReservationPlanRequest.id) &&
+        Objects.equals(this.matchingReservationPlanTimeConfig, updateResourceReservationPlanRequest.matchingReservationPlanTimeConfig) &&
         Objects.equals(this.name, updateResourceReservationPlanRequest.name) &&
         Objects.equals(this.scheduleConfig, updateResourceReservationPlanRequest.scheduleConfig) &&
         Objects.equals(this.storageConfig, updateResourceReservationPlanRequest.storageConfig) &&
@@ -227,7 +251,7 @@ public class UpdateResourceReservationPlanRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dryRun, id, name, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(description, dryRun, id, matchingReservationPlanTimeConfig, name, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -239,6 +263,7 @@ public class UpdateResourceReservationPlanRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    matchingReservationPlanTimeConfig: ").append(toIndentedString(matchingReservationPlanTimeConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scheduleConfig: ").append(toIndentedString(scheduleConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");

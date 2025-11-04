@@ -20,12 +20,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.ComputeResourceForCreateResourceReservationPlanInput;
+import com.volcengine.mlplatform20240701.model.CustomComputeResourceForCreateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.ReservationConfigForCreateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.ScheduleConfigForCreateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.StorageConfigForCreateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForCreateResourceReservationPlanInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,6 +40,9 @@ import javax.validation.Valid;
 public class CreateResourceReservationPlanRequest {
   @SerializedName("ComputeResource")
   private ComputeResourceForCreateResourceReservationPlanInput computeResource = null;
+
+  @SerializedName("CustomComputeResource")
+  private List<CustomComputeResourceForCreateResourceReservationPlanInput> customComputeResource = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -82,6 +88,33 @@ public class CreateResourceReservationPlanRequest {
 
   public void setComputeResource(ComputeResourceForCreateResourceReservationPlanInput computeResource) {
     this.computeResource = computeResource;
+  }
+
+  public CreateResourceReservationPlanRequest customComputeResource(List<CustomComputeResourceForCreateResourceReservationPlanInput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
+    return this;
+  }
+
+  public CreateResourceReservationPlanRequest addCustomComputeResourceItem(CustomComputeResourceForCreateResourceReservationPlanInput customComputeResourceItem) {
+    if (this.customComputeResource == null) {
+      this.customComputeResource = new ArrayList<CustomComputeResourceForCreateResourceReservationPlanInput>();
+    }
+    this.customComputeResource.add(customComputeResourceItem);
+    return this;
+  }
+
+   /**
+   * Get customComputeResource
+   * @return customComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomComputeResourceForCreateResourceReservationPlanInput> getCustomComputeResource() {
+    return customComputeResource;
+  }
+
+  public void setCustomComputeResource(List<CustomComputeResourceForCreateResourceReservationPlanInput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
   }
 
   public CreateResourceReservationPlanRequest description(String description) {
@@ -262,6 +295,7 @@ public class CreateResourceReservationPlanRequest {
     }
     CreateResourceReservationPlanRequest createResourceReservationPlanRequest = (CreateResourceReservationPlanRequest) o;
     return Objects.equals(this.computeResource, createResourceReservationPlanRequest.computeResource) &&
+        Objects.equals(this.customComputeResource, createResourceReservationPlanRequest.customComputeResource) &&
         Objects.equals(this.description, createResourceReservationPlanRequest.description) &&
         Objects.equals(this.dryRun, createResourceReservationPlanRequest.dryRun) &&
         Objects.equals(this.name, createResourceReservationPlanRequest.name) &&
@@ -275,7 +309,7 @@ public class CreateResourceReservationPlanRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(computeResource, description, dryRun, name, projectName, reservationConfig, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(computeResource, customComputeResource, description, dryRun, name, projectName, reservationConfig, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -285,6 +319,7 @@ public class CreateResourceReservationPlanRequest {
     sb.append("class CreateResourceReservationPlanRequest {\n");
     
     sb.append("    computeResource: ").append(toIndentedString(computeResource)).append("\n");
+    sb.append("    customComputeResource: ").append(toIndentedString(customComputeResource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

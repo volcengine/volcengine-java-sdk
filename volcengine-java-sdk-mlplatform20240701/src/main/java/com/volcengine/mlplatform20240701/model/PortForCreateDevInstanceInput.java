@@ -42,52 +42,6 @@ public class PortForCreateDevInstanceInput {
   @SerializedName("Name")
   private String name = null;
 
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    @SerializedName("system")
-    SYSTEM("system"),
-    @SerializedName("custom")
-    CUSTOM("custom");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TypeEnum fromValue(String input) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Type")
-  private TypeEnum type = null;
-
   public PortForCreateDevInstanceInput enablePublicNetworkAccess(Boolean enablePublicNetworkAccess) {
     this.enablePublicNetworkAccess = enablePublicNetworkAccess;
     return this;
@@ -160,24 +114,6 @@ public class PortForCreateDevInstanceInput {
     this.name = name;
   }
 
-  public PortForCreateDevInstanceInput type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -191,13 +127,12 @@ public class PortForCreateDevInstanceInput {
     return Objects.equals(this.enablePublicNetworkAccess, portForCreateDevInstanceInput.enablePublicNetworkAccess) &&
         Objects.equals(this.externalPort, portForCreateDevInstanceInput.externalPort) &&
         Objects.equals(this.internalPort, portForCreateDevInstanceInput.internalPort) &&
-        Objects.equals(this.name, portForCreateDevInstanceInput.name) &&
-        Objects.equals(this.type, portForCreateDevInstanceInput.type);
+        Objects.equals(this.name, portForCreateDevInstanceInput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePublicNetworkAccess, externalPort, internalPort, name, type);
+    return Objects.hash(enablePublicNetworkAccess, externalPort, internalPort, name);
   }
 
 
@@ -210,7 +145,6 @@ public class PortForCreateDevInstanceInput {
     sb.append("    externalPort: ").append(toIndentedString(externalPort)).append("\n");
     sb.append("    internalPort: ").append(toIndentedString(internalPort)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

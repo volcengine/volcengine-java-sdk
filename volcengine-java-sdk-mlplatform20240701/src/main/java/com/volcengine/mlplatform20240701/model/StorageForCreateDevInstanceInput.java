@@ -19,7 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.ConfigForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.AdvancedOptionsForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.NasAccessPointOptionsForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.SfcsAdvancedOptionsForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.VepfsAccessPointOptionsForCreateDevInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,35 +34,266 @@ import javax.validation.Valid;
 
 
 public class StorageForCreateDevInstanceInput {
-  @SerializedName("Config")
-  private ConfigForCreateDevInstanceInput config = null;
+  @SerializedName("AdvancedOptions")
+  private AdvancedOptionsForCreateDevInstanceInput advancedOptions = null;
+
+  @SerializedName("AnnotationId")
+  private String annotationId = null;
+
+  @SerializedName("AssetId")
+  private String assetId = null;
+
+  @SerializedName("AssetName")
+  private String assetName = null;
+
+  @SerializedName("AssetVersion")
+  private String assetVersion = null;
+
+  @SerializedName("Bucket")
+  private String bucket = null;
+
+  @SerializedName("CachePolicyId")
+  private String cachePolicyId = null;
+
+  @SerializedName("CloudfsType")
+  private String cloudfsType = null;
+
+  @SerializedName("DatasetId")
+  private String datasetId = null;
+
+  @SerializedName("FsName")
+  private String fsName = null;
 
   @SerializedName("MountPath")
   private String mountPath = null;
 
+  @SerializedName("NasAccessPointOptions")
+  private NasAccessPointOptionsForCreateDevInstanceInput nasAccessPointOptions = null;
+
+  @SerializedName("NasAddr")
+  private String nasAddr = null;
+
+  @SerializedName("NasId")
+  private String nasId = null;
+
+  @SerializedName("NasName")
+  private String nasName = null;
+
+  @SerializedName("NsId")
+  private String nsId = null;
+
+  @SerializedName("Prefix")
+  private String prefix = null;
+
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
+
+  @SerializedName("SfcsAdvancedOptions")
+  private SfcsAdvancedOptionsForCreateDevInstanceInput sfcsAdvancedOptions = null;
+
+  @SerializedName("SfcsId")
+  private String sfcsId = null;
+
+  @SerializedName("SubPath")
+  private String subPath = null;
 
   @SerializedName("Type")
   private String type = null;
 
-  public StorageForCreateDevInstanceInput config(ConfigForCreateDevInstanceInput config) {
-    this.config = config;
+  @SerializedName("UseAsDefaultMountPath")
+  private Boolean useAsDefaultMountPath = null;
+
+  @SerializedName("UseEic")
+  private Boolean useEic = null;
+
+  @SerializedName("VepfsAccessPointOptions")
+  private VepfsAccessPointOptionsForCreateDevInstanceInput vepfsAccessPointOptions = null;
+
+  @SerializedName("VepfsHostPath")
+  private String vepfsHostPath = null;
+
+  @SerializedName("VepfsId")
+  private String vepfsId = null;
+
+  public StorageForCreateDevInstanceInput advancedOptions(AdvancedOptionsForCreateDevInstanceInput advancedOptions) {
+    this.advancedOptions = advancedOptions;
     return this;
   }
 
    /**
-   * Get config
-   * @return config
+   * Get advancedOptions
+   * @return advancedOptions
   **/
   @Valid
   @Schema(description = "")
-  public ConfigForCreateDevInstanceInput getConfig() {
-    return config;
+  public AdvancedOptionsForCreateDevInstanceInput getAdvancedOptions() {
+    return advancedOptions;
   }
 
-  public void setConfig(ConfigForCreateDevInstanceInput config) {
-    this.config = config;
+  public void setAdvancedOptions(AdvancedOptionsForCreateDevInstanceInput advancedOptions) {
+    this.advancedOptions = advancedOptions;
+  }
+
+  public StorageForCreateDevInstanceInput annotationId(String annotationId) {
+    this.annotationId = annotationId;
+    return this;
+  }
+
+   /**
+   * Get annotationId
+   * @return annotationId
+  **/
+  @Schema(description = "")
+  public String getAnnotationId() {
+    return annotationId;
+  }
+
+  public void setAnnotationId(String annotationId) {
+    this.annotationId = annotationId;
+  }
+
+  public StorageForCreateDevInstanceInput assetId(String assetId) {
+    this.assetId = assetId;
+    return this;
+  }
+
+   /**
+   * Get assetId
+   * @return assetId
+  **/
+  @Schema(description = "")
+  public String getAssetId() {
+    return assetId;
+  }
+
+  public void setAssetId(String assetId) {
+    this.assetId = assetId;
+  }
+
+  public StorageForCreateDevInstanceInput assetName(String assetName) {
+    this.assetName = assetName;
+    return this;
+  }
+
+   /**
+   * Get assetName
+   * @return assetName
+  **/
+  @Schema(description = "")
+  public String getAssetName() {
+    return assetName;
+  }
+
+  public void setAssetName(String assetName) {
+    this.assetName = assetName;
+  }
+
+  public StorageForCreateDevInstanceInput assetVersion(String assetVersion) {
+    this.assetVersion = assetVersion;
+    return this;
+  }
+
+   /**
+   * Get assetVersion
+   * @return assetVersion
+  **/
+  @Schema(description = "")
+  public String getAssetVersion() {
+    return assetVersion;
+  }
+
+  public void setAssetVersion(String assetVersion) {
+    this.assetVersion = assetVersion;
+  }
+
+  public StorageForCreateDevInstanceInput bucket(String bucket) {
+    this.bucket = bucket;
+    return this;
+  }
+
+   /**
+   * Get bucket
+   * @return bucket
+  **/
+  @Schema(description = "")
+  public String getBucket() {
+    return bucket;
+  }
+
+  public void setBucket(String bucket) {
+    this.bucket = bucket;
+  }
+
+  public StorageForCreateDevInstanceInput cachePolicyId(String cachePolicyId) {
+    this.cachePolicyId = cachePolicyId;
+    return this;
+  }
+
+   /**
+   * Get cachePolicyId
+   * @return cachePolicyId
+  **/
+  @Schema(description = "")
+  public String getCachePolicyId() {
+    return cachePolicyId;
+  }
+
+  public void setCachePolicyId(String cachePolicyId) {
+    this.cachePolicyId = cachePolicyId;
+  }
+
+  public StorageForCreateDevInstanceInput cloudfsType(String cloudfsType) {
+    this.cloudfsType = cloudfsType;
+    return this;
+  }
+
+   /**
+   * Get cloudfsType
+   * @return cloudfsType
+  **/
+  @Schema(description = "")
+  public String getCloudfsType() {
+    return cloudfsType;
+  }
+
+  public void setCloudfsType(String cloudfsType) {
+    this.cloudfsType = cloudfsType;
+  }
+
+  public StorageForCreateDevInstanceInput datasetId(String datasetId) {
+    this.datasetId = datasetId;
+    return this;
+  }
+
+   /**
+   * Get datasetId
+   * @return datasetId
+  **/
+  @Schema(description = "")
+  public String getDatasetId() {
+    return datasetId;
+  }
+
+  public void setDatasetId(String datasetId) {
+    this.datasetId = datasetId;
+  }
+
+  public StorageForCreateDevInstanceInput fsName(String fsName) {
+    this.fsName = fsName;
+    return this;
+  }
+
+   /**
+   * Get fsName
+   * @return fsName
+  **/
+  @Schema(description = "")
+  public String getFsName() {
+    return fsName;
+  }
+
+  public void setFsName(String fsName) {
+    this.fsName = fsName;
   }
 
   public StorageForCreateDevInstanceInput mountPath(String mountPath) {
@@ -80,6 +314,115 @@ public class StorageForCreateDevInstanceInput {
     this.mountPath = mountPath;
   }
 
+  public StorageForCreateDevInstanceInput nasAccessPointOptions(NasAccessPointOptionsForCreateDevInstanceInput nasAccessPointOptions) {
+    this.nasAccessPointOptions = nasAccessPointOptions;
+    return this;
+  }
+
+   /**
+   * Get nasAccessPointOptions
+   * @return nasAccessPointOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public NasAccessPointOptionsForCreateDevInstanceInput getNasAccessPointOptions() {
+    return nasAccessPointOptions;
+  }
+
+  public void setNasAccessPointOptions(NasAccessPointOptionsForCreateDevInstanceInput nasAccessPointOptions) {
+    this.nasAccessPointOptions = nasAccessPointOptions;
+  }
+
+  public StorageForCreateDevInstanceInput nasAddr(String nasAddr) {
+    this.nasAddr = nasAddr;
+    return this;
+  }
+
+   /**
+   * Get nasAddr
+   * @return nasAddr
+  **/
+  @Schema(description = "")
+  public String getNasAddr() {
+    return nasAddr;
+  }
+
+  public void setNasAddr(String nasAddr) {
+    this.nasAddr = nasAddr;
+  }
+
+  public StorageForCreateDevInstanceInput nasId(String nasId) {
+    this.nasId = nasId;
+    return this;
+  }
+
+   /**
+   * Get nasId
+   * @return nasId
+  **/
+  @Schema(description = "")
+  public String getNasId() {
+    return nasId;
+  }
+
+  public void setNasId(String nasId) {
+    this.nasId = nasId;
+  }
+
+  public StorageForCreateDevInstanceInput nasName(String nasName) {
+    this.nasName = nasName;
+    return this;
+  }
+
+   /**
+   * Get nasName
+   * @return nasName
+  **/
+  @Schema(description = "")
+  public String getNasName() {
+    return nasName;
+  }
+
+  public void setNasName(String nasName) {
+    this.nasName = nasName;
+  }
+
+  public StorageForCreateDevInstanceInput nsId(String nsId) {
+    this.nsId = nsId;
+    return this;
+  }
+
+   /**
+   * Get nsId
+   * @return nsId
+  **/
+  @Schema(description = "")
+  public String getNsId() {
+    return nsId;
+  }
+
+  public void setNsId(String nsId) {
+    this.nsId = nsId;
+  }
+
+  public StorageForCreateDevInstanceInput prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Get prefix
+   * @return prefix
+  **/
+  @Schema(description = "")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
   public StorageForCreateDevInstanceInput readOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
@@ -96,6 +439,61 @@ public class StorageForCreateDevInstanceInput {
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
+  }
+
+  public StorageForCreateDevInstanceInput sfcsAdvancedOptions(SfcsAdvancedOptionsForCreateDevInstanceInput sfcsAdvancedOptions) {
+    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
+    return this;
+  }
+
+   /**
+   * Get sfcsAdvancedOptions
+   * @return sfcsAdvancedOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public SfcsAdvancedOptionsForCreateDevInstanceInput getSfcsAdvancedOptions() {
+    return sfcsAdvancedOptions;
+  }
+
+  public void setSfcsAdvancedOptions(SfcsAdvancedOptionsForCreateDevInstanceInput sfcsAdvancedOptions) {
+    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
+  }
+
+  public StorageForCreateDevInstanceInput sfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+    return this;
+  }
+
+   /**
+   * Get sfcsId
+   * @return sfcsId
+  **/
+  @Schema(description = "")
+  public String getSfcsId() {
+    return sfcsId;
+  }
+
+  public void setSfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+  }
+
+  public StorageForCreateDevInstanceInput subPath(String subPath) {
+    this.subPath = subPath;
+    return this;
+  }
+
+   /**
+   * Get subPath
+   * @return subPath
+  **/
+  @Schema(description = "")
+  public String getSubPath() {
+    return subPath;
+  }
+
+  public void setSubPath(String subPath) {
+    this.subPath = subPath;
   }
 
   public StorageForCreateDevInstanceInput type(String type) {
@@ -116,6 +514,97 @@ public class StorageForCreateDevInstanceInput {
     this.type = type;
   }
 
+  public StorageForCreateDevInstanceInput useAsDefaultMountPath(Boolean useAsDefaultMountPath) {
+    this.useAsDefaultMountPath = useAsDefaultMountPath;
+    return this;
+  }
+
+   /**
+   * Get useAsDefaultMountPath
+   * @return useAsDefaultMountPath
+  **/
+  @Schema(description = "")
+  public Boolean isUseAsDefaultMountPath() {
+    return useAsDefaultMountPath;
+  }
+
+  public void setUseAsDefaultMountPath(Boolean useAsDefaultMountPath) {
+    this.useAsDefaultMountPath = useAsDefaultMountPath;
+  }
+
+  public StorageForCreateDevInstanceInput useEic(Boolean useEic) {
+    this.useEic = useEic;
+    return this;
+  }
+
+   /**
+   * Get useEic
+   * @return useEic
+  **/
+  @Schema(description = "")
+  public Boolean isUseEic() {
+    return useEic;
+  }
+
+  public void setUseEic(Boolean useEic) {
+    this.useEic = useEic;
+  }
+
+  public StorageForCreateDevInstanceInput vepfsAccessPointOptions(VepfsAccessPointOptionsForCreateDevInstanceInput vepfsAccessPointOptions) {
+    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
+    return this;
+  }
+
+   /**
+   * Get vepfsAccessPointOptions
+   * @return vepfsAccessPointOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public VepfsAccessPointOptionsForCreateDevInstanceInput getVepfsAccessPointOptions() {
+    return vepfsAccessPointOptions;
+  }
+
+  public void setVepfsAccessPointOptions(VepfsAccessPointOptionsForCreateDevInstanceInput vepfsAccessPointOptions) {
+    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
+  }
+
+  public StorageForCreateDevInstanceInput vepfsHostPath(String vepfsHostPath) {
+    this.vepfsHostPath = vepfsHostPath;
+    return this;
+  }
+
+   /**
+   * Get vepfsHostPath
+   * @return vepfsHostPath
+  **/
+  @Schema(description = "")
+  public String getVepfsHostPath() {
+    return vepfsHostPath;
+  }
+
+  public void setVepfsHostPath(String vepfsHostPath) {
+    this.vepfsHostPath = vepfsHostPath;
+  }
+
+  public StorageForCreateDevInstanceInput vepfsId(String vepfsId) {
+    this.vepfsId = vepfsId;
+    return this;
+  }
+
+   /**
+   * Get vepfsId
+   * @return vepfsId
+  **/
+  @Schema(description = "")
+  public String getVepfsId() {
+    return vepfsId;
+  }
+
+  public void setVepfsId(String vepfsId) {
+    this.vepfsId = vepfsId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,15 +615,38 @@ public class StorageForCreateDevInstanceInput {
       return false;
     }
     StorageForCreateDevInstanceInput storageForCreateDevInstanceInput = (StorageForCreateDevInstanceInput) o;
-    return Objects.equals(this.config, storageForCreateDevInstanceInput.config) &&
+    return Objects.equals(this.advancedOptions, storageForCreateDevInstanceInput.advancedOptions) &&
+        Objects.equals(this.annotationId, storageForCreateDevInstanceInput.annotationId) &&
+        Objects.equals(this.assetId, storageForCreateDevInstanceInput.assetId) &&
+        Objects.equals(this.assetName, storageForCreateDevInstanceInput.assetName) &&
+        Objects.equals(this.assetVersion, storageForCreateDevInstanceInput.assetVersion) &&
+        Objects.equals(this.bucket, storageForCreateDevInstanceInput.bucket) &&
+        Objects.equals(this.cachePolicyId, storageForCreateDevInstanceInput.cachePolicyId) &&
+        Objects.equals(this.cloudfsType, storageForCreateDevInstanceInput.cloudfsType) &&
+        Objects.equals(this.datasetId, storageForCreateDevInstanceInput.datasetId) &&
+        Objects.equals(this.fsName, storageForCreateDevInstanceInput.fsName) &&
         Objects.equals(this.mountPath, storageForCreateDevInstanceInput.mountPath) &&
+        Objects.equals(this.nasAccessPointOptions, storageForCreateDevInstanceInput.nasAccessPointOptions) &&
+        Objects.equals(this.nasAddr, storageForCreateDevInstanceInput.nasAddr) &&
+        Objects.equals(this.nasId, storageForCreateDevInstanceInput.nasId) &&
+        Objects.equals(this.nasName, storageForCreateDevInstanceInput.nasName) &&
+        Objects.equals(this.nsId, storageForCreateDevInstanceInput.nsId) &&
+        Objects.equals(this.prefix, storageForCreateDevInstanceInput.prefix) &&
         Objects.equals(this.readOnly, storageForCreateDevInstanceInput.readOnly) &&
-        Objects.equals(this.type, storageForCreateDevInstanceInput.type);
+        Objects.equals(this.sfcsAdvancedOptions, storageForCreateDevInstanceInput.sfcsAdvancedOptions) &&
+        Objects.equals(this.sfcsId, storageForCreateDevInstanceInput.sfcsId) &&
+        Objects.equals(this.subPath, storageForCreateDevInstanceInput.subPath) &&
+        Objects.equals(this.type, storageForCreateDevInstanceInput.type) &&
+        Objects.equals(this.useAsDefaultMountPath, storageForCreateDevInstanceInput.useAsDefaultMountPath) &&
+        Objects.equals(this.useEic, storageForCreateDevInstanceInput.useEic) &&
+        Objects.equals(this.vepfsAccessPointOptions, storageForCreateDevInstanceInput.vepfsAccessPointOptions) &&
+        Objects.equals(this.vepfsHostPath, storageForCreateDevInstanceInput.vepfsHostPath) &&
+        Objects.equals(this.vepfsId, storageForCreateDevInstanceInput.vepfsId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, mountPath, readOnly, type);
+    return Objects.hash(advancedOptions, annotationId, assetId, assetName, assetVersion, bucket, cachePolicyId, cloudfsType, datasetId, fsName, mountPath, nasAccessPointOptions, nasAddr, nasId, nasName, nsId, prefix, readOnly, sfcsAdvancedOptions, sfcsId, subPath, type, useAsDefaultMountPath, useEic, vepfsAccessPointOptions, vepfsHostPath, vepfsId);
   }
 
 
@@ -143,10 +655,33 @@ public class StorageForCreateDevInstanceInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageForCreateDevInstanceInput {\n");
     
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    advancedOptions: ").append(toIndentedString(advancedOptions)).append("\n");
+    sb.append("    annotationId: ").append(toIndentedString(annotationId)).append("\n");
+    sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
+    sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
+    sb.append("    assetVersion: ").append(toIndentedString(assetVersion)).append("\n");
+    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    cachePolicyId: ").append(toIndentedString(cachePolicyId)).append("\n");
+    sb.append("    cloudfsType: ").append(toIndentedString(cloudfsType)).append("\n");
+    sb.append("    datasetId: ").append(toIndentedString(datasetId)).append("\n");
+    sb.append("    fsName: ").append(toIndentedString(fsName)).append("\n");
     sb.append("    mountPath: ").append(toIndentedString(mountPath)).append("\n");
+    sb.append("    nasAccessPointOptions: ").append(toIndentedString(nasAccessPointOptions)).append("\n");
+    sb.append("    nasAddr: ").append(toIndentedString(nasAddr)).append("\n");
+    sb.append("    nasId: ").append(toIndentedString(nasId)).append("\n");
+    sb.append("    nasName: ").append(toIndentedString(nasName)).append("\n");
+    sb.append("    nsId: ").append(toIndentedString(nsId)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    sfcsAdvancedOptions: ").append(toIndentedString(sfcsAdvancedOptions)).append("\n");
+    sb.append("    sfcsId: ").append(toIndentedString(sfcsId)).append("\n");
+    sb.append("    subPath: ").append(toIndentedString(subPath)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    useAsDefaultMountPath: ").append(toIndentedString(useAsDefaultMountPath)).append("\n");
+    sb.append("    useEic: ").append(toIndentedString(useEic)).append("\n");
+    sb.append("    vepfsAccessPointOptions: ").append(toIndentedString(vepfsAccessPointOptions)).append("\n");
+    sb.append("    vepfsHostPath: ").append(toIndentedString(vepfsHostPath)).append("\n");
+    sb.append("    vepfsId: ").append(toIndentedString(vepfsId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.CustomComputeResourceForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.DesiredComputeResourceForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.ReservationConfigForListResourceReservationPlansOutput;
 import com.volcengine.mlplatform20240701.model.ScheduleConfigForListResourceReservationPlansOutput;
@@ -27,6 +28,8 @@ import com.volcengine.mlplatform20240701.model.StorageConfigForListResourceReser
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForListResourceReservationPlansOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class ItemForListResourceReservationPlansOutput {
 
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
+
+  @SerializedName("CustomComputeResource")
+  private List<CustomComputeResourceForListResourceReservationPlansOutput> customComputeResource = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -112,6 +118,33 @@ public class ItemForListResourceReservationPlansOutput {
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public ItemForListResourceReservationPlansOutput customComputeResource(List<CustomComputeResourceForListResourceReservationPlansOutput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
+    return this;
+  }
+
+  public ItemForListResourceReservationPlansOutput addCustomComputeResourceItem(CustomComputeResourceForListResourceReservationPlansOutput customComputeResourceItem) {
+    if (this.customComputeResource == null) {
+      this.customComputeResource = new ArrayList<CustomComputeResourceForListResourceReservationPlansOutput>();
+    }
+    this.customComputeResource.add(customComputeResourceItem);
+    return this;
+  }
+
+   /**
+   * Get customComputeResource
+   * @return customComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomComputeResourceForListResourceReservationPlansOutput> getCustomComputeResource() {
+    return customComputeResource;
+  }
+
+  public void setCustomComputeResource(List<CustomComputeResourceForListResourceReservationPlansOutput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
   }
 
   public ItemForListResourceReservationPlansOutput description(String description) {
@@ -348,6 +381,7 @@ public class ItemForListResourceReservationPlansOutput {
     ItemForListResourceReservationPlansOutput itemForListResourceReservationPlansOutput = (ItemForListResourceReservationPlansOutput) o;
     return Objects.equals(this.createTime, itemForListResourceReservationPlansOutput.createTime) &&
         Objects.equals(this.creatorTrn, itemForListResourceReservationPlansOutput.creatorTrn) &&
+        Objects.equals(this.customComputeResource, itemForListResourceReservationPlansOutput.customComputeResource) &&
         Objects.equals(this.description, itemForListResourceReservationPlansOutput.description) &&
         Objects.equals(this.desiredComputeResource, itemForListResourceReservationPlansOutput.desiredComputeResource) &&
         Objects.equals(this.id, itemForListResourceReservationPlansOutput.id) &&
@@ -364,7 +398,7 @@ public class ItemForListResourceReservationPlansOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, creatorTrn, description, desiredComputeResource, id, name, projectName, reservationConfig, scheduleConfig, status, storageConfig, updateTime, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(createTime, creatorTrn, customComputeResource, description, desiredComputeResource, id, name, projectName, reservationConfig, scheduleConfig, status, storageConfig, updateTime, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -375,6 +409,7 @@ public class ItemForListResourceReservationPlansOutput {
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    customComputeResource: ").append(toIndentedString(customComputeResource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    desiredComputeResource: ").append(toIndentedString(desiredComputeResource)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
