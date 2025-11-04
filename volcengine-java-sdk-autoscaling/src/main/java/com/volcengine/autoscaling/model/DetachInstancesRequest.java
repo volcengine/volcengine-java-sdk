@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetachInstancesRequest {
   @SerializedName("DecreaseDesiredCapacity")
   private Boolean decreaseDesiredCapacity = null;

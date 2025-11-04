@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteScalingConfigurationRequest {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;

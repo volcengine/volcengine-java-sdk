@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.autoscaling.model.AlarmPolicyConditionForCreateScalingPolicyInput;
+import com.volcengine.autoscaling.model.ConditionForCreateScalingPolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,9 +32,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class AlarmPolicyForCreateScalingPolicyInput {
   @SerializedName("Condition")
-  private AlarmPolicyConditionForCreateScalingPolicyInput condition = null;
+  private ConditionForCreateScalingPolicyInput condition = null;
+
+  @SerializedName("ConditionOperator")
+  private String conditionOperator = null;
+
+  @SerializedName("Conditions")
+  private List<AlarmPolicyConditionForCreateScalingPolicyInput> conditions = null;
+
+  @SerializedName("Effective")
+  private String effective = null;
 
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
@@ -39,7 +52,7 @@ public class AlarmPolicyForCreateScalingPolicyInput {
   @SerializedName("RuleType")
   private String ruleType = null;
 
-  public AlarmPolicyForCreateScalingPolicyInput condition(AlarmPolicyConditionForCreateScalingPolicyInput condition) {
+  public AlarmPolicyForCreateScalingPolicyInput condition(ConditionForCreateScalingPolicyInput condition) {
     this.condition = condition;
     return this;
   }
@@ -50,12 +63,75 @@ public class AlarmPolicyForCreateScalingPolicyInput {
   **/
   @Valid
   @Schema(description = "")
-  public AlarmPolicyConditionForCreateScalingPolicyInput getCondition() {
+  public ConditionForCreateScalingPolicyInput getCondition() {
     return condition;
   }
 
-  public void setCondition(AlarmPolicyConditionForCreateScalingPolicyInput condition) {
+  public void setCondition(ConditionForCreateScalingPolicyInput condition) {
     this.condition = condition;
+  }
+
+  public AlarmPolicyForCreateScalingPolicyInput conditionOperator(String conditionOperator) {
+    this.conditionOperator = conditionOperator;
+    return this;
+  }
+
+   /**
+   * Get conditionOperator
+   * @return conditionOperator
+  **/
+  @Schema(description = "")
+  public String getConditionOperator() {
+    return conditionOperator;
+  }
+
+  public void setConditionOperator(String conditionOperator) {
+    this.conditionOperator = conditionOperator;
+  }
+
+  public AlarmPolicyForCreateScalingPolicyInput conditions(List<AlarmPolicyConditionForCreateScalingPolicyInput> conditions) {
+    this.conditions = conditions;
+    return this;
+  }
+
+  public AlarmPolicyForCreateScalingPolicyInput addConditionsItem(AlarmPolicyConditionForCreateScalingPolicyInput conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<AlarmPolicyConditionForCreateScalingPolicyInput>();
+    }
+    this.conditions.add(conditionsItem);
+    return this;
+  }
+
+   /**
+   * Get conditions
+   * @return conditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AlarmPolicyConditionForCreateScalingPolicyInput> getConditions() {
+    return conditions;
+  }
+
+  public void setConditions(List<AlarmPolicyConditionForCreateScalingPolicyInput> conditions) {
+    this.conditions = conditions;
+  }
+
+  public AlarmPolicyForCreateScalingPolicyInput effective(String effective) {
+    this.effective = effective;
+    return this;
+  }
+
+   /**
+   * Get effective
+   * @return effective
+  **/
+  @Schema(description = "")
+  public String getEffective() {
+    return effective;
+  }
+
+  public void setEffective(String effective) {
+    this.effective = effective;
   }
 
   public AlarmPolicyForCreateScalingPolicyInput evaluationCount(Integer evaluationCount) {
@@ -107,13 +183,16 @@ public class AlarmPolicyForCreateScalingPolicyInput {
     }
     AlarmPolicyForCreateScalingPolicyInput alarmPolicyForCreateScalingPolicyInput = (AlarmPolicyForCreateScalingPolicyInput) o;
     return Objects.equals(this.condition, alarmPolicyForCreateScalingPolicyInput.condition) &&
+        Objects.equals(this.conditionOperator, alarmPolicyForCreateScalingPolicyInput.conditionOperator) &&
+        Objects.equals(this.conditions, alarmPolicyForCreateScalingPolicyInput.conditions) &&
+        Objects.equals(this.effective, alarmPolicyForCreateScalingPolicyInput.effective) &&
         Objects.equals(this.evaluationCount, alarmPolicyForCreateScalingPolicyInput.evaluationCount) &&
         Objects.equals(this.ruleType, alarmPolicyForCreateScalingPolicyInput.ruleType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(condition, evaluationCount, ruleType);
+    return Objects.hash(condition, conditionOperator, conditions, effective, evaluationCount, ruleType);
   }
 
 
@@ -123,6 +202,9 @@ public class AlarmPolicyForCreateScalingPolicyInput {
     sb.append("class AlarmPolicyForCreateScalingPolicyInput {\n");
     
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
+    sb.append("    conditionOperator: ").append(toIndentedString(conditionOperator)).append("\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    effective: ").append(toIndentedString(effective)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("}");

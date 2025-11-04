@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ScheduledPolicyForDescribeScalingPoliciesOutput {
   @SerializedName("LaunchTime")
   private String launchTime = null;

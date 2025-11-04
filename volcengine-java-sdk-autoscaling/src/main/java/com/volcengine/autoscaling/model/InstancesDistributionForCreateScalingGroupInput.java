@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstancesDistributionForCreateScalingGroupInput {
   @SerializedName("CompensateWithOnDemand")
   private Boolean compensateWithOnDemand = null;

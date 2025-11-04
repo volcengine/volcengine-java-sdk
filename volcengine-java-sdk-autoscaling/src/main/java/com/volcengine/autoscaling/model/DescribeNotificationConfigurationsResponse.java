@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNotificationConfigurationsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NotificationConfigurations")
   private List<NotificationConfigurationForDescribeNotificationConfigurationsOutput> notificationConfigurations = null;

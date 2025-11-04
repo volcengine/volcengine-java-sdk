@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResumeProcessesRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

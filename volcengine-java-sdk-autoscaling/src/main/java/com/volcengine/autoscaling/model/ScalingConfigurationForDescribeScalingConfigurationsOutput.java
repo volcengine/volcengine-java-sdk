@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisableScalingPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;

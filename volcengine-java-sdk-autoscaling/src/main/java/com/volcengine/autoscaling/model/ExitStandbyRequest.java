@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ExitStandbyRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

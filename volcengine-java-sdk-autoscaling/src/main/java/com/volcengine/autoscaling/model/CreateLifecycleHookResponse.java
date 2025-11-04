@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateLifecycleHookResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LifecycleHookId")
   private String lifecycleHookId = null;
