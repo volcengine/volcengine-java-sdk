@@ -65,7 +65,11 @@ public class FieldForUpdateVikingdbCollectionInput {
     @SerializedName("image")
     IMAGE("image"),
     @SerializedName("video")
-    VIDEO("video");
+    VIDEO("video"),
+    @SerializedName("date_time")
+    DATE_TIME("date_time"),
+    @SerializedName("geo_point")
+    GEO_POINT("geo_point");
 
     private String value;
 
