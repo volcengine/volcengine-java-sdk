@@ -21,6 +21,7 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.files.*;
 import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.images.generation.ImageGenStreamEvent;
@@ -36,6 +37,7 @@ import com.volcengine.ark.runtime.model.responses.response.ListInputItemsRespons
 import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
+import com.volcengine.ark.runtime.utils.MultipartBodyUtils;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
 import com.volcengine.ark.runtime.utils.SSE;
 import io.reactivex.BackpressureStrategy;
@@ -401,6 +403,38 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 request.getBefore(),
                 request.getLimit(),
                 request.getInclude(),
+                new HashMap<>()
+        ));
+    }
+
+    @Override
+    public FileMeta uploadFile(UploadFileRequest request) {
+        MultipartBody.Part fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
+        RequestBody purpose = RequestBody.create(MultipartBodyUtils.TYPE, request.getPurpose());
+        RequestBody expireAt = null;
+        if (request.getExpireAt() != null) {
+            expireAt = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt()));
+        }
+        return execute(api.uploadFile(fileBody, purpose, expireAt, new HashMap<>()));
+    }
+
+    @Override
+    public FileMeta retrieveFile(String fileId) {
+        return execute(api.retrieveFile(fileId, new HashMap<>()));
+    }
+
+    @Override
+    public DeleteFileResponse deleteFile(String fileId) {
+        return execute(api.deleteFile(fileId, new HashMap<>()));
+    }
+
+    @Override
+    public ListFilesResponse listFiles(ListFilesRequest request) {
+        return execute(api.listFiles(
+                request.getLimit(),
+                request.getAfter(),
+                request.getPurpose(),
+                request.getOrder(),
                 new HashMap<>()
         ));
     }
