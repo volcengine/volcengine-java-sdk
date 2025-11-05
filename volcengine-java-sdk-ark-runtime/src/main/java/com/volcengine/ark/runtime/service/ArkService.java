@@ -522,16 +522,17 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 clientBuilder.dispatcher(dispatcher);
             }
 
+            // 重新配置clientBuilder，添加加密拦截器
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
                     .addInterceptor(new BatchInterceptor())
+                    .addInterceptor(new EncryptionInterceptor(this.apiKey, this.baseUrl))
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .callTimeout(callTimeout == null ? timeout.toMillis() : callTimeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl, callbackExecutor);
-
             return new ArkService(
                     retrofit.create(ArkApi.class),
                     client.dispatcher().executorService()
