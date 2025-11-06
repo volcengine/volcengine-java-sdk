@@ -24,31 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListNatGatewayAvailableZonesRequest
+ * TagResourcesResponse
  */
 
 
 
-public class ListNatGatewayAvailableZonesRequest {
-  @SerializedName("Product")
-  private String product = null;
+public class TagResourcesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RequestId")
+  private String requestId = null;
 
-  public ListNatGatewayAvailableZonesRequest product(String product) {
-    this.product = product;
+  public TagResourcesResponse requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * Get product
-   * @return product
+   * Get requestId
+   * @return requestId
   **/
   @Schema(description = "")
-  public String getProduct() {
-    return product;
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setProduct(String product) {
-    this.product = product;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -60,22 +60,22 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
-    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
+    TagResourcesResponse tagResourcesResponse = (TagResourcesResponse) o;
+    return Objects.equals(this.requestId, tagResourcesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product);
+    return Objects.hash(requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListNatGatewayAvailableZonesRequest {\n");
+    sb.append("class TagResourcesResponse {\n");
     
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

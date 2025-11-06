@@ -24,31 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListNatGatewayAvailableZonesRequest
+ * DeleteNatIpLimitRuleRequest
  */
 
 
 
-public class ListNatGatewayAvailableZonesRequest {
-  @SerializedName("Product")
-  private String product = null;
+public class DeleteNatIpLimitRuleRequest {
+  @SerializedName("LimitRuleId")
+  private String limitRuleId = null;
 
-  public ListNatGatewayAvailableZonesRequest product(String product) {
-    this.product = product;
+  public DeleteNatIpLimitRuleRequest limitRuleId(String limitRuleId) {
+    this.limitRuleId = limitRuleId;
     return this;
   }
 
    /**
-   * Get product
-   * @return product
+   * Get limitRuleId
+   * @return limitRuleId
   **/
-  @Schema(description = "")
-  public String getProduct() {
-    return product;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getLimitRuleId() {
+    return limitRuleId;
   }
 
-  public void setProduct(String product) {
-    this.product = product;
+  public void setLimitRuleId(String limitRuleId) {
+    this.limitRuleId = limitRuleId;
   }
 
 
@@ -60,22 +61,22 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
-    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
+    DeleteNatIpLimitRuleRequest deleteNatIpLimitRuleRequest = (DeleteNatIpLimitRuleRequest) o;
+    return Objects.equals(this.limitRuleId, deleteNatIpLimitRuleRequest.limitRuleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product);
+    return Objects.hash(limitRuleId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListNatGatewayAvailableZonesRequest {\n");
+    sb.append("class DeleteNatIpLimitRuleRequest {\n");
     
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    limitRuleId: ").append(toIndentedString(limitRuleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

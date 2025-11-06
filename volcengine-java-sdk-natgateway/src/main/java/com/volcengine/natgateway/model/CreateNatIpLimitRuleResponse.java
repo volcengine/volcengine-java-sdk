@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListNatGatewayAvailableZonesRequest
+ * CreateNatIpLimitRuleResponse
  */
 
 
 
-public class ListNatGatewayAvailableZonesRequest {
-  @SerializedName("Product")
-  private String product = null;
+public class CreateNatIpLimitRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("LimitRuleId")
+  private String limitRuleId = null;
 
-  public ListNatGatewayAvailableZonesRequest product(String product) {
-    this.product = product;
+  @SerializedName("RequestId")
+  private String requestId = null;
+
+  public CreateNatIpLimitRuleResponse limitRuleId(String limitRuleId) {
+    this.limitRuleId = limitRuleId;
     return this;
   }
 
    /**
-   * Get product
-   * @return product
+   * Get limitRuleId
+   * @return limitRuleId
   **/
   @Schema(description = "")
-  public String getProduct() {
-    return product;
+  public String getLimitRuleId() {
+    return limitRuleId;
   }
 
-  public void setProduct(String product) {
-    this.product = product;
+  public void setLimitRuleId(String limitRuleId) {
+    this.limitRuleId = limitRuleId;
+  }
+
+  public CreateNatIpLimitRuleResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -60,22 +81,24 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
-    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
+    CreateNatIpLimitRuleResponse createNatIpLimitRuleResponse = (CreateNatIpLimitRuleResponse) o;
+    return Objects.equals(this.limitRuleId, createNatIpLimitRuleResponse.limitRuleId) &&
+        Objects.equals(this.requestId, createNatIpLimitRuleResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product);
+    return Objects.hash(limitRuleId, requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListNatGatewayAvailableZonesRequest {\n");
+    sb.append("class CreateNatIpLimitRuleResponse {\n");
     
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    limitRuleId: ").append(toIndentedString(limitRuleId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

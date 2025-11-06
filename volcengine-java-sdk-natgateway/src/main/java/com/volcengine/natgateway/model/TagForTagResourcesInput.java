@@ -24,31 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListNatGatewayAvailableZonesRequest
+ * TagForTagResourcesInput
  */
 
 
 
-public class ListNatGatewayAvailableZonesRequest {
-  @SerializedName("Product")
-  private String product = null;
+public class TagForTagResourcesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public ListNatGatewayAvailableZonesRequest product(String product) {
-    this.product = product;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForTagResourcesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get product
-   * @return product
+   * Get key
+   * @return key
   **/
-  @Schema(description = "")
-  public String getProduct() {
-    return product;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setProduct(String product) {
-    this.product = product;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForTagResourcesInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +82,24 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
-    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
+    TagForTagResourcesInput tagForTagResourcesInput = (TagForTagResourcesInput) o;
+    return Objects.equals(this.key, tagForTagResourcesInput.key) &&
+        Objects.equals(this.value, tagForTagResourcesInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListNatGatewayAvailableZonesRequest {\n");
+    sb.append("class TagForTagResourcesInput {\n");
     
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

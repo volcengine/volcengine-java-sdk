@@ -24,31 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListNatGatewayAvailableZonesRequest
+ * DeleteNatIpRequest
  */
 
 
 
-public class ListNatGatewayAvailableZonesRequest {
-  @SerializedName("Product")
-  private String product = null;
+public class DeleteNatIpRequest {
+  @SerializedName("NatIpId")
+  private String natIpId = null;
 
-  public ListNatGatewayAvailableZonesRequest product(String product) {
-    this.product = product;
+  public DeleteNatIpRequest natIpId(String natIpId) {
+    this.natIpId = natIpId;
     return this;
   }
 
    /**
-   * Get product
-   * @return product
+   * Get natIpId
+   * @return natIpId
   **/
-  @Schema(description = "")
-  public String getProduct() {
-    return product;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getNatIpId() {
+    return natIpId;
   }
 
-  public void setProduct(String product) {
-    this.product = product;
+  public void setNatIpId(String natIpId) {
+    this.natIpId = natIpId;
   }
 
 
@@ -60,22 +61,22 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
-    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
+    DeleteNatIpRequest deleteNatIpRequest = (DeleteNatIpRequest) o;
+    return Objects.equals(this.natIpId, deleteNatIpRequest.natIpId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product);
+    return Objects.hash(natIpId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListNatGatewayAvailableZonesRequest {\n");
+    sb.append("class DeleteNatIpRequest {\n");
     
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    natIpId: ").append(toIndentedString(natIpId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
