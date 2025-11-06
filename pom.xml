@@ -320,5 +320,6 @@
         <module>volcengine-java-sdk-metakms</module>
         <module>volcengine-java-sdk-cbr</module>
         <module>volcengine-java-sdk-milvus</module>
+        <module>volcengine-java-sdk-smc</module>
     </modules>
 </project>
