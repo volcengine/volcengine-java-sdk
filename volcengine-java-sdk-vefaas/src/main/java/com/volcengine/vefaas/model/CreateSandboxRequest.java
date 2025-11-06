@@ -67,6 +67,9 @@ public class CreateSandboxRequest {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
+  @SerializedName("TimeoutUnit")
+  private String timeoutUnit = null;
+
   public CreateSandboxRequest cpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
     return this;
@@ -267,6 +270,24 @@ public class CreateSandboxRequest {
     this.timeout = timeout;
   }
 
+  public CreateSandboxRequest timeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+    return this;
+  }
+
+   /**
+   * Get timeoutUnit
+   * @return timeoutUnit
+  **/
+  @Schema(description = "")
+  public String getTimeoutUnit() {
+    return timeoutUnit;
+  }
+
+  public void setTimeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -286,12 +307,13 @@ public class CreateSandboxRequest {
         Objects.equals(this.memoryMB, createSandboxRequest.memoryMB) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
         Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
-        Objects.equals(this.timeout, createSandboxRequest.timeout);
+        Objects.equals(this.timeout, createSandboxRequest.timeout) &&
+        Objects.equals(this.timeoutUnit, createSandboxRequest.timeoutUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, envs, functionId, instanceImageInfo, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, timeout);
+    return Objects.hash(cpuMilli, envs, functionId, instanceImageInfo, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, timeout, timeoutUnit);
   }
 
 
@@ -310,6 +332,7 @@ public class CreateSandboxRequest {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    timeoutUnit: ").append(toIndentedString(timeoutUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
