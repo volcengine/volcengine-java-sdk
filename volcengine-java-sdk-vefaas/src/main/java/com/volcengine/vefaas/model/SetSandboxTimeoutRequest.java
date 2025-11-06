@@ -39,6 +39,9 @@ public class SetSandboxTimeoutRequest {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
+  @SerializedName("TimeoutUnit")
+  private String timeoutUnit = null;
+
   public SetSandboxTimeoutRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
@@ -96,6 +99,24 @@ public class SetSandboxTimeoutRequest {
     this.timeout = timeout;
   }
 
+  public SetSandboxTimeoutRequest timeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+    return this;
+  }
+
+   /**
+   * Get timeoutUnit
+   * @return timeoutUnit
+  **/
+  @Schema(description = "")
+  public String getTimeoutUnit() {
+    return timeoutUnit;
+  }
+
+  public void setTimeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,12 +129,13 @@ public class SetSandboxTimeoutRequest {
     SetSandboxTimeoutRequest setSandboxTimeoutRequest = (SetSandboxTimeoutRequest) o;
     return Objects.equals(this.functionId, setSandboxTimeoutRequest.functionId) &&
         Objects.equals(this.sandboxId, setSandboxTimeoutRequest.sandboxId) &&
-        Objects.equals(this.timeout, setSandboxTimeoutRequest.timeout);
+        Objects.equals(this.timeout, setSandboxTimeoutRequest.timeout) &&
+        Objects.equals(this.timeoutUnit, setSandboxTimeoutRequest.timeoutUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, sandboxId, timeout);
+    return Objects.hash(functionId, sandboxId, timeout, timeoutUnit);
   }
 
 
@@ -125,6 +147,7 @@ public class SetSandboxTimeoutRequest {
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    timeoutUnit: ").append(toIndentedString(timeoutUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

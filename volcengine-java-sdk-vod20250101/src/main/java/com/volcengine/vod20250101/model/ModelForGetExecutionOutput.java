@@ -30,88 +30,46 @@ import javax.validation.Valid;
 
 
 public class ModelForGetExecutionOutput {
-  @SerializedName("AsrAppId")
-  private String asrAppId = null;
+  @SerializedName("Temperature")
+  private Double temperature = null;
 
-  @SerializedName("AsrAppType")
-  private String asrAppType = null;
+  @SerializedName("TopP")
+  private Double topP = null;
 
-  @SerializedName("DoubaoTextEndpoint")
-  private String doubaoTextEndpoint = null;
-
-  @SerializedName("DoubaoVisionEndpoint")
-  private String doubaoVisionEndpoint = null;
-
-  public ModelForGetExecutionOutput asrAppId(String asrAppId) {
-    this.asrAppId = asrAppId;
+  public ModelForGetExecutionOutput temperature(Double temperature) {
+    this.temperature = temperature;
     return this;
   }
 
    /**
-   * Get asrAppId
-   * @return asrAppId
+   * Get temperature
+   * @return temperature
   **/
   @Schema(description = "")
-  public String getAsrAppId() {
-    return asrAppId;
+  public Double getTemperature() {
+    return temperature;
   }
 
-  public void setAsrAppId(String asrAppId) {
-    this.asrAppId = asrAppId;
+  public void setTemperature(Double temperature) {
+    this.temperature = temperature;
   }
 
-  public ModelForGetExecutionOutput asrAppType(String asrAppType) {
-    this.asrAppType = asrAppType;
+  public ModelForGetExecutionOutput topP(Double topP) {
+    this.topP = topP;
     return this;
   }
 
    /**
-   * Get asrAppType
-   * @return asrAppType
+   * Get topP
+   * @return topP
   **/
   @Schema(description = "")
-  public String getAsrAppType() {
-    return asrAppType;
+  public Double getTopP() {
+    return topP;
   }
 
-  public void setAsrAppType(String asrAppType) {
-    this.asrAppType = asrAppType;
-  }
-
-  public ModelForGetExecutionOutput doubaoTextEndpoint(String doubaoTextEndpoint) {
-    this.doubaoTextEndpoint = doubaoTextEndpoint;
-    return this;
-  }
-
-   /**
-   * Get doubaoTextEndpoint
-   * @return doubaoTextEndpoint
-  **/
-  @Schema(description = "")
-  public String getDoubaoTextEndpoint() {
-    return doubaoTextEndpoint;
-  }
-
-  public void setDoubaoTextEndpoint(String doubaoTextEndpoint) {
-    this.doubaoTextEndpoint = doubaoTextEndpoint;
-  }
-
-  public ModelForGetExecutionOutput doubaoVisionEndpoint(String doubaoVisionEndpoint) {
-    this.doubaoVisionEndpoint = doubaoVisionEndpoint;
-    return this;
-  }
-
-   /**
-   * Get doubaoVisionEndpoint
-   * @return doubaoVisionEndpoint
-  **/
-  @Schema(description = "")
-  public String getDoubaoVisionEndpoint() {
-    return doubaoVisionEndpoint;
-  }
-
-  public void setDoubaoVisionEndpoint(String doubaoVisionEndpoint) {
-    this.doubaoVisionEndpoint = doubaoVisionEndpoint;
+  public void setTopP(Double topP) {
+    this.topP = topP;
   }
 
 
@@ -124,15 +82,13 @@ public class ModelForGetExecutionOutput {
       return false;
     }
     ModelForGetExecutionOutput modelForGetExecutionOutput = (ModelForGetExecutionOutput) o;
-    return Objects.equals(this.asrAppId, modelForGetExecutionOutput.asrAppId) &&
-        Objects.equals(this.asrAppType, modelForGetExecutionOutput.asrAppType) &&
-        Objects.equals(this.doubaoTextEndpoint, modelForGetExecutionOutput.doubaoTextEndpoint) &&
-        Objects.equals(this.doubaoVisionEndpoint, modelForGetExecutionOutput.doubaoVisionEndpoint);
+    return Objects.equals(this.temperature, modelForGetExecutionOutput.temperature) &&
+        Objects.equals(this.topP, modelForGetExecutionOutput.topP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asrAppId, asrAppType, doubaoTextEndpoint, doubaoVisionEndpoint);
+    return Objects.hash(temperature, topP);
   }
 
 
@@ -141,10 +97,8 @@ public class ModelForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelForGetExecutionOutput {\n");
     
-    sb.append("    asrAppId: ").append(toIndentedString(asrAppId)).append("\n");
-    sb.append("    asrAppType: ").append(toIndentedString(asrAppType)).append("\n");
-    sb.append("    doubaoTextEndpoint: ").append(toIndentedString(doubaoTextEndpoint)).append("\n");
-    sb.append("    doubaoVisionEndpoint: ").append(toIndentedString(doubaoVisionEndpoint)).append("\n");
+    sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
+    sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
     sb.append("}");
     return sb.toString();
   }

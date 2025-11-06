@@ -30,50 +30,14 @@ import javax.validation.Valid;
 
 
 public class ConvertClipForGetExecutionOutput {
-  @SerializedName("Dialogue")
-  private String dialogue = null;
-
   @SerializedName("End")
   private Double end = null;
-
-  @SerializedName("Offset")
-  private Integer offset = null;
-
-  @SerializedName("Score")
-  private Double score = null;
-
-  @SerializedName("Snapshot")
-  private String snapshot = null;
 
   @SerializedName("Start")
   private Double start = null;
 
-  @SerializedName("Summary")
-  private String summary = null;
-
-  @SerializedName("Title")
-  private String title = null;
-
   @SerializedName("VideoIndex")
   private Integer videoIndex = null;
-
-  public ConvertClipForGetExecutionOutput dialogue(String dialogue) {
-    this.dialogue = dialogue;
-    return this;
-  }
-
-   /**
-   * Get dialogue
-   * @return dialogue
-  **/
-  @Schema(description = "")
-  public String getDialogue() {
-    return dialogue;
-  }
-
-  public void setDialogue(String dialogue) {
-    this.dialogue = dialogue;
-  }
 
   public ConvertClipForGetExecutionOutput end(Double end) {
     this.end = end;
@@ -93,60 +57,6 @@ public class ConvertClipForGetExecutionOutput {
     this.end = end;
   }
 
-  public ConvertClipForGetExecutionOutput offset(Integer offset) {
-    this.offset = offset;
-    return this;
-  }
-
-   /**
-   * Get offset
-   * @return offset
-  **/
-  @Schema(description = "")
-  public Integer getOffset() {
-    return offset;
-  }
-
-  public void setOffset(Integer offset) {
-    this.offset = offset;
-  }
-
-  public ConvertClipForGetExecutionOutput score(Double score) {
-    this.score = score;
-    return this;
-  }
-
-   /**
-   * Get score
-   * @return score
-  **/
-  @Schema(description = "")
-  public Double getScore() {
-    return score;
-  }
-
-  public void setScore(Double score) {
-    this.score = score;
-  }
-
-  public ConvertClipForGetExecutionOutput snapshot(String snapshot) {
-    this.snapshot = snapshot;
-    return this;
-  }
-
-   /**
-   * Get snapshot
-   * @return snapshot
-  **/
-  @Schema(description = "")
-  public String getSnapshot() {
-    return snapshot;
-  }
-
-  public void setSnapshot(String snapshot) {
-    this.snapshot = snapshot;
-  }
-
   public ConvertClipForGetExecutionOutput start(Double start) {
     this.start = start;
     return this;
@@ -163,42 +73,6 @@ public class ConvertClipForGetExecutionOutput {
 
   public void setStart(Double start) {
     this.start = start;
-  }
-
-  public ConvertClipForGetExecutionOutput summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
-
-   /**
-   * Get summary
-   * @return summary
-  **/
-  @Schema(description = "")
-  public String getSummary() {
-    return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public ConvertClipForGetExecutionOutput title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-  @Schema(description = "")
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
   }
 
   public ConvertClipForGetExecutionOutput videoIndex(Integer videoIndex) {
@@ -229,20 +103,14 @@ public class ConvertClipForGetExecutionOutput {
       return false;
     }
     ConvertClipForGetExecutionOutput convertClipForGetExecutionOutput = (ConvertClipForGetExecutionOutput) o;
-    return Objects.equals(this.dialogue, convertClipForGetExecutionOutput.dialogue) &&
-        Objects.equals(this.end, convertClipForGetExecutionOutput.end) &&
-        Objects.equals(this.offset, convertClipForGetExecutionOutput.offset) &&
-        Objects.equals(this.score, convertClipForGetExecutionOutput.score) &&
-        Objects.equals(this.snapshot, convertClipForGetExecutionOutput.snapshot) &&
+    return Objects.equals(this.end, convertClipForGetExecutionOutput.end) &&
         Objects.equals(this.start, convertClipForGetExecutionOutput.start) &&
-        Objects.equals(this.summary, convertClipForGetExecutionOutput.summary) &&
-        Objects.equals(this.title, convertClipForGetExecutionOutput.title) &&
         Objects.equals(this.videoIndex, convertClipForGetExecutionOutput.videoIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dialogue, end, offset, score, snapshot, start, summary, title, videoIndex);
+    return Objects.hash(end, start, videoIndex);
   }
 
 
@@ -251,14 +119,8 @@ public class ConvertClipForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertClipForGetExecutionOutput {\n");
     
-    sb.append("    dialogue: ").append(toIndentedString(dialogue)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    score: ").append(toIndentedString(score)).append("\n");
-    sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();

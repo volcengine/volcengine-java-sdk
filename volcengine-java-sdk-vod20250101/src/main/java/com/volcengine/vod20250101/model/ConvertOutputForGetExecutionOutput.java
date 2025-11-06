@@ -20,8 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ConvertTaskForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertTemplateForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertWorkflowForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,14 +34,8 @@ public class ConvertOutputForGetExecutionOutput {
   @SerializedName("Task")
   private ConvertTaskForGetExecutionOutput task = null;
 
-  @SerializedName("Template")
-  private ConvertTemplateForGetExecutionOutput template = null;
-
   @SerializedName("Type")
   private String type = null;
-
-  @SerializedName("Workflow")
-  private ConvertWorkflowForGetExecutionOutput workflow = null;
 
   public ConvertOutputForGetExecutionOutput task(ConvertTaskForGetExecutionOutput task) {
     this.task = task;
@@ -64,25 +56,6 @@ public class ConvertOutputForGetExecutionOutput {
     this.task = task;
   }
 
-  public ConvertOutputForGetExecutionOutput template(ConvertTemplateForGetExecutionOutput template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConvertTemplateForGetExecutionOutput getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(ConvertTemplateForGetExecutionOutput template) {
-    this.template = template;
-  }
-
   public ConvertOutputForGetExecutionOutput type(String type) {
     this.type = type;
     return this;
@@ -101,25 +74,6 @@ public class ConvertOutputForGetExecutionOutput {
     this.type = type;
   }
 
-  public ConvertOutputForGetExecutionOutput workflow(ConvertWorkflowForGetExecutionOutput workflow) {
-    this.workflow = workflow;
-    return this;
-  }
-
-   /**
-   * Get workflow
-   * @return workflow
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConvertWorkflowForGetExecutionOutput getWorkflow() {
-    return workflow;
-  }
-
-  public void setWorkflow(ConvertWorkflowForGetExecutionOutput workflow) {
-    this.workflow = workflow;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,14 +85,12 @@ public class ConvertOutputForGetExecutionOutput {
     }
     ConvertOutputForGetExecutionOutput convertOutputForGetExecutionOutput = (ConvertOutputForGetExecutionOutput) o;
     return Objects.equals(this.task, convertOutputForGetExecutionOutput.task) &&
-        Objects.equals(this.template, convertOutputForGetExecutionOutput.template) &&
-        Objects.equals(this.type, convertOutputForGetExecutionOutput.type) &&
-        Objects.equals(this.workflow, convertOutputForGetExecutionOutput.workflow);
+        Objects.equals(this.type, convertOutputForGetExecutionOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(task, template, type, workflow);
+    return Objects.hash(task, type);
   }
 
 
@@ -148,9 +100,7 @@ public class ConvertOutputForGetExecutionOutput {
     sb.append("class ConvertOutputForGetExecutionOutput {\n");
     
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
     sb.append("}");
     return sb.toString();
   }

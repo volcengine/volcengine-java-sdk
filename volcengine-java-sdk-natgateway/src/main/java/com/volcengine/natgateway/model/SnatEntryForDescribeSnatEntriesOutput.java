@@ -39,6 +39,9 @@ public class SnatEntryForDescribeSnatEntriesOutput {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
+  @SerializedName("NatIpId")
+  private String natIpId = null;
+
   @SerializedName("SnatEntryId")
   private String snatEntryId = null;
 
@@ -106,6 +109,24 @@ public class SnatEntryForDescribeSnatEntriesOutput {
 
   public void setNatGatewayId(String natGatewayId) {
     this.natGatewayId = natGatewayId;
+  }
+
+  public SnatEntryForDescribeSnatEntriesOutput natIpId(String natIpId) {
+    this.natIpId = natIpId;
+    return this;
+  }
+
+   /**
+   * Get natIpId
+   * @return natIpId
+  **/
+  @Schema(description = "")
+  public String getNatIpId() {
+    return natIpId;
+  }
+
+  public void setNatIpId(String natIpId) {
+    this.natIpId = natIpId;
   }
 
   public SnatEntryForDescribeSnatEntriesOutput snatEntryId(String snatEntryId) {
@@ -211,6 +232,7 @@ public class SnatEntryForDescribeSnatEntriesOutput {
     return Objects.equals(this.eipAddress, snatEntryForDescribeSnatEntriesOutput.eipAddress) &&
         Objects.equals(this.eipId, snatEntryForDescribeSnatEntriesOutput.eipId) &&
         Objects.equals(this.natGatewayId, snatEntryForDescribeSnatEntriesOutput.natGatewayId) &&
+        Objects.equals(this.natIpId, snatEntryForDescribeSnatEntriesOutput.natIpId) &&
         Objects.equals(this.snatEntryId, snatEntryForDescribeSnatEntriesOutput.snatEntryId) &&
         Objects.equals(this.snatEntryName, snatEntryForDescribeSnatEntriesOutput.snatEntryName) &&
         Objects.equals(this.sourceCidr, snatEntryForDescribeSnatEntriesOutput.sourceCidr) &&
@@ -220,7 +242,7 @@ public class SnatEntryForDescribeSnatEntriesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eipId, natGatewayId, snatEntryId, snatEntryName, sourceCidr, status, subnetId);
+    return Objects.hash(eipAddress, eipId, natGatewayId, natIpId, snatEntryId, snatEntryName, sourceCidr, status, subnetId);
   }
 
 
@@ -232,6 +254,7 @@ public class SnatEntryForDescribeSnatEntriesOutput {
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    natIpId: ").append(toIndentedString(natIpId)).append("\n");
     sb.append("    snatEntryId: ").append(toIndentedString(snatEntryId)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");
     sb.append("    sourceCidr: ").append(toIndentedString(sourceCidr)).append("\n");

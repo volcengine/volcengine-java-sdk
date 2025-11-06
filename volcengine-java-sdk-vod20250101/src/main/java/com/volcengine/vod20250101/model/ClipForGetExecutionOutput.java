@@ -36,9 +36,6 @@ public class ClipForGetExecutionOutput {
   @SerializedName("Start")
   private Double start = null;
 
-  @SerializedName("VideoIndex")
-  private Integer videoIndex = null;
-
   public ClipForGetExecutionOutput end(Double end) {
     this.end = end;
     return this;
@@ -75,24 +72,6 @@ public class ClipForGetExecutionOutput {
     this.start = start;
   }
 
-  public ClipForGetExecutionOutput videoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
-    return this;
-  }
-
-   /**
-   * Get videoIndex
-   * @return videoIndex
-  **/
-  @Schema(description = "")
-  public Integer getVideoIndex() {
-    return videoIndex;
-  }
-
-  public void setVideoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,13 +83,12 @@ public class ClipForGetExecutionOutput {
     }
     ClipForGetExecutionOutput clipForGetExecutionOutput = (ClipForGetExecutionOutput) o;
     return Objects.equals(this.end, clipForGetExecutionOutput.end) &&
-        Objects.equals(this.start, clipForGetExecutionOutput.start) &&
-        Objects.equals(this.videoIndex, clipForGetExecutionOutput.videoIndex);
+        Objects.equals(this.start, clipForGetExecutionOutput.start);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, start, videoIndex);
+    return Objects.hash(end, start);
   }
 
 
@@ -121,7 +99,6 @@ public class ClipForGetExecutionOutput {
     
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,46 +30,67 @@ import javax.validation.Valid;
 
 
 public class ConvertSegmentForStartExecutionInput {
-  @SerializedName("End")
-  private Double end = null;
+  @SerializedName("MaxDuration")
+  private Double maxDuration = null;
 
-  @SerializedName("Start")
-  private Double start = null;
+  @SerializedName("MinDuration")
+  private Double minDuration = null;
 
-  public ConvertSegmentForStartExecutionInput end(Double end) {
-    this.end = end;
+  @SerializedName("Threshold")
+  private Double threshold = null;
+
+  public ConvertSegmentForStartExecutionInput maxDuration(Double maxDuration) {
+    this.maxDuration = maxDuration;
     return this;
   }
 
    /**
-   * Get end
-   * @return end
+   * Get maxDuration
+   * @return maxDuration
   **/
   @Schema(description = "")
-  public Double getEnd() {
-    return end;
+  public Double getMaxDuration() {
+    return maxDuration;
   }
 
-  public void setEnd(Double end) {
-    this.end = end;
+  public void setMaxDuration(Double maxDuration) {
+    this.maxDuration = maxDuration;
   }
 
-  public ConvertSegmentForStartExecutionInput start(Double start) {
-    this.start = start;
+  public ConvertSegmentForStartExecutionInput minDuration(Double minDuration) {
+    this.minDuration = minDuration;
     return this;
   }
 
    /**
-   * Get start
-   * @return start
+   * Get minDuration
+   * @return minDuration
   **/
   @Schema(description = "")
-  public Double getStart() {
-    return start;
+  public Double getMinDuration() {
+    return minDuration;
   }
 
-  public void setStart(Double start) {
-    this.start = start;
+  public void setMinDuration(Double minDuration) {
+    this.minDuration = minDuration;
+  }
+
+  public ConvertSegmentForStartExecutionInput threshold(Double threshold) {
+    this.threshold = threshold;
+    return this;
+  }
+
+   /**
+   * Get threshold
+   * @return threshold
+  **/
+  @Schema(description = "")
+  public Double getThreshold() {
+    return threshold;
+  }
+
+  public void setThreshold(Double threshold) {
+    this.threshold = threshold;
   }
 
 
@@ -82,13 +103,14 @@ public class ConvertSegmentForStartExecutionInput {
       return false;
     }
     ConvertSegmentForStartExecutionInput convertSegmentForStartExecutionInput = (ConvertSegmentForStartExecutionInput) o;
-    return Objects.equals(this.end, convertSegmentForStartExecutionInput.end) &&
-        Objects.equals(this.start, convertSegmentForStartExecutionInput.start);
+    return Objects.equals(this.maxDuration, convertSegmentForStartExecutionInput.maxDuration) &&
+        Objects.equals(this.minDuration, convertSegmentForStartExecutionInput.minDuration) &&
+        Objects.equals(this.threshold, convertSegmentForStartExecutionInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, start);
+    return Objects.hash(maxDuration, minDuration, threshold);
   }
 
 
@@ -97,8 +119,9 @@ public class ConvertSegmentForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertSegmentForStartExecutionInput {\n");
     
-    sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
+    sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
+    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

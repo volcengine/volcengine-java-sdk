@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.CutForGetExecutionOutput;
 import com.volcengine.vod20250101.model.StoryboardForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,19 +35,19 @@ import javax.validation.Valid;
 
 public class ConvertHighlightCutsForGetExecutionOutput {
   @SerializedName("Cuts")
-  private List<Integer> cuts = null;
+  private List<CutForGetExecutionOutput> cuts = null;
 
   @SerializedName("Storyboard")
   private List<StoryboardForGetExecutionOutput> storyboard = null;
 
-  public ConvertHighlightCutsForGetExecutionOutput cuts(List<Integer> cuts) {
+  public ConvertHighlightCutsForGetExecutionOutput cuts(List<CutForGetExecutionOutput> cuts) {
     this.cuts = cuts;
     return this;
   }
 
-  public ConvertHighlightCutsForGetExecutionOutput addCutsItem(Integer cutsItem) {
+  public ConvertHighlightCutsForGetExecutionOutput addCutsItem(CutForGetExecutionOutput cutsItem) {
     if (this.cuts == null) {
-      this.cuts = new ArrayList<Integer>();
+      this.cuts = new ArrayList<CutForGetExecutionOutput>();
     }
     this.cuts.add(cutsItem);
     return this;
@@ -56,12 +57,13 @@ public class ConvertHighlightCutsForGetExecutionOutput {
    * Get cuts
    * @return cuts
   **/
+  @Valid
   @Schema(description = "")
-  public List<Integer> getCuts() {
+  public List<CutForGetExecutionOutput> getCuts() {
     return cuts;
   }
 
-  public void setCuts(List<Integer> cuts) {
+  public void setCuts(List<CutForGetExecutionOutput> cuts) {
     this.cuts = cuts;
   }
 

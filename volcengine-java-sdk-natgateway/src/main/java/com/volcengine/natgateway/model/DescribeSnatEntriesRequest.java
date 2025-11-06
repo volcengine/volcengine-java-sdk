@@ -38,6 +38,9 @@ public class DescribeSnatEntriesRequest {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
+  @SerializedName("NatIpId")
+  private String natIpId = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -90,6 +93,24 @@ public class DescribeSnatEntriesRequest {
 
   public void setNatGatewayId(String natGatewayId) {
     this.natGatewayId = natGatewayId;
+  }
+
+  public DescribeSnatEntriesRequest natIpId(String natIpId) {
+    this.natIpId = natIpId;
+    return this;
+  }
+
+   /**
+   * Get natIpId
+   * @return natIpId
+  **/
+  @Schema(description = "")
+  public String getNatIpId() {
+    return natIpId;
+  }
+
+  public void setNatIpId(String natIpId) {
+    this.natIpId = natIpId;
   }
 
   public DescribeSnatEntriesRequest pageNumber(Integer pageNumber) {
@@ -221,6 +242,7 @@ public class DescribeSnatEntriesRequest {
     DescribeSnatEntriesRequest describeSnatEntriesRequest = (DescribeSnatEntriesRequest) o;
     return Objects.equals(this.eipId, describeSnatEntriesRequest.eipId) &&
         Objects.equals(this.natGatewayId, describeSnatEntriesRequest.natGatewayId) &&
+        Objects.equals(this.natIpId, describeSnatEntriesRequest.natIpId) &&
         Objects.equals(this.pageNumber, describeSnatEntriesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSnatEntriesRequest.pageSize) &&
         Objects.equals(this.snatEntryIds, describeSnatEntriesRequest.snatEntryIds) &&
@@ -231,7 +253,7 @@ public class DescribeSnatEntriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, natGatewayId, pageNumber, pageSize, snatEntryIds, snatEntryName, sourceCidr, subnetId);
+    return Objects.hash(eipId, natGatewayId, natIpId, pageNumber, pageSize, snatEntryIds, snatEntryName, sourceCidr, subnetId);
   }
 
 
@@ -242,6 +264,7 @@ public class DescribeSnatEntriesRequest {
     
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    natIpId: ").append(toIndentedString(natIpId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    snatEntryIds: ").append(toIndentedString(snatEntryIds)).append("\n");

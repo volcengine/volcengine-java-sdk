@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.EditForStartExecutionInput;
 import com.volcengine.vod20250101.model.HighlightCutsForStartExecutionInput;
 import com.volcengine.vod20250101.model.OpeningHookForStartExecutionInput;
 import com.volcengine.vod20250101.model.StorylineCutsForStartExecutionInput;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class HighlightForStartExecutionInput {
+  @SerializedName("Edit")
+  private EditForStartExecutionInput edit = null;
+
   @SerializedName("HighlightCuts")
   private HighlightCutsForStartExecutionInput highlightCuts = null;
 
@@ -44,6 +48,25 @@ public class HighlightForStartExecutionInput {
 
   @SerializedName("StorylineCuts")
   private StorylineCutsForStartExecutionInput storylineCuts = null;
+
+  public HighlightForStartExecutionInput edit(EditForStartExecutionInput edit) {
+    this.edit = edit;
+    return this;
+  }
+
+   /**
+   * Get edit
+   * @return edit
+  **/
+  @Valid
+  @Schema(description = "")
+  public EditForStartExecutionInput getEdit() {
+    return edit;
+  }
+
+  public void setEdit(EditForStartExecutionInput edit) {
+    this.edit = edit;
+  }
 
   public HighlightForStartExecutionInput highlightCuts(HighlightCutsForStartExecutionInput highlightCuts) {
     this.highlightCuts = highlightCuts;
@@ -130,7 +153,8 @@ public class HighlightForStartExecutionInput {
       return false;
     }
     HighlightForStartExecutionInput highlightForStartExecutionInput = (HighlightForStartExecutionInput) o;
-    return Objects.equals(this.highlightCuts, highlightForStartExecutionInput.highlightCuts) &&
+    return Objects.equals(this.edit, highlightForStartExecutionInput.edit) &&
+        Objects.equals(this.highlightCuts, highlightForStartExecutionInput.highlightCuts) &&
         Objects.equals(this.mode, highlightForStartExecutionInput.mode) &&
         Objects.equals(this.openingHook, highlightForStartExecutionInput.openingHook) &&
         Objects.equals(this.storylineCuts, highlightForStartExecutionInput.storylineCuts);
@@ -138,7 +162,7 @@ public class HighlightForStartExecutionInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(highlightCuts, mode, openingHook, storylineCuts);
+    return Objects.hash(edit, highlightCuts, mode, openingHook, storylineCuts);
   }
 
 
@@ -147,6 +171,7 @@ public class HighlightForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HighlightForStartExecutionInput {\n");
     
+    sb.append("    edit: ").append(toIndentedString(edit)).append("\n");
     sb.append("    highlightCuts: ").append(toIndentedString(highlightCuts)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    openingHook: ").append(toIndentedString(openingHook)).append("\n");

@@ -14,6 +14,13 @@ package com.volcengine.natgateway.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,27 @@ import javax.validation.Valid;
 
 
 public class ListNatGatewayAvailableZonesRequest {
+  @SerializedName("Product")
+  private String product = null;
+
+  public ListNatGatewayAvailableZonesRequest product(String product) {
+    this.product = product;
+    return this;
+  }
+
+   /**
+   * Get product
+   * @return product
+  **/
+  @Schema(description = "")
+  public String getProduct() {
+    return product;
+  }
+
+  public void setProduct(String product) {
+    this.product = product;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +60,13 @@ public class ListNatGatewayAvailableZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ListNatGatewayAvailableZonesRequest listNatGatewayAvailableZonesRequest = (ListNatGatewayAvailableZonesRequest) o;
+    return Objects.equals(this.product, listNatGatewayAvailableZonesRequest.product);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(product);
   }
 
 
@@ -46,6 +75,7 @@ public class ListNatGatewayAvailableZonesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListNatGatewayAvailableZonesRequest {\n");
     
+    sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("}");
     return sb.toString();
   }

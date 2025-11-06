@@ -30,130 +30,88 @@ import javax.validation.Valid;
 
 
 public class ConvertModelForGetExecutionOutput {
-  @SerializedName("DoubaoInputTokens")
-  private Integer doubaoInputTokens = null;
+  @SerializedName("AsrAppId")
+  private String asrAppId = null;
 
-  @SerializedName("DoubaoOutputTokens")
-  private Integer doubaoOutputTokens = null;
+  @SerializedName("AsrAppType")
+  private String asrAppType = null;
 
-  @SerializedName("DoubaoTextInputTokens")
-  private Integer doubaoTextInputTokens = null;
+  @SerializedName("DoubaoTextEndpoint")
+  private String doubaoTextEndpoint = null;
 
-  @SerializedName("DoubaoTextOutputTokens")
-  private Integer doubaoTextOutputTokens = null;
+  @SerializedName("DoubaoVisionEndpoint")
+  private String doubaoVisionEndpoint = null;
 
-  @SerializedName("DoubaoTextTotalTokens")
-  private Integer doubaoTextTotalTokens = null;
-
-  @SerializedName("DoubaoTotalTokens")
-  private Integer doubaoTotalTokens = null;
-
-  public ConvertModelForGetExecutionOutput doubaoInputTokens(Integer doubaoInputTokens) {
-    this.doubaoInputTokens = doubaoInputTokens;
+  public ConvertModelForGetExecutionOutput asrAppId(String asrAppId) {
+    this.asrAppId = asrAppId;
     return this;
   }
 
    /**
-   * Get doubaoInputTokens
-   * @return doubaoInputTokens
+   * Get asrAppId
+   * @return asrAppId
   **/
   @Schema(description = "")
-  public Integer getDoubaoInputTokens() {
-    return doubaoInputTokens;
+  public String getAsrAppId() {
+    return asrAppId;
   }
 
-  public void setDoubaoInputTokens(Integer doubaoInputTokens) {
-    this.doubaoInputTokens = doubaoInputTokens;
+  public void setAsrAppId(String asrAppId) {
+    this.asrAppId = asrAppId;
   }
 
-  public ConvertModelForGetExecutionOutput doubaoOutputTokens(Integer doubaoOutputTokens) {
-    this.doubaoOutputTokens = doubaoOutputTokens;
+  public ConvertModelForGetExecutionOutput asrAppType(String asrAppType) {
+    this.asrAppType = asrAppType;
     return this;
   }
 
    /**
-   * Get doubaoOutputTokens
-   * @return doubaoOutputTokens
+   * Get asrAppType
+   * @return asrAppType
   **/
   @Schema(description = "")
-  public Integer getDoubaoOutputTokens() {
-    return doubaoOutputTokens;
+  public String getAsrAppType() {
+    return asrAppType;
   }
 
-  public void setDoubaoOutputTokens(Integer doubaoOutputTokens) {
-    this.doubaoOutputTokens = doubaoOutputTokens;
+  public void setAsrAppType(String asrAppType) {
+    this.asrAppType = asrAppType;
   }
 
-  public ConvertModelForGetExecutionOutput doubaoTextInputTokens(Integer doubaoTextInputTokens) {
-    this.doubaoTextInputTokens = doubaoTextInputTokens;
+  public ConvertModelForGetExecutionOutput doubaoTextEndpoint(String doubaoTextEndpoint) {
+    this.doubaoTextEndpoint = doubaoTextEndpoint;
     return this;
   }
 
    /**
-   * Get doubaoTextInputTokens
-   * @return doubaoTextInputTokens
+   * Get doubaoTextEndpoint
+   * @return doubaoTextEndpoint
   **/
   @Schema(description = "")
-  public Integer getDoubaoTextInputTokens() {
-    return doubaoTextInputTokens;
+  public String getDoubaoTextEndpoint() {
+    return doubaoTextEndpoint;
   }
 
-  public void setDoubaoTextInputTokens(Integer doubaoTextInputTokens) {
-    this.doubaoTextInputTokens = doubaoTextInputTokens;
+  public void setDoubaoTextEndpoint(String doubaoTextEndpoint) {
+    this.doubaoTextEndpoint = doubaoTextEndpoint;
   }
 
-  public ConvertModelForGetExecutionOutput doubaoTextOutputTokens(Integer doubaoTextOutputTokens) {
-    this.doubaoTextOutputTokens = doubaoTextOutputTokens;
+  public ConvertModelForGetExecutionOutput doubaoVisionEndpoint(String doubaoVisionEndpoint) {
+    this.doubaoVisionEndpoint = doubaoVisionEndpoint;
     return this;
   }
 
    /**
-   * Get doubaoTextOutputTokens
-   * @return doubaoTextOutputTokens
+   * Get doubaoVisionEndpoint
+   * @return doubaoVisionEndpoint
   **/
   @Schema(description = "")
-  public Integer getDoubaoTextOutputTokens() {
-    return doubaoTextOutputTokens;
+  public String getDoubaoVisionEndpoint() {
+    return doubaoVisionEndpoint;
   }
 
-  public void setDoubaoTextOutputTokens(Integer doubaoTextOutputTokens) {
-    this.doubaoTextOutputTokens = doubaoTextOutputTokens;
-  }
-
-  public ConvertModelForGetExecutionOutput doubaoTextTotalTokens(Integer doubaoTextTotalTokens) {
-    this.doubaoTextTotalTokens = doubaoTextTotalTokens;
-    return this;
-  }
-
-   /**
-   * Get doubaoTextTotalTokens
-   * @return doubaoTextTotalTokens
-  **/
-  @Schema(description = "")
-  public Integer getDoubaoTextTotalTokens() {
-    return doubaoTextTotalTokens;
-  }
-
-  public void setDoubaoTextTotalTokens(Integer doubaoTextTotalTokens) {
-    this.doubaoTextTotalTokens = doubaoTextTotalTokens;
-  }
-
-  public ConvertModelForGetExecutionOutput doubaoTotalTokens(Integer doubaoTotalTokens) {
-    this.doubaoTotalTokens = doubaoTotalTokens;
-    return this;
-  }
-
-   /**
-   * Get doubaoTotalTokens
-   * @return doubaoTotalTokens
-  **/
-  @Schema(description = "")
-  public Integer getDoubaoTotalTokens() {
-    return doubaoTotalTokens;
-  }
-
-  public void setDoubaoTotalTokens(Integer doubaoTotalTokens) {
-    this.doubaoTotalTokens = doubaoTotalTokens;
+  public void setDoubaoVisionEndpoint(String doubaoVisionEndpoint) {
+    this.doubaoVisionEndpoint = doubaoVisionEndpoint;
   }
 
 
@@ -166,17 +124,15 @@ public class ConvertModelForGetExecutionOutput {
       return false;
     }
     ConvertModelForGetExecutionOutput convertModelForGetExecutionOutput = (ConvertModelForGetExecutionOutput) o;
-    return Objects.equals(this.doubaoInputTokens, convertModelForGetExecutionOutput.doubaoInputTokens) &&
-        Objects.equals(this.doubaoOutputTokens, convertModelForGetExecutionOutput.doubaoOutputTokens) &&
-        Objects.equals(this.doubaoTextInputTokens, convertModelForGetExecutionOutput.doubaoTextInputTokens) &&
-        Objects.equals(this.doubaoTextOutputTokens, convertModelForGetExecutionOutput.doubaoTextOutputTokens) &&
-        Objects.equals(this.doubaoTextTotalTokens, convertModelForGetExecutionOutput.doubaoTextTotalTokens) &&
-        Objects.equals(this.doubaoTotalTokens, convertModelForGetExecutionOutput.doubaoTotalTokens);
+    return Objects.equals(this.asrAppId, convertModelForGetExecutionOutput.asrAppId) &&
+        Objects.equals(this.asrAppType, convertModelForGetExecutionOutput.asrAppType) &&
+        Objects.equals(this.doubaoTextEndpoint, convertModelForGetExecutionOutput.doubaoTextEndpoint) &&
+        Objects.equals(this.doubaoVisionEndpoint, convertModelForGetExecutionOutput.doubaoVisionEndpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(doubaoInputTokens, doubaoOutputTokens, doubaoTextInputTokens, doubaoTextOutputTokens, doubaoTextTotalTokens, doubaoTotalTokens);
+    return Objects.hash(asrAppId, asrAppType, doubaoTextEndpoint, doubaoVisionEndpoint);
   }
 
 
@@ -185,12 +141,10 @@ public class ConvertModelForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertModelForGetExecutionOutput {\n");
     
-    sb.append("    doubaoInputTokens: ").append(toIndentedString(doubaoInputTokens)).append("\n");
-    sb.append("    doubaoOutputTokens: ").append(toIndentedString(doubaoOutputTokens)).append("\n");
-    sb.append("    doubaoTextInputTokens: ").append(toIndentedString(doubaoTextInputTokens)).append("\n");
-    sb.append("    doubaoTextOutputTokens: ").append(toIndentedString(doubaoTextOutputTokens)).append("\n");
-    sb.append("    doubaoTextTotalTokens: ").append(toIndentedString(doubaoTextTotalTokens)).append("\n");
-    sb.append("    doubaoTotalTokens: ").append(toIndentedString(doubaoTotalTokens)).append("\n");
+    sb.append("    asrAppId: ").append(toIndentedString(asrAppId)).append("\n");
+    sb.append("    asrAppType: ").append(toIndentedString(asrAppType)).append("\n");
+    sb.append("    doubaoTextEndpoint: ").append(toIndentedString(doubaoTextEndpoint)).append("\n");
+    sb.append("    doubaoVisionEndpoint: ").append(toIndentedString(doubaoVisionEndpoint)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ModuleForGetExecutionOutput;
+import com.volcengine.vod20250101.model.MoeEnhanceForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,25 +34,77 @@ import javax.validation.Valid;
 
 
 public class EnhanceForGetExecutionOutput {
-  @SerializedName("TemplateId")
-  private String templateId = null;
+  @SerializedName("Modules")
+  private List<ModuleForGetExecutionOutput> modules = null;
 
-  public EnhanceForGetExecutionOutput templateId(String templateId) {
-    this.templateId = templateId;
+  @SerializedName("MoeEnhance")
+  private MoeEnhanceForGetExecutionOutput moeEnhance = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public EnhanceForGetExecutionOutput modules(List<ModuleForGetExecutionOutput> modules) {
+    this.modules = modules;
+    return this;
+  }
+
+  public EnhanceForGetExecutionOutput addModulesItem(ModuleForGetExecutionOutput modulesItem) {
+    if (this.modules == null) {
+      this.modules = new ArrayList<ModuleForGetExecutionOutput>();
+    }
+    this.modules.add(modulesItem);
     return this;
   }
 
    /**
-   * Get templateId
-   * @return templateId
+   * Get modules
+   * @return modules
   **/
+  @Valid
   @Schema(description = "")
-  public String getTemplateId() {
-    return templateId;
+  public List<ModuleForGetExecutionOutput> getModules() {
+    return modules;
   }
 
-  public void setTemplateId(String templateId) {
-    this.templateId = templateId;
+  public void setModules(List<ModuleForGetExecutionOutput> modules) {
+    this.modules = modules;
+  }
+
+  public EnhanceForGetExecutionOutput moeEnhance(MoeEnhanceForGetExecutionOutput moeEnhance) {
+    this.moeEnhance = moeEnhance;
+    return this;
+  }
+
+   /**
+   * Get moeEnhance
+   * @return moeEnhance
+  **/
+  @Valid
+  @Schema(description = "")
+  public MoeEnhanceForGetExecutionOutput getMoeEnhance() {
+    return moeEnhance;
+  }
+
+  public void setMoeEnhance(MoeEnhanceForGetExecutionOutput moeEnhance) {
+    this.moeEnhance = moeEnhance;
+  }
+
+  public EnhanceForGetExecutionOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -61,12 +117,14 @@ public class EnhanceForGetExecutionOutput {
       return false;
     }
     EnhanceForGetExecutionOutput enhanceForGetExecutionOutput = (EnhanceForGetExecutionOutput) o;
-    return Objects.equals(this.templateId, enhanceForGetExecutionOutput.templateId);
+    return Objects.equals(this.modules, enhanceForGetExecutionOutput.modules) &&
+        Objects.equals(this.moeEnhance, enhanceForGetExecutionOutput.moeEnhance) &&
+        Objects.equals(this.type, enhanceForGetExecutionOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId);
+    return Objects.hash(modules, moeEnhance, type);
   }
 
 
@@ -75,7 +133,9 @@ public class EnhanceForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnhanceForGetExecutionOutput {\n");
     
-    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
+    sb.append("    modules: ").append(toIndentedString(modules)).append("\n");
+    sb.append("    moeEnhance: ").append(toIndentedString(moeEnhance)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
