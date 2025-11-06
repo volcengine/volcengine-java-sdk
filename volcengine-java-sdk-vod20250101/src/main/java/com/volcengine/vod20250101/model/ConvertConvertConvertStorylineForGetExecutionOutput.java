@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AllTagForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertClipForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertClipForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertConvertStorylineForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
   private List<AllTagForGetExecutionOutput> allTags = null;
 
   @SerializedName("Clips")
-  private List<ConvertClipForGetExecutionOutput> clips = null;
+  private List<ConvertConvertConvertClipForGetExecutionOutput> clips = null;
 
   @SerializedName("Duration")
   private Double duration = null;
@@ -80,14 +80,14 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
     this.allTags = allTags;
   }
 
-  public ConvertConvertConvertStorylineForGetExecutionOutput clips(List<ConvertClipForGetExecutionOutput> clips) {
+  public ConvertConvertConvertStorylineForGetExecutionOutput clips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
     return this;
   }
 
-  public ConvertConvertConvertStorylineForGetExecutionOutput addClipsItem(ConvertClipForGetExecutionOutput clipsItem) {
+  public ConvertConvertConvertStorylineForGetExecutionOutput addClipsItem(ConvertConvertConvertClipForGetExecutionOutput clipsItem) {
     if (this.clips == null) {
-      this.clips = new ArrayList<ConvertClipForGetExecutionOutput>();
+      this.clips = new ArrayList<ConvertConvertConvertClipForGetExecutionOutput>();
     }
     this.clips.add(clipsItem);
     return this;
@@ -99,11 +99,11 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertClipForGetExecutionOutput> getClips() {
+  public List<ConvertConvertConvertClipForGetExecutionOutput> getClips() {
     return clips;
   }
 
-  public void setClips(List<ConvertClipForGetExecutionOutput> clips) {
+  public void setClips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
   }
 

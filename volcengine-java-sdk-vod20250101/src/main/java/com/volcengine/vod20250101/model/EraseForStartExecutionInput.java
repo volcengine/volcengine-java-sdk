@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AutoForStartExecutionInput;
+import com.volcengine.vod20250101.model.EraseOptionForStartExecutionInput;
 import com.volcengine.vod20250101.model.ManualForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,11 +36,17 @@ public class EraseForStartExecutionInput {
   @SerializedName("Auto")
   private AutoForStartExecutionInput auto = null;
 
+  @SerializedName("EraseOption")
+  private EraseOptionForStartExecutionInput eraseOption = null;
+
   @SerializedName("Manual")
   private ManualForStartExecutionInput manual = null;
 
   @SerializedName("Mode")
   private String mode = null;
+
+  @SerializedName("NewVid")
+  private Boolean newVid = null;
 
   @SerializedName("WithEraseInfo")
   private Boolean withEraseInfo = null;
@@ -61,6 +68,25 @@ public class EraseForStartExecutionInput {
 
   public void setAuto(AutoForStartExecutionInput auto) {
     this.auto = auto;
+  }
+
+  public EraseForStartExecutionInput eraseOption(EraseOptionForStartExecutionInput eraseOption) {
+    this.eraseOption = eraseOption;
+    return this;
+  }
+
+   /**
+   * Get eraseOption
+   * @return eraseOption
+  **/
+  @Valid
+  @Schema(description = "")
+  public EraseOptionForStartExecutionInput getEraseOption() {
+    return eraseOption;
+  }
+
+  public void setEraseOption(EraseOptionForStartExecutionInput eraseOption) {
+    this.eraseOption = eraseOption;
   }
 
   public EraseForStartExecutionInput manual(ManualForStartExecutionInput manual) {
@@ -100,6 +126,24 @@ public class EraseForStartExecutionInput {
     this.mode = mode;
   }
 
+  public EraseForStartExecutionInput newVid(Boolean newVid) {
+    this.newVid = newVid;
+    return this;
+  }
+
+   /**
+   * Get newVid
+   * @return newVid
+  **/
+  @Schema(description = "")
+  public Boolean isNewVid() {
+    return newVid;
+  }
+
+  public void setNewVid(Boolean newVid) {
+    this.newVid = newVid;
+  }
+
   public EraseForStartExecutionInput withEraseInfo(Boolean withEraseInfo) {
     this.withEraseInfo = withEraseInfo;
     return this;
@@ -129,14 +173,16 @@ public class EraseForStartExecutionInput {
     }
     EraseForStartExecutionInput eraseForStartExecutionInput = (EraseForStartExecutionInput) o;
     return Objects.equals(this.auto, eraseForStartExecutionInput.auto) &&
+        Objects.equals(this.eraseOption, eraseForStartExecutionInput.eraseOption) &&
         Objects.equals(this.manual, eraseForStartExecutionInput.manual) &&
         Objects.equals(this.mode, eraseForStartExecutionInput.mode) &&
+        Objects.equals(this.newVid, eraseForStartExecutionInput.newVid) &&
         Objects.equals(this.withEraseInfo, eraseForStartExecutionInput.withEraseInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auto, manual, mode, withEraseInfo);
+    return Objects.hash(auto, eraseOption, manual, mode, newVid, withEraseInfo);
   }
 
 
@@ -146,8 +192,10 @@ public class EraseForStartExecutionInput {
     sb.append("class EraseForStartExecutionInput {\n");
     
     sb.append("    auto: ").append(toIndentedString(auto)).append("\n");
+    sb.append("    eraseOption: ").append(toIndentedString(eraseOption)).append("\n");
     sb.append("    manual: ").append(toIndentedString(manual)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    newVid: ").append(toIndentedString(newVid)).append("\n");
     sb.append("    withEraseInfo: ").append(toIndentedString(withEraseInfo)).append("\n");
     sb.append("}");
     return sb.toString();

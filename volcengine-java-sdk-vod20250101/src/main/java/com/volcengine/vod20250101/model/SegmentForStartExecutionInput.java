@@ -30,8 +30,74 @@ import javax.validation.Valid;
 
 
 public class SegmentForStartExecutionInput {
+  @SerializedName("ClipFade")
+  private Boolean clipFade = null;
+
+  @SerializedName("MaxDuration")
+  private Double maxDuration = null;
+
+  @SerializedName("MinDuration")
+  private Double minDuration = null;
+
   @SerializedName("NoFile")
   private Boolean noFile = null;
+
+  @SerializedName("Threshold")
+  private Double threshold = null;
+
+  public SegmentForStartExecutionInput clipFade(Boolean clipFade) {
+    this.clipFade = clipFade;
+    return this;
+  }
+
+   /**
+   * Get clipFade
+   * @return clipFade
+  **/
+  @Schema(description = "")
+  public Boolean isClipFade() {
+    return clipFade;
+  }
+
+  public void setClipFade(Boolean clipFade) {
+    this.clipFade = clipFade;
+  }
+
+  public SegmentForStartExecutionInput maxDuration(Double maxDuration) {
+    this.maxDuration = maxDuration;
+    return this;
+  }
+
+   /**
+   * Get maxDuration
+   * @return maxDuration
+  **/
+  @Schema(description = "")
+  public Double getMaxDuration() {
+    return maxDuration;
+  }
+
+  public void setMaxDuration(Double maxDuration) {
+    this.maxDuration = maxDuration;
+  }
+
+  public SegmentForStartExecutionInput minDuration(Double minDuration) {
+    this.minDuration = minDuration;
+    return this;
+  }
+
+   /**
+   * Get minDuration
+   * @return minDuration
+  **/
+  @Schema(description = "")
+  public Double getMinDuration() {
+    return minDuration;
+  }
+
+  public void setMinDuration(Double minDuration) {
+    this.minDuration = minDuration;
+  }
 
   public SegmentForStartExecutionInput noFile(Boolean noFile) {
     this.noFile = noFile;
@@ -51,6 +117,24 @@ public class SegmentForStartExecutionInput {
     this.noFile = noFile;
   }
 
+  public SegmentForStartExecutionInput threshold(Double threshold) {
+    this.threshold = threshold;
+    return this;
+  }
+
+   /**
+   * Get threshold
+   * @return threshold
+  **/
+  @Schema(description = "")
+  public Double getThreshold() {
+    return threshold;
+  }
+
+  public void setThreshold(Double threshold) {
+    this.threshold = threshold;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +145,16 @@ public class SegmentForStartExecutionInput {
       return false;
     }
     SegmentForStartExecutionInput segmentForStartExecutionInput = (SegmentForStartExecutionInput) o;
-    return Objects.equals(this.noFile, segmentForStartExecutionInput.noFile);
+    return Objects.equals(this.clipFade, segmentForStartExecutionInput.clipFade) &&
+        Objects.equals(this.maxDuration, segmentForStartExecutionInput.maxDuration) &&
+        Objects.equals(this.minDuration, segmentForStartExecutionInput.minDuration) &&
+        Objects.equals(this.noFile, segmentForStartExecutionInput.noFile) &&
+        Objects.equals(this.threshold, segmentForStartExecutionInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(noFile);
+    return Objects.hash(clipFade, maxDuration, minDuration, noFile, threshold);
   }
 
 
@@ -75,7 +163,11 @@ public class SegmentForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SegmentForStartExecutionInput {\n");
     
+    sb.append("    clipFade: ").append(toIndentedString(clipFade)).append("\n");
+    sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
+    sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
     sb.append("    noFile: ").append(toIndentedString(noFile)).append("\n");
+    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

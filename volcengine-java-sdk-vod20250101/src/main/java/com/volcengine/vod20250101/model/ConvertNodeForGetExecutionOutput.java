@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.OutputForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertOutputForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,7 +38,7 @@ public class ConvertNodeForGetExecutionOutput {
   private String name = null;
 
   @SerializedName("Output")
-  private OutputForGetExecutionOutput output = null;
+  private ConvertOutputForGetExecutionOutput output = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -79,7 +79,7 @@ public class ConvertNodeForGetExecutionOutput {
     this.name = name;
   }
 
-  public ConvertNodeForGetExecutionOutput output(OutputForGetExecutionOutput output) {
+  public ConvertNodeForGetExecutionOutput output(ConvertOutputForGetExecutionOutput output) {
     this.output = output;
     return this;
   }
@@ -90,11 +90,11 @@ public class ConvertNodeForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public OutputForGetExecutionOutput getOutput() {
+  public ConvertOutputForGetExecutionOutput getOutput() {
     return output;
   }
 
-  public void setOutput(OutputForGetExecutionOutput output) {
+  public void setOutput(ConvertOutputForGetExecutionOutput output) {
     this.output = output;
   }
 

@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertSegmentForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ModelForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertModelForGetExecutionOutput;
 import com.volcengine.vod20250101.model.SnapshotParamForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class VisionForGetExecutionOutput {
   @SerializedName("Model")
-  private ModelForGetExecutionOutput model = null;
+  private ConvertModelForGetExecutionOutput model = null;
 
   @SerializedName("NeedAsrSpeaker")
   private Boolean needAsrSpeaker = null;
@@ -46,12 +46,12 @@ public class VisionForGetExecutionOutput {
   private String responseFormatType = null;
 
   @SerializedName("Segment")
-  private ConvertSegmentForGetExecutionOutput segment = null;
+  private ConvertConvertSegmentForGetExecutionOutput segment = null;
 
   @SerializedName("SnapshotParam")
   private SnapshotParamForGetExecutionOutput snapshotParam = null;
 
-  public VisionForGetExecutionOutput model(ModelForGetExecutionOutput model) {
+  public VisionForGetExecutionOutput model(ConvertModelForGetExecutionOutput model) {
     this.model = model;
     return this;
   }
@@ -62,11 +62,11 @@ public class VisionForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ModelForGetExecutionOutput getModel() {
+  public ConvertModelForGetExecutionOutput getModel() {
     return model;
   }
 
-  public void setModel(ModelForGetExecutionOutput model) {
+  public void setModel(ConvertModelForGetExecutionOutput model) {
     this.model = model;
   }
 
@@ -124,7 +124,7 @@ public class VisionForGetExecutionOutput {
     this.responseFormatType = responseFormatType;
   }
 
-  public VisionForGetExecutionOutput segment(ConvertSegmentForGetExecutionOutput segment) {
+  public VisionForGetExecutionOutput segment(ConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
     return this;
   }
@@ -135,11 +135,11 @@ public class VisionForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertSegmentForGetExecutionOutput getSegment() {
+  public ConvertConvertSegmentForGetExecutionOutput getSegment() {
     return segment;
   }
 
-  public void setSegment(ConvertSegmentForGetExecutionOutput segment) {
+  public void setSegment(ConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
   }
 

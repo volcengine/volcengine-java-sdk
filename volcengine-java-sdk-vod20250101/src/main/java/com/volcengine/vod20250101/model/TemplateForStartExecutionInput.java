@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ByteHDForStartExecutionInput;
-import com.volcengine.vod20250101.model.EnhanceForStartExecutionInput;
+import com.volcengine.vod20250101.model.ConvertEnhanceForStartExecutionInput;
 import com.volcengine.vod20250101.model.TranscodeAudioForStartExecutionInput;
 import com.volcengine.vod20250101.model.TranscodeVideoForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -38,7 +38,7 @@ public class TemplateForStartExecutionInput {
   private ByteHDForStartExecutionInput byteHD = null;
 
   @SerializedName("Enhance")
-  private EnhanceForStartExecutionInput enhance = null;
+  private ConvertEnhanceForStartExecutionInput enhance = null;
 
   @SerializedName("TranscodeAudio")
   private TranscodeAudioForStartExecutionInput transcodeAudio = null;
@@ -68,7 +68,7 @@ public class TemplateForStartExecutionInput {
     this.byteHD = byteHD;
   }
 
-  public TemplateForStartExecutionInput enhance(EnhanceForStartExecutionInput enhance) {
+  public TemplateForStartExecutionInput enhance(ConvertEnhanceForStartExecutionInput enhance) {
     this.enhance = enhance;
     return this;
   }
@@ -79,11 +79,11 @@ public class TemplateForStartExecutionInput {
   **/
   @Valid
   @Schema(description = "")
-  public EnhanceForStartExecutionInput getEnhance() {
+  public ConvertEnhanceForStartExecutionInput getEnhance() {
     return enhance;
   }
 
-  public void setEnhance(EnhanceForStartExecutionInput enhance) {
+  public void setEnhance(ConvertEnhanceForStartExecutionInput enhance) {
     this.enhance = enhance;
   }
 

@@ -53,6 +53,9 @@ public class NodeForGetExecutionOutput {
   @SerializedName("Policy")
   private PolicyForGetExecutionOutput policy = null;
 
+  @SerializedName("SpaceName")
+  private String spaceName = null;
+
   public NodeForGetExecutionOutput dependencies(List<String> dependencies) {
     this.dependencies = dependencies;
     return this;
@@ -181,6 +184,24 @@ public class NodeForGetExecutionOutput {
     this.policy = policy;
   }
 
+  public NodeForGetExecutionOutput spaceName(String spaceName) {
+    this.spaceName = spaceName;
+    return this;
+  }
+
+   /**
+   * Get spaceName
+   * @return spaceName
+  **/
+  @Schema(description = "")
+  public String getSpaceName() {
+    return spaceName;
+  }
+
+  public void setSpaceName(String spaceName) {
+    this.spaceName = spaceName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,12 +217,13 @@ public class NodeForGetExecutionOutput {
         Objects.equals(this.multiInputs, nodeForGetExecutionOutput.multiInputs) &&
         Objects.equals(this.name, nodeForGetExecutionOutput.name) &&
         Objects.equals(this.operation, nodeForGetExecutionOutput.operation) &&
-        Objects.equals(this.policy, nodeForGetExecutionOutput.policy);
+        Objects.equals(this.policy, nodeForGetExecutionOutput.policy) &&
+        Objects.equals(this.spaceName, nodeForGetExecutionOutput.spaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, input, multiInputs, name, operation, policy);
+    return Objects.hash(dependencies, input, multiInputs, name, operation, policy, spaceName);
   }
 
 
@@ -216,6 +238,7 @@ public class NodeForGetExecutionOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
