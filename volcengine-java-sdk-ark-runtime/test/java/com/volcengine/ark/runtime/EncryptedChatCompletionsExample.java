@@ -1,19 +1,57 @@
 package com.volcengine.ark.runtime;
 
-import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
-import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
-import com.volcengine.ark.runtime.model.completion.chat.ChatMessage;
-import com.volcengine.ark.runtime.model.completion.chat.ChatMessageRole;
+import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.service.ArkService;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class EncryptedChatCompletionsExample {
+    /**
+     * 将图片文件转换为 Data URL（Base64 编码）
+     */
+    public static String imageToDataUrl(String imagePath) throws IOException {
+        try {
+            // 读取图片文件
+            Path path = Paths.get(imagePath);
+            byte[] imageBytes = Files.readAllBytes(path);
 
-    public static void main(String[] args) {
+            // Base64 编码
+            String encodedString = Base64.getEncoder().encodeToString(imageBytes);
+
+            // 根据文件扩展名确定 MIME 类型
+            String mimeType = getMimeType(imagePath);
+
+            // 构建 Data URL
+            return String.format("data:%s;base64,%s", mimeType, encodedString);
+
+        } catch (IOException e) {
+            throw new IOException("Failed to convert image to data URL: " + imagePath, e);
+        }
+    }
+
+    public static String getMimeType(String filePath) {
+        String fileName = filePath.toLowerCase();
+        if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
+            return "image/jpeg";
+        } else if (fileName.endsWith(".png")) {
+            return "image/png";
+        } else if (fileName.endsWith(".gif")) {
+            return "image/gif";
+        } else if (fileName.endsWith(".bmp")) {
+            return "image/bmp";
+        } else if (fileName.endsWith(".webp")) {
+            return "image/webp";
+        } else {
+            // 默认使用 jpeg
+            return "image/jpeg";
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         System.out.println("\n----- comprehensive encrypted chat completions test -----");
 
 
@@ -29,6 +67,31 @@ public class EncryptedChatCompletionsExample {
         List<ChatMessage> messages = new ArrayList<>();
         messages.add(ChatMessage.builder().role(ChatMessageRole.SYSTEM).content("你是豆包，是由字节跳动开发的 AI 人工智能助手").build());
         messages.add(ChatMessage.builder().role(ChatMessageRole.USER).content("常见的十字花科植物有哪些？").build());
+
+        //构造多模态消息测试
+//        final List<ChatMessage> messages = new ArrayList<>();
+//        final List<ChatCompletionContentPart> multiParts = new ArrayList<>();
+//        multiParts.add(ChatCompletionContentPart.builder().type("text").text(
+//                "这是哪里？"
+//        ).build());
+//
+//        // 定义图片路径
+//        String imagePath = "xxx.jpeg"; // 替换为你的实际图片路径
+//        String dataUrl = imageToDataUrl(imagePath);
+//
+//        //图片部分 - 使用转换后的 Data URL
+//        multiParts.add(ChatCompletionContentPart.builder()
+//                .type("image_url")
+//                .imageUrl(new ChatCompletionContentPart.ChatCompletionContentPartImageURL(dataUrl))
+//                .build());
+//
+//        final ChatMessage userMessage = ChatMessage.builder()
+//                .role(ChatMessageRole.USER)
+//                .multiContent(multiParts)
+//                .build();
+//
+//        messages.add(userMessage);
+
         // 非流式加密聊天测试
         testNoStreaming(apiKey, model, baseUrl, messages);
 

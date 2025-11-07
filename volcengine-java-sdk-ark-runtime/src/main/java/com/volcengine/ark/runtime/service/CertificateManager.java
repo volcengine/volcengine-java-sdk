@@ -2,7 +2,6 @@ package com.volcengine.ark.runtime.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.volcengine.ark.runtime.utils.LoggerUtil;
 import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.asn1.x509.GeneralNames;
@@ -70,7 +69,6 @@ public class CertificateManager {
                 }
             }
         } catch (Exception e) {
-            System.err.println("Error getting DNS names from extension！");
             throw new RuntimeException("Error getting DNS names from extension:", e);
         }
 
@@ -95,43 +93,33 @@ public class CertificateManager {
     public static ServerCertificateInfo getServerCertificate(String apiKey, String baseUrl, String ep) throws IOException {
         // 首先检查内存缓存，用ep作为key
         if (hasCertificateInCache(ep)) {
-            LoggerUtil.debug("从内存缓存加载证书: " + ep);
+
             return getServerCertificateFromCache(ep);
         }
 
         try {
             String volcArkEncryption = System.getenv("VOLC_ARK_ENCRYPTION");
             boolean aiccEnabled = "AICC".equals(volcArkEncryption);
-            LoggerUtil.debug("isAICCEnabled: " + aiccEnabled);
 
             String certificate;
 
             // 1. 首先尝试从本地文件加载证书
             certificate = loadCertificateLocally(ep);
             if (certificate != null) {
-                LoggerUtil.debug("从本地缓存加载证书: " + ep);
                 return createCertificateInfo(certificate, ep);
             }
 
-            // 2. 检查环境变量指定的证书路径
-            String certPath = System.getenv("E2E_CERTIFICATE_PATH");
-            if (certPath != null && !certPath.trim().isEmpty()) {
-                LoggerUtil.debug("从环境变量路径加载证书: " + certPath);
-                certificate = loadCertificateFromPath(certPath);
-            }
-            // 3. 使用API Key方式获取证书
+            // 2. 使用API Key方式获取证书
             else {
-                LoggerUtil.debug("使用API Key获取证书: " + ep);
                 certificate = loadCertificateByApiKey(baseUrl, apiKey, ep, aiccEnabled);
             }
 
-            // 如果需要，保存证书到本地缓存
+            // 保存证书到本地缓存
             saveCertificateLocally(ep, certificate);
 
             return createCertificateInfo(certificate, ep);
 
         } catch (Exception e) {
-            System.err.println("Failed to fetch server certificate: " + e.getMessage());
             throw new IOException("Failed to fetch server certificate", e);
         }
     }
@@ -168,7 +156,6 @@ public class CertificateManager {
             }
         } catch (Exception e) {
             // 异常处理
-            LoggerUtil.error("Failed to parse certificate to get ring_id and key_id！");
             throw new RuntimeException("Failed to parse certificate to get ring_id and key_id", e);
         }
         return new String[]{"", ""};
@@ -177,7 +164,7 @@ public class CertificateManager {
     /**
      * 从本地缓存加载证书
      */
-    public static String loadCertificateLocally(String ep) {
+    public static String loadCertificateLocally(String ep) throws IOException {
         try {
             String certStoragePath = getCertStoragePath();
             String certFilePath = certStoragePath + File.separator + ep + ".pem";
@@ -190,9 +177,6 @@ public class CertificateManager {
                 long currentTimeSeconds = System.currentTimeMillis() / 1000;
                 long timeDifferenceSeconds = currentTimeSeconds - lastModifiedSeconds;
                 long certExpirationSeconds = 14L * 24 * 60 * 60; // 14天，以秒为单位
-                LoggerUtil.debug("检查本地证书: " + certFilePath);
-                LoggerUtil.debug("证书修改时间: " + lastModifiedSeconds + "s, 当前时间: " + currentTimeSeconds + "s, 时间差: " + timeDifferenceSeconds + "s");
-                LoggerUtil.debug("certExpirationSeconds:" + certExpirationSeconds);
                 if (timeDifferenceSeconds <= certExpirationSeconds) {
                     String certPem = new String(java.nio.file.Files.readAllBytes(certFile.toPath()), StandardCharsets.UTF_8);
 
@@ -214,44 +198,15 @@ public class CertificateManager {
                 }
 
                 // 证书过期或不满足条件，删除文件
-                if (certFile.delete()) {
-                    System.out.println("Deleted expired or invalid certificate: " + certFilePath);
-                } else {
-                    System.err.println("Failed to delete certificate: " + certFilePath);
-                }
+                certFile.delete();
             }
         } catch (Exception e) {
-            System.err.println("Failed to load local certificate: " + e.getMessage());
+            String errMsg = "Failed to load local certificate: " + e.getMessage();
+            throw new IOException(errMsg, e);
         }
         return null;
     }
 
-    /**
-     * 从指定路径加载证书文件
-     */
-    public static String loadCertificateFromPath(String certPath) throws IOException {
-        try {
-
-            File certFile = new File(certPath).getCanonicalFile();
-
-
-            // 文件存在
-            if (!certFile.exists() || !certFile.isFile()) {
-                throw new IOException("证书文件不存在或不是文件: " + certPath);
-            }
-
-
-            // 文件扩展名检查
-            if (!certFile.getName().toLowerCase().endsWith(".crt") &&
-                    !certFile.getName().toLowerCase().endsWith(".pem") &&
-                    !certFile.getName().toLowerCase().endsWith(".cer")) {
-                throw new IOException("不支持的文件类型: " + certPath);
-            }
-            return new String(java.nio.file.Files.readAllBytes(certFile.toPath()), StandardCharsets.UTF_8);
-        } catch (Exception e) {
-            throw new IOException("读取证书文件失败: " + certPath, e);
-        }
-    }
 
     /**
      * 使用API Key方式获取证书
@@ -267,7 +222,7 @@ public class CertificateManager {
                 certificateUrl = baseUrl + "/e2e/get/certificate";
             }
 
-            LoggerUtil.debug("证书请求URL: " + certificateUrl);
+
             URL url = URI.create(certificateUrl).toURL();
             connection = (HttpURLConnection) url.openConnection();
 
@@ -285,7 +240,7 @@ public class CertificateManager {
             }
             ObjectMapper mapper = new ObjectMapper();
             String jsonBody = mapper.writeValueAsString(requestBody);
-            LoggerUtil.debug("证书请求体: " + jsonBody);
+
 
             // 发送请求
             connection.setDoOutput(true);
@@ -296,11 +251,11 @@ public class CertificateManager {
 
             // 处理响应
             int responseCode = connection.getResponseCode();
-            LoggerUtil.debug("证书请求响应码: " + responseCode);
+
 
             if (responseCode >= 200 && responseCode < 300) {
                 String responseBody = readResponseBody(connection);
-                LoggerUtil.debug("证书请求响应体: " + responseBody);
+
 
                 Map<String, Object> responseJson = mapper.readValue(
                         responseBody,
@@ -312,32 +267,27 @@ public class CertificateManager {
                 if (responseJson.containsKey("error")) {
                     Object error = responseJson.get("error");
                     String errorMsg = "获取证书失败: " + error;
-                    System.err.println(errorMsg);
                     throw new IOException(errorMsg);
                 }
 
                 if (responseJson.containsKey("Certificate")) {
-                    String certificate = (String) responseJson.get("Certificate");
-                    LoggerUtil.debug("成功获取证书，长度: " + certificate.length());
-                    return certificate;
+                    return (String) responseJson.get("Certificate");
                 } else {
                     String errorMsg = "响应中未找到Certificate字段";
-                    System.err.println(errorMsg);
                     throw new IOException(errorMsg);
                 }
             } else {
                 String errorResponse = readErrorResponse(connection);
                 String errorMsg = "证书请求失败，状态码: " + responseCode + ", 响应: " + errorResponse;
-                System.err.println(errorMsg);
                 throw new IOException(errorMsg);
             }
 
         } catch (Exception e) {
-            System.err.println("通过API Key获取证书失败: " + e.getMessage());
             if (e instanceof IOException) {
                 throw (IOException) e;
             } else {
-                throw new IOException("通过API Key获取证书失败", e);
+                String errMsg = "通过API Key获取证书失败: " + e.getMessage();
+                throw new IOException(errMsg, e);
             }
         } finally {
             if (connection != null) {
@@ -349,7 +299,7 @@ public class CertificateManager {
     /**
      * 保存证书到本地缓存
      */
-    public static void saveCertificateLocally(String ep, String certificate) {
+    public static void saveCertificateLocally(String ep, String certificate) throws IOException {
         try {
             String certStoragePath = getCertStoragePath();
             String certFilePath = certStoragePath + File.separator + ep + ".pem";
@@ -358,8 +308,8 @@ public class CertificateManager {
             File storageDir = new File(certStoragePath);
             if (!storageDir.exists()) {
                 if (!storageDir.mkdirs()) {
-                    System.err.println("创建证书存储目录失败: " + certStoragePath);
-                    return;
+                    String errMsg = "创建证书存储目录失败: " + certStoragePath;
+                    throw new IOException(errMsg);
                 }
             }
 
@@ -368,10 +318,10 @@ public class CertificateManager {
                     Paths.get(certFilePath),
                     certificate.getBytes(StandardCharsets.UTF_8)
             );
-            LoggerUtil.debug("证书已保存到本地: " + certFilePath);
 
         } catch (Exception e) {
-            System.err.println("保存证书到本地失败: " + e.getMessage());
+            String errMsg = "保存证书到本地失败: " + e.getMessage();
+            throw new IOException(errMsg, e);
         }
     }
 
@@ -424,8 +374,6 @@ public class CertificateManager {
             String ringId = result[0];
             String keyId = result[1];
 
-//            LoggerUtil.debug("解析证书信息 - ringId: '" + ringId + "', keyId: '" + keyId + "'");
-
             java.security.PublicKey publicKey = extractPublicKeyFromCertificate(certificate);
 
             ServerCertificateInfo certInfo =
@@ -437,11 +385,11 @@ public class CertificateManager {
             return certInfo;
 
         } catch (GeneralSecurityException e) {
-            System.err.println("从证书提取公钥失败: " + e.getMessage());
-            throw new IOException("Failed to extract public key from certificate", e);
+            String errMsg = "Failed to extract public key from certificate: " + e.getMessage();
+            throw new IOException(errMsg, e);
         } catch (Exception e) {
-            System.err.println("创建证书信息失败: " + e.getMessage());
-            throw new IOException("Failed to create certificate info", e);
+            String errMsg = "Failed to create certificate info: " + e.getMessage();
+            throw new IOException(errMsg, e);
         }
     }
 

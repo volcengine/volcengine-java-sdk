@@ -215,21 +215,17 @@ public class KeyAgreementUtil {
             String content;
             try {
                 content = aesGcmDecryptBase64String(key, nonce, encryptedContent);
-                LoggerUtil.debug("First decryption attempt successful, decrypted length: " + content.length());
             } catch (Exception e) {
-//                LoggerUtil.debug("First decryption attempt failed: " + e.getMessage());
                 content = "";
             }
 
             if (content.isEmpty() || !decryptValidate(encryptedContent)) {
-//                LoggerUtil.debug("First decryption result invalid, trying alternative decryption method");
                 content = aesGcmDecryptBase64List(key, nonce, encryptedContent);
             }
 
             return content;
 
         } catch (Exception e) {
-            LoggerUtil.debug("All decryption attempts failed: " + e.getMessage());
             return "";
         }
     }
@@ -243,7 +239,6 @@ public class KeyAgreementUtil {
      */
     public static String encryptStringWithKey(byte[] key, byte[] nonce, String plaintext) {
         try {
-//            LoggerUtil.debug("Encrypting string, plaintext length: " + plaintext.length());
             Cipher cipher = javax.crypto.Cipher.getInstance("AES/GCM/NoPadding");
             GCMParameterSpec parameterSpec = new javax.crypto.spec.GCMParameterSpec(128, nonce);
             SecretKeySpec secretKeySpec = new javax.crypto.spec.SecretKeySpec(key, "AES");
@@ -252,10 +247,8 @@ public class KeyAgreementUtil {
             byte[] encryptedData = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8));
 
             String result = Base64.getEncoder().encodeToString(encryptedData);
-//            LoggerUtil.debug("Encryption completed, encrypted length: " + result.length());
             return result;
         } catch (Exception e) {
-            LoggerUtil.debug("Encryption failed: " + e.getMessage());
             throw new RuntimeException("Failed to encrypt data", e);
         }
     }

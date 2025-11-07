@@ -3,9 +3,11 @@ package com.volcengine.ark.runtime.interceptor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.service.CertificateManager;
-import com.volcengine.ark.runtime.utils.LoggerUtil;
 import okhttp3.*;
 import okio.Buffer;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
@@ -49,24 +51,20 @@ public class EncryptionInterceptor implements Interceptor {
         Request request = chain.request();
 
         String is_encrypt = request.headers().get("x-is-encrypted");
-        LoggerUtil.debug("is-encrypt: " + is_encrypt);
 
         RequestBody originalBody = request.body();
         if (originalBody == null) {
-            LoggerUtil.debug("Request body is null, proceeding with original request");
             return chain.proceed(request);
         }
 
         // 读取并解析请求体
         Map<String, Object> requestBodyJson = parseRequestBody(originalBody);
         String model = requestBodyJson.get("model").toString();
-        LoggerUtil.debug("Starting encryption process for model: " + model);
 
         // 非加密模式直接处理
         if (!"true".equals(is_encrypt)) {
             return proceedWithoutEncryption(chain, request, requestBodyJson);
         }
-
 
         // 加密模式处理
         return proceedWithEncryption(chain, request, requestBodyJson, model);
@@ -78,21 +76,16 @@ public class EncryptionInterceptor implements Interceptor {
         if (certInfo == null) {
             throw new IOException("Failed to get server certificate for encryption");
         }
-        LoggerUtil.debug("Successfully obtained server certificate - RingID: " + certInfo.getRingId() + ", KeyID: " + certInfo.getKeyId());
-
         // 生成会话密钥和令牌
         SessionData sessionData;
         try {
             sessionData = KeyAgreementUtil.generateEciesKeyPair(certInfo.getPublicKey());
         } catch (GeneralSecurityException e) {
-            LoggerUtil.error("generate sessionTokenData failed:", e);
             throw new RuntimeException(e);
         }
         byte[] e2eKey = sessionData.getCryptoKey();
         byte[] e2eNonce = sessionData.getCryptoNonce();
         String sessionToken = sessionData.getSessionToken();
-        LoggerUtil.debug("Generated session token and crypto keys successfully");
-
         // 加密请求体
         RequestBody encryptedBody = encryptRequestBody(requestBodyJson, e2eKey, e2eNonce);
 
@@ -105,10 +98,8 @@ public class EncryptionInterceptor implements Interceptor {
         requestBuilder.addHeader("X-Session-Token", sessionToken);
         Request encryptedRequest = requestBuilder.build();
 
-        LoggerUtil.debug("Sending encrypted request to server");
         Response originalResponse = chain.proceed(encryptedRequest);
 
-        LoggerUtil.debug("Received response from server, status code: " + originalResponse.code());
 
         // 处理失败响应
         if (!originalResponse.isSuccessful()) {
@@ -134,7 +125,6 @@ public class EncryptionInterceptor implements Interceptor {
      * 非加密模式处理 - 直接转发请求
      */
     private Response proceedWithoutEncryption(Chain chain, Request request, Map<String, Object> requestBodyJson) throws IOException {
-        LoggerUtil.debug("plaintext mode");
         String modifiedRequestBodyStr = mapper.writeValueAsString(requestBodyJson);
         RequestBody modifiedBody = RequestBody.create(
                 MediaType.get("application/json"),
@@ -152,43 +142,120 @@ public class EncryptionInterceptor implements Interceptor {
      */
     private RequestBody encryptRequestBody(Map<String, Object> requestBodyJson, byte[] e2eKey, byte[] e2eNonce) throws IOException {
         try {
-            if (requestBodyJson.containsKey("messages")) {
-                Object messagesObj = requestBodyJson.get("messages");
-                if (messagesObj instanceof List) {
-                    List<?> messagesList = (List<?>) messagesObj;
-                    LoggerUtil.debug("Processing " + messagesList.size() + " messages for encryption");
-                    if (!messagesList.isEmpty()) {
-                        List<Map<String, Object>> encryptedMessages = new ArrayList<>();
-                        for (Object message : messagesList) {
-                            if (message instanceof Map) {
-                                Map<?, ?> messageMap = (Map<?, ?>) message;
-                                String role = messageMap.get("role") != null ? messageMap.get("role").toString() : "user";
+            Object messagesObj = requestBodyJson.get("messages");
+            if (messagesObj instanceof List) {
+                List<?> messagesList = (List<?>) messagesObj;
+                List<Map<String, Object>> processedMessages = new ArrayList<>();
 
-                                if (messageMap.get("content") != null) {
-                                    String content = messageMap.get("content").toString();
-                                    String encryptedContent = encryptStringWithKey(e2eKey, e2eNonce, content);
-                                    Map<String, Object> encryptedMessage = new HashMap<>();
-                                    encryptedMessage.put("role", role);
-                                    encryptedMessage.put("content", encryptedContent);
-                                    encryptedMessages.add(encryptedMessage);
-                                }
-                            }
-                        }
-                        requestBodyJson.put("messages", encryptedMessages);
-                        LoggerUtil.debug("Successfully encrypted " + encryptedMessages.size() + " messages");
+                for (Object message : messagesList) {
+                    if (message instanceof Map) {
+                        @SuppressWarnings("unchecked")
+                        Map<String, Object> messageMap = (Map<String, Object>) message;
+                        processedMessages.add(processMessage(messageMap, e2eKey, e2eNonce));
                     }
                 }
+                requestBodyJson.put("messages", processedMessages);
             }
 
             String modifiedRequestBodyStr = mapper.writeValueAsString(requestBodyJson);
             return RequestBody.create(MediaType.get("application/json"), modifiedRequestBodyStr);
 
         } catch (Exception e) {
-            LoggerUtil.debug("Failed to process request body: " + e.getMessage());
             throw new IOException("Failed to process request body", e);
         }
     }
 
+    /**
+     * 处理单条消息
+     */
+    private Map<String, Object> processMessage(Map<String, Object> message, byte[] e2eKey, byte[] e2eNonce) throws IOException {
+        Object content = message.get("content");
+        if (content != null) {
+            message.put("content", processMessageContent(content, e2eKey, e2eNonce));
+        }
+        return message;
+    }
+
+    /**
+     * 处理消息内容
+     */
+    private Object processMessageContent(Object content, byte[] e2eKey, byte[] e2eNonce) throws IOException {
+        if (content instanceof String) {
+            // text
+            return encryptStringWithKey(e2eKey, e2eNonce, (String) content);
+        }
+        else if (content instanceof Iterable) {
+            // multiParts
+            List<Object> processedParts = new ArrayList<>();
+            for (Object part : (Iterable<?>) content) {
+                if (part instanceof Map) {
+                    @SuppressWarnings("unchecked")
+                    Map<String, Object> partMap = (Map<String, Object>) part;
+                    processedParts.add(processContentPart(partMap, e2eKey, e2eNonce));
+                } else {
+                    throw new IOException("encryption is not supported for content type " + part.getClass().getSimpleName());
+                }
+            }
+            return processedParts;
+        }
+        else {
+            throw new IOException("encryption is not supported for content type " + content.getClass().getSimpleName());
+        }
+    }
+
+    /**
+     * 处理内容部分
+     */
+    private Map<String, Object> processContentPart(Map<String, Object> part, byte[] e2eKey, byte[] e2eNonce) throws IOException {
+        String type = part.get("type").toString();
+
+        switch (type) {
+            case "text":
+                // 加密文本
+                part.put("text", encryptStringWithKey(e2eKey, e2eNonce, part.get("text").toString()));
+                break;
+
+            case "image_url":
+                @SuppressWarnings("unchecked")
+                Map<String, Object> imageUrl = (Map<String, Object>) part.get("image_url");
+                processImageUrl(imageUrl, e2eKey, e2eNonce);
+                break;
+
+            default:
+                throw new IOException("encryption is not supported for content type " + type);
+        }
+
+        return part;
+    }
+
+    /**
+     * 处理图片URL
+     */
+    private void processImageUrl(Map<String, Object> imageUrl, byte[] e2eKey, byte[] e2eNonce) throws IOException {
+        String url = imageUrl.get("url").toString();
+        try {
+            URI uri = new URI(url);
+            String scheme = uri.getScheme();
+            if ("data".equals(scheme)) {
+                // 加密data URL
+                imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
+            }
+            else if ("http".equals(scheme) || "https".equals(scheme)) {
+                System.err.println("encryption is not supported for image url, please use base64 image if you want encryption");
+            }
+            else {
+                throw new IOException("encryption is not supported for image url scheme " + scheme);
+            }
+
+        } catch (URISyntaxException e) {
+            if (url.startsWith("data:")) {
+                // 加密data URL
+                imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
+            } else {
+                throw new IOException("Invalid image URL format: " + url, e);
+            }
+        }
+    }
 
     /**
      * 添加AICC加密信息头
@@ -203,7 +270,6 @@ public class EncryptionInterceptor implements Interceptor {
             info.put("KeyID", certInfo.getKeyId());
             String infoJson = mapper.writeValueAsString(info);
             requestBuilder.addHeader("X-Encrypt-Info", infoJson);
-            LoggerUtil.debug("AICC encryption enabled, added X-Encrypt-Info header");
         }
     }
 
@@ -214,15 +280,12 @@ public class EncryptionInterceptor implements Interceptor {
         ResponseBody errorBody = response.body();
         if (errorBody != null) {
             String errorResponseStr = errorBody.string();
-            LoggerUtil.debug("Request failed with status: " + response.code() + ", error response: " + errorResponseStr);
             MediaType contentType = errorBody.contentType();
             if (contentType == null) {
                 contentType = MediaType.get("application/json; charset=utf-8");
             }
             ResponseBody newErrorBody = ResponseBody.create(contentType, errorResponseStr);
             return response.newBuilder().body(newErrorBody).build();
-        } else {
-            LoggerUtil.debug("Request failed with status: " + response.code() + ", no response body");
         }
         return response;
     }
@@ -234,7 +297,6 @@ public class EncryptionInterceptor implements Interceptor {
         try {
             ResponseBody responseBody = response.body();
             if (responseBody == null) {
-                LoggerUtil.debug("Response body is null, returning original response");
                 return response;
             }
 
@@ -251,13 +313,11 @@ public class EncryptionInterceptor implements Interceptor {
                     );
                     return handleNormalResponse(key, nonce, response, responseJson);
                 } catch (Exception e) {
-                    LoggerUtil.debug("Failed to parse response as JSON, trying as stream: " + e.getMessage());
                     return handleStreamResponse(key, nonce, response, responseBodyStr);
                 }
             }
 
         } catch (Exception e) {
-            LoggerUtil.debug("Failed to decrypt response: " + e.getMessage());
             return response;
         }
     }
@@ -269,11 +329,9 @@ public class EncryptionInterceptor implements Interceptor {
         try {
             ResponseBody originalBody = response.body();
             if (originalBody == null) {
-                LoggerUtil.debug("Original body is null in handleStreamResponse");
                 return response;
             }
             String decryptedContent = decryptStreamContent(key, nonce, originalContent);
-            LoggerUtil.debug("Stream response decrypted successfully, decrypted length: " + decryptedContent.length());
 
             MediaType contentType = originalBody.contentType();
             if (contentType == null) {
@@ -289,7 +347,6 @@ public class EncryptionInterceptor implements Interceptor {
                     .build();
 
         } catch (Exception e) {
-            LoggerUtil.debug("Failed to handle stream response: " + e.getMessage());
             return response;
         }
     }
@@ -302,14 +359,11 @@ public class EncryptionInterceptor implements Interceptor {
             @SuppressWarnings("unchecked")
             List<Map<String, Object>> choices = (List<Map<String, Object>>) responseJson.get("choices");
 
-            for (int i = 0; i < choices.size(); i++) {
-                Map<String, Object> choice = choices.get(i);
+            for (Map<String, Object> choice : choices) {
                 if (shouldDecryptChoice(choice)) {
-                    decryptChoiceContent(key, nonce, choice, i);
+                    decryptChoiceContent(key, nonce, choice);
                 }
             }
-        } else {
-            LoggerUtil.debug("No choices found in response or choices is not a list");
         }
 
         String modifiedResponseBodyStr = mapper.writeValueAsString(responseJson);
@@ -334,11 +388,8 @@ public class EncryptionInterceptor implements Interceptor {
     /**
      * 解密单个choice内容
      */
-    private void decryptChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice, int index) {
+    private void decryptChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
         String encryptedContent = getEncryptedContentFromChoice(choice);
-//        LoggerUtil.debug("Choice " + index + " requires decryption, encrypted content length: " +
-//                (encryptedContent != null ? encryptedContent.length() : 0));
-
         if (encryptedContent != null && !encryptedContent.isEmpty()) {
             try {
                 String decryptedContent = decryptStringWithKey(key, nonce, encryptedContent);
@@ -346,13 +397,10 @@ public class EncryptionInterceptor implements Interceptor {
                 Map<String, Object> message = (Map<String, Object>) choice.get("message");
                 message.put("content", decryptedContent);
             } catch (Exception e) {
-                LoggerUtil.debug("Failed to decrypt content for choice " + index + ": " + e.getMessage());
                 @SuppressWarnings("unchecked")
                 Map<String, Object> message = (Map<String, Object>) choice.get("message");
                 message.put("content", "");
             }
-        } else {
-            LoggerUtil.debug("Encrypted content is null or empty for choice " + index);
         }
     }
 
@@ -362,7 +410,6 @@ public class EncryptionInterceptor implements Interceptor {
     private String decryptStreamContent(byte[] key, byte[] nonce, String streamContent) {
         try {
             String[] lines = streamContent.split("\n");
-            LoggerUtil.debug("Stream content split into " + lines.length + " lines");
             StringBuilder decryptedContent = new StringBuilder();
 
             for (String line : lines) {
@@ -385,7 +432,6 @@ public class EncryptionInterceptor implements Interceptor {
                         String decryptedJson = mapper.writeValueAsString(decryptedChunk);
                         decryptedContent.append("data: ").append(decryptedJson).append("\n");
                     } catch (Exception e) {
-                        LoggerUtil.debug("Failed to process stream data line: " + e.getMessage() + ", line: " + line);
                         decryptedContent.append(line).append("\n");
                     }
                 } else {
@@ -395,7 +441,6 @@ public class EncryptionInterceptor implements Interceptor {
 
             return decryptedContent.toString();
         } catch (Exception e) {
-            LoggerUtil.debug("Failed to decrypt stream content: " + e.getMessage());
             return streamContent;
         }
     }
@@ -409,8 +454,7 @@ public class EncryptionInterceptor implements Interceptor {
                 @SuppressWarnings("unchecked")
                 List<Map<String, Object>> choices = (List<Map<String, Object>>) chunkData.get("choices");
 
-                for (int i = 0; i < choices.size(); i++) {
-                    Map<String, Object> choice = choices.get(i);
+                for (Map<String, Object> choice : choices) {
                     if (shouldDecryptStreamChoice(choice)) {
                         String encryptedContent = getEncryptedContentFromStreamChoice(choice);
                         if (encryptedContent != null && !encryptedContent.isEmpty()) {
@@ -420,7 +464,6 @@ public class EncryptionInterceptor implements Interceptor {
                                 Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
                                 delta.put("content", decryptedContent);
                             } catch (Exception e) {
-                                LoggerUtil.debug("Failed to decrypt stream content for choice " + i + ": " + e.getMessage());
                                 @SuppressWarnings("unchecked")
                                 Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
                                 delta.put("content", "");
@@ -431,7 +474,6 @@ public class EncryptionInterceptor implements Interceptor {
             }
             return chunkData;
         } catch (Exception e) {
-            LoggerUtil.debug("Failed to decrypt stream chunk: " + e.getMessage());
             return chunkData;
         }
     }

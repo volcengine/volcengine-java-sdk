@@ -502,6 +502,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
             if (apiKey != null && apiKey.length() > 0) {
                 clientBuilder.addInterceptor(new AuthenticationInterceptor(apiKey));
+                clientBuilder.addInterceptor(new EncryptionInterceptor(this.apiKey, this.baseUrl));
             } else if (ak != null && sk != null && ak.length() > 0 && sk.length() > 0) {
                 clientBuilder.addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region));
             } else {
@@ -527,7 +528,6 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
                     .addInterceptor(new BatchInterceptor())
-                    .addInterceptor(new EncryptionInterceptor(this.apiKey, this.baseUrl))
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .callTimeout(callTimeout == null ? timeout.toMillis() : callTimeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
