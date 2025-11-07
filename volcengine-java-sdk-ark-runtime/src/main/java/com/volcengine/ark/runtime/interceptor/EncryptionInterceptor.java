@@ -100,7 +100,6 @@ public class EncryptionInterceptor implements Interceptor {
 
         Response originalResponse = chain.proceed(encryptedRequest);
 
-
         // 处理失败响应
         if (!originalResponse.isSuccessful()) {
             return handleErrorResponse(originalResponse);
@@ -135,7 +134,6 @@ public class EncryptionInterceptor implements Interceptor {
                 .build();
         return chain.proceed(modifiedRequest);
     }
-
 
     /**
      * 加密请求体内容
@@ -183,8 +181,7 @@ public class EncryptionInterceptor implements Interceptor {
         if (content instanceof String) {
             // text
             return encryptStringWithKey(e2eKey, e2eNonce, (String) content);
-        }
-        else if (content instanceof Iterable) {
+        } else if (content instanceof Iterable) {
             // multiParts
             List<Object> processedParts = new ArrayList<>();
             for (Object part : (Iterable<?>) content) {
@@ -197,8 +194,7 @@ public class EncryptionInterceptor implements Interceptor {
                 }
             }
             return processedParts;
-        }
-        else {
+        } else {
             throw new IOException("encryption is not supported for content type " + content.getClass().getSimpleName());
         }
     }
@@ -239,11 +235,9 @@ public class EncryptionInterceptor implements Interceptor {
             if ("data".equals(scheme)) {
                 // 加密data URL
                 imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
-            }
-            else if ("http".equals(scheme) || "https".equals(scheme)) {
+            } else if ("http".equals(scheme) || "https".equals(scheme)) {
                 System.err.println("encryption is not supported for image url, please use base64 image if you want encryption");
-            }
-            else {
+            } else {
                 throw new IOException("encryption is not supported for image url scheme " + scheme);
             }
 
@@ -450,32 +444,58 @@ public class EncryptionInterceptor implements Interceptor {
      */
     private Map<String, Object> decryptStreamChunk(byte[] key, byte[] nonce, Map<String, Object> chunkData) {
         try {
-            if (chunkData.containsKey("choices") && chunkData.get("choices") instanceof List) {
-                @SuppressWarnings("unchecked")
-                List<Map<String, Object>> choices = (List<Map<String, Object>>) chunkData.get("choices");
-
-                for (Map<String, Object> choice : choices) {
-                    if (shouldDecryptStreamChoice(choice)) {
-                        String encryptedContent = getEncryptedContentFromStreamChoice(choice);
-                        if (encryptedContent != null && !encryptedContent.isEmpty()) {
-                            try {
-                                String decryptedContent = aesGcmDecryptBase64String(key, nonce, encryptedContent);
-                                @SuppressWarnings("unchecked")
-                                Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-                                delta.put("content", decryptedContent);
-                            } catch (Exception e) {
-                                @SuppressWarnings("unchecked")
-                                Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-                                delta.put("content", "");
-                            }
-                        }
-                    }
-                }
+            if (!hasValidChoices(chunkData)) {
+                return chunkData;
             }
+
+            @SuppressWarnings("unchecked")
+            List<Map<String, Object>> choices = (List<Map<String, Object>>) chunkData.get("choices");
+
+            for (Map<String, Object> choice : choices) {
+                decryptStreamChoiceContent(key, nonce, choice);
+            }
+
             return chunkData;
         } catch (Exception e) {
             return chunkData;
         }
+    }
+
+    /**
+     * 检查chunk数据是否包含有效的choices
+     */
+    private boolean hasValidChoices(Map<String, Object> chunkData) {
+        return chunkData.containsKey("choices") && chunkData.get("choices") instanceof List;
+    }
+
+    /**
+     * 解密流式choice内容
+     */
+    private void decryptStreamChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
+        if (!shouldDecryptStreamChoice(choice)) {
+            return;
+        }
+
+        String encryptedContent = getEncryptedContentFromStreamChoice(choice);
+        if (encryptedContent == null || encryptedContent.isEmpty()) {
+            return;
+        }
+
+        try {
+            String decryptedContent = aesGcmDecryptBase64String(key, nonce, encryptedContent);
+            updateStreamChoiceContent(choice, decryptedContent);
+        } catch (Exception e) {
+            updateStreamChoiceContent(choice, "");
+        }
+    }
+
+    /**
+     * 更新流式choice的内容
+     */
+    private void updateStreamChoiceContent(Map<String, Object> choice, String content) {
+        @SuppressWarnings("unchecked")
+        Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
+        delta.put("content", content);
     }
 
     /**

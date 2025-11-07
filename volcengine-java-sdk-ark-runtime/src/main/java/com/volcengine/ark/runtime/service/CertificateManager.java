@@ -22,7 +22,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
-
 public class CertificateManager {
     // 证书缓存
     private static final ConcurrentHashMap<String, ServerCertificateInfo> certificateCache = new ConcurrentHashMap<>();
@@ -52,8 +51,6 @@ public class CertificateManager {
         public String getKeyId() {
             return keyId;
         }
-
-
     }
 
     private static List<String> getDnsNamesFromExtension(Extension sanExtension) {
@@ -79,7 +76,6 @@ public class CertificateManager {
      * 检查内存缓存中是否存在证书
      */
     public static boolean hasCertificateInCache(String ep) {
-        // 假设有一个静态的ConcurrentHashMap来存储证书缓存
         return certificateCache.containsKey(ep);
     }
 
@@ -93,7 +89,6 @@ public class CertificateManager {
     public static ServerCertificateInfo getServerCertificate(String apiKey, String baseUrl, String ep) throws IOException {
         // 首先检查内存缓存，用ep作为key
         if (hasCertificateInCache(ep)) {
-
             return getServerCertificateFromCache(ep);
         }
 
@@ -207,92 +202,139 @@ public class CertificateManager {
         return null;
     }
 
-
     /**
-     * 使用API Key方式获取证书
+     * 使用API Key方式获取证书 - 重构后降低复杂度
      */
     public static String loadCertificateByApiKey(String baseUrl, String apiKey, String ep, boolean aiccEnabled) throws IOException {
         HttpURLConnection connection = null;
         try {
-            // 修复URI构建问题
-            String certificateUrl;
-            if (baseUrl.endsWith("/")) {
-                certificateUrl = baseUrl + "e2e/get/certificate";
-            } else {
-                certificateUrl = baseUrl + "/e2e/get/certificate";
-            }
-
-
-            URL url = URI.create(certificateUrl).toURL();
-            connection = (HttpURLConnection) url.openConnection();
-
-            // 设置请求头
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Authorization", "Bearer " + apiKey);
-            connection.setRequestProperty("X-Session-Token", "/e2e/get/certificate");
-
-            // 构建请求体
-            Map<String, Object> requestBody = new HashMap<>();
-            requestBody.put("model", ep);
-            if (aiccEnabled) {
-                requestBody.put("type", "AICCv0.1");
-            }
-            ObjectMapper mapper = new ObjectMapper();
-            String jsonBody = mapper.writeValueAsString(requestBody);
-
-
-            // 发送请求
-            connection.setDoOutput(true);
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
-                os.write(input, 0, input.length);
-            }
-
-            // 处理响应
-            int responseCode = connection.getResponseCode();
-
-
-            if (responseCode >= 200 && responseCode < 300) {
-                String responseBody = readResponseBody(connection);
-
-
-                Map<String, Object> responseJson = mapper.readValue(
-                        responseBody,
-                        new TypeReference<HashMap<String, Object>>() {
-                        }
-                );
-
-                // 检查错误
-                if (responseJson.containsKey("error")) {
-                    Object error = responseJson.get("error");
-                    String errorMsg = "获取证书失败: " + error;
-                    throw new IOException(errorMsg);
-                }
-
-                if (responseJson.containsKey("Certificate")) {
-                    return (String) responseJson.get("Certificate");
-                } else {
-                    String errorMsg = "响应中未找到Certificate字段";
-                    throw new IOException(errorMsg);
-                }
-            } else {
-                String errorResponse = readErrorResponse(connection);
-                String errorMsg = "证书请求失败，状态码: " + responseCode + ", 响应: " + errorResponse;
-                throw new IOException(errorMsg);
-            }
-
+            connection = createHttpConnection(baseUrl, apiKey);
+            sendCertificateRequest(connection, ep, aiccEnabled);
+            return processCertificateResponse(connection);
+        } catch (IOException e) {
+            throw e;
         } catch (Exception e) {
-            if (e instanceof IOException) {
-                throw (IOException) e;
-            } else {
-                String errMsg = "通过API Key获取证书失败: " + e.getMessage();
-                throw new IOException(errMsg, e);
-            }
+            String errMsg = "通过API Key获取证书失败: " + e.getMessage();
+            throw new IOException(errMsg, e);
         } finally {
             if (connection != null) {
                 connection.disconnect();
             }
+        }
+    }
+
+    /**
+     * 创建HTTP连接
+     */
+    private static HttpURLConnection createHttpConnection(String baseUrl, String apiKey) throws IOException {
+        String certificateUrl = buildCertificateUrl(baseUrl);
+        URL url = URI.create(certificateUrl).toURL();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", "Bearer " + apiKey);
+        connection.setRequestProperty("X-Session-Token", "/e2e/get/certificate");
+
+        return connection;
+    }
+
+    /**
+     * 构建证书请求URL
+     */
+    private static String buildCertificateUrl(String baseUrl) {
+        if (baseUrl.endsWith("/")) {
+            return baseUrl + "e2e/get/certificate";
+        } else {
+            return baseUrl + "/e2e/get/certificate";
+        }
+    }
+
+    /**
+     * 发送证书请求
+     */
+    private static void sendCertificateRequest(HttpURLConnection connection, String ep, boolean aiccEnabled) throws IOException {
+        String jsonBody = buildRequestBody(ep, aiccEnabled);
+
+        connection.setDoOutput(true);
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
+            os.write(input, 0, input.length);
+        }
+    }
+
+    /**
+     * 构建请求体
+     */
+    private static String buildRequestBody(String ep, boolean aiccEnabled) throws IOException {
+        Map<String, Object> requestBody = new HashMap<>();
+        requestBody.put("model", ep);
+        if (aiccEnabled) {
+            requestBody.put("type", "AICCv0.1");
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(requestBody);
+    }
+
+    /**
+     * 处理证书响应
+     */
+    private static String processCertificateResponse(HttpURLConnection connection) throws IOException {
+        int responseCode = connection.getResponseCode();
+
+        if (!isSuccessfulResponse(responseCode)) {
+            handleErrorResponse(connection, responseCode);
+        }
+
+        return extractCertificateFromResponse(connection);
+    }
+
+    /**
+     * 检查响应是否成功
+     */
+    private static boolean isSuccessfulResponse(int responseCode) {
+        return responseCode >= 200 && responseCode < 300;
+    }
+
+    /**
+     * 处理错误响应
+     */
+    private static void handleErrorResponse(HttpURLConnection connection, int responseCode) throws IOException {
+        String errorResponse = readErrorResponse(connection);
+        String errorMsg = "证书请求失败，状态码: " + responseCode + ", 响应: " + errorResponse;
+        throw new IOException(errorMsg);
+    }
+
+    /**
+     * 从响应中提取证书
+     */
+    private static String extractCertificateFromResponse(HttpURLConnection connection) throws IOException {
+        String responseBody = readResponseBody(connection);
+        ObjectMapper mapper = new ObjectMapper();
+
+        Map<String, Object> responseJson = mapper.readValue(
+                responseBody,
+                new TypeReference<HashMap<String, Object>>() {
+                }
+        );
+
+        validateResponse(responseJson);
+
+        if (responseJson.containsKey("Certificate")) {
+            return (String) responseJson.get("Certificate");
+        } else {
+            throw new IOException("响应中未找到Certificate字段");
+        }
+    }
+
+    /**
+     * 验证响应数据
+     */
+    private static void validateResponse(Map<String, Object> responseJson) throws IOException {
+        if (responseJson.containsKey("error")) {
+            Object error = responseJson.get("error");
+            String errorMsg = "获取证书失败: " + error;
+            throw new IOException(errorMsg);
         }
     }
 
@@ -342,7 +384,6 @@ public class CertificateManager {
 
     /**
      * 从PEM格式的X.509证书中提取公钥
-     *
      */
     public static PublicKey extractPublicKeyFromCertificate(String certificate) throws GeneralSecurityException {
         try {
@@ -422,5 +463,4 @@ public class CertificateManager {
             return errorResponse.toString();
         }
     }
-
 }
