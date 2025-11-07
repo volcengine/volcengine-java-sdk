@@ -48,6 +48,9 @@ public class CreateDnatEntryRequest {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
+  @SerializedName("PortType")
+  private String portType = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -164,6 +167,24 @@ public class CreateDnatEntryRequest {
     this.natGatewayId = natGatewayId;
   }
 
+  public CreateDnatEntryRequest portType(String portType) {
+    this.portType = portType;
+    return this;
+  }
+
+   /**
+   * Get portType
+   * @return portType
+  **/
+  @Schema(description = "")
+  public String getPortType() {
+    return portType;
+  }
+
+  public void setPortType(String portType) {
+    this.portType = portType;
+  }
+
   public CreateDnatEntryRequest protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -199,12 +220,13 @@ public class CreateDnatEntryRequest {
         Objects.equals(this.internalIp, createDnatEntryRequest.internalIp) &&
         Objects.equals(this.internalPort, createDnatEntryRequest.internalPort) &&
         Objects.equals(this.natGatewayId, createDnatEntryRequest.natGatewayId) &&
+        Objects.equals(this.portType, createDnatEntryRequest.portType) &&
         Objects.equals(this.protocol, createDnatEntryRequest.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, protocol);
+    return Objects.hash(dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, portType, protocol);
   }
 
 
@@ -219,6 +241,7 @@ public class CreateDnatEntryRequest {
     sb.append("    internalIp: ").append(toIndentedString(internalIp)).append("\n");
     sb.append("    internalPort: ").append(toIndentedString(internalPort)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");
     return sb.toString();

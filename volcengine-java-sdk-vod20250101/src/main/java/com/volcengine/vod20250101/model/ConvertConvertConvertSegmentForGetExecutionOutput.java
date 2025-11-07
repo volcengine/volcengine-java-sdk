@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.FileForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,17 +30,47 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertConvertSegmentForGetExecutionOutput {
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("End")
   private Double end = null;
 
-  @SerializedName("File")
-  private FileForGetExecutionOutput file = null;
+  @SerializedName("Location")
+  private String location = null;
 
-  @SerializedName("Frames")
-  private List<Integer> frames = null;
+  @SerializedName("Ocr")
+  private String ocr = null;
+
+  @SerializedName("Score")
+  private Double score = null;
+
+  @SerializedName("Shot")
+  private String shot = null;
 
   @SerializedName("Start")
   private Double start = null;
+
+  @SerializedName("VideoIndex")
+  private Integer videoIndex = null;
+
+  public ConvertConvertConvertSegmentForGetExecutionOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public ConvertConvertConvertSegmentForGetExecutionOutput end(Double end) {
     this.end = end;
@@ -63,49 +90,76 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
     this.end = end;
   }
 
-  public ConvertConvertConvertSegmentForGetExecutionOutput file(FileForGetExecutionOutput file) {
-    this.file = file;
+  public ConvertConvertConvertSegmentForGetExecutionOutput location(String location) {
+    this.location = location;
     return this;
   }
 
    /**
-   * Get file
-   * @return file
+   * Get location
+   * @return location
   **/
-  @Valid
   @Schema(description = "")
-  public FileForGetExecutionOutput getFile() {
-    return file;
+  public String getLocation() {
+    return location;
   }
 
-  public void setFile(FileForGetExecutionOutput file) {
-    this.file = file;
+  public void setLocation(String location) {
+    this.location = location;
   }
 
-  public ConvertConvertConvertSegmentForGetExecutionOutput frames(List<Integer> frames) {
-    this.frames = frames;
-    return this;
-  }
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput addFramesItem(Integer framesItem) {
-    if (this.frames == null) {
-      this.frames = new ArrayList<Integer>();
-    }
-    this.frames.add(framesItem);
+  public ConvertConvertConvertSegmentForGetExecutionOutput ocr(String ocr) {
+    this.ocr = ocr;
     return this;
   }
 
    /**
-   * Get frames
-   * @return frames
+   * Get ocr
+   * @return ocr
   **/
   @Schema(description = "")
-  public List<Integer> getFrames() {
-    return frames;
+  public String getOcr() {
+    return ocr;
   }
 
-  public void setFrames(List<Integer> frames) {
-    this.frames = frames;
+  public void setOcr(String ocr) {
+    this.ocr = ocr;
+  }
+
+  public ConvertConvertConvertSegmentForGetExecutionOutput score(Double score) {
+    this.score = score;
+    return this;
+  }
+
+   /**
+   * Get score
+   * @return score
+  **/
+  @Schema(description = "")
+  public Double getScore() {
+    return score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public ConvertConvertConvertSegmentForGetExecutionOutput shot(String shot) {
+    this.shot = shot;
+    return this;
+  }
+
+   /**
+   * Get shot
+   * @return shot
+  **/
+  @Schema(description = "")
+  public String getShot() {
+    return shot;
+  }
+
+  public void setShot(String shot) {
+    this.shot = shot;
   }
 
   public ConvertConvertConvertSegmentForGetExecutionOutput start(Double start) {
@@ -126,6 +180,24 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
     this.start = start;
   }
 
+  public ConvertConvertConvertSegmentForGetExecutionOutput videoIndex(Integer videoIndex) {
+    this.videoIndex = videoIndex;
+    return this;
+  }
+
+   /**
+   * Get videoIndex
+   * @return videoIndex
+  **/
+  @Schema(description = "")
+  public Integer getVideoIndex() {
+    return videoIndex;
+  }
+
+  public void setVideoIndex(Integer videoIndex) {
+    this.videoIndex = videoIndex;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,15 +208,19 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
       return false;
     }
     ConvertConvertConvertSegmentForGetExecutionOutput convertConvertConvertSegmentForGetExecutionOutput = (ConvertConvertConvertSegmentForGetExecutionOutput) o;
-    return Objects.equals(this.end, convertConvertConvertSegmentForGetExecutionOutput.end) &&
-        Objects.equals(this.file, convertConvertConvertSegmentForGetExecutionOutput.file) &&
-        Objects.equals(this.frames, convertConvertConvertSegmentForGetExecutionOutput.frames) &&
-        Objects.equals(this.start, convertConvertConvertSegmentForGetExecutionOutput.start);
+    return Objects.equals(this.description, convertConvertConvertSegmentForGetExecutionOutput.description) &&
+        Objects.equals(this.end, convertConvertConvertSegmentForGetExecutionOutput.end) &&
+        Objects.equals(this.location, convertConvertConvertSegmentForGetExecutionOutput.location) &&
+        Objects.equals(this.ocr, convertConvertConvertSegmentForGetExecutionOutput.ocr) &&
+        Objects.equals(this.score, convertConvertConvertSegmentForGetExecutionOutput.score) &&
+        Objects.equals(this.shot, convertConvertConvertSegmentForGetExecutionOutput.shot) &&
+        Objects.equals(this.start, convertConvertConvertSegmentForGetExecutionOutput.start) &&
+        Objects.equals(this.videoIndex, convertConvertConvertSegmentForGetExecutionOutput.videoIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, file, frames, start);
+    return Objects.hash(description, end, location, ocr, score, shot, start, videoIndex);
   }
 
 
@@ -153,10 +229,14 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertConvertSegmentForGetExecutionOutput {\n");
     
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
-    sb.append("    frames: ").append(toIndentedString(frames)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
+    sb.append("    score: ").append(toIndentedString(score)).append("\n");
+    sb.append("    shot: ").append(toIndentedString(shot)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -38,6 +38,9 @@ public class InputForStartExecutionInput {
   @SerializedName("FileId")
   private FileIdForStartExecutionInput fileId = null;
 
+  @SerializedName("Schema")
+  private String schema = null;
+
   @SerializedName("Tag")
   private String tag = null;
 
@@ -83,6 +86,24 @@ public class InputForStartExecutionInput {
 
   public void setFileId(FileIdForStartExecutionInput fileId) {
     this.fileId = fileId;
+  }
+
+  public InputForStartExecutionInput schema(String schema) {
+    this.schema = schema;
+    return this;
+  }
+
+   /**
+   * Get schema
+   * @return schema
+  **/
+  @Schema(description = "")
+  public String getSchema() {
+    return schema;
+  }
+
+  public void setSchema(String schema) {
+    this.schema = schema;
   }
 
   public InputForStartExecutionInput tag(String tag) {
@@ -151,6 +172,7 @@ public class InputForStartExecutionInput {
     InputForStartExecutionInput inputForStartExecutionInput = (InputForStartExecutionInput) o;
     return Objects.equals(this.directUrl, inputForStartExecutionInput.directUrl) &&
         Objects.equals(this.fileId, inputForStartExecutionInput.fileId) &&
+        Objects.equals(this.schema, inputForStartExecutionInput.schema) &&
         Objects.equals(this.tag, inputForStartExecutionInput.tag) &&
         Objects.equals(this.type, inputForStartExecutionInput.type) &&
         Objects.equals(this.vid, inputForStartExecutionInput.vid);
@@ -158,7 +180,7 @@ public class InputForStartExecutionInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(directUrl, fileId, tag, type, vid);
+    return Objects.hash(directUrl, fileId, schema, tag, type, vid);
   }
 
 
@@ -169,6 +191,7 @@ public class InputForStartExecutionInput {
     
     sb.append("    directUrl: ").append(toIndentedString(directUrl)).append("\n");
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vid: ").append(toIndentedString(vid)).append("\n");

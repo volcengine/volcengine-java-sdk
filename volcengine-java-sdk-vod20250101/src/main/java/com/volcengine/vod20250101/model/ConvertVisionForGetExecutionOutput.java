@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertModelForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertModelForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,7 +38,7 @@ public class ConvertVisionForGetExecutionOutput {
   private Double duration = null;
 
   @SerializedName("Model")
-  private ConvertModelForGetExecutionOutput model = null;
+  private ConvertConvertModelForGetExecutionOutput model = null;
 
   @SerializedName("SnapshotsNumber")
   private Integer snapshotsNumber = null;
@@ -79,7 +79,7 @@ public class ConvertVisionForGetExecutionOutput {
     this.duration = duration;
   }
 
-  public ConvertVisionForGetExecutionOutput model(ConvertModelForGetExecutionOutput model) {
+  public ConvertVisionForGetExecutionOutput model(ConvertConvertModelForGetExecutionOutput model) {
     this.model = model;
     return this;
   }
@@ -90,11 +90,11 @@ public class ConvertVisionForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertModelForGetExecutionOutput getModel() {
+  public ConvertConvertModelForGetExecutionOutput getModel() {
     return model;
   }
 
-  public void setModel(ConvertModelForGetExecutionOutput model) {
+  public void setModel(ConvertConvertModelForGetExecutionOutput model) {
     this.model = model;
   }
 

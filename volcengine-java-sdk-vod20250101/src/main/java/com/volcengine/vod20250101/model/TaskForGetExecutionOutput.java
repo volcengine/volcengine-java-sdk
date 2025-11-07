@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AdAuditForGetExecutionOutput;
 import com.volcengine.vod20250101.model.AsrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.AudioExtractForGetExecutionOutput;
+import com.volcengine.vod20250101.model.EnhanceForGetExecutionOutput;
 import com.volcengine.vod20250101.model.EraseForGetExecutionOutput;
 import com.volcengine.vod20250101.model.FileDeleteForGetExecutionOutput;
 import com.volcengine.vod20250101.model.HighlightForGetExecutionOutput;
@@ -30,6 +31,7 @@ import com.volcengine.vod20250101.model.SegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.StorylineForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoGenerationForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoSummaryForGetExecutionOutput;
+import com.volcengine.vod20250101.model.VideoUnderstandingForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VisionForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -50,6 +52,9 @@ public class TaskForGetExecutionOutput {
 
   @SerializedName("AudioExtract")
   private AudioExtractForGetExecutionOutput audioExtract = null;
+
+  @SerializedName("Enhance")
+  private EnhanceForGetExecutionOutput enhance = null;
 
   @SerializedName("Erase")
   private EraseForGetExecutionOutput erase = null;
@@ -77,6 +82,9 @@ public class TaskForGetExecutionOutput {
 
   @SerializedName("VideoSummary")
   private VideoSummaryForGetExecutionOutput videoSummary = null;
+
+  @SerializedName("VideoUnderstanding")
+  private VideoUnderstandingForGetExecutionOutput videoUnderstanding = null;
 
   @SerializedName("Vision")
   private VisionForGetExecutionOutput vision = null;
@@ -136,6 +144,25 @@ public class TaskForGetExecutionOutput {
 
   public void setAudioExtract(AudioExtractForGetExecutionOutput audioExtract) {
     this.audioExtract = audioExtract;
+  }
+
+  public TaskForGetExecutionOutput enhance(EnhanceForGetExecutionOutput enhance) {
+    this.enhance = enhance;
+    return this;
+  }
+
+   /**
+   * Get enhance
+   * @return enhance
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnhanceForGetExecutionOutput getEnhance() {
+    return enhance;
+  }
+
+  public void setEnhance(EnhanceForGetExecutionOutput enhance) {
+    this.enhance = enhance;
   }
 
   public TaskForGetExecutionOutput erase(EraseForGetExecutionOutput erase) {
@@ -308,6 +335,25 @@ public class TaskForGetExecutionOutput {
     this.videoSummary = videoSummary;
   }
 
+  public TaskForGetExecutionOutput videoUnderstanding(VideoUnderstandingForGetExecutionOutput videoUnderstanding) {
+    this.videoUnderstanding = videoUnderstanding;
+    return this;
+  }
+
+   /**
+   * Get videoUnderstanding
+   * @return videoUnderstanding
+  **/
+  @Valid
+  @Schema(description = "")
+  public VideoUnderstandingForGetExecutionOutput getVideoUnderstanding() {
+    return videoUnderstanding;
+  }
+
+  public void setVideoUnderstanding(VideoUnderstandingForGetExecutionOutput videoUnderstanding) {
+    this.videoUnderstanding = videoUnderstanding;
+  }
+
   public TaskForGetExecutionOutput vision(VisionForGetExecutionOutput vision) {
     this.vision = vision;
     return this;
@@ -340,6 +386,7 @@ public class TaskForGetExecutionOutput {
     return Objects.equals(this.adAudit, taskForGetExecutionOutput.adAudit) &&
         Objects.equals(this.asr, taskForGetExecutionOutput.asr) &&
         Objects.equals(this.audioExtract, taskForGetExecutionOutput.audioExtract) &&
+        Objects.equals(this.enhance, taskForGetExecutionOutput.enhance) &&
         Objects.equals(this.erase, taskForGetExecutionOutput.erase) &&
         Objects.equals(this.fileDelete, taskForGetExecutionOutput.fileDelete) &&
         Objects.equals(this.highlight, taskForGetExecutionOutput.highlight) &&
@@ -349,12 +396,13 @@ public class TaskForGetExecutionOutput {
         Objects.equals(this.type, taskForGetExecutionOutput.type) &&
         Objects.equals(this.videoGeneration, taskForGetExecutionOutput.videoGeneration) &&
         Objects.equals(this.videoSummary, taskForGetExecutionOutput.videoSummary) &&
+        Objects.equals(this.videoUnderstanding, taskForGetExecutionOutput.videoUnderstanding) &&
         Objects.equals(this.vision, taskForGetExecutionOutput.vision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoSummary, vision);
+    return Objects.hash(adAudit, asr, audioExtract, enhance, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoSummary, videoUnderstanding, vision);
   }
 
 
@@ -366,6 +414,7 @@ public class TaskForGetExecutionOutput {
     sb.append("    adAudit: ").append(toIndentedString(adAudit)).append("\n");
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
+    sb.append("    enhance: ").append(toIndentedString(enhance)).append("\n");
     sb.append("    erase: ").append(toIndentedString(erase)).append("\n");
     sb.append("    fileDelete: ").append(toIndentedString(fileDelete)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
@@ -375,6 +424,7 @@ public class TaskForGetExecutionOutput {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    videoGeneration: ").append(toIndentedString(videoGeneration)).append("\n");
     sb.append("    videoSummary: ").append(toIndentedString(videoSummary)).append("\n");
+    sb.append("    videoUnderstanding: ").append(toIndentedString(videoUnderstanding)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
     sb.append("}");
     return sb.toString();

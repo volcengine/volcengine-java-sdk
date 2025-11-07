@@ -42,108 +42,26 @@ public class CreateNatGatewayRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DirectMode")
+  private Boolean directMode = null;
+
   @SerializedName("NatGatewayName")
   private String natGatewayName = null;
+
+  @SerializedName("NetworkType")
+  private String networkType = null;
 
   @SerializedName("Period")
   private Integer period = null;
 
-  /**
-   * Gets or Sets periodUnit
-   */
-  @JsonAdapter(PeriodUnitEnum.Adapter.class)
-  public enum PeriodUnitEnum {
-    @SerializedName("Month")
-    MONTH("Month"),
-    @SerializedName("Year")
-    YEAR("Year");
-
-    private String value;
-
-    PeriodUnitEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PeriodUnitEnum fromValue(String input) {
-      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PeriodUnitEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("PeriodUnit")
-  private PeriodUnitEnum periodUnit = null;
+  @SerializedName("PeriodUnit")
+  private String periodUnit = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  /**
-   * Gets or Sets spec
-   */
-  @JsonAdapter(SpecEnum.Adapter.class)
-  public enum SpecEnum {
-    @SerializedName("Small")
-    SMALL("Small"),
-    @SerializedName("Medium")
-    MEDIUM("Medium"),
-    @SerializedName("Large")
-    LARGE("Large");
-
-    private String value;
-
-    SpecEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SpecEnum fromValue(String input) {
-      for (SpecEnum b : SpecEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SpecEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SpecEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SpecEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SpecEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Spec")
-  private SpecEnum spec = null;
+  @SerializedName("Spec")
+  private String spec = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -162,10 +80,10 @@ public class CreateNatGatewayRequest {
    /**
    * Get billingType
    * minimum: 1
-   * maximum: 1
+   * maximum: 3
    * @return billingType
   **/
- @Min(1) @Max(1)  @Schema(description = "")
+ @Min(1) @Max(3)  @Schema(description = "")
   public Integer getBillingType() {
     return billingType;
   }
@@ -210,6 +128,24 @@ public class CreateNatGatewayRequest {
     this.description = description;
   }
 
+  public CreateNatGatewayRequest directMode(Boolean directMode) {
+    this.directMode = directMode;
+    return this;
+  }
+
+   /**
+   * Get directMode
+   * @return directMode
+  **/
+  @Schema(description = "")
+  public Boolean isDirectMode() {
+    return directMode;
+  }
+
+  public void setDirectMode(Boolean directMode) {
+    this.directMode = directMode;
+  }
+
   public CreateNatGatewayRequest natGatewayName(String natGatewayName) {
     this.natGatewayName = natGatewayName;
     return this;
@@ -226,6 +162,24 @@ public class CreateNatGatewayRequest {
 
   public void setNatGatewayName(String natGatewayName) {
     this.natGatewayName = natGatewayName;
+  }
+
+  public CreateNatGatewayRequest networkType(String networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public String getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(String networkType) {
+    this.networkType = networkType;
   }
 
   public CreateNatGatewayRequest period(Integer period) {
@@ -246,7 +200,7 @@ public class CreateNatGatewayRequest {
     this.period = period;
   }
 
-  public CreateNatGatewayRequest periodUnit(PeriodUnitEnum periodUnit) {
+  public CreateNatGatewayRequest periodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -256,11 +210,11 @@ public class CreateNatGatewayRequest {
    * @return periodUnit
   **/
   @Schema(description = "")
-  public PeriodUnitEnum getPeriodUnit() {
+  public String getPeriodUnit() {
     return periodUnit;
   }
 
-  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
+  public void setPeriodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
   }
 
@@ -282,7 +236,7 @@ public class CreateNatGatewayRequest {
     this.projectName = projectName;
   }
 
-  public CreateNatGatewayRequest spec(SpecEnum spec) {
+  public CreateNatGatewayRequest spec(String spec) {
     this.spec = spec;
     return this;
   }
@@ -292,11 +246,11 @@ public class CreateNatGatewayRequest {
    * @return spec
   **/
   @Schema(description = "")
-  public SpecEnum getSpec() {
+  public String getSpec() {
     return spec;
   }
 
-  public void setSpec(SpecEnum spec) {
+  public void setSpec(String spec) {
     this.spec = spec;
   }
 
@@ -377,7 +331,9 @@ public class CreateNatGatewayRequest {
     return Objects.equals(this.billingType, createNatGatewayRequest.billingType) &&
         Objects.equals(this.clientToken, createNatGatewayRequest.clientToken) &&
         Objects.equals(this.description, createNatGatewayRequest.description) &&
+        Objects.equals(this.directMode, createNatGatewayRequest.directMode) &&
         Objects.equals(this.natGatewayName, createNatGatewayRequest.natGatewayName) &&
+        Objects.equals(this.networkType, createNatGatewayRequest.networkType) &&
         Objects.equals(this.period, createNatGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createNatGatewayRequest.periodUnit) &&
         Objects.equals(this.projectName, createNatGatewayRequest.projectName) &&
@@ -389,7 +345,7 @@ public class CreateNatGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, clientToken, description, natGatewayName, period, periodUnit, projectName, spec, subnetId, tags, vpcId);
+    return Objects.hash(billingType, clientToken, description, directMode, natGatewayName, networkType, period, periodUnit, projectName, spec, subnetId, tags, vpcId);
   }
 
 
@@ -401,7 +357,9 @@ public class CreateNatGatewayRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    directMode: ").append(toIndentedString(directMode)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

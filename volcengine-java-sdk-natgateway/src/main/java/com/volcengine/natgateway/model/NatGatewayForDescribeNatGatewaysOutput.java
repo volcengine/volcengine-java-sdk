@@ -49,6 +49,12 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DirectMode")
+  private Boolean directMode = null;
+
+  @SerializedName("DnatEntryIds")
+  private List<String> dnatEntryIds = null;
+
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeNatGatewaysOutput> eipAddresses = null;
 
@@ -67,14 +73,118 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
+  /**
+   * Gets or Sets networkType
+   */
+  @JsonAdapter(NetworkTypeEnum.Adapter.class)
+  public enum NetworkTypeEnum {
+    @SerializedName("internet")
+    INTERNET("internet"),
+    @SerializedName("intranet")
+    INTRANET("intranet");
+
+    private String value;
+
+    NetworkTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NetworkTypeEnum fromValue(String input) {
+      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NetworkTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NetworkType")
+  private NetworkTypeEnum networkType = null;
+
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("Spec")
-  private String spec = null;
+  @SerializedName("SmartScheduleEnabled")
+  private Boolean smartScheduleEnabled = null;
+
+  @SerializedName("SmartScheduleRule")
+  private String smartScheduleRule = null;
+
+  @SerializedName("SnatEntryIds")
+  private List<String> snatEntryIds = null;
+
+  /**
+   * Gets or Sets spec
+   */
+  @JsonAdapter(SpecEnum.Adapter.class)
+  public enum SpecEnum {
+    @SerializedName("Small")
+    SMALL("Small"),
+    @SerializedName("Medium")
+    MEDIUM("Medium"),
+    @SerializedName("Large")
+    LARGE("Large"),
+    @SerializedName("Extra_Large_1")
+    EXTRA_LARGE_1("Extra_Large_1"),
+    @SerializedName("Extra_Large_2")
+    EXTRA_LARGE_2("Extra_Large_2");
+
+    private String value;
+
+    SpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SpecEnum fromValue(String input) {
+      for (SpecEnum b : SpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Spec")
+  private SpecEnum spec = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -182,6 +292,50 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput directMode(Boolean directMode) {
+    this.directMode = directMode;
+    return this;
+  }
+
+   /**
+   * Get directMode
+   * @return directMode
+  **/
+  @Schema(description = "")
+  public Boolean isDirectMode() {
+    return directMode;
+  }
+
+  public void setDirectMode(Boolean directMode) {
+    this.directMode = directMode;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput dnatEntryIds(List<String> dnatEntryIds) {
+    this.dnatEntryIds = dnatEntryIds;
+    return this;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput addDnatEntryIdsItem(String dnatEntryIdsItem) {
+    if (this.dnatEntryIds == null) {
+      this.dnatEntryIds = new ArrayList<String>();
+    }
+    this.dnatEntryIds.add(dnatEntryIdsItem);
+    return this;
+  }
+
+   /**
+   * Get dnatEntryIds
+   * @return dnatEntryIds
+  **/
+  @Schema(description = "")
+  public List<String> getDnatEntryIds() {
+    return dnatEntryIds;
+  }
+
+  public void setDnatEntryIds(List<String> dnatEntryIds) {
+    this.dnatEntryIds = dnatEntryIds;
   }
 
   public NatGatewayForDescribeNatGatewaysOutput eipAddresses(List<EipAddressForDescribeNatGatewaysOutput> eipAddresses) {
@@ -301,6 +455,24 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.networkInterfaceId = networkInterfaceId;
   }
 
+  public NatGatewayForDescribeNatGatewaysOutput networkType(NetworkTypeEnum networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public NetworkTypeEnum getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(NetworkTypeEnum networkType) {
+    this.networkType = networkType;
+  }
+
   public NatGatewayForDescribeNatGatewaysOutput overdueTime(String overdueTime) {
     this.overdueTime = overdueTime;
     return this;
@@ -337,7 +509,69 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.projectName = projectName;
   }
 
-  public NatGatewayForDescribeNatGatewaysOutput spec(String spec) {
+  public NatGatewayForDescribeNatGatewaysOutput smartScheduleEnabled(Boolean smartScheduleEnabled) {
+    this.smartScheduleEnabled = smartScheduleEnabled;
+    return this;
+  }
+
+   /**
+   * Get smartScheduleEnabled
+   * @return smartScheduleEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSmartScheduleEnabled() {
+    return smartScheduleEnabled;
+  }
+
+  public void setSmartScheduleEnabled(Boolean smartScheduleEnabled) {
+    this.smartScheduleEnabled = smartScheduleEnabled;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput smartScheduleRule(String smartScheduleRule) {
+    this.smartScheduleRule = smartScheduleRule;
+    return this;
+  }
+
+   /**
+   * Get smartScheduleRule
+   * @return smartScheduleRule
+  **/
+  @Schema(description = "")
+  public String getSmartScheduleRule() {
+    return smartScheduleRule;
+  }
+
+  public void setSmartScheduleRule(String smartScheduleRule) {
+    this.smartScheduleRule = smartScheduleRule;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput snatEntryIds(List<String> snatEntryIds) {
+    this.snatEntryIds = snatEntryIds;
+    return this;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput addSnatEntryIdsItem(String snatEntryIdsItem) {
+    if (this.snatEntryIds == null) {
+      this.snatEntryIds = new ArrayList<String>();
+    }
+    this.snatEntryIds.add(snatEntryIdsItem);
+    return this;
+  }
+
+   /**
+   * Get snatEntryIds
+   * @return snatEntryIds
+  **/
+  @Schema(description = "")
+  public List<String> getSnatEntryIds() {
+    return snatEntryIds;
+  }
+
+  public void setSnatEntryIds(List<String> snatEntryIds) {
+    this.snatEntryIds = snatEntryIds;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput spec(SpecEnum spec) {
     this.spec = spec;
     return this;
   }
@@ -347,11 +581,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
    * @return spec
   **/
   @Schema(description = "")
-  public String getSpec() {
+  public SpecEnum getSpec() {
     return spec;
   }
 
-  public void setSpec(String spec) {
+  public void setSpec(SpecEnum spec) {
     this.spec = spec;
   }
 
@@ -487,14 +721,20 @@ public class NatGatewayForDescribeNatGatewaysOutput {
         Objects.equals(this.creationTime, natGatewayForDescribeNatGatewaysOutput.creationTime) &&
         Objects.equals(this.deletedTime, natGatewayForDescribeNatGatewaysOutput.deletedTime) &&
         Objects.equals(this.description, natGatewayForDescribeNatGatewaysOutput.description) &&
+        Objects.equals(this.directMode, natGatewayForDescribeNatGatewaysOutput.directMode) &&
+        Objects.equals(this.dnatEntryIds, natGatewayForDescribeNatGatewaysOutput.dnatEntryIds) &&
         Objects.equals(this.eipAddresses, natGatewayForDescribeNatGatewaysOutput.eipAddresses) &&
         Objects.equals(this.expiredTime, natGatewayForDescribeNatGatewaysOutput.expiredTime) &&
         Objects.equals(this.lockReason, natGatewayForDescribeNatGatewaysOutput.lockReason) &&
         Objects.equals(this.natGatewayId, natGatewayForDescribeNatGatewaysOutput.natGatewayId) &&
         Objects.equals(this.natGatewayName, natGatewayForDescribeNatGatewaysOutput.natGatewayName) &&
         Objects.equals(this.networkInterfaceId, natGatewayForDescribeNatGatewaysOutput.networkInterfaceId) &&
+        Objects.equals(this.networkType, natGatewayForDescribeNatGatewaysOutput.networkType) &&
         Objects.equals(this.overdueTime, natGatewayForDescribeNatGatewaysOutput.overdueTime) &&
         Objects.equals(this.projectName, natGatewayForDescribeNatGatewaysOutput.projectName) &&
+        Objects.equals(this.smartScheduleEnabled, natGatewayForDescribeNatGatewaysOutput.smartScheduleEnabled) &&
+        Objects.equals(this.smartScheduleRule, natGatewayForDescribeNatGatewaysOutput.smartScheduleRule) &&
+        Objects.equals(this.snatEntryIds, natGatewayForDescribeNatGatewaysOutput.snatEntryIds) &&
         Objects.equals(this.spec, natGatewayForDescribeNatGatewaysOutput.spec) &&
         Objects.equals(this.status, natGatewayForDescribeNatGatewaysOutput.status) &&
         Objects.equals(this.subnetId, natGatewayForDescribeNatGatewaysOutput.subnetId) &&
@@ -506,7 +746,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, projectName, spec, status, subnetId, tags, updatedAt, vpcId, zoneId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, directMode, dnatEntryIds, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, networkType, overdueTime, projectName, smartScheduleEnabled, smartScheduleRule, snatEntryIds, spec, status, subnetId, tags, updatedAt, vpcId, zoneId);
   }
 
 
@@ -520,14 +760,20 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    directMode: ").append(toIndentedString(directMode)).append("\n");
+    sb.append("    dnatEntryIds: ").append(toIndentedString(dnatEntryIds)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    smartScheduleEnabled: ").append(toIndentedString(smartScheduleEnabled)).append("\n");
+    sb.append("    smartScheduleRule: ").append(toIndentedString(smartScheduleRule)).append("\n");
+    sb.append("    snatEntryIds: ").append(toIndentedString(snatEntryIds)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

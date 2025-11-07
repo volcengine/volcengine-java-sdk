@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.natgateway.model.EipAddressForDescribeNatGatewayAttributesOutput;
+import com.volcengine.natgateway.model.NatIpAddressForDescribeNatGatewayAttributesOutput;
 import com.volcengine.natgateway.model.TagForDescribeNatGatewayAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -49,6 +50,9 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DnatEntryIds")
+  private List<String> dnatEntryIds = null;
+
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeNatGatewayAttributesOutput> eipAddresses = null;
 
@@ -64,8 +68,14 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
   @SerializedName("NatGatewayName")
   private String natGatewayName = null;
 
+  @SerializedName("NatIpAddresses")
+  private List<NatIpAddressForDescribeNatGatewayAttributesOutput> natIpAddresses = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  @SerializedName("NetworkType")
+  private String networkType = null;
 
   @SerializedName("OverdueTime")
   private String overdueTime = null;
@@ -75,6 +85,15 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  @SerializedName("SmartScheduleEnabled")
+  private Boolean smartScheduleEnabled = null;
+
+  @SerializedName("SmartScheduleRule")
+  private String smartScheduleRule = null;
+
+  @SerializedName("SnatEntryIds")
+  private List<String> snatEntryIds = null;
 
   @SerializedName("Spec")
   private String spec = null;
@@ -187,6 +206,32 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
     this.description = description;
   }
 
+  public DescribeNatGatewayAttributesResponse dnatEntryIds(List<String> dnatEntryIds) {
+    this.dnatEntryIds = dnatEntryIds;
+    return this;
+  }
+
+  public DescribeNatGatewayAttributesResponse addDnatEntryIdsItem(String dnatEntryIdsItem) {
+    if (this.dnatEntryIds == null) {
+      this.dnatEntryIds = new ArrayList<String>();
+    }
+    this.dnatEntryIds.add(dnatEntryIdsItem);
+    return this;
+  }
+
+   /**
+   * Get dnatEntryIds
+   * @return dnatEntryIds
+  **/
+  @Schema(description = "")
+  public List<String> getDnatEntryIds() {
+    return dnatEntryIds;
+  }
+
+  public void setDnatEntryIds(List<String> dnatEntryIds) {
+    this.dnatEntryIds = dnatEntryIds;
+  }
+
   public DescribeNatGatewayAttributesResponse eipAddresses(List<EipAddressForDescribeNatGatewayAttributesOutput> eipAddresses) {
     this.eipAddresses = eipAddresses;
     return this;
@@ -286,6 +331,33 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
     this.natGatewayName = natGatewayName;
   }
 
+  public DescribeNatGatewayAttributesResponse natIpAddresses(List<NatIpAddressForDescribeNatGatewayAttributesOutput> natIpAddresses) {
+    this.natIpAddresses = natIpAddresses;
+    return this;
+  }
+
+  public DescribeNatGatewayAttributesResponse addNatIpAddressesItem(NatIpAddressForDescribeNatGatewayAttributesOutput natIpAddressesItem) {
+    if (this.natIpAddresses == null) {
+      this.natIpAddresses = new ArrayList<NatIpAddressForDescribeNatGatewayAttributesOutput>();
+    }
+    this.natIpAddresses.add(natIpAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get natIpAddresses
+   * @return natIpAddresses
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NatIpAddressForDescribeNatGatewayAttributesOutput> getNatIpAddresses() {
+    return natIpAddresses;
+  }
+
+  public void setNatIpAddresses(List<NatIpAddressForDescribeNatGatewayAttributesOutput> natIpAddresses) {
+    this.natIpAddresses = natIpAddresses;
+  }
+
   public DescribeNatGatewayAttributesResponse networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
     return this;
@@ -302,6 +374,24 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setNetworkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
+  }
+
+  public DescribeNatGatewayAttributesResponse networkType(String networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public String getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(String networkType) {
+    this.networkType = networkType;
   }
 
   public DescribeNatGatewayAttributesResponse overdueTime(String overdueTime) {
@@ -356,6 +446,68 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+  }
+
+  public DescribeNatGatewayAttributesResponse smartScheduleEnabled(Boolean smartScheduleEnabled) {
+    this.smartScheduleEnabled = smartScheduleEnabled;
+    return this;
+  }
+
+   /**
+   * Get smartScheduleEnabled
+   * @return smartScheduleEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSmartScheduleEnabled() {
+    return smartScheduleEnabled;
+  }
+
+  public void setSmartScheduleEnabled(Boolean smartScheduleEnabled) {
+    this.smartScheduleEnabled = smartScheduleEnabled;
+  }
+
+  public DescribeNatGatewayAttributesResponse smartScheduleRule(String smartScheduleRule) {
+    this.smartScheduleRule = smartScheduleRule;
+    return this;
+  }
+
+   /**
+   * Get smartScheduleRule
+   * @return smartScheduleRule
+  **/
+  @Schema(description = "")
+  public String getSmartScheduleRule() {
+    return smartScheduleRule;
+  }
+
+  public void setSmartScheduleRule(String smartScheduleRule) {
+    this.smartScheduleRule = smartScheduleRule;
+  }
+
+  public DescribeNatGatewayAttributesResponse snatEntryIds(List<String> snatEntryIds) {
+    this.snatEntryIds = snatEntryIds;
+    return this;
+  }
+
+  public DescribeNatGatewayAttributesResponse addSnatEntryIdsItem(String snatEntryIdsItem) {
+    if (this.snatEntryIds == null) {
+      this.snatEntryIds = new ArrayList<String>();
+    }
+    this.snatEntryIds.add(snatEntryIdsItem);
+    return this;
+  }
+
+   /**
+   * Get snatEntryIds
+   * @return snatEntryIds
+  **/
+  @Schema(description = "")
+  public List<String> getSnatEntryIds() {
+    return snatEntryIds;
+  }
+
+  public void setSnatEntryIds(List<String> snatEntryIds) {
+    this.snatEntryIds = snatEntryIds;
   }
 
   public DescribeNatGatewayAttributesResponse spec(String spec) {
@@ -508,15 +660,21 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.creationTime, describeNatGatewayAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeNatGatewayAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeNatGatewayAttributesResponse.description) &&
+        Objects.equals(this.dnatEntryIds, describeNatGatewayAttributesResponse.dnatEntryIds) &&
         Objects.equals(this.eipAddresses, describeNatGatewayAttributesResponse.eipAddresses) &&
         Objects.equals(this.expiredTime, describeNatGatewayAttributesResponse.expiredTime) &&
         Objects.equals(this.lockReason, describeNatGatewayAttributesResponse.lockReason) &&
         Objects.equals(this.natGatewayId, describeNatGatewayAttributesResponse.natGatewayId) &&
         Objects.equals(this.natGatewayName, describeNatGatewayAttributesResponse.natGatewayName) &&
+        Objects.equals(this.natIpAddresses, describeNatGatewayAttributesResponse.natIpAddresses) &&
         Objects.equals(this.networkInterfaceId, describeNatGatewayAttributesResponse.networkInterfaceId) &&
+        Objects.equals(this.networkType, describeNatGatewayAttributesResponse.networkType) &&
         Objects.equals(this.overdueTime, describeNatGatewayAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeNatGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeNatGatewayAttributesResponse.requestId) &&
+        Objects.equals(this.smartScheduleEnabled, describeNatGatewayAttributesResponse.smartScheduleEnabled) &&
+        Objects.equals(this.smartScheduleRule, describeNatGatewayAttributesResponse.smartScheduleRule) &&
+        Objects.equals(this.snatEntryIds, describeNatGatewayAttributesResponse.snatEntryIds) &&
         Objects.equals(this.spec, describeNatGatewayAttributesResponse.spec) &&
         Objects.equals(this.status, describeNatGatewayAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeNatGatewayAttributesResponse.subnetId) &&
@@ -528,7 +686,7 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, projectName, requestId, spec, status, subnetId, tags, updatedAt, vpcId, zoneId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, dnatEntryIds, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, natIpAddresses, networkInterfaceId, networkType, overdueTime, projectName, requestId, smartScheduleEnabled, smartScheduleRule, snatEntryIds, spec, status, subnetId, tags, updatedAt, vpcId, zoneId);
   }
 
 
@@ -542,15 +700,21 @@ public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.A
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dnatEntryIds: ").append(toIndentedString(dnatEntryIds)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
+    sb.append("    natIpAddresses: ").append(toIndentedString(natIpAddresses)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    smartScheduleEnabled: ").append(toIndentedString(smartScheduleEnabled)).append("\n");
+    sb.append("    smartScheduleRule: ").append(toIndentedString(smartScheduleRule)).append("\n");
+    sb.append("    snatEntryIds: ").append(toIndentedString(snatEntryIds)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

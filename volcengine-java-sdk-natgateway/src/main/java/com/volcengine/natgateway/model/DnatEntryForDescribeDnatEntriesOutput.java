@@ -51,6 +51,9 @@ public class DnatEntryForDescribeDnatEntriesOutput {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
+  @SerializedName("PortType")
+  private String portType = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -183,6 +186,24 @@ public class DnatEntryForDescribeDnatEntriesOutput {
     this.natGatewayId = natGatewayId;
   }
 
+  public DnatEntryForDescribeDnatEntriesOutput portType(String portType) {
+    this.portType = portType;
+    return this;
+  }
+
+   /**
+   * Get portType
+   * @return portType
+  **/
+  @Schema(description = "")
+  public String getPortType() {
+    return portType;
+  }
+
+  public void setPortType(String portType) {
+    this.portType = portType;
+  }
+
   public DnatEntryForDescribeDnatEntriesOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -236,13 +257,14 @@ public class DnatEntryForDescribeDnatEntriesOutput {
         Objects.equals(this.internalIp, dnatEntryForDescribeDnatEntriesOutput.internalIp) &&
         Objects.equals(this.internalPort, dnatEntryForDescribeDnatEntriesOutput.internalPort) &&
         Objects.equals(this.natGatewayId, dnatEntryForDescribeDnatEntriesOutput.natGatewayId) &&
+        Objects.equals(this.portType, dnatEntryForDescribeDnatEntriesOutput.portType) &&
         Objects.equals(this.protocol, dnatEntryForDescribeDnatEntriesOutput.protocol) &&
         Objects.equals(this.status, dnatEntryForDescribeDnatEntriesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnatEntryId, dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, protocol, status);
+    return Objects.hash(dnatEntryId, dnatEntryName, externalIp, externalPort, internalIp, internalPort, natGatewayId, portType, protocol, status);
   }
 
 
@@ -258,6 +280,7 @@ public class DnatEntryForDescribeDnatEntriesOutput {
     sb.append("    internalIp: ").append(toIndentedString(internalIp)).append("\n");
     sb.append("    internalPort: ").append(toIndentedString(internalPort)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

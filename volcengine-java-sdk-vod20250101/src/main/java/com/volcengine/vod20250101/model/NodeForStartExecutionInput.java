@@ -53,6 +53,9 @@ public class NodeForStartExecutionInput {
   @SerializedName("Policy")
   private PolicyForStartExecutionInput policy = null;
 
+  @SerializedName("SpaceName")
+  private String spaceName = null;
+
   public NodeForStartExecutionInput dependencies(List<String> dependencies) {
     this.dependencies = dependencies;
     return this;
@@ -181,6 +184,24 @@ public class NodeForStartExecutionInput {
     this.policy = policy;
   }
 
+  public NodeForStartExecutionInput spaceName(String spaceName) {
+    this.spaceName = spaceName;
+    return this;
+  }
+
+   /**
+   * Get spaceName
+   * @return spaceName
+  **/
+  @Schema(description = "")
+  public String getSpaceName() {
+    return spaceName;
+  }
+
+  public void setSpaceName(String spaceName) {
+    this.spaceName = spaceName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,12 +217,13 @@ public class NodeForStartExecutionInput {
         Objects.equals(this.multiInputs, nodeForStartExecutionInput.multiInputs) &&
         Objects.equals(this.name, nodeForStartExecutionInput.name) &&
         Objects.equals(this.operation, nodeForStartExecutionInput.operation) &&
-        Objects.equals(this.policy, nodeForStartExecutionInput.policy);
+        Objects.equals(this.policy, nodeForStartExecutionInput.policy) &&
+        Objects.equals(this.spaceName, nodeForStartExecutionInput.spaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, input, multiInputs, name, operation, policy);
+    return Objects.hash(dependencies, input, multiInputs, name, operation, policy, spaceName);
   }
 
 
@@ -216,6 +238,7 @@ public class NodeForStartExecutionInput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

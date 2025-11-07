@@ -97,8 +97,7 @@ public class ModifyDnatEntryAttributesRequest {
    * Get externalIp
    * @return externalIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getExternalIp() {
     return externalIp;
   }
@@ -116,8 +115,7 @@ public class ModifyDnatEntryAttributesRequest {
    * Get externalPort
    * @return externalPort
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getExternalPort() {
     return externalPort;
   }
@@ -135,8 +133,7 @@ public class ModifyDnatEntryAttributesRequest {
    * Get internalIp
    * @return internalIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInternalIp() {
     return internalIp;
   }
@@ -154,8 +151,7 @@ public class ModifyDnatEntryAttributesRequest {
    * Get internalPort
    * @return internalPort
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInternalPort() {
     return internalPort;
   }
@@ -173,8 +169,7 @@ public class ModifyDnatEntryAttributesRequest {
    * Get protocol
    * @return protocol
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getProtocol() {
     return protocol;
   }

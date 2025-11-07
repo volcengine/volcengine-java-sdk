@@ -36,7 +36,9 @@ public class TestCreateVikingdbCollectionWithVector {
                         new FieldForCreateVikingdbCollectionInput().fieldName("f_float_1").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.FLOAT32),
                         new FieldForCreateVikingdbCollectionInput().fieldName("f_list_string_1").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.LIST_STRING_),
                         new FieldForCreateVikingdbCollectionInput().fieldName("f_vector").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.VECTOR).dim(4), // 稠密向量字段，并设置维度
-                        new FieldForCreateVikingdbCollectionInput().fieldName("f_sparse_vector").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.SPARSE_VECTOR) // 稀疏向量字段
+                        new FieldForCreateVikingdbCollectionInput().fieldName("f_sparse_vector").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.SPARSE_VECTOR), // 稀疏向量字段
+                        new FieldForCreateVikingdbCollectionInput().fieldName("f_date_time").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.DATE_TIME),
+                        new FieldForCreateVikingdbCollectionInput().fieldName("f_geo_point").fieldType(FieldForCreateVikingdbCollectionInput.FieldTypeEnum.GEO_POINT)
                 ));
 
         try {

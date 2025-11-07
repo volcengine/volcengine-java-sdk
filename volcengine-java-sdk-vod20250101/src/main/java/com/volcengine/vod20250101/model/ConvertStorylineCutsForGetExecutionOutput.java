@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertSegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertStorylineForGetExecutionOutput;
 import com.volcengine.vod20250101.model.CutSegmentForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -39,7 +39,7 @@ public class ConvertStorylineCutsForGetExecutionOutput {
   private List<CutSegmentForGetExecutionOutput> cutSegments = null;
 
   @SerializedName("Segments")
-  private List<ConvertConvertSegmentForGetExecutionOutput> segments = null;
+  private List<ConvertConvertConvertSegmentForGetExecutionOutput> segments = null;
 
   @SerializedName("Storylines")
   private List<ConvertStorylineForGetExecutionOutput> storylines = null;
@@ -71,14 +71,14 @@ public class ConvertStorylineCutsForGetExecutionOutput {
     this.cutSegments = cutSegments;
   }
 
-  public ConvertStorylineCutsForGetExecutionOutput segments(List<ConvertConvertSegmentForGetExecutionOutput> segments) {
+  public ConvertStorylineCutsForGetExecutionOutput segments(List<ConvertConvertConvertSegmentForGetExecutionOutput> segments) {
     this.segments = segments;
     return this;
   }
 
-  public ConvertStorylineCutsForGetExecutionOutput addSegmentsItem(ConvertConvertSegmentForGetExecutionOutput segmentsItem) {
+  public ConvertStorylineCutsForGetExecutionOutput addSegmentsItem(ConvertConvertConvertSegmentForGetExecutionOutput segmentsItem) {
     if (this.segments == null) {
-      this.segments = new ArrayList<ConvertConvertSegmentForGetExecutionOutput>();
+      this.segments = new ArrayList<ConvertConvertConvertSegmentForGetExecutionOutput>();
     }
     this.segments.add(segmentsItem);
     return this;
@@ -90,11 +90,11 @@ public class ConvertStorylineCutsForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertConvertSegmentForGetExecutionOutput> getSegments() {
+  public List<ConvertConvertConvertSegmentForGetExecutionOutput> getSegments() {
     return segments;
   }
 
-  public void setSegments(List<ConvertConvertSegmentForGetExecutionOutput> segments) {
+  public void setSegments(List<ConvertConvertConvertSegmentForGetExecutionOutput> segments) {
     this.segments = segments;
   }
 
