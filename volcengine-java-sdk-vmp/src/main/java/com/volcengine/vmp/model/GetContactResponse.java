@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vmp.model.DingTalkBotWebhookForGetContactOutput;
+import com.volcengine.vmp.model.LarkBotForGetContactOutput;
 import com.volcengine.vmp.model.LarkBotWebhookForGetContactOutput;
 import com.volcengine.vmp.model.WeComBotWebhookForGetContactOutput;
 import com.volcengine.vmp.model.WebhookForGetContactOutput;
@@ -53,6 +54,9 @@ public class GetContactResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("LarkBot")
+  private LarkBotForGetContactOutput larkBot = null;
 
   @SerializedName("LarkBotWebhook")
   private LarkBotWebhookForGetContactOutput larkBotWebhook = null;
@@ -183,6 +187,25 @@ public class GetContactResponse extends com.volcengine.model.AbstractResponse {
     this.id = id;
   }
 
+  public GetContactResponse larkBot(LarkBotForGetContactOutput larkBot) {
+    this.larkBot = larkBot;
+    return this;
+  }
+
+   /**
+   * Get larkBot
+   * @return larkBot
+  **/
+  @Valid
+  @Schema(description = "")
+  public LarkBotForGetContactOutput getLarkBot() {
+    return larkBot;
+  }
+
+  public void setLarkBot(LarkBotForGetContactOutput larkBot) {
+    this.larkBot = larkBot;
+  }
+
   public GetContactResponse larkBotWebhook(LarkBotWebhookForGetContactOutput larkBotWebhook) {
     this.larkBotWebhook = larkBotWebhook;
     return this;
@@ -274,6 +297,7 @@ public class GetContactResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.email, getContactResponse.email) &&
         Objects.equals(this.emailActive, getContactResponse.emailActive) &&
         Objects.equals(this.id, getContactResponse.id) &&
+        Objects.equals(this.larkBot, getContactResponse.larkBot) &&
         Objects.equals(this.larkBotWebhook, getContactResponse.larkBotWebhook) &&
         Objects.equals(this.name, getContactResponse.name) &&
         Objects.equals(this.weComBotWebhook, getContactResponse.weComBotWebhook) &&
@@ -282,7 +306,7 @@ public class GetContactResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactGroupIds, createTime, dingTalkBotWebhook, email, emailActive, id, larkBotWebhook, name, weComBotWebhook, webhook);
+    return Objects.hash(contactGroupIds, createTime, dingTalkBotWebhook, email, emailActive, id, larkBot, larkBotWebhook, name, weComBotWebhook, webhook);
   }
 
 
@@ -297,6 +321,7 @@ public class GetContactResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailActive: ").append(toIndentedString(emailActive)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    larkBot: ").append(toIndentedString(larkBot)).append("\n");
     sb.append("    larkBotWebhook: ").append(toIndentedString(larkBotWebhook)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    weComBotWebhook: ").append(toIndentedString(weComBotWebhook)).append("\n");

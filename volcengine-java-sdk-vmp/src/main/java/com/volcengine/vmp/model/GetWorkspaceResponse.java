@@ -62,11 +62,20 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("PrometheusPushEndpoint")
+  private String prometheusPushEndpoint = null;
+
   @SerializedName("PrometheusPushIntranetEndpoint")
   private String prometheusPushIntranetEndpoint = null;
 
+  @SerializedName("PrometheusQueryEndpoint")
+  private String prometheusQueryEndpoint = null;
+
   @SerializedName("PrometheusQueryIntranetEndpoint")
   private String prometheusQueryIntranetEndpoint = null;
+
+  @SerializedName("PrometheusWriteEndpoint")
+  private String prometheusWriteEndpoint = null;
 
   @SerializedName("PrometheusWriteIntranetEndpoint")
   private String prometheusWriteIntranetEndpoint = null;
@@ -258,6 +267,24 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     this.projectName = projectName;
   }
 
+  public GetWorkspaceResponse prometheusPushEndpoint(String prometheusPushEndpoint) {
+    this.prometheusPushEndpoint = prometheusPushEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusPushEndpoint
+   * @return prometheusPushEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusPushEndpoint() {
+    return prometheusPushEndpoint;
+  }
+
+  public void setPrometheusPushEndpoint(String prometheusPushEndpoint) {
+    this.prometheusPushEndpoint = prometheusPushEndpoint;
+  }
+
   public GetWorkspaceResponse prometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
     return this;
@@ -276,6 +303,24 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
   }
 
+  public GetWorkspaceResponse prometheusQueryEndpoint(String prometheusQueryEndpoint) {
+    this.prometheusQueryEndpoint = prometheusQueryEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusQueryEndpoint
+   * @return prometheusQueryEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusQueryEndpoint() {
+    return prometheusQueryEndpoint;
+  }
+
+  public void setPrometheusQueryEndpoint(String prometheusQueryEndpoint) {
+    this.prometheusQueryEndpoint = prometheusQueryEndpoint;
+  }
+
   public GetWorkspaceResponse prometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
     return this;
@@ -292,6 +337,24 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   public void setPrometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
+  }
+
+  public GetWorkspaceResponse prometheusWriteEndpoint(String prometheusWriteEndpoint) {
+    this.prometheusWriteEndpoint = prometheusWriteEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusWriteEndpoint
+   * @return prometheusWriteEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusWriteEndpoint() {
+    return prometheusWriteEndpoint;
+  }
+
+  public void setPrometheusWriteEndpoint(String prometheusWriteEndpoint) {
+    this.prometheusWriteEndpoint = prometheusWriteEndpoint;
   }
 
   public GetWorkspaceResponse prometheusWriteIntranetEndpoint(String prometheusWriteIntranetEndpoint) {
@@ -485,8 +548,11 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
         Objects.equals(this.name, getWorkspaceResponse.name) &&
         Objects.equals(this.overdueReclaimTime, getWorkspaceResponse.overdueReclaimTime) &&
         Objects.equals(this.projectName, getWorkspaceResponse.projectName) &&
+        Objects.equals(this.prometheusPushEndpoint, getWorkspaceResponse.prometheusPushEndpoint) &&
         Objects.equals(this.prometheusPushIntranetEndpoint, getWorkspaceResponse.prometheusPushIntranetEndpoint) &&
+        Objects.equals(this.prometheusQueryEndpoint, getWorkspaceResponse.prometheusQueryEndpoint) &&
         Objects.equals(this.prometheusQueryIntranetEndpoint, getWorkspaceResponse.prometheusQueryIntranetEndpoint) &&
+        Objects.equals(this.prometheusWriteEndpoint, getWorkspaceResponse.prometheusWriteEndpoint) &&
         Objects.equals(this.prometheusWriteIntranetEndpoint, getWorkspaceResponse.prometheusWriteIntranetEndpoint) &&
         Objects.equals(this.publicAccessEnabled, getWorkspaceResponse.publicAccessEnabled) &&
         Objects.equals(this.publicQueryBandwidth, getWorkspaceResponse.publicQueryBandwidth) &&
@@ -500,7 +566,7 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, status, tags, username);
+    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -518,8 +584,11 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    prometheusPushEndpoint: ").append(toIndentedString(prometheusPushEndpoint)).append("\n");
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
+    sb.append("    prometheusQueryEndpoint: ").append(toIndentedString(prometheusQueryEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
+    sb.append("    prometheusWriteEndpoint: ").append(toIndentedString(prometheusWriteEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    publicQueryBandwidth: ").append(toIndentedString(publicQueryBandwidth)).append("\n");

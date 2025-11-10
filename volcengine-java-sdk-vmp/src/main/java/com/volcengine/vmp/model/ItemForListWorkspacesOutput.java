@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class ItemForListWorkspacesOutput {
   @SerializedName("AccountId")
-  private Integer accountId = null;
+  private Long accountId = null;
 
   @SerializedName("AccountName")
   private String accountName = null;
@@ -63,11 +63,20 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("PrometheusPushEndpoint")
+  private String prometheusPushEndpoint = null;
+
   @SerializedName("PrometheusPushIntranetEndpoint")
   private String prometheusPushIntranetEndpoint = null;
 
+  @SerializedName("PrometheusQueryEndpoint")
+  private String prometheusQueryEndpoint = null;
+
   @SerializedName("PrometheusQueryIntranetEndpoint")
   private String prometheusQueryIntranetEndpoint = null;
+
+  @SerializedName("PrometheusWriteEndpoint")
+  private String prometheusWriteEndpoint = null;
 
   @SerializedName("PrometheusWriteIntranetEndpoint")
   private String prometheusWriteIntranetEndpoint = null;
@@ -90,7 +99,7 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("Username")
   private String username = null;
 
-  public ItemForListWorkspacesOutput accountId(Integer accountId) {
+  public ItemForListWorkspacesOutput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -100,11 +109,11 @@ public class ItemForListWorkspacesOutput {
    * @return accountId
   **/
   @Schema(description = "")
-  public Integer getAccountId() {
+  public Long getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(Integer accountId) {
+  public void setAccountId(Long accountId) {
     this.accountId = accountId;
   }
 
@@ -270,6 +279,24 @@ public class ItemForListWorkspacesOutput {
     this.projectName = projectName;
   }
 
+  public ItemForListWorkspacesOutput prometheusPushEndpoint(String prometheusPushEndpoint) {
+    this.prometheusPushEndpoint = prometheusPushEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusPushEndpoint
+   * @return prometheusPushEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusPushEndpoint() {
+    return prometheusPushEndpoint;
+  }
+
+  public void setPrometheusPushEndpoint(String prometheusPushEndpoint) {
+    this.prometheusPushEndpoint = prometheusPushEndpoint;
+  }
+
   public ItemForListWorkspacesOutput prometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
     return this;
@@ -288,6 +315,24 @@ public class ItemForListWorkspacesOutput {
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
   }
 
+  public ItemForListWorkspacesOutput prometheusQueryEndpoint(String prometheusQueryEndpoint) {
+    this.prometheusQueryEndpoint = prometheusQueryEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusQueryEndpoint
+   * @return prometheusQueryEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusQueryEndpoint() {
+    return prometheusQueryEndpoint;
+  }
+
+  public void setPrometheusQueryEndpoint(String prometheusQueryEndpoint) {
+    this.prometheusQueryEndpoint = prometheusQueryEndpoint;
+  }
+
   public ItemForListWorkspacesOutput prometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
     return this;
@@ -304,6 +349,24 @@ public class ItemForListWorkspacesOutput {
 
   public void setPrometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
+  }
+
+  public ItemForListWorkspacesOutput prometheusWriteEndpoint(String prometheusWriteEndpoint) {
+    this.prometheusWriteEndpoint = prometheusWriteEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusWriteEndpoint
+   * @return prometheusWriteEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusWriteEndpoint() {
+    return prometheusWriteEndpoint;
+  }
+
+  public void setPrometheusWriteEndpoint(String prometheusWriteEndpoint) {
+    this.prometheusWriteEndpoint = prometheusWriteEndpoint;
   }
 
   public ItemForListWorkspacesOutput prometheusWriteIntranetEndpoint(String prometheusWriteIntranetEndpoint) {
@@ -461,8 +524,11 @@ public class ItemForListWorkspacesOutput {
         Objects.equals(this.name, itemForListWorkspacesOutput.name) &&
         Objects.equals(this.overdueReclaimTime, itemForListWorkspacesOutput.overdueReclaimTime) &&
         Objects.equals(this.projectName, itemForListWorkspacesOutput.projectName) &&
+        Objects.equals(this.prometheusPushEndpoint, itemForListWorkspacesOutput.prometheusPushEndpoint) &&
         Objects.equals(this.prometheusPushIntranetEndpoint, itemForListWorkspacesOutput.prometheusPushIntranetEndpoint) &&
+        Objects.equals(this.prometheusQueryEndpoint, itemForListWorkspacesOutput.prometheusQueryEndpoint) &&
         Objects.equals(this.prometheusQueryIntranetEndpoint, itemForListWorkspacesOutput.prometheusQueryIntranetEndpoint) &&
+        Objects.equals(this.prometheusWriteEndpoint, itemForListWorkspacesOutput.prometheusWriteEndpoint) &&
         Objects.equals(this.prometheusWriteIntranetEndpoint, itemForListWorkspacesOutput.prometheusWriteIntranetEndpoint) &&
         Objects.equals(this.publicAccessEnabled, itemForListWorkspacesOutput.publicAccessEnabled) &&
         Objects.equals(this.region, itemForListWorkspacesOutput.region) &&
@@ -474,7 +540,7 @@ public class ItemForListWorkspacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, accountName, createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, region, searchLatencyOffset, status, tags, username);
+    return Objects.hash(accountId, accountName, createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, region, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -493,8 +559,11 @@ public class ItemForListWorkspacesOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    prometheusPushEndpoint: ").append(toIndentedString(prometheusPushEndpoint)).append("\n");
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
+    sb.append("    prometheusQueryEndpoint: ").append(toIndentedString(prometheusQueryEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
+    sb.append("    prometheusWriteEndpoint: ").append(toIndentedString(prometheusWriteEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
