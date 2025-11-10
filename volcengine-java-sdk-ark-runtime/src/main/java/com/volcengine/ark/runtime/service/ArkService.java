@@ -415,7 +415,11 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         if (request.getExpireAt() != null) {
             expireAt = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt()));
         }
-        return execute(api.uploadFile(fileBody, purpose, expireAt, new HashMap<>()));
+        RequestBody fps = null;
+        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null && request.getPreprocessConfigs().getVideo().getFps() != null) {
+            fps = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getPreprocessConfigs().getVideo().getFps()));
+        }
+        return execute(api.uploadFile(fileBody, purpose, expireAt, fps, new HashMap<>()));
     }
 
     @Override

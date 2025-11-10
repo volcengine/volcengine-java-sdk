@@ -8,14 +8,6 @@ import java.io.File;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UploadFileRequest {
-    @Override
-    public String toString() {
-        return "UploadFileRequest{" +
-                "file=" + file +
-                ", purpose='" + purpose + '\'' +
-                ", expireAt=" + expireAt +
-                '}';
-    }
 
     @JsonProperty(value = "file")
     private File file;
@@ -23,6 +15,19 @@ public class UploadFileRequest {
     private String purpose;
     @JsonProperty(value = "expire_at")
     private Integer expireAt;
+
+    @JsonProperty(value = "preprocess_configs")
+    private PreprocessConfigs preprocessConfigs;
+
+    @Override
+    public String toString() {
+        return "UploadFileRequest{" +
+                "file=" + file +
+                ", purpose='" + purpose + '\'' +
+                ", expireAt=" + expireAt +
+                ", preprocessConfigs=" + preprocessConfigs +
+                '}';
+    }
 
     public File getFile() {
         return file;
@@ -48,6 +53,14 @@ public class UploadFileRequest {
         this.expireAt = expireAt;
     }
 
+    public PreprocessConfigs getPreprocessConfigs() {
+        return preprocessConfigs;
+    }
+
+    public void setPreprocessConfigs(PreprocessConfigs preprocessConfigs) {
+        this.preprocessConfigs = preprocessConfigs;
+    }
+
     public static UploadFileRequestBuilder builder() {
         return new UploadFileRequestBuilder();
     }
@@ -56,6 +69,7 @@ public class UploadFileRequest {
         private File file;
         private String purpose;
         private Integer expireAt;
+        private PreprocessConfigs preprocessConfigs;
 
         private UploadFileRequestBuilder() {
         }
@@ -79,11 +93,17 @@ public class UploadFileRequest {
             return this;
         }
 
+        public UploadFileRequestBuilder preprocessConfigs(PreprocessConfigs preprocessConfigs) {
+            this.preprocessConfigs = preprocessConfigs;
+            return this;
+        }
+
         public UploadFileRequest build() {
             UploadFileRequest uploadFileRequest = new UploadFileRequest();
             uploadFileRequest.setFile(file);
             uploadFileRequest.setPurpose(purpose);
             uploadFileRequest.setExpireAt(expireAt);
+            uploadFileRequest.setPreprocessConfigs(preprocessConfigs);
             return uploadFileRequest;
         }
     }

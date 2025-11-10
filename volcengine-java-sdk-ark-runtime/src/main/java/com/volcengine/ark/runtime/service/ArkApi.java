@@ -136,6 +136,7 @@ public interface ArkApi {
     Single<FileMeta> uploadFile(@Part MultipartBody.Part file,
                                 @Part("purpose") RequestBody purpose,
                                 @Part("expire_at") RequestBody expireAt,
+                                @Part("preprocess_configs[video][fps]") RequestBody fps,
                                 @HeaderMap Map<String, String> customHeaders);
 
     @DELETE("/api/v3/files/{fileId}")
