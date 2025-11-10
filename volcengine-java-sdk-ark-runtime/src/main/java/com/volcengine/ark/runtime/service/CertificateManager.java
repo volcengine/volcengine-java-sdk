@@ -23,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
 public class CertificateManager {
-    // 证书缓存
     private static final ConcurrentHashMap<String, ServerCertificateInfo> certificateCache = new ConcurrentHashMap<>();
 
     /**
@@ -87,7 +86,6 @@ public class CertificateManager {
     }
 
     public static ServerCertificateInfo getServerCertificate(String apiKey, String baseUrl, String ep) throws IOException {
-        // 首先检查内存缓存，用ep作为key
         if (hasCertificateInCache(ep)) {
             return getServerCertificateFromCache(ep);
         }
@@ -98,18 +96,13 @@ public class CertificateManager {
 
             String certificate;
 
-            // 1. 首先尝试从本地文件加载证书
             certificate = loadCertificateLocally(ep);
             if (certificate != null) {
                 return createCertificateInfo(certificate, ep);
             }
 
-            // 2. 使用API Key方式获取证书
-            else {
-                certificate = loadCertificateByApiKey(baseUrl, apiKey, ep, aiccEnabled);
-            }
+            certificate = loadCertificateByApiKey(baseUrl, apiKey, ep, aiccEnabled);
 
-            // 保存证书到本地缓存
             saveCertificateLocally(ep, certificate);
 
             return createCertificateInfo(certificate, ep);
@@ -121,7 +114,6 @@ public class CertificateManager {
 
     public static String[] getCertInfo(String certPem) {
         try {
-            // 使用try-with-resources自动管理PEMParser资源
             try (PEMParser pemParser = new PEMParser(new StringReader(certPem))) {
                 Object object = pemParser.readObject();
 
@@ -141,8 +133,8 @@ public class CertificateManager {
 
                             if (ringPattern.matcher(firstDns).matches() &&
                                     keyPattern.matcher(secondDns).matches()) {
-                                String ringId = firstDns.substring(5);  // ring. 5个字符
-                                String keyId = secondDns.substring(4);  // key. 4个字符
+                                String ringId = firstDns.substring(5);
+                                String keyId = secondDns.substring(4);
                                 return new String[]{ringId, keyId};
                             }
                         }
@@ -150,7 +142,6 @@ public class CertificateManager {
                 }
             }
         } catch (Exception e) {
-            // 异常处理
             throw new RuntimeException("Failed to parse certificate to get ring_id and key_id", e);
         }
         return new String[]{"", ""};
@@ -167,23 +158,19 @@ public class CertificateManager {
             File certFile = new File(certFilePath);
 
             if (certFile.exists()) {
-                // 检查证书是否过期（是否超过14天）
                 long lastModifiedSeconds = certFile.lastModified() / 1000;
                 long currentTimeSeconds = System.currentTimeMillis() / 1000;
                 long timeDifferenceSeconds = currentTimeSeconds - lastModifiedSeconds;
-                long certExpirationSeconds = 14L * 24 * 60 * 60; // 14天，以秒为单位
+                long certExpirationSeconds = 14L * 24 * 60 * 60;
                 if (timeDifferenceSeconds <= certExpirationSeconds) {
                     String certPem = new String(java.nio.file.Files.readAllBytes(certFile.toPath()), StandardCharsets.UTF_8);
 
-                    // 检查证书是否完整（与AICC/PCA兼容性检查）
                     String[] certInfo = getCertInfo(certPem);
                     String ringId = certInfo[0];
                     String keyId = certInfo[1];
 
                     boolean aiccEnabled = "AICC".equals(System.getenv("VOLC_ARK_ENCRYPTION"));
 
-                    // 1. 非AICC模式：即使ring或key为空也可以接受
-                    // 2. AICC模式：ring和key都必须不为空
                     if ((ringId.isEmpty() || keyId.isEmpty()) && !aiccEnabled) {
                         return certPem;
                     }
@@ -192,7 +179,6 @@ public class CertificateManager {
                     }
                 }
 
-                // 证书过期或不满足条件，删除文件
                 certFile.delete();
             }
         } catch (Exception e) {
@@ -346,7 +332,6 @@ public class CertificateManager {
             String certStoragePath = getCertStoragePath();
             String certFilePath = certStoragePath + File.separator + ep + ".pem";
 
-            // 确保目录存在
             File storageDir = new File(certStoragePath);
             if (!storageDir.exists()) {
                 if (!storageDir.mkdirs()) {
@@ -355,7 +340,6 @@ public class CertificateManager {
                 }
             }
 
-            // 写入证书文件
             java.nio.file.Files.write(
                     Paths.get(certFilePath),
                     certificate.getBytes(StandardCharsets.UTF_8)
@@ -387,15 +371,12 @@ public class CertificateManager {
      */
     public static PublicKey extractPublicKeyFromCertificate(String certificate) throws GeneralSecurityException {
         try {
-            // 移除PEM头尾
             String certContent = certificate.replace("-----BEGIN CERTIFICATE-----", "")
                     .replace("-----END CERTIFICATE-----", "")
                     .replaceAll("\\s", "");
 
-            // 解码Base64
             byte[] certBytes = Base64.getDecoder().decode(certContent);
 
-            // 解析证书
             CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
             X509Certificate x509Cert = (X509Certificate) certFactory.generateCertificate(
                     new java.io.ByteArrayInputStream(certBytes));
@@ -420,7 +401,6 @@ public class CertificateManager {
             ServerCertificateInfo certInfo =
                     new ServerCertificateInfo(publicKey, ringId, keyId);
 
-            // 缓存到内存
             cacheServerCertificate(ep, publicKey, ringId, keyId);
 
             return certInfo;

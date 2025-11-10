@@ -523,7 +523,6 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 clientBuilder.dispatcher(dispatcher);
             }
 
-            // 重新配置clientBuilder，添加加密拦截器
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))

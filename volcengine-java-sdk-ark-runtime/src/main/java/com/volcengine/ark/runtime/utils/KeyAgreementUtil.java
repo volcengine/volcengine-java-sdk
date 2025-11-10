@@ -27,11 +27,9 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  */
 public class KeyAgreementUtil {
     static {
-        // 注册Bouncy Castle提供者
         Security.addProvider(new BouncyCastleProvider());
     }
 
-    // 算法常量
     private static final String HKDF_ALGORITHM = "HmacSHA256";
 
     /**
@@ -104,7 +102,6 @@ public class KeyAgreementUtil {
      */
     public static byte[] hkdf(byte[] sharedSecret, byte[] salt, byte[] info, int length)
             throws GeneralSecurityException {
-        // 提取阶段
         Mac hmacExtract = Mac.getInstance(HKDF_ALGORITHM);
         if (salt == null) {
             salt = new byte[32];
@@ -113,7 +110,6 @@ public class KeyAgreementUtil {
         hmacExtract.init(saltKey);
         byte[] prk = hmacExtract.doFinal(sharedSecret);
 
-        // 扩展阶段
         Mac hmacExpand = Mac.getInstance(HKDF_ALGORITHM);
         SecretKeySpec prkKey = new SecretKeySpec(prk, HKDF_ALGORITHM);
         hmacExpand.init(prkKey);
@@ -318,7 +314,6 @@ public class KeyAgreementUtil {
                 String decrypted = aesGcmDecryptBase64String(key, nonce, b64);
                 result.add(decrypted);
             } catch (Exception e) {
-                // 调用递归解密方法
                 String cornerCaseResult = decryptCornerCase(key, nonce, b64);
                 result.add(cornerCaseResult);
             }
@@ -368,7 +363,6 @@ public class KeyAgreementUtil {
                 continue;
             }
         }
-        // 如果所有尝试都失败，返回空字符串
         return "";
     }
 }

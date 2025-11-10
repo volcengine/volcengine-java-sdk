@@ -57,26 +57,21 @@ public class EncryptionInterceptor implements Interceptor {
             return chain.proceed(request);
         }
 
-        // 读取并解析请求体
         Map<String, Object> requestBodyJson = parseRequestBody(originalBody);
         String model = requestBodyJson.get("model").toString();
 
-        // 非加密模式直接处理
         if (!"true".equals(is_encrypt)) {
             return proceedWithoutEncryption(chain, request, requestBodyJson);
         }
 
-        // 加密模式处理
         return proceedWithEncryption(chain, request, requestBodyJson, model);
     }
 
     private Response proceedWithEncryption(Chain chain, Request request, Map<String, Object> requestBodyJson, String model) throws IOException {
-        // 获取服务器证书信息
         CertificateManager.ServerCertificateInfo certInfo = getServerCertificate(this.apiKey, this.baseUrl, model);
         if (certInfo == null) {
             throw new IOException("Failed to get server certificate for encryption");
         }
-        // 生成会话密钥和令牌
         SessionData sessionData;
         try {
             sessionData = KeyAgreementUtil.generateEciesKeyPair(certInfo.getPublicKey());
@@ -86,13 +81,11 @@ public class EncryptionInterceptor implements Interceptor {
         byte[] e2eKey = sessionData.getCryptoKey();
         byte[] e2eNonce = sessionData.getCryptoNonce();
         String sessionToken = sessionData.getSessionToken();
-        // 加密请求体
         RequestBody encryptedBody = encryptRequestBody(requestBodyJson, e2eKey, e2eNonce);
 
         Request.Builder requestBuilder = request.newBuilder()
                 .method(request.method(), encryptedBody);
 
-        // 添加AICC加密头信息
         addAiccEncryptionHeader(requestBuilder, certInfo);
 
         requestBuilder.addHeader("X-Session-Token", sessionToken);
@@ -100,12 +93,10 @@ public class EncryptionInterceptor implements Interceptor {
 
         Response originalResponse = chain.proceed(encryptedRequest);
 
-        // 处理失败响应
         if (!originalResponse.isSuccessful()) {
             return handleErrorResponse(originalResponse);
         }
 
-        // 解密成功响应
         return decryptResponse(e2eKey, e2eNonce, originalResponse);
     }
 
@@ -179,10 +170,8 @@ public class EncryptionInterceptor implements Interceptor {
      */
     private Object processMessageContent(Object content, byte[] e2eKey, byte[] e2eNonce) throws IOException {
         if (content instanceof String) {
-            // text
             return encryptStringWithKey(e2eKey, e2eNonce, (String) content);
         } else if (content instanceof Iterable) {
-            // multiParts
             List<Object> processedParts = new ArrayList<>();
             for (Object part : (Iterable<?>) content) {
                 if (part instanceof Map) {
@@ -207,10 +196,8 @@ public class EncryptionInterceptor implements Interceptor {
 
         switch (type) {
             case "text":
-                // 加密文本
                 part.put("text", encryptStringWithKey(e2eKey, e2eNonce, part.get("text").toString()));
                 break;
-
             case "image_url":
                 @SuppressWarnings("unchecked")
                 Map<String, Object> imageUrl = (Map<String, Object>) part.get("image_url");
@@ -233,7 +220,6 @@ public class EncryptionInterceptor implements Interceptor {
             URI uri = new URI(url);
             String scheme = uri.getScheme();
             if ("data".equals(scheme)) {
-                // 加密data URL
                 imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
             } else if ("http".equals(scheme) || "https".equals(scheme)) {
                 System.err.println("encryption is not supported for image url, please use base64 image if you want encryption");
@@ -243,7 +229,6 @@ public class EncryptionInterceptor implements Interceptor {
 
         } catch (URISyntaxException e) {
             if (url.startsWith("data:")) {
-                // 加密data URL
                 imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
             } else {
                 throw new IOException("Invalid image URL format: " + url, e);
@@ -360,7 +345,7 @@ public class EncryptionInterceptor implements Interceptor {
             }
         }
 
-        String modifiedResponseBodyStr = mapper.writeValueAsString(responseJson);
+        String decryptedContent = mapper.writeValueAsString(responseJson);
         ResponseBody originalResponseBody = response.body();
         MediaType contentType = null;
         if (originalResponseBody != null) {
@@ -371,7 +356,7 @@ public class EncryptionInterceptor implements Interceptor {
         }
         ResponseBody decryptedBody = ResponseBody.create(
                 contentType,
-                modifiedResponseBodyStr.getBytes(StandardCharsets.UTF_8)
+                decryptedContent.getBytes(StandardCharsets.UTF_8)
         );
 
         return response.newBuilder()
