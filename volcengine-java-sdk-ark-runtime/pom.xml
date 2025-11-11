@@ -27,7 +27,7 @@
         <retrofit.version>2.9.0</retrofit.version>
         <rxjava2.version>2.0.0</rxjava2.version>
         <okhttp3-version>3.14.9</okhttp3-version>
-        <bouncycastle-version>1.70</bouncycastle-version>
+        <bouncycastle-version>1.78.1</bouncycastle-version>
     </properties>
     <dependencies>
         <dependency>
@@ -71,16 +71,17 @@
             <artifactId>okhttp</artifactId>
             <version>${okhttp3-version}</version>
         </dependency>
-        <!-- Bouncy Castle for ECIES encryption -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcprov-jdk18on</artifactId>
             <version>${bouncycastle-version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
+            <artifactId>bcpkix-jdk18on</artifactId>
             <version>${bouncycastle-version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>
