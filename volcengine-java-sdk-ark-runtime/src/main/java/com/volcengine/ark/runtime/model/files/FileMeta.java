@@ -7,7 +7,6 @@ import com.volcengine.ark.runtime.exception.ArkAPIError.ArkErrorDetails;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FileMeta {
-
     /**
      * The file identifier, which can be referenced in the API endpoints.
      * 文件标识符,可以在 API 接口中引用。
@@ -73,6 +72,9 @@ public class FileMeta {
     @JsonProperty(value = "error")
     private ArkErrorDetails error;
 
+    @JsonProperty(value = "preprocess_configs")
+    private PreprocessConfigs preprocessConfigs;
+
     public FileMeta() {
     }
 
@@ -89,6 +91,7 @@ public class FileMeta {
                 ", purpose='" + purpose + '\'' +
                 ", status='" + status + '\'' +
                 ", error=" + error +
+                ", preprocessConfigs=" + preprocessConfigs +
                 '}';
     }
 
@@ -164,6 +167,13 @@ public class FileMeta {
         this.error = error;
     }
 
+    public PreprocessConfigs getPreprocessConfigs() {
+        return preprocessConfigs;
+    }
+
+    public void setPreprocessConfigs(PreprocessConfigs preprocessConfigs) {
+        this.preprocessConfigs = preprocessConfigs;
+    }
 
     public static final class FileBuilder {
         private String id;
@@ -175,6 +185,7 @@ public class FileMeta {
         private String purpose;
         private String status;
         private ArkErrorDetails error;
+        private PreprocessConfigs preprocessConfigs;
 
         private FileBuilder() {
         }
@@ -228,6 +239,11 @@ public class FileMeta {
             return this;
         }
 
+        public FileBuilder preprocessConfigs(PreprocessConfigs preprocessConfigs) {
+            this.preprocessConfigs = preprocessConfigs;
+            return this;
+        }
+
         public FileMeta build() {
             FileMeta fileMeta = new FileMeta();
             fileMeta.setId(id);
@@ -239,6 +255,7 @@ public class FileMeta {
             fileMeta.setPurpose(purpose);
             fileMeta.setStatus(status);
             fileMeta.setError(error);
+            fileMeta.setPreprocessConfigs(preprocessConfigs);
             return fileMeta;
         }
     }
