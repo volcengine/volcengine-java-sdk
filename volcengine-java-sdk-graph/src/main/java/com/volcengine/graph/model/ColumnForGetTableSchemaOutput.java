@@ -42,6 +42,9 @@ public class ColumnForGetTableSchemaOutput {
   @SerializedName("schema_column_type")
   private String schemaColumnType = null;
 
+  @SerializedName("vector_size")
+  private Integer vectorSize = null;
+
   public ColumnForGetTableSchemaOutput columnName(String columnName) {
     this.columnName = columnName;
     return this;
@@ -114,6 +117,24 @@ public class ColumnForGetTableSchemaOutput {
     this.schemaColumnType = schemaColumnType;
   }
 
+  public ColumnForGetTableSchemaOutput vectorSize(Integer vectorSize) {
+    this.vectorSize = vectorSize;
+    return this;
+  }
+
+   /**
+   * Get vectorSize
+   * @return vectorSize
+  **/
+  @Schema(description = "")
+  public Integer getVectorSize() {
+    return vectorSize;
+  }
+
+  public void setVectorSize(Integer vectorSize) {
+    this.vectorSize = vectorSize;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class ColumnForGetTableSchemaOutput {
     return Objects.equals(this.columnName, columnForGetTableSchemaOutput.columnName) &&
         Objects.equals(this.defaultValue, columnForGetTableSchemaOutput.defaultValue) &&
         Objects.equals(this.enableDefaultValue, columnForGetTableSchemaOutput.enableDefaultValue) &&
-        Objects.equals(this.schemaColumnType, columnForGetTableSchemaOutput.schemaColumnType);
+        Objects.equals(this.schemaColumnType, columnForGetTableSchemaOutput.schemaColumnType) &&
+        Objects.equals(this.vectorSize, columnForGetTableSchemaOutput.vectorSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnName, defaultValue, enableDefaultValue, schemaColumnType);
+    return Objects.hash(columnName, defaultValue, enableDefaultValue, schemaColumnType, vectorSize);
   }
 
 
@@ -145,6 +167,7 @@ public class ColumnForGetTableSchemaOutput {
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    enableDefaultValue: ").append(toIndentedString(enableDefaultValue)).append("\n");
     sb.append("    schemaColumnType: ").append(toIndentedString(schemaColumnType)).append("\n");
+    sb.append("    vectorSize: ").append(toIndentedString(vectorSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
