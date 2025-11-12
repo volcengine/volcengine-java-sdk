@@ -59,8 +59,8 @@ public class ImageGenStreamEvent {
     /**
      * The Unix timestamp when the image was generated.
      */
-    @JsonProperty("created_at")
-    private long createdAt;
+    @JsonProperty("created")
+    private long created;
 
     // Getters and setters
 
@@ -128,12 +128,12 @@ public class ImageGenStreamEvent {
         this.imageIndex = imageIndex;
     }
 
-    public long getCreatedAt() {
-        return createdAt;
+    public long getCreated() {
+        return created;
     }
 
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated(long created) {
+        this.created = created;
     }
 
     @Override
@@ -147,7 +147,7 @@ public class ImageGenStreamEvent {
                 ", error=" + error +
                 ", usage=" + usage +
                 ", imageIndex=" + imageIndex +
-                ", createdAt=" + createdAt +
+                ", created=" + created +
                 '}';
     }
 
