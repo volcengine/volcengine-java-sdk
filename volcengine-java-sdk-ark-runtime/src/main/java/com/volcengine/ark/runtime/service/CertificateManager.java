@@ -229,10 +229,12 @@ public class CertificateManager {
      * 构建证书请求URL
      */
     private static String buildCertificateUrl(String baseUrl) {
-        if (baseUrl.endsWith("/")) {
-            return baseUrl + "e2e/get/certificate";
+        String requestedUrl = baseUrl.replaceAll("/+$", "");
+
+        if (requestedUrl.endsWith("/api/v3")) {
+            return requestedUrl + "/e2e/get/certificate";
         } else {
-            return baseUrl + "/e2e/get/certificate";
+            return requestedUrl + "/api/v3/e2e/get/certificate";
         }
     }
 

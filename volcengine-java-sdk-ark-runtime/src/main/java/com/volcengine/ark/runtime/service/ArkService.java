@@ -502,7 +502,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
             if (apiKey != null && apiKey.length() > 0) {
                 clientBuilder.addInterceptor(new AuthenticationInterceptor(apiKey));
-                clientBuilder.addInterceptor(new EncryptionInterceptor(this.apiKey, this.baseUrl));
+                clientBuilder.addInterceptor(new EncryptionInterceptor(apiKey, baseUrl));
             } else if (ak != null && sk != null && ak.length() > 0 && sk.length() > 0) {
                 clientBuilder.addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region));
             } else {
