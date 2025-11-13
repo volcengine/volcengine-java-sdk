@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.TensorConfigForUpdateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,11 +31,50 @@ import javax.validation.Valid;
 
 
 public class ModelForUpdateDeploymentInput {
+  @SerializedName("Format")
+  private String format = null;
+
   @SerializedName("ModelID")
   private String modelID = null;
 
   @SerializedName("ModelVersionID")
   private String modelVersionID = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
+  @SerializedName("Path")
+  private String path = null;
+
+  @SerializedName("Source")
+  private String source = null;
+
+  @SerializedName("TensorConfig")
+  private TensorConfigForUpdateDeploymentInput tensorConfig = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  @SerializedName("Version")
+  private String version = null;
+
+  public ModelForUpdateDeploymentInput format(String format) {
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * Get format
+   * @return format
+  **/
+  @Schema(description = "")
+  public String getFormat() {
+    return format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
 
   public ModelForUpdateDeploymentInput modelID(String modelID) {
     this.modelID = modelID;
@@ -72,6 +112,115 @@ public class ModelForUpdateDeploymentInput {
     this.modelVersionID = modelVersionID;
   }
 
+  public ModelForUpdateDeploymentInput name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ModelForUpdateDeploymentInput path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * Get path
+   * @return path
+  **/
+  @Schema(description = "")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  public ModelForUpdateDeploymentInput source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public ModelForUpdateDeploymentInput tensorConfig(TensorConfigForUpdateDeploymentInput tensorConfig) {
+    this.tensorConfig = tensorConfig;
+    return this;
+  }
+
+   /**
+   * Get tensorConfig
+   * @return tensorConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TensorConfigForUpdateDeploymentInput getTensorConfig() {
+    return tensorConfig;
+  }
+
+  public void setTensorConfig(TensorConfigForUpdateDeploymentInput tensorConfig) {
+    this.tensorConfig = tensorConfig;
+  }
+
+  public ModelForUpdateDeploymentInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ModelForUpdateDeploymentInput version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @Schema(description = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +231,20 @@ public class ModelForUpdateDeploymentInput {
       return false;
     }
     ModelForUpdateDeploymentInput modelForUpdateDeploymentInput = (ModelForUpdateDeploymentInput) o;
-    return Objects.equals(this.modelID, modelForUpdateDeploymentInput.modelID) &&
-        Objects.equals(this.modelVersionID, modelForUpdateDeploymentInput.modelVersionID);
+    return Objects.equals(this.format, modelForUpdateDeploymentInput.format) &&
+        Objects.equals(this.modelID, modelForUpdateDeploymentInput.modelID) &&
+        Objects.equals(this.modelVersionID, modelForUpdateDeploymentInput.modelVersionID) &&
+        Objects.equals(this.name, modelForUpdateDeploymentInput.name) &&
+        Objects.equals(this.path, modelForUpdateDeploymentInput.path) &&
+        Objects.equals(this.source, modelForUpdateDeploymentInput.source) &&
+        Objects.equals(this.tensorConfig, modelForUpdateDeploymentInput.tensorConfig) &&
+        Objects.equals(this.type, modelForUpdateDeploymentInput.type) &&
+        Objects.equals(this.version, modelForUpdateDeploymentInput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelID, modelVersionID);
+    return Objects.hash(format, modelID, modelVersionID, name, path, source, tensorConfig, type, version);
   }
 
 
@@ -97,8 +253,15 @@ public class ModelForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelForUpdateDeploymentInput {\n");
     
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    modelID: ").append(toIndentedString(modelID)).append("\n");
     sb.append("    modelVersionID: ").append(toIndentedString(modelVersionID)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tensorConfig: ").append(toIndentedString(tensorConfig)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

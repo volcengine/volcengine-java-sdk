@@ -19,9 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.ExecForUpdateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.HTTPGetForUpdateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.TCPSocketForUpdateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,17 +30,14 @@ import javax.validation.Valid;
 
 
 public class ReadinessProbeForUpdateDeploymentInput {
+  @SerializedName("Command")
+  private String command = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
-  @SerializedName("Exec")
-  private ExecForUpdateDeploymentInput exec = null;
-
   @SerializedName("FailureThreshold")
   private Integer failureThreshold = null;
-
-  @SerializedName("HTTPGet")
-  private HTTPGetForUpdateDeploymentInput htTPGet = null;
 
   @SerializedName("InitialDelaySeconds")
   private Integer initialDelaySeconds = null;
@@ -51,14 +45,23 @@ public class ReadinessProbeForUpdateDeploymentInput {
   @SerializedName("PeriodSeconds")
   private Integer periodSeconds = null;
 
-  @SerializedName("SuccessThreshold")
-  private Integer successThreshold = null;
+  public ReadinessProbeForUpdateDeploymentInput command(String command) {
+    this.command = command;
+    return this;
+  }
 
-  @SerializedName("TCPSocket")
-  private TCPSocketForUpdateDeploymentInput tcPSocket = null;
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
 
-  @SerializedName("TimeoutSeconds")
-  private Integer timeoutSeconds = null;
+  public void setCommand(String command) {
+    this.command = command;
+  }
 
   public ReadinessProbeForUpdateDeploymentInput enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -78,25 +81,6 @@ public class ReadinessProbeForUpdateDeploymentInput {
     this.enabled = enabled;
   }
 
-  public ReadinessProbeForUpdateDeploymentInput exec(ExecForUpdateDeploymentInput exec) {
-    this.exec = exec;
-    return this;
-  }
-
-   /**
-   * Get exec
-   * @return exec
-  **/
-  @Valid
-  @Schema(description = "")
-  public ExecForUpdateDeploymentInput getExec() {
-    return exec;
-  }
-
-  public void setExec(ExecForUpdateDeploymentInput exec) {
-    this.exec = exec;
-  }
-
   public ReadinessProbeForUpdateDeploymentInput failureThreshold(Integer failureThreshold) {
     this.failureThreshold = failureThreshold;
     return this;
@@ -113,25 +97,6 @@ public class ReadinessProbeForUpdateDeploymentInput {
 
   public void setFailureThreshold(Integer failureThreshold) {
     this.failureThreshold = failureThreshold;
-  }
-
-  public ReadinessProbeForUpdateDeploymentInput htTPGet(HTTPGetForUpdateDeploymentInput htTPGet) {
-    this.htTPGet = htTPGet;
-    return this;
-  }
-
-   /**
-   * Get htTPGet
-   * @return htTPGet
-  **/
-  @Valid
-  @Schema(description = "")
-  public HTTPGetForUpdateDeploymentInput getHtTPGet() {
-    return htTPGet;
-  }
-
-  public void setHtTPGet(HTTPGetForUpdateDeploymentInput htTPGet) {
-    this.htTPGet = htTPGet;
   }
 
   public ReadinessProbeForUpdateDeploymentInput initialDelaySeconds(Integer initialDelaySeconds) {
@@ -170,61 +135,6 @@ public class ReadinessProbeForUpdateDeploymentInput {
     this.periodSeconds = periodSeconds;
   }
 
-  public ReadinessProbeForUpdateDeploymentInput successThreshold(Integer successThreshold) {
-    this.successThreshold = successThreshold;
-    return this;
-  }
-
-   /**
-   * Get successThreshold
-   * @return successThreshold
-  **/
-  @Schema(description = "")
-  public Integer getSuccessThreshold() {
-    return successThreshold;
-  }
-
-  public void setSuccessThreshold(Integer successThreshold) {
-    this.successThreshold = successThreshold;
-  }
-
-  public ReadinessProbeForUpdateDeploymentInput tcPSocket(TCPSocketForUpdateDeploymentInput tcPSocket) {
-    this.tcPSocket = tcPSocket;
-    return this;
-  }
-
-   /**
-   * Get tcPSocket
-   * @return tcPSocket
-  **/
-  @Valid
-  @Schema(description = "")
-  public TCPSocketForUpdateDeploymentInput getTcPSocket() {
-    return tcPSocket;
-  }
-
-  public void setTcPSocket(TCPSocketForUpdateDeploymentInput tcPSocket) {
-    this.tcPSocket = tcPSocket;
-  }
-
-  public ReadinessProbeForUpdateDeploymentInput timeoutSeconds(Integer timeoutSeconds) {
-    this.timeoutSeconds = timeoutSeconds;
-    return this;
-  }
-
-   /**
-   * Get timeoutSeconds
-   * @return timeoutSeconds
-  **/
-  @Schema(description = "")
-  public Integer getTimeoutSeconds() {
-    return timeoutSeconds;
-  }
-
-  public void setTimeoutSeconds(Integer timeoutSeconds) {
-    this.timeoutSeconds = timeoutSeconds;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -235,20 +145,16 @@ public class ReadinessProbeForUpdateDeploymentInput {
       return false;
     }
     ReadinessProbeForUpdateDeploymentInput readinessProbeForUpdateDeploymentInput = (ReadinessProbeForUpdateDeploymentInput) o;
-    return Objects.equals(this.enabled, readinessProbeForUpdateDeploymentInput.enabled) &&
-        Objects.equals(this.exec, readinessProbeForUpdateDeploymentInput.exec) &&
+    return Objects.equals(this.command, readinessProbeForUpdateDeploymentInput.command) &&
+        Objects.equals(this.enabled, readinessProbeForUpdateDeploymentInput.enabled) &&
         Objects.equals(this.failureThreshold, readinessProbeForUpdateDeploymentInput.failureThreshold) &&
-        Objects.equals(this.htTPGet, readinessProbeForUpdateDeploymentInput.htTPGet) &&
         Objects.equals(this.initialDelaySeconds, readinessProbeForUpdateDeploymentInput.initialDelaySeconds) &&
-        Objects.equals(this.periodSeconds, readinessProbeForUpdateDeploymentInput.periodSeconds) &&
-        Objects.equals(this.successThreshold, readinessProbeForUpdateDeploymentInput.successThreshold) &&
-        Objects.equals(this.tcPSocket, readinessProbeForUpdateDeploymentInput.tcPSocket) &&
-        Objects.equals(this.timeoutSeconds, readinessProbeForUpdateDeploymentInput.timeoutSeconds);
+        Objects.equals(this.periodSeconds, readinessProbeForUpdateDeploymentInput.periodSeconds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, exec, failureThreshold, htTPGet, initialDelaySeconds, periodSeconds, successThreshold, tcPSocket, timeoutSeconds);
+    return Objects.hash(command, enabled, failureThreshold, initialDelaySeconds, periodSeconds);
   }
 
 
@@ -257,15 +163,11 @@ public class ReadinessProbeForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReadinessProbeForUpdateDeploymentInput {\n");
     
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    exec: ").append(toIndentedString(exec)).append("\n");
     sb.append("    failureThreshold: ").append(toIndentedString(failureThreshold)).append("\n");
-    sb.append("    htTPGet: ").append(toIndentedString(htTPGet)).append("\n");
     sb.append("    initialDelaySeconds: ").append(toIndentedString(initialDelaySeconds)).append("\n");
     sb.append("    periodSeconds: ").append(toIndentedString(periodSeconds)).append("\n");
-    sb.append("    successThreshold: ").append(toIndentedString(successThreshold)).append("\n");
-    sb.append("    tcPSocket: ").append(toIndentedString(tcPSocket)).append("\n");
-    sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

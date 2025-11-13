@@ -34,55 +34,8 @@ public class UpstreamConfigForCreateDeploymentInput {
   @SerializedName("ConsistentHashConfig")
   private ConsistentHashConfigForCreateDeploymentInput consistentHashConfig = null;
 
-  /**
-   * Gets or Sets loadBalancePolicy
-   */
-  @JsonAdapter(LoadBalancePolicyEnum.Adapter.class)
-  public enum LoadBalancePolicyEnum {
-    @SerializedName("ROUND_ROBIN")
-    ROUND_ROBIN("ROUND_ROBIN"),
-    @SerializedName("LEAST_CONN")
-    LEAST_CONN("LEAST_CONN"),
-    @SerializedName("RANDOM")
-    RANDOM("RANDOM"),
-    @SerializedName("CONSISTENT_HASH")
-    CONSISTENT_HASH("CONSISTENT_HASH");
-
-    private String value;
-
-    LoadBalancePolicyEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static LoadBalancePolicyEnum fromValue(String input) {
-      for (LoadBalancePolicyEnum b : LoadBalancePolicyEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<LoadBalancePolicyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final LoadBalancePolicyEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public LoadBalancePolicyEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return LoadBalancePolicyEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("LoadBalancePolicy")
-  private LoadBalancePolicyEnum loadBalancePolicy = null;
+  @SerializedName("LoadBalancePolicy")
+  private String loadBalancePolicy = null;
 
   public UpstreamConfigForCreateDeploymentInput consistentHashConfig(ConsistentHashConfigForCreateDeploymentInput consistentHashConfig) {
     this.consistentHashConfig = consistentHashConfig;
@@ -103,7 +56,7 @@ public class UpstreamConfigForCreateDeploymentInput {
     this.consistentHashConfig = consistentHashConfig;
   }
 
-  public UpstreamConfigForCreateDeploymentInput loadBalancePolicy(LoadBalancePolicyEnum loadBalancePolicy) {
+  public UpstreamConfigForCreateDeploymentInput loadBalancePolicy(String loadBalancePolicy) {
     this.loadBalancePolicy = loadBalancePolicy;
     return this;
   }
@@ -113,11 +66,11 @@ public class UpstreamConfigForCreateDeploymentInput {
    * @return loadBalancePolicy
   **/
   @Schema(description = "")
-  public LoadBalancePolicyEnum getLoadBalancePolicy() {
+  public String getLoadBalancePolicy() {
     return loadBalancePolicy;
   }
 
-  public void setLoadBalancePolicy(LoadBalancePolicyEnum loadBalancePolicy) {
+  public void setLoadBalancePolicy(String loadBalancePolicy) {
     this.loadBalancePolicy = loadBalancePolicy;
   }
 
