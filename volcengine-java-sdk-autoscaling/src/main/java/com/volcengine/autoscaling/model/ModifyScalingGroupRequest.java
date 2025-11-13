@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyScalingGroupRequest {
   @SerializedName("ActiveScalingConfigurationId")
   private String activeScalingConfigurationId = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeScalingActivitiesRequest {
   @SerializedName("EndTime")
   private String endTime = null;

@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateScalingConfigurationRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

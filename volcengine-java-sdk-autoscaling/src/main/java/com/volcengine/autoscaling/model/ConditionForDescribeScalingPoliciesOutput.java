@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConditionForDescribeScalingPoliciesOutput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;

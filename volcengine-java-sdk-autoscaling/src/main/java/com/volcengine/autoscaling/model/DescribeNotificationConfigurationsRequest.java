@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNotificationConfigurationsRequest {
   @SerializedName("ScalingGroupIds")
   private List<String> scalingGroupIds = null;

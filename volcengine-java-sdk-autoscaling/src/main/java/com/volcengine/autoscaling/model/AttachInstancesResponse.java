@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AttachInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingActivityId")
   private String scalingActivityId = null;

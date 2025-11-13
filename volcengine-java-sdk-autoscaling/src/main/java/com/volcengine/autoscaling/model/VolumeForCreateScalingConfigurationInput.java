@@ -28,9 +28,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class VolumeForCreateScalingConfigurationInput {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
+
+  @SerializedName("ExtraPerformanceIOPS")
+  private Integer extraPerformanceIOPS = null;
+
+  @SerializedName("ExtraPerformanceThroughputMB")
+  private Integer extraPerformanceThroughputMB = null;
+
+  @SerializedName("ExtraPerformanceTypeId")
+  private String extraPerformanceTypeId = null;
 
   @SerializedName("Size")
   private Integer size = null;
@@ -54,6 +64,60 @@ public class VolumeForCreateScalingConfigurationInput {
 
   public void setDeleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
+  }
+
+  public VolumeForCreateScalingConfigurationInput extraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIOPS
+   * @return extraPerformanceIOPS
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIOPS() {
+    return extraPerformanceIOPS;
+  }
+
+  public void setExtraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+  }
+
+  public VolumeForCreateScalingConfigurationInput extraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMB
+   * @return extraPerformanceThroughputMB
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMB() {
+    return extraPerformanceThroughputMB;
+  }
+
+  public void setExtraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+  }
+
+  public VolumeForCreateScalingConfigurationInput extraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public String getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
   }
 
   public VolumeForCreateScalingConfigurationInput size(Integer size) {
@@ -105,13 +169,16 @@ public class VolumeForCreateScalingConfigurationInput {
     }
     VolumeForCreateScalingConfigurationInput volumeForCreateScalingConfigurationInput = (VolumeForCreateScalingConfigurationInput) o;
     return Objects.equals(this.deleteWithInstance, volumeForCreateScalingConfigurationInput.deleteWithInstance) &&
+        Objects.equals(this.extraPerformanceIOPS, volumeForCreateScalingConfigurationInput.extraPerformanceIOPS) &&
+        Objects.equals(this.extraPerformanceThroughputMB, volumeForCreateScalingConfigurationInput.extraPerformanceThroughputMB) &&
+        Objects.equals(this.extraPerformanceTypeId, volumeForCreateScalingConfigurationInput.extraPerformanceTypeId) &&
         Objects.equals(this.size, volumeForCreateScalingConfigurationInput.size) &&
         Objects.equals(this.volumeType, volumeForCreateScalingConfigurationInput.volumeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, size, volumeType);
+    return Objects.hash(deleteWithInstance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, size, volumeType);
   }
 
 
@@ -121,6 +188,9 @@ public class VolumeForCreateScalingConfigurationInput {
     sb.append("class VolumeForCreateScalingConfigurationInput {\n");
     
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
+    sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
+    sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("}");

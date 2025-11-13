@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyLifecycleHookRequest {
   @SerializedName("LifecycleCommand")
   private LifecycleCommandForModifyLifecycleHookInput lifecycleCommand = null;

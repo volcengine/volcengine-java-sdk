@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AlarmPolicyConditionForModifyScalingPolicyInput
+ * ConditionForCreateScalingPolicyInput
  */
 
 
 
-public class AlarmPolicyConditionForModifyScalingPolicyInput {
+public class ConditionForCreateScalingPolicyInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
 
@@ -42,7 +42,7 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
   @SerializedName("Threshold")
   private String threshold = null;
 
-  public AlarmPolicyConditionForModifyScalingPolicyInput comparisonOperator(String comparisonOperator) {
+  public ConditionForCreateScalingPolicyInput comparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
     return this;
   }
@@ -60,7 +60,7 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
     this.comparisonOperator = comparisonOperator;
   }
 
-  public AlarmPolicyConditionForModifyScalingPolicyInput metricName(String metricName) {
+  public ConditionForCreateScalingPolicyInput metricName(String metricName) {
     this.metricName = metricName;
     return this;
   }
@@ -78,7 +78,7 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
     this.metricName = metricName;
   }
 
-  public AlarmPolicyConditionForModifyScalingPolicyInput metricUnit(String metricUnit) {
+  public ConditionForCreateScalingPolicyInput metricUnit(String metricUnit) {
     this.metricUnit = metricUnit;
     return this;
   }
@@ -96,7 +96,7 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
     this.metricUnit = metricUnit;
   }
 
-  public AlarmPolicyConditionForModifyScalingPolicyInput threshold(String threshold) {
+  public ConditionForCreateScalingPolicyInput threshold(String threshold) {
     this.threshold = threshold;
     return this;
   }
@@ -123,11 +123,11 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AlarmPolicyConditionForModifyScalingPolicyInput alarmPolicyConditionForModifyScalingPolicyInput = (AlarmPolicyConditionForModifyScalingPolicyInput) o;
-    return Objects.equals(this.comparisonOperator, alarmPolicyConditionForModifyScalingPolicyInput.comparisonOperator) &&
-        Objects.equals(this.metricName, alarmPolicyConditionForModifyScalingPolicyInput.metricName) &&
-        Objects.equals(this.metricUnit, alarmPolicyConditionForModifyScalingPolicyInput.metricUnit) &&
-        Objects.equals(this.threshold, alarmPolicyConditionForModifyScalingPolicyInput.threshold);
+    ConditionForCreateScalingPolicyInput conditionForCreateScalingPolicyInput = (ConditionForCreateScalingPolicyInput) o;
+    return Objects.equals(this.comparisonOperator, conditionForCreateScalingPolicyInput.comparisonOperator) &&
+        Objects.equals(this.metricName, conditionForCreateScalingPolicyInput.metricName) &&
+        Objects.equals(this.metricUnit, conditionForCreateScalingPolicyInput.metricUnit) &&
+        Objects.equals(this.threshold, conditionForCreateScalingPolicyInput.threshold);
   }
 
   @Override
@@ -139,7 +139,7 @@ public class AlarmPolicyConditionForModifyScalingPolicyInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AlarmPolicyConditionForModifyScalingPolicyInput {\n");
+    sb.append("class ConditionForCreateScalingPolicyInput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");

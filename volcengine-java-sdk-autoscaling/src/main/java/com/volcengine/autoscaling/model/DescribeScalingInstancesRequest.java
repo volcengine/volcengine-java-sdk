@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeScalingInstancesRequest {
   @SerializedName("CreationType")
   private String creationType = null;

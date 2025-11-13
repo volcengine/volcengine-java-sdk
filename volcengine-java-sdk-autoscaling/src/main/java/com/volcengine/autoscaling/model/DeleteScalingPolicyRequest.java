@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteScalingPolicyRequest {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceTypeOverrideForCreateScalingConfigurationInput {
   @SerializedName("InstanceType")
   private String instanceType = null;
