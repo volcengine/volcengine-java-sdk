@@ -1,41 +1,58 @@
 package com.volcengine.llmshield;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 
 // 客户端类
 
 public class ApiClient {
     private final String CONTENT_TYPE_HEADER = "application/json";
-
-
     private final String url;
     private final String ak;
     private final String sk;
     private final String region;
-    private HttpClient httpClient;
+    private CloseableHttpClient httpClient;
 
-    private ApiClient(String url, String ak,String sk,String region,  long timeout) {
+    private ApiClient(String url, String ak, String sk, String region, long timeout) {
         this.url = url;
         this.ak = ak;
         this.sk = sk;
         this.region = region;
         this.httpClient = HttpClientBuilder.create()
                 .setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS)
+                .build();
+    }
+
+    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy) throws MalformedURLException {
+        URL purl = new URL(proxy);
+        String p_protocol = purl.getProtocol(); // 协议（http/https 等）
+        String p_host = purl.getHost();         // 主机名（域名或 IP）
+        int p_port = purl.getPort();            // 显式指定的端口号
+        if (p_port < 0) {
+            p_port = purl.getDefaultPort();// 协议默认端口
+        }
+        HttpHost httpsProxy = new HttpHost(p_host, p_port, p_protocol);
+        this.url = url;
+        this.ak = ak;
+        this.sk = sk;
+        this.region = region;
+        this.httpClient = HttpClientBuilder.create()
+                .setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS)
+                .setProxy(httpsProxy)
                 .build();
     }
 
@@ -49,8 +66,36 @@ public class ApiClient {
      * @param timeout 连接超时时间（毫秒）
      * @return 客户端实例
      */
-    public static ApiClient New(String url, String ak,String sk , String region, long timeout) {
+    public static ApiClient New(String url, String ak, String sk, String region, long timeout) {
         return new ApiClient(url, ak,sk,region, timeout);
+    }
+
+    /**
+     * 创建新的客户端实例
+     *
+     * @param url     API 请求的基础 URL
+     * @param ak      访问密钥
+     * @param sk      密钥
+     * @param region  区域
+     * @param proxy   代理地址
+     * @param timeout 连接超时时间（毫秒）
+     * @return 客户端实例
+     */
+    public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy) throws MalformedURLException {
+        return new ApiClient(url, ak, sk, region, timeout, proxy);
+    }
+
+    /**
+     * 关闭客户端
+     *
+     * @return 无
+     */
+    public void Close() throws IOException {
+        try {
+            this.httpClient.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
