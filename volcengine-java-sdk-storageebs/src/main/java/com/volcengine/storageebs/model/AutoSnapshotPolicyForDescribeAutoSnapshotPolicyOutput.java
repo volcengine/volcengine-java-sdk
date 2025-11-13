@@ -42,15 +42,6 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
-  @SerializedName("DestinationRegion")
-  private String destinationRegion = null;
-
-  @SerializedName("DestinationRetentionDays")
-  private Integer destinationRetentionDays = null;
-
-  @SerializedName("EnableCopy")
-  private Boolean enableCopy = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -130,62 +121,6 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
-  }
-
-  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput destinationRegion(String destinationRegion) {
-    this.destinationRegion = destinationRegion;
-    return this;
-  }
-
-   /**
-   * Get destinationRegion
-   * @return destinationRegion
-  **/
-  @Schema(description = "")
-  public String getDestinationRegion() {
-    return destinationRegion;
-  }
-
-  public void setDestinationRegion(String destinationRegion) {
-    this.destinationRegion = destinationRegion;
-  }
-
-  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput destinationRetentionDays(Integer destinationRetentionDays) {
-    this.destinationRetentionDays = destinationRetentionDays;
-    return this;
-  }
-
-   /**
-   * Get destinationRetentionDays
-   * minimum: -1
-   * maximum: 65536
-   * @return destinationRetentionDays
-  **/
- @Min(-1) @Max(65536)  @Schema(description = "")
-  public Integer getDestinationRetentionDays() {
-    return destinationRetentionDays;
-  }
-
-  public void setDestinationRetentionDays(Integer destinationRetentionDays) {
-    this.destinationRetentionDays = destinationRetentionDays;
-  }
-
-  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput enableCopy(Boolean enableCopy) {
-    this.enableCopy = enableCopy;
-    return this;
-  }
-
-   /**
-   * Get enableCopy
-   * @return enableCopy
-  **/
-  @Schema(description = "")
-  public Boolean isEnableCopy() {
-    return enableCopy;
-  }
-
-  public void setEnableCopy(Boolean enableCopy) {
-    this.enableCopy = enableCopy;
   }
 
   public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput projectName(String projectName) {
@@ -388,9 +323,6 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
     return Objects.equals(this.autoSnapshotPolicyId, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.autoSnapshotPolicyId) &&
         Objects.equals(this.autoSnapshotPolicyName, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.autoSnapshotPolicyName) &&
         Objects.equals(this.createdAt, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.createdAt) &&
-        Objects.equals(this.destinationRegion, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.destinationRegion) &&
-        Objects.equals(this.destinationRetentionDays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.destinationRetentionDays) &&
-        Objects.equals(this.enableCopy, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.enableCopy) &&
         Objects.equals(this.projectName, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.projectName) &&
         Objects.equals(this.repeatDays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.repeatDays) &&
         Objects.equals(this.repeatWeekdays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.repeatWeekdays) &&
@@ -404,7 +336,7 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, createdAt, destinationRegion, destinationRetentionDays, enableCopy, projectName, repeatDays, repeatWeekdays, retentionDays, status, tags, timePoints, updatedAt, volumeNums);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, createdAt, projectName, repeatDays, repeatWeekdays, retentionDays, status, tags, timePoints, updatedAt, volumeNums);
   }
 
 
@@ -416,9 +348,6 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
     sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    destinationRegion: ").append(toIndentedString(destinationRegion)).append("\n");
-    sb.append("    destinationRetentionDays: ").append(toIndentedString(destinationRetentionDays)).append("\n");
-    sb.append("    enableCopy: ").append(toIndentedString(enableCopy)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatWeekdays: ").append(toIndentedString(repeatWeekdays)).append("\n");

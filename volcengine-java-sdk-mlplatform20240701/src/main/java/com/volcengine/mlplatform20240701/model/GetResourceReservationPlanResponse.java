@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.CustomComputeResourceForGetResourceReservationPlanOutput;
 import com.volcengine.mlplatform20240701.model.DesiredComputeResourceForGetResourceReservationPlanOutput;
 import com.volcengine.mlplatform20240701.model.ReservationConfigForGetResourceReservationPlanOutput;
 import com.volcengine.mlplatform20240701.model.ScheduleConfigForGetResourceReservationPlanOutput;
@@ -27,6 +28,8 @@ import com.volcengine.mlplatform20240701.model.StorageConfigForGetResourceReserv
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForGetResourceReservationPlanOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class GetResourceReservationPlanResponse extends com.volcengine.model.Abs
 
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
+
+  @SerializedName("CustomComputeResource")
+  private List<CustomComputeResourceForGetResourceReservationPlanOutput> customComputeResource = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -112,6 +118,33 @@ public class GetResourceReservationPlanResponse extends com.volcengine.model.Abs
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public GetResourceReservationPlanResponse customComputeResource(List<CustomComputeResourceForGetResourceReservationPlanOutput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
+    return this;
+  }
+
+  public GetResourceReservationPlanResponse addCustomComputeResourceItem(CustomComputeResourceForGetResourceReservationPlanOutput customComputeResourceItem) {
+    if (this.customComputeResource == null) {
+      this.customComputeResource = new ArrayList<CustomComputeResourceForGetResourceReservationPlanOutput>();
+    }
+    this.customComputeResource.add(customComputeResourceItem);
+    return this;
+  }
+
+   /**
+   * Get customComputeResource
+   * @return customComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomComputeResourceForGetResourceReservationPlanOutput> getCustomComputeResource() {
+    return customComputeResource;
+  }
+
+  public void setCustomComputeResource(List<CustomComputeResourceForGetResourceReservationPlanOutput> customComputeResource) {
+    this.customComputeResource = customComputeResource;
   }
 
   public GetResourceReservationPlanResponse description(String description) {
@@ -348,6 +381,7 @@ public class GetResourceReservationPlanResponse extends com.volcengine.model.Abs
     GetResourceReservationPlanResponse getResourceReservationPlanResponse = (GetResourceReservationPlanResponse) o;
     return Objects.equals(this.createTime, getResourceReservationPlanResponse.createTime) &&
         Objects.equals(this.creatorTrn, getResourceReservationPlanResponse.creatorTrn) &&
+        Objects.equals(this.customComputeResource, getResourceReservationPlanResponse.customComputeResource) &&
         Objects.equals(this.description, getResourceReservationPlanResponse.description) &&
         Objects.equals(this.desiredComputeResource, getResourceReservationPlanResponse.desiredComputeResource) &&
         Objects.equals(this.id, getResourceReservationPlanResponse.id) &&
@@ -364,7 +398,7 @@ public class GetResourceReservationPlanResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, creatorTrn, description, desiredComputeResource, id, name, projectName, reservationConfig, scheduleConfig, status, storageConfig, updateTime, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(createTime, creatorTrn, customComputeResource, description, desiredComputeResource, id, name, projectName, reservationConfig, scheduleConfig, status, storageConfig, updateTime, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -375,6 +409,7 @@ public class GetResourceReservationPlanResponse extends com.volcengine.model.Abs
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    customComputeResource: ").append(toIndentedString(customComputeResource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    desiredComputeResource: ").append(toIndentedString(desiredComputeResource)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

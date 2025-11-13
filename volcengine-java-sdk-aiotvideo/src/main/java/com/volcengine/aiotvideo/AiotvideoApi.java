@@ -27,18 +27,22 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
+import com.volcengine.aiotvideo.model.CancelBindTemplateRequest;
+import com.volcengine.aiotvideo.model.CancelBindTemplateResponse;
 import com.volcengine.aiotvideo.model.CancelStreamTemplateRequest;
 import com.volcengine.aiotvideo.model.CancelStreamTemplateResponse;
 import com.volcengine.aiotvideo.model.CreateDeviceRequest;
 import com.volcengine.aiotvideo.model.CreateDeviceResponse;
-import com.volcengine.aiotvideo.model.CreateRecordPlanRequest;
-import com.volcengine.aiotvideo.model.CreateRecordPlanResponse;
+import com.volcengine.aiotvideo.model.CreateScreenshotTemplateRequest;
+import com.volcengine.aiotvideo.model.CreateScreenshotTemplateResponse;
+import com.volcengine.aiotvideo.model.CreateSpaceRequest;
+import com.volcengine.aiotvideo.model.CreateSpaceResponse;
 import com.volcengine.aiotvideo.model.CreateStreamRequest;
 import com.volcengine.aiotvideo.model.CreateStreamResponse;
 import com.volcengine.aiotvideo.model.DeleteDeviceRequest;
 import com.volcengine.aiotvideo.model.DeleteDeviceResponse;
-import com.volcengine.aiotvideo.model.DeleteRecordPlanRequest;
-import com.volcengine.aiotvideo.model.DeleteRecordPlanResponse;
+import com.volcengine.aiotvideo.model.DeleteScreenshotTemplateRequest;
+import com.volcengine.aiotvideo.model.DeleteScreenshotTemplateResponse;
 import com.volcengine.aiotvideo.model.DeleteSpaceRequest;
 import com.volcengine.aiotvideo.model.DeleteSpaceResponse;
 import com.volcengine.aiotvideo.model.DeleteStreamRecordRequest;
@@ -47,8 +51,6 @@ import com.volcengine.aiotvideo.model.DeleteStreamRequest;
 import com.volcengine.aiotvideo.model.DeleteStreamResponse;
 import com.volcengine.aiotvideo.model.FreshDeviceRequest;
 import com.volcengine.aiotvideo.model.FreshDeviceResponse;
-import com.volcengine.aiotvideo.model.GenSipIDRequest;
-import com.volcengine.aiotvideo.model.GenSipIDResponse;
 import com.volcengine.aiotvideo.model.GetDataProjectWithBindWidthAndFlowRequest;
 import com.volcengine.aiotvideo.model.GetDataProjectWithBindWidthAndFlowResponse;
 import com.volcengine.aiotvideo.model.GetDeviceChannelsV2Request;
@@ -59,36 +61,42 @@ import com.volcengine.aiotvideo.model.GetLocalDownloadRequest;
 import com.volcengine.aiotvideo.model.GetLocalDownloadResponse;
 import com.volcengine.aiotvideo.model.GetPushStreamCntRequest;
 import com.volcengine.aiotvideo.model.GetPushStreamCntResponse;
-import com.volcengine.aiotvideo.model.GetRecordPlanRequest;
-import com.volcengine.aiotvideo.model.GetRecordPlanResponse;
+import com.volcengine.aiotvideo.model.GetScreenshotTemplateRequest;
+import com.volcengine.aiotvideo.model.GetScreenshotTemplateResponse;
 import com.volcengine.aiotvideo.model.GetSpaceRequest;
 import com.volcengine.aiotvideo.model.GetSpaceResponse;
+import com.volcengine.aiotvideo.model.GetSpaceTemplateRequest;
+import com.volcengine.aiotvideo.model.GetSpaceTemplateResponse;
 import com.volcengine.aiotvideo.model.GetStreamDataRequest;
 import com.volcengine.aiotvideo.model.GetStreamDataResponse;
 import com.volcengine.aiotvideo.model.GetStreamRecordRequest;
 import com.volcengine.aiotvideo.model.GetStreamRecordResponse;
 import com.volcengine.aiotvideo.model.GetStreamRequest;
 import com.volcengine.aiotvideo.model.GetStreamResponse;
-import com.volcengine.aiotvideo.model.GetTotalDataRequest;
-import com.volcengine.aiotvideo.model.GetTotalDataResponse;
+import com.volcengine.aiotvideo.model.ListDeviceScreenshotsV2Request;
+import com.volcengine.aiotvideo.model.ListDeviceScreenshotsV2Response;
 import com.volcengine.aiotvideo.model.ListDevicesRequest;
 import com.volcengine.aiotvideo.model.ListDevicesResponse;
-import com.volcengine.aiotvideo.model.ListRecordPlanChannelsRequest;
-import com.volcengine.aiotvideo.model.ListRecordPlanChannelsResponse;
-import com.volcengine.aiotvideo.model.ListRecordPlansRequest;
-import com.volcengine.aiotvideo.model.ListRecordPlansResponse;
+import com.volcengine.aiotvideo.model.ListScreenshotTemplatesRequest;
+import com.volcengine.aiotvideo.model.ListScreenshotTemplatesResponse;
 import com.volcengine.aiotvideo.model.ListSpacesRequest;
 import com.volcengine.aiotvideo.model.ListSpacesResponse;
 import com.volcengine.aiotvideo.model.ListStreamsRequest;
 import com.volcengine.aiotvideo.model.ListStreamsResponse;
+import com.volcengine.aiotvideo.model.SetSpaceTemplateRequest;
+import com.volcengine.aiotvideo.model.SetSpaceTemplateResponse;
 import com.volcengine.aiotvideo.model.SetStreamTemplateRequest;
 import com.volcengine.aiotvideo.model.SetStreamTemplateResponse;
+import com.volcengine.aiotvideo.model.StartSpaceRequest;
+import com.volcengine.aiotvideo.model.StartSpaceResponse;
 import com.volcengine.aiotvideo.model.StartStreamRequest;
 import com.volcengine.aiotvideo.model.StartStreamResponse;
 import com.volcengine.aiotvideo.model.StartVoiceTalkRequest;
 import com.volcengine.aiotvideo.model.StartVoiceTalkResponse;
 import com.volcengine.aiotvideo.model.StatStreamRequest;
 import com.volcengine.aiotvideo.model.StatStreamResponse;
+import com.volcengine.aiotvideo.model.StopSpaceRequest;
+import com.volcengine.aiotvideo.model.StopSpaceResponse;
 import com.volcengine.aiotvideo.model.StopStreamRequest;
 import com.volcengine.aiotvideo.model.StopStreamResponse;
 import com.volcengine.aiotvideo.model.StopVoiceTalkRequest;
@@ -99,8 +107,6 @@ import com.volcengine.aiotvideo.model.StreamStopRecordRequest;
 import com.volcengine.aiotvideo.model.StreamStopRecordResponse;
 import com.volcengine.aiotvideo.model.UpdateDeviceRequest;
 import com.volcengine.aiotvideo.model.UpdateDeviceResponse;
-import com.volcengine.aiotvideo.model.UpdateRecordPlanRequest;
-import com.volcengine.aiotvideo.model.UpdateRecordPlanResponse;
 import com.volcengine.aiotvideo.model.UpdateSpaceRequest;
 import com.volcengine.aiotvideo.model.UpdateSpaceResponse;
 import com.volcengine.aiotvideo.model.UpdateStreamRequest;
@@ -131,6 +137,130 @@ public class AiotvideoApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for cancelBindTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelBindTemplateCall(CancelBindTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CancelBindTemplate/2021-01-01/aiotvideo/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cancelBindTemplateValidateBeforeCall(CancelBindTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling cancelBindTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = cancelBindTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CancelBindTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CancelBindTemplateResponse cancelBindTemplate(CancelBindTemplateRequest body) throws ApiException {
+        ApiResponse<CancelBindTemplateResponse> resp = cancelBindTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CancelBindTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CancelBindTemplateResponse> cancelBindTemplateWithHttpInfo( @NotNull CancelBindTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = cancelBindTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CancelBindTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cancelBindTemplateAsync(CancelBindTemplateRequest body, final ApiCallback<CancelBindTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cancelBindTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CancelBindTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for cancelStreamTemplate
      * @param body  (required)
@@ -380,18 +510,18 @@ public class AiotvideoApi {
         return call;
     }
     /**
-     * Build call for createRecordPlan
+     * Build call for createScreenshotTemplate
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createRecordPlanCall(CreateRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createScreenshotTemplateCall(CreateScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRecordPlan/2021-01-01/aiotvideo/post/application_json/";
+        String localVarPath = "/CreateScreenshotTemplate/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -429,13 +559,13 @@ public class AiotvideoApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createRecordPlanValidateBeforeCall(CreateRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createScreenshotTemplateValidateBeforeCall(CreateScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createRecordPlan(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling createScreenshotTemplate(Async)");
         }
         
-        com.squareup.okhttp.Call call = createRecordPlanCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createScreenshotTemplateCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -448,11 +578,11 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return CreateRecordPlanResponse
+     * @return CreateScreenshotTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateRecordPlanResponse createRecordPlan(CreateRecordPlanRequest body) throws ApiException {
-        ApiResponse<CreateRecordPlanResponse> resp = createRecordPlanWithHttpInfo(body);
+    public CreateScreenshotTemplateResponse createScreenshotTemplate(CreateScreenshotTemplateRequest body) throws ApiException {
+        ApiResponse<CreateScreenshotTemplateResponse> resp = createScreenshotTemplateWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -460,12 +590,12 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateRecordPlanResponse&gt;
+     * @return ApiResponse&lt;CreateScreenshotTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateRecordPlanResponse> createRecordPlanWithHttpInfo( @NotNull CreateRecordPlanRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = createRecordPlanValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateRecordPlanResponse>(){}.getType();
+    public ApiResponse<CreateScreenshotTemplateResponse> createScreenshotTemplateWithHttpInfo( @NotNull CreateScreenshotTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createScreenshotTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateScreenshotTemplateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -477,7 +607,7 @@ public class AiotvideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createRecordPlanAsync(CreateRecordPlanRequest body, final ApiCallback<CreateRecordPlanResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createScreenshotTemplateAsync(CreateScreenshotTemplateRequest body, final ApiCallback<CreateScreenshotTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -498,8 +628,132 @@ public class AiotvideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createRecordPlanValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateRecordPlanResponse>(){}.getType();
+        com.squareup.okhttp.Call call = createScreenshotTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateScreenshotTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createSpace
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createSpaceCall(CreateSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateSpace/2021-01-01/aiotvideo/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createSpaceValidateBeforeCall(CreateSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createSpace(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createSpaceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateSpaceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateSpaceResponse createSpace(CreateSpaceRequest body) throws ApiException {
+        ApiResponse<CreateSpaceResponse> resp = createSpaceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateSpaceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateSpaceResponse> createSpaceWithHttpInfo( @NotNull CreateSpaceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createSpaceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateSpaceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createSpaceAsync(CreateSpaceRequest body, final ApiCallback<CreateSpaceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createSpaceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateSpaceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -639,7 +893,7 @@ public class AiotvideoApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDevice/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/DeleteDevice/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -752,18 +1006,18 @@ public class AiotvideoApi {
         return call;
     }
     /**
-     * Build call for deleteRecordPlan
+     * Build call for deleteScreenshotTemplate
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteRecordPlanCall(DeleteRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteScreenshotTemplateCall(DeleteScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRecordPlan/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/DeleteScreenshotTemplate/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -801,13 +1055,13 @@ public class AiotvideoApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteRecordPlanValidateBeforeCall(DeleteRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteScreenshotTemplateValidateBeforeCall(DeleteScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling deleteRecordPlan(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling deleteScreenshotTemplate(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteRecordPlanCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteScreenshotTemplateCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -820,11 +1074,11 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return DeleteRecordPlanResponse
+     * @return DeleteScreenshotTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DeleteRecordPlanResponse deleteRecordPlan(DeleteRecordPlanRequest body) throws ApiException {
-        ApiResponse<DeleteRecordPlanResponse> resp = deleteRecordPlanWithHttpInfo(body);
+    public DeleteScreenshotTemplateResponse deleteScreenshotTemplate(DeleteScreenshotTemplateRequest body) throws ApiException {
+        ApiResponse<DeleteScreenshotTemplateResponse> resp = deleteScreenshotTemplateWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -832,12 +1086,12 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DeleteRecordPlanResponse&gt;
+     * @return ApiResponse&lt;DeleteScreenshotTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteRecordPlanResponse> deleteRecordPlanWithHttpInfo( @NotNull DeleteRecordPlanRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteRecordPlanValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DeleteRecordPlanResponse>(){}.getType();
+    public ApiResponse<DeleteScreenshotTemplateResponse> deleteScreenshotTemplateWithHttpInfo( @NotNull DeleteScreenshotTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteScreenshotTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteScreenshotTemplateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -849,7 +1103,7 @@ public class AiotvideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteRecordPlanAsync(DeleteRecordPlanRequest body, final ApiCallback<DeleteRecordPlanResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteScreenshotTemplateAsync(DeleteScreenshotTemplateRequest body, final ApiCallback<DeleteScreenshotTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -870,8 +1124,8 @@ public class AiotvideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteRecordPlanValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DeleteRecordPlanResponse>(){}.getType();
+        com.squareup.okhttp.Call call = deleteScreenshotTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteScreenshotTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -887,7 +1141,7 @@ public class AiotvideoApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteSpace/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/DeleteSpace/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1368,130 +1622,6 @@ public class AiotvideoApi {
 
         com.squareup.okhttp.Call call = freshDeviceValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FreshDeviceResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for genSipID
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call genSipIDCall(GenSipIDRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/GenSipID/2021-01-01/aiotvideo/get/text_plain/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genSipIDValidateBeforeCall(GenSipIDRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling genSipID(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = genSipIDCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return GenSipIDResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public GenSipIDResponse genSipID(GenSipIDRequest body) throws ApiException {
-        ApiResponse<GenSipIDResponse> resp = genSipIDWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;GenSipIDResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GenSipIDResponse> genSipIDWithHttpInfo( @NotNull GenSipIDRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = genSipIDValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<GenSipIDResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call genSipIDAsync(GenSipIDRequest body, final ApiCallback<GenSipIDResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = genSipIDValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GenSipIDResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2116,18 +2246,18 @@ public class AiotvideoApi {
         return call;
     }
     /**
-     * Build call for getRecordPlan
+     * Build call for getScreenshotTemplate
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRecordPlanCall(GetRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getScreenshotTemplateCall(GetScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetRecordPlan/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/GetScreenshotTemplate/2021-01-01/aiotvideo/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2165,13 +2295,13 @@ public class AiotvideoApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRecordPlanValidateBeforeCall(GetRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getScreenshotTemplateValidateBeforeCall(GetScreenshotTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling getRecordPlan(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling getScreenshotTemplate(Async)");
         }
         
-        com.squareup.okhttp.Call call = getRecordPlanCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getScreenshotTemplateCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2184,11 +2314,11 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return GetRecordPlanResponse
+     * @return GetScreenshotTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetRecordPlanResponse getRecordPlan(GetRecordPlanRequest body) throws ApiException {
-        ApiResponse<GetRecordPlanResponse> resp = getRecordPlanWithHttpInfo(body);
+    public GetScreenshotTemplateResponse getScreenshotTemplate(GetScreenshotTemplateRequest body) throws ApiException {
+        ApiResponse<GetScreenshotTemplateResponse> resp = getScreenshotTemplateWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2196,12 +2326,12 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;GetRecordPlanResponse&gt;
+     * @return ApiResponse&lt;GetScreenshotTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetRecordPlanResponse> getRecordPlanWithHttpInfo( @NotNull GetRecordPlanRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = getRecordPlanValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<GetRecordPlanResponse>(){}.getType();
+    public ApiResponse<GetScreenshotTemplateResponse> getScreenshotTemplateWithHttpInfo( @NotNull GetScreenshotTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getScreenshotTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetScreenshotTemplateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2213,7 +2343,7 @@ public class AiotvideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRecordPlanAsync(GetRecordPlanRequest body, final ApiCallback<GetRecordPlanResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getScreenshotTemplateAsync(GetScreenshotTemplateRequest body, final ApiCallback<GetScreenshotTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2234,8 +2364,8 @@ public class AiotvideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getRecordPlanValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetRecordPlanResponse>(){}.getType();
+        com.squareup.okhttp.Call call = getScreenshotTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetScreenshotTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2360,6 +2490,130 @@ public class AiotvideoApi {
 
         com.squareup.okhttp.Call call = getSpaceValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSpaceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getSpaceTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSpaceTemplateCall(GetSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetSpaceTemplate/2021-01-01/aiotvideo/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getSpaceTemplateValidateBeforeCall(GetSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getSpaceTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getSpaceTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetSpaceTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetSpaceTemplateResponse getSpaceTemplate(GetSpaceTemplateRequest body) throws ApiException {
+        ApiResponse<GetSpaceTemplateResponse> resp = getSpaceTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetSpaceTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetSpaceTemplateResponse> getSpaceTemplateWithHttpInfo( @NotNull GetSpaceTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getSpaceTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetSpaceTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSpaceTemplateAsync(GetSpaceTemplateRequest body, final ApiCallback<GetSpaceTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSpaceTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetSpaceTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2736,18 +2990,18 @@ public class AiotvideoApi {
         return call;
     }
     /**
-     * Build call for getTotalData
+     * Build call for listDeviceScreenshotsV2
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTotalDataCall(GetTotalDataRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listDeviceScreenshotsV2Call(ListDeviceScreenshotsV2Request body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetTotalData/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/ListDeviceScreenshotsV2/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2785,13 +3039,13 @@ public class AiotvideoApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTotalDataValidateBeforeCall(GetTotalDataRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listDeviceScreenshotsV2ValidateBeforeCall(ListDeviceScreenshotsV2Request body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling getTotalData(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling listDeviceScreenshotsV2(Async)");
         }
         
-        com.squareup.okhttp.Call call = getTotalDataCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listDeviceScreenshotsV2Call(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2804,11 +3058,11 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return GetTotalDataResponse
+     * @return ListDeviceScreenshotsV2Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTotalDataResponse getTotalData(GetTotalDataRequest body) throws ApiException {
-        ApiResponse<GetTotalDataResponse> resp = getTotalDataWithHttpInfo(body);
+    public ListDeviceScreenshotsV2Response listDeviceScreenshotsV2(ListDeviceScreenshotsV2Request body) throws ApiException {
+        ApiResponse<ListDeviceScreenshotsV2Response> resp = listDeviceScreenshotsV2WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2816,12 +3070,12 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;GetTotalDataResponse&gt;
+     * @return ApiResponse&lt;ListDeviceScreenshotsV2Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTotalDataResponse> getTotalDataWithHttpInfo( @NotNull GetTotalDataRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = getTotalDataValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<GetTotalDataResponse>(){}.getType();
+    public ApiResponse<ListDeviceScreenshotsV2Response> listDeviceScreenshotsV2WithHttpInfo( @NotNull ListDeviceScreenshotsV2Request body) throws ApiException {
+        com.squareup.okhttp.Call call = listDeviceScreenshotsV2ValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListDeviceScreenshotsV2Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2833,7 +3087,7 @@ public class AiotvideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTotalDataAsync(GetTotalDataRequest body, final ApiCallback<GetTotalDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listDeviceScreenshotsV2Async(ListDeviceScreenshotsV2Request body, final ApiCallback<ListDeviceScreenshotsV2Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2854,8 +3108,8 @@ public class AiotvideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTotalDataValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetTotalDataResponse>(){}.getType();
+        com.squareup.okhttp.Call call = listDeviceScreenshotsV2ValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListDeviceScreenshotsV2Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2984,18 +3238,18 @@ public class AiotvideoApi {
         return call;
     }
     /**
-     * Build call for listRecordPlanChannels
+     * Build call for listScreenshotTemplates
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listRecordPlanChannelsCall(ListRecordPlanChannelsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listScreenshotTemplatesCall(ListScreenshotTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListRecordPlanChannels/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/ListScreenshotTemplates/2021-01-01/aiotvideo/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3033,13 +3287,13 @@ public class AiotvideoApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listRecordPlanChannelsValidateBeforeCall(ListRecordPlanChannelsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listScreenshotTemplatesValidateBeforeCall(ListScreenshotTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listRecordPlanChannels(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling listScreenshotTemplates(Async)");
         }
         
-        com.squareup.okhttp.Call call = listRecordPlanChannelsCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listScreenshotTemplatesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -3052,11 +3306,11 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ListRecordPlanChannelsResponse
+     * @return ListScreenshotTemplatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ListRecordPlanChannelsResponse listRecordPlanChannels(ListRecordPlanChannelsRequest body) throws ApiException {
-        ApiResponse<ListRecordPlanChannelsResponse> resp = listRecordPlanChannelsWithHttpInfo(body);
+    public ListScreenshotTemplatesResponse listScreenshotTemplates(ListScreenshotTemplatesRequest body) throws ApiException {
+        ApiResponse<ListScreenshotTemplatesResponse> resp = listScreenshotTemplatesWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -3064,12 +3318,12 @@ public class AiotvideoApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ListRecordPlanChannelsResponse&gt;
+     * @return ApiResponse&lt;ListScreenshotTemplatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ListRecordPlanChannelsResponse> listRecordPlanChannelsWithHttpInfo( @NotNull ListRecordPlanChannelsRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listRecordPlanChannelsValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListRecordPlanChannelsResponse>(){}.getType();
+    public ApiResponse<ListScreenshotTemplatesResponse> listScreenshotTemplatesWithHttpInfo( @NotNull ListScreenshotTemplatesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listScreenshotTemplatesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListScreenshotTemplatesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3081,7 +3335,7 @@ public class AiotvideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listRecordPlanChannelsAsync(ListRecordPlanChannelsRequest body, final ApiCallback<ListRecordPlanChannelsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listScreenshotTemplatesAsync(ListScreenshotTemplatesRequest body, final ApiCallback<ListScreenshotTemplatesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3102,132 +3356,8 @@ public class AiotvideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listRecordPlanChannelsValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListRecordPlanChannelsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for listRecordPlans
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listRecordPlansCall(ListRecordPlansRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/ListRecordPlans/2021-01-01/aiotvideo/get/text_plain/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listRecordPlansValidateBeforeCall(ListRecordPlansRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listRecordPlans(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = listRecordPlansCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ListRecordPlansResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ListRecordPlansResponse listRecordPlans(ListRecordPlansRequest body) throws ApiException {
-        ApiResponse<ListRecordPlansResponse> resp = listRecordPlansWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;ListRecordPlansResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ListRecordPlansResponse> listRecordPlansWithHttpInfo( @NotNull ListRecordPlansRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listRecordPlansValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListRecordPlansResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listRecordPlansAsync(ListRecordPlansRequest body, final ApiCallback<ListRecordPlansResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = listRecordPlansValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListRecordPlansResponse>(){}.getType();
+        com.squareup.okhttp.Call call = listScreenshotTemplatesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListScreenshotTemplatesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3480,6 +3610,130 @@ public class AiotvideoApi {
         return call;
     }
     /**
+     * Build call for setSpaceTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setSpaceTemplateCall(SetSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/SetSpaceTemplate/2021-01-01/aiotvideo/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call setSpaceTemplateValidateBeforeCall(SetSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling setSpaceTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = setSpaceTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return SetSpaceTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SetSpaceTemplateResponse setSpaceTemplate(SetSpaceTemplateRequest body) throws ApiException {
+        ApiResponse<SetSpaceTemplateResponse> resp = setSpaceTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;SetSpaceTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SetSpaceTemplateResponse> setSpaceTemplateWithHttpInfo( @NotNull SetSpaceTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = setSpaceTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<SetSpaceTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setSpaceTemplateAsync(SetSpaceTemplateRequest body, final ApiCallback<SetSpaceTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setSpaceTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SetSpaceTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for setStreamTemplate
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3600,6 +3854,130 @@ public class AiotvideoApi {
 
         com.squareup.okhttp.Call call = setStreamTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SetStreamTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for startSpace
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startSpaceCall(StartSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/StartSpace/2021-01-01/aiotvideo/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call startSpaceValidateBeforeCall(StartSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling startSpace(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = startSpaceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return StartSpaceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public StartSpaceResponse startSpace(StartSpaceRequest body) throws ApiException {
+        ApiResponse<StartSpaceResponse> resp = startSpaceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;StartSpaceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<StartSpaceResponse> startSpaceWithHttpInfo( @NotNull StartSpaceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = startSpaceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<StartSpaceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call startSpaceAsync(StartSpaceRequest body, final ApiCallback<StartSpaceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = startSpaceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<StartSpaceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3739,7 +4117,7 @@ public class AiotvideoApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartVoiceTalk/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/StartVoiceTalk/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3976,6 +4354,130 @@ public class AiotvideoApi {
         return call;
     }
     /**
+     * Build call for stopSpace
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call stopSpaceCall(StopSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/StopSpace/2021-01-01/aiotvideo/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call stopSpaceValidateBeforeCall(StopSpaceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling stopSpace(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = stopSpaceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return StopSpaceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public StopSpaceResponse stopSpace(StopSpaceRequest body) throws ApiException {
+        ApiResponse<StopSpaceResponse> resp = stopSpaceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;StopSpaceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<StopSpaceResponse> stopSpaceWithHttpInfo( @NotNull StopSpaceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = stopSpaceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<StopSpaceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call stopSpaceAsync(StopSpaceRequest body, final ApiCallback<StopSpaceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = stopSpaceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<StopSpaceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for stopStream
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4111,7 +4613,7 @@ public class AiotvideoApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StopVoiceTalk/2021-01-01/aiotvideo/get/text_plain/";
+        String localVarPath = "/StopVoiceTalk/2021-01-01/aiotvideo/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4592,130 +5094,6 @@ public class AiotvideoApi {
 
         com.squareup.okhttp.Call call = updateDeviceValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateDeviceResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for updateRecordPlan
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call updateRecordPlanCall(UpdateRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/UpdateRecordPlan/2021-01-01/aiotvideo/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateRecordPlanValidateBeforeCall(UpdateRecordPlanRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateRecordPlan(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = updateRecordPlanCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return UpdateRecordPlanResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public UpdateRecordPlanResponse updateRecordPlan(UpdateRecordPlanRequest body) throws ApiException {
-        ApiResponse<UpdateRecordPlanResponse> resp = updateRecordPlanWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;UpdateRecordPlanResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<UpdateRecordPlanResponse> updateRecordPlanWithHttpInfo( @NotNull UpdateRecordPlanRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = updateRecordPlanValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<UpdateRecordPlanResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call updateRecordPlanAsync(UpdateRecordPlanRequest body, final ApiCallback<UpdateRecordPlanResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = updateRecordPlanValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UpdateRecordPlanResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

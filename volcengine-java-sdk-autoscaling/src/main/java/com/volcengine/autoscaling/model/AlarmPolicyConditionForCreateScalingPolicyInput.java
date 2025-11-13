@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AlarmPolicyConditionForCreateScalingPolicyInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
@@ -104,7 +105,8 @@ public class AlarmPolicyConditionForCreateScalingPolicyInput {
    * Get threshold
    * @return threshold
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getThreshold() {
     return threshold;
   }

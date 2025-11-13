@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeScalingGroupsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

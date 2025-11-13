@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class OperationDetailForUntagResourcesOutput {
   @SerializedName("Error")
   private ErrorForUntagResourcesOutput error = null;

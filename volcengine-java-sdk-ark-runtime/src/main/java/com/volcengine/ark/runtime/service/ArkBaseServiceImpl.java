@@ -12,6 +12,7 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.files.*;
 import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
@@ -76,4 +77,12 @@ public interface ArkBaseServiceImpl {
     DeleteResponseResponse deleteResponse(DeleteResponseRequest request);
 
     ListInputItemsResponse listResponseInputItems(ListInputItemsRequest request);
+
+    FileMeta uploadFile(UploadFileRequest file);
+
+    FileMeta retrieveFile(String fileId);
+
+    DeleteFileResponse deleteFile(String fileId);
+
+    ListFilesResponse listFiles(ListFilesRequest request);
 }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ScheduledPolicyForCreateScalingPolicyInput {
   @SerializedName("LaunchTime")
   private String launchTime = null;
@@ -50,8 +51,7 @@ public class ScheduledPolicyForCreateScalingPolicyInput {
    * Get launchTime
    * @return launchTime
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLaunchTime() {
     return launchTime;
   }

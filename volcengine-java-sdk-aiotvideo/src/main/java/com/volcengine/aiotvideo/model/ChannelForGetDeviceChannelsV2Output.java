@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.aiotvideo.model.DeviceItemForGetDeviceChannelsV2Output;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,7 +35,7 @@ public class ChannelForGetDeviceChannelsV2Output {
   private String createAt = null;
 
   @SerializedName("DeviceItem")
-  private List<DeviceItemForGetDeviceChannelsV2Output> deviceItem = null;
+  private DeviceItemForGetDeviceChannelsV2Output deviceItem = null;
 
   @SerializedName("StreamID")
   private String streamID = null;
@@ -60,16 +58,8 @@ public class ChannelForGetDeviceChannelsV2Output {
     this.createAt = createAt;
   }
 
-  public ChannelForGetDeviceChannelsV2Output deviceItem(List<DeviceItemForGetDeviceChannelsV2Output> deviceItem) {
+  public ChannelForGetDeviceChannelsV2Output deviceItem(DeviceItemForGetDeviceChannelsV2Output deviceItem) {
     this.deviceItem = deviceItem;
-    return this;
-  }
-
-  public ChannelForGetDeviceChannelsV2Output addDeviceItemItem(DeviceItemForGetDeviceChannelsV2Output deviceItemItem) {
-    if (this.deviceItem == null) {
-      this.deviceItem = new ArrayList<DeviceItemForGetDeviceChannelsV2Output>();
-    }
-    this.deviceItem.add(deviceItemItem);
     return this;
   }
 
@@ -79,11 +69,11 @@ public class ChannelForGetDeviceChannelsV2Output {
   **/
   @Valid
   @Schema(description = "")
-  public List<DeviceItemForGetDeviceChannelsV2Output> getDeviceItem() {
+  public DeviceItemForGetDeviceChannelsV2Output getDeviceItem() {
     return deviceItem;
   }
 
-  public void setDeviceItem(List<DeviceItemForGetDeviceChannelsV2Output> deviceItem) {
+  public void setDeviceItem(DeviceItemForGetDeviceChannelsV2Output deviceItem) {
     this.deviceItem = deviceItem;
   }
 

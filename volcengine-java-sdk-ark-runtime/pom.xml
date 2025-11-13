@@ -3,7 +3,7 @@
     <parent>
         <artifactId>volcengine-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>0.2.44</version>
+        <version>0.2.45</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <build>
@@ -27,6 +27,7 @@
         <retrofit.version>2.9.0</retrofit.version>
         <rxjava2.version>2.0.0</rxjava2.version>
         <okhttp3-version>3.14.9</okhttp3-version>
+        <bouncycastle-version>1.78.1</bouncycastle-version>
     </properties>
     <dependencies>
         <dependency>
@@ -69,6 +70,18 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>${okhttp3-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle-version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk18on</artifactId>
+            <version>${bouncycastle-version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>

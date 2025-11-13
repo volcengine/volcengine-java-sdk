@@ -30,50 +30,29 @@ import javax.validation.Valid;
 
 
 public class SfcsForCreateResourceGroupInput {
-  @SerializedName("Description")
-  private String description = null;
-
-  @SerializedName("Name")
-  private String name = null;
-
   @SerializedName("Replicas")
   private Long replicas = null;
 
-  public SfcsForCreateResourceGroupInput description(String description) {
-    this.description = description;
-    return this;
-  }
+  @SerializedName("SfcsDescription")
+  private String sfcsDescription = null;
 
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
+  @SerializedName("SfcsExisted")
+  private Boolean sfcsExisted = null;
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+  @SerializedName("SfcsId")
+  private String sfcsId = null;
 
-  public SfcsForCreateResourceGroupInput name(String name) {
-    this.name = name;
-    return this;
-  }
+  @SerializedName("SfcsName")
+  private String sfcsName = null;
 
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
+  @SerializedName("SfcsResourceGroupId")
+  private String sfcsResourceGroupId = null;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("SfcsStatus")
+  private String sfcsStatus = null;
+
+  @SerializedName("SfcsZoneId")
+  private String sfcsZoneId = null;
 
   public SfcsForCreateResourceGroupInput replicas(Long replicas) {
     this.replicas = replicas;
@@ -93,6 +72,132 @@ public class SfcsForCreateResourceGroupInput {
     this.replicas = replicas;
   }
 
+  public SfcsForCreateResourceGroupInput sfcsDescription(String sfcsDescription) {
+    this.sfcsDescription = sfcsDescription;
+    return this;
+  }
+
+   /**
+   * Get sfcsDescription
+   * @return sfcsDescription
+  **/
+  @Schema(description = "")
+  public String getSfcsDescription() {
+    return sfcsDescription;
+  }
+
+  public void setSfcsDescription(String sfcsDescription) {
+    this.sfcsDescription = sfcsDescription;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsExisted(Boolean sfcsExisted) {
+    this.sfcsExisted = sfcsExisted;
+    return this;
+  }
+
+   /**
+   * Get sfcsExisted
+   * @return sfcsExisted
+  **/
+  @Schema(description = "")
+  public Boolean isSfcsExisted() {
+    return sfcsExisted;
+  }
+
+  public void setSfcsExisted(Boolean sfcsExisted) {
+    this.sfcsExisted = sfcsExisted;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+    return this;
+  }
+
+   /**
+   * Get sfcsId
+   * @return sfcsId
+  **/
+  @Schema(description = "")
+  public String getSfcsId() {
+    return sfcsId;
+  }
+
+  public void setSfcsId(String sfcsId) {
+    this.sfcsId = sfcsId;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsName(String sfcsName) {
+    this.sfcsName = sfcsName;
+    return this;
+  }
+
+   /**
+   * Get sfcsName
+   * @return sfcsName
+  **/
+  @Schema(description = "")
+  public String getSfcsName() {
+    return sfcsName;
+  }
+
+  public void setSfcsName(String sfcsName) {
+    this.sfcsName = sfcsName;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsResourceGroupId(String sfcsResourceGroupId) {
+    this.sfcsResourceGroupId = sfcsResourceGroupId;
+    return this;
+  }
+
+   /**
+   * Get sfcsResourceGroupId
+   * @return sfcsResourceGroupId
+  **/
+  @Schema(description = "")
+  public String getSfcsResourceGroupId() {
+    return sfcsResourceGroupId;
+  }
+
+  public void setSfcsResourceGroupId(String sfcsResourceGroupId) {
+    this.sfcsResourceGroupId = sfcsResourceGroupId;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsStatus(String sfcsStatus) {
+    this.sfcsStatus = sfcsStatus;
+    return this;
+  }
+
+   /**
+   * Get sfcsStatus
+   * @return sfcsStatus
+  **/
+  @Schema(description = "")
+  public String getSfcsStatus() {
+    return sfcsStatus;
+  }
+
+  public void setSfcsStatus(String sfcsStatus) {
+    this.sfcsStatus = sfcsStatus;
+  }
+
+  public SfcsForCreateResourceGroupInput sfcsZoneId(String sfcsZoneId) {
+    this.sfcsZoneId = sfcsZoneId;
+    return this;
+  }
+
+   /**
+   * Get sfcsZoneId
+   * @return sfcsZoneId
+  **/
+  @Schema(description = "")
+  public String getSfcsZoneId() {
+    return sfcsZoneId;
+  }
+
+  public void setSfcsZoneId(String sfcsZoneId) {
+    this.sfcsZoneId = sfcsZoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,14 +208,19 @@ public class SfcsForCreateResourceGroupInput {
       return false;
     }
     SfcsForCreateResourceGroupInput sfcsForCreateResourceGroupInput = (SfcsForCreateResourceGroupInput) o;
-    return Objects.equals(this.description, sfcsForCreateResourceGroupInput.description) &&
-        Objects.equals(this.name, sfcsForCreateResourceGroupInput.name) &&
-        Objects.equals(this.replicas, sfcsForCreateResourceGroupInput.replicas);
+    return Objects.equals(this.replicas, sfcsForCreateResourceGroupInput.replicas) &&
+        Objects.equals(this.sfcsDescription, sfcsForCreateResourceGroupInput.sfcsDescription) &&
+        Objects.equals(this.sfcsExisted, sfcsForCreateResourceGroupInput.sfcsExisted) &&
+        Objects.equals(this.sfcsId, sfcsForCreateResourceGroupInput.sfcsId) &&
+        Objects.equals(this.sfcsName, sfcsForCreateResourceGroupInput.sfcsName) &&
+        Objects.equals(this.sfcsResourceGroupId, sfcsForCreateResourceGroupInput.sfcsResourceGroupId) &&
+        Objects.equals(this.sfcsStatus, sfcsForCreateResourceGroupInput.sfcsStatus) &&
+        Objects.equals(this.sfcsZoneId, sfcsForCreateResourceGroupInput.sfcsZoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, replicas);
+    return Objects.hash(replicas, sfcsDescription, sfcsExisted, sfcsId, sfcsName, sfcsResourceGroupId, sfcsStatus, sfcsZoneId);
   }
 
 
@@ -119,9 +229,14 @@ public class SfcsForCreateResourceGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfcsForCreateResourceGroupInput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
+    sb.append("    sfcsDescription: ").append(toIndentedString(sfcsDescription)).append("\n");
+    sb.append("    sfcsExisted: ").append(toIndentedString(sfcsExisted)).append("\n");
+    sb.append("    sfcsId: ").append(toIndentedString(sfcsId)).append("\n");
+    sb.append("    sfcsName: ").append(toIndentedString(sfcsName)).append("\n");
+    sb.append("    sfcsResourceGroupId: ").append(toIndentedString(sfcsResourceGroupId)).append("\n");
+    sb.append("    sfcsStatus: ").append(toIndentedString(sfcsStatus)).append("\n");
+    sb.append("    sfcsZoneId: ").append(toIndentedString(sfcsZoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

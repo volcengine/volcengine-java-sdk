@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AlarmPolicyConditionForModifyScalingPolicyInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;

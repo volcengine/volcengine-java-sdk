@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyScalingConfigurationRequest {
   @SerializedName("Eip")
   private EipForModifyScalingConfigurationInput eip = null;

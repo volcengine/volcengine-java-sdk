@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NotificationConfigurationForDescribeNotificationConfigurationsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;

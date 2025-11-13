@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeScalingConfigurationsOutput {
   @SerializedName("Key")
   private String key = null;

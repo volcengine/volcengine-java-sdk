@@ -39,6 +39,7 @@ public class ResponsesConstants {
     public static final String CONTENT_ITEM_TYPE_INPUT_TEXT = "input_text";
     public static final String CONTENT_ITEM_TYPE_INPUT_IMAGE = "input_image";
     public static final String CONTENT_ITEM_TYPE_INPUT_VIDEO = "input_video";
+    public static final String CONTENT_ITEM_TYPE_INPUT_FILE = "input_file";
     public static final String CONTENT_ITEM_TYPE_OUTPUT_TEXT = "output_text";
     public static final String CONTENT_ITEM_TYPE_SUMMARY_TEXT = "summary_text";
 

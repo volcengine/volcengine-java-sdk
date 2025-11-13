@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeLifecycleActivitiesRequest
  */
+
 
 
 public class DescribeLifecycleActivitiesRequest {
@@ -35,6 +38,9 @@ public class DescribeLifecycleActivitiesRequest {
   @SerializedName("LifecycleActivityStatus")
   private String lifecycleActivityStatus = null;
 
+  @SerializedName("LifecycleHookIds")
+  private List<String> lifecycleHookIds = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -43,6 +49,9 @@ public class DescribeLifecycleActivitiesRequest {
 
   @SerializedName("ScalingActivityId")
   private String scalingActivityId = null;
+
+  @SerializedName("ScalingGroupId")
+  private String scalingGroupId = null;
 
   public DescribeLifecycleActivitiesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -78,6 +87,32 @@ public class DescribeLifecycleActivitiesRequest {
 
   public void setLifecycleActivityStatus(String lifecycleActivityStatus) {
     this.lifecycleActivityStatus = lifecycleActivityStatus;
+  }
+
+  public DescribeLifecycleActivitiesRequest lifecycleHookIds(List<String> lifecycleHookIds) {
+    this.lifecycleHookIds = lifecycleHookIds;
+    return this;
+  }
+
+  public DescribeLifecycleActivitiesRequest addLifecycleHookIdsItem(String lifecycleHookIdsItem) {
+    if (this.lifecycleHookIds == null) {
+      this.lifecycleHookIds = new ArrayList<String>();
+    }
+    this.lifecycleHookIds.add(lifecycleHookIdsItem);
+    return this;
+  }
+
+   /**
+   * Get lifecycleHookIds
+   * @return lifecycleHookIds
+  **/
+  @Schema(description = "")
+  public List<String> getLifecycleHookIds() {
+    return lifecycleHookIds;
+  }
+
+  public void setLifecycleHookIds(List<String> lifecycleHookIds) {
+    this.lifecycleHookIds = lifecycleHookIds;
   }
 
   public DescribeLifecycleActivitiesRequest pageNumber(Integer pageNumber) {
@@ -134,6 +169,24 @@ public class DescribeLifecycleActivitiesRequest {
     this.scalingActivityId = scalingActivityId;
   }
 
+  public DescribeLifecycleActivitiesRequest scalingGroupId(String scalingGroupId) {
+    this.scalingGroupId = scalingGroupId;
+    return this;
+  }
+
+   /**
+   * Get scalingGroupId
+   * @return scalingGroupId
+  **/
+  @Schema(description = "")
+  public String getScalingGroupId() {
+    return scalingGroupId;
+  }
+
+  public void setScalingGroupId(String scalingGroupId) {
+    this.scalingGroupId = scalingGroupId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,14 +199,16 @@ public class DescribeLifecycleActivitiesRequest {
     DescribeLifecycleActivitiesRequest describeLifecycleActivitiesRequest = (DescribeLifecycleActivitiesRequest) o;
     return Objects.equals(this.instanceId, describeLifecycleActivitiesRequest.instanceId) &&
         Objects.equals(this.lifecycleActivityStatus, describeLifecycleActivitiesRequest.lifecycleActivityStatus) &&
+        Objects.equals(this.lifecycleHookIds, describeLifecycleActivitiesRequest.lifecycleHookIds) &&
         Objects.equals(this.pageNumber, describeLifecycleActivitiesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLifecycleActivitiesRequest.pageSize) &&
-        Objects.equals(this.scalingActivityId, describeLifecycleActivitiesRequest.scalingActivityId);
+        Objects.equals(this.scalingActivityId, describeLifecycleActivitiesRequest.scalingActivityId) &&
+        Objects.equals(this.scalingGroupId, describeLifecycleActivitiesRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, lifecycleActivityStatus, pageNumber, pageSize, scalingActivityId);
+    return Objects.hash(instanceId, lifecycleActivityStatus, lifecycleHookIds, pageNumber, pageSize, scalingActivityId, scalingGroupId);
   }
 
 
@@ -164,9 +219,11 @@ public class DescribeLifecycleActivitiesRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    lifecycleActivityStatus: ").append(toIndentedString(lifecycleActivityStatus)).append("\n");
+    sb.append("    lifecycleHookIds: ").append(toIndentedString(lifecycleHookIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    scalingActivityId: ").append(toIndentedString(scalingActivityId)).append("\n");
+    sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

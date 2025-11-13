@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeScalingConfigurationsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EnableScalingConfigurationRequest {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;

@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateLifecycleHookRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
