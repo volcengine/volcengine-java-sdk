@@ -52,6 +52,10 @@ public class EncryptionInterceptor implements Interceptor {
 
         String is_encrypt = request.headers().get("x-is-encrypted");
 
+        if (!"true".equals(is_encrypt)) {
+            return chain.proceed(request);
+        }
+
         RequestBody originalBody = request.body();
         if (originalBody == null) {
             return chain.proceed(request);
@@ -60,9 +64,6 @@ public class EncryptionInterceptor implements Interceptor {
         Map<String, Object> requestBodyJson = parseRequestBody(originalBody);
         String model = requestBodyJson.get("model").toString();
 
-        if (!"true".equals(is_encrypt)) {
-            return proceedWithoutEncryption(chain, request, requestBodyJson);
-        }
 
         return proceedWithEncryption(chain, request, requestBodyJson, model);
     }
