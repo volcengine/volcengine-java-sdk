@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * TTLForCreateScreenshotTemplateInput
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class TTLForCreateScreenshotTemplateInput {
+  @SerializedName("Days")
+  private Integer days = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
-
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public TTLForCreateScreenshotTemplateInput days(Integer days) {
+    this.days = days;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get days
+   * @return days
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Schema(description = "")
+  public Integer getDays() {
+    return days;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
-    return this;
-  }
-
-   /**
-   * Get templateID
-   * @return templateID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
-  }
-
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setDays(Integer days) {
+    this.days = days;
   }
 
 
@@ -83,24 +60,22 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    TTLForCreateScreenshotTemplateInput ttLForCreateScreenshotTemplateInput = (TTLForCreateScreenshotTemplateInput) o;
+    return Objects.equals(this.days, ttLForCreateScreenshotTemplateInput.days);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(days);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class TTLForCreateScreenshotTemplateInput {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("}");
     return sb.toString();
   }

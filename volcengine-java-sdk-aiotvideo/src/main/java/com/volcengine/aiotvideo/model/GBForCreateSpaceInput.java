@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * GBForCreateSpaceInput
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class GBForCreateSpaceInput {
+  @SerializedName("PullOnDemand")
+  private Boolean pullOnDemand = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
-
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public GBForCreateSpaceInput pullOnDemand(Boolean pullOnDemand) {
+    this.pullOnDemand = pullOnDemand;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get pullOnDemand
+   * @return pullOnDemand
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Schema(description = "")
+  public Boolean isPullOnDemand() {
+    return pullOnDemand;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
-    return this;
-  }
-
-   /**
-   * Get templateID
-   * @return templateID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
-  }
-
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setPullOnDemand(Boolean pullOnDemand) {
+    this.pullOnDemand = pullOnDemand;
   }
 
 
@@ -83,24 +60,22 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    GBForCreateSpaceInput gbForCreateSpaceInput = (GBForCreateSpaceInput) o;
+    return Objects.equals(this.pullOnDemand, gbForCreateSpaceInput.pullOnDemand);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(pullOnDemand);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class GBForCreateSpaceInput {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    pullOnDemand: ").append(toIndentedString(pullOnDemand)).append("\n");
     sb.append("}");
     return sb.toString();
   }

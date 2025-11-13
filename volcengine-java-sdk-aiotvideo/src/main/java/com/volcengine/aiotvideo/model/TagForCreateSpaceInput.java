@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * TagForCreateSpaceInput
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class TagForCreateSpaceInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public TagForCreateSpaceInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
+  public TagForCreateSpaceInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get templateID
-   * @return templateID
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    TagForCreateSpaceInput tagForCreateSpaceInput = (TagForCreateSpaceInput) o;
+    return Objects.equals(this.key, tagForCreateSpaceInput.key) &&
+        Objects.equals(this.value, tagForCreateSpaceInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class TagForCreateSpaceInput {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

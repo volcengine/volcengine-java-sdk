@@ -24,38 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * GetScreenshotTemplateRequest
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
-
+public class GetScreenshotTemplateRequest {
   @SerializedName("TemplateID")
   private String templateID = null;
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
-    return this;
-  }
-
-   /**
-   * Get streamID
-   * @return streamID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
-  }
-
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
+  public GetScreenshotTemplateRequest templateID(String templateID) {
     this.templateID = templateID;
     return this;
   }
@@ -83,23 +61,21 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    GetScreenshotTemplateRequest getScreenshotTemplateRequest = (GetScreenshotTemplateRequest) o;
+    return Objects.equals(this.templateID, getScreenshotTemplateRequest.templateID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(templateID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class GetScreenshotTemplateRequest {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
     sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
     sb.append("}");
     return sb.toString();

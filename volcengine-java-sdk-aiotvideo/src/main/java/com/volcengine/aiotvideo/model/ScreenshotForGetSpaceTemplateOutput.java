@@ -24,38 +24,40 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * ScreenshotForGetSpaceTemplateOutput
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class ScreenshotForGetSpaceTemplateOutput {
+  @SerializedName("BindTime")
+  private String bindTime = null;
 
   @SerializedName("TemplateID")
   private String templateID = null;
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  @SerializedName("TemplateName")
+  private String templateName = null;
+
+  public ScreenshotForGetSpaceTemplateOutput bindTime(String bindTime) {
+    this.bindTime = bindTime;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get bindTime
+   * @return bindTime
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Schema(description = "")
+  public String getBindTime() {
+    return bindTime;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
+  public void setBindTime(String bindTime) {
+    this.bindTime = bindTime;
   }
 
-  public SetStreamTemplateRequest templateID(String templateID) {
+  public ScreenshotForGetSpaceTemplateOutput templateID(String templateID) {
     this.templateID = templateID;
     return this;
   }
@@ -64,14 +66,31 @@ public class SetStreamTemplateRequest {
    * Get templateID
    * @return templateID
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTemplateID() {
     return templateID;
   }
 
   public void setTemplateID(String templateID) {
     this.templateID = templateID;
+  }
+
+  public ScreenshotForGetSpaceTemplateOutput templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @Schema(description = "")
+  public String getTemplateName() {
+    return templateName;
+  }
+
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
   }
 
 
@@ -83,24 +102,26 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    ScreenshotForGetSpaceTemplateOutput screenshotForGetSpaceTemplateOutput = (ScreenshotForGetSpaceTemplateOutput) o;
+    return Objects.equals(this.bindTime, screenshotForGetSpaceTemplateOutput.bindTime) &&
+        Objects.equals(this.templateID, screenshotForGetSpaceTemplateOutput.templateID) &&
+        Objects.equals(this.templateName, screenshotForGetSpaceTemplateOutput.templateName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(bindTime, templateID, templateName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class ScreenshotForGetSpaceTemplateOutput {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
+    sb.append("    bindTime: ").append(toIndentedString(bindTime)).append("\n");
     sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

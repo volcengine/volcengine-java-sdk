@@ -24,38 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * DeleteScreenshotTemplateRequest
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
-
+public class DeleteScreenshotTemplateRequest {
   @SerializedName("TemplateID")
   private String templateID = null;
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
-    return this;
-  }
-
-   /**
-   * Get streamID
-   * @return streamID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
-  }
-
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
+  public DeleteScreenshotTemplateRequest templateID(String templateID) {
     this.templateID = templateID;
     return this;
   }
@@ -83,23 +61,21 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    DeleteScreenshotTemplateRequest deleteScreenshotTemplateRequest = (DeleteScreenshotTemplateRequest) o;
+    return Objects.equals(this.templateID, deleteScreenshotTemplateRequest.templateID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(templateID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class DeleteScreenshotTemplateRequest {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
     sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
     sb.append("}");
     return sb.toString();

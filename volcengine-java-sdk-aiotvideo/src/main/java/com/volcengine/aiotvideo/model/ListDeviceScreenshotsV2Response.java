@@ -19,59 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.aiotvideo.model.RecordForListDeviceScreenshotsV2Output;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * ListDeviceScreenshotsV2Response
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class ListDeviceScreenshotsV2Response extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Records")
+  private List<RecordForListDeviceScreenshotsV2Output> records = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
+  public ListDeviceScreenshotsV2Response records(List<RecordForListDeviceScreenshotsV2Output> records) {
+    this.records = records;
+    return this;
+  }
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public ListDeviceScreenshotsV2Response addRecordsItem(RecordForListDeviceScreenshotsV2Output recordsItem) {
+    if (this.records == null) {
+      this.records = new ArrayList<RecordForListDeviceScreenshotsV2Output>();
+    }
+    this.records.add(recordsItem);
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get records
+   * @return records
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Valid
+  @Schema(description = "")
+  public List<RecordForListDeviceScreenshotsV2Output> getRecords() {
+    return records;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
-    return this;
-  }
-
-   /**
-   * Get templateID
-   * @return templateID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
-  }
-
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setRecords(List<RecordForListDeviceScreenshotsV2Output> records) {
+    this.records = records;
   }
 
 
@@ -83,24 +72,22 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    ListDeviceScreenshotsV2Response listDeviceScreenshotsV2Response = (ListDeviceScreenshotsV2Response) o;
+    return Objects.equals(this.records, listDeviceScreenshotsV2Response.records);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(records);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class ListDeviceScreenshotsV2Response {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
     sb.append("}");
     return sb.toString();
   }

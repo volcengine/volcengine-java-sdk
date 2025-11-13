@@ -24,54 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * CancelBindTemplateRequest
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class CancelBindTemplateRequest {
+  @SerializedName("SpaceID")
+  private String spaceID = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
+  @SerializedName("TemplateType")
+  private String templateType = null;
 
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public CancelBindTemplateRequest spaceID(String spaceID) {
+    this.spaceID = spaceID;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get spaceID
+   * @return spaceID
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  public String getSpaceID() {
+    return spaceID;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
+  public void setSpaceID(String spaceID) {
+    this.spaceID = spaceID;
   }
 
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
+  public CancelBindTemplateRequest templateType(String templateType) {
+    this.templateType = templateType;
     return this;
   }
 
    /**
-   * Get templateID
-   * @return templateID
+   * Get templateType
+   * @return templateType
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
+  public String getTemplateType() {
+    return templateType;
   }
 
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setTemplateType(String templateType) {
+    this.templateType = templateType;
   }
 
 
@@ -83,24 +83,24 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    CancelBindTemplateRequest cancelBindTemplateRequest = (CancelBindTemplateRequest) o;
+    return Objects.equals(this.spaceID, cancelBindTemplateRequest.spaceID) &&
+        Objects.equals(this.templateType, cancelBindTemplateRequest.templateType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(spaceID, templateType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class CancelBindTemplateRequest {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    spaceID: ").append(toIndentedString(spaceID)).append("\n");
+    sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

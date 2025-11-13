@@ -24,54 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * GetSpaceTemplateRequest
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class GetSpaceTemplateRequest {
+  @SerializedName("SpaceID")
+  private String spaceID = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
-
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public GetSpaceTemplateRequest spaceID(String spaceID) {
+    this.spaceID = spaceID;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get spaceID
+   * @return spaceID
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  public String getSpaceID() {
+    return spaceID;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
-    return this;
-  }
-
-   /**
-   * Get templateID
-   * @return templateID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
-  }
-
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setSpaceID(String spaceID) {
+    this.spaceID = spaceID;
   }
 
 
@@ -83,24 +61,22 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    GetSpaceTemplateRequest getSpaceTemplateRequest = (GetSpaceTemplateRequest) o;
+    return Objects.equals(this.spaceID, getSpaceTemplateRequest.spaceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(spaceID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class GetSpaceTemplateRequest {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    spaceID: ").append(toIndentedString(spaceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetStreamTemplateRequest
+ * ScreenshotForListDeviceScreenshotsV2Output
  */
 
 
 
-public class SetStreamTemplateRequest {
-  @SerializedName("StreamID")
-  private String streamID = null;
+public class ScreenshotForListDeviceScreenshotsV2Output {
+  @SerializedName("BornTs")
+  private String bornTs = null;
 
-  @SerializedName("TemplateID")
-  private String templateID = null;
-
-  public SetStreamTemplateRequest streamID(String streamID) {
-    this.streamID = streamID;
+  public ScreenshotForListDeviceScreenshotsV2Output bornTs(String bornTs) {
+    this.bornTs = bornTs;
     return this;
   }
 
    /**
-   * Get streamID
-   * @return streamID
+   * Get bornTs
+   * @return bornTs
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStreamID() {
-    return streamID;
+  @Schema(description = "")
+  public String getBornTs() {
+    return bornTs;
   }
 
-  public void setStreamID(String streamID) {
-    this.streamID = streamID;
-  }
-
-  public SetStreamTemplateRequest templateID(String templateID) {
-    this.templateID = templateID;
-    return this;
-  }
-
-   /**
-   * Get templateID
-   * @return templateID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTemplateID() {
-    return templateID;
-  }
-
-  public void setTemplateID(String templateID) {
-    this.templateID = templateID;
+  public void setBornTs(String bornTs) {
+    this.bornTs = bornTs;
   }
 
 
@@ -83,24 +60,22 @@ public class SetStreamTemplateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
-        Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
+    ScreenshotForListDeviceScreenshotsV2Output screenshotForListDeviceScreenshotsV2Output = (ScreenshotForListDeviceScreenshotsV2Output) o;
+    return Objects.equals(this.bornTs, screenshotForListDeviceScreenshotsV2Output.bornTs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(streamID, templateID);
+    return Objects.hash(bornTs);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetStreamTemplateRequest {\n");
+    sb.append("class ScreenshotForListDeviceScreenshotsV2Output {\n");
     
-    sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
-    sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
+    sb.append("    bornTs: ").append(toIndentedString(bornTs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
