@@ -21,10 +21,6 @@ import java.util.regex.Pattern;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-/**
- * 密钥协商工具类
- * 实现ECIES (Elliptic Curve Integrated Encryption Scheme) 密钥协商方案
- */
 public class KeyAgreementUtil {
     static {
         Security.addProvider(new BouncyCastleProvider());
@@ -60,12 +56,6 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 生成ECIES密钥对并计算共享密钥
-     * @param publicKey 服务器公钥
-     * @return SessionTokenData 包含加密密钥、随机数和会话令牌
-     * @throws GeneralSecurityException 安全异常
-     */
     public static SessionData generateEciesKeyPair(PublicKey publicKey) throws GeneralSecurityException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("EC", "BC");
         ECParameterSpec ecSpec = ((java.security.interfaces.ECPublicKey) publicKey).getParams();
@@ -91,15 +81,6 @@ public class KeyAgreementUtil {
         return new SessionData(cryptoKey, cryptoNonce, sessionToken);
     }
 
-    /**
-     * 使用HKDF从共享密钥派生AES密钥和Nonce
-     * @param sharedSecret 共享密钥
-     * @param salt 盐值
-     * @param info 信息
-     * @param length 输出长度
-     * @return byte[] 派生的密钥材料
-     * @throws GeneralSecurityException 安全异常
-     */
     public static byte[] hkdf(byte[] sharedSecret, byte[] salt, byte[] info, int length)
             throws GeneralSecurityException {
         Mac hmacExtract = Mac.getInstance(HKDF_ALGORITHM);
@@ -132,11 +113,6 @@ public class KeyAgreementUtil {
         return result;
     }
 
-    /**
-     * 将EC公钥序列化为字节数组
-     * @param publicKey EC公钥
-     * @return byte[] 序列化后的公钥字节数组
-     */
     public static byte[] marshalEcPublicKey(java.security.interfaces.ECPublicKey publicKey) {
         try {
             ECPoint point = publicKey.getW();
@@ -158,12 +134,7 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 将BigInteger转换为指定长度的无符号大端字节数组
-     * @param value BigInteger值
-     * @param length 输出字节数组长度
-     * @return byte[] 无符号大端字节数组
-     */
+
     public static byte[] toUnsignedBigEndian(BigInteger value, int length) {
         byte[] bytes = value.toByteArray();
         byte[] result = new byte[length];
@@ -179,11 +150,7 @@ public class KeyAgreementUtil {
         return result;
     }
 
-    /**
-     * 验证密文本格式是否有效
-     * @param ciphertext 密文本
-     * @return boolean 是否有效
-     */
+
     public static boolean decryptValidate(String ciphertext) {
         try {
             byte[] cipherBytes = ciphertext.getBytes(StandardCharsets.UTF_8);
@@ -199,13 +166,7 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 使用密钥解密字符串
-     * @param key 加密密钥
-     * @param nonce 随机数
-     * @param encryptedContent 加密内容
-     * @return String 解密后的明文
-     */
+
     public static String decryptStringWithKey(byte[] key, byte[] nonce, String encryptedContent) {
         try {
             String content;
@@ -226,13 +187,6 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 使用密钥加密字符串
-     * @param key 加密密钥
-     * @param nonce 随机数
-     * @param plaintext 明文
-     * @return String Base64编码的加密结果
-     */
     public static String encryptStringWithKey(byte[] key, byte[] nonce, String plaintext) {
         try {
             Cipher cipher = javax.crypto.Cipher.getInstance("AES/GCM/NoPadding");
@@ -249,13 +203,7 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 解密Base64编码的AES-GCM加密字符串
-     * @param key 加密密钥
-     * @param nonce 随机数
-     * @param ciphertext Base64编码的密文
-     * @return String 解密后的明文
-     */
+
     public static String aesGcmDecryptBase64String(byte[] key, byte[] nonce, String ciphertext) {
         try {
             String cleaned = ciphertext.replaceAll("\\s", "");
@@ -275,14 +223,7 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * AES-GCM解密核心方法
-     * @param key 加密密钥
-     * @param iv 初始化向量
-     * @param cipherBytes 密文字节数组
-     * @return String 解密后的明文
-     * @throws GeneralSecurityException 安全异常
-     */
+
     public static String aesGcmDecrypt(byte[] key, byte[] iv, byte[] cipherBytes) throws GeneralSecurityException {
         try {
             Cipher decryptor = Cipher.getInstance("AES/GCM/NoPadding", "BC");
@@ -297,13 +238,6 @@ public class KeyAgreementUtil {
         }
     }
 
-    /**
-     * 解密包含多个Base64块的密文
-     * @param key 加密密钥
-     * @param nonce 随机数
-     * @param ciphertext 包含多个Base64块的密文
-     * @return String 拼接后的解密结果
-     */
     public static String aesGcmDecryptBase64List(byte[] key, byte[] nonce, String ciphertext) {
         List<String> result = new ArrayList<>();
 
@@ -322,11 +256,7 @@ public class KeyAgreementUtil {
         return String.join("", result);
     }
 
-    /**
-     * 从字符串中提取所有Base64编码块
-     * @param ciphertext 原始字符串
-     * @return List<String> Base64块列表
-     */
+
     public static List<String> extractBase64Blocks(String ciphertext) {
         List<String> blocks = new ArrayList<>();
 
@@ -344,13 +274,7 @@ public class KeyAgreementUtil {
         return blocks;
     }
 
-    /**
-     * 处理边界情况的递归解密方法
-     * @param key 加密密钥
-     * @param nonce 随机数
-     * @param data 待解密数据
-     * @return String 解密结果
-     */
+
     private static String decryptCornerCase(byte[] key, byte[] nonce, String data) {
         for (int i = 20; i < data.length(); i += 4) {
             try {
