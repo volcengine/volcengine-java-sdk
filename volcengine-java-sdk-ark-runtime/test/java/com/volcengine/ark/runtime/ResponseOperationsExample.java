@@ -1,5 +1,7 @@
 package com.volcengine.ark.runtime;
 
+import com.volcengine.ark.runtime.model.files.FileMeta;
+import com.volcengine.ark.runtime.model.files.UploadFileRequest;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
 import com.volcengine.ark.runtime.model.responses.content.InputContentItemImage;
@@ -14,6 +16,7 @@ import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
@@ -36,6 +39,15 @@ public class ResponseOperationsExample {
         dispatcher.setMaxRequestsPerHost(5000);
         ArkService service = ArkService.builder().dispatcher(dispatcher).timeout(Duration.ofHours(1)).connectionPool(connectionPool).apiKey(apiKey).build();
 
+        System.out.println("===== CreateResponse Example=====");
+        // upload a image for responses
+        FileMeta fileMeta = service.uploadFile(
+                UploadFileRequest.builder().
+                        file(new File("/path/to/file.jpeg")). // replace with your image file path
+                        purpose("user_data").
+                        build());
+        System.out.println("Uploaded file: " + fileMeta.getId());
+
         // create a response first
         CreateResponsesRequest request = CreateResponsesRequest.builder()
                 .model(modelName)
@@ -43,7 +55,7 @@ public class ResponseOperationsExample {
                 .input(ResponsesInput.builder().addListItem(
                         ItemEasyMessage.builder().role(ResponsesConstants.MESSAGE_ROLE_USER).content(
                                 MessageContent.builder()
-                                        .addListItem(InputContentItemImage.builder().imageUrl("https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg").build())
+                                        .addListItem(InputContentItemImage.builder().fileId(fileMeta.getId()).build())
                                         .addListItem(InputContentItemText.builder().text("这是哪里？").build())
                                         .build()
                         ).build()

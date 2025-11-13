@@ -21,6 +21,7 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.files.*;
 import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.images.generation.ImageGenStreamEvent;
@@ -36,6 +37,7 @@ import com.volcengine.ark.runtime.model.responses.response.ListInputItemsRespons
 import com.volcengine.ark.runtime.model.responses.response.ResponseObject;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
+import com.volcengine.ark.runtime.utils.MultipartBodyUtils;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
 import com.volcengine.ark.runtime.utils.SSE;
 import io.reactivex.BackpressureStrategy;
@@ -405,6 +407,42 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         ));
     }
 
+    @Override
+    public FileMeta uploadFile(UploadFileRequest request) {
+        MultipartBody.Part fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
+        RequestBody purpose = RequestBody.create(MultipartBodyUtils.TYPE, request.getPurpose());
+        RequestBody expireAt = null;
+        if (request.getExpireAt() != null) {
+            expireAt = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt()));
+        }
+        RequestBody fps = null;
+        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null && request.getPreprocessConfigs().getVideo().getFps() != null) {
+            fps = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getPreprocessConfigs().getVideo().getFps()));
+        }
+        return execute(api.uploadFile(fileBody, purpose, expireAt, fps, new HashMap<>()));
+    }
+
+    @Override
+    public FileMeta retrieveFile(String fileId) {
+        return execute(api.retrieveFile(fileId, new HashMap<>()));
+    }
+
+    @Override
+    public DeleteFileResponse deleteFile(String fileId) {
+        return execute(api.deleteFile(fileId, new HashMap<>()));
+    }
+
+    @Override
+    public ListFilesResponse listFiles(ListFilesRequest request) {
+        return execute(api.listFiles(
+                request.getLimit(),
+                request.getAfter(),
+                request.getPurpose(),
+                request.getOrder(),
+                new HashMap<>()
+        ));
+    }
+
     public void shutdownExecutor() {
         Objects.requireNonNull(this.executorService, "executorService must be set in order to shut down");
         this.executorService.shutdown();
@@ -502,6 +540,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
             if (apiKey != null && apiKey.length() > 0) {
                 clientBuilder.addInterceptor(new AuthenticationInterceptor(apiKey));
+                clientBuilder.addInterceptor(new EncryptionInterceptor(apiKey, baseUrl));
             } else if (ak != null && sk != null && ak.length() > 0 && sk.length() > 0) {
                 clientBuilder.addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region));
             } else {
@@ -531,7 +570,6 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                     .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl, callbackExecutor);
-
             return new ArkService(
                     retrofit.create(ArkApi.class),
                     client.dispatcher().executorService()

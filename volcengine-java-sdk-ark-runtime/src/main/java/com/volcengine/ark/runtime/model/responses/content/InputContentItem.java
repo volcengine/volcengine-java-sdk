@@ -16,6 +16,7 @@ import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
         @JsonSubTypes.Type(value = InputContentItemText.class, name = ResponsesConstants.CONTENT_ITEM_TYPE_INPUT_TEXT),
         @JsonSubTypes.Type(value = InputContentItemImage.class, name = ResponsesConstants.CONTENT_ITEM_TYPE_INPUT_IMAGE),
         @JsonSubTypes.Type(value = InputContentItemVideo.class, name = ResponsesConstants.CONTENT_ITEM_TYPE_INPUT_VIDEO),
+        @JsonSubTypes.Type(value = InputContentItemFile.class, name = ResponsesConstants.CONTENT_ITEM_TYPE_INPUT_FILE),
 })
 public abstract class InputContentItem {
     @JsonProperty("type")
