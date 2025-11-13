@@ -30,12 +30,6 @@ import javax.validation.Valid;
 
 
 public class ExtraPerformanceTypeForDescribeVolumeTypeOutput {
-  @SerializedName("BaseQosType")
-  private String baseQosType = null;
-
-  @SerializedName("ConversionRatio")
-  private String conversionRatio = null;
-
   @SerializedName("Id")
   private String id = null;
 
@@ -44,42 +38,6 @@ public class ExtraPerformanceTypeForDescribeVolumeTypeOutput {
 
   @SerializedName("MaxThroughput")
   private String maxThroughput = null;
-
-  public ExtraPerformanceTypeForDescribeVolumeTypeOutput baseQosType(String baseQosType) {
-    this.baseQosType = baseQosType;
-    return this;
-  }
-
-   /**
-   * Get baseQosType
-   * @return baseQosType
-  **/
-  @Schema(description = "")
-  public String getBaseQosType() {
-    return baseQosType;
-  }
-
-  public void setBaseQosType(String baseQosType) {
-    this.baseQosType = baseQosType;
-  }
-
-  public ExtraPerformanceTypeForDescribeVolumeTypeOutput conversionRatio(String conversionRatio) {
-    this.conversionRatio = conversionRatio;
-    return this;
-  }
-
-   /**
-   * Get conversionRatio
-   * @return conversionRatio
-  **/
-  @Schema(description = "")
-  public String getConversionRatio() {
-    return conversionRatio;
-  }
-
-  public void setConversionRatio(String conversionRatio) {
-    this.conversionRatio = conversionRatio;
-  }
 
   public ExtraPerformanceTypeForDescribeVolumeTypeOutput id(String id) {
     this.id = id;
@@ -145,16 +103,14 @@ public class ExtraPerformanceTypeForDescribeVolumeTypeOutput {
       return false;
     }
     ExtraPerformanceTypeForDescribeVolumeTypeOutput extraPerformanceTypeForDescribeVolumeTypeOutput = (ExtraPerformanceTypeForDescribeVolumeTypeOutput) o;
-    return Objects.equals(this.baseQosType, extraPerformanceTypeForDescribeVolumeTypeOutput.baseQosType) &&
-        Objects.equals(this.conversionRatio, extraPerformanceTypeForDescribeVolumeTypeOutput.conversionRatio) &&
-        Objects.equals(this.id, extraPerformanceTypeForDescribeVolumeTypeOutput.id) &&
+    return Objects.equals(this.id, extraPerformanceTypeForDescribeVolumeTypeOutput.id) &&
         Objects.equals(this.maxIops, extraPerformanceTypeForDescribeVolumeTypeOutput.maxIops) &&
         Objects.equals(this.maxThroughput, extraPerformanceTypeForDescribeVolumeTypeOutput.maxThroughput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseQosType, conversionRatio, id, maxIops, maxThroughput);
+    return Objects.hash(id, maxIops, maxThroughput);
   }
 
 
@@ -163,8 +119,6 @@ public class ExtraPerformanceTypeForDescribeVolumeTypeOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtraPerformanceTypeForDescribeVolumeTypeOutput {\n");
     
-    sb.append("    baseQosType: ").append(toIndentedString(baseQosType)).append("\n");
-    sb.append("    conversionRatio: ").append(toIndentedString(conversionRatio)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    maxIops: ").append(toIndentedString(maxIops)).append("\n");
     sb.append("    maxThroughput: ").append(toIndentedString(maxThroughput)).append("\n");

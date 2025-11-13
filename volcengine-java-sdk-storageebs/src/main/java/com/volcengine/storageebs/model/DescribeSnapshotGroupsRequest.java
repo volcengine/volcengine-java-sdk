@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.TagFilterForDescribeSnapshotGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +53,9 @@ public class DescribeSnapshotGroupsRequest {
 
   @SerializedName("Status")
   private List<String> status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeSnapshotGroupsInput> tagFilters = null;
 
   public DescribeSnapshotGroupsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -196,6 +200,33 @@ public class DescribeSnapshotGroupsRequest {
     this.status = status;
   }
 
+  public DescribeSnapshotGroupsRequest tagFilters(List<TagFilterForDescribeSnapshotGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeSnapshotGroupsRequest addTagFiltersItem(TagFilterForDescribeSnapshotGroupsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeSnapshotGroupsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeSnapshotGroupsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeSnapshotGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,12 +243,13 @@ public class DescribeSnapshotGroupsRequest {
         Objects.equals(this.pageSize, describeSnapshotGroupsRequest.pageSize) &&
         Objects.equals(this.projectName, describeSnapshotGroupsRequest.projectName) &&
         Objects.equals(this.snapshotGroupIds, describeSnapshotGroupsRequest.snapshotGroupIds) &&
-        Objects.equals(this.status, describeSnapshotGroupsRequest.status);
+        Objects.equals(this.status, describeSnapshotGroupsRequest.status) &&
+        Objects.equals(this.tagFilters, describeSnapshotGroupsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, name, pageNumber, pageSize, projectName, snapshotGroupIds, status);
+    return Objects.hash(instanceId, name, pageNumber, pageSize, projectName, snapshotGroupIds, status, tagFilters);
   }
 
 
@@ -233,6 +265,7 @@ public class DescribeSnapshotGroupsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    snapshotGroupIds: ").append(toIndentedString(snapshotGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

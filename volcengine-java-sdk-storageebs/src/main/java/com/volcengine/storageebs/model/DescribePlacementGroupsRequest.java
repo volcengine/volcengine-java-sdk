@@ -26,17 +26,17 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeVolumeTypeRequest
+ * DescribePlacementGroupsRequest
  */
 
 
 
-public class DescribeVolumeTypeRequest {
-  @SerializedName("Filter")
-  private String filter = null;
+public class DescribePlacementGroupsRequest {
+  @SerializedName("Ids")
+  private List<String> ids = null;
 
-  @SerializedName("OrderBy")
-  private String orderBy = null;
+  @SerializedName("Name")
+  private String name = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -44,49 +44,54 @@ public class DescribeVolumeTypeRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("VolumeTypeIds")
-  private List<String> volumeTypeIds = null;
-
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DescribeVolumeTypeRequest filter(String filter) {
-    this.filter = filter;
+  public DescribePlacementGroupsRequest ids(List<String> ids) {
+    this.ids = ids;
+    return this;
+  }
+
+  public DescribePlacementGroupsRequest addIdsItem(String idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<String>();
+    }
+    this.ids.add(idsItem);
     return this;
   }
 
    /**
-   * Get filter
-   * @return filter
+   * Get ids
+   * @return ids
   **/
   @Schema(description = "")
-  public String getFilter() {
-    return filter;
+  public List<String> getIds() {
+    return ids;
   }
 
-  public void setFilter(String filter) {
-    this.filter = filter;
+  public void setIds(List<String> ids) {
+    this.ids = ids;
   }
 
-  public DescribeVolumeTypeRequest orderBy(String orderBy) {
-    this.orderBy = orderBy;
+  public DescribePlacementGroupsRequest name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get orderBy
-   * @return orderBy
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getOrderBy() {
-    return orderBy;
+  public String getName() {
+    return name;
   }
 
-  public void setOrderBy(String orderBy) {
-    this.orderBy = orderBy;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public DescribeVolumeTypeRequest pageNumber(Integer pageNumber) {
+  public DescribePlacementGroupsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -104,7 +109,7 @@ public class DescribeVolumeTypeRequest {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeVolumeTypeRequest pageSize(Integer pageSize) {
+  public DescribePlacementGroupsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -122,33 +127,7 @@ public class DescribeVolumeTypeRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeVolumeTypeRequest volumeTypeIds(List<String> volumeTypeIds) {
-    this.volumeTypeIds = volumeTypeIds;
-    return this;
-  }
-
-  public DescribeVolumeTypeRequest addVolumeTypeIdsItem(String volumeTypeIdsItem) {
-    if (this.volumeTypeIds == null) {
-      this.volumeTypeIds = new ArrayList<String>();
-    }
-    this.volumeTypeIds.add(volumeTypeIdsItem);
-    return this;
-  }
-
-   /**
-   * Get volumeTypeIds
-   * @return volumeTypeIds
-  **/
-  @Schema(description = "")
-  public List<String> getVolumeTypeIds() {
-    return volumeTypeIds;
-  }
-
-  public void setVolumeTypeIds(List<String> volumeTypeIds) {
-    this.volumeTypeIds = volumeTypeIds;
-  }
-
-  public DescribeVolumeTypeRequest zoneId(String zoneId) {
+  public DescribePlacementGroupsRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -175,31 +154,29 @@ public class DescribeVolumeTypeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeVolumeTypeRequest describeVolumeTypeRequest = (DescribeVolumeTypeRequest) o;
-    return Objects.equals(this.filter, describeVolumeTypeRequest.filter) &&
-        Objects.equals(this.orderBy, describeVolumeTypeRequest.orderBy) &&
-        Objects.equals(this.pageNumber, describeVolumeTypeRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeVolumeTypeRequest.pageSize) &&
-        Objects.equals(this.volumeTypeIds, describeVolumeTypeRequest.volumeTypeIds) &&
-        Objects.equals(this.zoneId, describeVolumeTypeRequest.zoneId);
+    DescribePlacementGroupsRequest describePlacementGroupsRequest = (DescribePlacementGroupsRequest) o;
+    return Objects.equals(this.ids, describePlacementGroupsRequest.ids) &&
+        Objects.equals(this.name, describePlacementGroupsRequest.name) &&
+        Objects.equals(this.pageNumber, describePlacementGroupsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describePlacementGroupsRequest.pageSize) &&
+        Objects.equals(this.zoneId, describePlacementGroupsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, orderBy, pageNumber, pageSize, volumeTypeIds, zoneId);
+    return Objects.hash(ids, name, pageNumber, pageSize, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeVolumeTypeRequest {\n");
+    sb.append("class DescribePlacementGroupsRequest {\n");
     
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    volumeTypeIds: ").append(toIndentedString(volumeTypeIds)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -42,14 +42,8 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("RSCAutoRenewPeriod")
-  private Integer rsCAutoRenewPeriod = null;
-
   @SerializedName("RemainingSize")
   private Integer remainingSize = null;
-
-  @SerializedName("RenewalStatus")
-  private String renewalStatus = null;
 
   @SerializedName("Size")
   private Long size = null;
@@ -138,24 +132,6 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
     this.name = name;
   }
 
-  public RscInfoForDescribeReservedStorageCapacityOutput rsCAutoRenewPeriod(Integer rsCAutoRenewPeriod) {
-    this.rsCAutoRenewPeriod = rsCAutoRenewPeriod;
-    return this;
-  }
-
-   /**
-   * Get rsCAutoRenewPeriod
-   * @return rsCAutoRenewPeriod
-  **/
-  @Schema(description = "")
-  public Integer getRsCAutoRenewPeriod() {
-    return rsCAutoRenewPeriod;
-  }
-
-  public void setRsCAutoRenewPeriod(Integer rsCAutoRenewPeriod) {
-    this.rsCAutoRenewPeriod = rsCAutoRenewPeriod;
-  }
-
   public RscInfoForDescribeReservedStorageCapacityOutput remainingSize(Integer remainingSize) {
     this.remainingSize = remainingSize;
     return this;
@@ -172,24 +148,6 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   public void setRemainingSize(Integer remainingSize) {
     this.remainingSize = remainingSize;
-  }
-
-  public RscInfoForDescribeReservedStorageCapacityOutput renewalStatus(String renewalStatus) {
-    this.renewalStatus = renewalStatus;
-    return this;
-  }
-
-   /**
-   * Get renewalStatus
-   * @return renewalStatus
-  **/
-  @Schema(description = "")
-  public String getRenewalStatus() {
-    return renewalStatus;
-  }
-
-  public void setRenewalStatus(String renewalStatus) {
-    this.renewalStatus = renewalStatus;
   }
 
   public RscInfoForDescribeReservedStorageCapacityOutput size(Long size) {
@@ -296,9 +254,7 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
         Objects.equals(this.expiredTime, rscInfoForDescribeReservedStorageCapacityOutput.expiredTime) &&
         Objects.equals(this.id, rscInfoForDescribeReservedStorageCapacityOutput.id) &&
         Objects.equals(this.name, rscInfoForDescribeReservedStorageCapacityOutput.name) &&
-        Objects.equals(this.rsCAutoRenewPeriod, rscInfoForDescribeReservedStorageCapacityOutput.rsCAutoRenewPeriod) &&
         Objects.equals(this.remainingSize, rscInfoForDescribeReservedStorageCapacityOutput.remainingSize) &&
-        Objects.equals(this.renewalStatus, rscInfoForDescribeReservedStorageCapacityOutput.renewalStatus) &&
         Objects.equals(this.size, rscInfoForDescribeReservedStorageCapacityOutput.size) &&
         Objects.equals(this.status, rscInfoForDescribeReservedStorageCapacityOutput.status) &&
         Objects.equals(this.takeEffectTime, rscInfoForDescribeReservedStorageCapacityOutput.takeEffectTime) &&
@@ -308,7 +264,7 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, expiredTime, id, name, rsCAutoRenewPeriod, remainingSize, renewalStatus, size, status, takeEffectTime, type, zoneId);
+    return Objects.hash(accountId, expiredTime, id, name, remainingSize, size, status, takeEffectTime, type, zoneId);
   }
 
 
@@ -321,9 +277,7 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    rsCAutoRenewPeriod: ").append(toIndentedString(rsCAutoRenewPeriod)).append("\n");
     sb.append("    remainingSize: ").append(toIndentedString(remainingSize)).append("\n");
-    sb.append("    renewalStatus: ").append(toIndentedString(renewalStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    takeEffectTime: ").append(toIndentedString(takeEffectTime)).append("\n");

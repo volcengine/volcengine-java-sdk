@@ -38,15 +38,6 @@ public class ModifyAutoSnapshotPolicyRequest {
   @SerializedName("AutoSnapshotPolicyName")
   private String autoSnapshotPolicyName = null;
 
-  @SerializedName("DestinationRegion")
-  private String destinationRegion = null;
-
-  @SerializedName("DestinationRetentionDays")
-  private Integer destinationRetentionDays = null;
-
-  @SerializedName("EnableCopy")
-  private Boolean enableCopy = null;
-
   @SerializedName("RepeatDays")
   private Integer repeatDays = null;
 
@@ -94,62 +85,6 @@ public class ModifyAutoSnapshotPolicyRequest {
 
   public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
     this.autoSnapshotPolicyName = autoSnapshotPolicyName;
-  }
-
-  public ModifyAutoSnapshotPolicyRequest destinationRegion(String destinationRegion) {
-    this.destinationRegion = destinationRegion;
-    return this;
-  }
-
-   /**
-   * Get destinationRegion
-   * @return destinationRegion
-  **/
-  @Schema(description = "")
-  public String getDestinationRegion() {
-    return destinationRegion;
-  }
-
-  public void setDestinationRegion(String destinationRegion) {
-    this.destinationRegion = destinationRegion;
-  }
-
-  public ModifyAutoSnapshotPolicyRequest destinationRetentionDays(Integer destinationRetentionDays) {
-    this.destinationRetentionDays = destinationRetentionDays;
-    return this;
-  }
-
-   /**
-   * Get destinationRetentionDays
-   * minimum: -1
-   * maximum: 65536
-   * @return destinationRetentionDays
-  **/
- @Min(-1) @Max(65536)  @Schema(description = "")
-  public Integer getDestinationRetentionDays() {
-    return destinationRetentionDays;
-  }
-
-  public void setDestinationRetentionDays(Integer destinationRetentionDays) {
-    this.destinationRetentionDays = destinationRetentionDays;
-  }
-
-  public ModifyAutoSnapshotPolicyRequest enableCopy(Boolean enableCopy) {
-    this.enableCopy = enableCopy;
-    return this;
-  }
-
-   /**
-   * Get enableCopy
-   * @return enableCopy
-  **/
-  @Schema(description = "")
-  public Boolean isEnableCopy() {
-    return enableCopy;
-  }
-
-  public void setEnableCopy(Boolean enableCopy) {
-    this.enableCopy = enableCopy;
   }
 
   public ModifyAutoSnapshotPolicyRequest repeatDays(Integer repeatDays) {
@@ -252,9 +187,6 @@ public class ModifyAutoSnapshotPolicyRequest {
     ModifyAutoSnapshotPolicyRequest modifyAutoSnapshotPolicyRequest = (ModifyAutoSnapshotPolicyRequest) o;
     return Objects.equals(this.autoSnapshotPolicyId, modifyAutoSnapshotPolicyRequest.autoSnapshotPolicyId) &&
         Objects.equals(this.autoSnapshotPolicyName, modifyAutoSnapshotPolicyRequest.autoSnapshotPolicyName) &&
-        Objects.equals(this.destinationRegion, modifyAutoSnapshotPolicyRequest.destinationRegion) &&
-        Objects.equals(this.destinationRetentionDays, modifyAutoSnapshotPolicyRequest.destinationRetentionDays) &&
-        Objects.equals(this.enableCopy, modifyAutoSnapshotPolicyRequest.enableCopy) &&
         Objects.equals(this.repeatDays, modifyAutoSnapshotPolicyRequest.repeatDays) &&
         Objects.equals(this.repeatWeekdays, modifyAutoSnapshotPolicyRequest.repeatWeekdays) &&
         Objects.equals(this.retentionDays, modifyAutoSnapshotPolicyRequest.retentionDays) &&
@@ -263,7 +195,7 @@ public class ModifyAutoSnapshotPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, destinationRegion, destinationRetentionDays, enableCopy, repeatDays, repeatWeekdays, retentionDays, timePoints);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, repeatDays, repeatWeekdays, retentionDays, timePoints);
   }
 
 
@@ -274,9 +206,6 @@ public class ModifyAutoSnapshotPolicyRequest {
     
     sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
-    sb.append("    destinationRegion: ").append(toIndentedString(destinationRegion)).append("\n");
-    sb.append("    destinationRetentionDays: ").append(toIndentedString(destinationRetentionDays)).append("\n");
-    sb.append("    enableCopy: ").append(toIndentedString(enableCopy)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatWeekdays: ").append(toIndentedString(repeatWeekdays)).append("\n");
     sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");

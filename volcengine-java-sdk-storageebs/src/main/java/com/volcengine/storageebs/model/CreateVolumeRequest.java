@@ -54,6 +54,9 @@ public class CreateVolumeRequest {
   @SerializedName("Kind")
   private String kind = null;
 
+  @SerializedName("PlacementGroupId")
+  private String placementGroupId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -62,6 +65,9 @@ public class CreateVolumeRequest {
 
   @SerializedName("SnapshotId")
   private String snapshotId = null;
+
+  @SerializedName("SubgroupNumber")
+  private Integer subgroupNumber = null;
 
   @SerializedName("Tags")
   private List<TagForCreateVolumeInput> tags = null;
@@ -204,6 +210,24 @@ public class CreateVolumeRequest {
     this.kind = kind;
   }
 
+  public CreateVolumeRequest placementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+    return this;
+  }
+
+   /**
+   * Get placementGroupId
+   * @return placementGroupId
+  **/
+  @Schema(description = "")
+  public String getPlacementGroupId() {
+    return placementGroupId;
+  }
+
+  public void setPlacementGroupId(String placementGroupId) {
+    this.placementGroupId = placementGroupId;
+  }
+
   public CreateVolumeRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -257,6 +281,24 @@ public class CreateVolumeRequest {
 
   public void setSnapshotId(String snapshotId) {
     this.snapshotId = snapshotId;
+  }
+
+  public CreateVolumeRequest subgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
+    return this;
+  }
+
+   /**
+   * Get subgroupNumber
+   * @return subgroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getSubgroupNumber() {
+    return subgroupNumber;
+  }
+
+  public void setSubgroupNumber(Integer subgroupNumber) {
+    this.subgroupNumber = subgroupNumber;
   }
 
   public CreateVolumeRequest tags(List<TagForCreateVolumeInput> tags) {
@@ -377,9 +419,11 @@ public class CreateVolumeRequest {
         Objects.equals(this.extraPerformanceTypeId, createVolumeRequest.extraPerformanceTypeId) &&
         Objects.equals(this.instanceId, createVolumeRequest.instanceId) &&
         Objects.equals(this.kind, createVolumeRequest.kind) &&
+        Objects.equals(this.placementGroupId, createVolumeRequest.placementGroupId) &&
         Objects.equals(this.projectName, createVolumeRequest.projectName) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
         Objects.equals(this.snapshotId, createVolumeRequest.snapshotId) &&
+        Objects.equals(this.subgroupNumber, createVolumeRequest.subgroupNumber) &&
         Objects.equals(this.tags, createVolumeRequest.tags) &&
         Objects.equals(this.volumeChargeType, createVolumeRequest.volumeChargeType) &&
         Objects.equals(this.volumeName, createVolumeRequest.volumeName) &&
@@ -389,7 +433,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, projectName, size, snapshotId, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, placementGroupId, projectName, size, snapshotId, subgroupNumber, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -405,9 +449,11 @@ public class CreateVolumeRequest {
     sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
+    sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumeChargeType: ").append(toIndentedString(volumeChargeType)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");

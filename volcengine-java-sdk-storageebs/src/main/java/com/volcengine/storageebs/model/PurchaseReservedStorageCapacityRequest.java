@@ -42,9 +42,6 @@ public class PurchaseReservedStorageCapacityRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  @SerializedName("RSCAutoRenew")
-  private Boolean rsCAutoRenew = null;
-
   @SerializedName("ReservedCapacity")
   private Integer reservedCapacity = null;
 
@@ -127,24 +124,6 @@ public class PurchaseReservedStorageCapacityRequest {
 
   public void setPeriodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
-  }
-
-  public PurchaseReservedStorageCapacityRequest rsCAutoRenew(Boolean rsCAutoRenew) {
-    this.rsCAutoRenew = rsCAutoRenew;
-    return this;
-  }
-
-   /**
-   * Get rsCAutoRenew
-   * @return rsCAutoRenew
-  **/
-  @Schema(description = "")
-  public Boolean isRsCAutoRenew() {
-    return rsCAutoRenew;
-  }
-
-  public void setRsCAutoRenew(Boolean rsCAutoRenew) {
-    this.rsCAutoRenew = rsCAutoRenew;
   }
 
   public PurchaseReservedStorageCapacityRequest reservedCapacity(Integer reservedCapacity) {
@@ -233,7 +212,6 @@ public class PurchaseReservedStorageCapacityRequest {
         Objects.equals(this.effectiveAt, purchaseReservedStorageCapacityRequest.effectiveAt) &&
         Objects.equals(this.period, purchaseReservedStorageCapacityRequest.period) &&
         Objects.equals(this.periodUnit, purchaseReservedStorageCapacityRequest.periodUnit) &&
-        Objects.equals(this.rsCAutoRenew, purchaseReservedStorageCapacityRequest.rsCAutoRenew) &&
         Objects.equals(this.reservedCapacity, purchaseReservedStorageCapacityRequest.reservedCapacity) &&
         Objects.equals(this.reservedStorageCapacityName, purchaseReservedStorageCapacityRequest.reservedStorageCapacityName) &&
         Objects.equals(this.volumeType, purchaseReservedStorageCapacityRequest.volumeType) &&
@@ -242,7 +220,7 @@ public class PurchaseReservedStorageCapacityRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, effectiveAt, period, periodUnit, rsCAutoRenew, reservedCapacity, reservedStorageCapacityName, volumeType, zoneId);
+    return Objects.hash(clientToken, effectiveAt, period, periodUnit, reservedCapacity, reservedStorageCapacityName, volumeType, zoneId);
   }
 
 
@@ -255,7 +233,6 @@ public class PurchaseReservedStorageCapacityRequest {
     sb.append("    effectiveAt: ").append(toIndentedString(effectiveAt)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    rsCAutoRenew: ").append(toIndentedString(rsCAutoRenew)).append("\n");
     sb.append("    reservedCapacity: ").append(toIndentedString(reservedCapacity)).append("\n");
     sb.append("    reservedStorageCapacityName: ").append(toIndentedString(reservedStorageCapacityName)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");

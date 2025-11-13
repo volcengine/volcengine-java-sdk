@@ -21,55 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AttachmentForDescribeVolumesOutput
+ * TagFilterForDescribeSnapshotGroupsInput
  */
 
 
 
-public class AttachmentForDescribeVolumesOutput {
-  @SerializedName("AttachedTime")
-  private String attachedTime = null;
+public class TagFilterForDescribeSnapshotGroupsInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public AttachmentForDescribeVolumesOutput attachedTime(String attachedTime) {
-    this.attachedTime = attachedTime;
+  public TagFilterForDescribeSnapshotGroupsInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get attachedTime
-   * @return attachedTime
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getAttachedTime() {
-    return attachedTime;
+  public String getKey() {
+    return key;
   }
 
-  public void setAttachedTime(String attachedTime) {
-    this.attachedTime = attachedTime;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public AttachmentForDescribeVolumesOutput instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public TagFilterForDescribeSnapshotGroupsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeSnapshotGroupsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +91,24 @@ public class AttachmentForDescribeVolumesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachmentForDescribeVolumesOutput attachmentForDescribeVolumesOutput = (AttachmentForDescribeVolumesOutput) o;
-    return Objects.equals(this.attachedTime, attachmentForDescribeVolumesOutput.attachedTime) &&
-        Objects.equals(this.instanceId, attachmentForDescribeVolumesOutput.instanceId);
+    TagFilterForDescribeSnapshotGroupsInput tagFilterForDescribeSnapshotGroupsInput = (TagFilterForDescribeSnapshotGroupsInput) o;
+    return Objects.equals(this.key, tagFilterForDescribeSnapshotGroupsInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeSnapshotGroupsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachedTime, instanceId);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachmentForDescribeVolumesOutput {\n");
+    sb.append("class TagFilterForDescribeSnapshotGroupsInput {\n");
     
-    sb.append("    attachedTime: ").append(toIndentedString(attachedTime)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

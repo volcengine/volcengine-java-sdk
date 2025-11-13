@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AutoRenewReservedStorageCapacityResponse
+ * ModifyPlacementGroupResponse
  */
 
 
 
-public class AutoRenewReservedStorageCapacityResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyPlacementGroupResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class AutoRenewReservedStorageCapacityResponse extends com.volcengine.mod
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoRenewReservedStorageCapacityResponse {\n");
+    sb.append("class ModifyPlacementGroupResponse {\n");
     
     sb.append("}");
     return sb.toString();
