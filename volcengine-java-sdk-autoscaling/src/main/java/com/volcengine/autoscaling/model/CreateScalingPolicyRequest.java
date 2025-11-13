@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
@@ -39,6 +40,9 @@ public class CreateScalingPolicyRequest {
 
   @SerializedName("AlarmPolicy")
   private AlarmPolicyForCreateScalingPolicyInput alarmPolicy = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Cooldown")
   private Integer cooldown = null;
@@ -108,6 +112,24 @@ public class CreateScalingPolicyRequest {
 
   public void setAlarmPolicy(AlarmPolicyForCreateScalingPolicyInput alarmPolicy) {
     this.alarmPolicy = alarmPolicy;
+  }
+
+  public CreateScalingPolicyRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateScalingPolicyRequest cooldown(Integer cooldown) {
@@ -217,6 +239,7 @@ public class CreateScalingPolicyRequest {
     return Objects.equals(this.adjustmentType, createScalingPolicyRequest.adjustmentType) &&
         Objects.equals(this.adjustmentValue, createScalingPolicyRequest.adjustmentValue) &&
         Objects.equals(this.alarmPolicy, createScalingPolicyRequest.alarmPolicy) &&
+        Objects.equals(this.clientToken, createScalingPolicyRequest.clientToken) &&
         Objects.equals(this.cooldown, createScalingPolicyRequest.cooldown) &&
         Objects.equals(this.scalingGroupId, createScalingPolicyRequest.scalingGroupId) &&
         Objects.equals(this.scalingPolicyName, createScalingPolicyRequest.scalingPolicyName) &&
@@ -226,7 +249,7 @@ public class CreateScalingPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjustmentType, adjustmentValue, alarmPolicy, cooldown, scalingGroupId, scalingPolicyName, scalingPolicyType, scheduledPolicy);
+    return Objects.hash(adjustmentType, adjustmentValue, alarmPolicy, clientToken, cooldown, scalingGroupId, scalingPolicyName, scalingPolicyType, scheduledPolicy);
   }
 
 
@@ -238,6 +261,7 @@ public class CreateScalingPolicyRequest {
     sb.append("    adjustmentType: ").append(toIndentedString(adjustmentType)).append("\n");
     sb.append("    adjustmentValue: ").append(toIndentedString(adjustmentValue)).append("\n");
     sb.append("    alarmPolicy: ").append(toIndentedString(alarmPolicy)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    cooldown: ").append(toIndentedString(cooldown)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingPolicyName: ").append(toIndentedString(scalingPolicyName)).append("\n");

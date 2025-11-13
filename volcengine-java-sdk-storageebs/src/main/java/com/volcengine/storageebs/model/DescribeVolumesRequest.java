@@ -51,6 +51,9 @@ public class DescribeVolumesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SysTagVisible")
+  private Boolean sysTagVisible = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeVolumesInput> tagFilters = null;
 
@@ -176,6 +179,24 @@ public class DescribeVolumesRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public DescribeVolumesRequest sysTagVisible(Boolean sysTagVisible) {
+    this.sysTagVisible = sysTagVisible;
+    return this;
+  }
+
+   /**
+   * Get sysTagVisible
+   * @return sysTagVisible
+  **/
+  @Schema(description = "")
+  public Boolean isSysTagVisible() {
+    return sysTagVisible;
+  }
+
+  public void setSysTagVisible(Boolean sysTagVisible) {
+    this.sysTagVisible = sysTagVisible;
   }
 
   public DescribeVolumesRequest tagFilters(List<TagFilterForDescribeVolumesInput> tagFilters) {
@@ -319,6 +340,7 @@ public class DescribeVolumesRequest {
         Objects.equals(this.pageNumber, describeVolumesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVolumesRequest.pageSize) &&
         Objects.equals(this.projectName, describeVolumesRequest.projectName) &&
+        Objects.equals(this.sysTagVisible, describeVolumesRequest.sysTagVisible) &&
         Objects.equals(this.tagFilters, describeVolumesRequest.tagFilters) &&
         Objects.equals(this.volumeIds, describeVolumesRequest.volumeIds) &&
         Objects.equals(this.volumeName, describeVolumesRequest.volumeName) &&
@@ -329,7 +351,7 @@ public class DescribeVolumesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, instanceId, kind, pageNumber, pageSize, projectName, tagFilters, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
+    return Objects.hash(billingType, instanceId, kind, pageNumber, pageSize, projectName, sysTagVisible, tagFilters, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
   }
 
 
@@ -344,6 +366,7 @@ public class DescribeVolumesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    sysTagVisible: ").append(toIndentedString(sysTagVisible)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");

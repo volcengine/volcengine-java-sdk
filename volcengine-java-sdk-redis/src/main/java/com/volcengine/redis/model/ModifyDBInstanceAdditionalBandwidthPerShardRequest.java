@@ -33,6 +33,12 @@ public class ModifyDBInstanceAdditionalBandwidthPerShardRequest {
   @SerializedName("AdditionalBandwidth")
   private Integer additionalBandwidth = null;
 
+  @SerializedName("AdditionalReadBandwidth")
+  private Integer additionalReadBandwidth = null;
+
+  @SerializedName("AdditionalWriteBandwidth")
+  private Integer additionalWriteBandwidth = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -48,14 +54,49 @@ public class ModifyDBInstanceAdditionalBandwidthPerShardRequest {
    * Get additionalBandwidth
    * @return additionalBandwidth
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getAdditionalBandwidth() {
     return additionalBandwidth;
   }
 
   public void setAdditionalBandwidth(Integer additionalBandwidth) {
     this.additionalBandwidth = additionalBandwidth;
+  }
+
+  public ModifyDBInstanceAdditionalBandwidthPerShardRequest additionalReadBandwidth(Integer additionalReadBandwidth) {
+    this.additionalReadBandwidth = additionalReadBandwidth;
+    return this;
+  }
+
+   /**
+   * Get additionalReadBandwidth
+   * @return additionalReadBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getAdditionalReadBandwidth() {
+    return additionalReadBandwidth;
+  }
+
+  public void setAdditionalReadBandwidth(Integer additionalReadBandwidth) {
+    this.additionalReadBandwidth = additionalReadBandwidth;
+  }
+
+  public ModifyDBInstanceAdditionalBandwidthPerShardRequest additionalWriteBandwidth(Integer additionalWriteBandwidth) {
+    this.additionalWriteBandwidth = additionalWriteBandwidth;
+    return this;
+  }
+
+   /**
+   * Get additionalWriteBandwidth
+   * @return additionalWriteBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getAdditionalWriteBandwidth() {
+    return additionalWriteBandwidth;
+  }
+
+  public void setAdditionalWriteBandwidth(Integer additionalWriteBandwidth) {
+    this.additionalWriteBandwidth = additionalWriteBandwidth;
   }
 
   public ModifyDBInstanceAdditionalBandwidthPerShardRequest clientToken(String clientToken) {
@@ -106,13 +147,15 @@ public class ModifyDBInstanceAdditionalBandwidthPerShardRequest {
     }
     ModifyDBInstanceAdditionalBandwidthPerShardRequest modifyDBInstanceAdditionalBandwidthPerShardRequest = (ModifyDBInstanceAdditionalBandwidthPerShardRequest) o;
     return Objects.equals(this.additionalBandwidth, modifyDBInstanceAdditionalBandwidthPerShardRequest.additionalBandwidth) &&
+        Objects.equals(this.additionalReadBandwidth, modifyDBInstanceAdditionalBandwidthPerShardRequest.additionalReadBandwidth) &&
+        Objects.equals(this.additionalWriteBandwidth, modifyDBInstanceAdditionalBandwidthPerShardRequest.additionalWriteBandwidth) &&
         Objects.equals(this.clientToken, modifyDBInstanceAdditionalBandwidthPerShardRequest.clientToken) &&
         Objects.equals(this.instanceId, modifyDBInstanceAdditionalBandwidthPerShardRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalBandwidth, clientToken, instanceId);
+    return Objects.hash(additionalBandwidth, additionalReadBandwidth, additionalWriteBandwidth, clientToken, instanceId);
   }
 
 
@@ -122,6 +165,8 @@ public class ModifyDBInstanceAdditionalBandwidthPerShardRequest {
     sb.append("class ModifyDBInstanceAdditionalBandwidthPerShardRequest {\n");
     
     sb.append("    additionalBandwidth: ").append(toIndentedString(additionalBandwidth)).append("\n");
+    sb.append("    additionalReadBandwidth: ").append(toIndentedString(additionalReadBandwidth)).append("\n");
+    sb.append("    additionalWriteBandwidth: ").append(toIndentedString(additionalWriteBandwidth)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

@@ -42,6 +42,9 @@ public class ColumnForAddTablesInput {
   @SerializedName("schema_column_type")
   private String schemaColumnType = null;
 
+  @SerializedName("vector_size")
+  private Integer vectorSize = null;
+
   public ColumnForAddTablesInput columnName(String columnName) {
     this.columnName = columnName;
     return this;
@@ -114,6 +117,24 @@ public class ColumnForAddTablesInput {
     this.schemaColumnType = schemaColumnType;
   }
 
+  public ColumnForAddTablesInput vectorSize(Integer vectorSize) {
+    this.vectorSize = vectorSize;
+    return this;
+  }
+
+   /**
+   * Get vectorSize
+   * @return vectorSize
+  **/
+  @Schema(description = "")
+  public Integer getVectorSize() {
+    return vectorSize;
+  }
+
+  public void setVectorSize(Integer vectorSize) {
+    this.vectorSize = vectorSize;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class ColumnForAddTablesInput {
     return Objects.equals(this.columnName, columnForAddTablesInput.columnName) &&
         Objects.equals(this.defaultValue, columnForAddTablesInput.defaultValue) &&
         Objects.equals(this.enableDefaultValue, columnForAddTablesInput.enableDefaultValue) &&
-        Objects.equals(this.schemaColumnType, columnForAddTablesInput.schemaColumnType);
+        Objects.equals(this.schemaColumnType, columnForAddTablesInput.schemaColumnType) &&
+        Objects.equals(this.vectorSize, columnForAddTablesInput.vectorSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnName, defaultValue, enableDefaultValue, schemaColumnType);
+    return Objects.hash(columnName, defaultValue, enableDefaultValue, schemaColumnType, vectorSize);
   }
 
 
@@ -145,6 +167,7 @@ public class ColumnForAddTablesInput {
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    enableDefaultValue: ").append(toIndentedString(enableDefaultValue)).append("\n");
     sb.append("    schemaColumnType: ").append(toIndentedString(schemaColumnType)).append("\n");
+    sb.append("    vectorSize: ").append(toIndentedString(vectorSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

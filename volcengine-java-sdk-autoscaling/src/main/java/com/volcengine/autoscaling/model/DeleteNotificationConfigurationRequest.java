@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteNotificationConfigurationRequest {
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;

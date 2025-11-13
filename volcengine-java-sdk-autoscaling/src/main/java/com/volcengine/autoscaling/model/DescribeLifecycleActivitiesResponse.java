@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeLifecycleActivitiesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LifecycleActivities")
   private List<LifecycleActivityForDescribeLifecycleActivitiesOutput> lifecycleActivities = null;

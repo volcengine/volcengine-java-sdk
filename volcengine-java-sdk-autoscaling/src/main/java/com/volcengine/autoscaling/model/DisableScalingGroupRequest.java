@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisableScalingGroupRequest {
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.storageebs.model.FilterForDescribeSnapshotsInput;
+import com.volcengine.storageebs.model.TagFilterForDescribeSnapshotsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,12 @@ import javax.validation.Valid;
 public class DescribeSnapshotsRequest {
   @SerializedName("Filter")
   private List<FilterForDescribeSnapshotsInput> filter = null;
+
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -56,6 +63,9 @@ public class DescribeSnapshotsRequest {
 
   @SerializedName("SnapshotTypes")
   private List<String> snapshotTypes = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeSnapshotsInput> tagFilters = null;
 
   @SerializedName("VolumeId")
   private String volumeId = null;
@@ -88,6 +98,42 @@ public class DescribeSnapshotsRequest {
 
   public void setFilter(List<FilterForDescribeSnapshotsInput> filter) {
     this.filter = filter;
+  }
+
+  public DescribeSnapshotsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeSnapshotsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeSnapshotsRequest pageNumber(Integer pageNumber) {
@@ -241,6 +287,33 @@ public class DescribeSnapshotsRequest {
     this.snapshotTypes = snapshotTypes;
   }
 
+  public DescribeSnapshotsRequest tagFilters(List<TagFilterForDescribeSnapshotsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeSnapshotsRequest addTagFiltersItem(TagFilterForDescribeSnapshotsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeSnapshotsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeSnapshotsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeSnapshotsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeSnapshotsRequest volumeId(String volumeId) {
     this.volumeId = volumeId;
     return this;
@@ -288,6 +361,8 @@ public class DescribeSnapshotsRequest {
     }
     DescribeSnapshotsRequest describeSnapshotsRequest = (DescribeSnapshotsRequest) o;
     return Objects.equals(this.filter, describeSnapshotsRequest.filter) &&
+        Objects.equals(this.maxResults, describeSnapshotsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeSnapshotsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeSnapshotsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSnapshotsRequest.pageSize) &&
         Objects.equals(this.projectName, describeSnapshotsRequest.projectName) &&
@@ -295,13 +370,14 @@ public class DescribeSnapshotsRequest {
         Objects.equals(this.snapshotName, describeSnapshotsRequest.snapshotName) &&
         Objects.equals(this.snapshotStatus, describeSnapshotsRequest.snapshotStatus) &&
         Objects.equals(this.snapshotTypes, describeSnapshotsRequest.snapshotTypes) &&
+        Objects.equals(this.tagFilters, describeSnapshotsRequest.tagFilters) &&
         Objects.equals(this.volumeId, describeSnapshotsRequest.volumeId) &&
         Objects.equals(this.zoneId, describeSnapshotsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, projectName, snapshotIds, snapshotName, snapshotStatus, snapshotTypes, volumeId, zoneId);
+    return Objects.hash(filter, maxResults, nextToken, pageNumber, pageSize, projectName, snapshotIds, snapshotName, snapshotStatus, snapshotTypes, tagFilters, volumeId, zoneId);
   }
 
 
@@ -311,6 +387,8 @@ public class DescribeSnapshotsRequest {
     sb.append("class DescribeSnapshotsRequest {\n");
     
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
@@ -318,6 +396,7 @@ public class DescribeSnapshotsRequest {
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
     sb.append("    snapshotStatus: ").append(toIndentedString(snapshotStatus)).append("\n");
     sb.append("    snapshotTypes: ").append(toIndentedString(snapshotTypes)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * TagFilterForDescribeScalingGroupsInput
  */
+
 
 
 public class TagFilterForDescribeScalingGroupsInput {
@@ -34,6 +37,9 @@ public class TagFilterForDescribeScalingGroupsInput {
 
   @SerializedName("Value")
   private String value = null;
+
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeScalingGroupsInput key(String key) {
     this.key = key;
@@ -71,6 +77,32 @@ public class TagFilterForDescribeScalingGroupsInput {
     this.value = value;
   }
 
+  public TagFilterForDescribeScalingGroupsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeScalingGroupsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +114,13 @@ public class TagFilterForDescribeScalingGroupsInput {
     }
     TagFilterForDescribeScalingGroupsInput tagFilterForDescribeScalingGroupsInput = (TagFilterForDescribeScalingGroupsInput) o;
     return Objects.equals(this.key, tagFilterForDescribeScalingGroupsInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeScalingGroupsInput.value);
+        Objects.equals(this.value, tagFilterForDescribeScalingGroupsInput.value) &&
+        Objects.equals(this.values, tagFilterForDescribeScalingGroupsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, value, values);
   }
 
 
@@ -98,6 +131,7 @@ public class TagFilterForDescribeScalingGroupsInput {
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

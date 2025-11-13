@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LaunchTemplateOverrideForModifyScalingGroupInput {
   @SerializedName("InstanceType")
   private String instanceType = null;

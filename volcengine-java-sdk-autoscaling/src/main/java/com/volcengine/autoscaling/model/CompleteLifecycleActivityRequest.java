@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CompleteLifecycleActivityRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -37,6 +38,9 @@ public class CompleteLifecycleActivityRequest {
 
   @SerializedName("LifecycleActivityPolicy")
   private String lifecycleActivityPolicy = null;
+
+  @SerializedName("LifecycleHookId")
+  private String lifecycleHookId = null;
 
   public CompleteLifecycleActivityRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -93,6 +97,24 @@ public class CompleteLifecycleActivityRequest {
     this.lifecycleActivityPolicy = lifecycleActivityPolicy;
   }
 
+  public CompleteLifecycleActivityRequest lifecycleHookId(String lifecycleHookId) {
+    this.lifecycleHookId = lifecycleHookId;
+    return this;
+  }
+
+   /**
+   * Get lifecycleHookId
+   * @return lifecycleHookId
+  **/
+  @Schema(description = "")
+  public String getLifecycleHookId() {
+    return lifecycleHookId;
+  }
+
+  public void setLifecycleHookId(String lifecycleHookId) {
+    this.lifecycleHookId = lifecycleHookId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +127,13 @@ public class CompleteLifecycleActivityRequest {
     CompleteLifecycleActivityRequest completeLifecycleActivityRequest = (CompleteLifecycleActivityRequest) o;
     return Objects.equals(this.clientToken, completeLifecycleActivityRequest.clientToken) &&
         Objects.equals(this.lifecycleActivityId, completeLifecycleActivityRequest.lifecycleActivityId) &&
-        Objects.equals(this.lifecycleActivityPolicy, completeLifecycleActivityRequest.lifecycleActivityPolicy);
+        Objects.equals(this.lifecycleActivityPolicy, completeLifecycleActivityRequest.lifecycleActivityPolicy) &&
+        Objects.equals(this.lifecycleHookId, completeLifecycleActivityRequest.lifecycleHookId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, lifecycleActivityId, lifecycleActivityPolicy);
+    return Objects.hash(clientToken, lifecycleActivityId, lifecycleActivityPolicy, lifecycleHookId);
   }
 
 
@@ -122,6 +145,7 @@ public class CompleteLifecycleActivityRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    lifecycleActivityId: ").append(toIndentedString(lifecycleActivityId)).append("\n");
     sb.append("    lifecycleActivityPolicy: ").append(toIndentedString(lifecycleActivityPolicy)).append("\n");
+    sb.append("    lifecycleHookId: ").append(toIndentedString(lifecycleHookId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

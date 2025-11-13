@@ -134,7 +134,6 @@ public class KeyAgreementUtil {
         }
     }
 
-
     public static byte[] toUnsignedBigEndian(BigInteger value, int length) {
         byte[] bytes = value.toByteArray();
         byte[] result = new byte[length];
@@ -150,7 +149,6 @@ public class KeyAgreementUtil {
         return result;
     }
 
-
     public static boolean decryptValidate(String ciphertext) {
         try {
             byte[] cipherBytes = ciphertext.getBytes(StandardCharsets.UTF_8);
@@ -165,7 +163,6 @@ public class KeyAgreementUtil {
             return false;
         }
     }
-
 
     public static String decryptStringWithKey(byte[] key, byte[] nonce, String encryptedContent) {
         try {
@@ -203,7 +200,6 @@ public class KeyAgreementUtil {
         }
     }
 
-
     public static String aesGcmDecryptBase64String(byte[] key, byte[] nonce, String ciphertext) {
         try {
             String cleaned = ciphertext.replaceAll("\\s", "");
@@ -222,7 +218,6 @@ public class KeyAgreementUtil {
             throw new RuntimeException("Base64字符串解密失败: " + e.getMessage(), e);
         }
     }
-
 
     public static String aesGcmDecrypt(byte[] key, byte[] iv, byte[] cipherBytes) throws GeneralSecurityException {
         try {
@@ -256,7 +251,6 @@ public class KeyAgreementUtil {
         return String.join("", result);
     }
 
-
     public static List<String> extractBase64Blocks(String ciphertext) {
         List<String> blocks = new ArrayList<>();
 
@@ -273,7 +267,6 @@ public class KeyAgreementUtil {
 
         return blocks;
     }
-
 
     private static String decryptCornerCase(byte[] key, byte[] nonce, String data) {
         for (int i = 20; i < data.length(); i += 4) {

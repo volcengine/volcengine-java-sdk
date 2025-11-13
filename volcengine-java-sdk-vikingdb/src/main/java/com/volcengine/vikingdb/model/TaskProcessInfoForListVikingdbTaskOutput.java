@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vikingdb.model.SampleDataForListVikingdbTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,10 +36,10 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
   private String errorMessage = null;
 
   @SerializedName("SampleData")
-  private List<SampleDataForListVikingdbTaskOutput> sampleData = null;
+  private List<Object> sampleData = null;
 
   @SerializedName("SampleTimestamp")
-  private String sampleTimestamp = null;
+  private Long sampleTimestamp = null;
 
   @SerializedName("ScanDataCount")
   private Long scanDataCount = null;
@@ -72,14 +71,14 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
     this.errorMessage = errorMessage;
   }
 
-  public TaskProcessInfoForListVikingdbTaskOutput sampleData(List<SampleDataForListVikingdbTaskOutput> sampleData) {
+  public TaskProcessInfoForListVikingdbTaskOutput sampleData(List<Object> sampleData) {
     this.sampleData = sampleData;
     return this;
   }
 
-  public TaskProcessInfoForListVikingdbTaskOutput addSampleDataItem(SampleDataForListVikingdbTaskOutput sampleDataItem) {
+  public TaskProcessInfoForListVikingdbTaskOutput addSampleDataItem(Object sampleDataItem) {
     if (this.sampleData == null) {
-      this.sampleData = new ArrayList<SampleDataForListVikingdbTaskOutput>();
+      this.sampleData = new ArrayList<Object>();
     }
     this.sampleData.add(sampleDataItem);
     return this;
@@ -91,15 +90,15 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<SampleDataForListVikingdbTaskOutput> getSampleData() {
+  public List<Object> getSampleData() {
     return sampleData;
   }
 
-  public void setSampleData(List<SampleDataForListVikingdbTaskOutput> sampleData) {
+  public void setSampleData(List<Object> sampleData) {
     this.sampleData = sampleData;
   }
 
-  public TaskProcessInfoForListVikingdbTaskOutput sampleTimestamp(String sampleTimestamp) {
+  public TaskProcessInfoForListVikingdbTaskOutput sampleTimestamp(Long sampleTimestamp) {
     this.sampleTimestamp = sampleTimestamp;
     return this;
   }
@@ -109,11 +108,11 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
    * @return sampleTimestamp
   **/
   @Schema(description = "")
-  public String getSampleTimestamp() {
+  public Long getSampleTimestamp() {
     return sampleTimestamp;
   }
 
-  public void setSampleTimestamp(String sampleTimestamp) {
+  public void setSampleTimestamp(Long sampleTimestamp) {
     this.sampleTimestamp = sampleTimestamp;
   }
 

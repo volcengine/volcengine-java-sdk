@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteScalingGroupRequest {
   @SerializedName("KeepInstance")
   private Boolean keepInstance = null;

@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateScalingGroupRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

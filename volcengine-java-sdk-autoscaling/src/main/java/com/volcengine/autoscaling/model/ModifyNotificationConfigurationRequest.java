@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyNotificationConfigurationRequest {
   @SerializedName("EventTypes")
   private List<String> eventTypes = null;

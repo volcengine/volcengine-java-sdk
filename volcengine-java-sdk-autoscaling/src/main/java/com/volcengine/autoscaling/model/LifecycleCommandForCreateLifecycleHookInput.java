@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LifecycleCommandForCreateLifecycleHookInput {
   @SerializedName("CommandId")
   private String commandId = null;

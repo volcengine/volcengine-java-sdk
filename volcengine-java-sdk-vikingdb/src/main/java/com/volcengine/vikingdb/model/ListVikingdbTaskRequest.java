@@ -253,8 +253,7 @@ public class ListVikingdbTaskRequest {
    * Get taskStatus
    * @return taskStatus
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public TaskStatusEnum getTaskStatus() {
     return taskStatus;
   }
@@ -272,8 +271,7 @@ public class ListVikingdbTaskRequest {
    * Get taskType
    * @return taskType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public TaskTypeEnum getTaskType() {
     return taskType;
   }

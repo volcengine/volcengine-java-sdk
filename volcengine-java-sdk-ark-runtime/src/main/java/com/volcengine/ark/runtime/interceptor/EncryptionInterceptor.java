@@ -222,7 +222,7 @@ public class EncryptionInterceptor implements Interceptor {
             if ("data".equals(scheme)) {
                 imageUrl.put("url", encryptStringWithKey(e2eKey, e2eNonce, url));
             } else if ("http".equals(scheme) || "https".equals(scheme)) {
-                System.err.println("encryption is not supported for image url, please use base64 image if you want encryption");
+                System.err.println("WARNING: encryption is not supported for image url, please use base64 image if you want encryption");
             } else {
                 throw new IOException("encryption is not supported for image url scheme " + scheme);
             }

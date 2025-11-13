@@ -13,6 +13,9 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.files.DeleteFileResponse;
+import com.volcengine.ark.runtime.model.files.FileMeta;
+import com.volcengine.ark.runtime.model.files.ListFilesResponse;
 import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
 import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
@@ -25,6 +28,8 @@ import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.*;
 import retrofit2.Call;
@@ -125,4 +130,26 @@ public interface ArkApi {
             @Query("include[]") List<String> include,
             @HeaderMap Map<String, String> customHeaders
     );
+
+    @Multipart
+    @POST("/api/v3/files")
+    Single<FileMeta> uploadFile(@Part MultipartBody.Part file,
+                                @Part("purpose") RequestBody purpose,
+                                @Part("expire_at") RequestBody expireAt,
+                                @Part("preprocess_configs[video][fps]") RequestBody fps,
+                                @HeaderMap Map<String, String> customHeaders);
+
+    @DELETE("/api/v3/files/{fileId}")
+    Single<DeleteFileResponse> deleteFile(@Path("fileId") String fileId, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/files/{fileId}")
+    Single<FileMeta> retrieveFile(@Path("fileId") String fileId, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/files")
+    Single<ListFilesResponse> listFiles(@Query("limit") Integer limit,
+                                        @Query("after") String after,
+                                        @Query("purpose") String purpose,
+                                        @Query("order") String order,
+                                        @HeaderMap Map<String, String> customHeaders);
+
 }

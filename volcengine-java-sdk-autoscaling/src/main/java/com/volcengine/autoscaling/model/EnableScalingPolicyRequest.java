@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EnableScalingPolicyRequest {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;

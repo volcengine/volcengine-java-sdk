@@ -30,32 +30,11 @@ import javax.validation.Valid;
 
 
 public class SetStreamTemplateRequest {
-  @SerializedName("SpaceID")
-  private String spaceID = null;
-
   @SerializedName("StreamID")
   private String streamID = null;
 
   @SerializedName("TemplateID")
   private String templateID = null;
-
-  public SetStreamTemplateRequest spaceID(String spaceID) {
-    this.spaceID = spaceID;
-    return this;
-  }
-
-   /**
-   * Get spaceID
-   * @return spaceID
-  **/
-  @Schema(description = "")
-  public String getSpaceID() {
-    return spaceID;
-  }
-
-  public void setSpaceID(String spaceID) {
-    this.spaceID = spaceID;
-  }
 
   public SetStreamTemplateRequest streamID(String streamID) {
     this.streamID = streamID;
@@ -105,14 +84,13 @@ public class SetStreamTemplateRequest {
       return false;
     }
     SetStreamTemplateRequest setStreamTemplateRequest = (SetStreamTemplateRequest) o;
-    return Objects.equals(this.spaceID, setStreamTemplateRequest.spaceID) &&
-        Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
+    return Objects.equals(this.streamID, setStreamTemplateRequest.streamID) &&
         Objects.equals(this.templateID, setStreamTemplateRequest.templateID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(spaceID, streamID, templateID);
+    return Objects.hash(streamID, templateID);
   }
 
 
@@ -121,7 +99,6 @@ public class SetStreamTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetStreamTemplateRequest {\n");
     
-    sb.append("    spaceID: ").append(toIndentedString(spaceID)).append("\n");
     sb.append("    streamID: ").append(toIndentedString(streamID)).append("\n");
     sb.append("    templateID: ").append(toIndentedString(templateID)).append("\n");
     sb.append("}");

@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("ActiveScalingConfigurationId")
   private String activeScalingConfigurationId = null;

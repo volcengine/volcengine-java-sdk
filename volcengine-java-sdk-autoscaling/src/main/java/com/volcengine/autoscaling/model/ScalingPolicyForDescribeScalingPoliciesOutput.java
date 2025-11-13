@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ScalingPolicyForDescribeScalingPoliciesOutput {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;

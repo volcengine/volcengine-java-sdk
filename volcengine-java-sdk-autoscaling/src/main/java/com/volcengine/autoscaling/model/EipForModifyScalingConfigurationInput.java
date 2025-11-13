@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EipForModifyScalingConfigurationInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -42,6 +43,9 @@ public class EipForModifyScalingConfigurationInput {
 
   @SerializedName("ISP")
   private String ISP = null;
+
+  @SerializedName("ReleaseWithInstance")
+  private Boolean releaseWithInstance = null;
 
   @SerializedName("SecurityProtectionInstanceId")
   private Integer securityProtectionInstanceId = null;
@@ -121,6 +125,24 @@ public class EipForModifyScalingConfigurationInput {
     this.ISP = ISP;
   }
 
+  public EipForModifyScalingConfigurationInput releaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+    return this;
+  }
+
+   /**
+   * Get releaseWithInstance
+   * @return releaseWithInstance
+  **/
+  @Schema(description = "")
+  public Boolean isReleaseWithInstance() {
+    return releaseWithInstance;
+  }
+
+  public void setReleaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+  }
+
   public EipForModifyScalingConfigurationInput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
     this.securityProtectionInstanceId = securityProtectionInstanceId;
     return this;
@@ -179,13 +201,14 @@ public class EipForModifyScalingConfigurationInput {
         Objects.equals(this.bandwidthPackageId, eipForModifyScalingConfigurationInput.bandwidthPackageId) &&
         Objects.equals(this.billingType, eipForModifyScalingConfigurationInput.billingType) &&
         Objects.equals(this.ISP, eipForModifyScalingConfigurationInput.ISP) &&
+        Objects.equals(this.releaseWithInstance, eipForModifyScalingConfigurationInput.releaseWithInstance) &&
         Objects.equals(this.securityProtectionInstanceId, eipForModifyScalingConfigurationInput.securityProtectionInstanceId) &&
         Objects.equals(this.securityProtectionTypes, eipForModifyScalingConfigurationInput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, billingType, ISP, securityProtectionInstanceId, securityProtectionTypes);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, ISP, releaseWithInstance, securityProtectionInstanceId, securityProtectionTypes);
   }
 
 
@@ -198,6 +221,7 @@ public class EipForModifyScalingConfigurationInput {
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");

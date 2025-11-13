@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeLifecycleHooksRequest {
   @SerializedName("LifecycleHookIds")
   private List<String> lifecycleHookIds = null;

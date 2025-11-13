@@ -33,6 +33,12 @@ public class DescribeDBInstanceBandwidthPerShardResponse extends com.volcengine.
   @SerializedName("AdditionalBandwidthPerShard")
   private Integer additionalBandwidthPerShard = null;
 
+  @SerializedName("AdditionalReadBandwidthPerShard")
+  private Integer additionalReadBandwidthPerShard = null;
+
+  @SerializedName("AdditionalWriteBandwidthPerShard")
+  private Integer additionalWriteBandwidthPerShard = null;
+
   @SerializedName("DefaultBandwidthPerShard")
   private Integer defaultBandwidthPerShard = null;
 
@@ -52,6 +58,42 @@ public class DescribeDBInstanceBandwidthPerShardResponse extends com.volcengine.
 
   public void setAdditionalBandwidthPerShard(Integer additionalBandwidthPerShard) {
     this.additionalBandwidthPerShard = additionalBandwidthPerShard;
+  }
+
+  public DescribeDBInstanceBandwidthPerShardResponse additionalReadBandwidthPerShard(Integer additionalReadBandwidthPerShard) {
+    this.additionalReadBandwidthPerShard = additionalReadBandwidthPerShard;
+    return this;
+  }
+
+   /**
+   * Get additionalReadBandwidthPerShard
+   * @return additionalReadBandwidthPerShard
+  **/
+  @Schema(description = "")
+  public Integer getAdditionalReadBandwidthPerShard() {
+    return additionalReadBandwidthPerShard;
+  }
+
+  public void setAdditionalReadBandwidthPerShard(Integer additionalReadBandwidthPerShard) {
+    this.additionalReadBandwidthPerShard = additionalReadBandwidthPerShard;
+  }
+
+  public DescribeDBInstanceBandwidthPerShardResponse additionalWriteBandwidthPerShard(Integer additionalWriteBandwidthPerShard) {
+    this.additionalWriteBandwidthPerShard = additionalWriteBandwidthPerShard;
+    return this;
+  }
+
+   /**
+   * Get additionalWriteBandwidthPerShard
+   * @return additionalWriteBandwidthPerShard
+  **/
+  @Schema(description = "")
+  public Integer getAdditionalWriteBandwidthPerShard() {
+    return additionalWriteBandwidthPerShard;
+  }
+
+  public void setAdditionalWriteBandwidthPerShard(Integer additionalWriteBandwidthPerShard) {
+    this.additionalWriteBandwidthPerShard = additionalWriteBandwidthPerShard;
   }
 
   public DescribeDBInstanceBandwidthPerShardResponse defaultBandwidthPerShard(Integer defaultBandwidthPerShard) {
@@ -83,12 +125,14 @@ public class DescribeDBInstanceBandwidthPerShardResponse extends com.volcengine.
     }
     DescribeDBInstanceBandwidthPerShardResponse describeDBInstanceBandwidthPerShardResponse = (DescribeDBInstanceBandwidthPerShardResponse) o;
     return Objects.equals(this.additionalBandwidthPerShard, describeDBInstanceBandwidthPerShardResponse.additionalBandwidthPerShard) &&
+        Objects.equals(this.additionalReadBandwidthPerShard, describeDBInstanceBandwidthPerShardResponse.additionalReadBandwidthPerShard) &&
+        Objects.equals(this.additionalWriteBandwidthPerShard, describeDBInstanceBandwidthPerShardResponse.additionalWriteBandwidthPerShard) &&
         Objects.equals(this.defaultBandwidthPerShard, describeDBInstanceBandwidthPerShardResponse.defaultBandwidthPerShard);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalBandwidthPerShard, defaultBandwidthPerShard);
+    return Objects.hash(additionalBandwidthPerShard, additionalReadBandwidthPerShard, additionalWriteBandwidthPerShard, defaultBandwidthPerShard);
   }
 
 
@@ -98,6 +142,8 @@ public class DescribeDBInstanceBandwidthPerShardResponse extends com.volcengine.
     sb.append("class DescribeDBInstanceBandwidthPerShardResponse {\n");
     
     sb.append("    additionalBandwidthPerShard: ").append(toIndentedString(additionalBandwidthPerShard)).append("\n");
+    sb.append("    additionalReadBandwidthPerShard: ").append(toIndentedString(additionalReadBandwidthPerShard)).append("\n");
+    sb.append("    additionalWriteBandwidthPerShard: ").append(toIndentedString(additionalWriteBandwidthPerShard)).append("\n");
     sb.append("    defaultBandwidthPerShard: ").append(toIndentedString(defaultBandwidthPerShard)).append("\n");
     sb.append("}");
     return sb.toString();

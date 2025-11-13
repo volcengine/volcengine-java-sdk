@@ -26,9 +26,7 @@ import com.volcengine.vefaas.model.MetadataListForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -79,9 +77,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("MemoryMB")
   private Integer memoryMB = null;
-
-  @SerializedName("Metadata")
-  private Map<String, String> metadata = null;
 
   @SerializedName("MetadataList")
   private List<MetadataListForDescribeSandboxOutput> metadataList = null;
@@ -361,32 +356,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.memoryMB = memoryMB;
   }
 
-  public DescribeSandboxResponse metadata(Map<String, String> metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-  public DescribeSandboxResponse putMetadataItem(String key, String metadataItem) {
-    if (this.metadata == null) {
-      this.metadata = new HashMap<String, String>();
-    }
-    this.metadata.put(key, metadataItem);
-    return this;
-  }
-
-   /**
-   * Get metadata
-   * @return metadata
-  **/
-  @Schema(description = "")
-  public Map<String, String> getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(Map<String, String> metadata) {
-    this.metadata = metadata;
-  }
-
   public DescribeSandboxResponse metadataList(List<MetadataListForDescribeSandboxOutput> metadataList) {
     this.metadataList = metadataList;
     return this;
@@ -510,7 +479,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.instanceType, describeSandboxResponse.instanceType) &&
         Objects.equals(this.maxConcurrency, describeSandboxResponse.maxConcurrency) &&
         Objects.equals(this.memoryMB, describeSandboxResponse.memoryMB) &&
-        Objects.equals(this.metadata, describeSandboxResponse.metadata) &&
         Objects.equals(this.metadataList, describeSandboxResponse.metadataList) &&
         Objects.equals(this.pending, describeSandboxResponse.pending) &&
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
@@ -520,7 +488,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadata, metadataList, pending, requestTimeout, revisionNumber, status);
+    return Objects.hash(availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, status);
   }
 
 
@@ -543,7 +511,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    metadataList: ").append(toIndentedString(metadataList)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
