@@ -321,6 +321,5 @@
         <module>volcengine-java-sdk-cbr</module>
         <module>volcengine-java-sdk-milvus</module>
         <module>volcengine-java-sdk-smc</module>
-        <module>volcengine-java-sdk-mockprovider20301113</module>
     </modules>
 </project>
