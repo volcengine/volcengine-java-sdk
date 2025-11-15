@@ -16,6 +16,8 @@ public class MultiPart {
         this.contentType = other.contentType;
     }
 
+    // 无参构造方法（保留，用于JSON反序列化等场景）
+    public MultiPart() {}
     public String getContent() { return content; }
 
     public void setContent(String content) { this.content = content; }
