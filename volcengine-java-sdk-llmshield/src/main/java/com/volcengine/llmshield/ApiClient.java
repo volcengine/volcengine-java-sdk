@@ -99,6 +99,19 @@ public class ApiClient {
     }
 
     /**
+     * 设置环境
+     * @param IsDev 是否为dev环境
+     * @return 无
+     */
+    public void SetServiceCode(boolean IsDev)  {
+        Sign.setServiceCode(IsDev);
+    }
+
+    public String GetServiceCode()  {
+        return Sign.getServiceCode();
+    }
+
+    /**
      * 多模态、多轮对话审核
      *
      * @param request 审核请求对象
