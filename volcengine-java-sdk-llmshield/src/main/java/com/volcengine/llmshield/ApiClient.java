@@ -103,8 +103,8 @@ public class ApiClient {
      * @param IsDev 是否为dev环境
      * @return 无
      */
-    public void SetServiceCode(boolean IsDev)  {
-        Sign.setServiceCode(IsDev);
+    public void SetServiceDev(boolean IsDev)  {
+        Sign.setServiceDev(IsDev);
     }
 
     public String GetServiceCode()  {

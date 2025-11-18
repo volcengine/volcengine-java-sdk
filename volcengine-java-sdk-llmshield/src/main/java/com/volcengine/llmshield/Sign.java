@@ -67,7 +67,7 @@ public class Sign {
         URLENCODER.set('~');
     }
 
-    public static synchronized void setServiceCode(boolean IsDev) {
+    public static synchronized void setServiceDev(boolean IsDev) {
         if (!isModified) {
             if (IsDev) {
                 SERVICE = SERVICE_CODE_DEV;
