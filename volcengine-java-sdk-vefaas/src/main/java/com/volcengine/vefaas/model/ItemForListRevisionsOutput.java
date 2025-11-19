@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.EnvForListRevisionsOutput;
 import com.volcengine.vefaas.model.HealthCheckConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.NasStorageForListRevisionsOutput;
@@ -38,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class ItemForListRevisionsOutput {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForListRevisionsOutput asyncTaskConfig = null;
+
   @SerializedName("CodeSize")
   private Integer codeSize = null;
 
@@ -121,6 +125,25 @@ public class ItemForListRevisionsOutput {
 
   @SerializedName("VpcConfig")
   private VpcConfigForListRevisionsOutput vpcConfig = null;
+
+  public ItemForListRevisionsOutput asyncTaskConfig(AsyncTaskConfigForListRevisionsOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForListRevisionsOutput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForListRevisionsOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public ItemForListRevisionsOutput codeSize(Integer codeSize) {
     this.codeSize = codeSize;
@@ -650,7 +673,8 @@ public class ItemForListRevisionsOutput {
       return false;
     }
     ItemForListRevisionsOutput itemForListRevisionsOutput = (ItemForListRevisionsOutput) o;
-    return Objects.equals(this.codeSize, itemForListRevisionsOutput.codeSize) &&
+    return Objects.equals(this.asyncTaskConfig, itemForListRevisionsOutput.asyncTaskConfig) &&
+        Objects.equals(this.codeSize, itemForListRevisionsOutput.codeSize) &&
         Objects.equals(this.codeSizeLimit, itemForListRevisionsOutput.codeSizeLimit) &&
         Objects.equals(this.creationTime, itemForListRevisionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListRevisionsOutput.description) &&
@@ -682,7 +706,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -691,6 +715,7 @@ public class ItemForListRevisionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListRevisionsOutput {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
