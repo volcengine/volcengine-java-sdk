@@ -39,11 +39,57 @@ public class PortForCreateServiceInput {
   @SerializedName("Path")
   private String path = null;
 
-  @SerializedName("Source")
-  private String source = null;
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("HTTP/1.1")
+    HTTP_1_1("HTTP/1.1"),
+    @SerializedName("HTTP2")
+    HTTP2("HTTP2"),
+    @SerializedName("GRPC")
+    GRPC("GRPC"),
+    @SerializedName("Metrics")
+    METRICS("Metrics"),
+    @SerializedName("Other")
+    OTHER("Other");
 
-  @SerializedName("Type")
-  private String type = null;
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
 
   public PortForCreateServiceInput exposePort(String exposePort) {
     this.exposePort = exposePort;
@@ -99,25 +145,7 @@ public class PortForCreateServiceInput {
     this.path = path;
   }
 
-  public PortForCreateServiceInput source(String source) {
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Get source
-   * @return source
-  **/
-  @Schema(description = "")
-  public String getSource() {
-    return source;
-  }
-
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  public PortForCreateServiceInput type(String type) {
+  public PortForCreateServiceInput type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -127,11 +155,11 @@ public class PortForCreateServiceInput {
    * @return type
   **/
   @Schema(description = "")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -148,13 +176,12 @@ public class PortForCreateServiceInput {
     return Objects.equals(this.exposePort, portForCreateServiceInput.exposePort) &&
         Objects.equals(this.listenPort, portForCreateServiceInput.listenPort) &&
         Objects.equals(this.path, portForCreateServiceInput.path) &&
-        Objects.equals(this.source, portForCreateServiceInput.source) &&
         Objects.equals(this.type, portForCreateServiceInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exposePort, listenPort, path, source, type);
+    return Objects.hash(exposePort, listenPort, path, type);
   }
 
 
@@ -166,7 +193,6 @@ public class PortForCreateServiceInput {
     sb.append("    exposePort: ").append(toIndentedString(exposePort)).append("\n");
     sb.append("    listenPort: ").append(toIndentedString(listenPort)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

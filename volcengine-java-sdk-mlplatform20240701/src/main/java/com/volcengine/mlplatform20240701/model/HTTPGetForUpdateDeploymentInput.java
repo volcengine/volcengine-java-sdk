@@ -42,8 +42,51 @@ public class HTTPGetForUpdateDeploymentInput {
   @SerializedName("Port")
   private Integer port = null;
 
-  @SerializedName("Scheme")
-  private String scheme = null;
+  /**
+   * Gets or Sets scheme
+   */
+  @JsonAdapter(SchemeEnum.Adapter.class)
+  public enum SchemeEnum {
+    @SerializedName("HTTP")
+    HTTP("HTTP"),
+    @SerializedName("HTTPS")
+    HTTPS("HTTPS");
+
+    private String value;
+
+    SchemeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SchemeEnum fromValue(String input) {
+      for (SchemeEnum b : SchemeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SchemeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SchemeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SchemeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SchemeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Scheme")
+  private SchemeEnum scheme = null;
 
   public HTTPGetForUpdateDeploymentInput htTPHeaders(List<HTTPHeaderForUpdateDeploymentInput> htTPHeaders) {
     this.htTPHeaders = htTPHeaders;
@@ -108,7 +151,7 @@ public class HTTPGetForUpdateDeploymentInput {
     this.port = port;
   }
 
-  public HTTPGetForUpdateDeploymentInput scheme(String scheme) {
+  public HTTPGetForUpdateDeploymentInput scheme(SchemeEnum scheme) {
     this.scheme = scheme;
     return this;
   }
@@ -118,11 +161,11 @@ public class HTTPGetForUpdateDeploymentInput {
    * @return scheme
   **/
   @Schema(description = "")
-  public String getScheme() {
+  public SchemeEnum getScheme() {
     return scheme;
   }
 
-  public void setScheme(String scheme) {
+  public void setScheme(SchemeEnum scheme) {
     this.scheme = scheme;
   }
 

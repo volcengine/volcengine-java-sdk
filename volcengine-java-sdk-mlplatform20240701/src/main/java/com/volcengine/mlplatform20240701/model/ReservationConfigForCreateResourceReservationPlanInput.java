@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.RecurrenceResourceSegmentForCreateResourceReservationPlanInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,6 +53,9 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
 
   @SerializedName("RecurrenceInterval")
   private String recurrenceInterval = null;
+
+  @SerializedName("RecurrenceResourceSegments")
+  private List<RecurrenceResourceSegmentForCreateResourceReservationPlanInput> recurrenceResourceSegments = null;
 
   @SerializedName("RecurrenceStartTime")
   private String recurrenceStartTime = null;
@@ -187,6 +193,33 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
     this.recurrenceInterval = recurrenceInterval;
   }
 
+  public ReservationConfigForCreateResourceReservationPlanInput recurrenceResourceSegments(List<RecurrenceResourceSegmentForCreateResourceReservationPlanInput> recurrenceResourceSegments) {
+    this.recurrenceResourceSegments = recurrenceResourceSegments;
+    return this;
+  }
+
+  public ReservationConfigForCreateResourceReservationPlanInput addRecurrenceResourceSegmentsItem(RecurrenceResourceSegmentForCreateResourceReservationPlanInput recurrenceResourceSegmentsItem) {
+    if (this.recurrenceResourceSegments == null) {
+      this.recurrenceResourceSegments = new ArrayList<RecurrenceResourceSegmentForCreateResourceReservationPlanInput>();
+    }
+    this.recurrenceResourceSegments.add(recurrenceResourceSegmentsItem);
+    return this;
+  }
+
+   /**
+   * Get recurrenceResourceSegments
+   * @return recurrenceResourceSegments
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RecurrenceResourceSegmentForCreateResourceReservationPlanInput> getRecurrenceResourceSegments() {
+    return recurrenceResourceSegments;
+  }
+
+  public void setRecurrenceResourceSegments(List<RecurrenceResourceSegmentForCreateResourceReservationPlanInput> recurrenceResourceSegments) {
+    this.recurrenceResourceSegments = recurrenceResourceSegments;
+  }
+
   public ReservationConfigForCreateResourceReservationPlanInput recurrenceStartTime(String recurrenceStartTime) {
     this.recurrenceStartTime = recurrenceStartTime;
     return this;
@@ -240,13 +273,14 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
         Objects.equals(this.minDurationHours, reservationConfigForCreateResourceReservationPlanInput.minDurationHours) &&
         Objects.equals(this.recurrenceEndTime, reservationConfigForCreateResourceReservationPlanInput.recurrenceEndTime) &&
         Objects.equals(this.recurrenceInterval, reservationConfigForCreateResourceReservationPlanInput.recurrenceInterval) &&
+        Objects.equals(this.recurrenceResourceSegments, reservationConfigForCreateResourceReservationPlanInput.recurrenceResourceSegments) &&
         Objects.equals(this.recurrenceStartTime, reservationConfigForCreateResourceReservationPlanInput.recurrenceStartTime) &&
         Objects.equals(this.reservationType, reservationConfigForCreateResourceReservationPlanInput.reservationType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableResourceId, maxDurationHours, maxTaskLifetimeSeconds, minContinuousResourceDurationSeconds, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceStartTime, reservationType);
+    return Objects.hash(availableResourceId, maxDurationHours, maxTaskLifetimeSeconds, minContinuousResourceDurationSeconds, minDurationHours, recurrenceEndTime, recurrenceInterval, recurrenceResourceSegments, recurrenceStartTime, reservationType);
   }
 
 
@@ -262,6 +296,7 @@ public class ReservationConfigForCreateResourceReservationPlanInput {
     sb.append("    minDurationHours: ").append(toIndentedString(minDurationHours)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    recurrenceInterval: ").append(toIndentedString(recurrenceInterval)).append("\n");
+    sb.append("    recurrenceResourceSegments: ").append(toIndentedString(recurrenceResourceSegments)).append("\n");
     sb.append("    recurrenceStartTime: ").append(toIndentedString(recurrenceStartTime)).append("\n");
     sb.append("    reservationType: ").append(toIndentedString(reservationType)).append("\n");
     sb.append("}");
