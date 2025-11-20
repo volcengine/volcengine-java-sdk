@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rocketmq.model.MsgqueueForMessageSendOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 public class MessageSendResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("MsgId")
   private String msgId = null;
+
+  @SerializedName("Msgqueue")
+  private MsgqueueForMessageSendOutput msgqueue = null;
 
   @SerializedName("OffsetMsgId")
   private String offsetMsgId = null;
@@ -58,6 +62,25 @@ public class MessageSendResponse extends com.volcengine.model.AbstractResponse {
 
   public void setMsgId(String msgId) {
     this.msgId = msgId;
+  }
+
+  public MessageSendResponse msgqueue(MsgqueueForMessageSendOutput msgqueue) {
+    this.msgqueue = msgqueue;
+    return this;
+  }
+
+   /**
+   * Get msgqueue
+   * @return msgqueue
+  **/
+  @Valid
+  @Schema(description = "")
+  public MsgqueueForMessageSendOutput getMsgqueue() {
+    return msgqueue;
+  }
+
+  public void setMsgqueue(MsgqueueForMessageSendOutput msgqueue) {
+    this.msgqueue = msgqueue;
   }
 
   public MessageSendResponse offsetMsgId(String offsetMsgId) {
@@ -125,6 +148,7 @@ public class MessageSendResponse extends com.volcengine.model.AbstractResponse {
     }
     MessageSendResponse messageSendResponse = (MessageSendResponse) o;
     return Objects.equals(this.msgId, messageSendResponse.msgId) &&
+        Objects.equals(this.msgqueue, messageSendResponse.msgqueue) &&
         Objects.equals(this.offsetMsgId, messageSendResponse.offsetMsgId) &&
         Objects.equals(this.qeueueOffset, messageSendResponse.qeueueOffset) &&
         Objects.equals(this.sendStatus, messageSendResponse.sendStatus);
@@ -132,7 +156,7 @@ public class MessageSendResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(msgId, offsetMsgId, qeueueOffset, sendStatus);
+    return Objects.hash(msgId, msgqueue, offsetMsgId, qeueueOffset, sendStatus);
   }
 
 
@@ -142,6 +166,7 @@ public class MessageSendResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class MessageSendResponse {\n");
     
     sb.append("    msgId: ").append(toIndentedString(msgId)).append("\n");
+    sb.append("    msgqueue: ").append(toIndentedString(msgqueue)).append("\n");
     sb.append("    offsetMsgId: ").append(toIndentedString(offsetMsgId)).append("\n");
     sb.append("    qeueueOffset: ").append(toIndentedString(qeueueOffset)).append("\n");
     sb.append("    sendStatus: ").append(toIndentedString(sendStatus)).append("\n");

@@ -14,6 +14,13 @@ package com.volcengine.rocketmq.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class CreateTopicResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CreateSuccess")
+  private Boolean createSuccess = null;
+
+  @SerializedName("ExpectMinimalTopicQueueNumber")
+  private Integer expectMinimalTopicQueueNumber = null;
+
+  public CreateTopicResponse createSuccess(Boolean createSuccess) {
+    this.createSuccess = createSuccess;
+    return this;
+  }
+
+   /**
+   * Get createSuccess
+   * @return createSuccess
+  **/
+  @Schema(description = "")
+  public Boolean isCreateSuccess() {
+    return createSuccess;
+  }
+
+  public void setCreateSuccess(Boolean createSuccess) {
+    this.createSuccess = createSuccess;
+  }
+
+  public CreateTopicResponse expectMinimalTopicQueueNumber(Integer expectMinimalTopicQueueNumber) {
+    this.expectMinimalTopicQueueNumber = expectMinimalTopicQueueNumber;
+    return this;
+  }
+
+   /**
+   * Get expectMinimalTopicQueueNumber
+   * @return expectMinimalTopicQueueNumber
+  **/
+  @Schema(description = "")
+  public Integer getExpectMinimalTopicQueueNumber() {
+    return expectMinimalTopicQueueNumber;
+  }
+
+  public void setExpectMinimalTopicQueueNumber(Integer expectMinimalTopicQueueNumber) {
+    this.expectMinimalTopicQueueNumber = expectMinimalTopicQueueNumber;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class CreateTopicResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateTopicResponse createTopicResponse = (CreateTopicResponse) o;
+    return Objects.equals(this.createSuccess, createTopicResponse.createSuccess) &&
+        Objects.equals(this.expectMinimalTopicQueueNumber, createTopicResponse.expectMinimalTopicQueueNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(createSuccess, expectMinimalTopicQueueNumber);
   }
 
 
@@ -46,6 +97,8 @@ public class CreateTopicResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTopicResponse {\n");
     
+    sb.append("    createSuccess: ").append(toIndentedString(createSuccess)).append("\n");
+    sb.append("    expectMinimalTopicQueueNumber: ").append(toIndentedString(expectMinimalTopicQueueNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

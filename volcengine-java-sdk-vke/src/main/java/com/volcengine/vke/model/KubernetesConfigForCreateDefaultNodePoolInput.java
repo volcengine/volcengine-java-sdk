@@ -50,6 +50,12 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
   @SerializedName("NamePrefix")
   private String namePrefix = null;
 
+  @SerializedName("NameSuffix")
+  private String nameSuffix = null;
+
+  @SerializedName("NameUseHostname")
+  private Boolean nameUseHostname = null;
+
   @SerializedName("Taints")
   private List<TaintForCreateDefaultNodePoolInput> taints = null;
 
@@ -153,6 +159,42 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
     this.namePrefix = namePrefix;
   }
 
+  public KubernetesConfigForCreateDefaultNodePoolInput nameSuffix(String nameSuffix) {
+    this.nameSuffix = nameSuffix;
+    return this;
+  }
+
+   /**
+   * Get nameSuffix
+   * @return nameSuffix
+  **/
+  @Schema(description = "")
+  public String getNameSuffix() {
+    return nameSuffix;
+  }
+
+  public void setNameSuffix(String nameSuffix) {
+    this.nameSuffix = nameSuffix;
+  }
+
+  public KubernetesConfigForCreateDefaultNodePoolInput nameUseHostname(Boolean nameUseHostname) {
+    this.nameUseHostname = nameUseHostname;
+    return this;
+  }
+
+   /**
+   * Get nameUseHostname
+   * @return nameUseHostname
+  **/
+  @Schema(description = "")
+  public Boolean isNameUseHostname() {
+    return nameUseHostname;
+  }
+
+  public void setNameUseHostname(Boolean nameUseHostname) {
+    this.nameUseHostname = nameUseHostname;
+  }
+
   public KubernetesConfigForCreateDefaultNodePoolInput taints(List<TaintForCreateDefaultNodePoolInput> taints) {
     this.taints = taints;
     return this;
@@ -195,12 +237,14 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
         Objects.equals(this.kubeletConfig, kubernetesConfigForCreateDefaultNodePoolInput.kubeletConfig) &&
         Objects.equals(this.labels, kubernetesConfigForCreateDefaultNodePoolInput.labels) &&
         Objects.equals(this.namePrefix, kubernetesConfigForCreateDefaultNodePoolInput.namePrefix) &&
+        Objects.equals(this.nameSuffix, kubernetesConfigForCreateDefaultNodePoolInput.nameSuffix) &&
+        Objects.equals(this.nameUseHostname, kubernetesConfigForCreateDefaultNodePoolInput.nameUseHostname) &&
         Objects.equals(this.taints, kubernetesConfigForCreateDefaultNodePoolInput.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSyncDisabled, cordon, kubeletConfig, labels, namePrefix, taints);
+    return Objects.hash(autoSyncDisabled, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
   }
 
 
@@ -214,6 +258,8 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
     sb.append("    kubeletConfig: ").append(toIndentedString(kubeletConfig)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
+    sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
+    sb.append("    nameUseHostname: ").append(toIndentedString(nameUseHostname)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();

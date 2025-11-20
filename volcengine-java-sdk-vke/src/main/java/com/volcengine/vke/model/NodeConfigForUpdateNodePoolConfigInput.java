@@ -50,6 +50,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("DataVolumes")
   private List<DataVolumeForUpdateNodePoolConfigInput> dataVolumes = null;
 
+  @SerializedName("Hostname")
+  private String hostname = null;
+
   @SerializedName("HpcClusterIds")
   private List<String> hpcClusterIds = null;
 
@@ -59,6 +62,55 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
+  /**
+   * Gets or Sets instanceChargeType
+   */
+  @JsonAdapter(InstanceChargeTypeEnum.Adapter.class)
+  public enum InstanceChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    InstanceChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceChargeTypeEnum fromValue(String input) {
+      for (InstanceChargeTypeEnum b : InstanceChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceChargeType")
+  private InstanceChargeTypeEnum instanceChargeType = null;
+
+  @SerializedName("InstanceName")
+  private String instanceName = null;
+
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
@@ -67,6 +119,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("NamePrefix")
   private String namePrefix = null;
+
+  @SerializedName("NetworkTrafficMode")
+  private String networkTrafficMode = null;
 
   @SerializedName("Period")
   private Integer period = null;
@@ -176,6 +231,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     this.dataVolumes = dataVolumes;
   }
 
+  public NodeConfigForUpdateNodePoolConfigInput hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
+
   public NodeConfigForUpdateNodePoolConfigInput hpcClusterIds(List<String> hpcClusterIds) {
     this.hpcClusterIds = hpcClusterIds;
     return this;
@@ -236,6 +309,42 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setInitializeScript(String initializeScript) {
     this.initializeScript = initializeScript;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput instanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
+    return this;
+  }
+
+   /**
+   * Get instanceChargeType
+   * @return instanceChargeType
+  **/
+  @Schema(description = "")
+  public InstanceChargeTypeEnum getInstanceChargeType() {
+    return instanceChargeType;
+  }
+
+  public void setInstanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput instanceTypeIds(List<String> instanceTypeIds) {
@@ -299,6 +408,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setNamePrefix(String namePrefix) {
     this.namePrefix = namePrefix;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput networkTrafficMode(String networkTrafficMode) {
+    this.networkTrafficMode = networkTrafficMode;
+    return this;
+  }
+
+   /**
+   * Get networkTrafficMode
+   * @return networkTrafficMode
+  **/
+  @Schema(description = "")
+  public String getNetworkTrafficMode() {
+    return networkTrafficMode;
+  }
+
+  public void setNetworkTrafficMode(String networkTrafficMode) {
+    this.networkTrafficMode = networkTrafficMode;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput period(Integer period) {
@@ -497,12 +624,16 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.autoRenew, nodeConfigForUpdateNodePoolConfigInput.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, nodeConfigForUpdateNodePoolConfigInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForUpdateNodePoolConfigInput.dataVolumes) &&
+        Objects.equals(this.hostname, nodeConfigForUpdateNodePoolConfigInput.hostname) &&
         Objects.equals(this.hpcClusterIds, nodeConfigForUpdateNodePoolConfigInput.hpcClusterIds) &&
         Objects.equals(this.imageId, nodeConfigForUpdateNodePoolConfigInput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForUpdateNodePoolConfigInput.initializeScript) &&
+        Objects.equals(this.instanceChargeType, nodeConfigForUpdateNodePoolConfigInput.instanceChargeType) &&
+        Objects.equals(this.instanceName, nodeConfigForUpdateNodePoolConfigInput.instanceName) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForUpdateNodePoolConfigInput.instanceTypeIds) &&
         Objects.equals(this.instancesDistribution, nodeConfigForUpdateNodePoolConfigInput.instancesDistribution) &&
         Objects.equals(this.namePrefix, nodeConfigForUpdateNodePoolConfigInput.namePrefix) &&
+        Objects.equals(this.networkTrafficMode, nodeConfigForUpdateNodePoolConfigInput.networkTrafficMode) &&
         Objects.equals(this.period, nodeConfigForUpdateNodePoolConfigInput.period) &&
         Objects.equals(this.preScript, nodeConfigForUpdateNodePoolConfigInput.preScript) &&
         Objects.equals(this.projectName, nodeConfigForUpdateNodePoolConfigInput.projectName) &&
@@ -516,7 +647,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, instancesDistribution, namePrefix, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -529,12 +660,16 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
+    sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
+    sb.append("    networkTrafficMode: ").append(toIndentedString(networkTrafficMode)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
