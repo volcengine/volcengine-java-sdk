@@ -321,5 +321,6 @@
         <module>volcengine-java-sdk-cbr</module>
         <module>volcengine-java-sdk-milvus</module>
         <module>volcengine-java-sdk-smc</module>
+        <module>volcengine-java-sdk-config</module>
     </modules>
 </project>
