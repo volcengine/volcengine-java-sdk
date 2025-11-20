@@ -30,6 +30,7 @@ import com.volcengine.vod20250101.model.ConvertFileDeleteForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertHighlightForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertOcrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVideoGenerationForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertVideoMattingForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVideoSummaryForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVideoUnderstandingForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVisionForGetExecutionOutput;
@@ -79,6 +80,9 @@ public class ConvertTaskForGetExecutionOutput {
 
   @SerializedName("VideoGeneration")
   private ConvertVideoGenerationForGetExecutionOutput videoGeneration = null;
+
+  @SerializedName("VideoMatting")
+  private ConvertVideoMattingForGetExecutionOutput videoMatting = null;
 
   @SerializedName("VideoSummary")
   private ConvertVideoSummaryForGetExecutionOutput videoSummary = null;
@@ -316,6 +320,25 @@ public class ConvertTaskForGetExecutionOutput {
     this.videoGeneration = videoGeneration;
   }
 
+  public ConvertTaskForGetExecutionOutput videoMatting(ConvertVideoMattingForGetExecutionOutput videoMatting) {
+    this.videoMatting = videoMatting;
+    return this;
+  }
+
+   /**
+   * Get videoMatting
+   * @return videoMatting
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertVideoMattingForGetExecutionOutput getVideoMatting() {
+    return videoMatting;
+  }
+
+  public void setVideoMatting(ConvertVideoMattingForGetExecutionOutput videoMatting) {
+    this.videoMatting = videoMatting;
+  }
+
   public ConvertTaskForGetExecutionOutput videoSummary(ConvertVideoSummaryForGetExecutionOutput videoSummary) {
     this.videoSummary = videoSummary;
     return this;
@@ -395,6 +418,7 @@ public class ConvertTaskForGetExecutionOutput {
         Objects.equals(this.storyline, convertTaskForGetExecutionOutput.storyline) &&
         Objects.equals(this.type, convertTaskForGetExecutionOutput.type) &&
         Objects.equals(this.videoGeneration, convertTaskForGetExecutionOutput.videoGeneration) &&
+        Objects.equals(this.videoMatting, convertTaskForGetExecutionOutput.videoMatting) &&
         Objects.equals(this.videoSummary, convertTaskForGetExecutionOutput.videoSummary) &&
         Objects.equals(this.videoUnderstanding, convertTaskForGetExecutionOutput.videoUnderstanding) &&
         Objects.equals(this.vision, convertTaskForGetExecutionOutput.vision);
@@ -402,7 +426,7 @@ public class ConvertTaskForGetExecutionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, enhance, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoSummary, videoUnderstanding, vision);
+    return Objects.hash(adAudit, asr, audioExtract, enhance, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoMatting, videoSummary, videoUnderstanding, vision);
   }
 
 
@@ -423,6 +447,7 @@ public class ConvertTaskForGetExecutionOutput {
     sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    videoGeneration: ").append(toIndentedString(videoGeneration)).append("\n");
+    sb.append("    videoMatting: ").append(toIndentedString(videoMatting)).append("\n");
     sb.append("    videoSummary: ").append(toIndentedString(videoSummary)).append("\n");
     sb.append("    videoUnderstanding: ").append(toIndentedString(videoUnderstanding)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
