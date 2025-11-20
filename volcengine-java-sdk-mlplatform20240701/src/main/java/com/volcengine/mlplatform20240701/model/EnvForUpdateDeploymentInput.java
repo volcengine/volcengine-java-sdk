@@ -30,32 +30,11 @@ import javax.validation.Valid;
 
 
 public class EnvForUpdateDeploymentInput {
-  @SerializedName("IsPrivate")
-  private Boolean isPrivate = null;
-
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Value")
   private String value = null;
-
-  public EnvForUpdateDeploymentInput isPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-    return this;
-  }
-
-   /**
-   * Get isPrivate
-   * @return isPrivate
-  **/
-  @Schema(description = "")
-  public Boolean isIsPrivate() {
-    return isPrivate;
-  }
-
-  public void setIsPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-  }
 
   public EnvForUpdateDeploymentInput name(String name) {
     this.name = name;
@@ -103,14 +82,13 @@ public class EnvForUpdateDeploymentInput {
       return false;
     }
     EnvForUpdateDeploymentInput envForUpdateDeploymentInput = (EnvForUpdateDeploymentInput) o;
-    return Objects.equals(this.isPrivate, envForUpdateDeploymentInput.isPrivate) &&
-        Objects.equals(this.name, envForUpdateDeploymentInput.name) &&
+    return Objects.equals(this.name, envForUpdateDeploymentInput.name) &&
         Objects.equals(this.value, envForUpdateDeploymentInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isPrivate, name, value);
+    return Objects.hash(name, value);
   }
 
 
@@ -119,7 +97,6 @@ public class EnvForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnvForUpdateDeploymentInput {\n");
     
-    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

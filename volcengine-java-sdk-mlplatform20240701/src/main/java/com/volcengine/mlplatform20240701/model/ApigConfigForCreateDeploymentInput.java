@@ -37,9 +37,6 @@ public class ApigConfigForCreateDeploymentInput {
   @SerializedName("UpstreamConfig")
   private UpstreamConfigForCreateDeploymentInput upstreamConfig = null;
 
-  @SerializedName("UsePublicInstance")
-  private Boolean usePublicInstance = null;
-
   public ApigConfigForCreateDeploymentInput instanceID(String instanceID) {
     this.instanceID = instanceID;
     return this;
@@ -77,24 +74,6 @@ public class ApigConfigForCreateDeploymentInput {
     this.upstreamConfig = upstreamConfig;
   }
 
-  public ApigConfigForCreateDeploymentInput usePublicInstance(Boolean usePublicInstance) {
-    this.usePublicInstance = usePublicInstance;
-    return this;
-  }
-
-   /**
-   * Get usePublicInstance
-   * @return usePublicInstance
-  **/
-  @Schema(description = "")
-  public Boolean isUsePublicInstance() {
-    return usePublicInstance;
-  }
-
-  public void setUsePublicInstance(Boolean usePublicInstance) {
-    this.usePublicInstance = usePublicInstance;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,13 +85,12 @@ public class ApigConfigForCreateDeploymentInput {
     }
     ApigConfigForCreateDeploymentInput apigConfigForCreateDeploymentInput = (ApigConfigForCreateDeploymentInput) o;
     return Objects.equals(this.instanceID, apigConfigForCreateDeploymentInput.instanceID) &&
-        Objects.equals(this.upstreamConfig, apigConfigForCreateDeploymentInput.upstreamConfig) &&
-        Objects.equals(this.usePublicInstance, apigConfigForCreateDeploymentInput.usePublicInstance);
+        Objects.equals(this.upstreamConfig, apigConfigForCreateDeploymentInput.upstreamConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceID, upstreamConfig, usePublicInstance);
+    return Objects.hash(instanceID, upstreamConfig);
   }
 
 
@@ -123,7 +101,6 @@ public class ApigConfigForCreateDeploymentInput {
     
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    upstreamConfig: ").append(toIndentedString(upstreamConfig)).append("\n");
-    sb.append("    usePublicInstance: ").append(toIndentedString(usePublicInstance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

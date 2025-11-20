@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.ImageCredentialForRebuildDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.CredentialForRebuildDevInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,11 +31,8 @@ import javax.validation.Valid;
 
 
 public class ImageForRebuildDevInstanceInput {
-  @SerializedName("Id")
-  private String id = null;
-
-  @SerializedName("ImageCredential")
-  private ImageCredentialForRebuildDevInstanceInput imageCredential = null;
+  @SerializedName("Credential")
+  private CredentialForRebuildDevInstanceInput credential = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -43,41 +40,23 @@ public class ImageForRebuildDevInstanceInput {
   @SerializedName("Url")
   private String url = null;
 
-  public ImageForRebuildDevInstanceInput id(String id) {
-    this.id = id;
+  public ImageForRebuildDevInstanceInput credential(CredentialForRebuildDevInstanceInput credential) {
+    this.credential = credential;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ImageForRebuildDevInstanceInput imageCredential(ImageCredentialForRebuildDevInstanceInput imageCredential) {
-    this.imageCredential = imageCredential;
-    return this;
-  }
-
-   /**
-   * Get imageCredential
-   * @return imageCredential
+   * Get credential
+   * @return credential
   **/
   @Valid
   @Schema(description = "")
-  public ImageCredentialForRebuildDevInstanceInput getImageCredential() {
-    return imageCredential;
+  public CredentialForRebuildDevInstanceInput getCredential() {
+    return credential;
   }
 
-  public void setImageCredential(ImageCredentialForRebuildDevInstanceInput imageCredential) {
-    this.imageCredential = imageCredential;
+  public void setCredential(CredentialForRebuildDevInstanceInput credential) {
+    this.credential = credential;
   }
 
   public ImageForRebuildDevInstanceInput type(String type) {
@@ -126,15 +105,14 @@ public class ImageForRebuildDevInstanceInput {
       return false;
     }
     ImageForRebuildDevInstanceInput imageForRebuildDevInstanceInput = (ImageForRebuildDevInstanceInput) o;
-    return Objects.equals(this.id, imageForRebuildDevInstanceInput.id) &&
-        Objects.equals(this.imageCredential, imageForRebuildDevInstanceInput.imageCredential) &&
+    return Objects.equals(this.credential, imageForRebuildDevInstanceInput.credential) &&
         Objects.equals(this.type, imageForRebuildDevInstanceInput.type) &&
         Objects.equals(this.url, imageForRebuildDevInstanceInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, imageCredential, type, url);
+    return Objects.hash(credential, type, url);
   }
 
 
@@ -143,8 +121,7 @@ public class ImageForRebuildDevInstanceInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageForRebuildDevInstanceInput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    imageCredential: ").append(toIndentedString(imageCredential)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

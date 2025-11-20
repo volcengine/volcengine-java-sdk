@@ -30,28 +30,31 @@ import javax.validation.Valid;
 
 
 public class CredentialForCreateDevInstanceInput {
-  @SerializedName("AccessKeyId")
-  private String accessKeyId = null;
+  @SerializedName("AccessKey")
+  private String accessKey = null;
 
   @SerializedName("SecretAccessKey")
   private String secretAccessKey = null;
 
-  public CredentialForCreateDevInstanceInput accessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  @SerializedName("UseServiceLinkedRole")
+  private Boolean useServiceLinkedRole = null;
+
+  public CredentialForCreateDevInstanceInput accessKey(String accessKey) {
+    this.accessKey = accessKey;
     return this;
   }
 
    /**
-   * Get accessKeyId
-   * @return accessKeyId
+   * Get accessKey
+   * @return accessKey
   **/
   @Schema(description = "")
-  public String getAccessKeyId() {
-    return accessKeyId;
+  public String getAccessKey() {
+    return accessKey;
   }
 
-  public void setAccessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
   }
 
   public CredentialForCreateDevInstanceInput secretAccessKey(String secretAccessKey) {
@@ -72,6 +75,24 @@ public class CredentialForCreateDevInstanceInput {
     this.secretAccessKey = secretAccessKey;
   }
 
+  public CredentialForCreateDevInstanceInput useServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+    return this;
+  }
+
+   /**
+   * Get useServiceLinkedRole
+   * @return useServiceLinkedRole
+  **/
+  @Schema(description = "")
+  public Boolean isUseServiceLinkedRole() {
+    return useServiceLinkedRole;
+  }
+
+  public void setUseServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +103,14 @@ public class CredentialForCreateDevInstanceInput {
       return false;
     }
     CredentialForCreateDevInstanceInput credentialForCreateDevInstanceInput = (CredentialForCreateDevInstanceInput) o;
-    return Objects.equals(this.accessKeyId, credentialForCreateDevInstanceInput.accessKeyId) &&
-        Objects.equals(this.secretAccessKey, credentialForCreateDevInstanceInput.secretAccessKey);
+    return Objects.equals(this.accessKey, credentialForCreateDevInstanceInput.accessKey) &&
+        Objects.equals(this.secretAccessKey, credentialForCreateDevInstanceInput.secretAccessKey) &&
+        Objects.equals(this.useServiceLinkedRole, credentialForCreateDevInstanceInput.useServiceLinkedRole);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, secretAccessKey);
+    return Objects.hash(accessKey, secretAccessKey, useServiceLinkedRole);
   }
 
 
@@ -97,8 +119,9 @@ public class CredentialForCreateDevInstanceInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CredentialForCreateDevInstanceInput {\n");
     
-    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
+    sb.append("    useServiceLinkedRole: ").append(toIndentedString(useServiceLinkedRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

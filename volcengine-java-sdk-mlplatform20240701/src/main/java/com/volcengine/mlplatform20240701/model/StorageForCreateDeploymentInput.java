@@ -19,15 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.AdvancedOptionsForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.ConvertCredentialForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.NasAccessPointOptionsForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.SfcsAdvancedOptionsForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.VepfsAccessPointOptionsForCreateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConfigForCreateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,410 +31,35 @@ import javax.validation.Valid;
 
 
 public class StorageForCreateDeploymentInput {
-  @SerializedName("AdvancedOptions")
-  private AdvancedOptionsForCreateDeploymentInput advancedOptions = null;
-
-  @SerializedName("AnnotationId")
-  private String annotationId = null;
-
-  @SerializedName("AssetId")
-  private String assetId = null;
-
-  @SerializedName("AssetName")
-  private String assetName = null;
-
-  @SerializedName("AssetVersion")
-  private String assetVersion = null;
-
-  @SerializedName("Bucket")
-  private String bucket = null;
-
-  @SerializedName("CachePolicyId")
-  private String cachePolicyId = null;
-
-  @SerializedName("CloudfsType")
-  private String cloudfsType = null;
-
-  @SerializedName("Credential")
-  private ConvertCredentialForCreateDeploymentInput credential = null;
-
-  @SerializedName("DatasetId")
-  private String datasetId = null;
-
-  @SerializedName("ExternalCFS")
-  private Boolean externalCFS = null;
-
-  @SerializedName("ExternalSfcs")
-  private Boolean externalSfcs = null;
-
-  @SerializedName("ExternalTos")
-  private Boolean externalTos = null;
-
-  @SerializedName("FsName")
-  private String fsName = null;
-
-  @SerializedName("MetaURL")
-  private String metaURL = null;
-
-  @SerializedName("MountOptions")
-  private List<String> mountOptions = null;
+  @SerializedName("Config")
+  private ConfigForCreateDeploymentInput config = null;
 
   @SerializedName("MountPath")
   private String mountPath = null;
 
-  @SerializedName("NasAccessPointOptions")
-  private NasAccessPointOptionsForCreateDeploymentInput nasAccessPointOptions = null;
-
-  @SerializedName("NasAddr")
-  private String nasAddr = null;
-
-  @SerializedName("NasId")
-  private String nasId = null;
-
-  @SerializedName("NasName")
-  private String nasName = null;
-
-  @SerializedName("NsId")
-  private String nsId = null;
-
-  @SerializedName("Prefix")
-  private String prefix = null;
-
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
-
-  @SerializedName("RoleName")
-  private String roleName = null;
-
-  @SerializedName("SfcsAdvancedOptions")
-  private SfcsAdvancedOptionsForCreateDeploymentInput sfcsAdvancedOptions = null;
-
-  @SerializedName("SfcsId")
-  private String sfcsId = null;
-
-  @SerializedName("SubPath")
-  private String subPath = null;
-
-  @SerializedName("TenantAccount")
-  private Long tenantAccount = null;
 
   @SerializedName("Type")
   private String type = null;
 
-  @SerializedName("UseAsDefaultMountPath")
-  private Boolean useAsDefaultMountPath = null;
-
-  @SerializedName("UseEic")
-  private Boolean useEic = null;
-
-  @SerializedName("VepfsAccessPointOptions")
-  private VepfsAccessPointOptionsForCreateDeploymentInput vepfsAccessPointOptions = null;
-
-  @SerializedName("VepfsHostPath")
-  private String vepfsHostPath = null;
-
-  @SerializedName("VepfsId")
-  private String vepfsId = null;
-
-  @SerializedName("VepfsName")
-  private String vepfsName = null;
-
-  public StorageForCreateDeploymentInput advancedOptions(AdvancedOptionsForCreateDeploymentInput advancedOptions) {
-    this.advancedOptions = advancedOptions;
+  public StorageForCreateDeploymentInput config(ConfigForCreateDeploymentInput config) {
+    this.config = config;
     return this;
   }
 
    /**
-   * Get advancedOptions
-   * @return advancedOptions
+   * Get config
+   * @return config
   **/
   @Valid
   @Schema(description = "")
-  public AdvancedOptionsForCreateDeploymentInput getAdvancedOptions() {
-    return advancedOptions;
+  public ConfigForCreateDeploymentInput getConfig() {
+    return config;
   }
 
-  public void setAdvancedOptions(AdvancedOptionsForCreateDeploymentInput advancedOptions) {
-    this.advancedOptions = advancedOptions;
-  }
-
-  public StorageForCreateDeploymentInput annotationId(String annotationId) {
-    this.annotationId = annotationId;
-    return this;
-  }
-
-   /**
-   * Get annotationId
-   * @return annotationId
-  **/
-  @Schema(description = "")
-  public String getAnnotationId() {
-    return annotationId;
-  }
-
-  public void setAnnotationId(String annotationId) {
-    this.annotationId = annotationId;
-  }
-
-  public StorageForCreateDeploymentInput assetId(String assetId) {
-    this.assetId = assetId;
-    return this;
-  }
-
-   /**
-   * Get assetId
-   * @return assetId
-  **/
-  @Schema(description = "")
-  public String getAssetId() {
-    return assetId;
-  }
-
-  public void setAssetId(String assetId) {
-    this.assetId = assetId;
-  }
-
-  public StorageForCreateDeploymentInput assetName(String assetName) {
-    this.assetName = assetName;
-    return this;
-  }
-
-   /**
-   * Get assetName
-   * @return assetName
-  **/
-  @Schema(description = "")
-  public String getAssetName() {
-    return assetName;
-  }
-
-  public void setAssetName(String assetName) {
-    this.assetName = assetName;
-  }
-
-  public StorageForCreateDeploymentInput assetVersion(String assetVersion) {
-    this.assetVersion = assetVersion;
-    return this;
-  }
-
-   /**
-   * Get assetVersion
-   * @return assetVersion
-  **/
-  @Schema(description = "")
-  public String getAssetVersion() {
-    return assetVersion;
-  }
-
-  public void setAssetVersion(String assetVersion) {
-    this.assetVersion = assetVersion;
-  }
-
-  public StorageForCreateDeploymentInput bucket(String bucket) {
-    this.bucket = bucket;
-    return this;
-  }
-
-   /**
-   * Get bucket
-   * @return bucket
-  **/
-  @Schema(description = "")
-  public String getBucket() {
-    return bucket;
-  }
-
-  public void setBucket(String bucket) {
-    this.bucket = bucket;
-  }
-
-  public StorageForCreateDeploymentInput cachePolicyId(String cachePolicyId) {
-    this.cachePolicyId = cachePolicyId;
-    return this;
-  }
-
-   /**
-   * Get cachePolicyId
-   * @return cachePolicyId
-  **/
-  @Schema(description = "")
-  public String getCachePolicyId() {
-    return cachePolicyId;
-  }
-
-  public void setCachePolicyId(String cachePolicyId) {
-    this.cachePolicyId = cachePolicyId;
-  }
-
-  public StorageForCreateDeploymentInput cloudfsType(String cloudfsType) {
-    this.cloudfsType = cloudfsType;
-    return this;
-  }
-
-   /**
-   * Get cloudfsType
-   * @return cloudfsType
-  **/
-  @Schema(description = "")
-  public String getCloudfsType() {
-    return cloudfsType;
-  }
-
-  public void setCloudfsType(String cloudfsType) {
-    this.cloudfsType = cloudfsType;
-  }
-
-  public StorageForCreateDeploymentInput credential(ConvertCredentialForCreateDeploymentInput credential) {
-    this.credential = credential;
-    return this;
-  }
-
-   /**
-   * Get credential
-   * @return credential
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConvertCredentialForCreateDeploymentInput getCredential() {
-    return credential;
-  }
-
-  public void setCredential(ConvertCredentialForCreateDeploymentInput credential) {
-    this.credential = credential;
-  }
-
-  public StorageForCreateDeploymentInput datasetId(String datasetId) {
-    this.datasetId = datasetId;
-    return this;
-  }
-
-   /**
-   * Get datasetId
-   * @return datasetId
-  **/
-  @Schema(description = "")
-  public String getDatasetId() {
-    return datasetId;
-  }
-
-  public void setDatasetId(String datasetId) {
-    this.datasetId = datasetId;
-  }
-
-  public StorageForCreateDeploymentInput externalCFS(Boolean externalCFS) {
-    this.externalCFS = externalCFS;
-    return this;
-  }
-
-   /**
-   * Get externalCFS
-   * @return externalCFS
-  **/
-  @Schema(description = "")
-  public Boolean isExternalCFS() {
-    return externalCFS;
-  }
-
-  public void setExternalCFS(Boolean externalCFS) {
-    this.externalCFS = externalCFS;
-  }
-
-  public StorageForCreateDeploymentInput externalSfcs(Boolean externalSfcs) {
-    this.externalSfcs = externalSfcs;
-    return this;
-  }
-
-   /**
-   * Get externalSfcs
-   * @return externalSfcs
-  **/
-  @Schema(description = "")
-  public Boolean isExternalSfcs() {
-    return externalSfcs;
-  }
-
-  public void setExternalSfcs(Boolean externalSfcs) {
-    this.externalSfcs = externalSfcs;
-  }
-
-  public StorageForCreateDeploymentInput externalTos(Boolean externalTos) {
-    this.externalTos = externalTos;
-    return this;
-  }
-
-   /**
-   * Get externalTos
-   * @return externalTos
-  **/
-  @Schema(description = "")
-  public Boolean isExternalTos() {
-    return externalTos;
-  }
-
-  public void setExternalTos(Boolean externalTos) {
-    this.externalTos = externalTos;
-  }
-
-  public StorageForCreateDeploymentInput fsName(String fsName) {
-    this.fsName = fsName;
-    return this;
-  }
-
-   /**
-   * Get fsName
-   * @return fsName
-  **/
-  @Schema(description = "")
-  public String getFsName() {
-    return fsName;
-  }
-
-  public void setFsName(String fsName) {
-    this.fsName = fsName;
-  }
-
-  public StorageForCreateDeploymentInput metaURL(String metaURL) {
-    this.metaURL = metaURL;
-    return this;
-  }
-
-   /**
-   * Get metaURL
-   * @return metaURL
-  **/
-  @Schema(description = "")
-  public String getMetaURL() {
-    return metaURL;
-  }
-
-  public void setMetaURL(String metaURL) {
-    this.metaURL = metaURL;
-  }
-
-  public StorageForCreateDeploymentInput mountOptions(List<String> mountOptions) {
-    this.mountOptions = mountOptions;
-    return this;
-  }
-
-  public StorageForCreateDeploymentInput addMountOptionsItem(String mountOptionsItem) {
-    if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList<String>();
-    }
-    this.mountOptions.add(mountOptionsItem);
-    return this;
-  }
-
-   /**
-   * Get mountOptions
-   * @return mountOptions
-  **/
-  @Schema(description = "")
-  public List<String> getMountOptions() {
-    return mountOptions;
-  }
-
-  public void setMountOptions(List<String> mountOptions) {
-    this.mountOptions = mountOptions;
+  public void setConfig(ConfigForCreateDeploymentInput config) {
+    this.config = config;
   }
 
   public StorageForCreateDeploymentInput mountPath(String mountPath) {
@@ -461,115 +80,6 @@ public class StorageForCreateDeploymentInput {
     this.mountPath = mountPath;
   }
 
-  public StorageForCreateDeploymentInput nasAccessPointOptions(NasAccessPointOptionsForCreateDeploymentInput nasAccessPointOptions) {
-    this.nasAccessPointOptions = nasAccessPointOptions;
-    return this;
-  }
-
-   /**
-   * Get nasAccessPointOptions
-   * @return nasAccessPointOptions
-  **/
-  @Valid
-  @Schema(description = "")
-  public NasAccessPointOptionsForCreateDeploymentInput getNasAccessPointOptions() {
-    return nasAccessPointOptions;
-  }
-
-  public void setNasAccessPointOptions(NasAccessPointOptionsForCreateDeploymentInput nasAccessPointOptions) {
-    this.nasAccessPointOptions = nasAccessPointOptions;
-  }
-
-  public StorageForCreateDeploymentInput nasAddr(String nasAddr) {
-    this.nasAddr = nasAddr;
-    return this;
-  }
-
-   /**
-   * Get nasAddr
-   * @return nasAddr
-  **/
-  @Schema(description = "")
-  public String getNasAddr() {
-    return nasAddr;
-  }
-
-  public void setNasAddr(String nasAddr) {
-    this.nasAddr = nasAddr;
-  }
-
-  public StorageForCreateDeploymentInput nasId(String nasId) {
-    this.nasId = nasId;
-    return this;
-  }
-
-   /**
-   * Get nasId
-   * @return nasId
-  **/
-  @Schema(description = "")
-  public String getNasId() {
-    return nasId;
-  }
-
-  public void setNasId(String nasId) {
-    this.nasId = nasId;
-  }
-
-  public StorageForCreateDeploymentInput nasName(String nasName) {
-    this.nasName = nasName;
-    return this;
-  }
-
-   /**
-   * Get nasName
-   * @return nasName
-  **/
-  @Schema(description = "")
-  public String getNasName() {
-    return nasName;
-  }
-
-  public void setNasName(String nasName) {
-    this.nasName = nasName;
-  }
-
-  public StorageForCreateDeploymentInput nsId(String nsId) {
-    this.nsId = nsId;
-    return this;
-  }
-
-   /**
-   * Get nsId
-   * @return nsId
-  **/
-  @Schema(description = "")
-  public String getNsId() {
-    return nsId;
-  }
-
-  public void setNsId(String nsId) {
-    this.nsId = nsId;
-  }
-
-  public StorageForCreateDeploymentInput prefix(String prefix) {
-    this.prefix = prefix;
-    return this;
-  }
-
-   /**
-   * Get prefix
-   * @return prefix
-  **/
-  @Schema(description = "")
-  public String getPrefix() {
-    return prefix;
-  }
-
-  public void setPrefix(String prefix) {
-    this.prefix = prefix;
-  }
-
   public StorageForCreateDeploymentInput readOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
@@ -586,97 +96,6 @@ public class StorageForCreateDeploymentInput {
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
-  }
-
-  public StorageForCreateDeploymentInput roleName(String roleName) {
-    this.roleName = roleName;
-    return this;
-  }
-
-   /**
-   * Get roleName
-   * @return roleName
-  **/
-  @Schema(description = "")
-  public String getRoleName() {
-    return roleName;
-  }
-
-  public void setRoleName(String roleName) {
-    this.roleName = roleName;
-  }
-
-  public StorageForCreateDeploymentInput sfcsAdvancedOptions(SfcsAdvancedOptionsForCreateDeploymentInput sfcsAdvancedOptions) {
-    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
-    return this;
-  }
-
-   /**
-   * Get sfcsAdvancedOptions
-   * @return sfcsAdvancedOptions
-  **/
-  @Valid
-  @Schema(description = "")
-  public SfcsAdvancedOptionsForCreateDeploymentInput getSfcsAdvancedOptions() {
-    return sfcsAdvancedOptions;
-  }
-
-  public void setSfcsAdvancedOptions(SfcsAdvancedOptionsForCreateDeploymentInput sfcsAdvancedOptions) {
-    this.sfcsAdvancedOptions = sfcsAdvancedOptions;
-  }
-
-  public StorageForCreateDeploymentInput sfcsId(String sfcsId) {
-    this.sfcsId = sfcsId;
-    return this;
-  }
-
-   /**
-   * Get sfcsId
-   * @return sfcsId
-  **/
-  @Schema(description = "")
-  public String getSfcsId() {
-    return sfcsId;
-  }
-
-  public void setSfcsId(String sfcsId) {
-    this.sfcsId = sfcsId;
-  }
-
-  public StorageForCreateDeploymentInput subPath(String subPath) {
-    this.subPath = subPath;
-    return this;
-  }
-
-   /**
-   * Get subPath
-   * @return subPath
-  **/
-  @Schema(description = "")
-  public String getSubPath() {
-    return subPath;
-  }
-
-  public void setSubPath(String subPath) {
-    this.subPath = subPath;
-  }
-
-  public StorageForCreateDeploymentInput tenantAccount(Long tenantAccount) {
-    this.tenantAccount = tenantAccount;
-    return this;
-  }
-
-   /**
-   * Get tenantAccount
-   * @return tenantAccount
-  **/
-  @Schema(description = "")
-  public Long getTenantAccount() {
-    return tenantAccount;
-  }
-
-  public void setTenantAccount(Long tenantAccount) {
-    this.tenantAccount = tenantAccount;
   }
 
   public StorageForCreateDeploymentInput type(String type) {
@@ -697,115 +116,6 @@ public class StorageForCreateDeploymentInput {
     this.type = type;
   }
 
-  public StorageForCreateDeploymentInput useAsDefaultMountPath(Boolean useAsDefaultMountPath) {
-    this.useAsDefaultMountPath = useAsDefaultMountPath;
-    return this;
-  }
-
-   /**
-   * Get useAsDefaultMountPath
-   * @return useAsDefaultMountPath
-  **/
-  @Schema(description = "")
-  public Boolean isUseAsDefaultMountPath() {
-    return useAsDefaultMountPath;
-  }
-
-  public void setUseAsDefaultMountPath(Boolean useAsDefaultMountPath) {
-    this.useAsDefaultMountPath = useAsDefaultMountPath;
-  }
-
-  public StorageForCreateDeploymentInput useEic(Boolean useEic) {
-    this.useEic = useEic;
-    return this;
-  }
-
-   /**
-   * Get useEic
-   * @return useEic
-  **/
-  @Schema(description = "")
-  public Boolean isUseEic() {
-    return useEic;
-  }
-
-  public void setUseEic(Boolean useEic) {
-    this.useEic = useEic;
-  }
-
-  public StorageForCreateDeploymentInput vepfsAccessPointOptions(VepfsAccessPointOptionsForCreateDeploymentInput vepfsAccessPointOptions) {
-    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
-    return this;
-  }
-
-   /**
-   * Get vepfsAccessPointOptions
-   * @return vepfsAccessPointOptions
-  **/
-  @Valid
-  @Schema(description = "")
-  public VepfsAccessPointOptionsForCreateDeploymentInput getVepfsAccessPointOptions() {
-    return vepfsAccessPointOptions;
-  }
-
-  public void setVepfsAccessPointOptions(VepfsAccessPointOptionsForCreateDeploymentInput vepfsAccessPointOptions) {
-    this.vepfsAccessPointOptions = vepfsAccessPointOptions;
-  }
-
-  public StorageForCreateDeploymentInput vepfsHostPath(String vepfsHostPath) {
-    this.vepfsHostPath = vepfsHostPath;
-    return this;
-  }
-
-   /**
-   * Get vepfsHostPath
-   * @return vepfsHostPath
-  **/
-  @Schema(description = "")
-  public String getVepfsHostPath() {
-    return vepfsHostPath;
-  }
-
-  public void setVepfsHostPath(String vepfsHostPath) {
-    this.vepfsHostPath = vepfsHostPath;
-  }
-
-  public StorageForCreateDeploymentInput vepfsId(String vepfsId) {
-    this.vepfsId = vepfsId;
-    return this;
-  }
-
-   /**
-   * Get vepfsId
-   * @return vepfsId
-  **/
-  @Schema(description = "")
-  public String getVepfsId() {
-    return vepfsId;
-  }
-
-  public void setVepfsId(String vepfsId) {
-    this.vepfsId = vepfsId;
-  }
-
-  public StorageForCreateDeploymentInput vepfsName(String vepfsName) {
-    this.vepfsName = vepfsName;
-    return this;
-  }
-
-   /**
-   * Get vepfsName
-   * @return vepfsName
-  **/
-  @Schema(description = "")
-  public String getVepfsName() {
-    return vepfsName;
-  }
-
-  public void setVepfsName(String vepfsName) {
-    this.vepfsName = vepfsName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -816,47 +126,15 @@ public class StorageForCreateDeploymentInput {
       return false;
     }
     StorageForCreateDeploymentInput storageForCreateDeploymentInput = (StorageForCreateDeploymentInput) o;
-    return Objects.equals(this.advancedOptions, storageForCreateDeploymentInput.advancedOptions) &&
-        Objects.equals(this.annotationId, storageForCreateDeploymentInput.annotationId) &&
-        Objects.equals(this.assetId, storageForCreateDeploymentInput.assetId) &&
-        Objects.equals(this.assetName, storageForCreateDeploymentInput.assetName) &&
-        Objects.equals(this.assetVersion, storageForCreateDeploymentInput.assetVersion) &&
-        Objects.equals(this.bucket, storageForCreateDeploymentInput.bucket) &&
-        Objects.equals(this.cachePolicyId, storageForCreateDeploymentInput.cachePolicyId) &&
-        Objects.equals(this.cloudfsType, storageForCreateDeploymentInput.cloudfsType) &&
-        Objects.equals(this.credential, storageForCreateDeploymentInput.credential) &&
-        Objects.equals(this.datasetId, storageForCreateDeploymentInput.datasetId) &&
-        Objects.equals(this.externalCFS, storageForCreateDeploymentInput.externalCFS) &&
-        Objects.equals(this.externalSfcs, storageForCreateDeploymentInput.externalSfcs) &&
-        Objects.equals(this.externalTos, storageForCreateDeploymentInput.externalTos) &&
-        Objects.equals(this.fsName, storageForCreateDeploymentInput.fsName) &&
-        Objects.equals(this.metaURL, storageForCreateDeploymentInput.metaURL) &&
-        Objects.equals(this.mountOptions, storageForCreateDeploymentInput.mountOptions) &&
+    return Objects.equals(this.config, storageForCreateDeploymentInput.config) &&
         Objects.equals(this.mountPath, storageForCreateDeploymentInput.mountPath) &&
-        Objects.equals(this.nasAccessPointOptions, storageForCreateDeploymentInput.nasAccessPointOptions) &&
-        Objects.equals(this.nasAddr, storageForCreateDeploymentInput.nasAddr) &&
-        Objects.equals(this.nasId, storageForCreateDeploymentInput.nasId) &&
-        Objects.equals(this.nasName, storageForCreateDeploymentInput.nasName) &&
-        Objects.equals(this.nsId, storageForCreateDeploymentInput.nsId) &&
-        Objects.equals(this.prefix, storageForCreateDeploymentInput.prefix) &&
         Objects.equals(this.readOnly, storageForCreateDeploymentInput.readOnly) &&
-        Objects.equals(this.roleName, storageForCreateDeploymentInput.roleName) &&
-        Objects.equals(this.sfcsAdvancedOptions, storageForCreateDeploymentInput.sfcsAdvancedOptions) &&
-        Objects.equals(this.sfcsId, storageForCreateDeploymentInput.sfcsId) &&
-        Objects.equals(this.subPath, storageForCreateDeploymentInput.subPath) &&
-        Objects.equals(this.tenantAccount, storageForCreateDeploymentInput.tenantAccount) &&
-        Objects.equals(this.type, storageForCreateDeploymentInput.type) &&
-        Objects.equals(this.useAsDefaultMountPath, storageForCreateDeploymentInput.useAsDefaultMountPath) &&
-        Objects.equals(this.useEic, storageForCreateDeploymentInput.useEic) &&
-        Objects.equals(this.vepfsAccessPointOptions, storageForCreateDeploymentInput.vepfsAccessPointOptions) &&
-        Objects.equals(this.vepfsHostPath, storageForCreateDeploymentInput.vepfsHostPath) &&
-        Objects.equals(this.vepfsId, storageForCreateDeploymentInput.vepfsId) &&
-        Objects.equals(this.vepfsName, storageForCreateDeploymentInput.vepfsName);
+        Objects.equals(this.type, storageForCreateDeploymentInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advancedOptions, annotationId, assetId, assetName, assetVersion, bucket, cachePolicyId, cloudfsType, credential, datasetId, externalCFS, externalSfcs, externalTos, fsName, metaURL, mountOptions, mountPath, nasAccessPointOptions, nasAddr, nasId, nasName, nsId, prefix, readOnly, roleName, sfcsAdvancedOptions, sfcsId, subPath, tenantAccount, type, useAsDefaultMountPath, useEic, vepfsAccessPointOptions, vepfsHostPath, vepfsId, vepfsName);
+    return Objects.hash(config, mountPath, readOnly, type);
   }
 
 
@@ -865,42 +143,10 @@ public class StorageForCreateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageForCreateDeploymentInput {\n");
     
-    sb.append("    advancedOptions: ").append(toIndentedString(advancedOptions)).append("\n");
-    sb.append("    annotationId: ").append(toIndentedString(annotationId)).append("\n");
-    sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
-    sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
-    sb.append("    assetVersion: ").append(toIndentedString(assetVersion)).append("\n");
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    cachePolicyId: ").append(toIndentedString(cachePolicyId)).append("\n");
-    sb.append("    cloudfsType: ").append(toIndentedString(cloudfsType)).append("\n");
-    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
-    sb.append("    datasetId: ").append(toIndentedString(datasetId)).append("\n");
-    sb.append("    externalCFS: ").append(toIndentedString(externalCFS)).append("\n");
-    sb.append("    externalSfcs: ").append(toIndentedString(externalSfcs)).append("\n");
-    sb.append("    externalTos: ").append(toIndentedString(externalTos)).append("\n");
-    sb.append("    fsName: ").append(toIndentedString(fsName)).append("\n");
-    sb.append("    metaURL: ").append(toIndentedString(metaURL)).append("\n");
-    sb.append("    mountOptions: ").append(toIndentedString(mountOptions)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    mountPath: ").append(toIndentedString(mountPath)).append("\n");
-    sb.append("    nasAccessPointOptions: ").append(toIndentedString(nasAccessPointOptions)).append("\n");
-    sb.append("    nasAddr: ").append(toIndentedString(nasAddr)).append("\n");
-    sb.append("    nasId: ").append(toIndentedString(nasId)).append("\n");
-    sb.append("    nasName: ").append(toIndentedString(nasName)).append("\n");
-    sb.append("    nsId: ").append(toIndentedString(nsId)).append("\n");
-    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
-    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
-    sb.append("    sfcsAdvancedOptions: ").append(toIndentedString(sfcsAdvancedOptions)).append("\n");
-    sb.append("    sfcsId: ").append(toIndentedString(sfcsId)).append("\n");
-    sb.append("    subPath: ").append(toIndentedString(subPath)).append("\n");
-    sb.append("    tenantAccount: ").append(toIndentedString(tenantAccount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    useAsDefaultMountPath: ").append(toIndentedString(useAsDefaultMountPath)).append("\n");
-    sb.append("    useEic: ").append(toIndentedString(useEic)).append("\n");
-    sb.append("    vepfsAccessPointOptions: ").append(toIndentedString(vepfsAccessPointOptions)).append("\n");
-    sb.append("    vepfsHostPath: ").append(toIndentedString(vepfsHostPath)).append("\n");
-    sb.append("    vepfsId: ").append(toIndentedString(vepfsId)).append("\n");
-    sb.append("    vepfsName: ").append(toIndentedString(vepfsName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

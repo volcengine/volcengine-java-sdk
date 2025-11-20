@@ -32,9 +32,6 @@ import javax.validation.Valid;
 
 
 public class VepfsForCreateResourceGroupInput {
-  @SerializedName("AvailableNum")
-  private Integer availableNum = null;
-
   @SerializedName("EnablePrefetch")
   private Boolean enablePrefetch = null;
 
@@ -43,30 +40,6 @@ public class VepfsForCreateResourceGroupInput {
 
   @SerializedName("MountServiceId")
   private String mountServiceId = null;
-
-  @SerializedName("TotalNum")
-  private Integer totalNum = null;
-
-  @SerializedName("UnavailableNum")
-  private Integer unavailableNum = null;
-
-  public VepfsForCreateResourceGroupInput availableNum(Integer availableNum) {
-    this.availableNum = availableNum;
-    return this;
-  }
-
-   /**
-   * Get availableNum
-   * @return availableNum
-  **/
-  @Schema(description = "")
-  public Integer getAvailableNum() {
-    return availableNum;
-  }
-
-  public void setAvailableNum(Integer availableNum) {
-    this.availableNum = availableNum;
-  }
 
   public VepfsForCreateResourceGroupInput enablePrefetch(Boolean enablePrefetch) {
     this.enablePrefetch = enablePrefetch;
@@ -130,42 +103,6 @@ public class VepfsForCreateResourceGroupInput {
     this.mountServiceId = mountServiceId;
   }
 
-  public VepfsForCreateResourceGroupInput totalNum(Integer totalNum) {
-    this.totalNum = totalNum;
-    return this;
-  }
-
-   /**
-   * Get totalNum
-   * @return totalNum
-  **/
-  @Schema(description = "")
-  public Integer getTotalNum() {
-    return totalNum;
-  }
-
-  public void setTotalNum(Integer totalNum) {
-    this.totalNum = totalNum;
-  }
-
-  public VepfsForCreateResourceGroupInput unavailableNum(Integer unavailableNum) {
-    this.unavailableNum = unavailableNum;
-    return this;
-  }
-
-   /**
-   * Get unavailableNum
-   * @return unavailableNum
-  **/
-  @Schema(description = "")
-  public Integer getUnavailableNum() {
-    return unavailableNum;
-  }
-
-  public void setUnavailableNum(Integer unavailableNum) {
-    this.unavailableNum = unavailableNum;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,17 +113,14 @@ public class VepfsForCreateResourceGroupInput {
       return false;
     }
     VepfsForCreateResourceGroupInput vepfsForCreateResourceGroupInput = (VepfsForCreateResourceGroupInput) o;
-    return Objects.equals(this.availableNum, vepfsForCreateResourceGroupInput.availableNum) &&
-        Objects.equals(this.enablePrefetch, vepfsForCreateResourceGroupInput.enablePrefetch) &&
+    return Objects.equals(this.enablePrefetch, vepfsForCreateResourceGroupInput.enablePrefetch) &&
         Objects.equals(this.fileSystemIds, vepfsForCreateResourceGroupInput.fileSystemIds) &&
-        Objects.equals(this.mountServiceId, vepfsForCreateResourceGroupInput.mountServiceId) &&
-        Objects.equals(this.totalNum, vepfsForCreateResourceGroupInput.totalNum) &&
-        Objects.equals(this.unavailableNum, vepfsForCreateResourceGroupInput.unavailableNum);
+        Objects.equals(this.mountServiceId, vepfsForCreateResourceGroupInput.mountServiceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableNum, enablePrefetch, fileSystemIds, mountServiceId, totalNum, unavailableNum);
+    return Objects.hash(enablePrefetch, fileSystemIds, mountServiceId);
   }
 
 
@@ -195,12 +129,9 @@ public class VepfsForCreateResourceGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VepfsForCreateResourceGroupInput {\n");
     
-    sb.append("    availableNum: ").append(toIndentedString(availableNum)).append("\n");
     sb.append("    enablePrefetch: ").append(toIndentedString(enablePrefetch)).append("\n");
     sb.append("    fileSystemIds: ").append(toIndentedString(fileSystemIds)).append("\n");
     sb.append("    mountServiceId: ").append(toIndentedString(mountServiceId)).append("\n");
-    sb.append("    totalNum: ").append(toIndentedString(totalNum)).append("\n");
-    sb.append("    unavailableNum: ").append(toIndentedString(unavailableNum)).append("\n");
     sb.append("}");
     return sb.toString();
   }
