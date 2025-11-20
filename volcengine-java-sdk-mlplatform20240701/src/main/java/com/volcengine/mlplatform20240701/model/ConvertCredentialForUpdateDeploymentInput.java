@@ -30,46 +30,46 @@ import javax.validation.Valid;
 
 
 public class ConvertCredentialForUpdateDeploymentInput {
-  @SerializedName("AccessKeyId")
-  private String accessKeyId = null;
+  @SerializedName("RegistryToken")
+  private String registryToken = null;
 
-  @SerializedName("SecretAccessKey")
-  private String secretAccessKey = null;
+  @SerializedName("RegistryUsername")
+  private String registryUsername = null;
 
-  public ConvertCredentialForUpdateDeploymentInput accessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  public ConvertCredentialForUpdateDeploymentInput registryToken(String registryToken) {
+    this.registryToken = registryToken;
     return this;
   }
 
    /**
-   * Get accessKeyId
-   * @return accessKeyId
+   * Get registryToken
+   * @return registryToken
   **/
   @Schema(description = "")
-  public String getAccessKeyId() {
-    return accessKeyId;
+  public String getRegistryToken() {
+    return registryToken;
   }
 
-  public void setAccessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  public void setRegistryToken(String registryToken) {
+    this.registryToken = registryToken;
   }
 
-  public ConvertCredentialForUpdateDeploymentInput secretAccessKey(String secretAccessKey) {
-    this.secretAccessKey = secretAccessKey;
+  public ConvertCredentialForUpdateDeploymentInput registryUsername(String registryUsername) {
+    this.registryUsername = registryUsername;
     return this;
   }
 
    /**
-   * Get secretAccessKey
-   * @return secretAccessKey
+   * Get registryUsername
+   * @return registryUsername
   **/
   @Schema(description = "")
-  public String getSecretAccessKey() {
-    return secretAccessKey;
+  public String getRegistryUsername() {
+    return registryUsername;
   }
 
-  public void setSecretAccessKey(String secretAccessKey) {
-    this.secretAccessKey = secretAccessKey;
+  public void setRegistryUsername(String registryUsername) {
+    this.registryUsername = registryUsername;
   }
 
 
@@ -82,13 +82,13 @@ public class ConvertCredentialForUpdateDeploymentInput {
       return false;
     }
     ConvertCredentialForUpdateDeploymentInput convertCredentialForUpdateDeploymentInput = (ConvertCredentialForUpdateDeploymentInput) o;
-    return Objects.equals(this.accessKeyId, convertCredentialForUpdateDeploymentInput.accessKeyId) &&
-        Objects.equals(this.secretAccessKey, convertCredentialForUpdateDeploymentInput.secretAccessKey);
+    return Objects.equals(this.registryToken, convertCredentialForUpdateDeploymentInput.registryToken) &&
+        Objects.equals(this.registryUsername, convertCredentialForUpdateDeploymentInput.registryUsername);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, secretAccessKey);
+    return Objects.hash(registryToken, registryUsername);
   }
 
 
@@ -97,8 +97,8 @@ public class ConvertCredentialForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertCredentialForUpdateDeploymentInput {\n");
     
-    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
-    sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
+    sb.append("    registryToken: ").append(toIndentedString(registryToken)).append("\n");
+    sb.append("    registryUsername: ").append(toIndentedString(registryUsername)).append("\n");
     sb.append("}");
     return sb.toString();
   }

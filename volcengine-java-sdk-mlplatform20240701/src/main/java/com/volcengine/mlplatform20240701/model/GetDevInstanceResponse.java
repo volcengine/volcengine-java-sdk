@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.CredentialForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.ImageForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.NodeAffinitySpecForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.PortForGetDevInstanceOutput;
@@ -47,6 +48,9 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
+
+  @SerializedName("Credential")
+  private CredentialForGetDevInstanceOutput credential = null;
 
   @SerializedName("DefaultFolder")
   private String defaultFolder = null;
@@ -172,6 +176,25 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public GetDevInstanceResponse credential(CredentialForGetDevInstanceOutput credential) {
+    this.credential = credential;
+    return this;
+  }
+
+   /**
+   * Get credential
+   * @return credential
+  **/
+  @Valid
+  @Schema(description = "")
+  public CredentialForGetDevInstanceOutput getCredential() {
+    return credential;
+  }
+
+  public void setCredential(CredentialForGetDevInstanceOutput credential) {
+    this.credential = credential;
   }
 
   public GetDevInstanceResponse defaultFolder(String defaultFolder) {
@@ -642,6 +665,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     return Objects.equals(this.allowImageBuild, getDevInstanceResponse.allowImageBuild) &&
         Objects.equals(this.createTime, getDevInstanceResponse.createTime) &&
         Objects.equals(this.creatorTrn, getDevInstanceResponse.creatorTrn) &&
+        Objects.equals(this.credential, getDevInstanceResponse.credential) &&
         Objects.equals(this.defaultFolder, getDevInstanceResponse.defaultFolder) &&
         Objects.equals(this.description, getDevInstanceResponse.description) &&
         Objects.equals(this.expectedStopTime, getDevInstanceResponse.expectedStopTime) &&
@@ -670,7 +694,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, credential, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -682,6 +706,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     sb.append("    allowImageBuild: ").append(toIndentedString(allowImageBuild)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expectedStopTime: ").append(toIndentedString(expectedStopTime)).append("\n");

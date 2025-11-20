@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.CredentialForListDevInstancesOutput;
+import com.volcengine.mlplatform20240701.model.ConvertCredentialForListDevInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,7 +32,7 @@ import javax.validation.Valid;
 
 public class ImageForListDevInstancesOutput {
   @SerializedName("Credential")
-  private CredentialForListDevInstancesOutput credential = null;
+  private ConvertCredentialForListDevInstancesOutput credential = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -40,7 +40,7 @@ public class ImageForListDevInstancesOutput {
   @SerializedName("Url")
   private String url = null;
 
-  public ImageForListDevInstancesOutput credential(CredentialForListDevInstancesOutput credential) {
+  public ImageForListDevInstancesOutput credential(ConvertCredentialForListDevInstancesOutput credential) {
     this.credential = credential;
     return this;
   }
@@ -51,11 +51,11 @@ public class ImageForListDevInstancesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public CredentialForListDevInstancesOutput getCredential() {
+  public ConvertCredentialForListDevInstancesOutput getCredential() {
     return credential;
   }
 
-  public void setCredential(CredentialForListDevInstancesOutput credential) {
+  public void setCredential(ConvertCredentialForListDevInstancesOutput credential) {
     this.credential = credential;
   }
 

@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.AllocatedComputeResourceForListResourceReservationRecordsOutput;
 import com.volcengine.mlplatform20240701.model.DeliveredComputeResourceForListResourceReservationRecordsOutput;
 import com.volcengine.mlplatform20240701.model.DesiredComputeResourceForListResourceReservationRecordsOutput;
+import com.volcengine.mlplatform20240701.model.LockedComputeResourceForListResourceReservationRecordsOutput;
+import com.volcengine.mlplatform20240701.model.MinComputeResourceForListResourceReservationRecordsOutput;
 import com.volcengine.mlplatform20240701.model.StatusForListResourceReservationRecordsOutput;
+import com.volcengine.mlplatform20240701.model.TargetComputeResourceForListResourceReservationRecordsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -49,6 +52,12 @@ public class ItemForListResourceReservationRecordsOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("LockedComputeResource")
+  private LockedComputeResourceForListResourceReservationRecordsOutput lockedComputeResource = null;
+
+  @SerializedName("MinComputeResource")
+  private MinComputeResourceForListResourceReservationRecordsOutput minComputeResource = null;
+
   @SerializedName("ResourceEndTime")
   private String resourceEndTime = null;
 
@@ -60,6 +69,9 @@ public class ItemForListResourceReservationRecordsOutput {
 
   @SerializedName("Status")
   private StatusForListResourceReservationRecordsOutput status = null;
+
+  @SerializedName("TargetComputeResource")
+  private TargetComputeResourceForListResourceReservationRecordsOutput targetComputeResource = null;
 
   public ItemForListResourceReservationRecordsOutput activationTime(String activationTime) {
     this.activationTime = activationTime;
@@ -154,6 +166,44 @@ public class ItemForListResourceReservationRecordsOutput {
     this.id = id;
   }
 
+  public ItemForListResourceReservationRecordsOutput lockedComputeResource(LockedComputeResourceForListResourceReservationRecordsOutput lockedComputeResource) {
+    this.lockedComputeResource = lockedComputeResource;
+    return this;
+  }
+
+   /**
+   * Get lockedComputeResource
+   * @return lockedComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public LockedComputeResourceForListResourceReservationRecordsOutput getLockedComputeResource() {
+    return lockedComputeResource;
+  }
+
+  public void setLockedComputeResource(LockedComputeResourceForListResourceReservationRecordsOutput lockedComputeResource) {
+    this.lockedComputeResource = lockedComputeResource;
+  }
+
+  public ItemForListResourceReservationRecordsOutput minComputeResource(MinComputeResourceForListResourceReservationRecordsOutput minComputeResource) {
+    this.minComputeResource = minComputeResource;
+    return this;
+  }
+
+   /**
+   * Get minComputeResource
+   * @return minComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public MinComputeResourceForListResourceReservationRecordsOutput getMinComputeResource() {
+    return minComputeResource;
+  }
+
+  public void setMinComputeResource(MinComputeResourceForListResourceReservationRecordsOutput minComputeResource) {
+    this.minComputeResource = minComputeResource;
+  }
+
   public ItemForListResourceReservationRecordsOutput resourceEndTime(String resourceEndTime) {
     this.resourceEndTime = resourceEndTime;
     return this;
@@ -227,6 +277,25 @@ public class ItemForListResourceReservationRecordsOutput {
     this.status = status;
   }
 
+  public ItemForListResourceReservationRecordsOutput targetComputeResource(TargetComputeResourceForListResourceReservationRecordsOutput targetComputeResource) {
+    this.targetComputeResource = targetComputeResource;
+    return this;
+  }
+
+   /**
+   * Get targetComputeResource
+   * @return targetComputeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public TargetComputeResourceForListResourceReservationRecordsOutput getTargetComputeResource() {
+    return targetComputeResource;
+  }
+
+  public void setTargetComputeResource(TargetComputeResourceForListResourceReservationRecordsOutput targetComputeResource) {
+    this.targetComputeResource = targetComputeResource;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -242,15 +311,18 @@ public class ItemForListResourceReservationRecordsOutput {
         Objects.equals(this.deliveredComputeResource, itemForListResourceReservationRecordsOutput.deliveredComputeResource) &&
         Objects.equals(this.desiredComputeResource, itemForListResourceReservationRecordsOutput.desiredComputeResource) &&
         Objects.equals(this.id, itemForListResourceReservationRecordsOutput.id) &&
+        Objects.equals(this.lockedComputeResource, itemForListResourceReservationRecordsOutput.lockedComputeResource) &&
+        Objects.equals(this.minComputeResource, itemForListResourceReservationRecordsOutput.minComputeResource) &&
         Objects.equals(this.resourceEndTime, itemForListResourceReservationRecordsOutput.resourceEndTime) &&
         Objects.equals(this.resourceStartTime, itemForListResourceReservationRecordsOutput.resourceStartTime) &&
         Objects.equals(this.resourceZoneId, itemForListResourceReservationRecordsOutput.resourceZoneId) &&
-        Objects.equals(this.status, itemForListResourceReservationRecordsOutput.status);
+        Objects.equals(this.status, itemForListResourceReservationRecordsOutput.status) &&
+        Objects.equals(this.targetComputeResource, itemForListResourceReservationRecordsOutput.targetComputeResource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activationTime, allocatedComputeResource, deliveredComputeResource, desiredComputeResource, id, resourceEndTime, resourceStartTime, resourceZoneId, status);
+    return Objects.hash(activationTime, allocatedComputeResource, deliveredComputeResource, desiredComputeResource, id, lockedComputeResource, minComputeResource, resourceEndTime, resourceStartTime, resourceZoneId, status, targetComputeResource);
   }
 
 
@@ -264,10 +336,13 @@ public class ItemForListResourceReservationRecordsOutput {
     sb.append("    deliveredComputeResource: ").append(toIndentedString(deliveredComputeResource)).append("\n");
     sb.append("    desiredComputeResource: ").append(toIndentedString(desiredComputeResource)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lockedComputeResource: ").append(toIndentedString(lockedComputeResource)).append("\n");
+    sb.append("    minComputeResource: ").append(toIndentedString(minComputeResource)).append("\n");
     sb.append("    resourceEndTime: ").append(toIndentedString(resourceEndTime)).append("\n");
     sb.append("    resourceStartTime: ").append(toIndentedString(resourceStartTime)).append("\n");
     sb.append("    resourceZoneId: ").append(toIndentedString(resourceZoneId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    targetComputeResource: ").append(toIndentedString(targetComputeResource)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,6 +36,9 @@ public class VepfsAPForGetDeploymentOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("UseEic")
+  private Boolean useEic = null;
+
   public VepfsAPForGetDeploymentOutput accessPointId(String accessPointId) {
     this.accessPointId = accessPointId;
     return this;
@@ -72,6 +75,24 @@ public class VepfsAPForGetDeploymentOutput {
     this.id = id;
   }
 
+  public VepfsAPForGetDeploymentOutput useEic(Boolean useEic) {
+    this.useEic = useEic;
+    return this;
+  }
+
+   /**
+   * Get useEic
+   * @return useEic
+  **/
+  @Schema(description = "")
+  public Boolean isUseEic() {
+    return useEic;
+  }
+
+  public void setUseEic(Boolean useEic) {
+    this.useEic = useEic;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class VepfsAPForGetDeploymentOutput {
     }
     VepfsAPForGetDeploymentOutput vepfsAPForGetDeploymentOutput = (VepfsAPForGetDeploymentOutput) o;
     return Objects.equals(this.accessPointId, vepfsAPForGetDeploymentOutput.accessPointId) &&
-        Objects.equals(this.id, vepfsAPForGetDeploymentOutput.id);
+        Objects.equals(this.id, vepfsAPForGetDeploymentOutput.id) &&
+        Objects.equals(this.useEic, vepfsAPForGetDeploymentOutput.useEic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPointId, id);
+    return Objects.hash(accessPointId, id, useEic);
   }
 
 
@@ -99,6 +121,7 @@ public class VepfsAPForGetDeploymentOutput {
     
     sb.append("    accessPointId: ").append(toIndentedString(accessPointId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    useEic: ").append(toIndentedString(useEic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
