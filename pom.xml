@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.46</version>
+    <version>0.2.47</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -321,5 +321,6 @@
         <module>volcengine-java-sdk-cbr</module>
         <module>volcengine-java-sdk-milvus</module>
         <module>volcengine-java-sdk-smc</module>
+        <module>volcengine-java-sdk-config</module>
     </modules>
 </project>
