@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateAccessKeyResponse
+ * ModifyGroupDescriptionResponse
  */
 
 
 
-public class CreateAccessKeyResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyGroupDescriptionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class CreateAccessKeyResponse extends com.volcengine.model.AbstractRespon
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAccessKeyResponse {\n");
+    sb.append("class ModifyGroupDescriptionResponse {\n");
     
     sb.append("}");
     return sb.toString();
