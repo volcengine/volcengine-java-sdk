@@ -24,41 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateAccessKeyRequest
+ * ModifyTopicDescriptionRequest
  */
 
 
 
-public class CreateAccessKeyRequest {
-  @SerializedName("AllAuthority")
-  private String allAuthority = null;
-
+public class ModifyTopicDescriptionRequest {
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public CreateAccessKeyRequest allAuthority(String allAuthority) {
-    this.allAuthority = allAuthority;
-    return this;
-  }
+  @SerializedName("TopicName")
+  private String topicName = null;
 
-   /**
-   * Get allAuthority
-   * @return allAuthority
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAllAuthority() {
-    return allAuthority;
-  }
-
-  public void setAllAuthority(String allAuthority) {
-    this.allAuthority = allAuthority;
-  }
-
-  public CreateAccessKeyRequest description(String description) {
+  public ModifyTopicDescriptionRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -67,7 +48,8 @@ public class CreateAccessKeyRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDescription() {
     return description;
   }
@@ -76,7 +58,7 @@ public class CreateAccessKeyRequest {
     this.description = description;
   }
 
-  public CreateAccessKeyRequest instanceId(String instanceId) {
+  public ModifyTopicDescriptionRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -95,6 +77,25 @@ public class CreateAccessKeyRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyTopicDescriptionRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,26 +105,26 @@ public class CreateAccessKeyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAccessKeyRequest createAccessKeyRequest = (CreateAccessKeyRequest) o;
-    return Objects.equals(this.allAuthority, createAccessKeyRequest.allAuthority) &&
-        Objects.equals(this.description, createAccessKeyRequest.description) &&
-        Objects.equals(this.instanceId, createAccessKeyRequest.instanceId);
+    ModifyTopicDescriptionRequest modifyTopicDescriptionRequest = (ModifyTopicDescriptionRequest) o;
+    return Objects.equals(this.description, modifyTopicDescriptionRequest.description) &&
+        Objects.equals(this.instanceId, modifyTopicDescriptionRequest.instanceId) &&
+        Objects.equals(this.topicName, modifyTopicDescriptionRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allAuthority, description, instanceId);
+    return Objects.hash(description, instanceId, topicName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAccessKeyRequest {\n");
+    sb.append("class ModifyTopicDescriptionRequest {\n");
     
-    sb.append("    allAuthority: ").append(toIndentedString(allAuthority)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
