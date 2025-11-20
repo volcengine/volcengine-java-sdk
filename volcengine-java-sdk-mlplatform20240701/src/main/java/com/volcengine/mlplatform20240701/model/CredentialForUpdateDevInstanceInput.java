@@ -30,28 +30,31 @@ import javax.validation.Valid;
 
 
 public class CredentialForUpdateDevInstanceInput {
-  @SerializedName("AccessKeyId")
-  private String accessKeyId = null;
+  @SerializedName("AccessKey")
+  private String accessKey = null;
 
   @SerializedName("SecretAccessKey")
   private String secretAccessKey = null;
 
-  public CredentialForUpdateDevInstanceInput accessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  @SerializedName("UseServiceLinkedRole")
+  private Boolean useServiceLinkedRole = null;
+
+  public CredentialForUpdateDevInstanceInput accessKey(String accessKey) {
+    this.accessKey = accessKey;
     return this;
   }
 
    /**
-   * Get accessKeyId
-   * @return accessKeyId
+   * Get accessKey
+   * @return accessKey
   **/
   @Schema(description = "")
-  public String getAccessKeyId() {
-    return accessKeyId;
+  public String getAccessKey() {
+    return accessKey;
   }
 
-  public void setAccessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
   }
 
   public CredentialForUpdateDevInstanceInput secretAccessKey(String secretAccessKey) {
@@ -72,6 +75,24 @@ public class CredentialForUpdateDevInstanceInput {
     this.secretAccessKey = secretAccessKey;
   }
 
+  public CredentialForUpdateDevInstanceInput useServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+    return this;
+  }
+
+   /**
+   * Get useServiceLinkedRole
+   * @return useServiceLinkedRole
+  **/
+  @Schema(description = "")
+  public Boolean isUseServiceLinkedRole() {
+    return useServiceLinkedRole;
+  }
+
+  public void setUseServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +103,14 @@ public class CredentialForUpdateDevInstanceInput {
       return false;
     }
     CredentialForUpdateDevInstanceInput credentialForUpdateDevInstanceInput = (CredentialForUpdateDevInstanceInput) o;
-    return Objects.equals(this.accessKeyId, credentialForUpdateDevInstanceInput.accessKeyId) &&
-        Objects.equals(this.secretAccessKey, credentialForUpdateDevInstanceInput.secretAccessKey);
+    return Objects.equals(this.accessKey, credentialForUpdateDevInstanceInput.accessKey) &&
+        Objects.equals(this.secretAccessKey, credentialForUpdateDevInstanceInput.secretAccessKey) &&
+        Objects.equals(this.useServiceLinkedRole, credentialForUpdateDevInstanceInput.useServiceLinkedRole);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, secretAccessKey);
+    return Objects.hash(accessKey, secretAccessKey, useServiceLinkedRole);
   }
 
 
@@ -97,8 +119,9 @@ public class CredentialForUpdateDevInstanceInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CredentialForUpdateDevInstanceInput {\n");
     
-    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
+    sb.append("    useServiceLinkedRole: ").append(toIndentedString(useServiceLinkedRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

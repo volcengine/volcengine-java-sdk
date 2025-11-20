@@ -30,70 +30,49 @@ import javax.validation.Valid;
 
 
 public class VolumeResourceForCreateResourceGroupInput {
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Size")
+  private Integer size = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
-  @SerializedName("Num")
-  private Integer num = null;
+  @SerializedName("VolumeTypeId")
+  private String volumeTypeId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public VolumeResourceForCreateResourceGroupInput id(String id) {
-    this.id = id;
+  public VolumeResourceForCreateResourceGroupInput size(Integer size) {
+    this.size = size;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get size
+   * @return size
   **/
   @Schema(description = "")
-  public String getId() {
-    return id;
+  public Integer getSize() {
+    return size;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
-  public VolumeResourceForCreateResourceGroupInput name(String name) {
-    this.name = name;
+  public VolumeResourceForCreateResourceGroupInput volumeTypeId(String volumeTypeId) {
+    this.volumeTypeId = volumeTypeId;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get volumeTypeId
+   * @return volumeTypeId
   **/
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public String getVolumeTypeId() {
+    return volumeTypeId;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public VolumeResourceForCreateResourceGroupInput num(Integer num) {
-    this.num = num;
-    return this;
-  }
-
-   /**
-   * Get num
-   * @return num
-  **/
-  @Schema(description = "")
-  public Integer getNum() {
-    return num;
-  }
-
-  public void setNum(Integer num) {
-    this.num = num;
+  public void setVolumeTypeId(String volumeTypeId) {
+    this.volumeTypeId = volumeTypeId;
   }
 
   public VolumeResourceForCreateResourceGroupInput zoneId(String zoneId) {
@@ -124,15 +103,14 @@ public class VolumeResourceForCreateResourceGroupInput {
       return false;
     }
     VolumeResourceForCreateResourceGroupInput volumeResourceForCreateResourceGroupInput = (VolumeResourceForCreateResourceGroupInput) o;
-    return Objects.equals(this.id, volumeResourceForCreateResourceGroupInput.id) &&
-        Objects.equals(this.name, volumeResourceForCreateResourceGroupInput.name) &&
-        Objects.equals(this.num, volumeResourceForCreateResourceGroupInput.num) &&
+    return Objects.equals(this.size, volumeResourceForCreateResourceGroupInput.size) &&
+        Objects.equals(this.volumeTypeId, volumeResourceForCreateResourceGroupInput.volumeTypeId) &&
         Objects.equals(this.zoneId, volumeResourceForCreateResourceGroupInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, num, zoneId);
+    return Objects.hash(size, volumeTypeId, zoneId);
   }
 
 
@@ -141,9 +119,8 @@ public class VolumeResourceForCreateResourceGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeResourceForCreateResourceGroupInput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    num: ").append(toIndentedString(num)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    volumeTypeId: ").append(toIndentedString(volumeTypeId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

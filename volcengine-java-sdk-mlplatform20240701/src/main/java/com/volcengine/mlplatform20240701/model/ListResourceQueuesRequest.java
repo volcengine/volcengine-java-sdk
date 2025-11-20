@@ -37,14 +37,12 @@ public class ListResourceQueuesRequest {
    */
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
-    @SerializedName("Paused")
-    PAUSED("Paused"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Closed")
-    CLOSED("Closed"),
-    @SerializedName("Closing")
-    CLOSING("Closing");
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid"),
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("OnDemand")
+    ONDEMAND("OnDemand");
 
     private String value;
 
@@ -198,10 +196,14 @@ public class ListResourceQueuesRequest {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("PrePaid")
-    PREPAID("PrePaid"),
-    @SerializedName("PostPaid")
-    POSTPAID("PostPaid");
+    @SerializedName("Paused")
+    PAUSED("Paused"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Closed")
+    CLOSED("Closed"),
+    @SerializedName("Closing")
+    CLOSING("Closing");
 
     private String value;
 
