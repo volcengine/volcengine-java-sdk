@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.mlplatform20240701.model.ImageCredentialForCreateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConvertCredentialForCreateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,14 +31,8 @@ import javax.validation.Valid;
 
 
 public class ImageForCreateDeploymentInput {
-  @SerializedName("Description")
-  private String description = null;
-
-  @SerializedName("Id")
-  private String id = null;
-
-  @SerializedName("ImageCredential")
-  private ImageCredentialForCreateDeploymentInput imageCredential = null;
+  @SerializedName("Credential")
+  private ConvertCredentialForCreateDeploymentInput credential = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -46,62 +40,23 @@ public class ImageForCreateDeploymentInput {
   @SerializedName("Url")
   private String url = null;
 
-  @SerializedName("Version")
-  private String version = null;
-
-  public ImageForCreateDeploymentInput description(String description) {
-    this.description = description;
+  public ImageForCreateDeploymentInput credential(ConvertCredentialForCreateDeploymentInput credential) {
+    this.credential = credential;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public ImageForCreateDeploymentInput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ImageForCreateDeploymentInput imageCredential(ImageCredentialForCreateDeploymentInput imageCredential) {
-    this.imageCredential = imageCredential;
-    return this;
-  }
-
-   /**
-   * Get imageCredential
-   * @return imageCredential
+   * Get credential
+   * @return credential
   **/
   @Valid
   @Schema(description = "")
-  public ImageCredentialForCreateDeploymentInput getImageCredential() {
-    return imageCredential;
+  public ConvertCredentialForCreateDeploymentInput getCredential() {
+    return credential;
   }
 
-  public void setImageCredential(ImageCredentialForCreateDeploymentInput imageCredential) {
-    this.imageCredential = imageCredential;
+  public void setCredential(ConvertCredentialForCreateDeploymentInput credential) {
+    this.credential = credential;
   }
 
   public ImageForCreateDeploymentInput type(String type) {
@@ -140,24 +95,6 @@ public class ImageForCreateDeploymentInput {
     this.url = url;
   }
 
-  public ImageForCreateDeploymentInput version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @Schema(description = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -168,17 +105,14 @@ public class ImageForCreateDeploymentInput {
       return false;
     }
     ImageForCreateDeploymentInput imageForCreateDeploymentInput = (ImageForCreateDeploymentInput) o;
-    return Objects.equals(this.description, imageForCreateDeploymentInput.description) &&
-        Objects.equals(this.id, imageForCreateDeploymentInput.id) &&
-        Objects.equals(this.imageCredential, imageForCreateDeploymentInput.imageCredential) &&
+    return Objects.equals(this.credential, imageForCreateDeploymentInput.credential) &&
         Objects.equals(this.type, imageForCreateDeploymentInput.type) &&
-        Objects.equals(this.url, imageForCreateDeploymentInput.url) &&
-        Objects.equals(this.version, imageForCreateDeploymentInput.version);
+        Objects.equals(this.url, imageForCreateDeploymentInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, imageCredential, type, url, version);
+    return Objects.hash(credential, type, url);
   }
 
 
@@ -187,12 +121,9 @@ public class ImageForCreateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageForCreateDeploymentInput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    imageCredential: ").append(toIndentedString(imageCredential)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

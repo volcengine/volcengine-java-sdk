@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.EicForUpdateResourceGroupInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateResourceGroupInput;
 import com.volcengine.mlplatform20240701.model.StorageNetworkConfigForUpdateResourceGroupInput;
 import com.volcengine.mlplatform20240701.model.VepfsForUpdateResourceGroupInput;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class StorageConfigForUpdateResourceGroupInput {
+  @SerializedName("Eic")
+  private EicForUpdateResourceGroupInput eic = null;
+
   @SerializedName("Sfcs")
   private SfcsForUpdateResourceGroupInput sfcs = null;
 
@@ -41,6 +45,25 @@ public class StorageConfigForUpdateResourceGroupInput {
 
   @SerializedName("Vepfs")
   private VepfsForUpdateResourceGroupInput vepfs = null;
+
+  public StorageConfigForUpdateResourceGroupInput eic(EicForUpdateResourceGroupInput eic) {
+    this.eic = eic;
+    return this;
+  }
+
+   /**
+   * Get eic
+   * @return eic
+  **/
+  @Valid
+  @Schema(description = "")
+  public EicForUpdateResourceGroupInput getEic() {
+    return eic;
+  }
+
+  public void setEic(EicForUpdateResourceGroupInput eic) {
+    this.eic = eic;
+  }
 
   public StorageConfigForUpdateResourceGroupInput sfcs(SfcsForUpdateResourceGroupInput sfcs) {
     this.sfcs = sfcs;
@@ -109,14 +132,15 @@ public class StorageConfigForUpdateResourceGroupInput {
       return false;
     }
     StorageConfigForUpdateResourceGroupInput storageConfigForUpdateResourceGroupInput = (StorageConfigForUpdateResourceGroupInput) o;
-    return Objects.equals(this.sfcs, storageConfigForUpdateResourceGroupInput.sfcs) &&
+    return Objects.equals(this.eic, storageConfigForUpdateResourceGroupInput.eic) &&
+        Objects.equals(this.sfcs, storageConfigForUpdateResourceGroupInput.sfcs) &&
         Objects.equals(this.storageNetworkConfig, storageConfigForUpdateResourceGroupInput.storageNetworkConfig) &&
         Objects.equals(this.vepfs, storageConfigForUpdateResourceGroupInput.vepfs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sfcs, storageNetworkConfig, vepfs);
+    return Objects.hash(eic, sfcs, storageNetworkConfig, vepfs);
   }
 
 
@@ -125,6 +149,7 @@ public class StorageConfigForUpdateResourceGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageConfigForUpdateResourceGroupInput {\n");
     
+    sb.append("    eic: ").append(toIndentedString(eic)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    storageNetworkConfig: ").append(toIndentedString(storageNetworkConfig)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");

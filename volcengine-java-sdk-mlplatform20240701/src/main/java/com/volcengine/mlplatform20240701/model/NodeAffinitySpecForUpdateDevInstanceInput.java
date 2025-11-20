@@ -30,13 +30,60 @@ import javax.validation.Valid;
 
 
 public class NodeAffinitySpecForUpdateDevInstanceInput {
-  @SerializedName("GPUCPUNodePreference")
-  private String gpUCPUNodePreference = null;
+  /**
+   * Gets or Sets gpUCPUNodePreference
+   */
+  @JsonAdapter(GpUCPUNodePreferenceEnum.Adapter.class)
+  public enum GpUCPUNodePreferenceEnum {
+    @SerializedName("GPURequired")
+    GPUREQUIRED("GPURequired"),
+    @SerializedName("GPUPreferred")
+    GPUPREFERRED("GPUPreferred"),
+    @SerializedName("CPURequired")
+    CPUREQUIRED("CPURequired"),
+    @SerializedName("CPUPreferred")
+    CPUPREFERRED("CPUPreferred");
 
-  @SerializedName("Source")
-  private String source = null;
+    private String value;
 
-  public NodeAffinitySpecForUpdateDevInstanceInput gpUCPUNodePreference(String gpUCPUNodePreference) {
+    GpUCPUNodePreferenceEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static GpUCPUNodePreferenceEnum fromValue(String input) {
+      for (GpUCPUNodePreferenceEnum b : GpUCPUNodePreferenceEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<GpUCPUNodePreferenceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final GpUCPUNodePreferenceEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public GpUCPUNodePreferenceEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return GpUCPUNodePreferenceEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("GPUCPUNodePreference")
+  private GpUCPUNodePreferenceEnum gpUCPUNodePreference = null;
+
+  @SerializedName("StrategyType")
+  private String strategyType = null;
+
+  public NodeAffinitySpecForUpdateDevInstanceInput gpUCPUNodePreference(GpUCPUNodePreferenceEnum gpUCPUNodePreference) {
     this.gpUCPUNodePreference = gpUCPUNodePreference;
     return this;
   }
@@ -46,30 +93,30 @@ public class NodeAffinitySpecForUpdateDevInstanceInput {
    * @return gpUCPUNodePreference
   **/
   @Schema(description = "")
-  public String getGpUCPUNodePreference() {
+  public GpUCPUNodePreferenceEnum getGpUCPUNodePreference() {
     return gpUCPUNodePreference;
   }
 
-  public void setGpUCPUNodePreference(String gpUCPUNodePreference) {
+  public void setGpUCPUNodePreference(GpUCPUNodePreferenceEnum gpUCPUNodePreference) {
     this.gpUCPUNodePreference = gpUCPUNodePreference;
   }
 
-  public NodeAffinitySpecForUpdateDevInstanceInput source(String source) {
-    this.source = source;
+  public NodeAffinitySpecForUpdateDevInstanceInput strategyType(String strategyType) {
+    this.strategyType = strategyType;
     return this;
   }
 
    /**
-   * Get source
-   * @return source
+   * Get strategyType
+   * @return strategyType
   **/
   @Schema(description = "")
-  public String getSource() {
-    return source;
+  public String getStrategyType() {
+    return strategyType;
   }
 
-  public void setSource(String source) {
-    this.source = source;
+  public void setStrategyType(String strategyType) {
+    this.strategyType = strategyType;
   }
 
 
@@ -83,12 +130,12 @@ public class NodeAffinitySpecForUpdateDevInstanceInput {
     }
     NodeAffinitySpecForUpdateDevInstanceInput nodeAffinitySpecForUpdateDevInstanceInput = (NodeAffinitySpecForUpdateDevInstanceInput) o;
     return Objects.equals(this.gpUCPUNodePreference, nodeAffinitySpecForUpdateDevInstanceInput.gpUCPUNodePreference) &&
-        Objects.equals(this.source, nodeAffinitySpecForUpdateDevInstanceInput.source);
+        Objects.equals(this.strategyType, nodeAffinitySpecForUpdateDevInstanceInput.strategyType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpUCPUNodePreference, source);
+    return Objects.hash(gpUCPUNodePreference, strategyType);
   }
 
 
@@ -98,7 +145,7 @@ public class NodeAffinitySpecForUpdateDevInstanceInput {
     sb.append("class NodeAffinitySpecForUpdateDevInstanceInput {\n");
     
     sb.append("    gpUCPUNodePreference: ").append(toIndentedString(gpUCPUNodePreference)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    strategyType: ").append(toIndentedString(strategyType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

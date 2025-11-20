@@ -35,9 +35,6 @@ public class WorkloadNetworkConfigForCreateResourceGroupInput {
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
-  @SerializedName("SubnetId")
-  private String subnetId = null;
-
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
 
@@ -68,24 +65,6 @@ public class WorkloadNetworkConfigForCreateResourceGroupInput {
 
   public void setSecurityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
-  }
-
-  public WorkloadNetworkConfigForCreateResourceGroupInput subnetId(String subnetId) {
-    this.subnetId = subnetId;
-    return this;
-  }
-
-   /**
-   * Get subnetId
-   * @return subnetId
-  **/
-  @Schema(description = "")
-  public String getSubnetId() {
-    return subnetId;
-  }
-
-  public void setSubnetId(String subnetId) {
-    this.subnetId = subnetId;
   }
 
   public WorkloadNetworkConfigForCreateResourceGroupInput subnetIds(List<String> subnetIds) {
@@ -143,14 +122,13 @@ public class WorkloadNetworkConfigForCreateResourceGroupInput {
     }
     WorkloadNetworkConfigForCreateResourceGroupInput workloadNetworkConfigForCreateResourceGroupInput = (WorkloadNetworkConfigForCreateResourceGroupInput) o;
     return Objects.equals(this.securityGroupIds, workloadNetworkConfigForCreateResourceGroupInput.securityGroupIds) &&
-        Objects.equals(this.subnetId, workloadNetworkConfigForCreateResourceGroupInput.subnetId) &&
         Objects.equals(this.subnetIds, workloadNetworkConfigForCreateResourceGroupInput.subnetIds) &&
         Objects.equals(this.vpcId, workloadNetworkConfigForCreateResourceGroupInput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(securityGroupIds, subnetId, subnetIds, vpcId);
+    return Objects.hash(securityGroupIds, subnetIds, vpcId);
   }
 
 
@@ -160,7 +138,6 @@ public class WorkloadNetworkConfigForCreateResourceGroupInput {
     sb.append("class WorkloadNetworkConfigForCreateResourceGroupInput {\n");
     
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
-    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,6 +40,9 @@ public class MessageSendRequest {
 
   @SerializedName("Key")
   private String key = null;
+
+  @SerializedName("Properties")
+  private List<String> properties = null;
 
   @SerializedName("Tag")
   private String tag = null;
@@ -101,6 +106,32 @@ public class MessageSendRequest {
     this.key = key;
   }
 
+  public MessageSendRequest properties(List<String> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public MessageSendRequest addPropertiesItem(String propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<String>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Get properties
+   * @return properties
+  **/
+  @Schema(description = "")
+  public List<String> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<String> properties) {
+    this.properties = properties;
+  }
+
   public MessageSendRequest tag(String tag) {
     this.tag = tag;
     return this;
@@ -151,13 +182,14 @@ public class MessageSendRequest {
     return Objects.equals(this.body, messageSendRequest.body) &&
         Objects.equals(this.instanceId, messageSendRequest.instanceId) &&
         Objects.equals(this.key, messageSendRequest.key) &&
+        Objects.equals(this.properties, messageSendRequest.properties) &&
         Objects.equals(this.tag, messageSendRequest.tag) &&
         Objects.equals(this.topic, messageSendRequest.topic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, instanceId, key, tag, topic);
+    return Objects.hash(body, instanceId, key, properties, tag, topic);
   }
 
 
@@ -169,6 +201,7 @@ public class MessageSendRequest {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
     sb.append("}");

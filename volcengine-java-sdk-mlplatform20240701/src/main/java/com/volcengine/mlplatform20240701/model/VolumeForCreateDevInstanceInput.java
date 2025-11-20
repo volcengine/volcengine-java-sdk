@@ -33,8 +33,8 @@ public class VolumeForCreateDevInstanceInput {
   @SerializedName("Size")
   private Integer size = null;
 
-  @SerializedName("Type")
-  private String type = null;
+  @SerializedName("VolumeTypeId")
+  private String volumeTypeId = null;
 
   public VolumeForCreateDevInstanceInput size(Integer size) {
     this.size = size;
@@ -54,22 +54,22 @@ public class VolumeForCreateDevInstanceInput {
     this.size = size;
   }
 
-  public VolumeForCreateDevInstanceInput type(String type) {
-    this.type = type;
+  public VolumeForCreateDevInstanceInput volumeTypeId(String volumeTypeId) {
+    this.volumeTypeId = volumeTypeId;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get volumeTypeId
+   * @return volumeTypeId
   **/
   @Schema(description = "")
-  public String getType() {
-    return type;
+  public String getVolumeTypeId() {
+    return volumeTypeId;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setVolumeTypeId(String volumeTypeId) {
+    this.volumeTypeId = volumeTypeId;
   }
 
 
@@ -83,12 +83,12 @@ public class VolumeForCreateDevInstanceInput {
     }
     VolumeForCreateDevInstanceInput volumeForCreateDevInstanceInput = (VolumeForCreateDevInstanceInput) o;
     return Objects.equals(this.size, volumeForCreateDevInstanceInput.size) &&
-        Objects.equals(this.type, volumeForCreateDevInstanceInput.type);
+        Objects.equals(this.volumeTypeId, volumeForCreateDevInstanceInput.volumeTypeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, type);
+    return Objects.hash(size, volumeTypeId);
   }
 
 
@@ -98,7 +98,7 @@ public class VolumeForCreateDevInstanceInput {
     sb.append("class VolumeForCreateDevInstanceInput {\n");
     
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    volumeTypeId: ").append(toIndentedString(volumeTypeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
