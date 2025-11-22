@@ -37,23 +37,34 @@ public class ApiClient {
                 .build();
     }
 
-    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy) throws MalformedURLException {
-        URL purl = new URL(proxy);
-        String p_protocol = purl.getProtocol(); // 协议（http/https 等）
-        String p_host = purl.getHost();         // 主机名（域名或 IP）
-        int p_port = purl.getPort();            // 显式指定的端口号
-        if (p_port < 0) {
-            p_port = purl.getDefaultPort();// 协议默认端口
-        }
-        HttpHost httpsProxy = new HttpHost(p_host, p_port, p_protocol);
+    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
         this.url = url;
         this.ak = ak;
         this.sk = sk;
         this.region = region;
-        this.httpClient = HttpClientBuilder.create()
-                .setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS)
-                .setProxy(httpsProxy)
-                .build();
+
+        HttpClientBuilder builder = HttpClientBuilder.create().setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS);
+        if (proxy != null && !proxy.isEmpty()) {
+            try {
+                URL purl = new URL(proxy);
+                String p_protocol = purl.getProtocol(); // 协议（http/https 等）
+                String p_host = purl.getHost();         // 主机名（域名或 IP）
+                int p_port = purl.getPort();            // 显式指定的端口号
+                if (p_port < 0) {
+                    p_port = purl.getDefaultPort();// 协议默认端口
+                }
+                HttpHost httpsProxy = new HttpHost(p_host, p_port, p_protocol);
+                builder.setProxy(httpsProxy);
+            } catch (MalformedURLException e) {
+                throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
+            }
+        }
+
+        if (connMax > 0) {
+            builder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
+        }
+
+        this.httpClient = builder.build();
     }
 
     /**
@@ -81,8 +92,8 @@ public class ApiClient {
      * @param timeout 连接超时时间（毫秒）
      * @return 客户端实例
      */
-    public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy) throws MalformedURLException {
-        return new ApiClient(url, ak, sk, region, timeout, proxy);
+    public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
+        return new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
     }
 
     /**
