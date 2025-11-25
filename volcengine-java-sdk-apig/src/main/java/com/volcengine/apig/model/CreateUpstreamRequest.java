@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.CircuitBreakingSettingsForCreateUpstreamInput;
+import com.volcengine.apig.model.ConnectionPoolSettingsForCreateUpstreamInput;
 import com.volcengine.apig.model.LoadBalancerSettingsForCreateUpstreamInput;
 import com.volcengine.apig.model.TlsSettingsForCreateUpstreamInput;
 import com.volcengine.apig.model.UpstreamSpecForCreateUpstreamInput;
@@ -39,6 +40,9 @@ public class CreateUpstreamRequest {
 
   @SerializedName("Comments")
   private String comments = null;
+
+  @SerializedName("ConnectionPoolSettings")
+  private ConnectionPoolSettingsForCreateUpstreamInput connectionPoolSettings = null;
 
   @SerializedName("GatewayId")
   private String gatewayId = null;
@@ -96,6 +100,25 @@ public class CreateUpstreamRequest {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public CreateUpstreamRequest connectionPoolSettings(ConnectionPoolSettingsForCreateUpstreamInput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolSettings
+   * @return connectionPoolSettings
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConnectionPoolSettingsForCreateUpstreamInput getConnectionPoolSettings() {
+    return connectionPoolSettings;
+  }
+
+  public void setConnectionPoolSettings(ConnectionPoolSettingsForCreateUpstreamInput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
   }
 
   public CreateUpstreamRequest gatewayId(String gatewayId) {
@@ -242,6 +265,7 @@ public class CreateUpstreamRequest {
     CreateUpstreamRequest createUpstreamRequest = (CreateUpstreamRequest) o;
     return Objects.equals(this.circuitBreakingSettings, createUpstreamRequest.circuitBreakingSettings) &&
         Objects.equals(this.comments, createUpstreamRequest.comments) &&
+        Objects.equals(this.connectionPoolSettings, createUpstreamRequest.connectionPoolSettings) &&
         Objects.equals(this.gatewayId, createUpstreamRequest.gatewayId) &&
         Objects.equals(this.loadBalancerSettings, createUpstreamRequest.loadBalancerSettings) &&
         Objects.equals(this.name, createUpstreamRequest.name) &&
@@ -253,7 +277,7 @@ public class CreateUpstreamRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(circuitBreakingSettings, comments, gatewayId, loadBalancerSettings, name, protocol, sourceType, tlsSettings, upstreamSpec);
+    return Objects.hash(circuitBreakingSettings, comments, connectionPoolSettings, gatewayId, loadBalancerSettings, name, protocol, sourceType, tlsSettings, upstreamSpec);
   }
 
 
@@ -264,6 +288,7 @@ public class CreateUpstreamRequest {
     
     sb.append("    circuitBreakingSettings: ").append(toIndentedString(circuitBreakingSettings)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    connectionPoolSettings: ").append(toIndentedString(connectionPoolSettings)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    loadBalancerSettings: ").append(toIndentedString(loadBalancerSettings)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
