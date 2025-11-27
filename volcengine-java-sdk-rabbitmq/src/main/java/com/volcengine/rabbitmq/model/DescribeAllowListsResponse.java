@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rabbitmq.model.AllowListForDescribeAllowListsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,60 +27,40 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagFilterForDescribeInstancesInput
+ * DescribeAllowListsResponse
  */
 
 
 
-public class TagFilterForDescribeInstancesInput {
-  @SerializedName("Key")
-  private String key = null;
+public class DescribeAllowListsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AllowLists")
+  private List<AllowListForDescribeAllowListsOutput> allowLists = null;
 
-  @SerializedName("Values")
-  private List<String> values = null;
-
-  public TagFilterForDescribeInstancesInput key(String key) {
-    this.key = key;
+  public DescribeAllowListsResponse allowLists(List<AllowListForDescribeAllowListsOutput> allowLists) {
+    this.allowLists = allowLists;
     return this;
   }
 
-   /**
-   * Get key
-   * @return key
-  **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagFilterForDescribeInstancesInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagFilterForDescribeInstancesInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
+  public DescribeAllowListsResponse addAllowListsItem(AllowListForDescribeAllowListsOutput allowListsItem) {
+    if (this.allowLists == null) {
+      this.allowLists = new ArrayList<AllowListForDescribeAllowListsOutput>();
     }
-    this.values.add(valuesItem);
+    this.allowLists.add(allowListsItem);
     return this;
   }
 
    /**
-   * Get values
-   * @return values
+   * Get allowLists
+   * @return allowLists
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getValues() {
-    return values;
+  public List<AllowListForDescribeAllowListsOutput> getAllowLists() {
+    return allowLists;
   }
 
-  public void setValues(List<String> values) {
-    this.values = values;
+  public void setAllowLists(List<AllowListForDescribeAllowListsOutput> allowLists) {
+    this.allowLists = allowLists;
   }
 
 
@@ -91,24 +72,22 @@ public class TagFilterForDescribeInstancesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagFilterForDescribeInstancesInput tagFilterForDescribeInstancesInput = (TagFilterForDescribeInstancesInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeInstancesInput.key) &&
-        Objects.equals(this.values, tagFilterForDescribeInstancesInput.values);
+    DescribeAllowListsResponse describeAllowListsResponse = (DescribeAllowListsResponse) o;
+    return Objects.equals(this.allowLists, describeAllowListsResponse.allowLists);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(allowLists);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagFilterForDescribeInstancesInput {\n");
+    sb.append("class DescribeAllowListsResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    allowLists: ").append(toIndentedString(allowLists)).append("\n");
     sb.append("}");
     return sb.toString();
   }

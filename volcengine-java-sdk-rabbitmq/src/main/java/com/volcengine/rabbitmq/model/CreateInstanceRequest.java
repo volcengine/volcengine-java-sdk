@@ -34,9 +34,6 @@ import javax.validation.Valid;
 
 
 public class CreateInstanceRequest {
-  @SerializedName("ApplyPrivateDNSToPublic")
-  private Boolean applyPrivateDNSToPublic = null;
-
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateInstanceInput chargeInfo = null;
 
@@ -81,24 +78,6 @@ public class CreateInstanceRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public CreateInstanceRequest applyPrivateDNSToPublic(Boolean applyPrivateDNSToPublic) {
-    this.applyPrivateDNSToPublic = applyPrivateDNSToPublic;
-    return this;
-  }
-
-   /**
-   * Get applyPrivateDNSToPublic
-   * @return applyPrivateDNSToPublic
-  **/
-  @Schema(description = "")
-  public Boolean isApplyPrivateDNSToPublic() {
-    return applyPrivateDNSToPublic;
-  }
-
-  public void setApplyPrivateDNSToPublic(Boolean applyPrivateDNSToPublic) {
-    this.applyPrivateDNSToPublic = applyPrivateDNSToPublic;
-  }
 
   public CreateInstanceRequest chargeInfo(ChargeInfoForCreateInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
@@ -399,8 +378,7 @@ public class CreateInstanceRequest {
       return false;
     }
     CreateInstanceRequest createInstanceRequest = (CreateInstanceRequest) o;
-    return Objects.equals(this.applyPrivateDNSToPublic, createInstanceRequest.applyPrivateDNSToPublic) &&
-        Objects.equals(this.chargeInfo, createInstanceRequest.chargeInfo) &&
+    return Objects.equals(this.chargeInfo, createInstanceRequest.chargeInfo) &&
         Objects.equals(this.clientToken, createInstanceRequest.clientToken) &&
         Objects.equals(this.computeSpec, createInstanceRequest.computeSpec) &&
         Objects.equals(this.eipId, createInstanceRequest.eipId) &&
@@ -419,7 +397,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyPrivateDNSToPublic, chargeInfo, clientToken, computeSpec, eipId, instanceDescription, instanceName, projectName, storageSpace, subnetId, tags, userName, userPassword, version, vpcId, zoneId);
+    return Objects.hash(chargeInfo, clientToken, computeSpec, eipId, instanceDescription, instanceName, projectName, storageSpace, subnetId, tags, userName, userPassword, version, vpcId, zoneId);
   }
 
 
@@ -428,7 +406,6 @@ public class CreateInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateInstanceRequest {\n");
     
-    sb.append("    applyPrivateDNSToPublic: ").append(toIndentedString(applyPrivateDNSToPublic)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
