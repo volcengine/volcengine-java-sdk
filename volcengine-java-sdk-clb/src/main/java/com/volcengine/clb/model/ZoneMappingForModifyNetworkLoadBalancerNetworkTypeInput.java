@@ -33,6 +33,12 @@ public class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
   @SerializedName("EipId")
   private String eipId = null;
 
+  @SerializedName("EipIsp")
+  private String eipIsp = null;
+
+  @SerializedName("EipSpecificEgress")
+  private String eipSpecificEgress = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -52,6 +58,42 @@ public class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput eipIsp(String eipIsp) {
+    this.eipIsp = eipIsp;
+    return this;
+  }
+
+   /**
+   * Get eipIsp
+   * @return eipIsp
+  **/
+  @Schema(description = "")
+  public String getEipIsp() {
+    return eipIsp;
+  }
+
+  public void setEipIsp(String eipIsp) {
+    this.eipIsp = eipIsp;
+  }
+
+  public ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput eipSpecificEgress(String eipSpecificEgress) {
+    this.eipSpecificEgress = eipSpecificEgress;
+    return this;
+  }
+
+   /**
+   * Get eipSpecificEgress
+   * @return eipSpecificEgress
+  **/
+  @Schema(description = "")
+  public String getEipSpecificEgress() {
+    return eipSpecificEgress;
+  }
+
+  public void setEipSpecificEgress(String eipSpecificEgress) {
+    this.eipSpecificEgress = eipSpecificEgress;
   }
 
   public ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput zoneId(String zoneId) {
@@ -83,12 +125,14 @@ public class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
     }
     ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput = (ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) o;
     return Objects.equals(this.eipId, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.eipId) &&
+        Objects.equals(this.eipIsp, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.eipIsp) &&
+        Objects.equals(this.eipSpecificEgress, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.eipSpecificEgress) &&
         Objects.equals(this.zoneId, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, zoneId);
+    return Objects.hash(eipId, eipIsp, eipSpecificEgress, zoneId);
   }
 
 
@@ -98,6 +142,8 @@ public class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
     sb.append("class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {\n");
     
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    eipIsp: ").append(toIndentedString(eipIsp)).append("\n");
+    sb.append("    eipSpecificEgress: ").append(toIndentedString(eipSpecificEgress)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

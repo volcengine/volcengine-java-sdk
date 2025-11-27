@@ -33,6 +33,12 @@ public class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
   @SerializedName("EipId")
   private String eipId = null;
 
+  @SerializedName("EipIsp")
+  private String eipIsp = null;
+
+  @SerializedName("EipSpecificEgress")
+  private String eipSpecificEgress = null;
+
   @SerializedName("Ipv4Address")
   private String ipv4Address = null;
 
@@ -58,6 +64,42 @@ public class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public AddZoneMappingForModifyNetworkLoadBalancerZonesInput eipIsp(String eipIsp) {
+    this.eipIsp = eipIsp;
+    return this;
+  }
+
+   /**
+   * Get eipIsp
+   * @return eipIsp
+  **/
+  @Schema(description = "")
+  public String getEipIsp() {
+    return eipIsp;
+  }
+
+  public void setEipIsp(String eipIsp) {
+    this.eipIsp = eipIsp;
+  }
+
+  public AddZoneMappingForModifyNetworkLoadBalancerZonesInput eipSpecificEgress(String eipSpecificEgress) {
+    this.eipSpecificEgress = eipSpecificEgress;
+    return this;
+  }
+
+   /**
+   * Get eipSpecificEgress
+   * @return eipSpecificEgress
+  **/
+  @Schema(description = "")
+  public String getEipSpecificEgress() {
+    return eipSpecificEgress;
+  }
+
+  public void setEipSpecificEgress(String eipSpecificEgress) {
+    this.eipSpecificEgress = eipSpecificEgress;
   }
 
   public AddZoneMappingForModifyNetworkLoadBalancerZonesInput ipv4Address(String ipv4Address) {
@@ -125,6 +167,8 @@ public class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
     }
     AddZoneMappingForModifyNetworkLoadBalancerZonesInput addZoneMappingForModifyNetworkLoadBalancerZonesInput = (AddZoneMappingForModifyNetworkLoadBalancerZonesInput) o;
     return Objects.equals(this.eipId, addZoneMappingForModifyNetworkLoadBalancerZonesInput.eipId) &&
+        Objects.equals(this.eipIsp, addZoneMappingForModifyNetworkLoadBalancerZonesInput.eipIsp) &&
+        Objects.equals(this.eipSpecificEgress, addZoneMappingForModifyNetworkLoadBalancerZonesInput.eipSpecificEgress) &&
         Objects.equals(this.ipv4Address, addZoneMappingForModifyNetworkLoadBalancerZonesInput.ipv4Address) &&
         Objects.equals(this.subnetId, addZoneMappingForModifyNetworkLoadBalancerZonesInput.subnetId) &&
         Objects.equals(this.zoneId, addZoneMappingForModifyNetworkLoadBalancerZonesInput.zoneId);
@@ -132,7 +176,7 @@ public class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, ipv4Address, subnetId, zoneId);
+    return Objects.hash(eipId, eipIsp, eipSpecificEgress, ipv4Address, subnetId, zoneId);
   }
 
 
@@ -142,6 +186,8 @@ public class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {
     sb.append("class AddZoneMappingForModifyNetworkLoadBalancerZonesInput {\n");
     
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    eipIsp: ").append(toIndentedString(eipIsp)).append("\n");
+    sb.append("    eipSpecificEgress: ").append(toIndentedString(eipSpecificEgress)).append("\n");
     sb.append("    ipv4Address: ").append(toIndentedString(ipv4Address)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
