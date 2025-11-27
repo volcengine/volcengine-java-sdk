@@ -63,6 +63,9 @@ public class RowForListPodOutput {
   @SerializedName("CreateAt")
   private Long createAt = null;
 
+  @SerializedName("CustomRouteId")
+  private String customRouteId = null;
+
   @SerializedName("DNSId")
   private String dnSId = null;
 
@@ -281,6 +284,24 @@ public class RowForListPodOutput {
 
   public void setCreateAt(Long createAt) {
     this.createAt = createAt;
+  }
+
+  public RowForListPodOutput customRouteId(String customRouteId) {
+    this.customRouteId = customRouteId;
+    return this;
+  }
+
+   /**
+   * Get customRouteId
+   * @return customRouteId
+  **/
+  @Schema(description = "")
+  public String getCustomRouteId() {
+    return customRouteId;
+  }
+
+  public void setCustomRouteId(String customRouteId) {
+    this.customRouteId = customRouteId;
   }
 
   public RowForListPodOutput dnSId(String dnSId) {
@@ -655,6 +676,7 @@ public class RowForListPodOutput {
         Objects.equals(this.authorityStatus, rowForListPodOutput.authorityStatus) &&
         Objects.equals(this._configuration, rowForListPodOutput._configuration) &&
         Objects.equals(this.createAt, rowForListPodOutput.createAt) &&
+        Objects.equals(this.customRouteId, rowForListPodOutput.customRouteId) &&
         Objects.equals(this.dnSId, rowForListPodOutput.dnSId) &&
         Objects.equals(this.dataSize, rowForListPodOutput.dataSize) &&
         Objects.equals(this.dataSizeUsed, rowForListPodOutput.dataSizeUsed) &&
@@ -678,7 +700,7 @@ public class RowForListPodOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, _configuration, createAt, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, downBandwidthLimit, hostId, imageId, imageName, intranetIP, online, podId, podName, portMappingRuleList, productId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
+    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, _configuration, createAt, customRouteId, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, downBandwidthLimit, hostId, imageId, imageName, intranetIP, online, podId, podName, portMappingRuleList, productId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
   }
 
 
@@ -696,6 +718,7 @@ public class RowForListPodOutput {
     sb.append("    authorityStatus: ").append(toIndentedString(authorityStatus)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    createAt: ").append(toIndentedString(createAt)).append("\n");
+    sb.append("    customRouteId: ").append(toIndentedString(customRouteId)).append("\n");
     sb.append("    dnSId: ").append(toIndentedString(dnSId)).append("\n");
     sb.append("    dataSize: ").append(toIndentedString(dataSize)).append("\n");
     sb.append("    dataSizeUsed: ").append(toIndentedString(dataSizeUsed)).append("\n");

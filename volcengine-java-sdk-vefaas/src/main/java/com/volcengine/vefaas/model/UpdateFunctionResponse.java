@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.EnvForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.TagForUpdateFunctionOutput;
@@ -38,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class UpdateFunctionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForUpdateFunctionOutput asyncTaskConfig = null;
+
   @SerializedName("Cell")
   private String cell = null;
 
@@ -136,6 +140,25 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("VpcConfig")
   private VpcConfigForUpdateFunctionOutput vpcConfig = null;
+
+  public UpdateFunctionResponse asyncTaskConfig(AsyncTaskConfigForUpdateFunctionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForUpdateFunctionOutput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForUpdateFunctionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public UpdateFunctionResponse cell(String cell) {
     this.cell = cell;
@@ -763,7 +786,8 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
       return false;
     }
     UpdateFunctionResponse updateFunctionResponse = (UpdateFunctionResponse) o;
-    return Objects.equals(this.cell, updateFunctionResponse.cell) &&
+    return Objects.equals(this.asyncTaskConfig, updateFunctionResponse.asyncTaskConfig) &&
+        Objects.equals(this.cell, updateFunctionResponse.cell) &&
         Objects.equals(this.codeSize, updateFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, updateFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.command, updateFunctionResponse.command) &&
@@ -800,7 +824,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(asyncTaskConfig, cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -809,6 +833,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionResponse {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.EnvForUpdateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForUpdateFunctionInput;
@@ -39,6 +40,9 @@ import javax.validation.Valid;
 
 
 public class UpdateFunctionRequest {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForUpdateFunctionInput asyncTaskConfig = null;
+
   @SerializedName("Command")
   private String command = null;
 
@@ -101,6 +105,25 @@ public class UpdateFunctionRequest {
 
   @SerializedName("VpcConfig")
   private VpcConfigForUpdateFunctionInput vpcConfig = null;
+
+  public UpdateFunctionRequest asyncTaskConfig(AsyncTaskConfigForUpdateFunctionInput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForUpdateFunctionInput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForUpdateFunctionInput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public UpdateFunctionRequest command(String command) {
     this.command = command;
@@ -514,7 +537,8 @@ public class UpdateFunctionRequest {
       return false;
     }
     UpdateFunctionRequest updateFunctionRequest = (UpdateFunctionRequest) o;
-    return Objects.equals(this.command, updateFunctionRequest.command) &&
+    return Objects.equals(this.asyncTaskConfig, updateFunctionRequest.asyncTaskConfig) &&
+        Objects.equals(this.command, updateFunctionRequest.command) &&
         Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
         Objects.equals(this.description, updateFunctionRequest.description) &&
         Objects.equals(this.enableApmplus, updateFunctionRequest.enableApmplus) &&
@@ -539,7 +563,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -548,6 +572,7 @@ public class UpdateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionRequest {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

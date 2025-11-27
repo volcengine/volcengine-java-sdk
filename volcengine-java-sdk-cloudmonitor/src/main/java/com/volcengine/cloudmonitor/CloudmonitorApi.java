@@ -41,6 +41,8 @@ import com.volcengine.cloudmonitor.model.CreateNotificationRequest;
 import com.volcengine.cloudmonitor.model.CreateNotificationResponse;
 import com.volcengine.cloudmonitor.model.CreateNotifyTemplateRequest;
 import com.volcengine.cloudmonitor.model.CreateNotifyTemplateResponse;
+import com.volcengine.cloudmonitor.model.CreateO11yAgentECSDeployTaskRequest;
+import com.volcengine.cloudmonitor.model.CreateO11yAgentECSDeployTaskResponse;
 import com.volcengine.cloudmonitor.model.CreateObjectGroupRequest;
 import com.volcengine.cloudmonitor.model.CreateObjectGroupResponse;
 import com.volcengine.cloudmonitor.model.CreateRuleRequest;
@@ -79,6 +81,8 @@ import com.volcengine.cloudmonitor.model.EnablePresetAlertTemplateRequest;
 import com.volcengine.cloudmonitor.model.EnablePresetAlertTemplateResponse;
 import com.volcengine.cloudmonitor.model.GetMetricDataRequest;
 import com.volcengine.cloudmonitor.model.GetMetricDataResponse;
+import com.volcengine.cloudmonitor.model.GetO11yAgentECSAutoInstallRequest;
+import com.volcengine.cloudmonitor.model.GetO11yAgentECSAutoInstallResponse;
 import com.volcengine.cloudmonitor.model.GetTopDataRequest;
 import com.volcengine.cloudmonitor.model.GetTopDataResponse;
 import com.volcengine.cloudmonitor.model.ListAlertGroupRequest;
@@ -103,6 +107,14 @@ import com.volcengine.cloudmonitor.model.ListNotificationsRequest;
 import com.volcengine.cloudmonitor.model.ListNotificationsResponse;
 import com.volcengine.cloudmonitor.model.ListNotifyTemplatesRequest;
 import com.volcengine.cloudmonitor.model.ListNotifyTemplatesResponse;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSInstanceMetadataRequest;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSInstanceMetadataResponse;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSInstancesRequest;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSInstancesResponse;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSProcessConfigsRequest;
+import com.volcengine.cloudmonitor.model.ListO11yAgentECSProcessConfigsResponse;
+import com.volcengine.cloudmonitor.model.ListO11yAgentVpcEndpointsRequest;
+import com.volcengine.cloudmonitor.model.ListO11yAgentVpcEndpointsResponse;
 import com.volcengine.cloudmonitor.model.ListObjectGroupsRequest;
 import com.volcengine.cloudmonitor.model.ListObjectGroupsResponse;
 import com.volcengine.cloudmonitor.model.ListPresetAlertTemplatesRequest;
@@ -121,6 +133,8 @@ import com.volcengine.cloudmonitor.model.ListWebhooksRequest;
 import com.volcengine.cloudmonitor.model.ListWebhooksResponse;
 import com.volcengine.cloudmonitor.model.ModifyStateOfSilencePolicyByIdsRequest;
 import com.volcengine.cloudmonitor.model.ModifyStateOfSilencePolicyByIdsResponse;
+import com.volcengine.cloudmonitor.model.PerformO11yAgentECSDeployTaskRequest;
+import com.volcengine.cloudmonitor.model.PerformO11yAgentECSDeployTaskResponse;
 import com.volcengine.cloudmonitor.model.SetStateOfRulesByIdsRequest;
 import com.volcengine.cloudmonitor.model.SetStateOfRulesByIdsResponse;
 import com.volcengine.cloudmonitor.model.TagResourcesRequest;
@@ -143,6 +157,10 @@ import com.volcengine.cloudmonitor.model.UpdateNotificationRequest;
 import com.volcengine.cloudmonitor.model.UpdateNotificationResponse;
 import com.volcengine.cloudmonitor.model.UpdateNotifyTemplateRequest;
 import com.volcengine.cloudmonitor.model.UpdateNotifyTemplateResponse;
+import com.volcengine.cloudmonitor.model.UpdateO11yAgentECSAutoInstallRequest;
+import com.volcengine.cloudmonitor.model.UpdateO11yAgentECSAutoInstallResponse;
+import com.volcengine.cloudmonitor.model.UpdateO11yAgentECSProcessConfigRequest;
+import com.volcengine.cloudmonitor.model.UpdateO11yAgentECSProcessConfigResponse;
 import com.volcengine.cloudmonitor.model.UpdateObjectGroupRequest;
 import com.volcengine.cloudmonitor.model.UpdateObjectGroupResponse;
 import com.volcengine.cloudmonitor.model.UpdateRuleRequest;
@@ -1042,6 +1060,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = createNotifyTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateNotifyTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createO11yAgentECSDeployTask
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createO11yAgentECSDeployTaskCall(CreateO11yAgentECSDeployTaskRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateO11yAgentECSDeployTask/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createO11yAgentECSDeployTaskValidateBeforeCall(CreateO11yAgentECSDeployTaskRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createO11yAgentECSDeployTask(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createO11yAgentECSDeployTaskCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateO11yAgentECSDeployTaskResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateO11yAgentECSDeployTaskResponse createO11yAgentECSDeployTask(CreateO11yAgentECSDeployTaskRequest body) throws ApiException {
+        ApiResponse<CreateO11yAgentECSDeployTaskResponse> resp = createO11yAgentECSDeployTaskWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateO11yAgentECSDeployTaskResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateO11yAgentECSDeployTaskResponse> createO11yAgentECSDeployTaskWithHttpInfo( @NotNull CreateO11yAgentECSDeployTaskRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createO11yAgentECSDeployTaskValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateO11yAgentECSDeployTaskResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createO11yAgentECSDeployTaskAsync(CreateO11yAgentECSDeployTaskRequest body, final ApiCallback<CreateO11yAgentECSDeployTaskResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createO11yAgentECSDeployTaskValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateO11yAgentECSDeployTaskResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3402,6 +3544,130 @@ public class CloudmonitorApi {
         return call;
     }
     /**
+     * Build call for getO11yAgentECSAutoInstall
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getO11yAgentECSAutoInstallCall(GetO11yAgentECSAutoInstallRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetO11yAgentECSAutoInstall/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getO11yAgentECSAutoInstallValidateBeforeCall(GetO11yAgentECSAutoInstallRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getO11yAgentECSAutoInstall(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getO11yAgentECSAutoInstallCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetO11yAgentECSAutoInstallResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetO11yAgentECSAutoInstallResponse getO11yAgentECSAutoInstall(GetO11yAgentECSAutoInstallRequest body) throws ApiException {
+        ApiResponse<GetO11yAgentECSAutoInstallResponse> resp = getO11yAgentECSAutoInstallWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetO11yAgentECSAutoInstallResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetO11yAgentECSAutoInstallResponse> getO11yAgentECSAutoInstallWithHttpInfo( @NotNull GetO11yAgentECSAutoInstallRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getO11yAgentECSAutoInstallValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetO11yAgentECSAutoInstallResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getO11yAgentECSAutoInstallAsync(GetO11yAgentECSAutoInstallRequest body, final ApiCallback<GetO11yAgentECSAutoInstallResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getO11yAgentECSAutoInstallValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetO11yAgentECSAutoInstallResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getTopData
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4890,6 +5156,502 @@ public class CloudmonitorApi {
         return call;
     }
     /**
+     * Build call for listO11yAgentECSInstanceMetadata
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSInstanceMetadataCall(ListO11yAgentECSInstanceMetadataRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListO11yAgentECSInstanceMetadata/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listO11yAgentECSInstanceMetadataValidateBeforeCall(ListO11yAgentECSInstanceMetadataRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listO11yAgentECSInstanceMetadata(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listO11yAgentECSInstanceMetadataCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListO11yAgentECSInstanceMetadataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListO11yAgentECSInstanceMetadataResponse listO11yAgentECSInstanceMetadata(ListO11yAgentECSInstanceMetadataRequest body) throws ApiException {
+        ApiResponse<ListO11yAgentECSInstanceMetadataResponse> resp = listO11yAgentECSInstanceMetadataWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListO11yAgentECSInstanceMetadataResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListO11yAgentECSInstanceMetadataResponse> listO11yAgentECSInstanceMetadataWithHttpInfo( @NotNull ListO11yAgentECSInstanceMetadataRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listO11yAgentECSInstanceMetadataValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSInstanceMetadataResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSInstanceMetadataAsync(ListO11yAgentECSInstanceMetadataRequest body, final ApiCallback<ListO11yAgentECSInstanceMetadataResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listO11yAgentECSInstanceMetadataValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSInstanceMetadataResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listO11yAgentECSInstances
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSInstancesCall(ListO11yAgentECSInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListO11yAgentECSInstances/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listO11yAgentECSInstancesValidateBeforeCall(ListO11yAgentECSInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listO11yAgentECSInstances(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listO11yAgentECSInstancesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListO11yAgentECSInstancesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListO11yAgentECSInstancesResponse listO11yAgentECSInstances(ListO11yAgentECSInstancesRequest body) throws ApiException {
+        ApiResponse<ListO11yAgentECSInstancesResponse> resp = listO11yAgentECSInstancesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListO11yAgentECSInstancesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListO11yAgentECSInstancesResponse> listO11yAgentECSInstancesWithHttpInfo( @NotNull ListO11yAgentECSInstancesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listO11yAgentECSInstancesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSInstancesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSInstancesAsync(ListO11yAgentECSInstancesRequest body, final ApiCallback<ListO11yAgentECSInstancesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listO11yAgentECSInstancesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSInstancesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listO11yAgentECSProcessConfigs
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSProcessConfigsCall(ListO11yAgentECSProcessConfigsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListO11yAgentECSProcessConfigs/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listO11yAgentECSProcessConfigsValidateBeforeCall(ListO11yAgentECSProcessConfigsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listO11yAgentECSProcessConfigs(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listO11yAgentECSProcessConfigsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListO11yAgentECSProcessConfigsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListO11yAgentECSProcessConfigsResponse listO11yAgentECSProcessConfigs(ListO11yAgentECSProcessConfigsRequest body) throws ApiException {
+        ApiResponse<ListO11yAgentECSProcessConfigsResponse> resp = listO11yAgentECSProcessConfigsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListO11yAgentECSProcessConfigsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListO11yAgentECSProcessConfigsResponse> listO11yAgentECSProcessConfigsWithHttpInfo( @NotNull ListO11yAgentECSProcessConfigsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listO11yAgentECSProcessConfigsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSProcessConfigsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentECSProcessConfigsAsync(ListO11yAgentECSProcessConfigsRequest body, final ApiCallback<ListO11yAgentECSProcessConfigsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listO11yAgentECSProcessConfigsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListO11yAgentECSProcessConfigsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listO11yAgentVpcEndpoints
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentVpcEndpointsCall(ListO11yAgentVpcEndpointsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListO11yAgentVpcEndpoints/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listO11yAgentVpcEndpointsValidateBeforeCall(ListO11yAgentVpcEndpointsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listO11yAgentVpcEndpoints(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listO11yAgentVpcEndpointsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListO11yAgentVpcEndpointsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListO11yAgentVpcEndpointsResponse listO11yAgentVpcEndpoints(ListO11yAgentVpcEndpointsRequest body) throws ApiException {
+        ApiResponse<ListO11yAgentVpcEndpointsResponse> resp = listO11yAgentVpcEndpointsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListO11yAgentVpcEndpointsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListO11yAgentVpcEndpointsResponse> listO11yAgentVpcEndpointsWithHttpInfo( @NotNull ListO11yAgentVpcEndpointsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listO11yAgentVpcEndpointsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListO11yAgentVpcEndpointsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listO11yAgentVpcEndpointsAsync(ListO11yAgentVpcEndpointsRequest body, final ApiCallback<ListO11yAgentVpcEndpointsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listO11yAgentVpcEndpointsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListO11yAgentVpcEndpointsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for listObjectGroups
      * @param body  (required)
      * @param progressListener Progress listener
@@ -6002,6 +6764,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = modifyStateOfSilencePolicyByIdsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyStateOfSilencePolicyByIdsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for performO11yAgentECSDeployTask
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call performO11yAgentECSDeployTaskCall(PerformO11yAgentECSDeployTaskRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/PerformO11yAgentECSDeployTask/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call performO11yAgentECSDeployTaskValidateBeforeCall(PerformO11yAgentECSDeployTaskRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling performO11yAgentECSDeployTask(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = performO11yAgentECSDeployTaskCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return PerformO11yAgentECSDeployTaskResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PerformO11yAgentECSDeployTaskResponse performO11yAgentECSDeployTask(PerformO11yAgentECSDeployTaskRequest body) throws ApiException {
+        ApiResponse<PerformO11yAgentECSDeployTaskResponse> resp = performO11yAgentECSDeployTaskWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;PerformO11yAgentECSDeployTaskResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PerformO11yAgentECSDeployTaskResponse> performO11yAgentECSDeployTaskWithHttpInfo( @NotNull PerformO11yAgentECSDeployTaskRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = performO11yAgentECSDeployTaskValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<PerformO11yAgentECSDeployTaskResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call performO11yAgentECSDeployTaskAsync(PerformO11yAgentECSDeployTaskRequest body, final ApiCallback<PerformO11yAgentECSDeployTaskResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = performO11yAgentECSDeployTaskValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PerformO11yAgentECSDeployTaskResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7366,6 +8252,254 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = updateNotifyTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateNotifyTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateO11yAgentECSAutoInstall
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateO11yAgentECSAutoInstallCall(UpdateO11yAgentECSAutoInstallRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateO11yAgentECSAutoInstall/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateO11yAgentECSAutoInstallValidateBeforeCall(UpdateO11yAgentECSAutoInstallRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateO11yAgentECSAutoInstall(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateO11yAgentECSAutoInstallCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateO11yAgentECSAutoInstallResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateO11yAgentECSAutoInstallResponse updateO11yAgentECSAutoInstall(UpdateO11yAgentECSAutoInstallRequest body) throws ApiException {
+        ApiResponse<UpdateO11yAgentECSAutoInstallResponse> resp = updateO11yAgentECSAutoInstallWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateO11yAgentECSAutoInstallResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateO11yAgentECSAutoInstallResponse> updateO11yAgentECSAutoInstallWithHttpInfo( @NotNull UpdateO11yAgentECSAutoInstallRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateO11yAgentECSAutoInstallValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateO11yAgentECSAutoInstallResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateO11yAgentECSAutoInstallAsync(UpdateO11yAgentECSAutoInstallRequest body, final ApiCallback<UpdateO11yAgentECSAutoInstallResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateO11yAgentECSAutoInstallValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateO11yAgentECSAutoInstallResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateO11yAgentECSProcessConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateO11yAgentECSProcessConfigCall(UpdateO11yAgentECSProcessConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateO11yAgentECSProcessConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateO11yAgentECSProcessConfigValidateBeforeCall(UpdateO11yAgentECSProcessConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateO11yAgentECSProcessConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateO11yAgentECSProcessConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateO11yAgentECSProcessConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateO11yAgentECSProcessConfigResponse updateO11yAgentECSProcessConfig(UpdateO11yAgentECSProcessConfigRequest body) throws ApiException {
+        ApiResponse<UpdateO11yAgentECSProcessConfigResponse> resp = updateO11yAgentECSProcessConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateO11yAgentECSProcessConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateO11yAgentECSProcessConfigResponse> updateO11yAgentECSProcessConfigWithHttpInfo( @NotNull UpdateO11yAgentECSProcessConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateO11yAgentECSProcessConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateO11yAgentECSProcessConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateO11yAgentECSProcessConfigAsync(UpdateO11yAgentECSProcessConfigRequest body, final ApiCallback<UpdateO11yAgentECSProcessConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateO11yAgentECSProcessConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateO11yAgentECSProcessConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
