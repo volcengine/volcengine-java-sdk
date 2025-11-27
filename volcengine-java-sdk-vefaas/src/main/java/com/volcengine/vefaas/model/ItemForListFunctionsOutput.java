@@ -62,6 +62,9 @@ public class ItemForListFunctionsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableApmplus")
+  private String enableApmplus = null;
+
   @SerializedName("Envs")
   private List<EnvForListFunctionsOutput> envs = null;
 
@@ -279,6 +282,24 @@ public class ItemForListFunctionsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ItemForListFunctionsOutput enableApmplus(String enableApmplus) {
+    this.enableApmplus = enableApmplus;
+    return this;
+  }
+
+   /**
+   * Get enableApmplus
+   * @return enableApmplus
+  **/
+  @Schema(description = "")
+  public String getEnableApmplus() {
+    return enableApmplus;
+  }
+
+  public void setEnableApmplus(String enableApmplus) {
+    this.enableApmplus = enableApmplus;
   }
 
   public ItemForListFunctionsOutput envs(List<EnvForListFunctionsOutput> envs) {
@@ -771,6 +792,7 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.cpuStrategy, itemForListFunctionsOutput.cpuStrategy) &&
         Objects.equals(this.creationTime, itemForListFunctionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
+        Objects.equals(this.enableApmplus, itemForListFunctionsOutput.enableApmplus) &&
         Objects.equals(this.envs, itemForListFunctionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListFunctionsOutput.exclusiveMode) &&
         Objects.equals(this.functionType, itemForListFunctionsOutput.functionType) &&
@@ -800,7 +822,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -817,6 +839,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");

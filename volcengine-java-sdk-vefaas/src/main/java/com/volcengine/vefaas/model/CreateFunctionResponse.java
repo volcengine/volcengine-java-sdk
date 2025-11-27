@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForCreateFunctionOutput;
 import com.volcengine.vefaas.model.EnvForCreateFunctionOutput;
 import com.volcengine.vefaas.model.NasStorageForCreateFunctionOutput;
 import com.volcengine.vefaas.model.TagForCreateFunctionOutput;
@@ -38,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class CreateFunctionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForCreateFunctionOutput asyncTaskConfig = null;
+
   @SerializedName("Cell")
   private String cell = null;
 
@@ -52,6 +56,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("Cpu")
   private Integer cpu = null;
+
+  @SerializedName("CpuStrategy")
+  private String cpuStrategy = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -98,6 +105,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("Owner")
   private String owner = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -109,6 +119,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("Runtime")
   private String runtime = null;
+
+  @SerializedName("Source")
+  private String source = null;
 
   @SerializedName("SourceLocation")
   private String sourceLocation = null;
@@ -130,6 +143,25 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("VpcConfig")
   private VpcConfigForCreateFunctionOutput vpcConfig = null;
+
+  public CreateFunctionResponse asyncTaskConfig(AsyncTaskConfigForCreateFunctionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForCreateFunctionOutput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForCreateFunctionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public CreateFunctionResponse cell(String cell) {
     this.cell = cell;
@@ -219,6 +251,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setCpu(Integer cpu) {
     this.cpu = cpu;
+  }
+
+  public CreateFunctionResponse cpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
+    return this;
+  }
+
+   /**
+   * Get cpuStrategy
+   * @return cpuStrategy
+  **/
+  @Schema(description = "")
+  public String getCpuStrategy() {
+    return cpuStrategy;
+  }
+
+  public void setCpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
   }
 
   public CreateFunctionResponse creationTime(String creationTime) {
@@ -501,6 +551,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.owner = owner;
   }
 
+  public CreateFunctionResponse port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public CreateFunctionResponse projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -571,6 +639,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setRuntime(String runtime) {
     this.runtime = runtime;
+  }
+
+  public CreateFunctionResponse source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
   }
 
   public CreateFunctionResponse sourceLocation(String sourceLocation) {
@@ -721,11 +807,13 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
       return false;
     }
     CreateFunctionResponse createFunctionResponse = (CreateFunctionResponse) o;
-    return Objects.equals(this.cell, createFunctionResponse.cell) &&
+    return Objects.equals(this.asyncTaskConfig, createFunctionResponse.asyncTaskConfig) &&
+        Objects.equals(this.cell, createFunctionResponse.cell) &&
         Objects.equals(this.codeSize, createFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, createFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.command, createFunctionResponse.command) &&
         Objects.equals(this.cpu, createFunctionResponse.cpu) &&
+        Objects.equals(this.cpuStrategy, createFunctionResponse.cpuStrategy) &&
         Objects.equals(this.creationTime, createFunctionResponse.creationTime) &&
         Objects.equals(this.description, createFunctionResponse.description) &&
         Objects.equals(this.enableApmplus, createFunctionResponse.enableApmplus) &&
@@ -741,10 +829,12 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.name, createFunctionResponse.name) &&
         Objects.equals(this.nasStorage, createFunctionResponse.nasStorage) &&
         Objects.equals(this.owner, createFunctionResponse.owner) &&
+        Objects.equals(this.port, createFunctionResponse.port) &&
         Objects.equals(this.projectName, createFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, createFunctionResponse.requestTimeout) &&
         Objects.equals(this.role, createFunctionResponse.role) &&
         Objects.equals(this.runtime, createFunctionResponse.runtime) &&
+        Objects.equals(this.source, createFunctionResponse.source) &&
         Objects.equals(this.sourceLocation, createFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, createFunctionResponse.sourceType) &&
         Objects.equals(this.tags, createFunctionResponse.tags) &&
@@ -756,7 +846,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, role, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(asyncTaskConfig, cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -765,11 +855,13 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFunctionResponse {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
+    sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
@@ -785,10 +877,12 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

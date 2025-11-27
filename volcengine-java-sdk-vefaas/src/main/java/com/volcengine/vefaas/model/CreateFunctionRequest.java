@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForCreateFunctionInput;
 import com.volcengine.vefaas.model.EnvForCreateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForCreateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForCreateFunctionInput;
@@ -39,6 +40,9 @@ import javax.validation.Valid;
 
 
 public class CreateFunctionRequest {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForCreateFunctionInput asyncTaskConfig = null;
+
   @SerializedName("Cell")
   private String cell = null;
 
@@ -116,6 +120,25 @@ public class CreateFunctionRequest {
 
   @SerializedName("VpcConfig")
   private VpcConfigForCreateFunctionInput vpcConfig = null;
+
+  public CreateFunctionRequest asyncTaskConfig(AsyncTaskConfigForCreateFunctionInput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForCreateFunctionInput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForCreateFunctionInput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public CreateFunctionRequest cell(String cell) {
     this.cell = cell;
@@ -620,7 +643,8 @@ public class CreateFunctionRequest {
       return false;
     }
     CreateFunctionRequest createFunctionRequest = (CreateFunctionRequest) o;
-    return Objects.equals(this.cell, createFunctionRequest.cell) &&
+    return Objects.equals(this.asyncTaskConfig, createFunctionRequest.asyncTaskConfig) &&
+        Objects.equals(this.cell, createFunctionRequest.cell) &&
         Objects.equals(this.command, createFunctionRequest.command) &&
         Objects.equals(this.cpuMilli, createFunctionRequest.cpuMilli) &&
         Objects.equals(this.cpuStrategy, createFunctionRequest.cpuStrategy) &&
@@ -650,7 +674,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, enableApmplus, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, port, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, cell, command, cpuMilli, cpuStrategy, description, enableApmplus, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, port, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -659,6 +683,7 @@ public class CreateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFunctionRequest {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
