@@ -23,6 +23,8 @@ public class ResponsesConstants {
     public static final String ITEM_TYPE_MCP_APPROVAL_RESPONSE = "mcp_approval_response";
     public static final String ITEM_TYPE_MCP_LIST_TOOLS = "mcp_list_tools";
     public static final String ITEM_TYPE_MCP_CALL = "mcp_call";
+    public static final String ITEM_TYPE_KNOWLEDGE_SEARCH_CALL = "knowledge_search_call";
+    public static final String ITEM_TYPE_DOUBAO_APP_CALL = "doubao_app_call";
 
     // MessageRole.Enum
     public static final String MESSAGE_ROLE_USER = "user";
