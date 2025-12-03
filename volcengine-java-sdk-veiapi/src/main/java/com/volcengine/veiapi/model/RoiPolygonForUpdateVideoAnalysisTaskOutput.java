@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.veiapi.model.PointForUpdateVideoAnalysisTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagsForListProjectOutput
+ * RoiPolygonForUpdateVideoAnalysisTaskOutput
  */
 
 
 
-public class TagsForListProjectOutput {
-  @SerializedName("key")
-  private String key = null;
+public class RoiPolygonForUpdateVideoAnalysisTaskOutput {
+  @SerializedName("points")
+  private List<PointForUpdateVideoAnalysisTaskOutput> points = null;
 
-  @SerializedName("value")
-  private String value = null;
+  public RoiPolygonForUpdateVideoAnalysisTaskOutput points(List<PointForUpdateVideoAnalysisTaskOutput> points) {
+    this.points = points;
+    return this;
+  }
 
-  public TagsForListProjectOutput key(String key) {
-    this.key = key;
+  public RoiPolygonForUpdateVideoAnalysisTaskOutput addPointsItem(PointForUpdateVideoAnalysisTaskOutput pointsItem) {
+    if (this.points == null) {
+      this.points = new ArrayList<PointForUpdateVideoAnalysisTaskOutput>();
+    }
+    this.points.add(pointsItem);
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get points
+   * @return points
   **/
+  @Valid
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public List<PointForUpdateVideoAnalysisTaskOutput> getPoints() {
+    return points;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagsForListProjectOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setPoints(List<PointForUpdateVideoAnalysisTaskOutput> points) {
+    this.points = points;
   }
 
 
@@ -81,24 +72,22 @@ public class TagsForListProjectOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagsForListProjectOutput tagsForListProjectOutput = (TagsForListProjectOutput) o;
-    return Objects.equals(this.key, tagsForListProjectOutput.key) &&
-        Objects.equals(this.value, tagsForListProjectOutput.value);
+    RoiPolygonForUpdateVideoAnalysisTaskOutput roiPolygonForUpdateVideoAnalysisTaskOutput = (RoiPolygonForUpdateVideoAnalysisTaskOutput) o;
+    return Objects.equals(this.points, roiPolygonForUpdateVideoAnalysisTaskOutput.points);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(points);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagsForListProjectOutput {\n");
+    sb.append("class RoiPolygonForUpdateVideoAnalysisTaskOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("}");
     return sb.toString();
   }
