@@ -36,6 +36,9 @@ public class NoDataForCreateRuleInput {
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
 
+  @SerializedName("Level")
+  private String level = null;
+
   public NoDataForCreateRuleInput enable(Boolean enable) {
     this.enable = enable;
     return this;
@@ -72,6 +75,24 @@ public class NoDataForCreateRuleInput {
     this.evaluationCount = evaluationCount;
   }
 
+  public NoDataForCreateRuleInput level(String level) {
+    this.level = level;
+    return this;
+  }
+
+   /**
+   * Get level
+   * @return level
+  **/
+  @Schema(description = "")
+  public String getLevel() {
+    return level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class NoDataForCreateRuleInput {
     }
     NoDataForCreateRuleInput noDataForCreateRuleInput = (NoDataForCreateRuleInput) o;
     return Objects.equals(this.enable, noDataForCreateRuleInput.enable) &&
-        Objects.equals(this.evaluationCount, noDataForCreateRuleInput.evaluationCount);
+        Objects.equals(this.evaluationCount, noDataForCreateRuleInput.evaluationCount) &&
+        Objects.equals(this.level, noDataForCreateRuleInput.level);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, evaluationCount);
+    return Objects.hash(enable, evaluationCount, level);
   }
 
 
@@ -99,6 +121,7 @@ public class NoDataForCreateRuleInput {
     
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("}");
     return sb.toString();
   }
