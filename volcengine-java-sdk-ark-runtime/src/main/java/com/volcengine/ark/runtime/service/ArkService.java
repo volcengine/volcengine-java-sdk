@@ -344,6 +344,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                         request.getPageSize(),
                         request.getStatus(),
                         request.getModel(),
+                        request.getServiceTier(),
                         request.getTaskIds(),
                         new HashMap<>()
                 )
@@ -360,6 +361,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                         request.getPageSize(),
                         request.getStatus(),
                         request.getModel(),
+                        request.getServiceTier(),
                         request.getTaskIds(),
                         customHeaders
                 )
