@@ -9,10 +9,8 @@ import okio.Buffer;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.security.GeneralSecurityException;
-import java.security.Security;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,10 +32,6 @@ public class EncryptionInterceptor implements Interceptor {
     private final String apiKey;
     private final String baseUrl;
     private final ObjectMapper mapper = new ObjectMapper();
-
-    static {
-        Security.addProvider(new BouncyCastleProvider());
-    }
 
     public EncryptionInterceptor(String apiKey, String baseUrl) {
         this.baseUrl = baseUrl;
@@ -110,21 +104,6 @@ public class EncryptionInterceptor implements Interceptor {
         String requestBodyStr = buffer.readString(StandardCharsets.UTF_8);
         return mapper.readValue(requestBodyStr, new TypeReference<Map<String, Object>>() {
         });
-    }
-
-    /**
-     * 非加密模式处理 - 直接转发请求
-     */
-    private Response proceedWithoutEncryption(Chain chain, Request request, Map<String, Object> requestBodyJson) throws IOException {
-        String modifiedRequestBodyStr = mapper.writeValueAsString(requestBodyJson);
-        RequestBody modifiedBody = RequestBody.create(
-                MediaType.get("application/json"),
-                modifiedRequestBodyStr
-        );
-        Request modifiedRequest = request.newBuilder()
-                .method(request.method(), modifiedBody)
-                .build();
-        return chain.proceed(modifiedRequest);
     }
 
     /**
