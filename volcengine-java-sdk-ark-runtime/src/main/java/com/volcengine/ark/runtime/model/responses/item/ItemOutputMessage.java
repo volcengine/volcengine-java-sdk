@@ -3,9 +3,7 @@ package com.volcengine.ark.runtime.model.responses.item;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
 import com.volcengine.ark.runtime.model.responses.content.OutputContentItem;
 
 import java.util.List;
@@ -19,6 +17,9 @@ public class ItemOutputMessage extends BaseMessageItem implements OutputItem {
 
     @JsonProperty("status")
     private String status;
+
+    @JsonProperty("partial")
+    private Boolean partial;
 
     public List<OutputContentItem> getContent() {
         return content;
@@ -36,6 +37,14 @@ public class ItemOutputMessage extends BaseMessageItem implements OutputItem {
         this.status = status;
     }
 
+    public Boolean getPartial() {
+        return partial;
+    }
+
+    public void setPartial(Boolean partial) {
+        this.partial = partial;
+    }
+
     @Override
     public String toString() {
         return "ItemOutputMessage{" +
@@ -44,6 +53,7 @@ public class ItemOutputMessage extends BaseMessageItem implements OutputItem {
                 ", content=" + content +
                 ", status='" + status + '\'' +
                 ", id='" + getId() + '\'' +
+                ", partial=" + partial +
                 '}';
     }
 
@@ -56,6 +66,7 @@ public class ItemOutputMessage extends BaseMessageItem implements OutputItem {
         private List<OutputContentItem> content;
         private String status;
         private String id;
+        private Boolean partial;
 
         public Builder role(String role) {
             this.role = role;
@@ -77,12 +88,18 @@ public class ItemOutputMessage extends BaseMessageItem implements OutputItem {
             return this;
         }
 
+        public Builder partial(Boolean partial) {
+            this.partial = partial;
+            return this;
+        }
+
         public ItemOutputMessage build() {
             ItemOutputMessage itemOutputMessage = new ItemOutputMessage();
             itemOutputMessage.setRole(role);
             itemOutputMessage.setContent(content);
             itemOutputMessage.setStatus(status);
             itemOutputMessage.setId(id);
+            itemOutputMessage.setPartial(partial);
             return itemOutputMessage;
         }
     }

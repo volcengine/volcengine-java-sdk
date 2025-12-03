@@ -12,12 +12,23 @@ public class ItemEasyMessage extends BaseMessageItem implements InputItem {
     @JsonProperty("content")
     private MessageContent content;
 
+    @JsonProperty("partial")
+    private Boolean partial;
+
     public MessageContent getContent() {
         return content;
     }
 
     public void setContent(MessageContent content) {
         this.content = content;
+    }
+
+    public Boolean getPartial() {
+        return partial;
+    }
+
+    public void setPartial(Boolean partial) {
+        this.partial = partial;
     }
 
     @Override
@@ -27,6 +38,7 @@ public class ItemEasyMessage extends BaseMessageItem implements InputItem {
                 ", role='" + getRole() + '\'' +
                 ", content=" + content +
                 ", id='" + getId() + '\'' +
+                ", partial=" + partial +
                 '}';
     }
 
@@ -38,6 +50,8 @@ public class ItemEasyMessage extends BaseMessageItem implements InputItem {
         private String role;
         private MessageContent content;
         private String id;
+
+        private Boolean partial;
 
         public Builder role(String role) {
             this.role = role;
@@ -54,11 +68,17 @@ public class ItemEasyMessage extends BaseMessageItem implements InputItem {
             return this;
         }
 
+        public Builder partial(Boolean partial) {
+            this.partial = partial;
+            return this;
+        }
+
         public ItemEasyMessage build() {
             ItemEasyMessage itemEasyMessage = new ItemEasyMessage();
             itemEasyMessage.setRole(role);
             itemEasyMessage.setContent(content);
             itemEasyMessage.setId(id);
+            itemEasyMessage.setPartial(partial);
             return itemEasyMessage;
         }
     }
