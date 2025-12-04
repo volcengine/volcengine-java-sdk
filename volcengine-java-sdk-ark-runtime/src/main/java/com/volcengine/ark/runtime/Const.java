@@ -8,6 +8,7 @@ public class Const {
     public static final String SERVER_REQUEST_HEADER = "X-Request-Id";
     public static final String REQUEST_MODEL = "X-Request-Model";
     public static final String REQUEST_BOT = "X-Request-Bot";
+    public static final String REQUEST_PROJECT_NAME = "X-Project-Name";
     public static final String RETRY_AFTER = "Retry-After";
     public static final String REQUEST_BOT_ID = "botId";
     public static final Integer DEFAULT_MANDATORY_REFRESH_TIMEOUT = 10 * 60;  // 10 min
@@ -16,6 +17,7 @@ public class Const {
 
     public static final String RESOURCE_TYPE_BOT = "bot";
     public static final String RESOURCE_TYPE_ENDPOINT = "endpoint";
+    public static final String RESOURCE_TYPE_PRESETENDPOINT = "presetendpoint";
 
     public static final String CONTEXT_MODE_SESSION = "session";
     public static final String CONTEXT_MODE_COMMON_PREFIX = "common_prefix";
