@@ -24,22 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * FilterForListGatewayServicesInput
+ * CheckGatewayExistRequest
  */
 
 
 
-public class FilterForListGatewayServicesInput {
+public class CheckGatewayExistRequest {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("ServiceType")
-  private String serviceType = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
-  public FilterForListGatewayServicesInput name(String name) {
+  public CheckGatewayExistRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -48,49 +42,14 @@ public class FilterForListGatewayServicesInput {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public FilterForListGatewayServicesInput serviceType(String serviceType) {
-    this.serviceType = serviceType;
-    return this;
-  }
-
-   /**
-   * Get serviceType
-   * @return serviceType
-  **/
-  @Schema(description = "")
-  public String getServiceType() {
-    return serviceType;
-  }
-
-  public void setServiceType(String serviceType) {
-    this.serviceType = serviceType;
-  }
-
-  public FilterForListGatewayServicesInput status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
   }
 
 
@@ -102,26 +61,22 @@ public class FilterForListGatewayServicesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FilterForListGatewayServicesInput filterForListGatewayServicesInput = (FilterForListGatewayServicesInput) o;
-    return Objects.equals(this.name, filterForListGatewayServicesInput.name) &&
-        Objects.equals(this.serviceType, filterForListGatewayServicesInput.serviceType) &&
-        Objects.equals(this.status, filterForListGatewayServicesInput.status);
+    CheckGatewayExistRequest checkGatewayExistRequest = (CheckGatewayExistRequest) o;
+    return Objects.equals(this.name, checkGatewayExistRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, serviceType, status);
+    return Objects.hash(name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FilterForListGatewayServicesInput {\n");
+    sb.append("class CheckGatewayExistRequest {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

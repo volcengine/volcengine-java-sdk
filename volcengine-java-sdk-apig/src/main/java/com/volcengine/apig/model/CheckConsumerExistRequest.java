@@ -24,43 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * FilterForListPluginBindingsInput
+ * CheckConsumerExistRequest
  */
 
 
 
-public class FilterForListPluginBindingsInput {
-  @SerializedName("Enable")
-  private Boolean enable = null;
-
+public class CheckConsumerExistRequest {
   @SerializedName("GatewayId")
   private String gatewayId = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Scope")
-  private String scope = null;
-
-  public FilterForListPluginBindingsInput enable(Boolean enable) {
-    this.enable = enable;
-    return this;
-  }
-
-   /**
-   * Get enable
-   * @return enable
-  **/
-  @Schema(description = "")
-  public Boolean isEnable() {
-    return enable;
-  }
-
-  public void setEnable(Boolean enable) {
-    this.enable = enable;
-  }
-
-  public FilterForListPluginBindingsInput gatewayId(String gatewayId) {
+  public CheckConsumerExistRequest gatewayId(String gatewayId) {
     this.gatewayId = gatewayId;
     return this;
   }
@@ -69,7 +45,8 @@ public class FilterForListPluginBindingsInput {
    * Get gatewayId
    * @return gatewayId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getGatewayId() {
     return gatewayId;
   }
@@ -78,7 +55,7 @@ public class FilterForListPluginBindingsInput {
     this.gatewayId = gatewayId;
   }
 
-  public FilterForListPluginBindingsInput name(String name) {
+  public CheckConsumerExistRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -87,31 +64,14 @@ public class FilterForListPluginBindingsInput {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public FilterForListPluginBindingsInput scope(String scope) {
-    this.scope = scope;
-    return this;
-  }
-
-   /**
-   * Get scope
-   * @return scope
-  **/
-  @Schema(description = "")
-  public String getScope() {
-    return scope;
-  }
-
-  public void setScope(String scope) {
-    this.scope = scope;
   }
 
 
@@ -123,28 +83,24 @@ public class FilterForListPluginBindingsInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FilterForListPluginBindingsInput filterForListPluginBindingsInput = (FilterForListPluginBindingsInput) o;
-    return Objects.equals(this.enable, filterForListPluginBindingsInput.enable) &&
-        Objects.equals(this.gatewayId, filterForListPluginBindingsInput.gatewayId) &&
-        Objects.equals(this.name, filterForListPluginBindingsInput.name) &&
-        Objects.equals(this.scope, filterForListPluginBindingsInput.scope);
+    CheckConsumerExistRequest checkConsumerExistRequest = (CheckConsumerExistRequest) o;
+    return Objects.equals(this.gatewayId, checkConsumerExistRequest.gatewayId) &&
+        Objects.equals(this.name, checkConsumerExistRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, gatewayId, name, scope);
+    return Objects.hash(gatewayId, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FilterForListPluginBindingsInput {\n");
+    sb.append("class CheckConsumerExistRequest {\n");
     
-    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("}");
     return sb.toString();
   }
