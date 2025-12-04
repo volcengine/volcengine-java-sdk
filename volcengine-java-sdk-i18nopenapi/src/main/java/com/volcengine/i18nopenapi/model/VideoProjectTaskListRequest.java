@@ -42,6 +42,9 @@ public class VideoProjectTaskListRequest {
   @SerializedName("projectId")
   private String projectId = null;
 
+  @SerializedName("sourceLanguages")
+  private String sourceLanguages = null;
+
   @SerializedName("startTime")
   private Integer startTime = null;
 
@@ -64,7 +67,7 @@ public class VideoProjectTaskListRequest {
   private String taskType = null;
 
   @SerializedName("taskTypes")
-  private Integer taskTypes = null;
+  private String taskTypes = null;
 
   public VideoProjectTaskListRequest endTime(Integer endTime) {
     this.endTime = endTime;
@@ -137,6 +140,24 @@ public class VideoProjectTaskListRequest {
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public VideoProjectTaskListRequest sourceLanguages(String sourceLanguages) {
+    this.sourceLanguages = sourceLanguages;
+    return this;
+  }
+
+   /**
+   * Get sourceLanguages
+   * @return sourceLanguages
+  **/
+  @Schema(description = "")
+  public String getSourceLanguages() {
+    return sourceLanguages;
+  }
+
+  public void setSourceLanguages(String sourceLanguages) {
+    this.sourceLanguages = sourceLanguages;
   }
 
   public VideoProjectTaskListRequest startTime(Integer startTime) {
@@ -265,7 +286,7 @@ public class VideoProjectTaskListRequest {
     this.taskType = taskType;
   }
 
-  public VideoProjectTaskListRequest taskTypes(Integer taskTypes) {
+  public VideoProjectTaskListRequest taskTypes(String taskTypes) {
     this.taskTypes = taskTypes;
     return this;
   }
@@ -275,11 +296,11 @@ public class VideoProjectTaskListRequest {
    * @return taskTypes
   **/
   @Schema(description = "")
-  public Integer getTaskTypes() {
+  public String getTaskTypes() {
     return taskTypes;
   }
 
-  public void setTaskTypes(Integer taskTypes) {
+  public void setTaskTypes(String taskTypes) {
     this.taskTypes = taskTypes;
   }
 
@@ -297,6 +318,7 @@ public class VideoProjectTaskListRequest {
         Objects.equals(this.limit, videoProjectTaskListRequest.limit) &&
         Objects.equals(this.offset, videoProjectTaskListRequest.offset) &&
         Objects.equals(this.projectId, videoProjectTaskListRequest.projectId) &&
+        Objects.equals(this.sourceLanguages, videoProjectTaskListRequest.sourceLanguages) &&
         Objects.equals(this.startTime, videoProjectTaskListRequest.startTime) &&
         Objects.equals(this.status, videoProjectTaskListRequest.status) &&
         Objects.equals(this.subtaskId, videoProjectTaskListRequest.subtaskId) &&
@@ -309,7 +331,7 @@ public class VideoProjectTaskListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, limit, offset, projectId, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
+    return Objects.hash(endTime, limit, offset, projectId, sourceLanguages, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
   }
 
 
@@ -322,6 +344,7 @@ public class VideoProjectTaskListRequest {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    sourceLanguages: ").append(toIndentedString(sourceLanguages)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");

@@ -25,12 +25,18 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoDetailsForVideoProjectTaskDetailOutput
+ * VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput
  */
 
 
 
-public class VideoDetailsForVideoProjectTaskDetailOutput {
+public class VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {
+  @SerializedName("audioUrl")
+  private String audioUrl = null;
+
+  @SerializedName("compressedVideoUrl")
+  private String compressedVideoUrl = null;
+
   @SerializedName("createTime")
   private String createTime = null;
 
@@ -67,7 +73,43 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
   @SerializedName("width")
   private String width = null;
 
-  public VideoDetailsForVideoProjectTaskDetailOutput createTime(String createTime) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput audioUrl(String audioUrl) {
+    this.audioUrl = audioUrl;
+    return this;
+  }
+
+   /**
+   * Get audioUrl
+   * @return audioUrl
+  **/
+  @Schema(description = "")
+  public String getAudioUrl() {
+    return audioUrl;
+  }
+
+  public void setAudioUrl(String audioUrl) {
+    this.audioUrl = audioUrl;
+  }
+
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput compressedVideoUrl(String compressedVideoUrl) {
+    this.compressedVideoUrl = compressedVideoUrl;
+    return this;
+  }
+
+   /**
+   * Get compressedVideoUrl
+   * @return compressedVideoUrl
+  **/
+  @Schema(description = "")
+  public String getCompressedVideoUrl() {
+    return compressedVideoUrl;
+  }
+
+  public void setCompressedVideoUrl(String compressedVideoUrl) {
+    this.compressedVideoUrl = compressedVideoUrl;
+  }
+
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -85,7 +127,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.createTime = createTime;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput creator(CreatorForVideoProjectTaskDetailOutput creator) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput creator(CreatorForVideoProjectTaskDetailOutput creator) {
     this.creator = creator;
     return this;
   }
@@ -104,7 +146,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.creator = creator;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput duration(String duration) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput duration(String duration) {
     this.duration = duration;
     return this;
   }
@@ -122,7 +164,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.duration = duration;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput height(String height) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput height(String height) {
     this.height = height;
     return this;
   }
@@ -140,7 +182,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.height = height;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput language(String language) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput language(String language) {
     this.language = language;
     return this;
   }
@@ -158,7 +200,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.language = language;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput name(String name) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -176,7 +218,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.name = name;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput posterUrl(String posterUrl) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput posterUrl(String posterUrl) {
     this.posterUrl = posterUrl;
     return this;
   }
@@ -194,7 +236,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.posterUrl = posterUrl;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput updateTime(String updateTime) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -212,7 +254,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.updateTime = updateTime;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput videoDownloadUrl(String videoDownloadUrl) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput videoDownloadUrl(String videoDownloadUrl) {
     this.videoDownloadUrl = videoDownloadUrl;
     return this;
   }
@@ -230,7 +272,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.videoDownloadUrl = videoDownloadUrl;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput videoId(String videoId) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput videoId(String videoId) {
     this.videoId = videoId;
     return this;
   }
@@ -248,7 +290,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.videoId = videoId;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput videoUrl(String videoUrl) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput videoUrl(String videoUrl) {
     this.videoUrl = videoUrl;
     return this;
   }
@@ -266,7 +308,7 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     this.videoUrl = videoUrl;
   }
 
-  public VideoDetailsForVideoProjectTaskDetailOutput width(String width) {
+  public VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput width(String width) {
     this.width = width;
     return this;
   }
@@ -293,32 +335,36 @@ public class VideoDetailsForVideoProjectTaskDetailOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoDetailsForVideoProjectTaskDetailOutput videoDetailsForVideoProjectTaskDetailOutput = (VideoDetailsForVideoProjectTaskDetailOutput) o;
-    return Objects.equals(this.createTime, videoDetailsForVideoProjectTaskDetailOutput.createTime) &&
-        Objects.equals(this.creator, videoDetailsForVideoProjectTaskDetailOutput.creator) &&
-        Objects.equals(this.duration, videoDetailsForVideoProjectTaskDetailOutput.duration) &&
-        Objects.equals(this.height, videoDetailsForVideoProjectTaskDetailOutput.height) &&
-        Objects.equals(this.language, videoDetailsForVideoProjectTaskDetailOutput.language) &&
-        Objects.equals(this.name, videoDetailsForVideoProjectTaskDetailOutput.name) &&
-        Objects.equals(this.posterUrl, videoDetailsForVideoProjectTaskDetailOutput.posterUrl) &&
-        Objects.equals(this.updateTime, videoDetailsForVideoProjectTaskDetailOutput.updateTime) &&
-        Objects.equals(this.videoDownloadUrl, videoDetailsForVideoProjectTaskDetailOutput.videoDownloadUrl) &&
-        Objects.equals(this.videoId, videoDetailsForVideoProjectTaskDetailOutput.videoId) &&
-        Objects.equals(this.videoUrl, videoDetailsForVideoProjectTaskDetailOutput.videoUrl) &&
-        Objects.equals(this.width, videoDetailsForVideoProjectTaskDetailOutput.width);
+    VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput = (VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput) o;
+    return Objects.equals(this.audioUrl, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.audioUrl) &&
+        Objects.equals(this.compressedVideoUrl, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.compressedVideoUrl) &&
+        Objects.equals(this.createTime, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.createTime) &&
+        Objects.equals(this.creator, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.creator) &&
+        Objects.equals(this.duration, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.duration) &&
+        Objects.equals(this.height, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.height) &&
+        Objects.equals(this.language, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.language) &&
+        Objects.equals(this.name, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.name) &&
+        Objects.equals(this.posterUrl, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.posterUrl) &&
+        Objects.equals(this.updateTime, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.updateTime) &&
+        Objects.equals(this.videoDownloadUrl, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.videoDownloadUrl) &&
+        Objects.equals(this.videoId, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.videoId) &&
+        Objects.equals(this.videoUrl, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.videoUrl) &&
+        Objects.equals(this.width, videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput.width);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, creator, duration, height, language, name, posterUrl, updateTime, videoDownloadUrl, videoId, videoUrl, width);
+    return Objects.hash(audioUrl, compressedVideoUrl, createTime, creator, duration, height, language, name, posterUrl, updateTime, videoDownloadUrl, videoId, videoUrl, width);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoDetailsForVideoProjectTaskDetailOutput {\n");
+    sb.append("class VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput {\n");
     
+    sb.append("    audioUrl: ").append(toIndentedString(audioUrl)).append("\n");
+    sb.append("    compressedVideoUrl: ").append(toIndentedString(compressedVideoUrl)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");

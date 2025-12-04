@@ -51,8 +51,7 @@ public class CreatePolicyRequest {
    * Get description
    * @return description
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }

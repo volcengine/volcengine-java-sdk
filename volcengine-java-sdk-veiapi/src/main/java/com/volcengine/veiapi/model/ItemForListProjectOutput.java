@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.veiapi.model.TagsForListProjectOutput;
+import com.volcengine.veiapi.model.TagForListProjectOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,6 +39,9 @@ public class ItemForListProjectOutput {
   @SerializedName("desc")
   private String desc = null;
 
+  @SerializedName("iam_project_name")
+  private String iamProjectName = null;
+
   @SerializedName("id")
   private String id = null;
 
@@ -47,7 +52,7 @@ public class ItemForListProjectOutput {
   private String status = null;
 
   @SerializedName("tags")
-  private TagsForListProjectOutput tags = null;
+  private List<TagForListProjectOutput> tags = null;
 
   public ItemForListProjectOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -83,6 +88,24 @@ public class ItemForListProjectOutput {
 
   public void setDesc(String desc) {
     this.desc = desc;
+  }
+
+  public ItemForListProjectOutput iamProjectName(String iamProjectName) {
+    this.iamProjectName = iamProjectName;
+    return this;
+  }
+
+   /**
+   * Get iamProjectName
+   * @return iamProjectName
+  **/
+  @Schema(description = "")
+  public String getIamProjectName() {
+    return iamProjectName;
+  }
+
+  public void setIamProjectName(String iamProjectName) {
+    this.iamProjectName = iamProjectName;
   }
 
   public ItemForListProjectOutput id(String id) {
@@ -139,8 +162,16 @@ public class ItemForListProjectOutput {
     this.status = status;
   }
 
-  public ItemForListProjectOutput tags(TagsForListProjectOutput tags) {
+  public ItemForListProjectOutput tags(List<TagForListProjectOutput> tags) {
     this.tags = tags;
+    return this;
+  }
+
+  public ItemForListProjectOutput addTagsItem(TagForListProjectOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListProjectOutput>();
+    }
+    this.tags.add(tagsItem);
     return this;
   }
 
@@ -150,11 +181,11 @@ public class ItemForListProjectOutput {
   **/
   @Valid
   @Schema(description = "")
-  public TagsForListProjectOutput getTags() {
+  public List<TagForListProjectOutput> getTags() {
     return tags;
   }
 
-  public void setTags(TagsForListProjectOutput tags) {
+  public void setTags(List<TagForListProjectOutput> tags) {
     this.tags = tags;
   }
 
@@ -170,6 +201,7 @@ public class ItemForListProjectOutput {
     ItemForListProjectOutput itemForListProjectOutput = (ItemForListProjectOutput) o;
     return Objects.equals(this.createdAt, itemForListProjectOutput.createdAt) &&
         Objects.equals(this.desc, itemForListProjectOutput.desc) &&
+        Objects.equals(this.iamProjectName, itemForListProjectOutput.iamProjectName) &&
         Objects.equals(this.id, itemForListProjectOutput.id) &&
         Objects.equals(this.name, itemForListProjectOutput.name) &&
         Objects.equals(this.status, itemForListProjectOutput.status) &&
@@ -178,7 +210,7 @@ public class ItemForListProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, desc, id, name, status, tags);
+    return Objects.hash(createdAt, desc, iamProjectName, id, name, status, tags);
   }
 
 
@@ -189,6 +221,7 @@ public class ItemForListProjectOutput {
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
+    sb.append("    iamProjectName: ").append(toIndentedString(iamProjectName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
