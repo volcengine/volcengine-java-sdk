@@ -19,38 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectCreateResponse
+ * DataForVideoProjectCreateOutput
  */
 
 
 
-public class VideoProjectCreateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectCreateOutput data = null;
+public class DataForVideoProjectCreateOutput {
+  @SerializedName("projectId")
+  private String projectId = null;
 
-  public VideoProjectCreateResponse data(DataForVideoProjectCreateOutput data) {
-    this.data = data;
+  @SerializedName("projectName")
+  private String projectName = null;
+
+  public DataForVideoProjectCreateOutput projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get projectId
+   * @return projectId
   **/
-  @Valid
   @Schema(description = "")
-  public DataForVideoProjectCreateOutput getData() {
-    return data;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setData(DataForVideoProjectCreateOutput data) {
-    this.data = data;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+  public DataForVideoProjectCreateOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
 
@@ -62,22 +81,24 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectCreateResponse videoProjectCreateResponse = (VideoProjectCreateResponse) o;
-    return Objects.equals(this.data, videoProjectCreateResponse.data);
+    DataForVideoProjectCreateOutput dataForVideoProjectCreateOutput = (DataForVideoProjectCreateOutput) o;
+    return Objects.equals(this.projectId, dataForVideoProjectCreateOutput.projectId) &&
+        Objects.equals(this.projectName, dataForVideoProjectCreateOutput.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(projectId, projectName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectCreateResponse {\n");
+    sb.append("class DataForVideoProjectCreateOutput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

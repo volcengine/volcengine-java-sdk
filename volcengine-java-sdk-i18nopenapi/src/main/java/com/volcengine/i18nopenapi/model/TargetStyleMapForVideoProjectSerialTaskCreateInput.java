@@ -19,38 +19,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectCreateResponse
+ * TargetStyleMapForVideoProjectSerialTaskCreateInput
  */
 
 
 
-public class VideoProjectCreateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectCreateOutput data = null;
+public class TargetStyleMapForVideoProjectSerialTaskCreateInput {
+  @SerializedName("af")
+  private String af = null;
 
-  public VideoProjectCreateResponse data(DataForVideoProjectCreateOutput data) {
-    this.data = data;
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput af(String af) {
+    this.af = af;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get af
+   * @return af
   **/
-  @Valid
   @Schema(description = "")
-  public DataForVideoProjectCreateOutput getData() {
-    return data;
+  public String getAf() {
+    return af;
   }
 
-  public void setData(DataForVideoProjectCreateOutput data) {
-    this.data = data;
+  public void setAf(String af) {
+    this.af = af;
   }
 
 
@@ -62,22 +60,22 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectCreateResponse videoProjectCreateResponse = (VideoProjectCreateResponse) o;
-    return Objects.equals(this.data, videoProjectCreateResponse.data);
+    TargetStyleMapForVideoProjectSerialTaskCreateInput targetStyleMapForVideoProjectSerialTaskCreateInput = (TargetStyleMapForVideoProjectSerialTaskCreateInput) o;
+    return Objects.equals(this.af, targetStyleMapForVideoProjectSerialTaskCreateInput.af);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(af);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectCreateResponse {\n");
+    sb.append("class TargetStyleMapForVideoProjectSerialTaskCreateInput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    af: ").append(toIndentedString(af)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,22 +19,22 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectCreateOutput;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectSerialTaskCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectCreateResponse
+ * VideoProjectSerialTaskCreateResponse
  */
 
 
 
-public class VideoProjectCreateResponse extends com.volcengine.model.AbstractResponse {
+public class VideoProjectSerialTaskCreateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("data")
-  private DataForVideoProjectCreateOutput data = null;
+  private DataForVideoProjectSerialTaskCreateOutput data = null;
 
-  public VideoProjectCreateResponse data(DataForVideoProjectCreateOutput data) {
+  public VideoProjectSerialTaskCreateResponse data(DataForVideoProjectSerialTaskCreateOutput data) {
     this.data = data;
     return this;
   }
@@ -45,11 +45,11 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
   **/
   @Valid
   @Schema(description = "")
-  public DataForVideoProjectCreateOutput getData() {
+  public DataForVideoProjectSerialTaskCreateOutput getData() {
     return data;
   }
 
-  public void setData(DataForVideoProjectCreateOutput data) {
+  public void setData(DataForVideoProjectSerialTaskCreateOutput data) {
     this.data = data;
   }
 
@@ -62,8 +62,8 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectCreateResponse videoProjectCreateResponse = (VideoProjectCreateResponse) o;
-    return Objects.equals(this.data, videoProjectCreateResponse.data);
+    VideoProjectSerialTaskCreateResponse videoProjectSerialTaskCreateResponse = (VideoProjectSerialTaskCreateResponse) o;
+    return Objects.equals(this.data, videoProjectSerialTaskCreateResponse.data);
   }
 
   @Override
@@ -75,7 +75,7 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectCreateResponse {\n");
+    sb.append("class VideoProjectSerialTaskCreateResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

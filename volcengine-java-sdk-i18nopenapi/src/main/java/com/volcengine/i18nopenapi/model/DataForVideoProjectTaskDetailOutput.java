@@ -21,7 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.SubTaskForVideoProjectTaskDetailOutput;
 import com.volcengine.i18nopenapi.model.TaskForVideoProjectTaskDetailOutput;
-import com.volcengine.i18nopenapi.model.VideoDetailsForVideoProjectTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.VideoDetailForVideoProjectTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +43,10 @@ public class DataForVideoProjectTaskDetailOutput {
   private TaskForVideoProjectTaskDetailOutput task = null;
 
   @SerializedName("videoDetails")
-  private VideoDetailsForVideoProjectTaskDetailOutput videoDetails = null;
+  private List<VideoDetailForVideoProjectTaskDetailOutput> videoDetails = null;
+
+  @SerializedName("videoDetailsWithAiRemove")
+  private List<VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput> videoDetailsWithAiRemove = null;
 
   public DataForVideoProjectTaskDetailOutput subTasks(List<SubTaskForVideoProjectTaskDetailOutput> subTasks) {
     this.subTasks = subTasks;
@@ -90,8 +94,16 @@ public class DataForVideoProjectTaskDetailOutput {
     this.task = task;
   }
 
-  public DataForVideoProjectTaskDetailOutput videoDetails(VideoDetailsForVideoProjectTaskDetailOutput videoDetails) {
+  public DataForVideoProjectTaskDetailOutput videoDetails(List<VideoDetailForVideoProjectTaskDetailOutput> videoDetails) {
     this.videoDetails = videoDetails;
+    return this;
+  }
+
+  public DataForVideoProjectTaskDetailOutput addVideoDetailsItem(VideoDetailForVideoProjectTaskDetailOutput videoDetailsItem) {
+    if (this.videoDetails == null) {
+      this.videoDetails = new ArrayList<VideoDetailForVideoProjectTaskDetailOutput>();
+    }
+    this.videoDetails.add(videoDetailsItem);
     return this;
   }
 
@@ -101,12 +113,39 @@ public class DataForVideoProjectTaskDetailOutput {
   **/
   @Valid
   @Schema(description = "")
-  public VideoDetailsForVideoProjectTaskDetailOutput getVideoDetails() {
+  public List<VideoDetailForVideoProjectTaskDetailOutput> getVideoDetails() {
     return videoDetails;
   }
 
-  public void setVideoDetails(VideoDetailsForVideoProjectTaskDetailOutput videoDetails) {
+  public void setVideoDetails(List<VideoDetailForVideoProjectTaskDetailOutput> videoDetails) {
     this.videoDetails = videoDetails;
+  }
+
+  public DataForVideoProjectTaskDetailOutput videoDetailsWithAiRemove(List<VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput> videoDetailsWithAiRemove) {
+    this.videoDetailsWithAiRemove = videoDetailsWithAiRemove;
+    return this;
+  }
+
+  public DataForVideoProjectTaskDetailOutput addVideoDetailsWithAiRemoveItem(VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput videoDetailsWithAiRemoveItem) {
+    if (this.videoDetailsWithAiRemove == null) {
+      this.videoDetailsWithAiRemove = new ArrayList<VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput>();
+    }
+    this.videoDetailsWithAiRemove.add(videoDetailsWithAiRemoveItem);
+    return this;
+  }
+
+   /**
+   * Get videoDetailsWithAiRemove
+   * @return videoDetailsWithAiRemove
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput> getVideoDetailsWithAiRemove() {
+    return videoDetailsWithAiRemove;
+  }
+
+  public void setVideoDetailsWithAiRemove(List<VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput> videoDetailsWithAiRemove) {
+    this.videoDetailsWithAiRemove = videoDetailsWithAiRemove;
   }
 
 
@@ -121,12 +160,13 @@ public class DataForVideoProjectTaskDetailOutput {
     DataForVideoProjectTaskDetailOutput dataForVideoProjectTaskDetailOutput = (DataForVideoProjectTaskDetailOutput) o;
     return Objects.equals(this.subTasks, dataForVideoProjectTaskDetailOutput.subTasks) &&
         Objects.equals(this.task, dataForVideoProjectTaskDetailOutput.task) &&
-        Objects.equals(this.videoDetails, dataForVideoProjectTaskDetailOutput.videoDetails);
+        Objects.equals(this.videoDetails, dataForVideoProjectTaskDetailOutput.videoDetails) &&
+        Objects.equals(this.videoDetailsWithAiRemove, dataForVideoProjectTaskDetailOutput.videoDetailsWithAiRemove);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subTasks, task, videoDetails);
+    return Objects.hash(subTasks, task, videoDetails, videoDetailsWithAiRemove);
   }
 
 
@@ -138,6 +178,7 @@ public class DataForVideoProjectTaskDetailOutput {
     sb.append("    subTasks: ").append(toIndentedString(subTasks)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
     sb.append("    videoDetails: ").append(toIndentedString(videoDetails)).append("\n");
+    sb.append("    videoDetailsWithAiRemove: ").append(toIndentedString(videoDetailsWithAiRemove)).append("\n");
     sb.append("}");
     return sb.toString();
   }
