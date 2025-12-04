@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.SourceSubtitleFileInfoForVideoProjectTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.SuppressionVideoInfoForVideoProjectTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.TargetSubtitleFileInfoForVideoProjectTaskDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,6 +39,12 @@ public class SubTaskForVideoProjectTaskDetailOutput {
   @SerializedName("currentStage")
   private String currentStage = null;
 
+  @SerializedName("defaultStyle")
+  private String defaultStyle = null;
+
+  @SerializedName("episodeNum")
+  private Integer episodeNum = null;
+
   @SerializedName("id")
   private String id = null;
 
@@ -45,14 +54,53 @@ public class SubTaskForVideoProjectTaskDetailOutput {
   @SerializedName("sourceLanguage")
   private String sourceLanguage = null;
 
+  @SerializedName("sourceSubtitleFileInfo")
+  private SourceSubtitleFileInfoForVideoProjectTaskDetailOutput sourceSubtitleFileInfo = null;
+
   @SerializedName("status")
   private String status = null;
+
+  @SerializedName("subtaskType")
+  private Integer subtaskType = null;
+
+  @SerializedName("suppressionStatus")
+  private Integer suppressionStatus = null;
+
+  @SerializedName("suppressionVideoInfo")
+  private SuppressionVideoInfoForVideoProjectTaskDetailOutput suppressionVideoInfo = null;
+
+  @SerializedName("targetLanguage")
+  private String targetLanguage = null;
+
+  @SerializedName("targetSubtitleFileInfo")
+  private TargetSubtitleFileInfoForVideoProjectTaskDetailOutput targetSubtitleFileInfo = null;
+
+  @SerializedName("textAiRemove")
+  private Boolean textAiRemove = null;
+
+  @SerializedName("translateOcrText")
+  private Boolean translateOcrText = null;
 
   @SerializedName("updateTime")
   private String updateTime = null;
 
   @SerializedName("useDubTask")
   private String useDubTask = null;
+
+  @SerializedName("useMt")
+  private Boolean useMt = null;
+
+  @SerializedName("useOcr")
+  private Boolean useOcr = null;
+
+  @SerializedName("vidWithAiRemove")
+  private String vidWithAiRemove = null;
+
+  @SerializedName("videoId")
+  private String videoId = null;
+
+  @SerializedName("workflow")
+  private Integer workflow = null;
 
   public SubTaskForVideoProjectTaskDetailOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -88,6 +136,42 @@ public class SubTaskForVideoProjectTaskDetailOutput {
 
   public void setCurrentStage(String currentStage) {
     this.currentStage = currentStage;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput defaultStyle(String defaultStyle) {
+    this.defaultStyle = defaultStyle;
+    return this;
+  }
+
+   /**
+   * Get defaultStyle
+   * @return defaultStyle
+  **/
+  @Schema(description = "")
+  public String getDefaultStyle() {
+    return defaultStyle;
+  }
+
+  public void setDefaultStyle(String defaultStyle) {
+    this.defaultStyle = defaultStyle;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput episodeNum(Integer episodeNum) {
+    this.episodeNum = episodeNum;
+    return this;
+  }
+
+   /**
+   * Get episodeNum
+   * @return episodeNum
+  **/
+  @Schema(description = "")
+  public Integer getEpisodeNum() {
+    return episodeNum;
+  }
+
+  public void setEpisodeNum(Integer episodeNum) {
+    this.episodeNum = episodeNum;
   }
 
   public SubTaskForVideoProjectTaskDetailOutput id(String id) {
@@ -144,6 +228,25 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.sourceLanguage = sourceLanguage;
   }
 
+  public SubTaskForVideoProjectTaskDetailOutput sourceSubtitleFileInfo(SourceSubtitleFileInfoForVideoProjectTaskDetailOutput sourceSubtitleFileInfo) {
+    this.sourceSubtitleFileInfo = sourceSubtitleFileInfo;
+    return this;
+  }
+
+   /**
+   * Get sourceSubtitleFileInfo
+   * @return sourceSubtitleFileInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceSubtitleFileInfoForVideoProjectTaskDetailOutput getSourceSubtitleFileInfo() {
+    return sourceSubtitleFileInfo;
+  }
+
+  public void setSourceSubtitleFileInfo(SourceSubtitleFileInfoForVideoProjectTaskDetailOutput sourceSubtitleFileInfo) {
+    this.sourceSubtitleFileInfo = sourceSubtitleFileInfo;
+  }
+
   public SubTaskForVideoProjectTaskDetailOutput status(String status) {
     this.status = status;
     return this;
@@ -160,6 +263,134 @@ public class SubTaskForVideoProjectTaskDetailOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput subtaskType(Integer subtaskType) {
+    this.subtaskType = subtaskType;
+    return this;
+  }
+
+   /**
+   * Get subtaskType
+   * @return subtaskType
+  **/
+  @Schema(description = "")
+  public Integer getSubtaskType() {
+    return subtaskType;
+  }
+
+  public void setSubtaskType(Integer subtaskType) {
+    this.subtaskType = subtaskType;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput suppressionStatus(Integer suppressionStatus) {
+    this.suppressionStatus = suppressionStatus;
+    return this;
+  }
+
+   /**
+   * Get suppressionStatus
+   * @return suppressionStatus
+  **/
+  @Schema(description = "")
+  public Integer getSuppressionStatus() {
+    return suppressionStatus;
+  }
+
+  public void setSuppressionStatus(Integer suppressionStatus) {
+    this.suppressionStatus = suppressionStatus;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput suppressionVideoInfo(SuppressionVideoInfoForVideoProjectTaskDetailOutput suppressionVideoInfo) {
+    this.suppressionVideoInfo = suppressionVideoInfo;
+    return this;
+  }
+
+   /**
+   * Get suppressionVideoInfo
+   * @return suppressionVideoInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public SuppressionVideoInfoForVideoProjectTaskDetailOutput getSuppressionVideoInfo() {
+    return suppressionVideoInfo;
+  }
+
+  public void setSuppressionVideoInfo(SuppressionVideoInfoForVideoProjectTaskDetailOutput suppressionVideoInfo) {
+    this.suppressionVideoInfo = suppressionVideoInfo;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput targetLanguage(String targetLanguage) {
+    this.targetLanguage = targetLanguage;
+    return this;
+  }
+
+   /**
+   * Get targetLanguage
+   * @return targetLanguage
+  **/
+  @Schema(description = "")
+  public String getTargetLanguage() {
+    return targetLanguage;
+  }
+
+  public void setTargetLanguage(String targetLanguage) {
+    this.targetLanguage = targetLanguage;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput targetSubtitleFileInfo(TargetSubtitleFileInfoForVideoProjectTaskDetailOutput targetSubtitleFileInfo) {
+    this.targetSubtitleFileInfo = targetSubtitleFileInfo;
+    return this;
+  }
+
+   /**
+   * Get targetSubtitleFileInfo
+   * @return targetSubtitleFileInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public TargetSubtitleFileInfoForVideoProjectTaskDetailOutput getTargetSubtitleFileInfo() {
+    return targetSubtitleFileInfo;
+  }
+
+  public void setTargetSubtitleFileInfo(TargetSubtitleFileInfoForVideoProjectTaskDetailOutput targetSubtitleFileInfo) {
+    this.targetSubtitleFileInfo = targetSubtitleFileInfo;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput textAiRemove(Boolean textAiRemove) {
+    this.textAiRemove = textAiRemove;
+    return this;
+  }
+
+   /**
+   * Get textAiRemove
+   * @return textAiRemove
+  **/
+  @Schema(description = "")
+  public Boolean isTextAiRemove() {
+    return textAiRemove;
+  }
+
+  public void setTextAiRemove(Boolean textAiRemove) {
+    this.textAiRemove = textAiRemove;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput translateOcrText(Boolean translateOcrText) {
+    this.translateOcrText = translateOcrText;
+    return this;
+  }
+
+   /**
+   * Get translateOcrText
+   * @return translateOcrText
+  **/
+  @Schema(description = "")
+  public Boolean isTranslateOcrText() {
+    return translateOcrText;
+  }
+
+  public void setTranslateOcrText(Boolean translateOcrText) {
+    this.translateOcrText = translateOcrText;
   }
 
   public SubTaskForVideoProjectTaskDetailOutput updateTime(String updateTime) {
@@ -198,6 +429,96 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.useDubTask = useDubTask;
   }
 
+  public SubTaskForVideoProjectTaskDetailOutput useMt(Boolean useMt) {
+    this.useMt = useMt;
+    return this;
+  }
+
+   /**
+   * Get useMt
+   * @return useMt
+  **/
+  @Schema(description = "")
+  public Boolean isUseMt() {
+    return useMt;
+  }
+
+  public void setUseMt(Boolean useMt) {
+    this.useMt = useMt;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput useOcr(Boolean useOcr) {
+    this.useOcr = useOcr;
+    return this;
+  }
+
+   /**
+   * Get useOcr
+   * @return useOcr
+  **/
+  @Schema(description = "")
+  public Boolean isUseOcr() {
+    return useOcr;
+  }
+
+  public void setUseOcr(Boolean useOcr) {
+    this.useOcr = useOcr;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput vidWithAiRemove(String vidWithAiRemove) {
+    this.vidWithAiRemove = vidWithAiRemove;
+    return this;
+  }
+
+   /**
+   * Get vidWithAiRemove
+   * @return vidWithAiRemove
+  **/
+  @Schema(description = "")
+  public String getVidWithAiRemove() {
+    return vidWithAiRemove;
+  }
+
+  public void setVidWithAiRemove(String vidWithAiRemove) {
+    this.vidWithAiRemove = vidWithAiRemove;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput videoId(String videoId) {
+    this.videoId = videoId;
+    return this;
+  }
+
+   /**
+   * Get videoId
+   * @return videoId
+  **/
+  @Schema(description = "")
+  public String getVideoId() {
+    return videoId;
+  }
+
+  public void setVideoId(String videoId) {
+    this.videoId = videoId;
+  }
+
+  public SubTaskForVideoProjectTaskDetailOutput workflow(Integer workflow) {
+    this.workflow = workflow;
+    return this;
+  }
+
+   /**
+   * Get workflow
+   * @return workflow
+  **/
+  @Schema(description = "")
+  public Integer getWorkflow() {
+    return workflow;
+  }
+
+  public void setWorkflow(Integer workflow) {
+    this.workflow = workflow;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -210,17 +531,32 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     SubTaskForVideoProjectTaskDetailOutput subTaskForVideoProjectTaskDetailOutput = (SubTaskForVideoProjectTaskDetailOutput) o;
     return Objects.equals(this.createTime, subTaskForVideoProjectTaskDetailOutput.createTime) &&
         Objects.equals(this.currentStage, subTaskForVideoProjectTaskDetailOutput.currentStage) &&
+        Objects.equals(this.defaultStyle, subTaskForVideoProjectTaskDetailOutput.defaultStyle) &&
+        Objects.equals(this.episodeNum, subTaskForVideoProjectTaskDetailOutput.episodeNum) &&
         Objects.equals(this.id, subTaskForVideoProjectTaskDetailOutput.id) &&
         Objects.equals(this.opStatus, subTaskForVideoProjectTaskDetailOutput.opStatus) &&
         Objects.equals(this.sourceLanguage, subTaskForVideoProjectTaskDetailOutput.sourceLanguage) &&
+        Objects.equals(this.sourceSubtitleFileInfo, subTaskForVideoProjectTaskDetailOutput.sourceSubtitleFileInfo) &&
         Objects.equals(this.status, subTaskForVideoProjectTaskDetailOutput.status) &&
+        Objects.equals(this.subtaskType, subTaskForVideoProjectTaskDetailOutput.subtaskType) &&
+        Objects.equals(this.suppressionStatus, subTaskForVideoProjectTaskDetailOutput.suppressionStatus) &&
+        Objects.equals(this.suppressionVideoInfo, subTaskForVideoProjectTaskDetailOutput.suppressionVideoInfo) &&
+        Objects.equals(this.targetLanguage, subTaskForVideoProjectTaskDetailOutput.targetLanguage) &&
+        Objects.equals(this.targetSubtitleFileInfo, subTaskForVideoProjectTaskDetailOutput.targetSubtitleFileInfo) &&
+        Objects.equals(this.textAiRemove, subTaskForVideoProjectTaskDetailOutput.textAiRemove) &&
+        Objects.equals(this.translateOcrText, subTaskForVideoProjectTaskDetailOutput.translateOcrText) &&
         Objects.equals(this.updateTime, subTaskForVideoProjectTaskDetailOutput.updateTime) &&
-        Objects.equals(this.useDubTask, subTaskForVideoProjectTaskDetailOutput.useDubTask);
+        Objects.equals(this.useDubTask, subTaskForVideoProjectTaskDetailOutput.useDubTask) &&
+        Objects.equals(this.useMt, subTaskForVideoProjectTaskDetailOutput.useMt) &&
+        Objects.equals(this.useOcr, subTaskForVideoProjectTaskDetailOutput.useOcr) &&
+        Objects.equals(this.vidWithAiRemove, subTaskForVideoProjectTaskDetailOutput.vidWithAiRemove) &&
+        Objects.equals(this.videoId, subTaskForVideoProjectTaskDetailOutput.videoId) &&
+        Objects.equals(this.workflow, subTaskForVideoProjectTaskDetailOutput.workflow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, currentStage, id, opStatus, sourceLanguage, status, updateTime, useDubTask);
+    return Objects.hash(createTime, currentStage, defaultStyle, episodeNum, id, opStatus, sourceLanguage, sourceSubtitleFileInfo, status, subtaskType, suppressionStatus, suppressionVideoInfo, targetLanguage, targetSubtitleFileInfo, textAiRemove, translateOcrText, updateTime, useDubTask, useMt, useOcr, vidWithAiRemove, videoId, workflow);
   }
 
 
@@ -231,12 +567,27 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
+    sb.append("    defaultStyle: ").append(toIndentedString(defaultStyle)).append("\n");
+    sb.append("    episodeNum: ").append(toIndentedString(episodeNum)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    opStatus: ").append(toIndentedString(opStatus)).append("\n");
     sb.append("    sourceLanguage: ").append(toIndentedString(sourceLanguage)).append("\n");
+    sb.append("    sourceSubtitleFileInfo: ").append(toIndentedString(sourceSubtitleFileInfo)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subtaskType: ").append(toIndentedString(subtaskType)).append("\n");
+    sb.append("    suppressionStatus: ").append(toIndentedString(suppressionStatus)).append("\n");
+    sb.append("    suppressionVideoInfo: ").append(toIndentedString(suppressionVideoInfo)).append("\n");
+    sb.append("    targetLanguage: ").append(toIndentedString(targetLanguage)).append("\n");
+    sb.append("    targetSubtitleFileInfo: ").append(toIndentedString(targetSubtitleFileInfo)).append("\n");
+    sb.append("    textAiRemove: ").append(toIndentedString(textAiRemove)).append("\n");
+    sb.append("    translateOcrText: ").append(toIndentedString(translateOcrText)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    useDubTask: ").append(toIndentedString(useDubTask)).append("\n");
+    sb.append("    useMt: ").append(toIndentedString(useMt)).append("\n");
+    sb.append("    useOcr: ").append(toIndentedString(useOcr)).append("\n");
+    sb.append("    vidWithAiRemove: ").append(toIndentedString(vidWithAiRemove)).append("\n");
+    sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
+    sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
     sb.append("}");
     return sb.toString();
   }

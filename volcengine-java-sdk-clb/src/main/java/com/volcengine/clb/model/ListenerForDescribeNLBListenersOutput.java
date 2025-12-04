@@ -36,8 +36,20 @@ public class ListenerForDescribeNLBListenersOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CACertificateSource")
+  private String caCertificateSource = null;
+
+  @SerializedName("CAEnabled")
+  private Boolean caEnabled = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ConnectionTimeout")
   private Integer connectionTimeout = null;
@@ -62,6 +74,9 @@ public class ListenerForDescribeNLBListenersOutput {
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("PCACertificateId")
+  private String pcACertificateId = null;
 
   @SerializedName("Port")
   private Integer port = null;
@@ -108,6 +123,60 @@ public class ListenerForDescribeNLBListenersOutput {
     this.accountId = accountId;
   }
 
+  public ListenerForDescribeNLBListenersOutput caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public ListenerForDescribeNLBListenersOutput caCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+    return this;
+  }
+
+   /**
+   * Get caCertificateSource
+   * @return caCertificateSource
+  **/
+  @Schema(description = "")
+  public String getCaCertificateSource() {
+    return caCertificateSource;
+  }
+
+  public void setCaCertificateSource(String caCertificateSource) {
+    this.caCertificateSource = caCertificateSource;
+  }
+
+  public ListenerForDescribeNLBListenersOutput caEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(Boolean caEnabled) {
+    this.caEnabled = caEnabled;
+  }
+
   public ListenerForDescribeNLBListenersOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -124,6 +193,24 @@ public class ListenerForDescribeNLBListenersOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ListenerForDescribeNLBListenersOutput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public ListenerForDescribeNLBListenersOutput connectionTimeout(Integer connectionTimeout) {
@@ -268,6 +355,24 @@ public class ListenerForDescribeNLBListenersOutput {
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public ListenerForDescribeNLBListenersOutput pcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
+    return this;
+  }
+
+   /**
+   * Get pcACertificateId
+   * @return pcACertificateId
+  **/
+  @Schema(description = "")
+  public String getPcACertificateId() {
+    return pcACertificateId;
+  }
+
+  public void setPcACertificateId(String pcACertificateId) {
+    this.pcACertificateId = pcACertificateId;
   }
 
   public ListenerForDescribeNLBListenersOutput port(Integer port) {
@@ -452,7 +557,11 @@ public class ListenerForDescribeNLBListenersOutput {
     }
     ListenerForDescribeNLBListenersOutput listenerForDescribeNLBListenersOutput = (ListenerForDescribeNLBListenersOutput) o;
     return Objects.equals(this.accountId, listenerForDescribeNLBListenersOutput.accountId) &&
+        Objects.equals(this.caCertificateId, listenerForDescribeNLBListenersOutput.caCertificateId) &&
+        Objects.equals(this.caCertificateSource, listenerForDescribeNLBListenersOutput.caCertificateSource) &&
+        Objects.equals(this.caEnabled, listenerForDescribeNLBListenersOutput.caEnabled) &&
         Objects.equals(this.certificateId, listenerForDescribeNLBListenersOutput.certificateId) &&
+        Objects.equals(this.certificateSource, listenerForDescribeNLBListenersOutput.certificateSource) &&
         Objects.equals(this.connectionTimeout, listenerForDescribeNLBListenersOutput.connectionTimeout) &&
         Objects.equals(this.createTime, listenerForDescribeNLBListenersOutput.createTime) &&
         Objects.equals(this.description, listenerForDescribeNLBListenersOutput.description) &&
@@ -461,6 +570,7 @@ public class ListenerForDescribeNLBListenersOutput {
         Objects.equals(this.listenerId, listenerForDescribeNLBListenersOutput.listenerId) &&
         Objects.equals(this.listenerName, listenerForDescribeNLBListenersOutput.listenerName) &&
         Objects.equals(this.loadBalancerId, listenerForDescribeNLBListenersOutput.loadBalancerId) &&
+        Objects.equals(this.pcACertificateId, listenerForDescribeNLBListenersOutput.pcACertificateId) &&
         Objects.equals(this.port, listenerForDescribeNLBListenersOutput.port) &&
         Objects.equals(this.protocol, listenerForDescribeNLBListenersOutput.protocol) &&
         Objects.equals(this.securityPolicyId, listenerForDescribeNLBListenersOutput.securityPolicyId) &&
@@ -474,7 +584,7 @@ public class ListenerForDescribeNLBListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, certificateId, connectionTimeout, createTime, description, enabled, endPort, listenerId, listenerName, loadBalancerId, port, protocol, securityPolicyId, securityPolicyType, serverGroupId, startPort, status, tags, updateTime);
+    return Objects.hash(accountId, caCertificateId, caCertificateSource, caEnabled, certificateId, certificateSource, connectionTimeout, createTime, description, enabled, endPort, listenerId, listenerName, loadBalancerId, pcACertificateId, port, protocol, securityPolicyId, securityPolicyType, serverGroupId, startPort, status, tags, updateTime);
   }
 
 
@@ -484,7 +594,11 @@ public class ListenerForDescribeNLBListenersOutput {
     sb.append("class ListenerForDescribeNLBListenersOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caCertificateSource: ").append(toIndentedString(caCertificateSource)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    connectionTimeout: ").append(toIndentedString(connectionTimeout)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -493,6 +607,7 @@ public class ListenerForDescribeNLBListenersOutput {
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    pcACertificateId: ").append(toIndentedString(pcACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");

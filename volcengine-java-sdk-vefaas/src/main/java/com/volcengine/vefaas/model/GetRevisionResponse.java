@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AsyncTaskConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.EnvForGetRevisionOutput;
 import com.volcengine.vefaas.model.HealthCheckConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.NasStorageForGetRevisionOutput;
@@ -38,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskConfig")
+  private AsyncTaskConfigForGetRevisionOutput asyncTaskConfig = null;
+
   @SerializedName("CodeSize")
   private Integer codeSize = null;
 
@@ -118,6 +122,25 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("VpcConfig")
   private VpcConfigForGetRevisionOutput vpcConfig = null;
+
+  public GetRevisionResponse asyncTaskConfig(AsyncTaskConfigForGetRevisionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskConfig
+   * @return asyncTaskConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncTaskConfigForGetRevisionOutput getAsyncTaskConfig() {
+    return asyncTaskConfig;
+  }
+
+  public void setAsyncTaskConfig(AsyncTaskConfigForGetRevisionOutput asyncTaskConfig) {
+    this.asyncTaskConfig = asyncTaskConfig;
+  }
 
   public GetRevisionResponse codeSize(Integer codeSize) {
     this.codeSize = codeSize;
@@ -629,7 +652,8 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     GetRevisionResponse getRevisionResponse = (GetRevisionResponse) o;
-    return Objects.equals(this.codeSize, getRevisionResponse.codeSize) &&
+    return Objects.equals(this.asyncTaskConfig, getRevisionResponse.asyncTaskConfig) &&
+        Objects.equals(this.codeSize, getRevisionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, getRevisionResponse.codeSizeLimit) &&
         Objects.equals(this.creationTime, getRevisionResponse.creationTime) &&
         Objects.equals(this.description, getRevisionResponse.description) &&
@@ -660,7 +684,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -669,6 +693,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRevisionResponse {\n");
     
+    sb.append("    asyncTaskConfig: ").append(toIndentedString(asyncTaskConfig)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");

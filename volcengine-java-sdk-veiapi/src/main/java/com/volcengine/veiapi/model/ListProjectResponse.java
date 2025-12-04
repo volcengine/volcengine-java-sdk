@@ -40,6 +40,9 @@ public class ListProjectResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("pageinator")
   private PageinatorForListProjectOutput pageinator = null;
 
+  @SerializedName("total_items")
+  private Long totalItems = null;
+
   public ListProjectResponse items(List<ItemForListProjectOutput> items) {
     this.items = items;
     return this;
@@ -86,6 +89,24 @@ public class ListProjectResponse extends com.volcengine.model.AbstractResponse {
     this.pageinator = pageinator;
   }
 
+  public ListProjectResponse totalItems(Long totalItems) {
+    this.totalItems = totalItems;
+    return this;
+  }
+
+   /**
+   * Get totalItems
+   * @return totalItems
+  **/
+  @Schema(description = "")
+  public Long getTotalItems() {
+    return totalItems;
+  }
+
+  public void setTotalItems(Long totalItems) {
+    this.totalItems = totalItems;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,12 +118,13 @@ public class ListProjectResponse extends com.volcengine.model.AbstractResponse {
     }
     ListProjectResponse listProjectResponse = (ListProjectResponse) o;
     return Objects.equals(this.items, listProjectResponse.items) &&
-        Objects.equals(this.pageinator, listProjectResponse.pageinator);
+        Objects.equals(this.pageinator, listProjectResponse.pageinator) &&
+        Objects.equals(this.totalItems, listProjectResponse.totalItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, pageinator);
+    return Objects.hash(items, pageinator, totalItems);
   }
 
 
@@ -113,6 +135,7 @@ public class ListProjectResponse extends com.volcengine.model.AbstractResponse {
     
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    pageinator: ").append(toIndentedString(pageinator)).append("\n");
+    sb.append("    totalItems: ").append(toIndentedString(totalItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }
