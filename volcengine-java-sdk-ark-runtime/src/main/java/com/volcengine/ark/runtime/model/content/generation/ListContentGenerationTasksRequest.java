@@ -18,6 +18,7 @@ public class ListContentGenerationTasksRequest {
     private String status;
     private String model;
     private List<String> taskIds;
+    private String serviceTier;
 
     public ListContentGenerationTasksRequest() {
     }
@@ -70,6 +71,14 @@ public class ListContentGenerationTasksRequest {
         this.taskIds = taskIds;
     }
 
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public String toString() {
         return "ListContentGenerationTasksRequest{" +
@@ -91,6 +100,7 @@ public class ListContentGenerationTasksRequest {
         private String status;
         private String model;
         private final List<String> taskIds = new ArrayList<>();
+        private String serviceTier;
 
         public Builder pageNum(java.lang.Integer pageNum) {
             this.pageNum = pageNum;
@@ -112,6 +122,11 @@ public class ListContentGenerationTasksRequest {
             return this;
         }
 
+        public Builder serviceTier(String serviceTier) {
+            this.serviceTier = serviceTier;
+            return this;
+        }
+
         public Builder taskIds(List<String> taskIds) {
             this.taskIds.clear();
             this.taskIds.addAll(taskIds);
@@ -124,7 +139,9 @@ public class ListContentGenerationTasksRequest {
         }
 
         public ListContentGenerationTasksRequest build() {
-            return new ListContentGenerationTasksRequest(pageNum, pageSize, status, model, taskIds);
+            ListContentGenerationTasksRequest req = new ListContentGenerationTasksRequest(pageNum, pageSize, status, model, taskIds);
+            req.setServiceTier(serviceTier);
+            return req;
         }
     }
 }

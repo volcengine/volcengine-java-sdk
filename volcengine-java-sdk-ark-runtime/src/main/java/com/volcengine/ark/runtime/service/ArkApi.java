@@ -101,6 +101,7 @@ public interface ArkApi {
             @Query("page_size") int pageSize,
             @Query("filter.status") String status,
             @Query("filter.model") String model,
+            @Query("filter.service_tier") String serviceTier,
             @Query("filter.task_ids") List<String> taskIds,
             @HeaderMap Map<String, String> customHeaders
     );

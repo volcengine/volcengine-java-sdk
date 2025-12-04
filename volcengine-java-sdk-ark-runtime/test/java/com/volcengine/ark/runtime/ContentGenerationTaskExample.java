@@ -50,6 +50,8 @@ public class ContentGenerationTaskExample {
         CreateContentGenerationTaskRequest createRequest = CreateContentGenerationTaskRequest.builder()
                 .model(model)
                 .content(contents)
+                .serviceTier("default")
+                .executionExpiresAfter(3600L)
                 // .callbackUrl("YOUR CALLBACK URL")
                 .build();
 
@@ -65,6 +67,8 @@ public class ContentGenerationTaskExample {
 
         GetContentGenerationTaskResponse getResult = service.getContentGenerationTask(getRequest);
         System.out.println(getResult);
+        System.out.println("ServiceTier: " + getResult.getServiceTier());
+        System.out.println("ExecutionExpiresAfter: " + getResult.getExecutionExpiresAfter());
 
         System.out.println("\n----- LIST Task Request -----");
 
@@ -76,10 +80,16 @@ public class ContentGenerationTaskExample {
                 // for multiple IDs, you could use:
                 // .taskIds(Arrays.asList("test-id-1", "test-id-2"))
                 .model(model)
+                .serviceTier("default")
                 .build();
 
         ListContentGenerationTasksResponse listResponse = service.listContentGenerationTasks(listRequest);
         System.out.println(listResponse);
+        if (listResponse.getItems() != null && !listResponse.getItems().isEmpty()) {
+            ListContentGenerationTasksResponse.Item item = listResponse.getItems().get(0);
+            System.out.println("List Item ServiceTier: " + item.getServiceTier());
+            System.out.println("List Item ExecutionExpiresAfter: " + item.getExecutionExpiresAfter());
+        }
 
         System.out.println("\n----- DELETE Task Request -----");
 
