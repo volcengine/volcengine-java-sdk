@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.veiapi.model.TagFilterForListProjectInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -39,6 +42,12 @@ public class ListProjectRequest {
   @SerializedName("created_to")
   private String createdTo = null;
 
+  @SerializedName("iam_project_name")
+  private String iamProjectName = null;
+
+  @SerializedName("iam_projects")
+  private List<String> iamProjects = null;
+
   @SerializedName("page_index")
   private Integer pageIndex = null;
 
@@ -47,6 +56,9 @@ public class ListProjectRequest {
 
   @SerializedName("project_name")
   private String projectName = null;
+
+  @SerializedName("tag_filters")
+  private List<TagFilterForListProjectInput> tagFilters = null;
 
   public ListProjectRequest createdFrom(Integer createdFrom) {
     this.createdFrom = createdFrom;
@@ -101,6 +113,50 @@ public class ListProjectRequest {
 
   public void setCreatedTo(String createdTo) {
     this.createdTo = createdTo;
+  }
+
+  public ListProjectRequest iamProjectName(String iamProjectName) {
+    this.iamProjectName = iamProjectName;
+    return this;
+  }
+
+   /**
+   * Get iamProjectName
+   * @return iamProjectName
+  **/
+  @Schema(description = "")
+  public String getIamProjectName() {
+    return iamProjectName;
+  }
+
+  public void setIamProjectName(String iamProjectName) {
+    this.iamProjectName = iamProjectName;
+  }
+
+  public ListProjectRequest iamProjects(List<String> iamProjects) {
+    this.iamProjects = iamProjects;
+    return this;
+  }
+
+  public ListProjectRequest addIamProjectsItem(String iamProjectsItem) {
+    if (this.iamProjects == null) {
+      this.iamProjects = new ArrayList<String>();
+    }
+    this.iamProjects.add(iamProjectsItem);
+    return this;
+  }
+
+   /**
+   * Get iamProjects
+   * @return iamProjects
+  **/
+  @Schema(description = "")
+  public List<String> getIamProjects() {
+    return iamProjects;
+  }
+
+  public void setIamProjects(List<String> iamProjects) {
+    this.iamProjects = iamProjects;
   }
 
   public ListProjectRequest pageIndex(Integer pageIndex) {
@@ -159,6 +215,33 @@ public class ListProjectRequest {
     this.projectName = projectName;
   }
 
+  public ListProjectRequest tagFilters(List<TagFilterForListProjectInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListProjectRequest addTagFiltersItem(TagFilterForListProjectInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListProjectInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListProjectInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListProjectInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,14 +255,17 @@ public class ListProjectRequest {
     return Objects.equals(this.createdFrom, listProjectRequest.createdFrom) &&
         Objects.equals(this.createdOrderby, listProjectRequest.createdOrderby) &&
         Objects.equals(this.createdTo, listProjectRequest.createdTo) &&
+        Objects.equals(this.iamProjectName, listProjectRequest.iamProjectName) &&
+        Objects.equals(this.iamProjects, listProjectRequest.iamProjects) &&
         Objects.equals(this.pageIndex, listProjectRequest.pageIndex) &&
         Objects.equals(this.pageSize, listProjectRequest.pageSize) &&
-        Objects.equals(this.projectName, listProjectRequest.projectName);
+        Objects.equals(this.projectName, listProjectRequest.projectName) &&
+        Objects.equals(this.tagFilters, listProjectRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdFrom, createdOrderby, createdTo, pageIndex, pageSize, projectName);
+    return Objects.hash(createdFrom, createdOrderby, createdTo, iamProjectName, iamProjects, pageIndex, pageSize, projectName, tagFilters);
   }
 
 
@@ -191,9 +277,12 @@ public class ListProjectRequest {
     sb.append("    createdFrom: ").append(toIndentedString(createdFrom)).append("\n");
     sb.append("    createdOrderby: ").append(toIndentedString(createdOrderby)).append("\n");
     sb.append("    createdTo: ").append(toIndentedString(createdTo)).append("\n");
+    sb.append("    iamProjectName: ").append(toIndentedString(iamProjectName)).append("\n");
+    sb.append("    iamProjects: ").append(toIndentedString(iamProjects)).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(pageIndex)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
