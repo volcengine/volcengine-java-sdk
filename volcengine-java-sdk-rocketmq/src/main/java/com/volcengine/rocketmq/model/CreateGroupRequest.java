@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateGroupRequest {
+  @SerializedName("ConsumeMessageOrderly")
+  private Boolean consumeMessageOrderly = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -41,6 +44,27 @@ public class CreateGroupRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("RetryMaxTimes")
+  private Integer retryMaxTimes = null;
+
+  public CreateGroupRequest consumeMessageOrderly(Boolean consumeMessageOrderly) {
+    this.consumeMessageOrderly = consumeMessageOrderly;
+    return this;
+  }
+
+   /**
+   * Get consumeMessageOrderly
+   * @return consumeMessageOrderly
+  **/
+  @Schema(description = "")
+  public Boolean isConsumeMessageOrderly() {
+    return consumeMessageOrderly;
+  }
+
+  public void setConsumeMessageOrderly(Boolean consumeMessageOrderly) {
+    this.consumeMessageOrderly = consumeMessageOrderly;
+  }
 
   public CreateGroupRequest description(String description) {
     this.description = description;
@@ -117,6 +141,24 @@ public class CreateGroupRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateGroupRequest retryMaxTimes(Integer retryMaxTimes) {
+    this.retryMaxTimes = retryMaxTimes;
+    return this;
+  }
+
+   /**
+   * Get retryMaxTimes
+   * @return retryMaxTimes
+  **/
+  @Schema(description = "")
+  public Integer getRetryMaxTimes() {
+    return retryMaxTimes;
+  }
+
+  public void setRetryMaxTimes(Integer retryMaxTimes) {
+    this.retryMaxTimes = retryMaxTimes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,15 +169,17 @@ public class CreateGroupRequest {
       return false;
     }
     CreateGroupRequest createGroupRequest = (CreateGroupRequest) o;
-    return Objects.equals(this.description, createGroupRequest.description) &&
+    return Objects.equals(this.consumeMessageOrderly, createGroupRequest.consumeMessageOrderly) &&
+        Objects.equals(this.description, createGroupRequest.description) &&
         Objects.equals(this.groupId, createGroupRequest.groupId) &&
         Objects.equals(this.groupType, createGroupRequest.groupType) &&
-        Objects.equals(this.instanceId, createGroupRequest.instanceId);
+        Objects.equals(this.instanceId, createGroupRequest.instanceId) &&
+        Objects.equals(this.retryMaxTimes, createGroupRequest.retryMaxTimes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, groupId, groupType, instanceId);
+    return Objects.hash(consumeMessageOrderly, description, groupId, groupType, instanceId, retryMaxTimes);
   }
 
 
@@ -144,10 +188,12 @@ public class CreateGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGroupRequest {\n");
     
+    sb.append("    consumeMessageOrderly: ").append(toIndentedString(consumeMessageOrderly)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    retryMaxTimes: ").append(toIndentedString(retryMaxTimes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

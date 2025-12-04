@@ -51,6 +51,9 @@ public class SecretForCreateSecretOutput {
   @SerializedName("Managed")
   private Boolean managed = null;
 
+  @SerializedName("OwningService")
+  private String owningService = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -304,6 +307,24 @@ public class SecretForCreateSecretOutput {
     this.managed = managed;
   }
 
+  public SecretForCreateSecretOutput owningService(String owningService) {
+    this.owningService = owningService;
+    return this;
+  }
+
+   /**
+   * Get owningService
+   * @return owningService
+  **/
+  @Schema(description = "")
+  public String getOwningService() {
+    return owningService;
+  }
+
+  public void setOwningService(String owningService) {
+    this.owningService = owningService;
+  }
+
   public SecretForCreateSecretOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -519,6 +540,7 @@ public class SecretForCreateSecretOutput {
         Objects.equals(this.ID, secretForCreateSecretOutput.ID) &&
         Objects.equals(this.lastRotationTime, secretForCreateSecretOutput.lastRotationTime) &&
         Objects.equals(this.managed, secretForCreateSecretOutput.managed) &&
+        Objects.equals(this.owningService, secretForCreateSecretOutput.owningService) &&
         Objects.equals(this.projectName, secretForCreateSecretOutput.projectName) &&
         Objects.equals(this.rotationInterval, secretForCreateSecretOutput.rotationInterval) &&
         Objects.equals(this.rotationState, secretForCreateSecretOutput.rotationState) &&
@@ -534,7 +556,7 @@ public class SecretForCreateSecretOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, encryptionKey, extendedConfig, ID, lastRotationTime, managed, projectName, rotationInterval, rotationState, scheduleDeleteTime, scheduleRotationTime, secretName, secretState, secretType, trn, UID, updateDate);
+    return Objects.hash(creationDate, description, encryptionKey, extendedConfig, ID, lastRotationTime, managed, owningService, projectName, rotationInterval, rotationState, scheduleDeleteTime, scheduleRotationTime, secretName, secretState, secretType, trn, UID, updateDate);
   }
 
 
@@ -550,6 +572,7 @@ public class SecretForCreateSecretOutput {
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    lastRotationTime: ").append(toIndentedString(lastRotationTime)).append("\n");
     sb.append("    managed: ").append(toIndentedString(managed)).append("\n");
+    sb.append("    owningService: ").append(toIndentedString(owningService)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotationState: ").append(toIndentedString(rotationState)).append("\n");

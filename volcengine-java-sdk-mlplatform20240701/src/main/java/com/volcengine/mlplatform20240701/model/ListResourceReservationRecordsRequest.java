@@ -32,6 +32,15 @@ import javax.validation.Valid;
 
 
 public class ListResourceReservationRecordsRequest {
+  @SerializedName("ActivationEndTime")
+  private String activationEndTime = null;
+
+  @SerializedName("ActivationStartTime")
+  private String activationStartTime = null;
+
+  @SerializedName("JobId")
+  private String jobId = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -134,6 +143,60 @@ public class ListResourceReservationRecordsRequest {
   @SerializedName("States")
   private List<String> states = null;
 
+  public ListResourceReservationRecordsRequest activationEndTime(String activationEndTime) {
+    this.activationEndTime = activationEndTime;
+    return this;
+  }
+
+   /**
+   * Get activationEndTime
+   * @return activationEndTime
+  **/
+  @Schema(description = "")
+  public String getActivationEndTime() {
+    return activationEndTime;
+  }
+
+  public void setActivationEndTime(String activationEndTime) {
+    this.activationEndTime = activationEndTime;
+  }
+
+  public ListResourceReservationRecordsRequest activationStartTime(String activationStartTime) {
+    this.activationStartTime = activationStartTime;
+    return this;
+  }
+
+   /**
+   * Get activationStartTime
+   * @return activationStartTime
+  **/
+  @Schema(description = "")
+  public String getActivationStartTime() {
+    return activationStartTime;
+  }
+
+  public void setActivationStartTime(String activationStartTime) {
+    this.activationStartTime = activationStartTime;
+  }
+
+  public ListResourceReservationRecordsRequest jobId(String jobId) {
+    this.jobId = jobId;
+    return this;
+  }
+
+   /**
+   * Get jobId
+   * @return jobId
+  **/
+  @Schema(description = "")
+  public String getJobId() {
+    return jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
   public ListResourceReservationRecordsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -181,8 +244,7 @@ public class ListResourceReservationRecordsRequest {
    * Get reservationPlanId
    * @return reservationPlanId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getReservationPlanId() {
     return reservationPlanId;
   }
@@ -263,7 +325,10 @@ public class ListResourceReservationRecordsRequest {
       return false;
     }
     ListResourceReservationRecordsRequest listResourceReservationRecordsRequest = (ListResourceReservationRecordsRequest) o;
-    return Objects.equals(this.pageNumber, listResourceReservationRecordsRequest.pageNumber) &&
+    return Objects.equals(this.activationEndTime, listResourceReservationRecordsRequest.activationEndTime) &&
+        Objects.equals(this.activationStartTime, listResourceReservationRecordsRequest.activationStartTime) &&
+        Objects.equals(this.jobId, listResourceReservationRecordsRequest.jobId) &&
+        Objects.equals(this.pageNumber, listResourceReservationRecordsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listResourceReservationRecordsRequest.pageSize) &&
         Objects.equals(this.reservationPlanId, listResourceReservationRecordsRequest.reservationPlanId) &&
         Objects.equals(this.sortBy, listResourceReservationRecordsRequest.sortBy) &&
@@ -273,7 +338,7 @@ public class ListResourceReservationRecordsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, reservationPlanId, sortBy, sortOrder, states);
+    return Objects.hash(activationEndTime, activationStartTime, jobId, pageNumber, pageSize, reservationPlanId, sortBy, sortOrder, states);
   }
 
 
@@ -282,6 +347,9 @@ public class ListResourceReservationRecordsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListResourceReservationRecordsRequest {\n");
     
+    sb.append("    activationEndTime: ").append(toIndentedString(activationEndTime)).append("\n");
+    sb.append("    activationStartTime: ").append(toIndentedString(activationStartTime)).append("\n");
+    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    reservationPlanId: ").append(toIndentedString(reservationPlanId)).append("\n");

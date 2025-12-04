@@ -30,46 +30,67 @@ import javax.validation.Valid;
 
 
 public class CredentialForGetDevInstanceOutput {
-  @SerializedName("RegistryToken")
-  private String registryToken = null;
+  @SerializedName("AccessKey")
+  private String accessKey = null;
 
-  @SerializedName("RegistryUsername")
-  private String registryUsername = null;
+  @SerializedName("SecretAccessKey")
+  private String secretAccessKey = null;
 
-  public CredentialForGetDevInstanceOutput registryToken(String registryToken) {
-    this.registryToken = registryToken;
+  @SerializedName("UseServiceLinkedRole")
+  private Boolean useServiceLinkedRole = null;
+
+  public CredentialForGetDevInstanceOutput accessKey(String accessKey) {
+    this.accessKey = accessKey;
     return this;
   }
 
    /**
-   * Get registryToken
-   * @return registryToken
+   * Get accessKey
+   * @return accessKey
   **/
   @Schema(description = "")
-  public String getRegistryToken() {
-    return registryToken;
+  public String getAccessKey() {
+    return accessKey;
   }
 
-  public void setRegistryToken(String registryToken) {
-    this.registryToken = registryToken;
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
   }
 
-  public CredentialForGetDevInstanceOutput registryUsername(String registryUsername) {
-    this.registryUsername = registryUsername;
+  public CredentialForGetDevInstanceOutput secretAccessKey(String secretAccessKey) {
+    this.secretAccessKey = secretAccessKey;
     return this;
   }
 
    /**
-   * Get registryUsername
-   * @return registryUsername
+   * Get secretAccessKey
+   * @return secretAccessKey
   **/
   @Schema(description = "")
-  public String getRegistryUsername() {
-    return registryUsername;
+  public String getSecretAccessKey() {
+    return secretAccessKey;
   }
 
-  public void setRegistryUsername(String registryUsername) {
-    this.registryUsername = registryUsername;
+  public void setSecretAccessKey(String secretAccessKey) {
+    this.secretAccessKey = secretAccessKey;
+  }
+
+  public CredentialForGetDevInstanceOutput useServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+    return this;
+  }
+
+   /**
+   * Get useServiceLinkedRole
+   * @return useServiceLinkedRole
+  **/
+  @Schema(description = "")
+  public Boolean isUseServiceLinkedRole() {
+    return useServiceLinkedRole;
+  }
+
+  public void setUseServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
   }
 
 
@@ -82,13 +103,14 @@ public class CredentialForGetDevInstanceOutput {
       return false;
     }
     CredentialForGetDevInstanceOutput credentialForGetDevInstanceOutput = (CredentialForGetDevInstanceOutput) o;
-    return Objects.equals(this.registryToken, credentialForGetDevInstanceOutput.registryToken) &&
-        Objects.equals(this.registryUsername, credentialForGetDevInstanceOutput.registryUsername);
+    return Objects.equals(this.accessKey, credentialForGetDevInstanceOutput.accessKey) &&
+        Objects.equals(this.secretAccessKey, credentialForGetDevInstanceOutput.secretAccessKey) &&
+        Objects.equals(this.useServiceLinkedRole, credentialForGetDevInstanceOutput.useServiceLinkedRole);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(registryToken, registryUsername);
+    return Objects.hash(accessKey, secretAccessKey, useServiceLinkedRole);
   }
 
 
@@ -97,8 +119,9 @@ public class CredentialForGetDevInstanceOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CredentialForGetDevInstanceOutput {\n");
     
-    sb.append("    registryToken: ").append(toIndentedString(registryToken)).append("\n");
-    sb.append("    registryUsername: ").append(toIndentedString(registryUsername)).append("\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
+    sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
+    sb.append("    useServiceLinkedRole: ").append(toIndentedString(useServiceLinkedRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

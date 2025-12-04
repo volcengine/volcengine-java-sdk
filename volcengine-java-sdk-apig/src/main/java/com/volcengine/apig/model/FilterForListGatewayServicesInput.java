@@ -33,6 +33,9 @@ public class FilterForListGatewayServicesInput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ServiceType")
+  private String serviceType = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -52,6 +55,24 @@ public class FilterForListGatewayServicesInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public FilterForListGatewayServicesInput serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
   }
 
   public FilterForListGatewayServicesInput status(String status) {
@@ -83,12 +104,13 @@ public class FilterForListGatewayServicesInput {
     }
     FilterForListGatewayServicesInput filterForListGatewayServicesInput = (FilterForListGatewayServicesInput) o;
     return Objects.equals(this.name, filterForListGatewayServicesInput.name) &&
+        Objects.equals(this.serviceType, filterForListGatewayServicesInput.serviceType) &&
         Objects.equals(this.status, filterForListGatewayServicesInput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status);
+    return Objects.hash(name, serviceType, status);
   }
 
 
@@ -98,6 +120,7 @@ public class FilterForListGatewayServicesInput {
     sb.append("class FilterForListGatewayServicesInput {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

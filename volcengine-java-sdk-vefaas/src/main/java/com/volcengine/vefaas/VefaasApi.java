@@ -29,6 +29,8 @@ import javax.validation.constraints.*;
 
 import com.volcengine.vefaas.model.AbortReleaseRequest;
 import com.volcengine.vefaas.model.AbortReleaseResponse;
+import com.volcengine.vefaas.model.CancelSandboxImagePrecacheTicketRequest;
+import com.volcengine.vefaas.model.CancelSandboxImagePrecacheTicketResponse;
 import com.volcengine.vefaas.model.CreateDependencyInstallTaskRequest;
 import com.volcengine.vefaas.model.CreateDependencyInstallTaskResponse;
 import com.volcengine.vefaas.model.CreateFunctionRequest;
@@ -53,6 +55,8 @@ import com.volcengine.vefaas.model.EnableUserCrVpcTunnelRequest;
 import com.volcengine.vefaas.model.EnableUserCrVpcTunnelResponse;
 import com.volcengine.vefaas.model.GenWebshellEndpointRequest;
 import com.volcengine.vefaas.model.GenWebshellEndpointResponse;
+import com.volcengine.vefaas.model.GetAvailabilityZonesRequest;
+import com.volcengine.vefaas.model.GetAvailabilityZonesResponse;
 import com.volcengine.vefaas.model.GetCodeUploadAddressRequest;
 import com.volcengine.vefaas.model.GetCodeUploadAddressResponse;
 import com.volcengine.vefaas.model.GetDependencyInstallTaskLogDownloadURIRequest;
@@ -95,6 +99,8 @@ import com.volcengine.vefaas.model.ListReleaseRecordsRequest;
 import com.volcengine.vefaas.model.ListReleaseRecordsResponse;
 import com.volcengine.vefaas.model.ListRevisionsRequest;
 import com.volcengine.vefaas.model.ListRevisionsResponse;
+import com.volcengine.vefaas.model.ListSandboxImagePrecacheTicketsRequest;
+import com.volcengine.vefaas.model.ListSandboxImagePrecacheTicketsResponse;
 import com.volcengine.vefaas.model.ListSandboxImagesRequest;
 import com.volcengine.vefaas.model.ListSandboxImagesResponse;
 import com.volcengine.vefaas.model.ListSandboxesRequest;
@@ -276,6 +282,130 @@ public class VefaasApi {
 
         com.squareup.okhttp.Call call = abortReleaseValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AbortReleaseResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for cancelSandboxImagePrecacheTicket
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelSandboxImagePrecacheTicketCall(CancelSandboxImagePrecacheTicketRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CancelSandboxImagePrecacheTicket/2024-06-06/vefaas/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cancelSandboxImagePrecacheTicketValidateBeforeCall(CancelSandboxImagePrecacheTicketRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling cancelSandboxImagePrecacheTicket(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = cancelSandboxImagePrecacheTicketCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CancelSandboxImagePrecacheTicketResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CancelSandboxImagePrecacheTicketResponse cancelSandboxImagePrecacheTicket(CancelSandboxImagePrecacheTicketRequest body) throws ApiException {
+        ApiResponse<CancelSandboxImagePrecacheTicketResponse> resp = cancelSandboxImagePrecacheTicketWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CancelSandboxImagePrecacheTicketResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CancelSandboxImagePrecacheTicketResponse> cancelSandboxImagePrecacheTicketWithHttpInfo( @NotNull CancelSandboxImagePrecacheTicketRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = cancelSandboxImagePrecacheTicketValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CancelSandboxImagePrecacheTicketResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cancelSandboxImagePrecacheTicketAsync(CancelSandboxImagePrecacheTicketRequest body, final ApiCallback<CancelSandboxImagePrecacheTicketResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cancelSandboxImagePrecacheTicketValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CancelSandboxImagePrecacheTicketResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1764,6 +1894,130 @@ public class VefaasApi {
 
         com.squareup.okhttp.Call call = genWebshellEndpointValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GenWebshellEndpointResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAvailabilityZones
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAvailabilityZonesCall(GetAvailabilityZonesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetAvailabilityZones/2024-06-06/vefaas/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAvailabilityZonesValidateBeforeCall(GetAvailabilityZonesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getAvailabilityZones(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getAvailabilityZonesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetAvailabilityZonesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetAvailabilityZonesResponse getAvailabilityZones(GetAvailabilityZonesRequest body) throws ApiException {
+        ApiResponse<GetAvailabilityZonesResponse> resp = getAvailabilityZonesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetAvailabilityZonesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetAvailabilityZonesResponse> getAvailabilityZonesWithHttpInfo( @NotNull GetAvailabilityZonesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getAvailabilityZonesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetAvailabilityZonesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAvailabilityZonesAsync(GetAvailabilityZonesRequest body, final ApiCallback<GetAvailabilityZonesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAvailabilityZonesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetAvailabilityZonesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4368,6 +4622,130 @@ public class VefaasApi {
 
         com.squareup.okhttp.Call call = listRevisionsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListRevisionsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listSandboxImagePrecacheTickets
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listSandboxImagePrecacheTicketsCall(ListSandboxImagePrecacheTicketsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListSandboxImagePrecacheTickets/2024-06-06/vefaas/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listSandboxImagePrecacheTicketsValidateBeforeCall(ListSandboxImagePrecacheTicketsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listSandboxImagePrecacheTickets(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listSandboxImagePrecacheTicketsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListSandboxImagePrecacheTicketsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListSandboxImagePrecacheTicketsResponse listSandboxImagePrecacheTickets(ListSandboxImagePrecacheTicketsRequest body) throws ApiException {
+        ApiResponse<ListSandboxImagePrecacheTicketsResponse> resp = listSandboxImagePrecacheTicketsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListSandboxImagePrecacheTicketsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListSandboxImagePrecacheTicketsResponse> listSandboxImagePrecacheTicketsWithHttpInfo( @NotNull ListSandboxImagePrecacheTicketsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listSandboxImagePrecacheTicketsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListSandboxImagePrecacheTicketsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listSandboxImagePrecacheTicketsAsync(ListSandboxImagePrecacheTicketsRequest body, final ApiCallback<ListSandboxImagePrecacheTicketsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listSandboxImagePrecacheTicketsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListSandboxImagePrecacheTicketsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

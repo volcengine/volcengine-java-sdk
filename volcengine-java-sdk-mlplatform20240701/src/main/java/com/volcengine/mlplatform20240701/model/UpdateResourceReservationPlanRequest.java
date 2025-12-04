@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.ComputeResourceForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput;
+import com.volcengine.mlplatform20240701.model.ReservationConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.ScheduleConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.StorageConfigForUpdateResourceReservationPlanInput;
 import com.volcengine.mlplatform20240701.model.WorkloadNetworkConfigForUpdateResourceReservationPlanInput;
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class UpdateResourceReservationPlanRequest {
+  @SerializedName("ComputeResource")
+  private ComputeResourceForUpdateResourceReservationPlanInput computeResource = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -49,6 +54,9 @@ public class UpdateResourceReservationPlanRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ReservationConfig")
+  private ReservationConfigForUpdateResourceReservationPlanInput reservationConfig = null;
+
   @SerializedName("ScheduleConfig")
   private ScheduleConfigForUpdateResourceReservationPlanInput scheduleConfig = null;
 
@@ -60,6 +68,25 @@ public class UpdateResourceReservationPlanRequest {
 
   @SerializedName("WorkloadNetworkMode")
   private String workloadNetworkMode = null;
+
+  public UpdateResourceReservationPlanRequest computeResource(ComputeResourceForUpdateResourceReservationPlanInput computeResource) {
+    this.computeResource = computeResource;
+    return this;
+  }
+
+   /**
+   * Get computeResource
+   * @return computeResource
+  **/
+  @Valid
+  @Schema(description = "")
+  public ComputeResourceForUpdateResourceReservationPlanInput getComputeResource() {
+    return computeResource;
+  }
+
+  public void setComputeResource(ComputeResourceForUpdateResourceReservationPlanInput computeResource) {
+    this.computeResource = computeResource;
+  }
 
   public UpdateResourceReservationPlanRequest description(String description) {
     this.description = description;
@@ -153,6 +180,25 @@ public class UpdateResourceReservationPlanRequest {
     this.name = name;
   }
 
+  public UpdateResourceReservationPlanRequest reservationConfig(ReservationConfigForUpdateResourceReservationPlanInput reservationConfig) {
+    this.reservationConfig = reservationConfig;
+    return this;
+  }
+
+   /**
+   * Get reservationConfig
+   * @return reservationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ReservationConfigForUpdateResourceReservationPlanInput getReservationConfig() {
+    return reservationConfig;
+  }
+
+  public void setReservationConfig(ReservationConfigForUpdateResourceReservationPlanInput reservationConfig) {
+    this.reservationConfig = reservationConfig;
+  }
+
   public UpdateResourceReservationPlanRequest scheduleConfig(ScheduleConfigForUpdateResourceReservationPlanInput scheduleConfig) {
     this.scheduleConfig = scheduleConfig;
     return this;
@@ -238,11 +284,13 @@ public class UpdateResourceReservationPlanRequest {
       return false;
     }
     UpdateResourceReservationPlanRequest updateResourceReservationPlanRequest = (UpdateResourceReservationPlanRequest) o;
-    return Objects.equals(this.description, updateResourceReservationPlanRequest.description) &&
+    return Objects.equals(this.computeResource, updateResourceReservationPlanRequest.computeResource) &&
+        Objects.equals(this.description, updateResourceReservationPlanRequest.description) &&
         Objects.equals(this.dryRun, updateResourceReservationPlanRequest.dryRun) &&
         Objects.equals(this.id, updateResourceReservationPlanRequest.id) &&
         Objects.equals(this.matchingReservationPlanTimeConfig, updateResourceReservationPlanRequest.matchingReservationPlanTimeConfig) &&
         Objects.equals(this.name, updateResourceReservationPlanRequest.name) &&
+        Objects.equals(this.reservationConfig, updateResourceReservationPlanRequest.reservationConfig) &&
         Objects.equals(this.scheduleConfig, updateResourceReservationPlanRequest.scheduleConfig) &&
         Objects.equals(this.storageConfig, updateResourceReservationPlanRequest.storageConfig) &&
         Objects.equals(this.workloadNetworkConfig, updateResourceReservationPlanRequest.workloadNetworkConfig) &&
@@ -251,7 +299,7 @@ public class UpdateResourceReservationPlanRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dryRun, id, matchingReservationPlanTimeConfig, name, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(computeResource, description, dryRun, id, matchingReservationPlanTimeConfig, name, reservationConfig, scheduleConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -260,11 +308,13 @@ public class UpdateResourceReservationPlanRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateResourceReservationPlanRequest {\n");
     
+    sb.append("    computeResource: ").append(toIndentedString(computeResource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchingReservationPlanTimeConfig: ").append(toIndentedString(matchingReservationPlanTimeConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    reservationConfig: ").append(toIndentedString(reservationConfig)).append("\n");
     sb.append("    scheduleConfig: ").append(toIndentedString(scheduleConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");

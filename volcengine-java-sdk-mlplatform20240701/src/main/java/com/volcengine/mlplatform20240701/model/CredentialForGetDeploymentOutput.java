@@ -36,6 +36,9 @@ public class CredentialForGetDeploymentOutput {
   @SerializedName("SecretAccessKey")
   private String secretAccessKey = null;
 
+  @SerializedName("UseServiceLinkedRole")
+  private Boolean useServiceLinkedRole = null;
+
   public CredentialForGetDeploymentOutput accessKey(String accessKey) {
     this.accessKey = accessKey;
     return this;
@@ -72,6 +75,24 @@ public class CredentialForGetDeploymentOutput {
     this.secretAccessKey = secretAccessKey;
   }
 
+  public CredentialForGetDeploymentOutput useServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+    return this;
+  }
+
+   /**
+   * Get useServiceLinkedRole
+   * @return useServiceLinkedRole
+  **/
+  @Schema(description = "")
+  public Boolean isUseServiceLinkedRole() {
+    return useServiceLinkedRole;
+  }
+
+  public void setUseServiceLinkedRole(Boolean useServiceLinkedRole) {
+    this.useServiceLinkedRole = useServiceLinkedRole;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class CredentialForGetDeploymentOutput {
     }
     CredentialForGetDeploymentOutput credentialForGetDeploymentOutput = (CredentialForGetDeploymentOutput) o;
     return Objects.equals(this.accessKey, credentialForGetDeploymentOutput.accessKey) &&
-        Objects.equals(this.secretAccessKey, credentialForGetDeploymentOutput.secretAccessKey);
+        Objects.equals(this.secretAccessKey, credentialForGetDeploymentOutput.secretAccessKey) &&
+        Objects.equals(this.useServiceLinkedRole, credentialForGetDeploymentOutput.useServiceLinkedRole);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, secretAccessKey);
+    return Objects.hash(accessKey, secretAccessKey, useServiceLinkedRole);
   }
 
 
@@ -99,6 +121,7 @@ public class CredentialForGetDeploymentOutput {
     
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
+    sb.append("    useServiceLinkedRole: ").append(toIndentedString(useServiceLinkedRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

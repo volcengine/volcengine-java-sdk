@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ConsumeMessageOrderly")
+  private Boolean consumeMessageOrderly = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -45,11 +48,23 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
   @SerializedName("IsSubSame")
   private Boolean isSubSame = null;
 
+  @SerializedName("LastUpdateTimestamp")
+  private String lastUpdateTimestamp = null;
+
   @SerializedName("MessageDelayTime")
   private String messageDelayTime = null;
 
   @SerializedName("MessageModel")
   private String messageModel = null;
+
+  @SerializedName("RetryMaxTimes")
+  private Integer retryMaxTimes = null;
+
+  @SerializedName("RocketmqVersion")
+  private String rocketmqVersion = null;
+
+  @SerializedName("ServiceStatus")
+  private String serviceStatus = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -59,6 +74,24 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
 
   @SerializedName("TotalDiff")
   private Integer totalDiff = null;
+
+  public DescribeGroupsDetailResponse consumeMessageOrderly(Boolean consumeMessageOrderly) {
+    this.consumeMessageOrderly = consumeMessageOrderly;
+    return this;
+  }
+
+   /**
+   * Get consumeMessageOrderly
+   * @return consumeMessageOrderly
+  **/
+  @Schema(description = "")
+  public Boolean isConsumeMessageOrderly() {
+    return consumeMessageOrderly;
+  }
+
+  public void setConsumeMessageOrderly(Boolean consumeMessageOrderly) {
+    this.consumeMessageOrderly = consumeMessageOrderly;
+  }
 
   public DescribeGroupsDetailResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -150,6 +183,24 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
     this.isSubSame = isSubSame;
   }
 
+  public DescribeGroupsDetailResponse lastUpdateTimestamp(String lastUpdateTimestamp) {
+    this.lastUpdateTimestamp = lastUpdateTimestamp;
+    return this;
+  }
+
+   /**
+   * Get lastUpdateTimestamp
+   * @return lastUpdateTimestamp
+  **/
+  @Schema(description = "")
+  public String getLastUpdateTimestamp() {
+    return lastUpdateTimestamp;
+  }
+
+  public void setLastUpdateTimestamp(String lastUpdateTimestamp) {
+    this.lastUpdateTimestamp = lastUpdateTimestamp;
+  }
+
   public DescribeGroupsDetailResponse messageDelayTime(String messageDelayTime) {
     this.messageDelayTime = messageDelayTime;
     return this;
@@ -184,6 +235,60 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
 
   public void setMessageModel(String messageModel) {
     this.messageModel = messageModel;
+  }
+
+  public DescribeGroupsDetailResponse retryMaxTimes(Integer retryMaxTimes) {
+    this.retryMaxTimes = retryMaxTimes;
+    return this;
+  }
+
+   /**
+   * Get retryMaxTimes
+   * @return retryMaxTimes
+  **/
+  @Schema(description = "")
+  public Integer getRetryMaxTimes() {
+    return retryMaxTimes;
+  }
+
+  public void setRetryMaxTimes(Integer retryMaxTimes) {
+    this.retryMaxTimes = retryMaxTimes;
+  }
+
+  public DescribeGroupsDetailResponse rocketmqVersion(String rocketmqVersion) {
+    this.rocketmqVersion = rocketmqVersion;
+    return this;
+  }
+
+   /**
+   * Get rocketmqVersion
+   * @return rocketmqVersion
+  **/
+  @Schema(description = "")
+  public String getRocketmqVersion() {
+    return rocketmqVersion;
+  }
+
+  public void setRocketmqVersion(String rocketmqVersion) {
+    this.rocketmqVersion = rocketmqVersion;
+  }
+
+  public DescribeGroupsDetailResponse serviceStatus(String serviceStatus) {
+    this.serviceStatus = serviceStatus;
+    return this;
+  }
+
+   /**
+   * Get serviceStatus
+   * @return serviceStatus
+  **/
+  @Schema(description = "")
+  public String getServiceStatus() {
+    return serviceStatus;
+  }
+
+  public void setServiceStatus(String serviceStatus) {
+    this.serviceStatus = serviceStatus;
   }
 
   public DescribeGroupsDetailResponse status(String status) {
@@ -250,13 +355,18 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
       return false;
     }
     DescribeGroupsDetailResponse describeGroupsDetailResponse = (DescribeGroupsDetailResponse) o;
-    return Objects.equals(this.createTime, describeGroupsDetailResponse.createTime) &&
+    return Objects.equals(this.consumeMessageOrderly, describeGroupsDetailResponse.consumeMessageOrderly) &&
+        Objects.equals(this.createTime, describeGroupsDetailResponse.createTime) &&
         Objects.equals(this.description, describeGroupsDetailResponse.description) &&
         Objects.equals(this.groupId, describeGroupsDetailResponse.groupId) &&
         Objects.equals(this.groupType, describeGroupsDetailResponse.groupType) &&
         Objects.equals(this.isSubSame, describeGroupsDetailResponse.isSubSame) &&
+        Objects.equals(this.lastUpdateTimestamp, describeGroupsDetailResponse.lastUpdateTimestamp) &&
         Objects.equals(this.messageDelayTime, describeGroupsDetailResponse.messageDelayTime) &&
         Objects.equals(this.messageModel, describeGroupsDetailResponse.messageModel) &&
+        Objects.equals(this.retryMaxTimes, describeGroupsDetailResponse.retryMaxTimes) &&
+        Objects.equals(this.rocketmqVersion, describeGroupsDetailResponse.rocketmqVersion) &&
+        Objects.equals(this.serviceStatus, describeGroupsDetailResponse.serviceStatus) &&
         Objects.equals(this.status, describeGroupsDetailResponse.status) &&
         Objects.equals(this.totalConsumedRate, describeGroupsDetailResponse.totalConsumedRate) &&
         Objects.equals(this.totalDiff, describeGroupsDetailResponse.totalDiff);
@@ -264,7 +374,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, groupId, groupType, isSubSame, messageDelayTime, messageModel, status, totalConsumedRate, totalDiff);
+    return Objects.hash(consumeMessageOrderly, createTime, description, groupId, groupType, isSubSame, lastUpdateTimestamp, messageDelayTime, messageModel, retryMaxTimes, rocketmqVersion, serviceStatus, status, totalConsumedRate, totalDiff);
   }
 
 
@@ -273,13 +383,18 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeGroupsDetailResponse {\n");
     
+    sb.append("    consumeMessageOrderly: ").append(toIndentedString(consumeMessageOrderly)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    isSubSame: ").append(toIndentedString(isSubSame)).append("\n");
+    sb.append("    lastUpdateTimestamp: ").append(toIndentedString(lastUpdateTimestamp)).append("\n");
     sb.append("    messageDelayTime: ").append(toIndentedString(messageDelayTime)).append("\n");
     sb.append("    messageModel: ").append(toIndentedString(messageModel)).append("\n");
+    sb.append("    retryMaxTimes: ").append(toIndentedString(retryMaxTimes)).append("\n");
+    sb.append("    rocketmqVersion: ").append(toIndentedString(rocketmqVersion)).append("\n");
+    sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    totalConsumedRate: ").append(toIndentedString(totalConsumedRate)).append("\n");
     sb.append("    totalDiff: ").append(toIndentedString(totalDiff)).append("\n");

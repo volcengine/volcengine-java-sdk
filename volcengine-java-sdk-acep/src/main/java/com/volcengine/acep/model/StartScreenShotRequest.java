@@ -54,6 +54,9 @@ public class StartScreenShotRequest {
   @SerializedName("Rotation")
   private Integer rotation = null;
 
+  @SerializedName("RoundId")
+  private String roundId = null;
+
   @SerializedName("Scale")
   private Double scale = null;
 
@@ -198,6 +201,24 @@ public class StartScreenShotRequest {
     this.rotation = rotation;
   }
 
+  public StartScreenShotRequest roundId(String roundId) {
+    this.roundId = roundId;
+    return this;
+  }
+
+   /**
+   * Get roundId
+   * @return roundId
+  **/
+  @Schema(description = "")
+  public String getRoundId() {
+    return roundId;
+  }
+
+  public void setRoundId(String roundId) {
+    this.roundId = roundId;
+  }
+
   public StartScreenShotRequest scale(Double scale) {
     this.scale = scale;
     return this;
@@ -270,6 +291,7 @@ public class StartScreenShotRequest {
         Objects.equals(this.productId, startScreenShotRequest.productId) &&
         Objects.equals(this.quality, startScreenShotRequest.quality) &&
         Objects.equals(this.rotation, startScreenShotRequest.rotation) &&
+        Objects.equals(this.roundId, startScreenShotRequest.roundId) &&
         Objects.equals(this.scale, startScreenShotRequest.scale) &&
         Objects.equals(this.tosInfo, startScreenShotRequest.tosInfo) &&
         Objects.equals(this.uploadType, startScreenShotRequest.uploadType);
@@ -277,7 +299,7 @@ public class StartScreenShotRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationLimit, fileType, interval, podIdList, productId, quality, rotation, scale, tosInfo, uploadType);
+    return Objects.hash(durationLimit, fileType, interval, podIdList, productId, quality, rotation, roundId, scale, tosInfo, uploadType);
   }
 
 
@@ -293,6 +315,7 @@ public class StartScreenShotRequest {
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
     sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
+    sb.append("    roundId: ").append(toIndentedString(roundId)).append("\n");
     sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
     sb.append("    tosInfo: ").append(toIndentedString(tosInfo)).append("\n");
     sb.append("    uploadType: ").append(toIndentedString(uploadType)).append("\n");

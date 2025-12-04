@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ZoneForListZonesOutput {
+  @SerializedName("AutoRenew")
+  private String autoRenew = null;
+
   @SerializedName("CacheStage")
   private Integer cacheStage = null;
 
@@ -80,6 +83,24 @@ public class ZoneForListZonesOutput {
 
   @SerializedName("ZoneName")
   private String zoneName = null;
+
+  public ZoneForListZonesOutput autoRenew(String autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public String getAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(String autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
   public ZoneForListZonesOutput cacheStage(Integer cacheStage) {
     this.cacheStage = cacheStage;
@@ -388,7 +409,8 @@ public class ZoneForListZonesOutput {
       return false;
     }
     ZoneForListZonesOutput zoneForListZonesOutput = (ZoneForListZonesOutput) o;
-    return Objects.equals(this.cacheStage, zoneForListZonesOutput.cacheStage) &&
+    return Objects.equals(this.autoRenew, zoneForListZonesOutput.autoRenew) &&
+        Objects.equals(this.cacheStage, zoneForListZonesOutput.cacheStage) &&
         Objects.equals(this.configurationCode, zoneForListZonesOutput.configurationCode) &&
         Objects.equals(this.createdAt, zoneForListZonesOutput.createdAt) &&
         Objects.equals(this.dnsSecurity, zoneForListZonesOutput.dnsSecurity) &&
@@ -408,7 +430,7 @@ public class ZoneForListZonesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheStage, configurationCode, createdAt, dnsSecurity, expiredTime, instanceID, isSubDomain, lastOperator, projectName, recordCount, remark, tags, tradeCode, updatedAt, ZID, zoneName);
+    return Objects.hash(autoRenew, cacheStage, configurationCode, createdAt, dnsSecurity, expiredTime, instanceID, isSubDomain, lastOperator, projectName, recordCount, remark, tags, tradeCode, updatedAt, ZID, zoneName);
   }
 
 
@@ -417,6 +439,7 @@ public class ZoneForListZonesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ZoneForListZonesOutput {\n");
     
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    cacheStage: ").append(toIndentedString(cacheStage)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

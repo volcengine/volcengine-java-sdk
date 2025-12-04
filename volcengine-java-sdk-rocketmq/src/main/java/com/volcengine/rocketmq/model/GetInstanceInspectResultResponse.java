@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class GetInstanceInspectResultResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("InspectCnt")
+  private Integer inspectCnt = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -41,6 +44,27 @@ public class GetInstanceInspectResultResponse extends com.volcengine.model.Abstr
 
   @SerializedName("Total")
   private Integer total = null;
+
+  @SerializedName("UnExpectedCnt")
+  private Integer unExpectedCnt = null;
+
+  public GetInstanceInspectResultResponse inspectCnt(Integer inspectCnt) {
+    this.inspectCnt = inspectCnt;
+    return this;
+  }
+
+   /**
+   * Get inspectCnt
+   * @return inspectCnt
+  **/
+  @Schema(description = "")
+  public Integer getInspectCnt() {
+    return inspectCnt;
+  }
+
+  public void setInspectCnt(Integer inspectCnt) {
+    this.inspectCnt = inspectCnt;
+  }
 
   public GetInstanceInspectResultResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -105,6 +129,24 @@ public class GetInstanceInspectResultResponse extends com.volcengine.model.Abstr
     this.total = total;
   }
 
+  public GetInstanceInspectResultResponse unExpectedCnt(Integer unExpectedCnt) {
+    this.unExpectedCnt = unExpectedCnt;
+    return this;
+  }
+
+   /**
+   * Get unExpectedCnt
+   * @return unExpectedCnt
+  **/
+  @Schema(description = "")
+  public Integer getUnExpectedCnt() {
+    return unExpectedCnt;
+  }
+
+  public void setUnExpectedCnt(Integer unExpectedCnt) {
+    this.unExpectedCnt = unExpectedCnt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,14 +157,16 @@ public class GetInstanceInspectResultResponse extends com.volcengine.model.Abstr
       return false;
     }
     GetInstanceInspectResultResponse getInstanceInspectResultResponse = (GetInstanceInspectResultResponse) o;
-    return Objects.equals(this.instanceId, getInstanceInspectResultResponse.instanceId) &&
+    return Objects.equals(this.inspectCnt, getInstanceInspectResultResponse.inspectCnt) &&
+        Objects.equals(this.instanceId, getInstanceInspectResultResponse.instanceId) &&
         Objects.equals(this.results, getInstanceInspectResultResponse.results) &&
-        Objects.equals(this.total, getInstanceInspectResultResponse.total);
+        Objects.equals(this.total, getInstanceInspectResultResponse.total) &&
+        Objects.equals(this.unExpectedCnt, getInstanceInspectResultResponse.unExpectedCnt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, results, total);
+    return Objects.hash(inspectCnt, instanceId, results, total, unExpectedCnt);
   }
 
 
@@ -131,9 +175,11 @@ public class GetInstanceInspectResultResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class GetInstanceInspectResultResponse {\n");
     
+    sb.append("    inspectCnt: ").append(toIndentedString(inspectCnt)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    unExpectedCnt: ").append(toIndentedString(unExpectedCnt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

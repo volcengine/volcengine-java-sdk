@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AuthSpecForCreateGatewayServiceInput;
+import com.volcengine.apig.model.CustomDomainForCreateGatewayServiceInput;
+import com.volcengine.apig.model.ServiceNetworkSpecForCreateGatewayServiceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +41,12 @@ public class CreateGatewayServiceRequest {
   @SerializedName("Comments")
   private String comments = null;
 
+  @SerializedName("CustomDomains")
+  private List<CustomDomainForCreateGatewayServiceInput> customDomains = null;
+
+  @SerializedName("DomainType")
+  private String domainType = null;
+
   @SerializedName("GatewayId")
   private String gatewayId = null;
 
@@ -47,6 +55,12 @@ public class CreateGatewayServiceRequest {
 
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  @SerializedName("ServiceNetworkSpec")
+  private ServiceNetworkSpecForCreateGatewayServiceInput serviceNetworkSpec = null;
+
+  @SerializedName("ServiceType")
+  private String serviceType = null;
 
   public CreateGatewayServiceRequest authSpec(AuthSpecForCreateGatewayServiceInput authSpec) {
     this.authSpec = authSpec;
@@ -83,6 +97,51 @@ public class CreateGatewayServiceRequest {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public CreateGatewayServiceRequest customDomains(List<CustomDomainForCreateGatewayServiceInput> customDomains) {
+    this.customDomains = customDomains;
+    return this;
+  }
+
+  public CreateGatewayServiceRequest addCustomDomainsItem(CustomDomainForCreateGatewayServiceInput customDomainsItem) {
+    if (this.customDomains == null) {
+      this.customDomains = new ArrayList<CustomDomainForCreateGatewayServiceInput>();
+    }
+    this.customDomains.add(customDomainsItem);
+    return this;
+  }
+
+   /**
+   * Get customDomains
+   * @return customDomains
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomDomainForCreateGatewayServiceInput> getCustomDomains() {
+    return customDomains;
+  }
+
+  public void setCustomDomains(List<CustomDomainForCreateGatewayServiceInput> customDomains) {
+    this.customDomains = customDomains;
+  }
+
+  public CreateGatewayServiceRequest domainType(String domainType) {
+    this.domainType = domainType;
+    return this;
+  }
+
+   /**
+   * Get domainType
+   * @return domainType
+  **/
+  @Schema(description = "")
+  public String getDomainType() {
+    return domainType;
+  }
+
+  public void setDomainType(String domainType) {
+    this.domainType = domainType;
   }
 
   public CreateGatewayServiceRequest gatewayId(String gatewayId) {
@@ -149,6 +208,43 @@ public class CreateGatewayServiceRequest {
     this.serviceName = serviceName;
   }
 
+  public CreateGatewayServiceRequest serviceNetworkSpec(ServiceNetworkSpecForCreateGatewayServiceInput serviceNetworkSpec) {
+    this.serviceNetworkSpec = serviceNetworkSpec;
+    return this;
+  }
+
+   /**
+   * Get serviceNetworkSpec
+   * @return serviceNetworkSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public ServiceNetworkSpecForCreateGatewayServiceInput getServiceNetworkSpec() {
+    return serviceNetworkSpec;
+  }
+
+  public void setServiceNetworkSpec(ServiceNetworkSpecForCreateGatewayServiceInput serviceNetworkSpec) {
+    this.serviceNetworkSpec = serviceNetworkSpec;
+  }
+
+  public CreateGatewayServiceRequest serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -161,14 +257,18 @@ public class CreateGatewayServiceRequest {
     CreateGatewayServiceRequest createGatewayServiceRequest = (CreateGatewayServiceRequest) o;
     return Objects.equals(this.authSpec, createGatewayServiceRequest.authSpec) &&
         Objects.equals(this.comments, createGatewayServiceRequest.comments) &&
+        Objects.equals(this.customDomains, createGatewayServiceRequest.customDomains) &&
+        Objects.equals(this.domainType, createGatewayServiceRequest.domainType) &&
         Objects.equals(this.gatewayId, createGatewayServiceRequest.gatewayId) &&
         Objects.equals(this.protocol, createGatewayServiceRequest.protocol) &&
-        Objects.equals(this.serviceName, createGatewayServiceRequest.serviceName);
+        Objects.equals(this.serviceName, createGatewayServiceRequest.serviceName) &&
+        Objects.equals(this.serviceNetworkSpec, createGatewayServiceRequest.serviceNetworkSpec) &&
+        Objects.equals(this.serviceType, createGatewayServiceRequest.serviceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, gatewayId, protocol, serviceName);
+    return Objects.hash(authSpec, comments, customDomains, domainType, gatewayId, protocol, serviceName, serviceNetworkSpec, serviceType);
   }
 
 
@@ -179,9 +279,13 @@ public class CreateGatewayServiceRequest {
     
     sb.append("    authSpec: ").append(toIndentedString(authSpec)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    customDomains: ").append(toIndentedString(customDomains)).append("\n");
+    sb.append("    domainType: ").append(toIndentedString(domainType)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceNetworkSpec: ").append(toIndentedString(serviceNetworkSpec)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

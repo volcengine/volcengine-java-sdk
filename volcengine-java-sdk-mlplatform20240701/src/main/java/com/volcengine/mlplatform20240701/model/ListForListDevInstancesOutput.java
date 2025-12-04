@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.CredentialForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.ImageForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.NodeAffinitySpecForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.PortForListDevInstancesOutput;
@@ -47,6 +48,9 @@ public class ListForListDevInstancesOutput {
 
   @SerializedName("CreatorTrn")
   private String creatorTrn = null;
+
+  @SerializedName("Credential")
+  private CredentialForListDevInstancesOutput credential = null;
 
   @SerializedName("DefaultFolder")
   private String defaultFolder = null;
@@ -172,6 +176,25 @@ public class ListForListDevInstancesOutput {
 
   public void setCreatorTrn(String creatorTrn) {
     this.creatorTrn = creatorTrn;
+  }
+
+  public ListForListDevInstancesOutput credential(CredentialForListDevInstancesOutput credential) {
+    this.credential = credential;
+    return this;
+  }
+
+   /**
+   * Get credential
+   * @return credential
+  **/
+  @Valid
+  @Schema(description = "")
+  public CredentialForListDevInstancesOutput getCredential() {
+    return credential;
+  }
+
+  public void setCredential(CredentialForListDevInstancesOutput credential) {
+    this.credential = credential;
   }
 
   public ListForListDevInstancesOutput defaultFolder(String defaultFolder) {
@@ -642,6 +665,7 @@ public class ListForListDevInstancesOutput {
     return Objects.equals(this.allowImageBuild, listForListDevInstancesOutput.allowImageBuild) &&
         Objects.equals(this.createTime, listForListDevInstancesOutput.createTime) &&
         Objects.equals(this.creatorTrn, listForListDevInstancesOutput.creatorTrn) &&
+        Objects.equals(this.credential, listForListDevInstancesOutput.credential) &&
         Objects.equals(this.defaultFolder, listForListDevInstancesOutput.defaultFolder) &&
         Objects.equals(this.description, listForListDevInstancesOutput.description) &&
         Objects.equals(this.expectedStopTime, listForListDevInstancesOutput.expectedStopTime) &&
@@ -670,7 +694,7 @@ public class ListForListDevInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, credential, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -682,6 +706,7 @@ public class ListForListDevInstancesOutput {
     sb.append("    allowImageBuild: ").append(toIndentedString(allowImageBuild)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creatorTrn: ").append(toIndentedString(creatorTrn)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    defaultFolder: ").append(toIndentedString(defaultFolder)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expectedStopTime: ").append(toIndentedString(expectedStopTime)).append("\n");
