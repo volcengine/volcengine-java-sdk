@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetAgentListRequest
+ * CategoryForGetSpeakerListOutput
  */
 
 
 
-public class GetAgentListRequest {
-  @SerializedName("AgentID")
-  private String agentID = null;
+public class CategoryForGetSpeakerListOutput {
+  @SerializedName("Level1")
+  private String level1 = null;
 
-  @SerializedName("AppID")
-  private String appID = null;
+  @SerializedName("Level2")
+  private String level2 = null;
 
-  public GetAgentListRequest agentID(String agentID) {
-    this.agentID = agentID;
+  public CategoryForGetSpeakerListOutput level1(String level1) {
+    this.level1 = level1;
     return this;
   }
 
    /**
-   * Get agentID
-   * @return agentID
+   * Get level1
+   * @return level1
   **/
   @Schema(description = "")
-  public String getAgentID() {
-    return agentID;
+  public String getLevel1() {
+    return level1;
   }
 
-  public void setAgentID(String agentID) {
-    this.agentID = agentID;
+  public void setLevel1(String level1) {
+    this.level1 = level1;
   }
 
-  public GetAgentListRequest appID(String appID) {
-    this.appID = appID;
+  public CategoryForGetSpeakerListOutput level2(String level2) {
+    this.level2 = level2;
     return this;
   }
 
    /**
-   * Get appID
-   * @return appID
+   * Get level2
+   * @return level2
   **/
   @Schema(description = "")
-  public String getAppID() {
-    return appID;
+  public String getLevel2() {
+    return level2;
   }
 
-  public void setAppID(String appID) {
-    this.appID = appID;
+  public void setLevel2(String level2) {
+    this.level2 = level2;
   }
 
 
@@ -81,24 +81,24 @@ public class GetAgentListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetAgentListRequest getAgentListRequest = (GetAgentListRequest) o;
-    return Objects.equals(this.agentID, getAgentListRequest.agentID) &&
-        Objects.equals(this.appID, getAgentListRequest.appID);
+    CategoryForGetSpeakerListOutput categoryForGetSpeakerListOutput = (CategoryForGetSpeakerListOutput) o;
+    return Objects.equals(this.level1, categoryForGetSpeakerListOutput.level1) &&
+        Objects.equals(this.level2, categoryForGetSpeakerListOutput.level2);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, appID);
+    return Objects.hash(level1, level2);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetAgentListRequest {\n");
+    sb.append("class CategoryForGetSpeakerListOutput {\n");
     
-    sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
-    sb.append("    appID: ").append(toIndentedString(appID)).append("\n");
+    sb.append("    level1: ").append(toIndentedString(level1)).append("\n");
+    sb.append("    level2: ").append(toIndentedString(level2)).append("\n");
     sb.append("}");
     return sb.toString();
   }

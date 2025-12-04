@@ -30,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class AgentForGetAgentListOutput {
+  @SerializedName("AsrLang")
+  private String asrLang = null;
+
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("ID")
   private String ID = null;
 
@@ -41,6 +47,42 @@ public class AgentForGetAgentListOutput {
 
   @SerializedName("SpeakerType")
   private String speakerType = null;
+
+  public AgentForGetAgentListOutput asrLang(String asrLang) {
+    this.asrLang = asrLang;
+    return this;
+  }
+
+   /**
+   * Get asrLang
+   * @return asrLang
+  **/
+  @Schema(description = "")
+  public String getAsrLang() {
+    return asrLang;
+  }
+
+  public void setAsrLang(String asrLang) {
+    this.asrLang = asrLang;
+  }
+
+  public AgentForGetAgentListOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public AgentForGetAgentListOutput ID(String ID) {
     this.ID = ID;
@@ -124,7 +166,9 @@ public class AgentForGetAgentListOutput {
       return false;
     }
     AgentForGetAgentListOutput agentForGetAgentListOutput = (AgentForGetAgentListOutput) o;
-    return Objects.equals(this.ID, agentForGetAgentListOutput.ID) &&
+    return Objects.equals(this.asrLang, agentForGetAgentListOutput.asrLang) &&
+        Objects.equals(this.description, agentForGetAgentListOutput.description) &&
+        Objects.equals(this.ID, agentForGetAgentListOutput.ID) &&
         Objects.equals(this.name, agentForGetAgentListOutput.name) &&
         Objects.equals(this.speakerID, agentForGetAgentListOutput.speakerID) &&
         Objects.equals(this.speakerType, agentForGetAgentListOutput.speakerType);
@@ -132,7 +176,7 @@ public class AgentForGetAgentListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, name, speakerID, speakerType);
+    return Objects.hash(asrLang, description, ID, name, speakerID, speakerType);
   }
 
 
@@ -141,6 +185,8 @@ public class AgentForGetAgentListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgentForGetAgentListOutput {\n");
     
+    sb.append("    asrLang: ").append(toIndentedString(asrLang)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    speakerID: ").append(toIndentedString(speakerID)).append("\n");
