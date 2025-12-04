@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AIProviderForCreateUpstreamInput;
+import com.volcengine.apig.model.DomainForCreateUpstreamInput;
 import com.volcengine.apig.model.EcsListForCreateUpstreamInput;
 import com.volcengine.apig.model.K8SServiceForCreateUpstreamInput;
 import com.volcengine.apig.model.NacosServiceForCreateUpstreamInput;
@@ -39,6 +40,9 @@ import javax.validation.Valid;
 public class UpstreamSpecForCreateUpstreamInput {
   @SerializedName("AIProvider")
   private AIProviderForCreateUpstreamInput aiProvider = null;
+
+  @SerializedName("Domain")
+  private DomainForCreateUpstreamInput domain = null;
 
   @SerializedName("EcsList")
   private List<EcsListForCreateUpstreamInput> ecsList = null;
@@ -69,6 +73,25 @@ public class UpstreamSpecForCreateUpstreamInput {
 
   public void setAiProvider(AIProviderForCreateUpstreamInput aiProvider) {
     this.aiProvider = aiProvider;
+  }
+
+  public UpstreamSpecForCreateUpstreamInput domain(DomainForCreateUpstreamInput domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Get domain
+   * @return domain
+  **/
+  @Valid
+  @Schema(description = "")
+  public DomainForCreateUpstreamInput getDomain() {
+    return domain;
+  }
+
+  public void setDomain(DomainForCreateUpstreamInput domain) {
+    this.domain = domain;
   }
 
   public UpstreamSpecForCreateUpstreamInput ecsList(List<EcsListForCreateUpstreamInput> ecsList) {
@@ -166,6 +189,7 @@ public class UpstreamSpecForCreateUpstreamInput {
     }
     UpstreamSpecForCreateUpstreamInput upstreamSpecForCreateUpstreamInput = (UpstreamSpecForCreateUpstreamInput) o;
     return Objects.equals(this.aiProvider, upstreamSpecForCreateUpstreamInput.aiProvider) &&
+        Objects.equals(this.domain, upstreamSpecForCreateUpstreamInput.domain) &&
         Objects.equals(this.ecsList, upstreamSpecForCreateUpstreamInput.ecsList) &&
         Objects.equals(this.k8SService, upstreamSpecForCreateUpstreamInput.k8SService) &&
         Objects.equals(this.nacosService, upstreamSpecForCreateUpstreamInput.nacosService) &&
@@ -174,7 +198,7 @@ public class UpstreamSpecForCreateUpstreamInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiProvider, ecsList, k8SService, nacosService, veFaas);
+    return Objects.hash(aiProvider, domain, ecsList, k8SService, nacosService, veFaas);
   }
 
 
@@ -184,6 +208,7 @@ public class UpstreamSpecForCreateUpstreamInput {
     sb.append("class UpstreamSpecForCreateUpstreamInput {\n");
     
     sb.append("    aiProvider: ").append(toIndentedString(aiProvider)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    ecsList: ").append(toIndentedString(ecsList)).append("\n");
     sb.append("    k8SService: ").append(toIndentedString(k8SService)).append("\n");
     sb.append("    nacosService: ").append(toIndentedString(nacosService)).append("\n");

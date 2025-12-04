@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.BackendTargetListForGetUpstreamOutput;
 import com.volcengine.apig.model.CircuitBreakingSettingsForGetUpstreamOutput;
+import com.volcengine.apig.model.ConnectionPoolSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.LoadBalancerSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.TlsSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.UpstreamSpecForGetUpstreamOutput;
@@ -46,6 +47,9 @@ public class UpstreamForGetUpstreamOutput {
 
   @SerializedName("Comments")
   private String comments = null;
+
+  @SerializedName("ConnectionPoolSettings")
+  private ConnectionPoolSettingsForGetUpstreamOutput connectionPoolSettings = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -142,6 +146,25 @@ public class UpstreamForGetUpstreamOutput {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public UpstreamForGetUpstreamOutput connectionPoolSettings(ConnectionPoolSettingsForGetUpstreamOutput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolSettings
+   * @return connectionPoolSettings
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConnectionPoolSettingsForGetUpstreamOutput getConnectionPoolSettings() {
+    return connectionPoolSettings;
+  }
+
+  public void setConnectionPoolSettings(ConnectionPoolSettingsForGetUpstreamOutput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
   }
 
   public UpstreamForGetUpstreamOutput createTime(String createTime) {
@@ -367,6 +390,7 @@ public class UpstreamForGetUpstreamOutput {
     return Objects.equals(this.backendTargetList, upstreamForGetUpstreamOutput.backendTargetList) &&
         Objects.equals(this.circuitBreakingSettings, upstreamForGetUpstreamOutput.circuitBreakingSettings) &&
         Objects.equals(this.comments, upstreamForGetUpstreamOutput.comments) &&
+        Objects.equals(this.connectionPoolSettings, upstreamForGetUpstreamOutput.connectionPoolSettings) &&
         Objects.equals(this.createTime, upstreamForGetUpstreamOutput.createTime) &&
         Objects.equals(this.gatewayId, upstreamForGetUpstreamOutput.gatewayId) &&
         Objects.equals(this.id, upstreamForGetUpstreamOutput.id) &&
@@ -382,7 +406,7 @@ public class UpstreamForGetUpstreamOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
+    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, connectionPoolSettings, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
   }
 
 
@@ -394,6 +418,7 @@ public class UpstreamForGetUpstreamOutput {
     sb.append("    backendTargetList: ").append(toIndentedString(backendTargetList)).append("\n");
     sb.append("    circuitBreakingSettings: ").append(toIndentedString(circuitBreakingSettings)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    connectionPoolSettings: ").append(toIndentedString(connectionPoolSettings)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

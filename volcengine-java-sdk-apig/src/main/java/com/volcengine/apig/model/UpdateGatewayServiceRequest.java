@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AuthSpecForUpdateGatewayServiceInput;
 import com.volcengine.apig.model.DomainSpecForUpdateGatewayServiceInput;
+import com.volcengine.apig.model.ServiceNetworkSpecForUpdateGatewayServiceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,6 +49,9 @@ public class UpdateGatewayServiceRequest {
 
   @SerializedName("Protocol")
   private List<String> protocol = null;
+
+  @SerializedName("ServiceNetworkSpec")
+  private ServiceNetworkSpecForUpdateGatewayServiceInput serviceNetworkSpec = null;
 
   public UpdateGatewayServiceRequest authSpec(AuthSpecForUpdateGatewayServiceInput authSpec) {
     this.authSpec = authSpec;
@@ -150,6 +154,25 @@ public class UpdateGatewayServiceRequest {
     this.protocol = protocol;
   }
 
+  public UpdateGatewayServiceRequest serviceNetworkSpec(ServiceNetworkSpecForUpdateGatewayServiceInput serviceNetworkSpec) {
+    this.serviceNetworkSpec = serviceNetworkSpec;
+    return this;
+  }
+
+   /**
+   * Get serviceNetworkSpec
+   * @return serviceNetworkSpec
+  **/
+  @Valid
+  @Schema(description = "")
+  public ServiceNetworkSpecForUpdateGatewayServiceInput getServiceNetworkSpec() {
+    return serviceNetworkSpec;
+  }
+
+  public void setServiceNetworkSpec(ServiceNetworkSpecForUpdateGatewayServiceInput serviceNetworkSpec) {
+    this.serviceNetworkSpec = serviceNetworkSpec;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,12 +187,13 @@ public class UpdateGatewayServiceRequest {
         Objects.equals(this.comments, updateGatewayServiceRequest.comments) &&
         Objects.equals(this.domainSpec, updateGatewayServiceRequest.domainSpec) &&
         Objects.equals(this.id, updateGatewayServiceRequest.id) &&
-        Objects.equals(this.protocol, updateGatewayServiceRequest.protocol);
+        Objects.equals(this.protocol, updateGatewayServiceRequest.protocol) &&
+        Objects.equals(this.serviceNetworkSpec, updateGatewayServiceRequest.serviceNetworkSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, domainSpec, id, protocol);
+    return Objects.hash(authSpec, comments, domainSpec, id, protocol, serviceNetworkSpec);
   }
 
 
@@ -183,6 +207,7 @@ public class UpdateGatewayServiceRequest {
     sb.append("    domainSpec: ").append(toIndentedString(domainSpec)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    serviceNetworkSpec: ").append(toIndentedString(serviceNetworkSpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }

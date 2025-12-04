@@ -41,9 +41,6 @@ public class RetryPolicySettingForCreateRouteInput {
   @SerializedName("HttpCodes")
   private List<String> httpCodes = null;
 
-  @SerializedName("PerTryTimeout")
-  private Long perTryTimeout = null;
-
   @SerializedName("RetryOn")
   private List<String> retryOn = null;
 
@@ -109,24 +106,6 @@ public class RetryPolicySettingForCreateRouteInput {
     this.httpCodes = httpCodes;
   }
 
-  public RetryPolicySettingForCreateRouteInput perTryTimeout(Long perTryTimeout) {
-    this.perTryTimeout = perTryTimeout;
-    return this;
-  }
-
-   /**
-   * Get perTryTimeout
-   * @return perTryTimeout
-  **/
-  @Schema(description = "")
-  public Long getPerTryTimeout() {
-    return perTryTimeout;
-  }
-
-  public void setPerTryTimeout(Long perTryTimeout) {
-    this.perTryTimeout = perTryTimeout;
-  }
-
   public RetryPolicySettingForCreateRouteInput retryOn(List<String> retryOn) {
     this.retryOn = retryOn;
     return this;
@@ -166,13 +145,12 @@ public class RetryPolicySettingForCreateRouteInput {
     return Objects.equals(this.attempts, retryPolicySettingForCreateRouteInput.attempts) &&
         Objects.equals(this.enable, retryPolicySettingForCreateRouteInput.enable) &&
         Objects.equals(this.httpCodes, retryPolicySettingForCreateRouteInput.httpCodes) &&
-        Objects.equals(this.perTryTimeout, retryPolicySettingForCreateRouteInput.perTryTimeout) &&
         Objects.equals(this.retryOn, retryPolicySettingForCreateRouteInput.retryOn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attempts, enable, httpCodes, perTryTimeout, retryOn);
+    return Objects.hash(attempts, enable, httpCodes, retryOn);
   }
 
 
@@ -184,7 +162,6 @@ public class RetryPolicySettingForCreateRouteInput {
     sb.append("    attempts: ").append(toIndentedString(attempts)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    httpCodes: ").append(toIndentedString(httpCodes)).append("\n");
-    sb.append("    perTryTimeout: ").append(toIndentedString(perTryTimeout)).append("\n");
     sb.append("    retryOn: ").append(toIndentedString(retryOn)).append("\n");
     sb.append("}");
     return sb.toString();

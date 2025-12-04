@@ -51,6 +51,12 @@ public class GetContentGenerationTaskResponse {
 	@JsonProperty("revised_prompt")
 	private String revisedPrompt;
 
+    @JsonProperty("service_tier")
+    private String serviceTier;
+
+    @JsonProperty("execution_expires_after")
+    private java.lang.Long executionExpiresAfter;
+
     public String getId() {
         return id;
     }
@@ -161,6 +167,22 @@ public class GetContentGenerationTaskResponse {
 
     public void setRevisedPrompt(String revisedPrompt) {
         this.revisedPrompt = revisedPrompt;
+    }
+
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
+    public java.lang.Long getExecutionExpiresAfter() {
+        return executionExpiresAfter;
+    }
+
+    public void setExecutionExpiresAfter(java.lang.Long executionExpiresAfter) {
+        this.executionExpiresAfter = executionExpiresAfter;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -274,6 +296,8 @@ public class GetContentGenerationTaskResponse {
                 ", updatedAt=" + updatedAt +
 				", seed=" + seed +
 				", revisedPrompt=" + revisedPrompt +
+                ", serviceTier='" + serviceTier + '\'' +
+                ", executionExpiresAfter=" + executionExpiresAfter +
                 '}';
     }
 }

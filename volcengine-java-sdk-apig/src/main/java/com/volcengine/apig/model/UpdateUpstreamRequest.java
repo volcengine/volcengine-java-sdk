@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.CircuitBreakingSettingsForUpdateUpstreamInput;
+import com.volcengine.apig.model.ConnectionPoolSettingsForUpdateUpstreamInput;
 import com.volcengine.apig.model.LoadBalancerSettingsForUpdateUpstreamInput;
 import com.volcengine.apig.model.TlsSettingsForUpdateUpstreamInput;
 import com.volcengine.apig.model.UpstreamSpecForUpdateUpstreamInput;
@@ -39,6 +40,9 @@ public class UpdateUpstreamRequest {
 
   @SerializedName("Comments")
   private String comments = null;
+
+  @SerializedName("ConnectionPoolSettings")
+  private ConnectionPoolSettingsForUpdateUpstreamInput connectionPoolSettings = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -96,6 +100,25 @@ public class UpdateUpstreamRequest {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public UpdateUpstreamRequest connectionPoolSettings(ConnectionPoolSettingsForUpdateUpstreamInput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolSettings
+   * @return connectionPoolSettings
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConnectionPoolSettingsForUpdateUpstreamInput getConnectionPoolSettings() {
+    return connectionPoolSettings;
+  }
+
+  public void setConnectionPoolSettings(ConnectionPoolSettingsForUpdateUpstreamInput connectionPoolSettings) {
+    this.connectionPoolSettings = connectionPoolSettings;
   }
 
   public UpdateUpstreamRequest id(String id) {
@@ -242,6 +265,7 @@ public class UpdateUpstreamRequest {
     UpdateUpstreamRequest updateUpstreamRequest = (UpdateUpstreamRequest) o;
     return Objects.equals(this.circuitBreakingSettings, updateUpstreamRequest.circuitBreakingSettings) &&
         Objects.equals(this.comments, updateUpstreamRequest.comments) &&
+        Objects.equals(this.connectionPoolSettings, updateUpstreamRequest.connectionPoolSettings) &&
         Objects.equals(this.id, updateUpstreamRequest.id) &&
         Objects.equals(this.loadBalancerSettings, updateUpstreamRequest.loadBalancerSettings) &&
         Objects.equals(this.name, updateUpstreamRequest.name) &&
@@ -253,7 +277,7 @@ public class UpdateUpstreamRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(circuitBreakingSettings, comments, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, upstreamSpec);
+    return Objects.hash(circuitBreakingSettings, comments, connectionPoolSettings, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, upstreamSpec);
   }
 
 
@@ -264,6 +288,7 @@ public class UpdateUpstreamRequest {
     
     sb.append("    circuitBreakingSettings: ").append(toIndentedString(circuitBreakingSettings)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    connectionPoolSettings: ").append(toIndentedString(connectionPoolSettings)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    loadBalancerSettings: ").append(toIndentedString(loadBalancerSettings)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

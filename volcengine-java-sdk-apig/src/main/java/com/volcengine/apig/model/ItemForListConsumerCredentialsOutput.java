@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.HmacAuthCredentialForListConsumerCredentialsOutput;
 import com.volcengine.apig.model.KeyAuthCredentialForListConsumerCredentialsOutput;
+import com.volcengine.apig.model.Oauth2CredentialForListConsumerCredentialsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -43,6 +44,9 @@ public class ItemForListConsumerCredentialsOutput {
 
   @SerializedName("KeyAuthCredential")
   private KeyAuthCredentialForListConsumerCredentialsOutput keyAuthCredential = null;
+
+  @SerializedName("Oauth2Credential")
+  private Oauth2CredentialForListConsumerCredentialsOutput oauth2Credential = null;
 
   public ItemForListConsumerCredentialsOutput credentialType(String credentialType) {
     this.credentialType = credentialType;
@@ -118,6 +122,25 @@ public class ItemForListConsumerCredentialsOutput {
     this.keyAuthCredential = keyAuthCredential;
   }
 
+  public ItemForListConsumerCredentialsOutput oauth2Credential(Oauth2CredentialForListConsumerCredentialsOutput oauth2Credential) {
+    this.oauth2Credential = oauth2Credential;
+    return this;
+  }
+
+   /**
+   * Get oauth2Credential
+   * @return oauth2Credential
+  **/
+  @Valid
+  @Schema(description = "")
+  public Oauth2CredentialForListConsumerCredentialsOutput getOauth2Credential() {
+    return oauth2Credential;
+  }
+
+  public void setOauth2Credential(Oauth2CredentialForListConsumerCredentialsOutput oauth2Credential) {
+    this.oauth2Credential = oauth2Credential;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +154,13 @@ public class ItemForListConsumerCredentialsOutput {
     return Objects.equals(this.credentialType, itemForListConsumerCredentialsOutput.credentialType) &&
         Objects.equals(this.hmacAuthCredential, itemForListConsumerCredentialsOutput.hmacAuthCredential) &&
         Objects.equals(this.id, itemForListConsumerCredentialsOutput.id) &&
-        Objects.equals(this.keyAuthCredential, itemForListConsumerCredentialsOutput.keyAuthCredential);
+        Objects.equals(this.keyAuthCredential, itemForListConsumerCredentialsOutput.keyAuthCredential) &&
+        Objects.equals(this.oauth2Credential, itemForListConsumerCredentialsOutput.oauth2Credential);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialType, hmacAuthCredential, id, keyAuthCredential);
+    return Objects.hash(credentialType, hmacAuthCredential, id, keyAuthCredential, oauth2Credential);
   }
 
 
@@ -149,6 +173,7 @@ public class ItemForListConsumerCredentialsOutput {
     sb.append("    hmacAuthCredential: ").append(toIndentedString(hmacAuthCredential)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    keyAuthCredential: ").append(toIndentedString(keyAuthCredential)).append("\n");
+    sb.append("    oauth2Credential: ").append(toIndentedString(oauth2Credential)).append("\n");
     sb.append("}");
     return sb.toString();
   }

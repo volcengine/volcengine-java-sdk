@@ -33,6 +33,9 @@ public class FilterForListPluginBindingsInput {
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("GatewayId")
+  private String gatewayId = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -55,6 +58,24 @@ public class FilterForListPluginBindingsInput {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public FilterForListPluginBindingsInput gatewayId(String gatewayId) {
+    this.gatewayId = gatewayId;
+    return this;
+  }
+
+   /**
+   * Get gatewayId
+   * @return gatewayId
+  **/
+  @Schema(description = "")
+  public String getGatewayId() {
+    return gatewayId;
+  }
+
+  public void setGatewayId(String gatewayId) {
+    this.gatewayId = gatewayId;
   }
 
   public FilterForListPluginBindingsInput name(String name) {
@@ -104,13 +125,14 @@ public class FilterForListPluginBindingsInput {
     }
     FilterForListPluginBindingsInput filterForListPluginBindingsInput = (FilterForListPluginBindingsInput) o;
     return Objects.equals(this.enable, filterForListPluginBindingsInput.enable) &&
+        Objects.equals(this.gatewayId, filterForListPluginBindingsInput.gatewayId) &&
         Objects.equals(this.name, filterForListPluginBindingsInput.name) &&
         Objects.equals(this.scope, filterForListPluginBindingsInput.scope);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, name, scope);
+    return Objects.hash(enable, gatewayId, name, scope);
   }
 
 
@@ -120,6 +142,7 @@ public class FilterForListPluginBindingsInput {
     sb.append("class FilterForListPluginBindingsInput {\n");
     
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("}");

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.HmacAuthCredentialForCreateConsumerCredentialInput;
 import com.volcengine.apig.model.KeyAuthCredentialForCreateConsumerCredentialInput;
+import com.volcengine.apig.model.Oauth2CredentialForCreateConsumerCredentialInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -43,6 +44,9 @@ public class CreateConsumerCredentialRequest {
 
   @SerializedName("KeyAuthCredential")
   private KeyAuthCredentialForCreateConsumerCredentialInput keyAuthCredential = null;
+
+  @SerializedName("Oauth2Credential")
+  private Oauth2CredentialForCreateConsumerCredentialInput oauth2Credential = null;
 
   public CreateConsumerCredentialRequest consumerId(String consumerId) {
     this.consumerId = consumerId;
@@ -120,6 +124,25 @@ public class CreateConsumerCredentialRequest {
     this.keyAuthCredential = keyAuthCredential;
   }
 
+  public CreateConsumerCredentialRequest oauth2Credential(Oauth2CredentialForCreateConsumerCredentialInput oauth2Credential) {
+    this.oauth2Credential = oauth2Credential;
+    return this;
+  }
+
+   /**
+   * Get oauth2Credential
+   * @return oauth2Credential
+  **/
+  @Valid
+  @Schema(description = "")
+  public Oauth2CredentialForCreateConsumerCredentialInput getOauth2Credential() {
+    return oauth2Credential;
+  }
+
+  public void setOauth2Credential(Oauth2CredentialForCreateConsumerCredentialInput oauth2Credential) {
+    this.oauth2Credential = oauth2Credential;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,12 +156,13 @@ public class CreateConsumerCredentialRequest {
     return Objects.equals(this.consumerId, createConsumerCredentialRequest.consumerId) &&
         Objects.equals(this.credentialType, createConsumerCredentialRequest.credentialType) &&
         Objects.equals(this.hmacAuthCredential, createConsumerCredentialRequest.hmacAuthCredential) &&
-        Objects.equals(this.keyAuthCredential, createConsumerCredentialRequest.keyAuthCredential);
+        Objects.equals(this.keyAuthCredential, createConsumerCredentialRequest.keyAuthCredential) &&
+        Objects.equals(this.oauth2Credential, createConsumerCredentialRequest.oauth2Credential);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumerId, credentialType, hmacAuthCredential, keyAuthCredential);
+    return Objects.hash(consumerId, credentialType, hmacAuthCredential, keyAuthCredential, oauth2Credential);
   }
 
 
@@ -151,6 +175,7 @@ public class CreateConsumerCredentialRequest {
     sb.append("    credentialType: ").append(toIndentedString(credentialType)).append("\n");
     sb.append("    hmacAuthCredential: ").append(toIndentedString(hmacAuthCredential)).append("\n");
     sb.append("    keyAuthCredential: ").append(toIndentedString(keyAuthCredential)).append("\n");
+    sb.append("    oauth2Credential: ").append(toIndentedString(oauth2Credential)).append("\n");
     sb.append("}");
     return sb.toString();
   }
