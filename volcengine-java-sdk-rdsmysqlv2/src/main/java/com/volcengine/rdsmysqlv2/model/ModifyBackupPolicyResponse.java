@@ -98,6 +98,9 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("KeepCrossBackupEnableAfterReleased")
+  private Boolean keepCrossBackupEnableAfterReleased = null;
+
   @SerializedName("LockDDLTime")
   private Integer lockDDLTime = null;
 
@@ -522,6 +525,24 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     this.instanceId = instanceId;
   }
 
+  public ModifyBackupPolicyResponse keepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+    return this;
+  }
+
+   /**
+   * Get keepCrossBackupEnableAfterReleased
+   * @return keepCrossBackupEnableAfterReleased
+  **/
+  @Schema(description = "")
+  public Boolean isKeepCrossBackupEnableAfterReleased() {
+    return keepCrossBackupEnableAfterReleased;
+  }
+
+  public void setKeepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+  }
+
   public ModifyBackupPolicyResponse lockDDLTime(Integer lockDDLTime) {
     this.lockDDLTime = lockDDLTime;
     return this;
@@ -626,6 +647,7 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
         Objects.equals(this.hourlyIncrBackupEnable, modifyBackupPolicyResponse.hourlyIncrBackupEnable) &&
         Objects.equals(this.incrBackupHourPeriod, modifyBackupPolicyResponse.incrBackupHourPeriod) &&
         Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId) &&
+        Objects.equals(this.keepCrossBackupEnableAfterReleased, modifyBackupPolicyResponse.keepCrossBackupEnableAfterReleased) &&
         Objects.equals(this.lockDDLTime, modifyBackupPolicyResponse.lockDDLTime) &&
         Objects.equals(this.logBackupRetentionDay, modifyBackupPolicyResponse.logBackupRetentionDay) &&
         Objects.equals(this.publicDownloadEnable, modifyBackupPolicyResponse.publicDownloadEnable) &&
@@ -634,7 +656,7 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, publicDownloadEnable, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, keepCrossBackupEnableAfterReleased, lockDDLTime, logBackupRetentionDay, publicDownloadEnable, retentionPolicySynced);
   }
 
 
@@ -665,6 +687,7 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
     sb.append("    incrBackupHourPeriod: ").append(toIndentedString(incrBackupHourPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    keepCrossBackupEnableAfterReleased: ").append(toIndentedString(keepCrossBackupEnableAfterReleased)).append("\n");
     sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("    publicDownloadEnable: ").append(toIndentedString(publicDownloadEnable)).append("\n");

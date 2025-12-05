@@ -59,6 +59,9 @@ public class CreateDrDBInstanceRequest {
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -223,6 +226,24 @@ public class CreateDrDBInstanceRequest {
     this.storageSpace = storageSpace;
   }
 
+  public CreateDrDBInstanceRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public CreateDrDBInstanceRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -279,13 +300,14 @@ public class CreateDrDBInstanceRequest {
         Objects.equals(this.nodeInfo, createDrDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.proxyNodeCustom, createDrDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, createDrDBInstanceRequest.storageSpace) &&
+        Objects.equals(this.storageType, createDrDBInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, createDrDBInstanceRequest.subnetId) &&
         Objects.equals(this.vpcId, createDrDBInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, proxyNodeCustom, storageSpace, subnetId, vpcId);
+    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -302,6 +324,7 @@ public class CreateDrDBInstanceRequest {
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

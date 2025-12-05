@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AddressForDescribeDBInstanceEndpointsOutput;
+import com.volcengine.rdsmysqlv2.model.CustomRouteStrategyForDescribeDBInstanceEndpointsOutput;
 import com.volcengine.rdsmysqlv2.model.ReadOnlyNodeWeightForDescribeDBInstanceEndpointsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -48,6 +49,9 @@ public class EndpointForDescribeDBInstanceEndpointsOutput {
 
   @SerializedName("ConnectionPoolType")
   private String connectionPoolType = null;
+
+  @SerializedName("CustomRouteStrategy")
+  private CustomRouteStrategyForDescribeDBInstanceEndpointsOutput customRouteStrategy = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -205,6 +209,25 @@ public class EndpointForDescribeDBInstanceEndpointsOutput {
 
   public void setConnectionPoolType(String connectionPoolType) {
     this.connectionPoolType = connectionPoolType;
+  }
+
+  public EndpointForDescribeDBInstanceEndpointsOutput customRouteStrategy(CustomRouteStrategyForDescribeDBInstanceEndpointsOutput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
+    return this;
+  }
+
+   /**
+   * Get customRouteStrategy
+   * @return customRouteStrategy
+  **/
+  @Valid
+  @Schema(description = "")
+  public CustomRouteStrategyForDescribeDBInstanceEndpointsOutput getCustomRouteStrategy() {
+    return customRouteStrategy;
+  }
+
+  public void setCustomRouteStrategy(CustomRouteStrategyForDescribeDBInstanceEndpointsOutput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
   }
 
   public EndpointForDescribeDBInstanceEndpointsOutput description(String description) {
@@ -537,6 +560,7 @@ public class EndpointForDescribeDBInstanceEndpointsOutput {
         Objects.equals(this.connectionInfoTags, endpointForDescribeDBInstanceEndpointsOutput.connectionInfoTags) &&
         Objects.equals(this.connectionMode, endpointForDescribeDBInstanceEndpointsOutput.connectionMode) &&
         Objects.equals(this.connectionPoolType, endpointForDescribeDBInstanceEndpointsOutput.connectionPoolType) &&
+        Objects.equals(this.customRouteStrategy, endpointForDescribeDBInstanceEndpointsOutput.customRouteStrategy) &&
         Objects.equals(this.description, endpointForDescribeDBInstanceEndpointsOutput.description) &&
         Objects.equals(this.enableConnectionPersistent, endpointForDescribeDBInstanceEndpointsOutput.enableConnectionPersistent) &&
         Objects.equals(this.enableReadOnly, endpointForDescribeDBInstanceEndpointsOutput.enableReadOnly) &&
@@ -558,7 +582,7 @@ public class EndpointForDescribeDBInstanceEndpointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, connectionInfoTags, connectionMode, connectionPoolType, description, enableConnectionPersistent, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, connectionInfoTags, connectionMode, connectionPoolType, customRouteStrategy, description, enableConnectionPersistent, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -572,6 +596,7 @@ public class EndpointForDescribeDBInstanceEndpointsOutput {
     sb.append("    connectionInfoTags: ").append(toIndentedString(connectionInfoTags)).append("\n");
     sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
+    sb.append("    customRouteStrategy: ").append(toIndentedString(customRouteStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableConnectionPersistent: ").append(toIndentedString(enableConnectionPersistent)).append("\n");
     sb.append("    enableReadOnly: ").append(toIndentedString(enableReadOnly)).append("\n");

@@ -59,6 +59,12 @@ public class CreateDBInstanceRequest {
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
+  @SerializedName("EnableExternalReplication")
+  private Boolean enableExternalReplication = null;
+
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("InstanceName")
   private String instanceName = null;
 
@@ -239,6 +245,42 @@ public class CreateDBInstanceRequest {
 
   public void setDeletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
+  }
+
+  public CreateDBInstanceRequest enableExternalReplication(Boolean enableExternalReplication) {
+    this.enableExternalReplication = enableExternalReplication;
+    return this;
+  }
+
+   /**
+   * Get enableExternalReplication
+   * @return enableExternalReplication
+  **/
+  @Schema(description = "")
+  public Boolean isEnableExternalReplication() {
+    return enableExternalReplication;
+  }
+
+  public void setEnableExternalReplication(Boolean enableExternalReplication) {
+    this.enableExternalReplication = enableExternalReplication;
+  }
+
+  public CreateDBInstanceRequest engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
   }
 
   public CreateDBInstanceRequest instanceName(String instanceName) {
@@ -552,6 +594,8 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.dbParamGroupId, createDBInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
         Objects.equals(this.deletionProtection, createDBInstanceRequest.deletionProtection) &&
+        Objects.equals(this.enableExternalReplication, createDBInstanceRequest.enableExternalReplication) &&
+        Objects.equals(this.engineType, createDBInstanceRequest.engineType) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, createDBInstanceRequest.instanceTags) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
@@ -571,7 +615,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, proxyNodeCustom, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, enableExternalReplication, engineType, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, proxyNodeCustom, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -587,6 +631,8 @@ public class CreateDBInstanceRequest {
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
+    sb.append("    enableExternalReplication: ").append(toIndentedString(enableExternalReplication)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
