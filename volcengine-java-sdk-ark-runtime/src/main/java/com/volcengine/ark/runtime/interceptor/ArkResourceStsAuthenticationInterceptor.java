@@ -51,8 +51,13 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        String requestResourceType = getRequestResourceType(request);
         String requestResourceId = getRequestResourceId(request);
+        String requestResourceType = getRequestResourceType(request, requestResourceId);
+        String projectName = getProjectName(request);
+
+        if (requestResourceType.equalsIgnoreCase(Const.RESOURCE_TYPE_PRESETENDPOINT) && StringUtils.isBlank(projectName)) {
+            throw new ArkException("project name is required for preset endpoint");
+        }
 
         if (request.url().url().getPath().contains("contents/generations") || request.url().url().getPath().contains("images/generations")) {
             throw new ArkException("content generation currently does not support ak&sk authentication, use api_key instead.");
@@ -60,16 +65,26 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
 
         Request newRequest = chain.request()
                 .newBuilder()
-                .header("Authorization", "Bearer " + getResourceStsToken(requestResourceType, requestResourceId))
+                .header("Authorization", "Bearer " + getResourceStsToken(requestResourceType, requestResourceId, projectName))
                 .build();
         return chain.proceed(newRequest);
     }
 
-    private String getRequestResourceType(Request request) {
+    private String getRequestResourceType(Request request, String requestResourceId) {
         if (StringUtils.isNotBlank(request.header(Const.REQUEST_BOT))) {
             return Const.RESOURCE_TYPE_BOT;
         }
-        return Const.RESOURCE_TYPE_ENDPOINT;
+
+        if (StringUtils.isNotBlank(requestResourceId) && requestResourceId.startsWith("ep-m-")) {
+            return Const.RESOURCE_TYPE_PRESETENDPOINT;
+        }
+
+        if (StringUtils.isNotBlank(requestResourceId) && requestResourceId.startsWith("ep-")) {
+            return Const.RESOURCE_TYPE_ENDPOINT;
+        }
+
+        // for model id
+        return Const.RESOURCE_TYPE_PRESETENDPOINT;
     }
 
     private String getRequestResourceId(Request request) {
@@ -79,8 +94,15 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
         return request.header(Const.REQUEST_MODEL);
     }
 
-    private String getResourceStsToken(String resourceType, String resourceId) {
-        refresh(resourceType, resourceId);
+    private String getProjectName(Request request) {
+        if (StringUtils.isNotBlank(request.header(Const.REQUEST_PROJECT_NAME))) {
+            return request.header(Const.REQUEST_PROJECT_NAME);
+        }
+        return "";
+    }
+
+    private String getResourceStsToken(String resourceType, String resourceId, String projectName) {
+        refresh(resourceType, resourceId, projectName);
 
         ArkResourceStsTokenInfo tokenInfo = this.resourceStsTokens.get(getResourceKey(resourceType, resourceId));
         if (tokenInfo == null) {
@@ -89,7 +111,7 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
         return tokenInfo.getToken();
     }
 
-    private void refresh(String resourceType, String resourceId) {
+    private void refresh(String resourceType, String resourceId, String projectName) {
         if (!need_refresh(resourceType, resourceId, this.advisoryRefreshTimeout)) {
             return;
         }
@@ -101,7 +123,7 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
 
             try {
                 boolean isMandatoryRefresh = need_refresh(resourceType, resourceId, this.mandatoryRefreshTimeout);
-                protectedRefresh(resourceType, resourceId, isMandatoryRefresh);
+                protectedRefresh(resourceType, resourceId, isMandatoryRefresh, projectName);
             } finally {
                 lock.writeLock().unlock();
             }
@@ -111,7 +133,7 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
                 if (!need_refresh(resourceType, resourceId, this.mandatoryRefreshTimeout)) {
                     return;
                 }
-                protectedRefresh(resourceType, resourceId, true);
+                protectedRefresh(resourceType, resourceId, true, projectName);
             } finally {
                 lock.writeLock().unlock();
             }
@@ -127,12 +149,12 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
         return tokenInfo.getExpiredTime() - System.currentTimeMillis() / 1000 < refresh_in;
     }
 
-    private void protectedRefresh(String resourceType, String resourceId, boolean isMandatory) {
+    private void protectedRefresh(String resourceType, String resourceId, boolean isMandatory, String projectName) {
         this.resourceStsTokens.compute(getResourceKey(resourceType, resourceId), new BiFunction<String, ArkResourceStsTokenInfo, ArkResourceStsTokenInfo>() {
             @Override
             public ArkResourceStsTokenInfo apply(String s, ArkResourceStsTokenInfo stringIntegerPair) {
                 try {
-                    ArkResourceStsTokenInfo tokenInfo = getToken(resourceType, resourceId, Const.DEFAULT_STS_TIMEOUT);
+                    ArkResourceStsTokenInfo tokenInfo = getToken(resourceType, resourceId, Const.DEFAULT_STS_TIMEOUT, projectName);
                     return tokenInfo;
                 } catch (ApiException e) {
                     if (isMandatory) {
@@ -145,10 +167,10 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
     }
 
     private ArkResourceStsTokenInfo getEndpointToken(String endpointId, Integer ttl) throws ApiException {
-        return getToken("endpoint", endpointId, ttl);
+        return getToken("endpoint", endpointId, ttl, "");
     }
 
-    private ArkResourceStsTokenInfo getToken(String resourceType, String resourceId, Integer ttl) throws ApiException {
+    private ArkResourceStsTokenInfo getToken(String resourceType, String resourceId, Integer ttl, String projectName) throws ApiException {
         if (ttl < this.advisoryRefreshTimeout * 2) {
             throw new ArkException("ttl should not be under " + this.advisoryRefreshTimeout * 2 + " seconds.");
         }
@@ -156,6 +178,9 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
         GetApiKeyRequest r = new GetApiKeyRequest();
         r.durationSeconds(ttl);
         r.resourceType(resourceType);
+        if (StringUtils.isNotBlank(projectName)) {
+            r.projectName(projectName);
+        }
         List<String> list = new ArrayList<>();
         list.add(resourceId);
         r.resourceIds(list);

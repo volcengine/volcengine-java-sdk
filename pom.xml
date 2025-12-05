@@ -321,6 +321,7 @@
         <module>volcengine-java-sdk-cbr</module>
         <module>volcengine-java-sdk-milvus</module>
         <module>volcengine-java-sdk-smc</module>
+        <module>volcengine-java-sdk-rcs5g</module>
         <module>volcengine-java-sdk-i18nopenapi</module>
         <module>volcengine-java-sdk-pca20251001</module>
         <module>volcengine-java-sdk-config</module>

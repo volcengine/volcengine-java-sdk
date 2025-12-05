@@ -20,6 +20,12 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("return_last_frame")
     private Boolean returnLastFrame;
 
+    @JsonProperty("service_tier")
+    private String serviceTier;
+
+    @JsonProperty("execution_expires_after")
+    private Long executionExpiresAfter;
+
     public CreateContentGenerationTaskRequest() {
     }
 
@@ -67,6 +73,22 @@ public class CreateContentGenerationTaskRequest {
         this.returnLastFrame = returnLastFrame;
     }
 
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
+    public Long getExecutionExpiresAfter() {
+        return executionExpiresAfter;
+    }
+
+    public void setExecutionExpiresAfter(Long executionExpiresAfter) {
+        this.executionExpiresAfter = executionExpiresAfter;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
@@ -74,6 +96,8 @@ public class CreateContentGenerationTaskRequest {
                 ", content=" + content +
                 ", callbackUrl='" + callbackUrl + '\'' +
                 ", returnLastFrame=" + returnLastFrame +
+                ", serviceTier='" + serviceTier + '\'' +
+                ", executionExpiresAfter=" + executionExpiresAfter +
                 '}';
     }
 
@@ -86,6 +110,8 @@ public class CreateContentGenerationTaskRequest {
         private List<Content> content;
         private String callbackUrl;
         private Boolean returnLastFrame;
+        private String serviceTier;
+        private Long executionExpiresAfter;
 
         private Builder() {
         }
@@ -110,12 +136,24 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder serviceTier(String serviceTier) {
+            this.serviceTier = serviceTier;
+            return this;
+        }
+
+        public Builder executionExpiresAfter(Long executionExpiresAfter) {
+            this.executionExpiresAfter = executionExpiresAfter;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
             createContentGenerationTaskRequest.setContent(content);
             createContentGenerationTaskRequest.setCallbackUrl(callbackUrl);
             createContentGenerationTaskRequest.setReturnLastFrame(returnLastFrame);
+            createContentGenerationTaskRequest.setServiceTier(serviceTier);
+            createContentGenerationTaskRequest.setExecutionExpiresAfter(executionExpiresAfter);
             return createContentGenerationTaskRequest;
         }
     }

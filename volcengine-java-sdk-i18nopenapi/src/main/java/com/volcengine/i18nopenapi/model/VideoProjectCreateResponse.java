@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,46 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoProjectCreateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("projectId")
-  private Integer projectId = null;
+  @SerializedName("data")
+  private DataForVideoProjectCreateOutput data = null;
 
-  @SerializedName("projectName")
-  private String projectName = null;
-
-  public VideoProjectCreateResponse projectId(Integer projectId) {
-    this.projectId = projectId;
+  public VideoProjectCreateResponse data(DataForVideoProjectCreateOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public Integer getProjectId() {
-    return projectId;
+  public DataForVideoProjectCreateOutput getData() {
+    return data;
   }
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
-  }
-
-  public VideoProjectCreateResponse projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setData(DataForVideoProjectCreateOutput data) {
+    this.data = data;
   }
 
 
@@ -82,13 +63,12 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
       return false;
     }
     VideoProjectCreateResponse videoProjectCreateResponse = (VideoProjectCreateResponse) o;
-    return Objects.equals(this.projectId, videoProjectCreateResponse.projectId) &&
-        Objects.equals(this.projectName, videoProjectCreateResponse.projectName);
+    return Objects.equals(this.data, videoProjectCreateResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, projectName);
+    return Objects.hash(data);
   }
 
 
@@ -97,8 +77,7 @@ public class VideoProjectCreateResponse extends com.volcengine.model.AbstractRes
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectCreateResponse {\n");
     
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

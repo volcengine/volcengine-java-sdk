@@ -72,6 +72,9 @@ public class ItemForListGatewayServicesOutput {
   @SerializedName("Protocol")
   private List<String> protocol = null;
 
+  @SerializedName("ServiceType")
+  private String serviceType = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -319,6 +322,24 @@ public class ItemForListGatewayServicesOutput {
     this.protocol = protocol;
   }
 
+  public ItemForListGatewayServicesOutput serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
+  }
+
   public ItemForListGatewayServicesOutput status(String status) {
     this.status = status;
     return this;
@@ -359,12 +380,13 @@ public class ItemForListGatewayServicesOutput {
         Objects.equals(this.message, itemForListGatewayServicesOutput.message) &&
         Objects.equals(this.name, itemForListGatewayServicesOutput.name) &&
         Objects.equals(this.protocol, itemForListGatewayServicesOutput.protocol) &&
+        Objects.equals(this.serviceType, itemForListGatewayServicesOutput.serviceType) &&
         Objects.equals(this.status, itemForListGatewayServicesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authSpec, comments, createTime, customDomains, domainSpec, domains, gatewayId, gatewayName, id, message, name, protocol, status);
+    return Objects.hash(authSpec, comments, createTime, customDomains, domainSpec, domains, gatewayId, gatewayName, id, message, name, protocol, serviceType, status);
   }
 
 
@@ -385,6 +407,7 @@ public class ItemForListGatewayServicesOutput {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

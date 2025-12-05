@@ -34,6 +34,9 @@ public class ConsistentHashLBForUpdateUpstreamInput {
   @SerializedName("HTTPCookie")
   private HTTPCookieForUpdateUpstreamInput htTPCookie = null;
 
+  @SerializedName("HashBalanceFactor")
+  private Integer hashBalanceFactor = null;
+
   @SerializedName("HashKey")
   private String hashKey = null;
 
@@ -63,6 +66,24 @@ public class ConsistentHashLBForUpdateUpstreamInput {
 
   public void setHtTPCookie(HTTPCookieForUpdateUpstreamInput htTPCookie) {
     this.htTPCookie = htTPCookie;
+  }
+
+  public ConsistentHashLBForUpdateUpstreamInput hashBalanceFactor(Integer hashBalanceFactor) {
+    this.hashBalanceFactor = hashBalanceFactor;
+    return this;
+  }
+
+   /**
+   * Get hashBalanceFactor
+   * @return hashBalanceFactor
+  **/
+  @Schema(description = "")
+  public Integer getHashBalanceFactor() {
+    return hashBalanceFactor;
+  }
+
+  public void setHashBalanceFactor(Integer hashBalanceFactor) {
+    this.hashBalanceFactor = hashBalanceFactor;
   }
 
   public ConsistentHashLBForUpdateUpstreamInput hashKey(String hashKey) {
@@ -148,6 +169,7 @@ public class ConsistentHashLBForUpdateUpstreamInput {
     }
     ConsistentHashLBForUpdateUpstreamInput consistentHashLBForUpdateUpstreamInput = (ConsistentHashLBForUpdateUpstreamInput) o;
     return Objects.equals(this.htTPCookie, consistentHashLBForUpdateUpstreamInput.htTPCookie) &&
+        Objects.equals(this.hashBalanceFactor, consistentHashLBForUpdateUpstreamInput.hashBalanceFactor) &&
         Objects.equals(this.hashKey, consistentHashLBForUpdateUpstreamInput.hashKey) &&
         Objects.equals(this.httpHeaderName, consistentHashLBForUpdateUpstreamInput.httpHeaderName) &&
         Objects.equals(this.httpQueryParameterName, consistentHashLBForUpdateUpstreamInput.httpQueryParameterName) &&
@@ -156,7 +178,7 @@ public class ConsistentHashLBForUpdateUpstreamInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(htTPCookie, hashKey, httpHeaderName, httpQueryParameterName, useSourceIp);
+    return Objects.hash(htTPCookie, hashBalanceFactor, hashKey, httpHeaderName, httpQueryParameterName, useSourceIp);
   }
 
 
@@ -166,6 +188,7 @@ public class ConsistentHashLBForUpdateUpstreamInput {
     sb.append("class ConsistentHashLBForUpdateUpstreamInput {\n");
     
     sb.append("    htTPCookie: ").append(toIndentedString(htTPCookie)).append("\n");
+    sb.append("    hashBalanceFactor: ").append(toIndentedString(hashBalanceFactor)).append("\n");
     sb.append("    hashKey: ").append(toIndentedString(hashKey)).append("\n");
     sb.append("    httpHeaderName: ").append(toIndentedString(httpHeaderName)).append("\n");
     sb.append("    httpQueryParameterName: ").append(toIndentedString(httpQueryParameterName)).append("\n");
