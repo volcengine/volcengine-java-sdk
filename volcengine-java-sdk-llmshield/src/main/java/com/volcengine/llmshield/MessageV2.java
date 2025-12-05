@@ -2,6 +2,9 @@ package com.volcengine.llmshield;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // 消息结构
 public class MessageV2 {
     @JsonProperty("Role")
@@ -13,13 +16,23 @@ public class MessageV2 {
     @JsonProperty("ContentType")
     private ContentTypeV2 contentType;  // 内容类型
 
+    @JsonProperty("MultiPart")
+    private List<MultiPart> multiPart;  // 多模态内容
+
     // 深拷贝构造方法
     public MessageV2(MessageV2 other) {
         // String是不可变类型，直接赋值即可
         this.role = other.role;
         this.content = other.content;
-
         this.contentType = other.contentType;
+
+        // List<multiPart>：新建List并对每个元素深拷贝
+        if (other.multiPart != null) {
+            this.multiPart = new ArrayList<>();
+            for (MultiPart contPart : other.multiPart) {
+                this.multiPart.add(new MultiPart(contPart)); // 假设MultiPart有深拷贝构造方法
+            }
+        }
     }
 
     // 无参构造方法（保留，用于JSON反序列化等场景）
@@ -47,5 +60,18 @@ public class MessageV2 {
 
     public void setContentType(ContentTypeV2 contentType) {
         this.contentType = contentType;
+    }
+
+    public List<MultiPart> getMultiPart() { return multiPart; }
+
+    public void setMultiPart(List<MultiPart> multiPart) { this.multiPart = multiPart; }
+
+    // 追加单条历史消息
+    public MessageV2 appendMultiPart(MultiPart contPart) {
+        if (this.multiPart == null) {
+            this.multiPart = new ArrayList<>();
+        }
+        this.multiPart.add(contPart);
+        return this; // 支持链式调用
     }
 }
