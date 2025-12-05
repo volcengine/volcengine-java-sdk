@@ -19,8 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tis.model.CategoryForGetSpeakerListOutput;
+import com.volcengine.tis.model.LanguageForGetSpeakerListOutput;
+import com.volcengine.tis.model.VoiceConfigForGetSpeakerListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,20 +35,83 @@ import javax.validation.Valid;
 
 
 public class SpeakerForGetSpeakerListOutput {
+  @SerializedName("Avatar")
+  private String avatar = null;
+
+  @SerializedName("Category")
+  private List<CategoryForGetSpeakerListOutput> category = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("Gender")
+  private String gender = null;
 
   @SerializedName("ID")
   private String ID = null;
 
+  @SerializedName("Labels")
+  private List<String> labels = null;
+
   @SerializedName("Language")
   private String language = null;
+
+  @SerializedName("Languages")
+  private List<LanguageForGetSpeakerListOutput> languages = null;
 
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("VoiceConfigs")
+  private List<VoiceConfigForGetSpeakerListOutput> voiceConfigs = null;
+
+  public SpeakerForGetSpeakerListOutput avatar(String avatar) {
+    this.avatar = avatar;
+    return this;
+  }
+
+   /**
+   * Get avatar
+   * @return avatar
+  **/
+  @Schema(description = "")
+  public String getAvatar() {
+    return avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public SpeakerForGetSpeakerListOutput category(List<CategoryForGetSpeakerListOutput> category) {
+    this.category = category;
+    return this;
+  }
+
+  public SpeakerForGetSpeakerListOutput addCategoryItem(CategoryForGetSpeakerListOutput categoryItem) {
+    if (this.category == null) {
+      this.category = new ArrayList<CategoryForGetSpeakerListOutput>();
+    }
+    this.category.add(categoryItem);
+    return this;
+  }
+
+   /**
+   * Get category
+   * @return category
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CategoryForGetSpeakerListOutput> getCategory() {
+    return category;
+  }
+
+  public void setCategory(List<CategoryForGetSpeakerListOutput> category) {
+    this.category = category;
+  }
 
   public SpeakerForGetSpeakerListOutput description(String description) {
     this.description = description;
@@ -61,6 +129,24 @@ public class SpeakerForGetSpeakerListOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SpeakerForGetSpeakerListOutput gender(String gender) {
+    this.gender = gender;
+    return this;
+  }
+
+   /**
+   * Get gender
+   * @return gender
+  **/
+  @Schema(description = "")
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
   }
 
   public SpeakerForGetSpeakerListOutput ID(String ID) {
@@ -81,6 +167,32 @@ public class SpeakerForGetSpeakerListOutput {
     this.ID = ID;
   }
 
+  public SpeakerForGetSpeakerListOutput labels(List<String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public SpeakerForGetSpeakerListOutput addLabelsItem(String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<String>();
+    }
+    this.labels.add(labelsItem);
+    return this;
+  }
+
+   /**
+   * Get labels
+   * @return labels
+  **/
+  @Schema(description = "")
+  public List<String> getLabels() {
+    return labels;
+  }
+
+  public void setLabels(List<String> labels) {
+    this.labels = labels;
+  }
+
   public SpeakerForGetSpeakerListOutput language(String language) {
     this.language = language;
     return this;
@@ -97,6 +209,33 @@ public class SpeakerForGetSpeakerListOutput {
 
   public void setLanguage(String language) {
     this.language = language;
+  }
+
+  public SpeakerForGetSpeakerListOutput languages(List<LanguageForGetSpeakerListOutput> languages) {
+    this.languages = languages;
+    return this;
+  }
+
+  public SpeakerForGetSpeakerListOutput addLanguagesItem(LanguageForGetSpeakerListOutput languagesItem) {
+    if (this.languages == null) {
+      this.languages = new ArrayList<LanguageForGetSpeakerListOutput>();
+    }
+    this.languages.add(languagesItem);
+    return this;
+  }
+
+   /**
+   * Get languages
+   * @return languages
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LanguageForGetSpeakerListOutput> getLanguages() {
+    return languages;
+  }
+
+  public void setLanguages(List<LanguageForGetSpeakerListOutput> languages) {
+    this.languages = languages;
   }
 
   public SpeakerForGetSpeakerListOutput name(String name) {
@@ -135,6 +274,33 @@ public class SpeakerForGetSpeakerListOutput {
     this.type = type;
   }
 
+  public SpeakerForGetSpeakerListOutput voiceConfigs(List<VoiceConfigForGetSpeakerListOutput> voiceConfigs) {
+    this.voiceConfigs = voiceConfigs;
+    return this;
+  }
+
+  public SpeakerForGetSpeakerListOutput addVoiceConfigsItem(VoiceConfigForGetSpeakerListOutput voiceConfigsItem) {
+    if (this.voiceConfigs == null) {
+      this.voiceConfigs = new ArrayList<VoiceConfigForGetSpeakerListOutput>();
+    }
+    this.voiceConfigs.add(voiceConfigsItem);
+    return this;
+  }
+
+   /**
+   * Get voiceConfigs
+   * @return voiceConfigs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<VoiceConfigForGetSpeakerListOutput> getVoiceConfigs() {
+    return voiceConfigs;
+  }
+
+  public void setVoiceConfigs(List<VoiceConfigForGetSpeakerListOutput> voiceConfigs) {
+    this.voiceConfigs = voiceConfigs;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -145,16 +311,22 @@ public class SpeakerForGetSpeakerListOutput {
       return false;
     }
     SpeakerForGetSpeakerListOutput speakerForGetSpeakerListOutput = (SpeakerForGetSpeakerListOutput) o;
-    return Objects.equals(this.description, speakerForGetSpeakerListOutput.description) &&
+    return Objects.equals(this.avatar, speakerForGetSpeakerListOutput.avatar) &&
+        Objects.equals(this.category, speakerForGetSpeakerListOutput.category) &&
+        Objects.equals(this.description, speakerForGetSpeakerListOutput.description) &&
+        Objects.equals(this.gender, speakerForGetSpeakerListOutput.gender) &&
         Objects.equals(this.ID, speakerForGetSpeakerListOutput.ID) &&
+        Objects.equals(this.labels, speakerForGetSpeakerListOutput.labels) &&
         Objects.equals(this.language, speakerForGetSpeakerListOutput.language) &&
+        Objects.equals(this.languages, speakerForGetSpeakerListOutput.languages) &&
         Objects.equals(this.name, speakerForGetSpeakerListOutput.name) &&
-        Objects.equals(this.type, speakerForGetSpeakerListOutput.type);
+        Objects.equals(this.type, speakerForGetSpeakerListOutput.type) &&
+        Objects.equals(this.voiceConfigs, speakerForGetSpeakerListOutput.voiceConfigs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ID, language, name, type);
+    return Objects.hash(avatar, category, description, gender, ID, labels, language, languages, name, type, voiceConfigs);
   }
 
 
@@ -163,11 +335,17 @@ public class SpeakerForGetSpeakerListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpeakerForGetSpeakerListOutput {\n");
     
+    sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    voiceConfigs: ").append(toIndentedString(voiceConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
