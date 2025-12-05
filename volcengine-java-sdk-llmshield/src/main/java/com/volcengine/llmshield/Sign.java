@@ -34,13 +34,18 @@ import java.net.URLEncoder;
  */
 public class Sign {
     // 常量定义
+    private static final String SERVICE_CODE_DEV = "llmshield_dev";
+    private static final String SERVICE_CODE_ONLINE = "llmshield";
+
     private static final String VERSION = "2025-08-31";
-    private static final String SERVICE = "llmshield";
     private static final BitSet URLENCODER = new BitSet(256);
     private static final String CONST_ENCODE = "0123456789ABCDEF";
     public static final Charset UTF_8 = StandardCharsets.UTF_8;
     // 默认 Content-Type（可根据实际需求调整，若请求体为 JSON 可改为 application/json）
     private static final String DEFAULT_CONTENT_TYPE = "application/json";
+
+    private static boolean isModified = false; //记录是否已修改过
+    private static String SERVICE = SERVICE_CODE_ONLINE;
 
     // 静态初始化 URL 编码允许的字符（复用原逻辑）
     static {
@@ -60,6 +65,21 @@ public class Sign {
         URLENCODER.set('_');
         URLENCODER.set('.');
         URLENCODER.set('~');
+    }
+
+    public static synchronized void setServiceDev(boolean IsDev) {
+        if (!isModified) {
+            if (IsDev) {
+                SERVICE = SERVICE_CODE_DEV;
+            } else {
+                SERVICE = SERVICE_CODE_ONLINE;
+            }
+            isModified = true;
+        }
+    }
+
+    public static String getServiceCode() {
+        return SERVICE;
     }
 
     /**
