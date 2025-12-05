@@ -87,12 +87,13 @@ public class Sign {
      *
      * @param httpPost 待加签的 HttpPost 请求（需提前设置请求体，若有）
      * @param uri      请求的 URI（包含 host、path、query 参数，如 https://iam.volcengineapi.com/?Limit=1）
+     * @param action   请求方法
      * @param ak       访问密钥 AK
      * @param sk       密钥 SK
      * @param region   地域（如 cn-beijing，需与 API 所属地域一致）
      * @throws Exception 加签过程中异常（如加密算法异常、请求体读取异常）
      */
-    public void DoSignRequest(HttpPost httpPost, URI uri,String action, String ak, String sk,
+    public void DoSignRequest(HttpPost httpPost, URI uri, String action, String ak, String sk,
                               String region) throws Exception{
         String method = httpPost.getMethod();
         String path = uri.getPath();
