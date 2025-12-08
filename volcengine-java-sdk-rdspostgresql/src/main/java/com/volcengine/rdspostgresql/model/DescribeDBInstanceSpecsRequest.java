@@ -36,6 +36,9 @@ public class DescribeDBInstanceSpecsRequest {
   @SerializedName("SpecCode")
   private String specCode = null;
 
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -75,6 +78,24 @@ public class DescribeDBInstanceSpecsRequest {
     this.specCode = specCode;
   }
 
+  public DescribeDBInstanceSpecsRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public DescribeDBInstanceSpecsRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -105,12 +126,13 @@ public class DescribeDBInstanceSpecsRequest {
     DescribeDBInstanceSpecsRequest describeDBInstanceSpecsRequest = (DescribeDBInstanceSpecsRequest) o;
     return Objects.equals(this.dbEngineVersion, describeDBInstanceSpecsRequest.dbEngineVersion) &&
         Objects.equals(this.specCode, describeDBInstanceSpecsRequest.specCode) &&
+        Objects.equals(this.storageType, describeDBInstanceSpecsRequest.storageType) &&
         Objects.equals(this.zoneId, describeDBInstanceSpecsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbEngineVersion, specCode, zoneId);
+    return Objects.hash(dbEngineVersion, specCode, storageType, zoneId);
   }
 
 
@@ -121,6 +143,7 @@ public class DescribeDBInstanceSpecsRequest {
     
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    specCode: ").append(toIndentedString(specCode)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

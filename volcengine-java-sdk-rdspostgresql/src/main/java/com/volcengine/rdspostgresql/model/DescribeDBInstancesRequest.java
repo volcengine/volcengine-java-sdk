@@ -60,8 +60,14 @@ public class DescribeDBInstancesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("PrivateNetworkVpcId")
+  private String privateNetworkVpcId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("StorageType")
+  private String storageType = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
@@ -231,6 +237,24 @@ public class DescribeDBInstancesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeDBInstancesRequest privateNetworkVpcId(String privateNetworkVpcId) {
+    this.privateNetworkVpcId = privateNetworkVpcId;
+    return this;
+  }
+
+   /**
+   * Get privateNetworkVpcId
+   * @return privateNetworkVpcId
+  **/
+  @Schema(description = "")
+  public String getPrivateNetworkVpcId() {
+    return privateNetworkVpcId;
+  }
+
+  public void setPrivateNetworkVpcId(String privateNetworkVpcId) {
+    this.privateNetworkVpcId = privateNetworkVpcId;
+  }
+
   public DescribeDBInstancesRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -247,6 +271,24 @@ public class DescribeDBInstancesRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public DescribeDBInstancesRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
   }
 
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
@@ -313,14 +355,16 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.privateNetworkVpcId, describeDBInstancesRequest.privateNetworkVpcId) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
+        Objects.equals(this.storageType, describeDBInstancesRequest.storageType) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, pageNumber, pageSize, privateNetworkVpcId, projectName, storageType, tagFilters, zoneId);
   }
 
 
@@ -338,7 +382,9 @@ public class DescribeDBInstancesRequest {
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    privateNetworkVpcId: ").append(toIndentedString(privateNetworkVpcId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

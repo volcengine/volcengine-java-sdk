@@ -30,11 +30,17 @@ import javax.validation.Valid;
 
 
 public class AddressObjectForDescribeDBInstancesOutput {
+  @SerializedName("CrossRegionDomain")
+  private String crossRegionDomain = null;
+
   @SerializedName("DNSVisibility")
   private Boolean dnSVisibility = null;
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("DomainVisibilitySetting")
+  private String domainVisibilitySetting = null;
 
   @SerializedName("EipId")
   private String eipId = null;
@@ -50,6 +56,24 @@ public class AddressObjectForDescribeDBInstancesOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public AddressObjectForDescribeDBInstancesOutput crossRegionDomain(String crossRegionDomain) {
+    this.crossRegionDomain = crossRegionDomain;
+    return this;
+  }
+
+   /**
+   * Get crossRegionDomain
+   * @return crossRegionDomain
+  **/
+  @Schema(description = "")
+  public String getCrossRegionDomain() {
+    return crossRegionDomain;
+  }
+
+  public void setCrossRegionDomain(String crossRegionDomain) {
+    this.crossRegionDomain = crossRegionDomain;
+  }
 
   public AddressObjectForDescribeDBInstancesOutput dnSVisibility(Boolean dnSVisibility) {
     this.dnSVisibility = dnSVisibility;
@@ -85,6 +109,24 @@ public class AddressObjectForDescribeDBInstancesOutput {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public AddressObjectForDescribeDBInstancesOutput domainVisibilitySetting(String domainVisibilitySetting) {
+    this.domainVisibilitySetting = domainVisibilitySetting;
+    return this;
+  }
+
+   /**
+   * Get domainVisibilitySetting
+   * @return domainVisibilitySetting
+  **/
+  @Schema(description = "")
+  public String getDomainVisibilitySetting() {
+    return domainVisibilitySetting;
+  }
+
+  public void setDomainVisibilitySetting(String domainVisibilitySetting) {
+    this.domainVisibilitySetting = domainVisibilitySetting;
   }
 
   public AddressObjectForDescribeDBInstancesOutput eipId(String eipId) {
@@ -187,8 +229,10 @@ public class AddressObjectForDescribeDBInstancesOutput {
       return false;
     }
     AddressObjectForDescribeDBInstancesOutput addressObjectForDescribeDBInstancesOutput = (AddressObjectForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.dnSVisibility, addressObjectForDescribeDBInstancesOutput.dnSVisibility) &&
+    return Objects.equals(this.crossRegionDomain, addressObjectForDescribeDBInstancesOutput.crossRegionDomain) &&
+        Objects.equals(this.dnSVisibility, addressObjectForDescribeDBInstancesOutput.dnSVisibility) &&
         Objects.equals(this.domain, addressObjectForDescribeDBInstancesOutput.domain) &&
+        Objects.equals(this.domainVisibilitySetting, addressObjectForDescribeDBInstancesOutput.domainVisibilitySetting) &&
         Objects.equals(this.eipId, addressObjectForDescribeDBInstancesOutput.eipId) &&
         Objects.equals(this.ipAddress, addressObjectForDescribeDBInstancesOutput.ipAddress) &&
         Objects.equals(this.networkType, addressObjectForDescribeDBInstancesOutput.networkType) &&
@@ -198,7 +242,7 @@ public class AddressObjectForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSVisibility, domain, eipId, ipAddress, networkType, port, subnetId);
+    return Objects.hash(crossRegionDomain, dnSVisibility, domain, domainVisibilitySetting, eipId, ipAddress, networkType, port, subnetId);
   }
 
 
@@ -207,8 +251,10 @@ public class AddressObjectForDescribeDBInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddressObjectForDescribeDBInstancesOutput {\n");
     
+    sb.append("    crossRegionDomain: ").append(toIndentedString(crossRegionDomain)).append("\n");
     sb.append("    dnSVisibility: ").append(toIndentedString(dnSVisibility)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    domainVisibilitySetting: ").append(toIndentedString(domainVisibilitySetting)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");

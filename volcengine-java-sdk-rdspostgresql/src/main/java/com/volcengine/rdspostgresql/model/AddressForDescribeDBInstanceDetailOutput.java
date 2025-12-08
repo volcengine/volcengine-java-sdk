@@ -30,11 +30,17 @@ import javax.validation.Valid;
 
 
 public class AddressForDescribeDBInstanceDetailOutput {
+  @SerializedName("CrossRegionDomain")
+  private String crossRegionDomain = null;
+
   @SerializedName("DNSVisibility")
   private Boolean dnSVisibility = null;
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("DomainVisibilitySetting")
+  private String domainVisibilitySetting = null;
 
   @SerializedName("EipId")
   private String eipId = null;
@@ -50,6 +56,24 @@ public class AddressForDescribeDBInstanceDetailOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public AddressForDescribeDBInstanceDetailOutput crossRegionDomain(String crossRegionDomain) {
+    this.crossRegionDomain = crossRegionDomain;
+    return this;
+  }
+
+   /**
+   * Get crossRegionDomain
+   * @return crossRegionDomain
+  **/
+  @Schema(description = "")
+  public String getCrossRegionDomain() {
+    return crossRegionDomain;
+  }
+
+  public void setCrossRegionDomain(String crossRegionDomain) {
+    this.crossRegionDomain = crossRegionDomain;
+  }
 
   public AddressForDescribeDBInstanceDetailOutput dnSVisibility(Boolean dnSVisibility) {
     this.dnSVisibility = dnSVisibility;
@@ -85,6 +109,24 @@ public class AddressForDescribeDBInstanceDetailOutput {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public AddressForDescribeDBInstanceDetailOutput domainVisibilitySetting(String domainVisibilitySetting) {
+    this.domainVisibilitySetting = domainVisibilitySetting;
+    return this;
+  }
+
+   /**
+   * Get domainVisibilitySetting
+   * @return domainVisibilitySetting
+  **/
+  @Schema(description = "")
+  public String getDomainVisibilitySetting() {
+    return domainVisibilitySetting;
+  }
+
+  public void setDomainVisibilitySetting(String domainVisibilitySetting) {
+    this.domainVisibilitySetting = domainVisibilitySetting;
   }
 
   public AddressForDescribeDBInstanceDetailOutput eipId(String eipId) {
@@ -187,8 +229,10 @@ public class AddressForDescribeDBInstanceDetailOutput {
       return false;
     }
     AddressForDescribeDBInstanceDetailOutput addressForDescribeDBInstanceDetailOutput = (AddressForDescribeDBInstanceDetailOutput) o;
-    return Objects.equals(this.dnSVisibility, addressForDescribeDBInstanceDetailOutput.dnSVisibility) &&
+    return Objects.equals(this.crossRegionDomain, addressForDescribeDBInstanceDetailOutput.crossRegionDomain) &&
+        Objects.equals(this.dnSVisibility, addressForDescribeDBInstanceDetailOutput.dnSVisibility) &&
         Objects.equals(this.domain, addressForDescribeDBInstanceDetailOutput.domain) &&
+        Objects.equals(this.domainVisibilitySetting, addressForDescribeDBInstanceDetailOutput.domainVisibilitySetting) &&
         Objects.equals(this.eipId, addressForDescribeDBInstanceDetailOutput.eipId) &&
         Objects.equals(this.ipAddress, addressForDescribeDBInstanceDetailOutput.ipAddress) &&
         Objects.equals(this.networkType, addressForDescribeDBInstanceDetailOutput.networkType) &&
@@ -198,7 +242,7 @@ public class AddressForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSVisibility, domain, eipId, ipAddress, networkType, port, subnetId);
+    return Objects.hash(crossRegionDomain, dnSVisibility, domain, domainVisibilitySetting, eipId, ipAddress, networkType, port, subnetId);
   }
 
 
@@ -207,8 +251,10 @@ public class AddressForDescribeDBInstanceDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddressForDescribeDBInstanceDetailOutput {\n");
     
+    sb.append("    crossRegionDomain: ").append(toIndentedString(crossRegionDomain)).append("\n");
     sb.append("    dnSVisibility: ").append(toIndentedString(dnSVisibility)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    domainVisibilitySetting: ").append(toIndentedString(domainVisibilitySetting)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");

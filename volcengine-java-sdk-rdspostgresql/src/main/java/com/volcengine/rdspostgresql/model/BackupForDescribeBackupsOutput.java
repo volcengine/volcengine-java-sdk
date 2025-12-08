@@ -19,9 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdspostgresql.model.BackupMetaForDescribeBackupsOutput;
 import com.volcengine.rdspostgresql.model.InstanceInfoForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +34,12 @@ import javax.validation.Valid;
 
 
 public class BackupForDescribeBackupsOutput {
+  @SerializedName("BackupDataSize")
+  private Long backupDataSize = null;
+
+  @SerializedName("BackupDescription")
+  private String backupDescription = null;
+
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
 
@@ -43,8 +52,17 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupId")
   private String backupId = null;
 
+  @SerializedName("BackupMeta")
+  private List<BackupMetaForDescribeBackupsOutput> backupMeta = null;
+
+  @SerializedName("BackupMethod")
+  private String backupMethod = null;
+
   @SerializedName("BackupProgress")
   private Integer backupProgress = null;
+
+  @SerializedName("BackupScope")
+  private String backupScope = null;
 
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
@@ -58,8 +76,47 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("CreateType")
   private String createType = null;
 
+  @SerializedName("DownloadStatus")
+  private String downloadStatus = null;
+
   @SerializedName("InstanceInfo")
   private InstanceInfoForDescribeBackupsOutput instanceInfo = null;
+
+  public BackupForDescribeBackupsOutput backupDataSize(Long backupDataSize) {
+    this.backupDataSize = backupDataSize;
+    return this;
+  }
+
+   /**
+   * Get backupDataSize
+   * @return backupDataSize
+  **/
+  @Schema(description = "")
+  public Long getBackupDataSize() {
+    return backupDataSize;
+  }
+
+  public void setBackupDataSize(Long backupDataSize) {
+    this.backupDataSize = backupDataSize;
+  }
+
+  public BackupForDescribeBackupsOutput backupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+    return this;
+  }
+
+   /**
+   * Get backupDescription
+   * @return backupDescription
+  **/
+  @Schema(description = "")
+  public String getBackupDescription() {
+    return backupDescription;
+  }
+
+  public void setBackupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+  }
 
   public BackupForDescribeBackupsOutput backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -133,6 +190,51 @@ public class BackupForDescribeBackupsOutput {
     this.backupId = backupId;
   }
 
+  public BackupForDescribeBackupsOutput backupMeta(List<BackupMetaForDescribeBackupsOutput> backupMeta) {
+    this.backupMeta = backupMeta;
+    return this;
+  }
+
+  public BackupForDescribeBackupsOutput addBackupMetaItem(BackupMetaForDescribeBackupsOutput backupMetaItem) {
+    if (this.backupMeta == null) {
+      this.backupMeta = new ArrayList<BackupMetaForDescribeBackupsOutput>();
+    }
+    this.backupMeta.add(backupMetaItem);
+    return this;
+  }
+
+   /**
+   * Get backupMeta
+   * @return backupMeta
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BackupMetaForDescribeBackupsOutput> getBackupMeta() {
+    return backupMeta;
+  }
+
+  public void setBackupMeta(List<BackupMetaForDescribeBackupsOutput> backupMeta) {
+    this.backupMeta = backupMeta;
+  }
+
+  public BackupForDescribeBackupsOutput backupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+    return this;
+  }
+
+   /**
+   * Get backupMethod
+   * @return backupMethod
+  **/
+  @Schema(description = "")
+  public String getBackupMethod() {
+    return backupMethod;
+  }
+
+  public void setBackupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+  }
+
   public BackupForDescribeBackupsOutput backupProgress(Integer backupProgress) {
     this.backupProgress = backupProgress;
     return this;
@@ -149,6 +251,24 @@ public class BackupForDescribeBackupsOutput {
 
   public void setBackupProgress(Integer backupProgress) {
     this.backupProgress = backupProgress;
+  }
+
+  public BackupForDescribeBackupsOutput backupScope(String backupScope) {
+    this.backupScope = backupScope;
+    return this;
+  }
+
+   /**
+   * Get backupScope
+   * @return backupScope
+  **/
+  @Schema(description = "")
+  public String getBackupScope() {
+    return backupScope;
+  }
+
+  public void setBackupScope(String backupScope) {
+    this.backupScope = backupScope;
   }
 
   public BackupForDescribeBackupsOutput backupStartTime(String backupStartTime) {
@@ -223,6 +343,24 @@ public class BackupForDescribeBackupsOutput {
     this.createType = createType;
   }
 
+  public BackupForDescribeBackupsOutput downloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+    return this;
+  }
+
+   /**
+   * Get downloadStatus
+   * @return downloadStatus
+  **/
+  @Schema(description = "")
+  public String getDownloadStatus() {
+    return downloadStatus;
+  }
+
+  public void setDownloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+  }
+
   public BackupForDescribeBackupsOutput instanceInfo(InstanceInfoForDescribeBackupsOutput instanceInfo) {
     this.instanceInfo = instanceInfo;
     return this;
@@ -252,21 +390,27 @@ public class BackupForDescribeBackupsOutput {
       return false;
     }
     BackupForDescribeBackupsOutput backupForDescribeBackupsOutput = (BackupForDescribeBackupsOutput) o;
-    return Objects.equals(this.backupEndTime, backupForDescribeBackupsOutput.backupEndTime) &&
+    return Objects.equals(this.backupDataSize, backupForDescribeBackupsOutput.backupDataSize) &&
+        Objects.equals(this.backupDescription, backupForDescribeBackupsOutput.backupDescription) &&
+        Objects.equals(this.backupEndTime, backupForDescribeBackupsOutput.backupEndTime) &&
         Objects.equals(this.backupFileName, backupForDescribeBackupsOutput.backupFileName) &&
         Objects.equals(this.backupFileSize, backupForDescribeBackupsOutput.backupFileSize) &&
         Objects.equals(this.backupId, backupForDescribeBackupsOutput.backupId) &&
+        Objects.equals(this.backupMeta, backupForDescribeBackupsOutput.backupMeta) &&
+        Objects.equals(this.backupMethod, backupForDescribeBackupsOutput.backupMethod) &&
         Objects.equals(this.backupProgress, backupForDescribeBackupsOutput.backupProgress) &&
+        Objects.equals(this.backupScope, backupForDescribeBackupsOutput.backupScope) &&
         Objects.equals(this.backupStartTime, backupForDescribeBackupsOutput.backupStartTime) &&
         Objects.equals(this.backupStatus, backupForDescribeBackupsOutput.backupStatus) &&
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.createType, backupForDescribeBackupsOutput.createType) &&
+        Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
         Objects.equals(this.instanceInfo, backupForDescribeBackupsOutput.instanceInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupProgress, backupStartTime, backupStatus, backupType, createType, instanceInfo);
+    return Objects.hash(backupDataSize, backupDescription, backupEndTime, backupFileName, backupFileSize, backupId, backupMeta, backupMethod, backupProgress, backupScope, backupStartTime, backupStatus, backupType, createType, downloadStatus, instanceInfo);
   }
 
 
@@ -275,15 +419,21 @@ public class BackupForDescribeBackupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackupForDescribeBackupsOutput {\n");
     
+    sb.append("    backupDataSize: ").append(toIndentedString(backupDataSize)).append("\n");
+    sb.append("    backupDescription: ").append(toIndentedString(backupDescription)).append("\n");
     sb.append("    backupEndTime: ").append(toIndentedString(backupEndTime)).append("\n");
     sb.append("    backupFileName: ").append(toIndentedString(backupFileName)).append("\n");
     sb.append("    backupFileSize: ").append(toIndentedString(backupFileSize)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    backupMeta: ").append(toIndentedString(backupMeta)).append("\n");
+    sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
     sb.append("    backupProgress: ").append(toIndentedString(backupProgress)).append("\n");
+    sb.append("    backupScope: ").append(toIndentedString(backupScope)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
+    sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    instanceInfo: ").append(toIndentedString(instanceInfo)).append("\n");
     sb.append("}");
     return sb.toString();

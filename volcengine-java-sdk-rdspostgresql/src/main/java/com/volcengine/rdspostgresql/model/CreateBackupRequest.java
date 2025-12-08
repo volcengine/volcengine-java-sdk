@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdspostgresql.model.BackupMetaForCreateBackupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +33,104 @@ import javax.validation.Valid;
 
 
 public class CreateBackupRequest {
+  @SerializedName("BackupDescription")
+  private String backupDescription = null;
+
+  @SerializedName("BackupMeta")
+  private List<BackupMetaForCreateBackupInput> backupMeta = null;
+
+  @SerializedName("BackupMethod")
+  private String backupMethod = null;
+
+  @SerializedName("BackupScope")
+  private String backupScope = null;
+
   @SerializedName("BackupType")
   private String backupType = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public CreateBackupRequest backupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+    return this;
+  }
+
+   /**
+   * Get backupDescription
+   * @return backupDescription
+  **/
+  @Schema(description = "")
+  public String getBackupDescription() {
+    return backupDescription;
+  }
+
+  public void setBackupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+  }
+
+  public CreateBackupRequest backupMeta(List<BackupMetaForCreateBackupInput> backupMeta) {
+    this.backupMeta = backupMeta;
+    return this;
+  }
+
+  public CreateBackupRequest addBackupMetaItem(BackupMetaForCreateBackupInput backupMetaItem) {
+    if (this.backupMeta == null) {
+      this.backupMeta = new ArrayList<BackupMetaForCreateBackupInput>();
+    }
+    this.backupMeta.add(backupMetaItem);
+    return this;
+  }
+
+   /**
+   * Get backupMeta
+   * @return backupMeta
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BackupMetaForCreateBackupInput> getBackupMeta() {
+    return backupMeta;
+  }
+
+  public void setBackupMeta(List<BackupMetaForCreateBackupInput> backupMeta) {
+    this.backupMeta = backupMeta;
+  }
+
+  public CreateBackupRequest backupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+    return this;
+  }
+
+   /**
+   * Get backupMethod
+   * @return backupMethod
+  **/
+  @Schema(description = "")
+  public String getBackupMethod() {
+    return backupMethod;
+  }
+
+  public void setBackupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+  }
+
+  public CreateBackupRequest backupScope(String backupScope) {
+    this.backupScope = backupScope;
+    return this;
+  }
+
+   /**
+   * Get backupScope
+   * @return backupScope
+  **/
+  @Schema(description = "")
+  public String getBackupScope() {
+    return backupScope;
+  }
+
+  public void setBackupScope(String backupScope) {
+    this.backupScope = backupScope;
+  }
 
   public CreateBackupRequest backupType(String backupType) {
     this.backupType = backupType;
@@ -83,13 +179,17 @@ public class CreateBackupRequest {
       return false;
     }
     CreateBackupRequest createBackupRequest = (CreateBackupRequest) o;
-    return Objects.equals(this.backupType, createBackupRequest.backupType) &&
+    return Objects.equals(this.backupDescription, createBackupRequest.backupDescription) &&
+        Objects.equals(this.backupMeta, createBackupRequest.backupMeta) &&
+        Objects.equals(this.backupMethod, createBackupRequest.backupMethod) &&
+        Objects.equals(this.backupScope, createBackupRequest.backupScope) &&
+        Objects.equals(this.backupType, createBackupRequest.backupType) &&
         Objects.equals(this.instanceId, createBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupType, instanceId);
+    return Objects.hash(backupDescription, backupMeta, backupMethod, backupScope, backupType, instanceId);
   }
 
 
@@ -98,6 +198,10 @@ public class CreateBackupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackupRequest {\n");
     
+    sb.append("    backupDescription: ").append(toIndentedString(backupDescription)).append("\n");
+    sb.append("    backupMeta: ").append(toIndentedString(backupMeta)).append("\n");
+    sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupScope: ").append(toIndentedString(backupScope)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

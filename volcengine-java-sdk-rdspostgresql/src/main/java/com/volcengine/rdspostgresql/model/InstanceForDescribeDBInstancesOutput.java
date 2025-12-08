@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdspostgresql.model.AddressObjectForDescribeDBInstancesOutput;
 import com.volcengine.rdspostgresql.model.ChargeDetailForDescribeDBInstancesOutput;
+import com.volcengine.rdspostgresql.model.EndpointForDescribeDBInstancesOutput;
+import com.volcengine.rdspostgresql.model.MaintenanceWindowForDescribeDBInstancesOutput;
 import com.volcengine.rdspostgresql.model.TagForDescribeDBInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,6 +49,9 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
+  @SerializedName("Endpoints")
+  private List<EndpointForDescribeDBInstancesOutput> endpoints = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -58,6 +63,9 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -174,6 +182,33 @@ public class InstanceForDescribeDBInstancesOutput {
     this.dbEngineVersion = dbEngineVersion;
   }
 
+  public InstanceForDescribeDBInstancesOutput endpoints(List<EndpointForDescribeDBInstancesOutput> endpoints) {
+    this.endpoints = endpoints;
+    return this;
+  }
+
+  public InstanceForDescribeDBInstancesOutput addEndpointsItem(EndpointForDescribeDBInstancesOutput endpointsItem) {
+    if (this.endpoints == null) {
+      this.endpoints = new ArrayList<EndpointForDescribeDBInstancesOutput>();
+    }
+    this.endpoints.add(endpointsItem);
+    return this;
+  }
+
+   /**
+   * Get endpoints
+   * @return endpoints
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EndpointForDescribeDBInstancesOutput> getEndpoints() {
+    return endpoints;
+  }
+
+  public void setEndpoints(List<EndpointForDescribeDBInstancesOutput> endpoints) {
+    this.endpoints = endpoints;
+  }
+
   public InstanceForDescribeDBInstancesOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -244,6 +279,25 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public InstanceForDescribeDBInstancesOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForDescribeDBInstancesOutput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
   }
 
   public InstanceForDescribeDBInstancesOutput nodeNumber(Integer nodeNumber) {
@@ -475,10 +529,12 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.chargeDetail, instanceForDescribeDBInstancesOutput.chargeDetail) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, instanceForDescribeDBInstancesOutput.dbEngineVersion) &&
+        Objects.equals(this.endpoints, instanceForDescribeDBInstancesOutput.endpoints) &&
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instanceForDescribeDBInstancesOutput.instanceStatus) &&
         Objects.equals(this.instanceType, instanceForDescribeDBInstancesOutput.instanceType) &&
+        Objects.equals(this.maintenanceWindow, instanceForDescribeDBInstancesOutput.maintenanceWindow) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, instanceForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
@@ -494,7 +550,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressObject, chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, vpcId, zoneId, zoneIds);
+    return Objects.hash(addressObject, chargeDetail, createTime, dbEngineVersion, endpoints, instanceId, instanceName, instanceStatus, instanceType, maintenanceWindow, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, vpcId, zoneId, zoneIds);
   }
 
 
@@ -507,10 +563,12 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
