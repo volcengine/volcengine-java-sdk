@@ -10,7 +10,7 @@ public class DoubaoAppCallSearchInProgressEvent extends ItemEvent {
     private Long blockIndex;
 
     public DoubaoAppCallSearchInProgressEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_SEARCH_IN_PROGRESS);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_IN_PROGRESS);
     }
 
     public Long getBlockIndex() {

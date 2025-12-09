@@ -22,7 +22,7 @@ public class DoubaoAppCallReasoningSearchCompletedEvent extends ItemEvent {
     private List<DoubaoAppSearchResult> results;
 
     public DoubaoAppCallReasoningSearchCompletedEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_REASONING_SEARCH_COMPLETED);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_COMPLETED);
     }
 
     public Long getBlockIndex() {

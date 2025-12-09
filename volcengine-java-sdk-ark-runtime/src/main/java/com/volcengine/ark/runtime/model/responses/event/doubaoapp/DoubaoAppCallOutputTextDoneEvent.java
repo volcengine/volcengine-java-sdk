@@ -13,7 +13,7 @@ public class DoubaoAppCallOutputTextDoneEvent extends ItemEvent {
     private String text;
 
     public DoubaoAppCallOutputTextDoneEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_OUTPUT_TEXT_DONE);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_OUTPUT_TEXT_DONE);
     }
 
     public Long getBlockIndex() {

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
+import com.volcengine.ark.runtime.model.responses.event.doubaoapp.*;
 import com.volcengine.ark.runtime.model.responses.event.mcp.*;
 import com.volcengine.ark.runtime.model.responses.event.outputtext.AnnotationAddedEvent;
 import com.volcengine.ark.runtime.model.responses.event.contentpart.ContentPartAddedEvent;
@@ -69,7 +70,21 @@ import com.volcengine.ark.runtime.model.responses.event.websearch.WebSearchCallC
         @JsonSubTypes.Type(value = MCPCallArgumentsDoneEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_ARGUMENTS_DONE),
         @JsonSubTypes.Type(value = MCPCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_COMPLETED),
         @JsonSubTypes.Type(value = MCPCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_MCP_CALL_FAILED),
-
+        @JsonSubTypes.Type(value = DoubaoAppCallInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_IN_PROGRESS),
+        @JsonSubTypes.Type(value = DoubaoAppCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_COMPLETED),
+        @JsonSubTypes.Type(value = DoubaoAppCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_FAILED),
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockAddedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_ADDED),
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockDoneEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_DONE),
+        @JsonSubTypes.Type(value = DoubaoAppCallOutputTextDeltaEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_OUTPUT_TEXT_DELTA),
+        @JsonSubTypes.Type(value = DoubaoAppCallOutputTextDoneEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_OUTPUT_TEXT_DONE),
+        @JsonSubTypes.Type(value = DoubaoAppCallReasoningTextDeltaEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DELTA),
+        @JsonSubTypes.Type(value = DoubaoAppCallReasoningTextDoneEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DONE),
+        @JsonSubTypes.Type(value = DoubaoAppCallSearchInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_IN_PROGRESS),
+        @JsonSubTypes.Type(value = DoubaoAppCallSearchSearchingEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_SEARCHING),
+        @JsonSubTypes.Type(value = DoubaoAppCallSearchCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_COMPLETED),
+        @JsonSubTypes.Type(value = DoubaoAppCallReasoningSearchInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_IN_PROGRESS),
+        @JsonSubTypes.Type(value = DoubaoAppCallReasoningSearchSearchingEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_SEARCHING),
+        @JsonSubTypes.Type(value = DoubaoAppCallReasoningSearchCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_COMPLETED),
 })
 public abstract class StreamEvent {
 

@@ -16,7 +16,7 @@ public class DoubaoAppCallCompletedEvent extends ItemEvent {
     private List<DoubaoAppCallBlock> blocks;
 
     public DoubaoAppCallCompletedEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_COMPLETED);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_COMPLETED);
     }
 
     public String getFeature() {

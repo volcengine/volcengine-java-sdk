@@ -11,7 +11,7 @@ public class DoubaoAppCallBlockDoneEvent extends ItemEvent {
     private DoubaoAppCallBlock block;
 
     public DoubaoAppCallBlockDoneEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_BLOCK_DONE);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_DONE);
     }
 
     public DoubaoAppCallBlock getBlock() {

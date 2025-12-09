@@ -13,7 +13,7 @@ public class DoubaoAppCallReasoningTextDoneEvent extends ItemEvent {
     private String text;
 
     public DoubaoAppCallReasoningTextDoneEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_REASONING_TEXT_DONE);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DONE);
     }
 
     public Long getBlockIndex() {

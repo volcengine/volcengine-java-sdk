@@ -13,7 +13,7 @@ public class DoubaoAppCallReasoningTextDeltaEvent extends ItemEvent {
     private String delta;
 
     public DoubaoAppCallReasoningTextDeltaEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_REASONING_TEXT_DELTA);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DELTA);
     }
 
     public Long getBlockIndex() {

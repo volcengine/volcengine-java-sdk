@@ -10,7 +10,7 @@ public class DoubaoAppCallInProgressEvent extends ItemEvent {
 private String feature;
 
     public DoubaoAppCallInProgressEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_IN_PROGRESS);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_IN_PROGRESS);
     }
 
     public String getFeature() {

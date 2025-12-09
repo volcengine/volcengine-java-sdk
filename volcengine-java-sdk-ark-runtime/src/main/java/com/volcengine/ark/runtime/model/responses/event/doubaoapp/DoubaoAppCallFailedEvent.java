@@ -10,7 +10,7 @@ public class DoubaoAppCallFailedEvent extends ItemEvent {
     private String errorMessage;
 
     public DoubaoAppCallFailedEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_FAILED);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_FAILED);
     }
 
     public String getErrorMessage() {

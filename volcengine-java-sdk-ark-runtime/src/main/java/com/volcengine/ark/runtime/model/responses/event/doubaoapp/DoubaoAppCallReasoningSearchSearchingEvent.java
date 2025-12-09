@@ -13,7 +13,7 @@ public class DoubaoAppCallReasoningSearchSearchingEvent extends ItemEvent {
     private String searchingState;
 
     public DoubaoAppCallReasoningSearchSearchingEvent() {
-        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOBAO_APP_CALL_REASONING_SEARCH_SEARCHING);
+        super(ResponsesConstants.EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_SEARCHING);
     }
 
     public Long getBlockIndex() {
