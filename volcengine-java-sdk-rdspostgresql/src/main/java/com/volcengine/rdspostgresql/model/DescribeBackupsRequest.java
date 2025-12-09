@@ -30,11 +30,23 @@ import javax.validation.Valid;
 
 
 public class DescribeBackupsRequest {
+  @SerializedName("BackupDatabaseName")
+  private String backupDatabaseName = null;
+
+  @SerializedName("BackupDescription")
+  private String backupDescription = null;
+
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
 
   @SerializedName("BackupId")
   private String backupId = null;
+
+  @SerializedName("BackupMethod")
+  private String backupMethod = null;
+
+  @SerializedName("BackupScope")
+  private String backupScope = null;
 
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
@@ -45,6 +57,12 @@ public class DescribeBackupsRequest {
   @SerializedName("BackupType")
   private String backupType = null;
 
+  @SerializedName("CreateType")
+  private String createType = null;
+
+  @SerializedName("DownloadStatus")
+  private String downloadStatus = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -53,6 +71,42 @@ public class DescribeBackupsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  public DescribeBackupsRequest backupDatabaseName(String backupDatabaseName) {
+    this.backupDatabaseName = backupDatabaseName;
+    return this;
+  }
+
+   /**
+   * Get backupDatabaseName
+   * @return backupDatabaseName
+  **/
+  @Schema(description = "")
+  public String getBackupDatabaseName() {
+    return backupDatabaseName;
+  }
+
+  public void setBackupDatabaseName(String backupDatabaseName) {
+    this.backupDatabaseName = backupDatabaseName;
+  }
+
+  public DescribeBackupsRequest backupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+    return this;
+  }
+
+   /**
+   * Get backupDescription
+   * @return backupDescription
+  **/
+  @Schema(description = "")
+  public String getBackupDescription() {
+    return backupDescription;
+  }
+
+  public void setBackupDescription(String backupDescription) {
+    this.backupDescription = backupDescription;
+  }
 
   public DescribeBackupsRequest backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -88,6 +142,42 @@ public class DescribeBackupsRequest {
 
   public void setBackupId(String backupId) {
     this.backupId = backupId;
+  }
+
+  public DescribeBackupsRequest backupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+    return this;
+  }
+
+   /**
+   * Get backupMethod
+   * @return backupMethod
+  **/
+  @Schema(description = "")
+  public String getBackupMethod() {
+    return backupMethod;
+  }
+
+  public void setBackupMethod(String backupMethod) {
+    this.backupMethod = backupMethod;
+  }
+
+  public DescribeBackupsRequest backupScope(String backupScope) {
+    this.backupScope = backupScope;
+    return this;
+  }
+
+   /**
+   * Get backupScope
+   * @return backupScope
+  **/
+  @Schema(description = "")
+  public String getBackupScope() {
+    return backupScope;
+  }
+
+  public void setBackupScope(String backupScope) {
+    this.backupScope = backupScope;
   }
 
   public DescribeBackupsRequest backupStartTime(String backupStartTime) {
@@ -142,6 +232,42 @@ public class DescribeBackupsRequest {
 
   public void setBackupType(String backupType) {
     this.backupType = backupType;
+  }
+
+  public DescribeBackupsRequest createType(String createType) {
+    this.createType = createType;
+    return this;
+  }
+
+   /**
+   * Get createType
+   * @return createType
+  **/
+  @Schema(description = "")
+  public String getCreateType() {
+    return createType;
+  }
+
+  public void setCreateType(String createType) {
+    this.createType = createType;
+  }
+
+  public DescribeBackupsRequest downloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+    return this;
+  }
+
+   /**
+   * Get downloadStatus
+   * @return downloadStatus
+  **/
+  @Schema(description = "")
+  public String getDownloadStatus() {
+    return downloadStatus;
+  }
+
+  public void setDownloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
   }
 
   public DescribeBackupsRequest instanceId(String instanceId) {
@@ -209,11 +335,17 @@ public class DescribeBackupsRequest {
       return false;
     }
     DescribeBackupsRequest describeBackupsRequest = (DescribeBackupsRequest) o;
-    return Objects.equals(this.backupEndTime, describeBackupsRequest.backupEndTime) &&
+    return Objects.equals(this.backupDatabaseName, describeBackupsRequest.backupDatabaseName) &&
+        Objects.equals(this.backupDescription, describeBackupsRequest.backupDescription) &&
+        Objects.equals(this.backupEndTime, describeBackupsRequest.backupEndTime) &&
         Objects.equals(this.backupId, describeBackupsRequest.backupId) &&
+        Objects.equals(this.backupMethod, describeBackupsRequest.backupMethod) &&
+        Objects.equals(this.backupScope, describeBackupsRequest.backupScope) &&
         Objects.equals(this.backupStartTime, describeBackupsRequest.backupStartTime) &&
         Objects.equals(this.backupStatus, describeBackupsRequest.backupStatus) &&
         Objects.equals(this.backupType, describeBackupsRequest.backupType) &&
+        Objects.equals(this.createType, describeBackupsRequest.createType) &&
+        Objects.equals(this.downloadStatus, describeBackupsRequest.downloadStatus) &&
         Objects.equals(this.instanceId, describeBackupsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeBackupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeBackupsRequest.pageSize);
@@ -221,7 +353,7 @@ public class DescribeBackupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupId, backupStartTime, backupStatus, backupType, instanceId, pageNumber, pageSize);
+    return Objects.hash(backupDatabaseName, backupDescription, backupEndTime, backupId, backupMethod, backupScope, backupStartTime, backupStatus, backupType, createType, downloadStatus, instanceId, pageNumber, pageSize);
   }
 
 
@@ -230,11 +362,17 @@ public class DescribeBackupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupsRequest {\n");
     
+    sb.append("    backupDatabaseName: ").append(toIndentedString(backupDatabaseName)).append("\n");
+    sb.append("    backupDescription: ").append(toIndentedString(backupDescription)).append("\n");
     sb.append("    backupEndTime: ").append(toIndentedString(backupEndTime)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupScope: ").append(toIndentedString(backupScope)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
+    sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
+    sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

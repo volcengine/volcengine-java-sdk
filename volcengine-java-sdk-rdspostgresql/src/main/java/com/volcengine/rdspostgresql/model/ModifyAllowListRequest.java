@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdspostgresql.model.SecurityGroupBindInfoForModifyAllowListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,9 @@ import javax.validation.Valid;
 public class ModifyAllowListRequest {
   @SerializedName("AllowList")
   private String allowList = null;
+
+  @SerializedName("AllowListCategory")
+  private String allowListCategory = null;
 
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
@@ -47,6 +53,15 @@ public class ModifyAllowListRequest {
 
   @SerializedName("ModifyMode")
   private String modifyMode = null;
+
+  @SerializedName("SecurityGroupBindInfos")
+  private List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos = null;
+
+  @SerializedName("UpdateSecurityGroup")
+  private Boolean updateSecurityGroup = null;
+
+  @SerializedName("UserAllowList")
+  private String userAllowList = null;
 
   public ModifyAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
@@ -64,6 +79,24 @@ public class ModifyAllowListRequest {
 
   public void setAllowList(String allowList) {
     this.allowList = allowList;
+  }
+
+  public ModifyAllowListRequest allowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public String getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
   }
 
   public ModifyAllowListRequest allowListDesc(String allowListDesc) {
@@ -158,6 +191,69 @@ public class ModifyAllowListRequest {
     this.modifyMode = modifyMode;
   }
 
+  public ModifyAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+    return this;
+  }
+
+  public ModifyAllowListRequest addSecurityGroupBindInfosItem(SecurityGroupBindInfoForModifyAllowListInput securityGroupBindInfosItem) {
+    if (this.securityGroupBindInfos == null) {
+      this.securityGroupBindInfos = new ArrayList<SecurityGroupBindInfoForModifyAllowListInput>();
+    }
+    this.securityGroupBindInfos.add(securityGroupBindInfosItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupBindInfos
+   * @return securityGroupBindInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SecurityGroupBindInfoForModifyAllowListInput> getSecurityGroupBindInfos() {
+    return securityGroupBindInfos;
+  }
+
+  public void setSecurityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+  }
+
+  public ModifyAllowListRequest updateSecurityGroup(Boolean updateSecurityGroup) {
+    this.updateSecurityGroup = updateSecurityGroup;
+    return this;
+  }
+
+   /**
+   * Get updateSecurityGroup
+   * @return updateSecurityGroup
+  **/
+  @Schema(description = "")
+  public Boolean isUpdateSecurityGroup() {
+    return updateSecurityGroup;
+  }
+
+  public void setUpdateSecurityGroup(Boolean updateSecurityGroup) {
+    this.updateSecurityGroup = updateSecurityGroup;
+  }
+
+  public ModifyAllowListRequest userAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+    return this;
+  }
+
+   /**
+   * Get userAllowList
+   * @return userAllowList
+  **/
+  @Schema(description = "")
+  public String getUserAllowList() {
+    return userAllowList;
+  }
+
+  public void setUserAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,16 +265,20 @@ public class ModifyAllowListRequest {
     }
     ModifyAllowListRequest modifyAllowListRequest = (ModifyAllowListRequest) o;
     return Objects.equals(this.allowList, modifyAllowListRequest.allowList) &&
+        Objects.equals(this.allowListCategory, modifyAllowListRequest.allowListCategory) &&
         Objects.equals(this.allowListDesc, modifyAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
         Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
-        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode);
+        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
+        Objects.equals(this.securityGroupBindInfos, modifyAllowListRequest.securityGroupBindInfos) &&
+        Objects.equals(this.updateSecurityGroup, modifyAllowListRequest.updateSecurityGroup) &&
+        Objects.equals(this.userAllowList, modifyAllowListRequest.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupBindInfos, updateSecurityGroup, userAllowList);
   }
 
 
@@ -188,11 +288,15 @@ public class ModifyAllowListRequest {
     sb.append("class ModifyAllowListRequest {\n");
     
     sb.append("    allowList: ").append(toIndentedString(allowList)).append("\n");
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
+    sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
+    sb.append("    updateSecurityGroup: ").append(toIndentedString(updateSecurityGroup)).append("\n");
+    sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

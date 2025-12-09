@@ -30,11 +30,122 @@ import javax.validation.Valid;
 
 
 public class DescribeAllowListsRequest {
+  @SerializedName("AllowListCategory")
+  private String allowListCategory = null;
+
+  @SerializedName("AllowListDesc")
+  private String allowListDesc = null;
+
+  @SerializedName("AllowListId")
+  private String allowListId = null;
+
+  @SerializedName("AllowListName")
+  private String allowListName = null;
+
+  @SerializedName("IPAddress")
+  private String ipAddress = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("PageNumber")
+  private Long pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Long pageSize = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
+
+  public DescribeAllowListsRequest allowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public String getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
+  }
+
+  public DescribeAllowListsRequest allowListDesc(String allowListDesc) {
+    this.allowListDesc = allowListDesc;
+    return this;
+  }
+
+   /**
+   * Get allowListDesc
+   * @return allowListDesc
+  **/
+  @Schema(description = "")
+  public String getAllowListDesc() {
+    return allowListDesc;
+  }
+
+  public void setAllowListDesc(String allowListDesc) {
+    this.allowListDesc = allowListDesc;
+  }
+
+  public DescribeAllowListsRequest allowListId(String allowListId) {
+    this.allowListId = allowListId;
+    return this;
+  }
+
+   /**
+   * Get allowListId
+   * @return allowListId
+  **/
+  @Schema(description = "")
+  public String getAllowListId() {
+    return allowListId;
+  }
+
+  public void setAllowListId(String allowListId) {
+    this.allowListId = allowListId;
+  }
+
+  public DescribeAllowListsRequest allowListName(String allowListName) {
+    this.allowListName = allowListName;
+    return this;
+  }
+
+   /**
+   * Get allowListName
+   * @return allowListName
+  **/
+  @Schema(description = "")
+  public String getAllowListName() {
+    return allowListName;
+  }
+
+  public void setAllowListName(String allowListName) {
+    this.allowListName = allowListName;
+  }
+
+  public DescribeAllowListsRequest ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+   /**
+   * Get ipAddress
+   * @return ipAddress
+  **/
+  @Schema(description = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
 
   public DescribeAllowListsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -52,6 +163,42 @@ public class DescribeAllowListsRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeAllowListsRequest pageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Long getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeAllowListsRequest pageSize(Long pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Long getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Long pageSize) {
+    this.pageSize = pageSize;
   }
 
   public DescribeAllowListsRequest regionId(String regionId) {
@@ -83,13 +230,20 @@ public class DescribeAllowListsRequest {
       return false;
     }
     DescribeAllowListsRequest describeAllowListsRequest = (DescribeAllowListsRequest) o;
-    return Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
+    return Objects.equals(this.allowListCategory, describeAllowListsRequest.allowListCategory) &&
+        Objects.equals(this.allowListDesc, describeAllowListsRequest.allowListDesc) &&
+        Objects.equals(this.allowListId, describeAllowListsRequest.allowListId) &&
+        Objects.equals(this.allowListName, describeAllowListsRequest.allowListName) &&
+        Objects.equals(this.ipAddress, describeAllowListsRequest.ipAddress) &&
+        Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeAllowListsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeAllowListsRequest.pageSize) &&
         Objects.equals(this.regionId, describeAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, regionId);
+    return Objects.hash(allowListCategory, allowListDesc, allowListId, allowListName, ipAddress, instanceId, pageNumber, pageSize, regionId);
   }
 
 
@@ -98,7 +252,14 @@ public class DescribeAllowListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAllowListsRequest {\n");
     
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
+    sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
+    sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
+    sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();

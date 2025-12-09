@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class InstanceInfoForDescribeBackupsOutput {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeBackupsOutput chargeDetail = null;
 
@@ -78,6 +81,32 @@ public class InstanceInfoForDescribeBackupsOutput {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public InstanceInfoForDescribeBackupsOutput allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public InstanceInfoForDescribeBackupsOutput addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public InstanceInfoForDescribeBackupsOutput chargeDetail(ChargeDetailForDescribeBackupsOutput chargeDetail) {
     this.chargeDetail = chargeDetail;
@@ -369,7 +398,8 @@ public class InstanceInfoForDescribeBackupsOutput {
       return false;
     }
     InstanceInfoForDescribeBackupsOutput instanceInfoForDescribeBackupsOutput = (InstanceInfoForDescribeBackupsOutput) o;
-    return Objects.equals(this.chargeDetail, instanceInfoForDescribeBackupsOutput.chargeDetail) &&
+    return Objects.equals(this.allowListIds, instanceInfoForDescribeBackupsOutput.allowListIds) &&
+        Objects.equals(this.chargeDetail, instanceInfoForDescribeBackupsOutput.chargeDetail) &&
         Objects.equals(this.dbEngineVersion, instanceInfoForDescribeBackupsOutput.dbEngineVersion) &&
         Objects.equals(this.instanceId, instanceInfoForDescribeBackupsOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceInfoForDescribeBackupsOutput.instanceName) &&
@@ -388,7 +418,7 @@ public class InstanceInfoForDescribeBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, memory, nodes, projectName, storageSpace, storageType, subnetId, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListIds, chargeDetail, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, memory, nodes, projectName, storageSpace, storageType, subnetId, VCPU, vpcId, zoneId);
   }
 
 
@@ -397,6 +427,7 @@ public class InstanceInfoForDescribeBackupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceInfoForDescribeBackupsOutput {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

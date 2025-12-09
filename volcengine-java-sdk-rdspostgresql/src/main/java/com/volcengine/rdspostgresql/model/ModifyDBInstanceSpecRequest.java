@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceSpecRequest {
+  @SerializedName("EstimateOnly")
+  private Boolean estimateOnly = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -45,11 +48,35 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("RollbackTime")
   private String rollbackTime = null;
 
+  @SerializedName("SpecifiedSwitchEndTime")
+  private String specifiedSwitchEndTime = null;
+
+  @SerializedName("SpecifiedSwitchStartTime")
+  private String specifiedSwitchStartTime = null;
+
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
   @SerializedName("StorageType")
   private String storageType = null;
+
+  public ModifyDBInstanceSpecRequest estimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+    return this;
+  }
+
+   /**
+   * Get estimateOnly
+   * @return estimateOnly
+  **/
+  @Schema(description = "")
+  public Boolean isEstimateOnly() {
+    return estimateOnly;
+  }
+
+  public void setEstimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+  }
 
   public ModifyDBInstanceSpecRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -133,6 +160,42 @@ public class ModifyDBInstanceSpecRequest {
     this.rollbackTime = rollbackTime;
   }
 
+  public ModifyDBInstanceSpecRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchEndTime
+   * @return specifiedSwitchEndTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchEndTime() {
+    return specifiedSwitchEndTime;
+  }
+
+  public void setSpecifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+  }
+
+  public ModifyDBInstanceSpecRequest specifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchStartTime
+   * @return specifiedSwitchStartTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchStartTime() {
+    return specifiedSwitchStartTime;
+  }
+
+  public void setSpecifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+  }
+
   public ModifyDBInstanceSpecRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -179,17 +242,20 @@ public class ModifyDBInstanceSpecRequest {
       return false;
     }
     ModifyDBInstanceSpecRequest modifyDBInstanceSpecRequest = (ModifyDBInstanceSpecRequest) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
+    return Objects.equals(this.estimateOnly, modifyDBInstanceSpecRequest.estimateOnly) &&
+        Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
         Objects.equals(this.modifyType, modifyDBInstanceSpecRequest.modifyType) &&
         Objects.equals(this.nodeInfo, modifyDBInstanceSpecRequest.nodeInfo) &&
         Objects.equals(this.rollbackTime, modifyDBInstanceSpecRequest.rollbackTime) &&
+        Objects.equals(this.specifiedSwitchEndTime, modifyDBInstanceSpecRequest.specifiedSwitchEndTime) &&
+        Objects.equals(this.specifiedSwitchStartTime, modifyDBInstanceSpecRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.storageSpace, modifyDBInstanceSpecRequest.storageSpace) &&
         Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, modifyType, nodeInfo, rollbackTime, storageSpace, storageType);
+    return Objects.hash(estimateOnly, instanceId, modifyType, nodeInfo, rollbackTime, specifiedSwitchEndTime, specifiedSwitchStartTime, storageSpace, storageType);
   }
 
 
@@ -198,10 +264,13 @@ public class ModifyDBInstanceSpecRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceSpecRequest {\n");
     
+    sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    modifyType: ").append(toIndentedString(modifyType)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    rollbackTime: ").append(toIndentedString(rollbackTime)).append("\n");
+    sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
+    sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");

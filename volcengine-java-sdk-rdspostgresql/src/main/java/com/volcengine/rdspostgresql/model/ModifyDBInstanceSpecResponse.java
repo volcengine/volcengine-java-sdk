@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdspostgresql.model.EstimationResultForModifyDBInstanceSpecOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,11 +31,33 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("EstimationResult")
+  private EstimationResultForModifyDBInstanceSpecOutput estimationResult = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("OrderId")
   private String orderId = null;
+
+  public ModifyDBInstanceSpecResponse estimationResult(EstimationResultForModifyDBInstanceSpecOutput estimationResult) {
+    this.estimationResult = estimationResult;
+    return this;
+  }
+
+   /**
+   * Get estimationResult
+   * @return estimationResult
+  **/
+  @Valid
+  @Schema(description = "")
+  public EstimationResultForModifyDBInstanceSpecOutput getEstimationResult() {
+    return estimationResult;
+  }
+
+  public void setEstimationResult(EstimationResultForModifyDBInstanceSpecOutput estimationResult) {
+    this.estimationResult = estimationResult;
+  }
 
   public ModifyDBInstanceSpecResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -82,13 +105,14 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
       return false;
     }
     ModifyDBInstanceSpecResponse modifyDBInstanceSpecResponse = (ModifyDBInstanceSpecResponse) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceSpecResponse.instanceId) &&
+    return Objects.equals(this.estimationResult, modifyDBInstanceSpecResponse.estimationResult) &&
+        Objects.equals(this.instanceId, modifyDBInstanceSpecResponse.instanceId) &&
         Objects.equals(this.orderId, modifyDBInstanceSpecResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, orderId);
+    return Objects.hash(estimationResult, instanceId, orderId);
   }
 
 
@@ -97,6 +121,7 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceSpecResponse {\n");
     
+    sb.append("    estimationResult: ").append(toIndentedString(estimationResult)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdspostgresql.model.ChargeInfoForCreateDBInstanceInput;
+import com.volcengine.rdspostgresql.model.MaintenanceWindowForCreateDBInstanceInput;
 import com.volcengine.rdspostgresql.model.NodeInfoForCreateDBInstanceInput;
 import com.volcengine.rdspostgresql.model.TagForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class CreateDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;
 
@@ -43,6 +47,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForCreateDBInstanceInput maintenanceWindow = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDBInstanceInput> nodeInfo = null;
@@ -64,6 +71,32 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public CreateDBInstanceRequest chargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
@@ -119,6 +152,25 @@ public class CreateDBInstanceRequest {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public CreateDBInstanceRequest maintenanceWindow(MaintenanceWindowForCreateDBInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForCreateDBInstanceInput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForCreateDBInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
   }
 
   public CreateDBInstanceRequest nodeInfo(List<NodeInfoForCreateDBInstanceInput> nodeInfo) {
@@ -278,9 +330,11 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
+    return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
+        Objects.equals(this.maintenanceWindow, createDBInstanceRequest.maintenanceWindow) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageSpace, createDBInstanceRequest.storageSpace) &&
@@ -292,7 +346,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeInfo, dbEngineVersion, instanceName, nodeInfo, projectName, storageSpace, storageType, subnetId, tags, vpcId);
+    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, instanceName, maintenanceWindow, nodeInfo, projectName, storageSpace, storageType, subnetId, tags, vpcId);
   }
 
 
@@ -301,9 +355,11 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");

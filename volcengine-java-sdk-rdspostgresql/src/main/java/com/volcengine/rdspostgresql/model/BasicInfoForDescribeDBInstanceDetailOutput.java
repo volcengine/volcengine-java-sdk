@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdspostgresql.model.InstanceTagForDescribeDBInstanceDetailOutput;
+import com.volcengine.rdspostgresql.model.MaintenanceWindowForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,6 +57,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
 
   @SerializedName("Memory")
   private Integer memory = null;
@@ -259,6 +263,25 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForDescribeDBInstanceDetailOutput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
@@ -585,6 +608,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceTag, basicInfoForDescribeDBInstanceDetailOutput.instanceTag) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
+        Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
@@ -606,7 +630,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceTag, instanceType, memory, nodeNumber, nodeSpec, projectName, regionId, storageDataUse, storageLogUse, storageSpace, storageTempUse, storageType, storageUse, storageWALUse, subnetId, updateTime, VCPU, vpcID, zoneId);
+    return Objects.hash(createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceTag, instanceType, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageDataUse, storageLogUse, storageSpace, storageTempUse, storageType, storageUse, storageWALUse, subnetId, updateTime, VCPU, vpcID, zoneId);
   }
 
 
@@ -623,6 +647,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceTag: ").append(toIndentedString(instanceTag)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");

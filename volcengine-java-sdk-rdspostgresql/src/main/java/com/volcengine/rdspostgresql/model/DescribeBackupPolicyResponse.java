@@ -33,11 +33,17 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
   @SerializedName("BackupRetentionPeriod")
   private Integer backupRetentionPeriod = null;
 
+  @SerializedName("DataIncrBackupPeriods")
+  private String dataIncrBackupPeriods = null;
+
   @SerializedName("FullBackupPeriod")
   private String fullBackupPeriod = null;
 
   @SerializedName("FullBackupTime")
   private String fullBackupTime = null;
+
+  @SerializedName("HourlyIncrBackupEnable")
+  private Boolean hourlyIncrBackupEnable = null;
 
   @SerializedName("IncrementBackupFrequency")
   private Integer incrementBackupFrequency = null;
@@ -64,6 +70,24 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   public void setBackupRetentionPeriod(Integer backupRetentionPeriod) {
     this.backupRetentionPeriod = backupRetentionPeriod;
+  }
+
+  public DescribeBackupPolicyResponse dataIncrBackupPeriods(String dataIncrBackupPeriods) {
+    this.dataIncrBackupPeriods = dataIncrBackupPeriods;
+    return this;
+  }
+
+   /**
+   * Get dataIncrBackupPeriods
+   * @return dataIncrBackupPeriods
+  **/
+  @Schema(description = "")
+  public String getDataIncrBackupPeriods() {
+    return dataIncrBackupPeriods;
+  }
+
+  public void setDataIncrBackupPeriods(String dataIncrBackupPeriods) {
+    this.dataIncrBackupPeriods = dataIncrBackupPeriods;
   }
 
   public DescribeBackupPolicyResponse fullBackupPeriod(String fullBackupPeriod) {
@@ -100,6 +124,24 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   public void setFullBackupTime(String fullBackupTime) {
     this.fullBackupTime = fullBackupTime;
+  }
+
+  public DescribeBackupPolicyResponse hourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
+    this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
+    return this;
+  }
+
+   /**
+   * Get hourlyIncrBackupEnable
+   * @return hourlyIncrBackupEnable
+  **/
+  @Schema(description = "")
+  public Boolean isHourlyIncrBackupEnable() {
+    return hourlyIncrBackupEnable;
+  }
+
+  public void setHourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
+    this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
   }
 
   public DescribeBackupPolicyResponse incrementBackupFrequency(Integer incrementBackupFrequency) {
@@ -167,8 +209,10 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     }
     DescribeBackupPolicyResponse describeBackupPolicyResponse = (DescribeBackupPolicyResponse) o;
     return Objects.equals(this.backupRetentionPeriod, describeBackupPolicyResponse.backupRetentionPeriod) &&
+        Objects.equals(this.dataIncrBackupPeriods, describeBackupPolicyResponse.dataIncrBackupPeriods) &&
         Objects.equals(this.fullBackupPeriod, describeBackupPolicyResponse.fullBackupPeriod) &&
         Objects.equals(this.fullBackupTime, describeBackupPolicyResponse.fullBackupTime) &&
+        Objects.equals(this.hourlyIncrBackupEnable, describeBackupPolicyResponse.hourlyIncrBackupEnable) &&
         Objects.equals(this.incrementBackupFrequency, describeBackupPolicyResponse.incrementBackupFrequency) &&
         Objects.equals(this.instanceId, describeBackupPolicyResponse.instanceId) &&
         Objects.equals(this.waLLogSpaceLimitEnable, describeBackupPolicyResponse.waLLogSpaceLimitEnable);
@@ -176,7 +220,7 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupRetentionPeriod, fullBackupPeriod, fullBackupTime, incrementBackupFrequency, instanceId, waLLogSpaceLimitEnable);
+    return Objects.hash(backupRetentionPeriod, dataIncrBackupPeriods, fullBackupPeriod, fullBackupTime, hourlyIncrBackupEnable, incrementBackupFrequency, instanceId, waLLogSpaceLimitEnable);
   }
 
 
@@ -186,8 +230,10 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     sb.append("class DescribeBackupPolicyResponse {\n");
     
     sb.append("    backupRetentionPeriod: ").append(toIndentedString(backupRetentionPeriod)).append("\n");
+    sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    fullBackupPeriod: ").append(toIndentedString(fullBackupPeriod)).append("\n");
     sb.append("    fullBackupTime: ").append(toIndentedString(fullBackupTime)).append("\n");
+    sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
     sb.append("    incrementBackupFrequency: ").append(toIndentedString(incrementBackupFrequency)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    waLLogSpaceLimitEnable: ").append(toIndentedString(waLLogSpaceLimitEnable)).append("\n");
