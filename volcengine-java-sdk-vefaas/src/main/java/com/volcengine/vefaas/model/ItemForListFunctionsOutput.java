@@ -63,7 +63,7 @@ public class ItemForListFunctionsOutput {
   private String description = null;
 
   @SerializedName("EnableApmplus")
-  private String enableApmplus = null;
+  private Boolean enableApmplus = null;
 
   @SerializedName("Envs")
   private List<EnvForListFunctionsOutput> envs = null;
@@ -284,7 +284,7 @@ public class ItemForListFunctionsOutput {
     this.description = description;
   }
 
-  public ItemForListFunctionsOutput enableApmplus(String enableApmplus) {
+  public ItemForListFunctionsOutput enableApmplus(Boolean enableApmplus) {
     this.enableApmplus = enableApmplus;
     return this;
   }
@@ -294,11 +294,11 @@ public class ItemForListFunctionsOutput {
    * @return enableApmplus
   **/
   @Schema(description = "")
-  public String getEnableApmplus() {
+  public Boolean isEnableApmplus() {
     return enableApmplus;
   }
 
-  public void setEnableApmplus(String enableApmplus) {
+  public void setEnableApmplus(Boolean enableApmplus) {
     this.enableApmplus = enableApmplus;
   }
 
