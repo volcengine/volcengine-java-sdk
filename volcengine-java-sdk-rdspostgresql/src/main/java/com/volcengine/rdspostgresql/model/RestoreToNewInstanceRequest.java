@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdspostgresql.model.ChargeInfoForRestoreToNewInstanceInput;
+import com.volcengine.rdspostgresql.model.MaintenanceWindowForRestoreToNewInstanceInput;
 import com.volcengine.rdspostgresql.model.NodeInfoForRestoreToNewInstanceInput;
 import com.volcengine.rdspostgresql.model.TagForRestoreToNewInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class RestoreToNewInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("BackupId")
   private String backupId = null;
 
@@ -43,6 +47,9 @@ public class RestoreToNewInstanceRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForRestoreToNewInstanceInput maintenanceWindow = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForRestoreToNewInstanceInput> nodeInfo = null;
@@ -70,6 +77,32 @@ public class RestoreToNewInstanceRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public RestoreToNewInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public RestoreToNewInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public RestoreToNewInstanceRequest backupId(String backupId) {
     this.backupId = backupId;
@@ -124,6 +157,25 @@ public class RestoreToNewInstanceRequest {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public RestoreToNewInstanceRequest maintenanceWindow(MaintenanceWindowForRestoreToNewInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForRestoreToNewInstanceInput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForRestoreToNewInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
   }
 
   public RestoreToNewInstanceRequest nodeInfo(List<NodeInfoForRestoreToNewInstanceInput> nodeInfo) {
@@ -320,9 +372,11 @@ public class RestoreToNewInstanceRequest {
       return false;
     }
     RestoreToNewInstanceRequest restoreToNewInstanceRequest = (RestoreToNewInstanceRequest) o;
-    return Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
+    return Objects.equals(this.allowListIds, restoreToNewInstanceRequest.allowListIds) &&
+        Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
         Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
         Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
+        Objects.equals(this.maintenanceWindow, restoreToNewInstanceRequest.maintenanceWindow) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
         Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
         Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
@@ -336,7 +390,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, chargeInfo, instanceName, nodeInfo, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, tags, vpcId);
+    return Objects.hash(allowListIds, backupId, chargeInfo, instanceName, maintenanceWindow, nodeInfo, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, tags, vpcId);
   }
 
 
@@ -345,9 +399,11 @@ public class RestoreToNewInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestoreToNewInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");

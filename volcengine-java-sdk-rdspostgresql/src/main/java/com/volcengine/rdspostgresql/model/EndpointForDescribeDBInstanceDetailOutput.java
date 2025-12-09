@@ -70,6 +70,12 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("ReadWriteMode")
   private String readWriteMode = null;
 
+  @SerializedName("ReadWriteProxyConnection")
+  private Integer readWriteProxyConnection = null;
+
+  @SerializedName("WriteNodeHaltWriting")
+  private Boolean writeNodeHaltWriting = null;
+
   public EndpointForDescribeDBInstanceDetailOutput address(List<AddressForDescribeDBInstanceDetailOutput> address) {
     this.address = address;
     return this;
@@ -304,6 +310,42 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     this.readWriteMode = readWriteMode;
   }
 
+  public EndpointForDescribeDBInstanceDetailOutput readWriteProxyConnection(Integer readWriteProxyConnection) {
+    this.readWriteProxyConnection = readWriteProxyConnection;
+    return this;
+  }
+
+   /**
+   * Get readWriteProxyConnection
+   * @return readWriteProxyConnection
+  **/
+  @Schema(description = "")
+  public Integer getReadWriteProxyConnection() {
+    return readWriteProxyConnection;
+  }
+
+  public void setReadWriteProxyConnection(Integer readWriteProxyConnection) {
+    this.readWriteProxyConnection = readWriteProxyConnection;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput writeNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+    return this;
+  }
+
+   /**
+   * Get writeNodeHaltWriting
+   * @return writeNodeHaltWriting
+  **/
+  @Schema(description = "")
+  public Boolean isWriteNodeHaltWriting() {
+    return writeNodeHaltWriting;
+  }
+
+  public void setWriteNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -325,12 +367,14 @@ public class EndpointForDescribeDBInstanceDetailOutput {
         Objects.equals(this.readOnlyNodeDistributionType, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeDistributionType) &&
         Objects.equals(this.readOnlyNodeMaxDelayTime, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeWeight) &&
-        Objects.equals(this.readWriteMode, endpointForDescribeDBInstanceDetailOutput.readWriteMode);
+        Objects.equals(this.readWriteMode, endpointForDescribeDBInstanceDetailOutput.readWriteMode) &&
+        Objects.equals(this.readWriteProxyConnection, endpointForDescribeDBInstanceDetailOutput.readWriteProxyConnection) &&
+        Objects.equals(this.writeNodeHaltWriting, endpointForDescribeDBInstanceDetailOutput.writeNodeHaltWriting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(address, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteProxyConnection, writeNodeHaltWriting);
   }
 
 
@@ -351,6 +395,8 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
+    sb.append("    readWriteProxyConnection: ").append(toIndentedString(readWriteProxyConnection)).append("\n");
+    sb.append("    writeNodeHaltWriting: ").append(toIndentedString(writeNodeHaltWriting)).append("\n");
     sb.append("}");
     return sb.toString();
   }

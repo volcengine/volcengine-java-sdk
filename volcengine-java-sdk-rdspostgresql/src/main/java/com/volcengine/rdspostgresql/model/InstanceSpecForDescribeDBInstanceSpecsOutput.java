@@ -48,6 +48,9 @@ public class InstanceSpecForDescribeDBInstanceSpecsOutput {
   @SerializedName("SpecStatus")
   private String specStatus = null;
 
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("VCPU")
   private Integer VCPU = null;
 
@@ -162,6 +165,24 @@ public class InstanceSpecForDescribeDBInstanceSpecsOutput {
     this.specStatus = specStatus;
   }
 
+  public InstanceSpecForDescribeDBInstanceSpecsOutput storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public InstanceSpecForDescribeDBInstanceSpecsOutput VCPU(Integer VCPU) {
     this.VCPU = VCPU;
     return this;
@@ -214,13 +235,14 @@ public class InstanceSpecForDescribeDBInstanceSpecsOutput {
         Objects.equals(this.regionId, instanceSpecForDescribeDBInstanceSpecsOutput.regionId) &&
         Objects.equals(this.specCode, instanceSpecForDescribeDBInstanceSpecsOutput.specCode) &&
         Objects.equals(this.specStatus, instanceSpecForDescribeDBInstanceSpecsOutput.specStatus) &&
+        Objects.equals(this.storageType, instanceSpecForDescribeDBInstanceSpecsOutput.storageType) &&
         Objects.equals(this.VCPU, instanceSpecForDescribeDBInstanceSpecsOutput.VCPU) &&
         Objects.equals(this.zoneId, instanceSpecForDescribeDBInstanceSpecsOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connection, dbEngineVersion, memory, regionId, specCode, specStatus, VCPU, zoneId);
+    return Objects.hash(connection, dbEngineVersion, memory, regionId, specCode, specStatus, storageType, VCPU, zoneId);
   }
 
 
@@ -235,6 +257,7 @@ public class InstanceSpecForDescribeDBInstanceSpecsOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    specCode: ").append(toIndentedString(specCode)).append("\n");
     sb.append("    specStatus: ").append(toIndentedString(specStatus)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    VCPU: ").append(toIndentedString(VCPU)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

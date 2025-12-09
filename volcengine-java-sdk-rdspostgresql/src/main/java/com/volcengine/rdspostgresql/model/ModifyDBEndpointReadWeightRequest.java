@@ -45,6 +45,9 @@ public class ModifyDBEndpointReadWeightRequest {
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForModifyDBEndpointReadWeightInput> readOnlyNodeWeight = null;
 
+  @SerializedName("WriteNodeHaltWriting")
+  private Boolean writeNodeHaltWriting = null;
+
   public ModifyDBEndpointReadWeightRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
     return this;
@@ -128,6 +131,24 @@ public class ModifyDBEndpointReadWeightRequest {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
   }
 
+  public ModifyDBEndpointReadWeightRequest writeNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+    return this;
+  }
+
+   /**
+   * Get writeNodeHaltWriting
+   * @return writeNodeHaltWriting
+  **/
+  @Schema(description = "")
+  public Boolean isWriteNodeHaltWriting() {
+    return writeNodeHaltWriting;
+  }
+
+  public void setWriteNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,12 +162,13 @@ public class ModifyDBEndpointReadWeightRequest {
     return Objects.equals(this.endpointId, modifyDBEndpointReadWeightRequest.endpointId) &&
         Objects.equals(this.instanceId, modifyDBEndpointReadWeightRequest.instanceId) &&
         Objects.equals(this.readOnlyNodeDistributionType, modifyDBEndpointReadWeightRequest.readOnlyNodeDistributionType) &&
-        Objects.equals(this.readOnlyNodeWeight, modifyDBEndpointReadWeightRequest.readOnlyNodeWeight);
+        Objects.equals(this.readOnlyNodeWeight, modifyDBEndpointReadWeightRequest.readOnlyNodeWeight) &&
+        Objects.equals(this.writeNodeHaltWriting, modifyDBEndpointReadWeightRequest.writeNodeHaltWriting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, instanceId, readOnlyNodeDistributionType, readOnlyNodeWeight);
+    return Objects.hash(endpointId, instanceId, readOnlyNodeDistributionType, readOnlyNodeWeight, writeNodeHaltWriting);
   }
 
 
@@ -159,6 +181,7 @@ public class ModifyDBEndpointReadWeightRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
+    sb.append("    writeNodeHaltWriting: ").append(toIndentedString(writeNodeHaltWriting)).append("\n");
     sb.append("}");
     return sb.toString();
   }

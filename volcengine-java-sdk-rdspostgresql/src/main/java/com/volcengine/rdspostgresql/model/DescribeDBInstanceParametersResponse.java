@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdspostgresql.model.NoneKernelParameterForDescribeDBInstanceParametersOutput;
 import com.volcengine.rdspostgresql.model.ParameterForDescribeDBInstanceParametersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -38,6 +39,9 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("NoneKernelParameters")
+  private List<NoneKernelParameterForDescribeDBInstanceParametersOutput> noneKernelParameters = null;
 
   @SerializedName("ParameterCount")
   private String parameterCount = null;
@@ -79,6 +83,33 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeDBInstanceParametersResponse noneKernelParameters(List<NoneKernelParameterForDescribeDBInstanceParametersOutput> noneKernelParameters) {
+    this.noneKernelParameters = noneKernelParameters;
+    return this;
+  }
+
+  public DescribeDBInstanceParametersResponse addNoneKernelParametersItem(NoneKernelParameterForDescribeDBInstanceParametersOutput noneKernelParametersItem) {
+    if (this.noneKernelParameters == null) {
+      this.noneKernelParameters = new ArrayList<NoneKernelParameterForDescribeDBInstanceParametersOutput>();
+    }
+    this.noneKernelParameters.add(noneKernelParametersItem);
+    return this;
+  }
+
+   /**
+   * Get noneKernelParameters
+   * @return noneKernelParameters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NoneKernelParameterForDescribeDBInstanceParametersOutput> getNoneKernelParameters() {
+    return noneKernelParameters;
+  }
+
+  public void setNoneKernelParameters(List<NoneKernelParameterForDescribeDBInstanceParametersOutput> noneKernelParameters) {
+    this.noneKernelParameters = noneKernelParameters;
   }
 
   public DescribeDBInstanceParametersResponse parameterCount(String parameterCount) {
@@ -138,13 +169,14 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
     DescribeDBInstanceParametersResponse describeDBInstanceParametersResponse = (DescribeDBInstanceParametersResponse) o;
     return Objects.equals(this.dbEngineVersion, describeDBInstanceParametersResponse.dbEngineVersion) &&
         Objects.equals(this.instanceId, describeDBInstanceParametersResponse.instanceId) &&
+        Objects.equals(this.noneKernelParameters, describeDBInstanceParametersResponse.noneKernelParameters) &&
         Objects.equals(this.parameterCount, describeDBInstanceParametersResponse.parameterCount) &&
         Objects.equals(this.parameters, describeDBInstanceParametersResponse.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbEngineVersion, instanceId, parameterCount, parameters);
+    return Objects.hash(dbEngineVersion, instanceId, noneKernelParameters, parameterCount, parameters);
   }
 
 
@@ -155,6 +187,7 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
     
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    noneKernelParameters: ").append(toIndentedString(noneKernelParameters)).append("\n");
     sb.append("    parameterCount: ").append(toIndentedString(parameterCount)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");

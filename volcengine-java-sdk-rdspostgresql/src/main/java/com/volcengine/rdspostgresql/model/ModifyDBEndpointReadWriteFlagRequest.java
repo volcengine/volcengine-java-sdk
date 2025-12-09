@@ -48,8 +48,14 @@ public class ModifyDBEndpointReadWriteFlagRequest {
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput> readOnlyNodeWeight = null;
 
+  @SerializedName("ReadWriteProxyConnection")
+  private Integer readWriteProxyConnection = null;
+
   @SerializedName("ReadWriteSpliting")
   private Boolean readWriteSpliting = null;
+
+  @SerializedName("WriteNodeHaltWriting")
+  private Boolean writeNodeHaltWriting = null;
 
   public ModifyDBEndpointReadWriteFlagRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
@@ -152,6 +158,24 @@ public class ModifyDBEndpointReadWriteFlagRequest {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
   }
 
+  public ModifyDBEndpointReadWriteFlagRequest readWriteProxyConnection(Integer readWriteProxyConnection) {
+    this.readWriteProxyConnection = readWriteProxyConnection;
+    return this;
+  }
+
+   /**
+   * Get readWriteProxyConnection
+   * @return readWriteProxyConnection
+  **/
+  @Schema(description = "")
+  public Integer getReadWriteProxyConnection() {
+    return readWriteProxyConnection;
+  }
+
+  public void setReadWriteProxyConnection(Integer readWriteProxyConnection) {
+    this.readWriteProxyConnection = readWriteProxyConnection;
+  }
+
   public ModifyDBEndpointReadWriteFlagRequest readWriteSpliting(Boolean readWriteSpliting) {
     this.readWriteSpliting = readWriteSpliting;
     return this;
@@ -171,6 +195,24 @@ public class ModifyDBEndpointReadWriteFlagRequest {
     this.readWriteSpliting = readWriteSpliting;
   }
 
+  public ModifyDBEndpointReadWriteFlagRequest writeNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+    return this;
+  }
+
+   /**
+   * Get writeNodeHaltWriting
+   * @return writeNodeHaltWriting
+  **/
+  @Schema(description = "")
+  public Boolean isWriteNodeHaltWriting() {
+    return writeNodeHaltWriting;
+  }
+
+  public void setWriteNodeHaltWriting(Boolean writeNodeHaltWriting) {
+    this.writeNodeHaltWriting = writeNodeHaltWriting;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,12 +228,14 @@ public class ModifyDBEndpointReadWriteFlagRequest {
         Objects.equals(this.readOnlyNodeDistributionType, modifyDBEndpointReadWriteFlagRequest.readOnlyNodeDistributionType) &&
         Objects.equals(this.readOnlyNodeMaxDelayTime, modifyDBEndpointReadWriteFlagRequest.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, modifyDBEndpointReadWriteFlagRequest.readOnlyNodeWeight) &&
-        Objects.equals(this.readWriteSpliting, modifyDBEndpointReadWriteFlagRequest.readWriteSpliting);
+        Objects.equals(this.readWriteProxyConnection, modifyDBEndpointReadWriteFlagRequest.readWriteProxyConnection) &&
+        Objects.equals(this.readWriteSpliting, modifyDBEndpointReadWriteFlagRequest.readWriteSpliting) &&
+        Objects.equals(this.writeNodeHaltWriting, modifyDBEndpointReadWriteFlagRequest.writeNodeHaltWriting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, instanceId, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteSpliting);
+    return Objects.hash(endpointId, instanceId, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteProxyConnection, readWriteSpliting, writeNodeHaltWriting);
   }
 
 
@@ -205,7 +249,9 @@ public class ModifyDBEndpointReadWriteFlagRequest {
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
     sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
+    sb.append("    readWriteProxyConnection: ").append(toIndentedString(readWriteProxyConnection)).append("\n");
     sb.append("    readWriteSpliting: ").append(toIndentedString(readWriteSpliting)).append("\n");
+    sb.append("    writeNodeHaltWriting: ").append(toIndentedString(writeNodeHaltWriting)).append("\n");
     sb.append("}");
     return sb.toString();
   }

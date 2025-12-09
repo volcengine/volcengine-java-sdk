@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +46,9 @@ public class CreateDBAccountRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("NotAllowPrivileges")
+  private List<String> notAllowPrivileges = null;
 
   public CreateDBAccountRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -139,6 +144,32 @@ public class CreateDBAccountRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateDBAccountRequest notAllowPrivileges(List<String> notAllowPrivileges) {
+    this.notAllowPrivileges = notAllowPrivileges;
+    return this;
+  }
+
+  public CreateDBAccountRequest addNotAllowPrivilegesItem(String notAllowPrivilegesItem) {
+    if (this.notAllowPrivileges == null) {
+      this.notAllowPrivileges = new ArrayList<String>();
+    }
+    this.notAllowPrivileges.add(notAllowPrivilegesItem);
+    return this;
+  }
+
+   /**
+   * Get notAllowPrivileges
+   * @return notAllowPrivileges
+  **/
+  @Schema(description = "")
+  public List<String> getNotAllowPrivileges() {
+    return notAllowPrivileges;
+  }
+
+  public void setNotAllowPrivileges(List<String> notAllowPrivileges) {
+    this.notAllowPrivileges = notAllowPrivileges;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -153,12 +184,13 @@ public class CreateDBAccountRequest {
         Objects.equals(this.accountPassword, createDBAccountRequest.accountPassword) &&
         Objects.equals(this.accountPrivileges, createDBAccountRequest.accountPrivileges) &&
         Objects.equals(this.accountType, createDBAccountRequest.accountType) &&
-        Objects.equals(this.instanceId, createDBAccountRequest.instanceId);
+        Objects.equals(this.instanceId, createDBAccountRequest.instanceId) &&
+        Objects.equals(this.notAllowPrivileges, createDBAccountRequest.notAllowPrivileges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPassword, accountPrivileges, accountType, instanceId);
+    return Objects.hash(accountName, accountPassword, accountPrivileges, accountType, instanceId, notAllowPrivileges);
   }
 
 
@@ -172,6 +204,7 @@ public class CreateDBAccountRequest {
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    notAllowPrivileges: ").append(toIndentedString(notAllowPrivileges)).append("\n");
     sb.append("}");
     return sb.toString();
   }
