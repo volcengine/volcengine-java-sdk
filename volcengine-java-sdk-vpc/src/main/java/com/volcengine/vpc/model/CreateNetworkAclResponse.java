@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateNetworkAclResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("NetworkAclId")
   private String networkAclId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateNetworkAclResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateNetworkAclResponse networkAclId(String networkAclId) {
     this.networkAclId = networkAclId;
@@ -82,13 +103,14 @@ public class CreateNetworkAclResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     CreateNetworkAclResponse createNetworkAclResponse = (CreateNetworkAclResponse) o;
-    return Objects.equals(this.networkAclId, createNetworkAclResponse.networkAclId) &&
+    return Objects.equals(this.asyncTaskId, createNetworkAclResponse.asyncTaskId) &&
+        Objects.equals(this.networkAclId, createNetworkAclResponse.networkAclId) &&
         Objects.equals(this.requestId, createNetworkAclResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkAclId, requestId);
+    return Objects.hash(asyncTaskId, networkAclId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateNetworkAclResponse extends com.volcengine.model.AbstractRespo
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNetworkAclResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

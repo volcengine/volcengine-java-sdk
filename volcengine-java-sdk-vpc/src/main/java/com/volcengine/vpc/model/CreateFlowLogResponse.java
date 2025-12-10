@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("FlowLogId")
   private String flowLogId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateFlowLogResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateFlowLogResponse flowLogId(String flowLogId) {
     this.flowLogId = flowLogId;
@@ -82,13 +103,14 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     CreateFlowLogResponse createFlowLogResponse = (CreateFlowLogResponse) o;
-    return Objects.equals(this.flowLogId, createFlowLogResponse.flowLogId) &&
+    return Objects.equals(this.asyncTaskId, createFlowLogResponse.asyncTaskId) &&
+        Objects.equals(this.flowLogId, createFlowLogResponse.flowLogId) &&
         Objects.equals(this.requestId, createFlowLogResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flowLogId, requestId);
+    return Objects.hash(asyncTaskId, flowLogId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFlowLogResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    flowLogId: ").append(toIndentedString(flowLogId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

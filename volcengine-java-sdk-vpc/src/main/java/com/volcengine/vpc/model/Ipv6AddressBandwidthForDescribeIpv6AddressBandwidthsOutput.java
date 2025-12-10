@@ -81,6 +81,9 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SpecificEgress")
+  private String specificEgress = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -378,6 +381,24 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     this.projectName = projectName;
   }
 
+  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput specificEgress(String specificEgress) {
+    this.specificEgress = specificEgress;
+    return this;
+  }
+
+   /**
+   * Get specificEgress
+   * @return specificEgress
+  **/
+  @Schema(description = "")
+  public String getSpecificEgress() {
+    return specificEgress;
+  }
+
+  public void setSpecificEgress(String specificEgress) {
+    this.specificEgress = specificEgress;
+  }
+
   public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput status(String status) {
     this.status = status;
     return this;
@@ -467,6 +488,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
         Objects.equals(this.networkType, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.networkType) &&
         Objects.equals(this.overdueTime, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.overdueTime) &&
         Objects.equals(this.projectName, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.projectName) &&
+        Objects.equals(this.specificEgress, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.specificEgress) &&
         Objects.equals(this.status, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.status) &&
         Objects.equals(this.tags, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.tags) &&
         Objects.equals(this.updatedAt, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.updatedAt);
@@ -474,7 +496,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, status, tags, updatedAt);
+    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, specificEgress, status, tags, updatedAt);
   }
 
 
@@ -499,6 +521,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    specificEgress: ").append(toIndentedString(specificEgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

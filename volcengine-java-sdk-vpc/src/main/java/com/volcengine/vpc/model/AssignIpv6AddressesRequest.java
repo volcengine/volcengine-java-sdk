@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssignIpv6AddressesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Ipv6Address")
   private List<String> ipv6Address = null;
 
@@ -40,6 +43,24 @@ public class AssignIpv6AddressesRequest {
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  public AssignIpv6AddressesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AssignIpv6AddressesRequest ipv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
@@ -114,14 +135,15 @@ public class AssignIpv6AddressesRequest {
       return false;
     }
     AssignIpv6AddressesRequest assignIpv6AddressesRequest = (AssignIpv6AddressesRequest) o;
-    return Objects.equals(this.ipv6Address, assignIpv6AddressesRequest.ipv6Address) &&
+    return Objects.equals(this.clientToken, assignIpv6AddressesRequest.clientToken) &&
+        Objects.equals(this.ipv6Address, assignIpv6AddressesRequest.ipv6Address) &&
         Objects.equals(this.ipv6AddressCount, assignIpv6AddressesRequest.ipv6AddressCount) &&
         Objects.equals(this.networkInterfaceId, assignIpv6AddressesRequest.networkInterfaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6Address, ipv6AddressCount, networkInterfaceId);
+    return Objects.hash(clientToken, ipv6Address, ipv6AddressCount, networkInterfaceId);
   }
 
 
@@ -130,6 +152,7 @@ public class AssignIpv6AddressesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssignIpv6AddressesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
     sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");

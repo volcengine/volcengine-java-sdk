@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DisassociateRouteTableResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DisassociateRouteTableResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DisassociateRouteTableResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DisassociateRouteTableResponse extends com.volcengine.model.Abstrac
       return false;
     }
     DisassociateRouteTableResponse disassociateRouteTableResponse = (DisassociateRouteTableResponse) o;
-    return Objects.equals(this.requestId, disassociateRouteTableResponse.requestId);
+    return Objects.equals(this.asyncTaskId, disassociateRouteTableResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, disassociateRouteTableResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DisassociateRouteTableResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class DisassociateRouteTableResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

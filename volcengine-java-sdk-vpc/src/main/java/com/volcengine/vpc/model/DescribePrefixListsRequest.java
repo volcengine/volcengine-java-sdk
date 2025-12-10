@@ -33,8 +33,51 @@ import javax.validation.Valid;
 
 
 public class DescribePrefixListsRequest {
-  @SerializedName("IpVersion")
-  private String ipVersion = null;
+  /**
+   * Gets or Sets ipVersion
+   */
+  @JsonAdapter(IpVersionEnum.Adapter.class)
+  public enum IpVersionEnum {
+    @SerializedName("IPv4")
+    IPV4("IPv4"),
+    @SerializedName("IPv6")
+    IPV6("IPv6");
+
+    private String value;
+
+    IpVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpVersionEnum fromValue(String input) {
+      for (IpVersionEnum b : IpVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpVersion")
+  private IpVersionEnum ipVersion = null;
 
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -60,7 +103,7 @@ public class DescribePrefixListsRequest {
   @SerializedName("TagFilters")
   private List<TagFilterForDescribePrefixListsInput> tagFilters = null;
 
-  public DescribePrefixListsRequest ipVersion(String ipVersion) {
+  public DescribePrefixListsRequest ipVersion(IpVersionEnum ipVersion) {
     this.ipVersion = ipVersion;
     return this;
   }
@@ -70,11 +113,11 @@ public class DescribePrefixListsRequest {
    * @return ipVersion
   **/
   @Schema(description = "")
-  public String getIpVersion() {
+  public IpVersionEnum getIpVersion() {
     return ipVersion;
   }
 
-  public void setIpVersion(String ipVersion) {
+  public void setIpVersion(IpVersionEnum ipVersion) {
     this.ipVersion = ipVersion;
   }
 

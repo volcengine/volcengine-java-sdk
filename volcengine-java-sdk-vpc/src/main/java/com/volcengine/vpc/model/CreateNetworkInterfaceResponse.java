@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateNetworkInterfaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateNetworkInterfaceResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateNetworkInterfaceResponse networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
@@ -82,13 +103,14 @@ public class CreateNetworkInterfaceResponse extends com.volcengine.model.Abstrac
       return false;
     }
     CreateNetworkInterfaceResponse createNetworkInterfaceResponse = (CreateNetworkInterfaceResponse) o;
-    return Objects.equals(this.networkInterfaceId, createNetworkInterfaceResponse.networkInterfaceId) &&
+    return Objects.equals(this.asyncTaskId, createNetworkInterfaceResponse.asyncTaskId) &&
+        Objects.equals(this.networkInterfaceId, createNetworkInterfaceResponse.networkInterfaceId) &&
         Objects.equals(this.requestId, createNetworkInterfaceResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId, requestId);
+    return Objects.hash(asyncTaskId, networkInterfaceId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateNetworkInterfaceResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNetworkInterfaceResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

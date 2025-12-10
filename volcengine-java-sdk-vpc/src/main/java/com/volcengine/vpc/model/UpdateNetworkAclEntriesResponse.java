@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class UpdateNetworkAclEntriesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public UpdateNetworkAclEntriesResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public UpdateNetworkAclEntriesResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class UpdateNetworkAclEntriesResponse extends com.volcengine.model.Abstra
       return false;
     }
     UpdateNetworkAclEntriesResponse updateNetworkAclEntriesResponse = (UpdateNetworkAclEntriesResponse) o;
-    return Objects.equals(this.requestId, updateNetworkAclEntriesResponse.requestId);
+    return Objects.equals(this.asyncTaskId, updateNetworkAclEntriesResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, updateNetworkAclEntriesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class UpdateNetworkAclEntriesResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateNetworkAclEntriesResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

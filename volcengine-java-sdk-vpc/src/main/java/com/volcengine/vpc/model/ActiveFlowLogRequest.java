@@ -45,8 +45,7 @@ public class ActiveFlowLogRequest {
    * Get clientToken
    * @return clientToken
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getClientToken() {
     return clientToken;
   }

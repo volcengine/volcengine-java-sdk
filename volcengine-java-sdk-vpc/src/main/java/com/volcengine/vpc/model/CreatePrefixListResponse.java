@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreatePrefixListResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("PrefixListId")
   private String prefixListId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreatePrefixListResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreatePrefixListResponse prefixListId(String prefixListId) {
     this.prefixListId = prefixListId;
@@ -82,13 +103,14 @@ public class CreatePrefixListResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     CreatePrefixListResponse createPrefixListResponse = (CreatePrefixListResponse) o;
-    return Objects.equals(this.prefixListId, createPrefixListResponse.prefixListId) &&
+    return Objects.equals(this.asyncTaskId, createPrefixListResponse.asyncTaskId) &&
+        Objects.equals(this.prefixListId, createPrefixListResponse.prefixListId) &&
         Objects.equals(this.requestId, createPrefixListResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefixListId, requestId);
+    return Objects.hash(asyncTaskId, prefixListId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreatePrefixListResponse extends com.volcengine.model.AbstractRespo
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrefixListResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

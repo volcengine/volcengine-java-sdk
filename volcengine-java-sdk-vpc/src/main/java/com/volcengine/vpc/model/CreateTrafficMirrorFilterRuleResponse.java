@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateTrafficMirrorFilterRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("TrafficMirrorFilterRuleId")
   private String trafficMirrorFilterRuleId = null;
+
+  public CreateTrafficMirrorFilterRuleResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateTrafficMirrorFilterRuleResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateTrafficMirrorFilterRuleResponse extends com.volcengine.model.
       return false;
     }
     CreateTrafficMirrorFilterRuleResponse createTrafficMirrorFilterRuleResponse = (CreateTrafficMirrorFilterRuleResponse) o;
-    return Objects.equals(this.requestId, createTrafficMirrorFilterRuleResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createTrafficMirrorFilterRuleResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createTrafficMirrorFilterRuleResponse.requestId) &&
         Objects.equals(this.trafficMirrorFilterRuleId, createTrafficMirrorFilterRuleResponse.trafficMirrorFilterRuleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, trafficMirrorFilterRuleId);
+    return Objects.hash(asyncTaskId, requestId, trafficMirrorFilterRuleId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateTrafficMirrorFilterRuleResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTrafficMirrorFilterRuleResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    trafficMirrorFilterRuleId: ").append(toIndentedString(trafficMirrorFilterRuleId)).append("\n");
     sb.append("}");

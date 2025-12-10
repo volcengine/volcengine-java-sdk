@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteRouteEntryResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteRouteEntryResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DeleteRouteEntryResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DeleteRouteEntryResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     DeleteRouteEntryResponse deleteRouteEntryResponse = (DeleteRouteEntryResponse) o;
-    return Objects.equals(this.requestId, deleteRouteEntryResponse.requestId);
+    return Objects.equals(this.asyncTaskId, deleteRouteEntryResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, deleteRouteEntryResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DeleteRouteEntryResponse extends com.volcengine.model.AbstractRespo
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRouteEntryResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

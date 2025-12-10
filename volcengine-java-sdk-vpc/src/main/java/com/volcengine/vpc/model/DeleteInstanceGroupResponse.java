@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteInstanceGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteInstanceGroupResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DeleteInstanceGroupResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DeleteInstanceGroupResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     DeleteInstanceGroupResponse deleteInstanceGroupResponse = (DeleteInstanceGroupResponse) o;
-    return Objects.equals(this.requestId, deleteInstanceGroupResponse.requestId);
+    return Objects.equals(this.asyncTaskId, deleteInstanceGroupResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, deleteInstanceGroupResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DeleteInstanceGroupResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInstanceGroupResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

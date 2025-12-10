@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ModifyInstanceGroupMembersResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public ModifyInstanceGroupMembersResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public ModifyInstanceGroupMembersResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class ModifyInstanceGroupMembersResponse extends com.volcengine.model.Abs
       return false;
     }
     ModifyInstanceGroupMembersResponse modifyInstanceGroupMembersResponse = (ModifyInstanceGroupMembersResponse) o;
-    return Objects.equals(this.requestId, modifyInstanceGroupMembersResponse.requestId);
+    return Objects.equals(this.asyncTaskId, modifyInstanceGroupMembersResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, modifyInstanceGroupMembersResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class ModifyInstanceGroupMembersResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceGroupMembersResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

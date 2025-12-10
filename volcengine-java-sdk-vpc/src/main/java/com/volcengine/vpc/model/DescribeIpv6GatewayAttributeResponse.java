@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeIpv6GatewayAttributeOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -53,6 +56,9 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeIpv6GatewayAttributeOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -204,6 +210,33 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
     this.status = status;
   }
 
+  public DescribeIpv6GatewayAttributeResponse tags(List<TagForDescribeIpv6GatewayAttributeOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeIpv6GatewayAttributeResponse addTagsItem(TagForDescribeIpv6GatewayAttributeOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeIpv6GatewayAttributeOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeIpv6GatewayAttributeOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeIpv6GatewayAttributeOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeIpv6GatewayAttributeResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -258,13 +291,14 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
         Objects.equals(this.requestId, describeIpv6GatewayAttributeResponse.requestId) &&
         Objects.equals(this.routeTableId, describeIpv6GatewayAttributeResponse.routeTableId) &&
         Objects.equals(this.status, describeIpv6GatewayAttributeResponse.status) &&
+        Objects.equals(this.tags, describeIpv6GatewayAttributeResponse.tags) &&
         Objects.equals(this.updateTime, describeIpv6GatewayAttributeResponse.updateTime) &&
         Objects.equals(this.vpcId, describeIpv6GatewayAttributeResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, ipv6GatewayId, name, projectName, requestId, routeTableId, status, updateTime, vpcId);
+    return Objects.hash(creationTime, description, ipv6GatewayId, name, projectName, requestId, routeTableId, status, tags, updateTime, vpcId);
   }
 
 
@@ -281,6 +315,7 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
