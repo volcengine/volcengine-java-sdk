@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateTrafficMirrorSessionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("OrderId")
   private String orderId = null;
 
@@ -38,6 +41,24 @@ public class CreateTrafficMirrorSessionResponse extends com.volcengine.model.Abs
 
   @SerializedName("TrafficMirrorSessionId")
   private String trafficMirrorSessionId = null;
+
+  public CreateTrafficMirrorSessionResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateTrafficMirrorSessionResponse orderId(String orderId) {
     this.orderId = orderId;
@@ -103,14 +124,15 @@ public class CreateTrafficMirrorSessionResponse extends com.volcengine.model.Abs
       return false;
     }
     CreateTrafficMirrorSessionResponse createTrafficMirrorSessionResponse = (CreateTrafficMirrorSessionResponse) o;
-    return Objects.equals(this.orderId, createTrafficMirrorSessionResponse.orderId) &&
+    return Objects.equals(this.asyncTaskId, createTrafficMirrorSessionResponse.asyncTaskId) &&
+        Objects.equals(this.orderId, createTrafficMirrorSessionResponse.orderId) &&
         Objects.equals(this.requestId, createTrafficMirrorSessionResponse.requestId) &&
         Objects.equals(this.trafficMirrorSessionId, createTrafficMirrorSessionResponse.trafficMirrorSessionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, requestId, trafficMirrorSessionId);
+    return Objects.hash(asyncTaskId, orderId, requestId, trafficMirrorSessionId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateTrafficMirrorSessionResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTrafficMirrorSessionResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    trafficMirrorSessionId: ").append(toIndentedString(trafficMirrorSessionId)).append("\n");

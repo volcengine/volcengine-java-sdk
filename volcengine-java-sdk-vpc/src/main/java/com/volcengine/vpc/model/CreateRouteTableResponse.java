@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateRouteTableResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
+
+  public CreateRouteTableResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateRouteTableResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateRouteTableResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     CreateRouteTableResponse createRouteTableResponse = (CreateRouteTableResponse) o;
-    return Objects.equals(this.requestId, createRouteTableResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createRouteTableResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createRouteTableResponse.requestId) &&
         Objects.equals(this.routeTableId, createRouteTableResponse.routeTableId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, routeTableId);
+    return Objects.hash(asyncTaskId, requestId, routeTableId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateRouteTableResponse extends com.volcengine.model.AbstractRespo
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRouteTableResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("}");

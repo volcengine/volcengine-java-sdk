@@ -93,16 +93,14 @@ public class ModifyTrafficMirrorFilterRuleAttributesRequest {
    */
   @JsonAdapter(ProtocolEnum.Adapter.class)
   public enum ProtocolEnum {
-    @SerializedName("icmp")
-    ICMP("icmp"),
-    @SerializedName("icmpv6")
-    ICMPV6("icmpv6"),
     @SerializedName("tcp")
     TCP("tcp"),
-    @SerializedName("udp")
-    UDP("udp"),
-    @SerializedName("all")
-    ALL("all");
+    @SerializedName(" udp")
+    _UDP(" udp"),
+    @SerializedName(" icmp")
+    _ICMP(" icmp"),
+    @SerializedName(" all")
+    _ALL(" all");
 
     private String value;
 
@@ -151,10 +149,10 @@ public class ModifyTrafficMirrorFilterRuleAttributesRequest {
    */
   @JsonAdapter(TrafficDirectionEnum.Adapter.class)
   public enum TrafficDirectionEnum {
-    @SerializedName("egress")
-    EGRESS("egress"),
     @SerializedName("ingress")
-    INGRESS("ingress");
+    INGRESS("ingress"),
+    @SerializedName("egress")
+    EGRESS("egress");
 
     private String value;
 

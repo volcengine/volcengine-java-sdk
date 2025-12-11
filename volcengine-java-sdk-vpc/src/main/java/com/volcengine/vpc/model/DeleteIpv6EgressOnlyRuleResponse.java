@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteIpv6EgressOnlyRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteIpv6EgressOnlyRuleResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DeleteIpv6EgressOnlyRuleResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DeleteIpv6EgressOnlyRuleResponse extends com.volcengine.model.Abstr
       return false;
     }
     DeleteIpv6EgressOnlyRuleResponse deleteIpv6EgressOnlyRuleResponse = (DeleteIpv6EgressOnlyRuleResponse) o;
-    return Objects.equals(this.requestId, deleteIpv6EgressOnlyRuleResponse.requestId);
+    return Objects.equals(this.asyncTaskId, deleteIpv6EgressOnlyRuleResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, deleteIpv6EgressOnlyRuleResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DeleteIpv6EgressOnlyRuleResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteIpv6EgressOnlyRuleResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

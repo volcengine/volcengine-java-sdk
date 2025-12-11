@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateVpcResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -38,6 +41,24 @@ public class CreateVpcResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateVpcResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateVpcResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -103,14 +124,15 @@ public class CreateVpcResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     CreateVpcResponse createVpcResponse = (CreateVpcResponse) o;
-    return Objects.equals(this.requestId, createVpcResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createVpcResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createVpcResponse.requestId) &&
         Objects.equals(this.routeTableId, createVpcResponse.routeTableId) &&
         Objects.equals(this.vpcId, createVpcResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, routeTableId, vpcId);
+    return Objects.hash(asyncTaskId, requestId, routeTableId, vpcId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateVpcResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpcResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

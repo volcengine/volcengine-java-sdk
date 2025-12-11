@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteIpv6GatewayResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteIpv6GatewayResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DeleteIpv6GatewayResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DeleteIpv6GatewayResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     DeleteIpv6GatewayResponse deleteIpv6GatewayResponse = (DeleteIpv6GatewayResponse) o;
-    return Objects.equals(this.requestId, deleteIpv6GatewayResponse.requestId);
+    return Objects.equals(this.asyncTaskId, deleteIpv6GatewayResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, deleteIpv6GatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DeleteIpv6GatewayResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteIpv6GatewayResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

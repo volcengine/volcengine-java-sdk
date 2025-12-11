@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class AllocateIpv6AddressBandwidthResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
+
+  @SerializedName("AllocationIds")
+  private List<String> allocationIds = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -52,6 +57,32 @@ public class AllocateIpv6AddressBandwidthResponse extends com.volcengine.model.A
 
   public void setAllocationId(String allocationId) {
     this.allocationId = allocationId;
+  }
+
+  public AllocateIpv6AddressBandwidthResponse allocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
+    return this;
+  }
+
+  public AllocateIpv6AddressBandwidthResponse addAllocationIdsItem(String allocationIdsItem) {
+    if (this.allocationIds == null) {
+      this.allocationIds = new ArrayList<String>();
+    }
+    this.allocationIds.add(allocationIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allocationIds
+   * @return allocationIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllocationIds() {
+    return allocationIds;
+  }
+
+  public void setAllocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
   }
 
   public AllocateIpv6AddressBandwidthResponse requestId(String requestId) {
@@ -83,12 +114,13 @@ public class AllocateIpv6AddressBandwidthResponse extends com.volcengine.model.A
     }
     AllocateIpv6AddressBandwidthResponse allocateIpv6AddressBandwidthResponse = (AllocateIpv6AddressBandwidthResponse) o;
     return Objects.equals(this.allocationId, allocateIpv6AddressBandwidthResponse.allocationId) &&
+        Objects.equals(this.allocationIds, allocateIpv6AddressBandwidthResponse.allocationIds) &&
         Objects.equals(this.requestId, allocateIpv6AddressBandwidthResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, requestId);
+    return Objects.hash(allocationId, allocationIds, requestId);
   }
 
 
@@ -98,6 +130,7 @@ public class AllocateIpv6AddressBandwidthResponse extends com.volcengine.model.A
     sb.append("class AllocateIpv6AddressBandwidthResponse {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    allocationIds: ").append(toIndentedString(allocationIds)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

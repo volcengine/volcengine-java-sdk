@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateIpv6EgressOnlyRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("Ipv6EgressOnlyRuleId")
   private String ipv6EgressOnlyRuleId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateIpv6EgressOnlyRuleResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateIpv6EgressOnlyRuleResponse ipv6EgressOnlyRuleId(String ipv6EgressOnlyRuleId) {
     this.ipv6EgressOnlyRuleId = ipv6EgressOnlyRuleId;
@@ -82,13 +103,14 @@ public class CreateIpv6EgressOnlyRuleResponse extends com.volcengine.model.Abstr
       return false;
     }
     CreateIpv6EgressOnlyRuleResponse createIpv6EgressOnlyRuleResponse = (CreateIpv6EgressOnlyRuleResponse) o;
-    return Objects.equals(this.ipv6EgressOnlyRuleId, createIpv6EgressOnlyRuleResponse.ipv6EgressOnlyRuleId) &&
+    return Objects.equals(this.asyncTaskId, createIpv6EgressOnlyRuleResponse.asyncTaskId) &&
+        Objects.equals(this.ipv6EgressOnlyRuleId, createIpv6EgressOnlyRuleResponse.ipv6EgressOnlyRuleId) &&
         Objects.equals(this.requestId, createIpv6EgressOnlyRuleResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6EgressOnlyRuleId, requestId);
+    return Objects.hash(asyncTaskId, ipv6EgressOnlyRuleId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateIpv6EgressOnlyRuleResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIpv6EgressOnlyRuleResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    ipv6EgressOnlyRuleId: ").append(toIndentedString(ipv6EgressOnlyRuleId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

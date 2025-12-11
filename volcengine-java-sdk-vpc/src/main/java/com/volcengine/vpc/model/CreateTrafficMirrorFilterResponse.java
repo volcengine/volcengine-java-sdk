@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateTrafficMirrorFilterResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("TrafficMirrorFilterId")
   private String trafficMirrorFilterId = null;
+
+  public CreateTrafficMirrorFilterResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateTrafficMirrorFilterResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateTrafficMirrorFilterResponse extends com.volcengine.model.Abst
       return false;
     }
     CreateTrafficMirrorFilterResponse createTrafficMirrorFilterResponse = (CreateTrafficMirrorFilterResponse) o;
-    return Objects.equals(this.requestId, createTrafficMirrorFilterResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createTrafficMirrorFilterResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createTrafficMirrorFilterResponse.requestId) &&
         Objects.equals(this.trafficMirrorFilterId, createTrafficMirrorFilterResponse.trafficMirrorFilterId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, trafficMirrorFilterId);
+    return Objects.hash(asyncTaskId, requestId, trafficMirrorFilterId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateTrafficMirrorFilterResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTrafficMirrorFilterResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    trafficMirrorFilterId: ").append(toIndentedString(trafficMirrorFilterId)).append("\n");
     sb.append("}");

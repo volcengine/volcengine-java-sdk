@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateHaVipResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("HaVipId")
   private String haVipId = null;
 
@@ -38,6 +41,24 @@ public class CreateHaVipResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateHaVipResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateHaVipResponse haVipId(String haVipId) {
     this.haVipId = haVipId;
@@ -103,14 +124,15 @@ public class CreateHaVipResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     CreateHaVipResponse createHaVipResponse = (CreateHaVipResponse) o;
-    return Objects.equals(this.haVipId, createHaVipResponse.haVipId) &&
+    return Objects.equals(this.asyncTaskId, createHaVipResponse.asyncTaskId) &&
+        Objects.equals(this.haVipId, createHaVipResponse.haVipId) &&
         Objects.equals(this.ipAddress, createHaVipResponse.ipAddress) &&
         Objects.equals(this.requestId, createHaVipResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipId, ipAddress, requestId);
+    return Objects.hash(asyncTaskId, haVipId, ipAddress, requestId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateHaVipResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateHaVipResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    haVipId: ").append(toIndentedString(haVipId)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

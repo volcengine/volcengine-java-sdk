@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyNetworkAclAttributesResponse
+ * TagForDescribeIpv6GatewayAttributeOutput
  */
 
 
 
-public class ModifyNetworkAclAttributesResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("AsyncTaskId")
-  private String asyncTaskId = null;
+public class TagForDescribeIpv6GatewayAttributeOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("RequestId")
-  private String requestId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public ModifyNetworkAclAttributesResponse asyncTaskId(String asyncTaskId) {
-    this.asyncTaskId = asyncTaskId;
+  public TagForDescribeIpv6GatewayAttributeOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get asyncTaskId
-   * @return asyncTaskId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getAsyncTaskId() {
-    return asyncTaskId;
+  public String getKey() {
+    return key;
   }
 
-  public void setAsyncTaskId(String asyncTaskId) {
-    this.asyncTaskId = asyncTaskId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ModifyNetworkAclAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
+  public TagForDescribeIpv6GatewayAttributeOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public String getValue() {
+    return value;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class ModifyNetworkAclAttributesResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyNetworkAclAttributesResponse modifyNetworkAclAttributesResponse = (ModifyNetworkAclAttributesResponse) o;
-    return Objects.equals(this.asyncTaskId, modifyNetworkAclAttributesResponse.asyncTaskId) &&
-        Objects.equals(this.requestId, modifyNetworkAclAttributesResponse.requestId);
+    TagForDescribeIpv6GatewayAttributeOutput tagForDescribeIpv6GatewayAttributeOutput = (TagForDescribeIpv6GatewayAttributeOutput) o;
+    return Objects.equals(this.key, tagForDescribeIpv6GatewayAttributeOutput.key) &&
+        Objects.equals(this.value, tagForDescribeIpv6GatewayAttributeOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskId, requestId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyNetworkAclAttributesResponse {\n");
+    sb.append("class TagForDescribeIpv6GatewayAttributeOutput {\n");
     
-    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AddressSource")
+  private String addressSource = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -66,6 +69,9 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("SpecificEgress")
+  private String specificEgress = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -80,6 +86,24 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
 
   @SerializedName("UsedIpCount")
   private Integer usedIpCount = null;
+
+  public DescribeIpAddressPoolAttributesResponse addressSource(String addressSource) {
+    this.addressSource = addressSource;
+    return this;
+  }
+
+   /**
+   * Get addressSource
+   * @return addressSource
+  **/
+  @Schema(description = "")
+  public String getAddressSource() {
+    return addressSource;
+  }
+
+  public void setAddressSource(String addressSource) {
+    this.addressSource = addressSource;
+  }
 
   public DescribeIpAddressPoolAttributesResponse businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
@@ -287,6 +311,24 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
     this.requestId = requestId;
   }
 
+  public DescribeIpAddressPoolAttributesResponse specificEgress(String specificEgress) {
+    this.specificEgress = specificEgress;
+    return this;
+  }
+
+   /**
+   * Get specificEgress
+   * @return specificEgress
+  **/
+  @Schema(description = "")
+  public String getSpecificEgress() {
+    return specificEgress;
+  }
+
+  public void setSpecificEgress(String specificEgress) {
+    this.specificEgress = specificEgress;
+  }
+
   public DescribeIpAddressPoolAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -396,7 +438,8 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
       return false;
     }
     DescribeIpAddressPoolAttributesResponse describeIpAddressPoolAttributesResponse = (DescribeIpAddressPoolAttributesResponse) o;
-    return Objects.equals(this.businessStatus, describeIpAddressPoolAttributesResponse.businessStatus) &&
+    return Objects.equals(this.addressSource, describeIpAddressPoolAttributesResponse.addressSource) &&
+        Objects.equals(this.businessStatus, describeIpAddressPoolAttributesResponse.businessStatus) &&
         Objects.equals(this.cidrBlocks, describeIpAddressPoolAttributesResponse.cidrBlocks) &&
         Objects.equals(this.creationTime, describeIpAddressPoolAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeIpAddressPoolAttributesResponse.deletedTime) &&
@@ -407,6 +450,7 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
         Objects.equals(this.overdueTime, describeIpAddressPoolAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeIpAddressPoolAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeIpAddressPoolAttributesResponse.requestId) &&
+        Objects.equals(this.specificEgress, describeIpAddressPoolAttributesResponse.specificEgress) &&
         Objects.equals(this.status, describeIpAddressPoolAttributesResponse.status) &&
         Objects.equals(this.tags, describeIpAddressPoolAttributesResponse.tags) &&
         Objects.equals(this.totalIpCount, describeIpAddressPoolAttributesResponse.totalIpCount) &&
@@ -416,7 +460,7 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, cidrBlocks, creationTime, deletedTime, description, ISP, ipAddressPoolId, name, overdueTime, projectName, requestId, status, tags, totalIpCount, updateTime, usedIpCount);
+    return Objects.hash(addressSource, businessStatus, cidrBlocks, creationTime, deletedTime, description, ISP, ipAddressPoolId, name, overdueTime, projectName, requestId, specificEgress, status, tags, totalIpCount, updateTime, usedIpCount);
   }
 
 
@@ -425,6 +469,7 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeIpAddressPoolAttributesResponse {\n");
     
+    sb.append("    addressSource: ").append(toIndentedString(addressSource)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    cidrBlocks: ").append(toIndentedString(cidrBlocks)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
@@ -436,6 +481,7 @@ public class DescribeIpAddressPoolAttributesResponse extends com.volcengine.mode
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    specificEgress: ").append(toIndentedString(specificEgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalIpCount: ").append(toIndentedString(totalIpCount)).append("\n");
