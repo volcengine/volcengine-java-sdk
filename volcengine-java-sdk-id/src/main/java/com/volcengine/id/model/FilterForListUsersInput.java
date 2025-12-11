@@ -48,6 +48,9 @@ public class FilterForListUsersInput {
   @SerializedName("LatestBrowser")
   private String latestBrowser = null;
 
+  @SerializedName("LatestLoginMethod")
+  private String latestLoginMethod = null;
+
   @SerializedName("Locale")
   private String locale = null;
 
@@ -175,6 +178,24 @@ public class FilterForListUsersInput {
 
   public void setLatestBrowser(String latestBrowser) {
     this.latestBrowser = latestBrowser;
+  }
+
+  public FilterForListUsersInput latestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
+    return this;
+  }
+
+   /**
+   * Get latestLoginMethod
+   * @return latestLoginMethod
+  **/
+  @Schema(description = "")
+  public String getLatestLoginMethod() {
+    return latestLoginMethod;
+  }
+
+  public void setLatestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
   }
 
   public FilterForListUsersInput locale(String locale) {
@@ -319,6 +340,7 @@ public class FilterForListUsersInput {
         Objects.equals(this.gender, filterForListUsersInput.gender) &&
         Objects.equals(this.givenName, filterForListUsersInput.givenName) &&
         Objects.equals(this.latestBrowser, filterForListUsersInput.latestBrowser) &&
+        Objects.equals(this.latestLoginMethod, filterForListUsersInput.latestLoginMethod) &&
         Objects.equals(this.locale, filterForListUsersInput.locale) &&
         Objects.equals(this.middleName, filterForListUsersInput.middleName) &&
         Objects.equals(this.name, filterForListUsersInput.name) &&
@@ -330,7 +352,7 @@ public class FilterForListUsersInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connection, email, familyName, gender, givenName, latestBrowser, locale, middleName, name, nickname, phoneNumber, preferredUsername, website);
+    return Objects.hash(connection, email, familyName, gender, givenName, latestBrowser, latestLoginMethod, locale, middleName, name, nickname, phoneNumber, preferredUsername, website);
   }
 
 
@@ -345,6 +367,7 @@ public class FilterForListUsersInput {
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
+    sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

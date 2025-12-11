@@ -64,6 +64,9 @@ public class UpdateUserPoolClientResponse extends com.volcengine.model.AbstractR
   @SerializedName("LoginPageUrl")
   private String loginPageUrl = null;
 
+  @SerializedName("LogoUri")
+  private String logoUri = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -289,6 +292,24 @@ public class UpdateUserPoolClientResponse extends com.volcengine.model.AbstractR
     this.loginPageUrl = loginPageUrl;
   }
 
+  public UpdateUserPoolClientResponse logoUri(String logoUri) {
+    this.logoUri = logoUri;
+    return this;
+  }
+
+   /**
+   * Get logoUri
+   * @return logoUri
+  **/
+  @Schema(description = "")
+  public String getLogoUri() {
+    return logoUri;
+  }
+
+  public void setLogoUri(String logoUri) {
+    this.logoUri = logoUri;
+  }
+
   public UpdateUserPoolClientResponse name(String name) {
     this.name = name;
     return this;
@@ -382,6 +403,7 @@ public class UpdateUserPoolClientResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.description, updateUserPoolClientResponse.description) &&
         Objects.equals(this.idToken, updateUserPoolClientResponse.idToken) &&
         Objects.equals(this.loginPageUrl, updateUserPoolClientResponse.loginPageUrl) &&
+        Objects.equals(this.logoUri, updateUserPoolClientResponse.logoUri) &&
         Objects.equals(this.name, updateUserPoolClientResponse.name) &&
         Objects.equals(this.refreshToken, updateUserPoolClientResponse.refreshToken) &&
         Objects.equals(this.uid, updateUserPoolClientResponse.uid) &&
@@ -390,7 +412,7 @@ public class UpdateUserPoolClientResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, idToken, loginPageUrl, name, refreshToken, uid, updateTime);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, idToken, loginPageUrl, logoUri, name, refreshToken, uid, updateTime);
   }
 
 
@@ -409,6 +431,7 @@ public class UpdateUserPoolClientResponse extends com.volcengine.model.AbstractR
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    loginPageUrl: ").append(toIndentedString(loginPageUrl)).append("\n");
+    sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");

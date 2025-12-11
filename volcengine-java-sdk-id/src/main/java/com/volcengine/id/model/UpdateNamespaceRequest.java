@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +32,40 @@ import javax.validation.Valid;
 
 
 public class UpdateNamespaceRequest {
+  @SerializedName("Associates")
+  private List<String> associates = null;
+
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("NamespaceName")
   private String namespaceName = null;
+
+  public UpdateNamespaceRequest associates(List<String> associates) {
+    this.associates = associates;
+    return this;
+  }
+
+  public UpdateNamespaceRequest addAssociatesItem(String associatesItem) {
+    if (this.associates == null) {
+      this.associates = new ArrayList<String>();
+    }
+    this.associates.add(associatesItem);
+    return this;
+  }
+
+   /**
+   * Get associates
+   * @return associates
+  **/
+  @Schema(description = "")
+  public List<String> getAssociates() {
+    return associates;
+  }
+
+  public void setAssociates(List<String> associates) {
+    this.associates = associates;
+  }
 
   public UpdateNamespaceRequest description(String description) {
     this.description = description;
@@ -63,7 +94,8 @@ public class UpdateNamespaceRequest {
    * Get namespaceName
    * @return namespaceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNamespaceName() {
     return namespaceName;
   }
@@ -82,13 +114,14 @@ public class UpdateNamespaceRequest {
       return false;
     }
     UpdateNamespaceRequest updateNamespaceRequest = (UpdateNamespaceRequest) o;
-    return Objects.equals(this.description, updateNamespaceRequest.description) &&
+    return Objects.equals(this.associates, updateNamespaceRequest.associates) &&
+        Objects.equals(this.description, updateNamespaceRequest.description) &&
         Objects.equals(this.namespaceName, updateNamespaceRequest.namespaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, namespaceName);
+    return Objects.hash(associates, description, namespaceName);
   }
 
 
@@ -97,6 +130,7 @@ public class UpdateNamespaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateNamespaceRequest {\n");
     
+    sb.append("    associates: ").append(toIndentedString(associates)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("}");

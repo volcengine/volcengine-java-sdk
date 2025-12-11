@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.BrandForCreateUserPoolInput;
 import com.volcengine.id.model.TagForCreateUserPoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateUserPoolRequest {
+  @SerializedName("Brand")
+  private BrandForCreateUserPoolInput brand = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -51,17 +55,45 @@ public class CreateUserPoolRequest {
   @SerializedName("RequiredSignUpAttributes")
   private List<String> requiredSignUpAttributes = null;
 
+  @SerializedName("SelfAccountRecoveryEnabled")
+  private Boolean selfAccountRecoveryEnabled = null;
+
   @SerializedName("SelfSignUpEnabled")
   private Boolean selfSignUpEnabled = null;
 
   @SerializedName("SignInAttributes")
   private List<String> signInAttributes = null;
 
+  @SerializedName("SignUpAutoVerificationEnabled")
+  private Boolean signUpAutoVerificationEnabled = null;
+
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
 
   @SerializedName("Tags")
   private List<TagForCreateUserPoolInput> tags = null;
+
+  @SerializedName("UnconfirmedUserSignInEnabled")
+  private Boolean unconfirmedUserSignInEnabled = null;
+
+  public CreateUserPoolRequest brand(BrandForCreateUserPoolInput brand) {
+    this.brand = brand;
+    return this;
+  }
+
+   /**
+   * Get brand
+   * @return brand
+  **/
+  @Valid
+  @Schema(description = "")
+  public BrandForCreateUserPoolInput getBrand() {
+    return brand;
+  }
+
+  public void setBrand(BrandForCreateUserPoolInput brand) {
+    this.brand = brand;
+  }
 
   public CreateUserPoolRequest description(String description) {
     this.description = description;
@@ -180,6 +212,24 @@ public class CreateUserPoolRequest {
     this.requiredSignUpAttributes = requiredSignUpAttributes;
   }
 
+  public CreateUserPoolRequest selfAccountRecoveryEnabled(Boolean selfAccountRecoveryEnabled) {
+    this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
+    return this;
+  }
+
+   /**
+   * Get selfAccountRecoveryEnabled
+   * @return selfAccountRecoveryEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSelfAccountRecoveryEnabled() {
+    return selfAccountRecoveryEnabled;
+  }
+
+  public void setSelfAccountRecoveryEnabled(Boolean selfAccountRecoveryEnabled) {
+    this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
+  }
+
   public CreateUserPoolRequest selfSignUpEnabled(Boolean selfSignUpEnabled) {
     this.selfSignUpEnabled = selfSignUpEnabled;
     return this;
@@ -222,6 +272,24 @@ public class CreateUserPoolRequest {
 
   public void setSignInAttributes(List<String> signInAttributes) {
     this.signInAttributes = signInAttributes;
+  }
+
+  public CreateUserPoolRequest signUpAutoVerificationEnabled(Boolean signUpAutoVerificationEnabled) {
+    this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
+    return this;
+  }
+
+   /**
+   * Get signUpAutoVerificationEnabled
+   * @return signUpAutoVerificationEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSignUpAutoVerificationEnabled() {
+    return signUpAutoVerificationEnabled;
+  }
+
+  public void setSignUpAutoVerificationEnabled(Boolean signUpAutoVerificationEnabled) {
+    this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
   public CreateUserPoolRequest smsPasswordlessSignInEnabled(Boolean smsPasswordlessSignInEnabled) {
@@ -269,6 +337,24 @@ public class CreateUserPoolRequest {
     this.tags = tags;
   }
 
+  public CreateUserPoolRequest unconfirmedUserSignInEnabled(Boolean unconfirmedUserSignInEnabled) {
+    this.unconfirmedUserSignInEnabled = unconfirmedUserSignInEnabled;
+    return this;
+  }
+
+   /**
+   * Get unconfirmedUserSignInEnabled
+   * @return unconfirmedUserSignInEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isUnconfirmedUserSignInEnabled() {
+    return unconfirmedUserSignInEnabled;
+  }
+
+  public void setUnconfirmedUserSignInEnabled(Boolean unconfirmedUserSignInEnabled) {
+    this.unconfirmedUserSignInEnabled = unconfirmedUserSignInEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -279,21 +365,25 @@ public class CreateUserPoolRequest {
       return false;
     }
     CreateUserPoolRequest createUserPoolRequest = (CreateUserPoolRequest) o;
-    return Objects.equals(this.description, createUserPoolRequest.description) &&
+    return Objects.equals(this.brand, createUserPoolRequest.brand) &&
+        Objects.equals(this.description, createUserPoolRequest.description) &&
         Objects.equals(this.emailPasswordlessSignInEnabled, createUserPoolRequest.emailPasswordlessSignInEnabled) &&
         Objects.equals(this.name, createUserPoolRequest.name) &&
         Objects.equals(this.passwordSignInEnabled, createUserPoolRequest.passwordSignInEnabled) &&
         Objects.equals(this.projectName, createUserPoolRequest.projectName) &&
         Objects.equals(this.requiredSignUpAttributes, createUserPoolRequest.requiredSignUpAttributes) &&
+        Objects.equals(this.selfAccountRecoveryEnabled, createUserPoolRequest.selfAccountRecoveryEnabled) &&
         Objects.equals(this.selfSignUpEnabled, createUserPoolRequest.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, createUserPoolRequest.signInAttributes) &&
+        Objects.equals(this.signUpAutoVerificationEnabled, createUserPoolRequest.signUpAutoVerificationEnabled) &&
         Objects.equals(this.smsPasswordlessSignInEnabled, createUserPoolRequest.smsPasswordlessSignInEnabled) &&
-        Objects.equals(this.tags, createUserPoolRequest.tags);
+        Objects.equals(this.tags, createUserPoolRequest.tags) &&
+        Objects.equals(this.unconfirmedUserSignInEnabled, createUserPoolRequest.unconfirmedUserSignInEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfSignUpEnabled, signInAttributes, smsPasswordlessSignInEnabled, tags);
+    return Objects.hash(brand, description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsPasswordlessSignInEnabled, tags, unconfirmedUserSignInEnabled);
   }
 
 
@@ -302,16 +392,20 @@ public class CreateUserPoolRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserPoolRequest {\n");
     
+    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailPasswordlessSignInEnabled: ").append(toIndentedString(emailPasswordlessSignInEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordSignInEnabled: ").append(toIndentedString(passwordSignInEnabled)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requiredSignUpAttributes: ").append(toIndentedString(requiredSignUpAttributes)).append("\n");
+    sb.append("    selfAccountRecoveryEnabled: ").append(toIndentedString(selfAccountRecoveryEnabled)).append("\n");
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
+    sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");
     sb.append("    smsPasswordlessSignInEnabled: ").append(toIndentedString(smsPasswordlessSignInEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    unconfirmedUserSignInEnabled: ").append(toIndentedString(unconfirmedUserSignInEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
