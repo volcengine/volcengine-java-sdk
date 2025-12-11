@@ -55,6 +55,9 @@ public class UpdateUserPoolClientRequest {
   @SerializedName("IdToken")
   private IdTokenForUpdateUserPoolClientInput idToken = null;
 
+  @SerializedName("LogoUri")
+  private String logoUri = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -224,6 +227,24 @@ public class UpdateUserPoolClientRequest {
     this.idToken = idToken;
   }
 
+  public UpdateUserPoolClientRequest logoUri(String logoUri) {
+    this.logoUri = logoUri;
+    return this;
+  }
+
+   /**
+   * Get logoUri
+   * @return logoUri
+  **/
+  @Schema(description = "")
+  public String getLogoUri() {
+    return logoUri;
+  }
+
+  public void setLogoUri(String logoUri) {
+    this.logoUri = logoUri;
+  }
+
   public UpdateUserPoolClientRequest name(String name) {
     this.name = name;
     return this;
@@ -297,6 +318,7 @@ public class UpdateUserPoolClientRequest {
         Objects.equals(this.clientUid, updateUserPoolClientRequest.clientUid) &&
         Objects.equals(this.description, updateUserPoolClientRequest.description) &&
         Objects.equals(this.idToken, updateUserPoolClientRequest.idToken) &&
+        Objects.equals(this.logoUri, updateUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, updateUserPoolClientRequest.name) &&
         Objects.equals(this.refreshToken, updateUserPoolClientRequest.refreshToken) &&
         Objects.equals(this.userPoolUid, updateUserPoolClientRequest.userPoolUid);
@@ -304,7 +326,7 @@ public class UpdateUserPoolClientRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, idToken, name, refreshToken, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, idToken, logoUri, name, refreshToken, userPoolUid);
   }
 
 
@@ -320,6 +342,7 @@ public class UpdateUserPoolClientRequest {
     sb.append("    clientUid: ").append(toIndentedString(clientUid)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
+    sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");

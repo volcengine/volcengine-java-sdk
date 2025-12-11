@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateNamespaceRequest {
+  @SerializedName("Associates")
+  private List<String> associates = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -44,6 +47,32 @@ public class CreateNamespaceRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateNamespaceInput> tags = null;
+
+  public CreateNamespaceRequest associates(List<String> associates) {
+    this.associates = associates;
+    return this;
+  }
+
+  public CreateNamespaceRequest addAssociatesItem(String associatesItem) {
+    if (this.associates == null) {
+      this.associates = new ArrayList<String>();
+    }
+    this.associates.add(associatesItem);
+    return this;
+  }
+
+   /**
+   * Get associates
+   * @return associates
+  **/
+  @Schema(description = "")
+  public List<String> getAssociates() {
+    return associates;
+  }
+
+  public void setAssociates(List<String> associates) {
+    this.associates = associates;
+  }
 
   public CreateNamespaceRequest description(String description) {
     this.description = description;
@@ -136,7 +165,8 @@ public class CreateNamespaceRequest {
       return false;
     }
     CreateNamespaceRequest createNamespaceRequest = (CreateNamespaceRequest) o;
-    return Objects.equals(this.description, createNamespaceRequest.description) &&
+    return Objects.equals(this.associates, createNamespaceRequest.associates) &&
+        Objects.equals(this.description, createNamespaceRequest.description) &&
         Objects.equals(this.namespaceName, createNamespaceRequest.namespaceName) &&
         Objects.equals(this.projectName, createNamespaceRequest.projectName) &&
         Objects.equals(this.tags, createNamespaceRequest.tags);
@@ -144,7 +174,7 @@ public class CreateNamespaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, namespaceName, projectName, tags);
+    return Objects.hash(associates, description, namespaceName, projectName, tags);
   }
 
 
@@ -153,6 +183,7 @@ public class CreateNamespaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNamespaceRequest {\n");
     
+    sb.append("    associates: ").append(toIndentedString(associates)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

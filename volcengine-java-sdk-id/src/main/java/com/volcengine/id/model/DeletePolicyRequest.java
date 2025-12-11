@@ -63,7 +63,8 @@ public class DeletePolicyRequest {
    * Get policyName
    * @return policyName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPolicyName() {
     return policyName;
   }
