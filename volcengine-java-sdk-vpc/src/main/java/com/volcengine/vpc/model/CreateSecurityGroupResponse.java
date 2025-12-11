@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateSecurityGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
+
+  public CreateSecurityGroupResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateSecurityGroupResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateSecurityGroupResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     CreateSecurityGroupResponse createSecurityGroupResponse = (CreateSecurityGroupResponse) o;
-    return Objects.equals(this.requestId, createSecurityGroupResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createSecurityGroupResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createSecurityGroupResponse.requestId) &&
         Objects.equals(this.securityGroupId, createSecurityGroupResponse.securityGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, securityGroupId);
+    return Objects.hash(asyncTaskId, requestId, securityGroupId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateSecurityGroupResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecurityGroupResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("}");

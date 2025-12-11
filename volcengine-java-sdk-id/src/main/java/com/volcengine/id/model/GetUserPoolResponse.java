@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.BrandForGetUserPoolOutput;
 import com.volcengine.id.model.TagForGetUserPoolOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Brand")
+  private BrandForGetUserPoolOutput brand = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -78,11 +82,17 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("SamlSignUpCallbackUrl")
   private String samlSignUpCallbackUrl = null;
 
+  @SerializedName("SelfAccountRecoveryEnabled")
+  private Boolean selfAccountRecoveryEnabled = null;
+
   @SerializedName("SelfSignUpEnabled")
   private Boolean selfSignUpEnabled = null;
 
   @SerializedName("SignInAttributes")
   private List<String> signInAttributes = null;
+
+  @SerializedName("SignUpAutoVerificationEnabled")
+  private Boolean signUpAutoVerificationEnabled = null;
 
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
@@ -108,8 +118,30 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Uid")
   private String uid = null;
 
+  @SerializedName("UnconfirmedUserSignInEnabled")
+  private Boolean unconfirmedUserSignInEnabled = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public GetUserPoolResponse brand(BrandForGetUserPoolOutput brand) {
+    this.brand = brand;
+    return this;
+  }
+
+   /**
+   * Get brand
+   * @return brand
+  **/
+  @Valid
+  @Schema(description = "")
+  public BrandForGetUserPoolOutput getBrand() {
+    return brand;
+  }
+
+  public void setBrand(BrandForGetUserPoolOutput brand) {
+    this.brand = brand;
+  }
 
   public GetUserPoolResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -389,6 +421,24 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     this.samlSignUpCallbackUrl = samlSignUpCallbackUrl;
   }
 
+  public GetUserPoolResponse selfAccountRecoveryEnabled(Boolean selfAccountRecoveryEnabled) {
+    this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
+    return this;
+  }
+
+   /**
+   * Get selfAccountRecoveryEnabled
+   * @return selfAccountRecoveryEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSelfAccountRecoveryEnabled() {
+    return selfAccountRecoveryEnabled;
+  }
+
+  public void setSelfAccountRecoveryEnabled(Boolean selfAccountRecoveryEnabled) {
+    this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
+  }
+
   public GetUserPoolResponse selfSignUpEnabled(Boolean selfSignUpEnabled) {
     this.selfSignUpEnabled = selfSignUpEnabled;
     return this;
@@ -431,6 +481,24 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   public void setSignInAttributes(List<String> signInAttributes) {
     this.signInAttributes = signInAttributes;
+  }
+
+  public GetUserPoolResponse signUpAutoVerificationEnabled(Boolean signUpAutoVerificationEnabled) {
+    this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
+    return this;
+  }
+
+   /**
+   * Get signUpAutoVerificationEnabled
+   * @return signUpAutoVerificationEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSignUpAutoVerificationEnabled() {
+    return signUpAutoVerificationEnabled;
+  }
+
+  public void setSignUpAutoVerificationEnabled(Boolean signUpAutoVerificationEnabled) {
+    this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
   public GetUserPoolResponse smsPasswordlessSignInEnabled(Boolean smsPasswordlessSignInEnabled) {
@@ -586,6 +654,24 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     this.uid = uid;
   }
 
+  public GetUserPoolResponse unconfirmedUserSignInEnabled(Boolean unconfirmedUserSignInEnabled) {
+    this.unconfirmedUserSignInEnabled = unconfirmedUserSignInEnabled;
+    return this;
+  }
+
+   /**
+   * Get unconfirmedUserSignInEnabled
+   * @return unconfirmedUserSignInEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isUnconfirmedUserSignInEnabled() {
+    return unconfirmedUserSignInEnabled;
+  }
+
+  public void setUnconfirmedUserSignInEnabled(Boolean unconfirmedUserSignInEnabled) {
+    this.unconfirmedUserSignInEnabled = unconfirmedUserSignInEnabled;
+  }
+
   public GetUserPoolResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -614,7 +700,8 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     GetUserPoolResponse getUserPoolResponse = (GetUserPoolResponse) o;
-    return Objects.equals(this.createTime, getUserPoolResponse.createTime) &&
+    return Objects.equals(this.brand, getUserPoolResponse.brand) &&
+        Objects.equals(this.createTime, getUserPoolResponse.createTime) &&
         Objects.equals(this.description, getUserPoolResponse.description) &&
         Objects.equals(this.discoveryUrl, getUserPoolResponse.discoveryUrl) &&
         Objects.equals(this.domain, getUserPoolResponse.domain) &&
@@ -629,8 +716,10 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.requiredSignUpAttributes, getUserPoolResponse.requiredSignUpAttributes) &&
         Objects.equals(this.samlLoginCallbackUrl, getUserPoolResponse.samlLoginCallbackUrl) &&
         Objects.equals(this.samlSignUpCallbackUrl, getUserPoolResponse.samlSignUpCallbackUrl) &&
+        Objects.equals(this.selfAccountRecoveryEnabled, getUserPoolResponse.selfAccountRecoveryEnabled) &&
         Objects.equals(this.selfSignUpEnabled, getUserPoolResponse.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, getUserPoolResponse.signInAttributes) &&
+        Objects.equals(this.signUpAutoVerificationEnabled, getUserPoolResponse.signUpAutoVerificationEnabled) &&
         Objects.equals(this.smsPasswordlessSignInEnabled, getUserPoolResponse.smsPasswordlessSignInEnabled) &&
         Objects.equals(this.tags, getUserPoolResponse.tags) &&
         Objects.equals(this.tokenSigningKeyUrl, getUserPoolResponse.tokenSigningKeyUrl) &&
@@ -639,12 +728,13 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.totalUsers, getUserPoolResponse.totalUsers) &&
         Objects.equals(this.trn, getUserPoolResponse.trn) &&
         Objects.equals(this.uid, getUserPoolResponse.uid) &&
+        Objects.equals(this.unconfirmedUserSignInEnabled, getUserPoolResponse.unconfirmedUserSignInEnabled) &&
         Objects.equals(this.updateTime, getUserPoolResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, discoveryUrl, domain, emailPasswordlessSignInEnabled, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfSignUpEnabled, signInAttributes, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, totalClients, totalConnections, totalUsers, trn, uid, updateTime);
+    return Objects.hash(brand, createTime, description, discoveryUrl, domain, emailPasswordlessSignInEnabled, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, totalClients, totalConnections, totalUsers, trn, uid, unconfirmedUserSignInEnabled, updateTime);
   }
 
 
@@ -653,6 +743,7 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetUserPoolResponse {\n");
     
+    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
@@ -668,8 +759,10 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    requiredSignUpAttributes: ").append(toIndentedString(requiredSignUpAttributes)).append("\n");
     sb.append("    samlLoginCallbackUrl: ").append(toIndentedString(samlLoginCallbackUrl)).append("\n");
     sb.append("    samlSignUpCallbackUrl: ").append(toIndentedString(samlSignUpCallbackUrl)).append("\n");
+    sb.append("    selfAccountRecoveryEnabled: ").append(toIndentedString(selfAccountRecoveryEnabled)).append("\n");
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
+    sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");
     sb.append("    smsPasswordlessSignInEnabled: ").append(toIndentedString(smsPasswordlessSignInEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tokenSigningKeyUrl: ").append(toIndentedString(tokenSigningKeyUrl)).append("\n");
@@ -678,6 +771,7 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    totalUsers: ").append(toIndentedString(totalUsers)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    unconfirmedUserSignInEnabled: ").append(toIndentedString(unconfirmedUserSignInEnabled)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

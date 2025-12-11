@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ConfigForGetOauth2CredentialProviderOutput;
+import com.volcengine.id.model.DcrClientInfoForGetOauth2CredentialProviderOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -39,6 +40,9 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
 
   @SerializedName("CredentialProviderTrn")
   private String credentialProviderTrn = null;
+
+  @SerializedName("DcrClientInfo")
+  private DcrClientInfoForGetOauth2CredentialProviderOutput dcrClientInfo = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -108,6 +112,25 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
 
   public void setCredentialProviderTrn(String credentialProviderTrn) {
     this.credentialProviderTrn = credentialProviderTrn;
+  }
+
+  public GetOauth2CredentialProviderResponse dcrClientInfo(DcrClientInfoForGetOauth2CredentialProviderOutput dcrClientInfo) {
+    this.dcrClientInfo = dcrClientInfo;
+    return this;
+  }
+
+   /**
+   * Get dcrClientInfo
+   * @return dcrClientInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public DcrClientInfoForGetOauth2CredentialProviderOutput getDcrClientInfo() {
+    return dcrClientInfo;
+  }
+
+  public void setDcrClientInfo(DcrClientInfoForGetOauth2CredentialProviderOutput dcrClientInfo) {
+    this.dcrClientInfo = dcrClientInfo;
   }
 
   public GetOauth2CredentialProviderResponse name(String name) {
@@ -213,6 +236,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
     return Objects.equals(this.config, getOauth2CredentialProviderResponse.config) &&
         Objects.equals(this.createdAt, getOauth2CredentialProviderResponse.createdAt) &&
         Objects.equals(this.credentialProviderTrn, getOauth2CredentialProviderResponse.credentialProviderTrn) &&
+        Objects.equals(this.dcrClientInfo, getOauth2CredentialProviderResponse.dcrClientInfo) &&
         Objects.equals(this.name, getOauth2CredentialProviderResponse.name) &&
         Objects.equals(this.poolName, getOauth2CredentialProviderResponse.poolName) &&
         Objects.equals(this.secretTrn, getOauth2CredentialProviderResponse.secretTrn) &&
@@ -222,7 +246,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, createdAt, credentialProviderTrn, name, poolName, secretTrn, updatedAt, vendor);
+    return Objects.hash(config, createdAt, credentialProviderTrn, dcrClientInfo, name, poolName, secretTrn, updatedAt, vendor);
   }
 
 
@@ -234,6 +258,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
+    sb.append("    dcrClientInfo: ").append(toIndentedString(dcrClientInfo)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
     sb.append("    secretTrn: ").append(toIndentedString(secretTrn)).append("\n");

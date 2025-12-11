@@ -46,7 +46,7 @@ public class DescribeTrafficMirrorTargetsRequest {
   private List<TagFilterForDescribeTrafficMirrorTargetsInput> tagFilters = null;
 
   @SerializedName("TrafficMirrorTargetIds")
-  private String trafficMirrorTargetIds = null;
+  private List<String> trafficMirrorTargetIds = null;
 
   @SerializedName("TrafficMirrorTargetName")
   private String trafficMirrorTargetName = null;
@@ -132,8 +132,16 @@ public class DescribeTrafficMirrorTargetsRequest {
     this.tagFilters = tagFilters;
   }
 
-  public DescribeTrafficMirrorTargetsRequest trafficMirrorTargetIds(String trafficMirrorTargetIds) {
+  public DescribeTrafficMirrorTargetsRequest trafficMirrorTargetIds(List<String> trafficMirrorTargetIds) {
     this.trafficMirrorTargetIds = trafficMirrorTargetIds;
+    return this;
+  }
+
+  public DescribeTrafficMirrorTargetsRequest addTrafficMirrorTargetIdsItem(String trafficMirrorTargetIdsItem) {
+    if (this.trafficMirrorTargetIds == null) {
+      this.trafficMirrorTargetIds = new ArrayList<String>();
+    }
+    this.trafficMirrorTargetIds.add(trafficMirrorTargetIdsItem);
     return this;
   }
 
@@ -142,11 +150,11 @@ public class DescribeTrafficMirrorTargetsRequest {
    * @return trafficMirrorTargetIds
   **/
   @Schema(description = "")
-  public String getTrafficMirrorTargetIds() {
+  public List<String> getTrafficMirrorTargetIds() {
     return trafficMirrorTargetIds;
   }
 
-  public void setTrafficMirrorTargetIds(String trafficMirrorTargetIds) {
+  public void setTrafficMirrorTargetIds(List<String> trafficMirrorTargetIds) {
     this.trafficMirrorTargetIds = trafficMirrorTargetIds;
   }
 

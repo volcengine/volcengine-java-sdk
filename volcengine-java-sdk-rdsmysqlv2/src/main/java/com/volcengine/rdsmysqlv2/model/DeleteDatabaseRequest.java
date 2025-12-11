@@ -36,6 +36,9 @@ public class DeleteDatabaseRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("KeepAccountPrivileges")
+  private Boolean keepAccountPrivileges = null;
+
   public DeleteDatabaseRequest dbName(String dbName) {
     this.dbName = dbName;
     return this;
@@ -74,6 +77,24 @@ public class DeleteDatabaseRequest {
     this.instanceId = instanceId;
   }
 
+  public DeleteDatabaseRequest keepAccountPrivileges(Boolean keepAccountPrivileges) {
+    this.keepAccountPrivileges = keepAccountPrivileges;
+    return this;
+  }
+
+   /**
+   * Get keepAccountPrivileges
+   * @return keepAccountPrivileges
+  **/
+  @Schema(description = "")
+  public Boolean isKeepAccountPrivileges() {
+    return keepAccountPrivileges;
+  }
+
+  public void setKeepAccountPrivileges(Boolean keepAccountPrivileges) {
+    this.keepAccountPrivileges = keepAccountPrivileges;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class DeleteDatabaseRequest {
     }
     DeleteDatabaseRequest deleteDatabaseRequest = (DeleteDatabaseRequest) o;
     return Objects.equals(this.dbName, deleteDatabaseRequest.dbName) &&
-        Objects.equals(this.instanceId, deleteDatabaseRequest.instanceId);
+        Objects.equals(this.instanceId, deleteDatabaseRequest.instanceId) &&
+        Objects.equals(this.keepAccountPrivileges, deleteDatabaseRequest.keepAccountPrivileges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbName, instanceId);
+    return Objects.hash(dbName, instanceId, keepAccountPrivileges);
   }
 
 
@@ -101,6 +123,7 @@ public class DeleteDatabaseRequest {
     
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    keepAccountPrivileges: ").append(toIndentedString(keepAccountPrivileges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

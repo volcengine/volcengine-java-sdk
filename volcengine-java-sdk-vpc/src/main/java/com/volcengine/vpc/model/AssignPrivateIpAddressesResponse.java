@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssignPrivateIpAddressesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
@@ -40,6 +43,24 @@ public class AssignPrivateIpAddressesResponse extends com.volcengine.model.Abstr
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public AssignPrivateIpAddressesResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public AssignPrivateIpAddressesResponse networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
@@ -113,14 +134,15 @@ public class AssignPrivateIpAddressesResponse extends com.volcengine.model.Abstr
       return false;
     }
     AssignPrivateIpAddressesResponse assignPrivateIpAddressesResponse = (AssignPrivateIpAddressesResponse) o;
-    return Objects.equals(this.networkInterfaceId, assignPrivateIpAddressesResponse.networkInterfaceId) &&
+    return Objects.equals(this.asyncTaskId, assignPrivateIpAddressesResponse.asyncTaskId) &&
+        Objects.equals(this.networkInterfaceId, assignPrivateIpAddressesResponse.networkInterfaceId) &&
         Objects.equals(this.privateIpSet, assignPrivateIpAddressesResponse.privateIpSet) &&
         Objects.equals(this.requestId, assignPrivateIpAddressesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId, privateIpSet, requestId);
+    return Objects.hash(asyncTaskId, networkInterfaceId, privateIpSet, requestId);
   }
 
 
@@ -129,6 +151,7 @@ public class AssignPrivateIpAddressesResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class AssignPrivateIpAddressesResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    privateIpSet: ").append(toIndentedString(privateIpSet)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

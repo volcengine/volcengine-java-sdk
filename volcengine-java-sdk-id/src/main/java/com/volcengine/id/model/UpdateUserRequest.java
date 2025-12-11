@@ -60,6 +60,9 @@ public class UpdateUserRequest {
   @SerializedName("Nickname")
   private String nickname = null;
 
+  @SerializedName("Password")
+  private String password = null;
+
   @SerializedName("PhoneNumber")
   private String phoneNumber = null;
 
@@ -271,6 +274,24 @@ public class UpdateUserRequest {
 
   public void setNickname(String nickname) {
     this.nickname = nickname;
+  }
+
+  public UpdateUserRequest password(String password) {
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Get password
+   * @return password
+  **/
+  @Schema(description = "")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public UpdateUserRequest phoneNumber(String phoneNumber) {
@@ -493,6 +514,7 @@ public class UpdateUserRequest {
         Objects.equals(this.middleName, updateUserRequest.middleName) &&
         Objects.equals(this.name, updateUserRequest.name) &&
         Objects.equals(this.nickname, updateUserRequest.nickname) &&
+        Objects.equals(this.password, updateUserRequest.password) &&
         Objects.equals(this.phoneNumber, updateUserRequest.phoneNumber) &&
         Objects.equals(this.phoneNumberVerified, updateUserRequest.phoneNumberVerified) &&
         Objects.equals(this.picture, updateUserRequest.picture) &&
@@ -508,7 +530,7 @@ public class UpdateUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, userState, userUid, website, zoneinfo);
+    return Objects.hash(birthdate, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, userState, userUid, website, zoneinfo);
   }
 
 
@@ -527,6 +549,7 @@ public class UpdateUserRequest {
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    phoneNumberVerified: ").append(toIndentedString(phoneNumberVerified)).append("\n");
     sb.append("    picture: ").append(toIndentedString(picture)).append("\n");

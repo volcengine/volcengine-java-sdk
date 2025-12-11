@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class AttachNetworkInterfaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public AttachNetworkInterfaceResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public AttachNetworkInterfaceResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class AttachNetworkInterfaceResponse extends com.volcengine.model.Abstrac
       return false;
     }
     AttachNetworkInterfaceResponse attachNetworkInterfaceResponse = (AttachNetworkInterfaceResponse) o;
-    return Objects.equals(this.requestId, attachNetworkInterfaceResponse.requestId);
+    return Objects.equals(this.asyncTaskId, attachNetworkInterfaceResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, attachNetworkInterfaceResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class AttachNetworkInterfaceResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachNetworkInterfaceResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

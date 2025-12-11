@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssignPrivateIpAddressesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
@@ -40,6 +43,24 @@ public class AssignPrivateIpAddressesRequest {
 
   @SerializedName("SecondaryPrivateIpAddressCount")
   private Integer secondaryPrivateIpAddressCount = null;
+
+  public AssignPrivateIpAddressesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AssignPrivateIpAddressesRequest networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
@@ -114,14 +135,15 @@ public class AssignPrivateIpAddressesRequest {
       return false;
     }
     AssignPrivateIpAddressesRequest assignPrivateIpAddressesRequest = (AssignPrivateIpAddressesRequest) o;
-    return Objects.equals(this.networkInterfaceId, assignPrivateIpAddressesRequest.networkInterfaceId) &&
+    return Objects.equals(this.clientToken, assignPrivateIpAddressesRequest.clientToken) &&
+        Objects.equals(this.networkInterfaceId, assignPrivateIpAddressesRequest.networkInterfaceId) &&
         Objects.equals(this.privateIpAddress, assignPrivateIpAddressesRequest.privateIpAddress) &&
         Objects.equals(this.secondaryPrivateIpAddressCount, assignPrivateIpAddressesRequest.secondaryPrivateIpAddressCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId, privateIpAddress, secondaryPrivateIpAddressCount);
+    return Objects.hash(clientToken, networkInterfaceId, privateIpAddress, secondaryPrivateIpAddressCount);
   }
 
 
@@ -130,6 +152,7 @@ public class AssignPrivateIpAddressesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssignPrivateIpAddressesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    secondaryPrivateIpAddressCount: ").append(toIndentedString(secondaryPrivateIpAddressCount)).append("\n");

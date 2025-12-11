@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssociateVpcCidrBlockResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -40,6 +43,24 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public AssociateVpcCidrBlockResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public AssociateVpcCidrBlockResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -113,14 +134,15 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
       return false;
     }
     AssociateVpcCidrBlockResponse associateVpcCidrBlockResponse = (AssociateVpcCidrBlockResponse) o;
-    return Objects.equals(this.requestId, associateVpcCidrBlockResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, associateVpcCidrBlockResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, associateVpcCidrBlockResponse.requestId) &&
         Objects.equals(this.secondaryCidrBlocks, associateVpcCidrBlockResponse.secondaryCidrBlocks) &&
         Objects.equals(this.vpcId, associateVpcCidrBlockResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, secondaryCidrBlocks, vpcId);
+    return Objects.hash(asyncTaskId, requestId, secondaryCidrBlocks, vpcId);
   }
 
 
@@ -129,6 +151,7 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateVpcCidrBlockResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    secondaryCidrBlocks: ").append(toIndentedString(secondaryCidrBlocks)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

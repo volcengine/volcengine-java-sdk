@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("Ipv6Set")
   private List<String> ipv6Set = null;
 
@@ -40,6 +43,24 @@ public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractRe
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public AssignIpv6AddressesResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public AssignIpv6AddressesResponse ipv6Set(List<String> ipv6Set) {
     this.ipv6Set = ipv6Set;
@@ -113,14 +134,15 @@ public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     AssignIpv6AddressesResponse assignIpv6AddressesResponse = (AssignIpv6AddressesResponse) o;
-    return Objects.equals(this.ipv6Set, assignIpv6AddressesResponse.ipv6Set) &&
+    return Objects.equals(this.asyncTaskId, assignIpv6AddressesResponse.asyncTaskId) &&
+        Objects.equals(this.ipv6Set, assignIpv6AddressesResponse.ipv6Set) &&
         Objects.equals(this.networkInterfaceId, assignIpv6AddressesResponse.networkInterfaceId) &&
         Objects.equals(this.requestId, assignIpv6AddressesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6Set, networkInterfaceId, requestId);
+    return Objects.hash(asyncTaskId, ipv6Set, networkInterfaceId, requestId);
   }
 
 
@@ -129,6 +151,7 @@ public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class AssignIpv6AddressesResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    ipv6Set: ").append(toIndentedString(ipv6Set)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

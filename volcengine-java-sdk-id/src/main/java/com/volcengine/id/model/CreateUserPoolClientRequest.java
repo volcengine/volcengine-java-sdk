@@ -41,6 +41,9 @@ public class CreateUserPoolClientRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("LogoUri")
+  private String logoUri = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -110,6 +113,24 @@ public class CreateUserPoolClientRequest {
     this.description = description;
   }
 
+  public CreateUserPoolClientRequest logoUri(String logoUri) {
+    this.logoUri = logoUri;
+    return this;
+  }
+
+   /**
+   * Get logoUri
+   * @return logoUri
+  **/
+  @Schema(description = "")
+  public String getLogoUri() {
+    return logoUri;
+  }
+
+  public void setLogoUri(String logoUri) {
+    this.logoUri = logoUri;
+  }
+
   public CreateUserPoolClientRequest name(String name) {
     this.name = name;
     return this;
@@ -161,13 +182,14 @@ public class CreateUserPoolClientRequest {
     return Objects.equals(this.allowedCallbackUrls, createUserPoolClientRequest.allowedCallbackUrls) &&
         Objects.equals(this.clientType, createUserPoolClientRequest.clientType) &&
         Objects.equals(this.description, createUserPoolClientRequest.description) &&
+        Objects.equals(this.logoUri, createUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, createUserPoolClientRequest.name) &&
         Objects.equals(this.userPoolUid, createUserPoolClientRequest.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, clientType, description, name, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, clientType, description, logoUri, name, userPoolUid);
   }
 
 
@@ -179,6 +201,7 @@ public class CreateUserPoolClientRequest {
     sb.append("    allowedCallbackUrls: ").append(toIndentedString(allowedCallbackUrls)).append("\n");
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");

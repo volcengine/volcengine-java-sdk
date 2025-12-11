@@ -33,6 +33,9 @@ public class Oauth2CallbackRequest {
   @SerializedName("Code")
   private String code = null;
 
+  @SerializedName("Error")
+  private String error = null;
+
   @SerializedName("IdentityToken")
   private String identityToken = null;
 
@@ -48,14 +51,31 @@ public class Oauth2CallbackRequest {
    * Get code
    * @return code
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCode() {
     return code;
   }
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  public Oauth2CallbackRequest error(String error) {
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @Schema(description = "")
+  public String getError() {
+    return error;
+  }
+
+  public void setError(String error) {
+    this.error = error;
   }
 
   public Oauth2CallbackRequest identityToken(String identityToken) {
@@ -107,13 +127,14 @@ public class Oauth2CallbackRequest {
     }
     Oauth2CallbackRequest oauth2CallbackRequest = (Oauth2CallbackRequest) o;
     return Objects.equals(this.code, oauth2CallbackRequest.code) &&
+        Objects.equals(this.error, oauth2CallbackRequest.error) &&
         Objects.equals(this.identityToken, oauth2CallbackRequest.identityToken) &&
         Objects.equals(this.state, oauth2CallbackRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, identityToken, state);
+    return Objects.hash(code, error, identityToken, state);
   }
 
 
@@ -123,6 +144,7 @@ public class Oauth2CallbackRequest {
     sb.append("class Oauth2CallbackRequest {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    identityToken: ").append(toIndentedString(identityToken)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");

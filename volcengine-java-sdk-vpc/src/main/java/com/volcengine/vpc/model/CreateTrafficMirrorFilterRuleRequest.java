@@ -152,10 +152,10 @@ public class CreateTrafficMirrorFilterRuleRequest {
    */
   @JsonAdapter(TrafficDirectionEnum.Adapter.class)
   public enum TrafficDirectionEnum {
-    @SerializedName("egress")
-    EGRESS("egress"),
     @SerializedName("ingress")
-    INGRESS("ingress");
+    INGRESS("ingress"),
+    @SerializedName("egress")
+    EGRESS("egress");
 
     private String value;
 

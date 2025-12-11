@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteTrafficMirrorSessionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteTrafficMirrorSessionResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public DeleteTrafficMirrorSessionResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class DeleteTrafficMirrorSessionResponse extends com.volcengine.model.Abs
       return false;
     }
     DeleteTrafficMirrorSessionResponse deleteTrafficMirrorSessionResponse = (DeleteTrafficMirrorSessionResponse) o;
-    return Objects.equals(this.requestId, deleteTrafficMirrorSessionResponse.requestId);
+    return Objects.equals(this.asyncTaskId, deleteTrafficMirrorSessionResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, deleteTrafficMirrorSessionResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class DeleteTrafficMirrorSessionResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTrafficMirrorSessionResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateIpv6GatewayResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("Ipv6GatewayId")
   private String ipv6GatewayId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateIpv6GatewayResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateIpv6GatewayResponse ipv6GatewayId(String ipv6GatewayId) {
     this.ipv6GatewayId = ipv6GatewayId;
@@ -82,13 +103,14 @@ public class CreateIpv6GatewayResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     CreateIpv6GatewayResponse createIpv6GatewayResponse = (CreateIpv6GatewayResponse) o;
-    return Objects.equals(this.ipv6GatewayId, createIpv6GatewayResponse.ipv6GatewayId) &&
+    return Objects.equals(this.asyncTaskId, createIpv6GatewayResponse.asyncTaskId) &&
+        Objects.equals(this.ipv6GatewayId, createIpv6GatewayResponse.ipv6GatewayId) &&
         Objects.equals(this.requestId, createIpv6GatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6GatewayId, requestId);
+    return Objects.hash(asyncTaskId, ipv6GatewayId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateIpv6GatewayResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIpv6GatewayResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    ipv6GatewayId: ").append(toIndentedString(ipv6GatewayId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

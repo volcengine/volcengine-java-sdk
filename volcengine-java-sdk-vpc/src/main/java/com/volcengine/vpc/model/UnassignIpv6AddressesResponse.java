@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class UnassignIpv6AddressesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public UnassignIpv6AddressesResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public UnassignIpv6AddressesResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class UnassignIpv6AddressesResponse extends com.volcengine.model.Abstract
       return false;
     }
     UnassignIpv6AddressesResponse unassignIpv6AddressesResponse = (UnassignIpv6AddressesResponse) o;
-    return Objects.equals(this.requestId, unassignIpv6AddressesResponse.requestId);
+    return Objects.equals(this.asyncTaskId, unassignIpv6AddressesResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, unassignIpv6AddressesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class UnassignIpv6AddressesResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class UnassignIpv6AddressesResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

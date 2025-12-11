@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateParameterTemplateRequest {
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -50,6 +53,24 @@ public class CreateParameterTemplateRequest {
 
   @SerializedName("TemplateTypeVersion")
   private String templateTypeVersion = null;
+
+  public CreateParameterTemplateRequest engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
+  }
 
   public CreateParameterTemplateRequest projectName(String projectName) {
     this.projectName = projectName;
@@ -179,7 +200,8 @@ public class CreateParameterTemplateRequest {
       return false;
     }
     CreateParameterTemplateRequest createParameterTemplateRequest = (CreateParameterTemplateRequest) o;
-    return Objects.equals(this.projectName, createParameterTemplateRequest.projectName) &&
+    return Objects.equals(this.engineType, createParameterTemplateRequest.engineType) &&
+        Objects.equals(this.projectName, createParameterTemplateRequest.projectName) &&
         Objects.equals(this.templateDesc, createParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateName, createParameterTemplateRequest.templateName) &&
         Objects.equals(this.templateParams, createParameterTemplateRequest.templateParams) &&
@@ -189,7 +211,7 @@ public class CreateParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, templateDesc, templateName, templateParams, templateType, templateTypeVersion);
+    return Objects.hash(engineType, projectName, templateDesc, templateName, templateParams, templateType, templateTypeVersion);
   }
 
 
@@ -198,6 +220,7 @@ public class CreateParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateParameterTemplateRequest {\n");
     
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");

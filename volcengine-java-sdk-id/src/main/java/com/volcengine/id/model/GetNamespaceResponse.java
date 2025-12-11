@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class GetNamespaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Associates")
+  private List<String> associates = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -56,6 +59,32 @@ public class GetNamespaceResponse extends com.volcengine.model.AbstractResponse 
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public GetNamespaceResponse associates(List<String> associates) {
+    this.associates = associates;
+    return this;
+  }
+
+  public GetNamespaceResponse addAssociatesItem(String associatesItem) {
+    if (this.associates == null) {
+      this.associates = new ArrayList<String>();
+    }
+    this.associates.add(associatesItem);
+    return this;
+  }
+
+   /**
+   * Get associates
+   * @return associates
+  **/
+  @Schema(description = "")
+  public List<String> getAssociates() {
+    return associates;
+  }
+
+  public void setAssociates(List<String> associates) {
+    this.associates = associates;
+  }
 
   public GetNamespaceResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -220,7 +249,8 @@ public class GetNamespaceResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     GetNamespaceResponse getNamespaceResponse = (GetNamespaceResponse) o;
-    return Objects.equals(this.createTime, getNamespaceResponse.createTime) &&
+    return Objects.equals(this.associates, getNamespaceResponse.associates) &&
+        Objects.equals(this.createTime, getNamespaceResponse.createTime) &&
         Objects.equals(this.description, getNamespaceResponse.description) &&
         Objects.equals(this.namespaceId, getNamespaceResponse.namespaceId) &&
         Objects.equals(this.namespaceName, getNamespaceResponse.namespaceName) &&
@@ -232,7 +262,7 @@ public class GetNamespaceResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, namespaceId, namespaceName, projectName, tags, trn, updateTime);
+    return Objects.hash(associates, createTime, description, namespaceId, namespaceName, projectName, tags, trn, updateTime);
   }
 
 
@@ -241,6 +271,7 @@ public class GetNamespaceResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class GetNamespaceResponse {\n");
     
+    sb.append("    associates: ").append(toIndentedString(associates)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");

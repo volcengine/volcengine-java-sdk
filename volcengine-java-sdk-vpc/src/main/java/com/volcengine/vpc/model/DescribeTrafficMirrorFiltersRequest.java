@@ -46,10 +46,10 @@ public class DescribeTrafficMirrorFiltersRequest {
   private List<TagFilterForDescribeTrafficMirrorFiltersInput> tagFilters = null;
 
   @SerializedName("TrafficMirrorFilterIds")
-  private String trafficMirrorFilterIds = null;
+  private List<String> trafficMirrorFilterIds = null;
 
   @SerializedName("TrafficMirrorFilterNames")
-  private String trafficMirrorFilterNames = null;
+  private List<String> trafficMirrorFilterNames = null;
 
   public DescribeTrafficMirrorFiltersRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -132,8 +132,16 @@ public class DescribeTrafficMirrorFiltersRequest {
     this.tagFilters = tagFilters;
   }
 
-  public DescribeTrafficMirrorFiltersRequest trafficMirrorFilterIds(String trafficMirrorFilterIds) {
+  public DescribeTrafficMirrorFiltersRequest trafficMirrorFilterIds(List<String> trafficMirrorFilterIds) {
     this.trafficMirrorFilterIds = trafficMirrorFilterIds;
+    return this;
+  }
+
+  public DescribeTrafficMirrorFiltersRequest addTrafficMirrorFilterIdsItem(String trafficMirrorFilterIdsItem) {
+    if (this.trafficMirrorFilterIds == null) {
+      this.trafficMirrorFilterIds = new ArrayList<String>();
+    }
+    this.trafficMirrorFilterIds.add(trafficMirrorFilterIdsItem);
     return this;
   }
 
@@ -142,16 +150,24 @@ public class DescribeTrafficMirrorFiltersRequest {
    * @return trafficMirrorFilterIds
   **/
   @Schema(description = "")
-  public String getTrafficMirrorFilterIds() {
+  public List<String> getTrafficMirrorFilterIds() {
     return trafficMirrorFilterIds;
   }
 
-  public void setTrafficMirrorFilterIds(String trafficMirrorFilterIds) {
+  public void setTrafficMirrorFilterIds(List<String> trafficMirrorFilterIds) {
     this.trafficMirrorFilterIds = trafficMirrorFilterIds;
   }
 
-  public DescribeTrafficMirrorFiltersRequest trafficMirrorFilterNames(String trafficMirrorFilterNames) {
+  public DescribeTrafficMirrorFiltersRequest trafficMirrorFilterNames(List<String> trafficMirrorFilterNames) {
     this.trafficMirrorFilterNames = trafficMirrorFilterNames;
+    return this;
+  }
+
+  public DescribeTrafficMirrorFiltersRequest addTrafficMirrorFilterNamesItem(String trafficMirrorFilterNamesItem) {
+    if (this.trafficMirrorFilterNames == null) {
+      this.trafficMirrorFilterNames = new ArrayList<String>();
+    }
+    this.trafficMirrorFilterNames.add(trafficMirrorFilterNamesItem);
     return this;
   }
 
@@ -160,11 +176,11 @@ public class DescribeTrafficMirrorFiltersRequest {
    * @return trafficMirrorFilterNames
   **/
   @Schema(description = "")
-  public String getTrafficMirrorFilterNames() {
+  public List<String> getTrafficMirrorFilterNames() {
     return trafficMirrorFilterNames;
   }
 
-  public void setTrafficMirrorFilterNames(String trafficMirrorFilterNames) {
+  public void setTrafficMirrorFilterNames(List<String> trafficMirrorFilterNames) {
     this.trafficMirrorFilterNames = trafficMirrorFilterNames;
   }
 

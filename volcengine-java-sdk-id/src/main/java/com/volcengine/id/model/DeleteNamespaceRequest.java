@@ -42,7 +42,8 @@ public class DeleteNamespaceRequest {
    * Get namespaceName
    * @return namespaceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNamespaceName() {
     return namespaceName;
   }

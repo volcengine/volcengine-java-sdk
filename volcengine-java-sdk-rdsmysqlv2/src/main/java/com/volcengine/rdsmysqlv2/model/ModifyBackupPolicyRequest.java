@@ -98,6 +98,9 @@ public class ModifyBackupPolicyRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("KeepCrossBackupEnableAfterReleased")
+  private Boolean keepCrossBackupEnableAfterReleased = null;
+
   @SerializedName("LockDDLTime")
   private Integer lockDDLTime = null;
 
@@ -520,6 +523,24 @@ public class ModifyBackupPolicyRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyBackupPolicyRequest keepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+    return this;
+  }
+
+   /**
+   * Get keepCrossBackupEnableAfterReleased
+   * @return keepCrossBackupEnableAfterReleased
+  **/
+  @Schema(description = "")
+  public Boolean isKeepCrossBackupEnableAfterReleased() {
+    return keepCrossBackupEnableAfterReleased;
+  }
+
+  public void setKeepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+  }
+
   public ModifyBackupPolicyRequest lockDDLTime(Integer lockDDLTime) {
     this.lockDDLTime = lockDDLTime;
     return this;
@@ -606,6 +627,7 @@ public class ModifyBackupPolicyRequest {
         Objects.equals(this.hourlyIncrBackupEnable, modifyBackupPolicyRequest.hourlyIncrBackupEnable) &&
         Objects.equals(this.incrBackupHourPeriod, modifyBackupPolicyRequest.incrBackupHourPeriod) &&
         Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId) &&
+        Objects.equals(this.keepCrossBackupEnableAfterReleased, modifyBackupPolicyRequest.keepCrossBackupEnableAfterReleased) &&
         Objects.equals(this.lockDDLTime, modifyBackupPolicyRequest.lockDDLTime) &&
         Objects.equals(this.logBackupRetentionDay, modifyBackupPolicyRequest.logBackupRetentionDay) &&
         Objects.equals(this.retentionPolicySynced, modifyBackupPolicyRequest.retentionPolicySynced);
@@ -613,7 +635,7 @@ public class ModifyBackupPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, keepCrossBackupEnableAfterReleased, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
   }
 
 
@@ -644,6 +666,7 @@ public class ModifyBackupPolicyRequest {
     sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
     sb.append("    incrBackupHourPeriod: ").append(toIndentedString(incrBackupHourPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    keepCrossBackupEnableAfterReleased: ").append(toIndentedString(keepCrossBackupEnableAfterReleased)).append("\n");
     sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("    retentionPolicySynced: ").append(toIndentedString(retentionPolicySynced)).append("\n");

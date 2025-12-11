@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateSubnetResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public CreateSubnetResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateSubnetResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateSubnetResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     CreateSubnetResponse createSubnetResponse = (CreateSubnetResponse) o;
-    return Objects.equals(this.requestId, createSubnetResponse.requestId) &&
+    return Objects.equals(this.asyncTaskId, createSubnetResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, createSubnetResponse.requestId) &&
         Objects.equals(this.subnetId, createSubnetResponse.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, subnetId);
+    return Objects.hash(asyncTaskId, requestId, subnetId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateSubnetResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSubnetResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");

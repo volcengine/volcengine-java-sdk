@@ -58,10 +58,10 @@ public class DescribeTrafficMirrorSessionsRequest {
   private String trafficMirrorFilterId = null;
 
   @SerializedName("TrafficMirrorSessionIds")
-  private String trafficMirrorSessionIds = null;
+  private List<String> trafficMirrorSessionIds = null;
 
   @SerializedName("TrafficMirrorSessionNames")
-  private String trafficMirrorSessionNames = null;
+  private List<String> trafficMirrorSessionNames = null;
 
   @SerializedName("TrafficMirrorTargetId")
   private String trafficMirrorTargetId = null;
@@ -222,8 +222,16 @@ public class DescribeTrafficMirrorSessionsRequest {
     this.trafficMirrorFilterId = trafficMirrorFilterId;
   }
 
-  public DescribeTrafficMirrorSessionsRequest trafficMirrorSessionIds(String trafficMirrorSessionIds) {
+  public DescribeTrafficMirrorSessionsRequest trafficMirrorSessionIds(List<String> trafficMirrorSessionIds) {
     this.trafficMirrorSessionIds = trafficMirrorSessionIds;
+    return this;
+  }
+
+  public DescribeTrafficMirrorSessionsRequest addTrafficMirrorSessionIdsItem(String trafficMirrorSessionIdsItem) {
+    if (this.trafficMirrorSessionIds == null) {
+      this.trafficMirrorSessionIds = new ArrayList<String>();
+    }
+    this.trafficMirrorSessionIds.add(trafficMirrorSessionIdsItem);
     return this;
   }
 
@@ -232,16 +240,24 @@ public class DescribeTrafficMirrorSessionsRequest {
    * @return trafficMirrorSessionIds
   **/
   @Schema(description = "")
-  public String getTrafficMirrorSessionIds() {
+  public List<String> getTrafficMirrorSessionIds() {
     return trafficMirrorSessionIds;
   }
 
-  public void setTrafficMirrorSessionIds(String trafficMirrorSessionIds) {
+  public void setTrafficMirrorSessionIds(List<String> trafficMirrorSessionIds) {
     this.trafficMirrorSessionIds = trafficMirrorSessionIds;
   }
 
-  public DescribeTrafficMirrorSessionsRequest trafficMirrorSessionNames(String trafficMirrorSessionNames) {
+  public DescribeTrafficMirrorSessionsRequest trafficMirrorSessionNames(List<String> trafficMirrorSessionNames) {
     this.trafficMirrorSessionNames = trafficMirrorSessionNames;
+    return this;
+  }
+
+  public DescribeTrafficMirrorSessionsRequest addTrafficMirrorSessionNamesItem(String trafficMirrorSessionNamesItem) {
+    if (this.trafficMirrorSessionNames == null) {
+      this.trafficMirrorSessionNames = new ArrayList<String>();
+    }
+    this.trafficMirrorSessionNames.add(trafficMirrorSessionNamesItem);
     return this;
   }
 
@@ -250,11 +266,11 @@ public class DescribeTrafficMirrorSessionsRequest {
    * @return trafficMirrorSessionNames
   **/
   @Schema(description = "")
-  public String getTrafficMirrorSessionNames() {
+  public List<String> getTrafficMirrorSessionNames() {
     return trafficMirrorSessionNames;
   }
 
-  public void setTrafficMirrorSessionNames(String trafficMirrorSessionNames) {
+  public void setTrafficMirrorSessionNames(List<String> trafficMirrorSessionNames) {
     this.trafficMirrorSessionNames = trafficMirrorSessionNames;
   }
 

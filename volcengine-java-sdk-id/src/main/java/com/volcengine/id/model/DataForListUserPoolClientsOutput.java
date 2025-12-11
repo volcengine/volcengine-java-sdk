@@ -39,6 +39,9 @@ public class DataForListUserPoolClientsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("LogoUri")
+  private String logoUri = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -100,6 +103,24 @@ public class DataForListUserPoolClientsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DataForListUserPoolClientsOutput logoUri(String logoUri) {
+    this.logoUri = logoUri;
+    return this;
+  }
+
+   /**
+   * Get logoUri
+   * @return logoUri
+  **/
+  @Schema(description = "")
+  public String getLogoUri() {
+    return logoUri;
+  }
+
+  public void setLogoUri(String logoUri) {
+    this.logoUri = logoUri;
   }
 
   public DataForListUserPoolClientsOutput name(String name) {
@@ -169,6 +190,7 @@ public class DataForListUserPoolClientsOutput {
     return Objects.equals(this.clientType, dataForListUserPoolClientsOutput.clientType) &&
         Objects.equals(this.createTime, dataForListUserPoolClientsOutput.createTime) &&
         Objects.equals(this.description, dataForListUserPoolClientsOutput.description) &&
+        Objects.equals(this.logoUri, dataForListUserPoolClientsOutput.logoUri) &&
         Objects.equals(this.name, dataForListUserPoolClientsOutput.name) &&
         Objects.equals(this.uid, dataForListUserPoolClientsOutput.uid) &&
         Objects.equals(this.updateTime, dataForListUserPoolClientsOutput.updateTime);
@@ -176,7 +198,7 @@ public class DataForListUserPoolClientsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientType, createTime, description, name, uid, updateTime);
+    return Objects.hash(clientType, createTime, description, logoUri, name, uid, updateTime);
   }
 
 
@@ -188,6 +210,7 @@ public class DataForListUserPoolClientsOutput {
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

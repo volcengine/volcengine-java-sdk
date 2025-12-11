@@ -55,6 +55,9 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
+  @SerializedName("EnableExternalReplication")
+  private Boolean enableExternalReplication = null;
+
   @SerializedName("InstanceName")
   private String instanceName = null;
 
@@ -207,6 +210,24 @@ public class RestoreToNewInstanceRequest {
 
   public void setDeletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
+  }
+
+  public RestoreToNewInstanceRequest enableExternalReplication(Boolean enableExternalReplication) {
+    this.enableExternalReplication = enableExternalReplication;
+    return this;
+  }
+
+   /**
+   * Get enableExternalReplication
+   * @return enableExternalReplication
+  **/
+  @Schema(description = "")
+  public Boolean isEnableExternalReplication() {
+    return enableExternalReplication;
+  }
+
+  public void setEnableExternalReplication(Boolean enableExternalReplication) {
+    this.enableExternalReplication = enableExternalReplication;
   }
 
   public RestoreToNewInstanceRequest instanceName(String instanceName) {
@@ -464,6 +485,7 @@ public class RestoreToNewInstanceRequest {
         Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbParamGroupId, restoreToNewInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.deletionProtection, restoreToNewInstanceRequest.deletionProtection) &&
+        Objects.equals(this.enableExternalReplication, restoreToNewInstanceRequest.enableExternalReplication) &&
         Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
@@ -480,7 +502,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, enableExternalReplication, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -495,6 +517,7 @@ public class RestoreToNewInstanceRequest {
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
+    sb.append("    enableExternalReplication: ").append(toIndentedString(enableExternalReplication)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
