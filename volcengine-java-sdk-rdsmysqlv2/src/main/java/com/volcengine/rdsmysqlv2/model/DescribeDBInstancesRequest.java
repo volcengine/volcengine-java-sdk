@@ -45,6 +45,9 @@ public class DescribeDBInstancesRequest {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -157,6 +160,24 @@ public class DescribeDBInstancesRequest {
 
   public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public DescribeDBInstancesRequest engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
   }
 
   public DescribeDBInstancesRequest instanceId(String instanceId) {
@@ -442,6 +463,7 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.createTimeEnd, describeDBInstancesRequest.createTimeEnd) &&
         Objects.equals(this.createTimeStart, describeDBInstancesRequest.createTimeStart) &&
         Objects.equals(this.dbEngineVersion, describeDBInstancesRequest.dbEngineVersion) &&
+        Objects.equals(this.engineType, describeDBInstancesRequest.engineType) &&
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
@@ -460,7 +482,7 @@ public class DescribeDBInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, kernelVersion, nodeSpec, pageNumber, pageSize, privateNetworkIpAddress, privateNetworkVpcId, projectName, storageType, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, engineType, instanceId, instanceName, instanceStatus, instanceType, kernelVersion, nodeSpec, pageNumber, pageSize, privateNetworkIpAddress, privateNetworkVpcId, projectName, storageType, tagFilters, zoneId);
   }
 
 
@@ -473,6 +495,7 @@ public class DescribeDBInstancesRequest {
     sb.append("    createTimeEnd: ").append(toIndentedString(createTimeEnd)).append("\n");
     sb.append("    createTimeStart: ").append(toIndentedString(createTimeStart)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");

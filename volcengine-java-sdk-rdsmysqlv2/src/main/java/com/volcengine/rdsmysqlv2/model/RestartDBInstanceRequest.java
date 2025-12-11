@@ -38,8 +38,14 @@ public class RestartDBInstanceRequest {
   @SerializedName("CustomNodeIds")
   private List<String> customNodeIds = null;
 
+  @SerializedName("ForceRestartMaster")
+  private Boolean forceRestartMaster = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("RestartWithProxy")
+  private Boolean restartWithProxy = null;
 
   @SerializedName("SpecifiedSwitchEndTime")
   private String specifiedSwitchEndTime = null;
@@ -94,6 +100,24 @@ public class RestartDBInstanceRequest {
     this.customNodeIds = customNodeIds;
   }
 
+  public RestartDBInstanceRequest forceRestartMaster(Boolean forceRestartMaster) {
+    this.forceRestartMaster = forceRestartMaster;
+    return this;
+  }
+
+   /**
+   * Get forceRestartMaster
+   * @return forceRestartMaster
+  **/
+  @Schema(description = "")
+  public Boolean isForceRestartMaster() {
+    return forceRestartMaster;
+  }
+
+  public void setForceRestartMaster(Boolean forceRestartMaster) {
+    this.forceRestartMaster = forceRestartMaster;
+  }
+
   public RestartDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -111,6 +135,24 @@ public class RestartDBInstanceRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public RestartDBInstanceRequest restartWithProxy(Boolean restartWithProxy) {
+    this.restartWithProxy = restartWithProxy;
+    return this;
+  }
+
+   /**
+   * Get restartWithProxy
+   * @return restartWithProxy
+  **/
+  @Schema(description = "")
+  public Boolean isRestartWithProxy() {
+    return restartWithProxy;
+  }
+
+  public void setRestartWithProxy(Boolean restartWithProxy) {
+    this.restartWithProxy = restartWithProxy;
   }
 
   public RestartDBInstanceRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
@@ -179,7 +221,9 @@ public class RestartDBInstanceRequest {
     RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
     return Objects.equals(this.applyScope, restartDBInstanceRequest.applyScope) &&
         Objects.equals(this.customNodeIds, restartDBInstanceRequest.customNodeIds) &&
+        Objects.equals(this.forceRestartMaster, restartDBInstanceRequest.forceRestartMaster) &&
         Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
+        Objects.equals(this.restartWithProxy, restartDBInstanceRequest.restartWithProxy) &&
         Objects.equals(this.specifiedSwitchEndTime, restartDBInstanceRequest.specifiedSwitchEndTime) &&
         Objects.equals(this.specifiedSwitchStartTime, restartDBInstanceRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.switchType, restartDBInstanceRequest.switchType);
@@ -187,7 +231,7 @@ public class RestartDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyScope, customNodeIds, instanceId, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType);
+    return Objects.hash(applyScope, customNodeIds, forceRestartMaster, instanceId, restartWithProxy, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType);
   }
 
 
@@ -198,7 +242,9 @@ public class RestartDBInstanceRequest {
     
     sb.append("    applyScope: ").append(toIndentedString(applyScope)).append("\n");
     sb.append("    customNodeIds: ").append(toIndentedString(customNodeIds)).append("\n");
+    sb.append("    forceRestartMaster: ").append(toIndentedString(forceRestartMaster)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    restartWithProxy: ").append(toIndentedString(restartWithProxy)).append("\n");
     sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
     sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");

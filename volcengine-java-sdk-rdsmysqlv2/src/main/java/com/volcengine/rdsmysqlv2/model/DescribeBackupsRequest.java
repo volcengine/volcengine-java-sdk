@@ -40,6 +40,9 @@ public class DescribeBackupsRequest {
   @SerializedName("BackupMethod")
   private String backupMethod = null;
 
+  @SerializedName("BackupName")
+  private String backupName = null;
+
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
 
@@ -119,6 +122,24 @@ public class DescribeBackupsRequest {
 
   public void setBackupMethod(String backupMethod) {
     this.backupMethod = backupMethod;
+  }
+
+  public DescribeBackupsRequest backupName(String backupName) {
+    this.backupName = backupName;
+    return this;
+  }
+
+   /**
+   * Get backupName
+   * @return backupName
+  **/
+  @Schema(description = "")
+  public String getBackupName() {
+    return backupName;
+  }
+
+  public void setBackupName(String backupName) {
+    this.backupName = backupName;
   }
 
   public DescribeBackupsRequest backupStartTime(String backupStartTime) {
@@ -297,6 +318,7 @@ public class DescribeBackupsRequest {
     return Objects.equals(this.backupEndTime, describeBackupsRequest.backupEndTime) &&
         Objects.equals(this.backupId, describeBackupsRequest.backupId) &&
         Objects.equals(this.backupMethod, describeBackupsRequest.backupMethod) &&
+        Objects.equals(this.backupName, describeBackupsRequest.backupName) &&
         Objects.equals(this.backupStartTime, describeBackupsRequest.backupStartTime) &&
         Objects.equals(this.backupStatus, describeBackupsRequest.backupStatus) &&
         Objects.equals(this.backupType, describeBackupsRequest.backupType) &&
@@ -310,7 +332,7 @@ public class DescribeBackupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType, instanceId, option, pageNumber, pageSize, projectName);
+    return Objects.hash(backupEndTime, backupId, backupMethod, backupName, backupStartTime, backupStatus, backupType, createType, instanceId, option, pageNumber, pageSize, projectName);
   }
 
 
@@ -322,6 +344,7 @@ public class DescribeBackupsRequest {
     sb.append("    backupEndTime: ").append(toIndentedString(backupEndTime)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");

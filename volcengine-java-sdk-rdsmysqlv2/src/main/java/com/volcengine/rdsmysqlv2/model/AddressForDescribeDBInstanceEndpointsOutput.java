@@ -39,6 +39,9 @@ public class AddressForDescribeDBInstanceEndpointsOutput {
   @SerializedName("EipId")
   private String eipId = null;
 
+  @SerializedName("EipLocked")
+  private Boolean eipLocked = null;
+
   @SerializedName("IPAddress")
   private String ipAddress = null;
 
@@ -106,6 +109,24 @@ public class AddressForDescribeDBInstanceEndpointsOutput {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public AddressForDescribeDBInstanceEndpointsOutput eipLocked(Boolean eipLocked) {
+    this.eipLocked = eipLocked;
+    return this;
+  }
+
+   /**
+   * Get eipLocked
+   * @return eipLocked
+  **/
+  @Schema(description = "")
+  public Boolean isEipLocked() {
+    return eipLocked;
+  }
+
+  public void setEipLocked(Boolean eipLocked) {
+    this.eipLocked = eipLocked;
   }
 
   public AddressForDescribeDBInstanceEndpointsOutput ipAddress(String ipAddress) {
@@ -211,6 +232,7 @@ public class AddressForDescribeDBInstanceEndpointsOutput {
     return Objects.equals(this.dnSVisibility, addressForDescribeDBInstanceEndpointsOutput.dnSVisibility) &&
         Objects.equals(this.domain, addressForDescribeDBInstanceEndpointsOutput.domain) &&
         Objects.equals(this.eipId, addressForDescribeDBInstanceEndpointsOutput.eipId) &&
+        Objects.equals(this.eipLocked, addressForDescribeDBInstanceEndpointsOutput.eipLocked) &&
         Objects.equals(this.ipAddress, addressForDescribeDBInstanceEndpointsOutput.ipAddress) &&
         Objects.equals(this.internetProtocol, addressForDescribeDBInstanceEndpointsOutput.internetProtocol) &&
         Objects.equals(this.networkType, addressForDescribeDBInstanceEndpointsOutput.networkType) &&
@@ -220,7 +242,7 @@ public class AddressForDescribeDBInstanceEndpointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSVisibility, domain, eipId, ipAddress, internetProtocol, networkType, port, subnetId);
+    return Objects.hash(dnSVisibility, domain, eipId, eipLocked, ipAddress, internetProtocol, networkType, port, subnetId);
   }
 
 
@@ -232,6 +254,7 @@ public class AddressForDescribeDBInstanceEndpointsOutput {
     sb.append("    dnSVisibility: ").append(toIndentedString(dnSVisibility)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    eipLocked: ").append(toIndentedString(eipLocked)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    internetProtocol: ").append(toIndentedString(internetProtocol)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");

@@ -39,6 +39,9 @@ public class TemplateInfoForListParameterTemplatesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("NeedRestart")
   private Boolean needRestart = null;
 
@@ -109,6 +112,24 @@ public class TemplateInfoForListParameterTemplatesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public TemplateInfoForListParameterTemplatesOutput engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
   }
 
   public TemplateInfoForListParameterTemplatesOutput needRestart(Boolean needRestart) {
@@ -348,6 +369,7 @@ public class TemplateInfoForListParameterTemplatesOutput {
     TemplateInfoForListParameterTemplatesOutput templateInfoForListParameterTemplatesOutput = (TemplateInfoForListParameterTemplatesOutput) o;
     return Objects.equals(this.accountId, templateInfoForListParameterTemplatesOutput.accountId) &&
         Objects.equals(this.createTime, templateInfoForListParameterTemplatesOutput.createTime) &&
+        Objects.equals(this.engineType, templateInfoForListParameterTemplatesOutput.engineType) &&
         Objects.equals(this.needRestart, templateInfoForListParameterTemplatesOutput.needRestart) &&
         Objects.equals(this.parameterNum, templateInfoForListParameterTemplatesOutput.parameterNum) &&
         Objects.equals(this.projectName, templateInfoForListParameterTemplatesOutput.projectName) &&
@@ -364,7 +386,7 @@ public class TemplateInfoForListParameterTemplatesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, createTime, needRestart, parameterNum, projectName, templateCategory, templateDesc, templateId, templateName, templateParams, templateSource, templateType, templateTypeVersion, updateTime);
+    return Objects.hash(accountId, createTime, engineType, needRestart, parameterNum, projectName, templateCategory, templateDesc, templateId, templateName, templateParams, templateSource, templateType, templateTypeVersion, updateTime);
   }
 
 
@@ -375,6 +397,7 @@ public class TemplateInfoForListParameterTemplatesOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    needRestart: ").append(toIndentedString(needRestart)).append("\n");
     sb.append("    parameterNum: ").append(toIndentedString(parameterNum)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

@@ -48,6 +48,9 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupMethod")
   private String backupMethod = null;
 
+  @SerializedName("BackupName")
+  private String backupName = null;
+
   @SerializedName("BackupRegion")
   private String backupRegion = null;
 
@@ -74,6 +77,9 @@ public class BackupForDescribeBackupsOutput {
 
   @SerializedName("DownloadStatus")
   private String downloadStatus = null;
+
+  @SerializedName("EngineType")
+  private String engineType = null;
 
   @SerializedName("ErrorMessage")
   private String errorMessage = null;
@@ -175,6 +181,24 @@ public class BackupForDescribeBackupsOutput {
 
   public void setBackupMethod(String backupMethod) {
     this.backupMethod = backupMethod;
+  }
+
+  public BackupForDescribeBackupsOutput backupName(String backupName) {
+    this.backupName = backupName;
+    return this;
+  }
+
+   /**
+   * Get backupName
+   * @return backupName
+  **/
+  @Schema(description = "")
+  public String getBackupName() {
+    return backupName;
+  }
+
+  public void setBackupName(String backupName) {
+    this.backupName = backupName;
   }
 
   public BackupForDescribeBackupsOutput backupRegion(String backupRegion) {
@@ -348,6 +372,24 @@ public class BackupForDescribeBackupsOutput {
     this.downloadStatus = downloadStatus;
   }
 
+  public BackupForDescribeBackupsOutput engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
+  }
+
   public BackupForDescribeBackupsOutput errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
@@ -435,6 +477,7 @@ public class BackupForDescribeBackupsOutput {
         Objects.equals(this.backupFileSize, backupForDescribeBackupsOutput.backupFileSize) &&
         Objects.equals(this.backupId, backupForDescribeBackupsOutput.backupId) &&
         Objects.equals(this.backupMethod, backupForDescribeBackupsOutput.backupMethod) &&
+        Objects.equals(this.backupName, backupForDescribeBackupsOutput.backupName) &&
         Objects.equals(this.backupRegion, backupForDescribeBackupsOutput.backupRegion) &&
         Objects.equals(this.backupStartTime, backupForDescribeBackupsOutput.backupStartTime) &&
         Objects.equals(this.backupStatus, backupForDescribeBackupsOutput.backupStatus) &&
@@ -444,6 +487,7 @@ public class BackupForDescribeBackupsOutput {
         Objects.equals(this.dbEngineVersion, backupForDescribeBackupsOutput.dbEngineVersion) &&
         Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos) &&
         Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
+        Objects.equals(this.engineType, backupForDescribeBackupsOutput.engineType) &&
         Objects.equals(this.errorMessage, backupForDescribeBackupsOutput.errorMessage) &&
         Objects.equals(this.expiredTime, backupForDescribeBackupsOutput.expiredTime) &&
         Objects.equals(this.isEncrypted, backupForDescribeBackupsOutput.isEncrypted) &&
@@ -452,7 +496,7 @@ public class BackupForDescribeBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbEngineVersion, dbTableInfos, downloadStatus, errorMessage, expiredTime, isEncrypted, isExpired);
+    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupName, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbEngineVersion, dbTableInfos, downloadStatus, engineType, errorMessage, expiredTime, isEncrypted, isExpired);
   }
 
 
@@ -466,6 +510,7 @@ public class BackupForDescribeBackupsOutput {
     sb.append("    backupFileSize: ").append(toIndentedString(backupFileSize)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupRegion: ").append(toIndentedString(backupRegion)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
@@ -475,6 +520,7 @@ public class BackupForDescribeBackupsOutput {
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbTableInfos: ").append(toIndentedString(dbTableInfos)).append("\n");
     sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    isEncrypted: ").append(toIndentedString(isEncrypted)).append("\n");

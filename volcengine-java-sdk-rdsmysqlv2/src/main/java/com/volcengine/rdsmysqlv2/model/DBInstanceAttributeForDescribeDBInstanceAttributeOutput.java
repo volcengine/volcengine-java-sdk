@@ -52,6 +52,9 @@ public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("HasDisasterRecoveryInstances")
   private Boolean hasDisasterRecoveryInstances = null;
 
@@ -224,6 +227,24 @@ public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
 
   public void setDeletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
+  }
+
+  public DBInstanceAttributeForDescribeDBInstanceAttributeOutput engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
   }
 
   public DBInstanceAttributeForDescribeDBInstanceAttributeOutput hasDisasterRecoveryInstances(Boolean hasDisasterRecoveryInstances) {
@@ -648,6 +669,7 @@ public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
         Objects.equals(this.currentKernelVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.currentKernelVersion) &&
         Objects.equals(this.dbEngineVersion, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.dbEngineVersion) &&
         Objects.equals(this.deletionProtection, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.deletionProtection) &&
+        Objects.equals(this.engineType, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.engineType) &&
         Objects.equals(this.hasDisasterRecoveryInstances, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.hasDisasterRecoveryInstances) &&
         Objects.equals(this.hasGreenInstance, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.hasGreenInstance) &&
         Objects.equals(this.instanceId, dbInstanceAttributeForDescribeDBInstanceAttributeOutput.instanceId) &&
@@ -674,7 +696,7 @@ public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, hasDisasterRecoveryInstances, hasGreenInstance, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, engineType, hasDisasterRecoveryInstances, hasGreenInstance, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -689,6 +711,7 @@ public class DBInstanceAttributeForDescribeDBInstanceAttributeOutput {
     sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    hasDisasterRecoveryInstances: ").append(toIndentedString(hasDisasterRecoveryInstances)).append("\n");
     sb.append("    hasGreenInstance: ").append(toIndentedString(hasGreenInstance)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

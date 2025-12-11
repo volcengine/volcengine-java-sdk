@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ListParameterTemplatesRequest {
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("Limit")
   private Integer limit = null;
 
@@ -53,6 +56,24 @@ public class ListParameterTemplatesRequest {
 
   @SerializedName("TemplateTypeVersion")
   private String templateTypeVersion = null;
+
+  public ListParameterTemplatesRequest engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
+  }
 
   public ListParameterTemplatesRequest limit(Integer limit) {
     this.limit = limit;
@@ -208,7 +229,8 @@ public class ListParameterTemplatesRequest {
       return false;
     }
     ListParameterTemplatesRequest listParameterTemplatesRequest = (ListParameterTemplatesRequest) o;
-    return Objects.equals(this.limit, listParameterTemplatesRequest.limit) &&
+    return Objects.equals(this.engineType, listParameterTemplatesRequest.engineType) &&
+        Objects.equals(this.limit, listParameterTemplatesRequest.limit) &&
         Objects.equals(this.offset, listParameterTemplatesRequest.offset) &&
         Objects.equals(this.projectName, listParameterTemplatesRequest.projectName) &&
         Objects.equals(this.templateCategory, listParameterTemplatesRequest.templateCategory) &&
@@ -220,7 +242,7 @@ public class ListParameterTemplatesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, projectName, templateCategory, templateName, templateSource, templateType, templateTypeVersion);
+    return Objects.hash(engineType, limit, offset, projectName, templateCategory, templateName, templateSource, templateType, templateTypeVersion);
   }
 
 
@@ -229,6 +251,7 @@ public class ListParameterTemplatesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListParameterTemplatesRequest {\n");
     
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
