@@ -33,6 +33,9 @@ public class ListForListCouponUsageRecordsOutput {
   @SerializedName("AccountID")
   private Long accountID = null;
 
+  @SerializedName("BillingCycle")
+  private String billingCycle = null;
+
   @SerializedName("ChangeAmount")
   private Double changeAmount = null;
 
@@ -76,6 +79,24 @@ public class ListForListCouponUsageRecordsOutput {
 
   public void setAccountID(Long accountID) {
     this.accountID = accountID;
+  }
+
+  public ListForListCouponUsageRecordsOutput billingCycle(String billingCycle) {
+    this.billingCycle = billingCycle;
+    return this;
+  }
+
+   /**
+   * Get billingCycle
+   * @return billingCycle
+  **/
+  @Schema(description = "")
+  public String getBillingCycle() {
+    return billingCycle;
+  }
+
+  public void setBillingCycle(String billingCycle) {
+    this.billingCycle = billingCycle;
   }
 
   public ListForListCouponUsageRecordsOutput changeAmount(Double changeAmount) {
@@ -251,6 +272,7 @@ public class ListForListCouponUsageRecordsOutput {
     }
     ListForListCouponUsageRecordsOutput listForListCouponUsageRecordsOutput = (ListForListCouponUsageRecordsOutput) o;
     return Objects.equals(this.accountID, listForListCouponUsageRecordsOutput.accountID) &&
+        Objects.equals(this.billingCycle, listForListCouponUsageRecordsOutput.billingCycle) &&
         Objects.equals(this.changeAmount, listForListCouponUsageRecordsOutput.changeAmount) &&
         Objects.equals(this.changeType, listForListCouponUsageRecordsOutput.changeType) &&
         Objects.equals(this.couponID, listForListCouponUsageRecordsOutput.couponID) &&
@@ -264,7 +286,7 @@ public class ListForListCouponUsageRecordsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, changeAmount, changeType, couponID, createdTime, payType, productCode, productName, subBusinessID, userAccountID);
+    return Objects.hash(accountID, billingCycle, changeAmount, changeType, couponID, createdTime, payType, productCode, productName, subBusinessID, userAccountID);
   }
 
 
@@ -274,6 +296,7 @@ public class ListForListCouponUsageRecordsOutput {
     sb.append("class ListForListCouponUsageRecordsOutput {\n");
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
     sb.append("    changeAmount: ").append(toIndentedString(changeAmount)).append("\n");
     sb.append("    changeType: ").append(toIndentedString(changeType)).append("\n");
     sb.append("    couponID: ").append(toIndentedString(couponID)).append("\n");
