@@ -26,6 +26,9 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("execution_expires_after")
     private Long executionExpiresAfter;
 
+    @JsonProperty("generate_audio")
+    private Boolean generateAudio;
+
     public CreateContentGenerationTaskRequest() {
     }
 
@@ -89,6 +92,14 @@ public class CreateContentGenerationTaskRequest {
         this.executionExpiresAfter = executionExpiresAfter;
     }
 
+    public Boolean getGenerateAudio() {
+        return generateAudio;
+    }
+
+    public void setGenerateAudio(Boolean generateAudio) {
+        this.generateAudio = generateAudio;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
@@ -98,6 +109,7 @@ public class CreateContentGenerationTaskRequest {
                 ", returnLastFrame=" + returnLastFrame +
                 ", serviceTier='" + serviceTier + '\'' +
                 ", executionExpiresAfter=" + executionExpiresAfter +
+                ", generateAudio=" + generateAudio +
                 '}';
     }
 
@@ -112,6 +124,7 @@ public class CreateContentGenerationTaskRequest {
         private Boolean returnLastFrame;
         private String serviceTier;
         private Long executionExpiresAfter;
+        private Boolean generateAudio;
 
         private Builder() {
         }
@@ -146,6 +159,11 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder generateAudio(Boolean generateAudio) {
+            this.generateAudio = generateAudio;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
@@ -154,6 +172,7 @@ public class CreateContentGenerationTaskRequest {
             createContentGenerationTaskRequest.setReturnLastFrame(returnLastFrame);
             createContentGenerationTaskRequest.setServiceTier(serviceTier);
             createContentGenerationTaskRequest.setExecutionExpiresAfter(executionExpiresAfter);
+            createContentGenerationTaskRequest.setGenerateAudio(generateAudio);
             return createContentGenerationTaskRequest;
         }
     }
