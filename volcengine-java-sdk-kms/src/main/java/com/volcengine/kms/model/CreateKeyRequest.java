@@ -60,6 +60,9 @@ public class CreateKeyRequest {
   @SerializedName("ProtectionLevel")
   private String protectionLevel = null;
 
+  @SerializedName("RotateInterval")
+  private Integer rotateInterval = null;
+
   @SerializedName("RotateState")
   private String rotateState = null;
 
@@ -233,6 +236,26 @@ public class CreateKeyRequest {
     this.protectionLevel = protectionLevel;
   }
 
+  public CreateKeyRequest rotateInterval(Integer rotateInterval) {
+    this.rotateInterval = rotateInterval;
+    return this;
+  }
+
+   /**
+   * Get rotateInterval
+   * minimum: 90
+   * maximum: 2560
+   * @return rotateInterval
+  **/
+ @Min(90) @Max(2560)  @Schema(description = "")
+  public Integer getRotateInterval() {
+    return rotateInterval;
+  }
+
+  public void setRotateInterval(Integer rotateInterval) {
+    this.rotateInterval = rotateInterval;
+  }
+
   public CreateKeyRequest rotateState(String rotateState) {
     this.rotateState = rotateState;
     return this;
@@ -315,6 +338,7 @@ public class CreateKeyRequest {
         Objects.equals(this.multiRegion, createKeyRequest.multiRegion) &&
         Objects.equals(this.origin, createKeyRequest.origin) &&
         Objects.equals(this.protectionLevel, createKeyRequest.protectionLevel) &&
+        Objects.equals(this.rotateInterval, createKeyRequest.rotateInterval) &&
         Objects.equals(this.rotateState, createKeyRequest.rotateState) &&
         Objects.equals(this.tags, createKeyRequest.tags) &&
         Objects.equals(this.xksKeyID, createKeyRequest.xksKeyID);
@@ -322,7 +346,7 @@ public class CreateKeyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customKeyStoreID, description, keyName, keySpec, keyUsage, keyringName, multiRegion, origin, protectionLevel, rotateState, tags, xksKeyID);
+    return Objects.hash(customKeyStoreID, description, keyName, keySpec, keyUsage, keyringName, multiRegion, origin, protectionLevel, rotateInterval, rotateState, tags, xksKeyID);
   }
 
 
@@ -340,6 +364,7 @@ public class CreateKeyRequest {
     sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    protectionLevel: ").append(toIndentedString(protectionLevel)).append("\n");
+    sb.append("    rotateInterval: ").append(toIndentedString(rotateInterval)).append("\n");
     sb.append("    rotateState: ").append(toIndentedString(rotateState)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    xksKeyID: ").append(toIndentedString(xksKeyID)).append("\n");
