@@ -56,8 +56,7 @@ public class ModifyBackupPlanRequest {
    * Get active
    * @return active
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isActive() {
     return active;
   }
