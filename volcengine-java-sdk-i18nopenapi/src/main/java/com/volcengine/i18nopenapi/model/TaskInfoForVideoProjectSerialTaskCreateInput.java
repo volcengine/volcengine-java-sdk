@@ -39,6 +39,9 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   @SerializedName("asrModel")
   private Integer asrModel = null;
 
+  @SerializedName("bgmPolicy")
+  private Integer bgmPolicy = null;
+
   @SerializedName("comment")
   private String comment = null;
 
@@ -55,7 +58,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   private String dramaTitle = null;
 
   @SerializedName("isDub")
-  private Integer isDub = null;
+  private Boolean isDub = null;
 
   @SerializedName("needTranslateCover")
   private Boolean needTranslateCover = null;
@@ -121,6 +124,24 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   public void setAsrModel(Integer asrModel) {
     this.asrModel = asrModel;
+  }
+
+  public TaskInfoForVideoProjectSerialTaskCreateInput bgmPolicy(Integer bgmPolicy) {
+    this.bgmPolicy = bgmPolicy;
+    return this;
+  }
+
+   /**
+   * Get bgmPolicy
+   * @return bgmPolicy
+  **/
+  @Schema(description = "")
+  public Integer getBgmPolicy() {
+    return bgmPolicy;
+  }
+
+  public void setBgmPolicy(Integer bgmPolicy) {
+    this.bgmPolicy = bgmPolicy;
   }
 
   public TaskInfoForVideoProjectSerialTaskCreateInput comment(String comment) {
@@ -213,7 +234,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.dramaTitle = dramaTitle;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput isDub(Integer isDub) {
+  public TaskInfoForVideoProjectSerialTaskCreateInput isDub(Boolean isDub) {
     this.isDub = isDub;
     return this;
   }
@@ -223,11 +244,11 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
    * @return isDub
   **/
   @Schema(description = "")
-  public Integer getIsDub() {
+  public Boolean isIsDub() {
     return isDub;
   }
 
-  public void setIsDub(Integer isDub) {
+  public void setIsDub(Boolean isDub) {
     this.isDub = isDub;
   }
 
@@ -432,6 +453,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     TaskInfoForVideoProjectSerialTaskCreateInput taskInfoForVideoProjectSerialTaskCreateInput = (TaskInfoForVideoProjectSerialTaskCreateInput) o;
     return Objects.equals(this.aiRemoveType, taskInfoForVideoProjectSerialTaskCreateInput.aiRemoveType) &&
         Objects.equals(this.asrModel, taskInfoForVideoProjectSerialTaskCreateInput.asrModel) &&
+        Objects.equals(this.bgmPolicy, taskInfoForVideoProjectSerialTaskCreateInput.bgmPolicy) &&
         Objects.equals(this.comment, taskInfoForVideoProjectSerialTaskCreateInput.comment) &&
         Objects.equals(this.deadline, taskInfoForVideoProjectSerialTaskCreateInput.deadline) &&
         Objects.equals(this.dramaCoverUrl, taskInfoForVideoProjectSerialTaskCreateInput.dramaCoverUrl) &&
@@ -452,7 +474,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, serialNumber, sourceLang, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, serialNumber, sourceLang, targetLangs, targetStyleMap, taskName, useMT);
   }
 
 
@@ -463,6 +485,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     
     sb.append("    aiRemoveType: ").append(toIndentedString(aiRemoveType)).append("\n");
     sb.append("    asrModel: ").append(toIndentedString(asrModel)).append("\n");
+    sb.append("    bgmPolicy: ").append(toIndentedString(bgmPolicy)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    dramaCoverUrl: ").append(toIndentedString(dramaCoverUrl)).append("\n");
