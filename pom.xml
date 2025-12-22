@@ -326,6 +326,7 @@
         <module>volcengine-java-sdk-pca20251001</module>
         <module>volcengine-java-sdk-config</module>
         <module>volcengine-java-sdk-id</module>
+        <module>volcengine-java-sdk-dts</module>
         <module>volcengine-java-sdk-dts20180101</module>
     </modules>
 </project>
