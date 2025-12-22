@@ -48,6 +48,9 @@ public class NetworkResourceForGetVegraphNetworkResourceOutput {
   @SerializedName("LBId")
   private String lbId = null;
 
+  @SerializedName("NetworkResourceType")
+  private String networkResourceType = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -174,6 +177,24 @@ public class NetworkResourceForGetVegraphNetworkResourceOutput {
     this.lbId = lbId;
   }
 
+  public NetworkResourceForGetVegraphNetworkResourceOutput networkResourceType(String networkResourceType) {
+    this.networkResourceType = networkResourceType;
+    return this;
+  }
+
+   /**
+   * Get networkResourceType
+   * @return networkResourceType
+  **/
+  @Schema(description = "")
+  public String getNetworkResourceType() {
+    return networkResourceType;
+  }
+
+  public void setNetworkResourceType(String networkResourceType) {
+    this.networkResourceType = networkResourceType;
+  }
+
   public NetworkResourceForGetVegraphNetworkResourceOutput region(String region) {
     this.region = region;
     return this;
@@ -298,6 +319,7 @@ public class NetworkResourceForGetVegraphNetworkResourceOutput {
         Objects.equals(this.instanceId, networkResourceForGetVegraphNetworkResourceOutput.instanceId) &&
         Objects.equals(this.ipVersionType, networkResourceForGetVegraphNetworkResourceOutput.ipVersionType) &&
         Objects.equals(this.lbId, networkResourceForGetVegraphNetworkResourceOutput.lbId) &&
+        Objects.equals(this.networkResourceType, networkResourceForGetVegraphNetworkResourceOutput.networkResourceType) &&
         Objects.equals(this.region, networkResourceForGetVegraphNetworkResourceOutput.region) &&
         Objects.equals(this.resourceName, networkResourceForGetVegraphNetworkResourceOutput.resourceName) &&
         Objects.equals(this.subnetId, networkResourceForGetVegraphNetworkResourceOutput.subnetId) &&
@@ -308,7 +330,7 @@ public class NetworkResourceForGetVegraphNetworkResourceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressType, az, id, instanceId, ipVersionType, lbId, region, resourceName, subnetId, vipV4, vipV6, networkType);
+    return Objects.hash(addressType, az, id, instanceId, ipVersionType, lbId, networkResourceType, region, resourceName, subnetId, vipV4, vipV6, networkType);
   }
 
 
@@ -323,6 +345,7 @@ public class NetworkResourceForGetVegraphNetworkResourceOutput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    ipVersionType: ").append(toIndentedString(ipVersionType)).append("\n");
     sb.append("    lbId: ").append(toIndentedString(lbId)).append("\n");
+    sb.append("    networkResourceType: ").append(toIndentedString(networkResourceType)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

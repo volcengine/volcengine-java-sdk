@@ -39,6 +39,9 @@ public class EnableKeyRotationRequest {
   @SerializedName("KeyringName")
   private String keyringName = null;
 
+  @SerializedName("RotateInterval")
+  private Integer rotateInterval = null;
+
   public EnableKeyRotationRequest keyID(String keyID) {
     this.keyID = keyID;
     return this;
@@ -93,6 +96,26 @@ public class EnableKeyRotationRequest {
     this.keyringName = keyringName;
   }
 
+  public EnableKeyRotationRequest rotateInterval(Integer rotateInterval) {
+    this.rotateInterval = rotateInterval;
+    return this;
+  }
+
+   /**
+   * Get rotateInterval
+   * minimum: 90
+   * maximum: 2560
+   * @return rotateInterval
+  **/
+ @Min(90) @Max(2560)  @Schema(description = "")
+  public Integer getRotateInterval() {
+    return rotateInterval;
+  }
+
+  public void setRotateInterval(Integer rotateInterval) {
+    this.rotateInterval = rotateInterval;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +128,13 @@ public class EnableKeyRotationRequest {
     EnableKeyRotationRequest enableKeyRotationRequest = (EnableKeyRotationRequest) o;
     return Objects.equals(this.keyID, enableKeyRotationRequest.keyID) &&
         Objects.equals(this.keyName, enableKeyRotationRequest.keyName) &&
-        Objects.equals(this.keyringName, enableKeyRotationRequest.keyringName);
+        Objects.equals(this.keyringName, enableKeyRotationRequest.keyringName) &&
+        Objects.equals(this.rotateInterval, enableKeyRotationRequest.rotateInterval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyID, keyName, keyringName);
+    return Objects.hash(keyID, keyName, keyringName, rotateInterval);
   }
 
 
@@ -122,6 +146,7 @@ public class EnableKeyRotationRequest {
     sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
+    sb.append("    rotateInterval: ").append(toIndentedString(rotateInterval)).append("\n");
     sb.append("}");
     return sb.toString();
   }
