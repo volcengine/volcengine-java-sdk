@@ -51,6 +51,9 @@ public class DomainExtensionForDescribeListenersOutput {
   @SerializedName("PcaLeafCertificateId")
   private String pcaLeafCertificateId = null;
 
+  @SerializedName("San")
+  private String san = null;
+
   public DomainExtensionForDescribeListenersOutput certCenterCertificateId(String certCenterCertificateId) {
     this.certCenterCertificateId = certCenterCertificateId;
     return this;
@@ -177,6 +180,24 @@ public class DomainExtensionForDescribeListenersOutput {
     this.pcaLeafCertificateId = pcaLeafCertificateId;
   }
 
+  public DomainExtensionForDescribeListenersOutput san(String san) {
+    this.san = san;
+    return this;
+  }
+
+   /**
+   * Get san
+   * @return san
+  **/
+  @Schema(description = "")
+  public String getSan() {
+    return san;
+  }
+
+  public void setSan(String san) {
+    this.san = san;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,12 +214,13 @@ public class DomainExtensionForDescribeListenersOutput {
         Objects.equals(this.domain, domainExtensionForDescribeListenersOutput.domain) &&
         Objects.equals(this.domainExtensionId, domainExtensionForDescribeListenersOutput.domainExtensionId) &&
         Objects.equals(this.listenerId, domainExtensionForDescribeListenersOutput.listenerId) &&
-        Objects.equals(this.pcaLeafCertificateId, domainExtensionForDescribeListenersOutput.pcaLeafCertificateId);
+        Objects.equals(this.pcaLeafCertificateId, domainExtensionForDescribeListenersOutput.pcaLeafCertificateId) &&
+        Objects.equals(this.san, domainExtensionForDescribeListenersOutput.san);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId, pcaLeafCertificateId);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId, pcaLeafCertificateId, san);
   }
 
 
@@ -214,6 +236,7 @@ public class DomainExtensionForDescribeListenersOutput {
     sb.append("    domainExtensionId: ").append(toIndentedString(domainExtensionId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    pcaLeafCertificateId: ").append(toIndentedString(pcaLeafCertificateId)).append("\n");
+    sb.append("    san: ").append(toIndentedString(san)).append("\n");
     sb.append("}");
     return sb.toString();
   }

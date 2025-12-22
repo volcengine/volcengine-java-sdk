@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput
+ * GlobalAcceleratorForDescribeLoadBalancerAttributesOutput
  */
 
 
 
-public class GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
+public class GlobalAcceleratorForDescribeLoadBalancerAttributesOutput {
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
   @SerializedName("AcceleratorName")
   private String acceleratorName = null;
 
-  public GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput acceleratorId(String acceleratorId) {
+  public GlobalAcceleratorForDescribeLoadBalancerAttributesOutput acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
     return this;
   }
@@ -54,7 +54,7 @@ public class GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
     this.acceleratorId = acceleratorId;
   }
 
-  public GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput acceleratorName(String acceleratorName) {
+  public GlobalAcceleratorForDescribeLoadBalancerAttributesOutput acceleratorName(String acceleratorName) {
     this.acceleratorName = acceleratorName;
     return this;
   }
@@ -81,9 +81,9 @@ public class GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput globalAcceleratorsForDescribeLoadBalancerAttributesOutput = (GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput) o;
-    return Objects.equals(this.acceleratorId, globalAcceleratorsForDescribeLoadBalancerAttributesOutput.acceleratorId) &&
-        Objects.equals(this.acceleratorName, globalAcceleratorsForDescribeLoadBalancerAttributesOutput.acceleratorName);
+    GlobalAcceleratorForDescribeLoadBalancerAttributesOutput globalAcceleratorForDescribeLoadBalancerAttributesOutput = (GlobalAcceleratorForDescribeLoadBalancerAttributesOutput) o;
+    return Objects.equals(this.acceleratorId, globalAcceleratorForDescribeLoadBalancerAttributesOutput.acceleratorId) &&
+        Objects.equals(this.acceleratorName, globalAcceleratorForDescribeLoadBalancerAttributesOutput.acceleratorName);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput {\n");
+    sb.append("class GlobalAcceleratorForDescribeLoadBalancerAttributesOutput {\n");
     
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    acceleratorName: ").append(toIndentedString(acceleratorName)).append("\n");

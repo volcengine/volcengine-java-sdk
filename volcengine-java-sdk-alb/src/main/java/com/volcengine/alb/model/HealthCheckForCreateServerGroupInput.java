@@ -37,7 +37,7 @@ public class HealthCheckForCreateServerGroupInput {
   private String enabled = null;
 
   @SerializedName("HealthyThreshold")
-  private String healthyThreshold = null;
+  private Integer healthyThreshold = null;
 
   @SerializedName("HttpCode")
   private String httpCode = null;
@@ -46,7 +46,7 @@ public class HealthCheckForCreateServerGroupInput {
   private String httpVersion = null;
 
   @SerializedName("Interval")
-  private String interval = null;
+  private Integer interval = null;
 
   @SerializedName("Method")
   private String method = null;
@@ -58,13 +58,13 @@ public class HealthCheckForCreateServerGroupInput {
   private String protocol = null;
 
   @SerializedName("Timeout")
-  private String timeout = null;
+  private Integer timeout = null;
 
   @SerializedName("URI")
   private String URI = null;
 
   @SerializedName("UnhealthyThreshold")
-  private String unhealthyThreshold = null;
+  private Integer unhealthyThreshold = null;
 
   public HealthCheckForCreateServerGroupInput domain(String domain) {
     this.domain = domain;
@@ -102,7 +102,7 @@ public class HealthCheckForCreateServerGroupInput {
     this.enabled = enabled;
   }
 
-  public HealthCheckForCreateServerGroupInput healthyThreshold(String healthyThreshold) {
+  public HealthCheckForCreateServerGroupInput healthyThreshold(Integer healthyThreshold) {
     this.healthyThreshold = healthyThreshold;
     return this;
   }
@@ -112,11 +112,11 @@ public class HealthCheckForCreateServerGroupInput {
    * @return healthyThreshold
   **/
   @Schema(description = "")
-  public String getHealthyThreshold() {
+  public Integer getHealthyThreshold() {
     return healthyThreshold;
   }
 
-  public void setHealthyThreshold(String healthyThreshold) {
+  public void setHealthyThreshold(Integer healthyThreshold) {
     this.healthyThreshold = healthyThreshold;
   }
 
@@ -156,7 +156,7 @@ public class HealthCheckForCreateServerGroupInput {
     this.httpVersion = httpVersion;
   }
 
-  public HealthCheckForCreateServerGroupInput interval(String interval) {
+  public HealthCheckForCreateServerGroupInput interval(Integer interval) {
     this.interval = interval;
     return this;
   }
@@ -166,11 +166,11 @@ public class HealthCheckForCreateServerGroupInput {
    * @return interval
   **/
   @Schema(description = "")
-  public String getInterval() {
+  public Integer getInterval() {
     return interval;
   }
 
-  public void setInterval(String interval) {
+  public void setInterval(Integer interval) {
     this.interval = interval;
   }
 
@@ -230,7 +230,7 @@ public class HealthCheckForCreateServerGroupInput {
     this.protocol = protocol;
   }
 
-  public HealthCheckForCreateServerGroupInput timeout(String timeout) {
+  public HealthCheckForCreateServerGroupInput timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -240,11 +240,11 @@ public class HealthCheckForCreateServerGroupInput {
    * @return timeout
   **/
   @Schema(description = "")
-  public String getTimeout() {
+  public Integer getTimeout() {
     return timeout;
   }
 
-  public void setTimeout(String timeout) {
+  public void setTimeout(Integer timeout) {
     this.timeout = timeout;
   }
 
@@ -266,7 +266,7 @@ public class HealthCheckForCreateServerGroupInput {
     this.URI = URI;
   }
 
-  public HealthCheckForCreateServerGroupInput unhealthyThreshold(String unhealthyThreshold) {
+  public HealthCheckForCreateServerGroupInput unhealthyThreshold(Integer unhealthyThreshold) {
     this.unhealthyThreshold = unhealthyThreshold;
     return this;
   }
@@ -276,11 +276,11 @@ public class HealthCheckForCreateServerGroupInput {
    * @return unhealthyThreshold
   **/
   @Schema(description = "")
-  public String getUnhealthyThreshold() {
+  public Integer getUnhealthyThreshold() {
     return unhealthyThreshold;
   }
 
-  public void setUnhealthyThreshold(String unhealthyThreshold) {
+  public void setUnhealthyThreshold(Integer unhealthyThreshold) {
     this.unhealthyThreshold = unhealthyThreshold;
   }
 

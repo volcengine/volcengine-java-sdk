@@ -47,6 +47,9 @@ public class CloneLoadBalancerRequest {
   @SerializedName("EipBillingConfig")
   private EipBillingConfigForCloneLoadBalancerInput eipBillingConfig = null;
 
+  @SerializedName("Ipv6BandwidthPackageId")
+  private String ipv6BandwidthPackageId = null;
+
   @SerializedName("Ipv6EipBillingConfig")
   private Ipv6EipBillingConfigForCloneLoadBalancerInput ipv6EipBillingConfig = null;
 
@@ -136,6 +139,24 @@ public class CloneLoadBalancerRequest {
 
   public void setEipBillingConfig(EipBillingConfigForCloneLoadBalancerInput eipBillingConfig) {
     this.eipBillingConfig = eipBillingConfig;
+  }
+
+  public CloneLoadBalancerRequest ipv6BandwidthPackageId(String ipv6BandwidthPackageId) {
+    this.ipv6BandwidthPackageId = ipv6BandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get ipv6BandwidthPackageId
+   * @return ipv6BandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getIpv6BandwidthPackageId() {
+    return ipv6BandwidthPackageId;
+  }
+
+  public void setIpv6BandwidthPackageId(String ipv6BandwidthPackageId) {
+    this.ipv6BandwidthPackageId = ipv6BandwidthPackageId;
   }
 
   public CloneLoadBalancerRequest ipv6EipBillingConfig(Ipv6EipBillingConfigForCloneLoadBalancerInput ipv6EipBillingConfig) {
@@ -272,6 +293,7 @@ public class CloneLoadBalancerRequest {
         Objects.equals(this.deleteProtection, cloneLoadBalancerRequest.deleteProtection) &&
         Objects.equals(this.description, cloneLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, cloneLoadBalancerRequest.eipBillingConfig) &&
+        Objects.equals(this.ipv6BandwidthPackageId, cloneLoadBalancerRequest.ipv6BandwidthPackageId) &&
         Objects.equals(this.ipv6EipBillingConfig, cloneLoadBalancerRequest.ipv6EipBillingConfig) &&
         Objects.equals(this.loadBalancerId, cloneLoadBalancerRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, cloneLoadBalancerRequest.loadBalancerName) &&
@@ -282,7 +304,7 @@ public class CloneLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerId, loadBalancerName, projectName, regionId, zoneMappings);
+    return Objects.hash(bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerId, loadBalancerName, projectName, regionId, zoneMappings);
   }
 
 
@@ -295,6 +317,7 @@ public class CloneLoadBalancerRequest {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
+    sb.append("    ipv6BandwidthPackageId: ").append(toIndentedString(ipv6BandwidthPackageId)).append("\n");
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");

@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ResourceTagForListTagsForResourcesOutput {
-  @SerializedName("ResourceId")
-  private String resourceId = null;
+  @SerializedName("ResourceID")
+  private String resourceID = null;
 
   @SerializedName("ResourceType")
   private String resourceType = null;
@@ -42,22 +42,22 @@ public class ResourceTagForListTagsForResourcesOutput {
   @SerializedName("TagValue")
   private String tagValue = null;
 
-  public ResourceTagForListTagsForResourcesOutput resourceId(String resourceId) {
-    this.resourceId = resourceId;
+  public ResourceTagForListTagsForResourcesOutput resourceID(String resourceID) {
+    this.resourceID = resourceID;
     return this;
   }
 
    /**
-   * Get resourceId
-   * @return resourceId
+   * Get resourceID
+   * @return resourceID
   **/
   @Schema(description = "")
-  public String getResourceId() {
-    return resourceId;
+  public String getResourceID() {
+    return resourceID;
   }
 
-  public void setResourceId(String resourceId) {
-    this.resourceId = resourceId;
+  public void setResourceID(String resourceID) {
+    this.resourceID = resourceID;
   }
 
   public ResourceTagForListTagsForResourcesOutput resourceType(String resourceType) {
@@ -124,7 +124,7 @@ public class ResourceTagForListTagsForResourcesOutput {
       return false;
     }
     ResourceTagForListTagsForResourcesOutput resourceTagForListTagsForResourcesOutput = (ResourceTagForListTagsForResourcesOutput) o;
-    return Objects.equals(this.resourceId, resourceTagForListTagsForResourcesOutput.resourceId) &&
+    return Objects.equals(this.resourceID, resourceTagForListTagsForResourcesOutput.resourceID) &&
         Objects.equals(this.resourceType, resourceTagForListTagsForResourcesOutput.resourceType) &&
         Objects.equals(this.tagKey, resourceTagForListTagsForResourcesOutput.tagKey) &&
         Objects.equals(this.tagValue, resourceTagForListTagsForResourcesOutput.tagValue);
@@ -132,7 +132,7 @@ public class ResourceTagForListTagsForResourcesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceId, resourceType, tagKey, tagValue);
+    return Objects.hash(resourceID, resourceType, tagKey, tagValue);
   }
 
 
@@ -141,7 +141,7 @@ public class ResourceTagForListTagsForResourcesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourceTagForListTagsForResourcesOutput {\n");
     
-    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
     sb.append("    tagValue: ").append(toIndentedString(tagValue)).append("\n");

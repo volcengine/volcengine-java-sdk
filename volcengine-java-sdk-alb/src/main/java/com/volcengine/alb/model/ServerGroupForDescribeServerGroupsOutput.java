@@ -47,7 +47,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeServerGroupsOutput healthCheck = null;
 
-  @SerializedName("IPAddressType")
+  @SerializedName("IpAddressType")
   private String ipAddressType = null;
 
   @SerializedName("Listeners")

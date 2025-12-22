@@ -45,7 +45,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeServerGroupAttributesOutput healthCheck = null;
 
-  @SerializedName("IPAddressType")
+  @SerializedName("IpAddressType")
   private String ipAddressType = null;
 
   @SerializedName("Listeners")

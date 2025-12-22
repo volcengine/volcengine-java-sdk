@@ -52,6 +52,9 @@ public class ModifyLoadBalancerAttributesRequest {
   @SerializedName("ModificationProtectionStatus")
   private String modificationProtectionStatus = null;
 
+  @SerializedName("ProxyProtocolEnabled")
+  private String proxyProtocolEnabled = null;
+
   @SerializedName("WafInstanceId")
   private String wafInstanceId = null;
 
@@ -189,6 +192,24 @@ public class ModifyLoadBalancerAttributesRequest {
     this.modificationProtectionStatus = modificationProtectionStatus;
   }
 
+  public ModifyLoadBalancerAttributesRequest proxyProtocolEnabled(String proxyProtocolEnabled) {
+    this.proxyProtocolEnabled = proxyProtocolEnabled;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolEnabled
+   * @return proxyProtocolEnabled
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolEnabled() {
+    return proxyProtocolEnabled;
+  }
+
+  public void setProxyProtocolEnabled(String proxyProtocolEnabled) {
+    this.proxyProtocolEnabled = proxyProtocolEnabled;
+  }
+
   public ModifyLoadBalancerAttributesRequest wafInstanceId(String wafInstanceId) {
     this.wafInstanceId = wafInstanceId;
     return this;
@@ -260,6 +281,7 @@ public class ModifyLoadBalancerAttributesRequest {
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
         Objects.equals(this.modificationProtectionReason, modifyLoadBalancerAttributesRequest.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, modifyLoadBalancerAttributesRequest.modificationProtectionStatus) &&
+        Objects.equals(this.proxyProtocolEnabled, modifyLoadBalancerAttributesRequest.proxyProtocolEnabled) &&
         Objects.equals(this.wafInstanceId, modifyLoadBalancerAttributesRequest.wafInstanceId) &&
         Objects.equals(this.wafProtectedDomain, modifyLoadBalancerAttributesRequest.wafProtectedDomain) &&
         Objects.equals(this.wafProtectionEnabled, modifyLoadBalancerAttributesRequest.wafProtectionEnabled);
@@ -267,7 +289,7 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, globalAccelerator, loadBalancerId, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, wafInstanceId, wafProtectedDomain, wafProtectionEnabled);
+    return Objects.hash(deleteProtection, description, globalAccelerator, loadBalancerId, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, proxyProtocolEnabled, wafInstanceId, wafProtectedDomain, wafProtectionEnabled);
   }
 
 
@@ -283,6 +305,7 @@ public class ModifyLoadBalancerAttributesRequest {
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
+    sb.append("    proxyProtocolEnabled: ").append(toIndentedString(proxyProtocolEnabled)).append("\n");
     sb.append("    wafInstanceId: ").append(toIndentedString(wafInstanceId)).append("\n");
     sb.append("    wafProtectedDomain: ").append(toIndentedString(wafProtectedDomain)).append("\n");
     sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");

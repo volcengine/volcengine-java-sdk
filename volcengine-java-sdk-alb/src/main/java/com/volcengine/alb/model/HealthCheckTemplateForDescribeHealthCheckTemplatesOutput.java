@@ -54,6 +54,9 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
   @SerializedName("HealthCheckMethod")
   private String healthCheckMethod = null;
 
+  @SerializedName("HealthCheckPort")
+  private Integer healthCheckPort = null;
+
   @SerializedName("HealthCheckProtocol")
   private String healthCheckProtocol = null;
 
@@ -71,9 +74,6 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 
   @SerializedName("HealthyThreshold")
   private Integer healthyThreshold = null;
-
-  @SerializedName("Port")
-  private Integer port = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -213,6 +213,26 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
     this.healthCheckMethod = healthCheckMethod;
   }
 
+  public HealthCheckTemplateForDescribeHealthCheckTemplatesOutput healthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+    return this;
+  }
+
+   /**
+   * Get healthCheckPort
+   * minimum: 0
+   * maximum: 65535
+   * @return healthCheckPort
+  **/
+ @Min(0) @Max(65535)  @Schema(description = "")
+  public Integer getHealthCheckPort() {
+    return healthCheckPort;
+  }
+
+  public void setHealthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+  }
+
   public HealthCheckTemplateForDescribeHealthCheckTemplatesOutput healthCheckProtocol(String healthCheckProtocol) {
     this.healthCheckProtocol = healthCheckProtocol;
     return this;
@@ -321,26 +341,6 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
     this.healthyThreshold = healthyThreshold;
   }
 
-  public HealthCheckTemplateForDescribeHealthCheckTemplatesOutput port(Integer port) {
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Get port
-   * minimum: 0
-   * maximum: 65535
-   * @return port
-  **/
- @Min(0) @Max(65535)  @Schema(description = "")
-  public Integer getPort() {
-    return port;
-  }
-
-  public void setPort(Integer port) {
-    this.port = port;
-  }
-
   public HealthCheckTemplateForDescribeHealthCheckTemplatesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -439,13 +439,13 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
         Objects.equals(this.healthCheckHttpVersion, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckHttpVersion) &&
         Objects.equals(this.healthCheckInterval, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckInterval) &&
         Objects.equals(this.healthCheckMethod, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckMethod) &&
+        Objects.equals(this.healthCheckPort, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckPort) &&
         Objects.equals(this.healthCheckProtocol, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckProtocol) &&
         Objects.equals(this.healthCheckTemplateId, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckTemplateId) &&
         Objects.equals(this.healthCheckTemplateName, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckTemplateName) &&
         Objects.equals(this.healthCheckTimeout, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckTimeout) &&
         Objects.equals(this.healthCheckURI, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthCheckURI) &&
         Objects.equals(this.healthyThreshold, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.healthyThreshold) &&
-        Objects.equals(this.port, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.port) &&
         Objects.equals(this.projectName, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.projectName) &&
         Objects.equals(this.tags, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.tags) &&
         Objects.equals(this.unhealthyThreshold, healthCheckTemplateForDescribeHealthCheckTemplatesOutput.unhealthyThreshold) &&
@@ -454,7 +454,7 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, port, projectName, tags, unhealthyThreshold, updateTime);
+    return Objects.hash(createTime, description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckPort, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, projectName, tags, unhealthyThreshold, updateTime);
   }
 
 
@@ -470,13 +470,13 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
     sb.append("    healthCheckHttpVersion: ").append(toIndentedString(healthCheckHttpVersion)).append("\n");
     sb.append("    healthCheckInterval: ").append(toIndentedString(healthCheckInterval)).append("\n");
     sb.append("    healthCheckMethod: ").append(toIndentedString(healthCheckMethod)).append("\n");
+    sb.append("    healthCheckPort: ").append(toIndentedString(healthCheckPort)).append("\n");
     sb.append("    healthCheckProtocol: ").append(toIndentedString(healthCheckProtocol)).append("\n");
     sb.append("    healthCheckTemplateId: ").append(toIndentedString(healthCheckTemplateId)).append("\n");
     sb.append("    healthCheckTemplateName: ").append(toIndentedString(healthCheckTemplateName)).append("\n");
     sb.append("    healthCheckTimeout: ").append(toIndentedString(healthCheckTimeout)).append("\n");
     sb.append("    healthCheckURI: ").append(toIndentedString(healthCheckURI)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");

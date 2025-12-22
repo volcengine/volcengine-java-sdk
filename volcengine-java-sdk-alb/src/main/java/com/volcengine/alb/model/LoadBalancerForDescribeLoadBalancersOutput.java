@@ -97,6 +97,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("ProxyProtocolEnabled")
+  private String proxyProtocolEnabled = null;
+
   @SerializedName("SniAutoMatch")
   private String sniAutoMatch = null;
 
@@ -513,6 +516,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.projectName = projectName;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput proxyProtocolEnabled(String proxyProtocolEnabled) {
+    this.proxyProtocolEnabled = proxyProtocolEnabled;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolEnabled
+   * @return proxyProtocolEnabled
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolEnabled() {
+    return proxyProtocolEnabled;
+  }
+
+  public void setProxyProtocolEnabled(String proxyProtocolEnabled) {
+    this.proxyProtocolEnabled = proxyProtocolEnabled;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput sniAutoMatch(String sniAutoMatch) {
     this.sniAutoMatch = sniAutoMatch;
     return this;
@@ -742,6 +763,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.modificationProtectionStatus, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionStatus) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
         Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
+        Objects.equals(this.proxyProtocolEnabled, loadBalancerForDescribeLoadBalancersOutput.proxyProtocolEnabled) &&
         Objects.equals(this.sniAutoMatch, loadBalancerForDescribeLoadBalancersOutput.sniAutoMatch) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
@@ -756,7 +778,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, proxyProtocolEnabled, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -786,6 +808,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    proxyProtocolEnabled: ").append(toIndentedString(proxyProtocolEnabled)).append("\n");
     sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
