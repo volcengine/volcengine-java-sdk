@@ -76,6 +76,9 @@ public class UpdateFunctionRequest {
   @SerializedName("NasStorage")
   private NasStorageForUpdateFunctionInput nasStorage = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -334,6 +337,24 @@ public class UpdateFunctionRequest {
     this.nasStorage = nasStorage;
   }
 
+  public UpdateFunctionRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public UpdateFunctionRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -549,6 +570,7 @@ public class UpdateFunctionRequest {
         Objects.equals(this.maxConcurrency, updateFunctionRequest.maxConcurrency) &&
         Objects.equals(this.memoryMB, updateFunctionRequest.memoryMB) &&
         Objects.equals(this.nasStorage, updateFunctionRequest.nasStorage) &&
+        Objects.equals(this.port, updateFunctionRequest.port) &&
         Objects.equals(this.projectName, updateFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, updateFunctionRequest.requestTimeout) &&
         Objects.equals(this.role, updateFunctionRequest.role) &&
@@ -563,7 +585,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, port, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -584,6 +606,7 @@ public class UpdateFunctionRequest {
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
