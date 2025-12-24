@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.aiotvideo.model.EnableTimeForCreateScreenshotTemplateInput;
-import com.volcengine.aiotvideo.model.TTLForCreateScreenshotTemplateInput;
+import com.volcengine.aiotvideo.model.EnableTimeForUpdateScreenshotTemplateInput;
+import com.volcengine.aiotvideo.model.TTLForUpdateScreenshotTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,14 +28,14 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ScreenshotForCreateScreenshotTemplateInput
+ * ScreenshotForUpdateScreenshotTemplateInput
  */
 
 
 
-public class ScreenshotForCreateScreenshotTemplateInput {
+public class ScreenshotForUpdateScreenshotTemplateInput {
   @SerializedName("EnableTimes")
-  private List<EnableTimeForCreateScreenshotTemplateInput> enableTimes = null;
+  private List<EnableTimeForUpdateScreenshotTemplateInput> enableTimes = null;
 
   @SerializedName("ScheduleSwitch")
   private Boolean scheduleSwitch = null;
@@ -44,19 +44,19 @@ public class ScreenshotForCreateScreenshotTemplateInput {
   private Integer screenshotPeriod = null;
 
   @SerializedName("TTL")
-  private TTLForCreateScreenshotTemplateInput TTL = null;
+  private TTLForUpdateScreenshotTemplateInput TTL = null;
 
   @SerializedName("Type")
   private List<String> type = null;
 
-  public ScreenshotForCreateScreenshotTemplateInput enableTimes(List<EnableTimeForCreateScreenshotTemplateInput> enableTimes) {
+  public ScreenshotForUpdateScreenshotTemplateInput enableTimes(List<EnableTimeForUpdateScreenshotTemplateInput> enableTimes) {
     this.enableTimes = enableTimes;
     return this;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput addEnableTimesItem(EnableTimeForCreateScreenshotTemplateInput enableTimesItem) {
+  public ScreenshotForUpdateScreenshotTemplateInput addEnableTimesItem(EnableTimeForUpdateScreenshotTemplateInput enableTimesItem) {
     if (this.enableTimes == null) {
-      this.enableTimes = new ArrayList<EnableTimeForCreateScreenshotTemplateInput>();
+      this.enableTimes = new ArrayList<EnableTimeForUpdateScreenshotTemplateInput>();
     }
     this.enableTimes.add(enableTimesItem);
     return this;
@@ -68,15 +68,15 @@ public class ScreenshotForCreateScreenshotTemplateInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<EnableTimeForCreateScreenshotTemplateInput> getEnableTimes() {
+  public List<EnableTimeForUpdateScreenshotTemplateInput> getEnableTimes() {
     return enableTimes;
   }
 
-  public void setEnableTimes(List<EnableTimeForCreateScreenshotTemplateInput> enableTimes) {
+  public void setEnableTimes(List<EnableTimeForUpdateScreenshotTemplateInput> enableTimes) {
     this.enableTimes = enableTimes;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput scheduleSwitch(Boolean scheduleSwitch) {
+  public ScreenshotForUpdateScreenshotTemplateInput scheduleSwitch(Boolean scheduleSwitch) {
     this.scheduleSwitch = scheduleSwitch;
     return this;
   }
@@ -94,7 +94,7 @@ public class ScreenshotForCreateScreenshotTemplateInput {
     this.scheduleSwitch = scheduleSwitch;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput screenshotPeriod(Integer screenshotPeriod) {
+  public ScreenshotForUpdateScreenshotTemplateInput screenshotPeriod(Integer screenshotPeriod) {
     this.screenshotPeriod = screenshotPeriod;
     return this;
   }
@@ -112,7 +112,7 @@ public class ScreenshotForCreateScreenshotTemplateInput {
     this.screenshotPeriod = screenshotPeriod;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput TTL(TTLForCreateScreenshotTemplateInput TTL) {
+  public ScreenshotForUpdateScreenshotTemplateInput TTL(TTLForUpdateScreenshotTemplateInput TTL) {
     this.TTL = TTL;
     return this;
   }
@@ -123,20 +123,20 @@ public class ScreenshotForCreateScreenshotTemplateInput {
   **/
   @Valid
   @Schema(description = "")
-  public TTLForCreateScreenshotTemplateInput getTTL() {
+  public TTLForUpdateScreenshotTemplateInput getTTL() {
     return TTL;
   }
 
-  public void setTTL(TTLForCreateScreenshotTemplateInput TTL) {
+  public void setTTL(TTLForUpdateScreenshotTemplateInput TTL) {
     this.TTL = TTL;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput type(List<String> type) {
+  public ScreenshotForUpdateScreenshotTemplateInput type(List<String> type) {
     this.type = type;
     return this;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput addTypeItem(String typeItem) {
+  public ScreenshotForUpdateScreenshotTemplateInput addTypeItem(String typeItem) {
     if (this.type == null) {
       this.type = new ArrayList<String>();
     }
@@ -166,12 +166,12 @@ public class ScreenshotForCreateScreenshotTemplateInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScreenshotForCreateScreenshotTemplateInput screenshotForCreateScreenshotTemplateInput = (ScreenshotForCreateScreenshotTemplateInput) o;
-    return Objects.equals(this.enableTimes, screenshotForCreateScreenshotTemplateInput.enableTimes) &&
-        Objects.equals(this.scheduleSwitch, screenshotForCreateScreenshotTemplateInput.scheduleSwitch) &&
-        Objects.equals(this.screenshotPeriod, screenshotForCreateScreenshotTemplateInput.screenshotPeriod) &&
-        Objects.equals(this.TTL, screenshotForCreateScreenshotTemplateInput.TTL) &&
-        Objects.equals(this.type, screenshotForCreateScreenshotTemplateInput.type);
+    ScreenshotForUpdateScreenshotTemplateInput screenshotForUpdateScreenshotTemplateInput = (ScreenshotForUpdateScreenshotTemplateInput) o;
+    return Objects.equals(this.enableTimes, screenshotForUpdateScreenshotTemplateInput.enableTimes) &&
+        Objects.equals(this.scheduleSwitch, screenshotForUpdateScreenshotTemplateInput.scheduleSwitch) &&
+        Objects.equals(this.screenshotPeriod, screenshotForUpdateScreenshotTemplateInput.screenshotPeriod) &&
+        Objects.equals(this.TTL, screenshotForUpdateScreenshotTemplateInput.TTL) &&
+        Objects.equals(this.type, screenshotForUpdateScreenshotTemplateInput.type);
   }
 
   @Override
@@ -183,7 +183,7 @@ public class ScreenshotForCreateScreenshotTemplateInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScreenshotForCreateScreenshotTemplateInput {\n");
+    sb.append("class ScreenshotForUpdateScreenshotTemplateInput {\n");
     
     sb.append("    enableTimes: ").append(toIndentedString(enableTimes)).append("\n");
     sb.append("    scheduleSwitch: ").append(toIndentedString(scheduleSwitch)).append("\n");
