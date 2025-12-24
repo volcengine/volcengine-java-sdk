@@ -70,6 +70,9 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("IsBuildingImage")
   private Boolean isBuildingImage = null;
 
+  @SerializedName("IsaacApiKey")
+  private String isaacApiKey = null;
+
   @SerializedName("LaunchTime")
   private String launchTime = null;
 
@@ -304,6 +307,24 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   public void setIsBuildingImage(Boolean isBuildingImage) {
     this.isBuildingImage = isBuildingImage;
+  }
+
+  public GetDevInstanceResponse isaacApiKey(String isaacApiKey) {
+    this.isaacApiKey = isaacApiKey;
+    return this;
+  }
+
+   /**
+   * Get isaacApiKey
+   * @return isaacApiKey
+  **/
+  @Schema(description = "")
+  public String getIsaacApiKey() {
+    return isaacApiKey;
+  }
+
+  public void setIsaacApiKey(String isaacApiKey) {
+    this.isaacApiKey = isaacApiKey;
   }
 
   public GetDevInstanceResponse launchTime(String launchTime) {
@@ -672,6 +693,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.id, getDevInstanceResponse.id) &&
         Objects.equals(this.image, getDevInstanceResponse.image) &&
         Objects.equals(this.isBuildingImage, getDevInstanceResponse.isBuildingImage) &&
+        Objects.equals(this.isaacApiKey, getDevInstanceResponse.isaacApiKey) &&
         Objects.equals(this.launchTime, getDevInstanceResponse.launchTime) &&
         Objects.equals(this.name, getDevInstanceResponse.name) &&
         Objects.equals(this.nodeAffinitySpec, getDevInstanceResponse.nodeAffinitySpec) &&
@@ -694,7 +716,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, credential, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, credential, defaultFolder, description, expectedStopTime, id, image, isBuildingImage, isaacApiKey, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, projectName, resourceClaim, resourceQueueId, resourceReservationPlanId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -713,6 +735,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    isBuildingImage: ").append(toIndentedString(isBuildingImage)).append("\n");
+    sb.append("    isaacApiKey: ").append(toIndentedString(isaacApiKey)).append("\n");
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");

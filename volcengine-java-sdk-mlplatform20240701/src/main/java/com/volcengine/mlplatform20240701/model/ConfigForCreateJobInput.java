@@ -23,6 +23,7 @@ import com.volcengine.mlplatform20240701.model.CfsForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.NasAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateJobInput;
+import com.volcengine.mlplatform20240701.model.TosAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.TosForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.VepfsForCreateJobInput;
@@ -51,6 +52,9 @@ public class ConfigForCreateJobInput {
 
   @SerializedName("Tos")
   private TosForCreateJobInput tos = null;
+
+  @SerializedName("TosAP")
+  private TosAPForCreateJobInput tosAP = null;
 
   @SerializedName("Vepfs")
   private VepfsForCreateJobInput vepfs = null;
@@ -153,6 +157,25 @@ public class ConfigForCreateJobInput {
     this.tos = tos;
   }
 
+  public ConfigForCreateJobInput tosAP(TosAPForCreateJobInput tosAP) {
+    this.tosAP = tosAP;
+    return this;
+  }
+
+   /**
+   * Get tosAP
+   * @return tosAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosAPForCreateJobInput getTosAP() {
+    return tosAP;
+  }
+
+  public void setTosAP(TosAPForCreateJobInput tosAP) {
+    this.tosAP = tosAP;
+  }
+
   public ConfigForCreateJobInput vepfs(VepfsForCreateJobInput vepfs) {
     this.vepfs = vepfs;
     return this;
@@ -206,13 +229,14 @@ public class ConfigForCreateJobInput {
         Objects.equals(this.nasAP, configForCreateJobInput.nasAP) &&
         Objects.equals(this.sfcs, configForCreateJobInput.sfcs) &&
         Objects.equals(this.tos, configForCreateJobInput.tos) &&
+        Objects.equals(this.tosAP, configForCreateJobInput.tosAP) &&
         Objects.equals(this.vepfs, configForCreateJobInput.vepfs) &&
         Objects.equals(this.vepfsAP, configForCreateJobInput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -226,6 +250,7 @@ public class ConfigForCreateJobInput {
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    tosAP: ").append(toIndentedString(tosAP)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
     sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");
