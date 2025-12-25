@@ -24,16 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TemplateTTLConfigForCreateScreenshotTemplateInput
+ * TTLForUpdateScreenshotTemplateInput
  */
 
 
 
-public class TemplateTTLConfigForCreateScreenshotTemplateInput {
+public class TTLForUpdateScreenshotTemplateInput {
   @SerializedName("Days")
   private Integer days = null;
 
-  public TemplateTTLConfigForCreateScreenshotTemplateInput days(Integer days) {
+  public TTLForUpdateScreenshotTemplateInput days(Integer days) {
     this.days = days;
     return this;
   }
@@ -60,8 +60,8 @@ public class TemplateTTLConfigForCreateScreenshotTemplateInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TemplateTTLConfigForCreateScreenshotTemplateInput templateTTLConfigForCreateScreenshotTemplateInput = (TemplateTTLConfigForCreateScreenshotTemplateInput) o;
-    return Objects.equals(this.days, templateTTLConfigForCreateScreenshotTemplateInput.days);
+    TTLForUpdateScreenshotTemplateInput ttLForUpdateScreenshotTemplateInput = (TTLForUpdateScreenshotTemplateInput) o;
+    return Objects.equals(this.days, ttLForUpdateScreenshotTemplateInput.days);
   }
 
   @Override
@@ -73,7 +73,7 @@ public class TemplateTTLConfigForCreateScreenshotTemplateInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TemplateTTLConfigForCreateScreenshotTemplateInput {\n");
+    sb.append("class TTLForUpdateScreenshotTemplateInput {\n");
     
     sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("}");

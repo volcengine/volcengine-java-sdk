@@ -24,19 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * StopStreamResponse
+ * UpdateScreenshotTemplateResponse
  */
 
 
 
-public class StopStreamResponse extends com.volcengine.model.AbstractResponse {
+public class UpdateScreenshotTemplateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ID")
   private String ID = null;
 
-  @SerializedName("StopRes")
-  private Boolean stopRes = null;
-
-  public StopStreamResponse ID(String ID) {
+  public UpdateScreenshotTemplateResponse ID(String ID) {
     this.ID = ID;
     return this;
   }
@@ -54,24 +51,6 @@ public class StopStreamResponse extends com.volcengine.model.AbstractResponse {
     this.ID = ID;
   }
 
-  public StopStreamResponse stopRes(Boolean stopRes) {
-    this.stopRes = stopRes;
-    return this;
-  }
-
-   /**
-   * Get stopRes
-   * @return stopRes
-  **/
-  @Schema(description = "")
-  public Boolean isStopRes() {
-    return stopRes;
-  }
-
-  public void setStopRes(Boolean stopRes) {
-    this.stopRes = stopRes;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,24 +60,22 @@ public class StopStreamResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StopStreamResponse stopStreamResponse = (StopStreamResponse) o;
-    return Objects.equals(this.ID, stopStreamResponse.ID) &&
-        Objects.equals(this.stopRes, stopStreamResponse.stopRes);
+    UpdateScreenshotTemplateResponse updateScreenshotTemplateResponse = (UpdateScreenshotTemplateResponse) o;
+    return Objects.equals(this.ID, updateScreenshotTemplateResponse.ID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, stopRes);
+    return Objects.hash(ID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StopStreamResponse {\n");
+    sb.append("class UpdateScreenshotTemplateResponse {\n");
     
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
-    sb.append("    stopRes: ").append(toIndentedString(stopRes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
