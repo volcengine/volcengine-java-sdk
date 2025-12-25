@@ -23,6 +23,7 @@ import com.volcengine.mlplatform20240701.model.CfsForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.TosAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.TosForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsForCreateDeploymentInput;
@@ -51,6 +52,9 @@ public class ConfigForCreateDeploymentInput {
 
   @SerializedName("Tos")
   private TosForCreateDeploymentInput tos = null;
+
+  @SerializedName("TosAP")
+  private TosAPForCreateDeploymentInput tosAP = null;
 
   @SerializedName("Vepfs")
   private VepfsForCreateDeploymentInput vepfs = null;
@@ -153,6 +157,25 @@ public class ConfigForCreateDeploymentInput {
     this.tos = tos;
   }
 
+  public ConfigForCreateDeploymentInput tosAP(TosAPForCreateDeploymentInput tosAP) {
+    this.tosAP = tosAP;
+    return this;
+  }
+
+   /**
+   * Get tosAP
+   * @return tosAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosAPForCreateDeploymentInput getTosAP() {
+    return tosAP;
+  }
+
+  public void setTosAP(TosAPForCreateDeploymentInput tosAP) {
+    this.tosAP = tosAP;
+  }
+
   public ConfigForCreateDeploymentInput vepfs(VepfsForCreateDeploymentInput vepfs) {
     this.vepfs = vepfs;
     return this;
@@ -206,13 +229,14 @@ public class ConfigForCreateDeploymentInput {
         Objects.equals(this.nasAP, configForCreateDeploymentInput.nasAP) &&
         Objects.equals(this.sfcs, configForCreateDeploymentInput.sfcs) &&
         Objects.equals(this.tos, configForCreateDeploymentInput.tos) &&
+        Objects.equals(this.tosAP, configForCreateDeploymentInput.tosAP) &&
         Objects.equals(this.vepfs, configForCreateDeploymentInput.vepfs) &&
         Objects.equals(this.vepfsAP, configForCreateDeploymentInput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -226,6 +250,7 @@ public class ConfigForCreateDeploymentInput {
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    tosAP: ").append(toIndentedString(tosAP)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
     sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");

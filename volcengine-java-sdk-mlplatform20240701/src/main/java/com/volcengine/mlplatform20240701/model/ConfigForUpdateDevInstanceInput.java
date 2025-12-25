@@ -23,6 +23,7 @@ import com.volcengine.mlplatform20240701.model.CfsForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.TosAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.TosForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.VepfsForUpdateDevInstanceInput;
@@ -51,6 +52,9 @@ public class ConfigForUpdateDevInstanceInput {
 
   @SerializedName("Tos")
   private TosForUpdateDevInstanceInput tos = null;
+
+  @SerializedName("TosAP")
+  private TosAPForUpdateDevInstanceInput tosAP = null;
 
   @SerializedName("Vepfs")
   private VepfsForUpdateDevInstanceInput vepfs = null;
@@ -153,6 +157,25 @@ public class ConfigForUpdateDevInstanceInput {
     this.tos = tos;
   }
 
+  public ConfigForUpdateDevInstanceInput tosAP(TosAPForUpdateDevInstanceInput tosAP) {
+    this.tosAP = tosAP;
+    return this;
+  }
+
+   /**
+   * Get tosAP
+   * @return tosAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosAPForUpdateDevInstanceInput getTosAP() {
+    return tosAP;
+  }
+
+  public void setTosAP(TosAPForUpdateDevInstanceInput tosAP) {
+    this.tosAP = tosAP;
+  }
+
   public ConfigForUpdateDevInstanceInput vepfs(VepfsForUpdateDevInstanceInput vepfs) {
     this.vepfs = vepfs;
     return this;
@@ -206,13 +229,14 @@ public class ConfigForUpdateDevInstanceInput {
         Objects.equals(this.nasAP, configForUpdateDevInstanceInput.nasAP) &&
         Objects.equals(this.sfcs, configForUpdateDevInstanceInput.sfcs) &&
         Objects.equals(this.tos, configForUpdateDevInstanceInput.tos) &&
+        Objects.equals(this.tosAP, configForUpdateDevInstanceInput.tosAP) &&
         Objects.equals(this.vepfs, configForUpdateDevInstanceInput.vepfs) &&
         Objects.equals(this.vepfsAP, configForUpdateDevInstanceInput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -226,6 +250,7 @@ public class ConfigForUpdateDevInstanceInput {
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    tosAP: ").append(toIndentedString(tosAP)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
     sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");

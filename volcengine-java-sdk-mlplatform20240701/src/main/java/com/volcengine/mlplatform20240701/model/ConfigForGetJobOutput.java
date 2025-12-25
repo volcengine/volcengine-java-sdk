@@ -23,6 +23,7 @@ import com.volcengine.mlplatform20240701.model.CfsForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.NasAPForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.NasForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForGetJobOutput;
+import com.volcengine.mlplatform20240701.model.TosAPForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.TosForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForGetJobOutput;
 import com.volcengine.mlplatform20240701.model.VepfsForGetJobOutput;
@@ -51,6 +52,9 @@ public class ConfigForGetJobOutput {
 
   @SerializedName("Tos")
   private TosForGetJobOutput tos = null;
+
+  @SerializedName("TosAP")
+  private TosAPForGetJobOutput tosAP = null;
 
   @SerializedName("Vepfs")
   private VepfsForGetJobOutput vepfs = null;
@@ -153,6 +157,25 @@ public class ConfigForGetJobOutput {
     this.tos = tos;
   }
 
+  public ConfigForGetJobOutput tosAP(TosAPForGetJobOutput tosAP) {
+    this.tosAP = tosAP;
+    return this;
+  }
+
+   /**
+   * Get tosAP
+   * @return tosAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosAPForGetJobOutput getTosAP() {
+    return tosAP;
+  }
+
+  public void setTosAP(TosAPForGetJobOutput tosAP) {
+    this.tosAP = tosAP;
+  }
+
   public ConfigForGetJobOutput vepfs(VepfsForGetJobOutput vepfs) {
     this.vepfs = vepfs;
     return this;
@@ -206,13 +229,14 @@ public class ConfigForGetJobOutput {
         Objects.equals(this.nasAP, configForGetJobOutput.nasAP) &&
         Objects.equals(this.sfcs, configForGetJobOutput.sfcs) &&
         Objects.equals(this.tos, configForGetJobOutput.tos) &&
+        Objects.equals(this.tosAP, configForGetJobOutput.tosAP) &&
         Objects.equals(this.vepfs, configForGetJobOutput.vepfs) &&
         Objects.equals(this.vepfsAP, configForGetJobOutput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -226,6 +250,7 @@ public class ConfigForGetJobOutput {
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    tosAP: ").append(toIndentedString(tosAP)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
     sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");

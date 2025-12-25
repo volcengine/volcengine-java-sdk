@@ -23,6 +23,7 @@ import com.volcengine.mlplatform20240701.model.CfsForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.NasAPForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.NasForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForGetDevInstanceOutput;
+import com.volcengine.mlplatform20240701.model.TosAPForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.TosForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForGetDevInstanceOutput;
 import com.volcengine.mlplatform20240701.model.VepfsForGetDevInstanceOutput;
@@ -51,6 +52,9 @@ public class ConfigForGetDevInstanceOutput {
 
   @SerializedName("Tos")
   private TosForGetDevInstanceOutput tos = null;
+
+  @SerializedName("TosAP")
+  private TosAPForGetDevInstanceOutput tosAP = null;
 
   @SerializedName("Vepfs")
   private VepfsForGetDevInstanceOutput vepfs = null;
@@ -153,6 +157,25 @@ public class ConfigForGetDevInstanceOutput {
     this.tos = tos;
   }
 
+  public ConfigForGetDevInstanceOutput tosAP(TosAPForGetDevInstanceOutput tosAP) {
+    this.tosAP = tosAP;
+    return this;
+  }
+
+   /**
+   * Get tosAP
+   * @return tosAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosAPForGetDevInstanceOutput getTosAP() {
+    return tosAP;
+  }
+
+  public void setTosAP(TosAPForGetDevInstanceOutput tosAP) {
+    this.tosAP = tosAP;
+  }
+
   public ConfigForGetDevInstanceOutput vepfs(VepfsForGetDevInstanceOutput vepfs) {
     this.vepfs = vepfs;
     return this;
@@ -206,13 +229,14 @@ public class ConfigForGetDevInstanceOutput {
         Objects.equals(this.nasAP, configForGetDevInstanceOutput.nasAP) &&
         Objects.equals(this.sfcs, configForGetDevInstanceOutput.sfcs) &&
         Objects.equals(this.tos, configForGetDevInstanceOutput.tos) &&
+        Objects.equals(this.tosAP, configForGetDevInstanceOutput.tosAP) &&
         Objects.equals(this.vepfs, configForGetDevInstanceOutput.vepfs) &&
         Objects.equals(this.vepfsAP, configForGetDevInstanceOutput.vepfsAP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, vepfs, vepfsAP);
+    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -226,6 +250,7 @@ public class ConfigForGetDevInstanceOutput {
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    tosAP: ").append(toIndentedString(tosAP)).append("\n");
     sb.append("    vepfs: ").append(toIndentedString(vepfs)).append("\n");
     sb.append("    vepfsAP: ").append(toIndentedString(vepfsAP)).append("\n");
     sb.append("}");
