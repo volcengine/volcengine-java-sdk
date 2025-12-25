@@ -39,10 +39,10 @@ public class DescribeServerGroupBackendServersRequest {
   private List<String> ips = null;
 
   @SerializedName("PageNumber")
-  private String pageNumber = null;
+  private Integer pageNumber = null;
 
   @SerializedName("PageSize")
-  private String pageSize = null;
+  private Integer pageSize = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -99,7 +99,7 @@ public class DescribeServerGroupBackendServersRequest {
     this.ips = ips;
   }
 
-  public DescribeServerGroupBackendServersRequest pageNumber(String pageNumber) {
+  public DescribeServerGroupBackendServersRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -109,15 +109,15 @@ public class DescribeServerGroupBackendServersRequest {
    * @return pageNumber
   **/
   @Schema(description = "")
-  public String getPageNumber() {
+  public Integer getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(String pageNumber) {
+  public void setPageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeServerGroupBackendServersRequest pageSize(String pageSize) {
+  public DescribeServerGroupBackendServersRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -127,11 +127,11 @@ public class DescribeServerGroupBackendServersRequest {
    * @return pageSize
   **/
   @Schema(description = "")
-  public String getPageSize() {
+  public Integer getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(String pageSize) {
+  public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 

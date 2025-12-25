@@ -34,6 +34,52 @@ import javax.validation.Valid;
 
 
 public class InstanceForDescribeDBInstancesOutput {
+  /**
+   * Gets or Sets blueGreenRole
+   */
+  @JsonAdapter(BlueGreenRoleEnum.Adapter.class)
+  public enum BlueGreenRoleEnum {
+    @SerializedName("Blue")
+    BLUE("Blue"),
+    @SerializedName("Green")
+    GREEN("Green");
+
+    private String value;
+
+    BlueGreenRoleEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BlueGreenRoleEnum fromValue(String input) {
+      for (BlueGreenRoleEnum b : BlueGreenRoleEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BlueGreenRoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BlueGreenRoleEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BlueGreenRoleEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BlueGreenRoleEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BlueGreenRole")
+  private BlueGreenRoleEnum blueGreenRole = null;
+
   @SerializedName("Capacity")
   private CapacityForDescribeDBInstancesOutput capacity = null;
 
@@ -111,6 +157,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
+
+  public InstanceForDescribeDBInstancesOutput blueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
+    return this;
+  }
+
+   /**
+   * Get blueGreenRole
+   * @return blueGreenRole
+  **/
+  @Schema(description = "")
+  public BlueGreenRoleEnum getBlueGreenRole() {
+    return blueGreenRole;
+  }
+
+  public void setBlueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
+  }
 
   public InstanceForDescribeDBInstancesOutput capacity(CapacityForDescribeDBInstancesOutput capacity) {
     this.capacity = capacity;
@@ -608,7 +672,8 @@ public class InstanceForDescribeDBInstancesOutput {
       return false;
     }
     InstanceForDescribeDBInstancesOutput instanceForDescribeDBInstancesOutput = (InstanceForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.capacity, instanceForDescribeDBInstancesOutput.capacity) &&
+    return Objects.equals(this.blueGreenRole, instanceForDescribeDBInstancesOutput.blueGreenRole) &&
+        Objects.equals(this.capacity, instanceForDescribeDBInstancesOutput.capacity) &&
         Objects.equals(this.chargeType, instanceForDescribeDBInstancesOutput.chargeType) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
         Objects.equals(this.dataLayout, instanceForDescribeDBInstancesOutput.dataLayout) &&
@@ -638,7 +703,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, privateAddress, privatePort, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, VIP, viPv6, vpcId, zoneIds);
+    return Objects.hash(blueGreenRole, capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, privateAddress, privatePort, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, VIP, viPv6, vpcId, zoneIds);
   }
 
 
@@ -647,6 +712,7 @@ public class InstanceForDescribeDBInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeDBInstancesOutput {\n");
     
+    sb.append("    blueGreenRole: ").append(toIndentedString(blueGreenRole)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

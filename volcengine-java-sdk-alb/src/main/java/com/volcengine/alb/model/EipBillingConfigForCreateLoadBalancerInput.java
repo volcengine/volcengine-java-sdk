@@ -40,7 +40,7 @@ public class EipBillingConfigForCreateLoadBalancerInput {
   private String ISP = null;
 
   @SerializedName("SecurityProtectionInstanceId")
-  private String securityProtectionInstanceId = null;
+  private Integer securityProtectionInstanceId = null;
 
   @SerializedName("SecurityProtectionTypes")
   private String securityProtectionTypes = null;
@@ -99,7 +99,7 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     this.ISP = ISP;
   }
 
-  public EipBillingConfigForCreateLoadBalancerInput securityProtectionInstanceId(String securityProtectionInstanceId) {
+  public EipBillingConfigForCreateLoadBalancerInput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
     this.securityProtectionInstanceId = securityProtectionInstanceId;
     return this;
   }
@@ -109,11 +109,11 @@ public class EipBillingConfigForCreateLoadBalancerInput {
    * @return securityProtectionInstanceId
   **/
   @Schema(description = "")
-  public String getSecurityProtectionInstanceId() {
+  public Integer getSecurityProtectionInstanceId() {
     return securityProtectionInstanceId;
   }
 
-  public void setSecurityProtectionInstanceId(String securityProtectionInstanceId) {
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
     this.securityProtectionInstanceId = securityProtectionInstanceId;
   }
 

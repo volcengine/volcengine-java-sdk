@@ -76,8 +76,8 @@ public class RuleForCreateRulesInput {
   @SerializedName("TrafficLimitQPS")
   private Integer trafficLimitQPS = null;
 
-  @SerializedName("URL")
-  private String URL = null;
+  @SerializedName("Url")
+  private String url = null;
 
   public RuleForCreateRulesInput description(String description) {
     this.description = description;
@@ -336,22 +336,22 @@ public class RuleForCreateRulesInput {
     this.trafficLimitQPS = trafficLimitQPS;
   }
 
-  public RuleForCreateRulesInput URL(String URL) {
-    this.URL = URL;
+  public RuleForCreateRulesInput url(String url) {
+    this.url = url;
     return this;
   }
 
    /**
-   * Get URL
-   * @return URL
+   * Get url
+   * @return url
   **/
   @Schema(description = "")
-  public String getURL() {
-    return URL;
+  public String getUrl() {
+    return url;
   }
 
-  public void setURL(String URL) {
-    this.URL = URL;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -377,12 +377,12 @@ public class RuleForCreateRulesInput {
         Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId) &&
         Objects.equals(this.trafficLimitEnabled, ruleForCreateRulesInput.trafficLimitEnabled) &&
         Objects.equals(this.trafficLimitQPS, ruleForCreateRulesInput.trafficLimitQPS) &&
-        Objects.equals(this.URL, ruleForCreateRulesInput.URL);
+        Objects.equals(this.url, ruleForCreateRulesInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, forwardGroupConfig, priority, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleActions, ruleConditions, serverGroupId, trafficLimitEnabled, trafficLimitQPS, URL);
+    return Objects.hash(description, domain, forwardGroupConfig, priority, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleActions, ruleConditions, serverGroupId, trafficLimitEnabled, trafficLimitQPS, url);
   }
 
 
@@ -404,7 +404,7 @@ public class RuleForCreateRulesInput {
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");
     sb.append("    trafficLimitQPS: ").append(toIndentedString(trafficLimitQPS)).append("\n");
-    sb.append("    URL: ").append(toIndentedString(URL)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

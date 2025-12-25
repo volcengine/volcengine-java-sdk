@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.AccessLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.EipForDescribeLoadBalancerAttributesOutput;
-import com.volcengine.alb.model.GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.GlobalAcceleratorForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.HealthLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ListenerForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.TLSAccessLogForDescribeLoadBalancerAttributesOutput;
@@ -83,7 +83,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   private String eniId = null;
 
   @SerializedName("GlobalAccelerators")
-  private GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput globalAccelerators = null;
+  private List<GlobalAcceleratorForDescribeLoadBalancerAttributesOutput> globalAccelerators = null;
 
   @SerializedName("HealthLog")
   private HealthLogForDescribeLoadBalancerAttributesOutput healthLog = null;
@@ -411,8 +411,16 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.eniId = eniId;
   }
 
-  public DescribeLoadBalancerAttributesResponse globalAccelerators(GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput globalAccelerators) {
+  public DescribeLoadBalancerAttributesResponse globalAccelerators(List<GlobalAcceleratorForDescribeLoadBalancerAttributesOutput> globalAccelerators) {
     this.globalAccelerators = globalAccelerators;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addGlobalAcceleratorsItem(GlobalAcceleratorForDescribeLoadBalancerAttributesOutput globalAcceleratorsItem) {
+    if (this.globalAccelerators == null) {
+      this.globalAccelerators = new ArrayList<GlobalAcceleratorForDescribeLoadBalancerAttributesOutput>();
+    }
+    this.globalAccelerators.add(globalAcceleratorsItem);
     return this;
   }
 
@@ -422,11 +430,11 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   **/
   @Valid
   @Schema(description = "")
-  public GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput getGlobalAccelerators() {
+  public List<GlobalAcceleratorForDescribeLoadBalancerAttributesOutput> getGlobalAccelerators() {
     return globalAccelerators;
   }
 
-  public void setGlobalAccelerators(GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput globalAccelerators) {
+  public void setGlobalAccelerators(List<GlobalAcceleratorForDescribeLoadBalancerAttributesOutput> globalAccelerators) {
     this.globalAccelerators = globalAccelerators;
   }
 

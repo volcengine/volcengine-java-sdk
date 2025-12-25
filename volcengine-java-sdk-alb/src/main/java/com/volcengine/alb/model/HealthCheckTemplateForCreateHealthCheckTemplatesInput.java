@@ -51,6 +51,9 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
   @SerializedName("HealthCheckMethod")
   private String healthCheckMethod = null;
 
+  @SerializedName("HealthCheckPort")
+  private Integer healthCheckPort = null;
+
   @SerializedName("HealthCheckProtocol")
   private String healthCheckProtocol = null;
 
@@ -65,9 +68,6 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 
   @SerializedName("HealthyThreshold")
   private Integer healthyThreshold = null;
-
-  @SerializedName("Port")
-  private Integer port = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -186,6 +186,24 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     this.healthCheckMethod = healthCheckMethod;
   }
 
+  public HealthCheckTemplateForCreateHealthCheckTemplatesInput healthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+    return this;
+  }
+
+   /**
+   * Get healthCheckPort
+   * @return healthCheckPort
+  **/
+  @Schema(description = "")
+  public Integer getHealthCheckPort() {
+    return healthCheckPort;
+  }
+
+  public void setHealthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+  }
+
   public HealthCheckTemplateForCreateHealthCheckTemplatesInput healthCheckProtocol(String healthCheckProtocol) {
     this.healthCheckProtocol = healthCheckProtocol;
     return this;
@@ -277,27 +295,6 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     this.healthyThreshold = healthyThreshold;
   }
 
-  public HealthCheckTemplateForCreateHealthCheckTemplatesInput port(Integer port) {
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Get port
-   * minimum: 0
-   * maximum: 65535
-   * @return port
-  **/
-  @NotNull
- @Min(0) @Max(65535)  @Schema(required = true, description = "")
-  public Integer getPort() {
-    return port;
-  }
-
-  public void setPort(Integer port) {
-    this.port = port;
-  }
-
   public HealthCheckTemplateForCreateHealthCheckTemplatesInput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -377,12 +374,12 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
         Objects.equals(this.healthCheckHttpVersion, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckHttpVersion) &&
         Objects.equals(this.healthCheckInterval, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckInterval) &&
         Objects.equals(this.healthCheckMethod, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckMethod) &&
+        Objects.equals(this.healthCheckPort, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckPort) &&
         Objects.equals(this.healthCheckProtocol, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckProtocol) &&
         Objects.equals(this.healthCheckTemplateName, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckTemplateName) &&
         Objects.equals(this.healthCheckTimeout, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckTimeout) &&
         Objects.equals(this.healthCheckURI, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckURI) &&
         Objects.equals(this.healthyThreshold, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthyThreshold) &&
-        Objects.equals(this.port, healthCheckTemplateForCreateHealthCheckTemplatesInput.port) &&
         Objects.equals(this.projectName, healthCheckTemplateForCreateHealthCheckTemplatesInput.projectName) &&
         Objects.equals(this.tags, healthCheckTemplateForCreateHealthCheckTemplatesInput.tags) &&
         Objects.equals(this.unhealthyThreshold, healthCheckTemplateForCreateHealthCheckTemplatesInput.unhealthyThreshold);
@@ -390,7 +387,7 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, port, projectName, tags, unhealthyThreshold);
+    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckPort, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, projectName, tags, unhealthyThreshold);
   }
 
 
@@ -405,12 +402,12 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     sb.append("    healthCheckHttpVersion: ").append(toIndentedString(healthCheckHttpVersion)).append("\n");
     sb.append("    healthCheckInterval: ").append(toIndentedString(healthCheckInterval)).append("\n");
     sb.append("    healthCheckMethod: ").append(toIndentedString(healthCheckMethod)).append("\n");
+    sb.append("    healthCheckPort: ").append(toIndentedString(healthCheckPort)).append("\n");
     sb.append("    healthCheckProtocol: ").append(toIndentedString(healthCheckProtocol)).append("\n");
     sb.append("    healthCheckTemplateName: ").append(toIndentedString(healthCheckTemplateName)).append("\n");
     sb.append("    healthCheckTimeout: ").append(toIndentedString(healthCheckTimeout)).append("\n");
     sb.append("    healthCheckURI: ").append(toIndentedString(healthCheckURI)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");

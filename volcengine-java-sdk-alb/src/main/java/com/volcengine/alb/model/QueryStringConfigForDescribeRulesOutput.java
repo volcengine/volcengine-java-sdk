@@ -33,16 +33,16 @@ import javax.validation.Valid;
 
 public class QueryStringConfigForDescribeRulesOutput {
   @SerializedName("Values")
-  private List<String> values = null;
+  private List<ValueForDescribeRulesOutput> values = null;
 
-  public QueryStringConfigForDescribeRulesOutput values(List<String> values) {
+  public QueryStringConfigForDescribeRulesOutput values(List<ValueForDescribeRulesOutput> values) {
     this.values = values;
     return this;
   }
 
-  public QueryStringConfigForDescribeRulesOutput addValuesItem(String valuesItem) {
+  public QueryStringConfigForDescribeRulesOutput addValuesItem(ValueForDescribeRulesOutput valuesItem) {
     if (this.values == null) {
-      this.values = new ArrayList<String>();
+      this.values = new ArrayList<ValueForDescribeRulesOutput>();
     }
     this.values.add(valuesItem);
     return this;
@@ -53,11 +53,11 @@ public class QueryStringConfigForDescribeRulesOutput {
    * @return values
   **/
   @Schema(description = "")
-  public List<String> getValues() {
+  public List<ValueForDescribeRulesOutput> getValues() {
     return values;
   }
 
-  public void setValues(List<String> values) {
+  public void setValues(List<ValueForDescribeRulesOutput> values) {
     this.values = values;
   }
 

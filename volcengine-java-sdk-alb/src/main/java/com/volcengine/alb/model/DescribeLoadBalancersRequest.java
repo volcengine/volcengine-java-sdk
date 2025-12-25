@@ -57,6 +57,9 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeLoadBalancersInput> tagFilters = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -221,6 +224,24 @@ public class DescribeLoadBalancersRequest {
     this.tagFilters = tagFilters;
   }
 
+  public DescribeLoadBalancersRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public DescribeLoadBalancersRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -257,12 +278,13 @@ public class DescribeLoadBalancersRequest {
         Objects.equals(this.pageSize, describeLoadBalancersRequest.pageSize) &&
         Objects.equals(this.projectName, describeLoadBalancersRequest.projectName) &&
         Objects.equals(this.tagFilters, describeLoadBalancersRequest.tagFilters) &&
+        Objects.equals(this.type, describeLoadBalancersRequest.type) &&
         Objects.equals(this.vpcId, describeLoadBalancersRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
+    return Objects.hash(eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, type, vpcId);
   }
 
 
@@ -279,6 +301,7 @@ public class DescribeLoadBalancersRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

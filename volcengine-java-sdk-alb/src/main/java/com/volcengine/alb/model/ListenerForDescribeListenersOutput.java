@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class ListenerForDescribeListenersOutput {
+  @SerializedName("AccessLogRecordCustomizedHeadersEnabled")
+  private String accessLogRecordCustomizedHeadersEnabled = null;
+
   @SerializedName("AclIds")
   private List<String> aclIds = null;
 
@@ -58,9 +61,6 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
-
-  @SerializedName("ClientAddressTransmissionProtocol")
-  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -110,9 +110,6 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
-  @SerializedName("ProxyProtocolDisabled")
-  private String proxyProtocolDisabled = null;
-
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
@@ -127,6 +124,24 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public ListenerForDescribeListenersOutput accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+    return this;
+  }
+
+   /**
+   * Get accessLogRecordCustomizedHeadersEnabled
+   * @return accessLogRecordCustomizedHeadersEnabled
+  **/
+  @Schema(description = "")
+  public String getAccessLogRecordCustomizedHeadersEnabled() {
+    return accessLogRecordCustomizedHeadersEnabled;
+  }
+
+  public void setAccessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+  }
 
   public ListenerForDescribeListenersOutput aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -278,24 +293,6 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
-  }
-
-  public ListenerForDescribeListenersOutput clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
-    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
-    return this;
-  }
-
-   /**
-   * Get clientAddressTransmissionProtocol
-   * @return clientAddressTransmissionProtocol
-  **/
-  @Schema(description = "")
-  public String getClientAddressTransmissionProtocol() {
-    return clientAddressTransmissionProtocol;
-  }
-
-  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
-    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public ListenerForDescribeListenersOutput createTime(String createTime) {
@@ -595,24 +592,6 @@ public class ListenerForDescribeListenersOutput {
     this.protocol = protocol;
   }
 
-  public ListenerForDescribeListenersOutput proxyProtocolDisabled(String proxyProtocolDisabled) {
-    this.proxyProtocolDisabled = proxyProtocolDisabled;
-    return this;
-  }
-
-   /**
-   * Get proxyProtocolDisabled
-   * @return proxyProtocolDisabled
-  **/
-  @Schema(description = "")
-  public String getProxyProtocolDisabled() {
-    return proxyProtocolDisabled;
-  }
-
-  public void setProxyProtocolDisabled(String proxyProtocolDisabled) {
-    this.proxyProtocolDisabled = proxyProtocolDisabled;
-  }
-
   public ListenerForDescribeListenersOutput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -731,7 +710,8 @@ public class ListenerForDescribeListenersOutput {
       return false;
     }
     ListenerForDescribeListenersOutput listenerForDescribeListenersOutput = (ListenerForDescribeListenersOutput) o;
-    return Objects.equals(this.aclIds, listenerForDescribeListenersOutput.aclIds) &&
+    return Objects.equals(this.accessLogRecordCustomizedHeadersEnabled, listenerForDescribeListenersOutput.accessLogRecordCustomizedHeadersEnabled) &&
+        Objects.equals(this.aclIds, listenerForDescribeListenersOutput.aclIds) &&
         Objects.equals(this.aclStatus, listenerForDescribeListenersOutput.aclStatus) &&
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.caCertificateId, listenerForDescribeListenersOutput.caCertificateId) &&
@@ -739,7 +719,6 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.certCenterCertificateId, listenerForDescribeListenersOutput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.certificateSource, listenerForDescribeListenersOutput.certificateSource) &&
-        Objects.equals(this.clientAddressTransmissionProtocol, listenerForDescribeListenersOutput.clientAddressTransmissionProtocol) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.customizedCfgId, listenerForDescribeListenersOutput.customizedCfgId) &&
         Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
@@ -756,7 +735,6 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
         Objects.equals(this.projectName, listenerForDescribeListenersOutput.projectName) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
-        Objects.equals(this.proxyProtocolDisabled, listenerForDescribeListenersOutput.proxyProtocolDisabled) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.serverGroups, listenerForDescribeListenersOutput.serverGroups) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
@@ -766,7 +744,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, proxyProtocolDisabled, serverGroupId, serverGroups, status, tags, updateTime);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, serverGroupId, serverGroups, status, tags, updateTime);
   }
 
 
@@ -775,6 +753,7 @@ public class ListenerForDescribeListenersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListenerForDescribeListenersOutput {\n");
     
+    sb.append("    accessLogRecordCustomizedHeadersEnabled: ").append(toIndentedString(accessLogRecordCustomizedHeadersEnabled)).append("\n");
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
@@ -783,7 +762,6 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
-    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -800,7 +778,6 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

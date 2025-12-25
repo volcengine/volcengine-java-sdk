@@ -21,12 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.ImageInfoForDescribeSandboxOutput;
+import com.volcengine.vefaas.model.InstanceNasMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.MetadataListForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -66,6 +69,9 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("ImageInfo")
   private ImageInfoForDescribeSandboxOutput imageInfo = null;
 
+  @SerializedName("InstanceNasMountConfig")
+  private InstanceNasMountConfigForDescribeSandboxOutput instanceNasMountConfig = null;
+
   @SerializedName("InstanceTosMountConfig")
   private InstanceTosMountConfigForDescribeSandboxOutput instanceTosMountConfig = null;
 
@@ -77,6 +83,9 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("MemoryMB")
   private Integer memoryMB = null;
+
+  @SerializedName("Metadata")
+  private Map<String, String> metadata = null;
 
   @SerializedName("MetadataList")
   private List<MetadataListForDescribeSandboxOutput> metadataList = null;
@@ -283,6 +292,25 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.imageInfo = imageInfo;
   }
 
+  public DescribeSandboxResponse instanceNasMountConfig(InstanceNasMountConfigForDescribeSandboxOutput instanceNasMountConfig) {
+    this.instanceNasMountConfig = instanceNasMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceNasMountConfig
+   * @return instanceNasMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceNasMountConfigForDescribeSandboxOutput getInstanceNasMountConfig() {
+    return instanceNasMountConfig;
+  }
+
+  public void setInstanceNasMountConfig(InstanceNasMountConfigForDescribeSandboxOutput instanceNasMountConfig) {
+    this.instanceNasMountConfig = instanceNasMountConfig;
+  }
+
   public DescribeSandboxResponse instanceTosMountConfig(InstanceTosMountConfigForDescribeSandboxOutput instanceTosMountConfig) {
     this.instanceTosMountConfig = instanceTosMountConfig;
     return this;
@@ -354,6 +382,32 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   public void setMemoryMB(Integer memoryMB) {
     this.memoryMB = memoryMB;
+  }
+
+  public DescribeSandboxResponse metadata(Map<String, String> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public DescribeSandboxResponse putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @Schema(description = "")
+  public Map<String, String> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Map<String, String> metadata) {
+    this.metadata = metadata;
   }
 
   public DescribeSandboxResponse metadataList(List<MetadataListForDescribeSandboxOutput> metadataList) {
@@ -475,10 +529,12 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.functionId, describeSandboxResponse.functionId) &&
         Objects.equals(this.id, describeSandboxResponse.id) &&
         Objects.equals(this.imageInfo, describeSandboxResponse.imageInfo) &&
+        Objects.equals(this.instanceNasMountConfig, describeSandboxResponse.instanceNasMountConfig) &&
         Objects.equals(this.instanceTosMountConfig, describeSandboxResponse.instanceTosMountConfig) &&
         Objects.equals(this.instanceType, describeSandboxResponse.instanceType) &&
         Objects.equals(this.maxConcurrency, describeSandboxResponse.maxConcurrency) &&
         Objects.equals(this.memoryMB, describeSandboxResponse.memoryMB) &&
+        Objects.equals(this.metadata, describeSandboxResponse.metadata) &&
         Objects.equals(this.metadataList, describeSandboxResponse.metadataList) &&
         Objects.equals(this.pending, describeSandboxResponse.pending) &&
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
@@ -488,7 +544,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, status);
+    return Objects.hash(availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadata, metadataList, pending, requestTimeout, revisionNumber, status);
   }
 
 
@@ -507,10 +563,12 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    imageInfo: ").append(toIndentedString(imageInfo)).append("\n");
+    sb.append("    instanceNasMountConfig: ").append(toIndentedString(instanceNasMountConfig)).append("\n");
     sb.append("    instanceTosMountConfig: ").append(toIndentedString(instanceTosMountConfig)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    metadataList: ").append(toIndentedString(metadataList)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");

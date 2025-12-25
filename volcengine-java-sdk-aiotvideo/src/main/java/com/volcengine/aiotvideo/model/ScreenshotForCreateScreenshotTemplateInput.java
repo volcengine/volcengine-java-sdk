@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.aiotvideo.model.EnableTimeForCreateScreenshotTemplateInput;
 import com.volcengine.aiotvideo.model.TTLForCreateScreenshotTemplateInput;
-import com.volcengine.aiotvideo.model.TemplateTTLConfigForCreateScreenshotTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,9 +45,6 @@ public class ScreenshotForCreateScreenshotTemplateInput {
 
   @SerializedName("TTL")
   private TTLForCreateScreenshotTemplateInput TTL = null;
-
-  @SerializedName("TemplateTTLConfig")
-  private TemplateTTLConfigForCreateScreenshotTemplateInput templateTTLConfig = null;
 
   @SerializedName("Type")
   private List<String> type = null;
@@ -135,25 +131,6 @@ public class ScreenshotForCreateScreenshotTemplateInput {
     this.TTL = TTL;
   }
 
-  public ScreenshotForCreateScreenshotTemplateInput templateTTLConfig(TemplateTTLConfigForCreateScreenshotTemplateInput templateTTLConfig) {
-    this.templateTTLConfig = templateTTLConfig;
-    return this;
-  }
-
-   /**
-   * Get templateTTLConfig
-   * @return templateTTLConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public TemplateTTLConfigForCreateScreenshotTemplateInput getTemplateTTLConfig() {
-    return templateTTLConfig;
-  }
-
-  public void setTemplateTTLConfig(TemplateTTLConfigForCreateScreenshotTemplateInput templateTTLConfig) {
-    this.templateTTLConfig = templateTTLConfig;
-  }
-
   public ScreenshotForCreateScreenshotTemplateInput type(List<String> type) {
     this.type = type;
     return this;
@@ -194,13 +171,12 @@ public class ScreenshotForCreateScreenshotTemplateInput {
         Objects.equals(this.scheduleSwitch, screenshotForCreateScreenshotTemplateInput.scheduleSwitch) &&
         Objects.equals(this.screenshotPeriod, screenshotForCreateScreenshotTemplateInput.screenshotPeriod) &&
         Objects.equals(this.TTL, screenshotForCreateScreenshotTemplateInput.TTL) &&
-        Objects.equals(this.templateTTLConfig, screenshotForCreateScreenshotTemplateInput.templateTTLConfig) &&
         Objects.equals(this.type, screenshotForCreateScreenshotTemplateInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableTimes, scheduleSwitch, screenshotPeriod, TTL, templateTTLConfig, type);
+    return Objects.hash(enableTimes, scheduleSwitch, screenshotPeriod, TTL, type);
   }
 
 
@@ -213,7 +189,6 @@ public class ScreenshotForCreateScreenshotTemplateInput {
     sb.append("    scheduleSwitch: ").append(toIndentedString(scheduleSwitch)).append("\n");
     sb.append("    screenshotPeriod: ").append(toIndentedString(screenshotPeriod)).append("\n");
     sb.append("    TTL: ").append(toIndentedString(TTL)).append("\n");
-    sb.append("    templateTTLConfig: ").append(toIndentedString(templateTTLConfig)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

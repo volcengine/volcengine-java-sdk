@@ -66,8 +66,7 @@ public class ReplaceCACertificateRequest {
    * Get caCertificate
    * @return caCertificate
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCaCertificate() {
     return caCertificate;
   }

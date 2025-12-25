@@ -44,7 +44,7 @@ public class CreateServerGroupRequest {
   @SerializedName("HealthCheck")
   private HealthCheckForCreateServerGroupInput healthCheck = null;
 
-  @SerializedName("IPAddressType")
+  @SerializedName("IpAddressType")
   private String ipAddressType = null;
 
   @SerializedName("ProjectName")

@@ -64,7 +64,8 @@ public class TagForTagResourcesInput {
    * Get value
    * @return value
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getValue() {
     return value;
   }

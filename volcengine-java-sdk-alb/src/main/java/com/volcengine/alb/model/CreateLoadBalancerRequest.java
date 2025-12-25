@@ -54,6 +54,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("EipBillingConfig")
   private EipBillingConfigForCreateLoadBalancerInput eipBillingConfig = null;
 
+  @SerializedName("Ipv6BandwidthPackageId")
+  private String ipv6BandwidthPackageId = null;
+
   @SerializedName("Ipv6EipBillingConfig")
   private Ipv6EipBillingConfigForCreateLoadBalancerInput ipv6EipBillingConfig = null;
 
@@ -200,6 +203,24 @@ public class CreateLoadBalancerRequest {
 
   public void setEipBillingConfig(EipBillingConfigForCreateLoadBalancerInput eipBillingConfig) {
     this.eipBillingConfig = eipBillingConfig;
+  }
+
+  public CreateLoadBalancerRequest ipv6BandwidthPackageId(String ipv6BandwidthPackageId) {
+    this.ipv6BandwidthPackageId = ipv6BandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get ipv6BandwidthPackageId
+   * @return ipv6BandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getIpv6BandwidthPackageId() {
+    return ipv6BandwidthPackageId;
+  }
+
+  public void setIpv6BandwidthPackageId(String ipv6BandwidthPackageId) {
+    this.ipv6BandwidthPackageId = ipv6BandwidthPackageId;
   }
 
   public CreateLoadBalancerRequest ipv6EipBillingConfig(Ipv6EipBillingConfigForCreateLoadBalancerInput ipv6EipBillingConfig) {
@@ -473,6 +494,7 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.deleteProtection, createLoadBalancerRequest.deleteProtection) &&
         Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
+        Objects.equals(this.ipv6BandwidthPackageId, createLoadBalancerRequest.ipv6BandwidthPackageId) &&
         Objects.equals(this.ipv6EipBillingConfig, createLoadBalancerRequest.ipv6EipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerEdition, createLoadBalancerRequest.loadBalancerEdition) &&
@@ -490,7 +512,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, clientToken, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, clientToken, deleteProtection, description, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -505,6 +527,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
+    sb.append("    ipv6BandwidthPackageId: ").append(toIndentedString(ipv6BandwidthPackageId)).append("\n");
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerEdition: ").append(toIndentedString(loadBalancerEdition)).append("\n");

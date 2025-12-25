@@ -48,6 +48,9 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
   @SerializedName("HealthCheckMethod")
   private String healthCheckMethod = null;
 
+  @SerializedName("HealthCheckPort")
+  private Integer healthCheckPort = null;
+
   @SerializedName("HealthCheckProtocol")
   private String healthCheckProtocol = null;
 
@@ -65,9 +68,6 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
 
   @SerializedName("HealthyThreshold")
   private Integer healthyThreshold = null;
-
-  @SerializedName("Port")
-  private Integer port = null;
 
   @SerializedName("UnhealthyThreshold")
   private Integer unhealthyThreshold = null;
@@ -180,6 +180,24 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     this.healthCheckMethod = healthCheckMethod;
   }
 
+  public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput healthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+    return this;
+  }
+
+   /**
+   * Get healthCheckPort
+   * @return healthCheckPort
+  **/
+  @Schema(description = "")
+  public Integer getHealthCheckPort() {
+    return healthCheckPort;
+  }
+
+  public void setHealthCheckPort(Integer healthCheckPort) {
+    this.healthCheckPort = healthCheckPort;
+  }
+
   public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput healthCheckProtocol(String healthCheckProtocol) {
     this.healthCheckProtocol = healthCheckProtocol;
     return this;
@@ -289,27 +307,6 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     this.healthyThreshold = healthyThreshold;
   }
 
-  public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput port(Integer port) {
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Get port
-   * minimum: 0
-   * maximum: 65535
-   * @return port
-  **/
-  @NotNull
- @Min(0) @Max(65535)  @Schema(required = true, description = "")
-  public Integer getPort() {
-    return port;
-  }
-
-  public void setPort(Integer port) {
-    this.port = port;
-  }
-
   public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput unhealthyThreshold(Integer unhealthyThreshold) {
     this.unhealthyThreshold = unhealthyThreshold;
     return this;
@@ -344,19 +341,19 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
         Objects.equals(this.healthCheckHttpVersion, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckHttpVersion) &&
         Objects.equals(this.healthCheckInterval, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckInterval) &&
         Objects.equals(this.healthCheckMethod, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckMethod) &&
+        Objects.equals(this.healthCheckPort, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckPort) &&
         Objects.equals(this.healthCheckProtocol, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckProtocol) &&
         Objects.equals(this.healthCheckTemplateId, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckTemplateId) &&
         Objects.equals(this.healthCheckTemplateName, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckTemplateName) &&
         Objects.equals(this.healthCheckTimeout, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckTimeout) &&
         Objects.equals(this.healthCheckURI, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckURI) &&
         Objects.equals(this.healthyThreshold, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthyThreshold) &&
-        Objects.equals(this.port, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.port) &&
         Objects.equals(this.unhealthyThreshold, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.unhealthyThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, port, unhealthyThreshold);
+    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckPort, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, unhealthyThreshold);
   }
 
 
@@ -371,13 +368,13 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     sb.append("    healthCheckHttpVersion: ").append(toIndentedString(healthCheckHttpVersion)).append("\n");
     sb.append("    healthCheckInterval: ").append(toIndentedString(healthCheckInterval)).append("\n");
     sb.append("    healthCheckMethod: ").append(toIndentedString(healthCheckMethod)).append("\n");
+    sb.append("    healthCheckPort: ").append(toIndentedString(healthCheckPort)).append("\n");
     sb.append("    healthCheckProtocol: ").append(toIndentedString(healthCheckProtocol)).append("\n");
     sb.append("    healthCheckTemplateId: ").append(toIndentedString(healthCheckTemplateId)).append("\n");
     sb.append("    healthCheckTemplateName: ").append(toIndentedString(healthCheckTemplateName)).append("\n");
     sb.append("    healthCheckTimeout: ").append(toIndentedString(healthCheckTimeout)).append("\n");
     sb.append("    healthCheckURI: ").append(toIndentedString(healthCheckURI)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
