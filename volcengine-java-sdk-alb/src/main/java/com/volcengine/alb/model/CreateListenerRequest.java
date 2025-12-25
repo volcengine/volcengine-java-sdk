@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateListenerRequest {
+  @SerializedName("AccessLogRecordCustomizedHeadersEnabled")
+  private String accessLogRecordCustomizedHeadersEnabled = null;
+
   @SerializedName("AclIds")
   private List<String> aclIds = null;
 
@@ -57,9 +60,6 @@ public class CreateListenerRequest {
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
-
-  @SerializedName("ClientAddressTransmissionProtocol")
-  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -97,14 +97,29 @@ public class CreateListenerRequest {
   @SerializedName("Protocol")
   private String protocol = null;
 
-  @SerializedName("ProxyProtocolDisabled")
-  private String proxyProtocolDisabled = null;
-
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
   @SerializedName("Tags")
   private List<TagForCreateListenerInput> tags = null;
+
+  public CreateListenerRequest accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+    return this;
+  }
+
+   /**
+   * Get accessLogRecordCustomizedHeadersEnabled
+   * @return accessLogRecordCustomizedHeadersEnabled
+  **/
+  @Schema(description = "")
+  public String getAccessLogRecordCustomizedHeadersEnabled() {
+    return accessLogRecordCustomizedHeadersEnabled;
+  }
+
+  public void setAccessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+  }
 
   public CreateListenerRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -256,24 +271,6 @@ public class CreateListenerRequest {
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
-  }
-
-  public CreateListenerRequest clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
-    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
-    return this;
-  }
-
-   /**
-   * Get clientAddressTransmissionProtocol
-   * @return clientAddressTransmissionProtocol
-  **/
-  @Schema(description = "")
-  public String getClientAddressTransmissionProtocol() {
-    return clientAddressTransmissionProtocol;
-  }
-
-  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
-    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public CreateListenerRequest description(String description) {
@@ -504,24 +501,6 @@ public class CreateListenerRequest {
     this.protocol = protocol;
   }
 
-  public CreateListenerRequest proxyProtocolDisabled(String proxyProtocolDisabled) {
-    this.proxyProtocolDisabled = proxyProtocolDisabled;
-    return this;
-  }
-
-   /**
-   * Get proxyProtocolDisabled
-   * @return proxyProtocolDisabled
-  **/
-  @Schema(description = "")
-  public String getProxyProtocolDisabled() {
-    return proxyProtocolDisabled;
-  }
-
-  public void setProxyProtocolDisabled(String proxyProtocolDisabled) {
-    this.proxyProtocolDisabled = proxyProtocolDisabled;
-  }
-
   public CreateListenerRequest serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -578,7 +557,8 @@ public class CreateListenerRequest {
       return false;
     }
     CreateListenerRequest createListenerRequest = (CreateListenerRequest) o;
-    return Objects.equals(this.aclIds, createListenerRequest.aclIds) &&
+    return Objects.equals(this.accessLogRecordCustomizedHeadersEnabled, createListenerRequest.accessLogRecordCustomizedHeadersEnabled) &&
+        Objects.equals(this.aclIds, createListenerRequest.aclIds) &&
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
         Objects.equals(this.caCertificateId, createListenerRequest.caCertificateId) &&
@@ -586,7 +566,6 @@ public class CreateListenerRequest {
         Objects.equals(this.certCenterCertificateId, createListenerRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.certificateSource, createListenerRequest.certificateSource) &&
-        Objects.equals(this.clientAddressTransmissionProtocol, createListenerRequest.clientAddressTransmissionProtocol) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.domainExtensions, createListenerRequest.domainExtensions) &&
         Objects.equals(this.enableHttp2, createListenerRequest.enableHttp2) &&
@@ -599,14 +578,13 @@ public class CreateListenerRequest {
         Objects.equals(this.pcaSubCACertificateId, createListenerRequest.pcaSubCACertificateId) &&
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
-        Objects.equals(this.proxyProtocolDisabled, createListenerRequest.proxyProtocolDisabled) &&
         Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId) &&
         Objects.equals(this.tags, createListenerRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, protocol, proxyProtocolDisabled, serverGroupId, tags);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, protocol, serverGroupId, tags);
   }
 
 
@@ -615,6 +593,7 @@ public class CreateListenerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateListenerRequest {\n");
     
+    sb.append("    accessLogRecordCustomizedHeadersEnabled: ").append(toIndentedString(accessLogRecordCustomizedHeadersEnabled)).append("\n");
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
@@ -623,7 +602,6 @@ public class CreateListenerRequest {
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
-    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");
     sb.append("    enableHttp2: ").append(toIndentedString(enableHttp2)).append("\n");
@@ -636,7 +614,6 @@ public class CreateListenerRequest {
     sb.append("    pcaSubCACertificateId: ").append(toIndentedString(pcaSubCACertificateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

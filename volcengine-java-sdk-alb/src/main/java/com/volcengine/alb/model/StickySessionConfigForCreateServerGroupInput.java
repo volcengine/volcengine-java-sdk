@@ -34,7 +34,7 @@ public class StickySessionConfigForCreateServerGroupInput {
   private String cookie = null;
 
   @SerializedName("CookieTimeout")
-  private String cookieTimeout = null;
+  private Integer cookieTimeout = null;
 
   @SerializedName("StickySessionEnabled")
   private String stickySessionEnabled = null;
@@ -60,7 +60,7 @@ public class StickySessionConfigForCreateServerGroupInput {
     this.cookie = cookie;
   }
 
-  public StickySessionConfigForCreateServerGroupInput cookieTimeout(String cookieTimeout) {
+  public StickySessionConfigForCreateServerGroupInput cookieTimeout(Integer cookieTimeout) {
     this.cookieTimeout = cookieTimeout;
     return this;
   }
@@ -70,11 +70,11 @@ public class StickySessionConfigForCreateServerGroupInput {
    * @return cookieTimeout
   **/
   @Schema(description = "")
-  public String getCookieTimeout() {
+  public Integer getCookieTimeout() {
     return cookieTimeout;
   }
 
-  public void setCookieTimeout(String cookieTimeout) {
+  public void setCookieTimeout(Integer cookieTimeout) {
     this.cookieTimeout = cookieTimeout;
   }
 

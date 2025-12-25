@@ -12,31 +12,25 @@
 
 package com.volcengine.alb.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import java.util.Objects;
+
 /**
- * TagForTagResourcesInput
+ * ValueForDescribeRulesOutput
  */
 
 
 
-public class TagForTagResourcesInput {
+public class ValueForDescribeRulesOutput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForTagResourcesInput key(String key) {
+  public ValueForDescribeRulesOutput key(String key) {
     this.key = key;
     return this;
   }
@@ -45,8 +39,7 @@ public class TagForTagResourcesInput {
    * Get key
    * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getKey() {
     return key;
   }
@@ -55,7 +48,7 @@ public class TagForTagResourcesInput {
     this.key = key;
   }
 
-  public TagForTagResourcesInput value(String value) {
+  public ValueForDescribeRulesOutput value(String value) {
     this.value = value;
     return this;
   }
@@ -64,8 +57,7 @@ public class TagForTagResourcesInput {
    * Get value
    * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getValue() {
     return value;
   }
@@ -76,16 +68,16 @@ public class TagForTagResourcesInput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForTagResourcesInput tagForTagResourcesInput = (TagForTagResourcesInput) o;
-    return Objects.equals(this.key, tagForTagResourcesInput.key) &&
-        Objects.equals(this.value, tagForTagResourcesInput.value);
+    ValueForDescribeRulesOutput tagForDescribeRulesOutput = (ValueForDescribeRulesOutput) o;
+    return Objects.equals(this.key, tagForDescribeRulesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeRulesOutput.value);
   }
 
   @Override
@@ -97,7 +89,7 @@ public class TagForTagResourcesInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForTagResourcesInput {\n");
+    sb.append("class ValueForDescribeRulesOutput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
@@ -109,7 +101,7 @@ public class TagForTagResourcesInput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

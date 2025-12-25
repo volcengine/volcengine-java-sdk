@@ -54,8 +54,8 @@ public class DescribeServerGroupsRequest {
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeServerGroupsInput> tagFilters = null;
 
-  @SerializedName("VpcID")
-  private String vpcID = null;
+  @SerializedName("VpcId")
+  private String vpcId = null;
 
   public DescribeServerGroupsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -208,22 +208,22 @@ public class DescribeServerGroupsRequest {
     this.tagFilters = tagFilters;
   }
 
-  public DescribeServerGroupsRequest vpcID(String vpcID) {
-    this.vpcID = vpcID;
+  public DescribeServerGroupsRequest vpcId(String vpcId) {
+    this.vpcId = vpcId;
     return this;
   }
 
    /**
-   * Get vpcID
-   * @return vpcID
+   * Get vpcId
+   * @return vpcId
   **/
   @Schema(description = "")
-  public String getVpcID() {
-    return vpcID;
+  public String getVpcId() {
+    return vpcId;
   }
 
-  public void setVpcID(String vpcID) {
-    this.vpcID = vpcID;
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
   }
 
 
@@ -243,12 +243,12 @@ public class DescribeServerGroupsRequest {
         Objects.equals(this.serverGroupNames, describeServerGroupsRequest.serverGroupNames) &&
         Objects.equals(this.serverGroupType, describeServerGroupsRequest.serverGroupType) &&
         Objects.equals(this.tagFilters, describeServerGroupsRequest.tagFilters) &&
-        Objects.equals(this.vpcID, describeServerGroupsRequest.vpcID);
+        Objects.equals(this.vpcId, describeServerGroupsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, serverGroupType, tagFilters, vpcID);
+    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, serverGroupType, tagFilters, vpcId);
   }
 
 
@@ -264,7 +264,7 @@ public class DescribeServerGroupsRequest {
     sb.append("    serverGroupNames: ").append(toIndentedString(serverGroupNames)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
-    sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
