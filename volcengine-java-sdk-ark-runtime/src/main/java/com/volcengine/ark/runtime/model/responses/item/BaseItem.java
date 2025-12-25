@@ -31,6 +31,9 @@ import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
         @JsonSubTypes.Type(value = ItemMCPApprovalResponse.class, name = ResponsesConstants.ITEM_TYPE_MCP_APPROVAL_RESPONSE),
         @JsonSubTypes.Type(value = ItemMCPListTools.class, name = ResponsesConstants.ITEM_TYPE_MCP_LIST_TOOLS),
         @JsonSubTypes.Type(value = ItemMCPCall.class, name = ResponsesConstants.ITEM_TYPE_MCP_CALL),
+
+        // DoubaoApp type
+        @JsonSubTypes.Type(value = ItemDoubaoAppCall.class, name = ResponsesConstants.ITEM_TYPE_DOUBAO_APP_CALL)
 })
 public class BaseItem {
     @JsonProperty("type")

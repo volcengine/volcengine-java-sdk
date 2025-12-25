@@ -23,6 +23,8 @@ public class ResponsesConstants {
     public static final String ITEM_TYPE_MCP_APPROVAL_RESPONSE = "mcp_approval_response";
     public static final String ITEM_TYPE_MCP_LIST_TOOLS = "mcp_list_tools";
     public static final String ITEM_TYPE_MCP_CALL = "mcp_call";
+    public static final String ITEM_TYPE_KNOWLEDGE_SEARCH_CALL = "knowledge_search_call";
+    public static final String ITEM_TYPE_DOUBAO_APP_CALL = "doubao_app_call";
 
     // MessageRole.Enum
     public static final String MESSAGE_ROLE_USER = "user";
@@ -75,6 +77,7 @@ public class ResponsesConstants {
     public static final String TOOL_TYPE_WEB_SEARCH = "web_search";
     public static final String TOOL_TYPE_IMAGE_PROCESS = "image_process";
     public static final String TOOL_TYPE_MCP = "mcp";
+    public static final String TOOL_TYPE_DOUBAO_APP = "doubao_app";
 
     // UserLocationType.Enum
     public static final String USER_LOCATION_TYPE_APPROXIMATE = "approximate";
@@ -136,6 +139,23 @@ public class ResponsesConstants {
     public static final String EVENT_TYPE_RESPONSE_MCP_CALL_COMPLETED = "response.mcp_call.completed";
     public static final String EVENT_TYPE_RESPONSE_MCP_CALL_FAILED = "response.mcp_call.failed";
 
+    // Doubao app events
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_IN_PROGRESS = "response.doubao_app_call.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_COMPLETED = "response.doubao_app_call.completed";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_FAILED = "response.doubao_app_call.failed";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_OUTPUT_TEXT_DELTA = "response.doubao_app_call_output_text.delta";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_OUTPUT_TEXT_DONE = "response.doubao_app_call_output_text.done";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_IN_PROGRESS = "response.doubao_app_call_search.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_SEARCHING = "response.doubao_app_call_search.searching";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_SEARCH_COMPLETED = "response.doubao_app_call_search.completed";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DELTA = "response.doubao_app_call_reasoning_text.delta";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_TEXT_DONE = "response.doubao_app_call_reasoning_text.done";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_IN_PROGRESS = "response.doubao_app_call_reasoning_search.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_SEARCHING = "response.doubao_app_call_reasoning_search.searching";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_COMPLETED = "response.doubao_app_call_reasoning_search.completed";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_ADDED = "response.doubao_app_call_block.added";
+    public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_DONE = "response.doubao_app_call_block.done";
+
     // IncludeType.Enum
     public static final String INCLUDE_TYPE_IMAGE_URL = "message.input_image.image_url";
 
@@ -146,6 +166,17 @@ public class ResponsesConstants {
     // MCP Enum
     public static final String MCP_APPROVAL_MODE_ALWAYS = "always";
     public static final String MCP_APPROVAL_MODE_NEVER = "never";
+
+    // DoubaoAppBlockType.Enum
+    public static final String DOBAO_APP_BLOCK_TYPE_OUTPUT_TEXT = "output_text";
+    public static final String DOBAO_APP_BLOCK_TYPE_REASONING_TEXT = "reasoning_text";
+    public static final String DOBAO_APP_BLOCK_TYPE_SEARCH = "search";
+    public static final String DOBAO_APP_BLOCK_TYPE_REASONING_SEARCH = "reasoning_search";
+
+    // ResponseDoubaoAppFeatureType.Enum
+    public static final String RESPONSE_DOBAO_APP_FEATURE_TYPE_UNSPECIFIED = "unspecified";
+    public static final String RESPONSE_DOBAO_APP_FEATURE_TYPE_ENABLED = "enabled";
+    public static final String RESPONSE_DOBAO_APP_FEATURE_TYPE_DISABLED = "disabled";
 
     private ResponsesConstants() {
         // Prevent instantiation

@@ -1,4 +1,4 @@
-package com.volcengine.ark.runtime.model.responses.tool;
+package com.volcengine.ark.runtime.model.responses.item.doubaoapp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,13 +12,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = ToolFunction.class, name = "function"),
-        @JsonSubTypes.Type(value = ToolWebSearch.class, name = "web_search"),
-        @JsonSubTypes.Type(value = ToolImageProcess.class, name = "image_process"),
-        @JsonSubTypes.Type(value = ToolMCP.class, name = "mcp"),
-        @JsonSubTypes.Type(value = ToolDoubaoApp.class, name = "doubao_app")
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockOutputText.class, name = "output_text"),
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockReasoningText.class, name = "reasoning_text"),
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockSearch.class, name = "search"),
+        @JsonSubTypes.Type(value = DoubaoAppCallBlockReasoningSearch.class, name = "reasoning_search")
 })
-public abstract class ResponsesTool {
+public abstract class DoubaoAppCallBlock {
+
     @JsonProperty("type")
     private String type;
 
@@ -30,10 +30,10 @@ public abstract class ResponsesTool {
         this.type = type;
     }
 
-    public ResponsesTool() {
+    public DoubaoAppCallBlock() {
     }
 
-    public ResponsesTool(String type) {
+    public DoubaoAppCallBlock(String type) {
         this.type = type;
     }
 }
