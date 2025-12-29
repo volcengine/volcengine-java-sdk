@@ -75,6 +75,9 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
 
+  @SerializedName("SessionId")
+  private String sessionId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -338,6 +341,24 @@ public class SandboxForListSandboxesOutput {
     this.revisionNumber = revisionNumber;
   }
 
+  public SandboxForListSandboxesOutput sessionId(String sessionId) {
+    this.sessionId = sessionId;
+    return this;
+  }
+
+   /**
+   * Get sessionId
+   * @return sessionId
+  **/
+  @Schema(description = "")
+  public String getSessionId() {
+    return sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
   public SandboxForListSandboxesOutput status(String status) {
     this.status = status;
     return this;
@@ -380,12 +401,13 @@ public class SandboxForListSandboxesOutput {
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
         Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
+        Objects.equals(this.sessionId, sandboxForListSandboxesOutput.sessionId) &&
         Objects.equals(this.status, sandboxForListSandboxesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, cpuMilli, createdAt, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pending, revisionNumber, status);
+    return Objects.hash(availabilityZone, cpuMilli, createdAt, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pending, revisionNumber, sessionId, status);
   }
 
 
@@ -408,6 +430,7 @@ public class SandboxForListSandboxesOutput {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
