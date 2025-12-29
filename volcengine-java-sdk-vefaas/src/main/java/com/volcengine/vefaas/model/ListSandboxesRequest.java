@@ -19,8 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.FilterForListSandboxesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class ListSandboxesRequest {
+  @SerializedName("Filters")
+  private List<FilterForListSandboxesInput> filters = null;
+
   @SerializedName("FunctionId")
   private String functionId = null;
 
@@ -53,6 +58,33 @@ public class ListSandboxesRequest {
 
   @SerializedName("Status")
   private String status = null;
+
+  public ListSandboxesRequest filters(List<FilterForListSandboxesInput> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public ListSandboxesRequest addFiltersItem(FilterForListSandboxesInput filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<FilterForListSandboxesInput>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterForListSandboxesInput> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<FilterForListSandboxesInput> filters) {
+    this.filters = filters;
+  }
 
   public ListSandboxesRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -199,7 +231,8 @@ public class ListSandboxesRequest {
       return false;
     }
     ListSandboxesRequest listSandboxesRequest = (ListSandboxesRequest) o;
-    return Objects.equals(this.functionId, listSandboxesRequest.functionId) &&
+    return Objects.equals(this.filters, listSandboxesRequest.filters) &&
+        Objects.equals(this.functionId, listSandboxesRequest.functionId) &&
         Objects.equals(this.imageUrl, listSandboxesRequest.imageUrl) &&
         Objects.equals(this.metadata, listSandboxesRequest.metadata) &&
         Objects.equals(this.pageNumber, listSandboxesRequest.pageNumber) &&
@@ -210,7 +243,7 @@ public class ListSandboxesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, imageUrl, metadata, pageNumber, pageSize, sandboxId, status);
+    return Objects.hash(filters, functionId, imageUrl, metadata, pageNumber, pageSize, sandboxId, status);
   }
 
 
@@ -219,6 +252,7 @@ public class ListSandboxesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSandboxesRequest {\n");
     
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
