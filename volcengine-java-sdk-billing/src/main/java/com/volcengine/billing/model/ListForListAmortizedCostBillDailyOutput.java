@@ -54,6 +54,9 @@ public class ListForListAmortizedCostBillDailyOutput {
   @SerializedName("BillPeriod")
   private String billPeriod = null;
 
+  @SerializedName("BillingFunction")
+  private String billingFunction = null;
+
   @SerializedName("BillingMethodCode")
   private String billingMethodCode = null;
 
@@ -155,6 +158,9 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @SerializedName("DiscountBillAmount")
   private String discountBillAmount = null;
+
+  @SerializedName("DiscountBizBillingFunction")
+  private String discountBizBillingFunction = null;
 
   @SerializedName("EffectiveFactor")
   private String effectiveFactor = null;
@@ -532,6 +538,24 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   public void setBillPeriod(String billPeriod) {
     this.billPeriod = billPeriod;
+  }
+
+  public ListForListAmortizedCostBillDailyOutput billingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
+    return this;
+  }
+
+   /**
+   * Get billingFunction
+   * @return billingFunction
+  **/
+  @Schema(description = "")
+  public String getBillingFunction() {
+    return billingFunction;
+  }
+
+  public void setBillingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
   }
 
   public ListForListAmortizedCostBillDailyOutput billingMethodCode(String billingMethodCode) {
@@ -1144,6 +1168,24 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   public void setDiscountBillAmount(String discountBillAmount) {
     this.discountBillAmount = discountBillAmount;
+  }
+
+  public ListForListAmortizedCostBillDailyOutput discountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
+    return this;
+  }
+
+   /**
+   * Get discountBizBillingFunction
+   * @return discountBizBillingFunction
+  **/
+  @Schema(description = "")
+  public String getDiscountBizBillingFunction() {
+    return discountBizBillingFunction;
+  }
+
+  public void setDiscountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
   }
 
   public ListForListAmortizedCostBillDailyOutput effectiveFactor(String effectiveFactor) {
@@ -2568,6 +2610,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.billCategory, listForListAmortizedCostBillDailyOutput.billCategory) &&
         Objects.equals(this.billID, listForListAmortizedCostBillDailyOutput.billID) &&
         Objects.equals(this.billPeriod, listForListAmortizedCostBillDailyOutput.billPeriod) &&
+        Objects.equals(this.billingFunction, listForListAmortizedCostBillDailyOutput.billingFunction) &&
         Objects.equals(this.billingMethodCode, listForListAmortizedCostBillDailyOutput.billingMethodCode) &&
         Objects.equals(this.billingMode, listForListAmortizedCostBillDailyOutput.billingMode) &&
         Objects.equals(this.busiPeriod, listForListAmortizedCostBillDailyOutput.busiPeriod) &&
@@ -2602,6 +2645,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.dailyAmortizedTaxAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedTaxAmount) &&
         Objects.equals(this.deductionUseDuration, listForListAmortizedCostBillDailyOutput.deductionUseDuration) &&
         Objects.equals(this.discountBillAmount, listForListAmortizedCostBillDailyOutput.discountBillAmount) &&
+        Objects.equals(this.discountBizBillingFunction, listForListAmortizedCostBillDailyOutput.discountBizBillingFunction) &&
         Objects.equals(this.effectiveFactor, listForListAmortizedCostBillDailyOutput.effectiveFactor) &&
         Objects.equals(this.element, listForListAmortizedCostBillDailyOutput.element) &&
         Objects.equals(this.elementCode, listForListAmortizedCostBillDailyOutput.elementCode) &&
@@ -2684,7 +2728,7 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2701,6 +2745,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billID: ").append(toIndentedString(billID)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
+    sb.append("    billingFunction: ").append(toIndentedString(billingFunction)).append("\n");
     sb.append("    billingMethodCode: ").append(toIndentedString(billingMethodCode)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
@@ -2735,6 +2780,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    dailyAmortizedTaxAmount: ").append(toIndentedString(dailyAmortizedTaxAmount)).append("\n");
     sb.append("    deductionUseDuration: ").append(toIndentedString(deductionUseDuration)).append("\n");
     sb.append("    discountBillAmount: ").append(toIndentedString(discountBillAmount)).append("\n");
+    sb.append("    discountBizBillingFunction: ").append(toIndentedString(discountBizBillingFunction)).append("\n");
     sb.append("    effectiveFactor: ").append(toIndentedString(effectiveFactor)).append("\n");
     sb.append("    element: ").append(toIndentedString(element)).append("\n");
     sb.append("    elementCode: ").append(toIndentedString(elementCode)).append("\n");
