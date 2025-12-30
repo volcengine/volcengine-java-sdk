@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.EditForStartExecutionInput;
 import com.volcengine.vod20250101.model.HighlightCutsForStartExecutionInput;
+import com.volcengine.vod20250101.model.MiniGameForStartExecutionInput;
 import com.volcengine.vod20250101.model.OpeningHookForStartExecutionInput;
 import com.volcengine.vod20250101.model.StorylineCutsForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,8 +41,14 @@ public class HighlightForStartExecutionInput {
   @SerializedName("HighlightCuts")
   private HighlightCutsForStartExecutionInput highlightCuts = null;
 
+  @SerializedName("MiniGame")
+  private MiniGameForStartExecutionInput miniGame = null;
+
   @SerializedName("Mode")
   private String mode = null;
+
+  @SerializedName("Model")
+  private String model = null;
 
   @SerializedName("OpeningHook")
   private OpeningHookForStartExecutionInput openingHook = null;
@@ -87,6 +94,25 @@ public class HighlightForStartExecutionInput {
     this.highlightCuts = highlightCuts;
   }
 
+  public HighlightForStartExecutionInput miniGame(MiniGameForStartExecutionInput miniGame) {
+    this.miniGame = miniGame;
+    return this;
+  }
+
+   /**
+   * Get miniGame
+   * @return miniGame
+  **/
+  @Valid
+  @Schema(description = "")
+  public MiniGameForStartExecutionInput getMiniGame() {
+    return miniGame;
+  }
+
+  public void setMiniGame(MiniGameForStartExecutionInput miniGame) {
+    this.miniGame = miniGame;
+  }
+
   public HighlightForStartExecutionInput mode(String mode) {
     this.mode = mode;
     return this;
@@ -103,6 +129,24 @@ public class HighlightForStartExecutionInput {
 
   public void setMode(String mode) {
     this.mode = mode;
+  }
+
+  public HighlightForStartExecutionInput model(String model) {
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * Get model
+   * @return model
+  **/
+  @Schema(description = "")
+  public String getModel() {
+    return model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
   }
 
   public HighlightForStartExecutionInput openingHook(OpeningHookForStartExecutionInput openingHook) {
@@ -155,14 +199,16 @@ public class HighlightForStartExecutionInput {
     HighlightForStartExecutionInput highlightForStartExecutionInput = (HighlightForStartExecutionInput) o;
     return Objects.equals(this.edit, highlightForStartExecutionInput.edit) &&
         Objects.equals(this.highlightCuts, highlightForStartExecutionInput.highlightCuts) &&
+        Objects.equals(this.miniGame, highlightForStartExecutionInput.miniGame) &&
         Objects.equals(this.mode, highlightForStartExecutionInput.mode) &&
+        Objects.equals(this.model, highlightForStartExecutionInput.model) &&
         Objects.equals(this.openingHook, highlightForStartExecutionInput.openingHook) &&
         Objects.equals(this.storylineCuts, highlightForStartExecutionInput.storylineCuts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(edit, highlightCuts, mode, openingHook, storylineCuts);
+    return Objects.hash(edit, highlightCuts, miniGame, mode, model, openingHook, storylineCuts);
   }
 
 
@@ -173,7 +219,9 @@ public class HighlightForStartExecutionInput {
     
     sb.append("    edit: ").append(toIndentedString(edit)).append("\n");
     sb.append("    highlightCuts: ").append(toIndentedString(highlightCuts)).append("\n");
+    sb.append("    miniGame: ").append(toIndentedString(miniGame)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    openingHook: ").append(toIndentedString(openingHook)).append("\n");
     sb.append("    storylineCuts: ").append(toIndentedString(storylineCuts)).append("\n");
     sb.append("}");
