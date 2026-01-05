@@ -1,4 +1,4 @@
-中文 | [English](README.EN.MD)
+English | [中文](README.md)
 
 # Volcengine SDK for Java
 
@@ -6,19 +6,16 @@
 
 * Requirements
 * Usage
-* API Dosc
-* Note
+* API Docs
+* Notes
 
-### Requirements ###
+### Requirements
 
-运行 SDK需要jdk **Java 1.8.0_131+**. 你可以下载最新的版本： http://developers.sun.com/downloads/.
-如果 SDK版本 高于或者等于 **Java 9** 请依赖javax.annotation-api
-由于在高于或者等于 **Java 9** 中 javax.annotation-api 被移除
+The SDK requires **Java 1.8.0_131+**. You can download the latest version from: http://developers.sun.com/downloads/.
 
-请在使用中引用
+If your Java version is **Java 9 or later**, add `javax.annotation-api` because it was removed from JDK 9+.
 
 ```xml
-
 <dependency>
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
@@ -26,39 +23,35 @@
 </dependency>
 ```
 
-### Usage ###
+### Usage
 
 * Getting Started
 * Example
 
-#### Getting Started ####
+#### Getting Started
 
-##### 安装说明 #####
+##### Installation
 
-建议使用Maven构建自己的项目，添加需要的相应模块的依赖，示例如下：
+It is recommended to use Maven. Add dependencies for the modules you need.
 
-##### Init maven setting.xml #####
+##### Init Maven `settings.xml`
 
-如果您使用的版本大于0.1.27 可以不进行设置 直接使用中央仓库进行依赖
+If your version is greater than **0.1.27**, you can directly use Maven Central.
 
-如果您使用的版本小于或者等于0.1.27
-需要使用字节跳动的maven仓库来完成依赖，请先到maven安装目录的conf/setting.xml
-在<mirrors/>标签中增加
+If your version is **0.1.27 or earlier**, you need ByteDance Maven repository. In `conf/settings.xml`, under `<mirrors/>`, add:
 
 ```xml
-
 <mirror>
     <id>bytedanceMaven</id>
     <mirrorOf>my-repo-id</mirrorOf>
-    <name>字节跳动maven仓库</name>
+    <name>ByteDance Maven Repository</name>
     <url>https://artifact.bytedance.com/repository/releases/</url>
 </mirror>
 ```
 
-##### Importing the pom #####
+##### Importing the BOM
 
 ```xml
-
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -72,10 +65,9 @@
 </dependencyManagement>
 ```
 
-##### Using the SDK Maven modules #####
+##### Using SDK Maven modules
 
 ```xml
-
 <dependencies>
     <dependency>
         <groupId>com.volcengine</groupId>
@@ -90,28 +82,28 @@
 </dependencies>
 ```
 
-##### Credentials 配置 #####
+##### Credentials
 
-**通过环境变量导入**:
+**Import via environment variables**:
 
 ```
 export VOLCENGINE_ACCESS_KEY=your ak
 export VOLCENGINE_SECRET_KEY=your sk
-#如果使用token
+# If using token
 export VOLCENGINE_SESSION_TOKEN=token
 ```
 
-**代码方式引入**：
+**Import in code**:
 
 ```java
 Credentials credentials = Credentials.getCredentials(ak, sk);
-//如果使用token
+// If using token
 Credentials credentials = Credentials.getCredentials(ak, sk, token);
 ```
 
-##### Endpoint 设置 #####
+##### Endpoint
 
-如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
+To customize the SDK endpoint:
 
 ```java
 ApiClient apiClient = new ApiClient()
@@ -119,17 +111,17 @@ ApiClient apiClient = new ApiClient()
         .setRegion(region).setEndpoint("ecs.cn-beijing-autodriving.volcengineapi.com");
 ```
 
-火山引擎标准的Endpoint规则说明：
+Standard endpoint rules:
 
-| Regional 服务                                                                                                                            | Global 服务                                                                          |
-|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| `{service}.{region}.volcengineapi.com` <br> 例如：云服务ecs在cn-beijing-autodriving Region域名为： `ecs.cn-beijing-autodriving.volcengineapi.com` | `{service}.volcengineapi.com` <br> 例如：访问控制iam为Global服务，域名为：`iam.volcengineapi.com` |
+| Regional Service | Global Service |
+|---|---|
+| `{service}.{region}.volcengineapi.com` <br> e.g. `ecs.cn-beijing-autodriving.volcengineapi.com` | `{service}.volcengineapi.com` <br> e.g. `iam.volcengineapi.com` |
 
-注：
+Note:
 
-- Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
+- If the service name contains `_`, it should be converted to `-` in the endpoint. Use lowercase for all characters.
 
-#### SDK 示例 ####
+#### SDK Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -164,7 +156,6 @@ public class TestVpc {
         }
     }
 }
-
 ```
 
-更多代码示例请参考：[SDK接入文档](./SDK_Integration_zh.md)
+For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
