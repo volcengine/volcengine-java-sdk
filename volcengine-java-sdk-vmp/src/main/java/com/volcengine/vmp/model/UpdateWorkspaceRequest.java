@@ -31,6 +31,12 @@ import javax.validation.Valid;
 
 
 public class UpdateWorkspaceRequest {
+  @SerializedName("AuthType")
+  private String authType = null;
+
+  @SerializedName("BearerToken")
+  private String bearerToken = null;
+
   @SerializedName("DeleteProtectionEnabled")
   private Boolean deleteProtectionEnabled = null;
 
@@ -66,6 +72,42 @@ public class UpdateWorkspaceRequest {
 
   @SerializedName("Username")
   private String username = null;
+
+  public UpdateWorkspaceRequest authType(String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @Schema(description = "")
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public UpdateWorkspaceRequest bearerToken(String bearerToken) {
+    this.bearerToken = bearerToken;
+    return this;
+  }
+
+   /**
+   * Get bearerToken
+   * @return bearerToken
+  **/
+  @Schema(description = "")
+  public String getBearerToken() {
+    return bearerToken;
+  }
+
+  public void setBearerToken(String bearerToken) {
+    this.bearerToken = bearerToken;
+  }
 
   public UpdateWorkspaceRequest deleteProtectionEnabled(Boolean deleteProtectionEnabled) {
     this.deleteProtectionEnabled = deleteProtectionEnabled;
@@ -295,7 +337,9 @@ public class UpdateWorkspaceRequest {
       return false;
     }
     UpdateWorkspaceRequest updateWorkspaceRequest = (UpdateWorkspaceRequest) o;
-    return Objects.equals(this.deleteProtectionEnabled, updateWorkspaceRequest.deleteProtectionEnabled) &&
+    return Objects.equals(this.authType, updateWorkspaceRequest.authType) &&
+        Objects.equals(this.bearerToken, updateWorkspaceRequest.bearerToken) &&
+        Objects.equals(this.deleteProtectionEnabled, updateWorkspaceRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, updateWorkspaceRequest.description) &&
         Objects.equals(this.id, updateWorkspaceRequest.id) &&
         Objects.equals(this.instanceTypeId, updateWorkspaceRequest.instanceTypeId) &&
@@ -311,7 +355,7 @@ public class UpdateWorkspaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtectionEnabled, description, id, instanceTypeId, name, password, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, username);
+    return Objects.hash(authType, bearerToken, deleteProtectionEnabled, description, id, instanceTypeId, name, password, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, username);
   }
 
 
@@ -320,6 +364,8 @@ public class UpdateWorkspaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWorkspaceRequest {\n");
     
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    bearerToken: ").append(toIndentedString(bearerToken)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vmp.model.CustomHeadersForCreateExternalPrometheusInput;
+import com.volcengine.vmp.model.CustomHeaderKVForCreateExternalPrometheusInput;
 import com.volcengine.vmp.model.TagForCreateExternalPrometheusInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -37,8 +37,8 @@ public class CreateExternalPrometheusRequest {
   @SerializedName("AuthType")
   private String authType = null;
 
-  @SerializedName("CustomHeaders")
-  private CustomHeadersForCreateExternalPrometheusInput customHeaders = null;
+  @SerializedName("CustomHeaderKVs")
+  private List<CustomHeaderKVForCreateExternalPrometheusInput> customHeaderKVs = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -94,23 +94,31 @@ public class CreateExternalPrometheusRequest {
     this.authType = authType;
   }
 
-  public CreateExternalPrometheusRequest customHeaders(CustomHeadersForCreateExternalPrometheusInput customHeaders) {
-    this.customHeaders = customHeaders;
+  public CreateExternalPrometheusRequest customHeaderKVs(List<CustomHeaderKVForCreateExternalPrometheusInput> customHeaderKVs) {
+    this.customHeaderKVs = customHeaderKVs;
+    return this;
+  }
+
+  public CreateExternalPrometheusRequest addCustomHeaderKVsItem(CustomHeaderKVForCreateExternalPrometheusInput customHeaderKVsItem) {
+    if (this.customHeaderKVs == null) {
+      this.customHeaderKVs = new ArrayList<CustomHeaderKVForCreateExternalPrometheusInput>();
+    }
+    this.customHeaderKVs.add(customHeaderKVsItem);
     return this;
   }
 
    /**
-   * Get customHeaders
-   * @return customHeaders
+   * Get customHeaderKVs
+   * @return customHeaderKVs
   **/
   @Valid
   @Schema(description = "")
-  public CustomHeadersForCreateExternalPrometheusInput getCustomHeaders() {
-    return customHeaders;
+  public List<CustomHeaderKVForCreateExternalPrometheusInput> getCustomHeaderKVs() {
+    return customHeaderKVs;
   }
 
-  public void setCustomHeaders(CustomHeadersForCreateExternalPrometheusInput customHeaders) {
-    this.customHeaders = customHeaders;
+  public void setCustomHeaderKVs(List<CustomHeaderKVForCreateExternalPrometheusInput> customHeaderKVs) {
+    this.customHeaderKVs = customHeaderKVs;
   }
 
   public CreateExternalPrometheusRequest description(String description) {
@@ -359,7 +367,7 @@ public class CreateExternalPrometheusRequest {
     }
     CreateExternalPrometheusRequest createExternalPrometheusRequest = (CreateExternalPrometheusRequest) o;
     return Objects.equals(this.authType, createExternalPrometheusRequest.authType) &&
-        Objects.equals(this.customHeaders, createExternalPrometheusRequest.customHeaders) &&
+        Objects.equals(this.customHeaderKVs, createExternalPrometheusRequest.customHeaderKVs) &&
         Objects.equals(this.description, createExternalPrometheusRequest.description) &&
         Objects.equals(this.encryptedBearerToken, createExternalPrometheusRequest.encryptedBearerToken) &&
         Objects.equals(this.encryptedPassword, createExternalPrometheusRequest.encryptedPassword) &&
@@ -376,7 +384,7 @@ public class CreateExternalPrometheusRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, customHeaders, description, encryptedBearerToken, encryptedPassword, maxQueryRate, name, projectName, subnetIds, tags, type, URL, username, vpCId);
+    return Objects.hash(authType, customHeaderKVs, description, encryptedBearerToken, encryptedPassword, maxQueryRate, name, projectName, subnetIds, tags, type, URL, username, vpCId);
   }
 
 
@@ -386,7 +394,7 @@ public class CreateExternalPrometheusRequest {
     sb.append("class CreateExternalPrometheusRequest {\n");
     
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
-    sb.append("    customHeaders: ").append(toIndentedString(customHeaders)).append("\n");
+    sb.append("    customHeaderKVs: ").append(toIndentedString(customHeaderKVs)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    encryptedBearerToken: ").append(toIndentedString(encryptedBearerToken)).append("\n");
     sb.append("    encryptedPassword: ").append(toIndentedString(encryptedPassword)).append("\n");
