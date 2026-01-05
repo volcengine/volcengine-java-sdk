@@ -27,12 +27,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DenseForGetVikingdbCollectionOutput
+ * TensorForGetVikingdbCollectionOutput
  */
 
 
 
-public class DenseForGetVikingdbCollectionOutput {
+public class TensorForGetVikingdbCollectionOutput {
   @SerializedName("Dim")
   private Integer dim = null;
 
@@ -157,7 +157,7 @@ public class DenseForGetVikingdbCollectionOutput {
   @SerializedName("VideoField")
   private String videoField = null;
 
-  public DenseForGetVikingdbCollectionOutput dim(Integer dim) {
+  public TensorForGetVikingdbCollectionOutput dim(Integer dim) {
     this.dim = dim;
     return this;
   }
@@ -175,7 +175,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.dim = dim;
   }
 
-  public DenseForGetVikingdbCollectionOutput imageField(String imageField) {
+  public TensorForGetVikingdbCollectionOutput imageField(String imageField) {
     this.imageField = imageField;
     return this;
   }
@@ -193,7 +193,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.imageField = imageField;
   }
 
-  public DenseForGetVikingdbCollectionOutput instruction(InstructionForGetVikingdbCollectionOutput instruction) {
+  public TensorForGetVikingdbCollectionOutput instruction(InstructionForGetVikingdbCollectionOutput instruction) {
     this.instruction = instruction;
     return this;
   }
@@ -212,7 +212,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.instruction = instruction;
   }
 
-  public DenseForGetVikingdbCollectionOutput modelName(ModelNameEnum modelName) {
+  public TensorForGetVikingdbCollectionOutput modelName(ModelNameEnum modelName) {
     this.modelName = modelName;
     return this;
   }
@@ -230,7 +230,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.modelName = modelName;
   }
 
-  public DenseForGetVikingdbCollectionOutput modelVersion(String modelVersion) {
+  public TensorForGetVikingdbCollectionOutput modelVersion(String modelVersion) {
     this.modelVersion = modelVersion;
     return this;
   }
@@ -248,7 +248,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.modelVersion = modelVersion;
   }
 
-  public DenseForGetVikingdbCollectionOutput ndim(Integer ndim) {
+  public TensorForGetVikingdbCollectionOutput ndim(Integer ndim) {
     this.ndim = ndim;
     return this;
   }
@@ -266,12 +266,12 @@ public class DenseForGetVikingdbCollectionOutput {
     this.ndim = ndim;
   }
 
-  public DenseForGetVikingdbCollectionOutput shape(List<Integer> shape) {
+  public TensorForGetVikingdbCollectionOutput shape(List<Integer> shape) {
     this.shape = shape;
     return this;
   }
 
-  public DenseForGetVikingdbCollectionOutput addShapeItem(Integer shapeItem) {
+  public TensorForGetVikingdbCollectionOutput addShapeItem(Integer shapeItem) {
     if (this.shape == null) {
       this.shape = new ArrayList<Integer>();
     }
@@ -292,7 +292,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.shape = shape;
   }
 
-  public DenseForGetVikingdbCollectionOutput tensorQuantType(TensorQuantTypeEnum tensorQuantType) {
+  public TensorForGetVikingdbCollectionOutput tensorQuantType(TensorQuantTypeEnum tensorQuantType) {
     this.tensorQuantType = tensorQuantType;
     return this;
   }
@@ -310,7 +310,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.tensorQuantType = tensorQuantType;
   }
 
-  public DenseForGetVikingdbCollectionOutput textField(String textField) {
+  public TensorForGetVikingdbCollectionOutput textField(String textField) {
     this.textField = textField;
     return this;
   }
@@ -328,7 +328,7 @@ public class DenseForGetVikingdbCollectionOutput {
     this.textField = textField;
   }
 
-  public DenseForGetVikingdbCollectionOutput videoField(String videoField) {
+  public TensorForGetVikingdbCollectionOutput videoField(String videoField) {
     this.videoField = videoField;
     return this;
   }
@@ -355,17 +355,17 @@ public class DenseForGetVikingdbCollectionOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DenseForGetVikingdbCollectionOutput denseForGetVikingdbCollectionOutput = (DenseForGetVikingdbCollectionOutput) o;
-    return Objects.equals(this.dim, denseForGetVikingdbCollectionOutput.dim) &&
-        Objects.equals(this.imageField, denseForGetVikingdbCollectionOutput.imageField) &&
-        Objects.equals(this.instruction, denseForGetVikingdbCollectionOutput.instruction) &&
-        Objects.equals(this.modelName, denseForGetVikingdbCollectionOutput.modelName) &&
-        Objects.equals(this.modelVersion, denseForGetVikingdbCollectionOutput.modelVersion) &&
-        Objects.equals(this.ndim, denseForGetVikingdbCollectionOutput.ndim) &&
-        Objects.equals(this.shape, denseForGetVikingdbCollectionOutput.shape) &&
-        Objects.equals(this.tensorQuantType, denseForGetVikingdbCollectionOutput.tensorQuantType) &&
-        Objects.equals(this.textField, denseForGetVikingdbCollectionOutput.textField) &&
-        Objects.equals(this.videoField, denseForGetVikingdbCollectionOutput.videoField);
+    TensorForGetVikingdbCollectionOutput tensorForGetVikingdbCollectionOutput = (TensorForGetVikingdbCollectionOutput) o;
+    return Objects.equals(this.dim, tensorForGetVikingdbCollectionOutput.dim) &&
+        Objects.equals(this.imageField, tensorForGetVikingdbCollectionOutput.imageField) &&
+        Objects.equals(this.instruction, tensorForGetVikingdbCollectionOutput.instruction) &&
+        Objects.equals(this.modelName, tensorForGetVikingdbCollectionOutput.modelName) &&
+        Objects.equals(this.modelVersion, tensorForGetVikingdbCollectionOutput.modelVersion) &&
+        Objects.equals(this.ndim, tensorForGetVikingdbCollectionOutput.ndim) &&
+        Objects.equals(this.shape, tensorForGetVikingdbCollectionOutput.shape) &&
+        Objects.equals(this.tensorQuantType, tensorForGetVikingdbCollectionOutput.tensorQuantType) &&
+        Objects.equals(this.textField, tensorForGetVikingdbCollectionOutput.textField) &&
+        Objects.equals(this.videoField, tensorForGetVikingdbCollectionOutput.videoField);
   }
 
   @Override
@@ -377,7 +377,7 @@ public class DenseForGetVikingdbCollectionOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DenseForGetVikingdbCollectionOutput {\n");
+    sb.append("class TensorForGetVikingdbCollectionOutput {\n");
     
     sb.append("    dim: ").append(toIndentedString(dim)).append("\n");
     sb.append("    imageField: ").append(toIndentedString(imageField)).append("\n");

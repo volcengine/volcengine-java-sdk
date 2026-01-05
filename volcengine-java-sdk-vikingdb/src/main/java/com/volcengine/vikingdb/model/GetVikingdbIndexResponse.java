@@ -64,6 +64,9 @@ public class GetVikingdbIndexResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("ShardPolicy")
   private String shardPolicy = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("VectorIndex")
   private VectorIndexForGetVikingdbIndexOutput vectorIndex = null;
 
@@ -256,6 +259,24 @@ public class GetVikingdbIndexResponse extends com.volcengine.model.AbstractRespo
     this.shardPolicy = shardPolicy;
   }
 
+  public GetVikingdbIndexResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public GetVikingdbIndexResponse vectorIndex(VectorIndexForGetVikingdbIndexOutput vectorIndex) {
     this.vectorIndex = vectorIndex;
     return this;
@@ -295,12 +316,13 @@ public class GetVikingdbIndexResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.scalarIndex, getVikingdbIndexResponse.scalarIndex) &&
         Objects.equals(this.shardCount, getVikingdbIndexResponse.shardCount) &&
         Objects.equals(this.shardPolicy, getVikingdbIndexResponse.shardPolicy) &&
+        Objects.equals(this.status, getVikingdbIndexResponse.status) &&
         Objects.equals(this.vectorIndex, getVikingdbIndexResponse.vectorIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualCU, collectionName, cpuQuota, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy, vectorIndex);
+    return Objects.hash(actualCU, collectionName, cpuQuota, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy, status, vectorIndex);
   }
 
 
@@ -319,6 +341,7 @@ public class GetVikingdbIndexResponse extends com.volcengine.model.AbstractRespo
     sb.append("    scalarIndex: ").append(toIndentedString(scalarIndex)).append("\n");
     sb.append("    shardCount: ").append(toIndentedString(shardCount)).append("\n");
     sb.append("    shardPolicy: ").append(toIndentedString(shardPolicy)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vectorIndex: ").append(toIndentedString(vectorIndex)).append("\n");
     sb.append("}");
     return sb.toString();

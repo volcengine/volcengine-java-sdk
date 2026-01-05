@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vikingdb.model.InstructionForCreateVikingdbCollectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,6 +38,9 @@ public class SparseForCreateVikingdbCollectionInput {
 
   @SerializedName("ImageField")
   private String imageField = null;
+
+  @SerializedName("Instruction")
+  private InstructionForCreateVikingdbCollectionInput instruction = null;
 
   /**
    * Gets or Sets modelName
@@ -95,6 +101,56 @@ public class SparseForCreateVikingdbCollectionInput {
   @SerializedName("ModelVersion")
   private String modelVersion = null;
 
+  @SerializedName("NDim")
+  private Integer ndim = null;
+
+  @SerializedName("Shape")
+  private List<Integer> shape = null;
+
+  /**
+   * Gets or Sets tensorQuantType
+   */
+  @JsonAdapter(TensorQuantTypeEnum.Adapter.class)
+  public enum TensorQuantTypeEnum {
+    @SerializedName("int8")
+    INT8("int8");
+
+    private String value;
+
+    TensorQuantTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TensorQuantTypeEnum fromValue(String input) {
+      for (TensorQuantTypeEnum b : TensorQuantTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TensorQuantTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TensorQuantTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TensorQuantTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TensorQuantTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TensorQuantType")
+  private TensorQuantTypeEnum tensorQuantType = null;
+
   @SerializedName("TextField")
   private String textField = null;
 
@@ -137,6 +193,25 @@ public class SparseForCreateVikingdbCollectionInput {
     this.imageField = imageField;
   }
 
+  public SparseForCreateVikingdbCollectionInput instruction(InstructionForCreateVikingdbCollectionInput instruction) {
+    this.instruction = instruction;
+    return this;
+  }
+
+   /**
+   * Get instruction
+   * @return instruction
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstructionForCreateVikingdbCollectionInput getInstruction() {
+    return instruction;
+  }
+
+  public void setInstruction(InstructionForCreateVikingdbCollectionInput instruction) {
+    this.instruction = instruction;
+  }
+
   public SparseForCreateVikingdbCollectionInput modelName(ModelNameEnum modelName) {
     this.modelName = modelName;
     return this;
@@ -171,6 +246,68 @@ public class SparseForCreateVikingdbCollectionInput {
 
   public void setModelVersion(String modelVersion) {
     this.modelVersion = modelVersion;
+  }
+
+  public SparseForCreateVikingdbCollectionInput ndim(Integer ndim) {
+    this.ndim = ndim;
+    return this;
+  }
+
+   /**
+   * Get ndim
+   * @return ndim
+  **/
+  @Schema(description = "")
+  public Integer getNdim() {
+    return ndim;
+  }
+
+  public void setNdim(Integer ndim) {
+    this.ndim = ndim;
+  }
+
+  public SparseForCreateVikingdbCollectionInput shape(List<Integer> shape) {
+    this.shape = shape;
+    return this;
+  }
+
+  public SparseForCreateVikingdbCollectionInput addShapeItem(Integer shapeItem) {
+    if (this.shape == null) {
+      this.shape = new ArrayList<Integer>();
+    }
+    this.shape.add(shapeItem);
+    return this;
+  }
+
+   /**
+   * Get shape
+   * @return shape
+  **/
+  @Schema(description = "")
+  public List<Integer> getShape() {
+    return shape;
+  }
+
+  public void setShape(List<Integer> shape) {
+    this.shape = shape;
+  }
+
+  public SparseForCreateVikingdbCollectionInput tensorQuantType(TensorQuantTypeEnum tensorQuantType) {
+    this.tensorQuantType = tensorQuantType;
+    return this;
+  }
+
+   /**
+   * Get tensorQuantType
+   * @return tensorQuantType
+  **/
+  @Schema(description = "")
+  public TensorQuantTypeEnum getTensorQuantType() {
+    return tensorQuantType;
+  }
+
+  public void setTensorQuantType(TensorQuantTypeEnum tensorQuantType) {
+    this.tensorQuantType = tensorQuantType;
   }
 
   public SparseForCreateVikingdbCollectionInput textField(String textField) {
@@ -221,15 +358,19 @@ public class SparseForCreateVikingdbCollectionInput {
     SparseForCreateVikingdbCollectionInput sparseForCreateVikingdbCollectionInput = (SparseForCreateVikingdbCollectionInput) o;
     return Objects.equals(this.dim, sparseForCreateVikingdbCollectionInput.dim) &&
         Objects.equals(this.imageField, sparseForCreateVikingdbCollectionInput.imageField) &&
+        Objects.equals(this.instruction, sparseForCreateVikingdbCollectionInput.instruction) &&
         Objects.equals(this.modelName, sparseForCreateVikingdbCollectionInput.modelName) &&
         Objects.equals(this.modelVersion, sparseForCreateVikingdbCollectionInput.modelVersion) &&
+        Objects.equals(this.ndim, sparseForCreateVikingdbCollectionInput.ndim) &&
+        Objects.equals(this.shape, sparseForCreateVikingdbCollectionInput.shape) &&
+        Objects.equals(this.tensorQuantType, sparseForCreateVikingdbCollectionInput.tensorQuantType) &&
         Objects.equals(this.textField, sparseForCreateVikingdbCollectionInput.textField) &&
         Objects.equals(this.videoField, sparseForCreateVikingdbCollectionInput.videoField);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dim, imageField, modelName, modelVersion, textField, videoField);
+    return Objects.hash(dim, imageField, instruction, modelName, modelVersion, ndim, shape, tensorQuantType, textField, videoField);
   }
 
 
@@ -240,8 +381,12 @@ public class SparseForCreateVikingdbCollectionInput {
     
     sb.append("    dim: ").append(toIndentedString(dim)).append("\n");
     sb.append("    imageField: ").append(toIndentedString(imageField)).append("\n");
+    sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    modelVersion: ").append(toIndentedString(modelVersion)).append("\n");
+    sb.append("    ndim: ").append(toIndentedString(ndim)).append("\n");
+    sb.append("    shape: ").append(toIndentedString(shape)).append("\n");
+    sb.append("    tensorQuantType: ").append(toIndentedString(tensorQuantType)).append("\n");
     sb.append("    textField: ").append(toIndentedString(textField)).append("\n");
     sb.append("    videoField: ").append(toIndentedString(videoField)).append("\n");
     sb.append("}");
