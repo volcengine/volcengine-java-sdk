@@ -255,8 +255,12 @@ public class EncryptionInterceptor implements Interceptor {
             if (responseBody == null) {
                 return response;
             }
-            String contentType = responseBody.contentType().toString();
-            boolean isStreaming = contentType.contains("text/event-stream") || contentType.contains("sse");
+            MediaType contentType = responseBody.contentType();
+            boolean isStreaming = false;
+            if (contentType != null) {
+                String contentTypeStr = contentType.toString();
+                isStreaming = contentTypeStr.contains("text/event-stream") || contentTypeStr.contains("sse");
+            }
             if (isStreaming) {
                 return response.newBuilder()
                         .body(new DecryptedResponseBody(responseBody, key, nonce, mapper))
@@ -378,11 +382,9 @@ public class EncryptionInterceptor implements Interceptor {
         }
 
         try {
-            // System.out.println("[1] 服务端返回的原始密文: " + encryptedContent);
             String decryptedContent = aesGcmDecryptBase64String(key, nonce, encryptedContent);
             updateStreamChoiceContent(choice, decryptedContent);
         } catch (Exception e) {
-            System.out.println("[ERROR] 解密错误: " + e.getMessage());
             updateStreamChoiceContent(choice, "");
         }
     }
@@ -396,19 +398,6 @@ public class EncryptionInterceptor implements Interceptor {
         if (delta != null) {
             delta.put("content", content);
         }
-    }
-
-    /**
-     * 判断是否为流式响应
-     */
-    private boolean isStreamResponseFromContent(String content) {
-        if (content == null || content.trim().isEmpty()) {
-            return false;
-        }
-        if (content.trim().startsWith("data: ")) {
-            return true;
-        }
-        return content.contains("\ndata: ") || content.contains("\r\ndata: ");
     }
 
     /**
@@ -513,7 +502,7 @@ public class EncryptionInterceptor implements Interceptor {
         /**
          * 自定义的Source实现，用于实时解密流式数据
          */
-        private class DecryptedSource implements Source {
+        private static class DecryptedSource implements Source {
             private final Source delegate;
             private final byte[] key;
             private final byte[] nonce;
@@ -599,7 +588,6 @@ public class EncryptionInterceptor implements Interceptor {
 
                             outputBuffer.append("data: ").append(decryptedJson).append("\n\n");
                         } catch (Exception e) {
-                            System.out.println("[ERROR] 解密失败: " + e.getMessage());
                             throw new IOException("Decryption failed during streaming", e);
                         }
                     }
@@ -609,24 +597,20 @@ public class EncryptionInterceptor implements Interceptor {
             /**
              * 从输出缓冲区写入数据到sink
              */
-            private long writeFromOutputBuffer(Buffer sink, long byteCount) throws IOException {
+            private long writeFromOutputBuffer(Buffer sink, long byteCount) {
                 if (outputBuffer.length() == 0) {
                     return 0;
                 }
 
-                // 创建临时Buffer来准确计算字节数
                 Buffer tempBuffer = new Buffer();
                 int bytesToWrite = (int) Math.min(outputBuffer.length(), byteCount);
                 String dataToWrite = outputBuffer.substring(0, bytesToWrite);
 
-                // 写入临时Buffer并获取准确的字节数
                 tempBuffer.writeUtf8(dataToWrite);
                 long writtenBytes = tempBuffer.size();
 
-                // 将临时Buffer的内容写入目标sink
                 sink.write(tempBuffer, writtenBytes);
 
-                // 更新输出缓冲区
                 outputBuffer.delete(0, bytesToWrite);
 
                 return writtenBytes;
@@ -659,17 +643,16 @@ public class EncryptionInterceptor implements Interceptor {
      */
     private static class SSEDecoder {
         private String event;
-        private List<String> data = new ArrayList<>();
+        private final List<String> data = new ArrayList<>();
         private String lastEventId;
         private Long retry;
-        private StringBuilder buffer = new StringBuilder();
+        private final StringBuilder buffer = new StringBuilder();
 
         public List<ServerSentEvent> decode(byte[] bytes) {
             List<ServerSentEvent> events = new ArrayList<>();
             String content = new String(bytes, StandardCharsets.UTF_8);
             buffer.append(content);
 
-            // 使用正确的行分割方式，保留末尾的空行
             List<String> lines = new ArrayList<>();
             int index = 0;
             while (index < buffer.length()) {
@@ -681,7 +664,6 @@ public class EncryptionInterceptor implements Interceptor {
                 index = newLineIndex + 1;
             }
 
-            // 如果有剩余数据没有换行符，保留在buffer中
             if (index < buffer.length()) {
                 buffer.setLength(0);
                 buffer.append(buffer.substring(index));
@@ -689,7 +671,6 @@ public class EncryptionInterceptor implements Interceptor {
                 buffer.setLength(0);
             }
 
-            // 处理所有完整的行
             for (String line : lines) {
                 ServerSentEvent sse = decodeLine(line);
                 if (sse != null) {
@@ -705,7 +686,6 @@ public class EncryptionInterceptor implements Interceptor {
          */
         private ServerSentEvent decodeLine(String line) {
             if (line.isEmpty()) {
-                // 空行表示一个事件结束
                 if (data.isEmpty() && event == null && retry == null) {
                     return null;
                 }
@@ -716,7 +696,6 @@ public class EncryptionInterceptor implements Interceptor {
                 sse.id = lastEventId;
                 sse.retry = retry;
 
-                // 重置状态（除了lastEventId）
                 event = null;
                 data.clear();
                 retry = null;
@@ -725,20 +704,17 @@ public class EncryptionInterceptor implements Interceptor {
             }
 
             if (line.startsWith(":")) {
-                // 忽略注释行
                 return null;
             }
 
             int colonIndex = line.indexOf(":");
             if (colonIndex == -1) {
-                // 没有冒号的行，忽略
                 return null;
             }
 
             String field = line.substring(0, colonIndex).trim();
             String value = line.substring(colonIndex + 1).trim();
 
-            // 如果value以空格开头，移除第一个空格
             if (value.startsWith(" ")) {
                 value = value.substring(1);
             }
@@ -752,7 +728,7 @@ public class EncryptionInterceptor implements Interceptor {
                     break;
                 case "id":
                     if (value.contains("\0")) {
-                        // 忽略包含空字符的id
+                        // 忽略包含null字符的id
                     } else {
                         lastEventId = value;
                     }
@@ -765,7 +741,6 @@ public class EncryptionInterceptor implements Interceptor {
                     }
                     break;
                 default:
-                    // 忽略其他字段
                     break;
             }
 
