@@ -21,55 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MetaInformationForCreateBackupResourceInput
+ * TagFilterForDescribeVaultsInput
  */
 
 
 
-public class MetaInformationForCreateBackupResourceInput {
-  @SerializedName("EcsMeta")
-  private String ecsMeta = null;
+public class TagFilterForDescribeVaultsInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("VepfsMeta")
-  private String vepfsMeta = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public MetaInformationForCreateBackupResourceInput ecsMeta(String ecsMeta) {
-    this.ecsMeta = ecsMeta;
+  public TagFilterForDescribeVaultsInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get ecsMeta
-   * @return ecsMeta
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getEcsMeta() {
-    return ecsMeta;
+  public String getKey() {
+    return key;
   }
 
-  public void setEcsMeta(String ecsMeta) {
-    this.ecsMeta = ecsMeta;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public MetaInformationForCreateBackupResourceInput vepfsMeta(String vepfsMeta) {
-    this.vepfsMeta = vepfsMeta;
+  public TagFilterForDescribeVaultsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeVaultsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get vepfsMeta
-   * @return vepfsMeta
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getVepfsMeta() {
-    return vepfsMeta;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setVepfsMeta(String vepfsMeta) {
-    this.vepfsMeta = vepfsMeta;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +91,24 @@ public class MetaInformationForCreateBackupResourceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetaInformationForCreateBackupResourceInput metaInformationForCreateBackupResourceInput = (MetaInformationForCreateBackupResourceInput) o;
-    return Objects.equals(this.ecsMeta, metaInformationForCreateBackupResourceInput.ecsMeta) &&
-        Objects.equals(this.vepfsMeta, metaInformationForCreateBackupResourceInput.vepfsMeta);
+    TagFilterForDescribeVaultsInput tagFilterForDescribeVaultsInput = (TagFilterForDescribeVaultsInput) o;
+    return Objects.equals(this.key, tagFilterForDescribeVaultsInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeVaultsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ecsMeta, vepfsMeta);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetaInformationForCreateBackupResourceInput {\n");
+    sb.append("class TagFilterForDescribeVaultsInput {\n");
     
-    sb.append("    ecsMeta: ").append(toIndentedString(ecsMeta)).append("\n");
-    sb.append("    vepfsMeta: ").append(toIndentedString(vepfsMeta)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
