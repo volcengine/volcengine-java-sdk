@@ -60,6 +60,23 @@ public class GetContentGenerationTaskResponse {
     @JsonProperty("generate_audio")
     private Boolean generateAudio;
 
+    @JsonProperty("ratio")
+    private String ratio;
+
+    @JsonProperty("duration")
+    private java.lang.Long duration;
+
+    @JsonProperty("resolution")
+    private String resolution;
+
+    @JsonProperty("draft")
+    private Boolean draft;
+
+    @JsonProperty("draft_task")
+    private String draftTask;
+
+
+
     public String getId() {
         return id;
     }
@@ -196,6 +213,47 @@ public class GetContentGenerationTaskResponse {
         this.generateAudio = generateAudio;
     }
 
+    public String getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(String ratio) {
+        this.ratio = ratio;
+    }
+
+    public java.lang.Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(java.lang.Long duration) {
+        this.duration = duration;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+
+    public Boolean getDraft() {
+        return draft;
+    }
+
+    public void setDraft(Boolean draft) {
+        this.draft = draft;
+    }
+
+    public String getDraftTask() {
+        return draftTask;
+    }
+
+    public void setDraftTask(String draftTask) {
+        this.draftTask = draftTask;
+    }
+
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Content {
 
@@ -310,6 +368,11 @@ public class GetContentGenerationTaskResponse {
                 ", serviceTier='" + serviceTier + '\'' +
                 ", executionExpiresAfter=" + executionExpiresAfter +
                 ", generateAudio=" + generateAudio +
+                ", ratio='" + ratio + '\'' +
+                ", duration=" + duration +
+                ", resolution='" + resolution + '\'' +
+                ", draft=" + draft +
+                ", draftTask='" + draftTask + '\'' +
                 '}';
     }
 }
