@@ -44,6 +44,9 @@ public class ConvertMappingListForDescribeTransmissionTaskProgressOutput {
   @SerializedName("MappingList")
   private MappingListForDescribeTransmissionTaskProgressOutput mappingList = null;
 
+  @SerializedName("ObjectMappingSetting")
+  private CommonSettingsForDescribeTransmissionTaskProgressOutput objectMappingSetting = null;
+
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
 
@@ -110,6 +113,25 @@ public class ConvertMappingListForDescribeTransmissionTaskProgressOutput {
 
   public void setMappingList(MappingListForDescribeTransmissionTaskProgressOutput mappingList) {
     this.mappingList = mappingList;
+  }
+
+  public ConvertMappingListForDescribeTransmissionTaskProgressOutput objectMappingSetting(CommonSettingsForDescribeTransmissionTaskProgressOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public CommonSettingsForDescribeTransmissionTaskProgressOutput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(CommonSettingsForDescribeTransmissionTaskProgressOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public ConvertMappingListForDescribeTransmissionTaskProgressOutput objectTransTypes(List<String> objectTransTypes) {
@@ -206,6 +228,7 @@ public class ConvertMappingListForDescribeTransmissionTaskProgressOutput {
     return Objects.equals(this.commonSettings, convertMappingListForDescribeTransmissionTaskProgressOutput.commonSettings) &&
         Objects.equals(this.destObjName, convertMappingListForDescribeTransmissionTaskProgressOutput.destObjName) &&
         Objects.equals(this.mappingList, convertMappingListForDescribeTransmissionTaskProgressOutput.mappingList) &&
+        Objects.equals(this.objectMappingSetting, convertMappingListForDescribeTransmissionTaskProgressOutput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, convertMappingListForDescribeTransmissionTaskProgressOutput.objectTransTypes) &&
         Objects.equals(this.objectType, convertMappingListForDescribeTransmissionTaskProgressOutput.objectType) &&
         Objects.equals(this.srcObjName, convertMappingListForDescribeTransmissionTaskProgressOutput.srcObjName) &&
@@ -214,7 +237,7 @@ public class ConvertMappingListForDescribeTransmissionTaskProgressOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, mappingList, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, mappingList, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -226,6 +249,7 @@ public class ConvertMappingListForDescribeTransmissionTaskProgressOutput {
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
     sb.append("    mappingList: ").append(toIndentedString(mappingList)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

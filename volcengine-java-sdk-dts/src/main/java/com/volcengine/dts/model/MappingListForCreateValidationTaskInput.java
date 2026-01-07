@@ -40,6 +40,9 @@ public class MappingListForCreateValidationTaskInput {
   @SerializedName("DestObjName")
   private String destObjName = null;
 
+  @SerializedName("ObjectMappingSetting")
+  private CommonSettingsForCreateValidationTaskInput objectMappingSetting = null;
+
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
 
@@ -87,6 +90,25 @@ public class MappingListForCreateValidationTaskInput {
 
   public void setDestObjName(String destObjName) {
     this.destObjName = destObjName;
+  }
+
+  public MappingListForCreateValidationTaskInput objectMappingSetting(CommonSettingsForCreateValidationTaskInput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public CommonSettingsForCreateValidationTaskInput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(CommonSettingsForCreateValidationTaskInput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public MappingListForCreateValidationTaskInput objectTransTypes(List<String> objectTransTypes) {
@@ -182,6 +204,7 @@ public class MappingListForCreateValidationTaskInput {
     MappingListForCreateValidationTaskInput mappingListForCreateValidationTaskInput = (MappingListForCreateValidationTaskInput) o;
     return Objects.equals(this.commonSettings, mappingListForCreateValidationTaskInput.commonSettings) &&
         Objects.equals(this.destObjName, mappingListForCreateValidationTaskInput.destObjName) &&
+        Objects.equals(this.objectMappingSetting, mappingListForCreateValidationTaskInput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, mappingListForCreateValidationTaskInput.objectTransTypes) &&
         Objects.equals(this.objectType, mappingListForCreateValidationTaskInput.objectType) &&
         Objects.equals(this.srcObjName, mappingListForCreateValidationTaskInput.srcObjName) &&
@@ -190,7 +213,7 @@ public class MappingListForCreateValidationTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -201,6 +224,7 @@ public class MappingListForCreateValidationTaskInput {
     
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");
