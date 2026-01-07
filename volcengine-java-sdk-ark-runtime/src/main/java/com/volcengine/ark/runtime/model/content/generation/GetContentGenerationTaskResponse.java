@@ -3,9 +3,6 @@ package com.volcengine.ark.runtime.model.content.generation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GetContentGenerationTaskResponse {
 
@@ -72,8 +69,8 @@ public class GetContentGenerationTaskResponse {
     @JsonProperty("draft")
     private Boolean draft;
 
-    @JsonProperty("draft_task")
-    private String draftTask;
+    @JsonProperty("draft_task_id")
+    private String draftTaskID;
 
 
 
@@ -245,12 +242,12 @@ public class GetContentGenerationTaskResponse {
         this.draft = draft;
     }
 
-    public String getDraftTask() {
-        return draftTask;
+    public String getDraftTaskID() {
+        return draftTaskID;
     }
 
-    public void setDraftTask(String draftTask) {
-        this.draftTask = draftTask;
+    public void setDraftTaskID(String draftTaskID) {
+        this.draftTaskID = draftTaskID;
     }
 
 
@@ -372,7 +369,7 @@ public class GetContentGenerationTaskResponse {
                 ", duration=" + duration +
                 ", resolution='" + resolution + '\'' +
                 ", draft=" + draft +
-                ", draftTask='" + draftTask + '\'' +
+                ", draftTaskID='" + draftTaskID + '\'' +
                 '}';
     }
 }
