@@ -259,7 +259,7 @@ public class EncryptionInterceptor implements Interceptor {
             boolean isStreaming = false;
             if (contentType != null) {
                 String contentTypeStr = contentType.toString();
-                isStreaming = contentTypeStr.contains("text/event-stream") || contentTypeStr.contains("sse");
+                isStreaming = contentTypeStr.contains("text/event-stream");
             }
             if (isStreaming) {
                 return response.newBuilder()
