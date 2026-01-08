@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vikingdb.model.DenseForCreateVikingdbCollectionInput;
 import com.volcengine.vikingdb.model.SparseForCreateVikingdbCollectionInput;
+import com.volcengine.vikingdb.model.TensorForCreateVikingdbCollectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -37,6 +38,9 @@ public class VectorizeForCreateVikingdbCollectionInput {
 
   @SerializedName("Sparse")
   private SparseForCreateVikingdbCollectionInput sparse = null;
+
+  @SerializedName("Tensor")
+  private TensorForCreateVikingdbCollectionInput tensor = null;
 
   public VectorizeForCreateVikingdbCollectionInput dense(DenseForCreateVikingdbCollectionInput dense) {
     this.dense = dense;
@@ -76,6 +80,25 @@ public class VectorizeForCreateVikingdbCollectionInput {
     this.sparse = sparse;
   }
 
+  public VectorizeForCreateVikingdbCollectionInput tensor(TensorForCreateVikingdbCollectionInput tensor) {
+    this.tensor = tensor;
+    return this;
+  }
+
+   /**
+   * Get tensor
+   * @return tensor
+  **/
+  @Valid
+  @Schema(description = "")
+  public TensorForCreateVikingdbCollectionInput getTensor() {
+    return tensor;
+  }
+
+  public void setTensor(TensorForCreateVikingdbCollectionInput tensor) {
+    this.tensor = tensor;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,12 +110,13 @@ public class VectorizeForCreateVikingdbCollectionInput {
     }
     VectorizeForCreateVikingdbCollectionInput vectorizeForCreateVikingdbCollectionInput = (VectorizeForCreateVikingdbCollectionInput) o;
     return Objects.equals(this.dense, vectorizeForCreateVikingdbCollectionInput.dense) &&
-        Objects.equals(this.sparse, vectorizeForCreateVikingdbCollectionInput.sparse);
+        Objects.equals(this.sparse, vectorizeForCreateVikingdbCollectionInput.sparse) &&
+        Objects.equals(this.tensor, vectorizeForCreateVikingdbCollectionInput.tensor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dense, sparse);
+    return Objects.hash(dense, sparse, tensor);
   }
 
 
@@ -103,6 +127,7 @@ public class VectorizeForCreateVikingdbCollectionInput {
     
     sb.append("    dense: ").append(toIndentedString(dense)).append("\n");
     sb.append("    sparse: ").append(toIndentedString(sparse)).append("\n");
+    sb.append("    tensor: ").append(toIndentedString(tensor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
