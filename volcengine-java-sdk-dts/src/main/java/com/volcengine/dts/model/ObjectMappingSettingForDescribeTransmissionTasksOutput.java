@@ -26,12 +26,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CommonSettingsForDescribeTransmissionTaskInfoOutput
+ * ObjectMappingSettingForDescribeTransmissionTasksOutput
  */
 
 
 
-public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
+public class ObjectMappingSettingForDescribeTransmissionTasksOutput {
   @SerializedName("LastWriteWinsKey")
   private String lastWriteWinsKey = null;
 
@@ -47,7 +47,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
   @SerializedName("SetObjectTransType")
   private Boolean setObjectTransType = null;
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput lastWriteWinsKey(String lastWriteWinsKey) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput lastWriteWinsKey(String lastWriteWinsKey) {
     this.lastWriteWinsKey = lastWriteWinsKey;
     return this;
   }
@@ -65,12 +65,12 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     this.lastWriteWinsKey = lastWriteWinsKey;
   }
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput objectTransTypes(List<String> objectTransTypes) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput objectTransTypes(List<String> objectTransTypes) {
     this.objectTransTypes = objectTransTypes;
     return this;
   }
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput addObjectTransTypesItem(String objectTransTypesItem) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput addObjectTransTypesItem(String objectTransTypesItem) {
     if (this.objectTransTypes == null) {
       this.objectTransTypes = new ArrayList<String>();
     }
@@ -91,7 +91,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     this.objectTransTypes = objectTransTypes;
   }
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput partitionColumn(String partitionColumn) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput partitionColumn(String partitionColumn) {
     this.partitionColumn = partitionColumn;
     return this;
   }
@@ -109,7 +109,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     this.partitionColumn = partitionColumn;
   }
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput policyForKeyConflict(String policyForKeyConflict) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput policyForKeyConflict(String policyForKeyConflict) {
     this.policyForKeyConflict = policyForKeyConflict;
     return this;
   }
@@ -127,7 +127,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     this.policyForKeyConflict = policyForKeyConflict;
   }
 
-  public CommonSettingsForDescribeTransmissionTaskInfoOutput setObjectTransType(Boolean setObjectTransType) {
+  public ObjectMappingSettingForDescribeTransmissionTasksOutput setObjectTransType(Boolean setObjectTransType) {
     this.setObjectTransType = setObjectTransType;
     return this;
   }
@@ -154,12 +154,12 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommonSettingsForDescribeTransmissionTaskInfoOutput commonSettingsForDescribeTransmissionTaskInfoOutput = (CommonSettingsForDescribeTransmissionTaskInfoOutput) o;
-    return Objects.equals(this.lastWriteWinsKey, commonSettingsForDescribeTransmissionTaskInfoOutput.lastWriteWinsKey) &&
-        Objects.equals(this.objectTransTypes, commonSettingsForDescribeTransmissionTaskInfoOutput.objectTransTypes) &&
-        Objects.equals(this.partitionColumn, commonSettingsForDescribeTransmissionTaskInfoOutput.partitionColumn) &&
-        Objects.equals(this.policyForKeyConflict, commonSettingsForDescribeTransmissionTaskInfoOutput.policyForKeyConflict) &&
-        Objects.equals(this.setObjectTransType, commonSettingsForDescribeTransmissionTaskInfoOutput.setObjectTransType);
+    ObjectMappingSettingForDescribeTransmissionTasksOutput objectMappingSettingForDescribeTransmissionTasksOutput = (ObjectMappingSettingForDescribeTransmissionTasksOutput) o;
+    return Objects.equals(this.lastWriteWinsKey, objectMappingSettingForDescribeTransmissionTasksOutput.lastWriteWinsKey) &&
+        Objects.equals(this.objectTransTypes, objectMappingSettingForDescribeTransmissionTasksOutput.objectTransTypes) &&
+        Objects.equals(this.partitionColumn, objectMappingSettingForDescribeTransmissionTasksOutput.partitionColumn) &&
+        Objects.equals(this.policyForKeyConflict, objectMappingSettingForDescribeTransmissionTasksOutput.policyForKeyConflict) &&
+        Objects.equals(this.setObjectTransType, objectMappingSettingForDescribeTransmissionTasksOutput.setObjectTransType);
   }
 
   @Override
@@ -171,7 +171,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommonSettingsForDescribeTransmissionTaskInfoOutput {\n");
+    sb.append("class ObjectMappingSettingForDescribeTransmissionTasksOutput {\n");
     
     sb.append("    lastWriteWinsKey: ").append(toIndentedString(lastWriteWinsKey)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");

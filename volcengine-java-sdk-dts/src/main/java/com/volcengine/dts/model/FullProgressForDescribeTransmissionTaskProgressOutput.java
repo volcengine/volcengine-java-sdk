@@ -36,34 +36,34 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
   private DatabaseForDescribeTransmissionTaskProgressOutput database = null;
 
   @SerializedName("FinishTime")
-  private Integer finishTime = null;
+  private Long finishTime = null;
 
   @SerializedName("Object")
   private ObjectForDescribeTransmissionTaskProgressOutput object = null;
 
   @SerializedName("RowAvgBytes")
-  private Integer rowAvgBytes = null;
+  private Long rowAvgBytes = null;
 
   @SerializedName("ShardID")
   private String shardID = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
 
   @SerializedName("TransferBytes")
-  private Integer transferBytes = null;
+  private Long transferBytes = null;
 
   @SerializedName("TransferEstimateBytes")
-  private Integer transferEstimateBytes = null;
+  private Long transferEstimateBytes = null;
 
   @SerializedName("TransferEstimateRows")
-  private Integer transferEstimateRows = null;
+  private Long transferEstimateRows = null;
 
   @SerializedName("TransferRows")
-  private Integer transferRows = null;
+  private Long transferRows = null;
 
   public FullProgressForDescribeTransmissionTaskProgressOutput database(DatabaseForDescribeTransmissionTaskProgressOutput database) {
     this.database = database;
@@ -84,7 +84,7 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
     this.database = database;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput finishTime(Integer finishTime) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput finishTime(Long finishTime) {
     this.finishTime = finishTime;
     return this;
   }
@@ -94,11 +94,11 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return finishTime
   **/
   @Schema(description = "")
-  public Integer getFinishTime() {
+  public Long getFinishTime() {
     return finishTime;
   }
 
-  public void setFinishTime(Integer finishTime) {
+  public void setFinishTime(Long finishTime) {
     this.finishTime = finishTime;
   }
 
@@ -121,7 +121,7 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
     this.object = object;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput rowAvgBytes(Integer rowAvgBytes) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput rowAvgBytes(Long rowAvgBytes) {
     this.rowAvgBytes = rowAvgBytes;
     return this;
   }
@@ -131,11 +131,11 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return rowAvgBytes
   **/
   @Schema(description = "")
-  public Integer getRowAvgBytes() {
+  public Long getRowAvgBytes() {
     return rowAvgBytes;
   }
 
-  public void setRowAvgBytes(Integer rowAvgBytes) {
+  public void setRowAvgBytes(Long rowAvgBytes) {
     this.rowAvgBytes = rowAvgBytes;
   }
 
@@ -157,7 +157,7 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
     this.shardID = shardID;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput startTime(Integer startTime) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -167,11 +167,11 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -193,7 +193,7 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
     this.state = state;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput transferBytes(Integer transferBytes) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput transferBytes(Long transferBytes) {
     this.transferBytes = transferBytes;
     return this;
   }
@@ -203,15 +203,15 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return transferBytes
   **/
   @Schema(description = "")
-  public Integer getTransferBytes() {
+  public Long getTransferBytes() {
     return transferBytes;
   }
 
-  public void setTransferBytes(Integer transferBytes) {
+  public void setTransferBytes(Long transferBytes) {
     this.transferBytes = transferBytes;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput transferEstimateBytes(Integer transferEstimateBytes) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput transferEstimateBytes(Long transferEstimateBytes) {
     this.transferEstimateBytes = transferEstimateBytes;
     return this;
   }
@@ -221,15 +221,15 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return transferEstimateBytes
   **/
   @Schema(description = "")
-  public Integer getTransferEstimateBytes() {
+  public Long getTransferEstimateBytes() {
     return transferEstimateBytes;
   }
 
-  public void setTransferEstimateBytes(Integer transferEstimateBytes) {
+  public void setTransferEstimateBytes(Long transferEstimateBytes) {
     this.transferEstimateBytes = transferEstimateBytes;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput transferEstimateRows(Integer transferEstimateRows) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput transferEstimateRows(Long transferEstimateRows) {
     this.transferEstimateRows = transferEstimateRows;
     return this;
   }
@@ -239,15 +239,15 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return transferEstimateRows
   **/
   @Schema(description = "")
-  public Integer getTransferEstimateRows() {
+  public Long getTransferEstimateRows() {
     return transferEstimateRows;
   }
 
-  public void setTransferEstimateRows(Integer transferEstimateRows) {
+  public void setTransferEstimateRows(Long transferEstimateRows) {
     this.transferEstimateRows = transferEstimateRows;
   }
 
-  public FullProgressForDescribeTransmissionTaskProgressOutput transferRows(Integer transferRows) {
+  public FullProgressForDescribeTransmissionTaskProgressOutput transferRows(Long transferRows) {
     this.transferRows = transferRows;
     return this;
   }
@@ -257,11 +257,11 @@ public class FullProgressForDescribeTransmissionTaskProgressOutput {
    * @return transferRows
   **/
   @Schema(description = "")
-  public Integer getTransferRows() {
+  public Long getTransferRows() {
     return transferRows;
   }
 
-  public void setTransferRows(Integer transferRows) {
+  public void setTransferRows(Long transferRows) {
     this.transferRows = transferRows;
   }
 
