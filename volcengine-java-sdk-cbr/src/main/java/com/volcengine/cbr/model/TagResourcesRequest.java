@@ -19,32 +19,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cbr.model.TagForTagResourcesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateBackupResourceRequest
+ * TagResourcesRequest
  */
 
 
 
-public class CreateBackupResourceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
-
-  @SerializedName("InstanceName")
-  private String instanceName = null;
+public class TagResourcesRequest {
+  @SerializedName("ResourceIds")
+  private List<String> resourceIds = null;
 
   /**
    * Gets or Sets resourceType
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    @SerializedName("ECS")
-    ECS("ECS"),
-    @SerializedName("vePFS")
-    VEPFS("vePFS");
+    @SerializedName("vault")
+    VAULT("vault");
 
     private String value;
 
@@ -82,45 +80,36 @@ public class CreateBackupResourceRequest {
   }  @SerializedName("ResourceType")
   private ResourceTypeEnum resourceType = null;
 
-  public CreateBackupResourceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  @SerializedName("Tags")
+  private List<TagForTagResourcesInput> tags = null;
+
+  public TagResourcesRequest resourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
+    return this;
+  }
+
+  public TagResourcesRequest addResourceIdsItem(String resourceIdsItem) {
+    if (this.resourceIds == null) {
+      this.resourceIds = new ArrayList<String>();
+    }
+    this.resourceIds.add(resourceIdsItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get resourceIds
+   * @return resourceIds
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Schema(description = "")
+  public List<String> getResourceIds() {
+    return resourceIds;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setResourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
   }
 
-  public CreateBackupResourceRequest instanceName(String instanceName) {
-    this.instanceName = instanceName;
-    return this;
-  }
-
-   /**
-   * Get instanceName
-   * @return instanceName
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceName() {
-    return instanceName;
-  }
-
-  public void setInstanceName(String instanceName) {
-    this.instanceName = instanceName;
-  }
-
-  public CreateBackupResourceRequest resourceType(ResourceTypeEnum resourceType) {
+  public TagResourcesRequest resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -139,6 +128,33 @@ public class CreateBackupResourceRequest {
     this.resourceType = resourceType;
   }
 
+  public TagResourcesRequest tags(List<TagForTagResourcesInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TagResourcesRequest addTagsItem(TagForTagResourcesInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForTagResourcesInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForTagResourcesInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForTagResourcesInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,26 +164,26 @@ public class CreateBackupResourceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBackupResourceRequest createBackupResourceRequest = (CreateBackupResourceRequest) o;
-    return Objects.equals(this.instanceId, createBackupResourceRequest.instanceId) &&
-        Objects.equals(this.instanceName, createBackupResourceRequest.instanceName) &&
-        Objects.equals(this.resourceType, createBackupResourceRequest.resourceType);
+    TagResourcesRequest tagResourcesRequest = (TagResourcesRequest) o;
+    return Objects.equals(this.resourceIds, tagResourcesRequest.resourceIds) &&
+        Objects.equals(this.resourceType, tagResourcesRequest.resourceType) &&
+        Objects.equals(this.tags, tagResourcesRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, resourceType);
+    return Objects.hash(resourceIds, resourceType, tags);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBackupResourceRequest {\n");
+    sb.append("class TagResourcesRequest {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

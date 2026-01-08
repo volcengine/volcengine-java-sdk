@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.cbr.model.FiltersForDescribeVaultsInput;
+import com.volcengine.cbr.model.TagFilterForDescribeVaultsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +45,9 @@ public class DescribeVaultsRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeVaultsInput> tagFilters = null;
 
   public DescribeVaultsRequest filters(FiltersForDescribeVaultsInput filters) {
     this.filters = filters;
@@ -116,6 +122,33 @@ public class DescribeVaultsRequest {
     this.projectName = projectName;
   }
 
+  public DescribeVaultsRequest tagFilters(List<TagFilterForDescribeVaultsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeVaultsRequest addTagFiltersItem(TagFilterForDescribeVaultsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeVaultsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeVaultsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeVaultsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +162,13 @@ public class DescribeVaultsRequest {
     return Objects.equals(this.filters, describeVaultsRequest.filters) &&
         Objects.equals(this.pageNumber, describeVaultsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVaultsRequest.pageSize) &&
-        Objects.equals(this.projectName, describeVaultsRequest.projectName);
+        Objects.equals(this.projectName, describeVaultsRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeVaultsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, pageNumber, pageSize, projectName);
+    return Objects.hash(filters, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -147,6 +181,7 @@ public class DescribeVaultsRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

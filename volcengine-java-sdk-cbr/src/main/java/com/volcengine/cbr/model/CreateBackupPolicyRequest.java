@@ -88,12 +88,6 @@ public class CreateBackupPolicyRequest {
   @SerializedName("RetentionDay")
   private Integer retentionDay = null;
 
-  @SerializedName("RetentionNumMax")
-  private Integer retentionNumMax = null;
-
-  @SerializedName("RetentionNumMin")
-  private Integer retentionNumMin = null;
-
   public CreateBackupPolicyRequest backupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
     return this;
@@ -189,44 +183,6 @@ public class CreateBackupPolicyRequest {
     this.retentionDay = retentionDay;
   }
 
-  public CreateBackupPolicyRequest retentionNumMax(Integer retentionNumMax) {
-    this.retentionNumMax = retentionNumMax;
-    return this;
-  }
-
-   /**
-   * Get retentionNumMax
-   * @return retentionNumMax
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getRetentionNumMax() {
-    return retentionNumMax;
-  }
-
-  public void setRetentionNumMax(Integer retentionNumMax) {
-    this.retentionNumMax = retentionNumMax;
-  }
-
-  public CreateBackupPolicyRequest retentionNumMin(Integer retentionNumMin) {
-    this.retentionNumMin = retentionNumMin;
-    return this;
-  }
-
-   /**
-   * Get retentionNumMin
-   * @return retentionNumMin
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getRetentionNumMin() {
-    return retentionNumMin;
-  }
-
-  public void setRetentionNumMin(Integer retentionNumMin) {
-    this.retentionNumMin = retentionNumMin;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -241,14 +197,12 @@ public class CreateBackupPolicyRequest {
         Objects.equals(this.crontab, createBackupPolicyRequest.crontab) &&
         Objects.equals(this.enablePolicy, createBackupPolicyRequest.enablePolicy) &&
         Objects.equals(this.name, createBackupPolicyRequest.name) &&
-        Objects.equals(this.retentionDay, createBackupPolicyRequest.retentionDay) &&
-        Objects.equals(this.retentionNumMax, createBackupPolicyRequest.retentionNumMax) &&
-        Objects.equals(this.retentionNumMin, createBackupPolicyRequest.retentionNumMin);
+        Objects.equals(this.retentionDay, createBackupPolicyRequest.retentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupType, crontab, enablePolicy, name, retentionDay, retentionNumMax, retentionNumMin);
+    return Objects.hash(backupType, crontab, enablePolicy, name, retentionDay);
   }
 
 
@@ -262,8 +216,6 @@ public class CreateBackupPolicyRequest {
     sb.append("    enablePolicy: ").append(toIndentedString(enablePolicy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    retentionDay: ").append(toIndentedString(retentionDay)).append("\n");
-    sb.append("    retentionNumMax: ").append(toIndentedString(retentionNumMax)).append("\n");
-    sb.append("    retentionNumMin: ").append(toIndentedString(retentionNumMin)).append("\n");
     sb.append("}");
     return sb.toString();
   }
