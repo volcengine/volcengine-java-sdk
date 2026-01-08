@@ -30,8 +30,17 @@ import javax.validation.Valid;
 
 
 public class InfoForDescribeValidationTaskInfoOutput {
+  @SerializedName("CompletePercentage")
+  private Integer completePercentage = null;
+
+  @SerializedName("Delay")
+  private Long delay = null;
+
   @SerializedName("ErrorInfo")
   private String errorInfo = null;
+
+  @SerializedName("FetchDelay")
+  private Long fetchDelay = null;
 
   @SerializedName("NameCN")
   private String nameCN = null;
@@ -41,6 +50,42 @@ public class InfoForDescribeValidationTaskInfoOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  public InfoForDescribeValidationTaskInfoOutput completePercentage(Integer completePercentage) {
+    this.completePercentage = completePercentage;
+    return this;
+  }
+
+   /**
+   * Get completePercentage
+   * @return completePercentage
+  **/
+  @Schema(description = "")
+  public Integer getCompletePercentage() {
+    return completePercentage;
+  }
+
+  public void setCompletePercentage(Integer completePercentage) {
+    this.completePercentage = completePercentage;
+  }
+
+  public InfoForDescribeValidationTaskInfoOutput delay(Long delay) {
+    this.delay = delay;
+    return this;
+  }
+
+   /**
+   * Get delay
+   * @return delay
+  **/
+  @Schema(description = "")
+  public Long getDelay() {
+    return delay;
+  }
+
+  public void setDelay(Long delay) {
+    this.delay = delay;
+  }
 
   public InfoForDescribeValidationTaskInfoOutput errorInfo(String errorInfo) {
     this.errorInfo = errorInfo;
@@ -58,6 +103,24 @@ public class InfoForDescribeValidationTaskInfoOutput {
 
   public void setErrorInfo(String errorInfo) {
     this.errorInfo = errorInfo;
+  }
+
+  public InfoForDescribeValidationTaskInfoOutput fetchDelay(Long fetchDelay) {
+    this.fetchDelay = fetchDelay;
+    return this;
+  }
+
+   /**
+   * Get fetchDelay
+   * @return fetchDelay
+  **/
+  @Schema(description = "")
+  public Long getFetchDelay() {
+    return fetchDelay;
+  }
+
+  public void setFetchDelay(Long fetchDelay) {
+    this.fetchDelay = fetchDelay;
   }
 
   public InfoForDescribeValidationTaskInfoOutput nameCN(String nameCN) {
@@ -124,7 +187,10 @@ public class InfoForDescribeValidationTaskInfoOutput {
       return false;
     }
     InfoForDescribeValidationTaskInfoOutput infoForDescribeValidationTaskInfoOutput = (InfoForDescribeValidationTaskInfoOutput) o;
-    return Objects.equals(this.errorInfo, infoForDescribeValidationTaskInfoOutput.errorInfo) &&
+    return Objects.equals(this.completePercentage, infoForDescribeValidationTaskInfoOutput.completePercentage) &&
+        Objects.equals(this.delay, infoForDescribeValidationTaskInfoOutput.delay) &&
+        Objects.equals(this.errorInfo, infoForDescribeValidationTaskInfoOutput.errorInfo) &&
+        Objects.equals(this.fetchDelay, infoForDescribeValidationTaskInfoOutput.fetchDelay) &&
         Objects.equals(this.nameCN, infoForDescribeValidationTaskInfoOutput.nameCN) &&
         Objects.equals(this.progressType, infoForDescribeValidationTaskInfoOutput.progressType) &&
         Objects.equals(this.status, infoForDescribeValidationTaskInfoOutput.status);
@@ -132,7 +198,7 @@ public class InfoForDescribeValidationTaskInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorInfo, nameCN, progressType, status);
+    return Objects.hash(completePercentage, delay, errorInfo, fetchDelay, nameCN, progressType, status);
   }
 
 
@@ -141,7 +207,10 @@ public class InfoForDescribeValidationTaskInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InfoForDescribeValidationTaskInfoOutput {\n");
     
+    sb.append("    completePercentage: ").append(toIndentedString(completePercentage)).append("\n");
+    sb.append("    delay: ").append(toIndentedString(delay)).append("\n");
     sb.append("    errorInfo: ").append(toIndentedString(errorInfo)).append("\n");
+    sb.append("    fetchDelay: ").append(toIndentedString(fetchDelay)).append("\n");
     sb.append("    nameCN: ").append(toIndentedString(nameCN)).append("\n");
     sb.append("    progressType: ").append(toIndentedString(progressType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

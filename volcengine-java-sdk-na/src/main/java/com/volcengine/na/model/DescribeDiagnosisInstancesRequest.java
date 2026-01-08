@@ -30,11 +30,53 @@ import javax.validation.Valid;
 
 
 public class DescribeDiagnosisInstancesRequest {
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("ResourceInstanceId")
   private String resourceInstanceId = null;
 
   @SerializedName("ResourceType")
   private String resourceType = null;
+
+  public DescribeDiagnosisInstancesRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeDiagnosisInstancesRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
   public DescribeDiagnosisInstancesRequest resourceInstanceId(String resourceInstanceId) {
     this.resourceInstanceId = resourceInstanceId;
@@ -82,13 +124,15 @@ public class DescribeDiagnosisInstancesRequest {
       return false;
     }
     DescribeDiagnosisInstancesRequest describeDiagnosisInstancesRequest = (DescribeDiagnosisInstancesRequest) o;
-    return Objects.equals(this.resourceInstanceId, describeDiagnosisInstancesRequest.resourceInstanceId) &&
+    return Objects.equals(this.pageNumber, describeDiagnosisInstancesRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeDiagnosisInstancesRequest.pageSize) &&
+        Objects.equals(this.resourceInstanceId, describeDiagnosisInstancesRequest.resourceInstanceId) &&
         Objects.equals(this.resourceType, describeDiagnosisInstancesRequest.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceInstanceId, resourceType);
+    return Objects.hash(pageNumber, pageSize, resourceInstanceId, resourceType);
   }
 
 
@@ -97,6 +141,8 @@ public class DescribeDiagnosisInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDiagnosisInstancesRequest {\n");
     
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    resourceInstanceId: ").append(toIndentedString(resourceInstanceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");

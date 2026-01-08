@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.dts.model.DatabaseForDescribeTransmissionTaskProgressOutput;
+import com.volcengine.dts.model.ObjectForDescribeTransmissionTaskProgressOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,13 +39,13 @@ public class MetaProgressForDescribeTransmissionTaskProgressOutput {
   private String ddl = null;
 
   @SerializedName("FinishTime")
-  private Integer finishTime = null;
+  private Long finishTime = null;
 
   @SerializedName("Object")
-  private String object = null;
+  private ObjectForDescribeTransmissionTaskProgressOutput object = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("State")
   private String state = null;
@@ -86,7 +87,7 @@ public class MetaProgressForDescribeTransmissionTaskProgressOutput {
     this.ddl = ddl;
   }
 
-  public MetaProgressForDescribeTransmissionTaskProgressOutput finishTime(Integer finishTime) {
+  public MetaProgressForDescribeTransmissionTaskProgressOutput finishTime(Long finishTime) {
     this.finishTime = finishTime;
     return this;
   }
@@ -96,15 +97,15 @@ public class MetaProgressForDescribeTransmissionTaskProgressOutput {
    * @return finishTime
   **/
   @Schema(description = "")
-  public Integer getFinishTime() {
+  public Long getFinishTime() {
     return finishTime;
   }
 
-  public void setFinishTime(Integer finishTime) {
+  public void setFinishTime(Long finishTime) {
     this.finishTime = finishTime;
   }
 
-  public MetaProgressForDescribeTransmissionTaskProgressOutput object(String object) {
+  public MetaProgressForDescribeTransmissionTaskProgressOutput object(ObjectForDescribeTransmissionTaskProgressOutput object) {
     this.object = object;
     return this;
   }
@@ -113,16 +114,17 @@ public class MetaProgressForDescribeTransmissionTaskProgressOutput {
    * Get object
    * @return object
   **/
+  @Valid
   @Schema(description = "")
-  public String getObject() {
+  public ObjectForDescribeTransmissionTaskProgressOutput getObject() {
     return object;
   }
 
-  public void setObject(String object) {
+  public void setObject(ObjectForDescribeTransmissionTaskProgressOutput object) {
     this.object = object;
   }
 
-  public MetaProgressForDescribeTransmissionTaskProgressOutput startTime(Integer startTime) {
+  public MetaProgressForDescribeTransmissionTaskProgressOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -132,11 +134,11 @@ public class MetaProgressForDescribeTransmissionTaskProgressOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 

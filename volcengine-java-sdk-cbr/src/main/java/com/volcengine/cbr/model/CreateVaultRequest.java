@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cbr.model.TagForCreateVaultInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,9 @@ import javax.validation.Valid;
 public class CreateVaultRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateVaultInput> tags = null;
 
   @SerializedName("VaultName")
   private String vaultName = null;
@@ -52,6 +58,33 @@ public class CreateVaultRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateVaultRequest tags(List<TagForCreateVaultInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVaultRequest addTagsItem(TagForCreateVaultInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateVaultInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateVaultInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateVaultInput> tags) {
+    this.tags = tags;
   }
 
   public CreateVaultRequest vaultName(String vaultName) {
@@ -84,12 +117,13 @@ public class CreateVaultRequest {
     }
     CreateVaultRequest createVaultRequest = (CreateVaultRequest) o;
     return Objects.equals(this.projectName, createVaultRequest.projectName) &&
+        Objects.equals(this.tags, createVaultRequest.tags) &&
         Objects.equals(this.vaultName, createVaultRequest.vaultName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, vaultName);
+    return Objects.hash(projectName, tags, vaultName);
   }
 
 
@@ -99,6 +133,7 @@ public class CreateVaultRequest {
     sb.append("class CreateVaultRequest {\n");
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");
     sb.append("}");
     return sb.toString();

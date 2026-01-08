@@ -3,23 +3,20 @@ package com.volcengine.ark.runtime.interceptor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.service.CertificateManager;
+import com.volcengine.ark.runtime.utils.KeyAgreementUtil;
 import okhttp3.*;
 import okio.Buffer;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-
-
-import java.security.GeneralSecurityException;
-import java.util.HashMap;
-import java.util.Map;
+import okio.BufferedSource;
+import okio.Okio;
+import okio.Source;
+import okio.Timeout;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.volcengine.ark.runtime.utils.KeyAgreementUtil;
+import java.security.GeneralSecurityException;
+import java.util.*;
 
 import static com.volcengine.ark.runtime.service.CertificateManager.getServerCertificate;
 import static com.volcengine.ark.runtime.utils.KeyAgreementUtil.*;
@@ -258,13 +255,19 @@ public class EncryptionInterceptor implements Interceptor {
             if (responseBody == null) {
                 return response;
             }
-
-            String responseBodyStr = responseBody.string();
-
-            if (isStreamResponseFromContent(responseBodyStr)) {
-                return handleStreamResponse(key, nonce, response, responseBodyStr);
+            MediaType contentType = responseBody.contentType();
+            boolean isStreaming = false;
+            if (contentType != null) {
+                String contentTypeStr = contentType.toString();
+                isStreaming = contentTypeStr.contains("text/event-stream");
+            }
+            if (isStreaming) {
+                return response.newBuilder()
+                        .body(new DecryptedResponseBody(responseBody, key, nonce, mapper))
+                        .build();
             } else {
                 try {
+                    String responseBodyStr = responseBody.string();
                     Map<String, Object> responseJson = mapper.readValue(
                             responseBodyStr,
                             new TypeReference<Map<String, Object>>() {
@@ -272,7 +275,7 @@ public class EncryptionInterceptor implements Interceptor {
                     );
                     return handleNormalResponse(key, nonce, response, responseJson);
                 } catch (Exception e) {
-                    return handleStreamResponse(key, nonce, response, responseBodyStr);
+                    return response.newBuilder().build();
                 }
             }
 
@@ -281,34 +284,6 @@ public class EncryptionInterceptor implements Interceptor {
         }
     }
 
-    /**
-     * 处理流式响应解密
-     */
-    private Response handleStreamResponse(byte[] key, byte[] nonce, Response response, String originalContent) {
-        try {
-            ResponseBody originalBody = response.body();
-            if (originalBody == null) {
-                return response;
-            }
-            String decryptedContent = decryptStreamContent(key, nonce, originalContent);
-
-            MediaType contentType = originalBody.contentType();
-            if (contentType == null) {
-                contentType = MediaType.get("application/json; charset=utf-8");
-            }
-            ResponseBody decryptedBody = ResponseBody.create(
-                    contentType,
-                    decryptedContent.getBytes(StandardCharsets.UTF_8)
-            );
-
-            return response.newBuilder()
-                    .body(decryptedBody)
-                    .build();
-
-        } catch (Exception e) {
-            return response;
-        }
-    }
 
     /**
      * 处理普通响应解密
@@ -363,51 +338,11 @@ public class EncryptionInterceptor implements Interceptor {
         }
     }
 
-    /**
-     * 解密流式响应内容
-     */
-    private String decryptStreamContent(byte[] key, byte[] nonce, String streamContent) {
-        try {
-            String[] lines = streamContent.split("\n");
-            StringBuilder decryptedContent = new StringBuilder();
-
-            for (String line : lines) {
-                if (line.trim().isEmpty()) {
-                    decryptedContent.append(line).append("\n");
-                    continue;
-                }
-
-                if (line.startsWith("data: ")) {
-                    String dataContent = line.substring(6);
-                    if ("[DONE]".equals(dataContent)) {
-                        decryptedContent.append("data: [DONE]\n");
-                        continue;
-                    }
-
-                    try {
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> chunkData = mapper.readValue(dataContent, Map.class);
-                        Map<String, Object> decryptedChunk = decryptStreamChunk(key, nonce, chunkData);
-                        String decryptedJson = mapper.writeValueAsString(decryptedChunk);
-                        decryptedContent.append("data: ").append(decryptedJson).append("\n");
-                    } catch (Exception e) {
-                        decryptedContent.append(line).append("\n");
-                    }
-                } else {
-                    decryptedContent.append(line).append("\n");
-                }
-            }
-
-            return decryptedContent.toString();
-        } catch (Exception e) {
-            return streamContent;
-        }
-    }
 
     /**
      * 解密流式数据块
      */
-    private Map<String, Object> decryptStreamChunk(byte[] key, byte[] nonce, Map<String, Object> chunkData) {
+    private static Map<String, Object> decryptStreamChunk(byte[] key, byte[] nonce, Map<String, Object> chunkData) {
         try {
             if (!hasValidChoices(chunkData)) {
                 return chunkData;
@@ -429,14 +364,14 @@ public class EncryptionInterceptor implements Interceptor {
     /**
      * 检查chunk数据是否包含有效的choices
      */
-    private boolean hasValidChoices(Map<String, Object> chunkData) {
+    private static boolean hasValidChoices(Map<String, Object> chunkData) {
         return chunkData.containsKey("choices") && chunkData.get("choices") instanceof List;
     }
 
     /**
      * 解密流式choice内容
      */
-    private void decryptStreamChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
+    private static void decryptStreamChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
         if (!shouldDecryptStreamChoice(choice)) {
             return;
         }
@@ -457,23 +392,12 @@ public class EncryptionInterceptor implements Interceptor {
     /**
      * 更新流式choice的内容
      */
-    private void updateStreamChoiceContent(Map<String, Object> choice, String content) {
+    private static void updateStreamChoiceContent(Map<String, Object> choice, String content) {
         @SuppressWarnings("unchecked")
         Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-        delta.put("content", content);
-    }
-
-    /**
-     * 判断是否为流式响应
-     */
-    private boolean isStreamResponseFromContent(String content) {
-        if (content == null || content.trim().isEmpty()) {
-            return false;
+        if (delta != null) {
+            delta.put("content", content);
         }
-        if (content.trim().startsWith("data: ")) {
-            return true;
-        }
-        return content.contains("\ndata: ") || content.contains("\r\ndata: ");
     }
 
     /**
@@ -508,7 +432,7 @@ public class EncryptionInterceptor implements Interceptor {
     /**
      * 判断流式choice是否需要解密
      */
-    private boolean shouldDecryptStreamChoice(Map<String, Object> choice) {
+    private static boolean shouldDecryptStreamChoice(Map<String, Object> choice) {
         if (!choice.containsKey("delta") || !(choice.get("delta") instanceof Map)) {
             return false;
         }
@@ -528,9 +452,299 @@ public class EncryptionInterceptor implements Interceptor {
     /**
      * 从流式choice获取加密内容
      */
-    private String getEncryptedContentFromStreamChoice(Map<String, Object> choice) {
+    private static String getEncryptedContentFromStreamChoice(Map<String, Object> choice) {
         @SuppressWarnings("unchecked")
         Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
         return (String) delta.get("content");
+    }
+
+    /**
+     * 自定义的响应体实现，用于实时解密流式数据
+     */
+    private static class DecryptedResponseBody extends ResponseBody {
+        private final ResponseBody delegate;
+        private final byte[] key;
+        private final byte[] nonce;
+        private final ObjectMapper mapper;
+        private BufferedSource source;
+
+        public DecryptedResponseBody(ResponseBody delegate, byte[] key, byte[] nonce, ObjectMapper mapper) {
+            this.delegate = delegate;
+            this.key = key;
+            this.nonce = nonce;
+            this.mapper = mapper;
+        }
+
+        @Override
+        public MediaType contentType() {
+            return delegate.contentType();
+        }
+
+        @Override
+        public long contentLength() {
+            // 解密后长度可能变化，返回-1表示未知
+            return -1;
+        }
+
+        @Override
+        public BufferedSource source() {
+            if (source == null) {
+                source = Okio.buffer(new DecryptedSource(delegate.source(), key, nonce, mapper));
+            }
+            return source;
+        }
+
+        @Override
+        public void close() {
+            delegate.close();
+        }
+
+        /**
+         * 自定义的Source实现，用于实时解密流式数据
+         */
+        private static class DecryptedSource implements Source {
+            private final Source delegate;
+            private final byte[] key;
+            private final byte[] nonce;
+            private final ObjectMapper mapper;
+            private final SSEDecoder decoder = new SSEDecoder();
+            private final StringBuilder outputBuffer = new StringBuilder();
+
+            public DecryptedSource(Source delegate, byte[] key, byte[] nonce, ObjectMapper mapper) {
+                this.delegate = delegate;
+                this.key = key;
+                this.nonce = nonce;
+                this.mapper = mapper;
+            }
+
+            @Override
+            public long read(Buffer sink, long byteCount) throws IOException {
+                if (outputBuffer.length() > 0) {
+                    return writeFromOutputBuffer(sink, byteCount);
+                }
+
+                // 从原始source读取数据
+                Buffer tempBuffer = new Buffer();
+                long bytesRead = delegate.read(tempBuffer, byteCount);
+                if (bytesRead == -1) {
+                    // 处理最后剩余的数据
+                    List<ServerSentEvent> events = decoder.decode(tempBuffer.readByteArray());
+                    processEvents(events);
+                    return writeFromOutputBuffer(sink, byteCount);
+                }
+
+                // 读取原始字节
+                byte[] rawBytes = new byte[(int) bytesRead];
+                tempBuffer.read(rawBytes);
+
+
+                // 使用SSEDecoder解析字节流为SSE事件
+                List<ServerSentEvent> events = decoder.decode(rawBytes);
+                processEvents(events);
+
+                // 将处理后的内容写入sink
+                long written = writeFromOutputBuffer(sink, byteCount);
+                return written > 0 ? written : bytesRead;
+            }
+
+            /**
+             * 处理SSE事件列表
+             */
+            private void processEvents(List<ServerSentEvent> events) throws IOException {
+                for (ServerSentEvent event : events) {
+                    if (event.data == null || event.data.isEmpty()) {
+                        continue;
+                    }
+
+                    if (event.data.startsWith("[DONE]")) {
+                        outputBuffer.append("data: [DONE]\n\n");
+                    } else {
+                        try {
+
+
+                            @SuppressWarnings("unchecked")
+                            Map<String, Object> chunkData = mapper.readValue(event.data, Map.class);
+
+                            // 检查错误字段
+                            if (chunkData.containsKey("error")) {
+                                Object error = chunkData.get("error");
+                                String message = "An error occurred during streaming";
+                                if (error instanceof Map) {
+                                    @SuppressWarnings("unchecked")
+                                    Map<String, Object> errorMap = (Map<String, Object>) error;
+                                    message = (String) errorMap.get("message");
+                                }
+                                throw new IOException(message);
+                            }
+
+                            // 解密事件
+                            Map<String, Object> decryptedChunk = decryptStreamChunk(key, nonce, chunkData);
+                            String decryptedJson = mapper.writeValueAsString(decryptedChunk);
+
+                            // 处理带event字段的事件
+                            if (event.event != null && !event.event.isEmpty()) {
+                                outputBuffer.append("event: ").append(event.event).append("\n");
+                            }
+
+                            outputBuffer.append("data: ").append(decryptedJson).append("\n\n");
+                        } catch (Exception e) {
+                            throw new IOException("Decryption failed during streaming", e);
+                        }
+                    }
+                }
+            }
+
+            /**
+             * 从输出缓冲区写入数据到sink
+             */
+            private long writeFromOutputBuffer(Buffer sink, long byteCount) {
+                if (outputBuffer.length() == 0) {
+                    return 0;
+                }
+
+                Buffer tempBuffer = new Buffer();
+                int bytesToWrite = (int) Math.min(outputBuffer.length(), byteCount);
+                String dataToWrite = outputBuffer.substring(0, bytesToWrite);
+
+                tempBuffer.writeUtf8(dataToWrite);
+                long writtenBytes = tempBuffer.size();
+
+                sink.write(tempBuffer, writtenBytes);
+
+                outputBuffer.delete(0, bytesToWrite);
+
+                return writtenBytes;
+            }
+
+            @Override
+            public Timeout timeout() {
+                return delegate.timeout();
+            }
+
+            @Override
+            public void close() throws IOException {
+                delegate.close();
+            }
+        }
+    }
+
+    /**
+     * SSE事件类
+     */
+    private static class ServerSentEvent {
+        public String event;
+        public String data;
+        public String id;
+        public Long retry;
+    }
+
+    /**
+     * SSE解码器
+     */
+    private static class SSEDecoder {
+        private String event;
+        private final List<String> data = new ArrayList<>();
+        private String lastEventId;
+        private Long retry;
+        private final StringBuilder buffer = new StringBuilder();
+
+        public List<ServerSentEvent> decode(byte[] bytes) {
+            List<ServerSentEvent> events = new ArrayList<>();
+            String content = new String(bytes, StandardCharsets.UTF_8);
+            buffer.append(content);
+
+            List<String> lines = new ArrayList<>();
+            int index = 0;
+            while (index < buffer.length()) {
+                int newLineIndex = buffer.indexOf("\n", index);
+                if (newLineIndex == -1) {
+                    break;
+                }
+                lines.add(buffer.substring(index, newLineIndex));
+                index = newLineIndex + 1;
+            }
+
+            if (index < buffer.length()) {
+                buffer.setLength(0);
+                buffer.append(buffer.substring(index));
+            } else {
+                buffer.setLength(0);
+            }
+
+            for (String line : lines) {
+                ServerSentEvent sse = decodeLine(line);
+                if (sse != null) {
+                    events.add(sse);
+                }
+            }
+
+            return events;
+        }
+
+        /**
+         * 解析单行SSE事件数据
+         */
+        private ServerSentEvent decodeLine(String line) {
+            if (line.isEmpty()) {
+                if (data.isEmpty() && event == null && retry == null) {
+                    return null;
+                }
+
+                ServerSentEvent sse = new ServerSentEvent();
+                sse.event = event;
+                sse.data = String.join("\n", data);
+                sse.id = lastEventId;
+                sse.retry = retry;
+
+                event = null;
+                data.clear();
+                retry = null;
+
+                return sse;
+            }
+
+            if (line.startsWith(":")) {
+                return null;
+            }
+
+            int colonIndex = line.indexOf(":");
+            if (colonIndex == -1) {
+                return null;
+            }
+
+            String field = line.substring(0, colonIndex).trim();
+            String value = line.substring(colonIndex + 1).trim();
+
+            if (value.startsWith(" ")) {
+                value = value.substring(1);
+            }
+
+            switch (field) {
+                case "event":
+                    event = value;
+                    break;
+                case "data":
+                    data.add(value);
+                    break;
+                case "id":
+                    if (value.contains("\0")) {
+                        // 忽略包含null字符的id
+                    } else {
+                        lastEventId = value;
+                    }
+                    break;
+                case "retry":
+                    try {
+                        retry = Long.parseLong(value);
+                    } catch (NumberFormatException e) {
+                        // 忽略无效的retry值
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            return null;
+        }
     }
 }

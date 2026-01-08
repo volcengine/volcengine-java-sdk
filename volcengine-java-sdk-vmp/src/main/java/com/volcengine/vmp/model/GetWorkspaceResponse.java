@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AuthType")
+  private String authType = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -103,6 +106,24 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   @SerializedName("Username")
   private String username = null;
+
+  public GetWorkspaceResponse authType(String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @Schema(description = "")
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
 
   public GetWorkspaceResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -539,7 +560,8 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     GetWorkspaceResponse getWorkspaceResponse = (GetWorkspaceResponse) o;
-    return Objects.equals(this.createTime, getWorkspaceResponse.createTime) &&
+    return Objects.equals(this.authType, getWorkspaceResponse.authType) &&
+        Objects.equals(this.createTime, getWorkspaceResponse.createTime) &&
         Objects.equals(this.deleteProtectionEnabled, getWorkspaceResponse.deleteProtectionEnabled) &&
         Objects.equals(this.description, getWorkspaceResponse.description) &&
         Objects.equals(this.id, getWorkspaceResponse.id) &&
@@ -566,7 +588,7 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, status, tags, username);
+    return Objects.hash(authType, createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -575,6 +597,7 @@ public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class GetWorkspaceResponse {\n");
     
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
