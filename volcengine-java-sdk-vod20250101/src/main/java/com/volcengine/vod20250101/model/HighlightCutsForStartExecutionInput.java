@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.MiniseriesOptionForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,6 +39,9 @@ public class HighlightCutsForStartExecutionInput {
 
   @SerializedName("MinDuration")
   private Double minDuration = null;
+
+  @SerializedName("MiniseriesOption")
+  private MiniseriesOptionForStartExecutionInput miniseriesOption = null;
 
   @SerializedName("WithStoryboard")
   private Boolean withStoryboard = null;
@@ -96,6 +100,25 @@ public class HighlightCutsForStartExecutionInput {
     this.minDuration = minDuration;
   }
 
+  public HighlightCutsForStartExecutionInput miniseriesOption(MiniseriesOptionForStartExecutionInput miniseriesOption) {
+    this.miniseriesOption = miniseriesOption;
+    return this;
+  }
+
+   /**
+   * Get miniseriesOption
+   * @return miniseriesOption
+  **/
+  @Valid
+  @Schema(description = "")
+  public MiniseriesOptionForStartExecutionInput getMiniseriesOption() {
+    return miniseriesOption;
+  }
+
+  public void setMiniseriesOption(MiniseriesOptionForStartExecutionInput miniseriesOption) {
+    this.miniseriesOption = miniseriesOption;
+  }
+
   public HighlightCutsForStartExecutionInput withStoryboard(Boolean withStoryboard) {
     this.withStoryboard = withStoryboard;
     return this;
@@ -127,12 +150,13 @@ public class HighlightCutsForStartExecutionInput {
     return Objects.equals(this.maxDuration, highlightCutsForStartExecutionInput.maxDuration) &&
         Objects.equals(this.maxNumber, highlightCutsForStartExecutionInput.maxNumber) &&
         Objects.equals(this.minDuration, highlightCutsForStartExecutionInput.minDuration) &&
+        Objects.equals(this.miniseriesOption, highlightCutsForStartExecutionInput.miniseriesOption) &&
         Objects.equals(this.withStoryboard, highlightCutsForStartExecutionInput.withStoryboard);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDuration, maxNumber, minDuration, withStoryboard);
+    return Objects.hash(maxDuration, maxNumber, minDuration, miniseriesOption, withStoryboard);
   }
 
 
@@ -144,6 +168,7 @@ public class HighlightCutsForStartExecutionInput {
     sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
     sb.append("    maxNumber: ").append(toIndentedString(maxNumber)).append("\n");
     sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
+    sb.append("    miniseriesOption: ").append(toIndentedString(miniseriesOption)).append("\n");
     sb.append("    withStoryboard: ").append(toIndentedString(withStoryboard)).append("\n");
     sb.append("}");
     return sb.toString();

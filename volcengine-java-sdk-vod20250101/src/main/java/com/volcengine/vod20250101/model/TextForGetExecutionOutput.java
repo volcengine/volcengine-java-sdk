@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.DetailedInfoForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class TextForGetExecutionOutput {
+  @SerializedName("DetailedInfo")
+  private DetailedInfoForGetExecutionOutput detailedInfo = null;
+
   @SerializedName("End")
   private Double end = null;
 
@@ -38,6 +42,25 @@ public class TextForGetExecutionOutput {
 
   @SerializedName("Text")
   private String text = null;
+
+  public TextForGetExecutionOutput detailedInfo(DetailedInfoForGetExecutionOutput detailedInfo) {
+    this.detailedInfo = detailedInfo;
+    return this;
+  }
+
+   /**
+   * Get detailedInfo
+   * @return detailedInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public DetailedInfoForGetExecutionOutput getDetailedInfo() {
+    return detailedInfo;
+  }
+
+  public void setDetailedInfo(DetailedInfoForGetExecutionOutput detailedInfo) {
+    this.detailedInfo = detailedInfo;
+  }
 
   public TextForGetExecutionOutput end(Double end) {
     this.end = end;
@@ -103,14 +126,15 @@ public class TextForGetExecutionOutput {
       return false;
     }
     TextForGetExecutionOutput textForGetExecutionOutput = (TextForGetExecutionOutput) o;
-    return Objects.equals(this.end, textForGetExecutionOutput.end) &&
+    return Objects.equals(this.detailedInfo, textForGetExecutionOutput.detailedInfo) &&
+        Objects.equals(this.end, textForGetExecutionOutput.end) &&
         Objects.equals(this.start, textForGetExecutionOutput.start) &&
         Objects.equals(this.text, textForGetExecutionOutput.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, start, text);
+    return Objects.hash(detailedInfo, end, start, text);
   }
 
 
@@ -119,6 +143,7 @@ public class TextForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextForGetExecutionOutput {\n");
     
+    sb.append("    detailedInfo: ").append(toIndentedString(detailedInfo)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
