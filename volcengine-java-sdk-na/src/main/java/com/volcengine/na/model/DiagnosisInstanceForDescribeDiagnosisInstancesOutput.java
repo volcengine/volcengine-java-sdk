@@ -42,9 +42,6 @@ public class DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
   @SerializedName("DiagnosisInstanceStatus")
   private String diagnosisInstanceStatus = null;
 
-  @SerializedName("EipAddress")
-  private String eipAddress = null;
-
   @SerializedName("ResourceDeleted")
   private Boolean resourceDeleted = null;
 
@@ -130,24 +127,6 @@ public class DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
 
   public void setDiagnosisInstanceStatus(String diagnosisInstanceStatus) {
     this.diagnosisInstanceStatus = diagnosisInstanceStatus;
-  }
-
-  public DiagnosisInstanceForDescribeDiagnosisInstancesOutput eipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
-    return this;
-  }
-
-   /**
-   * Get eipAddress
-   * @return eipAddress
-  **/
-  @Schema(description = "")
-  public String getEipAddress() {
-    return eipAddress;
-  }
-
-  public void setEipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
   }
 
   public DiagnosisInstanceForDescribeDiagnosisInstancesOutput resourceDeleted(Boolean resourceDeleted) {
@@ -254,7 +233,6 @@ public class DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
         Objects.equals(this.creationTime, diagnosisInstanceForDescribeDiagnosisInstancesOutput.creationTime) &&
         Objects.equals(this.diagnosisInstanceId, diagnosisInstanceForDescribeDiagnosisInstancesOutput.diagnosisInstanceId) &&
         Objects.equals(this.diagnosisInstanceStatus, diagnosisInstanceForDescribeDiagnosisInstancesOutput.diagnosisInstanceStatus) &&
-        Objects.equals(this.eipAddress, diagnosisInstanceForDescribeDiagnosisInstancesOutput.eipAddress) &&
         Objects.equals(this.resourceDeleted, diagnosisInstanceForDescribeDiagnosisInstancesOutput.resourceDeleted) &&
         Objects.equals(this.resourceInstanceId, diagnosisInstanceForDescribeDiagnosisInstancesOutput.resourceInstanceId) &&
         Objects.equals(this.resourceInstanceName, diagnosisInstanceForDescribeDiagnosisInstancesOutput.resourceInstanceName) &&
@@ -264,7 +242,7 @@ public class DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, creationTime, diagnosisInstanceId, diagnosisInstanceStatus, eipAddress, resourceDeleted, resourceInstanceId, resourceInstanceName, resourceRegion, resourceType);
+    return Objects.hash(count, creationTime, diagnosisInstanceId, diagnosisInstanceStatus, resourceDeleted, resourceInstanceId, resourceInstanceName, resourceRegion, resourceType);
   }
 
 
@@ -277,7 +255,6 @@ public class DiagnosisInstanceForDescribeDiagnosisInstancesOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    diagnosisInstanceId: ").append(toIndentedString(diagnosisInstanceId)).append("\n");
     sb.append("    diagnosisInstanceStatus: ").append(toIndentedString(diagnosisInstanceStatus)).append("\n");
-    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    resourceDeleted: ").append(toIndentedString(resourceDeleted)).append("\n");
     sb.append("    resourceInstanceId: ").append(toIndentedString(resourceInstanceId)).append("\n");
     sb.append("    resourceInstanceName: ").append(toIndentedString(resourceInstanceName)).append("\n");
