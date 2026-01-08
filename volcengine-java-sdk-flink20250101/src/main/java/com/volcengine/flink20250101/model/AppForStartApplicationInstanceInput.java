@@ -55,7 +55,9 @@ public class AppForStartApplicationInstanceInput {
     @SerializedName("FLINK_VERSION_1_11")
     FLINK_VERSION_1_11("FLINK_VERSION_1_11"),
     @SerializedName("FLINK_VERSION_1_16")
-    FLINK_VERSION_1_16("FLINK_VERSION_1_16");
+    FLINK_VERSION_1_16("FLINK_VERSION_1_16"),
+    @SerializedName("FLINK_VERSION_1_17")
+    FLINK_VERSION_1_17("FLINK_VERSION_1_17");
 
     private String value;
 
