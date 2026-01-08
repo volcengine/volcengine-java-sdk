@@ -34,6 +34,12 @@ import javax.validation.Valid;
 
 
 public class CreateAggregateWorkspaceRequest {
+  @SerializedName("AuthType")
+  private String authType = null;
+
+  @SerializedName("BearerToken")
+  private String bearerToken = null;
+
   @SerializedName("CrossWorkspaces")
   private List<CrossWorkspaceForCreateAggregateWorkspaceInput> crossWorkspaces = null;
 
@@ -66,6 +72,42 @@ public class CreateAggregateWorkspaceRequest {
 
   @SerializedName("Workspaces")
   private List<String> workspaces = null;
+
+  public CreateAggregateWorkspaceRequest authType(String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @Schema(description = "")
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public CreateAggregateWorkspaceRequest bearerToken(String bearerToken) {
+    this.bearerToken = bearerToken;
+    return this;
+  }
+
+   /**
+   * Get bearerToken
+   * @return bearerToken
+  **/
+  @Schema(description = "")
+  public String getBearerToken() {
+    return bearerToken;
+  }
+
+  public void setBearerToken(String bearerToken) {
+    this.bearerToken = bearerToken;
+  }
 
   public CreateAggregateWorkspaceRequest crossWorkspaces(List<CrossWorkspaceForCreateAggregateWorkspaceInput> crossWorkspaces) {
     this.crossWorkspaces = crossWorkspaces;
@@ -310,7 +352,9 @@ public class CreateAggregateWorkspaceRequest {
       return false;
     }
     CreateAggregateWorkspaceRequest createAggregateWorkspaceRequest = (CreateAggregateWorkspaceRequest) o;
-    return Objects.equals(this.crossWorkspaces, createAggregateWorkspaceRequest.crossWorkspaces) &&
+    return Objects.equals(this.authType, createAggregateWorkspaceRequest.authType) &&
+        Objects.equals(this.bearerToken, createAggregateWorkspaceRequest.bearerToken) &&
+        Objects.equals(this.crossWorkspaces, createAggregateWorkspaceRequest.crossWorkspaces) &&
         Objects.equals(this.description, createAggregateWorkspaceRequest.description) &&
         Objects.equals(this.externalPrometheus, createAggregateWorkspaceRequest.externalPrometheus) &&
         Objects.equals(this.ignoreError, createAggregateWorkspaceRequest.ignoreError) &&
@@ -325,7 +369,7 @@ public class CreateAggregateWorkspaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crossWorkspaces, description, externalPrometheus, ignoreError, maxQueryRate, name, password, projectName, tags, username, workspaces);
+    return Objects.hash(authType, bearerToken, crossWorkspaces, description, externalPrometheus, ignoreError, maxQueryRate, name, password, projectName, tags, username, workspaces);
   }
 
 
@@ -334,6 +378,8 @@ public class CreateAggregateWorkspaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAggregateWorkspaceRequest {\n");
     
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    bearerToken: ").append(toIndentedString(bearerToken)).append("\n");
     sb.append("    crossWorkspaces: ").append(toIndentedString(crossWorkspaces)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalPrometheus: ").append(toIndentedString(externalPrometheus)).append("\n");

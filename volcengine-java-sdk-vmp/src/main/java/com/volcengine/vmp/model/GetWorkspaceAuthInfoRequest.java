@@ -14,15 +14,44 @@ package com.volcengine.vmp.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CustomHeadersForUpdateExternalPrometheusInput
+ * GetWorkspaceAuthInfoRequest
  */
 
 
 
-public class CustomHeadersForUpdateExternalPrometheusInput {
+public class GetWorkspaceAuthInfoRequest {
+  @SerializedName("Id")
+  private String id = null;
+
+  public GetWorkspaceAuthInfoRequest id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,20 +61,22 @@ public class CustomHeadersForUpdateExternalPrometheusInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    GetWorkspaceAuthInfoRequest getWorkspaceAuthInfoRequest = (GetWorkspaceAuthInfoRequest) o;
+    return Objects.equals(this.id, getWorkspaceAuthInfoRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomHeadersForUpdateExternalPrometheusInput {\n");
+    sb.append("class GetWorkspaceAuthInfoRequest {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

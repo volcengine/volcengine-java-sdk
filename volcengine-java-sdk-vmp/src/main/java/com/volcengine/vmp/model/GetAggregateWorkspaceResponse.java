@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class GetAggregateWorkspaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AuthType")
+  private String authType = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -79,6 +82,24 @@ public class GetAggregateWorkspaceResponse extends com.volcengine.model.Abstract
 
   @SerializedName("WorkspacesDetail")
   private List<WorkspacesDetailForGetAggregateWorkspaceOutput> workspacesDetail = null;
+
+  public GetAggregateWorkspaceResponse authType(String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @Schema(description = "")
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
 
   public GetAggregateWorkspaceResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -403,7 +424,8 @@ public class GetAggregateWorkspaceResponse extends com.volcengine.model.Abstract
       return false;
     }
     GetAggregateWorkspaceResponse getAggregateWorkspaceResponse = (GetAggregateWorkspaceResponse) o;
-    return Objects.equals(this.createTime, getAggregateWorkspaceResponse.createTime) &&
+    return Objects.equals(this.authType, getAggregateWorkspaceResponse.authType) &&
+        Objects.equals(this.createTime, getAggregateWorkspaceResponse.createTime) &&
         Objects.equals(this.crossWorkspaces, getAggregateWorkspaceResponse.crossWorkspaces) &&
         Objects.equals(this.description, getAggregateWorkspaceResponse.description) &&
         Objects.equals(this.externalPrometheus, getAggregateWorkspaceResponse.externalPrometheus) &&
@@ -422,7 +444,7 @@ public class GetAggregateWorkspaceResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, crossWorkspaces, description, externalPrometheus, id, ignoreError, maxQueryRate, name, projectName, prometheusAggregateQueryEndpoint, status, tags, username, workspaces, workspacesDetail);
+    return Objects.hash(authType, createTime, crossWorkspaces, description, externalPrometheus, id, ignoreError, maxQueryRate, name, projectName, prometheusAggregateQueryEndpoint, status, tags, username, workspaces, workspacesDetail);
   }
 
 
@@ -431,6 +453,7 @@ public class GetAggregateWorkspaceResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAggregateWorkspaceResponse {\n");
     
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    crossWorkspaces: ").append(toIndentedString(crossWorkspaces)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
