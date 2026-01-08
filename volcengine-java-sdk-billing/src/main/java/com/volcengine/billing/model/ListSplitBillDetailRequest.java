@@ -71,6 +71,9 @@ public class ListSplitBillDetailRequest {
   @SerializedName("Product")
   private List<String> product = null;
 
+  @SerializedName("SplitDimension")
+  private String splitDimension = null;
+
   @SerializedName("SplitItemID")
   private String splitItemID = null;
 
@@ -350,6 +353,25 @@ public class ListSplitBillDetailRequest {
     this.product = product;
   }
 
+  public ListSplitBillDetailRequest splitDimension(String splitDimension) {
+    this.splitDimension = splitDimension;
+    return this;
+  }
+
+   /**
+   * Get splitDimension
+   * @return splitDimension
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSplitDimension() {
+    return splitDimension;
+  }
+
+  public void setSplitDimension(String splitDimension) {
+    this.splitDimension = splitDimension;
+  }
+
   public ListSplitBillDetailRequest splitItemID(String splitItemID) {
     this.splitItemID = splitItemID;
     return this;
@@ -391,12 +413,13 @@ public class ListSplitBillDetailRequest {
         Objects.equals(this.ownerID, listSplitBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listSplitBillDetailRequest.payerID) &&
         Objects.equals(this.product, listSplitBillDetailRequest.product) &&
+        Objects.equals(this.splitDimension, listSplitBillDetailRequest.splitDimension) &&
         Objects.equals(this.splitItemID, listSplitBillDetailRequest.splitItemID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, splitItemID);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, splitDimension, splitItemID);
   }
 
 
@@ -418,6 +441,7 @@ public class ListSplitBillDetailRequest {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    splitDimension: ").append(toIndentedString(splitDimension)).append("\n");
     sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
     sb.append("}");
     return sb.toString();
