@@ -29,6 +29,30 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("generate_audio")
     private Boolean generateAudio;
 
+    @JsonProperty("camera_fixed")
+    private Boolean cameraFixed;
+
+    @JsonProperty("watermark")
+    private Boolean watermark;
+
+    @JsonProperty("seed")
+    private Long seed;
+
+    @JsonProperty("resolution")
+    private String resolution;
+
+    @JsonProperty("ratio")
+    private String ratio;
+
+    @JsonProperty("duration")
+    private Long duration;
+
+    @JsonProperty("frames")
+    private Long frames;
+
+    @JsonProperty("draft")
+    private Boolean draft;
+
     public CreateContentGenerationTaskRequest() {
     }
 
@@ -42,6 +66,24 @@ public class CreateContentGenerationTaskRequest {
         this.content = content;
         this.callbackUrl = callbackUrl;
         this.returnLastFrame = returnLastFrame;
+    }
+
+    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl, Boolean returnLastFrame, String serviceTier, Long executionExpiresAfter, Boolean generateAudio, Boolean cameraFixed, Boolean watermark, Long seed, String resolution, String ratio, Long duration, Long frames, Boolean draft) {
+        this.model = model;
+        this.content = content;
+        this.callbackUrl = callbackUrl;
+        this.returnLastFrame = returnLastFrame;
+        this.serviceTier = serviceTier;
+        this.executionExpiresAfter = executionExpiresAfter;
+        this.generateAudio = generateAudio;
+        this.cameraFixed = cameraFixed;
+        this.watermark = watermark;
+        this.seed = seed;
+        this.resolution = resolution;
+        this.ratio = ratio;
+        this.duration = duration;
+        this.frames = frames;
+        this.draft = draft;
     }
 
     public String getModel() {
@@ -100,6 +142,64 @@ public class CreateContentGenerationTaskRequest {
         this.generateAudio = generateAudio;
     }
 
+    public Boolean getCameraFixed() {
+        return cameraFixed;
+    }
+
+    public void setCameraFixed(Boolean cameraFixed) {
+        this.cameraFixed = cameraFixed;
+    }
+     public Boolean getWatermark() {
+        return watermark;
+    }
+
+    public void setWatermark(Boolean watermark) {
+        this.watermark = watermark;
+    }
+     public Long getSeed() {
+        return seed;
+    }
+
+    public void setSeed(Long seed) {
+        this.seed = seed;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+     public String getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(String ratio) {
+        this.ratio = ratio;
+    }
+     public Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+     public Long getFrames() {
+        return frames;
+    }
+
+    public void setFrames(Long frames) {
+        this.frames = frames;
+    }
+     public Boolean getDraft() {
+        return draft;
+    }
+
+    public void setDraft(Boolean draft) {
+        this.draft = draft;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
@@ -110,6 +210,14 @@ public class CreateContentGenerationTaskRequest {
                 ", serviceTier='" + serviceTier + '\'' +
                 ", executionExpiresAfter=" + executionExpiresAfter +
                 ", generateAudio=" + generateAudio +
+                ", cameraFixed=" + cameraFixed +
+                ", watermark=" + watermark +
+                ", seed=" + seed +
+                ", resolution='" + resolution + '\'' +
+                ", ratio='" + ratio + '\'' +
+                ", duration=" + duration +
+                ", frames=" + frames +
+                ", draft=" + draft +
                 '}';
     }
 
@@ -125,6 +233,14 @@ public class CreateContentGenerationTaskRequest {
         private String serviceTier;
         private Long executionExpiresAfter;
         private Boolean generateAudio;
+        private Boolean cameraFixed;
+        private Boolean watermark;
+        private Long seed;
+        private String resolution;
+        private String ratio;
+        private Long duration;
+        private Long frames;
+        private Boolean draft;
 
         private Builder() {
         }
@@ -164,6 +280,46 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder cameraFixed(Boolean cameraFixed) {
+            this.cameraFixed = cameraFixed;
+            return this;
+        }
+
+        public Builder watermark(Boolean watermark) {
+            this.watermark = watermark;
+            return this;
+        }
+
+        public Builder seed(Long seed) {
+            this.seed = seed;
+            return this;
+        }
+
+        public Builder resolution(String resolution) {
+            this.resolution = resolution;
+            return this;
+        }
+
+        public Builder ratio(String ratio) {
+            this.ratio = ratio;
+            return this;
+        }
+
+        public Builder duration(Long duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public Builder frames(Long frames) {
+            this.frames = frames;
+            return this;
+        }
+
+        public Builder draft(Boolean draft) {
+            this.draft = draft;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
@@ -173,6 +329,14 @@ public class CreateContentGenerationTaskRequest {
             createContentGenerationTaskRequest.setServiceTier(serviceTier);
             createContentGenerationTaskRequest.setExecutionExpiresAfter(executionExpiresAfter);
             createContentGenerationTaskRequest.setGenerateAudio(generateAudio);
+            createContentGenerationTaskRequest.setCameraFixed(cameraFixed);
+            createContentGenerationTaskRequest.setWatermark(watermark);
+            createContentGenerationTaskRequest.setSeed(seed);
+            createContentGenerationTaskRequest.setResolution(resolution);
+            createContentGenerationTaskRequest.setRatio(ratio);
+            createContentGenerationTaskRequest.setDuration(duration);
+            createContentGenerationTaskRequest.setFrames(frames);
+            createContentGenerationTaskRequest.setDraft(draft);
             return createContentGenerationTaskRequest;
         }
     }
@@ -192,14 +356,18 @@ public class CreateContentGenerationTaskRequest {
         @JsonProperty("role")
         private String role;
 
+        @JsonProperty("draft_task")
+        private DraftTask draftTask;
+
         public Content() {
         }
 
-        public Content(String type, String text, ImageUrl imageUrl, String role) {
+        public Content(String type, String text, ImageUrl imageUrl, String role, DraftTask draftTask) {
             this.type = type;
             this.text = text;
             this.imageUrl = imageUrl;
             this.role = role;
+            this.draftTask = draftTask;
         }
 
         public String getType() {
@@ -234,6 +402,14 @@ public class CreateContentGenerationTaskRequest {
             this.role = role;
         }
 
+        public DraftTask getDraftTask() {
+            return draftTask;
+        }
+
+        public void setDraftTask(DraftTask draftTask) {
+            this.draftTask = draftTask;
+        }
+
         @Override
         public String toString() {
             return "Content{" +
@@ -241,6 +417,7 @@ public class CreateContentGenerationTaskRequest {
                     ", text='" + text + '\'' +
                     ", imageUrl=" + imageUrl +
                     ", role=" + role +
+                    ", draftTask=" + draftTask +
                     '}';
         }
 
@@ -253,6 +430,7 @@ public class CreateContentGenerationTaskRequest {
             private String text;
             private ImageUrl imageUrl;
             private String role;
+            private DraftTask draftTask;
 
             private Builder() {
             }
@@ -277,12 +455,18 @@ public class CreateContentGenerationTaskRequest {
                 return this;
             }
 
+            public Builder draftTask(DraftTask draftTask) {
+                this.draftTask = draftTask;
+                return this;
+            }
+
             public Content build() {
                 Content content = new Content();
                 content.setType(type);
                 content.setText(text);
                 content.setImageUrl(imageUrl);
                 content.setRole(role);
+                content.setDraftTask(draftTask);
                 return content;
             }
         }
@@ -335,6 +519,57 @@ public class CreateContentGenerationTaskRequest {
                 ImageUrl imageUrl = new ImageUrl();
                 imageUrl.setUrl(url);
                 return imageUrl;
+            }
+        }
+    }
+
+   @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class DraftTask {
+
+        @JsonProperty("id")
+        private String id;
+
+        public DraftTask() {
+        }
+
+        public DraftTask(String id) {
+            this.id = id;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        @Override
+        public String toString() {
+            return "DraftTask{" +
+                    "id='" + id + '\'' +
+                    '}';
+        }
+
+        public static DraftTask.Builder builder() {
+            return new Builder();
+        }
+
+        public static class Builder {
+            private String id;
+
+            private Builder() {
+            }
+
+            public Builder id(String id) {
+                this.id = id;
+                return this;
+            }
+
+            public DraftTask build() {
+                DraftTask draftTask = new DraftTask();
+                draftTask.setId(id);
+                return draftTask;
             }
         }
     }
