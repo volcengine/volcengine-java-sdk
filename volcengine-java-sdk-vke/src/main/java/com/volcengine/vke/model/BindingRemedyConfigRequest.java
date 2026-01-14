@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class BindingRemedyConfigRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ClusterId")
   private String clusterId = null;
 
@@ -87,6 +90,24 @@ public class BindingRemedyConfigRequest {
 
   @SerializedName("UseRecommendedRemedyConfigs")
   private Boolean useRecommendedRemedyConfigs = null;
+
+  public BindingRemedyConfigRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public BindingRemedyConfigRequest clusterId(String clusterId) {
     this.clusterId = clusterId;
@@ -198,7 +219,8 @@ public class BindingRemedyConfigRequest {
       return false;
     }
     BindingRemedyConfigRequest bindingRemedyConfigRequest = (BindingRemedyConfigRequest) o;
-    return Objects.equals(this.clusterId, bindingRemedyConfigRequest.clusterId) &&
+    return Objects.equals(this.clientToken, bindingRemedyConfigRequest.clientToken) &&
+        Objects.equals(this.clusterId, bindingRemedyConfigRequest.clusterId) &&
         Objects.equals(this.id, bindingRemedyConfigRequest.id) &&
         Objects.equals(this.resourceIds, bindingRemedyConfigRequest.resourceIds) &&
         Objects.equals(this.resourceType, bindingRemedyConfigRequest.resourceType) &&
@@ -207,7 +229,7 @@ public class BindingRemedyConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, id, resourceIds, resourceType, useRecommendedRemedyConfigs);
+    return Objects.hash(clientToken, clusterId, id, resourceIds, resourceType, useRecommendedRemedyConfigs);
   }
 
 
@@ -216,6 +238,7 @@ public class BindingRemedyConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class BindingRemedyConfigRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");

@@ -36,8 +36,51 @@ import javax.validation.Valid;
 
 
 public class KubeletConfigForCreateDefaultNodePoolInput {
-  @SerializedName("CpuManagerPolicy")
-  private String cpuManagerPolicy = null;
+  /**
+   * Gets or Sets cpuManagerPolicy
+   */
+  @JsonAdapter(CpuManagerPolicyEnum.Adapter.class)
+  public enum CpuManagerPolicyEnum {
+    @SerializedName("none")
+    NONE("none"),
+    @SerializedName("static")
+    STATIC("static");
+
+    private String value;
+
+    CpuManagerPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static CpuManagerPolicyEnum fromValue(String input) {
+      for (CpuManagerPolicyEnum b : CpuManagerPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<CpuManagerPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CpuManagerPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public CpuManagerPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return CpuManagerPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("CpuManagerPolicy")
+  private CpuManagerPolicyEnum cpuManagerPolicy = null;
 
   @SerializedName("EvictionHard")
   private List<EvictionHardForCreateDefaultNodePoolInput> evictionHard = null;
@@ -165,7 +208,7 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
   }  @SerializedName("TopologyManagerScope")
   private TopologyManagerScopeEnum topologyManagerScope = null;
 
-  public KubeletConfigForCreateDefaultNodePoolInput cpuManagerPolicy(String cpuManagerPolicy) {
+  public KubeletConfigForCreateDefaultNodePoolInput cpuManagerPolicy(CpuManagerPolicyEnum cpuManagerPolicy) {
     this.cpuManagerPolicy = cpuManagerPolicy;
     return this;
   }
@@ -175,11 +218,11 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
    * @return cpuManagerPolicy
   **/
   @Schema(description = "")
-  public String getCpuManagerPolicy() {
+  public CpuManagerPolicyEnum getCpuManagerPolicy() {
     return cpuManagerPolicy;
   }
 
-  public void setCpuManagerPolicy(String cpuManagerPolicy) {
+  public void setCpuManagerPolicy(CpuManagerPolicyEnum cpuManagerPolicy) {
     this.cpuManagerPolicy = cpuManagerPolicy;
   }
 
@@ -236,11 +279,9 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
 
    /**
    * Get kubeApiBurst
-   * minimum: 1
-   * maximum: 100
    * @return kubeApiBurst
   **/
- @Min(1) @Max(100)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getKubeApiBurst() {
     return kubeApiBurst;
   }
@@ -256,11 +297,9 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
 
    /**
    * Get kubeApiQps
-   * minimum: 1
-   * maximum: 50
    * @return kubeApiQps
   **/
- @Min(1) @Max(50)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getKubeApiQps() {
     return kubeApiQps;
   }
@@ -321,11 +360,9 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
 
    /**
    * Get registryBurst
-   * minimum: 1
-   * maximum: 100
    * @return registryBurst
   **/
- @Min(1) @Max(100)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getRegistryBurst() {
     return registryBurst;
   }
@@ -341,11 +378,9 @@ public class KubeletConfigForCreateDefaultNodePoolInput {
 
    /**
    * Get registryPullQps
-   * minimum: 1
-   * maximum: 50
    * @return registryPullQps
   **/
- @Min(1) @Max(50)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getRegistryPullQps() {
     return registryPullQps;
   }
