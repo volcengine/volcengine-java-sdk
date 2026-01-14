@@ -24,6 +24,7 @@ import com.volcengine.emr.model.BootstrapScriptForCreateClusterInput;
 import com.volcengine.emr.model.ChargePreConfigForCreateClusterInput;
 import com.volcengine.emr.model.NodeAttributeForCreateClusterInput;
 import com.volcengine.emr.model.NodeGroupAttributeForCreateClusterInput;
+import com.volcengine.emr.model.TagForCreateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class CreateClusterRequest {
   private String securityMode = null;
 
   @SerializedName("Tags")
-  private List<String> tags = null;
+  private List<TagForCreateClusterInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -400,14 +401,14 @@ public class CreateClusterRequest {
     this.securityMode = securityMode;
   }
 
-  public CreateClusterRequest tags(List<String> tags) {
+  public CreateClusterRequest tags(List<TagForCreateClusterInput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public CreateClusterRequest addTagsItem(String tagsItem) {
+  public CreateClusterRequest addTagsItem(TagForCreateClusterInput tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<TagForCreateClusterInput>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -417,12 +418,13 @@ public class CreateClusterRequest {
    * Get tags
    * @return tags
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getTags() {
+  public List<TagForCreateClusterInput> getTags() {
     return tags;
   }
 
-  public void setTags(List<String> tags) {
+  public void setTags(List<TagForCreateClusterInput> tags) {
     this.tags = tags;
   }
 
