@@ -14,6 +14,13 @@ package com.volcengine.vke.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,101 @@ import javax.validation.Valid;
 
 
 public class EvictionHardForCreateDefaultNodePoolInput {
+  /**
+   * Gets or Sets key
+   */
+  @JsonAdapter(KeyEnum.Adapter.class)
+  public enum KeyEnum {
+    @SerializedName("memory.available")
+    MEMORY_AVAILABLE("memory.available"),
+    @SerializedName("nodefs.available")
+    NODEFS_AVAILABLE("nodefs.available"),
+    @SerializedName("nodefs.inodesFree")
+    NODEFS_INODESFREE("nodefs.inodesFree"),
+    @SerializedName("imagefs.available")
+    IMAGEFS_AVAILABLE("imagefs.available"),
+    @SerializedName("imagefs.inodesFree")
+    IMAGEFS_INODESFREE("imagefs.inodesFree"),
+    @SerializedName("allocatableMemory.available")
+    ALLOCATABLEMEMORY_AVAILABLE("allocatableMemory.available"),
+    @SerializedName("pid.available")
+    PID_AVAILABLE("pid.available");
+
+    private String value;
+
+    KeyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static KeyEnum fromValue(String input) {
+      for (KeyEnum b : KeyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<KeyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final KeyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public KeyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return KeyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Key")
+  private KeyEnum key = null;
+
+  @SerializedName("Value")
+  private String value = null;
+
+  public EvictionHardForCreateDefaultNodePoolInput key(KeyEnum key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @Schema(description = "")
+  public KeyEnum getKey() {
+    return key;
+  }
+
+  public void setKey(KeyEnum key) {
+    this.key = key;
+  }
+
+  public EvictionHardForCreateDefaultNodePoolInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +134,14 @@ public class EvictionHardForCreateDefaultNodePoolInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    EvictionHardForCreateDefaultNodePoolInput evictionHardForCreateDefaultNodePoolInput = (EvictionHardForCreateDefaultNodePoolInput) o;
+    return Objects.equals(this.key, evictionHardForCreateDefaultNodePoolInput.key) &&
+        Objects.equals(this.value, evictionHardForCreateDefaultNodePoolInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(key, value);
   }
 
 
@@ -46,6 +150,8 @@ public class EvictionHardForCreateDefaultNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EvictionHardForCreateDefaultNodePoolInput {\n");
     
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

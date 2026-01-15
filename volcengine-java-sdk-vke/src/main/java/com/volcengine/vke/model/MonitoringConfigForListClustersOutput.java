@@ -36,6 +36,9 @@ public class MonitoringConfigForListClustersOutput {
   @SerializedName("ComponentConfigs")
   private List<ComponentConfigForListClustersOutput> componentConfigs = null;
 
+  @SerializedName("EnableMetricsExternalCollection")
+  private Boolean enableMetricsExternalCollection = null;
+
   @SerializedName("WorkspaceId")
   private String workspaceId = null;
 
@@ -64,6 +67,24 @@ public class MonitoringConfigForListClustersOutput {
 
   public void setComponentConfigs(List<ComponentConfigForListClustersOutput> componentConfigs) {
     this.componentConfigs = componentConfigs;
+  }
+
+  public MonitoringConfigForListClustersOutput enableMetricsExternalCollection(Boolean enableMetricsExternalCollection) {
+    this.enableMetricsExternalCollection = enableMetricsExternalCollection;
+    return this;
+  }
+
+   /**
+   * Get enableMetricsExternalCollection
+   * @return enableMetricsExternalCollection
+  **/
+  @Schema(description = "")
+  public Boolean isEnableMetricsExternalCollection() {
+    return enableMetricsExternalCollection;
+  }
+
+  public void setEnableMetricsExternalCollection(Boolean enableMetricsExternalCollection) {
+    this.enableMetricsExternalCollection = enableMetricsExternalCollection;
   }
 
   public MonitoringConfigForListClustersOutput workspaceId(String workspaceId) {
@@ -95,12 +116,13 @@ public class MonitoringConfigForListClustersOutput {
     }
     MonitoringConfigForListClustersOutput monitoringConfigForListClustersOutput = (MonitoringConfigForListClustersOutput) o;
     return Objects.equals(this.componentConfigs, monitoringConfigForListClustersOutput.componentConfigs) &&
+        Objects.equals(this.enableMetricsExternalCollection, monitoringConfigForListClustersOutput.enableMetricsExternalCollection) &&
         Objects.equals(this.workspaceId, monitoringConfigForListClustersOutput.workspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentConfigs, workspaceId);
+    return Objects.hash(componentConfigs, enableMetricsExternalCollection, workspaceId);
   }
 
 
@@ -110,6 +132,7 @@ public class MonitoringConfigForListClustersOutput {
     sb.append("class MonitoringConfigForListClustersOutput {\n");
     
     sb.append("    componentConfigs: ").append(toIndentedString(componentConfigs)).append("\n");
+    sb.append("    enableMetricsExternalCollection: ").append(toIndentedString(enableMetricsExternalCollection)).append("\n");
     sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
