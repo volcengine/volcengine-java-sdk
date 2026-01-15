@@ -30,13 +30,56 @@ import javax.validation.Valid;
 
 
 public class KubeReservedForCreateDefaultNodePoolInput {
-  @SerializedName("Name")
-  private String name = null;
+  /**
+   * Gets or Sets name
+   */
+  @JsonAdapter(NameEnum.Adapter.class)
+  public enum NameEnum {
+    @SerializedName("cpu")
+    CPU("cpu"),
+    @SerializedName("memory")
+    MEMORY("memory");
+
+    private String value;
+
+    NameEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NameEnum fromValue(String input) {
+      for (NameEnum b : NameEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NameEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NameEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NameEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NameEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Name")
+  private NameEnum name = null;
 
   @SerializedName("Quantity")
   private String quantity = null;
 
-  public KubeReservedForCreateDefaultNodePoolInput name(String name) {
+  public KubeReservedForCreateDefaultNodePoolInput name(NameEnum name) {
     this.name = name;
     return this;
   }
@@ -46,11 +89,11 @@ public class KubeReservedForCreateDefaultNodePoolInput {
    * @return name
   **/
   @Schema(description = "")
-  public String getName() {
+  public NameEnum getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(NameEnum name) {
     this.name = name;
   }
 

@@ -36,20 +36,24 @@ public class ConnectorConfigForListClustersOutput {
    */
   @JsonAdapter(ProviderEnum.Adapter.class)
   public enum ProviderEnum {
+    @SerializedName("VeStack")
+    VESTACK("VeStack"),
+    @SerializedName("Vke")
+    VKE("Vke"),
     @SerializedName("Ack")
     ACK("Ack"),
     @SerializedName("Tke")
     TKE("Tke"),
     @SerializedName("Cce")
     CCE("Cce"),
+    @SerializedName("None")
+    NONE("None"),
+    @SerializedName("BaiduCce")
+    BAIDUCCE("BaiduCce"),
     @SerializedName("Gke")
     GKE("Gke"),
     @SerializedName("Eks")
-    EKS("Eks"),
-    @SerializedName("BaiduCce")
-    BAIDUCCE("BaiduCce"),
-    @SerializedName("None")
-    NONE("None");
+    EKS("Eks");
 
     private String value;
 
@@ -97,6 +101,8 @@ public class ConnectorConfigForListClustersOutput {
   public enum TypeEnum {
     @SerializedName("Direct")
     DIRECT("Direct"),
+    @SerializedName("Proxy")
+    PROXY("Proxy"),
     @SerializedName("Agent")
     AGENT("Agent");
 

@@ -26,71 +26,21 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * FlannelConfigForListClustersOutput
+ * FlannelConfigForUpdateClusterConfigInput
  */
 
 
 
-public class FlannelConfigForListClustersOutput {
-  @SerializedName("MaxPodsPerNode")
-  private Integer maxPodsPerNode = null;
-
-  @SerializedName("PodCidrs")
-  private List<String> podCidrs = null;
-
+public class FlannelConfigForUpdateClusterConfigInput {
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
 
-  public FlannelConfigForListClustersOutput maxPodsPerNode(Integer maxPodsPerNode) {
-    this.maxPodsPerNode = maxPodsPerNode;
-    return this;
-  }
-
-   /**
-   * Get maxPodsPerNode
-   * @return maxPodsPerNode
-  **/
-  @Schema(description = "")
-  public Integer getMaxPodsPerNode() {
-    return maxPodsPerNode;
-  }
-
-  public void setMaxPodsPerNode(Integer maxPodsPerNode) {
-    this.maxPodsPerNode = maxPodsPerNode;
-  }
-
-  public FlannelConfigForListClustersOutput podCidrs(List<String> podCidrs) {
-    this.podCidrs = podCidrs;
-    return this;
-  }
-
-  public FlannelConfigForListClustersOutput addPodCidrsItem(String podCidrsItem) {
-    if (this.podCidrs == null) {
-      this.podCidrs = new ArrayList<String>();
-    }
-    this.podCidrs.add(podCidrsItem);
-    return this;
-  }
-
-   /**
-   * Get podCidrs
-   * @return podCidrs
-  **/
-  @Schema(description = "")
-  public List<String> getPodCidrs() {
-    return podCidrs;
-  }
-
-  public void setPodCidrs(List<String> podCidrs) {
-    this.podCidrs = podCidrs;
-  }
-
-  public FlannelConfigForListClustersOutput subnetIds(List<String> subnetIds) {
+  public FlannelConfigForUpdateClusterConfigInput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
     return this;
   }
 
-  public FlannelConfigForListClustersOutput addSubnetIdsItem(String subnetIdsItem) {
+  public FlannelConfigForUpdateClusterConfigInput addSubnetIdsItem(String subnetIdsItem) {
     if (this.subnetIds == null) {
       this.subnetIds = new ArrayList<String>();
     }
@@ -120,25 +70,21 @@ public class FlannelConfigForListClustersOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FlannelConfigForListClustersOutput flannelConfigForListClustersOutput = (FlannelConfigForListClustersOutput) o;
-    return Objects.equals(this.maxPodsPerNode, flannelConfigForListClustersOutput.maxPodsPerNode) &&
-        Objects.equals(this.podCidrs, flannelConfigForListClustersOutput.podCidrs) &&
-        Objects.equals(this.subnetIds, flannelConfigForListClustersOutput.subnetIds);
+    FlannelConfigForUpdateClusterConfigInput flannelConfigForUpdateClusterConfigInput = (FlannelConfigForUpdateClusterConfigInput) o;
+    return Objects.equals(this.subnetIds, flannelConfigForUpdateClusterConfigInput.subnetIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxPodsPerNode, podCidrs, subnetIds);
+    return Objects.hash(subnetIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FlannelConfigForListClustersOutput {\n");
+    sb.append("class FlannelConfigForUpdateClusterConfigInput {\n");
     
-    sb.append("    maxPodsPerNode: ").append(toIndentedString(maxPodsPerNode)).append("\n");
-    sb.append("    podCidrs: ").append(toIndentedString(podCidrs)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
