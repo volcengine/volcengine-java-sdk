@@ -328,6 +328,7 @@
         <module>volcengine-java-sdk-id</module>
         <module>volcengine-java-sdk-dts</module>
         <module>volcengine-java-sdk-dts20180101</module>
+        <module>volcengine-java-sdk-efs</module>
         <module>volcengine-java-sdk-insight</module>
     </modules>
 </project>
