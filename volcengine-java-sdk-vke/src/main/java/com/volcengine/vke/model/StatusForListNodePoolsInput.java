@@ -54,7 +54,9 @@ public class StatusForListNodePoolsInput {
     @SerializedName("Progressing")
     PROGRESSING("Progressing"),
     @SerializedName("ClusterVersionUpgrading")
-    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading");
+    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
+    @SerializedName("ScalingFailed")
+    SCALINGFAILED("ScalingFailed");
 
     private String value;
 
