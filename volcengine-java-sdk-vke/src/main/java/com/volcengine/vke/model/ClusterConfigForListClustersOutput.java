@@ -43,6 +43,54 @@ public class ClusterConfigForListClustersOutput {
   @SerializedName("ApiServerPublicAccessEnabled")
   private Boolean apiServerPublicAccessEnabled = null;
 
+  /**
+   * Gets or Sets ipFamily
+   */
+  @JsonAdapter(IpFamilyEnum.Adapter.class)
+  public enum IpFamilyEnum {
+    @SerializedName("Ipv4")
+    IPV4("Ipv4"),
+    @SerializedName("Ipv6")
+    IPV6("Ipv6"),
+    @SerializedName("DualStack")
+    DUALSTACK("DualStack");
+
+    private String value;
+
+    IpFamilyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpFamilyEnum fromValue(String input) {
+      for (IpFamilyEnum b : IpFamilyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpFamilyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpFamilyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpFamilyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpFamilyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpFamily")
+  private IpFamilyEnum ipFamily = null;
+
   @SerializedName("ResourcePublicAccessDefaultEnabled")
   private Boolean resourcePublicAccessDefaultEnabled = null;
 
@@ -109,6 +157,24 @@ public class ClusterConfigForListClustersOutput {
 
   public void setApiServerPublicAccessEnabled(Boolean apiServerPublicAccessEnabled) {
     this.apiServerPublicAccessEnabled = apiServerPublicAccessEnabled;
+  }
+
+  public ClusterConfigForListClustersOutput ipFamily(IpFamilyEnum ipFamily) {
+    this.ipFamily = ipFamily;
+    return this;
+  }
+
+   /**
+   * Get ipFamily
+   * @return ipFamily
+  **/
+  @Schema(description = "")
+  public IpFamilyEnum getIpFamily() {
+    return ipFamily;
+  }
+
+  public void setIpFamily(IpFamilyEnum ipFamily) {
+    this.ipFamily = ipFamily;
   }
 
   public ClusterConfigForListClustersOutput resourcePublicAccessDefaultEnabled(Boolean resourcePublicAccessDefaultEnabled) {
@@ -212,6 +278,7 @@ public class ClusterConfigForListClustersOutput {
     return Objects.equals(this.apiServerEndpoints, clusterConfigForListClustersOutput.apiServerEndpoints) &&
         Objects.equals(this.apiServerPublicAccessConfig, clusterConfigForListClustersOutput.apiServerPublicAccessConfig) &&
         Objects.equals(this.apiServerPublicAccessEnabled, clusterConfigForListClustersOutput.apiServerPublicAccessEnabled) &&
+        Objects.equals(this.ipFamily, clusterConfigForListClustersOutput.ipFamily) &&
         Objects.equals(this.resourcePublicAccessDefaultEnabled, clusterConfigForListClustersOutput.resourcePublicAccessDefaultEnabled) &&
         Objects.equals(this.securityGroupIds, clusterConfigForListClustersOutput.securityGroupIds) &&
         Objects.equals(this.subnetIds, clusterConfigForListClustersOutput.subnetIds) &&
@@ -220,7 +287,7 @@ public class ClusterConfigForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiServerEndpoints, apiServerPublicAccessConfig, apiServerPublicAccessEnabled, resourcePublicAccessDefaultEnabled, securityGroupIds, subnetIds, vpcId);
+    return Objects.hash(apiServerEndpoints, apiServerPublicAccessConfig, apiServerPublicAccessEnabled, ipFamily, resourcePublicAccessDefaultEnabled, securityGroupIds, subnetIds, vpcId);
   }
 
 
@@ -232,6 +299,7 @@ public class ClusterConfigForListClustersOutput {
     sb.append("    apiServerEndpoints: ").append(toIndentedString(apiServerEndpoints)).append("\n");
     sb.append("    apiServerPublicAccessConfig: ").append(toIndentedString(apiServerPublicAccessConfig)).append("\n");
     sb.append("    apiServerPublicAccessEnabled: ").append(toIndentedString(apiServerPublicAccessEnabled)).append("\n");
+    sb.append("    ipFamily: ").append(toIndentedString(ipFamily)).append("\n");
     sb.append("    resourcePublicAccessDefaultEnabled: ").append(toIndentedString(resourcePublicAccessDefaultEnabled)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");

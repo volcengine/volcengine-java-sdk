@@ -362,8 +362,7 @@ public class ListSplitBillDetailRequest {
    * Get splitDimension
    * @return splitDimension
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSplitDimension() {
     return splitDimension;
   }

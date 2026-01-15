@@ -96,10 +96,26 @@ public class DataVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("ESSD")
+    ESSD("ESSD"),
     @SerializedName("ESSD_PL0")
     ESSD_PL0("ESSD_PL0"),
     @SerializedName("ESSD_FlexPL")
-    ESSD_FLEXPL("ESSD_FlexPL");
+    ESSD_FLEXPL("ESSD_FlexPL"),
+    @SerializedName("Ultra_Disk")
+    ULTRA_DISK("Ultra_Disk"),
+    @SerializedName("TSSD_TL0")
+    TSSD_TL0("TSSD_TL0"),
+    @SerializedName("RSSD_RL0")
+    RSSD_RL0("RSSD_RL0"),
+    @SerializedName("LOCAL_SSD")
+    LOCAL_SSD("LOCAL_SSD"),
+    @SerializedName("LOCAL_HDD")
+    LOCAL_HDD("LOCAL_HDD"),
+    @SerializedName("LOCAL_SSD_SRIOV")
+    LOCAL_SSD_SRIOV("LOCAL_SSD_SRIOV"),
+    @SerializedName("LOCAL_LVM_SSD")
+    LOCAL_LVM_SSD("LOCAL_LVM_SSD");
 
     private String value;
 
