@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.dts.model.CommonSettingsForDescribeValidationTaskInfoOutput;
 import com.volcengine.dts.model.ConvertMappingListForDescribeValidationTaskInfoOutput;
+import com.volcengine.dts.model.ObjectMappingSettingForDescribeValidationTaskInfoOutput;
 import com.volcengine.dts.model.SubscriptionCommonSettingsForDescribeValidationTaskInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class ObjectMappingForDescribeValidationTaskInfoOutput {
 
   @SerializedName("MappingList")
   private List<ConvertMappingListForDescribeValidationTaskInfoOutput> mappingList = null;
+
+  @SerializedName("ObjectMappingSetting")
+  private ObjectMappingSettingForDescribeValidationTaskInfoOutput objectMappingSetting = null;
 
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
@@ -118,6 +122,25 @@ public class ObjectMappingForDescribeValidationTaskInfoOutput {
 
   public void setMappingList(List<ConvertMappingListForDescribeValidationTaskInfoOutput> mappingList) {
     this.mappingList = mappingList;
+  }
+
+  public ObjectMappingForDescribeValidationTaskInfoOutput objectMappingSetting(ObjectMappingSettingForDescribeValidationTaskInfoOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public ObjectMappingSettingForDescribeValidationTaskInfoOutput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(ObjectMappingSettingForDescribeValidationTaskInfoOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public ObjectMappingForDescribeValidationTaskInfoOutput objectTransTypes(List<String> objectTransTypes) {
@@ -214,6 +237,7 @@ public class ObjectMappingForDescribeValidationTaskInfoOutput {
     return Objects.equals(this.commonSettings, objectMappingForDescribeValidationTaskInfoOutput.commonSettings) &&
         Objects.equals(this.destObjName, objectMappingForDescribeValidationTaskInfoOutput.destObjName) &&
         Objects.equals(this.mappingList, objectMappingForDescribeValidationTaskInfoOutput.mappingList) &&
+        Objects.equals(this.objectMappingSetting, objectMappingForDescribeValidationTaskInfoOutput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, objectMappingForDescribeValidationTaskInfoOutput.objectTransTypes) &&
         Objects.equals(this.objectType, objectMappingForDescribeValidationTaskInfoOutput.objectType) &&
         Objects.equals(this.srcObjName, objectMappingForDescribeValidationTaskInfoOutput.srcObjName) &&
@@ -222,7 +246,7 @@ public class ObjectMappingForDescribeValidationTaskInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, mappingList, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, mappingList, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -234,6 +258,7 @@ public class ObjectMappingForDescribeValidationTaskInfoOutput {
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
     sb.append("    mappingList: ").append(toIndentedString(mappingList)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

@@ -36,8 +36,67 @@ public class PublicAccessConfigForListNodePoolsOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
 
-  @SerializedName("Isp")
-  private String isp = null;
+  /**
+   * Gets or Sets isp
+   */
+  @JsonAdapter(IspEnum.Adapter.class)
+  public enum IspEnum {
+    @SerializedName("BGP")
+    BGP("BGP"),
+    @SerializedName("ChinaMobile")
+    CHINAMOBILE("ChinaMobile"),
+    @SerializedName("ChinaUnicom")
+    CHINAUNICOM("ChinaUnicom"),
+    @SerializedName("ChinaTelecom")
+    CHINATELECOM("ChinaTelecom"),
+    @SerializedName("SingleLine_BGP")
+    SINGLELINE_BGP("SingleLine_BGP"),
+    @SerializedName("Fusion_BGP")
+    FUSION_BGP("Fusion_BGP"),
+    @SerializedName("Static_BGP")
+    STATIC_BGP("Static_BGP"),
+    @SerializedName("ChinaMobile_Value")
+    CHINAMOBILE_VALUE("ChinaMobile_Value"),
+    @SerializedName("ChinaUnicom_Value")
+    CHINAUNICOM_VALUE("ChinaUnicom_Value"),
+    @SerializedName("ChinaTelecom_Value")
+    CHINATELECOM_VALUE("ChinaTelecom_Value");
+
+    private String value;
+
+    IspEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IspEnum fromValue(String input) {
+      for (IspEnum b : IspEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IspEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IspEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IspEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IspEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Isp")
+  private IspEnum isp = null;
 
   public PublicAccessConfigForListNodePoolsOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -75,7 +134,7 @@ public class PublicAccessConfigForListNodePoolsOutput {
     this.billingType = billingType;
   }
 
-  public PublicAccessConfigForListNodePoolsOutput isp(String isp) {
+  public PublicAccessConfigForListNodePoolsOutput isp(IspEnum isp) {
     this.isp = isp;
     return this;
   }
@@ -85,11 +144,11 @@ public class PublicAccessConfigForListNodePoolsOutput {
    * @return isp
   **/
   @Schema(description = "")
-  public String getIsp() {
+  public IspEnum getIsp() {
     return isp;
   }
 
-  public void setIsp(String isp) {
+  public void setIsp(IspEnum isp) {
     this.isp = isp;
   }
 

@@ -63,6 +63,9 @@ public class ListForListSplitBillDetailOutput {
   @SerializedName("ConfigurationCode")
   private String configurationCode = null;
 
+  @SerializedName("CostUnit")
+  private String costUnit = null;
+
   @SerializedName("CountryRegion")
   private String countryRegion = null;
 
@@ -511,6 +514,24 @@ public class ListForListSplitBillDetailOutput {
 
   public void setConfigurationCode(String configurationCode) {
     this.configurationCode = configurationCode;
+  }
+
+  public ListForListSplitBillDetailOutput costUnit(String costUnit) {
+    this.costUnit = costUnit;
+    return this;
+  }
+
+   /**
+   * Get costUnit
+   * @return costUnit
+  **/
+  @Schema(description = "")
+  public String getCostUnit() {
+    return costUnit;
+  }
+
+  public void setCostUnit(String costUnit) {
+    this.costUnit = costUnit;
   }
 
   public ListForListSplitBillDetailOutput countryRegion(String countryRegion) {
@@ -2046,6 +2067,7 @@ public class ListForListSplitBillDetailOutput {
         Objects.equals(this.businessMode, listForListSplitBillDetailOutput.businessMode) &&
         Objects.equals(this.configName, listForListSplitBillDetailOutput.configName) &&
         Objects.equals(this.configurationCode, listForListSplitBillDetailOutput.configurationCode) &&
+        Objects.equals(this.costUnit, listForListSplitBillDetailOutput.costUnit) &&
         Objects.equals(this.countryRegion, listForListSplitBillDetailOutput.countryRegion) &&
         Objects.equals(this.couponDeductionAmount, listForListSplitBillDetailOutput.couponDeductionAmount) &&
         Objects.equals(this.creditCarriedAmount, listForListSplitBillDetailOutput.creditCarriedAmount) &&
@@ -2134,7 +2156,7 @@ public class ListForListSplitBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, countryRegion, couponDeductionAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, costUnit, countryRegion, couponDeductionAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2154,6 +2176,7 @@ public class ListForListSplitBillDetailOutput {
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
+    sb.append("    costUnit: ").append(toIndentedString(costUnit)).append("\n");
     sb.append("    countryRegion: ").append(toIndentedString(countryRegion)).append("\n");
     sb.append("    couponDeductionAmount: ").append(toIndentedString(couponDeductionAmount)).append("\n");
     sb.append("    creditCarriedAmount: ").append(toIndentedString(creditCarriedAmount)).append("\n");

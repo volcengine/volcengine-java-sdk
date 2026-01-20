@@ -45,8 +45,51 @@ public class JobForDescribeRestoreJobsOutput {
   @SerializedName("RecoveryPointName")
   private String recoveryPointName = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
+
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
 
   /**
    * Gets or Sets status
@@ -188,7 +231,7 @@ public class JobForDescribeRestoreJobsOutput {
     this.recoveryPointName = recoveryPointName;
   }
 
-  public JobForDescribeRestoreJobsOutput resourceType(String resourceType) {
+  public JobForDescribeRestoreJobsOutput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -198,11 +241,11 @@ public class JobForDescribeRestoreJobsOutput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
   }
 

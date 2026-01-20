@@ -40,6 +40,9 @@ public class ListVikingdbIndexRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListVikingdbIndexRequest filter(FilterForListVikingdbIndexInput filter) {
     this.filter = filter;
     return this;
@@ -98,6 +101,24 @@ public class ListVikingdbIndexRequest {
     this.pageSize = pageSize;
   }
 
+  public ListVikingdbIndexRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -110,12 +131,13 @@ public class ListVikingdbIndexRequest {
     ListVikingdbIndexRequest listVikingdbIndexRequest = (ListVikingdbIndexRequest) o;
     return Objects.equals(this.filter, listVikingdbIndexRequest.filter) &&
         Objects.equals(this.pageNumber, listVikingdbIndexRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listVikingdbIndexRequest.pageSize);
+        Objects.equals(this.pageSize, listVikingdbIndexRequest.pageSize) &&
+        Objects.equals(this.projectName, listVikingdbIndexRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize);
+    return Objects.hash(filter, pageNumber, pageSize, projectName);
   }
 
 
@@ -127,6 +149,7 @@ public class ListVikingdbIndexRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

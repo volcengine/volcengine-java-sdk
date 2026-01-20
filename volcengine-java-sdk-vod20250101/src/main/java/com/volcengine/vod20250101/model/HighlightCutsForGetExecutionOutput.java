@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.MiniseriesOptionForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,6 +39,9 @@ public class HighlightCutsForGetExecutionOutput {
 
   @SerializedName("MinDuration")
   private Double minDuration = null;
+
+  @SerializedName("MiniseriesOption")
+  private MiniseriesOptionForGetExecutionOutput miniseriesOption = null;
 
   @SerializedName("WithStoryboard")
   private Boolean withStoryboard = null;
@@ -96,6 +100,25 @@ public class HighlightCutsForGetExecutionOutput {
     this.minDuration = minDuration;
   }
 
+  public HighlightCutsForGetExecutionOutput miniseriesOption(MiniseriesOptionForGetExecutionOutput miniseriesOption) {
+    this.miniseriesOption = miniseriesOption;
+    return this;
+  }
+
+   /**
+   * Get miniseriesOption
+   * @return miniseriesOption
+  **/
+  @Valid
+  @Schema(description = "")
+  public MiniseriesOptionForGetExecutionOutput getMiniseriesOption() {
+    return miniseriesOption;
+  }
+
+  public void setMiniseriesOption(MiniseriesOptionForGetExecutionOutput miniseriesOption) {
+    this.miniseriesOption = miniseriesOption;
+  }
+
   public HighlightCutsForGetExecutionOutput withStoryboard(Boolean withStoryboard) {
     this.withStoryboard = withStoryboard;
     return this;
@@ -127,12 +150,13 @@ public class HighlightCutsForGetExecutionOutput {
     return Objects.equals(this.maxDuration, highlightCutsForGetExecutionOutput.maxDuration) &&
         Objects.equals(this.maxNumber, highlightCutsForGetExecutionOutput.maxNumber) &&
         Objects.equals(this.minDuration, highlightCutsForGetExecutionOutput.minDuration) &&
+        Objects.equals(this.miniseriesOption, highlightCutsForGetExecutionOutput.miniseriesOption) &&
         Objects.equals(this.withStoryboard, highlightCutsForGetExecutionOutput.withStoryboard);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDuration, maxNumber, minDuration, withStoryboard);
+    return Objects.hash(maxDuration, maxNumber, minDuration, miniseriesOption, withStoryboard);
   }
 
 
@@ -144,6 +168,7 @@ public class HighlightCutsForGetExecutionOutput {
     sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
     sb.append("    maxNumber: ").append(toIndentedString(maxNumber)).append("\n");
     sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
+    sb.append("    miniseriesOption: ").append(toIndentedString(miniseriesOption)).append("\n");
     sb.append("    withStoryboard: ").append(toIndentedString(withStoryboard)).append("\n");
     sb.append("}");
     return sb.toString();

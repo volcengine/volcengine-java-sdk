@@ -33,6 +33,9 @@ public class AudioStreamMetaForGetExecutionOutput {
   @SerializedName("Bitrate")
   private Integer bitrate = null;
 
+  @SerializedName("Channels")
+  private Integer channels = null;
+
   @SerializedName("Codec")
   private String codec = null;
 
@@ -61,6 +64,24 @@ public class AudioStreamMetaForGetExecutionOutput {
 
   public void setBitrate(Integer bitrate) {
     this.bitrate = bitrate;
+  }
+
+  public AudioStreamMetaForGetExecutionOutput channels(Integer channels) {
+    this.channels = channels;
+    return this;
+  }
+
+   /**
+   * Get channels
+   * @return channels
+  **/
+  @Schema(description = "")
+  public Integer getChannels() {
+    return channels;
+  }
+
+  public void setChannels(Integer channels) {
+    this.channels = channels;
   }
 
   public AudioStreamMetaForGetExecutionOutput codec(String codec) {
@@ -146,6 +167,7 @@ public class AudioStreamMetaForGetExecutionOutput {
     }
     AudioStreamMetaForGetExecutionOutput audioStreamMetaForGetExecutionOutput = (AudioStreamMetaForGetExecutionOutput) o;
     return Objects.equals(this.bitrate, audioStreamMetaForGetExecutionOutput.bitrate) &&
+        Objects.equals(this.channels, audioStreamMetaForGetExecutionOutput.channels) &&
         Objects.equals(this.codec, audioStreamMetaForGetExecutionOutput.codec) &&
         Objects.equals(this.duration, audioStreamMetaForGetExecutionOutput.duration) &&
         Objects.equals(this.quality, audioStreamMetaForGetExecutionOutput.quality) &&
@@ -154,7 +176,7 @@ public class AudioStreamMetaForGetExecutionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bitrate, codec, duration, quality, sampleRate);
+    return Objects.hash(bitrate, channels, codec, duration, quality, sampleRate);
   }
 
 
@@ -164,6 +186,7 @@ public class AudioStreamMetaForGetExecutionOutput {
     sb.append("class AudioStreamMetaForGetExecutionOutput {\n");
     
     sb.append("    bitrate: ").append(toIndentedString(bitrate)).append("\n");
+    sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("    codec: ").append(toIndentedString(codec)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
