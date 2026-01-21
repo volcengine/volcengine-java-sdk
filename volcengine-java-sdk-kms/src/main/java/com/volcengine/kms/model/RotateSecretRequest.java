@@ -33,6 +33,9 @@ public class RotateSecretRequest {
   @SerializedName("SecretName")
   private String secretName = null;
 
+  @SerializedName("VersionName")
+  private String versionName = null;
+
   public RotateSecretRequest secretName(String secretName) {
     this.secretName = secretName;
     return this;
@@ -52,6 +55,24 @@ public class RotateSecretRequest {
     this.secretName = secretName;
   }
 
+  public RotateSecretRequest versionName(String versionName) {
+    this.versionName = versionName;
+    return this;
+  }
+
+   /**
+   * Get versionName
+   * @return versionName
+  **/
+ @Size(min=2,max=128)  @Schema(description = "")
+  public String getVersionName() {
+    return versionName;
+  }
+
+  public void setVersionName(String versionName) {
+    this.versionName = versionName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class RotateSecretRequest {
       return false;
     }
     RotateSecretRequest rotateSecretRequest = (RotateSecretRequest) o;
-    return Objects.equals(this.secretName, rotateSecretRequest.secretName);
+    return Objects.equals(this.secretName, rotateSecretRequest.secretName) &&
+        Objects.equals(this.versionName, rotateSecretRequest.versionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secretName);
+    return Objects.hash(secretName, versionName);
   }
 
 
@@ -77,6 +99,7 @@ public class RotateSecretRequest {
     sb.append("class RotateSecretRequest {\n");
     
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
+    sb.append("    versionName: ").append(toIndentedString(versionName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
