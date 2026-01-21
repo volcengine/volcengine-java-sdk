@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RecoverAccessKeyResponse
+ * GetAllowedIPAddressesRequest
  */
 
 
 
-public class RecoverAccessKeyResponse extends com.volcengine.model.AbstractResponse {
+public class GetAllowedIPAddressesRequest {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class RecoverAccessKeyResponse extends com.volcengine.model.AbstractRespo
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecoverAccessKeyResponse {\n");
+    sb.append("class GetAllowedIPAddressesRequest {\n");
     
     sb.append("}");
     return sb.toString();

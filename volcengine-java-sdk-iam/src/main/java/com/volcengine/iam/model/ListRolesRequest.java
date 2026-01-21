@@ -39,6 +39,9 @@ public class ListRolesRequest {
   @SerializedName("Query")
   private String query = null;
 
+  @SerializedName("RoleName")
+  private String roleName = null;
+
   public ListRolesRequest limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -93,6 +96,24 @@ public class ListRolesRequest {
     this.query = query;
   }
 
+  public ListRolesRequest roleName(String roleName) {
+    this.roleName = roleName;
+    return this;
+  }
+
+   /**
+   * Get roleName
+   * @return roleName
+  **/
+  @Schema(description = "")
+  public String getRoleName() {
+    return roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class ListRolesRequest {
     ListRolesRequest listRolesRequest = (ListRolesRequest) o;
     return Objects.equals(this.limit, listRolesRequest.limit) &&
         Objects.equals(this.offset, listRolesRequest.offset) &&
-        Objects.equals(this.query, listRolesRequest.query);
+        Objects.equals(this.query, listRolesRequest.query) &&
+        Objects.equals(this.roleName, listRolesRequest.roleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, query);
+    return Objects.hash(limit, offset, query, roleName);
   }
 
 
@@ -122,6 +144,7 @@ public class ListRolesRequest {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

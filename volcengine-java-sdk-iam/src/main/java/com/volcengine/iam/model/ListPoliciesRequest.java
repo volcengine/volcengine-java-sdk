@@ -36,6 +36,9 @@ public class ListPoliciesRequest {
   @SerializedName("Offset")
   private Integer offset = null;
 
+  @SerializedName("Query")
+  private String query = null;
+
   @SerializedName("Scope")
   private String scope = null;
 
@@ -76,6 +79,24 @@ public class ListPoliciesRequest {
 
   public void setOffset(Integer offset) {
     this.offset = offset;
+  }
+
+  public ListPoliciesRequest query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * Get query
+   * @return query
+  **/
+  @Schema(description = "")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
   }
 
   public ListPoliciesRequest scope(String scope) {
@@ -126,13 +147,14 @@ public class ListPoliciesRequest {
     ListPoliciesRequest listPoliciesRequest = (ListPoliciesRequest) o;
     return Objects.equals(this.limit, listPoliciesRequest.limit) &&
         Objects.equals(this.offset, listPoliciesRequest.offset) &&
+        Objects.equals(this.query, listPoliciesRequest.query) &&
         Objects.equals(this.scope, listPoliciesRequest.scope) &&
         Objects.equals(this.withServiceRolePolicy, listPoliciesRequest.withServiceRolePolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, scope, withServiceRolePolicy);
+    return Objects.hash(limit, offset, query, scope, withServiceRolePolicy);
   }
 
 
@@ -143,6 +165,7 @@ public class ListPoliciesRequest {
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    withServiceRolePolicy: ").append(toIndentedString(withServiceRolePolicy)).append("\n");
     sb.append("}");
