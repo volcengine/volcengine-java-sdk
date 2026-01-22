@@ -45,6 +45,9 @@ public class BasicDetailForGetTaskResultOutput {
   @SerializedName("ClientInfo")
   private ClientInfoForGetTaskResultOutput clientInfo = null;
 
+  @SerializedName("DNSServer")
+  private String dnSServer = null;
+
   @SerializedName("ErrorMsg")
   private String errorMsg = null;
 
@@ -119,6 +122,24 @@ public class BasicDetailForGetTaskResultOutput {
 
   public void setClientInfo(ClientInfoForGetTaskResultOutput clientInfo) {
     this.clientInfo = clientInfo;
+  }
+
+  public BasicDetailForGetTaskResultOutput dnSServer(String dnSServer) {
+    this.dnSServer = dnSServer;
+    return this;
+  }
+
+   /**
+   * Get dnSServer
+   * @return dnSServer
+  **/
+  @Schema(description = "")
+  public String getDnSServer() {
+    return dnSServer;
+  }
+
+  public void setDnSServer(String dnSServer) {
+    this.dnSServer = dnSServer;
   }
 
   public BasicDetailForGetTaskResultOutput errorMsg(String errorMsg) {
@@ -208,6 +229,7 @@ public class BasicDetailForGetTaskResultOutput {
     return Objects.equals(this.assertions, basicDetailForGetTaskResultOutput.assertions) &&
         Objects.equals(this.chUk, basicDetailForGetTaskResultOutput.chUk) &&
         Objects.equals(this.clientInfo, basicDetailForGetTaskResultOutput.clientInfo) &&
+        Objects.equals(this.dnSServer, basicDetailForGetTaskResultOutput.dnSServer) &&
         Objects.equals(this.errorMsg, basicDetailForGetTaskResultOutput.errorMsg) &&
         Objects.equals(this.targetInfo, basicDetailForGetTaskResultOutput.targetInfo) &&
         Objects.equals(this.timestamp, basicDetailForGetTaskResultOutput.timestamp) &&
@@ -216,7 +238,7 @@ public class BasicDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, chUk, clientInfo, errorMsg, targetInfo, timestamp, usabilityInfo);
+    return Objects.hash(assertions, chUk, clientInfo, dnSServer, errorMsg, targetInfo, timestamp, usabilityInfo);
   }
 
 
@@ -228,6 +250,7 @@ public class BasicDetailForGetTaskResultOutput {
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
     sb.append("    chUk: ").append(toIndentedString(chUk)).append("\n");
     sb.append("    clientInfo: ").append(toIndentedString(clientInfo)).append("\n");
+    sb.append("    dnSServer: ").append(toIndentedString(dnSServer)).append("\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    targetInfo: ").append(toIndentedString(targetInfo)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");

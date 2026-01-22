@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clouddetect.model.TagFilterForListTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,6 +53,9 @@ public class ListTaskRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForListTaskInput> tagFilters = null;
 
   public ListTaskRequest address(String address) {
     this.address = address;
@@ -179,6 +185,33 @@ public class ListTaskRequest {
     this.projectName = projectName;
   }
 
+  public ListTaskRequest tagFilters(List<TagFilterForListTaskInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListTaskRequest addTagFiltersItem(TagFilterForListTaskInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListTaskInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListTaskInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListTaskInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,12 +228,13 @@ public class ListTaskRequest {
         Objects.equals(this.owner, listTaskRequest.owner) &&
         Objects.equals(this.pageNum, listTaskRequest.pageNum) &&
         Objects.equals(this.pageSize, listTaskRequest.pageSize) &&
-        Objects.equals(this.projectName, listTaskRequest.projectName);
+        Objects.equals(this.projectName, listTaskRequest.projectName) &&
+        Objects.equals(this.tagFilters, listTaskRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, ID, name, owner, pageNum, pageSize, projectName);
+    return Objects.hash(address, ID, name, owner, pageNum, pageSize, projectName, tagFilters);
   }
 
 
@@ -216,6 +250,7 @@ public class ListTaskRequest {
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -40,6 +40,9 @@ public class PingDetailForGetTaskResultOutput {
   @SerializedName("MtrHops")
   private Long mtrHops = null;
 
+  @SerializedName("PcapURI")
+  private String pcapURI = null;
+
   @SerializedName("PingAvgCost")
   private Long pingAvgCost = null;
 
@@ -117,6 +120,24 @@ public class PingDetailForGetTaskResultOutput {
 
   public void setMtrHops(Long mtrHops) {
     this.mtrHops = mtrHops;
+  }
+
+  public PingDetailForGetTaskResultOutput pcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
+    return this;
+  }
+
+   /**
+   * Get pcapURI
+   * @return pcapURI
+  **/
+  @Schema(description = "")
+  public String getPcapURI() {
+    return pcapURI;
+  }
+
+  public void setPcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
   }
 
   public PingDetailForGetTaskResultOutput pingAvgCost(Long pingAvgCost) {
@@ -276,6 +297,7 @@ public class PingDetailForGetTaskResultOutput {
     return Objects.equals(this.dnSCost, pingDetailForGetTaskResultOutput.dnSCost) &&
         Objects.equals(this.diagnoseDetail, pingDetailForGetTaskResultOutput.diagnoseDetail) &&
         Objects.equals(this.mtrHops, pingDetailForGetTaskResultOutput.mtrHops) &&
+        Objects.equals(this.pcapURI, pingDetailForGetTaskResultOutput.pcapURI) &&
         Objects.equals(this.pingAvgCost, pingDetailForGetTaskResultOutput.pingAvgCost) &&
         Objects.equals(this.pingDetail, pingDetailForGetTaskResultOutput.pingDetail) &&
         Objects.equals(this.pingLossRate, pingDetailForGetTaskResultOutput.pingLossRate) &&
@@ -288,7 +310,7 @@ public class PingDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, mtrHops, pingAvgCost, pingDetail, pingLossRate, pingMaxCost, pingMinCost, pingReceiveTimes, pingSendTimes, resolveCost);
+    return Objects.hash(dnSCost, diagnoseDetail, mtrHops, pcapURI, pingAvgCost, pingDetail, pingLossRate, pingMaxCost, pingMinCost, pingReceiveTimes, pingSendTimes, resolveCost);
   }
 
 
@@ -300,6 +322,7 @@ public class PingDetailForGetTaskResultOutput {
     sb.append("    dnSCost: ").append(toIndentedString(dnSCost)).append("\n");
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
     sb.append("    mtrHops: ").append(toIndentedString(mtrHops)).append("\n");
+    sb.append("    pcapURI: ").append(toIndentedString(pcapURI)).append("\n");
     sb.append("    pingAvgCost: ").append(toIndentedString(pingAvgCost)).append("\n");
     sb.append("    pingDetail: ").append(toIndentedString(pingDetail)).append("\n");
     sb.append("    pingLossRate: ").append(toIndentedString(pingLossRate)).append("\n");

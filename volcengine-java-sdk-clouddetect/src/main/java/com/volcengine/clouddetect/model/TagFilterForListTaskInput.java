@@ -21,28 +21,24 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * LabelForListTaskOutput
+ * TagFilterForListTaskInput
  */
 
 
 
-public class LabelForListTaskOutput {
+public class TagFilterForListTaskInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("KeyID")
-  private Long keyID = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  @SerializedName("Option")
-  private String option = null;
-
-  @SerializedName("OptionID")
-  private Long optionID = null;
-
-  public LabelForListTaskOutput key(String key) {
+  public TagFilterForListTaskInput key(String key) {
     this.key = key;
     return this;
   }
@@ -60,58 +56,30 @@ public class LabelForListTaskOutput {
     this.key = key;
   }
 
-  public LabelForListTaskOutput keyID(Long keyID) {
-    this.keyID = keyID;
+  public TagFilterForListTaskInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForListTaskInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get keyID
-   * @return keyID
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public Long getKeyID() {
-    return keyID;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setKeyID(Long keyID) {
-    this.keyID = keyID;
-  }
-
-  public LabelForListTaskOutput option(String option) {
-    this.option = option;
-    return this;
-  }
-
-   /**
-   * Get option
-   * @return option
-  **/
-  @Schema(description = "")
-  public String getOption() {
-    return option;
-  }
-
-  public void setOption(String option) {
-    this.option = option;
-  }
-
-  public LabelForListTaskOutput optionID(Long optionID) {
-    this.optionID = optionID;
-    return this;
-  }
-
-   /**
-   * Get optionID
-   * @return optionID
-  **/
-  @Schema(description = "")
-  public Long getOptionID() {
-    return optionID;
-  }
-
-  public void setOptionID(Long optionID) {
-    this.optionID = optionID;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -123,28 +91,24 @@ public class LabelForListTaskOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LabelForListTaskOutput labelForListTaskOutput = (LabelForListTaskOutput) o;
-    return Objects.equals(this.key, labelForListTaskOutput.key) &&
-        Objects.equals(this.keyID, labelForListTaskOutput.keyID) &&
-        Objects.equals(this.option, labelForListTaskOutput.option) &&
-        Objects.equals(this.optionID, labelForListTaskOutput.optionID);
+    TagFilterForListTaskInput tagFilterForListTaskInput = (TagFilterForListTaskInput) o;
+    return Objects.equals(this.key, tagFilterForListTaskInput.key) &&
+        Objects.equals(this.values, tagFilterForListTaskInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, keyID, option, optionID);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LabelForListTaskOutput {\n");
+    sb.append("class TagFilterForListTaskInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
-    sb.append("    option: ").append(toIndentedString(option)).append("\n");
-    sb.append("    optionID: ").append(toIndentedString(optionID)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
