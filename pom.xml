@@ -331,5 +331,6 @@
         <module>volcengine-java-sdk-clouddetect20251031</module>
         <module>volcengine-java-sdk-efs</module>
         <module>volcengine-java-sdk-insight</module>
+        <module>volcengine-java-sdk-llmscan</module>
     </modules>
 </project>
