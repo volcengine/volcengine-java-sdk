@@ -64,6 +64,9 @@ public class DownloadDetailForGetTaskResultOutput {
   @SerializedName("LocationDetail")
   private List<LocationDetailForGetTaskResultOutput> locationDetail = null;
 
+  @SerializedName("PcapURI")
+  private String pcapURI = null;
+
   @SerializedName("RecvCost")
   private Long recvCost = null;
 
@@ -287,6 +290,24 @@ public class DownloadDetailForGetTaskResultOutput {
     this.locationDetail = locationDetail;
   }
 
+  public DownloadDetailForGetTaskResultOutput pcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
+    return this;
+  }
+
+   /**
+   * Get pcapURI
+   * @return pcapURI
+  **/
+  @Schema(description = "")
+  public String getPcapURI() {
+    return pcapURI;
+  }
+
+  public void setPcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
+  }
+
   public DownloadDetailForGetTaskResultOutput recvCost(Long recvCost) {
     this.recvCost = recvCost;
     return this;
@@ -505,6 +526,7 @@ public class DownloadDetailForGetTaskResultOutput {
         Objects.equals(this.htTPResponseHeader, downloadDetailForGetTaskResultOutput.htTPResponseHeader) &&
         Objects.equals(this.htTPVersion, downloadDetailForGetTaskResultOutput.htTPVersion) &&
         Objects.equals(this.locationDetail, downloadDetailForGetTaskResultOutput.locationDetail) &&
+        Objects.equals(this.pcapURI, downloadDetailForGetTaskResultOutput.pcapURI) &&
         Objects.equals(this.recvCost, downloadDetailForGetTaskResultOutput.recvCost) &&
         Objects.equals(this.redirectCost, downloadDetailForGetTaskResultOutput.redirectCost) &&
         Objects.equals(this.redirectNums, downloadDetailForGetTaskResultOutput.redirectNums) &&
@@ -520,7 +542,7 @@ public class DownloadDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
+    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, pcapURI, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
   }
 
 
@@ -539,6 +561,7 @@ public class DownloadDetailForGetTaskResultOutput {
     sb.append("    htTPResponseHeader: ").append(toIndentedString(htTPResponseHeader)).append("\n");
     sb.append("    htTPVersion: ").append(toIndentedString(htTPVersion)).append("\n");
     sb.append("    locationDetail: ").append(toIndentedString(locationDetail)).append("\n");
+    sb.append("    pcapURI: ").append(toIndentedString(pcapURI)).append("\n");
     sb.append("    recvCost: ").append(toIndentedString(recvCost)).append("\n");
     sb.append("    redirectCost: ").append(toIndentedString(redirectCost)).append("\n");
     sb.append("    redirectNums: ").append(toIndentedString(redirectNums)).append("\n");

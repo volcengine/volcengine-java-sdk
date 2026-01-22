@@ -24,25 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * LabelForGetTaskOutput
+ * TagForGetTaskOutput
  */
 
 
 
-public class LabelForGetTaskOutput {
+public class TagForGetTaskOutput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("KeyID")
-  private Long keyID = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  @SerializedName("Option")
-  private String option = null;
-
-  @SerializedName("OptionID")
-  private Long optionID = null;
-
-  public LabelForGetTaskOutput key(String key) {
+  public TagForGetTaskOutput key(String key) {
     this.key = key;
     return this;
   }
@@ -60,58 +54,22 @@ public class LabelForGetTaskOutput {
     this.key = key;
   }
 
-  public LabelForGetTaskOutput keyID(Long keyID) {
-    this.keyID = keyID;
+  public TagForGetTaskOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get keyID
-   * @return keyID
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public Long getKeyID() {
-    return keyID;
+  public String getValue() {
+    return value;
   }
 
-  public void setKeyID(Long keyID) {
-    this.keyID = keyID;
-  }
-
-  public LabelForGetTaskOutput option(String option) {
-    this.option = option;
-    return this;
-  }
-
-   /**
-   * Get option
-   * @return option
-  **/
-  @Schema(description = "")
-  public String getOption() {
-    return option;
-  }
-
-  public void setOption(String option) {
-    this.option = option;
-  }
-
-  public LabelForGetTaskOutput optionID(Long optionID) {
-    this.optionID = optionID;
-    return this;
-  }
-
-   /**
-   * Get optionID
-   * @return optionID
-  **/
-  @Schema(description = "")
-  public Long getOptionID() {
-    return optionID;
-  }
-
-  public void setOptionID(Long optionID) {
-    this.optionID = optionID;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -123,28 +81,24 @@ public class LabelForGetTaskOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LabelForGetTaskOutput labelForGetTaskOutput = (LabelForGetTaskOutput) o;
-    return Objects.equals(this.key, labelForGetTaskOutput.key) &&
-        Objects.equals(this.keyID, labelForGetTaskOutput.keyID) &&
-        Objects.equals(this.option, labelForGetTaskOutput.option) &&
-        Objects.equals(this.optionID, labelForGetTaskOutput.optionID);
+    TagForGetTaskOutput tagForGetTaskOutput = (TagForGetTaskOutput) o;
+    return Objects.equals(this.key, tagForGetTaskOutput.key) &&
+        Objects.equals(this.value, tagForGetTaskOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, keyID, option, optionID);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LabelForGetTaskOutput {\n");
+    sb.append("class TagForGetTaskOutput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
-    sb.append("    option: ").append(toIndentedString(option)).append("\n");
-    sb.append("    optionID: ").append(toIndentedString(optionID)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

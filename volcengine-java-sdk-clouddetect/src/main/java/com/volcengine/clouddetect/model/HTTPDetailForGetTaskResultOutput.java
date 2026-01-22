@@ -40,6 +40,12 @@ public class HTTPDetailForGetTaskResultOutput {
   @SerializedName("DiagnoseDetail")
   private DiagnoseDetailForGetTaskResultOutput diagnoseDetail = null;
 
+  @SerializedName("DownloadSize")
+  private Long downloadSize = null;
+
+  @SerializedName("DownloadSpeed")
+  private Long downloadSpeed = null;
+
   @SerializedName("HTTPCode")
   private Long htTPCode = null;
 
@@ -117,6 +123,42 @@ public class HTTPDetailForGetTaskResultOutput {
 
   public void setDiagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
+  }
+
+  public HTTPDetailForGetTaskResultOutput downloadSize(Long downloadSize) {
+    this.downloadSize = downloadSize;
+    return this;
+  }
+
+   /**
+   * Get downloadSize
+   * @return downloadSize
+  **/
+  @Schema(description = "")
+  public Long getDownloadSize() {
+    return downloadSize;
+  }
+
+  public void setDownloadSize(Long downloadSize) {
+    this.downloadSize = downloadSize;
+  }
+
+  public HTTPDetailForGetTaskResultOutput downloadSpeed(Long downloadSpeed) {
+    this.downloadSpeed = downloadSpeed;
+    return this;
+  }
+
+   /**
+   * Get downloadSpeed
+   * @return downloadSpeed
+  **/
+  @Schema(description = "")
+  public Long getDownloadSpeed() {
+    return downloadSpeed;
+  }
+
+  public void setDownloadSpeed(Long downloadSpeed) {
+    this.downloadSpeed = downloadSpeed;
   }
 
   public HTTPDetailForGetTaskResultOutput htTPCode(Long htTPCode) {
@@ -392,6 +434,8 @@ public class HTTPDetailForGetTaskResultOutput {
     HTTPDetailForGetTaskResultOutput htTPDetailForGetTaskResultOutput = (HTTPDetailForGetTaskResultOutput) o;
     return Objects.equals(this.dnSCost, htTPDetailForGetTaskResultOutput.dnSCost) &&
         Objects.equals(this.diagnoseDetail, htTPDetailForGetTaskResultOutput.diagnoseDetail) &&
+        Objects.equals(this.downloadSize, htTPDetailForGetTaskResultOutput.downloadSize) &&
+        Objects.equals(this.downloadSpeed, htTPDetailForGetTaskResultOutput.downloadSpeed) &&
         Objects.equals(this.htTPCode, htTPDetailForGetTaskResultOutput.htTPCode) &&
         Objects.equals(this.htTPRequestHeader, htTPDetailForGetTaskResultOutput.htTPRequestHeader) &&
         Objects.equals(this.htTPResponseBody, htTPDetailForGetTaskResultOutput.htTPResponseBody) &&
@@ -410,7 +454,7 @@ public class HTTPDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost);
+    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost);
   }
 
 
@@ -421,6 +465,8 @@ public class HTTPDetailForGetTaskResultOutput {
     
     sb.append("    dnSCost: ").append(toIndentedString(dnSCost)).append("\n");
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
+    sb.append("    downloadSize: ").append(toIndentedString(downloadSize)).append("\n");
+    sb.append("    downloadSpeed: ").append(toIndentedString(downloadSpeed)).append("\n");
     sb.append("    htTPCode: ").append(toIndentedString(htTPCode)).append("\n");
     sb.append("    htTPRequestHeader: ").append(toIndentedString(htTPRequestHeader)).append("\n");
     sb.append("    htTPResponseBody: ").append(toIndentedString(htTPResponseBody)).append("\n");
