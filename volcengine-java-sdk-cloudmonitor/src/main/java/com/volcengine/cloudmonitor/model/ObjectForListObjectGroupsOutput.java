@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cloudmonitor.model.DimensionConditionsForListObjectGroupsOutput;
 import com.volcengine.cloudmonitor.model.RuleForListObjectGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,7 +37,7 @@ import javax.validation.Valid;
 
 public class ObjectForListObjectGroupsOutput {
   @SerializedName("DimensionConditions")
-  private String dimensionConditions = null;
+  private DimensionConditionsForListObjectGroupsOutput dimensionConditions = null;
 
   @SerializedName("Dimensions")
   private Map<String, List<String>> dimensions = null;
@@ -56,7 +57,7 @@ public class ObjectForListObjectGroupsOutput {
   @SerializedName("Type")
   private String type = null;
 
-  public ObjectForListObjectGroupsOutput dimensionConditions(String dimensionConditions) {
+  public ObjectForListObjectGroupsOutput dimensionConditions(DimensionConditionsForListObjectGroupsOutput dimensionConditions) {
     this.dimensionConditions = dimensionConditions;
     return this;
   }
@@ -65,12 +66,13 @@ public class ObjectForListObjectGroupsOutput {
    * Get dimensionConditions
    * @return dimensionConditions
   **/
+  @Valid
   @Schema(description = "")
-  public String getDimensionConditions() {
+  public DimensionConditionsForListObjectGroupsOutput getDimensionConditions() {
     return dimensionConditions;
   }
 
-  public void setDimensionConditions(String dimensionConditions) {
+  public void setDimensionConditions(DimensionConditionsForListObjectGroupsOutput dimensionConditions) {
     this.dimensionConditions = dimensionConditions;
   }
 
