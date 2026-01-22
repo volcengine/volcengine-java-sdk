@@ -24,25 +24,43 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AppliedRuleForListAlertTemplatesOutput
+ * RuleForListObjectGroupsOutput
  */
 
 
 
-public class AppliedRuleForListAlertTemplatesOutput {
+public class RuleForListObjectGroupsOutput {
+  @SerializedName("AlertTemplateId")
+  private String alertTemplateId = null;
+
   @SerializedName("Id")
   private String id = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("ObjectGroupId")
-  private String objectGroupId = null;
+  @SerializedName("TemplateRuleId")
+  private String templateRuleId = null;
 
-  @SerializedName("ObjectId")
-  private String objectId = null;
+  public RuleForListObjectGroupsOutput alertTemplateId(String alertTemplateId) {
+    this.alertTemplateId = alertTemplateId;
+    return this;
+  }
 
-  public AppliedRuleForListAlertTemplatesOutput id(String id) {
+   /**
+   * Get alertTemplateId
+   * @return alertTemplateId
+  **/
+  @Schema(description = "")
+  public String getAlertTemplateId() {
+    return alertTemplateId;
+  }
+
+  public void setAlertTemplateId(String alertTemplateId) {
+    this.alertTemplateId = alertTemplateId;
+  }
+
+  public RuleForListObjectGroupsOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -60,7 +78,7 @@ public class AppliedRuleForListAlertTemplatesOutput {
     this.id = id;
   }
 
-  public AppliedRuleForListAlertTemplatesOutput name(String name) {
+  public RuleForListObjectGroupsOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -78,40 +96,22 @@ public class AppliedRuleForListAlertTemplatesOutput {
     this.name = name;
   }
 
-  public AppliedRuleForListAlertTemplatesOutput objectGroupId(String objectGroupId) {
-    this.objectGroupId = objectGroupId;
+  public RuleForListObjectGroupsOutput templateRuleId(String templateRuleId) {
+    this.templateRuleId = templateRuleId;
     return this;
   }
 
    /**
-   * Get objectGroupId
-   * @return objectGroupId
+   * Get templateRuleId
+   * @return templateRuleId
   **/
   @Schema(description = "")
-  public String getObjectGroupId() {
-    return objectGroupId;
+  public String getTemplateRuleId() {
+    return templateRuleId;
   }
 
-  public void setObjectGroupId(String objectGroupId) {
-    this.objectGroupId = objectGroupId;
-  }
-
-  public AppliedRuleForListAlertTemplatesOutput objectId(String objectId) {
-    this.objectId = objectId;
-    return this;
-  }
-
-   /**
-   * Get objectId
-   * @return objectId
-  **/
-  @Schema(description = "")
-  public String getObjectId() {
-    return objectId;
-  }
-
-  public void setObjectId(String objectId) {
-    this.objectId = objectId;
+  public void setTemplateRuleId(String templateRuleId) {
+    this.templateRuleId = templateRuleId;
   }
 
 
@@ -123,28 +123,28 @@ public class AppliedRuleForListAlertTemplatesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AppliedRuleForListAlertTemplatesOutput appliedRuleForListAlertTemplatesOutput = (AppliedRuleForListAlertTemplatesOutput) o;
-    return Objects.equals(this.id, appliedRuleForListAlertTemplatesOutput.id) &&
-        Objects.equals(this.name, appliedRuleForListAlertTemplatesOutput.name) &&
-        Objects.equals(this.objectGroupId, appliedRuleForListAlertTemplatesOutput.objectGroupId) &&
-        Objects.equals(this.objectId, appliedRuleForListAlertTemplatesOutput.objectId);
+    RuleForListObjectGroupsOutput ruleForListObjectGroupsOutput = (RuleForListObjectGroupsOutput) o;
+    return Objects.equals(this.alertTemplateId, ruleForListObjectGroupsOutput.alertTemplateId) &&
+        Objects.equals(this.id, ruleForListObjectGroupsOutput.id) &&
+        Objects.equals(this.name, ruleForListObjectGroupsOutput.name) &&
+        Objects.equals(this.templateRuleId, ruleForListObjectGroupsOutput.templateRuleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, objectGroupId, objectId);
+    return Objects.hash(alertTemplateId, id, name, templateRuleId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AppliedRuleForListAlertTemplatesOutput {\n");
+    sb.append("class RuleForListObjectGroupsOutput {\n");
     
+    sb.append("    alertTemplateId: ").append(toIndentedString(alertTemplateId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
-    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
+    sb.append("    templateRuleId: ").append(toIndentedString(templateRuleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

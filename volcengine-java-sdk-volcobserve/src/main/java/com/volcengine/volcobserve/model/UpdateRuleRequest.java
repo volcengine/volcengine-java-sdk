@@ -142,6 +142,9 @@ public class UpdateRuleRequest {
   @SerializedName("NotifyTemplates")
   private List<NotifyTemplateForUpdateRuleInput> notifyTemplates = null;
 
+  @SerializedName("ObjectGroupId")
+  private String objectGroupId = null;
+
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
 
@@ -591,6 +594,24 @@ public class UpdateRuleRequest {
     this.notifyTemplates = notifyTemplates;
   }
 
+  public UpdateRuleRequest objectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
+    return this;
+  }
+
+   /**
+   * Get objectGroupId
+   * @return objectGroupId
+  **/
+  @Schema(description = "")
+  public String getObjectGroupId() {
+    return objectGroupId;
+  }
+
+  public void setObjectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
+  }
+
   public UpdateRuleRequest originalDimensions(Map<String, List<String>> originalDimensions) {
     this.originalDimensions = originalDimensions;
     return this;
@@ -838,6 +859,7 @@ public class UpdateRuleRequest {
         Objects.equals(this.noData, updateRuleRequest.noData) &&
         Objects.equals(this.notificationId, updateRuleRequest.notificationId) &&
         Objects.equals(this.notifyTemplates, updateRuleRequest.notifyTemplates) &&
+        Objects.equals(this.objectGroupId, updateRuleRequest.objectGroupId) &&
         Objects.equals(this.originalDimensions, updateRuleRequest.originalDimensions) &&
         Objects.equals(this.recoveryNotify, updateRuleRequest.recoveryNotify) &&
         Objects.equals(this.regions, updateRuleRequest.regions) &&
@@ -852,7 +874,7 @@ public class UpdateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
   }
 
 
@@ -879,6 +901,7 @@ public class UpdateRuleRequest {
     sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
+    sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");

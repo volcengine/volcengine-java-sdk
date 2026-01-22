@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * NoDataForUpdateRuleInput
+ * NoDataForListRulesByIdsOutput
  */
 
 
 
-public class NoDataForUpdateRuleInput {
+public class NoDataForListRulesByIdsOutput {
   @SerializedName("Enable")
   private Boolean enable = null;
 
@@ -39,7 +39,7 @@ public class NoDataForUpdateRuleInput {
   @SerializedName("Level")
   private String level = null;
 
-  public NoDataForUpdateRuleInput enable(Boolean enable) {
+  public NoDataForListRulesByIdsOutput enable(Boolean enable) {
     this.enable = enable;
     return this;
   }
@@ -57,7 +57,7 @@ public class NoDataForUpdateRuleInput {
     this.enable = enable;
   }
 
-  public NoDataForUpdateRuleInput evaluationCount(Integer evaluationCount) {
+  public NoDataForListRulesByIdsOutput evaluationCount(Integer evaluationCount) {
     this.evaluationCount = evaluationCount;
     return this;
   }
@@ -75,7 +75,7 @@ public class NoDataForUpdateRuleInput {
     this.evaluationCount = evaluationCount;
   }
 
-  public NoDataForUpdateRuleInput level(String level) {
+  public NoDataForListRulesByIdsOutput level(String level) {
     this.level = level;
     return this;
   }
@@ -102,10 +102,10 @@ public class NoDataForUpdateRuleInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NoDataForUpdateRuleInput noDataForUpdateRuleInput = (NoDataForUpdateRuleInput) o;
-    return Objects.equals(this.enable, noDataForUpdateRuleInput.enable) &&
-        Objects.equals(this.evaluationCount, noDataForUpdateRuleInput.evaluationCount) &&
-        Objects.equals(this.level, noDataForUpdateRuleInput.level);
+    NoDataForListRulesByIdsOutput noDataForListRulesByIdsOutput = (NoDataForListRulesByIdsOutput) o;
+    return Objects.equals(this.enable, noDataForListRulesByIdsOutput.enable) &&
+        Objects.equals(this.evaluationCount, noDataForListRulesByIdsOutput.evaluationCount) &&
+        Objects.equals(this.level, noDataForListRulesByIdsOutput.level);
   }
 
   @Override
@@ -117,7 +117,7 @@ public class NoDataForUpdateRuleInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NoDataForUpdateRuleInput {\n");
+    sb.append("class NoDataForListRulesByIdsOutput {\n");
     
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
