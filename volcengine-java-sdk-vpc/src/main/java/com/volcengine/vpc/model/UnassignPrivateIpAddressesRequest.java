@@ -32,11 +32,32 @@ import javax.validation.Valid;
 
 
 public class UnassignPrivateIpAddressesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
   @SerializedName("PrivateIpAddress")
   private List<String> privateIpAddress = null;
+
+  public UnassignPrivateIpAddressesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public UnassignPrivateIpAddressesRequest networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
@@ -93,13 +114,14 @@ public class UnassignPrivateIpAddressesRequest {
       return false;
     }
     UnassignPrivateIpAddressesRequest unassignPrivateIpAddressesRequest = (UnassignPrivateIpAddressesRequest) o;
-    return Objects.equals(this.networkInterfaceId, unassignPrivateIpAddressesRequest.networkInterfaceId) &&
+    return Objects.equals(this.clientToken, unassignPrivateIpAddressesRequest.clientToken) &&
+        Objects.equals(this.networkInterfaceId, unassignPrivateIpAddressesRequest.networkInterfaceId) &&
         Objects.equals(this.privateIpAddress, unassignPrivateIpAddressesRequest.privateIpAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId, privateIpAddress);
+    return Objects.hash(clientToken, networkInterfaceId, privateIpAddress);
   }
 
 
@@ -108,6 +130,7 @@ public class UnassignPrivateIpAddressesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnassignPrivateIpAddressesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("}");
