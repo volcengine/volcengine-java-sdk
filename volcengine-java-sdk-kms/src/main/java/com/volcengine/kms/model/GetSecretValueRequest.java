@@ -36,6 +36,9 @@ public class GetSecretValueRequest {
   @SerializedName("VersionID")
   private String versionID = null;
 
+  @SerializedName("VersionName")
+  private String versionName = null;
+
   public GetSecretValueRequest secretName(String secretName) {
     this.secretName = secretName;
     return this;
@@ -73,6 +76,24 @@ public class GetSecretValueRequest {
     this.versionID = versionID;
   }
 
+  public GetSecretValueRequest versionName(String versionName) {
+    this.versionName = versionName;
+    return this;
+  }
+
+   /**
+   * Get versionName
+   * @return versionName
+  **/
+ @Size(min=2,max=128)  @Schema(description = "")
+  public String getVersionName() {
+    return versionName;
+  }
+
+  public void setVersionName(String versionName) {
+    this.versionName = versionName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +105,13 @@ public class GetSecretValueRequest {
     }
     GetSecretValueRequest getSecretValueRequest = (GetSecretValueRequest) o;
     return Objects.equals(this.secretName, getSecretValueRequest.secretName) &&
-        Objects.equals(this.versionID, getSecretValueRequest.versionID);
+        Objects.equals(this.versionID, getSecretValueRequest.versionID) &&
+        Objects.equals(this.versionName, getSecretValueRequest.versionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secretName, versionID);
+    return Objects.hash(secretName, versionID, versionName);
   }
 
 
@@ -100,6 +122,7 @@ public class GetSecretValueRequest {
     
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    versionID: ").append(toIndentedString(versionID)).append("\n");
+    sb.append("    versionName: ").append(toIndentedString(versionName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -35,6 +35,9 @@ public class ListRulesRequest {
   @SerializedName("AlertState")
   private List<String> alertState = null;
 
+  @SerializedName("AlertTemplateIds")
+  private List<String> alertTemplateIds = null;
+
   @SerializedName("EnableState")
   private List<String> enableState = null;
 
@@ -43,6 +46,9 @@ public class ListRulesRequest {
 
   @SerializedName("Namespace")
   private List<String> namespace = null;
+
+  @SerializedName("ObjectGroupIds")
+  private List<String> objectGroupIds = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -80,6 +86,32 @@ public class ListRulesRequest {
 
   public void setAlertState(List<String> alertState) {
     this.alertState = alertState;
+  }
+
+  public ListRulesRequest alertTemplateIds(List<String> alertTemplateIds) {
+    this.alertTemplateIds = alertTemplateIds;
+    return this;
+  }
+
+  public ListRulesRequest addAlertTemplateIdsItem(String alertTemplateIdsItem) {
+    if (this.alertTemplateIds == null) {
+      this.alertTemplateIds = new ArrayList<String>();
+    }
+    this.alertTemplateIds.add(alertTemplateIdsItem);
+    return this;
+  }
+
+   /**
+   * Get alertTemplateIds
+   * @return alertTemplateIds
+  **/
+  @Schema(description = "")
+  public List<String> getAlertTemplateIds() {
+    return alertTemplateIds;
+  }
+
+  public void setAlertTemplateIds(List<String> alertTemplateIds) {
+    this.alertTemplateIds = alertTemplateIds;
   }
 
   public ListRulesRequest enableState(List<String> enableState) {
@@ -158,6 +190,32 @@ public class ListRulesRequest {
 
   public void setNamespace(List<String> namespace) {
     this.namespace = namespace;
+  }
+
+  public ListRulesRequest objectGroupIds(List<String> objectGroupIds) {
+    this.objectGroupIds = objectGroupIds;
+    return this;
+  }
+
+  public ListRulesRequest addObjectGroupIdsItem(String objectGroupIdsItem) {
+    if (this.objectGroupIds == null) {
+      this.objectGroupIds = new ArrayList<String>();
+    }
+    this.objectGroupIds.add(objectGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get objectGroupIds
+   * @return objectGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getObjectGroupIds() {
+    return objectGroupIds;
+  }
+
+  public void setObjectGroupIds(List<String> objectGroupIds) {
+    this.objectGroupIds = objectGroupIds;
   }
 
   public ListRulesRequest pageNumber(Integer pageNumber) {
@@ -243,9 +301,11 @@ public class ListRulesRequest {
     }
     ListRulesRequest listRulesRequest = (ListRulesRequest) o;
     return Objects.equals(this.alertState, listRulesRequest.alertState) &&
+        Objects.equals(this.alertTemplateIds, listRulesRequest.alertTemplateIds) &&
         Objects.equals(this.enableState, listRulesRequest.enableState) &&
         Objects.equals(this.level, listRulesRequest.level) &&
         Objects.equals(this.namespace, listRulesRequest.namespace) &&
+        Objects.equals(this.objectGroupIds, listRulesRequest.objectGroupIds) &&
         Objects.equals(this.pageNumber, listRulesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listRulesRequest.pageSize) &&
         Objects.equals(this.projectName, listRulesRequest.projectName) &&
@@ -254,7 +314,7 @@ public class ListRulesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertState, enableState, level, namespace, pageNumber, pageSize, projectName, ruleName);
+    return Objects.hash(alertState, alertTemplateIds, enableState, level, namespace, objectGroupIds, pageNumber, pageSize, projectName, ruleName);
   }
 
 
@@ -264,9 +324,11 @@ public class ListRulesRequest {
     sb.append("class ListRulesRequest {\n");
     
     sb.append("    alertState: ").append(toIndentedString(alertState)).append("\n");
+    sb.append("    alertTemplateIds: ").append(toIndentedString(alertTemplateIds)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    objectGroupIds: ").append(toIndentedString(objectGroupIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

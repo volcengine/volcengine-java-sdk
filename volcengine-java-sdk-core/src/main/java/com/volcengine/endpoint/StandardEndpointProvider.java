@@ -255,6 +255,7 @@ public class StandardEndpointProvider implements EndpointResolver {
         SERVICE_INFOS.put("vms", new ServiceInfo("vms", false));
         SERVICE_INFOS.put("eco_partner", new ServiceInfo("eco_partner", true));
         SERVICE_INFOS.put("smc", new ServiceInfo("smc", true));
+        SERVICE_INFOS.put("livesaas", new ServiceInfo("livesaas", true));
 
         // -------- Region 匹配器（白名单 + 正则） --------
         Map<String, RegionInfo> white = new HashMap<>();

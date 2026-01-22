@@ -58,8 +58,14 @@ public class UploadDetailForGetTaskResultOutput {
   @SerializedName("HTTPResponseHeader")
   private String htTPResponseHeader = null;
 
+  @SerializedName("HTTPVersion")
+  private String htTPVersion = null;
+
   @SerializedName("LocationDetail")
   private List<LocationDetailForGetTaskResultOutput> locationDetail = null;
+
+  @SerializedName("PcapURI")
+  private String pcapURI = null;
 
   @SerializedName("RecvCost")
   private Long recvCost = null;
@@ -239,6 +245,24 @@ public class UploadDetailForGetTaskResultOutput {
     this.htTPResponseHeader = htTPResponseHeader;
   }
 
+  public UploadDetailForGetTaskResultOutput htTPVersion(String htTPVersion) {
+    this.htTPVersion = htTPVersion;
+    return this;
+  }
+
+   /**
+   * Get htTPVersion
+   * @return htTPVersion
+  **/
+  @Schema(description = "")
+  public String getHtTPVersion() {
+    return htTPVersion;
+  }
+
+  public void setHtTPVersion(String htTPVersion) {
+    this.htTPVersion = htTPVersion;
+  }
+
   public UploadDetailForGetTaskResultOutput locationDetail(List<LocationDetailForGetTaskResultOutput> locationDetail) {
     this.locationDetail = locationDetail;
     return this;
@@ -264,6 +288,24 @@ public class UploadDetailForGetTaskResultOutput {
 
   public void setLocationDetail(List<LocationDetailForGetTaskResultOutput> locationDetail) {
     this.locationDetail = locationDetail;
+  }
+
+  public UploadDetailForGetTaskResultOutput pcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
+    return this;
+  }
+
+   /**
+   * Get pcapURI
+   * @return pcapURI
+  **/
+  @Schema(description = "")
+  public String getPcapURI() {
+    return pcapURI;
+  }
+
+  public void setPcapURI(String pcapURI) {
+    this.pcapURI = pcapURI;
   }
 
   public UploadDetailForGetTaskResultOutput recvCost(Long recvCost) {
@@ -482,7 +524,9 @@ public class UploadDetailForGetTaskResultOutput {
         Objects.equals(this.htTPRequestHeader, uploadDetailForGetTaskResultOutput.htTPRequestHeader) &&
         Objects.equals(this.htTPResponseBody, uploadDetailForGetTaskResultOutput.htTPResponseBody) &&
         Objects.equals(this.htTPResponseHeader, uploadDetailForGetTaskResultOutput.htTPResponseHeader) &&
+        Objects.equals(this.htTPVersion, uploadDetailForGetTaskResultOutput.htTPVersion) &&
         Objects.equals(this.locationDetail, uploadDetailForGetTaskResultOutput.locationDetail) &&
+        Objects.equals(this.pcapURI, uploadDetailForGetTaskResultOutput.pcapURI) &&
         Objects.equals(this.recvCost, uploadDetailForGetTaskResultOutput.recvCost) &&
         Objects.equals(this.redirectCost, uploadDetailForGetTaskResultOutput.redirectCost) &&
         Objects.equals(this.redirectNums, uploadDetailForGetTaskResultOutput.redirectNums) &&
@@ -498,7 +542,7 @@ public class UploadDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, locationDetail, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
+    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, pcapURI, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
   }
 
 
@@ -515,7 +559,9 @@ public class UploadDetailForGetTaskResultOutput {
     sb.append("    htTPRequestHeader: ").append(toIndentedString(htTPRequestHeader)).append("\n");
     sb.append("    htTPResponseBody: ").append(toIndentedString(htTPResponseBody)).append("\n");
     sb.append("    htTPResponseHeader: ").append(toIndentedString(htTPResponseHeader)).append("\n");
+    sb.append("    htTPVersion: ").append(toIndentedString(htTPVersion)).append("\n");
     sb.append("    locationDetail: ").append(toIndentedString(locationDetail)).append("\n");
+    sb.append("    pcapURI: ").append(toIndentedString(pcapURI)).append("\n");
     sb.append("    recvCost: ").append(toIndentedString(recvCost)).append("\n");
     sb.append("    redirectCost: ").append(toIndentedString(redirectCost)).append("\n");
     sb.append("    redirectNums: ").append(toIndentedString(redirectNums)).append("\n");

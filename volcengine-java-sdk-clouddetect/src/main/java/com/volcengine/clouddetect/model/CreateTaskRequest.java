@@ -20,12 +20,19 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clouddetect.model.DNSConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.DNSHijackConfigForCreateTaskInput;
 import com.volcengine.clouddetect.model.DiagnoseConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.DownloadConfigForCreateTaskInput;
 import com.volcengine.clouddetect.model.HTTPConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.PageConfigForCreateTaskInput;
 import com.volcengine.clouddetect.model.PeriodConfigForCreateTaskInput;
 import com.volcengine.clouddetect.model.PingConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.ResultAssertForCreateTaskInput;
+import com.volcengine.clouddetect.model.SelectionConfigForCreateTaskInput;
 import com.volcengine.clouddetect.model.TCPConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.TagForCreateTaskInput;
 import com.volcengine.clouddetect.model.UDPConfigForCreateTaskInput;
+import com.volcengine.clouddetect.model.UploadConfigForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,11 +49,20 @@ public class CreateTaskRequest {
   @SerializedName("Address")
   private String address = null;
 
+  @SerializedName("AlarmIDList")
+  private List<Long> alarmIDList = null;
+
   @SerializedName("DNSConfig")
   private DNSConfigForCreateTaskInput dnSConfig = null;
 
+  @SerializedName("DNSHijackConfig")
+  private DNSHijackConfigForCreateTaskInput dnSHijackConfig = null;
+
   @SerializedName("DiagnoseConfig")
   private DiagnoseConfigForCreateTaskInput diagnoseConfig = null;
+
+  @SerializedName("DownloadConfig")
+  private DownloadConfigForCreateTaskInput downloadConfig = null;
 
   @SerializedName("FinishTime")
   private Long finishTime = null;
@@ -66,6 +82,9 @@ public class CreateTaskRequest {
   @SerializedName("NodeCount")
   private Integer nodeCount = null;
 
+  @SerializedName("PageConfig")
+  private PageConfigForCreateTaskInput pageConfig = null;
+
   @SerializedName("PeriodConfig")
   private PeriodConfigForCreateTaskInput periodConfig = null;
 
@@ -75,14 +94,32 @@ public class CreateTaskRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("ResultAssert")
+  private ResultAssertForCreateTaskInput resultAssert = null;
+
+  @SerializedName("SelectionConfig")
+  private SelectionConfigForCreateTaskInput selectionConfig = null;
+
   @SerializedName("TCPConfig")
   private TCPConfigForCreateTaskInput tcPConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateTaskInput> tags = null;
+
+  @SerializedName("TargetServerType")
+  private Integer targetServerType = null;
+
+  @SerializedName("TaskGroupID")
+  private Long taskGroupID = null;
 
   @SerializedName("Type")
   private Integer type = null;
 
   @SerializedName("UDPConfig")
   private UDPConfigForCreateTaskInput udPConfig = null;
+
+  @SerializedName("UploadConfig")
+  private UploadConfigForCreateTaskInput uploadConfig = null;
 
   public CreateTaskRequest address(String address) {
     this.address = address;
@@ -101,6 +138,32 @@ public class CreateTaskRequest {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public CreateTaskRequest alarmIDList(List<Long> alarmIDList) {
+    this.alarmIDList = alarmIDList;
+    return this;
+  }
+
+  public CreateTaskRequest addAlarmIDListItem(Long alarmIDListItem) {
+    if (this.alarmIDList == null) {
+      this.alarmIDList = new ArrayList<Long>();
+    }
+    this.alarmIDList.add(alarmIDListItem);
+    return this;
+  }
+
+   /**
+   * Get alarmIDList
+   * @return alarmIDList
+  **/
+  @Schema(description = "")
+  public List<Long> getAlarmIDList() {
+    return alarmIDList;
+  }
+
+  public void setAlarmIDList(List<Long> alarmIDList) {
+    this.alarmIDList = alarmIDList;
   }
 
   public CreateTaskRequest dnSConfig(DNSConfigForCreateTaskInput dnSConfig) {
@@ -122,6 +185,25 @@ public class CreateTaskRequest {
     this.dnSConfig = dnSConfig;
   }
 
+  public CreateTaskRequest dnSHijackConfig(DNSHijackConfigForCreateTaskInput dnSHijackConfig) {
+    this.dnSHijackConfig = dnSHijackConfig;
+    return this;
+  }
+
+   /**
+   * Get dnSHijackConfig
+   * @return dnSHijackConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public DNSHijackConfigForCreateTaskInput getDnSHijackConfig() {
+    return dnSHijackConfig;
+  }
+
+  public void setDnSHijackConfig(DNSHijackConfigForCreateTaskInput dnSHijackConfig) {
+    this.dnSHijackConfig = dnSHijackConfig;
+  }
+
   public CreateTaskRequest diagnoseConfig(DiagnoseConfigForCreateTaskInput diagnoseConfig) {
     this.diagnoseConfig = diagnoseConfig;
     return this;
@@ -139,6 +221,25 @@ public class CreateTaskRequest {
 
   public void setDiagnoseConfig(DiagnoseConfigForCreateTaskInput diagnoseConfig) {
     this.diagnoseConfig = diagnoseConfig;
+  }
+
+  public CreateTaskRequest downloadConfig(DownloadConfigForCreateTaskInput downloadConfig) {
+    this.downloadConfig = downloadConfig;
+    return this;
+  }
+
+   /**
+   * Get downloadConfig
+   * @return downloadConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public DownloadConfigForCreateTaskInput getDownloadConfig() {
+    return downloadConfig;
+  }
+
+  public void setDownloadConfig(DownloadConfigForCreateTaskInput downloadConfig) {
+    this.downloadConfig = downloadConfig;
   }
 
   public CreateTaskRequest finishTime(Long finishTime) {
@@ -262,6 +363,25 @@ public class CreateTaskRequest {
     this.nodeCount = nodeCount;
   }
 
+  public CreateTaskRequest pageConfig(PageConfigForCreateTaskInput pageConfig) {
+    this.pageConfig = pageConfig;
+    return this;
+  }
+
+   /**
+   * Get pageConfig
+   * @return pageConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public PageConfigForCreateTaskInput getPageConfig() {
+    return pageConfig;
+  }
+
+  public void setPageConfig(PageConfigForCreateTaskInput pageConfig) {
+    this.pageConfig = pageConfig;
+  }
+
   public CreateTaskRequest periodConfig(PeriodConfigForCreateTaskInput periodConfig) {
     this.periodConfig = periodConfig;
     return this;
@@ -318,6 +438,44 @@ public class CreateTaskRequest {
     this.projectName = projectName;
   }
 
+  public CreateTaskRequest resultAssert(ResultAssertForCreateTaskInput resultAssert) {
+    this.resultAssert = resultAssert;
+    return this;
+  }
+
+   /**
+   * Get resultAssert
+   * @return resultAssert
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultAssertForCreateTaskInput getResultAssert() {
+    return resultAssert;
+  }
+
+  public void setResultAssert(ResultAssertForCreateTaskInput resultAssert) {
+    this.resultAssert = resultAssert;
+  }
+
+  public CreateTaskRequest selectionConfig(SelectionConfigForCreateTaskInput selectionConfig) {
+    this.selectionConfig = selectionConfig;
+    return this;
+  }
+
+   /**
+   * Get selectionConfig
+   * @return selectionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SelectionConfigForCreateTaskInput getSelectionConfig() {
+    return selectionConfig;
+  }
+
+  public void setSelectionConfig(SelectionConfigForCreateTaskInput selectionConfig) {
+    this.selectionConfig = selectionConfig;
+  }
+
   public CreateTaskRequest tcPConfig(TCPConfigForCreateTaskInput tcPConfig) {
     this.tcPConfig = tcPConfig;
     return this;
@@ -335,6 +493,69 @@ public class CreateTaskRequest {
 
   public void setTcPConfig(TCPConfigForCreateTaskInput tcPConfig) {
     this.tcPConfig = tcPConfig;
+  }
+
+  public CreateTaskRequest tags(List<TagForCreateTaskInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateTaskRequest addTagsItem(TagForCreateTaskInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateTaskInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateTaskInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateTaskInput> tags) {
+    this.tags = tags;
+  }
+
+  public CreateTaskRequest targetServerType(Integer targetServerType) {
+    this.targetServerType = targetServerType;
+    return this;
+  }
+
+   /**
+   * Get targetServerType
+   * @return targetServerType
+  **/
+  @Schema(description = "")
+  public Integer getTargetServerType() {
+    return targetServerType;
+  }
+
+  public void setTargetServerType(Integer targetServerType) {
+    this.targetServerType = targetServerType;
+  }
+
+  public CreateTaskRequest taskGroupID(Long taskGroupID) {
+    this.taskGroupID = taskGroupID;
+    return this;
+  }
+
+   /**
+   * Get taskGroupID
+   * @return taskGroupID
+  **/
+  @Schema(description = "")
+  public Long getTaskGroupID() {
+    return taskGroupID;
+  }
+
+  public void setTaskGroupID(Long taskGroupID) {
+    this.taskGroupID = taskGroupID;
   }
 
   public CreateTaskRequest type(Integer type) {
@@ -375,6 +596,25 @@ public class CreateTaskRequest {
     this.udPConfig = udPConfig;
   }
 
+  public CreateTaskRequest uploadConfig(UploadConfigForCreateTaskInput uploadConfig) {
+    this.uploadConfig = uploadConfig;
+    return this;
+  }
+
+   /**
+   * Get uploadConfig
+   * @return uploadConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public UploadConfigForCreateTaskInput getUploadConfig() {
+    return uploadConfig;
+  }
+
+  public void setUploadConfig(UploadConfigForCreateTaskInput uploadConfig) {
+    this.uploadConfig = uploadConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -386,25 +626,35 @@ public class CreateTaskRequest {
     }
     CreateTaskRequest createTaskRequest = (CreateTaskRequest) o;
     return Objects.equals(this.address, createTaskRequest.address) &&
+        Objects.equals(this.alarmIDList, createTaskRequest.alarmIDList) &&
         Objects.equals(this.dnSConfig, createTaskRequest.dnSConfig) &&
+        Objects.equals(this.dnSHijackConfig, createTaskRequest.dnSHijackConfig) &&
         Objects.equals(this.diagnoseConfig, createTaskRequest.diagnoseConfig) &&
+        Objects.equals(this.downloadConfig, createTaskRequest.downloadConfig) &&
         Objects.equals(this.finishTime, createTaskRequest.finishTime) &&
         Objects.equals(this.htTPConfig, createTaskRequest.htTPConfig) &&
         Objects.equals(this.intervalSeconds, createTaskRequest.intervalSeconds) &&
         Objects.equals(this.lineIDList, createTaskRequest.lineIDList) &&
         Objects.equals(this.name, createTaskRequest.name) &&
         Objects.equals(this.nodeCount, createTaskRequest.nodeCount) &&
+        Objects.equals(this.pageConfig, createTaskRequest.pageConfig) &&
         Objects.equals(this.periodConfig, createTaskRequest.periodConfig) &&
         Objects.equals(this.pingConfig, createTaskRequest.pingConfig) &&
         Objects.equals(this.projectName, createTaskRequest.projectName) &&
+        Objects.equals(this.resultAssert, createTaskRequest.resultAssert) &&
+        Objects.equals(this.selectionConfig, createTaskRequest.selectionConfig) &&
         Objects.equals(this.tcPConfig, createTaskRequest.tcPConfig) &&
+        Objects.equals(this.tags, createTaskRequest.tags) &&
+        Objects.equals(this.targetServerType, createTaskRequest.targetServerType) &&
+        Objects.equals(this.taskGroupID, createTaskRequest.taskGroupID) &&
         Objects.equals(this.type, createTaskRequest.type) &&
-        Objects.equals(this.udPConfig, createTaskRequest.udPConfig);
+        Objects.equals(this.udPConfig, createTaskRequest.udPConfig) &&
+        Objects.equals(this.uploadConfig, createTaskRequest.uploadConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, dnSConfig, diagnoseConfig, finishTime, htTPConfig, intervalSeconds, lineIDList, name, nodeCount, periodConfig, pingConfig, projectName, tcPConfig, type, udPConfig);
+    return Objects.hash(address, alarmIDList, dnSConfig, dnSHijackConfig, diagnoseConfig, downloadConfig, finishTime, htTPConfig, intervalSeconds, lineIDList, name, nodeCount, pageConfig, periodConfig, pingConfig, projectName, resultAssert, selectionConfig, tcPConfig, tags, targetServerType, taskGroupID, type, udPConfig, uploadConfig);
   }
 
 
@@ -414,20 +664,30 @@ public class CreateTaskRequest {
     sb.append("class CreateTaskRequest {\n");
     
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    alarmIDList: ").append(toIndentedString(alarmIDList)).append("\n");
     sb.append("    dnSConfig: ").append(toIndentedString(dnSConfig)).append("\n");
+    sb.append("    dnSHijackConfig: ").append(toIndentedString(dnSHijackConfig)).append("\n");
     sb.append("    diagnoseConfig: ").append(toIndentedString(diagnoseConfig)).append("\n");
+    sb.append("    downloadConfig: ").append(toIndentedString(downloadConfig)).append("\n");
     sb.append("    finishTime: ").append(toIndentedString(finishTime)).append("\n");
     sb.append("    htTPConfig: ").append(toIndentedString(htTPConfig)).append("\n");
     sb.append("    intervalSeconds: ").append(toIndentedString(intervalSeconds)).append("\n");
     sb.append("    lineIDList: ").append(toIndentedString(lineIDList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    pageConfig: ").append(toIndentedString(pageConfig)).append("\n");
     sb.append("    periodConfig: ").append(toIndentedString(periodConfig)).append("\n");
     sb.append("    pingConfig: ").append(toIndentedString(pingConfig)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    resultAssert: ").append(toIndentedString(resultAssert)).append("\n");
+    sb.append("    selectionConfig: ").append(toIndentedString(selectionConfig)).append("\n");
     sb.append("    tcPConfig: ").append(toIndentedString(tcPConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    targetServerType: ").append(toIndentedString(targetServerType)).append("\n");
+    sb.append("    taskGroupID: ").append(toIndentedString(taskGroupID)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    udPConfig: ").append(toIndentedString(udPConfig)).append("\n");
+    sb.append("    uploadConfig: ").append(toIndentedString(uploadConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

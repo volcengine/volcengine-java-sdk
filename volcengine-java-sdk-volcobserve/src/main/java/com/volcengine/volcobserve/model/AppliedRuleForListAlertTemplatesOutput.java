@@ -36,6 +36,12 @@ public class AppliedRuleForListAlertTemplatesOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ObjectGroupId")
+  private String objectGroupId = null;
+
+  @SerializedName("ObjectId")
+  private String objectId = null;
+
   public AppliedRuleForListAlertTemplatesOutput id(String id) {
     this.id = id;
     return this;
@@ -72,6 +78,42 @@ public class AppliedRuleForListAlertTemplatesOutput {
     this.name = name;
   }
 
+  public AppliedRuleForListAlertTemplatesOutput objectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
+    return this;
+  }
+
+   /**
+   * Get objectGroupId
+   * @return objectGroupId
+  **/
+  @Schema(description = "")
+  public String getObjectGroupId() {
+    return objectGroupId;
+  }
+
+  public void setObjectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
+  }
+
+  public AppliedRuleForListAlertTemplatesOutput objectId(String objectId) {
+    this.objectId = objectId;
+    return this;
+  }
+
+   /**
+   * Get objectId
+   * @return objectId
+  **/
+  @Schema(description = "")
+  public String getObjectId() {
+    return objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +125,14 @@ public class AppliedRuleForListAlertTemplatesOutput {
     }
     AppliedRuleForListAlertTemplatesOutput appliedRuleForListAlertTemplatesOutput = (AppliedRuleForListAlertTemplatesOutput) o;
     return Objects.equals(this.id, appliedRuleForListAlertTemplatesOutput.id) &&
-        Objects.equals(this.name, appliedRuleForListAlertTemplatesOutput.name);
+        Objects.equals(this.name, appliedRuleForListAlertTemplatesOutput.name) &&
+        Objects.equals(this.objectGroupId, appliedRuleForListAlertTemplatesOutput.objectGroupId) &&
+        Objects.equals(this.objectId, appliedRuleForListAlertTemplatesOutput.objectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, name, objectGroupId, objectId);
   }
 
 
@@ -99,6 +143,8 @@ public class AppliedRuleForListAlertTemplatesOutput {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
+    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
