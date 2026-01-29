@@ -39,6 +39,9 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
+  @SerializedName("BlueGreenRole")
+  private String blueGreenRole = null;
+
   @SerializedName("Capacity")
   private CapacityForDescribeDBInstanceDetailOutput capacity = null;
 
@@ -139,6 +142,24 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   public void setAutoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  public DescribeDBInstanceDetailResponse blueGreenRole(String blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
+    return this;
+  }
+
+   /**
+   * Get blueGreenRole
+   * @return blueGreenRole
+  **/
+  @Schema(description = "")
+  public String getBlueGreenRole() {
+    return blueGreenRole;
+  }
+
+  public void setBlueGreenRole(String blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
   }
 
   public DescribeDBInstanceDetailResponse capacity(CapacityForDescribeDBInstanceDetailOutput capacity) {
@@ -692,6 +713,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     }
     DescribeDBInstanceDetailResponse describeDBInstanceDetailResponse = (DescribeDBInstanceDetailResponse) o;
     return Objects.equals(this.autoRenew, describeDBInstanceDetailResponse.autoRenew) &&
+        Objects.equals(this.blueGreenRole, describeDBInstanceDetailResponse.blueGreenRole) &&
         Objects.equals(this.capacity, describeDBInstanceDetailResponse.capacity) &&
         Objects.equals(this.chargeType, describeDBInstanceDetailResponse.chargeType) &&
         Objects.equals(this.configureNodes, describeDBInstanceDetailResponse.configureNodes) &&
@@ -724,7 +746,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, capacity, chargeType, configureNodes, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
+    return Objects.hash(autoRenew, blueGreenRole, capacity, chargeType, configureNodes, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
   }
 
 
@@ -734,6 +756,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     sb.append("class DescribeDBInstanceDetailResponse {\n");
     
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
+    sb.append("    blueGreenRole: ").append(toIndentedString(blueGreenRole)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    configureNodes: ").append(toIndentedString(configureNodes)).append("\n");
