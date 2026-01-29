@@ -38,6 +38,9 @@ public class TagFilterForDescribeLaunchTemplatesInput {
   @SerializedName("Value")
   private List<String> value = null;
 
+  @SerializedName("Values")
+  private List<String> values = null;
+
   public TagFilterForDescribeLaunchTemplatesInput key(String key) {
     this.key = key;
     return this;
@@ -82,6 +85,32 @@ public class TagFilterForDescribeLaunchTemplatesInput {
     this.value = value;
   }
 
+  public TagFilterForDescribeLaunchTemplatesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeLaunchTemplatesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +122,13 @@ public class TagFilterForDescribeLaunchTemplatesInput {
     }
     TagFilterForDescribeLaunchTemplatesInput tagFilterForDescribeLaunchTemplatesInput = (TagFilterForDescribeLaunchTemplatesInput) o;
     return Objects.equals(this.key, tagFilterForDescribeLaunchTemplatesInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeLaunchTemplatesInput.value);
+        Objects.equals(this.value, tagFilterForDescribeLaunchTemplatesInput.value) &&
+        Objects.equals(this.values, tagFilterForDescribeLaunchTemplatesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, value, values);
   }
 
 
@@ -109,6 +139,7 @@ public class TagFilterForDescribeLaunchTemplatesInput {
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
