@@ -33,6 +33,9 @@ public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("HostName")
+  private String hostName = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -82,6 +85,24 @@ public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput hostName(String hostName) {
+    this.hostName = hostName;
+    return this;
+  }
+
+   /**
+   * Get hostName
+   * @return hostName
+  **/
+  @Schema(description = "")
+  public String getHostName() {
+    return hostName;
+  }
+
+  public void setHostName(String hostName) {
+    this.hostName = hostName;
   }
 
   public NodeDetailInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
@@ -293,6 +314,7 @@ public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
     }
     NodeDetailInfoForDescribeDBInstanceDetailOutput nodeDetailInfoForDescribeDBInstanceDetailOutput = (NodeDetailInfoForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.createTime, nodeDetailInfoForDescribeDBInstanceDetailOutput.createTime) &&
+        Objects.equals(this.hostName, nodeDetailInfoForDescribeDBInstanceDetailOutput.hostName) &&
         Objects.equals(this.instanceId, nodeDetailInfoForDescribeDBInstanceDetailOutput.instanceId) &&
         Objects.equals(this.memory, nodeDetailInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeIP, nodeDetailInfoForDescribeDBInstanceDetailOutput.nodeIP) &&
@@ -308,7 +330,7 @@ public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, instanceId, memory, nodeIP, nodeId, nodeSpec, nodeStatus, nodeType, regionId, updateTime, VCPU, zoneId);
+    return Objects.hash(createTime, hostName, instanceId, memory, nodeIP, nodeId, nodeSpec, nodeStatus, nodeType, regionId, updateTime, VCPU, zoneId);
   }
 
 
@@ -318,6 +340,7 @@ public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
     sb.append("class NodeDetailInfoForDescribeDBInstanceDetailOutput {\n");
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeIP: ").append(toIndentedString(nodeIP)).append("\n");

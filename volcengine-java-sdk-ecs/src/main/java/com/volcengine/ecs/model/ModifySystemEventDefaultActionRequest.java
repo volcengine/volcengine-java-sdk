@@ -30,51 +30,8 @@ import javax.validation.Valid;
 
 
 public class ModifySystemEventDefaultActionRequest {
-  /**
-   * Gets or Sets defaultAction
-   */
-  @JsonAdapter(DefaultActionEnum.Adapter.class)
-  public enum DefaultActionEnum {
-    @SerializedName("ColdMigrate")
-    COLDMIGRATE("ColdMigrate"),
-    @SerializedName("ReplaceDisk")
-    REPLACEDISK("ReplaceDisk");
-
-    private String value;
-
-    DefaultActionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DefaultActionEnum fromValue(String input) {
-      for (DefaultActionEnum b : DefaultActionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DefaultActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DefaultActionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DefaultActionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DefaultActionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DefaultAction")
-  private DefaultActionEnum defaultAction = null;
+  @SerializedName("DefaultAction")
+  private String defaultAction = null;
 
   @SerializedName("EventId")
   private String eventId = null;
@@ -85,7 +42,7 @@ public class ModifySystemEventDefaultActionRequest {
   @SerializedName("OperatedStartAt")
   private String operatedStartAt = null;
 
-  public ModifySystemEventDefaultActionRequest defaultAction(DefaultActionEnum defaultAction) {
+  public ModifySystemEventDefaultActionRequest defaultAction(String defaultAction) {
     this.defaultAction = defaultAction;
     return this;
   }
@@ -96,11 +53,11 @@ public class ModifySystemEventDefaultActionRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public DefaultActionEnum getDefaultAction() {
+  public String getDefaultAction() {
     return defaultAction;
   }
 
-  public void setDefaultAction(DefaultActionEnum defaultAction) {
+  public void setDefaultAction(String defaultAction) {
     this.defaultAction = defaultAction;
   }
 

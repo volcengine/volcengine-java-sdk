@@ -32,14 +32,41 @@ import javax.validation.Valid;
 
 
 public class BackupDataRequest {
+  @SerializedName("BackupAll")
+  private Boolean backupAll = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ExcludePathList")
+  private List<String> excludePathList = null;
+
+  @SerializedName("IncludePathList")
+  private List<String> includePathList = null;
 
   @SerializedName("PodIdList")
   private List<String> podIdList = null;
 
   @SerializedName("ProductId")
   private String productId = null;
+
+  public BackupDataRequest backupAll(Boolean backupAll) {
+    this.backupAll = backupAll;
+    return this;
+  }
+
+   /**
+   * Get backupAll
+   * @return backupAll
+  **/
+  @Schema(description = "")
+  public Boolean isBackupAll() {
+    return backupAll;
+  }
+
+  public void setBackupAll(Boolean backupAll) {
+    this.backupAll = backupAll;
+  }
 
   public BackupDataRequest description(String description) {
     this.description = description;
@@ -57,6 +84,58 @@ public class BackupDataRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public BackupDataRequest excludePathList(List<String> excludePathList) {
+    this.excludePathList = excludePathList;
+    return this;
+  }
+
+  public BackupDataRequest addExcludePathListItem(String excludePathListItem) {
+    if (this.excludePathList == null) {
+      this.excludePathList = new ArrayList<String>();
+    }
+    this.excludePathList.add(excludePathListItem);
+    return this;
+  }
+
+   /**
+   * Get excludePathList
+   * @return excludePathList
+  **/
+  @Schema(description = "")
+  public List<String> getExcludePathList() {
+    return excludePathList;
+  }
+
+  public void setExcludePathList(List<String> excludePathList) {
+    this.excludePathList = excludePathList;
+  }
+
+  public BackupDataRequest includePathList(List<String> includePathList) {
+    this.includePathList = includePathList;
+    return this;
+  }
+
+  public BackupDataRequest addIncludePathListItem(String includePathListItem) {
+    if (this.includePathList == null) {
+      this.includePathList = new ArrayList<String>();
+    }
+    this.includePathList.add(includePathListItem);
+    return this;
+  }
+
+   /**
+   * Get includePathList
+   * @return includePathList
+  **/
+  @Schema(description = "")
+  public List<String> getIncludePathList() {
+    return includePathList;
+  }
+
+  public void setIncludePathList(List<String> includePathList) {
+    this.includePathList = includePathList;
   }
 
   public BackupDataRequest podIdList(List<String> podIdList) {
@@ -114,14 +193,17 @@ public class BackupDataRequest {
       return false;
     }
     BackupDataRequest backupDataRequest = (BackupDataRequest) o;
-    return Objects.equals(this.description, backupDataRequest.description) &&
+    return Objects.equals(this.backupAll, backupDataRequest.backupAll) &&
+        Objects.equals(this.description, backupDataRequest.description) &&
+        Objects.equals(this.excludePathList, backupDataRequest.excludePathList) &&
+        Objects.equals(this.includePathList, backupDataRequest.includePathList) &&
         Objects.equals(this.podIdList, backupDataRequest.podIdList) &&
         Objects.equals(this.productId, backupDataRequest.productId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, podIdList, productId);
+    return Objects.hash(backupAll, description, excludePathList, includePathList, podIdList, productId);
   }
 
 
@@ -130,7 +212,10 @@ public class BackupDataRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackupDataRequest {\n");
     
+    sb.append("    backupAll: ").append(toIndentedString(backupAll)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    excludePathList: ").append(toIndentedString(excludePathList)).append("\n");
+    sb.append("    includePathList: ").append(toIndentedString(includePathList)).append("\n");
     sb.append("    podIdList: ").append(toIndentedString(podIdList)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("}");
