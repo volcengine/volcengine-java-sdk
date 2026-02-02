@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class ProcessConfigForSubmitAITranslationWorkflowInput {
+  @SerializedName("DisableCloneVoiceByScene")
+  private Boolean disableCloneVoiceByScene = null;
+
   @SerializedName("DisableSmartSubtitleRewrite")
   private Boolean disableSmartSubtitleRewrite = null;
 
@@ -40,6 +43,24 @@ public class ProcessConfigForSubmitAITranslationWorkflowInput {
 
   @SerializedName("SuspensionStageList")
   private List<String> suspensionStageList = null;
+
+  public ProcessConfigForSubmitAITranslationWorkflowInput disableCloneVoiceByScene(Boolean disableCloneVoiceByScene) {
+    this.disableCloneVoiceByScene = disableCloneVoiceByScene;
+    return this;
+  }
+
+   /**
+   * Get disableCloneVoiceByScene
+   * @return disableCloneVoiceByScene
+  **/
+  @Schema(description = "")
+  public Boolean isDisableCloneVoiceByScene() {
+    return disableCloneVoiceByScene;
+  }
+
+  public void setDisableCloneVoiceByScene(Boolean disableCloneVoiceByScene) {
+    this.disableCloneVoiceByScene = disableCloneVoiceByScene;
+  }
 
   public ProcessConfigForSubmitAITranslationWorkflowInput disableSmartSubtitleRewrite(Boolean disableSmartSubtitleRewrite) {
     this.disableSmartSubtitleRewrite = disableSmartSubtitleRewrite;
@@ -113,14 +134,15 @@ public class ProcessConfigForSubmitAITranslationWorkflowInput {
       return false;
     }
     ProcessConfigForSubmitAITranslationWorkflowInput processConfigForSubmitAITranslationWorkflowInput = (ProcessConfigForSubmitAITranslationWorkflowInput) o;
-    return Objects.equals(this.disableSmartSubtitleRewrite, processConfigForSubmitAITranslationWorkflowInput.disableSmartSubtitleRewrite) &&
+    return Objects.equals(this.disableCloneVoiceByScene, processConfigForSubmitAITranslationWorkflowInput.disableCloneVoiceByScene) &&
+        Objects.equals(this.disableSmartSubtitleRewrite, processConfigForSubmitAITranslationWorkflowInput.disableSmartSubtitleRewrite) &&
         Objects.equals(this.disableSubtitlePunctSplit, processConfigForSubmitAITranslationWorkflowInput.disableSubtitlePunctSplit) &&
         Objects.equals(this.suspensionStageList, processConfigForSubmitAITranslationWorkflowInput.suspensionStageList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disableSmartSubtitleRewrite, disableSubtitlePunctSplit, suspensionStageList);
+    return Objects.hash(disableCloneVoiceByScene, disableSmartSubtitleRewrite, disableSubtitlePunctSplit, suspensionStageList);
   }
 
 
@@ -129,6 +151,7 @@ public class ProcessConfigForSubmitAITranslationWorkflowInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessConfigForSubmitAITranslationWorkflowInput {\n");
     
+    sb.append("    disableCloneVoiceByScene: ").append(toIndentedString(disableCloneVoiceByScene)).append("\n");
     sb.append("    disableSmartSubtitleRewrite: ").append(toIndentedString(disableSmartSubtitleRewrite)).append("\n");
     sb.append("    disableSubtitlePunctSplit: ").append(toIndentedString(disableSubtitlePunctSplit)).append("\n");
     sb.append("    suspensionStageList: ").append(toIndentedString(suspensionStageList)).append("\n");
