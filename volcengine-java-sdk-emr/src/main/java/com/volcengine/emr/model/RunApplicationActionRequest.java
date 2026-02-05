@@ -48,11 +48,11 @@ public class RunApplicationActionRequest {
   @SerializedName("CommandParams")
   private List<CommandParamForRunApplicationActionInput> commandParams = null;
 
+  @SerializedName("ComponentName")
+  private String componentName = null;
+
   @SerializedName("Remark")
   private String remark = null;
-
-  @SerializedName("componentName")
-  private String componentName = null;
 
   public RunApplicationActionRequest actionName(String actionName) {
     this.actionName = actionName;
@@ -156,6 +156,24 @@ public class RunApplicationActionRequest {
     this.commandParams = commandParams;
   }
 
+  public RunApplicationActionRequest componentName(String componentName) {
+    this.componentName = componentName;
+    return this;
+  }
+
+   /**
+   * Get componentName
+   * @return componentName
+  **/
+  @Schema(description = "")
+  public String getComponentName() {
+    return componentName;
+  }
+
+  public void setComponentName(String componentName) {
+    this.componentName = componentName;
+  }
+
   public RunApplicationActionRequest remark(String remark) {
     this.remark = remark;
     return this;
@@ -175,24 +193,6 @@ public class RunApplicationActionRequest {
     this.remark = remark;
   }
 
-  public RunApplicationActionRequest componentName(String componentName) {
-    this.componentName = componentName;
-    return this;
-  }
-
-   /**
-   * Get componentName
-   * @return componentName
-  **/
-  @Schema(description = "")
-  public String getComponentName() {
-    return componentName;
-  }
-
-  public void setComponentName(String componentName) {
-    this.componentName = componentName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,13 +208,13 @@ public class RunApplicationActionRequest {
         Objects.equals(this.clientToken, runApplicationActionRequest.clientToken) &&
         Objects.equals(this.clusterId, runApplicationActionRequest.clusterId) &&
         Objects.equals(this.commandParams, runApplicationActionRequest.commandParams) &&
-        Objects.equals(this.remark, runApplicationActionRequest.remark) &&
-        Objects.equals(this.componentName, runApplicationActionRequest.componentName);
+        Objects.equals(this.componentName, runApplicationActionRequest.componentName) &&
+        Objects.equals(this.remark, runApplicationActionRequest.remark);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionName, applicationName, clientToken, clusterId, commandParams, remark, componentName);
+    return Objects.hash(actionName, applicationName, clientToken, clusterId, commandParams, componentName, remark);
   }
 
 
@@ -228,8 +228,8 @@ public class RunApplicationActionRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    commandParams: ").append(toIndentedString(commandParams)).append("\n");
-    sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    componentName: ").append(toIndentedString(componentName)).append("\n");
+    sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("}");
     return sb.toString();
   }
