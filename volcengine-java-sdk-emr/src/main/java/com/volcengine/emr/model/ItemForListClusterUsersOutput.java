@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +46,9 @@ public class ItemForListClusterUsersOutput {
 
   @SerializedName("UpdateTime")
   private Long updateTime = null;
+
+  @SerializedName("UserGroupNames")
+  private List<String> userGroupNames = null;
 
   @SerializedName("UserName")
   private String userName = null;
@@ -138,6 +143,32 @@ public class ItemForListClusterUsersOutput {
     this.updateTime = updateTime;
   }
 
+  public ItemForListClusterUsersOutput userGroupNames(List<String> userGroupNames) {
+    this.userGroupNames = userGroupNames;
+    return this;
+  }
+
+  public ItemForListClusterUsersOutput addUserGroupNamesItem(String userGroupNamesItem) {
+    if (this.userGroupNames == null) {
+      this.userGroupNames = new ArrayList<String>();
+    }
+    this.userGroupNames.add(userGroupNamesItem);
+    return this;
+  }
+
+   /**
+   * Get userGroupNames
+   * @return userGroupNames
+  **/
+  @Schema(description = "")
+  public List<String> getUserGroupNames() {
+    return userGroupNames;
+  }
+
+  public void setUserGroupNames(List<String> userGroupNames) {
+    this.userGroupNames = userGroupNames;
+  }
+
   public ItemForListClusterUsersOutput userName(String userName) {
     this.userName = userName;
     return this;
@@ -171,12 +202,13 @@ public class ItemForListClusterUsersOutput {
         Objects.equals(this.creatorName, itemForListClusterUsersOutput.creatorName) &&
         Objects.equals(this.description, itemForListClusterUsersOutput.description) &&
         Objects.equals(this.updateTime, itemForListClusterUsersOutput.updateTime) &&
+        Objects.equals(this.userGroupNames, itemForListClusterUsersOutput.userGroupNames) &&
         Objects.equals(this.userName, itemForListClusterUsersOutput.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, createTime, creatorName, description, updateTime, userName);
+    return Objects.hash(clusterId, createTime, creatorName, description, updateTime, userGroupNames, userName);
   }
 
 
@@ -190,6 +222,7 @@ public class ItemForListClusterUsersOutput {
     sb.append("    creatorName: ").append(toIndentedString(creatorName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    userGroupNames: ").append(toIndentedString(userGroupNames)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();
