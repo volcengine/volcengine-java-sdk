@@ -33,8 +33,55 @@ public class RestoreDBInstanceRequest {
   @SerializedName("BackupPointId")
   private String backupPointId = null;
 
-  @SerializedName("BackupType")
-  private String backupType = null;
+  /**
+   * Gets or Sets backupType
+   */
+  @JsonAdapter(BackupTypeEnum.Adapter.class)
+  public enum BackupTypeEnum {
+    @SerializedName("Invalid")
+    INVALID("Invalid"),
+    @SerializedName("Full")
+    FULL("Full"),
+    @SerializedName("Inc")
+    INC("Inc"),
+    @SerializedName("All")
+    ALL("All");
+
+    private String value;
+
+    BackupTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupTypeEnum fromValue(String input) {
+      for (BackupTypeEnum b : BackupTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupType")
+  private BackupTypeEnum backupType = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -63,7 +110,7 @@ public class RestoreDBInstanceRequest {
     this.backupPointId = backupPointId;
   }
 
-  public RestoreDBInstanceRequest backupType(String backupType) {
+  public RestoreDBInstanceRequest backupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
     return this;
   }
@@ -73,11 +120,11 @@ public class RestoreDBInstanceRequest {
    * @return backupType
   **/
   @Schema(description = "")
-  public String getBackupType() {
+  public BackupTypeEnum getBackupType() {
     return backupType;
   }
 
-  public void setBackupType(String backupType) {
+  public void setBackupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
   }
 
