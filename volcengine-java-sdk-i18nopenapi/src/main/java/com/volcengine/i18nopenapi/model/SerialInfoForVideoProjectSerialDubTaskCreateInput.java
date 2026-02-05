@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.ConvertsubtitleForVideoProjectSerialTaskCreateInput;
-import com.volcengine.i18nopenapi.model.PureVideoForVideoProjectSerialTaskCreateInput;
-import com.volcengine.i18nopenapi.model.SubtitleForVideoProjectSerialTaskCreateInput;
-import com.volcengine.i18nopenapi.model.VideoForVideoProjectSerialTaskCreateInput;
+import com.volcengine.i18nopenapi.model.ConvertsubtitleForVideoProjectSerialDubTaskCreateInput;
+import com.volcengine.i18nopenapi.model.PureVideoForVideoProjectSerialDubTaskCreateInput;
+import com.volcengine.i18nopenapi.model.SubtitleForVideoProjectSerialDubTaskCreateInput;
+import com.volcengine.i18nopenapi.model.VideoForVideoProjectSerialDubTaskCreateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,28 +30,28 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SerialInfoForVideoProjectSerialTaskCreateInput
+ * SerialInfoForVideoProjectSerialDubTaskCreateInput
  */
 
 
 
-public class SerialInfoForVideoProjectSerialTaskCreateInput {
+public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("episode")
   private Integer episode = null;
 
   @SerializedName("pureVideo")
-  private PureVideoForVideoProjectSerialTaskCreateInput pureVideo = null;
+  private PureVideoForVideoProjectSerialDubTaskCreateInput pureVideo = null;
 
   @SerializedName("subtitle")
-  private SubtitleForVideoProjectSerialTaskCreateInput subtitle = null;
+  private SubtitleForVideoProjectSerialDubTaskCreateInput subtitle = null;
 
   @SerializedName("subtitles")
-  private List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles = null;
+  private List<ConvertsubtitleForVideoProjectSerialDubTaskCreateInput> subtitles = null;
 
   @SerializedName("video")
-  private VideoForVideoProjectSerialTaskCreateInput video = null;
+  private VideoForVideoProjectSerialDubTaskCreateInput video = null;
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput episode(Integer episode) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput episode(Integer episode) {
     this.episode = episode;
     return this;
   }
@@ -69,7 +69,7 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
     this.episode = episode;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput pureVideo(PureVideoForVideoProjectSerialTaskCreateInput pureVideo) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput pureVideo(PureVideoForVideoProjectSerialDubTaskCreateInput pureVideo) {
     this.pureVideo = pureVideo;
     return this;
   }
@@ -80,15 +80,15 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public PureVideoForVideoProjectSerialTaskCreateInput getPureVideo() {
+  public PureVideoForVideoProjectSerialDubTaskCreateInput getPureVideo() {
     return pureVideo;
   }
 
-  public void setPureVideo(PureVideoForVideoProjectSerialTaskCreateInput pureVideo) {
+  public void setPureVideo(PureVideoForVideoProjectSerialDubTaskCreateInput pureVideo) {
     this.pureVideo = pureVideo;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput subtitle(SubtitleForVideoProjectSerialTaskCreateInput subtitle) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput subtitle(SubtitleForVideoProjectSerialDubTaskCreateInput subtitle) {
     this.subtitle = subtitle;
     return this;
   }
@@ -99,22 +99,22 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public SubtitleForVideoProjectSerialTaskCreateInput getSubtitle() {
+  public SubtitleForVideoProjectSerialDubTaskCreateInput getSubtitle() {
     return subtitle;
   }
 
-  public void setSubtitle(SubtitleForVideoProjectSerialTaskCreateInput subtitle) {
+  public void setSubtitle(SubtitleForVideoProjectSerialDubTaskCreateInput subtitle) {
     this.subtitle = subtitle;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput subtitles(List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput subtitles(List<ConvertsubtitleForVideoProjectSerialDubTaskCreateInput> subtitles) {
     this.subtitles = subtitles;
     return this;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput addSubtitlesItem(ConvertsubtitleForVideoProjectSerialTaskCreateInput subtitlesItem) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput addSubtitlesItem(ConvertsubtitleForVideoProjectSerialDubTaskCreateInput subtitlesItem) {
     if (this.subtitles == null) {
-      this.subtitles = new ArrayList<ConvertsubtitleForVideoProjectSerialTaskCreateInput>();
+      this.subtitles = new ArrayList<ConvertsubtitleForVideoProjectSerialDubTaskCreateInput>();
     }
     this.subtitles.add(subtitlesItem);
     return this;
@@ -126,15 +126,15 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> getSubtitles() {
+  public List<ConvertsubtitleForVideoProjectSerialDubTaskCreateInput> getSubtitles() {
     return subtitles;
   }
 
-  public void setSubtitles(List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles) {
+  public void setSubtitles(List<ConvertsubtitleForVideoProjectSerialDubTaskCreateInput> subtitles) {
     this.subtitles = subtitles;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput video(VideoForVideoProjectSerialTaskCreateInput video) {
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput video(VideoForVideoProjectSerialDubTaskCreateInput video) {
     this.video = video;
     return this;
   }
@@ -145,11 +145,11 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public VideoForVideoProjectSerialTaskCreateInput getVideo() {
+  public VideoForVideoProjectSerialDubTaskCreateInput getVideo() {
     return video;
   }
 
-  public void setVideo(VideoForVideoProjectSerialTaskCreateInput video) {
+  public void setVideo(VideoForVideoProjectSerialDubTaskCreateInput video) {
     this.video = video;
   }
 
@@ -162,12 +162,12 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SerialInfoForVideoProjectSerialTaskCreateInput serialInfoForVideoProjectSerialTaskCreateInput = (SerialInfoForVideoProjectSerialTaskCreateInput) o;
-    return Objects.equals(this.episode, serialInfoForVideoProjectSerialTaskCreateInput.episode) &&
-        Objects.equals(this.pureVideo, serialInfoForVideoProjectSerialTaskCreateInput.pureVideo) &&
-        Objects.equals(this.subtitle, serialInfoForVideoProjectSerialTaskCreateInput.subtitle) &&
-        Objects.equals(this.subtitles, serialInfoForVideoProjectSerialTaskCreateInput.subtitles) &&
-        Objects.equals(this.video, serialInfoForVideoProjectSerialTaskCreateInput.video);
+    SerialInfoForVideoProjectSerialDubTaskCreateInput serialInfoForVideoProjectSerialDubTaskCreateInput = (SerialInfoForVideoProjectSerialDubTaskCreateInput) o;
+    return Objects.equals(this.episode, serialInfoForVideoProjectSerialDubTaskCreateInput.episode) &&
+        Objects.equals(this.pureVideo, serialInfoForVideoProjectSerialDubTaskCreateInput.pureVideo) &&
+        Objects.equals(this.subtitle, serialInfoForVideoProjectSerialDubTaskCreateInput.subtitle) &&
+        Objects.equals(this.subtitles, serialInfoForVideoProjectSerialDubTaskCreateInput.subtitles) &&
+        Objects.equals(this.video, serialInfoForVideoProjectSerialDubTaskCreateInput.video);
   }
 
   @Override
@@ -179,7 +179,7 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SerialInfoForVideoProjectSerialTaskCreateInput {\n");
+    sb.append("class SerialInfoForVideoProjectSerialDubTaskCreateInput {\n");
     
     sb.append("    episode: ").append(toIndentedString(episode)).append("\n");
     sb.append("    pureVideo: ").append(toIndentedString(pureVideo)).append("\n");
