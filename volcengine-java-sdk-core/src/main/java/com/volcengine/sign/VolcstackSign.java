@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
 /**
@@ -63,7 +64,7 @@ public class VolcstackSign implements Authentication {
         try {
             sign(params, headerParams, payload);
         } catch (Exception e) {
-            SDK_CORE_LOGGER.error(()->"VolcstackSign exception: ", e);
+            SDK_CORE_LOGGER.error(() -> "VolcstackSign exception: ", e);
         }
     }
 
@@ -145,7 +146,7 @@ public class VolcstackSign implements Authentication {
         stringToSign.append("\n");
         stringToSign.append(getSHA256(signRequest.canonicalRequest.toString()));
         signRequest.stringToSign = stringToSign;
-        SDK_CORE_LOGGER.debugSign("stringToSign: "  + signRequest.stringToSign);
+        SDK_CORE_LOGGER.debugSign("stringToSign: " + signRequest.stringToSign);
     }
 
     private void buildAuthorization(Map<String, String> headerParams, SignRequest signRequest) throws Exception {
@@ -323,7 +324,6 @@ public class VolcstackSign implements Authentication {
         copySign.setMethod(this.method);
         return copySign;
     }
-
 
 
     /**
