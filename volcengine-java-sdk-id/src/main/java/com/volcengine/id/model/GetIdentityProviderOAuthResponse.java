@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForGetIdentityProviderOAuthOutput;
 import com.volcengine.id.model.ProviderOptionsForGetIdentityProviderOAuthOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 public class GetIdentityProviderOAuthResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
+
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForGetIdentityProviderOAuthOutput claimsPropagationConfig = null;
 
   @SerializedName("ClientId")
   private String clientId = null;
@@ -88,6 +92,25 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
 
   public void setAuthorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
+  }
+
+  public GetIdentityProviderOAuthResponse claimsPropagationConfig(ClaimsPropagationConfigForGetIdentityProviderOAuthOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForGetIdentityProviderOAuthOutput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForGetIdentityProviderOAuthOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
   }
 
   public GetIdentityProviderOAuthResponse clientId(String clientId) {
@@ -326,6 +349,7 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
     }
     GetIdentityProviderOAuthResponse getIdentityProviderOAuthResponse = (GetIdentityProviderOAuthResponse) o;
     return Objects.equals(this.authorizationEndpoint, getIdentityProviderOAuthResponse.authorizationEndpoint) &&
+        Objects.equals(this.claimsPropagationConfig, getIdentityProviderOAuthResponse.claimsPropagationConfig) &&
         Objects.equals(this.clientId, getIdentityProviderOAuthResponse.clientId) &&
         Objects.equals(this.clientSecret, getIdentityProviderOAuthResponse.clientSecret) &&
         Objects.equals(this.enabled, getIdentityProviderOAuthResponse.enabled) &&
@@ -342,7 +366,7 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
+    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
   }
 
 
@@ -352,6 +376,7 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
     sb.append("class GetIdentityProviderOAuthResponse {\n");
     
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

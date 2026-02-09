@@ -52,6 +52,9 @@ public class UpdateUserPoolClientRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DevelopmentModeEnabled")
+  private Boolean developmentModeEnabled = null;
+
   @SerializedName("IdToken")
   private IdTokenForUpdateUserPoolClientInput idToken = null;
 
@@ -208,6 +211,24 @@ public class UpdateUserPoolClientRequest {
     this.description = description;
   }
 
+  public UpdateUserPoolClientRequest developmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get developmentModeEnabled
+   * @return developmentModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDevelopmentModeEnabled() {
+    return developmentModeEnabled;
+  }
+
+  public void setDevelopmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+  }
+
   public UpdateUserPoolClientRequest idToken(IdTokenForUpdateUserPoolClientInput idToken) {
     this.idToken = idToken;
     return this;
@@ -317,6 +338,7 @@ public class UpdateUserPoolClientRequest {
         Objects.equals(this.allowedWebOrigins, updateUserPoolClientRequest.allowedWebOrigins) &&
         Objects.equals(this.clientUid, updateUserPoolClientRequest.clientUid) &&
         Objects.equals(this.description, updateUserPoolClientRequest.description) &&
+        Objects.equals(this.developmentModeEnabled, updateUserPoolClientRequest.developmentModeEnabled) &&
         Objects.equals(this.idToken, updateUserPoolClientRequest.idToken) &&
         Objects.equals(this.logoUri, updateUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, updateUserPoolClientRequest.name) &&
@@ -326,7 +348,7 @@ public class UpdateUserPoolClientRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, idToken, logoUri, name, refreshToken, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, developmentModeEnabled, idToken, logoUri, name, refreshToken, userPoolUid);
   }
 
 
@@ -341,6 +363,7 @@ public class UpdateUserPoolClientRequest {
     sb.append("    allowedWebOrigins: ").append(toIndentedString(allowedWebOrigins)).append("\n");
     sb.append("    clientUid: ").append(toIndentedString(clientUid)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

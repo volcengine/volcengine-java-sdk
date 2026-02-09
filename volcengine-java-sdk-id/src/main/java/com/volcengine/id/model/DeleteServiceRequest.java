@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteServiceRequest {
+  @SerializedName("ServiceId")
+  private String serviceId = null;
+
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  public DeleteServiceRequest serviceId(String serviceId) {
+    this.serviceId = serviceId;
+    return this;
+  }
+
+   /**
+   * Get serviceId
+   * @return serviceId
+  **/
+  @Schema(description = "")
+  public String getServiceId() {
+    return serviceId;
+  }
+
+  public void setServiceId(String serviceId) {
+    this.serviceId = serviceId;
+  }
 
   public DeleteServiceRequest serviceName(String serviceName) {
     this.serviceName = serviceName;
@@ -42,8 +63,7 @@ public class DeleteServiceRequest {
    * Get serviceName
    * @return serviceName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getServiceName() {
     return serviceName;
   }
@@ -62,12 +82,13 @@ public class DeleteServiceRequest {
       return false;
     }
     DeleteServiceRequest deleteServiceRequest = (DeleteServiceRequest) o;
-    return Objects.equals(this.serviceName, deleteServiceRequest.serviceName);
+    return Objects.equals(this.serviceId, deleteServiceRequest.serviceId) &&
+        Objects.equals(this.serviceName, deleteServiceRequest.serviceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceName);
+    return Objects.hash(serviceId, serviceName);
   }
 
 
@@ -76,6 +97,7 @@ public class DeleteServiceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteServiceRequest {\n");
     
+    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("}");
     return sb.toString();

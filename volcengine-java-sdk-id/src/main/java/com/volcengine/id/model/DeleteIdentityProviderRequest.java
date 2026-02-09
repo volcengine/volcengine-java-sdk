@@ -30,48 +30,48 @@ import javax.validation.Valid;
 
 
 public class DeleteIdentityProviderRequest {
-  @SerializedName("ConnectionUID")
-  private String connectionUID = null;
+  @SerializedName("ConnectionUid")
+  private String connectionUid = null;
 
-  @SerializedName("UserPoolUID")
-  private String userPoolUID = null;
+  @SerializedName("UserPoolUid")
+  private String userPoolUid = null;
 
-  public DeleteIdentityProviderRequest connectionUID(String connectionUID) {
-    this.connectionUID = connectionUID;
+  public DeleteIdentityProviderRequest connectionUid(String connectionUid) {
+    this.connectionUid = connectionUid;
     return this;
   }
 
    /**
-   * Get connectionUID
-   * @return connectionUID
+   * Get connectionUid
+   * @return connectionUid
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getConnectionUID() {
-    return connectionUID;
+  public String getConnectionUid() {
+    return connectionUid;
   }
 
-  public void setConnectionUID(String connectionUID) {
-    this.connectionUID = connectionUID;
+  public void setConnectionUid(String connectionUid) {
+    this.connectionUid = connectionUid;
   }
 
-  public DeleteIdentityProviderRequest userPoolUID(String userPoolUID) {
-    this.userPoolUID = userPoolUID;
+  public DeleteIdentityProviderRequest userPoolUid(String userPoolUid) {
+    this.userPoolUid = userPoolUid;
     return this;
   }
 
    /**
-   * Get userPoolUID
-   * @return userPoolUID
+   * Get userPoolUid
+   * @return userPoolUid
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getUserPoolUID() {
-    return userPoolUID;
+  public String getUserPoolUid() {
+    return userPoolUid;
   }
 
-  public void setUserPoolUID(String userPoolUID) {
-    this.userPoolUID = userPoolUID;
+  public void setUserPoolUid(String userPoolUid) {
+    this.userPoolUid = userPoolUid;
   }
 
 
@@ -84,13 +84,13 @@ public class DeleteIdentityProviderRequest {
       return false;
     }
     DeleteIdentityProviderRequest deleteIdentityProviderRequest = (DeleteIdentityProviderRequest) o;
-    return Objects.equals(this.connectionUID, deleteIdentityProviderRequest.connectionUID) &&
-        Objects.equals(this.userPoolUID, deleteIdentityProviderRequest.userPoolUID);
+    return Objects.equals(this.connectionUid, deleteIdentityProviderRequest.connectionUid) &&
+        Objects.equals(this.userPoolUid, deleteIdentityProviderRequest.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionUID, userPoolUID);
+    return Objects.hash(connectionUid, userPoolUid);
   }
 
 
@@ -99,8 +99,8 @@ public class DeleteIdentityProviderRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteIdentityProviderRequest {\n");
     
-    sb.append("    connectionUID: ").append(toIndentedString(connectionUID)).append("\n");
-    sb.append("    userPoolUID: ").append(toIndentedString(userPoolUID)).append("\n");
+    sb.append("    connectionUid: ").append(toIndentedString(connectionUid)).append("\n");
+    sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

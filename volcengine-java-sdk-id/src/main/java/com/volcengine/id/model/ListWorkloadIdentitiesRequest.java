@@ -48,6 +48,9 @@ public class ListWorkloadIdentitiesRequest {
   @SerializedName("SortOrder")
   private String sortOrder = null;
 
+  @SerializedName("Source")
+  private String source = null;
+
   @SerializedName("Trn")
   private String trn = null;
 
@@ -166,6 +169,24 @@ public class ListWorkloadIdentitiesRequest {
     this.sortOrder = sortOrder;
   }
 
+  public ListWorkloadIdentitiesRequest source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public ListWorkloadIdentitiesRequest trn(String trn) {
     this.trn = trn;
     return this;
@@ -218,13 +239,14 @@ public class ListWorkloadIdentitiesRequest {
         Objects.equals(this.pageSize, listWorkloadIdentitiesRequest.pageSize) &&
         Objects.equals(this.sortBy, listWorkloadIdentitiesRequest.sortBy) &&
         Objects.equals(this.sortOrder, listWorkloadIdentitiesRequest.sortOrder) &&
+        Objects.equals(this.source, listWorkloadIdentitiesRequest.source) &&
         Objects.equals(this.trn, listWorkloadIdentitiesRequest.trn) &&
         Objects.equals(this.workloadPoolName, listWorkloadIdentitiesRequest.workloadPoolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, name, pageNumber, pageSize, sortBy, sortOrder, trn, workloadPoolName);
+    return Objects.hash(category, name, pageNumber, pageSize, sortBy, sortOrder, source, trn, workloadPoolName);
   }
 
 
@@ -239,6 +261,7 @@ public class ListWorkloadIdentitiesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");
     sb.append("}");

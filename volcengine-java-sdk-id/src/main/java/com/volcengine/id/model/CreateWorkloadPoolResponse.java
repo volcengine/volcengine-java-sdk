@@ -39,6 +39,9 @@ public class CreateWorkloadPoolResponse extends com.volcengine.model.AbstractRes
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DiscoveryUrl")
+  private String discoveryUrl = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -91,6 +94,24 @@ public class CreateWorkloadPoolResponse extends com.volcengine.model.AbstractRes
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateWorkloadPoolResponse discoveryUrl(String discoveryUrl) {
+    this.discoveryUrl = discoveryUrl;
+    return this;
+  }
+
+   /**
+   * Get discoveryUrl
+   * @return discoveryUrl
+  **/
+  @Schema(description = "")
+  public String getDiscoveryUrl() {
+    return discoveryUrl;
+  }
+
+  public void setDiscoveryUrl(String discoveryUrl) {
+    this.discoveryUrl = discoveryUrl;
   }
 
   public CreateWorkloadPoolResponse projectName(String projectName) {
@@ -222,6 +243,7 @@ public class CreateWorkloadPoolResponse extends com.volcengine.model.AbstractRes
     CreateWorkloadPoolResponse createWorkloadPoolResponse = (CreateWorkloadPoolResponse) o;
     return Objects.equals(this.createdAt, createWorkloadPoolResponse.createdAt) &&
         Objects.equals(this.description, createWorkloadPoolResponse.description) &&
+        Objects.equals(this.discoveryUrl, createWorkloadPoolResponse.discoveryUrl) &&
         Objects.equals(this.projectName, createWorkloadPoolResponse.projectName) &&
         Objects.equals(this.tags, createWorkloadPoolResponse.tags) &&
         Objects.equals(this.trn, createWorkloadPoolResponse.trn) &&
@@ -232,7 +254,7 @@ public class CreateWorkloadPoolResponse extends com.volcengine.model.AbstractRes
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, projectName, tags, trn, updatedAt, workloadPoolId, workloadPoolName);
+    return Objects.hash(createdAt, description, discoveryUrl, projectName, tags, trn, updatedAt, workloadPoolId, workloadPoolName);
   }
 
 
@@ -243,6 +265,7 @@ public class CreateWorkloadPoolResponse extends com.volcengine.model.AbstractRes
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");

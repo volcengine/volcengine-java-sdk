@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput;
 import com.volcengine.id.model.ProviderOptionsForUpdateIdentityProviderSAMLInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class UpdateIdentityProviderSAMLRequest {
   @SerializedName("AttributeMapping")
   private String attributeMapping = null;
+
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput claimsPropagationConfig = null;
 
   @SerializedName("ConnectionUid")
   private String connectionUid = null;
@@ -77,6 +81,25 @@ public class UpdateIdentityProviderSAMLRequest {
 
   public void setAttributeMapping(String attributeMapping) {
     this.attributeMapping = attributeMapping;
+  }
+
+  public UpdateIdentityProviderSAMLRequest claimsPropagationConfig(ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
   }
 
   public UpdateIdentityProviderSAMLRequest connectionUid(String connectionUid) {
@@ -255,6 +278,7 @@ public class UpdateIdentityProviderSAMLRequest {
     }
     UpdateIdentityProviderSAMLRequest updateIdentityProviderSAMLRequest = (UpdateIdentityProviderSAMLRequest) o;
     return Objects.equals(this.attributeMapping, updateIdentityProviderSAMLRequest.attributeMapping) &&
+        Objects.equals(this.claimsPropagationConfig, updateIdentityProviderSAMLRequest.claimsPropagationConfig) &&
         Objects.equals(this.connectionUid, updateIdentityProviderSAMLRequest.connectionUid) &&
         Objects.equals(this.enabled, updateIdentityProviderSAMLRequest.enabled) &&
         Objects.equals(this.enabledEncryption, updateIdentityProviderSAMLRequest.enabledEncryption) &&
@@ -268,7 +292,7 @@ public class UpdateIdentityProviderSAMLRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, connectionUid, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, providerOptions, userPoolUid);
+    return Objects.hash(attributeMapping, claimsPropagationConfig, connectionUid, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, providerOptions, userPoolUid);
   }
 
 
@@ -278,6 +302,7 @@ public class UpdateIdentityProviderSAMLRequest {
     sb.append("class UpdateIdentityProviderSAMLRequest {\n");
     
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    connectionUid: ").append(toIndentedString(connectionUid)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
