@@ -327,12 +327,24 @@ public class VolcstackSign implements Authentication {
 
 
     /**
-     * Generate presigned URL query parameters
+     * Generate presigned URL query parameters (without host signing)
      *
      * @param queryParams Original query parameters
      * @return Complete query parameters Map containing all signature information
      */
     public Map<String, String> presign(Map<String, String> queryParams) throws Exception {
+        return presign(queryParams, null);
+    }
+
+    /**
+     * Generate presigned URL query parameters
+     *
+     * @param queryParams Original query parameters
+     * @param host        Host header value to include in signing (e.g., "rds-mysql.cn-beijing.volcengineapi.com").
+     *                    If null or empty, no host header is signed.
+     * @return Complete query parameters Map containing all signature information
+     */
+    public Map<String, String> presign(Map<String, String> queryParams, String host) throws Exception {
         Map<String, String> presignedParams = new HashMap<>(queryParams);
 
         // Generate timestamp
@@ -344,12 +356,15 @@ public class VolcstackSign implements Authentication {
         // Build credential scope
         String credentialScope = dateStamp + "/" + region + "/" + service + "/request";
 
+        // Determine if host header should be signed
+        boolean signHost = host != null && !host.isEmpty();
+
         // Add required query parameters for presigning
         presignedParams.put("X-Date", xDate);
         presignedParams.put("X-NotSignBody", "");
         presignedParams.put("X-Credential", credentials.getAccessKey() + "/" + credentialScope);
         presignedParams.put("X-Algorithm", "HMAC-SHA256");
-        presignedParams.put("X-SignedHeaders", "");
+        presignedParams.put("X-SignedHeaders", signHost ? "host" : "");
         presignedParams.put("X-SignedQueries", ""); // Set to empty first, will be updated later
 
         // Collect all query parameter keys (excluding X-Security-Token), sort and update X-SignedQueries
@@ -384,15 +399,23 @@ public class VolcstackSign implements Authentication {
         canonicalRequest.append(canonicalQueryString.substring(0, canonicalQueryString.length() - 1));
         canonicalRequest.append("\n");
 
-        // Canonical Headers - empty (because X-SignedHeaders is empty)
-        canonicalRequest.append("\n");
-
-        // Signed Headers - empty
-        canonicalRequest.append("");
-        canonicalRequest.append("\n");
-
-        // Extra newline before Payload Hash (required by volcstack presigning specification)
-        canonicalRequest.append("\n");
+        // Canonical Headers and Signed Headers
+        if (signHost) {
+            // Canonical Headers - include host header
+            canonicalRequest.append("host:").append(host).append("\n");
+            canonicalRequest.append("\n");
+            // Signed Headers
+            canonicalRequest.append("host");
+            canonicalRequest.append("\n");
+        } else {
+            // Canonical Headers - empty
+            canonicalRequest.append("\n");
+            // Signed Headers - empty
+            canonicalRequest.append("");
+            canonicalRequest.append("\n");
+            // Extra newline (required by volcstack presigning specification when no headers signed)
+            canonicalRequest.append("\n");
+        }
 
         // Payload Hash - use hash value of X-NotSignBody (empty string)
         canonicalRequest.append(getSHA256(""));
