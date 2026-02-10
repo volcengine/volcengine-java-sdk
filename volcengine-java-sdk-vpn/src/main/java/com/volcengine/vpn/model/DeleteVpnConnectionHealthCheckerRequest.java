@@ -85,8 +85,7 @@ public class DeleteVpnConnectionHealthCheckerRequest {
    * Get vpnConnectionId
    * @return vpnConnectionId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpnConnectionId() {
     return vpnConnectionId;
   }

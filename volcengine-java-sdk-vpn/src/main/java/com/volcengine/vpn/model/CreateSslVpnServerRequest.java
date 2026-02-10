@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForCreateSslVpnServerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,11 +33,103 @@ import javax.validation.Valid;
 
 
 public class CreateSslVpnServerRequest {
-  @SerializedName("Auth")
-  private String auth = null;
+  /**
+   * Gets or Sets auth
+   */
+  @JsonAdapter(AuthEnum.Adapter.class)
+  public enum AuthEnum {
+    @SerializedName("SHA1")
+    SHA1("SHA1"),
+    @SerializedName("MD5")
+    MD5("MD5"),
+    @SerializedName("None")
+    NONE("None");
 
-  @SerializedName("Cipher")
-  private String cipher = null;
+    private String value;
+
+    AuthEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AuthEnum fromValue(String input) {
+      for (AuthEnum b : AuthEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AuthEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AuthEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AuthEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AuthEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Auth")
+  private AuthEnum auth = null;
+
+  /**
+   * Gets or Sets cipher
+   */
+  @JsonAdapter(CipherEnum.Adapter.class)
+  public enum CipherEnum {
+    @SerializedName("AES-128-CBC")
+    AES_128_CBC("AES-128-CBC"),
+    @SerializedName("AES-192-CBC")
+    AES_192_CBC("AES-192-CBC"),
+    @SerializedName("AES-256-CBC")
+    AES_256_CBC("AES-256-CBC"),
+    @SerializedName("None")
+    NONE("None");
+
+    private String value;
+
+    CipherEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static CipherEnum fromValue(String input) {
+      for (CipherEnum b : CipherEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<CipherEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CipherEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public CipherEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return CipherEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Cipher")
+  private CipherEnum cipher = null;
 
   /**
    * Gets or Sets clientCertSessionPolicy
@@ -105,16 +198,62 @@ public class CreateSslVpnServerRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("Protocol")
-  private String protocol = null;
+  /**
+   * Gets or Sets protocol
+   */
+  @JsonAdapter(ProtocolEnum.Adapter.class)
+  public enum ProtocolEnum {
+    @SerializedName("TCP")
+    TCP("TCP"),
+    @SerializedName("UDP")
+    UDP("UDP");
+
+    private String value;
+
+    ProtocolEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolEnum fromValue(String input) {
+      for (ProtocolEnum b : ProtocolEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Protocol")
+  private ProtocolEnum protocol = null;
 
   @SerializedName("SslVpnServerName")
   private String sslVpnServerName = null;
 
+  @SerializedName("Tags")
+  private List<TagForCreateSslVpnServerInput> tags = null;
+
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public CreateSslVpnServerRequest auth(String auth) {
+  public CreateSslVpnServerRequest auth(AuthEnum auth) {
     this.auth = auth;
     return this;
   }
@@ -124,15 +263,15 @@ public class CreateSslVpnServerRequest {
    * @return auth
   **/
   @Schema(description = "")
-  public String getAuth() {
+  public AuthEnum getAuth() {
     return auth;
   }
 
-  public void setAuth(String auth) {
+  public void setAuth(AuthEnum auth) {
     this.auth = auth;
   }
 
-  public CreateSslVpnServerRequest cipher(String cipher) {
+  public CreateSslVpnServerRequest cipher(CipherEnum cipher) {
     this.cipher = cipher;
     return this;
   }
@@ -142,11 +281,11 @@ public class CreateSslVpnServerRequest {
    * @return cipher
   **/
   @Schema(description = "")
-  public String getCipher() {
+  public CipherEnum getCipher() {
     return cipher;
   }
 
-  public void setCipher(String cipher) {
+  public void setCipher(CipherEnum cipher) {
     this.cipher = cipher;
   }
 
@@ -303,7 +442,7 @@ public class CreateSslVpnServerRequest {
     this.projectName = projectName;
   }
 
-  public CreateSslVpnServerRequest protocol(String protocol) {
+  public CreateSslVpnServerRequest protocol(ProtocolEnum protocol) {
     this.protocol = protocol;
     return this;
   }
@@ -313,11 +452,11 @@ public class CreateSslVpnServerRequest {
    * @return protocol
   **/
   @Schema(description = "")
-  public String getProtocol() {
+  public ProtocolEnum getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(String protocol) {
+  public void setProtocol(ProtocolEnum protocol) {
     this.protocol = protocol;
   }
 
@@ -337,6 +476,33 @@ public class CreateSslVpnServerRequest {
 
   public void setSslVpnServerName(String sslVpnServerName) {
     this.sslVpnServerName = sslVpnServerName;
+  }
+
+  public CreateSslVpnServerRequest tags(List<TagForCreateSslVpnServerInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateSslVpnServerRequest addTagsItem(TagForCreateSslVpnServerInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateSslVpnServerInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateSslVpnServerInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateSslVpnServerInput> tags) {
+    this.tags = tags;
   }
 
   public CreateSslVpnServerRequest vpnGatewayId(String vpnGatewayId) {
@@ -380,12 +546,13 @@ public class CreateSslVpnServerRequest {
         Objects.equals(this.projectName, createSslVpnServerRequest.projectName) &&
         Objects.equals(this.protocol, createSslVpnServerRequest.protocol) &&
         Objects.equals(this.sslVpnServerName, createSslVpnServerRequest.sslVpnServerName) &&
+        Objects.equals(this.tags, createSslVpnServerRequest.tags) &&
         Objects.equals(this.vpnGatewayId, createSslVpnServerRequest.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, cipher, clientCertSessionPolicy, clientIpPool, clientToken, compress, description, localSubnets, port, projectName, protocol, sslVpnServerName, vpnGatewayId);
+    return Objects.hash(auth, cipher, clientCertSessionPolicy, clientIpPool, clientToken, compress, description, localSubnets, port, projectName, protocol, sslVpnServerName, tags, vpnGatewayId);
   }
 
 
@@ -406,6 +573,7 @@ public class CreateSslVpnServerRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    sslVpnServerName: ").append(toIndentedString(sslVpnServerName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");
     return sb.toString();

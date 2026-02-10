@@ -49,12 +49,12 @@ public class DescribeVpnGatewayRoutesRequest {
    */
   @JsonAdapter(RouteTypeEnum.Adapter.class)
   public enum RouteTypeEnum {
+    @SerializedName("Static")
+    STATIC("Static"),
     @SerializedName("BGP")
     BGP("BGP"),
-    @SerializedName(" Static")
-    _STATIC(" Static"),
-    @SerializedName(" Cloud")
-    _CLOUD(" Cloud");
+    @SerializedName("Cloud")
+    CLOUD("Cloud");
 
     private String value;
 

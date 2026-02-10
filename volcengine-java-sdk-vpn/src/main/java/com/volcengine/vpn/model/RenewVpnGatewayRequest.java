@@ -33,8 +33,51 @@ public class RenewVpnGatewayRequest {
   @SerializedName("Period")
   private Integer period = null;
 
-  @SerializedName("PeriodUnit")
-  private String periodUnit = null;
+  /**
+   * Gets or Sets periodUnit
+   */
+  @JsonAdapter(PeriodUnitEnum.Adapter.class)
+  public enum PeriodUnitEnum {
+    @SerializedName("Month")
+    MONTH("Month"),
+    @SerializedName("Year")
+    YEAR("Year");
+
+    private String value;
+
+    PeriodUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PeriodUnitEnum fromValue(String input) {
+      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PeriodUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PeriodUnit")
+  private PeriodUnitEnum periodUnit = null;
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
@@ -57,7 +100,7 @@ public class RenewVpnGatewayRequest {
     this.period = period;
   }
 
-  public RenewVpnGatewayRequest periodUnit(String periodUnit) {
+  public RenewVpnGatewayRequest periodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -67,11 +110,11 @@ public class RenewVpnGatewayRequest {
    * @return periodUnit
   **/
   @Schema(description = "")
-  public String getPeriodUnit() {
+  public PeriodUnitEnum getPeriodUnit() {
     return periodUnit;
   }
 
-  public void setPeriodUnit(String periodUnit) {
+  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
   }
 

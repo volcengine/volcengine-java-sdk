@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForDescribeVpnGatewaysBillingOutput
+ * TagForCreateSslVpnServerInput
  */
 
 
 
-public class TagForDescribeVpnGatewaysBillingOutput {
+public class TagForCreateSslVpnServerInput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public TagForDescribeVpnGatewaysBillingOutput key(String key) {
+  public TagForCreateSslVpnServerInput key(String key) {
     this.key = key;
     return this;
   }
@@ -54,7 +54,7 @@ public class TagForDescribeVpnGatewaysBillingOutput {
     this.key = key;
   }
 
-  public TagForDescribeVpnGatewaysBillingOutput value(String value) {
+  public TagForCreateSslVpnServerInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,9 +81,9 @@ public class TagForDescribeVpnGatewaysBillingOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForDescribeVpnGatewaysBillingOutput tagForDescribeVpnGatewaysBillingOutput = (TagForDescribeVpnGatewaysBillingOutput) o;
-    return Objects.equals(this.key, tagForDescribeVpnGatewaysBillingOutput.key) &&
-        Objects.equals(this.value, tagForDescribeVpnGatewaysBillingOutput.value);
+    TagForCreateSslVpnServerInput tagForCreateSslVpnServerInput = (TagForCreateSslVpnServerInput) o;
+    return Objects.equals(this.key, tagForCreateSslVpnServerInput.key) &&
+        Objects.equals(this.value, tagForCreateSslVpnServerInput.value);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class TagForDescribeVpnGatewaysBillingOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForDescribeVpnGatewaysBillingOutput {\n");
+    sb.append("class TagForCreateSslVpnServerInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
