@@ -53,6 +53,9 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("draft")
     private Boolean draft;
 
+    @JsonProperty("tools")
+    private List<ContentGenerationTool> tools;
+
     public CreateContentGenerationTaskRequest() {
     }
 
@@ -68,7 +71,7 @@ public class CreateContentGenerationTaskRequest {
         this.returnLastFrame = returnLastFrame;
     }
 
-    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl, Boolean returnLastFrame, String serviceTier, Long executionExpiresAfter, Boolean generateAudio, Boolean cameraFixed, Boolean watermark, Long seed, String resolution, String ratio, Long duration, Long frames, Boolean draft) {
+    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl, Boolean returnLastFrame, String serviceTier, Long executionExpiresAfter, Boolean generateAudio, Boolean cameraFixed, Boolean watermark, Long seed, String resolution, String ratio, Long duration, Long frames, Boolean draft, List<ContentGenerationTool> tools ) {
         this.model = model;
         this.content = content;
         this.callbackUrl = callbackUrl;
@@ -84,6 +87,7 @@ public class CreateContentGenerationTaskRequest {
         this.duration = duration;
         this.frames = frames;
         this.draft = draft;
+        this.tools = tools;
     }
 
     public String getModel() {
@@ -200,6 +204,14 @@ public class CreateContentGenerationTaskRequest {
         this.draft = draft;
     }
 
+    public List<ContentGenerationTool> getTools() {
+        return tools;
+    }
+
+    public void setTools(List<ContentGenerationTool> tools) {
+        this.tools = tools;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
@@ -218,6 +230,7 @@ public class CreateContentGenerationTaskRequest {
                 ", duration=" + duration +
                 ", frames=" + frames +
                 ", draft=" + draft +
+                ", tools=" + tools +
                 '}';
     }
 
@@ -241,6 +254,7 @@ public class CreateContentGenerationTaskRequest {
         private Long duration;
         private Long frames;
         private Boolean draft;
+        private List<ContentGenerationTool> tools;
 
         private Builder() {
         }
@@ -320,6 +334,11 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder tools(List<ContentGenerationTool> tools) {
+            this.tools = tools;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
@@ -337,7 +356,44 @@ public class CreateContentGenerationTaskRequest {
             createContentGenerationTaskRequest.setDuration(duration);
             createContentGenerationTaskRequest.setFrames(frames);
             createContentGenerationTaskRequest.setDraft(draft);
+            createContentGenerationTaskRequest.setTools(tools);
             return createContentGenerationTaskRequest;
+        }
+    }
+
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class ContentGenerationTool {
+        @JsonProperty("type")
+        private String type;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        @Override
+        public String toString() {
+            return "ContentGenerationTool{" +
+                    "type='" + type + '\'' +
+                    '}';
+        }
+
+        public static ContentGenerationTool.Builder builder() {
+            return new ContentGenerationTool.Builder();
+        }
+
+        public static class Builder {
+            private String type;
+        }
+
+        public ContentGenerationTool build() {
+            ContentGenerationTool contentGenerationTool = new ContentGenerationTool();
+            contentGenerationTool.setType(type);
+            return contentGenerationTool;
         }
     }
 
@@ -353,6 +409,12 @@ public class CreateContentGenerationTaskRequest {
         @JsonProperty("image_url")
         private ImageUrl imageUrl;
 
+        @JsonProperty("audio_url")
+        private AudioUrl audioUrl;
+
+        @JsonProperty("video_url")
+        private VideoUrl videoUrl;
+
         @JsonProperty("role")
         private String role;
 
@@ -362,10 +424,12 @@ public class CreateContentGenerationTaskRequest {
         public Content() {
         }
 
-        public Content(String type, String text, ImageUrl imageUrl, String role, DraftTask draftTask) {
+        public Content(String type, String text, ImageUrl imageUrl, AudioUrl audioUrl, VideoUrl videoUrl, String role, DraftTask draftTask) {
             this.type = type;
             this.text = text;
             this.imageUrl = imageUrl;
+            this.audioUrl = audioUrl;
+            this.videoUrl = videoUrl;
             this.role = role;
             this.draftTask = draftTask;
         }
@@ -394,6 +458,22 @@ public class CreateContentGenerationTaskRequest {
             this.imageUrl = imageUrl;
         }
 
+        public AudioUrl getAudioUrl() {
+            return audioUrl;
+        }
+
+        public void setAudioUrl(AudioUrl audioUrl) {
+            this.audioUrl = audioUrl;
+        }
+
+        public VideoUrl getVideoUrl() {
+            return videoUrl;
+        }
+
+        public void setVideoUrl(VideoUrl videoUrl) {
+            this.videoUrl = videoUrl;
+        }
+
         public String getRole() {
             return role;
         }
@@ -416,6 +496,8 @@ public class CreateContentGenerationTaskRequest {
                     "type='" + type + '\'' +
                     ", text='" + text + '\'' +
                     ", imageUrl=" + imageUrl +
+                    ", audioUrl=" + audioUrl +
+                    ", videoUrl=" + videoUrl +
                     ", role=" + role +
                     ", draftTask=" + draftTask +
                     '}';
@@ -429,6 +511,8 @@ public class CreateContentGenerationTaskRequest {
             private String type;
             private String text;
             private ImageUrl imageUrl;
+            private AudioUrl audioUrl;
+            private VideoUrl videoUrl;
             private String role;
             private DraftTask draftTask;
 
@@ -450,6 +534,16 @@ public class CreateContentGenerationTaskRequest {
                 return this;
             }
 
+            public Builder audioUrl(AudioUrl audioUrl) {
+                this.audioUrl = audioUrl;
+                return this;
+            }
+
+            public Builder videoUrl(VideoUrl videoUrl) {
+                this.videoUrl = videoUrl;
+                return this;
+            }
+
             public Builder role(String role) {
                 this.role = role;
                 return this;
@@ -465,6 +559,8 @@ public class CreateContentGenerationTaskRequest {
                 content.setType(type);
                 content.setText(text);
                 content.setImageUrl(imageUrl);
+                content.setAudioUrl(audioUrl);
+                content.setVideoUrl(videoUrl);
                 content.setRole(role);
                 content.setDraftTask(draftTask);
                 return content;
@@ -519,6 +615,108 @@ public class CreateContentGenerationTaskRequest {
                 ImageUrl imageUrl = new ImageUrl();
                 imageUrl.setUrl(url);
                 return imageUrl;
+            }
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class AudioUrl {
+
+        @JsonProperty("url")
+        private String url;
+
+        public AudioUrl() {
+        }
+
+        public AudioUrl(String url) {
+            this.url = url;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        @Override
+        public String toString() {
+            return "AudioUrl{" +
+                    "url='" + url + '\'' +
+                    '}';
+        }
+
+        public static AudioUrl.Builder builder() {
+            return new Builder();
+        }
+
+        public static class Builder {
+            private String url;
+
+            private Builder() {
+            }
+
+            public Builder url(String url) {
+                this.url = url;
+                return this;
+            }
+
+            public AudioUrl build() {
+                AudioUrl audioUrl = new AudioUrl();
+                audioUrl.setUrl(url);
+                return audioUrl;
+            }
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class VideoUrl {
+
+        @JsonProperty("url")
+        private String url;
+
+        public VideoUrl() {
+        }
+
+        public VideoUrl(String url) {
+            this.url = url;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        @Override
+        public String toString() {
+            return "VideoUrl{" +
+                    "url='" + url + '\'' +
+                    '}';
+        }
+
+        public static VideoUrl.Builder builder() {
+            return new Builder();
+        }
+
+        public static class Builder {
+            private String url;
+
+            private Builder() {
+            }
+
+            public Builder url(String url) {
+                this.url = url;
+                return this;
+            }
+
+            public VideoUrl build() {
+                VideoUrl videoUrl = new VideoUrl();
+                videoUrl.setUrl(url);
+                return videoUrl;
             }
         }
     }

@@ -85,6 +85,24 @@ public class ListContentGenerationTasksResponse {
         @JsonProperty("generate_audio")
         private Boolean generateAudio;
 
+        @JsonProperty("ratio")
+        private String ratio;
+
+        @JsonProperty("duration")
+        private java.lang.Long duration;
+
+        @JsonProperty("resolution")
+        private String resolution;
+
+        @JsonProperty("draft")
+        private Boolean draft;
+
+        @JsonProperty("draft_task_id")
+        private String draftTaskID;
+
+        @JsonProperty("tools")
+        private List<CreateContentGenerationTaskRequest.ContentGenerationTool> tools;
+
         public String getId() {
             return id;
         }
@@ -209,6 +227,54 @@ public class ListContentGenerationTasksResponse {
             this.generateAudio = generateAudio;
         }
 
+        public String getRatio() {
+            return ratio;
+        }
+
+        public void setRatio(String ratio) {
+            this.ratio = ratio;
+        }
+
+        public java.lang.Long getDuration() {
+            return duration;
+        }
+
+        public void setDuration(java.lang.Long duration) {
+            this.duration = duration;
+        }
+
+        public String getResolution() {
+            return resolution;
+        }
+
+        public void setResolution(String resolution) {
+            this.resolution = resolution;
+        }
+
+        public Boolean getDraft() {
+            return draft;
+        }
+
+        public void setDraft(Boolean draft) {
+            this.draft = draft;
+        }
+
+        public String getDraftTaskID() {
+            return draftTaskID;
+        }
+
+        public void setDraftTaskID(String draftTaskID) {
+            this.draftTaskID = draftTaskID;
+        }
+
+        public List<CreateContentGenerationTaskRequest.ContentGenerationTool> getTools() {
+            return tools;
+        }
+
+        public void setTools(List<CreateContentGenerationTaskRequest.ContentGenerationTool> tools) {
+            this.tools = tools;
+        }
+
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Content {
 
@@ -323,6 +389,12 @@ public class ListContentGenerationTasksResponse {
                     ", serviceTier='" + serviceTier + '\'' +
                     ", executionExpiresAfter=" + executionExpiresAfter +
                     ", generateAudio=" + generateAudio +
+                    ", ratio='" + ratio + '\'' +
+                    ", duration=" + duration +
+                    ", resolution='" + resolution + '\'' +
+                    ", draft=" + draft +
+                    ", draftTaskID='" + draftTaskID + '\'' +
+                    ", tools='" + tools + '\'' +
                     '}';
         }
     }
