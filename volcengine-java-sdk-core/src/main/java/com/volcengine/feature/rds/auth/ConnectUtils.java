@@ -1,12 +1,15 @@
 package com.volcengine.feature.rds.auth;
 
 import com.volcengine.ApiClient;
-import com.volcengine.endpoint.DefaultEndpointProvider;
-import com.volcengine.sign.Credentials;
-import com.volcengine.sign.VolcstackSign;
+import com.volcengine.ApiException;
+import com.volcengine.Pair;
+import com.volcengine.endpoint.ResolveEndpointOption;
+import com.volcengine.endpoint.ResolvedEndpoint;
+import com.volcengine.endpoint.StandardEndpointProvider;
+import com.volcengine.interceptor.*;
+import com.volcengine.sign.ServiceInfo;
 
 import org.apache.commons.lang.StringUtils;
-
 
 import java.util.*;
 
@@ -23,78 +26,22 @@ public class ConnectUtils {
 
     /**
      * Generate an authorization token for database connection (used as password).
-     * Extracts credentials, region, and disableSSL from the ApiClient, similar to Go SDK's Config.
+     * Aligned with Go SDK's BuildAuthToken implementation.
      *
-     * @param apiClient  ApiClient containing Credentials, Region, and DisableSSL settings
+     * @param apiClient  ApiClient containing Credentials, Region, DisableSSL, and UseDualStack settings
      * @param dbUser     Database user account
      * @param instanceId Database instance ID
      * @param expires    Expiration time in seconds, defaults to 900 seconds (15 minutes) if &lt;= 0
      * @return Presigned URL string that can be used as the authorization token for database connection
-     * @throws Exception if parameters are invalid or signing fails
+     * @throws ApiException if parameters are invalid or signing fails
      */
-    public static String buildAuthToken(
-            ApiClient apiClient,
-            String dbUser,
-            String instanceId,
-            int expires
-    ) throws Exception {
+    public static String buildAuthToken(ApiClient apiClient, String dbUser, String instanceId, int expires) throws ApiException {
+        // Parameter validation
         if (apiClient == null) {
             throw new IllegalArgumentException("apiClient must not be null");
         }
-        return buildAuthToken(apiClient.getCredentials(), apiClient.getRegion(),
-                dbUser, instanceId, expires, apiClient.getDisableSSL());
-    }
 
-    /**
-     * Generate an authorization token for database connection (used as password).
-     * Uses HTTPS by default.
-     *
-     * @param credentials Credentials containing AccessKey and SecretKey for signing
-     * @param region      Region, e.g., "cn-beijing"
-     * @param dbUser      Database user account
-     * @param instanceId  Database instance ID
-     * @param expires     Expiration time in seconds, defaults to 900 seconds (15 minutes) if &lt;= 0
-     * @return Presigned URL string that can be used as the authorization token for database connection
-     * @throws Exception if parameters are invalid or signing fails
-     */
-    public static String buildAuthToken(
-            Credentials credentials,
-            String region,
-            String dbUser,
-            String instanceId,
-            int expires
-    ) throws Exception {
-        return buildAuthToken(credentials, region, dbUser, instanceId, expires, false);
-    }
-
-    /**
-     * Generate an authorization token for database connection (used as password).
-     *
-     * @param credentials Credentials containing AccessKey and SecretKey for signing
-     * @param region      Region, e.g., "cn-beijing"
-     * @param dbUser      Database user account
-     * @param instanceId  Database instance ID
-     * @param expires     Expiration time in seconds, defaults to 900 seconds (15 minutes) if &lt;= 0
-     * @param disableSSL  If true, use http:// scheme; otherwise use https://
-     * @return Presigned URL string that can be used as the authorization token for database connection
-     * @throws Exception if parameters are invalid or signing fails
-     */
-    public static String buildAuthToken(
-            Credentials credentials,
-            String region,
-            String dbUser,
-            String instanceId,
-            int expires,
-            boolean disableSSL
-    ) throws Exception {
-        // Parameter validation
-        if (credentials == null ||
-                StringUtils.isEmpty(credentials.getAccessKey()) ||
-                StringUtils.isEmpty(credentials.getSecretKey())) {
-            throw new IllegalArgumentException("credentials must not be null and must contain valid access key and secret key");
-        }
-
-        if (StringUtils.isEmpty(region)) {
+        if (StringUtils.isEmpty(apiClient.getRegion())) {
             throw new IllegalArgumentException("region must not be empty");
         }
 
@@ -111,56 +58,41 @@ public class ConnectUtils {
             expires = DEFAULT_EXPIRES_SECONDS;
         }
 
-        // Build regional endpoint
-        String endpoint = DefaultEndpointProvider.getRegionalEndpoint(SERVICE_NAME, region);
+        // Use StandardEndpointProvider to resolve endpoint (handles regionalization + dual-stack)
+        StandardEndpointProvider endpointProvider = new StandardEndpointProvider();
+        ResolveEndpointOption option = new ResolveEndpointOption();
+        option.setService(SERVICE_NAME);
+        option.setRegion(apiClient.getRegion());
+        option.setUseDualStack(apiClient.getUseDualStack());
+        ResolvedEndpoint resolved = endpointProvider.endpointFor(option);
+        String endpoint = resolved.getEndpoint();
 
-        // Build query parameters
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("Action", ACTION);
-        queryParams.put("Version", VERSION);
-        queryParams.put("X-Expires", String.valueOf(expires));
-        queryParams.put("DBUser", dbUser);
-        queryParams.put("InstanceId", instanceId);
+        // SSL handling, ResolveEndpointInterceptor dose not support this
+        String schema = apiClient.getDisableSSL() ? "http" : "https";
 
-        // Create signature object
-        VolcstackSign sign = new VolcstackSign(credentials);
-        sign.setRegion(region);
-        sign.setService(SERVICE_NAME);
-        sign.setMethod("GET");
+        // Build InterceptorContext with presigned flag
+        InterceptorContext context = new InterceptorContext(apiClient.getHttpClient(), null);
+        context.setApiClient(apiClient);
 
-        // Generate presigned URL with host signing
-        Map<String, String> presignedParams = sign.presign(queryParams, endpoint);
+        RequestInterceptorContext reqCtx = context.getRequestContext();
+        reqCtx.setPresigned(true);
+        reqCtx.setSchema(schema);
+        reqCtx.setHost(endpoint);
+        reqCtx.setMethod("GET");
+        reqCtx.setServiceInfo(new ServiceInfo(SERVICE_NAME, "GET"));
+        reqCtx.setHeaderParams(new HashMap<>());
 
-        // Build complete URL
-        String scheme = disableSSL ? "http" : "https";
-        return buildUrl(scheme, endpoint, presignedParams);
-    }
+        List<Pair> queryParams = new ArrayList<>();
+        queryParams.add(new Pair("Action", ACTION));
+        queryParams.add(new Pair("Version", VERSION));
+        queryParams.add(new Pair("X-Expires", String.valueOf(expires)));
+        queryParams.add(new Pair("DBUser", dbUser));
+        queryParams.add(new Pair("InstanceId", instanceId));
+        reqCtx.setQueryParams(queryParams);
 
-    /**
-     * Build complete URL with scheme, host, and query parameters.
-     *
-     * @param scheme          URL scheme ("http" or "https")
-     * @param endpoint        Host endpoint (e.g., "rds-mysql.cn-beijing.volcengineapi.com")
-     * @param presignedParams Presigned query parameters
-     * @return Complete URL string
-     */
-    private static String buildUrl(String scheme, String endpoint, Map<String, String> presignedParams) {
-        StringBuilder url = new StringBuilder();
-        url.append(scheme).append("://").append(endpoint).append("?");
+        // Execute sign interceptor for presigning
+        new SignRequestInterceptor().intercept(context);
 
-        // Sort parameter keys
-        List<String> keys = new ArrayList<>(presignedParams.keySet());
-        Collections.sort(keys);
-
-        for (int i = 0; i < keys.size(); i++) {
-            String key = keys.get(i);
-            String value = presignedParams.get(key);
-            url.append(key).append("=").append(value);
-            if (i < keys.size() - 1) {
-                url.append("&");
-            }
-        }
-
-        return url.toString();
+        return reqCtx.getPresignedUrl();
     }
 }

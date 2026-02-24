@@ -836,23 +836,6 @@ public class DefaultEndpointProvider implements EndpointResolver {
         return useDualStack;
     }
 
-    /**
-     * Build a regional endpoint for the given service and region.
-     * <p>
-     * Format: {standardized_service}.{region}.volcengineapi.com
-     * e.g., rds_mysql -> rds-mysql.cn-beijing.volcengineapi.com
-     * <p>
-     * Supports dual-stack via VOLC_ENABLE_DUALSTACK=true env var.
-     *
-     * @param service Service code (e.g., "rds_mysql")
-     * @param region  Region code (e.g., "cn-beijing")
-     * @return Regional endpoint string (without scheme)
-     */
-    public static String getRegionalEndpoint(String service, String region) {
-        String endpointSuffix = hasEnabledDualstack(null) ? DUALSTACK_ENDPOINT_SUFFIX : ENDPOINT_SUFFIX;
-        return standardizeDomainServiceCode(service) + SEPARATOR + region + endpointSuffix;
-    }
-
     @Override
     public ResolvedEndpoint endpointFor(ResolveEndpointOption option) {
         String endpoint = DefaultEndpointProvider.getDefaultEndpointByServiceInfo(option.getService(),
