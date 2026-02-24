@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clouddetect20251031.model.GroupListForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,46 +33,63 @@ import javax.validation.Valid;
 
 
 public class GroupConfigForCreateTaskInput {
-  @SerializedName("Name")
-  private String name = null;
+  @SerializedName("GroupList")
+  private List<GroupListForCreateTaskInput> groupList = null;
 
-  @SerializedName("NodeCount")
-  private Long nodeCount = null;
+  @SerializedName("Groups")
+  private List<Integer> groups = null;
 
-  public GroupConfigForCreateTaskInput name(String name) {
-    this.name = name;
+  public GroupConfigForCreateTaskInput groupList(List<GroupListForCreateTaskInput> groupList) {
+    this.groupList = groupList;
+    return this;
+  }
+
+  public GroupConfigForCreateTaskInput addGroupListItem(GroupListForCreateTaskInput groupListItem) {
+    if (this.groupList == null) {
+      this.groupList = new ArrayList<GroupListForCreateTaskInput>();
+    }
+    this.groupList.add(groupListItem);
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get groupList
+   * @return groupList
   **/
+  @Valid
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public List<GroupListForCreateTaskInput> getGroupList() {
+    return groupList;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setGroupList(List<GroupListForCreateTaskInput> groupList) {
+    this.groupList = groupList;
   }
 
-  public GroupConfigForCreateTaskInput nodeCount(Long nodeCount) {
-    this.nodeCount = nodeCount;
+  public GroupConfigForCreateTaskInput groups(List<Integer> groups) {
+    this.groups = groups;
+    return this;
+  }
+
+  public GroupConfigForCreateTaskInput addGroupsItem(Integer groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<Integer>();
+    }
+    this.groups.add(groupsItem);
     return this;
   }
 
    /**
-   * Get nodeCount
-   * @return nodeCount
+   * Get groups
+   * @return groups
   **/
   @Schema(description = "")
-  public Long getNodeCount() {
-    return nodeCount;
+  public List<Integer> getGroups() {
+    return groups;
   }
 
-  public void setNodeCount(Long nodeCount) {
-    this.nodeCount = nodeCount;
+  public void setGroups(List<Integer> groups) {
+    this.groups = groups;
   }
 
 
@@ -82,13 +102,13 @@ public class GroupConfigForCreateTaskInput {
       return false;
     }
     GroupConfigForCreateTaskInput groupConfigForCreateTaskInput = (GroupConfigForCreateTaskInput) o;
-    return Objects.equals(this.name, groupConfigForCreateTaskInput.name) &&
-        Objects.equals(this.nodeCount, groupConfigForCreateTaskInput.nodeCount);
+    return Objects.equals(this.groupList, groupConfigForCreateTaskInput.groupList) &&
+        Objects.equals(this.groups, groupConfigForCreateTaskInput.groups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, nodeCount);
+    return Objects.hash(groupList, groups);
   }
 
 
@@ -97,8 +117,8 @@ public class GroupConfigForCreateTaskInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupConfigForCreateTaskInput {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    groupList: ").append(toIndentedString(groupList)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

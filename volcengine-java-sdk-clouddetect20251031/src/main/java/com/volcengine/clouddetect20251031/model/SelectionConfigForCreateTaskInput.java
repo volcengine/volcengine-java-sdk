@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.clouddetect20251031.model.ConvertGroupConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.GroupConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.LineConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.LineGroupConfigForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class SelectionConfigForCreateTaskInput {
   @SerializedName("GroupConfig")
-  private ConvertGroupConfigForCreateTaskInput groupConfig = null;
+  private GroupConfigForCreateTaskInput groupConfig = null;
 
   @SerializedName("LineConfig")
   private LineConfigForCreateTaskInput lineConfig = null;
@@ -45,7 +45,7 @@ public class SelectionConfigForCreateTaskInput {
   @SerializedName("Mode")
   private Integer mode = null;
 
-  public SelectionConfigForCreateTaskInput groupConfig(ConvertGroupConfigForCreateTaskInput groupConfig) {
+  public SelectionConfigForCreateTaskInput groupConfig(GroupConfigForCreateTaskInput groupConfig) {
     this.groupConfig = groupConfig;
     return this;
   }
@@ -56,11 +56,11 @@ public class SelectionConfigForCreateTaskInput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertGroupConfigForCreateTaskInput getGroupConfig() {
+  public GroupConfigForCreateTaskInput getGroupConfig() {
     return groupConfig;
   }
 
-  public void setGroupConfig(ConvertGroupConfigForCreateTaskInput groupConfig) {
+  public void setGroupConfig(GroupConfigForCreateTaskInput groupConfig) {
     this.groupConfig = groupConfig;
   }
 

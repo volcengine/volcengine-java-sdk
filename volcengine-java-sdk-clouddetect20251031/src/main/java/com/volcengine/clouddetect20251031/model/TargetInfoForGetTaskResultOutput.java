@@ -33,11 +33,11 @@ public class TargetInfoForGetTaskResultOutput {
   @SerializedName("City")
   private String city = null;
 
-  @SerializedName("DetectURL")
-  private String detectURL = null;
+  @SerializedName("DetectUrl")
+  private String detectUrl = null;
 
-  @SerializedName("IP")
-  private String IP = null;
+  @SerializedName("Ip")
+  private String ip = null;
 
   @SerializedName("Ipv6")
   private String ipv6 = null;
@@ -66,40 +66,40 @@ public class TargetInfoForGetTaskResultOutput {
     this.city = city;
   }
 
-  public TargetInfoForGetTaskResultOutput detectURL(String detectURL) {
-    this.detectURL = detectURL;
+  public TargetInfoForGetTaskResultOutput detectUrl(String detectUrl) {
+    this.detectUrl = detectUrl;
     return this;
   }
 
    /**
-   * Get detectURL
-   * @return detectURL
+   * Get detectUrl
+   * @return detectUrl
   **/
   @Schema(description = "")
-  public String getDetectURL() {
-    return detectURL;
+  public String getDetectUrl() {
+    return detectUrl;
   }
 
-  public void setDetectURL(String detectURL) {
-    this.detectURL = detectURL;
+  public void setDetectUrl(String detectUrl) {
+    this.detectUrl = detectUrl;
   }
 
-  public TargetInfoForGetTaskResultOutput IP(String IP) {
-    this.IP = IP;
+  public TargetInfoForGetTaskResultOutput ip(String ip) {
+    this.ip = ip;
     return this;
   }
 
    /**
-   * Get IP
-   * @return IP
+   * Get ip
+   * @return ip
   **/
   @Schema(description = "")
-  public String getIP() {
-    return IP;
+  public String getIp() {
+    return ip;
   }
 
-  public void setIP(String IP) {
-    this.IP = IP;
+  public void setIp(String ip) {
+    this.ip = ip;
   }
 
   public TargetInfoForGetTaskResultOutput ipv6(String ipv6) {
@@ -167,8 +167,8 @@ public class TargetInfoForGetTaskResultOutput {
     }
     TargetInfoForGetTaskResultOutput targetInfoForGetTaskResultOutput = (TargetInfoForGetTaskResultOutput) o;
     return Objects.equals(this.city, targetInfoForGetTaskResultOutput.city) &&
-        Objects.equals(this.detectURL, targetInfoForGetTaskResultOutput.detectURL) &&
-        Objects.equals(this.IP, targetInfoForGetTaskResultOutput.IP) &&
+        Objects.equals(this.detectUrl, targetInfoForGetTaskResultOutput.detectUrl) &&
+        Objects.equals(this.ip, targetInfoForGetTaskResultOutput.ip) &&
         Objects.equals(this.ipv6, targetInfoForGetTaskResultOutput.ipv6) &&
         Objects.equals(this.isp, targetInfoForGetTaskResultOutput.isp) &&
         Objects.equals(this.region, targetInfoForGetTaskResultOutput.region);
@@ -176,7 +176,7 @@ public class TargetInfoForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, detectURL, IP, ipv6, isp, region);
+    return Objects.hash(city, detectUrl, ip, ipv6, isp, region);
   }
 
 
@@ -186,8 +186,8 @@ public class TargetInfoForGetTaskResultOutput {
     sb.append("class TargetInfoForGetTaskResultOutput {\n");
     
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    detectURL: ").append(toIndentedString(detectURL)).append("\n");
-    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    detectUrl: ").append(toIndentedString(detectUrl)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    ipv6: ").append(toIndentedString(ipv6)).append("\n");
     sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");

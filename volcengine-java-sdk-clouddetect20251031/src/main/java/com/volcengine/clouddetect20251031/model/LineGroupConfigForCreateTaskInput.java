@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.clouddetect20251031.model.ConvertGroupListForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.GroupListForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.LineGroupListForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.LineListForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -36,7 +36,7 @@ import javax.validation.Valid;
 
 public class LineGroupConfigForCreateTaskInput {
   @SerializedName("GroupList")
-  private List<ConvertGroupListForCreateTaskInput> groupList = null;
+  private List<GroupListForCreateTaskInput> groupList = null;
 
   @SerializedName("Groups")
   private List<Integer> groups = null;
@@ -47,14 +47,14 @@ public class LineGroupConfigForCreateTaskInput {
   @SerializedName("LineList")
   private List<LineListForCreateTaskInput> lineList = null;
 
-  public LineGroupConfigForCreateTaskInput groupList(List<ConvertGroupListForCreateTaskInput> groupList) {
+  public LineGroupConfigForCreateTaskInput groupList(List<GroupListForCreateTaskInput> groupList) {
     this.groupList = groupList;
     return this;
   }
 
-  public LineGroupConfigForCreateTaskInput addGroupListItem(ConvertGroupListForCreateTaskInput groupListItem) {
+  public LineGroupConfigForCreateTaskInput addGroupListItem(GroupListForCreateTaskInput groupListItem) {
     if (this.groupList == null) {
-      this.groupList = new ArrayList<ConvertGroupListForCreateTaskInput>();
+      this.groupList = new ArrayList<GroupListForCreateTaskInput>();
     }
     this.groupList.add(groupListItem);
     return this;
@@ -66,11 +66,11 @@ public class LineGroupConfigForCreateTaskInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertGroupListForCreateTaskInput> getGroupList() {
+  public List<GroupListForCreateTaskInput> getGroupList() {
     return groupList;
   }
 
-  public void setGroupList(List<ConvertGroupListForCreateTaskInput> groupList) {
+  public void setGroupList(List<GroupListForCreateTaskInput> groupList) {
     this.groupList = groupList;
   }
 

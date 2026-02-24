@@ -30,29 +30,29 @@ import javax.validation.Valid;
 
 
 public class StopTaskRequest {
-  @SerializedName("ID")
-  private Long ID = null;
+  @SerializedName("Id")
+  private Long id = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public StopTaskRequest ID(Long ID) {
-    this.ID = ID;
+  public StopTaskRequest id(Long id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get id
+   * @return id
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Long getID() {
-    return ID;
+  public Long getId() {
+    return id;
   }
 
-  public void setID(Long ID) {
-    this.ID = ID;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public StopTaskRequest projectName(String projectName) {
@@ -83,13 +83,13 @@ public class StopTaskRequest {
       return false;
     }
     StopTaskRequest stopTaskRequest = (StopTaskRequest) o;
-    return Objects.equals(this.ID, stopTaskRequest.ID) &&
+    return Objects.equals(this.id, stopTaskRequest.id) &&
         Objects.equals(this.projectName, stopTaskRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, projectName);
+    return Objects.hash(id, projectName);
   }
 
 
@@ -98,7 +98,7 @@ public class StopTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopTaskRequest {\n");
     
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

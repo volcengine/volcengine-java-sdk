@@ -30,28 +30,28 @@ import javax.validation.Valid;
 
 
 public class LineListForListNodesOutput {
-  @SerializedName("ID")
-  private Long ID = null;
+  @SerializedName("Id")
+  private Long id = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  public LineListForListNodesOutput ID(Long ID) {
-    this.ID = ID;
+  public LineListForListNodesOutput id(Long id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Long getID() {
-    return ID;
+  public Long getId() {
+    return id;
   }
 
-  public void setID(Long ID) {
-    this.ID = ID;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public LineListForListNodesOutput name(String name) {
@@ -82,13 +82,13 @@ public class LineListForListNodesOutput {
       return false;
     }
     LineListForListNodesOutput lineListForListNodesOutput = (LineListForListNodesOutput) o;
-    return Objects.equals(this.ID, lineListForListNodesOutput.ID) &&
+    return Objects.equals(this.id, lineListForListNodesOutput.id) &&
         Objects.equals(this.name, lineListForListNodesOutput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, name);
+    return Objects.hash(id, name);
   }
 
 
@@ -97,7 +97,7 @@ public class LineListForListNodesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LineListForListNodesOutput {\n");
     
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -33,11 +33,11 @@ public class ClientInfoForGetTaskResultOutput {
   @SerializedName("City")
   private String city = null;
 
-  @SerializedName("DNSLocalDNSIP")
-  private String dnSLocalDNSIP = null;
+  @SerializedName("DnsLocalDnsIp")
+  private String dnsLocalDnsIp = null;
 
-  @SerializedName("IP")
-  private String IP = null;
+  @SerializedName("Ip")
+  private String ip = null;
 
   @SerializedName("Ipv6")
   private String ipv6 = null;
@@ -47,9 +47,6 @@ public class ClientInfoForGetTaskResultOutput {
 
   @SerializedName("Region")
   private String region = null;
-
-  @SerializedName("Tupe")
-  private String tupe = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -72,40 +69,40 @@ public class ClientInfoForGetTaskResultOutput {
     this.city = city;
   }
 
-  public ClientInfoForGetTaskResultOutput dnSLocalDNSIP(String dnSLocalDNSIP) {
-    this.dnSLocalDNSIP = dnSLocalDNSIP;
+  public ClientInfoForGetTaskResultOutput dnsLocalDnsIp(String dnsLocalDnsIp) {
+    this.dnsLocalDnsIp = dnsLocalDnsIp;
     return this;
   }
 
    /**
-   * Get dnSLocalDNSIP
-   * @return dnSLocalDNSIP
+   * Get dnsLocalDnsIp
+   * @return dnsLocalDnsIp
   **/
   @Schema(description = "")
-  public String getDnSLocalDNSIP() {
-    return dnSLocalDNSIP;
+  public String getDnsLocalDnsIp() {
+    return dnsLocalDnsIp;
   }
 
-  public void setDnSLocalDNSIP(String dnSLocalDNSIP) {
-    this.dnSLocalDNSIP = dnSLocalDNSIP;
+  public void setDnsLocalDnsIp(String dnsLocalDnsIp) {
+    this.dnsLocalDnsIp = dnsLocalDnsIp;
   }
 
-  public ClientInfoForGetTaskResultOutput IP(String IP) {
-    this.IP = IP;
+  public ClientInfoForGetTaskResultOutput ip(String ip) {
+    this.ip = ip;
     return this;
   }
 
    /**
-   * Get IP
-   * @return IP
+   * Get ip
+   * @return ip
   **/
   @Schema(description = "")
-  public String getIP() {
-    return IP;
+  public String getIp() {
+    return ip;
   }
 
-  public void setIP(String IP) {
-    this.IP = IP;
+  public void setIp(String ip) {
+    this.ip = ip;
   }
 
   public ClientInfoForGetTaskResultOutput ipv6(String ipv6) {
@@ -162,24 +159,6 @@ public class ClientInfoForGetTaskResultOutput {
     this.region = region;
   }
 
-  public ClientInfoForGetTaskResultOutput tupe(String tupe) {
-    this.tupe = tupe;
-    return this;
-  }
-
-   /**
-   * Get tupe
-   * @return tupe
-  **/
-  @Schema(description = "")
-  public String getTupe() {
-    return tupe;
-  }
-
-  public void setTupe(String tupe) {
-    this.tupe = tupe;
-  }
-
   public ClientInfoForGetTaskResultOutput type(String type) {
     this.type = type;
     return this;
@@ -209,18 +188,17 @@ public class ClientInfoForGetTaskResultOutput {
     }
     ClientInfoForGetTaskResultOutput clientInfoForGetTaskResultOutput = (ClientInfoForGetTaskResultOutput) o;
     return Objects.equals(this.city, clientInfoForGetTaskResultOutput.city) &&
-        Objects.equals(this.dnSLocalDNSIP, clientInfoForGetTaskResultOutput.dnSLocalDNSIP) &&
-        Objects.equals(this.IP, clientInfoForGetTaskResultOutput.IP) &&
+        Objects.equals(this.dnsLocalDnsIp, clientInfoForGetTaskResultOutput.dnsLocalDnsIp) &&
+        Objects.equals(this.ip, clientInfoForGetTaskResultOutput.ip) &&
         Objects.equals(this.ipv6, clientInfoForGetTaskResultOutput.ipv6) &&
         Objects.equals(this.isp, clientInfoForGetTaskResultOutput.isp) &&
         Objects.equals(this.region, clientInfoForGetTaskResultOutput.region) &&
-        Objects.equals(this.tupe, clientInfoForGetTaskResultOutput.tupe) &&
         Objects.equals(this.type, clientInfoForGetTaskResultOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, dnSLocalDNSIP, IP, ipv6, isp, region, tupe, type);
+    return Objects.hash(city, dnsLocalDnsIp, ip, ipv6, isp, region, type);
   }
 
 
@@ -230,12 +208,11 @@ public class ClientInfoForGetTaskResultOutput {
     sb.append("class ClientInfoForGetTaskResultOutput {\n");
     
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    dnSLocalDNSIP: ").append(toIndentedString(dnSLocalDNSIP)).append("\n");
-    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    dnsLocalDnsIp: ").append(toIndentedString(dnsLocalDnsIp)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    ipv6: ").append(toIndentedString(ipv6)).append("\n");
     sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    tupe: ").append(toIndentedString(tupe)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class DiagnoseDetailForGetTaskResultOutput {
-  @SerializedName("DNSDetail")
-  private String dnSDetail = null;
+  @SerializedName("DnsDetail")
+  private String dnsDetail = null;
 
   @SerializedName("MtrDetail")
   private String mtrDetail = null;
@@ -39,22 +39,22 @@ public class DiagnoseDetailForGetTaskResultOutput {
   @SerializedName("PingDetail")
   private String pingDetail = null;
 
-  public DiagnoseDetailForGetTaskResultOutput dnSDetail(String dnSDetail) {
-    this.dnSDetail = dnSDetail;
+  public DiagnoseDetailForGetTaskResultOutput dnsDetail(String dnsDetail) {
+    this.dnsDetail = dnsDetail;
     return this;
   }
 
    /**
-   * Get dnSDetail
-   * @return dnSDetail
+   * Get dnsDetail
+   * @return dnsDetail
   **/
   @Schema(description = "")
-  public String getDnSDetail() {
-    return dnSDetail;
+  public String getDnsDetail() {
+    return dnsDetail;
   }
 
-  public void setDnSDetail(String dnSDetail) {
-    this.dnSDetail = dnSDetail;
+  public void setDnsDetail(String dnsDetail) {
+    this.dnsDetail = dnsDetail;
   }
 
   public DiagnoseDetailForGetTaskResultOutput mtrDetail(String mtrDetail) {
@@ -103,14 +103,14 @@ public class DiagnoseDetailForGetTaskResultOutput {
       return false;
     }
     DiagnoseDetailForGetTaskResultOutput diagnoseDetailForGetTaskResultOutput = (DiagnoseDetailForGetTaskResultOutput) o;
-    return Objects.equals(this.dnSDetail, diagnoseDetailForGetTaskResultOutput.dnSDetail) &&
+    return Objects.equals(this.dnsDetail, diagnoseDetailForGetTaskResultOutput.dnsDetail) &&
         Objects.equals(this.mtrDetail, diagnoseDetailForGetTaskResultOutput.mtrDetail) &&
         Objects.equals(this.pingDetail, diagnoseDetailForGetTaskResultOutput.pingDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSDetail, mtrDetail, pingDetail);
+    return Objects.hash(dnsDetail, mtrDetail, pingDetail);
   }
 
 
@@ -119,7 +119,7 @@ public class DiagnoseDetailForGetTaskResultOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DiagnoseDetailForGetTaskResultOutput {\n");
     
-    sb.append("    dnSDetail: ").append(toIndentedString(dnSDetail)).append("\n");
+    sb.append("    dnsDetail: ").append(toIndentedString(dnsDetail)).append("\n");
     sb.append("    mtrDetail: ").append(toIndentedString(mtrDetail)).append("\n");
     sb.append("    pingDetail: ").append(toIndentedString(pingDetail)).append("\n");
     sb.append("}");

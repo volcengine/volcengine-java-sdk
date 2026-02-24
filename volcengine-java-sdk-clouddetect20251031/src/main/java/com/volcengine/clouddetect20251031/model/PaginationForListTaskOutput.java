@@ -30,31 +30,31 @@ import javax.validation.Valid;
 
 
 public class PaginationForListTaskOutput {
-  @SerializedName("PageNum")
-  private Long pageNum = null;
+  @SerializedName("PageNumber")
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
   private Long pageSize = null;
 
-  @SerializedName("Total")
-  private Long total = null;
+  @SerializedName("TotalCount")
+  private Long totalCount = null;
 
-  public PaginationForListTaskOutput pageNum(Long pageNum) {
-    this.pageNum = pageNum;
+  public PaginationForListTaskOutput pageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
     return this;
   }
 
    /**
-   * Get pageNum
-   * @return pageNum
+   * Get pageNumber
+   * @return pageNumber
   **/
   @Schema(description = "")
-  public Long getPageNum() {
-    return pageNum;
+  public Long getPageNumber() {
+    return pageNumber;
   }
 
-  public void setPageNum(Long pageNum) {
-    this.pageNum = pageNum;
+  public void setPageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
   }
 
   public PaginationForListTaskOutput pageSize(Long pageSize) {
@@ -75,22 +75,22 @@ public class PaginationForListTaskOutput {
     this.pageSize = pageSize;
   }
 
-  public PaginationForListTaskOutput total(Long total) {
-    this.total = total;
+  public PaginationForListTaskOutput totalCount(Long totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
    /**
-   * Get total
-   * @return total
+   * Get totalCount
+   * @return totalCount
   **/
   @Schema(description = "")
-  public Long getTotal() {
-    return total;
+  public Long getTotalCount() {
+    return totalCount;
   }
 
-  public void setTotal(Long total) {
-    this.total = total;
+  public void setTotalCount(Long totalCount) {
+    this.totalCount = totalCount;
   }
 
 
@@ -103,14 +103,14 @@ public class PaginationForListTaskOutput {
       return false;
     }
     PaginationForListTaskOutput paginationForListTaskOutput = (PaginationForListTaskOutput) o;
-    return Objects.equals(this.pageNum, paginationForListTaskOutput.pageNum) &&
+    return Objects.equals(this.pageNumber, paginationForListTaskOutput.pageNumber) &&
         Objects.equals(this.pageSize, paginationForListTaskOutput.pageSize) &&
-        Objects.equals(this.total, paginationForListTaskOutput.total);
+        Objects.equals(this.totalCount, paginationForListTaskOutput.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNum, pageSize, total);
+    return Objects.hash(pageNumber, pageSize, totalCount);
   }
 
 
@@ -119,9 +119,9 @@ public class PaginationForListTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginationForListTaskOutput {\n");
     
-    sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
