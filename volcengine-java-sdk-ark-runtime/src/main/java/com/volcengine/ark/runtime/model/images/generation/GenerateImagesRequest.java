@@ -57,6 +57,47 @@ public class GenerateImagesRequest {
     @JsonProperty("stream")
     private Boolean stream;
 
+    @JsonProperty("tools")
+    private List<ContentGenerationTool> tools;
+
+    @JsonProperty("output_format")
+    private String outputFormat;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class ContentGenerationTool {
+        @JsonProperty("type")
+        private String type;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        @Override
+        public String toString() {
+            return "ContentGenerationTool{" +
+                    "type='" + type + '\'' +
+                    '}';
+        }
+
+        public static ContentGenerationTool.Builder builder() {
+            return new ContentGenerationTool.Builder();
+        }
+
+        public static class Builder {
+            private String type;
+        }
+
+        public ContentGenerationTool build() {
+            ContentGenerationTool contentGenerationTool = new ContentGenerationTool();
+            contentGenerationTool.setType(type);
+            return contentGenerationTool;
+        }
+    }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OptimizePromptOptions {
         private String thinking;
@@ -111,7 +152,7 @@ public class GenerateImagesRequest {
     public GenerateImagesRequest() {
     }
 
-    public GenerateImagesRequest(String model, String prompt, List<String> image, String responseFormat, Integer seed, Double guidanceScale, String size, Boolean watermark, String sequentialImageGeneration, SequentialImageGenerationOptions sequentialImageGenerationOptions, Boolean optimizePrompt, OptimizePromptOptions optimizePromptOptions, Boolean stream) {
+    public GenerateImagesRequest(String model, String prompt, List<String> image, String responseFormat, Integer seed, Double guidanceScale, String size, Boolean watermark, String sequentialImageGeneration, SequentialImageGenerationOptions sequentialImageGenerationOptions, Boolean optimizePrompt, OptimizePromptOptions optimizePromptOptions, Boolean stream, List<ContentGenerationTool> tools, String outputFormat) {
         this.model = model;
         this.prompt = prompt;
         this.image = image;
@@ -125,6 +166,8 @@ public class GenerateImagesRequest {
         this.sequentialImageGeneration = sequentialImageGeneration;
         this.sequentialImageGenerationOptions = sequentialImageGenerationOptions;
         this.stream = stream;
+        this.tools = tools;
+        this.outputFormat = outputFormat;
     }
 
     public String getModel() {
@@ -212,6 +255,22 @@ public class GenerateImagesRequest {
         this.optimizePromptOptions = optimizePromptOptions;
     }
 
+    public List<ContentGenerationTool> getTools() {
+        return this.tools;
+    }
+
+    public void setTools(List<ContentGenerationTool> tools) {
+        this.tools = tools;
+    }
+
+    public String getOutputFormat() {
+        return this.outputFormat;
+    }
+
+    public void setOutputFormat(String outputFormat) {
+        this.outputFormat = outputFormat;
+    }
+
     public Boolean getStream() {
         return this.stream;
     }
@@ -252,6 +311,8 @@ public class GenerateImagesRequest {
                 ", stream=" + stream +
                 ", sequentialImageGeneration=" + sequentialImageGeneration +
                 ", sequentialImageGenerationOptions=" + sequentialImageGenerationOptions +
+                ", tools=" + tools +
+                ", outputFormat=" + outputFormat +
                 '}';
     }
 
@@ -274,6 +335,10 @@ public class GenerateImagesRequest {
         private String sequentialImageGeneration;
 
         private SequentialImageGenerationOptions sequentialImageGenerationOptions;
+
+        private List<ContentGenerationTool> tools;
+
+        private String outputFormat;
 
         private Boolean stream;
 
@@ -350,6 +415,16 @@ public class GenerateImagesRequest {
             return this;
         }
 
+        public GenerateImagesRequest.Builder tools(List<ContentGenerationTool> tools) {
+            this.tools = tools;
+            return this;
+        }
+
+        public GenerateImagesRequest.Builder outputFormat(String outputFormat) {
+            this.outputFormat = outputFormat;
+            return this;
+        }
+
         public GenerateImagesRequest build() {
             GenerateImagesRequest generateImagesRequest = new GenerateImagesRequest();
             generateImagesRequest.setModel(model);
@@ -365,6 +440,8 @@ public class GenerateImagesRequest {
             generateImagesRequest.setSequentialImageGeneration(sequentialImageGeneration);
             generateImagesRequest.setSequentialImageGenerationOptions(sequentialImageGenerationOptions);
             generateImagesRequest.setStream(stream);
+            generateImagesRequest.setTools(tools);
+            generateImagesRequest.setOutputFormat(outputFormat);
             return generateImagesRequest;
         }
     }
