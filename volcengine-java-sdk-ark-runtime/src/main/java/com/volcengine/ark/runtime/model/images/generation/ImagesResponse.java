@@ -2,7 +2,6 @@ package com.volcengine.ark.runtime.model.images.generation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
 
 import java.util.List;
 
@@ -22,6 +21,9 @@ public class ImagesResponse {
 
     @JsonProperty("error")
     private Error error;
+
+    @JsonProperty("tools")
+    private List<GenerateImagesRequest.ContentGenerationTool> tools;
 
     public String getModel() {
         return model;
@@ -61,6 +63,14 @@ public class ImagesResponse {
 
     public void setError(Error error) {
         this.error = error;
+    }
+
+    public List<GenerateImagesRequest.ContentGenerationTool> getTools() {
+        return this.tools;
+    }
+
+    public void setTools(List<GenerateImagesRequest.ContentGenerationTool> tools) {
+        this.tools = tools;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -112,6 +122,28 @@ public class ImagesResponse {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Usage {
 
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class ToolUsage {
+
+            @JsonProperty("web_search")
+            private Integer webSearch;
+
+            public Integer getWebSearch() {
+                return webSearch;
+            }
+
+            public void setWebSearch(Integer webSearch) {
+                this.webSearch = webSearch;
+            }
+
+            @Override
+            public String toString() {
+                return "ToolUsage{" +
+                        "webSearch=" + webSearch +
+                        '}';
+            }
+        }
+
         @JsonProperty("generated_images")
         private Integer generatedImages;
 
@@ -123,10 +155,46 @@ public class ImagesResponse {
             this.generatedImages = generatedImages;
         }
 
+        @JsonProperty("output_tokens")
+        private Integer outputTokens;
+
+        public Integer getOutputTokens() {
+            return outputTokens;
+        }
+
+        public void setOutputTokens(Integer outputTokens) {
+            this.outputTokens = outputTokens;
+        }
+
+        @JsonProperty("total_tokens")
+        private Integer totalTokens;
+
+        public Integer getTotalTokens() {
+            return totalTokens;
+        }
+
+        public void setTotalTokens(Integer totalTokens) {
+            this.totalTokens = totalTokens;
+        }
+
+        @JsonProperty("tool_usage")
+        private ToolUsage toolUsage;
+
+        public ToolUsage getToolUsage() {
+            return toolUsage;
+        }
+
+        public void setToolUsage(ToolUsage toolUsage) {
+            this.toolUsage = toolUsage;
+        }
+
         @Override
         public String toString() {
             return "Usage{" +
                     "generatedImages=" + generatedImages +
+                    "outputTokens=" + outputTokens +
+                    "totalTokens=" + totalTokens +
+                    "toolUsage=" + toolUsage +
                     '}';
         }
     }
@@ -173,6 +241,7 @@ public class ImagesResponse {
                 "data=" + data +
                 "usage=" + usage +
                 "error=" + error +
+                "tools=" + tools +
                 '}';
     }
 
@@ -182,6 +251,7 @@ public class ImagesResponse {
         private List<Image> data;
         private Usage usage;
         private Error error;
+        private List<GenerateImagesRequest.ContentGenerationTool> tools;
 
         private Builder() {
         }
@@ -211,6 +281,11 @@ public class ImagesResponse {
             return this;
         }
 
+        public ImagesResponse.Builder tools(List<GenerateImagesRequest.ContentGenerationTool> tools) {
+            this.tools = tools;
+            return this;
+        }
+
         public ImagesResponse build() {
             ImagesResponse imagesResponse = new ImagesResponse();
             imagesResponse.setModel(model);
@@ -218,6 +293,7 @@ public class ImagesResponse {
             imagesResponse.setData(data);
             imagesResponse.setUsage(usage);
             imagesResponse.setError(error);
+            imagesResponse.setTools(tools);
             return imagesResponse;
         }
     }
