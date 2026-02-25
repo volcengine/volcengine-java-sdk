@@ -377,10 +377,6 @@ public class VolcstackSign implements Authentication {
             presignedParams.put("X-Security-Token", credentials.getSessionToken());
         }
 
-        // Re-collect all parameter keys (including X-Security-Token) to build canonical request
-        List<String> allKeys = new ArrayList<>(presignedParams.keySet());
-        Collections.sort(allKeys);
-
         // Build canonical request
         StringBuilder canonicalRequest = new StringBuilder();
         canonicalRequest.append(this.method);
@@ -388,9 +384,9 @@ public class VolcstackSign implements Authentication {
         canonicalRequest.append("/");
         canonicalRequest.append("\n");
 
-        // Canonical Query String - concatenate all parameters after sorting
+        // Canonical Query String - only include keys listed in X-SignedQueries
         StringBuilder canonicalQueryString = new StringBuilder();
-        for (String key : allKeys) {
+        for (String key : queryKeys) {
             canonicalQueryString.append(signStringEncoder(key));
             canonicalQueryString.append("=");
             canonicalQueryString.append(signStringEncoder(presignedParams.get(key)));
