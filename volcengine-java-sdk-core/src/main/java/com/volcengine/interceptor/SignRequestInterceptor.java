@@ -65,7 +65,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
             throw new RuntimeException("Region must set when ApiClient init");
         }
 
-        // Presigned branch: aligned with Go SDK's `if req.IsPresigned() { signedQuery := c1.SignUrl(...) }`
+        // Presigned branch
         if (context.getRequestContext().isPresigned()) {
             Map<String, String> queryParamsMap = new HashMap<>();
             for (Pair p : queryParams) {
@@ -84,7 +84,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
             return context;
         }
 
-        // Normal sign branch: aligned with Go SDK's `r := c1.Sign(req.HTTPRequest); req.HTTPRequest.Header = r.Header`
+        // Normal sign branch
         final Buffer buffer = new Buffer();
         try {
             if (reqBody != null) {

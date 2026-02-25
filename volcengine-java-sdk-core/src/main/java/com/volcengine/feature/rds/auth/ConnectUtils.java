@@ -58,14 +58,8 @@ public class ConnectUtils {
             expires = DEFAULT_EXPIRES_SECONDS;
         }
 
-        // Use StandardEndpointProvider to resolve endpoint (handles regionalization + dual-stack)
-        StandardEndpointProvider endpointProvider = new StandardEndpointProvider();
-        ResolveEndpointOption option = new ResolveEndpointOption();
-        option.setService(SERVICE_NAME);
-        option.setRegion(apiClient.getRegion());
-        option.setUseDualStack(apiClient.getUseDualStack());
-        ResolvedEndpoint resolved = endpointProvider.endpointFor(option);
-        String endpoint = resolved.getEndpoint();
+        // Resolve endpoint: prefer user-configured endpoint, fallback to StandardEndpointProvider
+        String endpoint = getEndpoint(apiClient);
 
         // SSL handling, ResolveEndpointInterceptor dose not support this
         String schema = apiClient.getDisableSSL() ? "http" : "https";
@@ -94,5 +88,33 @@ public class ConnectUtils {
         new SignRequestInterceptor().intercept(context);
 
         return reqCtx.getPresignedUrl();
+    }
+
+    /**
+     * Resolve endpoint host from ApiClient.
+     * If the user has configured a custom endpoint (via apiClient.setEndpoint), it takes priority.
+     * Strips schema prefix if present to return pure host.
+     * Falls back to StandardEndpointProvider for region-based resolution when no custom endpoint is set.
+     *
+     * @return endpoint host without schema
+     */
+    private static String getEndpoint(ApiClient apiClient) {
+        if (StringUtils.isNotEmpty(apiClient.getEndpoint())) {
+            String ep = apiClient.getEndpoint();
+            if (ep.startsWith("https://")) {
+                return ep.substring("https://".length());
+            }
+            if (ep.startsWith("http://")) {
+                return ep.substring("http://".length());
+            }
+            return ep;
+        }
+        StandardEndpointProvider endpointProvider = new StandardEndpointProvider();
+        ResolveEndpointOption option = new ResolveEndpointOption();
+        option.setService(SERVICE_NAME);
+        option.setRegion(apiClient.getRegion());
+        option.setUseDualStack(apiClient.getUseDualStack());
+        ResolvedEndpoint resolved = endpointProvider.endpointFor(option);
+        return resolved.getEndpoint();
     }
 }
