@@ -91,6 +91,9 @@ public class JobForDescribeRestoreJobsOutput {
   }  @SerializedName("ResourceType")
   private ResourceTypeEnum resourceType = null;
 
+  @SerializedName("RestoreOptions")
+  private String restoreOptions = null;
+
   /**
    * Gets or Sets status
    */
@@ -249,6 +252,24 @@ public class JobForDescribeRestoreJobsOutput {
     this.resourceType = resourceType;
   }
 
+  public JobForDescribeRestoreJobsOutput restoreOptions(String restoreOptions) {
+    this.restoreOptions = restoreOptions;
+    return this;
+  }
+
+   /**
+   * Get restoreOptions
+   * @return restoreOptions
+  **/
+  @Schema(description = "")
+  public String getRestoreOptions() {
+    return restoreOptions;
+  }
+
+  public void setRestoreOptions(String restoreOptions) {
+    this.restoreOptions = restoreOptions;
+  }
+
   public JobForDescribeRestoreJobsOutput status(StatusEnum status) {
     this.status = status;
     return this;
@@ -283,12 +304,13 @@ public class JobForDescribeRestoreJobsOutput {
         Objects.equals(this.recoveryPointId, jobForDescribeRestoreJobsOutput.recoveryPointId) &&
         Objects.equals(this.recoveryPointName, jobForDescribeRestoreJobsOutput.recoveryPointName) &&
         Objects.equals(this.resourceType, jobForDescribeRestoreJobsOutput.resourceType) &&
+        Objects.equals(this.restoreOptions, jobForDescribeRestoreJobsOutput.restoreOptions) &&
         Objects.equals(this.status, jobForDescribeRestoreJobsOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(extraMetadata, jobId, name, recoveryPointId, recoveryPointName, resourceType, status);
+    return Objects.hash(extraMetadata, jobId, name, recoveryPointId, recoveryPointName, resourceType, restoreOptions, status);
   }
 
 
@@ -303,6 +325,7 @@ public class JobForDescribeRestoreJobsOutput {
     sb.append("    recoveryPointId: ").append(toIndentedString(recoveryPointId)).append("\n");
     sb.append("    recoveryPointName: ").append(toIndentedString(recoveryPointName)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    restoreOptions: ").append(toIndentedString(restoreOptions)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

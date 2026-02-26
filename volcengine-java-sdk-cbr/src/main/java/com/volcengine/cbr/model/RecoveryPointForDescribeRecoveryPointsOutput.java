@@ -36,6 +36,9 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
   @SerializedName("BackupCompletedTime")
   private String backupCompletedTime = null;
 
+  @SerializedName("BackupOptions")
+  private String backupOptions = null;
+
   @SerializedName("CapacityInBytes")
   private Integer capacityInBytes = null;
 
@@ -66,14 +69,108 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
   @SerializedName("RecoveryPointId")
   private String recoveryPointId = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
+
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
 
   @SerializedName("RetentionDay")
   private Integer retentionDay = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("AVAILABLE")
+    AVAILABLE("AVAILABLE"),
+    @SerializedName("DELETING")
+    DELETING("DELETING"),
+    @SerializedName("BEING_BACKUP")
+    BEING_BACKUP("BEING_BACKUP"),
+    @SerializedName("RECOVERING")
+    RECOVERING("RECOVERING"),
+    @SerializedName("ERROR")
+    ERROR("ERROR"),
+    @SerializedName("WAITING")
+    WAITING("WAITING");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -112,6 +209,24 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
 
   public void setBackupCompletedTime(String backupCompletedTime) {
     this.backupCompletedTime = backupCompletedTime;
+  }
+
+  public RecoveryPointForDescribeRecoveryPointsOutput backupOptions(String backupOptions) {
+    this.backupOptions = backupOptions;
+    return this;
+  }
+
+   /**
+   * Get backupOptions
+   * @return backupOptions
+  **/
+  @Schema(description = "")
+  public String getBackupOptions() {
+    return backupOptions;
+  }
+
+  public void setBackupOptions(String backupOptions) {
+    this.backupOptions = backupOptions;
   }
 
   public RecoveryPointForDescribeRecoveryPointsOutput capacityInBytes(Integer capacityInBytes) {
@@ -294,7 +409,7 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
     this.recoveryPointId = recoveryPointId;
   }
 
-  public RecoveryPointForDescribeRecoveryPointsOutput resourceType(String resourceType) {
+  public RecoveryPointForDescribeRecoveryPointsOutput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -304,11 +419,11 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
   }
 
@@ -330,7 +445,7 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
     this.retentionDay = retentionDay;
   }
 
-  public RecoveryPointForDescribeRecoveryPointsOutput status(String status) {
+  public RecoveryPointForDescribeRecoveryPointsOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -340,11 +455,11 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -378,6 +493,7 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
     RecoveryPointForDescribeRecoveryPointsOutput recoveryPointForDescribeRecoveryPointsOutput = (RecoveryPointForDescribeRecoveryPointsOutput) o;
     return Objects.equals(this.accountId, recoveryPointForDescribeRecoveryPointsOutput.accountId) &&
         Objects.equals(this.backupCompletedTime, recoveryPointForDescribeRecoveryPointsOutput.backupCompletedTime) &&
+        Objects.equals(this.backupOptions, recoveryPointForDescribeRecoveryPointsOutput.backupOptions) &&
         Objects.equals(this.capacityInBytes, recoveryPointForDescribeRecoveryPointsOutput.capacityInBytes) &&
         Objects.equals(this.createdAt, recoveryPointForDescribeRecoveryPointsOutput.createdAt) &&
         Objects.equals(this.errorDetail, recoveryPointForDescribeRecoveryPointsOutput.errorDetail) &&
@@ -396,7 +512,7 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, backupCompletedTime, capacityInBytes, createdAt, errorDetail, extraMetadata, instanceId, instanceName, name, planId, planName, recoveryPointId, resourceType, retentionDay, status, updatedAt);
+    return Objects.hash(accountId, backupCompletedTime, backupOptions, capacityInBytes, createdAt, errorDetail, extraMetadata, instanceId, instanceName, name, planId, planName, recoveryPointId, resourceType, retentionDay, status, updatedAt);
   }
 
 
@@ -407,6 +523,7 @@ public class RecoveryPointForDescribeRecoveryPointsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    backupCompletedTime: ").append(toIndentedString(backupCompletedTime)).append("\n");
+    sb.append("    backupOptions: ").append(toIndentedString(backupOptions)).append("\n");
     sb.append("    capacityInBytes: ").append(toIndentedString(capacityInBytes)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
