@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.SuppressionParamsForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.TargetStyleMapForVideoProjectSerialDubTaskCreateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -77,6 +78,9 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   @SerializedName("sourceLang")
   private String sourceLang = null;
+
+  @SerializedName("suppressionParams")
+  private SuppressionParamsForVideoProjectSerialDubTaskCreateInput suppressionParams = null;
 
   @SerializedName("targetLangs")
   private List<String> targetLangs = null;
@@ -360,6 +364,25 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     this.sourceLang = sourceLang;
   }
 
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput suppressionParams(SuppressionParamsForVideoProjectSerialDubTaskCreateInput suppressionParams) {
+    this.suppressionParams = suppressionParams;
+    return this;
+  }
+
+   /**
+   * Get suppressionParams
+   * @return suppressionParams
+  **/
+  @Valid
+  @Schema(description = "")
+  public SuppressionParamsForVideoProjectSerialDubTaskCreateInput getSuppressionParams() {
+    return suppressionParams;
+  }
+
+  public void setSuppressionParams(SuppressionParamsForVideoProjectSerialDubTaskCreateInput suppressionParams) {
+    this.suppressionParams = suppressionParams;
+  }
+
   public TaskInfoForVideoProjectSerialDubTaskCreateInput targetLangs(List<String> targetLangs) {
     this.targetLangs = targetLangs;
     return this;
@@ -466,6 +489,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
         Objects.equals(this.needTranslateTitleAndDesc, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateTitleAndDesc) &&
         Objects.equals(this.serialNumber, taskInfoForVideoProjectSerialDubTaskCreateInput.serialNumber) &&
         Objects.equals(this.sourceLang, taskInfoForVideoProjectSerialDubTaskCreateInput.sourceLang) &&
+        Objects.equals(this.suppressionParams, taskInfoForVideoProjectSerialDubTaskCreateInput.suppressionParams) &&
         Objects.equals(this.targetLangs, taskInfoForVideoProjectSerialDubTaskCreateInput.targetLangs) &&
         Objects.equals(this.targetStyleMap, taskInfoForVideoProjectSerialDubTaskCreateInput.targetStyleMap) &&
         Objects.equals(this.taskName, taskInfoForVideoProjectSerialDubTaskCreateInput.taskName) &&
@@ -474,7 +498,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, serialNumber, sourceLang, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, serialNumber, sourceLang, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
   }
 
 
@@ -498,6 +522,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     sb.append("    needTranslateTitleAndDesc: ").append(toIndentedString(needTranslateTitleAndDesc)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
+    sb.append("    suppressionParams: ").append(toIndentedString(suppressionParams)).append("\n");
     sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
     sb.append("    targetStyleMap: ").append(toIndentedString(targetStyleMap)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
