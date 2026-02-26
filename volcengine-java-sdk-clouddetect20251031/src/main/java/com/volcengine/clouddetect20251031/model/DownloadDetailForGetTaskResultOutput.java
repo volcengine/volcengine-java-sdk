@@ -34,11 +34,11 @@ import javax.validation.Valid;
 
 
 public class DownloadDetailForGetTaskResultOutput {
-  @SerializedName("DNSCost")
-  private Long dnSCost = null;
-
   @SerializedName("DiagnoseDetail")
   private DiagnoseDetailForGetTaskResultOutput diagnoseDetail = null;
+
+  @SerializedName("DnsCost")
+  private Long dnsCost = null;
 
   @SerializedName("DownloadSize")
   private Long downloadSize = null;
@@ -46,26 +46,26 @@ public class DownloadDetailForGetTaskResultOutput {
   @SerializedName("DownloadSpeed")
   private Long downloadSpeed = null;
 
-  @SerializedName("HTTPCode")
-  private Long htTPCode = null;
+  @SerializedName("HttpCode")
+  private Long httpCode = null;
 
-  @SerializedName("HTTPRequestHeader")
-  private String htTPRequestHeader = null;
+  @SerializedName("HttpRequestHeader")
+  private String httpRequestHeader = null;
 
-  @SerializedName("HTTPResponseBody")
-  private String htTPResponseBody = null;
+  @SerializedName("HttpResponseBody")
+  private String httpResponseBody = null;
 
-  @SerializedName("HTTPResponseHeader")
-  private String htTPResponseHeader = null;
+  @SerializedName("HttpResponseHeader")
+  private String httpResponseHeader = null;
 
-  @SerializedName("HTTPVersion")
-  private String htTPVersion = null;
+  @SerializedName("HttpVersion")
+  private String httpVersion = null;
 
   @SerializedName("LocationDetail")
   private List<LocationDetailForGetTaskResultOutput> locationDetail = null;
 
-  @SerializedName("PcapURI")
-  private String pcapURI = null;
+  @SerializedName("PcapUri")
+  private String pcapUri = null;
 
   @SerializedName("RecvCost")
   private Long recvCost = null;
@@ -82,8 +82,8 @@ public class DownloadDetailForGetTaskResultOutput {
   @SerializedName("SslCost")
   private Long sslCost = null;
 
-  @SerializedName("TCPCost")
-  private Long tcPCost = null;
+  @SerializedName("TcpCost")
+  private Long tcpCost = null;
 
   @SerializedName("TotalCost")
   private Long totalCost = null;
@@ -99,24 +99,6 @@ public class DownloadDetailForGetTaskResultOutput {
 
   @SerializedName("UploadTime")
   private Long uploadTime = null;
-
-  public DownloadDetailForGetTaskResultOutput dnSCost(Long dnSCost) {
-    this.dnSCost = dnSCost;
-    return this;
-  }
-
-   /**
-   * Get dnSCost
-   * @return dnSCost
-  **/
-  @Schema(description = "")
-  public Long getDnSCost() {
-    return dnSCost;
-  }
-
-  public void setDnSCost(Long dnSCost) {
-    this.dnSCost = dnSCost;
-  }
 
   public DownloadDetailForGetTaskResultOutput diagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
@@ -135,6 +117,24 @@ public class DownloadDetailForGetTaskResultOutput {
 
   public void setDiagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
+  }
+
+  public DownloadDetailForGetTaskResultOutput dnsCost(Long dnsCost) {
+    this.dnsCost = dnsCost;
+    return this;
+  }
+
+   /**
+   * Get dnsCost
+   * @return dnsCost
+  **/
+  @Schema(description = "")
+  public Long getDnsCost() {
+    return dnsCost;
+  }
+
+  public void setDnsCost(Long dnsCost) {
+    this.dnsCost = dnsCost;
   }
 
   public DownloadDetailForGetTaskResultOutput downloadSize(Long downloadSize) {
@@ -173,94 +173,94 @@ public class DownloadDetailForGetTaskResultOutput {
     this.downloadSpeed = downloadSpeed;
   }
 
-  public DownloadDetailForGetTaskResultOutput htTPCode(Long htTPCode) {
-    this.htTPCode = htTPCode;
+  public DownloadDetailForGetTaskResultOutput httpCode(Long httpCode) {
+    this.httpCode = httpCode;
     return this;
   }
 
    /**
-   * Get htTPCode
-   * @return htTPCode
+   * Get httpCode
+   * @return httpCode
   **/
   @Schema(description = "")
-  public Long getHtTPCode() {
-    return htTPCode;
+  public Long getHttpCode() {
+    return httpCode;
   }
 
-  public void setHtTPCode(Long htTPCode) {
-    this.htTPCode = htTPCode;
+  public void setHttpCode(Long httpCode) {
+    this.httpCode = httpCode;
   }
 
-  public DownloadDetailForGetTaskResultOutput htTPRequestHeader(String htTPRequestHeader) {
-    this.htTPRequestHeader = htTPRequestHeader;
+  public DownloadDetailForGetTaskResultOutput httpRequestHeader(String httpRequestHeader) {
+    this.httpRequestHeader = httpRequestHeader;
     return this;
   }
 
    /**
-   * Get htTPRequestHeader
-   * @return htTPRequestHeader
+   * Get httpRequestHeader
+   * @return httpRequestHeader
   **/
   @Schema(description = "")
-  public String getHtTPRequestHeader() {
-    return htTPRequestHeader;
+  public String getHttpRequestHeader() {
+    return httpRequestHeader;
   }
 
-  public void setHtTPRequestHeader(String htTPRequestHeader) {
-    this.htTPRequestHeader = htTPRequestHeader;
+  public void setHttpRequestHeader(String httpRequestHeader) {
+    this.httpRequestHeader = httpRequestHeader;
   }
 
-  public DownloadDetailForGetTaskResultOutput htTPResponseBody(String htTPResponseBody) {
-    this.htTPResponseBody = htTPResponseBody;
+  public DownloadDetailForGetTaskResultOutput httpResponseBody(String httpResponseBody) {
+    this.httpResponseBody = httpResponseBody;
     return this;
   }
 
    /**
-   * Get htTPResponseBody
-   * @return htTPResponseBody
+   * Get httpResponseBody
+   * @return httpResponseBody
   **/
   @Schema(description = "")
-  public String getHtTPResponseBody() {
-    return htTPResponseBody;
+  public String getHttpResponseBody() {
+    return httpResponseBody;
   }
 
-  public void setHtTPResponseBody(String htTPResponseBody) {
-    this.htTPResponseBody = htTPResponseBody;
+  public void setHttpResponseBody(String httpResponseBody) {
+    this.httpResponseBody = httpResponseBody;
   }
 
-  public DownloadDetailForGetTaskResultOutput htTPResponseHeader(String htTPResponseHeader) {
-    this.htTPResponseHeader = htTPResponseHeader;
+  public DownloadDetailForGetTaskResultOutput httpResponseHeader(String httpResponseHeader) {
+    this.httpResponseHeader = httpResponseHeader;
     return this;
   }
 
    /**
-   * Get htTPResponseHeader
-   * @return htTPResponseHeader
+   * Get httpResponseHeader
+   * @return httpResponseHeader
   **/
   @Schema(description = "")
-  public String getHtTPResponseHeader() {
-    return htTPResponseHeader;
+  public String getHttpResponseHeader() {
+    return httpResponseHeader;
   }
 
-  public void setHtTPResponseHeader(String htTPResponseHeader) {
-    this.htTPResponseHeader = htTPResponseHeader;
+  public void setHttpResponseHeader(String httpResponseHeader) {
+    this.httpResponseHeader = httpResponseHeader;
   }
 
-  public DownloadDetailForGetTaskResultOutput htTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
+  public DownloadDetailForGetTaskResultOutput httpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
     return this;
   }
 
    /**
-   * Get htTPVersion
-   * @return htTPVersion
+   * Get httpVersion
+   * @return httpVersion
   **/
   @Schema(description = "")
-  public String getHtTPVersion() {
-    return htTPVersion;
+  public String getHttpVersion() {
+    return httpVersion;
   }
 
-  public void setHtTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
+  public void setHttpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
   }
 
   public DownloadDetailForGetTaskResultOutput locationDetail(List<LocationDetailForGetTaskResultOutput> locationDetail) {
@@ -290,22 +290,22 @@ public class DownloadDetailForGetTaskResultOutput {
     this.locationDetail = locationDetail;
   }
 
-  public DownloadDetailForGetTaskResultOutput pcapURI(String pcapURI) {
-    this.pcapURI = pcapURI;
+  public DownloadDetailForGetTaskResultOutput pcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
     return this;
   }
 
    /**
-   * Get pcapURI
-   * @return pcapURI
+   * Get pcapUri
+   * @return pcapUri
   **/
   @Schema(description = "")
-  public String getPcapURI() {
-    return pcapURI;
+  public String getPcapUri() {
+    return pcapUri;
   }
 
-  public void setPcapURI(String pcapURI) {
-    this.pcapURI = pcapURI;
+  public void setPcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
   }
 
   public DownloadDetailForGetTaskResultOutput recvCost(Long recvCost) {
@@ -398,22 +398,22 @@ public class DownloadDetailForGetTaskResultOutput {
     this.sslCost = sslCost;
   }
 
-  public DownloadDetailForGetTaskResultOutput tcPCost(Long tcPCost) {
-    this.tcPCost = tcPCost;
+  public DownloadDetailForGetTaskResultOutput tcpCost(Long tcpCost) {
+    this.tcpCost = tcpCost;
     return this;
   }
 
    /**
-   * Get tcPCost
-   * @return tcPCost
+   * Get tcpCost
+   * @return tcpCost
   **/
   @Schema(description = "")
-  public Long getTcPCost() {
-    return tcPCost;
+  public Long getTcpCost() {
+    return tcpCost;
   }
 
-  public void setTcPCost(Long tcPCost) {
-    this.tcPCost = tcPCost;
+  public void setTcpCost(Long tcpCost) {
+    this.tcpCost = tcpCost;
   }
 
   public DownloadDetailForGetTaskResultOutput totalCost(Long totalCost) {
@@ -516,23 +516,23 @@ public class DownloadDetailForGetTaskResultOutput {
       return false;
     }
     DownloadDetailForGetTaskResultOutput downloadDetailForGetTaskResultOutput = (DownloadDetailForGetTaskResultOutput) o;
-    return Objects.equals(this.dnSCost, downloadDetailForGetTaskResultOutput.dnSCost) &&
-        Objects.equals(this.diagnoseDetail, downloadDetailForGetTaskResultOutput.diagnoseDetail) &&
+    return Objects.equals(this.diagnoseDetail, downloadDetailForGetTaskResultOutput.diagnoseDetail) &&
+        Objects.equals(this.dnsCost, downloadDetailForGetTaskResultOutput.dnsCost) &&
         Objects.equals(this.downloadSize, downloadDetailForGetTaskResultOutput.downloadSize) &&
         Objects.equals(this.downloadSpeed, downloadDetailForGetTaskResultOutput.downloadSpeed) &&
-        Objects.equals(this.htTPCode, downloadDetailForGetTaskResultOutput.htTPCode) &&
-        Objects.equals(this.htTPRequestHeader, downloadDetailForGetTaskResultOutput.htTPRequestHeader) &&
-        Objects.equals(this.htTPResponseBody, downloadDetailForGetTaskResultOutput.htTPResponseBody) &&
-        Objects.equals(this.htTPResponseHeader, downloadDetailForGetTaskResultOutput.htTPResponseHeader) &&
-        Objects.equals(this.htTPVersion, downloadDetailForGetTaskResultOutput.htTPVersion) &&
+        Objects.equals(this.httpCode, downloadDetailForGetTaskResultOutput.httpCode) &&
+        Objects.equals(this.httpRequestHeader, downloadDetailForGetTaskResultOutput.httpRequestHeader) &&
+        Objects.equals(this.httpResponseBody, downloadDetailForGetTaskResultOutput.httpResponseBody) &&
+        Objects.equals(this.httpResponseHeader, downloadDetailForGetTaskResultOutput.httpResponseHeader) &&
+        Objects.equals(this.httpVersion, downloadDetailForGetTaskResultOutput.httpVersion) &&
         Objects.equals(this.locationDetail, downloadDetailForGetTaskResultOutput.locationDetail) &&
-        Objects.equals(this.pcapURI, downloadDetailForGetTaskResultOutput.pcapURI) &&
+        Objects.equals(this.pcapUri, downloadDetailForGetTaskResultOutput.pcapUri) &&
         Objects.equals(this.recvCost, downloadDetailForGetTaskResultOutput.recvCost) &&
         Objects.equals(this.redirectCost, downloadDetailForGetTaskResultOutput.redirectCost) &&
         Objects.equals(this.redirectNums, downloadDetailForGetTaskResultOutput.redirectNums) &&
         Objects.equals(this.sendCost, downloadDetailForGetTaskResultOutput.sendCost) &&
         Objects.equals(this.sslCost, downloadDetailForGetTaskResultOutput.sslCost) &&
-        Objects.equals(this.tcPCost, downloadDetailForGetTaskResultOutput.tcPCost) &&
+        Objects.equals(this.tcpCost, downloadDetailForGetTaskResultOutput.tcpCost) &&
         Objects.equals(this.totalCost, downloadDetailForGetTaskResultOutput.totalCost) &&
         Objects.equals(this.ttfbCost, downloadDetailForGetTaskResultOutput.ttfbCost) &&
         Objects.equals(this.uploadSize, downloadDetailForGetTaskResultOutput.uploadSize) &&
@@ -542,7 +542,7 @@ public class DownloadDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, downloadSize, downloadSpeed, htTPCode, htTPRequestHeader, htTPResponseBody, htTPResponseHeader, htTPVersion, locationDetail, pcapURI, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcPCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
+    return Objects.hash(diagnoseDetail, dnsCost, downloadSize, downloadSpeed, httpCode, httpRequestHeader, httpResponseBody, httpResponseHeader, httpVersion, locationDetail, pcapUri, recvCost, redirectCost, redirectNums, sendCost, sslCost, tcpCost, totalCost, ttfbCost, uploadSize, uploadSpeed, uploadTime);
   }
 
 
@@ -551,23 +551,23 @@ public class DownloadDetailForGetTaskResultOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DownloadDetailForGetTaskResultOutput {\n");
     
-    sb.append("    dnSCost: ").append(toIndentedString(dnSCost)).append("\n");
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
+    sb.append("    dnsCost: ").append(toIndentedString(dnsCost)).append("\n");
     sb.append("    downloadSize: ").append(toIndentedString(downloadSize)).append("\n");
     sb.append("    downloadSpeed: ").append(toIndentedString(downloadSpeed)).append("\n");
-    sb.append("    htTPCode: ").append(toIndentedString(htTPCode)).append("\n");
-    sb.append("    htTPRequestHeader: ").append(toIndentedString(htTPRequestHeader)).append("\n");
-    sb.append("    htTPResponseBody: ").append(toIndentedString(htTPResponseBody)).append("\n");
-    sb.append("    htTPResponseHeader: ").append(toIndentedString(htTPResponseHeader)).append("\n");
-    sb.append("    htTPVersion: ").append(toIndentedString(htTPVersion)).append("\n");
+    sb.append("    httpCode: ").append(toIndentedString(httpCode)).append("\n");
+    sb.append("    httpRequestHeader: ").append(toIndentedString(httpRequestHeader)).append("\n");
+    sb.append("    httpResponseBody: ").append(toIndentedString(httpResponseBody)).append("\n");
+    sb.append("    httpResponseHeader: ").append(toIndentedString(httpResponseHeader)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    locationDetail: ").append(toIndentedString(locationDetail)).append("\n");
-    sb.append("    pcapURI: ").append(toIndentedString(pcapURI)).append("\n");
+    sb.append("    pcapUri: ").append(toIndentedString(pcapUri)).append("\n");
     sb.append("    recvCost: ").append(toIndentedString(recvCost)).append("\n");
     sb.append("    redirectCost: ").append(toIndentedString(redirectCost)).append("\n");
     sb.append("    redirectNums: ").append(toIndentedString(redirectNums)).append("\n");
     sb.append("    sendCost: ").append(toIndentedString(sendCost)).append("\n");
     sb.append("    sslCost: ").append(toIndentedString(sslCost)).append("\n");
-    sb.append("    tcPCost: ").append(toIndentedString(tcPCost)).append("\n");
+    sb.append("    tcpCost: ").append(toIndentedString(tcpCost)).append("\n");
     sb.append("    totalCost: ").append(toIndentedString(totalCost)).append("\n");
     sb.append("    ttfbCost: ").append(toIndentedString(ttfbCost)).append("\n");
     sb.append("    uploadSize: ").append(toIndentedString(uploadSize)).append("\n");

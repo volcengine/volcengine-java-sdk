@@ -231,6 +231,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("ReservationInstance")
   private String reservationInstance = null;
 
+  @SerializedName("ResourceID")
+  private String resourceID = null;
+
   @SerializedName("RoundAmount")
   private Double roundAmount = null;
 
@@ -1521,6 +1524,24 @@ public class ListForListBillDetailOutput {
     this.reservationInstance = reservationInstance;
   }
 
+  public ListForListBillDetailOutput resourceID(String resourceID) {
+    this.resourceID = resourceID;
+    return this;
+  }
+
+   /**
+   * Get resourceID
+   * @return resourceID
+  **/
+  @Schema(description = "")
+  public String getResourceID() {
+    return resourceID;
+  }
+
+  public void setResourceID(String resourceID) {
+    this.resourceID = resourceID;
+  }
+
   public ListForListBillDetailOutput roundAmount(Double roundAmount) {
     this.roundAmount = roundAmount;
     return this;
@@ -2102,6 +2123,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.region, listForListBillDetailOutput.region) &&
         Objects.equals(this.regionCode, listForListBillDetailOutput.regionCode) &&
         Objects.equals(this.reservationInstance, listForListBillDetailOutput.reservationInstance) &&
+        Objects.equals(this.resourceID, listForListBillDetailOutput.resourceID) &&
         Objects.equals(this.roundAmount, listForListBillDetailOutput.roundAmount) &&
         Objects.equals(this.savingPlanDeductionDiscountAmount, listForListBillDetailOutput.savingPlanDeductionDiscountAmount) &&
         Objects.equals(this.savingPlanDeductionSpID, listForListBillDetailOutput.savingPlanDeductionSpID) &&
@@ -2134,7 +2156,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2210,6 +2232,7 @@ public class ListForListBillDetailOutput {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    reservationInstance: ").append(toIndentedString(reservationInstance)).append("\n");
+    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("    roundAmount: ").append(toIndentedString(roundAmount)).append("\n");
     sb.append("    savingPlanDeductionDiscountAmount: ").append(toIndentedString(savingPlanDeductionDiscountAmount)).append("\n");
     sb.append("    savingPlanDeductionSpID: ").append(toIndentedString(savingPlanDeductionSpID)).append("\n");

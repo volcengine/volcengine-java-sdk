@@ -285,6 +285,9 @@ public class ListForListAmortizedCostBillDetailOutput {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("ResourceID")
+  private String resourceID = null;
+
   @SerializedName("RoundAmount")
   private String roundAmount = null;
 
@@ -1893,6 +1896,24 @@ public class ListForListAmortizedCostBillDetailOutput {
     this.region = region;
   }
 
+  public ListForListAmortizedCostBillDetailOutput resourceID(String resourceID) {
+    this.resourceID = resourceID;
+    return this;
+  }
+
+   /**
+   * Get resourceID
+   * @return resourceID
+  **/
+  @Schema(description = "")
+  public String getResourceID() {
+    return resourceID;
+  }
+
+  public void setResourceID(String resourceID) {
+    this.resourceID = resourceID;
+  }
+
   public ListForListAmortizedCostBillDetailOutput roundAmount(String roundAmount) {
     this.roundAmount = roundAmount;
     return this;
@@ -2456,6 +2477,7 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.projectDisplayName, listForListAmortizedCostBillDetailOutput.projectDisplayName) &&
         Objects.equals(this.realValue, listForListAmortizedCostBillDetailOutput.realValue) &&
         Objects.equals(this.region, listForListAmortizedCostBillDetailOutput.region) &&
+        Objects.equals(this.resourceID, listForListAmortizedCostBillDetailOutput.resourceID) &&
         Objects.equals(this.roundAmount, listForListAmortizedCostBillDetailOutput.roundAmount) &&
         Objects.equals(this.savingPlanDeductionDiscountAmount, listForListAmortizedCostBillDetailOutput.savingPlanDeductionDiscountAmount) &&
         Objects.equals(this.savingPlanDeductionSpID, listForListAmortizedCostBillDetailOutput.savingPlanDeductionSpID) &&
@@ -2486,7 +2508,7 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, countryArea, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, exchangeRate, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxAmount, taxRate, tradeTime, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, countryArea, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, exchangeRate, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxAmount, taxRate, tradeTime, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -2580,6 +2602,7 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    projectDisplayName: ").append(toIndentedString(projectDisplayName)).append("\n");
     sb.append("    realValue: ").append(toIndentedString(realValue)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("    roundAmount: ").append(toIndentedString(roundAmount)).append("\n");
     sb.append("    savingPlanDeductionDiscountAmount: ").append(toIndentedString(savingPlanDeductionDiscountAmount)).append("\n");
     sb.append("    savingPlanDeductionSpID: ").append(toIndentedString(savingPlanDeductionSpID)).append("\n");

@@ -67,8 +67,7 @@ public class DescribeZonesRequest {
    * Get languageCode
    * @return languageCode
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLanguageCode() {
     return languageCode;
   }

@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class MtrConfigForGetTaskOutput {
-  @SerializedName("DNSReverseResolution")
-  private Boolean dnSReverseResolution = null;
+  @SerializedName("DnsReverseResolution")
+  private Boolean dnsReverseResolution = null;
 
   @SerializedName("Interval")
   private Double interval = null;
@@ -54,22 +54,22 @@ public class MtrConfigForGetTaskOutput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
-  public MtrConfigForGetTaskOutput dnSReverseResolution(Boolean dnSReverseResolution) {
-    this.dnSReverseResolution = dnSReverseResolution;
+  public MtrConfigForGetTaskOutput dnsReverseResolution(Boolean dnsReverseResolution) {
+    this.dnsReverseResolution = dnsReverseResolution;
     return this;
   }
 
    /**
-   * Get dnSReverseResolution
-   * @return dnSReverseResolution
+   * Get dnsReverseResolution
+   * @return dnsReverseResolution
   **/
   @Schema(description = "")
-  public Boolean isDnSReverseResolution() {
-    return dnSReverseResolution;
+  public Boolean isDnsReverseResolution() {
+    return dnsReverseResolution;
   }
 
-  public void setDnSReverseResolution(Boolean dnSReverseResolution) {
-    this.dnSReverseResolution = dnSReverseResolution;
+  public void setDnsReverseResolution(Boolean dnsReverseResolution) {
+    this.dnsReverseResolution = dnsReverseResolution;
   }
 
   public MtrConfigForGetTaskOutput interval(Double interval) {
@@ -208,7 +208,7 @@ public class MtrConfigForGetTaskOutput {
       return false;
     }
     MtrConfigForGetTaskOutput mtrConfigForGetTaskOutput = (MtrConfigForGetTaskOutput) o;
-    return Objects.equals(this.dnSReverseResolution, mtrConfigForGetTaskOutput.dnSReverseResolution) &&
+    return Objects.equals(this.dnsReverseResolution, mtrConfigForGetTaskOutput.dnsReverseResolution) &&
         Objects.equals(this.interval, mtrConfigForGetTaskOutput.interval) &&
         Objects.equals(this.maxHops, mtrConfigForGetTaskOutput.maxHops) &&
         Objects.equals(this.maxUnknownHost, mtrConfigForGetTaskOutput.maxUnknownHost) &&
@@ -220,7 +220,7 @@ public class MtrConfigForGetTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSReverseResolution, interval, maxHops, maxUnknownHost, packageNum, packageSize, packageType, timeout);
+    return Objects.hash(dnsReverseResolution, interval, maxHops, maxUnknownHost, packageNum, packageSize, packageType, timeout);
   }
 
 
@@ -229,7 +229,7 @@ public class MtrConfigForGetTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MtrConfigForGetTaskOutput {\n");
     
-    sb.append("    dnSReverseResolution: ").append(toIndentedString(dnSReverseResolution)).append("\n");
+    sb.append("    dnsReverseResolution: ").append(toIndentedString(dnsReverseResolution)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    maxHops: ").append(toIndentedString(maxHops)).append("\n");
     sb.append("    maxUnknownHost: ").append(toIndentedString(maxUnknownHost)).append("\n");

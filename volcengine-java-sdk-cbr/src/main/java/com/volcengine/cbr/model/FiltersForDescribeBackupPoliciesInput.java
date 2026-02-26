@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class FiltersForDescribeBackupPoliciesInput {
   @SerializedName("EnablePolicy")
-  private Boolean enablePolicy = null;
+  private String enablePolicy = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -39,7 +39,7 @@ public class FiltersForDescribeBackupPoliciesInput {
   @SerializedName("PolicyId")
   private String policyId = null;
 
-  public FiltersForDescribeBackupPoliciesInput enablePolicy(Boolean enablePolicy) {
+  public FiltersForDescribeBackupPoliciesInput enablePolicy(String enablePolicy) {
     this.enablePolicy = enablePolicy;
     return this;
   }
@@ -49,11 +49,11 @@ public class FiltersForDescribeBackupPoliciesInput {
    * @return enablePolicy
   **/
   @Schema(description = "")
-  public Boolean isEnablePolicy() {
+  public String getEnablePolicy() {
     return enablePolicy;
   }
 
-  public void setEnablePolicy(Boolean enablePolicy) {
+  public void setEnablePolicy(String enablePolicy) {
     this.enablePolicy = enablePolicy;
   }
 

@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clouddetect20251031.model.CookieForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.CustomHeaderForCreateTaskInput;
-import com.volcengine.clouddetect20251031.model.EndCustomHostConfigTimeForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.CustomHostConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.QuicConfigForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -45,6 +45,9 @@ public class PageConfigForCreateTaskInput {
   @SerializedName("CustomHeader")
   private CustomHeaderForCreateTaskInput customHeader = null;
 
+  @SerializedName("CustomHostConfig")
+  private CustomHostConfigForCreateTaskInput customHostConfig = null;
+
   @SerializedName("DisableCompress")
   private Boolean disableCompress = null;
 
@@ -53,9 +56,6 @@ public class PageConfigForCreateTaskInput {
 
   @SerializedName("EnableRedirect")
   private Boolean enableRedirect = null;
-
-  @SerializedName("EndCustomHostConfigTime")
-  private EndCustomHostConfigTimeForCreateTaskInput endCustomHostConfigTime = null;
 
   @SerializedName("IgnoreCertificate")
   private Boolean ignoreCertificate = null;
@@ -142,6 +142,25 @@ public class PageConfigForCreateTaskInput {
     this.customHeader = customHeader;
   }
 
+  public PageConfigForCreateTaskInput customHostConfig(CustomHostConfigForCreateTaskInput customHostConfig) {
+    this.customHostConfig = customHostConfig;
+    return this;
+  }
+
+   /**
+   * Get customHostConfig
+   * @return customHostConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public CustomHostConfigForCreateTaskInput getCustomHostConfig() {
+    return customHostConfig;
+  }
+
+  public void setCustomHostConfig(CustomHostConfigForCreateTaskInput customHostConfig) {
+    this.customHostConfig = customHostConfig;
+  }
+
   public PageConfigForCreateTaskInput disableCompress(Boolean disableCompress) {
     this.disableCompress = disableCompress;
     return this;
@@ -194,25 +213,6 @@ public class PageConfigForCreateTaskInput {
 
   public void setEnableRedirect(Boolean enableRedirect) {
     this.enableRedirect = enableRedirect;
-  }
-
-  public PageConfigForCreateTaskInput endCustomHostConfigTime(EndCustomHostConfigTimeForCreateTaskInput endCustomHostConfigTime) {
-    this.endCustomHostConfigTime = endCustomHostConfigTime;
-    return this;
-  }
-
-   /**
-   * Get endCustomHostConfigTime
-   * @return endCustomHostConfigTime
-  **/
-  @Valid
-  @Schema(description = "")
-  public EndCustomHostConfigTimeForCreateTaskInput getEndCustomHostConfigTime() {
-    return endCustomHostConfigTime;
-  }
-
-  public void setEndCustomHostConfigTime(EndCustomHostConfigTimeForCreateTaskInput endCustomHostConfigTime) {
-    this.endCustomHostConfigTime = endCustomHostConfigTime;
   }
 
   public PageConfigForCreateTaskInput ignoreCertificate(Boolean ignoreCertificate) {
@@ -355,10 +355,10 @@ public class PageConfigForCreateTaskInput {
     return Objects.equals(this.autoScroll, pageConfigForCreateTaskInput.autoScroll) &&
         Objects.equals(this.cookies, pageConfigForCreateTaskInput.cookies) &&
         Objects.equals(this.customHeader, pageConfigForCreateTaskInput.customHeader) &&
+        Objects.equals(this.customHostConfig, pageConfigForCreateTaskInput.customHostConfig) &&
         Objects.equals(this.disableCompress, pageConfigForCreateTaskInput.disableCompress) &&
         Objects.equals(this.enableCache, pageConfigForCreateTaskInput.enableCache) &&
         Objects.equals(this.enableRedirect, pageConfigForCreateTaskInput.enableRedirect) &&
-        Objects.equals(this.endCustomHostConfigTime, pageConfigForCreateTaskInput.endCustomHostConfigTime) &&
         Objects.equals(this.ignoreCertificate, pageConfigForCreateTaskInput.ignoreCertificate) &&
         Objects.equals(this.quicConfig, pageConfigForCreateTaskInput.quicConfig) &&
         Objects.equals(this.saveBaseDocumentBody, pageConfigForCreateTaskInput.saveBaseDocumentBody) &&
@@ -370,7 +370,7 @@ public class PageConfigForCreateTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScroll, cookies, customHeader, disableCompress, enableCache, enableRedirect, endCustomHostConfigTime, ignoreCertificate, quicConfig, saveBaseDocumentBody, saveElements, saveFinalSnapshot, screenshotKeypoint, timeout);
+    return Objects.hash(autoScroll, cookies, customHeader, customHostConfig, disableCompress, enableCache, enableRedirect, ignoreCertificate, quicConfig, saveBaseDocumentBody, saveElements, saveFinalSnapshot, screenshotKeypoint, timeout);
   }
 
 
@@ -382,10 +382,10 @@ public class PageConfigForCreateTaskInput {
     sb.append("    autoScroll: ").append(toIndentedString(autoScroll)).append("\n");
     sb.append("    cookies: ").append(toIndentedString(cookies)).append("\n");
     sb.append("    customHeader: ").append(toIndentedString(customHeader)).append("\n");
+    sb.append("    customHostConfig: ").append(toIndentedString(customHostConfig)).append("\n");
     sb.append("    disableCompress: ").append(toIndentedString(disableCompress)).append("\n");
     sb.append("    enableCache: ").append(toIndentedString(enableCache)).append("\n");
     sb.append("    enableRedirect: ").append(toIndentedString(enableRedirect)).append("\n");
-    sb.append("    endCustomHostConfigTime: ").append(toIndentedString(endCustomHostConfigTime)).append("\n");
     sb.append("    ignoreCertificate: ").append(toIndentedString(ignoreCertificate)).append("\n");
     sb.append("    quicConfig: ").append(toIndentedString(quicConfig)).append("\n");
     sb.append("    saveBaseDocumentBody: ").append(toIndentedString(saveBaseDocumentBody)).append("\n");

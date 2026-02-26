@@ -19,19 +19,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.clouddetect20251031.model.DNSConfigForCreateTaskInput;
-import com.volcengine.clouddetect20251031.model.DNSHijackConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.DiagnoseConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.DnsConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.DnsHijackConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.DownloadConfigForCreateTaskInput;
-import com.volcengine.clouddetect20251031.model.HTTPConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.HttpConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.PageConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.PeriodConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.PingConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.ResultAssertForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.SelectionConfigForCreateTaskInput;
-import com.volcengine.clouddetect20251031.model.TCPConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.TagForCreateTaskInput;
-import com.volcengine.clouddetect20251031.model.UDPConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.TcpConfigForCreateTaskInput;
+import com.volcengine.clouddetect20251031.model.UdpConfigForCreateTaskInput;
 import com.volcengine.clouddetect20251031.model.UploadConfigForCreateTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -49,17 +49,17 @@ public class CreateTaskRequest {
   @SerializedName("Address")
   private String address = null;
 
-  @SerializedName("AlarmIDList")
-  private List<Long> alarmIDList = null;
-
-  @SerializedName("DNSConfig")
-  private DNSConfigForCreateTaskInput dnSConfig = null;
-
-  @SerializedName("DNSHijackConfig")
-  private DNSHijackConfigForCreateTaskInput dnSHijackConfig = null;
+  @SerializedName("AlarmIdList")
+  private List<Long> alarmIdList = null;
 
   @SerializedName("DiagnoseConfig")
   private DiagnoseConfigForCreateTaskInput diagnoseConfig = null;
+
+  @SerializedName("DnsConfig")
+  private DnsConfigForCreateTaskInput dnsConfig = null;
+
+  @SerializedName("DnsHijackConfig")
+  private DnsHijackConfigForCreateTaskInput dnsHijackConfig = null;
 
   @SerializedName("DownloadConfig")
   private DownloadConfigForCreateTaskInput downloadConfig = null;
@@ -67,14 +67,14 @@ public class CreateTaskRequest {
   @SerializedName("FinishTime")
   private Long finishTime = null;
 
-  @SerializedName("HTTPConfig")
-  private HTTPConfigForCreateTaskInput htTPConfig = null;
+  @SerializedName("HttpConfig")
+  private HttpConfigForCreateTaskInput httpConfig = null;
 
   @SerializedName("IntervalSeconds")
   private Long intervalSeconds = null;
 
-  @SerializedName("LineIDList")
-  private List<Long> lineIDList = null;
+  @SerializedName("LineIdList")
+  private List<Long> lineIdList = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -100,23 +100,23 @@ public class CreateTaskRequest {
   @SerializedName("SelectionConfig")
   private SelectionConfigForCreateTaskInput selectionConfig = null;
 
-  @SerializedName("TCPConfig")
-  private TCPConfigForCreateTaskInput tcPConfig = null;
-
   @SerializedName("Tags")
   private List<TagForCreateTaskInput> tags = null;
 
   @SerializedName("TargetServerType")
   private Integer targetServerType = null;
 
-  @SerializedName("TaskGroupID")
-  private Long taskGroupID = null;
+  @SerializedName("TaskGroupId")
+  private Long taskGroupId = null;
+
+  @SerializedName("TcpConfig")
+  private TcpConfigForCreateTaskInput tcpConfig = null;
 
   @SerializedName("Type")
   private Integer type = null;
 
-  @SerializedName("UDPConfig")
-  private UDPConfigForCreateTaskInput udPConfig = null;
+  @SerializedName("UdpConfig")
+  private UdpConfigForCreateTaskInput udpConfig = null;
 
   @SerializedName("UploadConfig")
   private UploadConfigForCreateTaskInput uploadConfig = null;
@@ -140,68 +140,30 @@ public class CreateTaskRequest {
     this.address = address;
   }
 
-  public CreateTaskRequest alarmIDList(List<Long> alarmIDList) {
-    this.alarmIDList = alarmIDList;
+  public CreateTaskRequest alarmIdList(List<Long> alarmIdList) {
+    this.alarmIdList = alarmIdList;
     return this;
   }
 
-  public CreateTaskRequest addAlarmIDListItem(Long alarmIDListItem) {
-    if (this.alarmIDList == null) {
-      this.alarmIDList = new ArrayList<Long>();
+  public CreateTaskRequest addAlarmIdListItem(Long alarmIdListItem) {
+    if (this.alarmIdList == null) {
+      this.alarmIdList = new ArrayList<Long>();
     }
-    this.alarmIDList.add(alarmIDListItem);
+    this.alarmIdList.add(alarmIdListItem);
     return this;
   }
 
    /**
-   * Get alarmIDList
-   * @return alarmIDList
+   * Get alarmIdList
+   * @return alarmIdList
   **/
   @Schema(description = "")
-  public List<Long> getAlarmIDList() {
-    return alarmIDList;
+  public List<Long> getAlarmIdList() {
+    return alarmIdList;
   }
 
-  public void setAlarmIDList(List<Long> alarmIDList) {
-    this.alarmIDList = alarmIDList;
-  }
-
-  public CreateTaskRequest dnSConfig(DNSConfigForCreateTaskInput dnSConfig) {
-    this.dnSConfig = dnSConfig;
-    return this;
-  }
-
-   /**
-   * Get dnSConfig
-   * @return dnSConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public DNSConfigForCreateTaskInput getDnSConfig() {
-    return dnSConfig;
-  }
-
-  public void setDnSConfig(DNSConfigForCreateTaskInput dnSConfig) {
-    this.dnSConfig = dnSConfig;
-  }
-
-  public CreateTaskRequest dnSHijackConfig(DNSHijackConfigForCreateTaskInput dnSHijackConfig) {
-    this.dnSHijackConfig = dnSHijackConfig;
-    return this;
-  }
-
-   /**
-   * Get dnSHijackConfig
-   * @return dnSHijackConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public DNSHijackConfigForCreateTaskInput getDnSHijackConfig() {
-    return dnSHijackConfig;
-  }
-
-  public void setDnSHijackConfig(DNSHijackConfigForCreateTaskInput dnSHijackConfig) {
-    this.dnSHijackConfig = dnSHijackConfig;
+  public void setAlarmIdList(List<Long> alarmIdList) {
+    this.alarmIdList = alarmIdList;
   }
 
   public CreateTaskRequest diagnoseConfig(DiagnoseConfigForCreateTaskInput diagnoseConfig) {
@@ -221,6 +183,44 @@ public class CreateTaskRequest {
 
   public void setDiagnoseConfig(DiagnoseConfigForCreateTaskInput diagnoseConfig) {
     this.diagnoseConfig = diagnoseConfig;
+  }
+
+  public CreateTaskRequest dnsConfig(DnsConfigForCreateTaskInput dnsConfig) {
+    this.dnsConfig = dnsConfig;
+    return this;
+  }
+
+   /**
+   * Get dnsConfig
+   * @return dnsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public DnsConfigForCreateTaskInput getDnsConfig() {
+    return dnsConfig;
+  }
+
+  public void setDnsConfig(DnsConfigForCreateTaskInput dnsConfig) {
+    this.dnsConfig = dnsConfig;
+  }
+
+  public CreateTaskRequest dnsHijackConfig(DnsHijackConfigForCreateTaskInput dnsHijackConfig) {
+    this.dnsHijackConfig = dnsHijackConfig;
+    return this;
+  }
+
+   /**
+   * Get dnsHijackConfig
+   * @return dnsHijackConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public DnsHijackConfigForCreateTaskInput getDnsHijackConfig() {
+    return dnsHijackConfig;
+  }
+
+  public void setDnsHijackConfig(DnsHijackConfigForCreateTaskInput dnsHijackConfig) {
+    this.dnsHijackConfig = dnsHijackConfig;
   }
 
   public CreateTaskRequest downloadConfig(DownloadConfigForCreateTaskInput downloadConfig) {
@@ -261,23 +261,23 @@ public class CreateTaskRequest {
     this.finishTime = finishTime;
   }
 
-  public CreateTaskRequest htTPConfig(HTTPConfigForCreateTaskInput htTPConfig) {
-    this.htTPConfig = htTPConfig;
+  public CreateTaskRequest httpConfig(HttpConfigForCreateTaskInput httpConfig) {
+    this.httpConfig = httpConfig;
     return this;
   }
 
    /**
-   * Get htTPConfig
-   * @return htTPConfig
+   * Get httpConfig
+   * @return httpConfig
   **/
   @Valid
   @Schema(description = "")
-  public HTTPConfigForCreateTaskInput getHtTPConfig() {
-    return htTPConfig;
+  public HttpConfigForCreateTaskInput getHttpConfig() {
+    return httpConfig;
   }
 
-  public void setHtTPConfig(HTTPConfigForCreateTaskInput htTPConfig) {
-    this.htTPConfig = htTPConfig;
+  public void setHttpConfig(HttpConfigForCreateTaskInput httpConfig) {
+    this.httpConfig = httpConfig;
   }
 
   public CreateTaskRequest intervalSeconds(Long intervalSeconds) {
@@ -299,30 +299,30 @@ public class CreateTaskRequest {
     this.intervalSeconds = intervalSeconds;
   }
 
-  public CreateTaskRequest lineIDList(List<Long> lineIDList) {
-    this.lineIDList = lineIDList;
+  public CreateTaskRequest lineIdList(List<Long> lineIdList) {
+    this.lineIdList = lineIdList;
     return this;
   }
 
-  public CreateTaskRequest addLineIDListItem(Long lineIDListItem) {
-    if (this.lineIDList == null) {
-      this.lineIDList = new ArrayList<Long>();
+  public CreateTaskRequest addLineIdListItem(Long lineIdListItem) {
+    if (this.lineIdList == null) {
+      this.lineIdList = new ArrayList<Long>();
     }
-    this.lineIDList.add(lineIDListItem);
+    this.lineIdList.add(lineIdListItem);
     return this;
   }
 
    /**
-   * Get lineIDList
-   * @return lineIDList
+   * Get lineIdList
+   * @return lineIdList
   **/
   @Schema(description = "")
-  public List<Long> getLineIDList() {
-    return lineIDList;
+  public List<Long> getLineIdList() {
+    return lineIdList;
   }
 
-  public void setLineIDList(List<Long> lineIDList) {
-    this.lineIDList = lineIDList;
+  public void setLineIdList(List<Long> lineIdList) {
+    this.lineIdList = lineIdList;
   }
 
   public CreateTaskRequest name(String name) {
@@ -476,25 +476,6 @@ public class CreateTaskRequest {
     this.selectionConfig = selectionConfig;
   }
 
-  public CreateTaskRequest tcPConfig(TCPConfigForCreateTaskInput tcPConfig) {
-    this.tcPConfig = tcPConfig;
-    return this;
-  }
-
-   /**
-   * Get tcPConfig
-   * @return tcPConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public TCPConfigForCreateTaskInput getTcPConfig() {
-    return tcPConfig;
-  }
-
-  public void setTcPConfig(TCPConfigForCreateTaskInput tcPConfig) {
-    this.tcPConfig = tcPConfig;
-  }
-
   public CreateTaskRequest tags(List<TagForCreateTaskInput> tags) {
     this.tags = tags;
     return this;
@@ -540,22 +521,41 @@ public class CreateTaskRequest {
     this.targetServerType = targetServerType;
   }
 
-  public CreateTaskRequest taskGroupID(Long taskGroupID) {
-    this.taskGroupID = taskGroupID;
+  public CreateTaskRequest taskGroupId(Long taskGroupId) {
+    this.taskGroupId = taskGroupId;
     return this;
   }
 
    /**
-   * Get taskGroupID
-   * @return taskGroupID
+   * Get taskGroupId
+   * @return taskGroupId
   **/
   @Schema(description = "")
-  public Long getTaskGroupID() {
-    return taskGroupID;
+  public Long getTaskGroupId() {
+    return taskGroupId;
   }
 
-  public void setTaskGroupID(Long taskGroupID) {
-    this.taskGroupID = taskGroupID;
+  public void setTaskGroupId(Long taskGroupId) {
+    this.taskGroupId = taskGroupId;
+  }
+
+  public CreateTaskRequest tcpConfig(TcpConfigForCreateTaskInput tcpConfig) {
+    this.tcpConfig = tcpConfig;
+    return this;
+  }
+
+   /**
+   * Get tcpConfig
+   * @return tcpConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TcpConfigForCreateTaskInput getTcpConfig() {
+    return tcpConfig;
+  }
+
+  public void setTcpConfig(TcpConfigForCreateTaskInput tcpConfig) {
+    this.tcpConfig = tcpConfig;
   }
 
   public CreateTaskRequest type(Integer type) {
@@ -577,23 +577,23 @@ public class CreateTaskRequest {
     this.type = type;
   }
 
-  public CreateTaskRequest udPConfig(UDPConfigForCreateTaskInput udPConfig) {
-    this.udPConfig = udPConfig;
+  public CreateTaskRequest udpConfig(UdpConfigForCreateTaskInput udpConfig) {
+    this.udpConfig = udpConfig;
     return this;
   }
 
    /**
-   * Get udPConfig
-   * @return udPConfig
+   * Get udpConfig
+   * @return udpConfig
   **/
   @Valid
   @Schema(description = "")
-  public UDPConfigForCreateTaskInput getUdPConfig() {
-    return udPConfig;
+  public UdpConfigForCreateTaskInput getUdpConfig() {
+    return udpConfig;
   }
 
-  public void setUdPConfig(UDPConfigForCreateTaskInput udPConfig) {
-    this.udPConfig = udPConfig;
+  public void setUdpConfig(UdpConfigForCreateTaskInput udpConfig) {
+    this.udpConfig = udpConfig;
   }
 
   public CreateTaskRequest uploadConfig(UploadConfigForCreateTaskInput uploadConfig) {
@@ -626,15 +626,15 @@ public class CreateTaskRequest {
     }
     CreateTaskRequest createTaskRequest = (CreateTaskRequest) o;
     return Objects.equals(this.address, createTaskRequest.address) &&
-        Objects.equals(this.alarmIDList, createTaskRequest.alarmIDList) &&
-        Objects.equals(this.dnSConfig, createTaskRequest.dnSConfig) &&
-        Objects.equals(this.dnSHijackConfig, createTaskRequest.dnSHijackConfig) &&
+        Objects.equals(this.alarmIdList, createTaskRequest.alarmIdList) &&
         Objects.equals(this.diagnoseConfig, createTaskRequest.diagnoseConfig) &&
+        Objects.equals(this.dnsConfig, createTaskRequest.dnsConfig) &&
+        Objects.equals(this.dnsHijackConfig, createTaskRequest.dnsHijackConfig) &&
         Objects.equals(this.downloadConfig, createTaskRequest.downloadConfig) &&
         Objects.equals(this.finishTime, createTaskRequest.finishTime) &&
-        Objects.equals(this.htTPConfig, createTaskRequest.htTPConfig) &&
+        Objects.equals(this.httpConfig, createTaskRequest.httpConfig) &&
         Objects.equals(this.intervalSeconds, createTaskRequest.intervalSeconds) &&
-        Objects.equals(this.lineIDList, createTaskRequest.lineIDList) &&
+        Objects.equals(this.lineIdList, createTaskRequest.lineIdList) &&
         Objects.equals(this.name, createTaskRequest.name) &&
         Objects.equals(this.nodeCount, createTaskRequest.nodeCount) &&
         Objects.equals(this.pageConfig, createTaskRequest.pageConfig) &&
@@ -643,18 +643,18 @@ public class CreateTaskRequest {
         Objects.equals(this.projectName, createTaskRequest.projectName) &&
         Objects.equals(this.resultAssert, createTaskRequest.resultAssert) &&
         Objects.equals(this.selectionConfig, createTaskRequest.selectionConfig) &&
-        Objects.equals(this.tcPConfig, createTaskRequest.tcPConfig) &&
         Objects.equals(this.tags, createTaskRequest.tags) &&
         Objects.equals(this.targetServerType, createTaskRequest.targetServerType) &&
-        Objects.equals(this.taskGroupID, createTaskRequest.taskGroupID) &&
+        Objects.equals(this.taskGroupId, createTaskRequest.taskGroupId) &&
+        Objects.equals(this.tcpConfig, createTaskRequest.tcpConfig) &&
         Objects.equals(this.type, createTaskRequest.type) &&
-        Objects.equals(this.udPConfig, createTaskRequest.udPConfig) &&
+        Objects.equals(this.udpConfig, createTaskRequest.udpConfig) &&
         Objects.equals(this.uploadConfig, createTaskRequest.uploadConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, alarmIDList, dnSConfig, dnSHijackConfig, diagnoseConfig, downloadConfig, finishTime, htTPConfig, intervalSeconds, lineIDList, name, nodeCount, pageConfig, periodConfig, pingConfig, projectName, resultAssert, selectionConfig, tcPConfig, tags, targetServerType, taskGroupID, type, udPConfig, uploadConfig);
+    return Objects.hash(address, alarmIdList, diagnoseConfig, dnsConfig, dnsHijackConfig, downloadConfig, finishTime, httpConfig, intervalSeconds, lineIdList, name, nodeCount, pageConfig, periodConfig, pingConfig, projectName, resultAssert, selectionConfig, tags, targetServerType, taskGroupId, tcpConfig, type, udpConfig, uploadConfig);
   }
 
 
@@ -664,15 +664,15 @@ public class CreateTaskRequest {
     sb.append("class CreateTaskRequest {\n");
     
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    alarmIDList: ").append(toIndentedString(alarmIDList)).append("\n");
-    sb.append("    dnSConfig: ").append(toIndentedString(dnSConfig)).append("\n");
-    sb.append("    dnSHijackConfig: ").append(toIndentedString(dnSHijackConfig)).append("\n");
+    sb.append("    alarmIdList: ").append(toIndentedString(alarmIdList)).append("\n");
     sb.append("    diagnoseConfig: ").append(toIndentedString(diagnoseConfig)).append("\n");
+    sb.append("    dnsConfig: ").append(toIndentedString(dnsConfig)).append("\n");
+    sb.append("    dnsHijackConfig: ").append(toIndentedString(dnsHijackConfig)).append("\n");
     sb.append("    downloadConfig: ").append(toIndentedString(downloadConfig)).append("\n");
     sb.append("    finishTime: ").append(toIndentedString(finishTime)).append("\n");
-    sb.append("    htTPConfig: ").append(toIndentedString(htTPConfig)).append("\n");
+    sb.append("    httpConfig: ").append(toIndentedString(httpConfig)).append("\n");
     sb.append("    intervalSeconds: ").append(toIndentedString(intervalSeconds)).append("\n");
-    sb.append("    lineIDList: ").append(toIndentedString(lineIDList)).append("\n");
+    sb.append("    lineIdList: ").append(toIndentedString(lineIdList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    pageConfig: ").append(toIndentedString(pageConfig)).append("\n");
@@ -681,12 +681,12 @@ public class CreateTaskRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resultAssert: ").append(toIndentedString(resultAssert)).append("\n");
     sb.append("    selectionConfig: ").append(toIndentedString(selectionConfig)).append("\n");
-    sb.append("    tcPConfig: ").append(toIndentedString(tcPConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetServerType: ").append(toIndentedString(targetServerType)).append("\n");
-    sb.append("    taskGroupID: ").append(toIndentedString(taskGroupID)).append("\n");
+    sb.append("    taskGroupId: ").append(toIndentedString(taskGroupId)).append("\n");
+    sb.append("    tcpConfig: ").append(toIndentedString(tcpConfig)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    udPConfig: ").append(toIndentedString(udPConfig)).append("\n");
+    sb.append("    udpConfig: ").append(toIndentedString(udpConfig)).append("\n");
     sb.append("    uploadConfig: ").append(toIndentedString(uploadConfig)).append("\n");
     sb.append("}");
     return sb.toString();
