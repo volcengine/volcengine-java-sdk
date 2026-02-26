@@ -45,8 +45,8 @@ public class BasicDetailForGetTaskResultOutput {
   @SerializedName("ClientInfo")
   private ClientInfoForGetTaskResultOutput clientInfo = null;
 
-  @SerializedName("DNSServer")
-  private String dnSServer = null;
+  @SerializedName("DnsServer")
+  private String dnsServer = null;
 
   @SerializedName("ErrorMsg")
   private String errorMsg = null;
@@ -124,22 +124,22 @@ public class BasicDetailForGetTaskResultOutput {
     this.clientInfo = clientInfo;
   }
 
-  public BasicDetailForGetTaskResultOutput dnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public BasicDetailForGetTaskResultOutput dnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
     return this;
   }
 
    /**
-   * Get dnSServer
-   * @return dnSServer
+   * Get dnsServer
+   * @return dnsServer
   **/
   @Schema(description = "")
-  public String getDnSServer() {
-    return dnSServer;
+  public String getDnsServer() {
+    return dnsServer;
   }
 
-  public void setDnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public void setDnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
   }
 
   public BasicDetailForGetTaskResultOutput errorMsg(String errorMsg) {
@@ -229,7 +229,7 @@ public class BasicDetailForGetTaskResultOutput {
     return Objects.equals(this.assertions, basicDetailForGetTaskResultOutput.assertions) &&
         Objects.equals(this.chUk, basicDetailForGetTaskResultOutput.chUk) &&
         Objects.equals(this.clientInfo, basicDetailForGetTaskResultOutput.clientInfo) &&
-        Objects.equals(this.dnSServer, basicDetailForGetTaskResultOutput.dnSServer) &&
+        Objects.equals(this.dnsServer, basicDetailForGetTaskResultOutput.dnsServer) &&
         Objects.equals(this.errorMsg, basicDetailForGetTaskResultOutput.errorMsg) &&
         Objects.equals(this.targetInfo, basicDetailForGetTaskResultOutput.targetInfo) &&
         Objects.equals(this.timestamp, basicDetailForGetTaskResultOutput.timestamp) &&
@@ -238,7 +238,7 @@ public class BasicDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, chUk, clientInfo, dnSServer, errorMsg, targetInfo, timestamp, usabilityInfo);
+    return Objects.hash(assertions, chUk, clientInfo, dnsServer, errorMsg, targetInfo, timestamp, usabilityInfo);
   }
 
 
@@ -250,7 +250,7 @@ public class BasicDetailForGetTaskResultOutput {
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
     sb.append("    chUk: ").append(toIndentedString(chUk)).append("\n");
     sb.append("    clientInfo: ").append(toIndentedString(clientInfo)).append("\n");
-    sb.append("    dnSServer: ").append(toIndentedString(dnSServer)).append("\n");
+    sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    targetInfo: ").append(toIndentedString(targetInfo)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");

@@ -51,9 +51,6 @@ public class PingConfigForUpdateTaskInput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
-  @SerializedName("common_types.ProtocolType")
-  private Integer commonTypesProtocolType = null;
-
   public PingConfigForUpdateTaskInput connectTimeout(Double connectTimeout) {
     this.connectTimeout = connectTimeout;
     return this;
@@ -180,24 +177,6 @@ public class PingConfigForUpdateTaskInput {
     this.timeout = timeout;
   }
 
-  public PingConfigForUpdateTaskInput commonTypesProtocolType(Integer commonTypesProtocolType) {
-    this.commonTypesProtocolType = commonTypesProtocolType;
-    return this;
-  }
-
-   /**
-   * Get commonTypesProtocolType
-   * @return commonTypesProtocolType
-  **/
-  @Schema(description = "")
-  public Integer getCommonTypesProtocolType() {
-    return commonTypesProtocolType;
-  }
-
-  public void setCommonTypesProtocolType(Integer commonTypesProtocolType) {
-    this.commonTypesProtocolType = commonTypesProtocolType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -214,13 +193,12 @@ public class PingConfigForUpdateTaskInput {
         Objects.equals(this.packagesNum, pingConfigForUpdateTaskInput.packagesNum) &&
         Objects.equals(this.packagesSize, pingConfigForUpdateTaskInput.packagesSize) &&
         Objects.equals(this.protocolType, pingConfigForUpdateTaskInput.protocolType) &&
-        Objects.equals(this.timeout, pingConfigForUpdateTaskInput.timeout) &&
-        Objects.equals(this.commonTypesProtocolType, pingConfigForUpdateTaskInput.commonTypesProtocolType);
+        Objects.equals(this.timeout, pingConfigForUpdateTaskInput.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectTimeout, enableDividePackage, executeInterval, packagesNum, packagesSize, protocolType, timeout, commonTypesProtocolType);
+    return Objects.hash(connectTimeout, enableDividePackage, executeInterval, packagesNum, packagesSize, protocolType, timeout);
   }
 
 
@@ -236,7 +214,6 @@ public class PingConfigForUpdateTaskInput {
     sb.append("    packagesSize: ").append(toIndentedString(packagesSize)).append("\n");
     sb.append("    protocolType: ").append(toIndentedString(protocolType)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    commonTypesProtocolType: ").append(toIndentedString(commonTypesProtocolType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.clouddetect20251031.model.DNSConfigForGetTaskOutput;
+import com.volcengine.clouddetect20251031.model.DnsConfigForGetTaskOutput;
 import com.volcengine.clouddetect20251031.model.MtrConfigForGetTaskOutput;
 import com.volcengine.clouddetect20251031.model.PingConfigForGetTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,8 +35,8 @@ import javax.validation.Valid;
 
 
 public class DiagnoseConfigForGetTaskOutput {
-  @SerializedName("DNSConfig")
-  private DNSConfigForGetTaskOutput dnSConfig = null;
+  @SerializedName("DnsConfig")
+  private DnsConfigForGetTaskOutput dnsConfig = null;
 
   @SerializedName("MethodList")
   private List<Integer> methodList = null;
@@ -50,23 +50,23 @@ public class DiagnoseConfigForGetTaskOutput {
   @SerializedName("PingConfig")
   private PingConfigForGetTaskOutput pingConfig = null;
 
-  public DiagnoseConfigForGetTaskOutput dnSConfig(DNSConfigForGetTaskOutput dnSConfig) {
-    this.dnSConfig = dnSConfig;
+  public DiagnoseConfigForGetTaskOutput dnsConfig(DnsConfigForGetTaskOutput dnsConfig) {
+    this.dnsConfig = dnsConfig;
     return this;
   }
 
    /**
-   * Get dnSConfig
-   * @return dnSConfig
+   * Get dnsConfig
+   * @return dnsConfig
   **/
   @Valid
   @Schema(description = "")
-  public DNSConfigForGetTaskOutput getDnSConfig() {
-    return dnSConfig;
+  public DnsConfigForGetTaskOutput getDnsConfig() {
+    return dnsConfig;
   }
 
-  public void setDnSConfig(DNSConfigForGetTaskOutput dnSConfig) {
-    this.dnSConfig = dnSConfig;
+  public void setDnsConfig(DnsConfigForGetTaskOutput dnsConfig) {
+    this.dnsConfig = dnsConfig;
   }
 
   public DiagnoseConfigForGetTaskOutput methodList(List<Integer> methodList) {
@@ -161,7 +161,7 @@ public class DiagnoseConfigForGetTaskOutput {
       return false;
     }
     DiagnoseConfigForGetTaskOutput diagnoseConfigForGetTaskOutput = (DiagnoseConfigForGetTaskOutput) o;
-    return Objects.equals(this.dnSConfig, diagnoseConfigForGetTaskOutput.dnSConfig) &&
+    return Objects.equals(this.dnsConfig, diagnoseConfigForGetTaskOutput.dnsConfig) &&
         Objects.equals(this.methodList, diagnoseConfigForGetTaskOutput.methodList) &&
         Objects.equals(this.mtrConfig, diagnoseConfigForGetTaskOutput.mtrConfig) &&
         Objects.equals(this.pcapStatus, diagnoseConfigForGetTaskOutput.pcapStatus) &&
@@ -170,7 +170,7 @@ public class DiagnoseConfigForGetTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSConfig, methodList, mtrConfig, pcapStatus, pingConfig);
+    return Objects.hash(dnsConfig, methodList, mtrConfig, pcapStatus, pingConfig);
   }
 
 
@@ -179,7 +179,7 @@ public class DiagnoseConfigForGetTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DiagnoseConfigForGetTaskOutput {\n");
     
-    sb.append("    dnSConfig: ").append(toIndentedString(dnSConfig)).append("\n");
+    sb.append("    dnsConfig: ").append(toIndentedString(dnsConfig)).append("\n");
     sb.append("    methodList: ").append(toIndentedString(methodList)).append("\n");
     sb.append("    mtrConfig: ").append(toIndentedString(mtrConfig)).append("\n");
     sb.append("    pcapStatus: ").append(toIndentedString(pcapStatus)).append("\n");

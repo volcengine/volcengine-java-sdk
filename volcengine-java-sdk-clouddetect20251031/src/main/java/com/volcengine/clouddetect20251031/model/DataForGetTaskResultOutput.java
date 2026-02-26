@@ -20,13 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clouddetect20251031.model.BasicDetailForGetTaskResultOutput;
-import com.volcengine.clouddetect20251031.model.DNSDetailForGetTaskResultOutput;
+import com.volcengine.clouddetect20251031.model.DnsDetailForGetTaskResultOutput;
 import com.volcengine.clouddetect20251031.model.DownloadDetailForGetTaskResultOutput;
-import com.volcengine.clouddetect20251031.model.HTTPDetailForGetTaskResultOutput;
+import com.volcengine.clouddetect20251031.model.HttpDetailForGetTaskResultOutput;
 import com.volcengine.clouddetect20251031.model.PageDetailForGetTaskResultOutput;
 import com.volcengine.clouddetect20251031.model.PingDetailForGetTaskResultOutput;
-import com.volcengine.clouddetect20251031.model.TCPDetailForGetTaskResultOutput;
-import com.volcengine.clouddetect20251031.model.UDPDetailForGetTaskResultOutput;
+import com.volcengine.clouddetect20251031.model.TcpDetailForGetTaskResultOutput;
+import com.volcengine.clouddetect20251031.model.UdpDetailForGetTaskResultOutput;
 import com.volcengine.clouddetect20251031.model.UploadDetailForGetTaskResultOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -42,14 +42,14 @@ public class DataForGetTaskResultOutput {
   @SerializedName("BasicDetail")
   private BasicDetailForGetTaskResultOutput basicDetail = null;
 
-  @SerializedName("DNSDetail")
-  private DNSDetailForGetTaskResultOutput dnSDetail = null;
+  @SerializedName("DnsDetail")
+  private DnsDetailForGetTaskResultOutput dnsDetail = null;
 
   @SerializedName("DownloadDetail")
   private DownloadDetailForGetTaskResultOutput downloadDetail = null;
 
-  @SerializedName("HTTPDetail")
-  private HTTPDetailForGetTaskResultOutput htTPDetail = null;
+  @SerializedName("HttpDetail")
+  private HttpDetailForGetTaskResultOutput httpDetail = null;
 
   @SerializedName("PageDetail")
   private PageDetailForGetTaskResultOutput pageDetail = null;
@@ -57,14 +57,14 @@ public class DataForGetTaskResultOutput {
   @SerializedName("PingDetail")
   private PingDetailForGetTaskResultOutput pingDetail = null;
 
-  @SerializedName("TCPDetail")
-  private TCPDetailForGetTaskResultOutput tcPDetail = null;
+  @SerializedName("TaskId")
+  private Long taskId = null;
 
-  @SerializedName("TaskID")
-  private Long taskID = null;
+  @SerializedName("TcpDetail")
+  private TcpDetailForGetTaskResultOutput tcpDetail = null;
 
-  @SerializedName("UDPDetail")
-  private UDPDetailForGetTaskResultOutput udPDetail = null;
+  @SerializedName("UdpDetail")
+  private UdpDetailForGetTaskResultOutput udpDetail = null;
 
   @SerializedName("UploadDetail")
   private UploadDetailForGetTaskResultOutput uploadDetail = null;
@@ -88,23 +88,23 @@ public class DataForGetTaskResultOutput {
     this.basicDetail = basicDetail;
   }
 
-  public DataForGetTaskResultOutput dnSDetail(DNSDetailForGetTaskResultOutput dnSDetail) {
-    this.dnSDetail = dnSDetail;
+  public DataForGetTaskResultOutput dnsDetail(DnsDetailForGetTaskResultOutput dnsDetail) {
+    this.dnsDetail = dnsDetail;
     return this;
   }
 
    /**
-   * Get dnSDetail
-   * @return dnSDetail
+   * Get dnsDetail
+   * @return dnsDetail
   **/
   @Valid
   @Schema(description = "")
-  public DNSDetailForGetTaskResultOutput getDnSDetail() {
-    return dnSDetail;
+  public DnsDetailForGetTaskResultOutput getDnsDetail() {
+    return dnsDetail;
   }
 
-  public void setDnSDetail(DNSDetailForGetTaskResultOutput dnSDetail) {
-    this.dnSDetail = dnSDetail;
+  public void setDnsDetail(DnsDetailForGetTaskResultOutput dnsDetail) {
+    this.dnsDetail = dnsDetail;
   }
 
   public DataForGetTaskResultOutput downloadDetail(DownloadDetailForGetTaskResultOutput downloadDetail) {
@@ -126,23 +126,23 @@ public class DataForGetTaskResultOutput {
     this.downloadDetail = downloadDetail;
   }
 
-  public DataForGetTaskResultOutput htTPDetail(HTTPDetailForGetTaskResultOutput htTPDetail) {
-    this.htTPDetail = htTPDetail;
+  public DataForGetTaskResultOutput httpDetail(HttpDetailForGetTaskResultOutput httpDetail) {
+    this.httpDetail = httpDetail;
     return this;
   }
 
    /**
-   * Get htTPDetail
-   * @return htTPDetail
+   * Get httpDetail
+   * @return httpDetail
   **/
   @Valid
   @Schema(description = "")
-  public HTTPDetailForGetTaskResultOutput getHtTPDetail() {
-    return htTPDetail;
+  public HttpDetailForGetTaskResultOutput getHttpDetail() {
+    return httpDetail;
   }
 
-  public void setHtTPDetail(HTTPDetailForGetTaskResultOutput htTPDetail) {
-    this.htTPDetail = htTPDetail;
+  public void setHttpDetail(HttpDetailForGetTaskResultOutput httpDetail) {
+    this.httpDetail = httpDetail;
   }
 
   public DataForGetTaskResultOutput pageDetail(PageDetailForGetTaskResultOutput pageDetail) {
@@ -183,60 +183,60 @@ public class DataForGetTaskResultOutput {
     this.pingDetail = pingDetail;
   }
 
-  public DataForGetTaskResultOutput tcPDetail(TCPDetailForGetTaskResultOutput tcPDetail) {
-    this.tcPDetail = tcPDetail;
+  public DataForGetTaskResultOutput taskId(Long taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get tcPDetail
-   * @return tcPDetail
+   * Get taskId
+   * @return taskId
+  **/
+  @Schema(description = "")
+  public Long getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(Long taskId) {
+    this.taskId = taskId;
+  }
+
+  public DataForGetTaskResultOutput tcpDetail(TcpDetailForGetTaskResultOutput tcpDetail) {
+    this.tcpDetail = tcpDetail;
+    return this;
+  }
+
+   /**
+   * Get tcpDetail
+   * @return tcpDetail
   **/
   @Valid
   @Schema(description = "")
-  public TCPDetailForGetTaskResultOutput getTcPDetail() {
-    return tcPDetail;
+  public TcpDetailForGetTaskResultOutput getTcpDetail() {
+    return tcpDetail;
   }
 
-  public void setTcPDetail(TCPDetailForGetTaskResultOutput tcPDetail) {
-    this.tcPDetail = tcPDetail;
+  public void setTcpDetail(TcpDetailForGetTaskResultOutput tcpDetail) {
+    this.tcpDetail = tcpDetail;
   }
 
-  public DataForGetTaskResultOutput taskID(Long taskID) {
-    this.taskID = taskID;
+  public DataForGetTaskResultOutput udpDetail(UdpDetailForGetTaskResultOutput udpDetail) {
+    this.udpDetail = udpDetail;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
-  **/
-  @Schema(description = "")
-  public Long getTaskID() {
-    return taskID;
-  }
-
-  public void setTaskID(Long taskID) {
-    this.taskID = taskID;
-  }
-
-  public DataForGetTaskResultOutput udPDetail(UDPDetailForGetTaskResultOutput udPDetail) {
-    this.udPDetail = udPDetail;
-    return this;
-  }
-
-   /**
-   * Get udPDetail
-   * @return udPDetail
+   * Get udpDetail
+   * @return udpDetail
   **/
   @Valid
   @Schema(description = "")
-  public UDPDetailForGetTaskResultOutput getUdPDetail() {
-    return udPDetail;
+  public UdpDetailForGetTaskResultOutput getUdpDetail() {
+    return udpDetail;
   }
 
-  public void setUdPDetail(UDPDetailForGetTaskResultOutput udPDetail) {
-    this.udPDetail = udPDetail;
+  public void setUdpDetail(UdpDetailForGetTaskResultOutput udpDetail) {
+    this.udpDetail = udpDetail;
   }
 
   public DataForGetTaskResultOutput uploadDetail(UploadDetailForGetTaskResultOutput uploadDetail) {
@@ -269,20 +269,20 @@ public class DataForGetTaskResultOutput {
     }
     DataForGetTaskResultOutput dataForGetTaskResultOutput = (DataForGetTaskResultOutput) o;
     return Objects.equals(this.basicDetail, dataForGetTaskResultOutput.basicDetail) &&
-        Objects.equals(this.dnSDetail, dataForGetTaskResultOutput.dnSDetail) &&
+        Objects.equals(this.dnsDetail, dataForGetTaskResultOutput.dnsDetail) &&
         Objects.equals(this.downloadDetail, dataForGetTaskResultOutput.downloadDetail) &&
-        Objects.equals(this.htTPDetail, dataForGetTaskResultOutput.htTPDetail) &&
+        Objects.equals(this.httpDetail, dataForGetTaskResultOutput.httpDetail) &&
         Objects.equals(this.pageDetail, dataForGetTaskResultOutput.pageDetail) &&
         Objects.equals(this.pingDetail, dataForGetTaskResultOutput.pingDetail) &&
-        Objects.equals(this.tcPDetail, dataForGetTaskResultOutput.tcPDetail) &&
-        Objects.equals(this.taskID, dataForGetTaskResultOutput.taskID) &&
-        Objects.equals(this.udPDetail, dataForGetTaskResultOutput.udPDetail) &&
+        Objects.equals(this.taskId, dataForGetTaskResultOutput.taskId) &&
+        Objects.equals(this.tcpDetail, dataForGetTaskResultOutput.tcpDetail) &&
+        Objects.equals(this.udpDetail, dataForGetTaskResultOutput.udpDetail) &&
         Objects.equals(this.uploadDetail, dataForGetTaskResultOutput.uploadDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicDetail, dnSDetail, downloadDetail, htTPDetail, pageDetail, pingDetail, tcPDetail, taskID, udPDetail, uploadDetail);
+    return Objects.hash(basicDetail, dnsDetail, downloadDetail, httpDetail, pageDetail, pingDetail, taskId, tcpDetail, udpDetail, uploadDetail);
   }
 
 
@@ -292,14 +292,14 @@ public class DataForGetTaskResultOutput {
     sb.append("class DataForGetTaskResultOutput {\n");
     
     sb.append("    basicDetail: ").append(toIndentedString(basicDetail)).append("\n");
-    sb.append("    dnSDetail: ").append(toIndentedString(dnSDetail)).append("\n");
+    sb.append("    dnsDetail: ").append(toIndentedString(dnsDetail)).append("\n");
     sb.append("    downloadDetail: ").append(toIndentedString(downloadDetail)).append("\n");
-    sb.append("    htTPDetail: ").append(toIndentedString(htTPDetail)).append("\n");
+    sb.append("    httpDetail: ").append(toIndentedString(httpDetail)).append("\n");
     sb.append("    pageDetail: ").append(toIndentedString(pageDetail)).append("\n");
     sb.append("    pingDetail: ").append(toIndentedString(pingDetail)).append("\n");
-    sb.append("    tcPDetail: ").append(toIndentedString(tcPDetail)).append("\n");
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
-    sb.append("    udPDetail: ").append(toIndentedString(udPDetail)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    tcpDetail: ").append(toIndentedString(tcpDetail)).append("\n");
+    sb.append("    udpDetail: ").append(toIndentedString(udpDetail)).append("\n");
     sb.append("    uploadDetail: ").append(toIndentedString(uploadDetail)).append("\n");
     sb.append("}");
     return sb.toString();

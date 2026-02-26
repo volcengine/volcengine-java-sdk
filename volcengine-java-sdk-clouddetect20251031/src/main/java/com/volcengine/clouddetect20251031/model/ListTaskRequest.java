@@ -36,8 +36,8 @@ public class ListTaskRequest {
   @SerializedName("Address")
   private String address = null;
 
-  @SerializedName("ID")
-  private String ID = null;
+  @SerializedName("Id")
+  private String id = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -75,22 +75,22 @@ public class ListTaskRequest {
     this.address = address;
   }
 
-  public ListTaskRequest ID(String ID) {
-    this.ID = ID;
+  public ListTaskRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getID() {
-    return ID;
+  public String getId() {
+    return id;
   }
 
-  public void setID(String ID) {
-    this.ID = ID;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ListTaskRequest name(String name) {
@@ -223,7 +223,7 @@ public class ListTaskRequest {
     }
     ListTaskRequest listTaskRequest = (ListTaskRequest) o;
     return Objects.equals(this.address, listTaskRequest.address) &&
-        Objects.equals(this.ID, listTaskRequest.ID) &&
+        Objects.equals(this.id, listTaskRequest.id) &&
         Objects.equals(this.name, listTaskRequest.name) &&
         Objects.equals(this.owner, listTaskRequest.owner) &&
         Objects.equals(this.pageNum, listTaskRequest.pageNum) &&
@@ -234,7 +234,7 @@ public class ListTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, ID, name, owner, pageNum, pageSize, projectName, tagFilters);
+    return Objects.hash(address, id, name, owner, pageNum, pageSize, projectName, tagFilters);
   }
 
 
@@ -244,7 +244,7 @@ public class ListTaskRequest {
     sb.append("class ListTaskRequest {\n");
     
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");

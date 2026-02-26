@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class AlarmListForGetTaskOutput {
-  @SerializedName("ID")
-  private Long ID = null;
+  @SerializedName("Id")
+  private Long id = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -39,22 +39,22 @@ public class AlarmListForGetTaskOutput {
   @SerializedName("Status")
   private Integer status = null;
 
-  public AlarmListForGetTaskOutput ID(Long ID) {
-    this.ID = ID;
+  public AlarmListForGetTaskOutput id(Long id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Long getID() {
-    return ID;
+  public Long getId() {
+    return id;
   }
 
-  public void setID(Long ID) {
-    this.ID = ID;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public AlarmListForGetTaskOutput name(String name) {
@@ -103,14 +103,14 @@ public class AlarmListForGetTaskOutput {
       return false;
     }
     AlarmListForGetTaskOutput alarmListForGetTaskOutput = (AlarmListForGetTaskOutput) o;
-    return Objects.equals(this.ID, alarmListForGetTaskOutput.ID) &&
+    return Objects.equals(this.id, alarmListForGetTaskOutput.id) &&
         Objects.equals(this.name, alarmListForGetTaskOutput.name) &&
         Objects.equals(this.status, alarmListForGetTaskOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, name, status);
+    return Objects.hash(id, name, status);
   }
 
 
@@ -119,7 +119,7 @@ public class AlarmListForGetTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlarmListForGetTaskOutput {\n");
     
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

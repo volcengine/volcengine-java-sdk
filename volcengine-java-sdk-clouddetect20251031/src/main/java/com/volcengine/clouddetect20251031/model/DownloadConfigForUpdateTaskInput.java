@@ -38,17 +38,17 @@ public class DownloadConfigForUpdateTaskInput {
   @SerializedName("CustomHostConfig")
   private CustomHostConfigForUpdateTaskInput customHostConfig = null;
 
-  @SerializedName("DNSServer")
-  private String dnSServer = null;
+  @SerializedName("DnsServer")
+  private String dnsServer = null;
 
-  @SerializedName("DNSType")
-  private String dnSType = null;
-
-  @SerializedName("HTTPVersion")
-  private String htTPVersion = null;
+  @SerializedName("DnsType")
+  private String dnsType = null;
 
   @SerializedName("Headers")
   private List<HeaderForUpdateTaskInput> headers = null;
+
+  @SerializedName("HttpVersion")
+  private String httpVersion = null;
 
   @SerializedName("IgnoreCertificate")
   private Boolean ignoreCertificate = null;
@@ -68,8 +68,8 @@ public class DownloadConfigForUpdateTaskInput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
-  @SerializedName("UploadFileURL")
-  private String uploadFileURL = null;
+  @SerializedName("UploadFileUrl")
+  private String uploadFileUrl = null;
 
   public DownloadConfigForUpdateTaskInput customHostConfig(CustomHostConfigForUpdateTaskInput customHostConfig) {
     this.customHostConfig = customHostConfig;
@@ -90,58 +90,40 @@ public class DownloadConfigForUpdateTaskInput {
     this.customHostConfig = customHostConfig;
   }
 
-  public DownloadConfigForUpdateTaskInput dnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public DownloadConfigForUpdateTaskInput dnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
     return this;
   }
 
    /**
-   * Get dnSServer
-   * @return dnSServer
+   * Get dnsServer
+   * @return dnsServer
   **/
   @Schema(description = "")
-  public String getDnSServer() {
-    return dnSServer;
+  public String getDnsServer() {
+    return dnsServer;
   }
 
-  public void setDnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public void setDnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
   }
 
-  public DownloadConfigForUpdateTaskInput dnSType(String dnSType) {
-    this.dnSType = dnSType;
+  public DownloadConfigForUpdateTaskInput dnsType(String dnsType) {
+    this.dnsType = dnsType;
     return this;
   }
 
    /**
-   * Get dnSType
-   * @return dnSType
+   * Get dnsType
+   * @return dnsType
   **/
   @Schema(description = "")
-  public String getDnSType() {
-    return dnSType;
+  public String getDnsType() {
+    return dnsType;
   }
 
-  public void setDnSType(String dnSType) {
-    this.dnSType = dnSType;
-  }
-
-  public DownloadConfigForUpdateTaskInput htTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
-    return this;
-  }
-
-   /**
-   * Get htTPVersion
-   * @return htTPVersion
-  **/
-  @Schema(description = "")
-  public String getHtTPVersion() {
-    return htTPVersion;
-  }
-
-  public void setHtTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
+  public void setDnsType(String dnsType) {
+    this.dnsType = dnsType;
   }
 
   public DownloadConfigForUpdateTaskInput headers(List<HeaderForUpdateTaskInput> headers) {
@@ -169,6 +151,24 @@ public class DownloadConfigForUpdateTaskInput {
 
   public void setHeaders(List<HeaderForUpdateTaskInput> headers) {
     this.headers = headers;
+  }
+
+  public DownloadConfigForUpdateTaskInput httpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
+    return this;
+  }
+
+   /**
+   * Get httpVersion
+   * @return httpVersion
+  **/
+  @Schema(description = "")
+  public String getHttpVersion() {
+    return httpVersion;
+  }
+
+  public void setHttpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
   }
 
   public DownloadConfigForUpdateTaskInput ignoreCertificate(Boolean ignoreCertificate) {
@@ -288,22 +288,22 @@ public class DownloadConfigForUpdateTaskInput {
     this.timeout = timeout;
   }
 
-  public DownloadConfigForUpdateTaskInput uploadFileURL(String uploadFileURL) {
-    this.uploadFileURL = uploadFileURL;
+  public DownloadConfigForUpdateTaskInput uploadFileUrl(String uploadFileUrl) {
+    this.uploadFileUrl = uploadFileUrl;
     return this;
   }
 
    /**
-   * Get uploadFileURL
-   * @return uploadFileURL
+   * Get uploadFileUrl
+   * @return uploadFileUrl
   **/
   @Schema(description = "")
-  public String getUploadFileURL() {
-    return uploadFileURL;
+  public String getUploadFileUrl() {
+    return uploadFileUrl;
   }
 
-  public void setUploadFileURL(String uploadFileURL) {
-    this.uploadFileURL = uploadFileURL;
+  public void setUploadFileUrl(String uploadFileUrl) {
+    this.uploadFileUrl = uploadFileUrl;
   }
 
 
@@ -317,22 +317,22 @@ public class DownloadConfigForUpdateTaskInput {
     }
     DownloadConfigForUpdateTaskInput downloadConfigForUpdateTaskInput = (DownloadConfigForUpdateTaskInput) o;
     return Objects.equals(this.customHostConfig, downloadConfigForUpdateTaskInput.customHostConfig) &&
-        Objects.equals(this.dnSServer, downloadConfigForUpdateTaskInput.dnSServer) &&
-        Objects.equals(this.dnSType, downloadConfigForUpdateTaskInput.dnSType) &&
-        Objects.equals(this.htTPVersion, downloadConfigForUpdateTaskInput.htTPVersion) &&
+        Objects.equals(this.dnsServer, downloadConfigForUpdateTaskInput.dnsServer) &&
+        Objects.equals(this.dnsType, downloadConfigForUpdateTaskInput.dnsType) &&
         Objects.equals(this.headers, downloadConfigForUpdateTaskInput.headers) &&
+        Objects.equals(this.httpVersion, downloadConfigForUpdateTaskInput.httpVersion) &&
         Objects.equals(this.ignoreCertificate, downloadConfigForUpdateTaskInput.ignoreCertificate) &&
         Objects.equals(this.maxTransferSize, downloadConfigForUpdateTaskInput.maxTransferSize) &&
         Objects.equals(this.method, downloadConfigForUpdateTaskInput.method) &&
         Objects.equals(this.queries, downloadConfigForUpdateTaskInput.queries) &&
         Objects.equals(this.redirect, downloadConfigForUpdateTaskInput.redirect) &&
         Objects.equals(this.timeout, downloadConfigForUpdateTaskInput.timeout) &&
-        Objects.equals(this.uploadFileURL, downloadConfigForUpdateTaskInput.uploadFileURL);
+        Objects.equals(this.uploadFileUrl, downloadConfigForUpdateTaskInput.uploadFileUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customHostConfig, dnSServer, dnSType, htTPVersion, headers, ignoreCertificate, maxTransferSize, method, queries, redirect, timeout, uploadFileURL);
+    return Objects.hash(customHostConfig, dnsServer, dnsType, headers, httpVersion, ignoreCertificate, maxTransferSize, method, queries, redirect, timeout, uploadFileUrl);
   }
 
 
@@ -342,17 +342,17 @@ public class DownloadConfigForUpdateTaskInput {
     sb.append("class DownloadConfigForUpdateTaskInput {\n");
     
     sb.append("    customHostConfig: ").append(toIndentedString(customHostConfig)).append("\n");
-    sb.append("    dnSServer: ").append(toIndentedString(dnSServer)).append("\n");
-    sb.append("    dnSType: ").append(toIndentedString(dnSType)).append("\n");
-    sb.append("    htTPVersion: ").append(toIndentedString(htTPVersion)).append("\n");
+    sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
+    sb.append("    dnsType: ").append(toIndentedString(dnsType)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    ignoreCertificate: ").append(toIndentedString(ignoreCertificate)).append("\n");
     sb.append("    maxTransferSize: ").append(toIndentedString(maxTransferSize)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    uploadFileURL: ").append(toIndentedString(uploadFileURL)).append("\n");
+    sb.append("    uploadFileUrl: ").append(toIndentedString(uploadFileUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
