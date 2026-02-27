@@ -33,6 +33,9 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
   @SerializedName("BilingualSubtitleFileName")
   private String bilingualSubtitleFileName = null;
 
+  @SerializedName("IsVision")
+  private Boolean isVision = null;
+
   @SerializedName("RecognitionType")
   private String recognitionType = null;
 
@@ -61,6 +64,24 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 
   public void setBilingualSubtitleFileName(String bilingualSubtitleFileName) {
     this.bilingualSubtitleFileName = bilingualSubtitleFileName;
+  }
+
+  public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput isVision(Boolean isVision) {
+    this.isVision = isVision;
+    return this;
+  }
+
+   /**
+   * Get isVision
+   * @return isVision
+  **/
+  @Schema(description = "")
+  public Boolean isIsVision() {
+    return isVision;
+  }
+
+  public void setIsVision(Boolean isVision) {
+    this.isVision = isVision;
   }
 
   public SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput recognitionType(String recognitionType) {
@@ -146,6 +167,7 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     }
     SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput subtitleRecognitionConfigForSubmitAITranslationWorkflowInput = (SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput) o;
     return Objects.equals(this.bilingualSubtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.bilingualSubtitleFileName) &&
+        Objects.equals(this.isVision, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.isVision) &&
         Objects.equals(this.recognitionType, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.recognitionType) &&
         Objects.equals(this.sourceSubtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.sourceSubtitleFileName) &&
         Objects.equals(this.subtitleFileName, subtitleRecognitionConfigForSubmitAITranslationWorkflowInput.subtitleFileName) &&
@@ -154,7 +176,7 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bilingualSubtitleFileName, recognitionType, sourceSubtitleFileName, subtitleFileName, targetSubtitleFileName);
+    return Objects.hash(bilingualSubtitleFileName, isVision, recognitionType, sourceSubtitleFileName, subtitleFileName, targetSubtitleFileName);
   }
 
 
@@ -164,6 +186,7 @@ public class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {
     sb.append("class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput {\n");
     
     sb.append("    bilingualSubtitleFileName: ").append(toIndentedString(bilingualSubtitleFileName)).append("\n");
+    sb.append("    isVision: ").append(toIndentedString(isVision)).append("\n");
     sb.append("    recognitionType: ").append(toIndentedString(recognitionType)).append("\n");
     sb.append("    sourceSubtitleFileName: ").append(toIndentedString(sourceSubtitleFileName)).append("\n");
     sb.append("    subtitleFileName: ").append(toIndentedString(subtitleFileName)).append("\n");

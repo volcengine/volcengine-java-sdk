@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class SubmitPreloadTaskRequest {
+  @SerializedName("Region")
+  private String region = null;
+
   @SerializedName("Urls")
   private String urls = null;
 
   @SerializedName("Vendor")
   private String vendor = null;
+
+  public SubmitPreloadTaskRequest region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Get region
+   * @return region
+  **/
+  @Schema(description = "")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
 
   public SubmitPreloadTaskRequest urls(String urls) {
     this.urls = urls;
@@ -83,13 +104,14 @@ public class SubmitPreloadTaskRequest {
       return false;
     }
     SubmitPreloadTaskRequest submitPreloadTaskRequest = (SubmitPreloadTaskRequest) o;
-    return Objects.equals(this.urls, submitPreloadTaskRequest.urls) &&
+    return Objects.equals(this.region, submitPreloadTaskRequest.region) &&
+        Objects.equals(this.urls, submitPreloadTaskRequest.urls) &&
         Objects.equals(this.vendor, submitPreloadTaskRequest.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(urls, vendor);
+    return Objects.hash(region, urls, vendor);
   }
 
 
@@ -98,6 +120,7 @@ public class SubmitPreloadTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitPreloadTaskRequest {\n");
     
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");

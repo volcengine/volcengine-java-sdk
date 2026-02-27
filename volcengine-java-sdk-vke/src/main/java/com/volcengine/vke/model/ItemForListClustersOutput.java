@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForListClustersOutput;
 import com.volcengine.vke.model.ConnectorConfigForListClustersOutput;
+import com.volcengine.vke.model.IrsaConfigForListClustersOutput;
 import com.volcengine.vke.model.LoggingConfigForListClustersOutput;
 import com.volcengine.vke.model.MonitoringConfigForListClustersOutput;
 import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
@@ -62,6 +63,9 @@ public class ItemForListClustersOutput {
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("IrsaConfig")
+  private IrsaConfigForListClustersOutput irsaConfig = null;
 
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
@@ -281,6 +285,25 @@ public class ItemForListClustersOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ItemForListClustersOutput irsaConfig(IrsaConfigForListClustersOutput irsaConfig) {
+    this.irsaConfig = irsaConfig;
+    return this;
+  }
+
+   /**
+   * Get irsaConfig
+   * @return irsaConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public IrsaConfigForListClustersOutput getIrsaConfig() {
+    return irsaConfig;
+  }
+
+  public void setIrsaConfig(IrsaConfigForListClustersOutput irsaConfig) {
+    this.irsaConfig = irsaConfig;
   }
 
   public ItemForListClustersOutput kubernetesVersion(String kubernetesVersion) {
@@ -586,6 +609,7 @@ public class ItemForListClustersOutput {
         Objects.equals(this.deleteProtectionEnabled, itemForListClustersOutput.deleteProtectionEnabled) &&
         Objects.equals(this.description, itemForListClustersOutput.description) &&
         Objects.equals(this.id, itemForListClustersOutput.id) &&
+        Objects.equals(this.irsaConfig, itemForListClustersOutput.irsaConfig) &&
         Objects.equals(this.kubernetesVersion, itemForListClustersOutput.kubernetesVersion) &&
         Objects.equals(this.loggingConfig, itemForListClustersOutput.loggingConfig) &&
         Objects.equals(this.message, itemForListClustersOutput.message) &&
@@ -605,7 +629,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, message, monitoringConfig, name, nodeStatistics, podsConfig, projectName, registerMonitoringConfig, servicesConfig, status, tags, type, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, irsaConfig, kubernetesVersion, loggingConfig, message, monitoringConfig, name, nodeStatistics, podsConfig, projectName, registerMonitoringConfig, servicesConfig, status, tags, type, updateClientToken, updateTime);
   }
 
 
@@ -621,6 +645,7 @@ public class ItemForListClustersOutput {
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    irsaConfig: ").append(toIndentedString(irsaConfig)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

@@ -37,6 +37,9 @@ public class ConvertVisionForGetExecutionOutput {
   @SerializedName("Duration")
   private Double duration = null;
 
+  @SerializedName("Mode")
+  private String mode = null;
+
   @SerializedName("Model")
   private ConvertConvertModelForGetExecutionOutput model = null;
 
@@ -77,6 +80,24 @@ public class ConvertVisionForGetExecutionOutput {
 
   public void setDuration(Double duration) {
     this.duration = duration;
+  }
+
+  public ConvertVisionForGetExecutionOutput mode(String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
   }
 
   public ConvertVisionForGetExecutionOutput model(ConvertConvertModelForGetExecutionOutput model) {
@@ -128,13 +149,14 @@ public class ConvertVisionForGetExecutionOutput {
     ConvertVisionForGetExecutionOutput convertVisionForGetExecutionOutput = (ConvertVisionForGetExecutionOutput) o;
     return Objects.equals(this.content, convertVisionForGetExecutionOutput.content) &&
         Objects.equals(this.duration, convertVisionForGetExecutionOutput.duration) &&
+        Objects.equals(this.mode, convertVisionForGetExecutionOutput.mode) &&
         Objects.equals(this.model, convertVisionForGetExecutionOutput.model) &&
         Objects.equals(this.snapshotsNumber, convertVisionForGetExecutionOutput.snapshotsNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, duration, model, snapshotsNumber);
+    return Objects.hash(content, duration, mode, model, snapshotsNumber);
   }
 
 
@@ -145,6 +167,7 @@ public class ConvertVisionForGetExecutionOutput {
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    snapshotsNumber: ").append(toIndentedString(snapshotsNumber)).append("\n");
     sb.append("}");

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.dts.model.CommonSettingsForCreateTransmissionTaskInput;
 import com.volcengine.dts.model.ConvertMappingListForCreateTransmissionTaskInput;
+import com.volcengine.dts.model.ObjectMappingSettingForCreateTransmissionTaskInput;
 import com.volcengine.dts.model.SubscriptionCommonSettingsForCreateTransmissionTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class ObjectMappingForCreateTransmissionTaskInput {
 
   @SerializedName("MappingList")
   private List<ConvertMappingListForCreateTransmissionTaskInput> mappingList = null;
+
+  @SerializedName("ObjectMappingSetting")
+  private ObjectMappingSettingForCreateTransmissionTaskInput objectMappingSetting = null;
 
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
@@ -118,6 +122,25 @@ public class ObjectMappingForCreateTransmissionTaskInput {
 
   public void setMappingList(List<ConvertMappingListForCreateTransmissionTaskInput> mappingList) {
     this.mappingList = mappingList;
+  }
+
+  public ObjectMappingForCreateTransmissionTaskInput objectMappingSetting(ObjectMappingSettingForCreateTransmissionTaskInput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public ObjectMappingSettingForCreateTransmissionTaskInput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(ObjectMappingSettingForCreateTransmissionTaskInput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public ObjectMappingForCreateTransmissionTaskInput objectTransTypes(List<String> objectTransTypes) {
@@ -214,6 +237,7 @@ public class ObjectMappingForCreateTransmissionTaskInput {
     return Objects.equals(this.commonSettings, objectMappingForCreateTransmissionTaskInput.commonSettings) &&
         Objects.equals(this.destObjName, objectMappingForCreateTransmissionTaskInput.destObjName) &&
         Objects.equals(this.mappingList, objectMappingForCreateTransmissionTaskInput.mappingList) &&
+        Objects.equals(this.objectMappingSetting, objectMappingForCreateTransmissionTaskInput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, objectMappingForCreateTransmissionTaskInput.objectTransTypes) &&
         Objects.equals(this.objectType, objectMappingForCreateTransmissionTaskInput.objectType) &&
         Objects.equals(this.srcObjName, objectMappingForCreateTransmissionTaskInput.srcObjName) &&
@@ -222,7 +246,7 @@ public class ObjectMappingForCreateTransmissionTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, mappingList, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, mappingList, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -234,6 +258,7 @@ public class ObjectMappingForCreateTransmissionTaskInput {
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
     sb.append("    mappingList: ").append(toIndentedString(mappingList)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

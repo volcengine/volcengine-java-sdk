@@ -35,8 +35,67 @@ public class PodsConfigForListClustersOutput {
   @SerializedName("FlannelConfig")
   private FlannelConfigForListClustersOutput flannelConfig = null;
 
-  @SerializedName("PodNetworkMode")
-  private String podNetworkMode = null;
+  /**
+   * Gets or Sets podNetworkMode
+   */
+  @JsonAdapter(PodNetworkModeEnum.Adapter.class)
+  public enum PodNetworkModeEnum {
+    @SerializedName("Flannel")
+    FLANNEL("Flannel"),
+    @SerializedName("VpcCniShared")
+    VPCCNISHARED("VpcCniShared"),
+    @SerializedName("VpcCniDedicated")
+    VPCCNIDEDICATED("VpcCniDedicated"),
+    @SerializedName("VpcCniHybrid")
+    VPCCNIHYBRID("VpcCniHybrid"),
+    @SerializedName("Carma")
+    CARMA("Carma"),
+    @SerializedName("Default")
+    DEFAULT("Default"),
+    @SerializedName("CalicoVxlan")
+    CALICOVXLAN("CalicoVxlan"),
+    @SerializedName("CalicoBgp")
+    CALICOBGP("CalicoBgp"),
+    @SerializedName("Cilium")
+    CILIUM("Cilium"),
+    @SerializedName("KubeOvn")
+    KUBEOVN("KubeOvn");
+
+    private String value;
+
+    PodNetworkModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PodNetworkModeEnum fromValue(String input) {
+      for (PodNetworkModeEnum b : PodNetworkModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PodNetworkModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PodNetworkModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PodNetworkModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PodNetworkModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PodNetworkMode")
+  private PodNetworkModeEnum podNetworkMode = null;
 
   @SerializedName("VpcCniConfig")
   private VpcCniConfigForListClustersOutput vpcCniConfig = null;
@@ -60,7 +119,7 @@ public class PodsConfigForListClustersOutput {
     this.flannelConfig = flannelConfig;
   }
 
-  public PodsConfigForListClustersOutput podNetworkMode(String podNetworkMode) {
+  public PodsConfigForListClustersOutput podNetworkMode(PodNetworkModeEnum podNetworkMode) {
     this.podNetworkMode = podNetworkMode;
     return this;
   }
@@ -70,11 +129,11 @@ public class PodsConfigForListClustersOutput {
    * @return podNetworkMode
   **/
   @Schema(description = "")
-  public String getPodNetworkMode() {
+  public PodNetworkModeEnum getPodNetworkMode() {
     return podNetworkMode;
   }
 
-  public void setPodNetworkMode(String podNetworkMode) {
+  public void setPodNetworkMode(PodNetworkModeEnum podNetworkMode) {
     this.podNetworkMode = podNetworkMode;
   }
 

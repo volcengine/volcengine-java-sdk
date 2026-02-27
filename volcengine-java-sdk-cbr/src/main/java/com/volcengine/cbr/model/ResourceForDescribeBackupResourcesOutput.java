@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cbr.model.MetaInformationForDescribeBackupResourcesOutput;
 import com.volcengine.cbr.model.PlanForDescribeBackupResourcesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -46,9 +45,6 @@ public class ResourceForDescribeBackupResourcesOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("MetaInformation")
-  private MetaInformationForDescribeBackupResourcesOutput metaInformation = null;
-
   @SerializedName("Plans")
   private List<PlanForDescribeBackupResourcesOutput> plans = null;
 
@@ -58,8 +54,51 @@ public class ResourceForDescribeBackupResourcesOutput {
   @SerializedName("ResourceId")
   private String resourceId = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
+
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -142,25 +181,6 @@ public class ResourceForDescribeBackupResourcesOutput {
     this.instanceName = instanceName;
   }
 
-  public ResourceForDescribeBackupResourcesOutput metaInformation(MetaInformationForDescribeBackupResourcesOutput metaInformation) {
-    this.metaInformation = metaInformation;
-    return this;
-  }
-
-   /**
-   * Get metaInformation
-   * @return metaInformation
-  **/
-  @Valid
-  @Schema(description = "")
-  public MetaInformationForDescribeBackupResourcesOutput getMetaInformation() {
-    return metaInformation;
-  }
-
-  public void setMetaInformation(MetaInformationForDescribeBackupResourcesOutput metaInformation) {
-    this.metaInformation = metaInformation;
-  }
-
   public ResourceForDescribeBackupResourcesOutput plans(List<PlanForDescribeBackupResourcesOutput> plans) {
     this.plans = plans;
     return this;
@@ -224,7 +244,7 @@ public class ResourceForDescribeBackupResourcesOutput {
     this.resourceId = resourceId;
   }
 
-  public ResourceForDescribeBackupResourcesOutput resourceType(String resourceType) {
+  public ResourceForDescribeBackupResourcesOutput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -234,11 +254,11 @@ public class ResourceForDescribeBackupResourcesOutput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
   }
 
@@ -310,7 +330,6 @@ public class ResourceForDescribeBackupResourcesOutput {
         Objects.equals(this.createdAt, resourceForDescribeBackupResourcesOutput.createdAt) &&
         Objects.equals(this.instanceId, resourceForDescribeBackupResourcesOutput.instanceId) &&
         Objects.equals(this.instanceName, resourceForDescribeBackupResourcesOutput.instanceName) &&
-        Objects.equals(this.metaInformation, resourceForDescribeBackupResourcesOutput.metaInformation) &&
         Objects.equals(this.plans, resourceForDescribeBackupResourcesOutput.plans) &&
         Objects.equals(this.recoveryPointNumber, resourceForDescribeBackupResourcesOutput.recoveryPointNumber) &&
         Objects.equals(this.resourceId, resourceForDescribeBackupResourcesOutput.resourceId) &&
@@ -322,7 +341,7 @@ public class ResourceForDescribeBackupResourcesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, createdAt, instanceId, instanceName, metaInformation, plans, recoveryPointNumber, resourceId, resourceType, status, updatedAt, usedCapacityInBytes);
+    return Objects.hash(accountId, createdAt, instanceId, instanceName, plans, recoveryPointNumber, resourceId, resourceType, status, updatedAt, usedCapacityInBytes);
   }
 
 
@@ -335,7 +354,6 @@ public class ResourceForDescribeBackupResourcesOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
-    sb.append("    metaInformation: ").append(toIndentedString(metaInformation)).append("\n");
     sb.append("    plans: ").append(toIndentedString(plans)).append("\n");
     sb.append("    recoveryPointNumber: ").append(toIndentedString(recoveryPointNumber)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");

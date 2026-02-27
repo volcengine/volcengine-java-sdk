@@ -45,9 +45,6 @@ public class DescribeDiagnosisInstanceDetailResponse extends com.volcengine.mode
   @SerializedName("DiagnosisInstanceStatus")
   private String diagnosisInstanceStatus = null;
 
-  @SerializedName("HaveFeedback")
-  private Boolean haveFeedback = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -145,24 +142,6 @@ public class DescribeDiagnosisInstanceDetailResponse extends com.volcengine.mode
 
   public void setDiagnosisInstanceStatus(String diagnosisInstanceStatus) {
     this.diagnosisInstanceStatus = diagnosisInstanceStatus;
-  }
-
-  public DescribeDiagnosisInstanceDetailResponse haveFeedback(Boolean haveFeedback) {
-    this.haveFeedback = haveFeedback;
-    return this;
-  }
-
-   /**
-   * Get haveFeedback
-   * @return haveFeedback
-  **/
-  @Schema(description = "")
-  public Boolean isHaveFeedback() {
-    return haveFeedback;
-  }
-
-  public void setHaveFeedback(Boolean haveFeedback) {
-    this.haveFeedback = haveFeedback;
   }
 
   public DescribeDiagnosisInstanceDetailResponse requestId(String requestId) {
@@ -287,7 +266,6 @@ public class DescribeDiagnosisInstanceDetailResponse extends com.volcengine.mode
         Objects.equals(this.diagnosisCategoryItems, describeDiagnosisInstanceDetailResponse.diagnosisCategoryItems) &&
         Objects.equals(this.diagnosisInstanceId, describeDiagnosisInstanceDetailResponse.diagnosisInstanceId) &&
         Objects.equals(this.diagnosisInstanceStatus, describeDiagnosisInstanceDetailResponse.diagnosisInstanceStatus) &&
-        Objects.equals(this.haveFeedback, describeDiagnosisInstanceDetailResponse.haveFeedback) &&
         Objects.equals(this.requestId, describeDiagnosisInstanceDetailResponse.requestId) &&
         Objects.equals(this.resourceDeleted, describeDiagnosisInstanceDetailResponse.resourceDeleted) &&
         Objects.equals(this.resourceInstanceId, describeDiagnosisInstanceDetailResponse.resourceInstanceId) &&
@@ -298,7 +276,7 @@ public class DescribeDiagnosisInstanceDetailResponse extends com.volcengine.mode
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, diagnosisCategoryItems, diagnosisInstanceId, diagnosisInstanceStatus, haveFeedback, requestId, resourceDeleted, resourceInstanceId, resourceInstanceName, resourceRegion, resourceType);
+    return Objects.hash(creationTime, diagnosisCategoryItems, diagnosisInstanceId, diagnosisInstanceStatus, requestId, resourceDeleted, resourceInstanceId, resourceInstanceName, resourceRegion, resourceType);
   }
 
 
@@ -311,7 +289,6 @@ public class DescribeDiagnosisInstanceDetailResponse extends com.volcengine.mode
     sb.append("    diagnosisCategoryItems: ").append(toIndentedString(diagnosisCategoryItems)).append("\n");
     sb.append("    diagnosisInstanceId: ").append(toIndentedString(diagnosisInstanceId)).append("\n");
     sb.append("    diagnosisInstanceStatus: ").append(toIndentedString(diagnosisInstanceStatus)).append("\n");
-    sb.append("    haveFeedback: ").append(toIndentedString(haveFeedback)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    resourceDeleted: ").append(toIndentedString(resourceDeleted)).append("\n");
     sb.append("    resourceInstanceId: ").append(toIndentedString(resourceInstanceId)).append("\n");

@@ -33,8 +33,67 @@ public class ComponentConfigForListClustersOutput {
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
-  @SerializedName("Name")
-  private String name = null;
+  /**
+   * Gets or Sets name
+   */
+  @JsonAdapter(NameEnum.Adapter.class)
+  public enum NameEnum {
+    @SerializedName("Kubelet")
+    KUBELET("Kubelet"),
+    @SerializedName("KubeApiServer")
+    KUBEAPISERVER("KubeApiServer"),
+    @SerializedName("KubeControllerManager")
+    KUBECONTROLLERMANAGER("KubeControllerManager"),
+    @SerializedName("KubeScheduler")
+    KUBESCHEDULER("KubeScheduler"),
+    @SerializedName("Etcd")
+    ETCD("Etcd"),
+    @SerializedName("ClusterAutoscaler")
+    CLUSTERAUTOSCALER("ClusterAutoscaler"),
+    @SerializedName("KubeBrain")
+    KUBEBRAIN("KubeBrain"),
+    @SerializedName("GodelScheduler")
+    GODELSCHEDULER("GodelScheduler"),
+    @SerializedName("GodelDispatcher")
+    GODELDISPATCHER("GodelDispatcher"),
+    @SerializedName("GodelBinder")
+    GODELBINDER("GodelBinder");
+
+    private String value;
+
+    NameEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NameEnum fromValue(String input) {
+      for (NameEnum b : NameEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NameEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NameEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NameEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NameEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Name")
+  private NameEnum name = null;
 
   public ComponentConfigForListClustersOutput enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -54,7 +113,7 @@ public class ComponentConfigForListClustersOutput {
     this.enabled = enabled;
   }
 
-  public ComponentConfigForListClustersOutput name(String name) {
+  public ComponentConfigForListClustersOutput name(NameEnum name) {
     this.name = name;
     return this;
   }
@@ -64,11 +123,11 @@ public class ComponentConfigForListClustersOutput {
    * @return name
   **/
   @Schema(description = "")
-  public String getName() {
+  public NameEnum getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(NameEnum name) {
     this.name = name;
   }
 

@@ -36,8 +36,61 @@ public class StatusForListClustersOutput {
   @SerializedName("Conditions")
   private List<ConditionForListClustersOutput> conditions = null;
 
-  @SerializedName("Phase")
-  private String phase = null;
+  /**
+   * Gets or Sets phase
+   */
+  @JsonAdapter(PhaseEnum.Adapter.class)
+  public enum PhaseEnum {
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Starting")
+    STARTING("Starting"),
+    @SerializedName("Stopped")
+    STOPPED("Stopped"),
+    @SerializedName("Failed")
+    FAILED("Failed"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting");
+
+    private String value;
+
+    PhaseEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PhaseEnum fromValue(String input) {
+      for (PhaseEnum b : PhaseEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PhaseEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PhaseEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Phase")
+  private PhaseEnum phase = null;
 
   public StatusForListClustersOutput conditions(List<ConditionForListClustersOutput> conditions) {
     this.conditions = conditions;
@@ -66,7 +119,7 @@ public class StatusForListClustersOutput {
     this.conditions = conditions;
   }
 
-  public StatusForListClustersOutput phase(String phase) {
+  public StatusForListClustersOutput phase(PhaseEnum phase) {
     this.phase = phase;
     return this;
   }
@@ -76,11 +129,11 @@ public class StatusForListClustersOutput {
    * @return phase
   **/
   @Schema(description = "")
-  public String getPhase() {
+  public PhaseEnum getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(PhaseEnum phase) {
     this.phase = phase;
   }
 

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.CustomEditForStartExecutionInput;
+import com.volcengine.vod20250101.model.MiniseriesEditForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class EditForStartExecutionInput {
   @SerializedName("CustomEdit")
   private CustomEditForStartExecutionInput customEdit = null;
+
+  @SerializedName("MiniseriesEdit")
+  private MiniseriesEditForStartExecutionInput miniseriesEdit = null;
 
   @SerializedName("Mode")
   private String mode = null;
@@ -54,6 +58,25 @@ public class EditForStartExecutionInput {
 
   public void setCustomEdit(CustomEditForStartExecutionInput customEdit) {
     this.customEdit = customEdit;
+  }
+
+  public EditForStartExecutionInput miniseriesEdit(MiniseriesEditForStartExecutionInput miniseriesEdit) {
+    this.miniseriesEdit = miniseriesEdit;
+    return this;
+  }
+
+   /**
+   * Get miniseriesEdit
+   * @return miniseriesEdit
+  **/
+  @Valid
+  @Schema(description = "")
+  public MiniseriesEditForStartExecutionInput getMiniseriesEdit() {
+    return miniseriesEdit;
+  }
+
+  public void setMiniseriesEdit(MiniseriesEditForStartExecutionInput miniseriesEdit) {
+    this.miniseriesEdit = miniseriesEdit;
   }
 
   public EditForStartExecutionInput mode(String mode) {
@@ -85,12 +108,13 @@ public class EditForStartExecutionInput {
     }
     EditForStartExecutionInput editForStartExecutionInput = (EditForStartExecutionInput) o;
     return Objects.equals(this.customEdit, editForStartExecutionInput.customEdit) &&
+        Objects.equals(this.miniseriesEdit, editForStartExecutionInput.miniseriesEdit) &&
         Objects.equals(this.mode, editForStartExecutionInput.mode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customEdit, mode);
+    return Objects.hash(customEdit, miniseriesEdit, mode);
   }
 
 
@@ -100,6 +124,7 @@ public class EditForStartExecutionInput {
     sb.append("class EditForStartExecutionInput {\n");
     
     sb.append("    customEdit: ").append(toIndentedString(customEdit)).append("\n");
+    sb.append("    miniseriesEdit: ").append(toIndentedString(miniseriesEdit)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("}");
     return sb.toString();

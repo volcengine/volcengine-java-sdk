@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.SubtitleRecognitionConfigForListAITranslationProjectOutput;
+import com.volcengine.vod20250101.model.VoiceCloneConfigForListAITranslationProjectOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class OperatorConfigForListAITranslationProjectOutput {
   @SerializedName("SubtitleRecognitionConfig")
   private SubtitleRecognitionConfigForListAITranslationProjectOutput subtitleRecognitionConfig = null;
+
+  @SerializedName("VoiceCloneConfig")
+  private VoiceCloneConfigForListAITranslationProjectOutput voiceCloneConfig = null;
 
   public OperatorConfigForListAITranslationProjectOutput subtitleRecognitionConfig(SubtitleRecognitionConfigForListAITranslationProjectOutput subtitleRecognitionConfig) {
     this.subtitleRecognitionConfig = subtitleRecognitionConfig;
@@ -53,6 +57,25 @@ public class OperatorConfigForListAITranslationProjectOutput {
     this.subtitleRecognitionConfig = subtitleRecognitionConfig;
   }
 
+  public OperatorConfigForListAITranslationProjectOutput voiceCloneConfig(VoiceCloneConfigForListAITranslationProjectOutput voiceCloneConfig) {
+    this.voiceCloneConfig = voiceCloneConfig;
+    return this;
+  }
+
+   /**
+   * Get voiceCloneConfig
+   * @return voiceCloneConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public VoiceCloneConfigForListAITranslationProjectOutput getVoiceCloneConfig() {
+    return voiceCloneConfig;
+  }
+
+  public void setVoiceCloneConfig(VoiceCloneConfigForListAITranslationProjectOutput voiceCloneConfig) {
+    this.voiceCloneConfig = voiceCloneConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +86,13 @@ public class OperatorConfigForListAITranslationProjectOutput {
       return false;
     }
     OperatorConfigForListAITranslationProjectOutput operatorConfigForListAITranslationProjectOutput = (OperatorConfigForListAITranslationProjectOutput) o;
-    return Objects.equals(this.subtitleRecognitionConfig, operatorConfigForListAITranslationProjectOutput.subtitleRecognitionConfig);
+    return Objects.equals(this.subtitleRecognitionConfig, operatorConfigForListAITranslationProjectOutput.subtitleRecognitionConfig) &&
+        Objects.equals(this.voiceCloneConfig, operatorConfigForListAITranslationProjectOutput.voiceCloneConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtitleRecognitionConfig);
+    return Objects.hash(subtitleRecognitionConfig, voiceCloneConfig);
   }
 
 
@@ -78,6 +102,7 @@ public class OperatorConfigForListAITranslationProjectOutput {
     sb.append("class OperatorConfigForListAITranslationProjectOutput {\n");
     
     sb.append("    subtitleRecognitionConfig: ").append(toIndentedString(subtitleRecognitionConfig)).append("\n");
+    sb.append("    voiceCloneConfig: ").append(toIndentedString(voiceCloneConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

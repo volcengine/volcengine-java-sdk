@@ -39,6 +39,9 @@ public class GetSecretValueResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("VersionID")
   private String versionID = null;
 
+  @SerializedName("VersionName")
+  private String versionName = null;
+
   @SerializedName("VersionStage")
   private String versionStage = null;
 
@@ -96,6 +99,24 @@ public class GetSecretValueResponse extends com.volcengine.model.AbstractRespons
     this.versionID = versionID;
   }
 
+  public GetSecretValueResponse versionName(String versionName) {
+    this.versionName = versionName;
+    return this;
+  }
+
+   /**
+   * Get versionName
+   * @return versionName
+  **/
+  @Schema(description = "")
+  public String getVersionName() {
+    return versionName;
+  }
+
+  public void setVersionName(String versionName) {
+    this.versionName = versionName;
+  }
+
   public GetSecretValueResponse versionStage(String versionStage) {
     this.versionStage = versionStage;
     return this;
@@ -127,12 +148,13 @@ public class GetSecretValueResponse extends com.volcengine.model.AbstractRespons
     return Objects.equals(this.creationDate, getSecretValueResponse.creationDate) &&
         Objects.equals(this.secretValue, getSecretValueResponse.secretValue) &&
         Objects.equals(this.versionID, getSecretValueResponse.versionID) &&
+        Objects.equals(this.versionName, getSecretValueResponse.versionName) &&
         Objects.equals(this.versionStage, getSecretValueResponse.versionStage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, secretValue, versionID, versionStage);
+    return Objects.hash(creationDate, secretValue, versionID, versionName, versionStage);
   }
 
 
@@ -144,6 +166,7 @@ public class GetSecretValueResponse extends com.volcengine.model.AbstractRespons
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    secretValue: ").append(toIndentedString(secretValue)).append("\n");
     sb.append("    versionID: ").append(toIndentedString(versionID)).append("\n");
+    sb.append("    versionName: ").append(toIndentedString(versionName)).append("\n");
     sb.append("    versionStage: ").append(toIndentedString(versionStage)).append("\n");
     sb.append("}");
     return sb.toString();

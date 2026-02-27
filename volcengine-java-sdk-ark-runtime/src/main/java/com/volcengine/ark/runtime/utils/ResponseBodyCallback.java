@@ -3,7 +3,6 @@ package com.volcengine.ark.runtime.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.Const;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
-import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
 import com.volcengine.ark.runtime.SSEFormatException;
 import com.volcengine.ark.runtime.service.ArkService;
@@ -20,16 +19,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 public class ResponseBodyCallback implements Callback<ResponseBody> {
     private static final ObjectMapper mapper = ArkService.defaultObjectMapper();
 
     private FlowableEmitter<SSE> emitter;
     private boolean emitDone;
+    private byte[] key;
+    private byte[] nonce;
+    private boolean isEncrypted;
 
     public ResponseBodyCallback(FlowableEmitter<SSE> emitter, boolean emitDone) {
+        this(emitter, emitDone, null, null, false);
+    }
+
+    public ResponseBodyCallback(FlowableEmitter<SSE> emitter, boolean emitDone, byte[] key, byte[] nonce, boolean isEncrypted) {
         this.emitter = emitter;
         this.emitDone = emitDone;
+        this.key = key != null ? key.clone() : null;
+        this.nonce = nonce != null ? nonce.clone() : null;
+        this.isEncrypted = isEncrypted;
     }
 
     @Override
@@ -42,6 +52,26 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
             requestId = headers.get(Const.CLIENT_REQUEST_HEADER);
         } catch (Exception ignored) {
 
+        }
+
+        try {
+            Headers responseHeaders = response.raw().headers();
+            String encryptedHeader = responseHeaders.get("X-Is-Encrypted");
+            if ("true".equals(encryptedHeader)) {
+                this.isEncrypted = true;
+
+                String keyHeader = responseHeaders.get("X-Decryption-Key");
+                if (keyHeader != null) {
+                    this.key = Base64.getDecoder().decode(keyHeader);
+                }
+
+                String nonceHeader = responseHeaders.get("X-Decryption-Nonce");
+                if (nonceHeader != null) {
+                    this.nonce = Base64.getDecoder().decode(nonceHeader);
+                }
+            }
+        } catch (Exception ignored) {
+            // 忽略解密参数读取错误，保持原有配置
         }
 
         try {
@@ -90,7 +120,18 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                     if (data.startsWith("[DONE]")) {
                         break;
                     }
-                    sse = new SSE(data);
+
+                    // 解密数据（如果需要）
+                    String processedData = data;
+                    if (isEncrypted && key != null && nonce != null) {
+                        try {
+                            processedData = ResponseDecryptUtil.decryptStreamChunk(data, key, nonce);
+
+                        } catch (Exception ignored) {
+                            // 如果解密失败，使用原始数据
+                        }
+                    }
+                    sse = new SSE(processedData);
                 } else if (line.equals("") && sse != null) {
                     if (sse.isDone()) {
                         if (emitDone) {

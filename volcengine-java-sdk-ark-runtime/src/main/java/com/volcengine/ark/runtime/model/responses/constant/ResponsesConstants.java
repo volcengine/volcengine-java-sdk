@@ -66,6 +66,7 @@ public class ResponsesConstants {
     // TextType.Enum
     public static final String TEXT_TYPE_TEXT = "text";
     public static final String TEXT_TYPE_JSON_OBJECT = "json_object";
+    public static final String TEXT_TYPE_JSON_SCHEMA = "json_schema";
 
     // ToolChoiceMode.Enum
     public static final String TOOL_CHOICE_MODE_AUTO = "auto";

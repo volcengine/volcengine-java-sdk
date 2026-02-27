@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.FlannelConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.VpcCniConfigForUpdateClusterConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,8 +32,30 @@ import javax.validation.Valid;
 
 
 public class PodsConfigForUpdateClusterConfigInput {
+  @SerializedName("FlannelConfig")
+  private FlannelConfigForUpdateClusterConfigInput flannelConfig = null;
+
   @SerializedName("VpcCniConfig")
   private VpcCniConfigForUpdateClusterConfigInput vpcCniConfig = null;
+
+  public PodsConfigForUpdateClusterConfigInput flannelConfig(FlannelConfigForUpdateClusterConfigInput flannelConfig) {
+    this.flannelConfig = flannelConfig;
+    return this;
+  }
+
+   /**
+   * Get flannelConfig
+   * @return flannelConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public FlannelConfigForUpdateClusterConfigInput getFlannelConfig() {
+    return flannelConfig;
+  }
+
+  public void setFlannelConfig(FlannelConfigForUpdateClusterConfigInput flannelConfig) {
+    this.flannelConfig = flannelConfig;
+  }
 
   public PodsConfigForUpdateClusterConfigInput vpcCniConfig(VpcCniConfigForUpdateClusterConfigInput vpcCniConfig) {
     this.vpcCniConfig = vpcCniConfig;
@@ -63,12 +86,13 @@ public class PodsConfigForUpdateClusterConfigInput {
       return false;
     }
     PodsConfigForUpdateClusterConfigInput podsConfigForUpdateClusterConfigInput = (PodsConfigForUpdateClusterConfigInput) o;
-    return Objects.equals(this.vpcCniConfig, podsConfigForUpdateClusterConfigInput.vpcCniConfig);
+    return Objects.equals(this.flannelConfig, podsConfigForUpdateClusterConfigInput.flannelConfig) &&
+        Objects.equals(this.vpcCniConfig, podsConfigForUpdateClusterConfigInput.vpcCniConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vpcCniConfig);
+    return Objects.hash(flannelConfig, vpcCniConfig);
   }
 
 
@@ -77,6 +101,7 @@ public class PodsConfigForUpdateClusterConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PodsConfigForUpdateClusterConfigInput {\n");
     
+    sb.append("    flannelConfig: ").append(toIndentedString(flannelConfig)).append("\n");
     sb.append("    vpcCniConfig: ").append(toIndentedString(vpcCniConfig)).append("\n");
     sb.append("}");
     return sb.toString();

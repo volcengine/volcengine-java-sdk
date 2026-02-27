@@ -44,6 +44,9 @@ public class ConvertMappingListForDescribeTransmissionTaskInfoOutput {
   @SerializedName("MappingList")
   private MappingListForDescribeTransmissionTaskInfoOutput mappingList = null;
 
+  @SerializedName("ObjectMappingSetting")
+  private CommonSettingsForDescribeTransmissionTaskInfoOutput objectMappingSetting = null;
+
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
 
@@ -110,6 +113,25 @@ public class ConvertMappingListForDescribeTransmissionTaskInfoOutput {
 
   public void setMappingList(MappingListForDescribeTransmissionTaskInfoOutput mappingList) {
     this.mappingList = mappingList;
+  }
+
+  public ConvertMappingListForDescribeTransmissionTaskInfoOutput objectMappingSetting(CommonSettingsForDescribeTransmissionTaskInfoOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public CommonSettingsForDescribeTransmissionTaskInfoOutput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(CommonSettingsForDescribeTransmissionTaskInfoOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public ConvertMappingListForDescribeTransmissionTaskInfoOutput objectTransTypes(List<String> objectTransTypes) {
@@ -206,6 +228,7 @@ public class ConvertMappingListForDescribeTransmissionTaskInfoOutput {
     return Objects.equals(this.commonSettings, convertMappingListForDescribeTransmissionTaskInfoOutput.commonSettings) &&
         Objects.equals(this.destObjName, convertMappingListForDescribeTransmissionTaskInfoOutput.destObjName) &&
         Objects.equals(this.mappingList, convertMappingListForDescribeTransmissionTaskInfoOutput.mappingList) &&
+        Objects.equals(this.objectMappingSetting, convertMappingListForDescribeTransmissionTaskInfoOutput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, convertMappingListForDescribeTransmissionTaskInfoOutput.objectTransTypes) &&
         Objects.equals(this.objectType, convertMappingListForDescribeTransmissionTaskInfoOutput.objectType) &&
         Objects.equals(this.srcObjName, convertMappingListForDescribeTransmissionTaskInfoOutput.srcObjName) &&
@@ -214,7 +237,7 @@ public class ConvertMappingListForDescribeTransmissionTaskInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, mappingList, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, mappingList, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -226,6 +249,7 @@ public class ConvertMappingListForDescribeTransmissionTaskInfoOutput {
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
     sb.append("    mappingList: ").append(toIndentedString(mappingList)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

@@ -30,8 +30,17 @@ import javax.validation.Valid;
 
 
 public class InfoForDescribeValidationTasksOutput {
+  @SerializedName("CompletePercentage")
+  private Integer completePercentage = null;
+
+  @SerializedName("Delay")
+  private Long delay = null;
+
   @SerializedName("ErrorInfo")
   private String errorInfo = null;
+
+  @SerializedName("FetchDelay")
+  private Long fetchDelay = null;
 
   @SerializedName("NameCN")
   private String nameCN = null;
@@ -41,6 +50,42 @@ public class InfoForDescribeValidationTasksOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  public InfoForDescribeValidationTasksOutput completePercentage(Integer completePercentage) {
+    this.completePercentage = completePercentage;
+    return this;
+  }
+
+   /**
+   * Get completePercentage
+   * @return completePercentage
+  **/
+  @Schema(description = "")
+  public Integer getCompletePercentage() {
+    return completePercentage;
+  }
+
+  public void setCompletePercentage(Integer completePercentage) {
+    this.completePercentage = completePercentage;
+  }
+
+  public InfoForDescribeValidationTasksOutput delay(Long delay) {
+    this.delay = delay;
+    return this;
+  }
+
+   /**
+   * Get delay
+   * @return delay
+  **/
+  @Schema(description = "")
+  public Long getDelay() {
+    return delay;
+  }
+
+  public void setDelay(Long delay) {
+    this.delay = delay;
+  }
 
   public InfoForDescribeValidationTasksOutput errorInfo(String errorInfo) {
     this.errorInfo = errorInfo;
@@ -58,6 +103,24 @@ public class InfoForDescribeValidationTasksOutput {
 
   public void setErrorInfo(String errorInfo) {
     this.errorInfo = errorInfo;
+  }
+
+  public InfoForDescribeValidationTasksOutput fetchDelay(Long fetchDelay) {
+    this.fetchDelay = fetchDelay;
+    return this;
+  }
+
+   /**
+   * Get fetchDelay
+   * @return fetchDelay
+  **/
+  @Schema(description = "")
+  public Long getFetchDelay() {
+    return fetchDelay;
+  }
+
+  public void setFetchDelay(Long fetchDelay) {
+    this.fetchDelay = fetchDelay;
   }
 
   public InfoForDescribeValidationTasksOutput nameCN(String nameCN) {
@@ -124,7 +187,10 @@ public class InfoForDescribeValidationTasksOutput {
       return false;
     }
     InfoForDescribeValidationTasksOutput infoForDescribeValidationTasksOutput = (InfoForDescribeValidationTasksOutput) o;
-    return Objects.equals(this.errorInfo, infoForDescribeValidationTasksOutput.errorInfo) &&
+    return Objects.equals(this.completePercentage, infoForDescribeValidationTasksOutput.completePercentage) &&
+        Objects.equals(this.delay, infoForDescribeValidationTasksOutput.delay) &&
+        Objects.equals(this.errorInfo, infoForDescribeValidationTasksOutput.errorInfo) &&
+        Objects.equals(this.fetchDelay, infoForDescribeValidationTasksOutput.fetchDelay) &&
         Objects.equals(this.nameCN, infoForDescribeValidationTasksOutput.nameCN) &&
         Objects.equals(this.progressType, infoForDescribeValidationTasksOutput.progressType) &&
         Objects.equals(this.status, infoForDescribeValidationTasksOutput.status);
@@ -132,7 +198,7 @@ public class InfoForDescribeValidationTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorInfo, nameCN, progressType, status);
+    return Objects.hash(completePercentage, delay, errorInfo, fetchDelay, nameCN, progressType, status);
   }
 
 
@@ -141,7 +207,10 @@ public class InfoForDescribeValidationTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InfoForDescribeValidationTasksOutput {\n");
     
+    sb.append("    completePercentage: ").append(toIndentedString(completePercentage)).append("\n");
+    sb.append("    delay: ").append(toIndentedString(delay)).append("\n");
     sb.append("    errorInfo: ").append(toIndentedString(errorInfo)).append("\n");
+    sb.append("    fetchDelay: ").append(toIndentedString(fetchDelay)).append("\n");
     sb.append("    nameCN: ").append(toIndentedString(nameCN)).append("\n");
     sb.append("    progressType: ").append(toIndentedString(progressType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

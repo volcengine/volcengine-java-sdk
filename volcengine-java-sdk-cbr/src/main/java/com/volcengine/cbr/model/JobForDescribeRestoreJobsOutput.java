@@ -45,8 +45,54 @@ public class JobForDescribeRestoreJobsOutput {
   @SerializedName("RecoveryPointName")
   private String recoveryPointName = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
+
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
+
+  @SerializedName("RestoreOptions")
+  private String restoreOptions = null;
 
   /**
    * Gets or Sets status
@@ -188,7 +234,7 @@ public class JobForDescribeRestoreJobsOutput {
     this.recoveryPointName = recoveryPointName;
   }
 
-  public JobForDescribeRestoreJobsOutput resourceType(String resourceType) {
+  public JobForDescribeRestoreJobsOutput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -198,12 +244,30 @@ public class JobForDescribeRestoreJobsOutput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
+  }
+
+  public JobForDescribeRestoreJobsOutput restoreOptions(String restoreOptions) {
+    this.restoreOptions = restoreOptions;
+    return this;
+  }
+
+   /**
+   * Get restoreOptions
+   * @return restoreOptions
+  **/
+  @Schema(description = "")
+  public String getRestoreOptions() {
+    return restoreOptions;
+  }
+
+  public void setRestoreOptions(String restoreOptions) {
+    this.restoreOptions = restoreOptions;
   }
 
   public JobForDescribeRestoreJobsOutput status(StatusEnum status) {
@@ -240,12 +304,13 @@ public class JobForDescribeRestoreJobsOutput {
         Objects.equals(this.recoveryPointId, jobForDescribeRestoreJobsOutput.recoveryPointId) &&
         Objects.equals(this.recoveryPointName, jobForDescribeRestoreJobsOutput.recoveryPointName) &&
         Objects.equals(this.resourceType, jobForDescribeRestoreJobsOutput.resourceType) &&
+        Objects.equals(this.restoreOptions, jobForDescribeRestoreJobsOutput.restoreOptions) &&
         Objects.equals(this.status, jobForDescribeRestoreJobsOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(extraMetadata, jobId, name, recoveryPointId, recoveryPointName, resourceType, status);
+    return Objects.hash(extraMetadata, jobId, name, recoveryPointId, recoveryPointName, resourceType, restoreOptions, status);
   }
 
 
@@ -260,6 +325,7 @@ public class JobForDescribeRestoreJobsOutput {
     sb.append("    recoveryPointId: ").append(toIndentedString(recoveryPointId)).append("\n");
     sb.append("    recoveryPointName: ").append(toIndentedString(recoveryPointName)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    restoreOptions: ").append(toIndentedString(restoreOptions)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

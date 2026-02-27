@@ -42,6 +42,9 @@ public class ControlForStartExecutionInput {
   @SerializedName("Priority")
   private Integer priority = null;
 
+  @SerializedName("TaskListId")
+  private String taskListId = null;
+
   public ControlForStartExecutionInput callbackArgs(String callbackArgs) {
     this.callbackArgs = callbackArgs;
     return this;
@@ -114,6 +117,24 @@ public class ControlForStartExecutionInput {
     this.priority = priority;
   }
 
+  public ControlForStartExecutionInput taskListId(String taskListId) {
+    this.taskListId = taskListId;
+    return this;
+  }
+
+   /**
+   * Get taskListId
+   * @return taskListId
+  **/
+  @Schema(description = "")
+  public String getTaskListId() {
+    return taskListId;
+  }
+
+  public void setTaskListId(String taskListId) {
+    this.taskListId = taskListId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class ControlForStartExecutionInput {
     return Objects.equals(this.callbackArgs, controlForStartExecutionInput.callbackArgs) &&
         Objects.equals(this.clientToken, controlForStartExecutionInput.clientToken) &&
         Objects.equals(this.enableLowPriority, controlForStartExecutionInput.enableLowPriority) &&
-        Objects.equals(this.priority, controlForStartExecutionInput.priority);
+        Objects.equals(this.priority, controlForStartExecutionInput.priority) &&
+        Objects.equals(this.taskListId, controlForStartExecutionInput.taskListId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackArgs, clientToken, enableLowPriority, priority);
+    return Objects.hash(callbackArgs, clientToken, enableLowPriority, priority, taskListId);
   }
 
 
@@ -145,6 +167,7 @@ public class ControlForStartExecutionInput {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    enableLowPriority: ").append(toIndentedString(enableLowPriority)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    taskListId: ").append(toIndentedString(taskListId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

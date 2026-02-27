@@ -23,6 +23,7 @@ import com.volcengine.cloudmonitor.model.ConditionForListRulesOutput;
 import com.volcengine.cloudmonitor.model.ConvertTagForListRulesOutput;
 import com.volcengine.cloudmonitor.model.DimensionConditionsForListRulesOutput;
 import com.volcengine.cloudmonitor.model.LevelConditionForListRulesOutput;
+import com.volcengine.cloudmonitor.model.NoDataForListRulesOutput;
 import com.volcengine.cloudmonitor.model.NotifyTemplateForListRulesOutput;
 import com.volcengine.cloudmonitor.model.RecoveryNotifyForListRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -91,11 +92,17 @@ public class DataForListRulesOutput {
   @SerializedName("Namespace")
   private String namespace = null;
 
+  @SerializedName("NoData")
+  private NoDataForListRulesOutput noData = null;
+
   @SerializedName("NotificationId")
   private String notificationId = null;
 
   @SerializedName("NotifyTemplates")
   private List<NotifyTemplateForListRulesOutput> notifyTemplates = null;
+
+  @SerializedName("ObjectGroupId")
+  private String objectGroupId = null;
 
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
@@ -477,6 +484,25 @@ public class DataForListRulesOutput {
     this.namespace = namespace;
   }
 
+  public DataForListRulesOutput noData(NoDataForListRulesOutput noData) {
+    this.noData = noData;
+    return this;
+  }
+
+   /**
+   * Get noData
+   * @return noData
+  **/
+  @Valid
+  @Schema(description = "")
+  public NoDataForListRulesOutput getNoData() {
+    return noData;
+  }
+
+  public void setNoData(NoDataForListRulesOutput noData) {
+    this.noData = noData;
+  }
+
   public DataForListRulesOutput notificationId(String notificationId) {
     this.notificationId = notificationId;
     return this;
@@ -520,6 +546,24 @@ public class DataForListRulesOutput {
 
   public void setNotifyTemplates(List<NotifyTemplateForListRulesOutput> notifyTemplates) {
     this.notifyTemplates = notifyTemplates;
+  }
+
+  public DataForListRulesOutput objectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
+    return this;
+  }
+
+   /**
+   * Get objectGroupId
+   * @return objectGroupId
+  **/
+  @Schema(description = "")
+  public String getObjectGroupId() {
+    return objectGroupId;
+  }
+
+  public void setObjectGroupId(String objectGroupId) {
+    this.objectGroupId = objectGroupId;
   }
 
   public DataForListRulesOutput originalDimensions(Map<String, List<String>> originalDimensions) {
@@ -818,8 +862,10 @@ public class DataForListRulesOutput {
         Objects.equals(this.levelConditions, dataForListRulesOutput.levelConditions) &&
         Objects.equals(this.multipleConditions, dataForListRulesOutput.multipleConditions) &&
         Objects.equals(this.namespace, dataForListRulesOutput.namespace) &&
+        Objects.equals(this.noData, dataForListRulesOutput.noData) &&
         Objects.equals(this.notificationId, dataForListRulesOutput.notificationId) &&
         Objects.equals(this.notifyTemplates, dataForListRulesOutput.notifyTemplates) &&
+        Objects.equals(this.objectGroupId, dataForListRulesOutput.objectGroupId) &&
         Objects.equals(this.originalDimensions, dataForListRulesOutput.originalDimensions) &&
         Objects.equals(this.projectName, dataForListRulesOutput.projectName) &&
         Objects.equals(this.recoveryNotify, dataForListRulesOutput.recoveryNotify) &&
@@ -837,7 +883,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, notifyTemplates, originalDimensions, projectName, recoveryNotify, regions, resourceType, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, projectName, recoveryNotify, regions, resourceType, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
   }
 
 
@@ -863,8 +909,10 @@ public class DataForListRulesOutput {
     sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
+    sb.append("    objectGroupId: ").append(toIndentedString(objectGroupId)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -72,6 +74,9 @@ public class RowForListBackupDataOutput {
   @SerializedName("Detail")
   private String detail = null;
 
+  @SerializedName("ExcludePathList")
+  private List<String> excludePathList = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
 
@@ -80,6 +85,9 @@ public class RowForListBackupDataOutput {
 
   @SerializedName("InUseCount")
   private Long inUseCount = null;
+
+  @SerializedName("IncludePathList")
+  private List<String> includePathList = null;
 
   @SerializedName("Md5Sum")
   private String md5Sum = null;
@@ -363,6 +371,32 @@ public class RowForListBackupDataOutput {
     this.detail = detail;
   }
 
+  public RowForListBackupDataOutput excludePathList(List<String> excludePathList) {
+    this.excludePathList = excludePathList;
+    return this;
+  }
+
+  public RowForListBackupDataOutput addExcludePathListItem(String excludePathListItem) {
+    if (this.excludePathList == null) {
+      this.excludePathList = new ArrayList<String>();
+    }
+    this.excludePathList.add(excludePathListItem);
+    return this;
+  }
+
+   /**
+   * Get excludePathList
+   * @return excludePathList
+  **/
+  @Schema(description = "")
+  public List<String> getExcludePathList() {
+    return excludePathList;
+  }
+
+  public void setExcludePathList(List<String> excludePathList) {
+    this.excludePathList = excludePathList;
+  }
+
   public RowForListBackupDataOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
     return this;
@@ -415,6 +449,32 @@ public class RowForListBackupDataOutput {
 
   public void setInUseCount(Long inUseCount) {
     this.inUseCount = inUseCount;
+  }
+
+  public RowForListBackupDataOutput includePathList(List<String> includePathList) {
+    this.includePathList = includePathList;
+    return this;
+  }
+
+  public RowForListBackupDataOutput addIncludePathListItem(String includePathListItem) {
+    if (this.includePathList == null) {
+      this.includePathList = new ArrayList<String>();
+    }
+    this.includePathList.add(includePathListItem);
+    return this;
+  }
+
+   /**
+   * Get includePathList
+   * @return includePathList
+  **/
+  @Schema(description = "")
+  public List<String> getIncludePathList() {
+    return includePathList;
+  }
+
+  public void setIncludePathList(List<String> includePathList) {
+    this.includePathList = includePathList;
   }
 
   public RowForListBackupDataOutput md5Sum(String md5Sum) {
@@ -621,9 +681,11 @@ public class RowForListBackupDataOutput {
         Objects.equals(this.dataSize, rowForListBackupDataOutput.dataSize) &&
         Objects.equals(this.description, rowForListBackupDataOutput.description) &&
         Objects.equals(this.detail, rowForListBackupDataOutput.detail) &&
+        Objects.equals(this.excludePathList, rowForListBackupDataOutput.excludePathList) &&
         Objects.equals(this.expireTime, rowForListBackupDataOutput.expireTime) &&
         Objects.equals(this.finishedTime, rowForListBackupDataOutput.finishedTime) &&
         Objects.equals(this.inUseCount, rowForListBackupDataOutput.inUseCount) &&
+        Objects.equals(this.includePathList, rowForListBackupDataOutput.includePathList) &&
         Objects.equals(this.md5Sum, rowForListBackupDataOutput.md5Sum) &&
         Objects.equals(this.productId, rowForListBackupDataOutput.productId) &&
         Objects.equals(this.restoreCount, rowForListBackupDataOutput.restoreCount) &&
@@ -638,7 +700,7 @@ public class RowForListBackupDataOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aoSPVersion, accountId, backupDataId, backupDataName, backupJobId, backupSize, backupTaskId, backupType, completedTime, compressionType, createdTime, dataSize, description, detail, expireTime, finishedTime, inUseCount, md5Sum, productId, restoreCount, size, sourcePodId, startedTime, status, storageResource, storageType, updatedTime);
+    return Objects.hash(aoSPVersion, accountId, backupDataId, backupDataName, backupJobId, backupSize, backupTaskId, backupType, completedTime, compressionType, createdTime, dataSize, description, detail, excludePathList, expireTime, finishedTime, inUseCount, includePathList, md5Sum, productId, restoreCount, size, sourcePodId, startedTime, status, storageResource, storageType, updatedTime);
   }
 
 
@@ -661,9 +723,11 @@ public class RowForListBackupDataOutput {
     sb.append("    dataSize: ").append(toIndentedString(dataSize)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    excludePathList: ").append(toIndentedString(excludePathList)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    finishedTime: ").append(toIndentedString(finishedTime)).append("\n");
     sb.append("    inUseCount: ").append(toIndentedString(inUseCount)).append("\n");
+    sb.append("    includePathList: ").append(toIndentedString(includePathList)).append("\n");
     sb.append("    md5Sum: ").append(toIndentedString(md5Sum)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    restoreCount: ").append(toIndentedString(restoreCount)).append("\n");

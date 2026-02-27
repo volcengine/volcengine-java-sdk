@@ -38,6 +38,9 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
 
+  @SerializedName("PartitionColumn")
+  private String partitionColumn = null;
+
   @SerializedName("PolicyForKeyConflict")
   private String policyForKeyConflict = null;
 
@@ -88,6 +91,24 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     this.objectTransTypes = objectTransTypes;
   }
 
+  public CommonSettingsForDescribeTransmissionTaskInfoOutput partitionColumn(String partitionColumn) {
+    this.partitionColumn = partitionColumn;
+    return this;
+  }
+
+   /**
+   * Get partitionColumn
+   * @return partitionColumn
+  **/
+  @Schema(description = "")
+  public String getPartitionColumn() {
+    return partitionColumn;
+  }
+
+  public void setPartitionColumn(String partitionColumn) {
+    this.partitionColumn = partitionColumn;
+  }
+
   public CommonSettingsForDescribeTransmissionTaskInfoOutput policyForKeyConflict(String policyForKeyConflict) {
     this.policyForKeyConflict = policyForKeyConflict;
     return this;
@@ -136,13 +157,14 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     CommonSettingsForDescribeTransmissionTaskInfoOutput commonSettingsForDescribeTransmissionTaskInfoOutput = (CommonSettingsForDescribeTransmissionTaskInfoOutput) o;
     return Objects.equals(this.lastWriteWinsKey, commonSettingsForDescribeTransmissionTaskInfoOutput.lastWriteWinsKey) &&
         Objects.equals(this.objectTransTypes, commonSettingsForDescribeTransmissionTaskInfoOutput.objectTransTypes) &&
+        Objects.equals(this.partitionColumn, commonSettingsForDescribeTransmissionTaskInfoOutput.partitionColumn) &&
         Objects.equals(this.policyForKeyConflict, commonSettingsForDescribeTransmissionTaskInfoOutput.policyForKeyConflict) &&
         Objects.equals(this.setObjectTransType, commonSettingsForDescribeTransmissionTaskInfoOutput.setObjectTransType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastWriteWinsKey, objectTransTypes, policyForKeyConflict, setObjectTransType);
+    return Objects.hash(lastWriteWinsKey, objectTransTypes, partitionColumn, policyForKeyConflict, setObjectTransType);
   }
 
 
@@ -153,6 +175,7 @@ public class CommonSettingsForDescribeTransmissionTaskInfoOutput {
     
     sb.append("    lastWriteWinsKey: ").append(toIndentedString(lastWriteWinsKey)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
+    sb.append("    partitionColumn: ").append(toIndentedString(partitionColumn)).append("\n");
     sb.append("    policyForKeyConflict: ").append(toIndentedString(policyForKeyConflict)).append("\n");
     sb.append("    setObjectTransType: ").append(toIndentedString(setObjectTransType)).append("\n");
     sb.append("}");

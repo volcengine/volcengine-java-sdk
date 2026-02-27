@@ -30,9 +30,6 @@ import javax.validation.Valid;
 
 
 public class VolumeForAllocateInstancesInput {
-  @SerializedName("DeleteWithInstance")
-  private String deleteWithInstance = null;
-
   @SerializedName("ExtraPerformanceIOPS")
   private Integer extraPerformanceIOPS = null;
 
@@ -50,24 +47,6 @@ public class VolumeForAllocateInstancesInput {
 
   @SerializedName("VolumeType")
   private String volumeType = null;
-
-  public VolumeForAllocateInstancesInput deleteWithInstance(String deleteWithInstance) {
-    this.deleteWithInstance = deleteWithInstance;
-    return this;
-  }
-
-   /**
-   * Get deleteWithInstance
-   * @return deleteWithInstance
-  **/
-  @Schema(description = "")
-  public String getDeleteWithInstance() {
-    return deleteWithInstance;
-  }
-
-  public void setDeleteWithInstance(String deleteWithInstance) {
-    this.deleteWithInstance = deleteWithInstance;
-  }
 
   public VolumeForAllocateInstancesInput extraPerformanceIOPS(Integer extraPerformanceIOPS) {
     this.extraPerformanceIOPS = extraPerformanceIOPS;
@@ -188,8 +167,7 @@ public class VolumeForAllocateInstancesInput {
       return false;
     }
     VolumeForAllocateInstancesInput volumeForAllocateInstancesInput = (VolumeForAllocateInstancesInput) o;
-    return Objects.equals(this.deleteWithInstance, volumeForAllocateInstancesInput.deleteWithInstance) &&
-        Objects.equals(this.extraPerformanceIOPS, volumeForAllocateInstancesInput.extraPerformanceIOPS) &&
+    return Objects.equals(this.extraPerformanceIOPS, volumeForAllocateInstancesInput.extraPerformanceIOPS) &&
         Objects.equals(this.extraPerformanceThroughputMB, volumeForAllocateInstancesInput.extraPerformanceThroughputMB) &&
         Objects.equals(this.extraPerformanceTypeId, volumeForAllocateInstancesInput.extraPerformanceTypeId) &&
         Objects.equals(this.size, volumeForAllocateInstancesInput.size) &&
@@ -199,7 +177,7 @@ public class VolumeForAllocateInstancesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, size, snapshotId, volumeType);
+    return Objects.hash(extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, size, snapshotId, volumeType);
   }
 
 
@@ -208,7 +186,6 @@ public class VolumeForAllocateInstancesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeForAllocateInstancesInput {\n");
     
-    sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
     sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
     sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");

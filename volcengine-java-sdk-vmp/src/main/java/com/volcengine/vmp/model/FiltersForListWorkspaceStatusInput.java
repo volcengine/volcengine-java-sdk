@@ -32,6 +32,12 @@ import javax.validation.Valid;
 
 
 public class FiltersForListWorkspaceStatusInput {
+  @SerializedName("CrossAccount")
+  private Boolean crossAccount = null;
+
+  @SerializedName("CrossRegion")
+  private Boolean crossRegion = null;
+
   @SerializedName("Ids")
   private List<String> ids = null;
 
@@ -43,6 +49,42 @@ public class FiltersForListWorkspaceStatusInput {
 
   @SerializedName("Statuses")
   private List<String> statuses = null;
+
+  public FiltersForListWorkspaceStatusInput crossAccount(Boolean crossAccount) {
+    this.crossAccount = crossAccount;
+    return this;
+  }
+
+   /**
+   * Get crossAccount
+   * @return crossAccount
+  **/
+  @Schema(description = "")
+  public Boolean isCrossAccount() {
+    return crossAccount;
+  }
+
+  public void setCrossAccount(Boolean crossAccount) {
+    this.crossAccount = crossAccount;
+  }
+
+  public FiltersForListWorkspaceStatusInput crossRegion(Boolean crossRegion) {
+    this.crossRegion = crossRegion;
+    return this;
+  }
+
+   /**
+   * Get crossRegion
+   * @return crossRegion
+  **/
+  @Schema(description = "")
+  public Boolean isCrossRegion() {
+    return crossRegion;
+  }
+
+  public void setCrossRegion(Boolean crossRegion) {
+    this.crossRegion = crossRegion;
+  }
 
   public FiltersForListWorkspaceStatusInput ids(List<String> ids) {
     this.ids = ids;
@@ -150,7 +192,9 @@ public class FiltersForListWorkspaceStatusInput {
       return false;
     }
     FiltersForListWorkspaceStatusInput filtersForListWorkspaceStatusInput = (FiltersForListWorkspaceStatusInput) o;
-    return Objects.equals(this.ids, filtersForListWorkspaceStatusInput.ids) &&
+    return Objects.equals(this.crossAccount, filtersForListWorkspaceStatusInput.crossAccount) &&
+        Objects.equals(this.crossRegion, filtersForListWorkspaceStatusInput.crossRegion) &&
+        Objects.equals(this.ids, filtersForListWorkspaceStatusInput.ids) &&
         Objects.equals(this.instanceTypeIds, filtersForListWorkspaceStatusInput.instanceTypeIds) &&
         Objects.equals(this.name, filtersForListWorkspaceStatusInput.name) &&
         Objects.equals(this.statuses, filtersForListWorkspaceStatusInput.statuses);
@@ -158,7 +202,7 @@ public class FiltersForListWorkspaceStatusInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, instanceTypeIds, name, statuses);
+    return Objects.hash(crossAccount, crossRegion, ids, instanceTypeIds, name, statuses);
   }
 
 
@@ -167,6 +211,8 @@ public class FiltersForListWorkspaceStatusInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FiltersForListWorkspaceStatusInput {\n");
     
+    sb.append("    crossAccount: ").append(toIndentedString(crossAccount)).append("\n");
+    sb.append("    crossRegion: ").append(toIndentedString(crossRegion)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

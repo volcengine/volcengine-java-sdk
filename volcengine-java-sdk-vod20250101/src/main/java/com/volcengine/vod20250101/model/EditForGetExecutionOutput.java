@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.CustomEditForGetExecutionOutput;
+import com.volcengine.vod20250101.model.MiniseriesEditForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class EditForGetExecutionOutput {
   @SerializedName("CustomEdit")
   private CustomEditForGetExecutionOutput customEdit = null;
+
+  @SerializedName("MiniseriesEdit")
+  private MiniseriesEditForGetExecutionOutput miniseriesEdit = null;
 
   @SerializedName("Mode")
   private String mode = null;
@@ -54,6 +58,25 @@ public class EditForGetExecutionOutput {
 
   public void setCustomEdit(CustomEditForGetExecutionOutput customEdit) {
     this.customEdit = customEdit;
+  }
+
+  public EditForGetExecutionOutput miniseriesEdit(MiniseriesEditForGetExecutionOutput miniseriesEdit) {
+    this.miniseriesEdit = miniseriesEdit;
+    return this;
+  }
+
+   /**
+   * Get miniseriesEdit
+   * @return miniseriesEdit
+  **/
+  @Valid
+  @Schema(description = "")
+  public MiniseriesEditForGetExecutionOutput getMiniseriesEdit() {
+    return miniseriesEdit;
+  }
+
+  public void setMiniseriesEdit(MiniseriesEditForGetExecutionOutput miniseriesEdit) {
+    this.miniseriesEdit = miniseriesEdit;
   }
 
   public EditForGetExecutionOutput mode(String mode) {
@@ -85,12 +108,13 @@ public class EditForGetExecutionOutput {
     }
     EditForGetExecutionOutput editForGetExecutionOutput = (EditForGetExecutionOutput) o;
     return Objects.equals(this.customEdit, editForGetExecutionOutput.customEdit) &&
+        Objects.equals(this.miniseriesEdit, editForGetExecutionOutput.miniseriesEdit) &&
         Objects.equals(this.mode, editForGetExecutionOutput.mode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customEdit, mode);
+    return Objects.hash(customEdit, miniseriesEdit, mode);
   }
 
 
@@ -100,6 +124,7 @@ public class EditForGetExecutionOutput {
     sb.append("class EditForGetExecutionOutput {\n");
     
     sb.append("    customEdit: ").append(toIndentedString(customEdit)).append("\n");
+    sb.append("    miniseriesEdit: ").append(toIndentedString(miniseriesEdit)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("}");
     return sb.toString();

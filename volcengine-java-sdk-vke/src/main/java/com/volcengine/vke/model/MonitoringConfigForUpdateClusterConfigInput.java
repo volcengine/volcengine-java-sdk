@@ -36,6 +36,9 @@ public class MonitoringConfigForUpdateClusterConfigInput {
   @SerializedName("ComponentConfigs")
   private List<ComponentConfigForUpdateClusterConfigInput> componentConfigs = null;
 
+  @SerializedName("EnableMetricsExternalCollection")
+  private Boolean enableMetricsExternalCollection = null;
+
   @SerializedName("WorkspaceId")
   private String workspaceId = null;
 
@@ -64,6 +67,24 @@ public class MonitoringConfigForUpdateClusterConfigInput {
 
   public void setComponentConfigs(List<ComponentConfigForUpdateClusterConfigInput> componentConfigs) {
     this.componentConfigs = componentConfigs;
+  }
+
+  public MonitoringConfigForUpdateClusterConfigInput enableMetricsExternalCollection(Boolean enableMetricsExternalCollection) {
+    this.enableMetricsExternalCollection = enableMetricsExternalCollection;
+    return this;
+  }
+
+   /**
+   * Get enableMetricsExternalCollection
+   * @return enableMetricsExternalCollection
+  **/
+  @Schema(description = "")
+  public Boolean isEnableMetricsExternalCollection() {
+    return enableMetricsExternalCollection;
+  }
+
+  public void setEnableMetricsExternalCollection(Boolean enableMetricsExternalCollection) {
+    this.enableMetricsExternalCollection = enableMetricsExternalCollection;
   }
 
   public MonitoringConfigForUpdateClusterConfigInput workspaceId(String workspaceId) {
@@ -95,12 +116,13 @@ public class MonitoringConfigForUpdateClusterConfigInput {
     }
     MonitoringConfigForUpdateClusterConfigInput monitoringConfigForUpdateClusterConfigInput = (MonitoringConfigForUpdateClusterConfigInput) o;
     return Objects.equals(this.componentConfigs, monitoringConfigForUpdateClusterConfigInput.componentConfigs) &&
+        Objects.equals(this.enableMetricsExternalCollection, monitoringConfigForUpdateClusterConfigInput.enableMetricsExternalCollection) &&
         Objects.equals(this.workspaceId, monitoringConfigForUpdateClusterConfigInput.workspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentConfigs, workspaceId);
+    return Objects.hash(componentConfigs, enableMetricsExternalCollection, workspaceId);
   }
 
 
@@ -110,6 +132,7 @@ public class MonitoringConfigForUpdateClusterConfigInput {
     sb.append("class MonitoringConfigForUpdateClusterConfigInput {\n");
     
     sb.append("    componentConfigs: ").append(toIndentedString(componentConfigs)).append("\n");
+    sb.append("    enableMetricsExternalCollection: ").append(toIndentedString(enableMetricsExternalCollection)).append("\n");
     sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
     sb.append("}");
     return sb.toString();

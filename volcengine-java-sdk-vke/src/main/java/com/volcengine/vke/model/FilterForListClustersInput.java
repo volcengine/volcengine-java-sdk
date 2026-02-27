@@ -53,7 +53,23 @@ public class FilterForListClustersInput {
     @SerializedName("Flannel")
     FLANNEL("Flannel"),
     @SerializedName("VpcCniShared")
-    VPCCNISHARED("VpcCniShared");
+    VPCCNISHARED("VpcCniShared"),
+    @SerializedName("VpcCniDedicated")
+    VPCCNIDEDICATED("VpcCniDedicated"),
+    @SerializedName("VpcCniHybrid")
+    VPCCNIHYBRID("VpcCniHybrid"),
+    @SerializedName("Carma")
+    CARMA("Carma"),
+    @SerializedName("Default")
+    DEFAULT("Default"),
+    @SerializedName("CalicoVxlan")
+    CALICOVXLAN("CalicoVxlan"),
+    @SerializedName("CalicoBgp")
+    CALICOBGP("CalicoBgp"),
+    @SerializedName("Cilium")
+    CILIUM("Cilium"),
+    @SerializedName("KubeOvn")
+    KUBEOVN("KubeOvn");
 
     private String value;
 

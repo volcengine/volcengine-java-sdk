@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cbr.model.MetaInformationForCreateBackupResourceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,9 +35,6 @@ public class CreateBackupResourceRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
-
-  @SerializedName("MetaInformation")
-  private MetaInformationForCreateBackupResourceInput metaInformation = null;
 
   /**
    * Gets or Sets resourceType
@@ -124,25 +120,6 @@ public class CreateBackupResourceRequest {
     this.instanceName = instanceName;
   }
 
-  public CreateBackupResourceRequest metaInformation(MetaInformationForCreateBackupResourceInput metaInformation) {
-    this.metaInformation = metaInformation;
-    return this;
-  }
-
-   /**
-   * Get metaInformation
-   * @return metaInformation
-  **/
-  @Valid
-  @Schema(description = "")
-  public MetaInformationForCreateBackupResourceInput getMetaInformation() {
-    return metaInformation;
-  }
-
-  public void setMetaInformation(MetaInformationForCreateBackupResourceInput metaInformation) {
-    this.metaInformation = metaInformation;
-  }
-
   public CreateBackupResourceRequest resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
@@ -174,13 +151,12 @@ public class CreateBackupResourceRequest {
     CreateBackupResourceRequest createBackupResourceRequest = (CreateBackupResourceRequest) o;
     return Objects.equals(this.instanceId, createBackupResourceRequest.instanceId) &&
         Objects.equals(this.instanceName, createBackupResourceRequest.instanceName) &&
-        Objects.equals(this.metaInformation, createBackupResourceRequest.metaInformation) &&
         Objects.equals(this.resourceType, createBackupResourceRequest.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, metaInformation, resourceType);
+    return Objects.hash(instanceId, instanceName, resourceType);
   }
 
 
@@ -191,7 +167,6 @@ public class CreateBackupResourceRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
-    sb.append("    metaInformation: ").append(toIndentedString(metaInformation)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");
     return sb.toString();

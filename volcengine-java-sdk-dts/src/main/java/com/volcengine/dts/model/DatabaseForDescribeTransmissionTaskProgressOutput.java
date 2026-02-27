@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.dts.model.CommonSettingsForDescribeTransmissionTaskProgressOutput;
 import com.volcengine.dts.model.ConvertMappingListForDescribeTransmissionTaskProgressOutput;
+import com.volcengine.dts.model.ObjectMappingSettingForDescribeTransmissionTaskProgressOutput;
 import com.volcengine.dts.model.SubscriptionCommonSettingsForDescribeTransmissionTaskProgressOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class DatabaseForDescribeTransmissionTaskProgressOutput {
 
   @SerializedName("MappingList")
   private List<ConvertMappingListForDescribeTransmissionTaskProgressOutput> mappingList = null;
+
+  @SerializedName("ObjectMappingSetting")
+  private ObjectMappingSettingForDescribeTransmissionTaskProgressOutput objectMappingSetting = null;
 
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
@@ -118,6 +122,25 @@ public class DatabaseForDescribeTransmissionTaskProgressOutput {
 
   public void setMappingList(List<ConvertMappingListForDescribeTransmissionTaskProgressOutput> mappingList) {
     this.mappingList = mappingList;
+  }
+
+  public DatabaseForDescribeTransmissionTaskProgressOutput objectMappingSetting(ObjectMappingSettingForDescribeTransmissionTaskProgressOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public ObjectMappingSettingForDescribeTransmissionTaskProgressOutput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(ObjectMappingSettingForDescribeTransmissionTaskProgressOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public DatabaseForDescribeTransmissionTaskProgressOutput objectTransTypes(List<String> objectTransTypes) {
@@ -214,6 +237,7 @@ public class DatabaseForDescribeTransmissionTaskProgressOutput {
     return Objects.equals(this.commonSettings, databaseForDescribeTransmissionTaskProgressOutput.commonSettings) &&
         Objects.equals(this.destObjName, databaseForDescribeTransmissionTaskProgressOutput.destObjName) &&
         Objects.equals(this.mappingList, databaseForDescribeTransmissionTaskProgressOutput.mappingList) &&
+        Objects.equals(this.objectMappingSetting, databaseForDescribeTransmissionTaskProgressOutput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, databaseForDescribeTransmissionTaskProgressOutput.objectTransTypes) &&
         Objects.equals(this.objectType, databaseForDescribeTransmissionTaskProgressOutput.objectType) &&
         Objects.equals(this.srcObjName, databaseForDescribeTransmissionTaskProgressOutput.srcObjName) &&
@@ -222,7 +246,7 @@ public class DatabaseForDescribeTransmissionTaskProgressOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, mappingList, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, mappingList, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -234,6 +258,7 @@ public class DatabaseForDescribeTransmissionTaskProgressOutput {
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
     sb.append("    mappingList: ").append(toIndentedString(mappingList)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

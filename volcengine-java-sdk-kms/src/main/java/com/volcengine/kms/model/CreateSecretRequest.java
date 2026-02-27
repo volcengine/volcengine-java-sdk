@@ -106,6 +106,9 @@ public class CreateSecretRequest {
   @SerializedName("SecretValue")
   private String secretValue = null;
 
+  @SerializedName("VersionName")
+  private String versionName = null;
+
   public CreateSecretRequest automaticRotation(Boolean automaticRotation) {
     this.automaticRotation = automaticRotation;
     return this;
@@ -271,6 +274,24 @@ public class CreateSecretRequest {
     this.secretValue = secretValue;
   }
 
+  public CreateSecretRequest versionName(String versionName) {
+    this.versionName = versionName;
+    return this;
+  }
+
+   /**
+   * Get versionName
+   * @return versionName
+  **/
+ @Size(min=2,max=128)  @Schema(description = "")
+  public String getVersionName() {
+    return versionName;
+  }
+
+  public void setVersionName(String versionName) {
+    this.versionName = versionName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -289,12 +310,13 @@ public class CreateSecretRequest {
         Objects.equals(this.rotationInterval, createSecretRequest.rotationInterval) &&
         Objects.equals(this.secretName, createSecretRequest.secretName) &&
         Objects.equals(this.secretType, createSecretRequest.secretType) &&
-        Objects.equals(this.secretValue, createSecretRequest.secretValue);
+        Objects.equals(this.secretValue, createSecretRequest.secretValue) &&
+        Objects.equals(this.versionName, createSecretRequest.versionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(automaticRotation, description, encryptionKey, extendedConfig, projectName, rotationInterval, secretName, secretType, secretValue);
+    return Objects.hash(automaticRotation, description, encryptionKey, extendedConfig, projectName, rotationInterval, secretName, secretType, secretValue, versionName);
   }
 
 
@@ -312,6 +334,7 @@ public class CreateSecretRequest {
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    secretType: ").append(toIndentedString(secretType)).append("\n");
     sb.append("    secretValue: ").append(toIndentedString(secretValue)).append("\n");
+    sb.append("    versionName: ").append(toIndentedString(versionName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

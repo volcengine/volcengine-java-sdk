@@ -40,6 +40,9 @@ public class MappingListForDescribeValidationTaskResultOutput {
   @SerializedName("DestObjName")
   private String destObjName = null;
 
+  @SerializedName("ObjectMappingSetting")
+  private CommonSettingsForDescribeValidationTaskResultOutput objectMappingSetting = null;
+
   @SerializedName("ObjectTransTypes")
   private List<String> objectTransTypes = null;
 
@@ -87,6 +90,25 @@ public class MappingListForDescribeValidationTaskResultOutput {
 
   public void setDestObjName(String destObjName) {
     this.destObjName = destObjName;
+  }
+
+  public MappingListForDescribeValidationTaskResultOutput objectMappingSetting(CommonSettingsForDescribeValidationTaskResultOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
+    return this;
+  }
+
+   /**
+   * Get objectMappingSetting
+   * @return objectMappingSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public CommonSettingsForDescribeValidationTaskResultOutput getObjectMappingSetting() {
+    return objectMappingSetting;
+  }
+
+  public void setObjectMappingSetting(CommonSettingsForDescribeValidationTaskResultOutput objectMappingSetting) {
+    this.objectMappingSetting = objectMappingSetting;
   }
 
   public MappingListForDescribeValidationTaskResultOutput objectTransTypes(List<String> objectTransTypes) {
@@ -182,6 +204,7 @@ public class MappingListForDescribeValidationTaskResultOutput {
     MappingListForDescribeValidationTaskResultOutput mappingListForDescribeValidationTaskResultOutput = (MappingListForDescribeValidationTaskResultOutput) o;
     return Objects.equals(this.commonSettings, mappingListForDescribeValidationTaskResultOutput.commonSettings) &&
         Objects.equals(this.destObjName, mappingListForDescribeValidationTaskResultOutput.destObjName) &&
+        Objects.equals(this.objectMappingSetting, mappingListForDescribeValidationTaskResultOutput.objectMappingSetting) &&
         Objects.equals(this.objectTransTypes, mappingListForDescribeValidationTaskResultOutput.objectTransTypes) &&
         Objects.equals(this.objectType, mappingListForDescribeValidationTaskResultOutput.objectType) &&
         Objects.equals(this.srcObjName, mappingListForDescribeValidationTaskResultOutput.srcObjName) &&
@@ -190,7 +213,7 @@ public class MappingListForDescribeValidationTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonSettings, destObjName, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
+    return Objects.hash(commonSettings, destObjName, objectMappingSetting, objectTransTypes, objectType, srcObjName, subscriptionCommonSettings);
   }
 
 
@@ -201,6 +224,7 @@ public class MappingListForDescribeValidationTaskResultOutput {
     
     sb.append("    commonSettings: ").append(toIndentedString(commonSettings)).append("\n");
     sb.append("    destObjName: ").append(toIndentedString(destObjName)).append("\n");
+    sb.append("    objectMappingSetting: ").append(toIndentedString(objectMappingSetting)).append("\n");
     sb.append("    objectTransTypes: ").append(toIndentedString(objectTransTypes)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    srcObjName: ").append(toIndentedString(srcObjName)).append("\n");

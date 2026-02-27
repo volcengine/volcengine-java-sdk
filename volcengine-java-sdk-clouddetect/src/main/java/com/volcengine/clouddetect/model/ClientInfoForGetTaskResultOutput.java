@@ -51,6 +51,9 @@ public class ClientInfoForGetTaskResultOutput {
   @SerializedName("Tupe")
   private String tupe = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   public ClientInfoForGetTaskResultOutput city(String city) {
     this.city = city;
     return this;
@@ -177,6 +180,24 @@ public class ClientInfoForGetTaskResultOutput {
     this.tupe = tupe;
   }
 
+  public ClientInfoForGetTaskResultOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,12 +214,13 @@ public class ClientInfoForGetTaskResultOutput {
         Objects.equals(this.ipv6, clientInfoForGetTaskResultOutput.ipv6) &&
         Objects.equals(this.isp, clientInfoForGetTaskResultOutput.isp) &&
         Objects.equals(this.region, clientInfoForGetTaskResultOutput.region) &&
-        Objects.equals(this.tupe, clientInfoForGetTaskResultOutput.tupe);
+        Objects.equals(this.tupe, clientInfoForGetTaskResultOutput.tupe) &&
+        Objects.equals(this.type, clientInfoForGetTaskResultOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, dnSLocalDNSIP, IP, ipv6, isp, region, tupe);
+    return Objects.hash(city, dnSLocalDNSIP, IP, ipv6, isp, region, tupe, type);
   }
 
 
@@ -214,6 +236,7 @@ public class ClientInfoForGetTaskResultOutput {
     sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tupe: ").append(toIndentedString(tupe)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

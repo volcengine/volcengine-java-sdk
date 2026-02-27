@@ -45,10 +45,22 @@ public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
     BGP("BGP"),
     @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
+    @SerializedName("ChinaUnicom")
+    CHINAUNICOM("ChinaUnicom"),
     @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom"),
-    @SerializedName("ChinaUnicom")
-    CHINAUNICOM("ChinaUnicom");
+    @SerializedName("SingleLine_BGP")
+    SINGLELINE_BGP("SingleLine_BGP"),
+    @SerializedName("Fusion_BGP")
+    FUSION_BGP("Fusion_BGP"),
+    @SerializedName("Static_BGP")
+    STATIC_BGP("Static_BGP"),
+    @SerializedName("ChinaMobile_Value")
+    CHINAMOBILE_VALUE("ChinaMobile_Value"),
+    @SerializedName("ChinaUnicom_Value")
+    CHINAUNICOM_VALUE("ChinaUnicom_Value"),
+    @SerializedName("ChinaTelecom_Value")
+    CHINATELECOM_VALUE("ChinaTelecom_Value");
 
     private String value;
 

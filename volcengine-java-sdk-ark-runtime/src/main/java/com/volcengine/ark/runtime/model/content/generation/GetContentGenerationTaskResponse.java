@@ -3,9 +3,6 @@ package com.volcengine.ark.runtime.model.content.generation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GetContentGenerationTaskResponse {
 
@@ -59,6 +56,23 @@ public class GetContentGenerationTaskResponse {
 
     @JsonProperty("generate_audio")
     private Boolean generateAudio;
+
+    @JsonProperty("ratio")
+    private String ratio;
+
+    @JsonProperty("duration")
+    private java.lang.Long duration;
+
+    @JsonProperty("resolution")
+    private String resolution;
+
+    @JsonProperty("draft")
+    private Boolean draft;
+
+    @JsonProperty("draft_task_id")
+    private String draftTaskID;
+
+
 
     public String getId() {
         return id;
@@ -196,6 +210,47 @@ public class GetContentGenerationTaskResponse {
         this.generateAudio = generateAudio;
     }
 
+    public String getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(String ratio) {
+        this.ratio = ratio;
+    }
+
+    public java.lang.Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(java.lang.Long duration) {
+        this.duration = duration;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+
+    public Boolean getDraft() {
+        return draft;
+    }
+
+    public void setDraft(Boolean draft) {
+        this.draft = draft;
+    }
+
+    public String getDraftTaskID() {
+        return draftTaskID;
+    }
+
+    public void setDraftTaskID(String draftTaskID) {
+        this.draftTaskID = draftTaskID;
+    }
+
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Content {
 
@@ -310,6 +365,11 @@ public class GetContentGenerationTaskResponse {
                 ", serviceTier='" + serviceTier + '\'' +
                 ", executionExpiresAfter=" + executionExpiresAfter +
                 ", generateAudio=" + generateAudio +
+                ", ratio='" + ratio + '\'' +
+                ", duration=" + duration +
+                ", resolution='" + resolution + '\'' +
+                ", draft=" + draft +
+                ", draftTaskID='" + draftTaskID + '\'' +
                 '}';
     }
 }

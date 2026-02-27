@@ -33,6 +33,9 @@ public class CreateNodeGroupResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("NodeGroupId")
+  private String nodeGroupId = null;
+
   @SerializedName("OperationId")
   private String operationId = null;
 
@@ -52,6 +55,24 @@ public class CreateNodeGroupResponse extends com.volcengine.model.AbstractRespon
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  public CreateNodeGroupResponse nodeGroupId(String nodeGroupId) {
+    this.nodeGroupId = nodeGroupId;
+    return this;
+  }
+
+   /**
+   * Get nodeGroupId
+   * @return nodeGroupId
+  **/
+  @Schema(description = "")
+  public String getNodeGroupId() {
+    return nodeGroupId;
+  }
+
+  public void setNodeGroupId(String nodeGroupId) {
+    this.nodeGroupId = nodeGroupId;
   }
 
   public CreateNodeGroupResponse operationId(String operationId) {
@@ -83,12 +104,13 @@ public class CreateNodeGroupResponse extends com.volcengine.model.AbstractRespon
     }
     CreateNodeGroupResponse createNodeGroupResponse = (CreateNodeGroupResponse) o;
     return Objects.equals(this.clusterId, createNodeGroupResponse.clusterId) &&
+        Objects.equals(this.nodeGroupId, createNodeGroupResponse.nodeGroupId) &&
         Objects.equals(this.operationId, createNodeGroupResponse.operationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, operationId);
+    return Objects.hash(clusterId, nodeGroupId, operationId);
   }
 
 
@@ -98,6 +120,7 @@ public class CreateNodeGroupResponse extends com.volcengine.model.AbstractRespon
     sb.append("class CreateNodeGroupResponse {\n");
     
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    nodeGroupId: ").append(toIndentedString(nodeGroupId)).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();

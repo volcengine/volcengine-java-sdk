@@ -54,6 +54,9 @@ public class DNSDetailForGetTaskResultOutput {
   @SerializedName("RecordCount")
   private Integer recordCount = null;
 
+  @SerializedName("Records")
+  private List<String> records = null;
+
   public DNSDetailForGetTaskResultOutput arecord(List<String> arecord) {
     this.arecord = arecord;
     return this;
@@ -205,6 +208,32 @@ public class DNSDetailForGetTaskResultOutput {
     this.recordCount = recordCount;
   }
 
+  public DNSDetailForGetTaskResultOutput records(List<String> records) {
+    this.records = records;
+    return this;
+  }
+
+  public DNSDetailForGetTaskResultOutput addRecordsItem(String recordsItem) {
+    if (this.records == null) {
+      this.records = new ArrayList<String>();
+    }
+    this.records.add(recordsItem);
+    return this;
+  }
+
+   /**
+   * Get records
+   * @return records
+  **/
+  @Schema(description = "")
+  public List<String> getRecords() {
+    return records;
+  }
+
+  public void setRecords(List<String> records) {
+    this.records = records;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -221,12 +250,13 @@ public class DNSDetailForGetTaskResultOutput {
         Objects.equals(this.dnSCost, dnSDetailForGetTaskResultOutput.dnSCost) &&
         Objects.equals(this.detail, dnSDetailForGetTaskResultOutput.detail) &&
         Objects.equals(this.diagnoseDetail, dnSDetailForGetTaskResultOutput.diagnoseDetail) &&
-        Objects.equals(this.recordCount, dnSDetailForGetTaskResultOutput.recordCount);
+        Objects.equals(this.recordCount, dnSDetailForGetTaskResultOutput.recordCount) &&
+        Objects.equals(this.records, dnSDetailForGetTaskResultOutput.records);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arecord, aaaaRecord, cnameRecord, dnSCost, detail, diagnoseDetail, recordCount);
+    return Objects.hash(arecord, aaaaRecord, cnameRecord, dnSCost, detail, diagnoseDetail, recordCount, records);
   }
 
 
@@ -242,6 +272,7 @@ public class DNSDetailForGetTaskResultOutput {
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
     sb.append("    recordCount: ").append(toIndentedString(recordCount)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
     sb.append("}");
     return sb.toString();
   }

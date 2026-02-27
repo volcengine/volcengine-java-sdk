@@ -38,6 +38,9 @@ public class ListAlertTemplatesRequest {
   @SerializedName("Namespaces")
   private List<String> namespaces = null;
 
+  @SerializedName("ObjectGroupIds")
+  private List<String> objectGroupIds = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -89,6 +92,32 @@ public class ListAlertTemplatesRequest {
 
   public void setNamespaces(List<String> namespaces) {
     this.namespaces = namespaces;
+  }
+
+  public ListAlertTemplatesRequest objectGroupIds(List<String> objectGroupIds) {
+    this.objectGroupIds = objectGroupIds;
+    return this;
+  }
+
+  public ListAlertTemplatesRequest addObjectGroupIdsItem(String objectGroupIdsItem) {
+    if (this.objectGroupIds == null) {
+      this.objectGroupIds = new ArrayList<String>();
+    }
+    this.objectGroupIds.add(objectGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get objectGroupIds
+   * @return objectGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getObjectGroupIds() {
+    return objectGroupIds;
+  }
+
+  public void setObjectGroupIds(List<String> objectGroupIds) {
+    this.objectGroupIds = objectGroupIds;
   }
 
   public ListAlertTemplatesRequest pageNumber(Integer pageNumber) {
@@ -165,6 +194,7 @@ public class ListAlertTemplatesRequest {
     ListAlertTemplatesRequest listAlertTemplatesRequest = (ListAlertTemplatesRequest) o;
     return Objects.equals(this.name, listAlertTemplatesRequest.name) &&
         Objects.equals(this.namespaces, listAlertTemplatesRequest.namespaces) &&
+        Objects.equals(this.objectGroupIds, listAlertTemplatesRequest.objectGroupIds) &&
         Objects.equals(this.pageNumber, listAlertTemplatesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listAlertTemplatesRequest.pageSize) &&
         Objects.equals(this.templateIds, listAlertTemplatesRequest.templateIds);
@@ -172,7 +202,7 @@ public class ListAlertTemplatesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, namespaces, pageNumber, pageSize, templateIds);
+    return Objects.hash(name, namespaces, objectGroupIds, pageNumber, pageSize, templateIds);
   }
 
 
@@ -183,6 +213,7 @@ public class ListAlertTemplatesRequest {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
+    sb.append("    objectGroupIds: ").append(toIndentedString(objectGroupIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");

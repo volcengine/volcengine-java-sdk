@@ -41,6 +41,9 @@ public class ListClusterUsersRequest {
   @SerializedName("CreateorName")
   private String createorName = null;
 
+  @SerializedName("IncludeUserGroup")
+  private Boolean includeUserGroup = null;
+
   @SerializedName("Keyword")
   private String keyword = null;
 
@@ -112,6 +115,24 @@ public class ListClusterUsersRequest {
 
   public void setCreateorName(String createorName) {
     this.createorName = createorName;
+  }
+
+  public ListClusterUsersRequest includeUserGroup(Boolean includeUserGroup) {
+    this.includeUserGroup = includeUserGroup;
+    return this;
+  }
+
+   /**
+   * Get includeUserGroup
+   * @return includeUserGroup
+  **/
+  @Schema(description = "")
+  public Boolean isIncludeUserGroup() {
+    return includeUserGroup;
+  }
+
+  public void setIncludeUserGroup(Boolean includeUserGroup) {
+    this.includeUserGroup = includeUserGroup;
   }
 
   public ListClusterUsersRequest keyword(String keyword) {
@@ -243,6 +264,7 @@ public class ListClusterUsersRequest {
     return Objects.equals(this.clusterId, listClusterUsersRequest.clusterId) &&
         Objects.equals(this.createTimeOrder, listClusterUsersRequest.createTimeOrder) &&
         Objects.equals(this.createorName, listClusterUsersRequest.createorName) &&
+        Objects.equals(this.includeUserGroup, listClusterUsersRequest.includeUserGroup) &&
         Objects.equals(this.keyword, listClusterUsersRequest.keyword) &&
         Objects.equals(this.updateTimeOrder, listClusterUsersRequest.updateTimeOrder) &&
         Objects.equals(this.userGroupName, listClusterUsersRequest.userGroupName) &&
@@ -253,7 +275,7 @@ public class ListClusterUsersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, createTimeOrder, createorName, keyword, updateTimeOrder, userGroupName, userName, userNameOrder, userNames);
+    return Objects.hash(clusterId, createTimeOrder, createorName, includeUserGroup, keyword, updateTimeOrder, userGroupName, userName, userNameOrder, userNames);
   }
 
 
@@ -265,6 +287,7 @@ public class ListClusterUsersRequest {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTimeOrder: ").append(toIndentedString(createTimeOrder)).append("\n");
     sb.append("    createorName: ").append(toIndentedString(createorName)).append("\n");
+    sb.append("    includeUserGroup: ").append(toIndentedString(includeUserGroup)).append("\n");
     sb.append("    keyword: ").append(toIndentedString(keyword)).append("\n");
     sb.append("    updateTimeOrder: ").append(toIndentedString(updateTimeOrder)).append("\n");
     sb.append("    userGroupName: ").append(toIndentedString(userGroupName)).append("\n");

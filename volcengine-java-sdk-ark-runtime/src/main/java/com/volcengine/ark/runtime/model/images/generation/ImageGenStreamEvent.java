@@ -62,6 +62,9 @@ public class ImageGenStreamEvent {
     @JsonProperty("created")
     private long created;
 
+    @JsonProperty("tools")
+    private List<GenerateImagesRequest.ContentGenerationTool> tools;
+
     // Getters and setters
 
     public String getType() {
@@ -136,6 +139,14 @@ public class ImageGenStreamEvent {
         this.created = created;
     }
 
+    public List<GenerateImagesRequest.ContentGenerationTool> getTools() {
+        return this.tools;
+    }
+
+    public void setTools(List<GenerateImagesRequest.ContentGenerationTool> tools) {
+        this.tools = tools;
+    }
+
     @Override
     public String toString() {
         return "ImageGenGeneratingEvent{" +
@@ -148,6 +159,7 @@ public class ImageGenStreamEvent {
                 ", usage=" + usage +
                 ", imageIndex=" + imageIndex +
                 ", created=" + created +
+                ", tools=" + tools +
                 '}';
     }
 
@@ -192,12 +204,24 @@ public class ImageGenStreamEvent {
             this.totalTokens = totalTokens;
         }
 
+        @JsonProperty("tool_usage")
+        private ImagesResponse.Usage.ToolUsage toolUsage;
+
+        public ImagesResponse.Usage.ToolUsage getToolUsage() {
+            return toolUsage;
+        }
+
+        public void setToolUsage(ImagesResponse.Usage.ToolUsage toolUsage) {
+            this.toolUsage = toolUsage;
+        }
+
         @Override
         public String toString() {
             return "Usage{" +
                     "generatedImages=" + generatedImages +
                     "outputTokens=" + outputTokens +
                     "totalTokens=" + totalTokens +
+                    "toolUsage=" + toolUsage +
                     '}';
         }
     }

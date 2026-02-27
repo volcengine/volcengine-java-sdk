@@ -50,8 +50,7 @@ public class ListNodesRequest {
    * Get isMainland
    * @return isMainland
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isIsMainland() {
     return isMainland;
   }

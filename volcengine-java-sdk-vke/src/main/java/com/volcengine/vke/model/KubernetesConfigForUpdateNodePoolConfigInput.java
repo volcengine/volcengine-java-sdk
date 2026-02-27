@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.ContainerdConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.KubeletConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.LabelForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.TaintForUpdateNodePoolConfigInput;
@@ -37,6 +38,9 @@ import javax.validation.Valid;
 public class KubernetesConfigForUpdateNodePoolConfigInput {
   @SerializedName("AutoSyncDisabled")
   private Boolean autoSyncDisabled = null;
+
+  @SerializedName("ContainerdConfig")
+  private ContainerdConfigForUpdateNodePoolConfigInput containerdConfig = null;
 
   @SerializedName("Cordon")
   private Boolean cordon = null;
@@ -75,6 +79,25 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
 
   public void setAutoSyncDisabled(Boolean autoSyncDisabled) {
     this.autoSyncDisabled = autoSyncDisabled;
+  }
+
+  public KubernetesConfigForUpdateNodePoolConfigInput containerdConfig(ContainerdConfigForUpdateNodePoolConfigInput containerdConfig) {
+    this.containerdConfig = containerdConfig;
+    return this;
+  }
+
+   /**
+   * Get containerdConfig
+   * @return containerdConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ContainerdConfigForUpdateNodePoolConfigInput getContainerdConfig() {
+    return containerdConfig;
+  }
+
+  public void setContainerdConfig(ContainerdConfigForUpdateNodePoolConfigInput containerdConfig) {
+    this.containerdConfig = containerdConfig;
   }
 
   public KubernetesConfigForUpdateNodePoolConfigInput cordon(Boolean cordon) {
@@ -233,6 +256,7 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     }
     KubernetesConfigForUpdateNodePoolConfigInput kubernetesConfigForUpdateNodePoolConfigInput = (KubernetesConfigForUpdateNodePoolConfigInput) o;
     return Objects.equals(this.autoSyncDisabled, kubernetesConfigForUpdateNodePoolConfigInput.autoSyncDisabled) &&
+        Objects.equals(this.containerdConfig, kubernetesConfigForUpdateNodePoolConfigInput.containerdConfig) &&
         Objects.equals(this.cordon, kubernetesConfigForUpdateNodePoolConfigInput.cordon) &&
         Objects.equals(this.kubeletConfig, kubernetesConfigForUpdateNodePoolConfigInput.kubeletConfig) &&
         Objects.equals(this.labels, kubernetesConfigForUpdateNodePoolConfigInput.labels) &&
@@ -244,7 +268,7 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSyncDisabled, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
+    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
   }
 
 
@@ -254,6 +278,7 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     sb.append("class KubernetesConfigForUpdateNodePoolConfigInput {\n");
     
     sb.append("    autoSyncDisabled: ").append(toIndentedString(autoSyncDisabled)).append("\n");
+    sb.append("    containerdConfig: ").append(toIndentedString(containerdConfig)).append("\n");
     sb.append("    cordon: ").append(toIndentedString(cordon)).append("\n");
     sb.append("    kubeletConfig: ").append(toIndentedString(kubeletConfig)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");

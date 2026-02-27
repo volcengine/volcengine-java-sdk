@@ -37,7 +37,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
   private String allocationId = null;
 
   @SerializedName("Bandwidth")
-  private String bandwidth = null;
+  private Integer bandwidth = null;
 
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;
@@ -111,7 +111,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     this.allocationId = allocationId;
   }
 
-  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput bandwidth(String bandwidth) {
+  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -121,11 +121,11 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
    * @return bandwidth
   **/
   @Schema(description = "")
-  public String getBandwidth() {
+  public Integer getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(String bandwidth) {
+  public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
   }
 

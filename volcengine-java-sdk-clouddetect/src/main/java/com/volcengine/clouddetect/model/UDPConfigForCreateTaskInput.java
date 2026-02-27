@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class UDPConfigForCreateTaskInput {
+  @SerializedName("Mode")
+  private Integer mode = null;
+
   @SerializedName("Payload")
   private String payload = null;
 
@@ -38,6 +41,24 @@ public class UDPConfigForCreateTaskInput {
 
   @SerializedName("Timeout")
   private Integer timeout = null;
+
+  public UDPConfigForCreateTaskInput mode(Integer mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public Integer getMode() {
+    return mode;
+  }
+
+  public void setMode(Integer mode) {
+    this.mode = mode;
+  }
 
   public UDPConfigForCreateTaskInput payload(String payload) {
     this.payload = payload;
@@ -103,14 +124,15 @@ public class UDPConfigForCreateTaskInput {
       return false;
     }
     UDPConfigForCreateTaskInput udPConfigForCreateTaskInput = (UDPConfigForCreateTaskInput) o;
-    return Objects.equals(this.payload, udPConfigForCreateTaskInput.payload) &&
+    return Objects.equals(this.mode, udPConfigForCreateTaskInput.mode) &&
+        Objects.equals(this.payload, udPConfigForCreateTaskInput.payload) &&
         Objects.equals(this.payloadType, udPConfigForCreateTaskInput.payloadType) &&
         Objects.equals(this.timeout, udPConfigForCreateTaskInput.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(payload, payloadType, timeout);
+    return Objects.hash(mode, payload, payloadType, timeout);
   }
 
 
@@ -119,6 +141,7 @@ public class UDPConfigForCreateTaskInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class UDPConfigForCreateTaskInput {\n");
     
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    payloadType: ").append(toIndentedString(payloadType)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

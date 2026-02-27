@@ -66,7 +66,15 @@ public class StatusForListClustersInput {
     @SerializedName("ResourceCleanupFailed")
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
     @SerializedName("Unknown")
-    UNKNOWN("Unknown");
+    UNKNOWN("Unknown"),
+    @SerializedName("UpdatingCluster")
+    UPDATINGCLUSTER("UpdatingCluster"),
+    @SerializedName("SyncingAddon")
+    SYNCINGADDON("SyncingAddon"),
+    @SerializedName("SyncingNode")
+    SYNCINGNODE("SyncingNode"),
+    @SerializedName("SyncingNodePool")
+    SYNCINGNODEPOOL("SyncingNodePool");
 
     private String value;
 

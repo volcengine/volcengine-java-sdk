@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class ListObjectGroupsRequest {
+  @SerializedName("AlertTemplateIds")
+  private List<String> alertTemplateIds = null;
+
   @SerializedName("Ids")
   private List<String> ids = null;
 
@@ -43,6 +46,32 @@ public class ListObjectGroupsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  public ListObjectGroupsRequest alertTemplateIds(List<String> alertTemplateIds) {
+    this.alertTemplateIds = alertTemplateIds;
+    return this;
+  }
+
+  public ListObjectGroupsRequest addAlertTemplateIdsItem(String alertTemplateIdsItem) {
+    if (this.alertTemplateIds == null) {
+      this.alertTemplateIds = new ArrayList<String>();
+    }
+    this.alertTemplateIds.add(alertTemplateIdsItem);
+    return this;
+  }
+
+   /**
+   * Get alertTemplateIds
+   * @return alertTemplateIds
+  **/
+  @Schema(description = "")
+  public List<String> getAlertTemplateIds() {
+    return alertTemplateIds;
+  }
+
+  public void setAlertTemplateIds(List<String> alertTemplateIds) {
+    this.alertTemplateIds = alertTemplateIds;
+  }
 
   public ListObjectGroupsRequest ids(List<String> ids) {
     this.ids = ids;
@@ -134,7 +163,8 @@ public class ListObjectGroupsRequest {
       return false;
     }
     ListObjectGroupsRequest listObjectGroupsRequest = (ListObjectGroupsRequest) o;
-    return Objects.equals(this.ids, listObjectGroupsRequest.ids) &&
+    return Objects.equals(this.alertTemplateIds, listObjectGroupsRequest.alertTemplateIds) &&
+        Objects.equals(this.ids, listObjectGroupsRequest.ids) &&
         Objects.equals(this.name, listObjectGroupsRequest.name) &&
         Objects.equals(this.pageNumber, listObjectGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listObjectGroupsRequest.pageSize);
@@ -142,7 +172,7 @@ public class ListObjectGroupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, pageNumber, pageSize);
+    return Objects.hash(alertTemplateIds, ids, name, pageNumber, pageSize);
   }
 
 
@@ -151,6 +181,7 @@ public class ListObjectGroupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListObjectGroupsRequest {\n");
     
+    sb.append("    alertTemplateIds: ").append(toIndentedString(alertTemplateIds)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");

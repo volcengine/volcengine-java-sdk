@@ -52,6 +52,12 @@ public class ListWorkspacesRequest {
   @SerializedName("ShowExternalPromWorkspaces")
   private Boolean showExternalPromWorkspaces = null;
 
+  @SerializedName("ShowWorkspaceInstanceType")
+  private Boolean showWorkspaceInstanceType = null;
+
+  @SerializedName("ShowWorkspaceQuota")
+  private Boolean showWorkspaceQuota = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForListWorkspacesInput> tagFilters = null;
 
@@ -164,6 +170,42 @@ public class ListWorkspacesRequest {
     this.showExternalPromWorkspaces = showExternalPromWorkspaces;
   }
 
+  public ListWorkspacesRequest showWorkspaceInstanceType(Boolean showWorkspaceInstanceType) {
+    this.showWorkspaceInstanceType = showWorkspaceInstanceType;
+    return this;
+  }
+
+   /**
+   * Get showWorkspaceInstanceType
+   * @return showWorkspaceInstanceType
+  **/
+  @Schema(description = "")
+  public Boolean isShowWorkspaceInstanceType() {
+    return showWorkspaceInstanceType;
+  }
+
+  public void setShowWorkspaceInstanceType(Boolean showWorkspaceInstanceType) {
+    this.showWorkspaceInstanceType = showWorkspaceInstanceType;
+  }
+
+  public ListWorkspacesRequest showWorkspaceQuota(Boolean showWorkspaceQuota) {
+    this.showWorkspaceQuota = showWorkspaceQuota;
+    return this;
+  }
+
+   /**
+   * Get showWorkspaceQuota
+   * @return showWorkspaceQuota
+  **/
+  @Schema(description = "")
+  public Boolean isShowWorkspaceQuota() {
+    return showWorkspaceQuota;
+  }
+
+  public void setShowWorkspaceQuota(Boolean showWorkspaceQuota) {
+    this.showWorkspaceQuota = showWorkspaceQuota;
+  }
+
   public ListWorkspacesRequest tagFilters(List<TagFilterForListWorkspacesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -207,12 +249,14 @@ public class ListWorkspacesRequest {
         Objects.equals(this.projectName, listWorkspacesRequest.projectName) &&
         Objects.equals(this.showAggregateQueryWorkspaces, listWorkspacesRequest.showAggregateQueryWorkspaces) &&
         Objects.equals(this.showExternalPromWorkspaces, listWorkspacesRequest.showExternalPromWorkspaces) &&
+        Objects.equals(this.showWorkspaceInstanceType, listWorkspacesRequest.showWorkspaceInstanceType) &&
+        Objects.equals(this.showWorkspaceQuota, listWorkspacesRequest.showWorkspaceQuota) &&
         Objects.equals(this.tagFilters, listWorkspacesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, pageNumber, pageSize, projectName, showAggregateQueryWorkspaces, showExternalPromWorkspaces, tagFilters);
+    return Objects.hash(filters, pageNumber, pageSize, projectName, showAggregateQueryWorkspaces, showExternalPromWorkspaces, showWorkspaceInstanceType, showWorkspaceQuota, tagFilters);
   }
 
 
@@ -227,6 +271,8 @@ public class ListWorkspacesRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    showAggregateQueryWorkspaces: ").append(toIndentedString(showAggregateQueryWorkspaces)).append("\n");
     sb.append("    showExternalPromWorkspaces: ").append(toIndentedString(showExternalPromWorkspaces)).append("\n");
+    sb.append("    showWorkspaceInstanceType: ").append(toIndentedString(showWorkspaceInstanceType)).append("\n");
+    sb.append("    showWorkspaceQuota: ").append(toIndentedString(showWorkspaceQuota)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

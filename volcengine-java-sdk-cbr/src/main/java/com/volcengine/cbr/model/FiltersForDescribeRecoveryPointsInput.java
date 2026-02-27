@@ -42,11 +42,105 @@ public class FiltersForDescribeRecoveryPointsInput {
   @SerializedName("ResourceId")
   private String resourceId = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
 
-  @SerializedName("Status")
-  private String status = null;
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
+
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("AVAILABLE")
+    AVAILABLE("AVAILABLE"),
+    @SerializedName("DELETING")
+    DELETING("DELETING"),
+    @SerializedName("BEING_BACKUP")
+    BEING_BACKUP("BEING_BACKUP"),
+    @SerializedName("RECOVERING")
+    RECOVERING("RECOVERING"),
+    @SerializedName("ERROR")
+    ERROR("ERROR"),
+    @SerializedName("WAITING")
+    WAITING("WAITING");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   public FiltersForDescribeRecoveryPointsInput instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -120,7 +214,7 @@ public class FiltersForDescribeRecoveryPointsInput {
     this.resourceId = resourceId;
   }
 
-  public FiltersForDescribeRecoveryPointsInput resourceType(String resourceType) {
+  public FiltersForDescribeRecoveryPointsInput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -130,15 +224,15 @@ public class FiltersForDescribeRecoveryPointsInput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
   }
 
-  public FiltersForDescribeRecoveryPointsInput status(String status) {
+  public FiltersForDescribeRecoveryPointsInput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -148,11 +242,11 @@ public class FiltersForDescribeRecoveryPointsInput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

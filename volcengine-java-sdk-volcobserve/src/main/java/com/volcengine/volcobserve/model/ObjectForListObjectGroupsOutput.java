@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.DimensionConditionsForListObjectGroupsOutput;
+import com.volcengine.volcobserve.model.RuleForListObjectGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +37,7 @@ import javax.validation.Valid;
 
 public class ObjectForListObjectGroupsOutput {
   @SerializedName("DimensionConditions")
-  private String dimensionConditions = null;
+  private DimensionConditionsForListObjectGroupsOutput dimensionConditions = null;
 
   @SerializedName("Dimensions")
   private Map<String, List<String>> dimensions = null;
@@ -48,10 +51,13 @@ public class ObjectForListObjectGroupsOutput {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("Rules")
+  private List<RuleForListObjectGroupsOutput> rules = null;
+
   @SerializedName("Type")
   private String type = null;
 
-  public ObjectForListObjectGroupsOutput dimensionConditions(String dimensionConditions) {
+  public ObjectForListObjectGroupsOutput dimensionConditions(DimensionConditionsForListObjectGroupsOutput dimensionConditions) {
     this.dimensionConditions = dimensionConditions;
     return this;
   }
@@ -60,12 +66,13 @@ public class ObjectForListObjectGroupsOutput {
    * Get dimensionConditions
    * @return dimensionConditions
   **/
+  @Valid
   @Schema(description = "")
-  public String getDimensionConditions() {
+  public DimensionConditionsForListObjectGroupsOutput getDimensionConditions() {
     return dimensionConditions;
   }
 
-  public void setDimensionConditions(String dimensionConditions) {
+  public void setDimensionConditions(DimensionConditionsForListObjectGroupsOutput dimensionConditions) {
     this.dimensionConditions = dimensionConditions;
   }
 
@@ -150,6 +157,33 @@ public class ObjectForListObjectGroupsOutput {
     this.region = region;
   }
 
+  public ObjectForListObjectGroupsOutput rules(List<RuleForListObjectGroupsOutput> rules) {
+    this.rules = rules;
+    return this;
+  }
+
+  public ObjectForListObjectGroupsOutput addRulesItem(RuleForListObjectGroupsOutput rulesItem) {
+    if (this.rules == null) {
+      this.rules = new ArrayList<RuleForListObjectGroupsOutput>();
+    }
+    this.rules.add(rulesItem);
+    return this;
+  }
+
+   /**
+   * Get rules
+   * @return rules
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RuleForListObjectGroupsOutput> getRules() {
+    return rules;
+  }
+
+  public void setRules(List<RuleForListObjectGroupsOutput> rules) {
+    this.rules = rules;
+  }
+
   public ObjectForListObjectGroupsOutput type(String type) {
     this.type = type;
     return this;
@@ -183,12 +217,13 @@ public class ObjectForListObjectGroupsOutput {
         Objects.equals(this.id, objectForListObjectGroupsOutput.id) &&
         Objects.equals(this.namespace, objectForListObjectGroupsOutput.namespace) &&
         Objects.equals(this.region, objectForListObjectGroupsOutput.region) &&
+        Objects.equals(this.rules, objectForListObjectGroupsOutput.rules) &&
         Objects.equals(this.type, objectForListObjectGroupsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensionConditions, dimensions, id, namespace, region, type);
+    return Objects.hash(dimensionConditions, dimensions, id, namespace, region, rules, type);
   }
 
 
@@ -202,6 +237,7 @@ public class ObjectForListObjectGroupsOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

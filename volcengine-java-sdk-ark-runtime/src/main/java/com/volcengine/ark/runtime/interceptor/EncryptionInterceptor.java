@@ -3,23 +3,17 @@ package com.volcengine.ark.runtime.interceptor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.service.CertificateManager;
+import com.volcengine.ark.runtime.utils.KeyAgreementUtil;
+import com.volcengine.ark.runtime.utils.ResponseDecryptUtil;
 import okhttp3.*;
 import okio.Buffer;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
-
-import java.security.GeneralSecurityException;
-import java.util.HashMap;
-import java.util.Map;
-
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.volcengine.ark.runtime.utils.KeyAgreementUtil;
+import java.security.GeneralSecurityException;
+import java.util.*;
 
 import static com.volcengine.ark.runtime.service.CertificateManager.getServerCertificate;
 import static com.volcengine.ark.runtime.utils.KeyAgreementUtil.*;
@@ -85,7 +79,6 @@ public class EncryptionInterceptor implements Interceptor {
 
         requestBuilder.addHeader("X-Session-Token", sessionToken);
         Request encryptedRequest = requestBuilder.build();
-
         Response originalResponse = chain.proceed(encryptedRequest);
 
         if (!originalResponse.isSuccessful()) {
@@ -258,13 +251,21 @@ public class EncryptionInterceptor implements Interceptor {
             if (responseBody == null) {
                 return response;
             }
-
-            String responseBodyStr = responseBody.string();
-
-            if (isStreamResponseFromContent(responseBodyStr)) {
-                return handleStreamResponse(key, nonce, response, responseBodyStr);
+            MediaType contentType = responseBody.contentType();
+            boolean isStreaming = false;
+            if (contentType != null) {
+                String contentTypeStr = contentType.toString();
+                isStreaming = contentTypeStr.contains("text/event-stream");
+            }
+            if (isStreaming) {
+                return response.newBuilder()
+                        .addHeader("X-Decryption-Key", Base64.getEncoder().encodeToString(key))
+                        .addHeader("X-Decryption-Nonce", Base64.getEncoder().encodeToString(nonce))
+                        .addHeader("X-Is-Encrypted", "true")
+                        .build();
             } else {
                 try {
+                    String responseBodyStr = responseBody.string();
                     Map<String, Object> responseJson = mapper.readValue(
                             responseBodyStr,
                             new TypeReference<Map<String, Object>>() {
@@ -272,7 +273,7 @@ public class EncryptionInterceptor implements Interceptor {
                     );
                     return handleNormalResponse(key, nonce, response, responseJson);
                 } catch (Exception e) {
-                    return handleStreamResponse(key, nonce, response, responseBodyStr);
+                    return response.newBuilder().build();
                 }
             }
 
@@ -281,34 +282,6 @@ public class EncryptionInterceptor implements Interceptor {
         }
     }
 
-    /**
-     * 处理流式响应解密
-     */
-    private Response handleStreamResponse(byte[] key, byte[] nonce, Response response, String originalContent) {
-        try {
-            ResponseBody originalBody = response.body();
-            if (originalBody == null) {
-                return response;
-            }
-            String decryptedContent = decryptStreamContent(key, nonce, originalContent);
-
-            MediaType contentType = originalBody.contentType();
-            if (contentType == null) {
-                contentType = MediaType.get("application/json; charset=utf-8");
-            }
-            ResponseBody decryptedBody = ResponseBody.create(
-                    contentType,
-                    decryptedContent.getBytes(StandardCharsets.UTF_8)
-            );
-
-            return response.newBuilder()
-                    .body(decryptedBody)
-                    .build();
-
-        } catch (Exception e) {
-            return response;
-        }
-    }
 
     /**
      * 处理普通响应解密
@@ -319,8 +292,8 @@ public class EncryptionInterceptor implements Interceptor {
             List<Map<String, Object>> choices = (List<Map<String, Object>>) responseJson.get("choices");
 
             for (Map<String, Object> choice : choices) {
-                if (shouldDecryptChoice(choice)) {
-                    decryptChoiceContent(key, nonce, choice);
+                if (ResponseDecryptUtil.shouldDecryptChoice(choice)) {
+                    ResponseDecryptUtil.decryptChoiceContent(key, nonce, choice);
                 }
             }
         }
@@ -344,193 +317,4 @@ public class EncryptionInterceptor implements Interceptor {
                 .build();
     }
 
-    /**
-     * 解密单个choice内容
-     */
-    private void decryptChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
-        String encryptedContent = getEncryptedContentFromChoice(choice);
-        if (encryptedContent != null && !encryptedContent.isEmpty()) {
-            try {
-                String decryptedContent = decryptStringWithKey(key, nonce, encryptedContent);
-                @SuppressWarnings("unchecked")
-                Map<String, Object> message = (Map<String, Object>) choice.get("message");
-                message.put("content", decryptedContent);
-            } catch (Exception e) {
-                @SuppressWarnings("unchecked")
-                Map<String, Object> message = (Map<String, Object>) choice.get("message");
-                message.put("content", "");
-            }
-        }
-    }
-
-    /**
-     * 解密流式响应内容
-     */
-    private String decryptStreamContent(byte[] key, byte[] nonce, String streamContent) {
-        try {
-            String[] lines = streamContent.split("\n");
-            StringBuilder decryptedContent = new StringBuilder();
-
-            for (String line : lines) {
-                if (line.trim().isEmpty()) {
-                    decryptedContent.append(line).append("\n");
-                    continue;
-                }
-
-                if (line.startsWith("data: ")) {
-                    String dataContent = line.substring(6);
-                    if ("[DONE]".equals(dataContent)) {
-                        decryptedContent.append("data: [DONE]\n");
-                        continue;
-                    }
-
-                    try {
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> chunkData = mapper.readValue(dataContent, Map.class);
-                        Map<String, Object> decryptedChunk = decryptStreamChunk(key, nonce, chunkData);
-                        String decryptedJson = mapper.writeValueAsString(decryptedChunk);
-                        decryptedContent.append("data: ").append(decryptedJson).append("\n");
-                    } catch (Exception e) {
-                        decryptedContent.append(line).append("\n");
-                    }
-                } else {
-                    decryptedContent.append(line).append("\n");
-                }
-            }
-
-            return decryptedContent.toString();
-        } catch (Exception e) {
-            return streamContent;
-        }
-    }
-
-    /**
-     * 解密流式数据块
-     */
-    private Map<String, Object> decryptStreamChunk(byte[] key, byte[] nonce, Map<String, Object> chunkData) {
-        try {
-            if (!hasValidChoices(chunkData)) {
-                return chunkData;
-            }
-
-            @SuppressWarnings("unchecked")
-            List<Map<String, Object>> choices = (List<Map<String, Object>>) chunkData.get("choices");
-
-            for (Map<String, Object> choice : choices) {
-                decryptStreamChoiceContent(key, nonce, choice);
-            }
-
-            return chunkData;
-        } catch (Exception e) {
-            return chunkData;
-        }
-    }
-
-    /**
-     * 检查chunk数据是否包含有效的choices
-     */
-    private boolean hasValidChoices(Map<String, Object> chunkData) {
-        return chunkData.containsKey("choices") && chunkData.get("choices") instanceof List;
-    }
-
-    /**
-     * 解密流式choice内容
-     */
-    private void decryptStreamChoiceContent(byte[] key, byte[] nonce, Map<String, Object> choice) {
-        if (!shouldDecryptStreamChoice(choice)) {
-            return;
-        }
-
-        String encryptedContent = getEncryptedContentFromStreamChoice(choice);
-        if (encryptedContent == null || encryptedContent.isEmpty()) {
-            return;
-        }
-
-        try {
-            String decryptedContent = aesGcmDecryptBase64String(key, nonce, encryptedContent);
-            updateStreamChoiceContent(choice, decryptedContent);
-        } catch (Exception e) {
-            updateStreamChoiceContent(choice, "");
-        }
-    }
-
-    /**
-     * 更新流式choice的内容
-     */
-    private void updateStreamChoiceContent(Map<String, Object> choice, String content) {
-        @SuppressWarnings("unchecked")
-        Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-        delta.put("content", content);
-    }
-
-    /**
-     * 判断是否为流式响应
-     */
-    private boolean isStreamResponseFromContent(String content) {
-        if (content == null || content.trim().isEmpty()) {
-            return false;
-        }
-        if (content.trim().startsWith("data: ")) {
-            return true;
-        }
-        return content.contains("\ndata: ") || content.contains("\r\ndata: ");
-    }
-
-    /**
-     * 判断choice是否需要解密
-     */
-    private boolean shouldDecryptChoice(Map<String, Object> choice) {
-        if (!choice.containsKey("message") || !(choice.get("message") instanceof Map)) {
-            return false;
-        }
-        @SuppressWarnings("unchecked")
-        Map<String, Object> message = (Map<String, Object>) choice.get("message");
-        String finishReason = (String) choice.get("finish_reason");
-        if ("content_filter".equals(finishReason)) {
-            return false;
-        }
-        if (message == null || message.isEmpty()) {
-            return false;
-        }
-        Object content = message.get("content");
-        return content instanceof String;
-    }
-
-    /**
-     * 从choice获取加密内容
-     */
-    private String getEncryptedContentFromChoice(Map<String, Object> choice) {
-        @SuppressWarnings("unchecked")
-        Map<String, Object> message = (Map<String, Object>) choice.get("message");
-        return (String) message.get("content");
-    }
-
-    /**
-     * 判断流式choice是否需要解密
-     */
-    private boolean shouldDecryptStreamChoice(Map<String, Object> choice) {
-        if (!choice.containsKey("delta") || !(choice.get("delta") instanceof Map)) {
-            return false;
-        }
-        @SuppressWarnings("unchecked")
-        Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-        String finishReason = (String) choice.get("finish_reason");
-        if ("content_filter".equals(finishReason)) {
-            return false;
-        }
-        if (delta == null || delta.isEmpty()) {
-            return false;
-        }
-        Object content = delta.get("content");
-        return content instanceof String;
-    }
-
-    /**
-     * 从流式choice获取加密内容
-     */
-    private String getEncryptedContentFromStreamChoice(Map<String, Object> choice) {
-        @SuppressWarnings("unchecked")
-        Map<String, Object> delta = (Map<String, Object>) choice.get("delta");
-        return (String) delta.get("content");
-    }
 }

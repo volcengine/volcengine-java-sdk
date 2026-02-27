@@ -1,7 +1,10 @@
 package com.volcengine.ark.runtime;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesCaching;
+import com.volcengine.ark.runtime.model.responses.common.ResponsesText;
+import com.volcengine.ark.runtime.model.responses.common.ResponsesTextFormat;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
 import com.volcengine.ark.runtime.model.responses.content.*;
@@ -32,6 +35,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class CreateResponseExample {
 
     private static final String modelName = "doubao-seed-1-6-250615";
+    private static final String testSchema = "{\"type\":\"object\",\"properties\":{\"steps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"explanation\":{\"type\":\"string\"},\"output\":{\"type\":\"string\"}},\"required\":[\"explanation\",\"output\"],\"additionalProperties\":false}},\"final_answer\":{\"type\":\"string\"}},\"required\":[\"steps\",\"final_answer\"],\"additionalProperties\":false}";
 
     public static void main(String[] args) {
         String apiKey = System.getenv("ARK_API_KEY");
@@ -333,6 +337,28 @@ public class CreateResponseExample {
         } catch (Exception e) {
             System.err.println("Create Cached Response Error " + e.getMessage());
         }
+
+        try {
+            System.out.println("\n----- [Request with JsonSchema] Request 8-----");
+            CreateResponsesRequest request8 = CreateResponsesRequest.builder()
+                    .input(ResponsesInput.builder().stringValue("return in json format how can I solve 8x + 7 = -23").build())
+                    .model(modelName)
+                    .stream(false)
+                    .text(ResponsesText.builder().format(ResponsesTextFormat.builder()
+                            .type(ResponsesConstants.TEXT_TYPE_JSON_SCHEMA)
+                            .name("math_reasoning")
+                            .schema(new ObjectMapper().readTree(testSchema))
+                            .build()).build())
+                    .build();
+
+            ResponseObject response8 = service.createResponse(request8);
+            System.out.println("=== response 8 ===");
+            printResponseObject(response8);
+        } catch (Exception e) {
+            System.err.println("Create Response 8 Error " + e.getMessage());
+        }
+
+
 
         service.shutdownExecutor();
     }
