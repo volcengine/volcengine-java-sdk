@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyVpnConnectionTunnelAttributesResponse
+ * TagForCreateCustomerGatewayInput
  */
 
 
 
-public class ModifyVpnConnectionTunnelAttributesResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("RequestId")
-  private String requestId = null;
+public class TagForCreateCustomerGatewayInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public ModifyVpnConnectionTunnelAttributesResponse requestId(String requestId) {
-    this.requestId = requestId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForCreateCustomerGatewayInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public String getKey() {
+    return key;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForCreateCustomerGatewayInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +81,24 @@ public class ModifyVpnConnectionTunnelAttributesResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyVpnConnectionTunnelAttributesResponse modifyVpnConnectionTunnelAttributesResponse = (ModifyVpnConnectionTunnelAttributesResponse) o;
-    return Objects.equals(this.requestId, modifyVpnConnectionTunnelAttributesResponse.requestId);
+    TagForCreateCustomerGatewayInput tagForCreateCustomerGatewayInput = (TagForCreateCustomerGatewayInput) o;
+    return Objects.equals(this.key, tagForCreateCustomerGatewayInput.key) &&
+        Objects.equals(this.value, tagForCreateCustomerGatewayInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyVpnConnectionTunnelAttributesResponse {\n");
+    sb.append("class TagForCreateCustomerGatewayInput {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

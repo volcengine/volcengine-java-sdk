@@ -33,11 +33,101 @@ import javax.validation.Valid;
 
 
 public class DescribeVpnConnectionsRequest {
-  @SerializedName("AttachStatus")
-  private String attachStatus = null;
+  /**
+   * Gets or Sets attachStatus
+   */
+  @JsonAdapter(AttachStatusEnum.Adapter.class)
+  public enum AttachStatusEnum {
+    @SerializedName("Attached")
+    ATTACHED("Attached"),
+    @SerializedName("Attaching")
+    ATTACHING("Attaching"),
+    @SerializedName("Detached")
+    DETACHED("Detached"),
+    @SerializedName("Detaching")
+    DETACHING("Detaching");
 
-  @SerializedName("AttachType")
-  private String attachType = null;
+    private String value;
+
+    AttachStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AttachStatusEnum fromValue(String input) {
+      for (AttachStatusEnum b : AttachStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AttachStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AttachStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AttachStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AttachStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AttachStatus")
+  private AttachStatusEnum attachStatus = null;
+
+  /**
+   * Gets or Sets attachType
+   */
+  @JsonAdapter(AttachTypeEnum.Adapter.class)
+  public enum AttachTypeEnum {
+    @SerializedName("VpnGateway")
+    VPNGATEWAY("VpnGateway"),
+    @SerializedName("TransitRouter")
+    TRANSITROUTER("TransitRouter");
+
+    private String value;
+
+    AttachTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AttachTypeEnum fromValue(String input) {
+      for (AttachTypeEnum b : AttachTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AttachTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AttachTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AttachTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AttachTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AttachType")
+  private AttachTypeEnum attachType = null;
 
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
@@ -51,8 +141,53 @@ public class DescribeVpnConnectionsRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("Spec")
-  private String spec = null;
+  /**
+   * Gets or Sets spec
+   */
+  @JsonAdapter(SpecEnum.Adapter.class)
+  public enum SpecEnum {
+    @SerializedName("default")
+    DEFAULT("default"),
+    @SerializedName("large")
+    LARGE("large"),
+    @SerializedName("xlarge")
+    XLARGE("xlarge");
+
+    private String value;
+
+    SpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SpecEnum fromValue(String input) {
+      for (SpecEnum b : SpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Spec")
+  private SpecEnum spec = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -72,7 +207,7 @@ public class DescribeVpnConnectionsRequest {
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public DescribeVpnConnectionsRequest attachStatus(String attachStatus) {
+  public DescribeVpnConnectionsRequest attachStatus(AttachStatusEnum attachStatus) {
     this.attachStatus = attachStatus;
     return this;
   }
@@ -82,15 +217,15 @@ public class DescribeVpnConnectionsRequest {
    * @return attachStatus
   **/
   @Schema(description = "")
-  public String getAttachStatus() {
+  public AttachStatusEnum getAttachStatus() {
     return attachStatus;
   }
 
-  public void setAttachStatus(String attachStatus) {
+  public void setAttachStatus(AttachStatusEnum attachStatus) {
     this.attachStatus = attachStatus;
   }
 
-  public DescribeVpnConnectionsRequest attachType(String attachType) {
+  public DescribeVpnConnectionsRequest attachType(AttachTypeEnum attachType) {
     this.attachType = attachType;
     return this;
   }
@@ -100,11 +235,11 @@ public class DescribeVpnConnectionsRequest {
    * @return attachType
   **/
   @Schema(description = "")
-  public String getAttachType() {
+  public AttachTypeEnum getAttachType() {
     return attachType;
   }
 
-  public void setAttachType(String attachType) {
+  public void setAttachType(AttachTypeEnum attachType) {
     this.attachType = attachType;
   }
 
@@ -180,7 +315,7 @@ public class DescribeVpnConnectionsRequest {
     this.projectName = projectName;
   }
 
-  public DescribeVpnConnectionsRequest spec(String spec) {
+  public DescribeVpnConnectionsRequest spec(SpecEnum spec) {
     this.spec = spec;
     return this;
   }
@@ -190,11 +325,11 @@ public class DescribeVpnConnectionsRequest {
    * @return spec
   **/
   @Schema(description = "")
-  public String getSpec() {
+  public SpecEnum getSpec() {
     return spec;
   }
 
-  public void setSpec(String spec) {
+  public void setSpec(SpecEnum spec) {
     this.spec = spec;
   }
 

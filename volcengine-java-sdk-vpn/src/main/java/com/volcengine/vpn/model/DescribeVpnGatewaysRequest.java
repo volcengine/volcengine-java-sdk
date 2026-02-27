@@ -60,6 +60,9 @@ public class DescribeVpnGatewaysRequest {
   @SerializedName("SslEnabled")
   private Boolean sslEnabled = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -237,6 +240,24 @@ public class DescribeVpnGatewaysRequest {
     this.sslEnabled = sslEnabled;
   }
 
+  public DescribeVpnGatewaysRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DescribeVpnGatewaysRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -363,6 +384,7 @@ public class DescribeVpnGatewaysRequest {
         Objects.equals(this.pageSize, describeVpnGatewaysRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpnGatewaysRequest.projectName) &&
         Objects.equals(this.sslEnabled, describeVpnGatewaysRequest.sslEnabled) &&
+        Objects.equals(this.status, describeVpnGatewaysRequest.status) &&
         Objects.equals(this.subnetId, describeVpnGatewaysRequest.subnetId) &&
         Objects.equals(this.tagFilters, describeVpnGatewaysRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeVpnGatewaysRequest.vpcId) &&
@@ -372,7 +394,7 @@ public class DescribeVpnGatewaysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dualTunnelEnabled, ipAddress, ipStackType, ipVersion, ipsecEnabled, pageNumber, pageSize, projectName, sslEnabled, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
+    return Objects.hash(dualTunnelEnabled, ipAddress, ipStackType, ipVersion, ipsecEnabled, pageNumber, pageSize, projectName, sslEnabled, status, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
   }
 
 
@@ -390,6 +412,7 @@ public class DescribeVpnGatewaysRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
