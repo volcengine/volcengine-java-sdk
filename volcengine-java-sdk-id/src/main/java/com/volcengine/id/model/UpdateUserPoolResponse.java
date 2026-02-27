@@ -52,6 +52,12 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("EmailPasswordlessSignInEnabled")
   private Boolean emailPasswordlessSignInEnabled = null;
 
+  @SerializedName("Enabled")
+  private Boolean enabled = null;
+
+  @SerializedName("IssuerUrl")
+  private String issuerUrl = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -94,6 +100,9 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("SignUpAutoVerificationEnabled")
   private Boolean signUpAutoVerificationEnabled = null;
 
+  @SerializedName("SmsAnonymousSignUpEnabled")
+  private Boolean smsAnonymousSignUpEnabled = null;
+
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
 
@@ -102,6 +111,9 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("TokenSigningKeyUrl")
   private String tokenSigningKeyUrl = null;
+
+  @SerializedName("TokenUrl")
+  private String tokenUrl = null;
 
   @SerializedName("TotalClients")
   private Integer totalClients = null;
@@ -231,6 +243,42 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
 
   public void setEmailPasswordlessSignInEnabled(Boolean emailPasswordlessSignInEnabled) {
     this.emailPasswordlessSignInEnabled = emailPasswordlessSignInEnabled;
+  }
+
+  public UpdateUserPoolResponse enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Get enabled
+   * @return enabled
+  **/
+  @Schema(description = "")
+  public Boolean isEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public UpdateUserPoolResponse issuerUrl(String issuerUrl) {
+    this.issuerUrl = issuerUrl;
+    return this;
+  }
+
+   /**
+   * Get issuerUrl
+   * @return issuerUrl
+  **/
+  @Schema(description = "")
+  public String getIssuerUrl() {
+    return issuerUrl;
+  }
+
+  public void setIssuerUrl(String issuerUrl) {
+    this.issuerUrl = issuerUrl;
   }
 
   public UpdateUserPoolResponse name(String name) {
@@ -501,6 +549,24 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
     this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
+  public UpdateUserPoolResponse smsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
+    this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
+    return this;
+  }
+
+   /**
+   * Get smsAnonymousSignUpEnabled
+   * @return smsAnonymousSignUpEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSmsAnonymousSignUpEnabled() {
+    return smsAnonymousSignUpEnabled;
+  }
+
+  public void setSmsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
+    this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
+  }
+
   public UpdateUserPoolResponse smsPasswordlessSignInEnabled(Boolean smsPasswordlessSignInEnabled) {
     this.smsPasswordlessSignInEnabled = smsPasswordlessSignInEnabled;
     return this;
@@ -562,6 +628,24 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
 
   public void setTokenSigningKeyUrl(String tokenSigningKeyUrl) {
     this.tokenSigningKeyUrl = tokenSigningKeyUrl;
+  }
+
+  public UpdateUserPoolResponse tokenUrl(String tokenUrl) {
+    this.tokenUrl = tokenUrl;
+    return this;
+  }
+
+   /**
+   * Get tokenUrl
+   * @return tokenUrl
+  **/
+  @Schema(description = "")
+  public String getTokenUrl() {
+    return tokenUrl;
+  }
+
+  public void setTokenUrl(String tokenUrl) {
+    this.tokenUrl = tokenUrl;
   }
 
   public UpdateUserPoolResponse totalClients(Integer totalClients) {
@@ -706,6 +790,8 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.discoveryUrl, updateUserPoolResponse.discoveryUrl) &&
         Objects.equals(this.domain, updateUserPoolResponse.domain) &&
         Objects.equals(this.emailPasswordlessSignInEnabled, updateUserPoolResponse.emailPasswordlessSignInEnabled) &&
+        Objects.equals(this.enabled, updateUserPoolResponse.enabled) &&
+        Objects.equals(this.issuerUrl, updateUserPoolResponse.issuerUrl) &&
         Objects.equals(this.name, updateUserPoolResponse.name) &&
         Objects.equals(this.oauthLoginCallbackUrl, updateUserPoolResponse.oauthLoginCallbackUrl) &&
         Objects.equals(this.oauthSignUpCallbackUrl, updateUserPoolResponse.oauthSignUpCallbackUrl) &&
@@ -720,9 +806,11 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.selfSignUpEnabled, updateUserPoolResponse.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, updateUserPoolResponse.signInAttributes) &&
         Objects.equals(this.signUpAutoVerificationEnabled, updateUserPoolResponse.signUpAutoVerificationEnabled) &&
+        Objects.equals(this.smsAnonymousSignUpEnabled, updateUserPoolResponse.smsAnonymousSignUpEnabled) &&
         Objects.equals(this.smsPasswordlessSignInEnabled, updateUserPoolResponse.smsPasswordlessSignInEnabled) &&
         Objects.equals(this.tags, updateUserPoolResponse.tags) &&
         Objects.equals(this.tokenSigningKeyUrl, updateUserPoolResponse.tokenSigningKeyUrl) &&
+        Objects.equals(this.tokenUrl, updateUserPoolResponse.tokenUrl) &&
         Objects.equals(this.totalClients, updateUserPoolResponse.totalClients) &&
         Objects.equals(this.totalConnections, updateUserPoolResponse.totalConnections) &&
         Objects.equals(this.totalUsers, updateUserPoolResponse.totalUsers) &&
@@ -734,7 +822,7 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, createTime, description, discoveryUrl, domain, emailPasswordlessSignInEnabled, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, totalClients, totalConnections, totalUsers, trn, uid, unconfirmedUserSignInEnabled, updateTime);
+    return Objects.hash(brand, createTime, description, discoveryUrl, domain, emailPasswordlessSignInEnabled, enabled, issuerUrl, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, tokenUrl, totalClients, totalConnections, totalUsers, trn, uid, unconfirmedUserSignInEnabled, updateTime);
   }
 
 
@@ -749,6 +837,8 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
     sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    emailPasswordlessSignInEnabled: ").append(toIndentedString(emailPasswordlessSignInEnabled)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    issuerUrl: ").append(toIndentedString(issuerUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oauthLoginCallbackUrl: ").append(toIndentedString(oauthLoginCallbackUrl)).append("\n");
     sb.append("    oauthSignUpCallbackUrl: ").append(toIndentedString(oauthSignUpCallbackUrl)).append("\n");
@@ -763,9 +853,11 @@ public class UpdateUserPoolResponse extends com.volcengine.model.AbstractRespons
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
     sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");
+    sb.append("    smsAnonymousSignUpEnabled: ").append(toIndentedString(smsAnonymousSignUpEnabled)).append("\n");
     sb.append("    smsPasswordlessSignInEnabled: ").append(toIndentedString(smsPasswordlessSignInEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tokenSigningKeyUrl: ").append(toIndentedString(tokenSigningKeyUrl)).append("\n");
+    sb.append("    tokenUrl: ").append(toIndentedString(tokenUrl)).append("\n");
     sb.append("    totalClients: ").append(toIndentedString(totalClients)).append("\n");
     sb.append("    totalConnections: ").append(toIndentedString(totalConnections)).append("\n");
     sb.append("    totalUsers: ").append(toIndentedString(totalUsers)).append("\n");

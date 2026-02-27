@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.id.model.GenericSAMLResponseForListIdentityProvidersSAMLOutput;
+import com.volcengine.id.model.DataForListIdentityProvidersSAMLOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,8 +33,8 @@ import javax.validation.Valid;
 
 
 public class ListIdentityProvidersSAMLResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("GenericSAMLResponse")
-  private GenericSAMLResponseForListIdentityProvidersSAMLOutput genericSAMLResponse = null;
+  @SerializedName("Data")
+  private List<DataForListIdentityProvidersSAMLOutput> data = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -43,23 +45,31 @@ public class ListIdentityProvidersSAMLResponse extends com.volcengine.model.Abst
   @SerializedName("TotalCount")
   private Integer totalCount = null;
 
-  public ListIdentityProvidersSAMLResponse genericSAMLResponse(GenericSAMLResponseForListIdentityProvidersSAMLOutput genericSAMLResponse) {
-    this.genericSAMLResponse = genericSAMLResponse;
+  public ListIdentityProvidersSAMLResponse data(List<DataForListIdentityProvidersSAMLOutput> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListIdentityProvidersSAMLResponse addDataItem(DataForListIdentityProvidersSAMLOutput dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<DataForListIdentityProvidersSAMLOutput>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Get genericSAMLResponse
-   * @return genericSAMLResponse
+   * Get data
+   * @return data
   **/
   @Valid
   @Schema(description = "")
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput getGenericSAMLResponse() {
-    return genericSAMLResponse;
+  public List<DataForListIdentityProvidersSAMLOutput> getData() {
+    return data;
   }
 
-  public void setGenericSAMLResponse(GenericSAMLResponseForListIdentityProvidersSAMLOutput genericSAMLResponse) {
-    this.genericSAMLResponse = genericSAMLResponse;
+  public void setData(List<DataForListIdentityProvidersSAMLOutput> data) {
+    this.data = data;
   }
 
   public ListIdentityProvidersSAMLResponse pageNumber(Integer pageNumber) {
@@ -126,7 +136,7 @@ public class ListIdentityProvidersSAMLResponse extends com.volcengine.model.Abst
       return false;
     }
     ListIdentityProvidersSAMLResponse listIdentityProvidersSAMLResponse = (ListIdentityProvidersSAMLResponse) o;
-    return Objects.equals(this.genericSAMLResponse, listIdentityProvidersSAMLResponse.genericSAMLResponse) &&
+    return Objects.equals(this.data, listIdentityProvidersSAMLResponse.data) &&
         Objects.equals(this.pageNumber, listIdentityProvidersSAMLResponse.pageNumber) &&
         Objects.equals(this.pageSize, listIdentityProvidersSAMLResponse.pageSize) &&
         Objects.equals(this.totalCount, listIdentityProvidersSAMLResponse.totalCount);
@@ -134,7 +144,7 @@ public class ListIdentityProvidersSAMLResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(genericSAMLResponse, pageNumber, pageSize, totalCount);
+    return Objects.hash(data, pageNumber, pageSize, totalCount);
   }
 
 
@@ -143,7 +153,7 @@ public class ListIdentityProvidersSAMLResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class ListIdentityProvidersSAMLResponse {\n");
     
-    sb.append("    genericSAMLResponse: ").append(toIndentedString(genericSAMLResponse)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");

@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateOauth2CredentialProviderResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CallbackUrl")
+  private String callbackUrl = null;
+
   @SerializedName("CredentialProviderTrn")
   private String credentialProviderTrn = null;
 
@@ -38,6 +41,24 @@ public class CreateOauth2CredentialProviderResponse extends com.volcengine.model
 
   @SerializedName("SecretTrn")
   private String secretTrn = null;
+
+  public CreateOauth2CredentialProviderResponse callbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+    return this;
+  }
+
+   /**
+   * Get callbackUrl
+   * @return callbackUrl
+  **/
+  @Schema(description = "")
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
+
+  public void setCallbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
 
   public CreateOauth2CredentialProviderResponse credentialProviderTrn(String credentialProviderTrn) {
     this.credentialProviderTrn = credentialProviderTrn;
@@ -103,14 +124,15 @@ public class CreateOauth2CredentialProviderResponse extends com.volcengine.model
       return false;
     }
     CreateOauth2CredentialProviderResponse createOauth2CredentialProviderResponse = (CreateOauth2CredentialProviderResponse) o;
-    return Objects.equals(this.credentialProviderTrn, createOauth2CredentialProviderResponse.credentialProviderTrn) &&
+    return Objects.equals(this.callbackUrl, createOauth2CredentialProviderResponse.callbackUrl) &&
+        Objects.equals(this.credentialProviderTrn, createOauth2CredentialProviderResponse.credentialProviderTrn) &&
         Objects.equals(this.name, createOauth2CredentialProviderResponse.name) &&
         Objects.equals(this.secretTrn, createOauth2CredentialProviderResponse.secretTrn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialProviderTrn, name, secretTrn);
+    return Objects.hash(callbackUrl, credentialProviderTrn, name, secretTrn);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateOauth2CredentialProviderResponse extends com.volcengine.model
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateOauth2CredentialProviderResponse {\n");
     
+    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    secretTrn: ").append(toIndentedString(secretTrn)).append("\n");

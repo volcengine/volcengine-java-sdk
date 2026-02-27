@@ -19,38 +19,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.id.model.BackendForValidateBackendInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ValidateBackendRequest
+ * DeleteFaasServiceResponse
  */
 
 
 
-public class ValidateBackendRequest {
-  @SerializedName("Backend")
-  private BackendForValidateBackendInput backend = null;
+public class DeleteFaasServiceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Message")
+  private String message = null;
 
-  public ValidateBackendRequest backend(BackendForValidateBackendInput backend) {
-    this.backend = backend;
+  public DeleteFaasServiceResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get backend
-   * @return backend
+   * Get message
+   * @return message
   **/
-  @Valid
   @Schema(description = "")
-  public BackendForValidateBackendInput getBackend() {
-    return backend;
+  public String getMessage() {
+    return message;
   }
 
-  public void setBackend(BackendForValidateBackendInput backend) {
-    this.backend = backend;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -62,22 +60,22 @@ public class ValidateBackendRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidateBackendRequest validateBackendRequest = (ValidateBackendRequest) o;
-    return Objects.equals(this.backend, validateBackendRequest.backend);
+    DeleteFaasServiceResponse deleteFaasServiceResponse = (DeleteFaasServiceResponse) o;
+    return Objects.equals(this.message, deleteFaasServiceResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidateBackendRequest {\n");
+    sb.append("class DeleteFaasServiceResponse {\n");
     
-    sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

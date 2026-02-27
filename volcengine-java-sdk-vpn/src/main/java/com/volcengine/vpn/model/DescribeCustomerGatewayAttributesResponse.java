@@ -57,6 +57,9 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -216,6 +219,24 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     this.ipAddress = ipAddress;
   }
 
+  public DescribeCustomerGatewayAttributesResponse ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+  }
+
   public DescribeCustomerGatewayAttributesResponse projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -333,6 +354,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
         Objects.equals(this.customerGatewayName, describeCustomerGatewayAttributesResponse.customerGatewayName) &&
         Objects.equals(this.description, describeCustomerGatewayAttributesResponse.description) &&
         Objects.equals(this.ipAddress, describeCustomerGatewayAttributesResponse.ipAddress) &&
+        Objects.equals(this.ipVersion, describeCustomerGatewayAttributesResponse.ipVersion) &&
         Objects.equals(this.projectName, describeCustomerGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeCustomerGatewayAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCustomerGatewayAttributesResponse.status) &&
@@ -342,7 +364,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, requestId, status, tags, updateTime);
+    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, ipVersion, projectName, requestId, status, tags, updateTime);
   }
 
 
@@ -359,6 +381,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

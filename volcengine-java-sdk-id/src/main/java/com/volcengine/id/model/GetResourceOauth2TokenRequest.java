@@ -36,6 +36,9 @@ public class GetResourceOauth2TokenRequest {
   @SerializedName("CustomParameters")
   private CustomParametersForGetResourceOauth2TokenInput customParameters = null;
 
+  @SerializedName("CustomState")
+  private String customState = null;
+
   @SerializedName("Flow")
   private String flow = null;
 
@@ -60,6 +63,9 @@ public class GetResourceOauth2TokenRequest {
   @SerializedName("Scopes")
   private List<String> scopes = null;
 
+  @SerializedName("SessionUri")
+  private String sessionUri = null;
+
   public GetResourceOauth2TokenRequest customParameters(CustomParametersForGetResourceOauth2TokenInput customParameters) {
     this.customParameters = customParameters;
     return this;
@@ -77,6 +83,24 @@ public class GetResourceOauth2TokenRequest {
 
   public void setCustomParameters(CustomParametersForGetResourceOauth2TokenInput customParameters) {
     this.customParameters = customParameters;
+  }
+
+  public GetResourceOauth2TokenRequest customState(String customState) {
+    this.customState = customState;
+    return this;
+  }
+
+   /**
+   * Get customState
+   * @return customState
+  **/
+  @Schema(description = "")
+  public String getCustomState() {
+    return customState;
+  }
+
+  public void setCustomState(String customState) {
+    this.customState = customState;
   }
 
   public GetResourceOauth2TokenRequest flow(String flow) {
@@ -233,6 +257,24 @@ public class GetResourceOauth2TokenRequest {
     this.scopes = scopes;
   }
 
+  public GetResourceOauth2TokenRequest sessionUri(String sessionUri) {
+    this.sessionUri = sessionUri;
+    return this;
+  }
+
+   /**
+   * Get sessionUri
+   * @return sessionUri
+  **/
+  @Schema(description = "")
+  public String getSessionUri() {
+    return sessionUri;
+  }
+
+  public void setSessionUri(String sessionUri) {
+    this.sessionUri = sessionUri;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -244,6 +286,7 @@ public class GetResourceOauth2TokenRequest {
     }
     GetResourceOauth2TokenRequest getResourceOauth2TokenRequest = (GetResourceOauth2TokenRequest) o;
     return Objects.equals(this.customParameters, getResourceOauth2TokenRequest.customParameters) &&
+        Objects.equals(this.customState, getResourceOauth2TokenRequest.customState) &&
         Objects.equals(this.flow, getResourceOauth2TokenRequest.flow) &&
         Objects.equals(this.forceAuthentication, getResourceOauth2TokenRequest.forceAuthentication) &&
         Objects.equals(this.identityToken, getResourceOauth2TokenRequest.identityToken) &&
@@ -251,12 +294,13 @@ public class GetResourceOauth2TokenRequest {
         Objects.equals(this.providerName, getResourceOauth2TokenRequest.providerName) &&
         Objects.equals(this.redirectUrl, getResourceOauth2TokenRequest.redirectUrl) &&
         Objects.equals(this.resourceOauth2ReturnUrl, getResourceOauth2TokenRequest.resourceOauth2ReturnUrl) &&
-        Objects.equals(this.scopes, getResourceOauth2TokenRequest.scopes);
+        Objects.equals(this.scopes, getResourceOauth2TokenRequest.scopes) &&
+        Objects.equals(this.sessionUri, getResourceOauth2TokenRequest.sessionUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customParameters, flow, forceAuthentication, identityToken, poolName, providerName, redirectUrl, resourceOauth2ReturnUrl, scopes);
+    return Objects.hash(customParameters, customState, flow, forceAuthentication, identityToken, poolName, providerName, redirectUrl, resourceOauth2ReturnUrl, scopes, sessionUri);
   }
 
 
@@ -266,6 +310,7 @@ public class GetResourceOauth2TokenRequest {
     sb.append("class GetResourceOauth2TokenRequest {\n");
     
     sb.append("    customParameters: ").append(toIndentedString(customParameters)).append("\n");
+    sb.append("    customState: ").append(toIndentedString(customState)).append("\n");
     sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
     sb.append("    forceAuthentication: ").append(toIndentedString(forceAuthentication)).append("\n");
     sb.append("    identityToken: ").append(toIndentedString(identityToken)).append("\n");
@@ -274,6 +319,7 @@ public class GetResourceOauth2TokenRequest {
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    resourceOauth2ReturnUrl: ").append(toIndentedString(resourceOauth2ReturnUrl)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("    sessionUri: ").append(toIndentedString(sessionUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -57,7 +57,7 @@ If your version is **0.1.27 or earlier**, you need ByteDance Maven repository. I
         <dependency>
             <groupId>com.volcengine</groupId>
             <artifactId>volcengine-java-sdk-bom</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.12</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -72,12 +72,12 @@ If your version is **0.1.27 or earlier**, you need ByteDance Maven repository. I
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-vpc</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.12</version>
     </dependency>
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-ecs</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.12</version>
     </dependency>
 </dependencies>
 ```

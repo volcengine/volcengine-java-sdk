@@ -24,14 +24,14 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertBgpConfigForModifyVpnConnectionAttributesInput
+ * ConvertBGPConfigForModifyVpnConnectionAttributesInput
  */
 
 
 
-public class ConvertBgpConfigForModifyVpnConnectionAttributesInput {
-  @SerializedName("EnableBgp")
-  private Boolean enableBgp = null;
+public class ConvertBGPConfigForModifyVpnConnectionAttributesInput {
+  @SerializedName("LocalBgpIP")
+  private String localBgpIP = null;
 
   @SerializedName("LocalBgpIp")
   private String localBgpIp = null;
@@ -39,25 +39,25 @@ public class ConvertBgpConfigForModifyVpnConnectionAttributesInput {
   @SerializedName("TunnelCidr")
   private String tunnelCidr = null;
 
-  public ConvertBgpConfigForModifyVpnConnectionAttributesInput enableBgp(Boolean enableBgp) {
-    this.enableBgp = enableBgp;
+  public ConvertBGPConfigForModifyVpnConnectionAttributesInput localBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
     return this;
   }
 
    /**
-   * Get enableBgp
-   * @return enableBgp
+   * Get localBgpIP
+   * @return localBgpIP
   **/
   @Schema(description = "")
-  public Boolean isEnableBgp() {
-    return enableBgp;
+  public String getLocalBgpIP() {
+    return localBgpIP;
   }
 
-  public void setEnableBgp(Boolean enableBgp) {
-    this.enableBgp = enableBgp;
+  public void setLocalBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
   }
 
-  public ConvertBgpConfigForModifyVpnConnectionAttributesInput localBgpIp(String localBgpIp) {
+  public ConvertBGPConfigForModifyVpnConnectionAttributesInput localBgpIp(String localBgpIp) {
     this.localBgpIp = localBgpIp;
     return this;
   }
@@ -75,7 +75,7 @@ public class ConvertBgpConfigForModifyVpnConnectionAttributesInput {
     this.localBgpIp = localBgpIp;
   }
 
-  public ConvertBgpConfigForModifyVpnConnectionAttributesInput tunnelCidr(String tunnelCidr) {
+  public ConvertBGPConfigForModifyVpnConnectionAttributesInput tunnelCidr(String tunnelCidr) {
     this.tunnelCidr = tunnelCidr;
     return this;
   }
@@ -102,24 +102,24 @@ public class ConvertBgpConfigForModifyVpnConnectionAttributesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertBgpConfigForModifyVpnConnectionAttributesInput convertBgpConfigForModifyVpnConnectionAttributesInput = (ConvertBgpConfigForModifyVpnConnectionAttributesInput) o;
-    return Objects.equals(this.enableBgp, convertBgpConfigForModifyVpnConnectionAttributesInput.enableBgp) &&
-        Objects.equals(this.localBgpIp, convertBgpConfigForModifyVpnConnectionAttributesInput.localBgpIp) &&
-        Objects.equals(this.tunnelCidr, convertBgpConfigForModifyVpnConnectionAttributesInput.tunnelCidr);
+    ConvertBGPConfigForModifyVpnConnectionAttributesInput convertBGPConfigForModifyVpnConnectionAttributesInput = (ConvertBGPConfigForModifyVpnConnectionAttributesInput) o;
+    return Objects.equals(this.localBgpIP, convertBGPConfigForModifyVpnConnectionAttributesInput.localBgpIP) &&
+        Objects.equals(this.localBgpIp, convertBGPConfigForModifyVpnConnectionAttributesInput.localBgpIp) &&
+        Objects.equals(this.tunnelCidr, convertBGPConfigForModifyVpnConnectionAttributesInput.tunnelCidr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableBgp, localBgpIp, tunnelCidr);
+    return Objects.hash(localBgpIP, localBgpIp, tunnelCidr);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertBgpConfigForModifyVpnConnectionAttributesInput {\n");
+    sb.append("class ConvertBGPConfigForModifyVpnConnectionAttributesInput {\n");
     
-    sb.append("    enableBgp: ").append(toIndentedString(enableBgp)).append("\n");
+    sb.append("    localBgpIP: ").append(toIndentedString(localBgpIP)).append("\n");
     sb.append("    localBgpIp: ").append(toIndentedString(localBgpIp)).append("\n");
     sb.append("    tunnelCidr: ").append(toIndentedString(tunnelCidr)).append("\n");
     sb.append("}");

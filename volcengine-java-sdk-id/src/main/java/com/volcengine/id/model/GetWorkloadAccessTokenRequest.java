@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +32,61 @@ import javax.validation.Valid;
 
 
 public class GetWorkloadAccessTokenRequest {
+  @SerializedName("Audience")
+  private List<String> audience = null;
+
+  @SerializedName("DurationSeconds")
+  private Long durationSeconds = null;
+
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("WorkloadPoolName")
   private String workloadPoolName = null;
+
+  public GetWorkloadAccessTokenRequest audience(List<String> audience) {
+    this.audience = audience;
+    return this;
+  }
+
+  public GetWorkloadAccessTokenRequest addAudienceItem(String audienceItem) {
+    if (this.audience == null) {
+      this.audience = new ArrayList<String>();
+    }
+    this.audience.add(audienceItem);
+    return this;
+  }
+
+   /**
+   * Get audience
+   * @return audience
+  **/
+  @Schema(description = "")
+  public List<String> getAudience() {
+    return audience;
+  }
+
+  public void setAudience(List<String> audience) {
+    this.audience = audience;
+  }
+
+  public GetWorkloadAccessTokenRequest durationSeconds(Long durationSeconds) {
+    this.durationSeconds = durationSeconds;
+    return this;
+  }
+
+   /**
+   * Get durationSeconds
+   * @return durationSeconds
+  **/
+  @Schema(description = "")
+  public Long getDurationSeconds() {
+    return durationSeconds;
+  }
+
+  public void setDurationSeconds(Long durationSeconds) {
+    this.durationSeconds = durationSeconds;
+  }
 
   public GetWorkloadAccessTokenRequest name(String name) {
     this.name = name;
@@ -82,13 +134,15 @@ public class GetWorkloadAccessTokenRequest {
       return false;
     }
     GetWorkloadAccessTokenRequest getWorkloadAccessTokenRequest = (GetWorkloadAccessTokenRequest) o;
-    return Objects.equals(this.name, getWorkloadAccessTokenRequest.name) &&
+    return Objects.equals(this.audience, getWorkloadAccessTokenRequest.audience) &&
+        Objects.equals(this.durationSeconds, getWorkloadAccessTokenRequest.durationSeconds) &&
+        Objects.equals(this.name, getWorkloadAccessTokenRequest.name) &&
         Objects.equals(this.workloadPoolName, getWorkloadAccessTokenRequest.workloadPoolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, workloadPoolName);
+    return Objects.hash(audience, durationSeconds, name, workloadPoolName);
   }
 
 
@@ -97,6 +151,8 @@ public class GetWorkloadAccessTokenRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetWorkloadAccessTokenRequest {\n");
     
+    sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");
     sb.append("}");

@@ -48,53 +48,8 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
   @SerializedName("NextTunnelId")
   private String nextTunnelId = null;
 
-  /**
-   * Gets or Sets routeType
-   */
-  @JsonAdapter(RouteTypeEnum.Adapter.class)
-  public enum RouteTypeEnum {
-    @SerializedName("BGP")
-    BGP("BGP"),
-    @SerializedName(" Static")
-    _STATIC(" Static"),
-    @SerializedName(" Cloud")
-    _CLOUD(" Cloud");
-
-    private String value;
-
-    RouteTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RouteTypeEnum fromValue(String input) {
-      for (RouteTypeEnum b : RouteTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RouteTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RouteTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RouteTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RouteTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("RouteType")
-  private RouteTypeEnum routeType = null;
+  @SerializedName("RouteType")
+  private String routeType = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -207,7 +162,7 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
     this.nextTunnelId = nextTunnelId;
   }
 
-  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput routeType(RouteTypeEnum routeType) {
+  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput routeType(String routeType) {
     this.routeType = routeType;
     return this;
   }
@@ -217,11 +172,11 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
    * @return routeType
   **/
   @Schema(description = "")
-  public RouteTypeEnum getRouteType() {
+  public String getRouteType() {
     return routeType;
   }
 
-  public void setRouteType(RouteTypeEnum routeType) {
+  public void setRouteType(String routeType) {
     this.routeType = routeType;
   }
 

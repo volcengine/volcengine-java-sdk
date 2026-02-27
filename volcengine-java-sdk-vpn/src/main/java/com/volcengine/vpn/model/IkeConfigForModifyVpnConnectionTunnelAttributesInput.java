@@ -30,14 +30,163 @@ import javax.validation.Valid;
 
 
 public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
-  @SerializedName("AuthAlg")
-  private String authAlg = null;
+  /**
+   * Gets or Sets authAlg
+   */
+  @JsonAdapter(AuthAlgEnum.Adapter.class)
+  public enum AuthAlgEnum {
+    @SerializedName("sha1")
+    SHA1("sha1"),
+    @SerializedName("md5")
+    MD5("md5"),
+    @SerializedName("sha256")
+    SHA256("sha256"),
+    @SerializedName("sha384")
+    SHA384("sha384"),
+    @SerializedName("sha512")
+    SHA512("sha512"),
+    @SerializedName("sm3")
+    SM3("sm3");
 
-  @SerializedName("DhGroup")
-  private String dhGroup = null;
+    private String value;
 
-  @SerializedName("EncAlg")
-  private String encAlg = null;
+    AuthAlgEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AuthAlgEnum fromValue(String input) {
+      for (AuthAlgEnum b : AuthAlgEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AuthAlgEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AuthAlgEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AuthAlgEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AuthAlgEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AuthAlg")
+  private AuthAlgEnum authAlg = null;
+
+  /**
+   * Gets or Sets dhGroup
+   */
+  @JsonAdapter(DhGroupEnum.Adapter.class)
+  public enum DhGroupEnum {
+    @SerializedName("group1")
+    GROUP1("group1"),
+    @SerializedName("group2")
+    GROUP2("group2"),
+    @SerializedName("group5")
+    GROUP5("group5"),
+    @SerializedName("group14")
+    GROUP14("group14");
+
+    private String value;
+
+    DhGroupEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DhGroupEnum fromValue(String input) {
+      for (DhGroupEnum b : DhGroupEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DhGroupEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DhGroupEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DhGroupEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DhGroupEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DhGroup")
+  private DhGroupEnum dhGroup = null;
+
+  /**
+   * Gets or Sets encAlg
+   */
+  @JsonAdapter(EncAlgEnum.Adapter.class)
+  public enum EncAlgEnum {
+    @SerializedName("aes")
+    AES("aes"),
+    @SerializedName("aes192")
+    AES192("aes192"),
+    @SerializedName("aes256")
+    AES256("aes256"),
+    @SerializedName("des")
+    DES("des"),
+    @SerializedName("3des")
+    _3DES("3des"),
+    @SerializedName("sm4")
+    SM4("sm4");
+
+    private String value;
+
+    EncAlgEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EncAlgEnum fromValue(String input) {
+      for (EncAlgEnum b : EncAlgEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EncAlgEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EncAlgEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EncAlgEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EncAlgEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EncAlg")
+  private EncAlgEnum encAlg = null;
 
   @SerializedName("Lifetime")
   private Integer lifetime = null;
@@ -45,8 +194,51 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
   @SerializedName("LocalId")
   private String localId = null;
 
-  @SerializedName("Mode")
-  private String mode = null;
+  /**
+   * Gets or Sets mode
+   */
+  @JsonAdapter(ModeEnum.Adapter.class)
+  public enum ModeEnum {
+    @SerializedName("main")
+    MAIN("main"),
+    @SerializedName("aggressive")
+    AGGRESSIVE("aggressive");
+
+    private String value;
+
+    ModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ModeEnum fromValue(String input) {
+      for (ModeEnum b : ModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Mode")
+  private ModeEnum mode = null;
 
   @SerializedName("Psk")
   private String psk = null;
@@ -54,10 +246,53 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
   @SerializedName("RemoteId")
   private String remoteId = null;
 
-  @SerializedName("Version")
-  private String version = null;
+  /**
+   * Gets or Sets version
+   */
+  @JsonAdapter(VersionEnum.Adapter.class)
+  public enum VersionEnum {
+    @SerializedName("ikev1")
+    IKEV1("ikev1"),
+    @SerializedName("ikev2")
+    IKEV2("ikev2");
 
-  public IkeConfigForModifyVpnConnectionTunnelAttributesInput authAlg(String authAlg) {
+    private String value;
+
+    VersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static VersionEnum fromValue(String input) {
+      for (VersionEnum b : VersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<VersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public VersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return VersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Version")
+  private VersionEnum version = null;
+
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput authAlg(AuthAlgEnum authAlg) {
     this.authAlg = authAlg;
     return this;
   }
@@ -67,15 +302,15 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
    * @return authAlg
   **/
   @Schema(description = "")
-  public String getAuthAlg() {
+  public AuthAlgEnum getAuthAlg() {
     return authAlg;
   }
 
-  public void setAuthAlg(String authAlg) {
+  public void setAuthAlg(AuthAlgEnum authAlg) {
     this.authAlg = authAlg;
   }
 
-  public IkeConfigForModifyVpnConnectionTunnelAttributesInput dhGroup(String dhGroup) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput dhGroup(DhGroupEnum dhGroup) {
     this.dhGroup = dhGroup;
     return this;
   }
@@ -85,15 +320,15 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
    * @return dhGroup
   **/
   @Schema(description = "")
-  public String getDhGroup() {
+  public DhGroupEnum getDhGroup() {
     return dhGroup;
   }
 
-  public void setDhGroup(String dhGroup) {
+  public void setDhGroup(DhGroupEnum dhGroup) {
     this.dhGroup = dhGroup;
   }
 
-  public IkeConfigForModifyVpnConnectionTunnelAttributesInput encAlg(String encAlg) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput encAlg(EncAlgEnum encAlg) {
     this.encAlg = encAlg;
     return this;
   }
@@ -103,11 +338,11 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
    * @return encAlg
   **/
   @Schema(description = "")
-  public String getEncAlg() {
+  public EncAlgEnum getEncAlg() {
     return encAlg;
   }
 
-  public void setEncAlg(String encAlg) {
+  public void setEncAlg(EncAlgEnum encAlg) {
     this.encAlg = encAlg;
   }
 
@@ -147,7 +382,7 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
     this.localId = localId;
   }
 
-  public IkeConfigForModifyVpnConnectionTunnelAttributesInput mode(String mode) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput mode(ModeEnum mode) {
     this.mode = mode;
     return this;
   }
@@ -157,11 +392,11 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
    * @return mode
   **/
   @Schema(description = "")
-  public String getMode() {
+  public ModeEnum getMode() {
     return mode;
   }
 
-  public void setMode(String mode) {
+  public void setMode(ModeEnum mode) {
     this.mode = mode;
   }
 
@@ -201,7 +436,7 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
     this.remoteId = remoteId;
   }
 
-  public IkeConfigForModifyVpnConnectionTunnelAttributesInput version(String version) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput version(VersionEnum version) {
     this.version = version;
     return this;
   }
@@ -211,11 +446,11 @@ public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
    * @return version
   **/
   @Schema(description = "")
-  public String getVersion() {
+  public VersionEnum getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(VersionEnum version) {
     this.version = version;
   }
 

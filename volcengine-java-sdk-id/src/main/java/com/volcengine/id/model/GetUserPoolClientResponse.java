@@ -58,6 +58,9 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DevelopmentModeEnabled")
+  private Boolean developmentModeEnabled = null;
+
   @SerializedName("IdToken")
   private IdTokenForGetUserPoolClientOutput idToken = null;
 
@@ -255,6 +258,24 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
     this.description = description;
   }
 
+  public GetUserPoolClientResponse developmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get developmentModeEnabled
+   * @return developmentModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDevelopmentModeEnabled() {
+    return developmentModeEnabled;
+  }
+
+  public void setDevelopmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+  }
+
   public GetUserPoolClientResponse idToken(IdTokenForGetUserPoolClientOutput idToken) {
     this.idToken = idToken;
     return this;
@@ -401,6 +422,7 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
         Objects.equals(this.clientType, getUserPoolClientResponse.clientType) &&
         Objects.equals(this.createTime, getUserPoolClientResponse.createTime) &&
         Objects.equals(this.description, getUserPoolClientResponse.description) &&
+        Objects.equals(this.developmentModeEnabled, getUserPoolClientResponse.developmentModeEnabled) &&
         Objects.equals(this.idToken, getUserPoolClientResponse.idToken) &&
         Objects.equals(this.loginPageUrl, getUserPoolClientResponse.loginPageUrl) &&
         Objects.equals(this.logoUri, getUserPoolClientResponse.logoUri) &&
@@ -412,7 +434,7 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, idToken, loginPageUrl, logoUri, name, refreshToken, uid, updateTime);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, developmentModeEnabled, idToken, loginPageUrl, logoUri, name, refreshToken, uid, updateTime);
   }
 
 
@@ -429,6 +451,7 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    loginPageUrl: ").append(toIndentedString(loginPageUrl)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");

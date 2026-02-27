@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class BGPConfigForModifyVpnConnectionTunnelAttributesInput {
+  @SerializedName("LocalBgpIP")
+  private String localBgpIP = null;
+
   @SerializedName("LocalBgpIp")
   private String localBgpIp = null;
 
   @SerializedName("TunnelCidr")
   private String tunnelCidr = null;
+
+  public BGPConfigForModifyVpnConnectionTunnelAttributesInput localBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
+    return this;
+  }
+
+   /**
+   * Get localBgpIP
+   * @return localBgpIP
+  **/
+  @Schema(description = "")
+  public String getLocalBgpIP() {
+    return localBgpIP;
+  }
+
+  public void setLocalBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
+  }
 
   public BGPConfigForModifyVpnConnectionTunnelAttributesInput localBgpIp(String localBgpIp) {
     this.localBgpIp = localBgpIp;
@@ -82,13 +103,14 @@ public class BGPConfigForModifyVpnConnectionTunnelAttributesInput {
       return false;
     }
     BGPConfigForModifyVpnConnectionTunnelAttributesInput bgPConfigForModifyVpnConnectionTunnelAttributesInput = (BGPConfigForModifyVpnConnectionTunnelAttributesInput) o;
-    return Objects.equals(this.localBgpIp, bgPConfigForModifyVpnConnectionTunnelAttributesInput.localBgpIp) &&
+    return Objects.equals(this.localBgpIP, bgPConfigForModifyVpnConnectionTunnelAttributesInput.localBgpIP) &&
+        Objects.equals(this.localBgpIp, bgPConfigForModifyVpnConnectionTunnelAttributesInput.localBgpIp) &&
         Objects.equals(this.tunnelCidr, bgPConfigForModifyVpnConnectionTunnelAttributesInput.tunnelCidr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localBgpIp, tunnelCidr);
+    return Objects.hash(localBgpIP, localBgpIp, tunnelCidr);
   }
 
 
@@ -97,6 +119,7 @@ public class BGPConfigForModifyVpnConnectionTunnelAttributesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class BGPConfigForModifyVpnConnectionTunnelAttributesInput {\n");
     
+    sb.append("    localBgpIP: ").append(toIndentedString(localBgpIP)).append("\n");
     sb.append("    localBgpIp: ").append(toIndentedString(localBgpIp)).append("\n");
     sb.append("    tunnelCidr: ").append(toIndentedString(tunnelCidr)).append("\n");
     sb.append("}");

@@ -51,6 +51,15 @@ public class DataForListUserPoolsOutput {
   @SerializedName("Tags")
   private List<TagForListUserPoolsOutput> tags = null;
 
+  @SerializedName("TotalClients")
+  private Integer totalClients = null;
+
+  @SerializedName("TotalConnections")
+  private Integer totalConnections = null;
+
+  @SerializedName("TotalUsers")
+  private Integer totalUsers = null;
+
   @SerializedName("Trn")
   private String trn = null;
 
@@ -177,6 +186,60 @@ public class DataForListUserPoolsOutput {
     this.tags = tags;
   }
 
+  public DataForListUserPoolsOutput totalClients(Integer totalClients) {
+    this.totalClients = totalClients;
+    return this;
+  }
+
+   /**
+   * Get totalClients
+   * @return totalClients
+  **/
+  @Schema(description = "")
+  public Integer getTotalClients() {
+    return totalClients;
+  }
+
+  public void setTotalClients(Integer totalClients) {
+    this.totalClients = totalClients;
+  }
+
+  public DataForListUserPoolsOutput totalConnections(Integer totalConnections) {
+    this.totalConnections = totalConnections;
+    return this;
+  }
+
+   /**
+   * Get totalConnections
+   * @return totalConnections
+  **/
+  @Schema(description = "")
+  public Integer getTotalConnections() {
+    return totalConnections;
+  }
+
+  public void setTotalConnections(Integer totalConnections) {
+    this.totalConnections = totalConnections;
+  }
+
+  public DataForListUserPoolsOutput totalUsers(Integer totalUsers) {
+    this.totalUsers = totalUsers;
+    return this;
+  }
+
+   /**
+   * Get totalUsers
+   * @return totalUsers
+  **/
+  @Schema(description = "")
+  public Integer getTotalUsers() {
+    return totalUsers;
+  }
+
+  public void setTotalUsers(Integer totalUsers) {
+    this.totalUsers = totalUsers;
+  }
+
   public DataForListUserPoolsOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -247,6 +310,9 @@ public class DataForListUserPoolsOutput {
         Objects.equals(this.name, dataForListUserPoolsOutput.name) &&
         Objects.equals(this.projectName, dataForListUserPoolsOutput.projectName) &&
         Objects.equals(this.tags, dataForListUserPoolsOutput.tags) &&
+        Objects.equals(this.totalClients, dataForListUserPoolsOutput.totalClients) &&
+        Objects.equals(this.totalConnections, dataForListUserPoolsOutput.totalConnections) &&
+        Objects.equals(this.totalUsers, dataForListUserPoolsOutput.totalUsers) &&
         Objects.equals(this.trn, dataForListUserPoolsOutput.trn) &&
         Objects.equals(this.uid, dataForListUserPoolsOutput.uid) &&
         Objects.equals(this.updateTime, dataForListUserPoolsOutput.updateTime);
@@ -254,7 +320,7 @@ public class DataForListUserPoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, domain, name, projectName, tags, trn, uid, updateTime);
+    return Objects.hash(createTime, description, domain, name, projectName, tags, totalClients, totalConnections, totalUsers, trn, uid, updateTime);
   }
 
 
@@ -269,6 +335,9 @@ public class DataForListUserPoolsOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    totalClients: ").append(toIndentedString(totalClients)).append("\n");
+    sb.append("    totalConnections: ").append(toIndentedString(totalConnections)).append("\n");
+    sb.append("    totalUsers: ").append(toIndentedString(totalUsers)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

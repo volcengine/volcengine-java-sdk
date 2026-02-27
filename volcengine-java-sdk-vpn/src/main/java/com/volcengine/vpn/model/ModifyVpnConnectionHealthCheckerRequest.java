@@ -64,12 +64,9 @@ public class ModifyVpnConnectionHealthCheckerRequest {
 
    /**
    * Get checkInterval
-   * minimum: 3
-   * maximum: 300
    * @return checkInterval
   **/
-  @NotNull
- @Min(3) @Max(300)  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getCheckInterval() {
     return checkInterval;
   }
@@ -122,11 +119,9 @@ public class ModifyVpnConnectionHealthCheckerRequest {
 
    /**
    * Get downTime
-   * minimum: 1
-   * maximum: 10
    * @return downTime
   **/
- @Min(1) @Max(10)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getDownTime() {
     return downTime;
   }
@@ -178,11 +173,9 @@ public class ModifyVpnConnectionHealthCheckerRequest {
 
    /**
    * Get timeout
-   * minimum: 1
-   * maximum: 300
    * @return timeout
   **/
- @Min(1) @Max(300)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getTimeout() {
     return timeout;
   }
@@ -218,8 +211,7 @@ public class ModifyVpnConnectionHealthCheckerRequest {
    * Get vpnConnectionId
    * @return vpnConnectionId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpnConnectionId() {
     return vpnConnectionId;
   }
