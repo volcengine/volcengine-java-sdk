@@ -67,6 +67,9 @@ public class CreateUserPoolRequest {
   @SerializedName("SignUpAutoVerificationEnabled")
   private Boolean signUpAutoVerificationEnabled = null;
 
+  @SerializedName("SmsAnonymousSignUpEnabled")
+  private String smsAnonymousSignUpEnabled = null;
+
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
 
@@ -292,6 +295,24 @@ public class CreateUserPoolRequest {
     this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
+  public CreateUserPoolRequest smsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+    this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
+    return this;
+  }
+
+   /**
+   * Get smsAnonymousSignUpEnabled
+   * @return smsAnonymousSignUpEnabled
+  **/
+  @Schema(description = "")
+  public String getSmsAnonymousSignUpEnabled() {
+    return smsAnonymousSignUpEnabled;
+  }
+
+  public void setSmsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+    this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
+  }
+
   public CreateUserPoolRequest smsPasswordlessSignInEnabled(Boolean smsPasswordlessSignInEnabled) {
     this.smsPasswordlessSignInEnabled = smsPasswordlessSignInEnabled;
     return this;
@@ -376,6 +397,7 @@ public class CreateUserPoolRequest {
         Objects.equals(this.selfSignUpEnabled, createUserPoolRequest.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, createUserPoolRequest.signInAttributes) &&
         Objects.equals(this.signUpAutoVerificationEnabled, createUserPoolRequest.signUpAutoVerificationEnabled) &&
+        Objects.equals(this.smsAnonymousSignUpEnabled, createUserPoolRequest.smsAnonymousSignUpEnabled) &&
         Objects.equals(this.smsPasswordlessSignInEnabled, createUserPoolRequest.smsPasswordlessSignInEnabled) &&
         Objects.equals(this.tags, createUserPoolRequest.tags) &&
         Objects.equals(this.unconfirmedUserSignInEnabled, createUserPoolRequest.unconfirmedUserSignInEnabled);
@@ -383,7 +405,7 @@ public class CreateUserPoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsPasswordlessSignInEnabled, tags, unconfirmedUserSignInEnabled);
+    return Objects.hash(brand, description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, unconfirmedUserSignInEnabled);
   }
 
 
@@ -403,6 +425,7 @@ public class CreateUserPoolRequest {
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
     sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");
+    sb.append("    smsAnonymousSignUpEnabled: ").append(toIndentedString(smsAnonymousSignUpEnabled)).append("\n");
     sb.append("    smsPasswordlessSignInEnabled: ").append(toIndentedString(smsPasswordlessSignInEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unconfirmedUserSignInEnabled: ").append(toIndentedString(unconfirmedUserSignInEnabled)).append("\n");

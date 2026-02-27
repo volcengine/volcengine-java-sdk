@@ -43,14 +43,60 @@ public class ConfigForGetOauth2CredentialProviderOutput {
   @SerializedName("CustomParameters")
   private CustomParametersForGetOauth2CredentialProviderOutput customParameters = null;
 
-  @SerializedName("Flow")
-  private String flow = null;
+  /**
+   * Gets or Sets flow
+   */
+  @JsonAdapter(FlowEnum.Adapter.class)
+  public enum FlowEnum {
+    @SerializedName("USER_FEDERATION")
+    USER_FEDERATION("USER_FEDERATION"),
+    @SerializedName("M2M")
+    M2M("M2M");
+
+    private String value;
+
+    FlowEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FlowEnum fromValue(String input) {
+      for (FlowEnum b : FlowEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FlowEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FlowEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FlowEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FlowEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Flow")
+  private FlowEnum flow = null;
 
   @SerializedName("ForceAuthentication")
   private Boolean forceAuthentication = null;
 
   @SerializedName("MaxExpires")
   private Long maxExpires = null;
+
+  @SerializedName("Metadata")
+  private String metadata = null;
 
   @SerializedName("Oauth2Discovery")
   private Oauth2DiscoveryForGetOauth2CredentialProviderOutput oauth2Discovery = null;
@@ -116,7 +162,7 @@ public class ConfigForGetOauth2CredentialProviderOutput {
     this.customParameters = customParameters;
   }
 
-  public ConfigForGetOauth2CredentialProviderOutput flow(String flow) {
+  public ConfigForGetOauth2CredentialProviderOutput flow(FlowEnum flow) {
     this.flow = flow;
     return this;
   }
@@ -126,11 +172,11 @@ public class ConfigForGetOauth2CredentialProviderOutput {
    * @return flow
   **/
   @Schema(description = "")
-  public String getFlow() {
+  public FlowEnum getFlow() {
     return flow;
   }
 
-  public void setFlow(String flow) {
+  public void setFlow(FlowEnum flow) {
     this.flow = flow;
   }
 
@@ -168,6 +214,24 @@ public class ConfigForGetOauth2CredentialProviderOutput {
 
   public void setMaxExpires(Long maxExpires) {
     this.maxExpires = maxExpires;
+  }
+
+  public ConfigForGetOauth2CredentialProviderOutput metadata(String metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @Schema(description = "")
+  public String getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
   }
 
   public ConfigForGetOauth2CredentialProviderOutput oauth2Discovery(Oauth2DiscoveryForGetOauth2CredentialProviderOutput oauth2Discovery) {
@@ -249,6 +313,7 @@ public class ConfigForGetOauth2CredentialProviderOutput {
         Objects.equals(this.flow, configForGetOauth2CredentialProviderOutput.flow) &&
         Objects.equals(this.forceAuthentication, configForGetOauth2CredentialProviderOutput.forceAuthentication) &&
         Objects.equals(this.maxExpires, configForGetOauth2CredentialProviderOutput.maxExpires) &&
+        Objects.equals(this.metadata, configForGetOauth2CredentialProviderOutput.metadata) &&
         Objects.equals(this.oauth2Discovery, configForGetOauth2CredentialProviderOutput.oauth2Discovery) &&
         Objects.equals(this.redirectUrl, configForGetOauth2CredentialProviderOutput.redirectUrl) &&
         Objects.equals(this.scopes, configForGetOauth2CredentialProviderOutput.scopes);
@@ -256,7 +321,7 @@ public class ConfigForGetOauth2CredentialProviderOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, customParameters, flow, forceAuthentication, maxExpires, oauth2Discovery, redirectUrl, scopes);
+    return Objects.hash(clientId, clientSecret, customParameters, flow, forceAuthentication, maxExpires, metadata, oauth2Discovery, redirectUrl, scopes);
   }
 
 
@@ -271,6 +336,7 @@ public class ConfigForGetOauth2CredentialProviderOutput {
     sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
     sb.append("    forceAuthentication: ").append(toIndentedString(forceAuthentication)).append("\n");
     sb.append("    maxExpires: ").append(toIndentedString(maxExpires)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    oauth2Discovery: ").append(toIndentedString(oauth2Discovery)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");

@@ -41,6 +41,9 @@ public class CreateUserPoolClientRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DevelopmentModeEnabled")
+  private Boolean developmentModeEnabled = null;
+
   @SerializedName("LogoUri")
   private String logoUri = null;
 
@@ -113,6 +116,24 @@ public class CreateUserPoolClientRequest {
     this.description = description;
   }
 
+  public CreateUserPoolClientRequest developmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+    return this;
+  }
+
+   /**
+   * Get developmentModeEnabled
+   * @return developmentModeEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDevelopmentModeEnabled() {
+    return developmentModeEnabled;
+  }
+
+  public void setDevelopmentModeEnabled(Boolean developmentModeEnabled) {
+    this.developmentModeEnabled = developmentModeEnabled;
+  }
+
   public CreateUserPoolClientRequest logoUri(String logoUri) {
     this.logoUri = logoUri;
     return this;
@@ -182,6 +203,7 @@ public class CreateUserPoolClientRequest {
     return Objects.equals(this.allowedCallbackUrls, createUserPoolClientRequest.allowedCallbackUrls) &&
         Objects.equals(this.clientType, createUserPoolClientRequest.clientType) &&
         Objects.equals(this.description, createUserPoolClientRequest.description) &&
+        Objects.equals(this.developmentModeEnabled, createUserPoolClientRequest.developmentModeEnabled) &&
         Objects.equals(this.logoUri, createUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, createUserPoolClientRequest.name) &&
         Objects.equals(this.userPoolUid, createUserPoolClientRequest.userPoolUid);
@@ -189,7 +211,7 @@ public class CreateUserPoolClientRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, clientType, description, logoUri, name, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, clientType, description, developmentModeEnabled, logoUri, name, userPoolUid);
   }
 
 
@@ -201,6 +223,7 @@ public class CreateUserPoolClientRequest {
     sb.append("    allowedCallbackUrls: ").append(toIndentedString(allowedCallbackUrls)).append("\n");
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForListIdentityProvidersOIDCOutput;
 import com.volcengine.id.model.ProviderOptionsForListIdentityProvidersOIDCOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class DataForListIdentityProvidersOIDCOutput {
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForListIdentityProvidersOIDCOutput claimsPropagationConfig = null;
+
   @SerializedName("ClientId")
   private String clientId = null;
 
@@ -65,6 +69,25 @@ public class DataForListIdentityProvidersOIDCOutput {
 
   @SerializedName("UsePkce")
   private Boolean usePkce = null;
+
+  public DataForListIdentityProvidersOIDCOutput claimsPropagationConfig(ClaimsPropagationConfigForListIdentityProvidersOIDCOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForListIdentityProvidersOIDCOutput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForListIdentityProvidersOIDCOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+  }
 
   public DataForListIdentityProvidersOIDCOutput clientId(String clientId) {
     this.clientId = clientId;
@@ -283,7 +306,8 @@ public class DataForListIdentityProvidersOIDCOutput {
       return false;
     }
     DataForListIdentityProvidersOIDCOutput dataForListIdentityProvidersOIDCOutput = (DataForListIdentityProvidersOIDCOutput) o;
-    return Objects.equals(this.clientId, dataForListIdentityProvidersOIDCOutput.clientId) &&
+    return Objects.equals(this.claimsPropagationConfig, dataForListIdentityProvidersOIDCOutput.claimsPropagationConfig) &&
+        Objects.equals(this.clientId, dataForListIdentityProvidersOIDCOutput.clientId) &&
         Objects.equals(this.clientSecret, dataForListIdentityProvidersOIDCOutput.clientSecret) &&
         Objects.equals(this.enabled, dataForListIdentityProvidersOIDCOutput.enabled) &&
         Objects.equals(this.isIdTokenMapping, dataForListIdentityProvidersOIDCOutput.isIdTokenMapping) &&
@@ -298,7 +322,7 @@ public class DataForListIdentityProvidersOIDCOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scopesList, uid, usePkce);
+    return Objects.hash(claimsPropagationConfig, clientId, clientSecret, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scopesList, uid, usePkce);
   }
 
 
@@ -307,6 +331,7 @@ public class DataForListIdentityProvidersOIDCOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForListIdentityProvidersOIDCOutput {\n");
     
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

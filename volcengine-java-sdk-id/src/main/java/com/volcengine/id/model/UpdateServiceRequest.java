@@ -33,6 +33,9 @@ public class UpdateServiceRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ServiceId")
+  private String serviceId = null;
+
   @SerializedName("ServiceName")
   private String serviceName = null;
 
@@ -57,6 +60,24 @@ public class UpdateServiceRequest {
     this.description = description;
   }
 
+  public UpdateServiceRequest serviceId(String serviceId) {
+    this.serviceId = serviceId;
+    return this;
+  }
+
+   /**
+   * Get serviceId
+   * @return serviceId
+  **/
+  @Schema(description = "")
+  public String getServiceId() {
+    return serviceId;
+  }
+
+  public void setServiceId(String serviceId) {
+    this.serviceId = serviceId;
+  }
+
   public UpdateServiceRequest serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
@@ -66,8 +87,7 @@ public class UpdateServiceRequest {
    * Get serviceName
    * @return serviceName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getServiceName() {
     return serviceName;
   }
@@ -105,13 +125,14 @@ public class UpdateServiceRequest {
     }
     UpdateServiceRequest updateServiceRequest = (UpdateServiceRequest) o;
     return Objects.equals(this.description, updateServiceRequest.description) &&
+        Objects.equals(this.serviceId, updateServiceRequest.serviceId) &&
         Objects.equals(this.serviceName, updateServiceRequest.serviceName) &&
         Objects.equals(this.status, updateServiceRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, serviceName, status);
+    return Objects.hash(description, serviceId, serviceName, status);
   }
 
 
@@ -121,6 +142,7 @@ public class UpdateServiceRequest {
     sb.append("class UpdateServiceRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

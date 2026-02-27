@@ -19,38 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.id.model.BackendForValidateBackendInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ValidateBackendRequest
+ * UserPoolMauForGetUserPoolMausOutput
  */
 
 
 
-public class ValidateBackendRequest {
-  @SerializedName("Backend")
-  private BackendForValidateBackendInput backend = null;
+public class UserPoolMauForGetUserPoolMausOutput {
+  @SerializedName("Mau")
+  private Double mau = null;
 
-  public ValidateBackendRequest backend(BackendForValidateBackendInput backend) {
-    this.backend = backend;
+  @SerializedName("UserPoolUid")
+  private String userPoolUid = null;
+
+  public UserPoolMauForGetUserPoolMausOutput mau(Double mau) {
+    this.mau = mau;
     return this;
   }
 
    /**
-   * Get backend
-   * @return backend
+   * Get mau
+   * @return mau
   **/
-  @Valid
   @Schema(description = "")
-  public BackendForValidateBackendInput getBackend() {
-    return backend;
+  public Double getMau() {
+    return mau;
   }
 
-  public void setBackend(BackendForValidateBackendInput backend) {
-    this.backend = backend;
+  public void setMau(Double mau) {
+    this.mau = mau;
+  }
+
+  public UserPoolMauForGetUserPoolMausOutput userPoolUid(String userPoolUid) {
+    this.userPoolUid = userPoolUid;
+    return this;
+  }
+
+   /**
+   * Get userPoolUid
+   * @return userPoolUid
+  **/
+  @Schema(description = "")
+  public String getUserPoolUid() {
+    return userPoolUid;
+  }
+
+  public void setUserPoolUid(String userPoolUid) {
+    this.userPoolUid = userPoolUid;
   }
 
 
@@ -62,22 +81,24 @@ public class ValidateBackendRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidateBackendRequest validateBackendRequest = (ValidateBackendRequest) o;
-    return Objects.equals(this.backend, validateBackendRequest.backend);
+    UserPoolMauForGetUserPoolMausOutput userPoolMauForGetUserPoolMausOutput = (UserPoolMauForGetUserPoolMausOutput) o;
+    return Objects.equals(this.mau, userPoolMauForGetUserPoolMausOutput.mau) &&
+        Objects.equals(this.userPoolUid, userPoolMauForGetUserPoolMausOutput.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend);
+    return Objects.hash(mau, userPoolUid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidateBackendRequest {\n");
+    sb.append("class UserPoolMauForGetUserPoolMausOutput {\n");
     
-    sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    mau: ").append(toIndentedString(mau)).append("\n");
+    sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

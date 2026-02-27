@@ -19,23 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForListIdentityProvidersSAMLOutput;
 import com.volcengine.id.model.ProviderOptionsForListIdentityProvidersSAMLOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GenericSAMLResponseForListIdentityProvidersSAMLOutput
+ * DataForListIdentityProvidersSAMLOutput
  */
 
 
 
-public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
+public class DataForListIdentityProvidersSAMLOutput {
   @SerializedName("AttributeMapping")
   private String attributeMapping = null;
 
   @SerializedName("Certificate")
   private String certificate = null;
+
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForListIdentityProvidersSAMLOutput claimsPropagationConfig = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -64,7 +68,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
   @SerializedName("Uid")
   private String uid = null;
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput attributeMapping(String attributeMapping) {
+  public DataForListIdentityProvidersSAMLOutput attributeMapping(String attributeMapping) {
     this.attributeMapping = attributeMapping;
     return this;
   }
@@ -82,7 +86,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.attributeMapping = attributeMapping;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput certificate(String certificate) {
+  public DataForListIdentityProvidersSAMLOutput certificate(String certificate) {
     this.certificate = certificate;
     return this;
   }
@@ -100,7 +104,26 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.certificate = certificate;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput enabled(Boolean enabled) {
+  public DataForListIdentityProvidersSAMLOutput claimsPropagationConfig(ClaimsPropagationConfigForListIdentityProvidersSAMLOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForListIdentityProvidersSAMLOutput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForListIdentityProvidersSAMLOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+  }
+
+  public DataForListIdentityProvidersSAMLOutput enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -118,7 +141,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.enabled = enabled;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput enabledEncryption(Boolean enabledEncryption) {
+  public DataForListIdentityProvidersSAMLOutput enabledEncryption(Boolean enabledEncryption) {
     this.enabledEncryption = enabledEncryption;
     return this;
   }
@@ -136,7 +159,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.enabledEncryption = enabledEncryption;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput enabledSign(Boolean enabledSign) {
+  public DataForListIdentityProvidersSAMLOutput enabledSign(Boolean enabledSign) {
     this.enabledSign = enabledSign;
     return this;
   }
@@ -154,7 +177,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.enabledSign = enabledSign;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput idAttribute(String idAttribute) {
+  public DataForListIdentityProvidersSAMLOutput idAttribute(String idAttribute) {
     this.idAttribute = idAttribute;
     return this;
   }
@@ -172,7 +195,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.idAttribute = idAttribute;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput idpMetadata(String idpMetadata) {
+  public DataForListIdentityProvidersSAMLOutput idpMetadata(String idpMetadata) {
     this.idpMetadata = idpMetadata;
     return this;
   }
@@ -190,7 +213,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.idpMetadata = idpMetadata;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput name(String name) {
+  public DataForListIdentityProvidersSAMLOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -208,7 +231,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.name = name;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput provider(String provider) {
+  public DataForListIdentityProvidersSAMLOutput provider(String provider) {
     this.provider = provider;
     return this;
   }
@@ -226,7 +249,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.provider = provider;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput providerOptions(ProviderOptionsForListIdentityProvidersSAMLOutput providerOptions) {
+  public DataForListIdentityProvidersSAMLOutput providerOptions(ProviderOptionsForListIdentityProvidersSAMLOutput providerOptions) {
     this.providerOptions = providerOptions;
     return this;
   }
@@ -245,7 +268,7 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     this.providerOptions = providerOptions;
   }
 
-  public GenericSAMLResponseForListIdentityProvidersSAMLOutput uid(String uid) {
+  public DataForListIdentityProvidersSAMLOutput uid(String uid) {
     this.uid = uid;
     return this;
   }
@@ -272,33 +295,35 @@ public class GenericSAMLResponseForListIdentityProvidersSAMLOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GenericSAMLResponseForListIdentityProvidersSAMLOutput genericSAMLResponseForListIdentityProvidersSAMLOutput = (GenericSAMLResponseForListIdentityProvidersSAMLOutput) o;
-    return Objects.equals(this.attributeMapping, genericSAMLResponseForListIdentityProvidersSAMLOutput.attributeMapping) &&
-        Objects.equals(this.certificate, genericSAMLResponseForListIdentityProvidersSAMLOutput.certificate) &&
-        Objects.equals(this.enabled, genericSAMLResponseForListIdentityProvidersSAMLOutput.enabled) &&
-        Objects.equals(this.enabledEncryption, genericSAMLResponseForListIdentityProvidersSAMLOutput.enabledEncryption) &&
-        Objects.equals(this.enabledSign, genericSAMLResponseForListIdentityProvidersSAMLOutput.enabledSign) &&
-        Objects.equals(this.idAttribute, genericSAMLResponseForListIdentityProvidersSAMLOutput.idAttribute) &&
-        Objects.equals(this.idpMetadata, genericSAMLResponseForListIdentityProvidersSAMLOutput.idpMetadata) &&
-        Objects.equals(this.name, genericSAMLResponseForListIdentityProvidersSAMLOutput.name) &&
-        Objects.equals(this.provider, genericSAMLResponseForListIdentityProvidersSAMLOutput.provider) &&
-        Objects.equals(this.providerOptions, genericSAMLResponseForListIdentityProvidersSAMLOutput.providerOptions) &&
-        Objects.equals(this.uid, genericSAMLResponseForListIdentityProvidersSAMLOutput.uid);
+    DataForListIdentityProvidersSAMLOutput dataForListIdentityProvidersSAMLOutput = (DataForListIdentityProvidersSAMLOutput) o;
+    return Objects.equals(this.attributeMapping, dataForListIdentityProvidersSAMLOutput.attributeMapping) &&
+        Objects.equals(this.certificate, dataForListIdentityProvidersSAMLOutput.certificate) &&
+        Objects.equals(this.claimsPropagationConfig, dataForListIdentityProvidersSAMLOutput.claimsPropagationConfig) &&
+        Objects.equals(this.enabled, dataForListIdentityProvidersSAMLOutput.enabled) &&
+        Objects.equals(this.enabledEncryption, dataForListIdentityProvidersSAMLOutput.enabledEncryption) &&
+        Objects.equals(this.enabledSign, dataForListIdentityProvidersSAMLOutput.enabledSign) &&
+        Objects.equals(this.idAttribute, dataForListIdentityProvidersSAMLOutput.idAttribute) &&
+        Objects.equals(this.idpMetadata, dataForListIdentityProvidersSAMLOutput.idpMetadata) &&
+        Objects.equals(this.name, dataForListIdentityProvidersSAMLOutput.name) &&
+        Objects.equals(this.provider, dataForListIdentityProvidersSAMLOutput.provider) &&
+        Objects.equals(this.providerOptions, dataForListIdentityProvidersSAMLOutput.providerOptions) &&
+        Objects.equals(this.uid, dataForListIdentityProvidersSAMLOutput.uid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, certificate, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
+    return Objects.hash(attributeMapping, certificate, claimsPropagationConfig, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GenericSAMLResponseForListIdentityProvidersSAMLOutput {\n");
+    sb.append("class DataForListIdentityProvidersSAMLOutput {\n");
     
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
     sb.append("    enabledSign: ").append(toIndentedString(enabledSign)).append("\n");

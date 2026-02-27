@@ -36,6 +36,9 @@ public class ApiKeyMetadataForGetResourceApiKeyOutput {
   @SerializedName("ParameterName")
   private String parameterName = null;
 
+  @SerializedName("Prefix")
+  private String prefix = null;
+
   public ApiKeyMetadataForGetResourceApiKeyOutput location(String location) {
     this.location = location;
     return this;
@@ -72,6 +75,24 @@ public class ApiKeyMetadataForGetResourceApiKeyOutput {
     this.parameterName = parameterName;
   }
 
+  public ApiKeyMetadataForGetResourceApiKeyOutput prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Get prefix
+   * @return prefix
+  **/
+  @Schema(description = "")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class ApiKeyMetadataForGetResourceApiKeyOutput {
     }
     ApiKeyMetadataForGetResourceApiKeyOutput apiKeyMetadataForGetResourceApiKeyOutput = (ApiKeyMetadataForGetResourceApiKeyOutput) o;
     return Objects.equals(this.location, apiKeyMetadataForGetResourceApiKeyOutput.location) &&
-        Objects.equals(this.parameterName, apiKeyMetadataForGetResourceApiKeyOutput.parameterName);
+        Objects.equals(this.parameterName, apiKeyMetadataForGetResourceApiKeyOutput.parameterName) &&
+        Objects.equals(this.prefix, apiKeyMetadataForGetResourceApiKeyOutput.prefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, parameterName);
+    return Objects.hash(location, parameterName, prefix);
   }
 
 
@@ -99,6 +121,7 @@ public class ApiKeyMetadataForGetResourceApiKeyOutput {
     
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

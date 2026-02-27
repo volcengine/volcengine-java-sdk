@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateNamespaceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Associates")
+  private String associates = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -56,6 +59,24 @@ public class CreateNamespaceResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public CreateNamespaceResponse associates(String associates) {
+    this.associates = associates;
+    return this;
+  }
+
+   /**
+   * Get associates
+   * @return associates
+  **/
+  @Schema(description = "")
+  public String getAssociates() {
+    return associates;
+  }
+
+  public void setAssociates(String associates) {
+    this.associates = associates;
+  }
 
   public CreateNamespaceResponse createTime(String createTime) {
     this.createTime = createTime;
@@ -220,7 +241,8 @@ public class CreateNamespaceResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     CreateNamespaceResponse createNamespaceResponse = (CreateNamespaceResponse) o;
-    return Objects.equals(this.createTime, createNamespaceResponse.createTime) &&
+    return Objects.equals(this.associates, createNamespaceResponse.associates) &&
+        Objects.equals(this.createTime, createNamespaceResponse.createTime) &&
         Objects.equals(this.description, createNamespaceResponse.description) &&
         Objects.equals(this.namespaceId, createNamespaceResponse.namespaceId) &&
         Objects.equals(this.namespaceName, createNamespaceResponse.namespaceName) &&
@@ -232,7 +254,7 @@ public class CreateNamespaceResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, namespaceId, namespaceName, projectName, tags, trn, updateTime);
+    return Objects.hash(associates, createTime, description, namespaceId, namespaceName, projectName, tags, trn, updateTime);
   }
 
 
@@ -241,6 +263,7 @@ public class CreateNamespaceResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNamespaceResponse {\n");
     
+    sb.append("    associates: ").append(toIndentedString(associates)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");

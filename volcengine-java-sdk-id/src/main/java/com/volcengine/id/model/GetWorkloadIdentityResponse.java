@@ -47,6 +47,9 @@ public class GetWorkloadIdentityResponse extends com.volcengine.model.AbstractRe
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Source")
+  private String source = null;
+
   @SerializedName("Trn")
   private String trn = null;
 
@@ -154,6 +157,24 @@ public class GetWorkloadIdentityResponse extends com.volcengine.model.AbstractRe
     this.name = name;
   }
 
+  public GetWorkloadIdentityResponse source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public GetWorkloadIdentityResponse trn(String trn) {
     this.trn = trn;
     return this;
@@ -223,6 +244,7 @@ public class GetWorkloadIdentityResponse extends com.volcengine.model.AbstractRe
         Objects.equals(this.createdAt, getWorkloadIdentityResponse.createdAt) &&
         Objects.equals(this.description, getWorkloadIdentityResponse.description) &&
         Objects.equals(this.name, getWorkloadIdentityResponse.name) &&
+        Objects.equals(this.source, getWorkloadIdentityResponse.source) &&
         Objects.equals(this.trn, getWorkloadIdentityResponse.trn) &&
         Objects.equals(this.updatedAt, getWorkloadIdentityResponse.updatedAt) &&
         Objects.equals(this.workloadPoolName, getWorkloadIdentityResponse.workloadPoolName);
@@ -230,7 +252,7 @@ public class GetWorkloadIdentityResponse extends com.volcengine.model.AbstractRe
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedResourceOauth2ReturnUrls, category, createdAt, description, name, trn, updatedAt, workloadPoolName);
+    return Objects.hash(allowedResourceOauth2ReturnUrls, category, createdAt, description, name, source, trn, updatedAt, workloadPoolName);
   }
 
 
@@ -244,6 +266,7 @@ public class GetWorkloadIdentityResponse extends com.volcengine.model.AbstractRe
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");

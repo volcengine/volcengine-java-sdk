@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput;
 import com.volcengine.id.model.ProviderOptionsForCreateIdentityProviderOIDCOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateIdentityProviderOIDCResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput claimsPropagationConfig = null;
+
   @SerializedName("ClientId")
   private String clientId = null;
 
@@ -65,6 +69,25 @@ public class CreateIdentityProviderOIDCResponse extends com.volcengine.model.Abs
 
   @SerializedName("UsePkce")
   private Boolean usePkce = null;
+
+  public CreateIdentityProviderOIDCResponse claimsPropagationConfig(ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+  }
 
   public CreateIdentityProviderOIDCResponse clientId(String clientId) {
     this.clientId = clientId;
@@ -283,7 +306,8 @@ public class CreateIdentityProviderOIDCResponse extends com.volcengine.model.Abs
       return false;
     }
     CreateIdentityProviderOIDCResponse createIdentityProviderOIDCResponse = (CreateIdentityProviderOIDCResponse) o;
-    return Objects.equals(this.clientId, createIdentityProviderOIDCResponse.clientId) &&
+    return Objects.equals(this.claimsPropagationConfig, createIdentityProviderOIDCResponse.claimsPropagationConfig) &&
+        Objects.equals(this.clientId, createIdentityProviderOIDCResponse.clientId) &&
         Objects.equals(this.clientSecret, createIdentityProviderOIDCResponse.clientSecret) &&
         Objects.equals(this.enabled, createIdentityProviderOIDCResponse.enabled) &&
         Objects.equals(this.isIdTokenMapping, createIdentityProviderOIDCResponse.isIdTokenMapping) &&
@@ -298,7 +322,7 @@ public class CreateIdentityProviderOIDCResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scopesList, uid, usePkce);
+    return Objects.hash(claimsPropagationConfig, clientId, clientSecret, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scopesList, uid, usePkce);
   }
 
 
@@ -307,6 +331,7 @@ public class CreateIdentityProviderOIDCResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIdentityProviderOIDCResponse {\n");
     
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

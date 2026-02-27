@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForCreateIdentityProviderOAuthInput;
 import com.volcengine.id.model.ProviderOptionsForCreateIdentityProviderOAuthInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 public class CreateIdentityProviderOAuthRequest {
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
+
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForCreateIdentityProviderOAuthInput claimsPropagationConfig = null;
 
   @SerializedName("ClientId")
   private String clientId = null;
@@ -89,6 +93,25 @@ public class CreateIdentityProviderOAuthRequest {
 
   public void setAuthorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
+  }
+
+  public CreateIdentityProviderOAuthRequest claimsPropagationConfig(ClaimsPropagationConfigForCreateIdentityProviderOAuthInput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForCreateIdentityProviderOAuthInput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForCreateIdentityProviderOAuthInput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
   }
 
   public CreateIdentityProviderOAuthRequest clientId(String clientId) {
@@ -336,6 +359,7 @@ public class CreateIdentityProviderOAuthRequest {
     }
     CreateIdentityProviderOAuthRequest createIdentityProviderOAuthRequest = (CreateIdentityProviderOAuthRequest) o;
     return Objects.equals(this.authorizationEndpoint, createIdentityProviderOAuthRequest.authorizationEndpoint) &&
+        Objects.equals(this.claimsPropagationConfig, createIdentityProviderOAuthRequest.claimsPropagationConfig) &&
         Objects.equals(this.clientId, createIdentityProviderOAuthRequest.clientId) &&
         Objects.equals(this.clientSecret, createIdentityProviderOAuthRequest.clientSecret) &&
         Objects.equals(this.enabled, createIdentityProviderOAuthRequest.enabled) &&
@@ -352,7 +376,7 @@ public class CreateIdentityProviderOAuthRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
+    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
   }
 
 
@@ -362,6 +386,7 @@ public class CreateIdentityProviderOAuthRequest {
     sb.append("class CreateIdentityProviderOAuthRequest {\n");
     
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

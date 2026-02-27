@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DescribeTemplateOptionsRequest {
+  @SerializedName("BackendType")
+  private String backendType = null;
+
   @SerializedName("Keyword")
   private String keyword = null;
+
+  public DescribeTemplateOptionsRequest backendType(String backendType) {
+    this.backendType = backendType;
+    return this;
+  }
+
+   /**
+   * Get backendType
+   * @return backendType
+  **/
+  @Schema(description = "")
+  public String getBackendType() {
+    return backendType;
+  }
+
+  public void setBackendType(String backendType) {
+    this.backendType = backendType;
+  }
 
   public DescribeTemplateOptionsRequest keyword(String keyword) {
     this.keyword = keyword;
@@ -61,12 +82,13 @@ public class DescribeTemplateOptionsRequest {
       return false;
     }
     DescribeTemplateOptionsRequest describeTemplateOptionsRequest = (DescribeTemplateOptionsRequest) o;
-    return Objects.equals(this.keyword, describeTemplateOptionsRequest.keyword);
+    return Objects.equals(this.backendType, describeTemplateOptionsRequest.backendType) &&
+        Objects.equals(this.keyword, describeTemplateOptionsRequest.keyword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyword);
+    return Objects.hash(backendType, keyword);
   }
 
 
@@ -75,6 +97,7 @@ public class DescribeTemplateOptionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTemplateOptionsRequest {\n");
     
+    sb.append("    backendType: ").append(toIndentedString(backendType)).append("\n");
     sb.append("    keyword: ").append(toIndentedString(keyword)).append("\n");
     sb.append("}");
     return sb.toString();
