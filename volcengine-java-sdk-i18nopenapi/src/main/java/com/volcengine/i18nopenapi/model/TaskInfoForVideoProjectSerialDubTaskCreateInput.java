@@ -73,6 +73,9 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("needTranslateTitleAndDesc")
   private Boolean needTranslateTitleAndDesc = null;
 
+  @SerializedName("needVideoSpeed")
+  private Boolean needVideoSpeed = null;
+
   @SerializedName("serialNumber")
   private Integer serialNumber = null;
 
@@ -328,6 +331,24 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     this.needTranslateTitleAndDesc = needTranslateTitleAndDesc;
   }
 
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput needVideoSpeed(Boolean needVideoSpeed) {
+    this.needVideoSpeed = needVideoSpeed;
+    return this;
+  }
+
+   /**
+   * Get needVideoSpeed
+   * @return needVideoSpeed
+  **/
+  @Schema(description = "")
+  public Boolean isNeedVideoSpeed() {
+    return needVideoSpeed;
+  }
+
+  public void setNeedVideoSpeed(Boolean needVideoSpeed) {
+    this.needVideoSpeed = needVideoSpeed;
+  }
+
   public TaskInfoForVideoProjectSerialDubTaskCreateInput serialNumber(Integer serialNumber) {
     this.serialNumber = serialNumber;
     return this;
@@ -487,6 +508,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
         Objects.equals(this.needTranslateDesc, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateDesc) &&
         Objects.equals(this.needTranslateTitle, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateTitle) &&
         Objects.equals(this.needTranslateTitleAndDesc, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateTitleAndDesc) &&
+        Objects.equals(this.needVideoSpeed, taskInfoForVideoProjectSerialDubTaskCreateInput.needVideoSpeed) &&
         Objects.equals(this.serialNumber, taskInfoForVideoProjectSerialDubTaskCreateInput.serialNumber) &&
         Objects.equals(this.sourceLang, taskInfoForVideoProjectSerialDubTaskCreateInput.sourceLang) &&
         Objects.equals(this.suppressionParams, taskInfoForVideoProjectSerialDubTaskCreateInput.suppressionParams) &&
@@ -498,7 +520,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, serialNumber, sourceLang, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
   }
 
 
@@ -520,6 +542,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     sb.append("    needTranslateDesc: ").append(toIndentedString(needTranslateDesc)).append("\n");
     sb.append("    needTranslateTitle: ").append(toIndentedString(needTranslateTitle)).append("\n");
     sb.append("    needTranslateTitleAndDesc: ").append(toIndentedString(needTranslateTitleAndDesc)).append("\n");
+    sb.append("    needVideoSpeed: ").append(toIndentedString(needVideoSpeed)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
     sb.append("    suppressionParams: ").append(toIndentedString(suppressionParams)).append("\n");
