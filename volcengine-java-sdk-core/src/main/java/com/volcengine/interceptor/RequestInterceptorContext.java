@@ -22,6 +22,9 @@ public class RequestInterceptorContext {
     private ProgressRequestBody.ProgressRequestListener progressRequestListener;
     private boolean isCommon;
 
+    private boolean presigned = false;
+    private String presignedUrl;
+
     private ServiceInfo serviceInfo;
     private Request request;
 
@@ -119,5 +122,21 @@ public class RequestInterceptorContext {
 
     public void setRequest(Request request) {
         this.request = request;
+    }
+
+    public boolean isPresigned() {
+        return presigned;
+    }
+
+    public void setPresigned(boolean presigned) {
+        this.presigned = presigned;
+    }
+
+    public String getPresignedUrl() {
+        return presignedUrl;
+    }
+
+    public void setPresignedUrl(String presignedUrl) {
+        this.presignedUrl = presignedUrl;
     }
 }

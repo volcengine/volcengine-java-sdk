@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
 /**
@@ -61,9 +62,9 @@ public class VolcstackSign implements Authentication {
         SDK_CORE_LOGGER.debugSign("VolcstackSign start...");
 
         try {
-            sign(params, headerParams,payload);
+            sign(params, headerParams, payload);
         } catch (Exception e) {
-            SDK_CORE_LOGGER.error(()->"VolcstackSign exception: ", e);
+            SDK_CORE_LOGGER.error(() -> "VolcstackSign exception: ", e);
         }
     }
 
@@ -123,7 +124,7 @@ public class VolcstackSign implements Authentication {
         return listHeaderKeys;
     }
 
-    private void buildCredentialScope(Map<String, String> headerParams,SignRequest signRequest){
+    private void buildCredentialScope(Map<String, String> headerParams, SignRequest signRequest) {
         StringBuilder credentialScope = new StringBuilder("");
         credentialScope.append(headerParams.get("X-Date").substring(0, 8));
         credentialScope.append("/");
@@ -135,7 +136,7 @@ public class VolcstackSign implements Authentication {
         SDK_CORE_LOGGER.debugSign("credentialScope: " + signRequest.credentialScope);
     }
 
-    private void buildStringToSign(Map<String, String> headerParams,SignRequest signRequest)throws Exception{
+    private void buildStringToSign(Map<String, String> headerParams, SignRequest signRequest) throws Exception {
         StringBuilder stringToSign = new StringBuilder("");
         stringToSign.append("HMAC-SHA256");
         stringToSign.append("\n");
@@ -145,10 +146,10 @@ public class VolcstackSign implements Authentication {
         stringToSign.append("\n");
         stringToSign.append(getSHA256(signRequest.canonicalRequest.toString()));
         signRequest.stringToSign = stringToSign;
-        SDK_CORE_LOGGER.debugSign("stringToSign: "  + signRequest.stringToSign);
+        SDK_CORE_LOGGER.debugSign("stringToSign: " + signRequest.stringToSign);
     }
 
-    private void buildAuthorization(Map<String, String> headerParams,SignRequest signRequest)throws Exception{
+    private void buildAuthorization(Map<String, String> headerParams, SignRequest signRequest) throws Exception {
         byte[] signingkeyByte = getHmacSHA256("request", getHmacSHA256(
                 service, getHmacSHA256(
                         region, getHmacSHA256(
@@ -186,7 +187,7 @@ public class VolcstackSign implements Authentication {
         StringBuilder canonicalHeaders = new StringBuilder("");
         StringBuilder signedHeaders = new StringBuilder("");
         for (String key : listHeaderKeys) {
-            if (!key.equalsIgnoreCase("x-date")){
+            if (!key.equalsIgnoreCase("x-date")) {
                 continue;
             }
             canonicalHeaders.append(key.toLowerCase());
@@ -203,9 +204,9 @@ public class VolcstackSign implements Authentication {
         SDK_CORE_LOGGER.debugSign("signedHeaders: " + signRequest.signedHeaders);
     }
 
-    private void initHeaders(Map<String,String> headerParams){
-        if (!StringUtils.isEmpty(credentials.getSessionToken())){
-            headerParams.put("X-Security-Token",credentials.getSessionToken());
+    private void initHeaders(Map<String, String> headerParams) {
+        if (!StringUtils.isEmpty(credentials.getSessionToken())) {
+            headerParams.put("X-Security-Token", credentials.getSessionToken());
         }
         if (!headerParams.containsKey("X-Date")) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
@@ -247,17 +248,17 @@ public class VolcstackSign implements Authentication {
         // step 1
         SDK_CORE_LOGGER.debugSign("step 1: buildCanonicalRequest start");
         buildCanonicalRequest(queryParams, signRequest);
-        buildSignedHeaders(headerParams,signRequest);
-        buildPayload(signRequest,payload);
+        buildSignedHeaders(headerParams, signRequest);
+        buildPayload(signRequest, payload);
 
         // step 2
         SDK_CORE_LOGGER.debugSign("step 2: buildCredentialScope and buildStringToSign start");
-        buildCredentialScope(headerParams,signRequest);
-        buildStringToSign(headerParams,signRequest);
+        buildCredentialScope(headerParams, signRequest);
+        buildStringToSign(headerParams, signRequest);
 
         // step 3
         SDK_CORE_LOGGER.debugSign("step 3: buildAuthorization start");
-        buildAuthorization(headerParams,signRequest);
+        buildAuthorization(headerParams, signRequest);
 
     }
 
@@ -324,5 +325,118 @@ public class VolcstackSign implements Authentication {
         return copySign;
     }
 
+
+    /**
+     * Generate presigned URL query parameters (without host signing)
+     *
+     * @param queryParams Original query parameters
+     * @return Complete query parameters Map containing all signature information
+     */
+    public Map<String, String> presign(Map<String, String> queryParams) throws Exception {
+        return presign(queryParams, null);
+    }
+
+    /**
+     * Generate presigned URL query parameters
+     *
+     * @param queryParams Original query parameters
+     * @param host        Host header value to include in signing (e.g., "rds-mysql.cn-beijing.volcengineapi.com").
+     *                    If null or empty, no host header is signed.
+     * @return Complete query parameters Map containing all signature information
+     */
+    public Map<String, String> presign(Map<String, String> queryParams, String host) throws Exception {
+        Map<String, String> presignedParams = new HashMap<>(queryParams);
+
+        // Generate timestamp
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String xDate = sdf.format(new Date());
+        String dateStamp = xDate.substring(0, 8);
+
+        // Build credential scope
+        String credentialScope = dateStamp + "/" + region + "/" + service + "/request";
+
+        // Determine if host header should be signed
+        boolean signHost = host != null && !host.isEmpty();
+
+        // Add required query parameters for presigning
+        presignedParams.put("X-Date", xDate);
+        presignedParams.put("X-NotSignBody", "");
+        presignedParams.put("X-Credential", credentials.getAccessKey() + "/" + credentialScope);
+        presignedParams.put("X-Algorithm", "HMAC-SHA256");
+        presignedParams.put("X-SignedHeaders", signHost ? "host" : "");
+        presignedParams.put("X-SignedQueries", ""); // Set to empty first, will be updated later
+
+        // Collect all query parameter keys (excluding X-Security-Token), sort and update X-SignedQueries
+        List<String> queryKeys = new ArrayList<>(presignedParams.keySet());
+        Collections.sort(queryKeys);
+        presignedParams.put("X-SignedQueries", String.join(";", queryKeys));
+
+        // Important: X-Security-Token must be added after X-SignedQueries calculation is complete
+        if (!StringUtils.isEmpty(credentials.getSessionToken())) {
+            presignedParams.put("X-Security-Token", credentials.getSessionToken());
+        }
+
+        // Build canonical request
+        StringBuilder canonicalRequest = new StringBuilder();
+        canonicalRequest.append(this.method);
+        canonicalRequest.append("\n");
+        canonicalRequest.append("/");
+        canonicalRequest.append("\n");
+
+        // Canonical Query String - only include keys listed in X-SignedQueries
+        StringBuilder canonicalQueryString = new StringBuilder();
+        for (String key : queryKeys) {
+            canonicalQueryString.append(signStringEncoder(key));
+            canonicalQueryString.append("=");
+            canonicalQueryString.append(signStringEncoder(presignedParams.get(key)));
+            canonicalQueryString.append("&");
+        }
+        canonicalRequest.append(canonicalQueryString.substring(0, canonicalQueryString.length() - 1));
+        canonicalRequest.append("\n");
+
+        // Canonical Headers and Signed Headers
+        if (signHost) {
+            // Canonical Headers - include host header
+            canonicalRequest.append("host:").append(host).append("\n");
+            canonicalRequest.append("\n");
+            // Signed Headers
+            canonicalRequest.append("host");
+            canonicalRequest.append("\n");
+        } else {
+            // Canonical Headers - empty
+            canonicalRequest.append("\n");
+            // Signed Headers - empty
+            canonicalRequest.append("");
+            canonicalRequest.append("\n");
+            // Extra newline (required by volcstack presigning specification when no headers signed)
+            canonicalRequest.append("\n");
+        }
+
+        // Payload Hash - use hash value of X-NotSignBody (empty string)
+        canonicalRequest.append(getSHA256(""));
+
+        // Build string to sign
+        StringBuilder stringToSign = new StringBuilder();
+        stringToSign.append("HMAC-SHA256");
+        stringToSign.append("\n");
+        stringToSign.append(xDate);
+        stringToSign.append("\n");
+        stringToSign.append(credentialScope);
+        stringToSign.append("\n");
+        stringToSign.append(getSHA256(canonicalRequest.toString()));
+
+        // Calculate signature
+        byte[] signingKey = getHmacSHA256("request",
+                getHmacSHA256(service,
+                        getHmacSHA256(region,
+                                getHmacSHA256(dateStamp, credentials.getSecretKey().getBytes(StandardCharsets.UTF_8)))));
+        String signature = getHmacSHA256Hex(stringToSign.toString(), signingKey);
+
+        // Add signature to query parameters
+        presignedParams.put("X-Signature", signature);
+
+        return presignedParams;
+    }
 }
 
