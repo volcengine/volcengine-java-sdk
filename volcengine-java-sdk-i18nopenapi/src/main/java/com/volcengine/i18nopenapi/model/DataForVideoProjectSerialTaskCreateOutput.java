@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.BaseRespForVideoProjectSerialTaskCreateOutput;
+import com.volcengine.i18nopenapi.model.SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 public class DataForVideoProjectSerialTaskCreateOutput {
   @SerializedName("BaseResp")
   private BaseRespForVideoProjectSerialTaskCreateOutput baseResp = null;
+
+  @SerializedName("SubtitleFileCheckReports")
+  private List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> subtitleFileCheckReports = null;
 
   @SerializedName("TaskIDs")
   private List<String> taskIDs = null;
@@ -56,6 +60,33 @@ public class DataForVideoProjectSerialTaskCreateOutput {
 
   public void setBaseResp(BaseRespForVideoProjectSerialTaskCreateOutput baseResp) {
     this.baseResp = baseResp;
+  }
+
+  public DataForVideoProjectSerialTaskCreateOutput subtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> subtitleFileCheckReports) {
+    this.subtitleFileCheckReports = subtitleFileCheckReports;
+    return this;
+  }
+
+  public DataForVideoProjectSerialTaskCreateOutput addSubtitleFileCheckReportsItem(SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput subtitleFileCheckReportsItem) {
+    if (this.subtitleFileCheckReports == null) {
+      this.subtitleFileCheckReports = new ArrayList<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput>();
+    }
+    this.subtitleFileCheckReports.add(subtitleFileCheckReportsItem);
+    return this;
+  }
+
+   /**
+   * Get subtitleFileCheckReports
+   * @return subtitleFileCheckReports
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> getSubtitleFileCheckReports() {
+    return subtitleFileCheckReports;
+  }
+
+  public void setSubtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> subtitleFileCheckReports) {
+    this.subtitleFileCheckReports = subtitleFileCheckReports;
   }
 
   public DataForVideoProjectSerialTaskCreateOutput taskIDs(List<String> taskIDs) {
@@ -95,12 +126,13 @@ public class DataForVideoProjectSerialTaskCreateOutput {
     }
     DataForVideoProjectSerialTaskCreateOutput dataForVideoProjectSerialTaskCreateOutput = (DataForVideoProjectSerialTaskCreateOutput) o;
     return Objects.equals(this.baseResp, dataForVideoProjectSerialTaskCreateOutput.baseResp) &&
+        Objects.equals(this.subtitleFileCheckReports, dataForVideoProjectSerialTaskCreateOutput.subtitleFileCheckReports) &&
         Objects.equals(this.taskIDs, dataForVideoProjectSerialTaskCreateOutput.taskIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseResp, taskIDs);
+    return Objects.hash(baseResp, subtitleFileCheckReports, taskIDs);
   }
 
 
@@ -110,6 +142,7 @@ public class DataForVideoProjectSerialTaskCreateOutput {
     sb.append("class DataForVideoProjectSerialTaskCreateOutput {\n");
     
     sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
+    sb.append("    subtitleFileCheckReports: ").append(toIndentedString(subtitleFileCheckReports)).append("\n");
     sb.append("    taskIDs: ").append(toIndentedString(taskIDs)).append("\n");
     sb.append("}");
     return sb.toString();

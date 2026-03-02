@@ -45,8 +45,8 @@ public class GetTaskResultRequest {
   @SerializedName("StartTime")
   private Long startTime = null;
 
-  @SerializedName("TaskID")
-  private Long taskID = null;
+  @SerializedName("TaskId")
+  private Long taskId = null;
 
   public GetTaskResultRequest endTime(Long endTime) {
     this.endTime = endTime;
@@ -142,23 +142,23 @@ public class GetTaskResultRequest {
     this.startTime = startTime;
   }
 
-  public GetTaskResultRequest taskID(Long taskID) {
-    this.taskID = taskID;
+  public GetTaskResultRequest taskId(Long taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
+   * Get taskId
+   * @return taskId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Long getTaskID() {
-    return taskID;
+  public Long getTaskId() {
+    return taskId;
   }
 
-  public void setTaskID(Long taskID) {
-    this.taskID = taskID;
+  public void setTaskId(Long taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -176,12 +176,12 @@ public class GetTaskResultRequest {
         Objects.equals(this.pageSize, getTaskResultRequest.pageSize) &&
         Objects.equals(this.projectName, getTaskResultRequest.projectName) &&
         Objects.equals(this.startTime, getTaskResultRequest.startTime) &&
-        Objects.equals(this.taskID, getTaskResultRequest.taskID);
+        Objects.equals(this.taskId, getTaskResultRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, pageNum, pageSize, projectName, startTime, taskID);
+    return Objects.hash(endTime, pageNum, pageSize, projectName, startTime, taskId);
   }
 
 
@@ -195,7 +195,7 @@ public class GetTaskResultRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

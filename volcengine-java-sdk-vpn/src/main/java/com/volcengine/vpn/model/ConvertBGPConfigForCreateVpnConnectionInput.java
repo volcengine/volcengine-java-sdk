@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class ConvertBGPConfigForCreateVpnConnectionInput {
+  @SerializedName("LocalBgpIP")
+  private String localBgpIP = null;
+
   @SerializedName("LocalBgpIp")
   private String localBgpIp = null;
 
   @SerializedName("TunnelCidr")
   private String tunnelCidr = null;
+
+  public ConvertBGPConfigForCreateVpnConnectionInput localBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
+    return this;
+  }
+
+   /**
+   * Get localBgpIP
+   * @return localBgpIP
+  **/
+  @Schema(description = "")
+  public String getLocalBgpIP() {
+    return localBgpIP;
+  }
+
+  public void setLocalBgpIP(String localBgpIP) {
+    this.localBgpIP = localBgpIP;
+  }
 
   public ConvertBGPConfigForCreateVpnConnectionInput localBgpIp(String localBgpIp) {
     this.localBgpIp = localBgpIp;
@@ -82,13 +103,14 @@ public class ConvertBGPConfigForCreateVpnConnectionInput {
       return false;
     }
     ConvertBGPConfigForCreateVpnConnectionInput convertBGPConfigForCreateVpnConnectionInput = (ConvertBGPConfigForCreateVpnConnectionInput) o;
-    return Objects.equals(this.localBgpIp, convertBGPConfigForCreateVpnConnectionInput.localBgpIp) &&
+    return Objects.equals(this.localBgpIP, convertBGPConfigForCreateVpnConnectionInput.localBgpIP) &&
+        Objects.equals(this.localBgpIp, convertBGPConfigForCreateVpnConnectionInput.localBgpIp) &&
         Objects.equals(this.tunnelCidr, convertBGPConfigForCreateVpnConnectionInput.tunnelCidr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localBgpIp, tunnelCidr);
+    return Objects.hash(localBgpIP, localBgpIp, tunnelCidr);
   }
 
 
@@ -97,6 +119,7 @@ public class ConvertBGPConfigForCreateVpnConnectionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertBGPConfigForCreateVpnConnectionInput {\n");
     
+    sb.append("    localBgpIP: ").append(toIndentedString(localBgpIP)).append("\n");
     sb.append("    localBgpIp: ").append(toIndentedString(localBgpIp)).append("\n");
     sb.append("    tunnelCidr: ").append(toIndentedString(tunnelCidr)).append("\n");
     sb.append("}");

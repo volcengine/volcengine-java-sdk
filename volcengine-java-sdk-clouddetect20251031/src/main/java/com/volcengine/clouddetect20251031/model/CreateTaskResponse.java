@@ -34,8 +34,8 @@ public class CreateTaskResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LocationInfo")
   private LocationInfoForCreateTaskOutput locationInfo = null;
 
-  @SerializedName("TaskID")
-  private Long taskID = null;
+  @SerializedName("TaskId")
+  private Long taskId = null;
 
   public CreateTaskResponse locationInfo(LocationInfoForCreateTaskOutput locationInfo) {
     this.locationInfo = locationInfo;
@@ -56,22 +56,22 @@ public class CreateTaskResponse extends com.volcengine.model.AbstractResponse {
     this.locationInfo = locationInfo;
   }
 
-  public CreateTaskResponse taskID(Long taskID) {
-    this.taskID = taskID;
+  public CreateTaskResponse taskId(Long taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public Long getTaskID() {
-    return taskID;
+  public Long getTaskId() {
+    return taskId;
   }
 
-  public void setTaskID(Long taskID) {
-    this.taskID = taskID;
+  public void setTaskId(Long taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -85,12 +85,12 @@ public class CreateTaskResponse extends com.volcengine.model.AbstractResponse {
     }
     CreateTaskResponse createTaskResponse = (CreateTaskResponse) o;
     return Objects.equals(this.locationInfo, createTaskResponse.locationInfo) &&
-        Objects.equals(this.taskID, createTaskResponse.taskID);
+        Objects.equals(this.taskId, createTaskResponse.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationInfo, taskID);
+    return Objects.hash(locationInfo, taskId);
   }
 
 
@@ -100,7 +100,7 @@ public class CreateTaskResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class CreateTaskResponse {\n");
     
     sb.append("    locationInfo: ").append(toIndentedString(locationInfo)).append("\n");
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

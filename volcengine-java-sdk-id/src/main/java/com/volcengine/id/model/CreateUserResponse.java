@@ -60,6 +60,9 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LatestLogin")
   private String latestLogin = null;
 
+  @SerializedName("LatestLoginMethod")
+  private String latestLoginMethod = null;
+
   @SerializedName("Locale")
   private String locale = null;
 
@@ -289,6 +292,24 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
 
   public void setLatestLogin(String latestLogin) {
     this.latestLogin = latestLogin;
+  }
+
+  public CreateUserResponse latestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
+    return this;
+  }
+
+   /**
+   * Get latestLoginMethod
+   * @return latestLoginMethod
+  **/
+  @Schema(description = "")
+  public String getLatestLoginMethod() {
+    return latestLoginMethod;
+  }
+
+  public void setLatestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
   }
 
   public CreateUserResponse locale(String locale) {
@@ -617,6 +638,7 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.givenName, createUserResponse.givenName) &&
         Objects.equals(this.latestBrowser, createUserResponse.latestBrowser) &&
         Objects.equals(this.latestLogin, createUserResponse.latestLogin) &&
+        Objects.equals(this.latestLoginMethod, createUserResponse.latestLoginMethod) &&
         Objects.equals(this.locale, createUserResponse.locale) &&
         Objects.equals(this.middleName, createUserResponse.middleName) &&
         Objects.equals(this.name, createUserResponse.name) &&
@@ -638,7 +660,7 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
+    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
   }
 
 
@@ -657,6 +679,7 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
     sb.append("    latestLogin: ").append(toIndentedString(latestLogin)).append("\n");
+    sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

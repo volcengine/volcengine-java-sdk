@@ -36,6 +36,9 @@ public class ApiKeyMetadataForGetInboundAuthConfigOutput {
   @SerializedName("ParameterName")
   private String parameterName = null;
 
+  @SerializedName("Prefix")
+  private String prefix = null;
+
   public ApiKeyMetadataForGetInboundAuthConfigOutput location(String location) {
     this.location = location;
     return this;
@@ -72,6 +75,24 @@ public class ApiKeyMetadataForGetInboundAuthConfigOutput {
     this.parameterName = parameterName;
   }
 
+  public ApiKeyMetadataForGetInboundAuthConfigOutput prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Get prefix
+   * @return prefix
+  **/
+  @Schema(description = "")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class ApiKeyMetadataForGetInboundAuthConfigOutput {
     }
     ApiKeyMetadataForGetInboundAuthConfigOutput apiKeyMetadataForGetInboundAuthConfigOutput = (ApiKeyMetadataForGetInboundAuthConfigOutput) o;
     return Objects.equals(this.location, apiKeyMetadataForGetInboundAuthConfigOutput.location) &&
-        Objects.equals(this.parameterName, apiKeyMetadataForGetInboundAuthConfigOutput.parameterName);
+        Objects.equals(this.parameterName, apiKeyMetadataForGetInboundAuthConfigOutput.parameterName) &&
+        Objects.equals(this.prefix, apiKeyMetadataForGetInboundAuthConfigOutput.prefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, parameterName);
+    return Objects.hash(location, parameterName, prefix);
   }
 
 
@@ -99,6 +121,7 @@ public class ApiKeyMetadataForGetInboundAuthConfigOutput {
     
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,11 +36,103 @@ public class CredentialProviderForListCredentialProvidersOutput {
   @SerializedName("CredentialProviderTrn")
   private String credentialProviderTrn = null;
 
+  /**
+   * Gets or Sets flow
+   */
+  @JsonAdapter(FlowEnum.Adapter.class)
+  public enum FlowEnum {
+    @SerializedName("USER_FEDERATION")
+    USER_FEDERATION("USER_FEDERATION"),
+    @SerializedName("M2M")
+    M2M("M2M");
+
+    private String value;
+
+    FlowEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FlowEnum fromValue(String input) {
+      for (FlowEnum b : FlowEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FlowEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FlowEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FlowEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FlowEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Flow")
+  private FlowEnum flow = null;
+
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Type")
-  private String type = null;
+  @SerializedName("PoolName")
+  private String poolName = null;
+
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("api_key")
+    API_KEY("api_key"),
+    @SerializedName("oauth2")
+    OAUTH2("oauth2");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -84,6 +176,24 @@ public class CredentialProviderForListCredentialProvidersOutput {
     this.credentialProviderTrn = credentialProviderTrn;
   }
 
+  public CredentialProviderForListCredentialProvidersOutput flow(FlowEnum flow) {
+    this.flow = flow;
+    return this;
+  }
+
+   /**
+   * Get flow
+   * @return flow
+  **/
+  @Schema(description = "")
+  public FlowEnum getFlow() {
+    return flow;
+  }
+
+  public void setFlow(FlowEnum flow) {
+    this.flow = flow;
+  }
+
   public CredentialProviderForListCredentialProvidersOutput name(String name) {
     this.name = name;
     return this;
@@ -102,7 +212,25 @@ public class CredentialProviderForListCredentialProvidersOutput {
     this.name = name;
   }
 
-  public CredentialProviderForListCredentialProvidersOutput type(String type) {
+  public CredentialProviderForListCredentialProvidersOutput poolName(String poolName) {
+    this.poolName = poolName;
+    return this;
+  }
+
+   /**
+   * Get poolName
+   * @return poolName
+  **/
+  @Schema(description = "")
+  public String getPoolName() {
+    return poolName;
+  }
+
+  public void setPoolName(String poolName) {
+    this.poolName = poolName;
+  }
+
+  public CredentialProviderForListCredentialProvidersOutput type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -112,11 +240,11 @@ public class CredentialProviderForListCredentialProvidersOutput {
    * @return type
   **/
   @Schema(description = "")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -168,7 +296,9 @@ public class CredentialProviderForListCredentialProvidersOutput {
     CredentialProviderForListCredentialProvidersOutput credentialProviderForListCredentialProvidersOutput = (CredentialProviderForListCredentialProvidersOutput) o;
     return Objects.equals(this.createdAt, credentialProviderForListCredentialProvidersOutput.createdAt) &&
         Objects.equals(this.credentialProviderTrn, credentialProviderForListCredentialProvidersOutput.credentialProviderTrn) &&
+        Objects.equals(this.flow, credentialProviderForListCredentialProvidersOutput.flow) &&
         Objects.equals(this.name, credentialProviderForListCredentialProvidersOutput.name) &&
+        Objects.equals(this.poolName, credentialProviderForListCredentialProvidersOutput.poolName) &&
         Objects.equals(this.type, credentialProviderForListCredentialProvidersOutput.type) &&
         Objects.equals(this.updatedAt, credentialProviderForListCredentialProvidersOutput.updatedAt) &&
         Objects.equals(this.vendor, credentialProviderForListCredentialProvidersOutput.vendor);
@@ -176,7 +306,7 @@ public class CredentialProviderForListCredentialProvidersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, credentialProviderTrn, name, type, updatedAt, vendor);
+    return Objects.hash(createdAt, credentialProviderTrn, flow, name, poolName, type, updatedAt, vendor);
   }
 
 
@@ -187,7 +317,9 @@ public class CredentialProviderForListCredentialProvidersOutput {
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
+    sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");

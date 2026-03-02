@@ -35,6 +35,9 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
 
+  @SerializedName("CodeChallengeMethodsSupported")
+  private List<String> codeChallengeMethodsSupported = null;
+
   @SerializedName("Issuer")
   private String issuer = null;
 
@@ -43,6 +46,9 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
 
   @SerializedName("ResponseTypes")
   private List<String> responseTypes = null;
+
+  @SerializedName("RevocationEndpoint")
+  private String revocationEndpoint = null;
 
   @SerializedName("TokenEndpoint")
   private String tokenEndpoint = null;
@@ -63,6 +69,32 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
 
   public void setAuthorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
+  }
+
+  public AuthorizationServerMetadataForGetOauth2CredentialProviderOutput codeChallengeMethodsSupported(List<String> codeChallengeMethodsSupported) {
+    this.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
+    return this;
+  }
+
+  public AuthorizationServerMetadataForGetOauth2CredentialProviderOutput addCodeChallengeMethodsSupportedItem(String codeChallengeMethodsSupportedItem) {
+    if (this.codeChallengeMethodsSupported == null) {
+      this.codeChallengeMethodsSupported = new ArrayList<String>();
+    }
+    this.codeChallengeMethodsSupported.add(codeChallengeMethodsSupportedItem);
+    return this;
+  }
+
+   /**
+   * Get codeChallengeMethodsSupported
+   * @return codeChallengeMethodsSupported
+  **/
+  @Schema(description = "")
+  public List<String> getCodeChallengeMethodsSupported() {
+    return codeChallengeMethodsSupported;
+  }
+
+  public void setCodeChallengeMethodsSupported(List<String> codeChallengeMethodsSupported) {
+    this.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
   }
 
   public AuthorizationServerMetadataForGetOauth2CredentialProviderOutput issuer(String issuer) {
@@ -127,6 +159,24 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
     this.responseTypes = responseTypes;
   }
 
+  public AuthorizationServerMetadataForGetOauth2CredentialProviderOutput revocationEndpoint(String revocationEndpoint) {
+    this.revocationEndpoint = revocationEndpoint;
+    return this;
+  }
+
+   /**
+   * Get revocationEndpoint
+   * @return revocationEndpoint
+  **/
+  @Schema(description = "")
+  public String getRevocationEndpoint() {
+    return revocationEndpoint;
+  }
+
+  public void setRevocationEndpoint(String revocationEndpoint) {
+    this.revocationEndpoint = revocationEndpoint;
+  }
+
   public AuthorizationServerMetadataForGetOauth2CredentialProviderOutput tokenEndpoint(String tokenEndpoint) {
     this.tokenEndpoint = tokenEndpoint;
     return this;
@@ -156,15 +206,17 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
     }
     AuthorizationServerMetadataForGetOauth2CredentialProviderOutput authorizationServerMetadataForGetOauth2CredentialProviderOutput = (AuthorizationServerMetadataForGetOauth2CredentialProviderOutput) o;
     return Objects.equals(this.authorizationEndpoint, authorizationServerMetadataForGetOauth2CredentialProviderOutput.authorizationEndpoint) &&
+        Objects.equals(this.codeChallengeMethodsSupported, authorizationServerMetadataForGetOauth2CredentialProviderOutput.codeChallengeMethodsSupported) &&
         Objects.equals(this.issuer, authorizationServerMetadataForGetOauth2CredentialProviderOutput.issuer) &&
         Objects.equals(this.registrationEndpoint, authorizationServerMetadataForGetOauth2CredentialProviderOutput.registrationEndpoint) &&
         Objects.equals(this.responseTypes, authorizationServerMetadataForGetOauth2CredentialProviderOutput.responseTypes) &&
+        Objects.equals(this.revocationEndpoint, authorizationServerMetadataForGetOauth2CredentialProviderOutput.revocationEndpoint) &&
         Objects.equals(this.tokenEndpoint, authorizationServerMetadataForGetOauth2CredentialProviderOutput.tokenEndpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, issuer, registrationEndpoint, responseTypes, tokenEndpoint);
+    return Objects.hash(authorizationEndpoint, codeChallengeMethodsSupported, issuer, registrationEndpoint, responseTypes, revocationEndpoint, tokenEndpoint);
   }
 
 
@@ -174,9 +226,11 @@ public class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {
     sb.append("class AuthorizationServerMetadataForGetOauth2CredentialProviderOutput {\n");
     
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
+    sb.append("    codeChallengeMethodsSupported: ").append(toIndentedString(codeChallengeMethodsSupported)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    registrationEndpoint: ").append(toIndentedString(registrationEndpoint)).append("\n");
     sb.append("    responseTypes: ").append(toIndentedString(responseTypes)).append("\n");
+    sb.append("    revocationEndpoint: ").append(toIndentedString(revocationEndpoint)).append("\n");
     sb.append("    tokenEndpoint: ").append(toIndentedString(tokenEndpoint)).append("\n");
     sb.append("}");
     return sb.toString();

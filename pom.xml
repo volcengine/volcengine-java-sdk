@@ -332,5 +332,6 @@
         <module>volcengine-java-sdk-efs</module>
         <module>volcengine-java-sdk-insight</module>
         <module>volcengine-java-sdk-llmscan</module>
+        <module>volcengine-java-sdk-mem0</module>
     </modules>
 </project>

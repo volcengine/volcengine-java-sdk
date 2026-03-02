@@ -33,51 +33,8 @@ public class HealthCheckerForDescribeVpnConnectionAttributesOutput {
   @SerializedName("CheckInterval")
   private Integer checkInterval = null;
 
-  /**
-   * Gets or Sets checkResult
-   */
-  @JsonAdapter(CheckResultEnum.Adapter.class)
-  public enum CheckResultEnum {
-    @SerializedName("Down")
-    DOWN("Down"),
-    @SerializedName(" Up")
-    _UP(" Up");
-
-    private String value;
-
-    CheckResultEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static CheckResultEnum fromValue(String input) {
-      for (CheckResultEnum b : CheckResultEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<CheckResultEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CheckResultEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public CheckResultEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return CheckResultEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("CheckResult")
-  private CheckResultEnum checkResult = null;
+  @SerializedName("CheckResult")
+  private String checkResult = null;
 
   @SerializedName("CheckerId")
   private String checkerId = null;
@@ -115,7 +72,7 @@ public class HealthCheckerForDescribeVpnConnectionAttributesOutput {
     this.checkInterval = checkInterval;
   }
 
-  public HealthCheckerForDescribeVpnConnectionAttributesOutput checkResult(CheckResultEnum checkResult) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput checkResult(String checkResult) {
     this.checkResult = checkResult;
     return this;
   }
@@ -125,11 +82,11 @@ public class HealthCheckerForDescribeVpnConnectionAttributesOutput {
    * @return checkResult
   **/
   @Schema(description = "")
-  public CheckResultEnum getCheckResult() {
+  public String getCheckResult() {
     return checkResult;
   }
 
-  public void setCheckResult(CheckResultEnum checkResult) {
+  public void setCheckResult(String checkResult) {
     this.checkResult = checkResult;
   }
 

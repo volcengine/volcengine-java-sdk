@@ -31,17 +31,17 @@ import javax.validation.Valid;
 
 
 public class PingDetailForGetTaskResultOutput {
-  @SerializedName("DNSCost")
-  private Long dnSCost = null;
-
   @SerializedName("DiagnoseDetail")
   private DiagnoseDetailForGetTaskResultOutput diagnoseDetail = null;
+
+  @SerializedName("DnsCost")
+  private Long dnsCost = null;
 
   @SerializedName("MtrHops")
   private Long mtrHops = null;
 
-  @SerializedName("PcapURI")
-  private String pcapURI = null;
+  @SerializedName("PcapUri")
+  private String pcapUri = null;
 
   @SerializedName("PingAvgCost")
   private Long pingAvgCost = null;
@@ -67,24 +67,6 @@ public class PingDetailForGetTaskResultOutput {
   @SerializedName("ResolveCost")
   private Long resolveCost = null;
 
-  public PingDetailForGetTaskResultOutput dnSCost(Long dnSCost) {
-    this.dnSCost = dnSCost;
-    return this;
-  }
-
-   /**
-   * Get dnSCost
-   * @return dnSCost
-  **/
-  @Schema(description = "")
-  public Long getDnSCost() {
-    return dnSCost;
-  }
-
-  public void setDnSCost(Long dnSCost) {
-    this.dnSCost = dnSCost;
-  }
-
   public PingDetailForGetTaskResultOutput diagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
     return this;
@@ -102,6 +84,24 @@ public class PingDetailForGetTaskResultOutput {
 
   public void setDiagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
+  }
+
+  public PingDetailForGetTaskResultOutput dnsCost(Long dnsCost) {
+    this.dnsCost = dnsCost;
+    return this;
+  }
+
+   /**
+   * Get dnsCost
+   * @return dnsCost
+  **/
+  @Schema(description = "")
+  public Long getDnsCost() {
+    return dnsCost;
+  }
+
+  public void setDnsCost(Long dnsCost) {
+    this.dnsCost = dnsCost;
   }
 
   public PingDetailForGetTaskResultOutput mtrHops(Long mtrHops) {
@@ -122,22 +122,22 @@ public class PingDetailForGetTaskResultOutput {
     this.mtrHops = mtrHops;
   }
 
-  public PingDetailForGetTaskResultOutput pcapURI(String pcapURI) {
-    this.pcapURI = pcapURI;
+  public PingDetailForGetTaskResultOutput pcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
     return this;
   }
 
    /**
-   * Get pcapURI
-   * @return pcapURI
+   * Get pcapUri
+   * @return pcapUri
   **/
   @Schema(description = "")
-  public String getPcapURI() {
-    return pcapURI;
+  public String getPcapUri() {
+    return pcapUri;
   }
 
-  public void setPcapURI(String pcapURI) {
-    this.pcapURI = pcapURI;
+  public void setPcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
   }
 
   public PingDetailForGetTaskResultOutput pingAvgCost(Long pingAvgCost) {
@@ -294,10 +294,10 @@ public class PingDetailForGetTaskResultOutput {
       return false;
     }
     PingDetailForGetTaskResultOutput pingDetailForGetTaskResultOutput = (PingDetailForGetTaskResultOutput) o;
-    return Objects.equals(this.dnSCost, pingDetailForGetTaskResultOutput.dnSCost) &&
-        Objects.equals(this.diagnoseDetail, pingDetailForGetTaskResultOutput.diagnoseDetail) &&
+    return Objects.equals(this.diagnoseDetail, pingDetailForGetTaskResultOutput.diagnoseDetail) &&
+        Objects.equals(this.dnsCost, pingDetailForGetTaskResultOutput.dnsCost) &&
         Objects.equals(this.mtrHops, pingDetailForGetTaskResultOutput.mtrHops) &&
-        Objects.equals(this.pcapURI, pingDetailForGetTaskResultOutput.pcapURI) &&
+        Objects.equals(this.pcapUri, pingDetailForGetTaskResultOutput.pcapUri) &&
         Objects.equals(this.pingAvgCost, pingDetailForGetTaskResultOutput.pingAvgCost) &&
         Objects.equals(this.pingDetail, pingDetailForGetTaskResultOutput.pingDetail) &&
         Objects.equals(this.pingLossRate, pingDetailForGetTaskResultOutput.pingLossRate) &&
@@ -310,7 +310,7 @@ public class PingDetailForGetTaskResultOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSCost, diagnoseDetail, mtrHops, pcapURI, pingAvgCost, pingDetail, pingLossRate, pingMaxCost, pingMinCost, pingReceiveTimes, pingSendTimes, resolveCost);
+    return Objects.hash(diagnoseDetail, dnsCost, mtrHops, pcapUri, pingAvgCost, pingDetail, pingLossRate, pingMaxCost, pingMinCost, pingReceiveTimes, pingSendTimes, resolveCost);
   }
 
 
@@ -319,10 +319,10 @@ public class PingDetailForGetTaskResultOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PingDetailForGetTaskResultOutput {\n");
     
-    sb.append("    dnSCost: ").append(toIndentedString(dnSCost)).append("\n");
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
+    sb.append("    dnsCost: ").append(toIndentedString(dnsCost)).append("\n");
     sb.append("    mtrHops: ").append(toIndentedString(mtrHops)).append("\n");
-    sb.append("    pcapURI: ").append(toIndentedString(pcapURI)).append("\n");
+    sb.append("    pcapUri: ").append(toIndentedString(pcapUri)).append("\n");
     sb.append("    pingAvgCost: ").append(toIndentedString(pingAvgCost)).append("\n");
     sb.append("    pingDetail: ").append(toIndentedString(pingDetail)).append("\n");
     sb.append("    pingLossRate: ").append(toIndentedString(pingLossRate)).append("\n");

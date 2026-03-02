@@ -39,8 +39,55 @@ public class ModifyVpnConnectionTunnelAttributesRequest {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 
-  @SerializedName("DpdAction")
-  private String dpdAction = null;
+  /**
+   * Gets or Sets dpdAction
+   */
+  @JsonAdapter(DpdActionEnum.Adapter.class)
+  public enum DpdActionEnum {
+    @SerializedName("none")
+    NONE("none"),
+    @SerializedName("clear")
+    CLEAR("clear"),
+    @SerializedName("hold")
+    HOLD("hold"),
+    @SerializedName("restart")
+    RESTART("restart");
+
+    private String value;
+
+    DpdActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DpdActionEnum fromValue(String input) {
+      for (DpdActionEnum b : DpdActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DpdActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DpdActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DpdAction")
+  private DpdActionEnum dpdAction = null;
 
   @SerializedName("IkeConfig")
   private IkeConfigForModifyVpnConnectionTunnelAttributesInput ikeConfig = null;
@@ -94,7 +141,7 @@ public class ModifyVpnConnectionTunnelAttributesRequest {
     this.customerGatewayId = customerGatewayId;
   }
 
-  public ModifyVpnConnectionTunnelAttributesRequest dpdAction(String dpdAction) {
+  public ModifyVpnConnectionTunnelAttributesRequest dpdAction(DpdActionEnum dpdAction) {
     this.dpdAction = dpdAction;
     return this;
   }
@@ -104,11 +151,11 @@ public class ModifyVpnConnectionTunnelAttributesRequest {
    * @return dpdAction
   **/
   @Schema(description = "")
-  public String getDpdAction() {
+  public DpdActionEnum getDpdAction() {
     return dpdAction;
   }
 
-  public void setDpdAction(String dpdAction) {
+  public void setDpdAction(DpdActionEnum dpdAction) {
     this.dpdAction = dpdAction;
   }
 

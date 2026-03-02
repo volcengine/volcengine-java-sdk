@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForDescribeCustomerGatewaysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -62,6 +65,9 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCustomerGatewaysOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -264,6 +270,33 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     this.status = status;
   }
 
+  public CustomerGatewayForDescribeCustomerGatewaysOutput tags(List<TagForDescribeCustomerGatewaysOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CustomerGatewayForDescribeCustomerGatewaysOutput addTagsItem(TagForDescribeCustomerGatewaysOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCustomerGatewaysOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCustomerGatewaysOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCustomerGatewaysOutput> tags) {
+    this.tags = tags;
+  }
+
   public CustomerGatewayForDescribeCustomerGatewaysOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -303,12 +336,13 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
         Objects.equals(this.ipVersion, customerGatewayForDescribeCustomerGatewaysOutput.ipVersion) &&
         Objects.equals(this.projectName, customerGatewayForDescribeCustomerGatewaysOutput.projectName) &&
         Objects.equals(this.status, customerGatewayForDescribeCustomerGatewaysOutput.status) &&
+        Objects.equals(this.tags, customerGatewayForDescribeCustomerGatewaysOutput.tags) &&
         Objects.equals(this.updateTime, customerGatewayForDescribeCustomerGatewaysOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, ipVersion, projectName, status, updateTime);
+    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, ipVersion, projectName, status, tags, updateTime);
   }
 
 
@@ -328,6 +362,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

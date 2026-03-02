@@ -60,6 +60,9 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LatestLogin")
   private String latestLogin = null;
 
+  @SerializedName("LatestLoginMethod")
+  private String latestLoginMethod = null;
+
   @SerializedName("Locale")
   private String locale = null;
 
@@ -108,8 +111,8 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Website")
   private String website = null;
 
-  @SerializedName("ZoneInfo")
-  private String zoneInfo = null;
+  @SerializedName("Zoneinfo")
+  private String zoneinfo = null;
 
   public UpdateUserResponse birthdate(String birthdate) {
     this.birthdate = birthdate;
@@ -289,6 +292,24 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
 
   public void setLatestLogin(String latestLogin) {
     this.latestLogin = latestLogin;
+  }
+
+  public UpdateUserResponse latestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
+    return this;
+  }
+
+   /**
+   * Get latestLoginMethod
+   * @return latestLoginMethod
+  **/
+  @Schema(description = "")
+  public String getLatestLoginMethod() {
+    return latestLoginMethod;
+  }
+
+  public void setLatestLoginMethod(String latestLoginMethod) {
+    this.latestLoginMethod = latestLoginMethod;
   }
 
   public UpdateUserResponse locale(String locale) {
@@ -579,22 +600,22 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
     this.website = website;
   }
 
-  public UpdateUserResponse zoneInfo(String zoneInfo) {
-    this.zoneInfo = zoneInfo;
+  public UpdateUserResponse zoneinfo(String zoneinfo) {
+    this.zoneinfo = zoneinfo;
     return this;
   }
 
    /**
-   * Get zoneInfo
-   * @return zoneInfo
+   * Get zoneinfo
+   * @return zoneinfo
   **/
   @Schema(description = "")
-  public String getZoneInfo() {
-    return zoneInfo;
+  public String getZoneinfo() {
+    return zoneinfo;
   }
 
-  public void setZoneInfo(String zoneInfo) {
-    this.zoneInfo = zoneInfo;
+  public void setZoneinfo(String zoneinfo) {
+    this.zoneinfo = zoneinfo;
   }
 
 
@@ -617,6 +638,7 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.givenName, updateUserResponse.givenName) &&
         Objects.equals(this.latestBrowser, updateUserResponse.latestBrowser) &&
         Objects.equals(this.latestLogin, updateUserResponse.latestLogin) &&
+        Objects.equals(this.latestLoginMethod, updateUserResponse.latestLoginMethod) &&
         Objects.equals(this.locale, updateUserResponse.locale) &&
         Objects.equals(this.middleName, updateUserResponse.middleName) &&
         Objects.equals(this.name, updateUserResponse.name) &&
@@ -633,12 +655,12 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.userMetadata, updateUserResponse.userMetadata) &&
         Objects.equals(this.userState, updateUserResponse.userState) &&
         Objects.equals(this.website, updateUserResponse.website) &&
-        Objects.equals(this.zoneInfo, updateUserResponse.zoneInfo);
+        Objects.equals(this.zoneinfo, updateUserResponse.zoneinfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneInfo);
+    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
   }
 
 
@@ -657,6 +679,7 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
     sb.append("    latestLogin: ").append(toIndentedString(latestLogin)).append("\n");
+    sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -673,7 +696,7 @@ public class UpdateUserResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    userMetadata: ").append(toIndentedString(userMetadata)).append("\n");
     sb.append("    userState: ").append(toIndentedString(userState)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");
-    sb.append("    zoneInfo: ").append(toIndentedString(zoneInfo)).append("\n");
+    sb.append("    zoneinfo: ").append(toIndentedString(zoneinfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

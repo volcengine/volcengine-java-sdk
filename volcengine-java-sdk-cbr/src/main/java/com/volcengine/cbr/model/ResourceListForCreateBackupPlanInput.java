@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cbr.model.MetaInformationForCreateBackupPlanInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,32 +30,74 @@ import javax.validation.Valid;
 
 
 public class ResourceListForCreateBackupPlanInput {
-  @SerializedName("MetaInformation")
-  private MetaInformationForCreateBackupPlanInput metaInformation = null;
+  @SerializedName("BackupOptions")
+  private String backupOptions = null;
 
   @SerializedName("ResourceId")
   private String resourceId = null;
 
-  @SerializedName("ResourceType")
-  private String resourceType = null;
+  /**
+   * Gets or Sets resourceType
+   */
+  @JsonAdapter(ResourceTypeEnum.Adapter.class)
+  public enum ResourceTypeEnum {
+    @SerializedName("ECS")
+    ECS("ECS"),
+    @SerializedName("vePFS")
+    VEPFS("vePFS");
 
-  public ResourceListForCreateBackupPlanInput metaInformation(MetaInformationForCreateBackupPlanInput metaInformation) {
-    this.metaInformation = metaInformation;
+    private String value;
+
+    ResourceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypeEnum fromValue(String input) {
+      for (ResourceTypeEnum b : ResourceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceType")
+  private ResourceTypeEnum resourceType = null;
+
+  public ResourceListForCreateBackupPlanInput backupOptions(String backupOptions) {
+    this.backupOptions = backupOptions;
     return this;
   }
 
    /**
-   * Get metaInformation
-   * @return metaInformation
+   * Get backupOptions
+   * @return backupOptions
   **/
-  @Valid
   @Schema(description = "")
-  public MetaInformationForCreateBackupPlanInput getMetaInformation() {
-    return metaInformation;
+  public String getBackupOptions() {
+    return backupOptions;
   }
 
-  public void setMetaInformation(MetaInformationForCreateBackupPlanInput metaInformation) {
-    this.metaInformation = metaInformation;
+  public void setBackupOptions(String backupOptions) {
+    this.backupOptions = backupOptions;
   }
 
   public ResourceListForCreateBackupPlanInput resourceId(String resourceId) {
@@ -77,7 +118,7 @@ public class ResourceListForCreateBackupPlanInput {
     this.resourceId = resourceId;
   }
 
-  public ResourceListForCreateBackupPlanInput resourceType(String resourceType) {
+  public ResourceListForCreateBackupPlanInput resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -87,11 +128,11 @@ public class ResourceListForCreateBackupPlanInput {
    * @return resourceType
   **/
   @Schema(description = "")
-  public String getResourceType() {
+  public ResourceTypeEnum getResourceType() {
     return resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
   }
 
@@ -105,14 +146,14 @@ public class ResourceListForCreateBackupPlanInput {
       return false;
     }
     ResourceListForCreateBackupPlanInput resourceListForCreateBackupPlanInput = (ResourceListForCreateBackupPlanInput) o;
-    return Objects.equals(this.metaInformation, resourceListForCreateBackupPlanInput.metaInformation) &&
+    return Objects.equals(this.backupOptions, resourceListForCreateBackupPlanInput.backupOptions) &&
         Objects.equals(this.resourceId, resourceListForCreateBackupPlanInput.resourceId) &&
         Objects.equals(this.resourceType, resourceListForCreateBackupPlanInput.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metaInformation, resourceId, resourceType);
+    return Objects.hash(backupOptions, resourceId, resourceType);
   }
 
 
@@ -121,7 +162,7 @@ public class ResourceListForCreateBackupPlanInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourceListForCreateBackupPlanInput {\n");
     
-    sb.append("    metaInformation: ").append(toIndentedString(metaInformation)).append("\n");
+    sb.append("    backupOptions: ").append(toIndentedString(backupOptions)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");

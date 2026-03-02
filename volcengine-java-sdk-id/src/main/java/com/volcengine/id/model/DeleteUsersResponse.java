@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ErrorsStructuredForDeleteUsersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class DeleteUsersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Errors")
   private List<String> errors = null;
+
+  @SerializedName("ErrorsStructured")
+  private List<ErrorsStructuredForDeleteUsersOutput> errorsStructured = null;
 
   @SerializedName("FailureCount")
   private Integer failureCount = null;
@@ -68,6 +72,33 @@ public class DeleteUsersResponse extends com.volcengine.model.AbstractResponse {
 
   public void setErrors(List<String> errors) {
     this.errors = errors;
+  }
+
+  public DeleteUsersResponse errorsStructured(List<ErrorsStructuredForDeleteUsersOutput> errorsStructured) {
+    this.errorsStructured = errorsStructured;
+    return this;
+  }
+
+  public DeleteUsersResponse addErrorsStructuredItem(ErrorsStructuredForDeleteUsersOutput errorsStructuredItem) {
+    if (this.errorsStructured == null) {
+      this.errorsStructured = new ArrayList<ErrorsStructuredForDeleteUsersOutput>();
+    }
+    this.errorsStructured.add(errorsStructuredItem);
+    return this;
+  }
+
+   /**
+   * Get errorsStructured
+   * @return errorsStructured
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ErrorsStructuredForDeleteUsersOutput> getErrorsStructured() {
+    return errorsStructured;
+  }
+
+  public void setErrorsStructured(List<ErrorsStructuredForDeleteUsersOutput> errorsStructured) {
+    this.errorsStructured = errorsStructured;
   }
 
   public DeleteUsersResponse failureCount(Integer failureCount) {
@@ -143,6 +174,7 @@ public class DeleteUsersResponse extends com.volcengine.model.AbstractResponse {
     }
     DeleteUsersResponse deleteUsersResponse = (DeleteUsersResponse) o;
     return Objects.equals(this.errors, deleteUsersResponse.errors) &&
+        Objects.equals(this.errorsStructured, deleteUsersResponse.errorsStructured) &&
         Objects.equals(this.failureCount, deleteUsersResponse.failureCount) &&
         Objects.equals(this.successCount, deleteUsersResponse.successCount) &&
         Objects.equals(this.successfulUids, deleteUsersResponse.successfulUids);
@@ -150,7 +182,7 @@ public class DeleteUsersResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, failureCount, successCount, successfulUids);
+    return Objects.hash(errors, errorsStructured, failureCount, successCount, successfulUids);
   }
 
 
@@ -160,6 +192,7 @@ public class DeleteUsersResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class DeleteUsersResponse {\n");
     
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    errorsStructured: ").append(toIndentedString(errorsStructured)).append("\n");
     sb.append("    failureCount: ").append(toIndentedString(failureCount)).append("\n");
     sb.append("    successCount: ").append(toIndentedString(successCount)).append("\n");
     sb.append("    successfulUids: ").append(toIndentedString(successfulUids)).append("\n");

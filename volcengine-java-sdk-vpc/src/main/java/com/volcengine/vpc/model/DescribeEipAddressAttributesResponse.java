@@ -111,6 +111,9 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
+  @SerializedName("VpcId")
+  private String vpcId = null;
+
   public DescribeEipAddressAttributesResponse allocationId(String allocationId) {
     this.allocationId = allocationId;
     return this;
@@ -596,6 +599,24 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     this.updatedAt = updatedAt;
   }
 
+  public DescribeEipAddressAttributesResponse vpcId(String vpcId) {
+    this.vpcId = vpcId;
+    return this;
+  }
+
+   /**
+   * Get vpcId
+   * @return vpcId
+  **/
+  @Schema(description = "")
+  public String getVpcId() {
+    return vpcId;
+  }
+
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -631,12 +652,13 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.serviceManaged, describeEipAddressAttributesResponse.serviceManaged) &&
         Objects.equals(this.status, describeEipAddressAttributesResponse.status) &&
         Objects.equals(this.tags, describeEipAddressAttributesResponse.tags) &&
-        Objects.equals(this.updatedAt, describeEipAddressAttributesResponse.updatedAt);
+        Objects.equals(this.updatedAt, describeEipAddressAttributesResponse.updatedAt) &&
+        Objects.equals(this.vpcId, describeEipAddressAttributesResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, ipAddressPoolId, isBlocked, lockReason, name, overdueTime, projectName, releaseWithInstance, requestId, securityProtectionTypes, serviceManaged, status, tags, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, ipAddressPoolId, isBlocked, lockReason, name, overdueTime, projectName, releaseWithInstance, requestId, securityProtectionTypes, serviceManaged, status, tags, updatedAt, vpcId);
   }
 
 
@@ -671,6 +693,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

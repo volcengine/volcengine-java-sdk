@@ -36,6 +36,9 @@ public class ApiKeyMetadataForCreateApiKeyCredentialProviderInput {
   @SerializedName("ParameterName")
   private String parameterName = null;
 
+  @SerializedName("Prefix")
+  private String prefix = null;
+
   public ApiKeyMetadataForCreateApiKeyCredentialProviderInput location(String location) {
     this.location = location;
     return this;
@@ -72,6 +75,24 @@ public class ApiKeyMetadataForCreateApiKeyCredentialProviderInput {
     this.parameterName = parameterName;
   }
 
+  public ApiKeyMetadataForCreateApiKeyCredentialProviderInput prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Get prefix
+   * @return prefix
+  **/
+  @Schema(description = "")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class ApiKeyMetadataForCreateApiKeyCredentialProviderInput {
     }
     ApiKeyMetadataForCreateApiKeyCredentialProviderInput apiKeyMetadataForCreateApiKeyCredentialProviderInput = (ApiKeyMetadataForCreateApiKeyCredentialProviderInput) o;
     return Objects.equals(this.location, apiKeyMetadataForCreateApiKeyCredentialProviderInput.location) &&
-        Objects.equals(this.parameterName, apiKeyMetadataForCreateApiKeyCredentialProviderInput.parameterName);
+        Objects.equals(this.parameterName, apiKeyMetadataForCreateApiKeyCredentialProviderInput.parameterName) &&
+        Objects.equals(this.prefix, apiKeyMetadataForCreateApiKeyCredentialProviderInput.prefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, parameterName);
+    return Objects.hash(location, parameterName, prefix);
   }
 
 
@@ -99,6 +121,7 @@ public class ApiKeyMetadataForCreateApiKeyCredentialProviderInput {
     
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

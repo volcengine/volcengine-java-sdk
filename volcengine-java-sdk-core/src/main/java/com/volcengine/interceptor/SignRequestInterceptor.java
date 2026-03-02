@@ -14,8 +14,7 @@ import okio.Buffer;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SignRequestInterceptor implements RequestInterceptor {
 
@@ -35,17 +34,8 @@ public class SignRequestInterceptor implements RequestInterceptor {
         ServiceInfo serviceInfo = context.getRequestContext().getServiceInfo();
         String[] authNames = context.getRequestContext().getAuthNames();
         RequestBody reqBody = context.getRequestContext().getRequestBody();
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = context.getInitInterceptorContext().getProgressRequestListener();
 
         //sign
-        final Buffer buffer = new Buffer();
-        try {
-            if (reqBody != null) {
-                reqBody.writeTo(buffer);
-            }
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
         VolcstackSign volcengineSign = new VolcstackSign();
         if (context.getApiClient().getCredentials() != null) {
             volcengineSign.setCredentials(context.getApiClient().getCredentials());
@@ -74,7 +64,38 @@ public class SignRequestInterceptor implements RequestInterceptor {
         if (StringUtils.isEmpty(volcengineSign.getRegion())) {
             throw new RuntimeException("Region must set when ApiClient init");
         }
+
+        // Presigned branch
+        if (context.getRequestContext().isPresigned()) {
+            Map<String, String> queryParamsMap = new HashMap<>();
+            for (Pair p : queryParams) {
+                queryParamsMap.put(p.getName(), p.getValue());
+            }
+
+            String host = context.getRequestContext().getHost();
+            try {
+                Map<String, String> presignedParams = volcengineSign.presign(queryParamsMap, host);
+                String presignedUrl = buildPresignedUrl(
+                        context.getRequestContext().getSchema(), host, presignedParams);
+                context.getRequestContext().setPresignedUrl(presignedUrl);
+            } catch (Exception e) {
+                throw new ApiException(e);
+            }
+            return context;
+        }
+
+        // Normal sign branch
+        final Buffer buffer = new Buffer();
+        try {
+            if (reqBody != null) {
+                reqBody.writeTo(buffer);
+            }
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
         volcengineSign.applyToParams(queryParams, headerParams, buffer.readUtf8());
+
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = context.getInitInterceptorContext().getProgressRequestListener();
 
         //build final call
         StringBuilder url = new StringBuilder();
@@ -100,5 +121,24 @@ public class SignRequestInterceptor implements RequestInterceptor {
         }
         context.getRequestContext().setRequest(request);
         return context;
+    }
+
+    private static String buildPresignedUrl(String scheme, String host, Map<String, String> presignedParams) {
+        StringBuilder url = new StringBuilder();
+        url.append(scheme).append("://").append(host).append("?");
+
+        List<String> keys = new ArrayList<>(presignedParams.keySet());
+        Collections.sort(keys);
+
+        for (int i = 0; i < keys.size(); i++) {
+            String key = keys.get(i);
+            String value = presignedParams.get(key);
+            url.append(key).append("=").append(value);
+            if (i < keys.size() - 1) {
+                url.append("&");
+            }
+        }
+
+        return url.toString();
     }
 }

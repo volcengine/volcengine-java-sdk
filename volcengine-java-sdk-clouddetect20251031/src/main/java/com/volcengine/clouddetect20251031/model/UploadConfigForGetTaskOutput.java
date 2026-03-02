@@ -38,17 +38,17 @@ public class UploadConfigForGetTaskOutput {
   @SerializedName("CustomHostConfig")
   private CustomHostConfigForGetTaskOutput customHostConfig = null;
 
-  @SerializedName("DNSServer")
-  private String dnSServer = null;
+  @SerializedName("DnsServer")
+  private String dnsServer = null;
 
-  @SerializedName("DNSType")
-  private String dnSType = null;
-
-  @SerializedName("HTTPVersion")
-  private String htTPVersion = null;
+  @SerializedName("DnsType")
+  private String dnsType = null;
 
   @SerializedName("Headers")
   private List<HeaderForGetTaskOutput> headers = null;
+
+  @SerializedName("HttpVersion")
+  private String httpVersion = null;
 
   @SerializedName("IgnoreCertificate")
   private Boolean ignoreCertificate = null;
@@ -68,8 +68,8 @@ public class UploadConfigForGetTaskOutput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
-  @SerializedName("UploadFileURL")
-  private String uploadFileURL = null;
+  @SerializedName("UploadFileUrl")
+  private String uploadFileUrl = null;
 
   public UploadConfigForGetTaskOutput customHostConfig(CustomHostConfigForGetTaskOutput customHostConfig) {
     this.customHostConfig = customHostConfig;
@@ -90,58 +90,40 @@ public class UploadConfigForGetTaskOutput {
     this.customHostConfig = customHostConfig;
   }
 
-  public UploadConfigForGetTaskOutput dnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public UploadConfigForGetTaskOutput dnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
     return this;
   }
 
    /**
-   * Get dnSServer
-   * @return dnSServer
+   * Get dnsServer
+   * @return dnsServer
   **/
   @Schema(description = "")
-  public String getDnSServer() {
-    return dnSServer;
+  public String getDnsServer() {
+    return dnsServer;
   }
 
-  public void setDnSServer(String dnSServer) {
-    this.dnSServer = dnSServer;
+  public void setDnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
   }
 
-  public UploadConfigForGetTaskOutput dnSType(String dnSType) {
-    this.dnSType = dnSType;
+  public UploadConfigForGetTaskOutput dnsType(String dnsType) {
+    this.dnsType = dnsType;
     return this;
   }
 
    /**
-   * Get dnSType
-   * @return dnSType
+   * Get dnsType
+   * @return dnsType
   **/
   @Schema(description = "")
-  public String getDnSType() {
-    return dnSType;
+  public String getDnsType() {
+    return dnsType;
   }
 
-  public void setDnSType(String dnSType) {
-    this.dnSType = dnSType;
-  }
-
-  public UploadConfigForGetTaskOutput htTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
-    return this;
-  }
-
-   /**
-   * Get htTPVersion
-   * @return htTPVersion
-  **/
-  @Schema(description = "")
-  public String getHtTPVersion() {
-    return htTPVersion;
-  }
-
-  public void setHtTPVersion(String htTPVersion) {
-    this.htTPVersion = htTPVersion;
+  public void setDnsType(String dnsType) {
+    this.dnsType = dnsType;
   }
 
   public UploadConfigForGetTaskOutput headers(List<HeaderForGetTaskOutput> headers) {
@@ -169,6 +151,24 @@ public class UploadConfigForGetTaskOutput {
 
   public void setHeaders(List<HeaderForGetTaskOutput> headers) {
     this.headers = headers;
+  }
+
+  public UploadConfigForGetTaskOutput httpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
+    return this;
+  }
+
+   /**
+   * Get httpVersion
+   * @return httpVersion
+  **/
+  @Schema(description = "")
+  public String getHttpVersion() {
+    return httpVersion;
+  }
+
+  public void setHttpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
   }
 
   public UploadConfigForGetTaskOutput ignoreCertificate(Boolean ignoreCertificate) {
@@ -288,22 +288,22 @@ public class UploadConfigForGetTaskOutput {
     this.timeout = timeout;
   }
 
-  public UploadConfigForGetTaskOutput uploadFileURL(String uploadFileURL) {
-    this.uploadFileURL = uploadFileURL;
+  public UploadConfigForGetTaskOutput uploadFileUrl(String uploadFileUrl) {
+    this.uploadFileUrl = uploadFileUrl;
     return this;
   }
 
    /**
-   * Get uploadFileURL
-   * @return uploadFileURL
+   * Get uploadFileUrl
+   * @return uploadFileUrl
   **/
   @Schema(description = "")
-  public String getUploadFileURL() {
-    return uploadFileURL;
+  public String getUploadFileUrl() {
+    return uploadFileUrl;
   }
 
-  public void setUploadFileURL(String uploadFileURL) {
-    this.uploadFileURL = uploadFileURL;
+  public void setUploadFileUrl(String uploadFileUrl) {
+    this.uploadFileUrl = uploadFileUrl;
   }
 
 
@@ -317,22 +317,22 @@ public class UploadConfigForGetTaskOutput {
     }
     UploadConfigForGetTaskOutput uploadConfigForGetTaskOutput = (UploadConfigForGetTaskOutput) o;
     return Objects.equals(this.customHostConfig, uploadConfigForGetTaskOutput.customHostConfig) &&
-        Objects.equals(this.dnSServer, uploadConfigForGetTaskOutput.dnSServer) &&
-        Objects.equals(this.dnSType, uploadConfigForGetTaskOutput.dnSType) &&
-        Objects.equals(this.htTPVersion, uploadConfigForGetTaskOutput.htTPVersion) &&
+        Objects.equals(this.dnsServer, uploadConfigForGetTaskOutput.dnsServer) &&
+        Objects.equals(this.dnsType, uploadConfigForGetTaskOutput.dnsType) &&
         Objects.equals(this.headers, uploadConfigForGetTaskOutput.headers) &&
+        Objects.equals(this.httpVersion, uploadConfigForGetTaskOutput.httpVersion) &&
         Objects.equals(this.ignoreCertificate, uploadConfigForGetTaskOutput.ignoreCertificate) &&
         Objects.equals(this.maxTransferSize, uploadConfigForGetTaskOutput.maxTransferSize) &&
         Objects.equals(this.method, uploadConfigForGetTaskOutput.method) &&
         Objects.equals(this.queries, uploadConfigForGetTaskOutput.queries) &&
         Objects.equals(this.redirect, uploadConfigForGetTaskOutput.redirect) &&
         Objects.equals(this.timeout, uploadConfigForGetTaskOutput.timeout) &&
-        Objects.equals(this.uploadFileURL, uploadConfigForGetTaskOutput.uploadFileURL);
+        Objects.equals(this.uploadFileUrl, uploadConfigForGetTaskOutput.uploadFileUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customHostConfig, dnSServer, dnSType, htTPVersion, headers, ignoreCertificate, maxTransferSize, method, queries, redirect, timeout, uploadFileURL);
+    return Objects.hash(customHostConfig, dnsServer, dnsType, headers, httpVersion, ignoreCertificate, maxTransferSize, method, queries, redirect, timeout, uploadFileUrl);
   }
 
 
@@ -342,17 +342,17 @@ public class UploadConfigForGetTaskOutput {
     sb.append("class UploadConfigForGetTaskOutput {\n");
     
     sb.append("    customHostConfig: ").append(toIndentedString(customHostConfig)).append("\n");
-    sb.append("    dnSServer: ").append(toIndentedString(dnSServer)).append("\n");
-    sb.append("    dnSType: ").append(toIndentedString(dnSType)).append("\n");
-    sb.append("    htTPVersion: ").append(toIndentedString(htTPVersion)).append("\n");
+    sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
+    sb.append("    dnsType: ").append(toIndentedString(dnsType)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    ignoreCertificate: ").append(toIndentedString(ignoreCertificate)).append("\n");
     sb.append("    maxTransferSize: ").append(toIndentedString(maxTransferSize)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    uploadFileURL: ").append(toIndentedString(uploadFileURL)).append("\n");
+    sb.append("    uploadFileUrl: ").append(toIndentedString(uploadFileUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

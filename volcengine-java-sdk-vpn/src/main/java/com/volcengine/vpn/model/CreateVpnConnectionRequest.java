@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpn.model.BgpConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
+import com.volcengine.vpn.model.TagForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.TunnelOptionForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,8 +37,51 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionRequest {
-  @SerializedName("AttachType")
-  private String attachType = null;
+  /**
+   * Gets or Sets attachType
+   */
+  @JsonAdapter(AttachTypeEnum.Adapter.class)
+  public enum AttachTypeEnum {
+    @SerializedName("VpnGateway")
+    VPNGATEWAY("VpnGateway"),
+    @SerializedName("TransitRouter")
+    TRANSITROUTER("TransitRouter");
+
+    private String value;
+
+    AttachTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AttachTypeEnum fromValue(String input) {
+      for (AttachTypeEnum b : AttachTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AttachTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AttachTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AttachTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AttachTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AttachType")
+  private AttachTypeEnum attachType = null;
 
   @SerializedName("BgpConfig")
   private BgpConfigForCreateVpnConnectionInput bgpConfig = null;
@@ -51,8 +95,55 @@ public class CreateVpnConnectionRequest {
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("DpdAction")
-  private String dpdAction = null;
+  /**
+   * Gets or Sets dpdAction
+   */
+  @JsonAdapter(DpdActionEnum.Adapter.class)
+  public enum DpdActionEnum {
+    @SerializedName("none")
+    NONE("none"),
+    @SerializedName("clear")
+    CLEAR("clear"),
+    @SerializedName("hold")
+    HOLD("hold"),
+    @SerializedName("restart")
+    RESTART("restart");
+
+    private String value;
+
+    DpdActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DpdActionEnum fromValue(String input) {
+      for (DpdActionEnum b : DpdActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DpdActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DpdActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DpdAction")
+  private DpdActionEnum dpdAction = null;
 
   @SerializedName("EnableTunnelsBgp")
   private Boolean enableTunnelsBgp = null;
@@ -84,6 +175,9 @@ public class CreateVpnConnectionRequest {
   @SerializedName("Spec")
   private String spec = null;
 
+  @SerializedName("Tags")
+  private List<TagForCreateVpnConnectionInput> tags = null;
+
   @SerializedName("TunnelOptions")
   private List<TunnelOptionForCreateVpnConnectionInput> tunnelOptions = null;
 
@@ -93,7 +187,7 @@ public class CreateVpnConnectionRequest {
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public CreateVpnConnectionRequest attachType(String attachType) {
+  public CreateVpnConnectionRequest attachType(AttachTypeEnum attachType) {
     this.attachType = attachType;
     return this;
   }
@@ -103,11 +197,11 @@ public class CreateVpnConnectionRequest {
    * @return attachType
   **/
   @Schema(description = "")
-  public String getAttachType() {
+  public AttachTypeEnum getAttachType() {
     return attachType;
   }
 
-  public void setAttachType(String attachType) {
+  public void setAttachType(AttachTypeEnum attachType) {
     this.attachType = attachType;
   }
 
@@ -184,7 +278,7 @@ public class CreateVpnConnectionRequest {
     this.description = description;
   }
 
-  public CreateVpnConnectionRequest dpdAction(String dpdAction) {
+  public CreateVpnConnectionRequest dpdAction(DpdActionEnum dpdAction) {
     this.dpdAction = dpdAction;
     return this;
   }
@@ -194,11 +288,11 @@ public class CreateVpnConnectionRequest {
    * @return dpdAction
   **/
   @Schema(description = "")
-  public String getDpdAction() {
+  public DpdActionEnum getDpdAction() {
     return dpdAction;
   }
 
-  public void setDpdAction(String dpdAction) {
+  public void setDpdAction(DpdActionEnum dpdAction) {
     this.dpdAction = dpdAction;
   }
 
@@ -400,6 +494,33 @@ public class CreateVpnConnectionRequest {
     this.spec = spec;
   }
 
+  public CreateVpnConnectionRequest tags(List<TagForCreateVpnConnectionInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVpnConnectionRequest addTagsItem(TagForCreateVpnConnectionInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateVpnConnectionInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateVpnConnectionInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateVpnConnectionInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateVpnConnectionRequest tunnelOptions(List<TunnelOptionForCreateVpnConnectionInput> tunnelOptions) {
     this.tunnelOptions = tunnelOptions;
     return this;
@@ -489,6 +610,7 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.projectName, createVpnConnectionRequest.projectName) &&
         Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
         Objects.equals(this.spec, createVpnConnectionRequest.spec) &&
+        Objects.equals(this.tags, createVpnConnectionRequest.tags) &&
         Objects.equals(this.tunnelOptions, createVpnConnectionRequest.tunnelOptions) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
@@ -496,7 +618,7 @@ public class CreateVpnConnectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, enableTunnelsBgp, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, tunnelOptions, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, enableTunnelsBgp, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, tags, tunnelOptions, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -521,6 +643,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tunnelOptions: ").append(toIndentedString(tunnelOptions)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

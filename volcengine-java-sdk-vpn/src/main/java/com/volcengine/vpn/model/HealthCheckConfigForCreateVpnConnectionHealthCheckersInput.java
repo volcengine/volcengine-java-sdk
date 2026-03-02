@@ -93,7 +93,8 @@ public class HealthCheckConfigForCreateVpnConnectionHealthCheckersInput {
    * Get localIp
    * @return localIp
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLocalIp() {
     return localIp;
   }
@@ -111,7 +112,8 @@ public class HealthCheckConfigForCreateVpnConnectionHealthCheckersInput {
    * Get remoteIp
    * @return remoteIp
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRemoteIp() {
     return remoteIp;
   }

@@ -36,6 +36,12 @@ public class GetResourceOauth2TokenResponse extends com.volcengine.model.Abstrac
   @SerializedName("AuthorizationUrl")
   private String authorizationUrl = null;
 
+  @SerializedName("ExpiresIn")
+  private Long expiresIn = null;
+
+  @SerializedName("SessionUri")
+  private String sessionUri = null;
+
   public GetResourceOauth2TokenResponse accessToken(String accessToken) {
     this.accessToken = accessToken;
     return this;
@@ -72,6 +78,42 @@ public class GetResourceOauth2TokenResponse extends com.volcengine.model.Abstrac
     this.authorizationUrl = authorizationUrl;
   }
 
+  public GetResourceOauth2TokenResponse expiresIn(Long expiresIn) {
+    this.expiresIn = expiresIn;
+    return this;
+  }
+
+   /**
+   * Get expiresIn
+   * @return expiresIn
+  **/
+  @Schema(description = "")
+  public Long getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(Long expiresIn) {
+    this.expiresIn = expiresIn;
+  }
+
+  public GetResourceOauth2TokenResponse sessionUri(String sessionUri) {
+    this.sessionUri = sessionUri;
+    return this;
+  }
+
+   /**
+   * Get sessionUri
+   * @return sessionUri
+  **/
+  @Schema(description = "")
+  public String getSessionUri() {
+    return sessionUri;
+  }
+
+  public void setSessionUri(String sessionUri) {
+    this.sessionUri = sessionUri;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +125,14 @@ public class GetResourceOauth2TokenResponse extends com.volcengine.model.Abstrac
     }
     GetResourceOauth2TokenResponse getResourceOauth2TokenResponse = (GetResourceOauth2TokenResponse) o;
     return Objects.equals(this.accessToken, getResourceOauth2TokenResponse.accessToken) &&
-        Objects.equals(this.authorizationUrl, getResourceOauth2TokenResponse.authorizationUrl);
+        Objects.equals(this.authorizationUrl, getResourceOauth2TokenResponse.authorizationUrl) &&
+        Objects.equals(this.expiresIn, getResourceOauth2TokenResponse.expiresIn) &&
+        Objects.equals(this.sessionUri, getResourceOauth2TokenResponse.sessionUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, authorizationUrl);
+    return Objects.hash(accessToken, authorizationUrl, expiresIn, sessionUri);
   }
 
 
@@ -99,6 +143,8 @@ public class GetResourceOauth2TokenResponse extends com.volcengine.model.Abstrac
     
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("    authorizationUrl: ").append(toIndentedString(authorizationUrl)).append("\n");
+    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
+    sb.append("    sessionUri: ").append(toIndentedString(sessionUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

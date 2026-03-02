@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ClaimsPropagationConfigForGetIdentityProviderSAMLOutput;
 import com.volcengine.id.model.ProviderOptionsForGetIdentityProviderSAMLOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,6 +37,9 @@ public class GetIdentityProviderSAMLResponse extends com.volcengine.model.Abstra
 
   @SerializedName("Certificate")
   private String certificate = null;
+
+  @SerializedName("ClaimsPropagationConfig")
+  private ClaimsPropagationConfigForGetIdentityProviderSAMLOutput claimsPropagationConfig = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -98,6 +102,25 @@ public class GetIdentityProviderSAMLResponse extends com.volcengine.model.Abstra
 
   public void setCertificate(String certificate) {
     this.certificate = certificate;
+  }
+
+  public GetIdentityProviderSAMLResponse claimsPropagationConfig(ClaimsPropagationConfigForGetIdentityProviderSAMLOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
+    return this;
+  }
+
+   /**
+   * Get claimsPropagationConfig
+   * @return claimsPropagationConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ClaimsPropagationConfigForGetIdentityProviderSAMLOutput getClaimsPropagationConfig() {
+    return claimsPropagationConfig;
+  }
+
+  public void setClaimsPropagationConfig(ClaimsPropagationConfigForGetIdentityProviderSAMLOutput claimsPropagationConfig) {
+    this.claimsPropagationConfig = claimsPropagationConfig;
   }
 
   public GetIdentityProviderSAMLResponse enabled(Boolean enabled) {
@@ -275,6 +298,7 @@ public class GetIdentityProviderSAMLResponse extends com.volcengine.model.Abstra
     GetIdentityProviderSAMLResponse getIdentityProviderSAMLResponse = (GetIdentityProviderSAMLResponse) o;
     return Objects.equals(this.attributeMapping, getIdentityProviderSAMLResponse.attributeMapping) &&
         Objects.equals(this.certificate, getIdentityProviderSAMLResponse.certificate) &&
+        Objects.equals(this.claimsPropagationConfig, getIdentityProviderSAMLResponse.claimsPropagationConfig) &&
         Objects.equals(this.enabled, getIdentityProviderSAMLResponse.enabled) &&
         Objects.equals(this.enabledEncryption, getIdentityProviderSAMLResponse.enabledEncryption) &&
         Objects.equals(this.enabledSign, getIdentityProviderSAMLResponse.enabledSign) &&
@@ -288,7 +312,7 @@ public class GetIdentityProviderSAMLResponse extends com.volcengine.model.Abstra
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, certificate, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
+    return Objects.hash(attributeMapping, certificate, claimsPropagationConfig, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
   }
 
 
@@ -299,6 +323,7 @@ public class GetIdentityProviderSAMLResponse extends com.volcengine.model.Abstra
     
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
     sb.append("    enabledSign: ").append(toIndentedString(enabledSign)).append("\n");

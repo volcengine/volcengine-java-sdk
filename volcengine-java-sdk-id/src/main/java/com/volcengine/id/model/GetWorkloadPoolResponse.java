@@ -39,11 +39,20 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DiscoveryUrl")
+  private String discoveryUrl = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("Tags")
   private List<TagForGetWorkloadPoolOutput> tags = null;
+
+  @SerializedName("TotalCredentials")
+  private Long totalCredentials = null;
+
+  @SerializedName("TotalWorkloads")
+  private Long totalWorkloads = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -93,6 +102,24 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     this.description = description;
   }
 
+  public GetWorkloadPoolResponse discoveryUrl(String discoveryUrl) {
+    this.discoveryUrl = discoveryUrl;
+    return this;
+  }
+
+   /**
+   * Get discoveryUrl
+   * @return discoveryUrl
+  **/
+  @Schema(description = "")
+  public String getDiscoveryUrl() {
+    return discoveryUrl;
+  }
+
+  public void setDiscoveryUrl(String discoveryUrl) {
+    this.discoveryUrl = discoveryUrl;
+  }
+
   public GetWorkloadPoolResponse projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -136,6 +163,42 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
 
   public void setTags(List<TagForGetWorkloadPoolOutput> tags) {
     this.tags = tags;
+  }
+
+  public GetWorkloadPoolResponse totalCredentials(Long totalCredentials) {
+    this.totalCredentials = totalCredentials;
+    return this;
+  }
+
+   /**
+   * Get totalCredentials
+   * @return totalCredentials
+  **/
+  @Schema(description = "")
+  public Long getTotalCredentials() {
+    return totalCredentials;
+  }
+
+  public void setTotalCredentials(Long totalCredentials) {
+    this.totalCredentials = totalCredentials;
+  }
+
+  public GetWorkloadPoolResponse totalWorkloads(Long totalWorkloads) {
+    this.totalWorkloads = totalWorkloads;
+    return this;
+  }
+
+   /**
+   * Get totalWorkloads
+   * @return totalWorkloads
+  **/
+  @Schema(description = "")
+  public Long getTotalWorkloads() {
+    return totalWorkloads;
+  }
+
+  public void setTotalWorkloads(Long totalWorkloads) {
+    this.totalWorkloads = totalWorkloads;
   }
 
   public GetWorkloadPoolResponse trn(String trn) {
@@ -222,8 +285,11 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     GetWorkloadPoolResponse getWorkloadPoolResponse = (GetWorkloadPoolResponse) o;
     return Objects.equals(this.createdAt, getWorkloadPoolResponse.createdAt) &&
         Objects.equals(this.description, getWorkloadPoolResponse.description) &&
+        Objects.equals(this.discoveryUrl, getWorkloadPoolResponse.discoveryUrl) &&
         Objects.equals(this.projectName, getWorkloadPoolResponse.projectName) &&
         Objects.equals(this.tags, getWorkloadPoolResponse.tags) &&
+        Objects.equals(this.totalCredentials, getWorkloadPoolResponse.totalCredentials) &&
+        Objects.equals(this.totalWorkloads, getWorkloadPoolResponse.totalWorkloads) &&
         Objects.equals(this.trn, getWorkloadPoolResponse.trn) &&
         Objects.equals(this.updatedAt, getWorkloadPoolResponse.updatedAt) &&
         Objects.equals(this.workloadPoolId, getWorkloadPoolResponse.workloadPoolId) &&
@@ -232,7 +298,7 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, projectName, tags, trn, updatedAt, workloadPoolId, workloadPoolName);
+    return Objects.hash(createdAt, description, discoveryUrl, projectName, tags, totalCredentials, totalWorkloads, trn, updatedAt, workloadPoolId, workloadPoolName);
   }
 
 
@@ -243,8 +309,11 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    totalCredentials: ").append(toIndentedString(totalCredentials)).append("\n");
+    sb.append("    totalWorkloads: ").append(toIndentedString(totalWorkloads)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    workloadPoolId: ").append(toIndentedString(workloadPoolId)).append("\n");

@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class LineListForCreateTaskInput {
-  @SerializedName("ID")
-  private Long ID = null;
+  @SerializedName("Id")
+  private Long id = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -39,22 +39,22 @@ public class LineListForCreateTaskInput {
   @SerializedName("NodeCount")
   private Long nodeCount = null;
 
-  public LineListForCreateTaskInput ID(Long ID) {
-    this.ID = ID;
+  public LineListForCreateTaskInput id(Long id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Long getID() {
-    return ID;
+  public Long getId() {
+    return id;
   }
 
-  public void setID(Long ID) {
-    this.ID = ID;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public LineListForCreateTaskInput name(String name) {
@@ -103,14 +103,14 @@ public class LineListForCreateTaskInput {
       return false;
     }
     LineListForCreateTaskInput lineListForCreateTaskInput = (LineListForCreateTaskInput) o;
-    return Objects.equals(this.ID, lineListForCreateTaskInput.ID) &&
+    return Objects.equals(this.id, lineListForCreateTaskInput.id) &&
         Objects.equals(this.name, lineListForCreateTaskInput.name) &&
         Objects.equals(this.nodeCount, lineListForCreateTaskInput.nodeCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, name, nodeCount);
+    return Objects.hash(id, name, nodeCount);
   }
 
 
@@ -119,7 +119,7 @@ public class LineListForCreateTaskInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LineListForCreateTaskInput {\n");
     
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("}");

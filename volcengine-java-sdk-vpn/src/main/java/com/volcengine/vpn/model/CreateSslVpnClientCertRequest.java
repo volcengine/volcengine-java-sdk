@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForCreateSslVpnClientCertInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class CreateSslVpnClientCertRequest {
 
   @SerializedName("SslVpnServerId")
   private String sslVpnServerId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateSslVpnClientCertInput> tags = null;
 
   public CreateSslVpnClientCertRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -115,6 +121,33 @@ public class CreateSslVpnClientCertRequest {
     this.sslVpnServerId = sslVpnServerId;
   }
 
+  public CreateSslVpnClientCertRequest tags(List<TagForCreateSslVpnClientCertInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateSslVpnClientCertRequest addTagsItem(TagForCreateSslVpnClientCertInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateSslVpnClientCertInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateSslVpnClientCertInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateSslVpnClientCertInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +161,13 @@ public class CreateSslVpnClientCertRequest {
     return Objects.equals(this.clientToken, createSslVpnClientCertRequest.clientToken) &&
         Objects.equals(this.description, createSslVpnClientCertRequest.description) &&
         Objects.equals(this.sslVpnClientCertName, createSslVpnClientCertRequest.sslVpnClientCertName) &&
-        Objects.equals(this.sslVpnServerId, createSslVpnClientCertRequest.sslVpnServerId);
+        Objects.equals(this.sslVpnServerId, createSslVpnClientCertRequest.sslVpnServerId) &&
+        Objects.equals(this.tags, createSslVpnClientCertRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, sslVpnClientCertName, sslVpnServerId);
+    return Objects.hash(clientToken, description, sslVpnClientCertName, sslVpnServerId, tags);
   }
 
 
@@ -146,6 +180,7 @@ public class CreateSslVpnClientCertRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    sslVpnClientCertName: ").append(toIndentedString(sslVpnClientCertName)).append("\n");
     sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

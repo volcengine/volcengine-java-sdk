@@ -34,11 +34,11 @@ public class PageDetailForGetTaskResultOutput {
   @SerializedName("DiagnoseDetail")
   private DiagnoseDetailForGetTaskResultOutput diagnoseDetail = null;
 
-  @SerializedName("HTTPRequestHeader")
-  private String htTPRequestHeader = null;
+  @SerializedName("HttpRequestHeader")
+  private String httpRequestHeader = null;
 
-  @SerializedName("HTTPResponseHeader")
-  private String htTPResponseHeader = null;
+  @SerializedName("HttpResponseHeader")
+  private String httpResponseHeader = null;
 
   @SerializedName("PageCountElement")
   private Long pageCountElement = null;
@@ -61,14 +61,17 @@ public class PageDetailForGetTaskResultOutput {
   @SerializedName("PageErrorElementProportion")
   private Long pageErrorElementProportion = null;
 
-  @SerializedName("PageRequestID")
-  private String pageRequestID = null;
+  @SerializedName("PageRequestId")
+  private String pageRequestId = null;
 
   @SerializedName("PageTimeFirstScreen")
   private Long pageTimeFirstScreen = null;
 
   @SerializedName("PageTimeTotal")
   private Long pageTimeTotal = null;
+
+  @SerializedName("PcapUri")
+  private String pcapUri = null;
 
   public PageDetailForGetTaskResultOutput diagnoseDetail(DiagnoseDetailForGetTaskResultOutput diagnoseDetail) {
     this.diagnoseDetail = diagnoseDetail;
@@ -89,40 +92,40 @@ public class PageDetailForGetTaskResultOutput {
     this.diagnoseDetail = diagnoseDetail;
   }
 
-  public PageDetailForGetTaskResultOutput htTPRequestHeader(String htTPRequestHeader) {
-    this.htTPRequestHeader = htTPRequestHeader;
+  public PageDetailForGetTaskResultOutput httpRequestHeader(String httpRequestHeader) {
+    this.httpRequestHeader = httpRequestHeader;
     return this;
   }
 
    /**
-   * Get htTPRequestHeader
-   * @return htTPRequestHeader
+   * Get httpRequestHeader
+   * @return httpRequestHeader
   **/
   @Schema(description = "")
-  public String getHtTPRequestHeader() {
-    return htTPRequestHeader;
+  public String getHttpRequestHeader() {
+    return httpRequestHeader;
   }
 
-  public void setHtTPRequestHeader(String htTPRequestHeader) {
-    this.htTPRequestHeader = htTPRequestHeader;
+  public void setHttpRequestHeader(String httpRequestHeader) {
+    this.httpRequestHeader = httpRequestHeader;
   }
 
-  public PageDetailForGetTaskResultOutput htTPResponseHeader(String htTPResponseHeader) {
-    this.htTPResponseHeader = htTPResponseHeader;
+  public PageDetailForGetTaskResultOutput httpResponseHeader(String httpResponseHeader) {
+    this.httpResponseHeader = httpResponseHeader;
     return this;
   }
 
    /**
-   * Get htTPResponseHeader
-   * @return htTPResponseHeader
+   * Get httpResponseHeader
+   * @return httpResponseHeader
   **/
   @Schema(description = "")
-  public String getHtTPResponseHeader() {
-    return htTPResponseHeader;
+  public String getHttpResponseHeader() {
+    return httpResponseHeader;
   }
 
-  public void setHtTPResponseHeader(String htTPResponseHeader) {
-    this.htTPResponseHeader = htTPResponseHeader;
+  public void setHttpResponseHeader(String httpResponseHeader) {
+    this.httpResponseHeader = httpResponseHeader;
   }
 
   public PageDetailForGetTaskResultOutput pageCountElement(Long pageCountElement) {
@@ -251,22 +254,22 @@ public class PageDetailForGetTaskResultOutput {
     this.pageErrorElementProportion = pageErrorElementProportion;
   }
 
-  public PageDetailForGetTaskResultOutput pageRequestID(String pageRequestID) {
-    this.pageRequestID = pageRequestID;
+  public PageDetailForGetTaskResultOutput pageRequestId(String pageRequestId) {
+    this.pageRequestId = pageRequestId;
     return this;
   }
 
    /**
-   * Get pageRequestID
-   * @return pageRequestID
+   * Get pageRequestId
+   * @return pageRequestId
   **/
   @Schema(description = "")
-  public String getPageRequestID() {
-    return pageRequestID;
+  public String getPageRequestId() {
+    return pageRequestId;
   }
 
-  public void setPageRequestID(String pageRequestID) {
-    this.pageRequestID = pageRequestID;
+  public void setPageRequestId(String pageRequestId) {
+    this.pageRequestId = pageRequestId;
   }
 
   public PageDetailForGetTaskResultOutput pageTimeFirstScreen(Long pageTimeFirstScreen) {
@@ -305,6 +308,24 @@ public class PageDetailForGetTaskResultOutput {
     this.pageTimeTotal = pageTimeTotal;
   }
 
+  public PageDetailForGetTaskResultOutput pcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
+    return this;
+  }
+
+   /**
+   * Get pcapUri
+   * @return pcapUri
+  **/
+  @Schema(description = "")
+  public String getPcapUri() {
+    return pcapUri;
+  }
+
+  public void setPcapUri(String pcapUri) {
+    this.pcapUri = pcapUri;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -316,8 +337,8 @@ public class PageDetailForGetTaskResultOutput {
     }
     PageDetailForGetTaskResultOutput pageDetailForGetTaskResultOutput = (PageDetailForGetTaskResultOutput) o;
     return Objects.equals(this.diagnoseDetail, pageDetailForGetTaskResultOutput.diagnoseDetail) &&
-        Objects.equals(this.htTPRequestHeader, pageDetailForGetTaskResultOutput.htTPRequestHeader) &&
-        Objects.equals(this.htTPResponseHeader, pageDetailForGetTaskResultOutput.htTPResponseHeader) &&
+        Objects.equals(this.httpRequestHeader, pageDetailForGetTaskResultOutput.httpRequestHeader) &&
+        Objects.equals(this.httpResponseHeader, pageDetailForGetTaskResultOutput.httpResponseHeader) &&
         Objects.equals(this.pageCountElement, pageDetailForGetTaskResultOutput.pageCountElement) &&
         Objects.equals(this.pageCountErrorElement, pageDetailForGetTaskResultOutput.pageCountErrorElement) &&
         Objects.equals(this.pageDownloadBytesTotal, pageDetailForGetTaskResultOutput.pageDownloadBytesTotal) &&
@@ -325,14 +346,15 @@ public class PageDetailForGetTaskResultOutput {
         Objects.equals(this.pageElementSpeedAvg, pageDetailForGetTaskResultOutput.pageElementSpeedAvg) &&
         Objects.equals(this.pageErrorElemProportion, pageDetailForGetTaskResultOutput.pageErrorElemProportion) &&
         Objects.equals(this.pageErrorElementProportion, pageDetailForGetTaskResultOutput.pageErrorElementProportion) &&
-        Objects.equals(this.pageRequestID, pageDetailForGetTaskResultOutput.pageRequestID) &&
+        Objects.equals(this.pageRequestId, pageDetailForGetTaskResultOutput.pageRequestId) &&
         Objects.equals(this.pageTimeFirstScreen, pageDetailForGetTaskResultOutput.pageTimeFirstScreen) &&
-        Objects.equals(this.pageTimeTotal, pageDetailForGetTaskResultOutput.pageTimeTotal);
+        Objects.equals(this.pageTimeTotal, pageDetailForGetTaskResultOutput.pageTimeTotal) &&
+        Objects.equals(this.pcapUri, pageDetailForGetTaskResultOutput.pcapUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(diagnoseDetail, htTPRequestHeader, htTPResponseHeader, pageCountElement, pageCountErrorElement, pageDownloadBytesTotal, pageElemSpeedAvg, pageElementSpeedAvg, pageErrorElemProportion, pageErrorElementProportion, pageRequestID, pageTimeFirstScreen, pageTimeTotal);
+    return Objects.hash(diagnoseDetail, httpRequestHeader, httpResponseHeader, pageCountElement, pageCountErrorElement, pageDownloadBytesTotal, pageElemSpeedAvg, pageElementSpeedAvg, pageErrorElemProportion, pageErrorElementProportion, pageRequestId, pageTimeFirstScreen, pageTimeTotal, pcapUri);
   }
 
 
@@ -342,8 +364,8 @@ public class PageDetailForGetTaskResultOutput {
     sb.append("class PageDetailForGetTaskResultOutput {\n");
     
     sb.append("    diagnoseDetail: ").append(toIndentedString(diagnoseDetail)).append("\n");
-    sb.append("    htTPRequestHeader: ").append(toIndentedString(htTPRequestHeader)).append("\n");
-    sb.append("    htTPResponseHeader: ").append(toIndentedString(htTPResponseHeader)).append("\n");
+    sb.append("    httpRequestHeader: ").append(toIndentedString(httpRequestHeader)).append("\n");
+    sb.append("    httpResponseHeader: ").append(toIndentedString(httpResponseHeader)).append("\n");
     sb.append("    pageCountElement: ").append(toIndentedString(pageCountElement)).append("\n");
     sb.append("    pageCountErrorElement: ").append(toIndentedString(pageCountErrorElement)).append("\n");
     sb.append("    pageDownloadBytesTotal: ").append(toIndentedString(pageDownloadBytesTotal)).append("\n");
@@ -351,9 +373,10 @@ public class PageDetailForGetTaskResultOutput {
     sb.append("    pageElementSpeedAvg: ").append(toIndentedString(pageElementSpeedAvg)).append("\n");
     sb.append("    pageErrorElemProportion: ").append(toIndentedString(pageErrorElemProportion)).append("\n");
     sb.append("    pageErrorElementProportion: ").append(toIndentedString(pageErrorElementProportion)).append("\n");
-    sb.append("    pageRequestID: ").append(toIndentedString(pageRequestID)).append("\n");
+    sb.append("    pageRequestId: ").append(toIndentedString(pageRequestId)).append("\n");
     sb.append("    pageTimeFirstScreen: ").append(toIndentedString(pageTimeFirstScreen)).append("\n");
     sb.append("    pageTimeTotal: ").append(toIndentedString(pageTimeTotal)).append("\n");
+    sb.append("    pcapUri: ").append(toIndentedString(pcapUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }
