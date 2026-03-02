@@ -10,6 +10,8 @@ import com.volcengine.sign.Credentials;
 import com.volcengine.vpn.VpnApi;
 import com.volcengine.vpn.model.*;
 
+import static com.volcengine.vpn.model.CreateVpnGatewayRequest.PeriodUnitEnum.MONTH;
+
 
 public class TestCreateVpnGateway {
     public static void main(String[] args) throws Exception {
@@ -28,7 +30,7 @@ public class TestCreateVpnGateway {
         createVpnGatewayRequest.setBillingType(1);
         createVpnGatewayRequest.setDescription("test");
         createVpnGatewayRequest.setPeriod(1);
-        createVpnGatewayRequest.setPeriodUnit("Month");
+        createVpnGatewayRequest.setPeriodUnit(MONTH);
         createVpnGatewayRequest.setSubnetId("subnet-2fewbgn7jbk0059gp67ap****");
         createVpnGatewayRequest.setVpcId("vpc-12bhs1ivo6p6o17q7y2x3****");
         createVpnGatewayRequest.setVpnGatewayName("test");
