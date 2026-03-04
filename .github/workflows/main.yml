@@ -21,7 +21,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          java-version: '8'
           distribution: 'temurin'
           server-id: central
           server-username: MAVEN_CENTRAL_USERNAME
@@ -75,9 +75,26 @@ jobs:
           name: Release ${{ steps.version.outputs.tag }}
           body: ${{ steps.changelog.outputs.content }}
 
-      - name: Publish to Maven Central
+      - name: Check Maven Central Version
+        id: maven_check
         run: |
-          mvn clean deploy -B -Prelease -DskipTests \
+          VERSION="${{ steps.version.outputs.version }}"
+          GROUP_PATH="com/volcengine"
+          ARTIFACT_ID="volcengine-java-sdk"
+          POM_URL="https://repo.maven.apache.org/maven2/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}/${ARTIFACT_ID}-${VERSION}.pom"
+          CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$POM_URL")
+          if [ "$CODE" = "200" ]; then
+            echo "publish_needed=false" >> $GITHUB_OUTPUT
+            echo "maven_version_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "publish_needed=true" >> $GITHUB_OUTPUT
+            echo "maven_version_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to Maven Central
+        if: steps.maven_check.outputs.publish_needed == 'true'
+        run: |
+          mvn clean deploy -B -Ppublic -DskipTests \
             -Dmaven.javadoc.failOnError=false \
             -Dmaven.javadoc.quiet=true
         env:
