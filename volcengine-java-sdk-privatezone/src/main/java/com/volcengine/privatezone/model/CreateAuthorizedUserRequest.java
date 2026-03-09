@@ -37,7 +37,7 @@ public class CreateAuthorizedUserRequest {
   private Integer authType = null;
 
   @SerializedName("VerifyCode")
-  private Integer verifyCode = null;
+  private String verifyCode = null;
 
   public CreateAuthorizedUserRequest accountID(String accountID) {
     this.accountID = accountID;
@@ -77,7 +77,7 @@ public class CreateAuthorizedUserRequest {
     this.authType = authType;
   }
 
-  public CreateAuthorizedUserRequest verifyCode(Integer verifyCode) {
+  public CreateAuthorizedUserRequest verifyCode(String verifyCode) {
     this.verifyCode = verifyCode;
     return this;
   }
@@ -87,11 +87,11 @@ public class CreateAuthorizedUserRequest {
    * @return verifyCode
   **/
   @Schema(description = "")
-  public Integer getVerifyCode() {
+  public String getVerifyCode() {
     return verifyCode;
   }
 
-  public void setVerifyCode(Integer verifyCode) {
+  public void setVerifyCode(String verifyCode) {
     this.verifyCode = verifyCode;
   }
 
