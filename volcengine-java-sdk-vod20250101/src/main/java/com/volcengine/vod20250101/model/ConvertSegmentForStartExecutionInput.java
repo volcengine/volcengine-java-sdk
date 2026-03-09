@@ -30,14 +30,38 @@ import javax.validation.Valid;
 
 
 public class ConvertSegmentForStartExecutionInput {
+  @SerializedName("ClipFade")
+  private Boolean clipFade = null;
+
   @SerializedName("MaxDuration")
   private Double maxDuration = null;
 
   @SerializedName("MinDuration")
   private Double minDuration = null;
 
+  @SerializedName("NoFile")
+  private Boolean noFile = null;
+
   @SerializedName("Threshold")
   private Double threshold = null;
+
+  public ConvertSegmentForStartExecutionInput clipFade(Boolean clipFade) {
+    this.clipFade = clipFade;
+    return this;
+  }
+
+   /**
+   * Get clipFade
+   * @return clipFade
+  **/
+  @Schema(description = "")
+  public Boolean isClipFade() {
+    return clipFade;
+  }
+
+  public void setClipFade(Boolean clipFade) {
+    this.clipFade = clipFade;
+  }
 
   public ConvertSegmentForStartExecutionInput maxDuration(Double maxDuration) {
     this.maxDuration = maxDuration;
@@ -75,6 +99,24 @@ public class ConvertSegmentForStartExecutionInput {
     this.minDuration = minDuration;
   }
 
+  public ConvertSegmentForStartExecutionInput noFile(Boolean noFile) {
+    this.noFile = noFile;
+    return this;
+  }
+
+   /**
+   * Get noFile
+   * @return noFile
+  **/
+  @Schema(description = "")
+  public Boolean isNoFile() {
+    return noFile;
+  }
+
+  public void setNoFile(Boolean noFile) {
+    this.noFile = noFile;
+  }
+
   public ConvertSegmentForStartExecutionInput threshold(Double threshold) {
     this.threshold = threshold;
     return this;
@@ -103,14 +145,16 @@ public class ConvertSegmentForStartExecutionInput {
       return false;
     }
     ConvertSegmentForStartExecutionInput convertSegmentForStartExecutionInput = (ConvertSegmentForStartExecutionInput) o;
-    return Objects.equals(this.maxDuration, convertSegmentForStartExecutionInput.maxDuration) &&
+    return Objects.equals(this.clipFade, convertSegmentForStartExecutionInput.clipFade) &&
+        Objects.equals(this.maxDuration, convertSegmentForStartExecutionInput.maxDuration) &&
         Objects.equals(this.minDuration, convertSegmentForStartExecutionInput.minDuration) &&
+        Objects.equals(this.noFile, convertSegmentForStartExecutionInput.noFile) &&
         Objects.equals(this.threshold, convertSegmentForStartExecutionInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxDuration, minDuration, threshold);
+    return Objects.hash(clipFade, maxDuration, minDuration, noFile, threshold);
   }
 
 
@@ -119,8 +163,10 @@ public class ConvertSegmentForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertSegmentForStartExecutionInput {\n");
     
+    sb.append("    clipFade: ").append(toIndentedString(clipFade)).append("\n");
     sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
     sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
+    sb.append("    noFile: ").append(toIndentedString(noFile)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.CanvasForGetExecutionOutput;
-import com.volcengine.vod20250101.model.OutputForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertOutputForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,7 +36,7 @@ public class CustomEditForGetExecutionOutput {
   private CanvasForGetExecutionOutput canvas = null;
 
   @SerializedName("Output")
-  private OutputForGetExecutionOutput output = null;
+  private ConvertOutputForGetExecutionOutput output = null;
 
   public CustomEditForGetExecutionOutput canvas(CanvasForGetExecutionOutput canvas) {
     this.canvas = canvas;
@@ -57,7 +57,7 @@ public class CustomEditForGetExecutionOutput {
     this.canvas = canvas;
   }
 
-  public CustomEditForGetExecutionOutput output(OutputForGetExecutionOutput output) {
+  public CustomEditForGetExecutionOutput output(ConvertOutputForGetExecutionOutput output) {
     this.output = output;
     return this;
   }
@@ -68,11 +68,11 @@ public class CustomEditForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public OutputForGetExecutionOutput getOutput() {
+  public ConvertOutputForGetExecutionOutput getOutput() {
     return output;
   }
 
-  public void setOutput(OutputForGetExecutionOutput output) {
+  public void setOutput(ConvertOutputForGetExecutionOutput output) {
     this.output = output;
   }
 

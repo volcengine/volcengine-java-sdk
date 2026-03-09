@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertConvertClipForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertClipForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,16 +34,16 @@ import javax.validation.Valid;
 
 public class CutForGetExecutionOutput {
   @SerializedName("Clips")
-  private List<ConvertConvertClipForGetExecutionOutput> clips = null;
+  private List<ConvertConvertConvertClipForGetExecutionOutput> clips = null;
 
-  public CutForGetExecutionOutput clips(List<ConvertConvertClipForGetExecutionOutput> clips) {
+  public CutForGetExecutionOutput clips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
     return this;
   }
 
-  public CutForGetExecutionOutput addClipsItem(ConvertConvertClipForGetExecutionOutput clipsItem) {
+  public CutForGetExecutionOutput addClipsItem(ConvertConvertConvertClipForGetExecutionOutput clipsItem) {
     if (this.clips == null) {
-      this.clips = new ArrayList<ConvertConvertClipForGetExecutionOutput>();
+      this.clips = new ArrayList<ConvertConvertConvertClipForGetExecutionOutput>();
     }
     this.clips.add(clipsItem);
     return this;
@@ -55,11 +55,11 @@ public class CutForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertConvertClipForGetExecutionOutput> getClips() {
+  public List<ConvertConvertConvertClipForGetExecutionOutput> getClips() {
     return clips;
   }
 
-  public void setClips(List<ConvertConvertClipForGetExecutionOutput> clips) {
+  public void setClips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
   }
 

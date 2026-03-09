@@ -30,47 +30,11 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertConvertSegmentForGetExecutionOutput {
-  @SerializedName("Description")
-  private String description = null;
-
   @SerializedName("End")
   private Double end = null;
 
-  @SerializedName("Location")
-  private String location = null;
-
-  @SerializedName("Ocr")
-  private String ocr = null;
-
-  @SerializedName("Score")
-  private Double score = null;
-
-  @SerializedName("Shot")
-  private String shot = null;
-
   @SerializedName("Start")
   private Double start = null;
-
-  @SerializedName("VideoIndex")
-  private Integer videoIndex = null;
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 
   public ConvertConvertConvertSegmentForGetExecutionOutput end(Double end) {
     this.end = end;
@@ -88,78 +52,6 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
 
   public void setEnd(Double end) {
     this.end = end;
-  }
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput location(String location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * Get location
-   * @return location
-  **/
-  @Schema(description = "")
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput ocr(String ocr) {
-    this.ocr = ocr;
-    return this;
-  }
-
-   /**
-   * Get ocr
-   * @return ocr
-  **/
-  @Schema(description = "")
-  public String getOcr() {
-    return ocr;
-  }
-
-  public void setOcr(String ocr) {
-    this.ocr = ocr;
-  }
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput score(Double score) {
-    this.score = score;
-    return this;
-  }
-
-   /**
-   * Get score
-   * @return score
-  **/
-  @Schema(description = "")
-  public Double getScore() {
-    return score;
-  }
-
-  public void setScore(Double score) {
-    this.score = score;
-  }
-
-  public ConvertConvertConvertSegmentForGetExecutionOutput shot(String shot) {
-    this.shot = shot;
-    return this;
-  }
-
-   /**
-   * Get shot
-   * @return shot
-  **/
-  @Schema(description = "")
-  public String getShot() {
-    return shot;
-  }
-
-  public void setShot(String shot) {
-    this.shot = shot;
   }
 
   public ConvertConvertConvertSegmentForGetExecutionOutput start(Double start) {
@@ -180,24 +72,6 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
     this.start = start;
   }
 
-  public ConvertConvertConvertSegmentForGetExecutionOutput videoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
-    return this;
-  }
-
-   /**
-   * Get videoIndex
-   * @return videoIndex
-  **/
-  @Schema(description = "")
-  public Integer getVideoIndex() {
-    return videoIndex;
-  }
-
-  public void setVideoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,19 +82,13 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
       return false;
     }
     ConvertConvertConvertSegmentForGetExecutionOutput convertConvertConvertSegmentForGetExecutionOutput = (ConvertConvertConvertSegmentForGetExecutionOutput) o;
-    return Objects.equals(this.description, convertConvertConvertSegmentForGetExecutionOutput.description) &&
-        Objects.equals(this.end, convertConvertConvertSegmentForGetExecutionOutput.end) &&
-        Objects.equals(this.location, convertConvertConvertSegmentForGetExecutionOutput.location) &&
-        Objects.equals(this.ocr, convertConvertConvertSegmentForGetExecutionOutput.ocr) &&
-        Objects.equals(this.score, convertConvertConvertSegmentForGetExecutionOutput.score) &&
-        Objects.equals(this.shot, convertConvertConvertSegmentForGetExecutionOutput.shot) &&
-        Objects.equals(this.start, convertConvertConvertSegmentForGetExecutionOutput.start) &&
-        Objects.equals(this.videoIndex, convertConvertConvertSegmentForGetExecutionOutput.videoIndex);
+    return Objects.equals(this.end, convertConvertConvertSegmentForGetExecutionOutput.end) &&
+        Objects.equals(this.start, convertConvertConvertSegmentForGetExecutionOutput.start);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, end, location, ocr, score, shot, start, videoIndex);
+    return Objects.hash(end, start);
   }
 
 
@@ -229,14 +97,8 @@ public class ConvertConvertConvertSegmentForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertConvertSegmentForGetExecutionOutput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
-    sb.append("    score: ").append(toIndentedString(score)).append("\n");
-    sb.append("    shot: ").append(toIndentedString(shot)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }

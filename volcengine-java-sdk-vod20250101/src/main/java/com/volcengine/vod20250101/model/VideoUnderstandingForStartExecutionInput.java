@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertSegmentForStartExecutionInput;
+import com.volcengine.vod20250101.model.ConvertConvertSegmentForStartExecutionInput;
 import com.volcengine.vod20250101.model.ModelForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class VideoUnderstandingForStartExecutionInput {
   private String prompt = null;
 
   @SerializedName("Segment")
-  private ConvertSegmentForStartExecutionInput segment = null;
+  private ConvertConvertSegmentForStartExecutionInput segment = null;
 
   @SerializedName("WithSegment")
   private Boolean withSegment = null;
@@ -81,7 +81,7 @@ public class VideoUnderstandingForStartExecutionInput {
     this.prompt = prompt;
   }
 
-  public VideoUnderstandingForStartExecutionInput segment(ConvertSegmentForStartExecutionInput segment) {
+  public VideoUnderstandingForStartExecutionInput segment(ConvertConvertSegmentForStartExecutionInput segment) {
     this.segment = segment;
     return this;
   }
@@ -92,11 +92,11 @@ public class VideoUnderstandingForStartExecutionInput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertSegmentForStartExecutionInput getSegment() {
+  public ConvertConvertSegmentForStartExecutionInput getSegment() {
     return segment;
   }
 
-  public void setSegment(ConvertSegmentForStartExecutionInput segment) {
+  public void setSegment(ConvertConvertSegmentForStartExecutionInput segment) {
     this.segment = segment;
   }
 

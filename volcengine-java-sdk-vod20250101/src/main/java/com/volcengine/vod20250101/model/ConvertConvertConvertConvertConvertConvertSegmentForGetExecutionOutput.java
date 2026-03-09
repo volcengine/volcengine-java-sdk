@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.VideoForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,118 +33,55 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {
-  @SerializedName("Content")
-  private String content = null;
+  @SerializedName("Duration")
+  private Double duration = null;
 
-  @SerializedName("End")
-  private Double end = null;
+  @SerializedName("Segments")
+  private List<ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments = null;
 
-  @SerializedName("File")
-  private VideoForGetExecutionOutput file = null;
-
-  @SerializedName("Frames")
-  private List<Integer> frames = null;
-
-  @SerializedName("Start")
-  private Double start = null;
-
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput content(String content) {
-    this.content = content;
+  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput duration(Double duration) {
+    this.duration = duration;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get duration
+   * @return duration
   **/
   @Schema(description = "")
-  public String getContent() {
-    return content;
+  public Double getDuration() {
+    return duration;
   }
 
-  public void setContent(String content) {
-    this.content = content;
+  public void setDuration(Double duration) {
+    this.duration = duration;
   }
 
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput end(Double end) {
-    this.end = end;
+  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput segments(List<ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
+    this.segments = segments;
+    return this;
+  }
+
+  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput addSegmentsItem(ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput segmentsItem) {
+    if (this.segments == null) {
+      this.segments = new ArrayList<ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput>();
+    }
+    this.segments.add(segmentsItem);
     return this;
   }
 
    /**
-   * Get end
-   * @return end
-  **/
-  @Schema(description = "")
-  public Double getEnd() {
-    return end;
-  }
-
-  public void setEnd(Double end) {
-    this.end = end;
-  }
-
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput file(VideoForGetExecutionOutput file) {
-    this.file = file;
-    return this;
-  }
-
-   /**
-   * Get file
-   * @return file
+   * Get segments
+   * @return segments
   **/
   @Valid
   @Schema(description = "")
-  public VideoForGetExecutionOutput getFile() {
-    return file;
+  public List<ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> getSegments() {
+    return segments;
   }
 
-  public void setFile(VideoForGetExecutionOutput file) {
-    this.file = file;
-  }
-
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput frames(List<Integer> frames) {
-    this.frames = frames;
-    return this;
-  }
-
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput addFramesItem(Integer framesItem) {
-    if (this.frames == null) {
-      this.frames = new ArrayList<Integer>();
-    }
-    this.frames.add(framesItem);
-    return this;
-  }
-
-   /**
-   * Get frames
-   * @return frames
-  **/
-  @Schema(description = "")
-  public List<Integer> getFrames() {
-    return frames;
-  }
-
-  public void setFrames(List<Integer> frames) {
-    this.frames = frames;
-  }
-
-  public ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput start(Double start) {
-    this.start = start;
-    return this;
-  }
-
-   /**
-   * Get start
-   * @return start
-  **/
-  @Schema(description = "")
-  public Double getStart() {
-    return start;
-  }
-
-  public void setStart(Double start) {
-    this.start = start;
+  public void setSegments(List<ConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
+    this.segments = segments;
   }
 
 
@@ -157,16 +94,13 @@ public class ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOut
       return false;
     }
     ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput = (ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput) o;
-    return Objects.equals(this.content, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.content) &&
-        Objects.equals(this.end, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.end) &&
-        Objects.equals(this.file, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.file) &&
-        Objects.equals(this.frames, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.frames) &&
-        Objects.equals(this.start, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.start);
+    return Objects.equals(this.duration, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.duration) &&
+        Objects.equals(this.segments, convertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput.segments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, end, file, frames, start);
+    return Objects.hash(duration, segments);
   }
 
 
@@ -175,11 +109,8 @@ public class ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOut
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput {\n");
     
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
-    sb.append("    frames: ").append(toIndentedString(frames)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    segments: ").append(toIndentedString(segments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

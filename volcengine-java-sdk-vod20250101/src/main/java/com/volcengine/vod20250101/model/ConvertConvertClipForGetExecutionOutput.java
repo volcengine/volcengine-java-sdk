@@ -30,62 +30,14 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertClipForGetExecutionOutput {
-  @SerializedName("CutEnd")
-  private Double cutEnd = null;
-
-  @SerializedName("CutStart")
-  private Double cutStart = null;
-
   @SerializedName("End")
   private Double end = null;
-
-  @SerializedName("Score")
-  private Double score = null;
 
   @SerializedName("Start")
   private Double start = null;
 
-  @SerializedName("Type")
-  private String type = null;
-
   @SerializedName("VideoIndex")
   private Integer videoIndex = null;
-
-  public ConvertConvertClipForGetExecutionOutput cutEnd(Double cutEnd) {
-    this.cutEnd = cutEnd;
-    return this;
-  }
-
-   /**
-   * Get cutEnd
-   * @return cutEnd
-  **/
-  @Schema(description = "")
-  public Double getCutEnd() {
-    return cutEnd;
-  }
-
-  public void setCutEnd(Double cutEnd) {
-    this.cutEnd = cutEnd;
-  }
-
-  public ConvertConvertClipForGetExecutionOutput cutStart(Double cutStart) {
-    this.cutStart = cutStart;
-    return this;
-  }
-
-   /**
-   * Get cutStart
-   * @return cutStart
-  **/
-  @Schema(description = "")
-  public Double getCutStart() {
-    return cutStart;
-  }
-
-  public void setCutStart(Double cutStart) {
-    this.cutStart = cutStart;
-  }
 
   public ConvertConvertClipForGetExecutionOutput end(Double end) {
     this.end = end;
@@ -105,24 +57,6 @@ public class ConvertConvertClipForGetExecutionOutput {
     this.end = end;
   }
 
-  public ConvertConvertClipForGetExecutionOutput score(Double score) {
-    this.score = score;
-    return this;
-  }
-
-   /**
-   * Get score
-   * @return score
-  **/
-  @Schema(description = "")
-  public Double getScore() {
-    return score;
-  }
-
-  public void setScore(Double score) {
-    this.score = score;
-  }
-
   public ConvertConvertClipForGetExecutionOutput start(Double start) {
     this.start = start;
     return this;
@@ -139,24 +73,6 @@ public class ConvertConvertClipForGetExecutionOutput {
 
   public void setStart(Double start) {
     this.start = start;
-  }
-
-  public ConvertConvertClipForGetExecutionOutput type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   public ConvertConvertClipForGetExecutionOutput videoIndex(Integer videoIndex) {
@@ -187,18 +103,14 @@ public class ConvertConvertClipForGetExecutionOutput {
       return false;
     }
     ConvertConvertClipForGetExecutionOutput convertConvertClipForGetExecutionOutput = (ConvertConvertClipForGetExecutionOutput) o;
-    return Objects.equals(this.cutEnd, convertConvertClipForGetExecutionOutput.cutEnd) &&
-        Objects.equals(this.cutStart, convertConvertClipForGetExecutionOutput.cutStart) &&
-        Objects.equals(this.end, convertConvertClipForGetExecutionOutput.end) &&
-        Objects.equals(this.score, convertConvertClipForGetExecutionOutput.score) &&
+    return Objects.equals(this.end, convertConvertClipForGetExecutionOutput.end) &&
         Objects.equals(this.start, convertConvertClipForGetExecutionOutput.start) &&
-        Objects.equals(this.type, convertConvertClipForGetExecutionOutput.type) &&
         Objects.equals(this.videoIndex, convertConvertClipForGetExecutionOutput.videoIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cutEnd, cutStart, end, score, start, type, videoIndex);
+    return Objects.hash(end, start, videoIndex);
   }
 
 
@@ -207,12 +119,8 @@ public class ConvertConvertClipForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertClipForGetExecutionOutput {\n");
     
-    sb.append("    cutEnd: ").append(toIndentedString(cutEnd)).append("\n");
-    sb.append("    cutStart: ").append(toIndentedString(cutStart)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();

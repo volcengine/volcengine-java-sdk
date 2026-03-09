@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AudioStreamMetaForGetExecutionOutput;
-import com.volcengine.vod20250101.model.EncryptionForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertEncryptionForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoStreamMetaForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -52,7 +52,7 @@ public class ConvertTranscodeVideoForGetExecutionOutput {
   private Boolean encrypt = null;
 
   @SerializedName("Encryption")
-  private EncryptionForGetExecutionOutput encryption = null;
+  private ConvertEncryptionForGetExecutionOutput encryption = null;
 
   @SerializedName("FileId")
   private String fileId = null;
@@ -190,7 +190,7 @@ public class ConvertTranscodeVideoForGetExecutionOutput {
     this.encrypt = encrypt;
   }
 
-  public ConvertTranscodeVideoForGetExecutionOutput encryption(EncryptionForGetExecutionOutput encryption) {
+  public ConvertTranscodeVideoForGetExecutionOutput encryption(ConvertEncryptionForGetExecutionOutput encryption) {
     this.encryption = encryption;
     return this;
   }
@@ -201,11 +201,11 @@ public class ConvertTranscodeVideoForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public EncryptionForGetExecutionOutput getEncryption() {
+  public ConvertEncryptionForGetExecutionOutput getEncryption() {
     return encryption;
   }
 
-  public void setEncryption(EncryptionForGetExecutionOutput encryption) {
+  public void setEncryption(ConvertEncryptionForGetExecutionOutput encryption) {
     this.encryption = encryption;
   }
 
