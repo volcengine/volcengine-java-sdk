@@ -33,6 +33,9 @@ public class DescribeInstanceAllowListsRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("RegionId")
+  private String regionId = null;
+
   public DescribeInstanceAllowListsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -51,6 +54,24 @@ public class DescribeInstanceAllowListsRequest {
     this.instanceId = instanceId;
   }
 
+  public DescribeInstanceAllowListsRequest regionId(String regionId) {
+    this.regionId = regionId;
+    return this;
+  }
+
+   /**
+   * Get regionId
+   * @return regionId
+  **/
+  @Schema(description = "")
+  public String getRegionId() {
+    return regionId;
+  }
+
+  public void setRegionId(String regionId) {
+    this.regionId = regionId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class DescribeInstanceAllowListsRequest {
       return false;
     }
     DescribeInstanceAllowListsRequest describeInstanceAllowListsRequest = (DescribeInstanceAllowListsRequest) o;
-    return Objects.equals(this.instanceId, describeInstanceAllowListsRequest.instanceId);
+    return Objects.equals(this.instanceId, describeInstanceAllowListsRequest.instanceId) &&
+        Objects.equals(this.regionId, describeInstanceAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(instanceId, regionId);
   }
 
 
@@ -76,6 +98,7 @@ public class DescribeInstanceAllowListsRequest {
     sb.append("class DescribeInstanceAllowListsRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
