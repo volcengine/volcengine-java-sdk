@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vepfs.model.DeletePolicyForDescribeDataFlowTasksOutput;
 import com.volcengine.vepfs.model.EntryListFileInfoForDescribeDataFlowTasksOutput;
 import com.volcengine.vepfs.model.ReportForDescribeDataFlowTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -91,6 +92,9 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     }
   }  @SerializedName("DataType")
   private DataTypeEnum dataType = null;
+
+  @SerializedName("DeletePolicy")
+  private DeletePolicyForDescribeDataFlowTasksOutput deletePolicy = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
@@ -427,6 +431,25 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   public void setDataType(DataTypeEnum dataType) {
     this.dataType = dataType;
+  }
+
+  public DataFlowTaskForDescribeDataFlowTasksOutput deletePolicy(DeletePolicyForDescribeDataFlowTasksOutput deletePolicy) {
+    this.deletePolicy = deletePolicy;
+    return this;
+  }
+
+   /**
+   * Get deletePolicy
+   * @return deletePolicy
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeletePolicyForDescribeDataFlowTasksOutput getDeletePolicy() {
+    return deletePolicy;
+  }
+
+  public void setDeletePolicy(DeletePolicyForDescribeDataFlowTasksOutput deletePolicy) {
+    this.deletePolicy = deletePolicy;
   }
 
   public DataFlowTaskForDescribeDataFlowTasksOutput endTime(String endTime) {
@@ -796,6 +819,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
         Objects.equals(this.dataStorage, dataFlowTaskForDescribeDataFlowTasksOutput.dataStorage) &&
         Objects.equals(this.dataStoragePath, dataFlowTaskForDescribeDataFlowTasksOutput.dataStoragePath) &&
         Objects.equals(this.dataType, dataFlowTaskForDescribeDataFlowTasksOutput.dataType) &&
+        Objects.equals(this.deletePolicy, dataFlowTaskForDescribeDataFlowTasksOutput.deletePolicy) &&
         Objects.equals(this.endTime, dataFlowTaskForDescribeDataFlowTasksOutput.endTime) &&
         Objects.equals(this.entryListFileInfo, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileInfo) &&
         Objects.equals(this.entryListFileUrl, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileUrl) &&
@@ -819,7 +843,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dataFlowTaskId, dataStorage, dataStoragePath, dataType, endTime, entryListFileInfo, entryListFileUrl, execCount, execSize, exportSymlinkPolicy, failedCount, fileSystemId, filesetId, filesetPath, queueCount, reports, sameNameFilePolicy, startTime, status, subPath, taskAction, totalSize, updateTime);
+    return Objects.hash(createTime, dataFlowTaskId, dataStorage, dataStoragePath, dataType, deletePolicy, endTime, entryListFileInfo, entryListFileUrl, execCount, execSize, exportSymlinkPolicy, failedCount, fileSystemId, filesetId, filesetPath, queueCount, reports, sameNameFilePolicy, startTime, status, subPath, taskAction, totalSize, updateTime);
   }
 
 
@@ -833,6 +857,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     sb.append("    dataStorage: ").append(toIndentedString(dataStorage)).append("\n");
     sb.append("    dataStoragePath: ").append(toIndentedString(dataStoragePath)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
+    sb.append("    deletePolicy: ").append(toIndentedString(deletePolicy)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    entryListFileInfo: ").append(toIndentedString(entryListFileInfo)).append("\n");
     sb.append("    entryListFileUrl: ").append(toIndentedString(entryListFileUrl)).append("\n");
