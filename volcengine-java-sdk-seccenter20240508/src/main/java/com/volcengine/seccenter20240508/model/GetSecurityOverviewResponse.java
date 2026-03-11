@@ -23,6 +23,7 @@ import com.volcengine.seccenter20240508.model.BaselineRiskForGetSecurityOverview
 import com.volcengine.seccenter20240508.model.ContainerIntrusionForGetSecurityOverviewOutput;
 import com.volcengine.seccenter20240508.model.HostIntrusionForGetSecurityOverviewOutput;
 import com.volcengine.seccenter20240508.model.RaspIntrusionForGetSecurityOverviewOutput;
+import com.volcengine.seccenter20240508.model.RealRiskVulForGetSecurityOverviewOutput;
 import com.volcengine.seccenter20240508.model.VirusFileForGetSecurityOverviewOutput;
 import com.volcengine.seccenter20240508.model.VulnRiskForGetSecurityOverviewOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -47,6 +48,9 @@ public class GetSecurityOverviewResponse extends com.volcengine.model.AbstractRe
 
   @SerializedName("RaspIntrusion")
   private RaspIntrusionForGetSecurityOverviewOutput raspIntrusion = null;
+
+  @SerializedName("RealRiskVul")
+  private RealRiskVulForGetSecurityOverviewOutput realRiskVul = null;
 
   @SerializedName("VirusFile")
   private VirusFileForGetSecurityOverviewOutput virusFile = null;
@@ -130,6 +134,25 @@ public class GetSecurityOverviewResponse extends com.volcengine.model.AbstractRe
     this.raspIntrusion = raspIntrusion;
   }
 
+  public GetSecurityOverviewResponse realRiskVul(RealRiskVulForGetSecurityOverviewOutput realRiskVul) {
+    this.realRiskVul = realRiskVul;
+    return this;
+  }
+
+   /**
+   * Get realRiskVul
+   * @return realRiskVul
+  **/
+  @Valid
+  @Schema(description = "")
+  public RealRiskVulForGetSecurityOverviewOutput getRealRiskVul() {
+    return realRiskVul;
+  }
+
+  public void setRealRiskVul(RealRiskVulForGetSecurityOverviewOutput realRiskVul) {
+    this.realRiskVul = realRiskVul;
+  }
+
   public GetSecurityOverviewResponse virusFile(VirusFileForGetSecurityOverviewOutput virusFile) {
     this.virusFile = virusFile;
     return this;
@@ -182,13 +205,14 @@ public class GetSecurityOverviewResponse extends com.volcengine.model.AbstractRe
         Objects.equals(this.containerIntrusion, getSecurityOverviewResponse.containerIntrusion) &&
         Objects.equals(this.hostIntrusion, getSecurityOverviewResponse.hostIntrusion) &&
         Objects.equals(this.raspIntrusion, getSecurityOverviewResponse.raspIntrusion) &&
+        Objects.equals(this.realRiskVul, getSecurityOverviewResponse.realRiskVul) &&
         Objects.equals(this.virusFile, getSecurityOverviewResponse.virusFile) &&
         Objects.equals(this.vulnRisk, getSecurityOverviewResponse.vulnRisk);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baselineRisk, containerIntrusion, hostIntrusion, raspIntrusion, virusFile, vulnRisk);
+    return Objects.hash(baselineRisk, containerIntrusion, hostIntrusion, raspIntrusion, realRiskVul, virusFile, vulnRisk);
   }
 
 
@@ -201,6 +225,7 @@ public class GetSecurityOverviewResponse extends com.volcengine.model.AbstractRe
     sb.append("    containerIntrusion: ").append(toIndentedString(containerIntrusion)).append("\n");
     sb.append("    hostIntrusion: ").append(toIndentedString(hostIntrusion)).append("\n");
     sb.append("    raspIntrusion: ").append(toIndentedString(raspIntrusion)).append("\n");
+    sb.append("    realRiskVul: ").append(toIndentedString(realRiskVul)).append("\n");
     sb.append("    virusFile: ").append(toIndentedString(virusFile)).append("\n");
     sb.append("    vulnRisk: ").append(toIndentedString(vulnRisk)).append("\n");
     sb.append("}");

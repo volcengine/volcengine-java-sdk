@@ -42,8 +42,7 @@ public class GetFingerprintTop5Request {
    * Get fingerprintType
    * @return fingerprintType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getFingerprintType() {
     return fingerprintType;
   }

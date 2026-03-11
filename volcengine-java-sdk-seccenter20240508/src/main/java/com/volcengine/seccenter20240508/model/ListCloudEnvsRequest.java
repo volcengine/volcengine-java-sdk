@@ -118,11 +118,10 @@ public class ListCloudEnvsRequest {
 
    /**
    * Get pageNumber
-   * minimum: 1
    * @return pageNumber
   **/
   @NotNull
- @Min(1)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Long getPageNumber() {
     return pageNumber;
   }
@@ -138,12 +137,10 @@ public class ListCloudEnvsRequest {
 
    /**
    * Get pageSize
-   * minimum: 1
-   * maximum: 5000
    * @return pageSize
   **/
   @NotNull
- @Min(1) @Max(5000)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Long getPageSize() {
     return pageSize;
   }

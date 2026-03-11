@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.ScanPathListForCreatFileScanTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +53,12 @@ public class CreatFileScanTaskRequest {
 
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
+
+  @SerializedName("ScanPathList")
+  private List<ScanPathListForCreatFileScanTaskInput> scanPathList = null;
+
+  @SerializedName("ScanSkipList")
+  private List<String> scanSkipList = null;
 
   @SerializedName("TaskName")
   private String taskName = null;
@@ -213,6 +220,59 @@ public class CreatFileScanTaskRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
+  public CreatFileScanTaskRequest scanPathList(List<ScanPathListForCreatFileScanTaskInput> scanPathList) {
+    this.scanPathList = scanPathList;
+    return this;
+  }
+
+  public CreatFileScanTaskRequest addScanPathListItem(ScanPathListForCreatFileScanTaskInput scanPathListItem) {
+    if (this.scanPathList == null) {
+      this.scanPathList = new ArrayList<ScanPathListForCreatFileScanTaskInput>();
+    }
+    this.scanPathList.add(scanPathListItem);
+    return this;
+  }
+
+   /**
+   * Get scanPathList
+   * @return scanPathList
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ScanPathListForCreatFileScanTaskInput> getScanPathList() {
+    return scanPathList;
+  }
+
+  public void setScanPathList(List<ScanPathListForCreatFileScanTaskInput> scanPathList) {
+    this.scanPathList = scanPathList;
+  }
+
+  public CreatFileScanTaskRequest scanSkipList(List<String> scanSkipList) {
+    this.scanSkipList = scanSkipList;
+    return this;
+  }
+
+  public CreatFileScanTaskRequest addScanSkipListItem(String scanSkipListItem) {
+    if (this.scanSkipList == null) {
+      this.scanSkipList = new ArrayList<String>();
+    }
+    this.scanSkipList.add(scanSkipListItem);
+    return this;
+  }
+
+   /**
+   * Get scanSkipList
+   * @return scanSkipList
+  **/
+  @Schema(description = "")
+  public List<String> getScanSkipList() {
+    return scanSkipList;
+  }
+
+  public void setScanSkipList(List<String> scanSkipList) {
+    this.scanSkipList = scanSkipList;
+  }
+
   public CreatFileScanTaskRequest taskName(String taskName) {
     this.taskName = taskName;
     return this;
@@ -284,6 +344,8 @@ public class CreatFileScanTaskRequest {
         Objects.equals(this.cpuIDle, creatFileScanTaskRequest.cpuIDle) &&
         Objects.equals(this.filePath, creatFileScanTaskRequest.filePath) &&
         Objects.equals(this.leafGroupIDs, creatFileScanTaskRequest.leafGroupIDs) &&
+        Objects.equals(this.scanPathList, creatFileScanTaskRequest.scanPathList) &&
+        Objects.equals(this.scanSkipList, creatFileScanTaskRequest.scanSkipList) &&
         Objects.equals(this.taskName, creatFileScanTaskRequest.taskName) &&
         Objects.equals(this.timeout, creatFileScanTaskRequest.timeout) &&
         Objects.equals(this.topGroupID, creatFileScanTaskRequest.topGroupID);
@@ -291,7 +353,7 @@ public class CreatFileScanTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, agentIDList, allHost, cloudProviders, cpuIDle, filePath, leafGroupIDs, taskName, timeout, topGroupID);
+    return Objects.hash(action, agentIDList, allHost, cloudProviders, cpuIDle, filePath, leafGroupIDs, scanPathList, scanSkipList, taskName, timeout, topGroupID);
   }
 
 
@@ -307,6 +369,8 @@ public class CreatFileScanTaskRequest {
     sb.append("    cpuIDle: ").append(toIndentedString(cpuIDle)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
+    sb.append("    scanPathList: ").append(toIndentedString(scanPathList)).append("\n");
+    sb.append("    scanSkipList: ").append(toIndentedString(scanSkipList)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");

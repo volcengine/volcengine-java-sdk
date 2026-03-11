@@ -37,6 +37,9 @@ public class DataForGetOfflineNotificationListOutput {
   @SerializedName("AbnormalPluginsList")
   private String abnormalPluginsList = null;
 
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("AgentID")
   private String agentID = null;
 
@@ -73,6 +76,9 @@ public class DataForGetOfflineNotificationListOutput {
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("GroupPathEn")
+  private String groupPathEn = null;
+
   @SerializedName("KernelVersion")
   private String kernelVersion = null;
 
@@ -96,6 +102,9 @@ public class DataForGetOfflineNotificationListOutput {
 
   @SerializedName("Platform")
   private String platform = null;
+
+  @SerializedName("PlatformVersion")
+  private String platformVersion = null;
 
   @SerializedName("PluginsBriefInfo")
   private String pluginsBriefInfo = null;
@@ -130,6 +139,9 @@ public class DataForGetOfflineNotificationListOutput {
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
 
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
+
   public DataForGetOfflineNotificationListOutput abnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
     return this;
@@ -146,6 +158,24 @@ public class DataForGetOfflineNotificationListOutput {
 
   public void setAbnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
+  }
+
+  public DataForGetOfflineNotificationListOutput accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
   }
 
   public DataForGetOfflineNotificationListOutput agentID(String agentID) {
@@ -365,6 +395,24 @@ public class DataForGetOfflineNotificationListOutput {
     this.groupPath = groupPath;
   }
 
+  public DataForGetOfflineNotificationListOutput groupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+    return this;
+  }
+
+   /**
+   * Get groupPathEn
+   * @return groupPathEn
+  **/
+  @Schema(description = "")
+  public String getGroupPathEn() {
+    return groupPathEn;
+  }
+
+  public void setGroupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+  }
+
   public DataForGetOfflineNotificationListOutput kernelVersion(String kernelVersion) {
     this.kernelVersion = kernelVersion;
     return this;
@@ -507,6 +555,24 @@ public class DataForGetOfflineNotificationListOutput {
 
   public void setPlatform(String platform) {
     this.platform = platform;
+  }
+
+  public DataForGetOfflineNotificationListOutput platformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+    return this;
+  }
+
+   /**
+   * Get platformVersion
+   * @return platformVersion
+  **/
+  @Schema(description = "")
+  public String getPlatformVersion() {
+    return platformVersion;
+  }
+
+  public void setPlatformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
   }
 
   public DataForGetOfflineNotificationListOutput pluginsBriefInfo(String pluginsBriefInfo) {
@@ -716,6 +782,24 @@ public class DataForGetOfflineNotificationListOutput {
     this.userStatusReason = userStatusReason;
   }
 
+  public DataForGetOfflineNotificationListOutput userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -727,6 +811,7 @@ public class DataForGetOfflineNotificationListOutput {
     }
     DataForGetOfflineNotificationListOutput dataForGetOfflineNotificationListOutput = (DataForGetOfflineNotificationListOutput) o;
     return Objects.equals(this.abnormalPluginsList, dataForGetOfflineNotificationListOutput.abnormalPluginsList) &&
+        Objects.equals(this.accountID, dataForGetOfflineNotificationListOutput.accountID) &&
         Objects.equals(this.agentID, dataForGetOfflineNotificationListOutput.agentID) &&
         Objects.equals(this.agentOfflineTime, dataForGetOfflineNotificationListOutput.agentOfflineTime) &&
         Objects.equals(this.agentStatus, dataForGetOfflineNotificationListOutput.agentStatus) &&
@@ -739,6 +824,7 @@ public class DataForGetOfflineNotificationListOutput {
         Objects.equals(this.gateway, dataForGetOfflineNotificationListOutput.gateway) &&
         Objects.equals(this.group, dataForGetOfflineNotificationListOutput.group) &&
         Objects.equals(this.groupPath, dataForGetOfflineNotificationListOutput.groupPath) &&
+        Objects.equals(this.groupPathEn, dataForGetOfflineNotificationListOutput.groupPathEn) &&
         Objects.equals(this.kernelVersion, dataForGetOfflineNotificationListOutput.kernelVersion) &&
         Objects.equals(this.lastHeartbeatTime, dataForGetOfflineNotificationListOutput.lastHeartbeatTime) &&
         Objects.equals(this.memUsage, dataForGetOfflineNotificationListOutput.memUsage) &&
@@ -747,6 +833,7 @@ public class DataForGetOfflineNotificationListOutput {
         Objects.equals(this.oldValidCode, dataForGetOfflineNotificationListOutput.oldValidCode) &&
         Objects.equals(this.online, dataForGetOfflineNotificationListOutput.online) &&
         Objects.equals(this.platform, dataForGetOfflineNotificationListOutput.platform) &&
+        Objects.equals(this.platformVersion, dataForGetOfflineNotificationListOutput.platformVersion) &&
         Objects.equals(this.pluginsBriefInfo, dataForGetOfflineNotificationListOutput.pluginsBriefInfo) &&
         Objects.equals(this.pluginsStatus, dataForGetOfflineNotificationListOutput.pluginsStatus) &&
         Objects.equals(this.reason, dataForGetOfflineNotificationListOutput.reason) &&
@@ -757,12 +844,13 @@ public class DataForGetOfflineNotificationListOutput {
         Objects.equals(this.tags, dataForGetOfflineNotificationListOutput.tags) &&
         Objects.equals(this.totalMem, dataForGetOfflineNotificationListOutput.totalMem) &&
         Objects.equals(this.userStatus, dataForGetOfflineNotificationListOutput.userStatus) &&
-        Objects.equals(this.userStatusReason, dataForGetOfflineNotificationListOutput.userStatusReason);
+        Objects.equals(this.userStatusReason, dataForGetOfflineNotificationListOutput.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, dataForGetOfflineNotificationListOutput.userStatusReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, agentID, agentOfflineTime, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, kernelVersion, lastHeartbeatTime, memUsage, notificationThreshold, notificationTime, oldValidCode, online, platform, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentOfflineTime, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, notificationThreshold, notificationTime, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -772,6 +860,7 @@ public class DataForGetOfflineNotificationListOutput {
     sb.append("class DataForGetOfflineNotificationListOutput {\n");
     
     sb.append("    abnormalPluginsList: ").append(toIndentedString(abnormalPluginsList)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    agentOfflineTime: ").append(toIndentedString(agentOfflineTime)).append("\n");
     sb.append("    agentStatus: ").append(toIndentedString(agentStatus)).append("\n");
@@ -784,6 +873,7 @@ public class DataForGetOfflineNotificationListOutput {
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    groupPathEn: ").append(toIndentedString(groupPathEn)).append("\n");
     sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
     sb.append("    memUsage: ").append(toIndentedString(memUsage)).append("\n");
@@ -792,6 +882,7 @@ public class DataForGetOfflineNotificationListOutput {
     sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    pluginsBriefInfo: ").append(toIndentedString(pluginsBriefInfo)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -803,6 +894,7 @@ public class DataForGetOfflineNotificationListOutput {
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -66,51 +66,8 @@ public class GetDevFingerprintProcessRequest {
   @SerializedName("SortBy")
   private String sortBy = null;
 
-  /**
-   * Gets or Sets sortOrder
-   */
-  @JsonAdapter(SortOrderEnum.Adapter.class)
-  public enum SortOrderEnum {
-    @SerializedName("Asc")
-    ASC("Asc"),
-    @SerializedName(" Desc")
-    _DESC(" Desc");
-
-    private String value;
-
-    SortOrderEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SortOrderEnum fromValue(String input) {
-      for (SortOrderEnum b : SortOrderEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SortOrderEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SortOrderEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SortOrderEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SortOrderEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("SortOrder")
-  private SortOrderEnum sortOrder = null;
+  @SerializedName("SortOrder")
+  private String sortOrder = null;
 
   @SerializedName("StartTimeEnd")
   private Long startTimeEnd = null;
@@ -339,7 +296,7 @@ public class GetDevFingerprintProcessRequest {
     this.sortBy = sortBy;
   }
 
-  public GetDevFingerprintProcessRequest sortOrder(SortOrderEnum sortOrder) {
+  public GetDevFingerprintProcessRequest sortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
@@ -349,11 +306,11 @@ public class GetDevFingerprintProcessRequest {
    * @return sortOrder
   **/
   @Schema(description = "")
-  public SortOrderEnum getSortOrder() {
+  public String getSortOrder() {
     return sortOrder;
   }
 
-  public void setSortOrder(SortOrderEnum sortOrder) {
+  public void setSortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
   }
 

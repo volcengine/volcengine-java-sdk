@@ -33,11 +33,32 @@ import javax.validation.Valid;
 
 
 public class ListBatchEndpointHandleMethodsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NotSupportReason")
+  private String notSupportReason = null;
+
   @SerializedName("OperationList")
   private List<OperationListForListBatchEndpointHandleMethodsOutput> operationList = null;
 
   @SerializedName("Support")
   private Boolean support = null;
+
+  public ListBatchEndpointHandleMethodsResponse notSupportReason(String notSupportReason) {
+    this.notSupportReason = notSupportReason;
+    return this;
+  }
+
+   /**
+   * Get notSupportReason
+   * @return notSupportReason
+  **/
+  @Schema(description = "")
+  public String getNotSupportReason() {
+    return notSupportReason;
+  }
+
+  public void setNotSupportReason(String notSupportReason) {
+    this.notSupportReason = notSupportReason;
+  }
 
   public ListBatchEndpointHandleMethodsResponse operationList(List<OperationListForListBatchEndpointHandleMethodsOutput> operationList) {
     this.operationList = operationList;
@@ -94,13 +115,14 @@ public class ListBatchEndpointHandleMethodsResponse extends com.volcengine.model
       return false;
     }
     ListBatchEndpointHandleMethodsResponse listBatchEndpointHandleMethodsResponse = (ListBatchEndpointHandleMethodsResponse) o;
-    return Objects.equals(this.operationList, listBatchEndpointHandleMethodsResponse.operationList) &&
+    return Objects.equals(this.notSupportReason, listBatchEndpointHandleMethodsResponse.notSupportReason) &&
+        Objects.equals(this.operationList, listBatchEndpointHandleMethodsResponse.operationList) &&
         Objects.equals(this.support, listBatchEndpointHandleMethodsResponse.support);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationList, support);
+    return Objects.hash(notSupportReason, operationList, support);
   }
 
 
@@ -109,6 +131,7 @@ public class ListBatchEndpointHandleMethodsResponse extends com.volcengine.model
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBatchEndpointHandleMethodsResponse {\n");
     
+    sb.append("    notSupportReason: ").append(toIndentedString(notSupportReason)).append("\n");
     sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    support: ").append(toIndentedString(support)).append("\n");
     sb.append("}");

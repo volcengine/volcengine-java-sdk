@@ -48,6 +48,9 @@ public class DataForListBaselineCheckConfigOutput {
   @SerializedName("ConfigName")
   private String configName = null;
 
+  @SerializedName("ConfigNameEn")
+  private String configNameEn = null;
+
   @SerializedName("Enable")
   private Boolean enable = null;
 
@@ -198,6 +201,24 @@ public class DataForListBaselineCheckConfigOutput {
 
   public void setConfigName(String configName) {
     this.configName = configName;
+  }
+
+  public DataForListBaselineCheckConfigOutput configNameEn(String configNameEn) {
+    this.configNameEn = configNameEn;
+    return this;
+  }
+
+   /**
+   * Get configNameEn
+   * @return configNameEn
+  **/
+  @Schema(description = "")
+  public String getConfigNameEn() {
+    return configNameEn;
+  }
+
+  public void setConfigNameEn(String configNameEn) {
+    this.configNameEn = configNameEn;
   }
 
   public DataForListBaselineCheckConfigOutput enable(Boolean enable) {
@@ -493,6 +514,7 @@ public class DataForListBaselineCheckConfigOutput {
         Objects.equals(this.baselineList, dataForListBaselineCheckConfigOutput.baselineList) &&
         Objects.equals(this.configID, dataForListBaselineCheckConfigOutput.configID) &&
         Objects.equals(this.configName, dataForListBaselineCheckConfigOutput.configName) &&
+        Objects.equals(this.configNameEn, dataForListBaselineCheckConfigOutput.configNameEn) &&
         Objects.equals(this.enable, dataForListBaselineCheckConfigOutput.enable) &&
         Objects.equals(this.endTime, dataForListBaselineCheckConfigOutput.endTime) &&
         Objects.equals(this.ifAllHost, dataForListBaselineCheckConfigOutput.ifAllHost) &&
@@ -512,7 +534,7 @@ public class DataForListBaselineCheckConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, agentIDList, baselineList, configID, configName, enable, endTime, ifAllHost, isDefaultConfig, lastCheckTime, leafGroupIDs, model, period, remark, singleGroupPath, singleHostname, startTime, status, updateTime, updateUser);
+    return Objects.hash(accountID, agentIDList, baselineList, configID, configName, configNameEn, enable, endTime, ifAllHost, isDefaultConfig, lastCheckTime, leafGroupIDs, model, period, remark, singleGroupPath, singleHostname, startTime, status, updateTime, updateUser);
   }
 
 
@@ -526,6 +548,7 @@ public class DataForListBaselineCheckConfigOutput {
     sb.append("    baselineList: ").append(toIndentedString(baselineList)).append("\n");
     sb.append("    configID: ").append(toIndentedString(configID)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
+    sb.append("    configNameEn: ").append(toIndentedString(configNameEn)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    ifAllHost: ").append(toIndentedString(ifAllHost)).append("\n");

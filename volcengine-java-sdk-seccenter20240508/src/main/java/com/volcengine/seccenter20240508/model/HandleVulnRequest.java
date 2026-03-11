@@ -41,57 +41,17 @@ public class HandleVulnRequest {
   @SerializedName("AssetIDs")
   private List<String> assetIDs = null;
 
-  /**
-   * Gets or Sets assetType
-   */
-  @JsonAdapter(AssetTypeEnum.Adapter.class)
-  public enum AssetTypeEnum {
-    @SerializedName("Host")
-    HOST("Host"),
-    @SerializedName("Dev")
-    DEV("Dev");
-
-    private String value;
-
-    AssetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AssetTypeEnum fromValue(String input) {
-      for (AssetTypeEnum b : AssetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AssetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AssetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AssetType")
-  private AssetTypeEnum assetType = null;
+  @SerializedName("AssetType")
+  private String assetType = null;
 
   @SerializedName("BeforeStatus")
   private String beforeStatus = null;
 
   @SerializedName("CwppIDList")
   private List<String> cwppIDList = null;
+
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
 
   @SerializedName("Reason")
   private String reason = null;
@@ -169,7 +129,7 @@ public class HandleVulnRequest {
     this.assetIDs = assetIDs;
   }
 
-  public HandleVulnRequest assetType(AssetTypeEnum assetType) {
+  public HandleVulnRequest assetType(String assetType) {
     this.assetType = assetType;
     return this;
   }
@@ -179,11 +139,11 @@ public class HandleVulnRequest {
    * @return assetType
   **/
   @Schema(description = "")
-  public AssetTypeEnum getAssetType() {
+  public String getAssetType() {
     return assetType;
   }
 
-  public void setAssetType(AssetTypeEnum assetType) {
+  public void setAssetType(String assetType) {
     this.assetType = assetType;
   }
 
@@ -229,6 +189,24 @@ public class HandleVulnRequest {
 
   public void setCwppIDList(List<String> cwppIDList) {
     this.cwppIDList = cwppIDList;
+  }
+
+  public HandleVulnRequest isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public HandleVulnRequest reason(String reason) {
@@ -283,13 +261,14 @@ public class HandleVulnRequest {
         Objects.equals(this.assetType, handleVulnRequest.assetType) &&
         Objects.equals(this.beforeStatus, handleVulnRequest.beforeStatus) &&
         Objects.equals(this.cwppIDList, handleVulnRequest.cwppIDList) &&
+        Objects.equals(this.isRealRiskVul, handleVulnRequest.isRealRiskVul) &&
         Objects.equals(this.reason, handleVulnRequest.reason) &&
         Objects.equals(this.topGroupID, handleVulnRequest.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterStatus, agentIDList, assetIDs, assetType, beforeStatus, cwppIDList, reason, topGroupID);
+    return Objects.hash(afterStatus, agentIDList, assetIDs, assetType, beforeStatus, cwppIDList, isRealRiskVul, reason, topGroupID);
   }
 
 
@@ -304,6 +283,7 @@ public class HandleVulnRequest {
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    beforeStatus: ").append(toIndentedString(beforeStatus)).append("\n");
     sb.append("    cwppIDList: ").append(toIndentedString(cwppIDList)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");

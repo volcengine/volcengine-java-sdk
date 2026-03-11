@@ -20,9 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.seccenter20240508.model.AlarmTopicConfigForGetTLSInfoOutput;
+import com.volcengine.seccenter20240508.model.BashAuditTopicConfigForGetTLSInfoOutput;
 import com.volcengine.seccenter20240508.model.LoginTopicConfigForGetTLSInfoOutput;
 import com.volcengine.seccenter20240508.model.PortChangeTopicConfigForGetTLSInfoOutput;
 import com.volcengine.seccenter20240508.model.ProcessStartTopicConfigForGetTLSInfoOutput;
+import com.volcengine.seccenter20240508.model.VarmorTopicConfigForGetTLSInfoOutput;
 import com.volcengine.seccenter20240508.model.VulnTopicConfigForGetTLSInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +43,9 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Authorized")
   private Boolean authorized = null;
 
+  @SerializedName("BashAuditTopicConfig")
+  private BashAuditTopicConfigForGetTLSInfoOutput bashAuditTopicConfig = null;
+
   @SerializedName("LoginTopicConfig")
   private LoginTopicConfigForGetTLSInfoOutput loginTopicConfig = null;
 
@@ -56,17 +61,32 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ProjectID")
   private String projectID = null;
 
+  @SerializedName("ProjectId")
+  private String projectId = null;
+
   @SerializedName("QuotaTotal")
   private Long quotaTotal = null;
 
   @SerializedName("QuotaUsed")
   private Long quotaUsed = null;
 
+  @SerializedName("StorageDays")
+  private Long storageDays = null;
+
   @SerializedName("Threshold")
   private Long threshold = null;
 
+  @SerializedName("TopicId")
+  private String topicId = null;
+
+  @SerializedName("VarmorTopicConfig")
+  private VarmorTopicConfigForGetTLSInfoOutput varmorTopicConfig = null;
+
   @SerializedName("VulnTopicConfig")
   private VulnTopicConfigForGetTLSInfoOutput vulnTopicConfig = null;
+
+  @SerializedName("VulnTopicId")
+  private String vulnTopicId = null;
 
   public GetTLSInfoResponse alarmTopicConfig(AlarmTopicConfigForGetTLSInfoOutput alarmTopicConfig) {
     this.alarmTopicConfig = alarmTopicConfig;
@@ -103,6 +123,25 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
 
   public void setAuthorized(Boolean authorized) {
     this.authorized = authorized;
+  }
+
+  public GetTLSInfoResponse bashAuditTopicConfig(BashAuditTopicConfigForGetTLSInfoOutput bashAuditTopicConfig) {
+    this.bashAuditTopicConfig = bashAuditTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get bashAuditTopicConfig
+   * @return bashAuditTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public BashAuditTopicConfigForGetTLSInfoOutput getBashAuditTopicConfig() {
+    return bashAuditTopicConfig;
+  }
+
+  public void setBashAuditTopicConfig(BashAuditTopicConfigForGetTLSInfoOutput bashAuditTopicConfig) {
+    this.bashAuditTopicConfig = bashAuditTopicConfig;
   }
 
   public GetTLSInfoResponse loginTopicConfig(LoginTopicConfigForGetTLSInfoOutput loginTopicConfig) {
@@ -198,6 +237,24 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     this.projectID = projectID;
   }
 
+  public GetTLSInfoResponse projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Get projectId
+   * @return projectId
+  **/
+  @Schema(description = "")
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
   public GetTLSInfoResponse quotaTotal(Long quotaTotal) {
     this.quotaTotal = quotaTotal;
     return this;
@@ -234,6 +291,24 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     this.quotaUsed = quotaUsed;
   }
 
+  public GetTLSInfoResponse storageDays(Long storageDays) {
+    this.storageDays = storageDays;
+    return this;
+  }
+
+   /**
+   * Get storageDays
+   * @return storageDays
+  **/
+  @Schema(description = "")
+  public Long getStorageDays() {
+    return storageDays;
+  }
+
+  public void setStorageDays(Long storageDays) {
+    this.storageDays = storageDays;
+  }
+
   public GetTLSInfoResponse threshold(Long threshold) {
     this.threshold = threshold;
     return this;
@@ -250,6 +325,43 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
 
   public void setThreshold(Long threshold) {
     this.threshold = threshold;
+  }
+
+  public GetTLSInfoResponse topicId(String topicId) {
+    this.topicId = topicId;
+    return this;
+  }
+
+   /**
+   * Get topicId
+   * @return topicId
+  **/
+  @Schema(description = "")
+  public String getTopicId() {
+    return topicId;
+  }
+
+  public void setTopicId(String topicId) {
+    this.topicId = topicId;
+  }
+
+  public GetTLSInfoResponse varmorTopicConfig(VarmorTopicConfigForGetTLSInfoOutput varmorTopicConfig) {
+    this.varmorTopicConfig = varmorTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get varmorTopicConfig
+   * @return varmorTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public VarmorTopicConfigForGetTLSInfoOutput getVarmorTopicConfig() {
+    return varmorTopicConfig;
+  }
+
+  public void setVarmorTopicConfig(VarmorTopicConfigForGetTLSInfoOutput varmorTopicConfig) {
+    this.varmorTopicConfig = varmorTopicConfig;
   }
 
   public GetTLSInfoResponse vulnTopicConfig(VulnTopicConfigForGetTLSInfoOutput vulnTopicConfig) {
@@ -271,6 +383,24 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     this.vulnTopicConfig = vulnTopicConfig;
   }
 
+  public GetTLSInfoResponse vulnTopicId(String vulnTopicId) {
+    this.vulnTopicId = vulnTopicId;
+    return this;
+  }
+
+   /**
+   * Get vulnTopicId
+   * @return vulnTopicId
+  **/
+  @Schema(description = "")
+  public String getVulnTopicId() {
+    return vulnTopicId;
+  }
+
+  public void setVulnTopicId(String vulnTopicId) {
+    this.vulnTopicId = vulnTopicId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -283,20 +413,26 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     GetTLSInfoResponse getTLSInfoResponse = (GetTLSInfoResponse) o;
     return Objects.equals(this.alarmTopicConfig, getTLSInfoResponse.alarmTopicConfig) &&
         Objects.equals(this.authorized, getTLSInfoResponse.authorized) &&
+        Objects.equals(this.bashAuditTopicConfig, getTLSInfoResponse.bashAuditTopicConfig) &&
         Objects.equals(this.loginTopicConfig, getTLSInfoResponse.loginTopicConfig) &&
         Objects.equals(this.open, getTLSInfoResponse.open) &&
         Objects.equals(this.portChangeTopicConfig, getTLSInfoResponse.portChangeTopicConfig) &&
         Objects.equals(this.processStartTopicConfig, getTLSInfoResponse.processStartTopicConfig) &&
         Objects.equals(this.projectID, getTLSInfoResponse.projectID) &&
+        Objects.equals(this.projectId, getTLSInfoResponse.projectId) &&
         Objects.equals(this.quotaTotal, getTLSInfoResponse.quotaTotal) &&
         Objects.equals(this.quotaUsed, getTLSInfoResponse.quotaUsed) &&
+        Objects.equals(this.storageDays, getTLSInfoResponse.storageDays) &&
         Objects.equals(this.threshold, getTLSInfoResponse.threshold) &&
-        Objects.equals(this.vulnTopicConfig, getTLSInfoResponse.vulnTopicConfig);
+        Objects.equals(this.topicId, getTLSInfoResponse.topicId) &&
+        Objects.equals(this.varmorTopicConfig, getTLSInfoResponse.varmorTopicConfig) &&
+        Objects.equals(this.vulnTopicConfig, getTLSInfoResponse.vulnTopicConfig) &&
+        Objects.equals(this.vulnTopicId, getTLSInfoResponse.vulnTopicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmTopicConfig, authorized, loginTopicConfig, open, portChangeTopicConfig, processStartTopicConfig, projectID, quotaTotal, quotaUsed, threshold, vulnTopicConfig);
+    return Objects.hash(alarmTopicConfig, authorized, bashAuditTopicConfig, loginTopicConfig, open, portChangeTopicConfig, processStartTopicConfig, projectID, projectId, quotaTotal, quotaUsed, storageDays, threshold, topicId, varmorTopicConfig, vulnTopicConfig, vulnTopicId);
   }
 
 
@@ -307,15 +443,21 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     
     sb.append("    alarmTopicConfig: ").append(toIndentedString(alarmTopicConfig)).append("\n");
     sb.append("    authorized: ").append(toIndentedString(authorized)).append("\n");
+    sb.append("    bashAuditTopicConfig: ").append(toIndentedString(bashAuditTopicConfig)).append("\n");
     sb.append("    loginTopicConfig: ").append(toIndentedString(loginTopicConfig)).append("\n");
     sb.append("    open: ").append(toIndentedString(open)).append("\n");
     sb.append("    portChangeTopicConfig: ").append(toIndentedString(portChangeTopicConfig)).append("\n");
     sb.append("    processStartTopicConfig: ").append(toIndentedString(processStartTopicConfig)).append("\n");
     sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    quotaTotal: ").append(toIndentedString(quotaTotal)).append("\n");
     sb.append("    quotaUsed: ").append(toIndentedString(quotaUsed)).append("\n");
+    sb.append("    storageDays: ").append(toIndentedString(storageDays)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
+    sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");
+    sb.append("    varmorTopicConfig: ").append(toIndentedString(varmorTopicConfig)).append("\n");
     sb.append("    vulnTopicConfig: ").append(toIndentedString(vulnTopicConfig)).append("\n");
+    sb.append("    vulnTopicId: ").append(toIndentedString(vulnTopicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

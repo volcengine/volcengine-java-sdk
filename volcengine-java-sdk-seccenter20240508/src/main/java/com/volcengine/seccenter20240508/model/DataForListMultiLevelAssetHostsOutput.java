@@ -46,6 +46,9 @@ public class DataForListMultiLevelAssetHostsOutput {
   @SerializedName("AgentStatus")
   private String agentStatus = null;
 
+  @SerializedName("ClientPublicIP")
+  private String clientPublicIP = null;
+
   @SerializedName("CloudProvider")
   private String cloudProvider = null;
 
@@ -70,6 +73,9 @@ public class DataForListMultiLevelAssetHostsOutput {
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("GroupPathEn")
+  private String groupPathEn = null;
+
   @SerializedName("InstitutionID")
   private String institutionID = null;
 
@@ -82,11 +88,17 @@ public class DataForListMultiLevelAssetHostsOutput {
   @SerializedName("MemUsage")
   private Double memUsage = null;
 
+  @SerializedName("OldValidCode")
+  private Long oldValidCode = null;
+
   @SerializedName("Online")
   private Boolean online = null;
 
   @SerializedName("Platform")
   private String platform = null;
+
+  @SerializedName("PlatformVersion")
+  private String platformVersion = null;
 
   @SerializedName("PluginsBriefInfo")
   private String pluginsBriefInfo = null;
@@ -123,6 +135,9 @@ public class DataForListMultiLevelAssetHostsOutput {
 
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
+
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
 
   public DataForListMultiLevelAssetHostsOutput abnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
@@ -194,6 +209,24 @@ public class DataForListMultiLevelAssetHostsOutput {
 
   public void setAgentStatus(String agentStatus) {
     this.agentStatus = agentStatus;
+  }
+
+  public DataForListMultiLevelAssetHostsOutput clientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
+    return this;
+  }
+
+   /**
+   * Get clientPublicIP
+   * @return clientPublicIP
+  **/
+  @Schema(description = "")
+  public String getClientPublicIP() {
+    return clientPublicIP;
+  }
+
+  public void setClientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
   }
 
   public DataForListMultiLevelAssetHostsOutput cloudProvider(String cloudProvider) {
@@ -341,6 +374,24 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.groupPath = groupPath;
   }
 
+  public DataForListMultiLevelAssetHostsOutput groupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+    return this;
+  }
+
+   /**
+   * Get groupPathEn
+   * @return groupPathEn
+  **/
+  @Schema(description = "")
+  public String getGroupPathEn() {
+    return groupPathEn;
+  }
+
+  public void setGroupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+  }
+
   public DataForListMultiLevelAssetHostsOutput institutionID(String institutionID) {
     this.institutionID = institutionID;
     return this;
@@ -413,6 +464,24 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.memUsage = memUsage;
   }
 
+  public DataForListMultiLevelAssetHostsOutput oldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+    return this;
+  }
+
+   /**
+   * Get oldValidCode
+   * @return oldValidCode
+  **/
+  @Schema(description = "")
+  public Long getOldValidCode() {
+    return oldValidCode;
+  }
+
+  public void setOldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+  }
+
   public DataForListMultiLevelAssetHostsOutput online(Boolean online) {
     this.online = online;
     return this;
@@ -447,6 +516,24 @@ public class DataForListMultiLevelAssetHostsOutput {
 
   public void setPlatform(String platform) {
     this.platform = platform;
+  }
+
+  public DataForListMultiLevelAssetHostsOutput platformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+    return this;
+  }
+
+   /**
+   * Get platformVersion
+   * @return platformVersion
+  **/
+  @Schema(description = "")
+  public String getPlatformVersion() {
+    return platformVersion;
+  }
+
+  public void setPlatformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
   }
 
   public DataForListMultiLevelAssetHostsOutput pluginsBriefInfo(String pluginsBriefInfo) {
@@ -674,6 +761,24 @@ public class DataForListMultiLevelAssetHostsOutput {
     this.userStatusReason = userStatusReason;
   }
 
+  public DataForListMultiLevelAssetHostsOutput userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -688,6 +793,7 @@ public class DataForListMultiLevelAssetHostsOutput {
         Objects.equals(this.accountID, dataForListMultiLevelAssetHostsOutput.accountID) &&
         Objects.equals(this.agentID, dataForListMultiLevelAssetHostsOutput.agentID) &&
         Objects.equals(this.agentStatus, dataForListMultiLevelAssetHostsOutput.agentStatus) &&
+        Objects.equals(this.clientPublicIP, dataForListMultiLevelAssetHostsOutput.clientPublicIP) &&
         Objects.equals(this.cloudProvider, dataForListMultiLevelAssetHostsOutput.cloudProvider) &&
         Objects.equals(this.cpuUsage, dataForListMultiLevelAssetHostsOutput.cpuUsage) &&
         Objects.equals(this.dns, dataForListMultiLevelAssetHostsOutput.dns) &&
@@ -696,12 +802,15 @@ public class DataForListMultiLevelAssetHostsOutput {
         Objects.equals(this.gateway, dataForListMultiLevelAssetHostsOutput.gateway) &&
         Objects.equals(this.group, dataForListMultiLevelAssetHostsOutput.group) &&
         Objects.equals(this.groupPath, dataForListMultiLevelAssetHostsOutput.groupPath) &&
+        Objects.equals(this.groupPathEn, dataForListMultiLevelAssetHostsOutput.groupPathEn) &&
         Objects.equals(this.institutionID, dataForListMultiLevelAssetHostsOutput.institutionID) &&
         Objects.equals(this.kernelVersion, dataForListMultiLevelAssetHostsOutput.kernelVersion) &&
         Objects.equals(this.lastHeartbeatTime, dataForListMultiLevelAssetHostsOutput.lastHeartbeatTime) &&
         Objects.equals(this.memUsage, dataForListMultiLevelAssetHostsOutput.memUsage) &&
+        Objects.equals(this.oldValidCode, dataForListMultiLevelAssetHostsOutput.oldValidCode) &&
         Objects.equals(this.online, dataForListMultiLevelAssetHostsOutput.online) &&
         Objects.equals(this.platform, dataForListMultiLevelAssetHostsOutput.platform) &&
+        Objects.equals(this.platformVersion, dataForListMultiLevelAssetHostsOutput.platformVersion) &&
         Objects.equals(this.pluginsBriefInfo, dataForListMultiLevelAssetHostsOutput.pluginsBriefInfo) &&
         Objects.equals(this.pluginsStatus, dataForListMultiLevelAssetHostsOutput.pluginsStatus) &&
         Objects.equals(this.reason, dataForListMultiLevelAssetHostsOutput.reason) &&
@@ -713,12 +822,13 @@ public class DataForListMultiLevelAssetHostsOutput {
         Objects.equals(this.totalMem, dataForListMultiLevelAssetHostsOutput.totalMem) &&
         Objects.equals(this.updateTime, dataForListMultiLevelAssetHostsOutput.updateTime) &&
         Objects.equals(this.userStatus, dataForListMultiLevelAssetHostsOutput.userStatus) &&
-        Objects.equals(this.userStatusReason, dataForListMultiLevelAssetHostsOutput.userStatusReason);
+        Objects.equals(this.userStatusReason, dataForListMultiLevelAssetHostsOutput.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, dataForListMultiLevelAssetHostsOutput.userStatusReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, institutionID, kernelVersion, lastHeartbeatTime, memUsage, online, platform, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, updateTime, userStatus, userStatusReason);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, institutionID, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, updateTime, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -731,6 +841,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    agentStatus: ").append(toIndentedString(agentStatus)).append("\n");
+    sb.append("    clientPublicIP: ").append(toIndentedString(clientPublicIP)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    cpuUsage: ").append(toIndentedString(cpuUsage)).append("\n");
     sb.append("    dns: ").append(toIndentedString(dns)).append("\n");
@@ -739,12 +850,15 @@ public class DataForListMultiLevelAssetHostsOutput {
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    groupPathEn: ").append(toIndentedString(groupPathEn)).append("\n");
     sb.append("    institutionID: ").append(toIndentedString(institutionID)).append("\n");
     sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
     sb.append("    memUsage: ").append(toIndentedString(memUsage)).append("\n");
+    sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    pluginsBriefInfo: ").append(toIndentedString(pluginsBriefInfo)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -757,6 +871,7 @@ public class DataForListMultiLevelAssetHostsOutput {
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,8 +42,7 @@ public class ListGroupRelatedAgentRequest {
    * Get group
    * @return group
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getGroup() {
     return group;
   }

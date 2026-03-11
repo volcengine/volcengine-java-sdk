@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.DataForGetLayeredGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,16 +34,16 @@ import javax.validation.Valid;
 
 public class GetLayeredGroupsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
-  private List<String> data = null;
+  private List<DataForGetLayeredGroupsOutput> data = null;
 
-  public GetLayeredGroupsResponse data(List<String> data) {
+  public GetLayeredGroupsResponse data(List<DataForGetLayeredGroupsOutput> data) {
     this.data = data;
     return this;
   }
 
-  public GetLayeredGroupsResponse addDataItem(String dataItem) {
+  public GetLayeredGroupsResponse addDataItem(DataForGetLayeredGroupsOutput dataItem) {
     if (this.data == null) {
-      this.data = new ArrayList<String>();
+      this.data = new ArrayList<DataForGetLayeredGroupsOutput>();
     }
     this.data.add(dataItem);
     return this;
@@ -52,12 +53,13 @@ public class GetLayeredGroupsResponse extends com.volcengine.model.AbstractRespo
    * Get data
    * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getData() {
+  public List<DataForGetLayeredGroupsOutput> getData() {
     return data;
   }
 
-  public void setData(List<String> data) {
+  public void setData(List<DataForGetLayeredGroupsOutput> data) {
     this.data = data;
   }
 

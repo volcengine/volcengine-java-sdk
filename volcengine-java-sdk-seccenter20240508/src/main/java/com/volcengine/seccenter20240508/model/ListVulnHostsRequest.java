@@ -47,51 +47,8 @@ public class ListVulnHostsRequest {
   @SerializedName("AssetName")
   private String assetName = null;
 
-  /**
-   * Gets or Sets assetType
-   */
-  @JsonAdapter(AssetTypeEnum.Adapter.class)
-  public enum AssetTypeEnum {
-    @SerializedName("Host")
-    HOST("Host"),
-    @SerializedName("Dev")
-    DEV("Dev");
-
-    private String value;
-
-    AssetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AssetTypeEnum fromValue(String input) {
-      for (AssetTypeEnum b : AssetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AssetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AssetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AssetType")
-  private AssetTypeEnum assetType = null;
+  @SerializedName("AssetType")
+  private String assetType = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -104,6 +61,9 @@ public class ListVulnHostsRequest {
 
   @SerializedName("IP")
   private String IP = null;
+
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
 
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
@@ -240,7 +200,7 @@ public class ListVulnHostsRequest {
     this.assetName = assetName;
   }
 
-  public ListVulnHostsRequest assetType(AssetTypeEnum assetType) {
+  public ListVulnHostsRequest assetType(String assetType) {
     this.assetType = assetType;
     return this;
   }
@@ -250,11 +210,11 @@ public class ListVulnHostsRequest {
    * @return assetType
   **/
   @Schema(description = "")
-  public AssetTypeEnum getAssetType() {
+  public String getAssetType() {
     return assetType;
   }
 
-  public void setAssetType(AssetTypeEnum assetType) {
+  public void setAssetType(String assetType) {
     this.assetType = assetType;
   }
 
@@ -336,6 +296,24 @@ public class ListVulnHostsRequest {
 
   public void setIP(String IP) {
     this.IP = IP;
+  }
+
+  public ListVulnHostsRequest isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public ListVulnHostsRequest leafGroupIDs(List<String> leafGroupIDs) {
@@ -502,6 +480,7 @@ public class ListVulnHostsRequest {
         Objects.equals(this.cwppID, listVulnHostsRequest.cwppID) &&
         Objects.equals(this.hostName, listVulnHostsRequest.hostName) &&
         Objects.equals(this.IP, listVulnHostsRequest.IP) &&
+        Objects.equals(this.isRealRiskVul, listVulnHostsRequest.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, listVulnHostsRequest.leafGroupIDs) &&
         Objects.equals(this.pageNumber, listVulnHostsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listVulnHostsRequest.pageSize) &&
@@ -513,7 +492,7 @@ public class ListVulnHostsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentIDList, agentTags, assetIDs, assetIP, assetName, assetType, cloudProviders, cwppID, hostName, IP, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, status, topGroupID);
+    return Objects.hash(agentIDList, agentTags, assetIDs, assetIP, assetName, assetType, cloudProviders, cwppID, hostName, IP, isRealRiskVul, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, status, topGroupID);
   }
 
 
@@ -532,6 +511,7 @@ public class ListVulnHostsRequest {
     sb.append("    cwppID: ").append(toIndentedString(cwppID)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

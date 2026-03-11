@@ -63,6 +63,9 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Cwe")
   private String cwe = null;
 
+  @SerializedName("CweIds")
+  private List<String> cweIds = null;
+
   @SerializedName("Descript")
   private String descript = null;
 
@@ -71,6 +74,15 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("ExploitLink")
   private String exploitLink = null;
+
+  @SerializedName("HasExploit")
+  private Boolean hasExploit = null;
+
+  @SerializedName("HasPayload")
+  private Boolean hasPayload = null;
+
+  @SerializedName("IfEmg")
+  private Boolean ifEmg = null;
 
   @SerializedName("IfExp")
   private Long ifExp = null;
@@ -314,6 +326,32 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     this.cwe = cwe;
   }
 
+  public GetVulnInfoResponse cweIds(List<String> cweIds) {
+    this.cweIds = cweIds;
+    return this;
+  }
+
+  public GetVulnInfoResponse addCweIdsItem(String cweIdsItem) {
+    if (this.cweIds == null) {
+      this.cweIds = new ArrayList<String>();
+    }
+    this.cweIds.add(cweIdsItem);
+    return this;
+  }
+
+   /**
+   * Get cweIds
+   * @return cweIds
+  **/
+  @Schema(description = "")
+  public List<String> getCweIds() {
+    return cweIds;
+  }
+
+  public void setCweIds(List<String> cweIds) {
+    this.cweIds = cweIds;
+  }
+
   public GetVulnInfoResponse descript(String descript) {
     this.descript = descript;
     return this;
@@ -366,6 +404,60 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
 
   public void setExploitLink(String exploitLink) {
     this.exploitLink = exploitLink;
+  }
+
+  public GetVulnInfoResponse hasExploit(Boolean hasExploit) {
+    this.hasExploit = hasExploit;
+    return this;
+  }
+
+   /**
+   * Get hasExploit
+   * @return hasExploit
+  **/
+  @Schema(description = "")
+  public Boolean isHasExploit() {
+    return hasExploit;
+  }
+
+  public void setHasExploit(Boolean hasExploit) {
+    this.hasExploit = hasExploit;
+  }
+
+  public GetVulnInfoResponse hasPayload(Boolean hasPayload) {
+    this.hasPayload = hasPayload;
+    return this;
+  }
+
+   /**
+   * Get hasPayload
+   * @return hasPayload
+  **/
+  @Schema(description = "")
+  public Boolean isHasPayload() {
+    return hasPayload;
+  }
+
+  public void setHasPayload(Boolean hasPayload) {
+    this.hasPayload = hasPayload;
+  }
+
+  public GetVulnInfoResponse ifEmg(Boolean ifEmg) {
+    this.ifEmg = ifEmg;
+    return this;
+  }
+
+   /**
+   * Get ifEmg
+   * @return ifEmg
+  **/
+  @Schema(description = "")
+  public Boolean isIfEmg() {
+    return ifEmg;
+  }
+
+  public void setIfEmg(Boolean ifEmg) {
+    this.ifEmg = ifEmg;
   }
 
   public GetVulnInfoResponse ifExp(Long ifExp) {
@@ -666,9 +758,13 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.cvss, getVulnInfoResponse.cvss) &&
         Objects.equals(this.cvssVector, getVulnInfoResponse.cvssVector) &&
         Objects.equals(this.cwe, getVulnInfoResponse.cwe) &&
+        Objects.equals(this.cweIds, getVulnInfoResponse.cweIds) &&
         Objects.equals(this.descript, getVulnInfoResponse.descript) &&
         Objects.equals(this.descriptEn, getVulnInfoResponse.descriptEn) &&
         Objects.equals(this.exploitLink, getVulnInfoResponse.exploitLink) &&
+        Objects.equals(this.hasExploit, getVulnInfoResponse.hasExploit) &&
+        Objects.equals(this.hasPayload, getVulnInfoResponse.hasPayload) &&
+        Objects.equals(this.ifEmg, getVulnInfoResponse.ifEmg) &&
         Objects.equals(this.ifExp, getVulnInfoResponse.ifExp) &&
         Objects.equals(this.ifRasp, getVulnInfoResponse.ifRasp) &&
         Objects.equals(this.level, getVulnInfoResponse.level) &&
@@ -688,7 +784,7 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, cnnvd, cpeName, cpeVersion, cveID, cveList, cves, cvss, cvssVector, cwe, descript, descriptEn, exploitLink, ifExp, ifRasp, level, md5, patchUrl, referUrls, storageName, suggest, suggestEn, updateTime, uploadAt, uploadName, vulnName, vulnNameEn, cwppId);
+    return Objects.hash(action, cnnvd, cpeName, cpeVersion, cveID, cveList, cves, cvss, cvssVector, cwe, cweIds, descript, descriptEn, exploitLink, hasExploit, hasPayload, ifEmg, ifExp, ifRasp, level, md5, patchUrl, referUrls, storageName, suggest, suggestEn, updateTime, uploadAt, uploadName, vulnName, vulnNameEn, cwppId);
   }
 
 
@@ -707,9 +803,13 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    cvss: ").append(toIndentedString(cvss)).append("\n");
     sb.append("    cvssVector: ").append(toIndentedString(cvssVector)).append("\n");
     sb.append("    cwe: ").append(toIndentedString(cwe)).append("\n");
+    sb.append("    cweIds: ").append(toIndentedString(cweIds)).append("\n");
     sb.append("    descript: ").append(toIndentedString(descript)).append("\n");
     sb.append("    descriptEn: ").append(toIndentedString(descriptEn)).append("\n");
     sb.append("    exploitLink: ").append(toIndentedString(exploitLink)).append("\n");
+    sb.append("    hasExploit: ").append(toIndentedString(hasExploit)).append("\n");
+    sb.append("    hasPayload: ").append(toIndentedString(hasPayload)).append("\n");
+    sb.append("    ifEmg: ").append(toIndentedString(ifEmg)).append("\n");
     sb.append("    ifExp: ").append(toIndentedString(ifExp)).append("\n");
     sb.append("    ifRasp: ").append(toIndentedString(ifRasp)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");

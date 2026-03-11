@@ -36,54 +36,14 @@ public class GetVulnStatisticsRequest {
   @SerializedName("AssetID")
   private String assetID = null;
 
-  /**
-   * Gets or Sets assetType
-   */
-  @JsonAdapter(AssetTypeEnum.Adapter.class)
-  public enum AssetTypeEnum {
-    @SerializedName("Host")
-    HOST("Host"),
-    @SerializedName("Dev")
-    DEV("Dev");
-
-    private String value;
-
-    AssetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AssetTypeEnum fromValue(String input) {
-      for (AssetTypeEnum b : AssetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AssetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AssetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AssetType")
-  private AssetTypeEnum assetType = null;
+  @SerializedName("AssetType")
+  private String assetType = null;
 
   @SerializedName("IfHighAvailability")
   private Boolean ifHighAvailability = null;
+
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -124,7 +84,7 @@ public class GetVulnStatisticsRequest {
     this.assetID = assetID;
   }
 
-  public GetVulnStatisticsRequest assetType(AssetTypeEnum assetType) {
+  public GetVulnStatisticsRequest assetType(String assetType) {
     this.assetType = assetType;
     return this;
   }
@@ -134,11 +94,11 @@ public class GetVulnStatisticsRequest {
    * @return assetType
   **/
   @Schema(description = "")
-  public AssetTypeEnum getAssetType() {
+  public String getAssetType() {
     return assetType;
   }
 
-  public void setAssetType(AssetTypeEnum assetType) {
+  public void setAssetType(String assetType) {
     this.assetType = assetType;
   }
 
@@ -158,6 +118,24 @@ public class GetVulnStatisticsRequest {
 
   public void setIfHighAvailability(Boolean ifHighAvailability) {
     this.ifHighAvailability = ifHighAvailability;
+  }
+
+  public GetVulnStatisticsRequest isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public GetVulnStatisticsRequest topGroupID(String topGroupID) {
@@ -192,12 +170,13 @@ public class GetVulnStatisticsRequest {
         Objects.equals(this.assetID, getVulnStatisticsRequest.assetID) &&
         Objects.equals(this.assetType, getVulnStatisticsRequest.assetType) &&
         Objects.equals(this.ifHighAvailability, getVulnStatisticsRequest.ifHighAvailability) &&
+        Objects.equals(this.isRealRiskVul, getVulnStatisticsRequest.isRealRiskVul) &&
         Objects.equals(this.topGroupID, getVulnStatisticsRequest.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, ifHighAvailability, topGroupID);
+    return Objects.hash(agentID, assetID, assetType, ifHighAvailability, isRealRiskVul, topGroupID);
   }
 
 
@@ -210,6 +189,7 @@ public class GetVulnStatisticsRequest {
     sb.append("    assetID: ").append(toIndentedString(assetID)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    ifHighAvailability: ").append(toIndentedString(ifHighAvailability)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");
     return sb.toString();

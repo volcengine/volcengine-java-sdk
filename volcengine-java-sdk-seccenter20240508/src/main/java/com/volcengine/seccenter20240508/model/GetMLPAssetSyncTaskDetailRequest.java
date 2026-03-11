@@ -42,8 +42,7 @@ public class GetMLPAssetSyncTaskDetailRequest {
    * Get taskID
    * @return taskID
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTaskID() {
     return taskID;
   }

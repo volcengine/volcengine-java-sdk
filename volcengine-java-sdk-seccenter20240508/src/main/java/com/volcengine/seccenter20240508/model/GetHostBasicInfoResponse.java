@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.seccenter20240508.model.AlarmForGetHostBasicInfoOutput;
 import com.volcengine.seccenter20240508.model.BaselineForGetHostBasicInfoOutput;
 import com.volcengine.seccenter20240508.model.EcsInstanceForGetHostBasicInfoOutput;
+import com.volcengine.seccenter20240508.model.RealRiskVulForGetHostBasicInfoOutput;
 import com.volcengine.seccenter20240508.model.VirusForGetHostBasicInfoOutput;
 import com.volcengine.seccenter20240508.model.VulnForGetHostBasicInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,6 +41,9 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("AbnormalPluginsList")
   private String abnormalPluginsList = null;
 
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("AgentID")
   private String agentID = null;
 
@@ -48,6 +52,9 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
 
   @SerializedName("Baseline")
   private BaselineForGetHostBasicInfoOutput baseline = null;
+
+  @SerializedName("ClientPublicIP")
+  private String clientPublicIP = null;
 
   @SerializedName("CloudProvider")
   private String cloudProvider = null;
@@ -76,6 +83,9 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("GroupPathEn")
+  private String groupPathEn = null;
+
   @SerializedName("KernelVersion")
   private String kernelVersion = null;
 
@@ -85,17 +95,26 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("MemUsage")
   private Double memUsage = null;
 
+  @SerializedName("OldValidCode")
+  private Long oldValidCode = null;
+
   @SerializedName("Online")
   private Boolean online = null;
 
   @SerializedName("Platform")
   private String platform = null;
 
+  @SerializedName("PlatformVersion")
+  private String platformVersion = null;
+
   @SerializedName("PluginsBriefInfo")
   private String pluginsBriefInfo = null;
 
   @SerializedName("PluginsStatus")
   private String pluginsStatus = null;
+
+  @SerializedName("RealRiskVul")
+  private RealRiskVulForGetHostBasicInfoOutput realRiskVul = null;
 
   @SerializedName("Reason")
   private String reason = null;
@@ -121,6 +140,9 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
 
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
+
   @SerializedName("Virus")
   private VirusForGetHostBasicInfoOutput virus = null;
 
@@ -143,6 +165,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
 
   public void setAbnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
+  }
+
+  public GetHostBasicInfoResponse accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
   }
 
   public GetHostBasicInfoResponse agentID(String agentID) {
@@ -199,6 +239,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
 
   public void setBaseline(BaselineForGetHostBasicInfoOutput baseline) {
     this.baseline = baseline;
+  }
+
+  public GetHostBasicInfoResponse clientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
+    return this;
+  }
+
+   /**
+   * Get clientPublicIP
+   * @return clientPublicIP
+  **/
+  @Schema(description = "")
+  public String getClientPublicIP() {
+    return clientPublicIP;
+  }
+
+  public void setClientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
   }
 
   public GetHostBasicInfoResponse cloudProvider(String cloudProvider) {
@@ -364,6 +422,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.groupPath = groupPath;
   }
 
+  public GetHostBasicInfoResponse groupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+    return this;
+  }
+
+   /**
+   * Get groupPathEn
+   * @return groupPathEn
+  **/
+  @Schema(description = "")
+  public String getGroupPathEn() {
+    return groupPathEn;
+  }
+
+  public void setGroupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+  }
+
   public GetHostBasicInfoResponse kernelVersion(String kernelVersion) {
     this.kernelVersion = kernelVersion;
     return this;
@@ -418,6 +494,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.memUsage = memUsage;
   }
 
+  public GetHostBasicInfoResponse oldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+    return this;
+  }
+
+   /**
+   * Get oldValidCode
+   * @return oldValidCode
+  **/
+  @Schema(description = "")
+  public Long getOldValidCode() {
+    return oldValidCode;
+  }
+
+  public void setOldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+  }
+
   public GetHostBasicInfoResponse online(Boolean online) {
     this.online = online;
     return this;
@@ -454,6 +548,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.platform = platform;
   }
 
+  public GetHostBasicInfoResponse platformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+    return this;
+  }
+
+   /**
+   * Get platformVersion
+   * @return platformVersion
+  **/
+  @Schema(description = "")
+  public String getPlatformVersion() {
+    return platformVersion;
+  }
+
+  public void setPlatformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+  }
+
   public GetHostBasicInfoResponse pluginsBriefInfo(String pluginsBriefInfo) {
     this.pluginsBriefInfo = pluginsBriefInfo;
     return this;
@@ -488,6 +600,25 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
 
   public void setPluginsStatus(String pluginsStatus) {
     this.pluginsStatus = pluginsStatus;
+  }
+
+  public GetHostBasicInfoResponse realRiskVul(RealRiskVulForGetHostBasicInfoOutput realRiskVul) {
+    this.realRiskVul = realRiskVul;
+    return this;
+  }
+
+   /**
+   * Get realRiskVul
+   * @return realRiskVul
+  **/
+  @Valid
+  @Schema(description = "")
+  public RealRiskVulForGetHostBasicInfoOutput getRealRiskVul() {
+    return realRiskVul;
+  }
+
+  public void setRealRiskVul(RealRiskVulForGetHostBasicInfoOutput realRiskVul) {
+    this.realRiskVul = realRiskVul;
   }
 
   public GetHostBasicInfoResponse reason(String reason) {
@@ -642,6 +773,24 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.userStatusReason = userStatusReason;
   }
 
+  public GetHostBasicInfoResponse userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
   public GetHostBasicInfoResponse virus(VirusForGetHostBasicInfoOutput virus) {
     this.virus = virus;
     return this;
@@ -691,9 +840,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     }
     GetHostBasicInfoResponse getHostBasicInfoResponse = (GetHostBasicInfoResponse) o;
     return Objects.equals(this.abnormalPluginsList, getHostBasicInfoResponse.abnormalPluginsList) &&
+        Objects.equals(this.accountID, getHostBasicInfoResponse.accountID) &&
         Objects.equals(this.agentID, getHostBasicInfoResponse.agentID) &&
         Objects.equals(this.alarm, getHostBasicInfoResponse.alarm) &&
         Objects.equals(this.baseline, getHostBasicInfoResponse.baseline) &&
+        Objects.equals(this.clientPublicIP, getHostBasicInfoResponse.clientPublicIP) &&
         Objects.equals(this.cloudProvider, getHostBasicInfoResponse.cloudProvider) &&
         Objects.equals(this.collectStatus, getHostBasicInfoResponse.collectStatus) &&
         Objects.equals(this.cpuUsage, getHostBasicInfoResponse.cpuUsage) &&
@@ -703,13 +854,17 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.gateway, getHostBasicInfoResponse.gateway) &&
         Objects.equals(this.group, getHostBasicInfoResponse.group) &&
         Objects.equals(this.groupPath, getHostBasicInfoResponse.groupPath) &&
+        Objects.equals(this.groupPathEn, getHostBasicInfoResponse.groupPathEn) &&
         Objects.equals(this.kernelVersion, getHostBasicInfoResponse.kernelVersion) &&
         Objects.equals(this.lastHeartbeatTime, getHostBasicInfoResponse.lastHeartbeatTime) &&
         Objects.equals(this.memUsage, getHostBasicInfoResponse.memUsage) &&
+        Objects.equals(this.oldValidCode, getHostBasicInfoResponse.oldValidCode) &&
         Objects.equals(this.online, getHostBasicInfoResponse.online) &&
         Objects.equals(this.platform, getHostBasicInfoResponse.platform) &&
+        Objects.equals(this.platformVersion, getHostBasicInfoResponse.platformVersion) &&
         Objects.equals(this.pluginsBriefInfo, getHostBasicInfoResponse.pluginsBriefInfo) &&
         Objects.equals(this.pluginsStatus, getHostBasicInfoResponse.pluginsStatus) &&
+        Objects.equals(this.realRiskVul, getHostBasicInfoResponse.realRiskVul) &&
         Objects.equals(this.reason, getHostBasicInfoResponse.reason) &&
         Objects.equals(this.securityEnhancement, getHostBasicInfoResponse.securityEnhancement) &&
         Objects.equals(this.startTime, getHostBasicInfoResponse.startTime) &&
@@ -718,13 +873,14 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.totalMem, getHostBasicInfoResponse.totalMem) &&
         Objects.equals(this.userStatus, getHostBasicInfoResponse.userStatus) &&
         Objects.equals(this.userStatusReason, getHostBasicInfoResponse.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, getHostBasicInfoResponse.userStatusReasonCode) &&
         Objects.equals(this.virus, getHostBasicInfoResponse.virus) &&
         Objects.equals(this.vuln, getHostBasicInfoResponse.vuln);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, agentID, alarm, baseline, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, kernelVersion, lastHeartbeatTime, memUsage, online, platform, pluginsBriefInfo, pluginsStatus, reason, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, virus, vuln);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, alarm, baseline, clientPublicIP, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, realRiskVul, reason, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode, virus, vuln);
   }
 
 
@@ -734,9 +890,11 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     sb.append("class GetHostBasicInfoResponse {\n");
     
     sb.append("    abnormalPluginsList: ").append(toIndentedString(abnormalPluginsList)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    alarm: ").append(toIndentedString(alarm)).append("\n");
     sb.append("    baseline: ").append(toIndentedString(baseline)).append("\n");
+    sb.append("    clientPublicIP: ").append(toIndentedString(clientPublicIP)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    collectStatus: ").append(toIndentedString(collectStatus)).append("\n");
     sb.append("    cpuUsage: ").append(toIndentedString(cpuUsage)).append("\n");
@@ -746,13 +904,17 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    groupPathEn: ").append(toIndentedString(groupPathEn)).append("\n");
     sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
     sb.append("    memUsage: ").append(toIndentedString(memUsage)).append("\n");
+    sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    pluginsBriefInfo: ").append(toIndentedString(pluginsBriefInfo)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
+    sb.append("    realRiskVul: ").append(toIndentedString(realRiskVul)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
@@ -761,6 +923,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("    virus: ").append(toIndentedString(virus)).append("\n");
     sb.append("    vuln: ").append(toIndentedString(vuln)).append("\n");
     sb.append("}");

@@ -48,8 +48,14 @@ public class DataForGetDevFingerprintSoftwareOutput {
   @SerializedName("PrivateIP")
   private String privateIP = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("PublicIP")
   private String publicIP = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("StartTime")
   private Long startTime = null;
@@ -174,6 +180,24 @@ public class DataForGetDevFingerprintSoftwareOutput {
     this.privateIP = privateIP;
   }
 
+  public DataForGetDevFingerprintSoftwareOutput protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public DataForGetDevFingerprintSoftwareOutput publicIP(String publicIP) {
     this.publicIP = publicIP;
     return this;
@@ -190,6 +214,24 @@ public class DataForGetDevFingerprintSoftwareOutput {
 
   public void setPublicIP(String publicIP) {
     this.publicIP = publicIP;
+  }
+
+  public DataForGetDevFingerprintSoftwareOutput securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
   }
 
   public DataForGetDevFingerprintSoftwareOutput startTime(Long startTime) {
@@ -298,7 +340,9 @@ public class DataForGetDevFingerprintSoftwareOutput {
         Objects.equals(this.ID, dataForGetDevFingerprintSoftwareOutput.ID) &&
         Objects.equals(this.name, dataForGetDevFingerprintSoftwareOutput.name) &&
         Objects.equals(this.privateIP, dataForGetDevFingerprintSoftwareOutput.privateIP) &&
+        Objects.equals(this.protectStatus, dataForGetDevFingerprintSoftwareOutput.protectStatus) &&
         Objects.equals(this.publicIP, dataForGetDevFingerprintSoftwareOutput.publicIP) &&
+        Objects.equals(this.securityEnhancement, dataForGetDevFingerprintSoftwareOutput.securityEnhancement) &&
         Objects.equals(this.startTime, dataForGetDevFingerprintSoftwareOutput.startTime) &&
         Objects.equals(this.status, dataForGetDevFingerprintSoftwareOutput.status) &&
         Objects.equals(this.type, dataForGetDevFingerprintSoftwareOutput.type) &&
@@ -308,7 +352,7 @@ public class DataForGetDevFingerprintSoftwareOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, assetId, assetName, ID, name, privateIP, publicIP, startTime, status, type, updateTime, version);
+    return Objects.hash(accountId, assetId, assetName, ID, name, privateIP, protectStatus, publicIP, securityEnhancement, startTime, status, type, updateTime, version);
   }
 
 
@@ -323,7 +367,9 @@ public class DataForGetDevFingerprintSoftwareOutput {
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    publicIP: ").append(toIndentedString(publicIP)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -48,6 +48,9 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
   @SerializedName("BanType")
   private String banType = null;
 
+  @SerializedName("BanTypeList")
+  private List<String> banTypeList = null;
+
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
 
@@ -57,11 +60,20 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
+  @SerializedName("ManagerID")
+  private String managerID = null;
+
   @SerializedName("Operator")
   private String operator = null;
 
   @SerializedName("RuleList")
   private List<RuleListForGetBruteForceBanConfigOutput> ruleList = null;
+
+  @SerializedName("SingleGroupPath")
+  private String singleGroupPath = null;
+
+  @SerializedName("SingleHostname")
+  private String singleHostname = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -172,6 +184,32 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     this.banType = banType;
   }
 
+  public GetBruteForceBanConfigResponse banTypeList(List<String> banTypeList) {
+    this.banTypeList = banTypeList;
+    return this;
+  }
+
+  public GetBruteForceBanConfigResponse addBanTypeListItem(String banTypeListItem) {
+    if (this.banTypeList == null) {
+      this.banTypeList = new ArrayList<String>();
+    }
+    this.banTypeList.add(banTypeListItem);
+    return this;
+  }
+
+   /**
+   * Get banTypeList
+   * @return banTypeList
+  **/
+  @Schema(description = "")
+  public List<String> getBanTypeList() {
+    return banTypeList;
+  }
+
+  public void setBanTypeList(List<String> banTypeList) {
+    this.banTypeList = banTypeList;
+  }
+
   public GetBruteForceBanConfigResponse cloudProviders(List<String> cloudProviders) {
     this.cloudProviders = cloudProviders;
     return this;
@@ -242,6 +280,24 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     this.leafGroupIDs = leafGroupIDs;
   }
 
+  public GetBruteForceBanConfigResponse managerID(String managerID) {
+    this.managerID = managerID;
+    return this;
+  }
+
+   /**
+   * Get managerID
+   * @return managerID
+  **/
+  @Schema(description = "")
+  public String getManagerID() {
+    return managerID;
+  }
+
+  public void setManagerID(String managerID) {
+    this.managerID = managerID;
+  }
+
   public GetBruteForceBanConfigResponse operator(String operator) {
     this.operator = operator;
     return this;
@@ -287,6 +343,42 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     this.ruleList = ruleList;
   }
 
+  public GetBruteForceBanConfigResponse singleGroupPath(String singleGroupPath) {
+    this.singleGroupPath = singleGroupPath;
+    return this;
+  }
+
+   /**
+   * Get singleGroupPath
+   * @return singleGroupPath
+  **/
+  @Schema(description = "")
+  public String getSingleGroupPath() {
+    return singleGroupPath;
+  }
+
+  public void setSingleGroupPath(String singleGroupPath) {
+    this.singleGroupPath = singleGroupPath;
+  }
+
+  public GetBruteForceBanConfigResponse singleHostname(String singleHostname) {
+    this.singleHostname = singleHostname;
+    return this;
+  }
+
+   /**
+   * Get singleHostname
+   * @return singleHostname
+  **/
+  @Schema(description = "")
+  public String getSingleHostname() {
+    return singleHostname;
+  }
+
+  public void setSingleHostname(String singleHostname) {
+    this.singleHostname = singleHostname;
+  }
+
   public GetBruteForceBanConfigResponse topGroupID(String topGroupID) {
     this.topGroupID = topGroupID;
     return this;
@@ -320,17 +412,21 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
         Objects.equals(this.allHost, getBruteForceBanConfigResponse.allHost) &&
         Objects.equals(this.banScenes, getBruteForceBanConfigResponse.banScenes) &&
         Objects.equals(this.banType, getBruteForceBanConfigResponse.banType) &&
+        Objects.equals(this.banTypeList, getBruteForceBanConfigResponse.banTypeList) &&
         Objects.equals(this.cloudProviders, getBruteForceBanConfigResponse.cloudProviders) &&
         Objects.equals(this.enable, getBruteForceBanConfigResponse.enable) &&
         Objects.equals(this.leafGroupIDs, getBruteForceBanConfigResponse.leafGroupIDs) &&
+        Objects.equals(this.managerID, getBruteForceBanConfigResponse.managerID) &&
         Objects.equals(this.operator, getBruteForceBanConfigResponse.operator) &&
         Objects.equals(this.ruleList, getBruteForceBanConfigResponse.ruleList) &&
+        Objects.equals(this.singleGroupPath, getBruteForceBanConfigResponse.singleGroupPath) &&
+        Objects.equals(this.singleHostname, getBruteForceBanConfigResponse.singleHostname) &&
         Objects.equals(this.topGroupID, getBruteForceBanConfigResponse.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, agentIDList, allHost, banScenes, banType, cloudProviders, enable, leafGroupIDs, operator, ruleList, topGroupID);
+    return Objects.hash(accountID, agentIDList, allHost, banScenes, banType, banTypeList, cloudProviders, enable, leafGroupIDs, managerID, operator, ruleList, singleGroupPath, singleHostname, topGroupID);
   }
 
 
@@ -344,11 +440,15 @@ public class GetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     sb.append("    allHost: ").append(toIndentedString(allHost)).append("\n");
     sb.append("    banScenes: ").append(toIndentedString(banScenes)).append("\n");
     sb.append("    banType: ").append(toIndentedString(banType)).append("\n");
+    sb.append("    banTypeList: ").append(toIndentedString(banTypeList)).append("\n");
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
+    sb.append("    managerID: ").append(toIndentedString(managerID)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    ruleList: ").append(toIndentedString(ruleList)).append("\n");
+    sb.append("    singleGroupPath: ").append(toIndentedString(singleGroupPath)).append("\n");
+    sb.append("    singleHostname: ").append(toIndentedString(singleHostname)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");
     return sb.toString();

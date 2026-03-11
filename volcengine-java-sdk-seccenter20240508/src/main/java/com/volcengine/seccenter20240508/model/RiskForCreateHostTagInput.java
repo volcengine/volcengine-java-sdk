@@ -36,6 +36,9 @@ public class RiskForCreateHostTagInput {
   @SerializedName("Baseline")
   private Boolean baseline = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("Virus")
   private Boolean virus = null;
 
@@ -76,6 +79,24 @@ public class RiskForCreateHostTagInput {
 
   public void setBaseline(Boolean baseline) {
     this.baseline = baseline;
+  }
+
+  public RiskForCreateHostTagInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public RiskForCreateHostTagInput virus(Boolean virus) {
@@ -126,13 +147,14 @@ public class RiskForCreateHostTagInput {
     RiskForCreateHostTagInput riskForCreateHostTagInput = (RiskForCreateHostTagInput) o;
     return Objects.equals(this.alarm, riskForCreateHostTagInput.alarm) &&
         Objects.equals(this.baseline, riskForCreateHostTagInput.baseline) &&
+        Objects.equals(this.isRealRiskVul, riskForCreateHostTagInput.isRealRiskVul) &&
         Objects.equals(this.virus, riskForCreateHostTagInput.virus) &&
         Objects.equals(this.vuln, riskForCreateHostTagInput.vuln);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarm, baseline, virus, vuln);
+    return Objects.hash(alarm, baseline, isRealRiskVul, virus, vuln);
   }
 
 
@@ -143,6 +165,7 @@ public class RiskForCreateHostTagInput {
     
     sb.append("    alarm: ").append(toIndentedString(alarm)).append("\n");
     sb.append("    baseline: ").append(toIndentedString(baseline)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    virus: ").append(toIndentedString(virus)).append("\n");
     sb.append("    vuln: ").append(toIndentedString(vuln)).append("\n");
     sb.append("}");

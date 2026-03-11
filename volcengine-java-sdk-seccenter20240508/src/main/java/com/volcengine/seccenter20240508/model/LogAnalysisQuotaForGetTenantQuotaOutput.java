@@ -30,8 +30,17 @@ import javax.validation.Valid;
 
 
 public class LogAnalysisQuotaForGetTenantQuotaOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
+
+  @SerializedName("NeedRemove")
+  private Boolean needRemove = null;
+
+  @SerializedName("PaidType")
+  private String paidType = null;
 
   @SerializedName("TotalCount")
   private Long totalCount = null;
@@ -41,6 +50,24 @@ public class LogAnalysisQuotaForGetTenantQuotaOutput {
 
   @SerializedName("Version")
   private Long version = null;
+
+  public LogAnalysisQuotaForGetTenantQuotaOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public LogAnalysisQuotaForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
@@ -58,6 +85,42 @@ public class LogAnalysisQuotaForGetTenantQuotaOutput {
 
   public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
+  }
+
+  public LogAnalysisQuotaForGetTenantQuotaOutput needRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+    return this;
+  }
+
+   /**
+   * Get needRemove
+   * @return needRemove
+  **/
+  @Schema(description = "")
+  public Boolean isNeedRemove() {
+    return needRemove;
+  }
+
+  public void setNeedRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+  }
+
+  public LogAnalysisQuotaForGetTenantQuotaOutput paidType(String paidType) {
+    this.paidType = paidType;
+    return this;
+  }
+
+   /**
+   * Get paidType
+   * @return paidType
+  **/
+  @Schema(description = "")
+  public String getPaidType() {
+    return paidType;
+  }
+
+  public void setPaidType(String paidType) {
+    this.paidType = paidType;
   }
 
   public LogAnalysisQuotaForGetTenantQuotaOutput totalCount(Long totalCount) {
@@ -124,7 +187,10 @@ public class LogAnalysisQuotaForGetTenantQuotaOutput {
       return false;
     }
     LogAnalysisQuotaForGetTenantQuotaOutput logAnalysisQuotaForGetTenantQuotaOutput = (LogAnalysisQuotaForGetTenantQuotaOutput) o;
-    return Objects.equals(this.expireTime, logAnalysisQuotaForGetTenantQuotaOutput.expireTime) &&
+    return Objects.equals(this.action, logAnalysisQuotaForGetTenantQuotaOutput.action) &&
+        Objects.equals(this.expireTime, logAnalysisQuotaForGetTenantQuotaOutput.expireTime) &&
+        Objects.equals(this.needRemove, logAnalysisQuotaForGetTenantQuotaOutput.needRemove) &&
+        Objects.equals(this.paidType, logAnalysisQuotaForGetTenantQuotaOutput.paidType) &&
         Objects.equals(this.totalCount, logAnalysisQuotaForGetTenantQuotaOutput.totalCount) &&
         Objects.equals(this.usedCount, logAnalysisQuotaForGetTenantQuotaOutput.usedCount) &&
         Objects.equals(this.version, logAnalysisQuotaForGetTenantQuotaOutput.version);
@@ -132,7 +198,7 @@ public class LogAnalysisQuotaForGetTenantQuotaOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expireTime, totalCount, usedCount, version);
+    return Objects.hash(action, expireTime, needRemove, paidType, totalCount, usedCount, version);
   }
 
 
@@ -141,7 +207,10 @@ public class LogAnalysisQuotaForGetTenantQuotaOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogAnalysisQuotaForGetTenantQuotaOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    needRemove: ").append(toIndentedString(needRemove)).append("\n");
+    sb.append("    paidType: ").append(toIndentedString(paidType)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    usedCount: ").append(toIndentedString(usedCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

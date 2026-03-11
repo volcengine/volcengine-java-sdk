@@ -107,6 +107,12 @@ public class ListHidsAlarmsRequest {
   @SerializedName("ImageName")
   private String imageName = null;
 
+  @SerializedName("LastAlarmTimeEnd")
+  private Long lastAlarmTimeEnd = null;
+
+  @SerializedName("LastAlarmTimeStart")
+  private Long lastAlarmTimeStart = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -118,6 +124,9 @@ public class ListHidsAlarmsRequest {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
 
   @SerializedName("PageNumber")
   private Long pageNumber = null;
@@ -670,6 +679,42 @@ public class ListHidsAlarmsRequest {
     this.imageName = imageName;
   }
 
+  public ListHidsAlarmsRequest lastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeEnd
+   * @return lastAlarmTimeEnd
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeEnd() {
+    return lastAlarmTimeEnd;
+  }
+
+  public void setLastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+  }
+
+  public ListHidsAlarmsRequest lastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeStart
+   * @return lastAlarmTimeStart
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeStart() {
+    return lastAlarmTimeStart;
+  }
+
+  public void setLastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+  }
+
   public ListHidsAlarmsRequest leafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
     return this;
@@ -756,6 +801,32 @@ public class ListHidsAlarmsRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ListHidsAlarmsRequest operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public ListHidsAlarmsRequest addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
   }
 
   public ListHidsAlarmsRequest pageNumber(Long pageNumber) {
@@ -1081,10 +1152,13 @@ public class ListHidsAlarmsRequest {
         Objects.equals(this.hostname, listHidsAlarmsRequest.hostname) &&
         Objects.equals(this.IP, listHidsAlarmsRequest.IP) &&
         Objects.equals(this.imageName, listHidsAlarmsRequest.imageName) &&
+        Objects.equals(this.lastAlarmTimeEnd, listHidsAlarmsRequest.lastAlarmTimeEnd) &&
+        Objects.equals(this.lastAlarmTimeStart, listHidsAlarmsRequest.lastAlarmTimeStart) &&
         Objects.equals(this.leafGroupIDs, listHidsAlarmsRequest.leafGroupIDs) &&
         Objects.equals(this.levelList, listHidsAlarmsRequest.levelList) &&
         Objects.equals(this.mlpInstanceID, listHidsAlarmsRequest.mlpInstanceID) &&
         Objects.equals(this.name, listHidsAlarmsRequest.name) &&
+        Objects.equals(this.operationList, listHidsAlarmsRequest.operationList) &&
         Objects.equals(this.pageNumber, listHidsAlarmsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listHidsAlarmsRequest.pageSize) &&
         Objects.equals(this.probeHook, listHidsAlarmsRequest.probeHook) &&
@@ -1104,7 +1178,7 @@ public class ListHidsAlarmsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, dataType, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, leafGroupIDs, levelList, mlpInstanceID, name, pageNumber, pageSize, probeHook, raspArgv, sortBy, sortOrder, status, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName);
+    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, dataType, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, lastAlarmTimeEnd, lastAlarmTimeStart, leafGroupIDs, levelList, mlpInstanceID, name, operationList, pageNumber, pageSize, probeHook, raspArgv, sortBy, sortOrder, status, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName);
   }
 
 
@@ -1138,10 +1212,13 @@ public class ListHidsAlarmsRequest {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    lastAlarmTimeEnd: ").append(toIndentedString(lastAlarmTimeEnd)).append("\n");
+    sb.append("    lastAlarmTimeStart: ").append(toIndentedString(lastAlarmTimeStart)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    levelList: ").append(toIndentedString(levelList)).append("\n");
     sb.append("    mlpInstanceID: ").append(toIndentedString(mlpInstanceID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    probeHook: ").append(toIndentedString(probeHook)).append("\n");

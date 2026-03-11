@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class RuleListForAddWhiteListInput {
   @SerializedName("MatchContent")
   private String matchContent = null;
+
+  @SerializedName("MatchContentList")
+  private List<String> matchContentList = null;
 
   @SerializedName("MatchKey")
   private String matchKey = null;
@@ -55,6 +60,32 @@ public class RuleListForAddWhiteListInput {
 
   public void setMatchContent(String matchContent) {
     this.matchContent = matchContent;
+  }
+
+  public RuleListForAddWhiteListInput matchContentList(List<String> matchContentList) {
+    this.matchContentList = matchContentList;
+    return this;
+  }
+
+  public RuleListForAddWhiteListInput addMatchContentListItem(String matchContentListItem) {
+    if (this.matchContentList == null) {
+      this.matchContentList = new ArrayList<String>();
+    }
+    this.matchContentList.add(matchContentListItem);
+    return this;
+  }
+
+   /**
+   * Get matchContentList
+   * @return matchContentList
+  **/
+  @Schema(description = "")
+  public List<String> getMatchContentList() {
+    return matchContentList;
+  }
+
+  public void setMatchContentList(List<String> matchContentList) {
+    this.matchContentList = matchContentList;
   }
 
   public RuleListForAddWhiteListInput matchKey(String matchKey) {
@@ -104,13 +135,14 @@ public class RuleListForAddWhiteListInput {
     }
     RuleListForAddWhiteListInput ruleListForAddWhiteListInput = (RuleListForAddWhiteListInput) o;
     return Objects.equals(this.matchContent, ruleListForAddWhiteListInput.matchContent) &&
+        Objects.equals(this.matchContentList, ruleListForAddWhiteListInput.matchContentList) &&
         Objects.equals(this.matchKey, ruleListForAddWhiteListInput.matchKey) &&
         Objects.equals(this.matchType, ruleListForAddWhiteListInput.matchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchContent, matchKey, matchType);
+    return Objects.hash(matchContent, matchContentList, matchKey, matchType);
   }
 
 
@@ -120,6 +152,7 @@ public class RuleListForAddWhiteListInput {
     sb.append("class RuleListForAddWhiteListInput {\n");
     
     sb.append("    matchContent: ").append(toIndentedString(matchContent)).append("\n");
+    sb.append("    matchContentList: ").append(toIndentedString(matchContentList)).append("\n");
     sb.append("    matchKey: ").append(toIndentedString(matchKey)).append("\n");
     sb.append("    matchType: ").append(toIndentedString(matchType)).append("\n");
     sb.append("}");

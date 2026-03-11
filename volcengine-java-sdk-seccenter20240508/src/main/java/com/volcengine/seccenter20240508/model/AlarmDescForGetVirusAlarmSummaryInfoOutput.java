@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
+  @SerializedName("AlarmCount")
+  private Long alarmCount = null;
+
   @SerializedName("AlarmHandleResult")
   private Long alarmHandleResult = null;
 
@@ -41,8 +44,14 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("AlertDesc")
   private String alertDesc = null;
 
+  @SerializedName("AlertDescUS")
+  private String alertDescUS = null;
+
   @SerializedName("AlertDetail")
   private String alertDetail = null;
+
+  @SerializedName("AlertDetailUS")
+  private String alertDetailUS = null;
 
   @SerializedName("AlertTags")
   private List<String> alertTags = null;
@@ -68,6 +77,9 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("DataTypeStr")
   private String dataTypeStr = null;
 
+  @SerializedName("DataTypeStrEn")
+  private String dataTypeStrEn = null;
+
   @SerializedName("Desc")
   private String desc = null;
 
@@ -92,6 +104,12 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("KubeLevel")
   private String kubeLevel = null;
 
+  @SerializedName("LastAlarmTime")
+  private Long lastAlarmTime = null;
+
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
+
   @SerializedName("RaspConfigName")
   private String raspConfigName = null;
 
@@ -107,14 +125,38 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("RuleName")
   private String ruleName = null;
 
+  @SerializedName("RuleNameUs")
+  private String ruleNameUs = null;
+
   @SerializedName("Status")
   private Long status = null;
 
   @SerializedName("Suggestion")
   private String suggestion = null;
 
+  @SerializedName("SuggestionUs")
+  private String suggestionUs = null;
+
   @SerializedName("TraceID")
   private String traceID = null;
+
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput alarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
+    return this;
+  }
+
+   /**
+   * Get alarmCount
+   * @return alarmCount
+  **/
+  @Schema(description = "")
+  public Long getAlarmCount() {
+    return alarmCount;
+  }
+
+  public void setAlarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
+  }
 
   public AlarmDescForGetVirusAlarmSummaryInfoOutput alarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
@@ -170,6 +212,24 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     this.alertDesc = alertDesc;
   }
 
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput alertDescUS(String alertDescUS) {
+    this.alertDescUS = alertDescUS;
+    return this;
+  }
+
+   /**
+   * Get alertDescUS
+   * @return alertDescUS
+  **/
+  @Schema(description = "")
+  public String getAlertDescUS() {
+    return alertDescUS;
+  }
+
+  public void setAlertDescUS(String alertDescUS) {
+    this.alertDescUS = alertDescUS;
+  }
+
   public AlarmDescForGetVirusAlarmSummaryInfoOutput alertDetail(String alertDetail) {
     this.alertDetail = alertDetail;
     return this;
@@ -186,6 +246,24 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
 
   public void setAlertDetail(String alertDetail) {
     this.alertDetail = alertDetail;
+  }
+
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput alertDetailUS(String alertDetailUS) {
+    this.alertDetailUS = alertDetailUS;
+    return this;
+  }
+
+   /**
+   * Get alertDetailUS
+   * @return alertDetailUS
+  **/
+  @Schema(description = "")
+  public String getAlertDetailUS() {
+    return alertDetailUS;
+  }
+
+  public void setAlertDetailUS(String alertDetailUS) {
+    this.alertDetailUS = alertDetailUS;
   }
 
   public AlarmDescForGetVirusAlarmSummaryInfoOutput alertTags(List<String> alertTags) {
@@ -340,6 +418,24 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     this.dataTypeStr = dataTypeStr;
   }
 
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput dataTypeStrEn(String dataTypeStrEn) {
+    this.dataTypeStrEn = dataTypeStrEn;
+    return this;
+  }
+
+   /**
+   * Get dataTypeStrEn
+   * @return dataTypeStrEn
+  **/
+  @Schema(description = "")
+  public String getDataTypeStrEn() {
+    return dataTypeStrEn;
+  }
+
+  public void setDataTypeStrEn(String dataTypeStrEn) {
+    this.dataTypeStrEn = dataTypeStrEn;
+  }
+
   public AlarmDescForGetVirusAlarmSummaryInfoOutput desc(String desc) {
     this.desc = desc;
     return this;
@@ -484,6 +580,50 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     this.kubeLevel = kubeLevel;
   }
 
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput lastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTime
+   * @return lastAlarmTime
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTime() {
+    return lastAlarmTime;
+  }
+
+  public void setLastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+  }
+
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
+  }
+
   public AlarmDescForGetVirusAlarmSummaryInfoOutput raspConfigName(String raspConfigName) {
     this.raspConfigName = raspConfigName;
     return this;
@@ -574,6 +714,24 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     this.ruleName = ruleName;
   }
 
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput ruleNameUs(String ruleNameUs) {
+    this.ruleNameUs = ruleNameUs;
+    return this;
+  }
+
+   /**
+   * Get ruleNameUs
+   * @return ruleNameUs
+  **/
+  @Schema(description = "")
+  public String getRuleNameUs() {
+    return ruleNameUs;
+  }
+
+  public void setRuleNameUs(String ruleNameUs) {
+    this.ruleNameUs = ruleNameUs;
+  }
+
   public AlarmDescForGetVirusAlarmSummaryInfoOutput status(Long status) {
     this.status = status;
     return this;
@@ -610,6 +768,24 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     this.suggestion = suggestion;
   }
 
+  public AlarmDescForGetVirusAlarmSummaryInfoOutput suggestionUs(String suggestionUs) {
+    this.suggestionUs = suggestionUs;
+    return this;
+  }
+
+   /**
+   * Get suggestionUs
+   * @return suggestionUs
+  **/
+  @Schema(description = "")
+  public String getSuggestionUs() {
+    return suggestionUs;
+  }
+
+  public void setSuggestionUs(String suggestionUs) {
+    this.suggestionUs = suggestionUs;
+  }
+
   public AlarmDescForGetVirusAlarmSummaryInfoOutput traceID(String traceID) {
     this.traceID = traceID;
     return this;
@@ -638,10 +814,13 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
       return false;
     }
     AlarmDescForGetVirusAlarmSummaryInfoOutput alarmDescForGetVirusAlarmSummaryInfoOutput = (AlarmDescForGetVirusAlarmSummaryInfoOutput) o;
-    return Objects.equals(this.alarmHandleResult, alarmDescForGetVirusAlarmSummaryInfoOutput.alarmHandleResult) &&
+    return Objects.equals(this.alarmCount, alarmDescForGetVirusAlarmSummaryInfoOutput.alarmCount) &&
+        Objects.equals(this.alarmHandleResult, alarmDescForGetVirusAlarmSummaryInfoOutput.alarmHandleResult) &&
         Objects.equals(this.alarmID, alarmDescForGetVirusAlarmSummaryInfoOutput.alarmID) &&
         Objects.equals(this.alertDesc, alarmDescForGetVirusAlarmSummaryInfoOutput.alertDesc) &&
+        Objects.equals(this.alertDescUS, alarmDescForGetVirusAlarmSummaryInfoOutput.alertDescUS) &&
         Objects.equals(this.alertDetail, alarmDescForGetVirusAlarmSummaryInfoOutput.alertDetail) &&
+        Objects.equals(this.alertDetailUS, alarmDescForGetVirusAlarmSummaryInfoOutput.alertDetailUS) &&
         Objects.equals(this.alertTags, alarmDescForGetVirusAlarmSummaryInfoOutput.alertTags) &&
         Objects.equals(this.alertType, alarmDescForGetVirusAlarmSummaryInfoOutput.alertType) &&
         Objects.equals(this.alertTypeUs, alarmDescForGetVirusAlarmSummaryInfoOutput.alertTypeUs) &&
@@ -650,6 +829,7 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.attackID, alarmDescForGetVirusAlarmSummaryInfoOutput.attackID) &&
         Objects.equals(this.attackIDList, alarmDescForGetVirusAlarmSummaryInfoOutput.attackIDList) &&
         Objects.equals(this.dataTypeStr, alarmDescForGetVirusAlarmSummaryInfoOutput.dataTypeStr) &&
+        Objects.equals(this.dataTypeStrEn, alarmDescForGetVirusAlarmSummaryInfoOutput.dataTypeStrEn) &&
         Objects.equals(this.desc, alarmDescForGetVirusAlarmSummaryInfoOutput.desc) &&
         Objects.equals(this.docker, alarmDescForGetVirusAlarmSummaryInfoOutput.docker) &&
         Objects.equals(this.errorReason, alarmDescForGetVirusAlarmSummaryInfoOutput.errorReason) &&
@@ -658,19 +838,23 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.hidsLevel, alarmDescForGetVirusAlarmSummaryInfoOutput.hidsLevel) &&
         Objects.equals(this.insertTime, alarmDescForGetVirusAlarmSummaryInfoOutput.insertTime) &&
         Objects.equals(this.kubeLevel, alarmDescForGetVirusAlarmSummaryInfoOutput.kubeLevel) &&
+        Objects.equals(this.lastAlarmTime, alarmDescForGetVirusAlarmSummaryInfoOutput.lastAlarmTime) &&
+        Objects.equals(this.operationList, alarmDescForGetVirusAlarmSummaryInfoOutput.operationList) &&
         Objects.equals(this.raspConfigName, alarmDescForGetVirusAlarmSummaryInfoOutput.raspConfigName) &&
         Objects.equals(this.raspLevel, alarmDescForGetVirusAlarmSummaryInfoOutput.raspLevel) &&
         Objects.equals(this.relatedConfigID, alarmDescForGetVirusAlarmSummaryInfoOutput.relatedConfigID) &&
         Objects.equals(this.riskDesc, alarmDescForGetVirusAlarmSummaryInfoOutput.riskDesc) &&
         Objects.equals(this.ruleName, alarmDescForGetVirusAlarmSummaryInfoOutput.ruleName) &&
+        Objects.equals(this.ruleNameUs, alarmDescForGetVirusAlarmSummaryInfoOutput.ruleNameUs) &&
         Objects.equals(this.status, alarmDescForGetVirusAlarmSummaryInfoOutput.status) &&
         Objects.equals(this.suggestion, alarmDescForGetVirusAlarmSummaryInfoOutput.suggestion) &&
+        Objects.equals(this.suggestionUs, alarmDescForGetVirusAlarmSummaryInfoOutput.suggestionUs) &&
         Objects.equals(this.traceID, alarmDescForGetVirusAlarmSummaryInfoOutput.traceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmHandleResult, alarmID, alertDesc, alertDetail, alertTags, alertType, alertTypeUs, analyzeReport, analyzeReportName, attackID, attackIDList, dataTypeStr, desc, docker, errorReason, handleTime, handleUser, hidsLevel, insertTime, kubeLevel, raspConfigName, raspLevel, relatedConfigID, riskDesc, ruleName, status, suggestion, traceID);
+    return Objects.hash(alarmCount, alarmHandleResult, alarmID, alertDesc, alertDescUS, alertDetail, alertDetailUS, alertTags, alertType, alertTypeUs, analyzeReport, analyzeReportName, attackID, attackIDList, dataTypeStr, dataTypeStrEn, desc, docker, errorReason, handleTime, handleUser, hidsLevel, insertTime, kubeLevel, lastAlarmTime, operationList, raspConfigName, raspLevel, relatedConfigID, riskDesc, ruleName, ruleNameUs, status, suggestion, suggestionUs, traceID);
   }
 
 
@@ -679,10 +863,13 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlarmDescForGetVirusAlarmSummaryInfoOutput {\n");
     
+    sb.append("    alarmCount: ").append(toIndentedString(alarmCount)).append("\n");
     sb.append("    alarmHandleResult: ").append(toIndentedString(alarmHandleResult)).append("\n");
     sb.append("    alarmID: ").append(toIndentedString(alarmID)).append("\n");
     sb.append("    alertDesc: ").append(toIndentedString(alertDesc)).append("\n");
+    sb.append("    alertDescUS: ").append(toIndentedString(alertDescUS)).append("\n");
     sb.append("    alertDetail: ").append(toIndentedString(alertDetail)).append("\n");
+    sb.append("    alertDetailUS: ").append(toIndentedString(alertDetailUS)).append("\n");
     sb.append("    alertTags: ").append(toIndentedString(alertTags)).append("\n");
     sb.append("    alertType: ").append(toIndentedString(alertType)).append("\n");
     sb.append("    alertTypeUs: ").append(toIndentedString(alertTypeUs)).append("\n");
@@ -691,6 +878,7 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     sb.append("    attackID: ").append(toIndentedString(attackID)).append("\n");
     sb.append("    attackIDList: ").append(toIndentedString(attackIDList)).append("\n");
     sb.append("    dataTypeStr: ").append(toIndentedString(dataTypeStr)).append("\n");
+    sb.append("    dataTypeStrEn: ").append(toIndentedString(dataTypeStrEn)).append("\n");
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
     sb.append("    docker: ").append(toIndentedString(docker)).append("\n");
     sb.append("    errorReason: ").append(toIndentedString(errorReason)).append("\n");
@@ -699,13 +887,17 @@ public class AlarmDescForGetVirusAlarmSummaryInfoOutput {
     sb.append("    hidsLevel: ").append(toIndentedString(hidsLevel)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
     sb.append("    kubeLevel: ").append(toIndentedString(kubeLevel)).append("\n");
+    sb.append("    lastAlarmTime: ").append(toIndentedString(lastAlarmTime)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    raspConfigName: ").append(toIndentedString(raspConfigName)).append("\n");
     sb.append("    raspLevel: ").append(toIndentedString(raspLevel)).append("\n");
     sb.append("    relatedConfigID: ").append(toIndentedString(relatedConfigID)).append("\n");
     sb.append("    riskDesc: ").append(toIndentedString(riskDesc)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    ruleNameUs: ").append(toIndentedString(ruleNameUs)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    suggestion: ").append(toIndentedString(suggestion)).append("\n");
+    sb.append("    suggestionUs: ").append(toIndentedString(suggestionUs)).append("\n");
     sb.append("    traceID: ").append(toIndentedString(traceID)).append("\n");
     sb.append("}");
     return sb.toString();

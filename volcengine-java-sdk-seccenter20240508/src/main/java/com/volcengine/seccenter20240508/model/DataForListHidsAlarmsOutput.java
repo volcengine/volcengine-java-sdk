@@ -41,6 +41,9 @@ public class DataForListHidsAlarmsOutput {
   @SerializedName("AgentID")
   private String agentID = null;
 
+  @SerializedName("AlarmCount")
+  private Long alarmCount = null;
+
   @SerializedName("AlarmHandleResult")
   private Long alarmHandleResult = null;
 
@@ -55,6 +58,9 @@ public class DataForListHidsAlarmsOutput {
 
   @SerializedName("AlertTags")
   private List<String> alertTags = null;
+
+  @SerializedName("AnalysisRecordUUID")
+  private String analysisRecordUUID = null;
 
   @SerializedName("Args")
   private List<String> args = null;
@@ -73,6 +79,9 @@ public class DataForListHidsAlarmsOutput {
 
   @SerializedName("Cluster")
   private ClusterForListHidsAlarmsOutput cluster = null;
+
+  @SerializedName("Confidence")
+  private String confidence = null;
 
   @SerializedName("DataType")
   private String dataType = null;
@@ -101,6 +110,9 @@ public class DataForListHidsAlarmsOutput {
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("HandleFailReason")
+  private String handleFailReason = null;
+
   @SerializedName("HandleTime")
   private Long handleTime = null;
 
@@ -119,6 +131,9 @@ public class DataForListHidsAlarmsOutput {
   @SerializedName("LLMProcessed")
   private Boolean llMProcessed = null;
 
+  @SerializedName("LastAlarmTime")
+  private Long lastAlarmTime = null;
+
   @SerializedName("Level")
   private String level = null;
 
@@ -134,6 +149,9 @@ public class DataForListHidsAlarmsOutput {
   @SerializedName("NsPid")
   private String nsPid = null;
 
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
+
   @SerializedName("OsType")
   private String osType = null;
 
@@ -145,6 +163,12 @@ public class DataForListHidsAlarmsOutput {
 
   @SerializedName("Region")
   private String region = null;
+
+  @SerializedName("SecurityIntelligenceComplete")
+  private Boolean securityIntelligenceComplete = null;
+
+  @SerializedName("SecurityIntelligenceResult")
+  private String securityIntelligenceResult = null;
 
   @SerializedName("Sid")
   private String sid = null;
@@ -198,6 +222,24 @@ public class DataForListHidsAlarmsOutput {
 
   public void setAgentID(String agentID) {
     this.agentID = agentID;
+  }
+
+  public DataForListHidsAlarmsOutput alarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
+    return this;
+  }
+
+   /**
+   * Get alarmCount
+   * @return alarmCount
+  **/
+  @Schema(description = "")
+  public Long getAlarmCount() {
+    return alarmCount;
+  }
+
+  public void setAlarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
   }
 
   public DataForListHidsAlarmsOutput alarmHandleResult(Long alarmHandleResult) {
@@ -296,6 +338,24 @@ public class DataForListHidsAlarmsOutput {
 
   public void setAlertTags(List<String> alertTags) {
     this.alertTags = alertTags;
+  }
+
+  public DataForListHidsAlarmsOutput analysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
+    return this;
+  }
+
+   /**
+   * Get analysisRecordUUID
+   * @return analysisRecordUUID
+  **/
+  @Schema(description = "")
+  public String getAnalysisRecordUUID() {
+    return analysisRecordUUID;
+  }
+
+  public void setAnalysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
   }
 
   public DataForListHidsAlarmsOutput args(List<String> args) {
@@ -438,6 +498,24 @@ public class DataForListHidsAlarmsOutput {
 
   public void setCluster(ClusterForListHidsAlarmsOutput cluster) {
     this.cluster = cluster;
+  }
+
+  public DataForListHidsAlarmsOutput confidence(String confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+   /**
+   * Get confidence
+   * @return confidence
+  **/
+  @Schema(description = "")
+  public String getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(String confidence) {
+    this.confidence = confidence;
   }
 
   public DataForListHidsAlarmsOutput dataType(String dataType) {
@@ -602,6 +680,24 @@ public class DataForListHidsAlarmsOutput {
     this.groupPath = groupPath;
   }
 
+  public DataForListHidsAlarmsOutput handleFailReason(String handleFailReason) {
+    this.handleFailReason = handleFailReason;
+    return this;
+  }
+
+   /**
+   * Get handleFailReason
+   * @return handleFailReason
+  **/
+  @Schema(description = "")
+  public String getHandleFailReason() {
+    return handleFailReason;
+  }
+
+  public void setHandleFailReason(String handleFailReason) {
+    this.handleFailReason = handleFailReason;
+  }
+
   public DataForListHidsAlarmsOutput handleTime(Long handleTime) {
     this.handleTime = handleTime;
     return this;
@@ -711,6 +807,24 @@ public class DataForListHidsAlarmsOutput {
     this.llMProcessed = llMProcessed;
   }
 
+  public DataForListHidsAlarmsOutput lastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTime
+   * @return lastAlarmTime
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTime() {
+    return lastAlarmTime;
+  }
+
+  public void setLastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+  }
+
   public DataForListHidsAlarmsOutput level(String level) {
     this.level = level;
     return this;
@@ -801,6 +915,32 @@ public class DataForListHidsAlarmsOutput {
     this.nsPid = nsPid;
   }
 
+  public DataForListHidsAlarmsOutput operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public DataForListHidsAlarmsOutput addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
+  }
+
   public DataForListHidsAlarmsOutput osType(String osType) {
     this.osType = osType;
     return this;
@@ -871,6 +1011,42 @@ public class DataForListHidsAlarmsOutput {
 
   public void setRegion(String region) {
     this.region = region;
+  }
+
+  public DataForListHidsAlarmsOutput securityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceComplete
+   * @return securityIntelligenceComplete
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityIntelligenceComplete() {
+    return securityIntelligenceComplete;
+  }
+
+  public void setSecurityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+  }
+
+  public DataForListHidsAlarmsOutput securityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceResult
+   * @return securityIntelligenceResult
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceResult() {
+    return securityIntelligenceResult;
+  }
+
+  public void setSecurityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
   }
 
   public DataForListHidsAlarmsOutput sid(String sid) {
@@ -993,17 +1169,20 @@ public class DataForListHidsAlarmsOutput {
     DataForListHidsAlarmsOutput dataForListHidsAlarmsOutput = (DataForListHidsAlarmsOutput) o;
     return Objects.equals(this.agentGroup, dataForListHidsAlarmsOutput.agentGroup) &&
         Objects.equals(this.agentID, dataForListHidsAlarmsOutput.agentID) &&
+        Objects.equals(this.alarmCount, dataForListHidsAlarmsOutput.alarmCount) &&
         Objects.equals(this.alarmHandleResult, dataForListHidsAlarmsOutput.alarmHandleResult) &&
         Objects.equals(this.alarmHostname, dataForListHidsAlarmsOutput.alarmHostname) &&
         Objects.equals(this.alarmID, dataForListHidsAlarmsOutput.alarmID) &&
         Objects.equals(this.alarmTime, dataForListHidsAlarmsOutput.alarmTime) &&
         Objects.equals(this.alertTags, dataForListHidsAlarmsOutput.alertTags) &&
+        Objects.equals(this.analysisRecordUUID, dataForListHidsAlarmsOutput.analysisRecordUUID) &&
         Objects.equals(this.args, dataForListHidsAlarmsOutput.args) &&
         Objects.equals(this.argsList, dataForListHidsAlarmsOutput.argsList) &&
         Objects.equals(this.argvList, dataForListHidsAlarmsOutput.argvList) &&
         Objects.equals(this.attributionList, dataForListHidsAlarmsOutput.attributionList) &&
         Objects.equals(this.propertyClass, dataForListHidsAlarmsOutput.propertyClass) &&
         Objects.equals(this.cluster, dataForListHidsAlarmsOutput.cluster) &&
+        Objects.equals(this.confidence, dataForListHidsAlarmsOutput.confidence) &&
         Objects.equals(this.dataType, dataForListHidsAlarmsOutput.dataType) &&
         Objects.equals(this.errorReason, dataForListHidsAlarmsOutput.errorReason) &&
         Objects.equals(this.eventID, dataForListHidsAlarmsOutput.eventID) &&
@@ -1013,21 +1192,26 @@ public class DataForListHidsAlarmsOutput {
         Objects.equals(this.fileHash, dataForListHidsAlarmsOutput.fileHash) &&
         Objects.equals(this.filePath, dataForListHidsAlarmsOutput.filePath) &&
         Objects.equals(this.groupPath, dataForListHidsAlarmsOutput.groupPath) &&
+        Objects.equals(this.handleFailReason, dataForListHidsAlarmsOutput.handleFailReason) &&
         Objects.equals(this.handleTime, dataForListHidsAlarmsOutput.handleTime) &&
         Objects.equals(this.host, dataForListHidsAlarmsOutput.host) &&
         Objects.equals(this.imageName, dataForListHidsAlarmsOutput.imageName) &&
         Objects.equals(this.inDocker, dataForListHidsAlarmsOutput.inDocker) &&
         Objects.equals(this.llMAnalysisResult, dataForListHidsAlarmsOutput.llMAnalysisResult) &&
         Objects.equals(this.llMProcessed, dataForListHidsAlarmsOutput.llMProcessed) &&
+        Objects.equals(this.lastAlarmTime, dataForListHidsAlarmsOutput.lastAlarmTime) &&
         Objects.equals(this.level, dataForListHidsAlarmsOutput.level) &&
         Objects.equals(this.mlpInstanceID, dataForListHidsAlarmsOutput.mlpInstanceID) &&
         Objects.equals(this.mlpPrivateIP, dataForListHidsAlarmsOutput.mlpPrivateIP) &&
         Objects.equals(this.name, dataForListHidsAlarmsOutput.name) &&
         Objects.equals(this.nsPid, dataForListHidsAlarmsOutput.nsPid) &&
+        Objects.equals(this.operationList, dataForListHidsAlarmsOutput.operationList) &&
         Objects.equals(this.osType, dataForListHidsAlarmsOutput.osType) &&
         Objects.equals(this.pid, dataForListHidsAlarmsOutput.pid) &&
         Objects.equals(this.probeHook, dataForListHidsAlarmsOutput.probeHook) &&
         Objects.equals(this.region, dataForListHidsAlarmsOutput.region) &&
+        Objects.equals(this.securityIntelligenceComplete, dataForListHidsAlarmsOutput.securityIntelligenceComplete) &&
+        Objects.equals(this.securityIntelligenceResult, dataForListHidsAlarmsOutput.securityIntelligenceResult) &&
         Objects.equals(this.sid, dataForListHidsAlarmsOutput.sid) &&
         Objects.equals(this.stackTraceFormat, dataForListHidsAlarmsOutput.stackTraceFormat) &&
         Objects.equals(this.stackTraceHash, dataForListHidsAlarmsOutput.stackTraceHash) &&
@@ -1038,7 +1222,7 @@ public class DataForListHidsAlarmsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentGroup, agentID, alarmHandleResult, alarmHostname, alarmID, alarmTime, alertTags, args, argsList, argvList, attributionList, propertyClass, cluster, dataType, errorReason, eventID, eventName, exe, fileDownloadable, fileHash, filePath, groupPath, handleTime, host, imageName, inDocker, llMAnalysisResult, llMProcessed, level, mlpInstanceID, mlpPrivateIP, name, nsPid, osType, pid, probeHook, region, sid, stackTraceFormat, stackTraceHash, status, traceID, type);
+    return Objects.hash(agentGroup, agentID, alarmCount, alarmHandleResult, alarmHostname, alarmID, alarmTime, alertTags, analysisRecordUUID, args, argsList, argvList, attributionList, propertyClass, cluster, confidence, dataType, errorReason, eventID, eventName, exe, fileDownloadable, fileHash, filePath, groupPath, handleFailReason, handleTime, host, imageName, inDocker, llMAnalysisResult, llMProcessed, lastAlarmTime, level, mlpInstanceID, mlpPrivateIP, name, nsPid, operationList, osType, pid, probeHook, region, securityIntelligenceComplete, securityIntelligenceResult, sid, stackTraceFormat, stackTraceHash, status, traceID, type);
   }
 
 
@@ -1049,17 +1233,20 @@ public class DataForListHidsAlarmsOutput {
     
     sb.append("    agentGroup: ").append(toIndentedString(agentGroup)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
+    sb.append("    alarmCount: ").append(toIndentedString(alarmCount)).append("\n");
     sb.append("    alarmHandleResult: ").append(toIndentedString(alarmHandleResult)).append("\n");
     sb.append("    alarmHostname: ").append(toIndentedString(alarmHostname)).append("\n");
     sb.append("    alarmID: ").append(toIndentedString(alarmID)).append("\n");
     sb.append("    alarmTime: ").append(toIndentedString(alarmTime)).append("\n");
     sb.append("    alertTags: ").append(toIndentedString(alertTags)).append("\n");
+    sb.append("    analysisRecordUUID: ").append(toIndentedString(analysisRecordUUID)).append("\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    argsList: ").append(toIndentedString(argsList)).append("\n");
     sb.append("    argvList: ").append(toIndentedString(argvList)).append("\n");
     sb.append("    attributionList: ").append(toIndentedString(attributionList)).append("\n");
     sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    errorReason: ").append(toIndentedString(errorReason)).append("\n");
     sb.append("    eventID: ").append(toIndentedString(eventID)).append("\n");
@@ -1069,21 +1256,26 @@ public class DataForListHidsAlarmsOutput {
     sb.append("    fileHash: ").append(toIndentedString(fileHash)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    handleFailReason: ").append(toIndentedString(handleFailReason)).append("\n");
     sb.append("    handleTime: ").append(toIndentedString(handleTime)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    inDocker: ").append(toIndentedString(inDocker)).append("\n");
     sb.append("    llMAnalysisResult: ").append(toIndentedString(llMAnalysisResult)).append("\n");
     sb.append("    llMProcessed: ").append(toIndentedString(llMProcessed)).append("\n");
+    sb.append("    lastAlarmTime: ").append(toIndentedString(lastAlarmTime)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    mlpInstanceID: ").append(toIndentedString(mlpInstanceID)).append("\n");
     sb.append("    mlpPrivateIP: ").append(toIndentedString(mlpPrivateIP)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nsPid: ").append(toIndentedString(nsPid)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
     sb.append("    probeHook: ").append(toIndentedString(probeHook)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    securityIntelligenceComplete: ").append(toIndentedString(securityIntelligenceComplete)).append("\n");
+    sb.append("    securityIntelligenceResult: ").append(toIndentedString(securityIntelligenceResult)).append("\n");
     sb.append("    sid: ").append(toIndentedString(sid)).append("\n");
     sb.append("    stackTraceFormat: ").append(toIndentedString(stackTraceFormat)).append("\n");
     sb.append("    stackTraceHash: ").append(toIndentedString(stackTraceHash)).append("\n");

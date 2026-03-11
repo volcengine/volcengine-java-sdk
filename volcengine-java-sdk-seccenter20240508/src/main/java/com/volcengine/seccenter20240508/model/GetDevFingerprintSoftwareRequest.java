@@ -47,99 +47,11 @@ public class GetDevFingerprintSoftwareRequest {
   @SerializedName("SortBy")
   private String sortBy = null;
 
-  /**
-   * Gets or Sets sortOrder
-   */
-  @JsonAdapter(SortOrderEnum.Adapter.class)
-  public enum SortOrderEnum {
-    @SerializedName("Asc")
-    ASC("Asc"),
-    @SerializedName(" Desc")
-    _DESC(" Desc");
+  @SerializedName("SortOrder")
+  private String sortOrder = null;
 
-    private String value;
-
-    SortOrderEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SortOrderEnum fromValue(String input) {
-      for (SortOrderEnum b : SortOrderEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SortOrderEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SortOrderEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SortOrderEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SortOrderEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("SortOrder")
-  private SortOrderEnum sortOrder = null;
-
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    @SerializedName("dpkg")
-    DPKG("dpkg"),
-    @SerializedName(" rpm")
-    _RPM(" rpm"),
-    @SerializedName(" pypi")
-    _PYPI(" pypi");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TypeEnum fromValue(String input) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Type")
-  private List<TypeEnum> type = null;
+  @SerializedName("Type")
+  private List<String> type = null;
 
   @SerializedName("Version")
   private String version = null;
@@ -236,7 +148,7 @@ public class GetDevFingerprintSoftwareRequest {
     this.sortBy = sortBy;
   }
 
-  public GetDevFingerprintSoftwareRequest sortOrder(SortOrderEnum sortOrder) {
+  public GetDevFingerprintSoftwareRequest sortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
@@ -246,22 +158,22 @@ public class GetDevFingerprintSoftwareRequest {
    * @return sortOrder
   **/
   @Schema(description = "")
-  public SortOrderEnum getSortOrder() {
+  public String getSortOrder() {
     return sortOrder;
   }
 
-  public void setSortOrder(SortOrderEnum sortOrder) {
+  public void setSortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
   }
 
-  public GetDevFingerprintSoftwareRequest type(List<TypeEnum> type) {
+  public GetDevFingerprintSoftwareRequest type(List<String> type) {
     this.type = type;
     return this;
   }
 
-  public GetDevFingerprintSoftwareRequest addTypeItem(TypeEnum typeItem) {
+  public GetDevFingerprintSoftwareRequest addTypeItem(String typeItem) {
     if (this.type == null) {
-      this.type = new ArrayList<TypeEnum>();
+      this.type = new ArrayList<String>();
     }
     this.type.add(typeItem);
     return this;
@@ -272,11 +184,11 @@ public class GetDevFingerprintSoftwareRequest {
    * @return type
   **/
   @Schema(description = "")
-  public List<TypeEnum> getType() {
+  public List<String> getType() {
     return type;
   }
 
-  public void setType(List<TypeEnum> type) {
+  public void setType(List<String> type) {
     this.type = type;
   }
 

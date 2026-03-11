@@ -60,7 +60,7 @@ public class GetFingerprintUserRequest {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("PageNumber")
-  private String pageNumber = null;
+  private Long pageNumber = null;
 
   @SerializedName("PageSize")
   private Long pageSize = null;
@@ -258,7 +258,7 @@ public class GetFingerprintUserRequest {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public GetFingerprintUserRequest pageNumber(String pageNumber) {
+  public GetFingerprintUserRequest pageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -269,11 +269,11 @@ public class GetFingerprintUserRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getPageNumber() {
+  public Long getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(String pageNumber) {
+  public void setPageNumber(Long pageNumber) {
     this.pageNumber = pageNumber;
   }
 
