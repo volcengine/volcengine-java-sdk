@@ -118,6 +118,9 @@ public class CreateRuleRequest {
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
 
+  @SerializedName("EvaluationInterval")
+  private Integer evaluationInterval = null;
+
   @SerializedName("Level")
   private String level = null;
 
@@ -426,6 +429,24 @@ public class CreateRuleRequest {
 
   public void setEvaluationCount(Integer evaluationCount) {
     this.evaluationCount = evaluationCount;
+  }
+
+  public CreateRuleRequest evaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
+    return this;
+  }
+
+   /**
+   * Get evaluationInterval
+   * @return evaluationInterval
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationInterval() {
+    return evaluationInterval;
+  }
+
+  public void setEvaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
   }
 
   public CreateRuleRequest level(String level) {
@@ -850,6 +871,7 @@ public class CreateRuleRequest {
         Objects.equals(this.effectStartAt, createRuleRequest.effectStartAt) &&
         Objects.equals(this.enableState, createRuleRequest.enableState) &&
         Objects.equals(this.evaluationCount, createRuleRequest.evaluationCount) &&
+        Objects.equals(this.evaluationInterval, createRuleRequest.evaluationInterval) &&
         Objects.equals(this.level, createRuleRequest.level) &&
         Objects.equals(this.levelConditions, createRuleRequest.levelConditions) &&
         Objects.equals(this.multipleConditions, createRuleRequest.multipleConditions) &&
@@ -873,7 +895,7 @@ public class CreateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, evaluationInterval, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
   }
 
 
@@ -892,6 +914,7 @@ public class CreateRuleRequest {
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
+    sb.append("    evaluationInterval: ").append(toIndentedString(evaluationInterval)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");

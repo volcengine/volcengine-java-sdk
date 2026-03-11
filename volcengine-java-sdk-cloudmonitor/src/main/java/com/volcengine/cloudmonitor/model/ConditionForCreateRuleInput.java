@@ -33,6 +33,9 @@ public class ConditionForCreateRuleInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
 
+  @SerializedName("EvaluationWindow")
+  private Integer evaluationWindow = null;
+
   @SerializedName("MetricName")
   private String metricName = null;
 
@@ -64,6 +67,24 @@ public class ConditionForCreateRuleInput {
 
   public void setComparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
+  }
+
+  public ConditionForCreateRuleInput evaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
+    return this;
+  }
+
+   /**
+   * Get evaluationWindow
+   * @return evaluationWindow
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationWindow() {
+    return evaluationWindow;
+  }
+
+  public void setEvaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
   }
 
   public ConditionForCreateRuleInput metricName(String metricName) {
@@ -167,6 +188,7 @@ public class ConditionForCreateRuleInput {
     }
     ConditionForCreateRuleInput conditionForCreateRuleInput = (ConditionForCreateRuleInput) o;
     return Objects.equals(this.comparisonOperator, conditionForCreateRuleInput.comparisonOperator) &&
+        Objects.equals(this.evaluationWindow, conditionForCreateRuleInput.evaluationWindow) &&
         Objects.equals(this.metricName, conditionForCreateRuleInput.metricName) &&
         Objects.equals(this.metricUnit, conditionForCreateRuleInput.metricUnit) &&
         Objects.equals(this.period, conditionForCreateRuleInput.period) &&
@@ -176,7 +198,7 @@ public class ConditionForCreateRuleInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
   }
 
 
@@ -186,6 +208,7 @@ public class ConditionForCreateRuleInput {
     sb.append("class ConditionForCreateRuleInput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
+    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

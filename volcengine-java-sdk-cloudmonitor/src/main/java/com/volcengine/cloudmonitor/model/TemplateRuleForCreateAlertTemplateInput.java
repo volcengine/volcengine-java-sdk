@@ -39,6 +39,9 @@ public class TemplateRuleForCreateAlertTemplateInput {
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
 
+  @SerializedName("EvaluationInterval")
+  private Integer evaluationInterval = null;
+
   @SerializedName("LevelConditions")
   private List<LevelConditionForCreateAlertTemplateInput> levelConditions = null;
 
@@ -88,6 +91,24 @@ public class TemplateRuleForCreateAlertTemplateInput {
 
   public void setEvaluationCount(Integer evaluationCount) {
     this.evaluationCount = evaluationCount;
+  }
+
+  public TemplateRuleForCreateAlertTemplateInput evaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
+    return this;
+  }
+
+   /**
+   * Get evaluationInterval
+   * @return evaluationInterval
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationInterval() {
+    return evaluationInterval;
+  }
+
+  public void setEvaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
   }
 
   public TemplateRuleForCreateAlertTemplateInput levelConditions(List<LevelConditionForCreateAlertTemplateInput> levelConditions) {
@@ -201,6 +222,7 @@ public class TemplateRuleForCreateAlertTemplateInput {
     TemplateRuleForCreateAlertTemplateInput templateRuleForCreateAlertTemplateInput = (TemplateRuleForCreateAlertTemplateInput) o;
     return Objects.equals(this.conditionOperator, templateRuleForCreateAlertTemplateInput.conditionOperator) &&
         Objects.equals(this.evaluationCount, templateRuleForCreateAlertTemplateInput.evaluationCount) &&
+        Objects.equals(this.evaluationInterval, templateRuleForCreateAlertTemplateInput.evaluationInterval) &&
         Objects.equals(this.levelConditions, templateRuleForCreateAlertTemplateInput.levelConditions) &&
         Objects.equals(this.multipleConditions, templateRuleForCreateAlertTemplateInput.multipleConditions) &&
         Objects.equals(this.name, templateRuleForCreateAlertTemplateInput.name) &&
@@ -210,7 +232,7 @@ public class TemplateRuleForCreateAlertTemplateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditionOperator, evaluationCount, levelConditions, multipleConditions, name, namespace, subNamespace);
+    return Objects.hash(conditionOperator, evaluationCount, evaluationInterval, levelConditions, multipleConditions, name, namespace, subNamespace);
   }
 
 
@@ -221,6 +243,7 @@ public class TemplateRuleForCreateAlertTemplateInput {
     
     sb.append("    conditionOperator: ").append(toIndentedString(conditionOperator)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
+    sb.append("    evaluationInterval: ").append(toIndentedString(evaluationInterval)).append("\n");
     sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

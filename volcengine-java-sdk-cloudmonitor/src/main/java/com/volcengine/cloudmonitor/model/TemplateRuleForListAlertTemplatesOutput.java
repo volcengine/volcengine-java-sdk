@@ -46,6 +46,9 @@ public class TemplateRuleForListAlertTemplatesOutput {
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
 
+  @SerializedName("EvaluationInterval")
+  private Integer evaluationInterval = null;
+
   @SerializedName("LevelConditions")
   private List<LevelConditionForListAlertTemplatesOutput> levelConditions = null;
 
@@ -140,6 +143,24 @@ public class TemplateRuleForListAlertTemplatesOutput {
 
   public void setEvaluationCount(Integer evaluationCount) {
     this.evaluationCount = evaluationCount;
+  }
+
+  public TemplateRuleForListAlertTemplatesOutput evaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
+    return this;
+  }
+
+   /**
+   * Get evaluationInterval
+   * @return evaluationInterval
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationInterval() {
+    return evaluationInterval;
+  }
+
+  public void setEvaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
   }
 
   public TemplateRuleForListAlertTemplatesOutput levelConditions(List<LevelConditionForListAlertTemplatesOutput> levelConditions) {
@@ -255,6 +276,7 @@ public class TemplateRuleForListAlertTemplatesOutput {
         Objects.equals(this.checkInterval, templateRuleForListAlertTemplatesOutput.checkInterval) &&
         Objects.equals(this.conditionOperator, templateRuleForListAlertTemplatesOutput.conditionOperator) &&
         Objects.equals(this.evaluationCount, templateRuleForListAlertTemplatesOutput.evaluationCount) &&
+        Objects.equals(this.evaluationInterval, templateRuleForListAlertTemplatesOutput.evaluationInterval) &&
         Objects.equals(this.levelConditions, templateRuleForListAlertTemplatesOutput.levelConditions) &&
         Objects.equals(this.multipleConditions, templateRuleForListAlertTemplatesOutput.multipleConditions) &&
         Objects.equals(this.name, templateRuleForListAlertTemplatesOutput.name) &&
@@ -264,7 +286,7 @@ public class TemplateRuleForListAlertTemplatesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedRules, checkInterval, conditionOperator, evaluationCount, levelConditions, multipleConditions, name, namespace, subNamespace);
+    return Objects.hash(appliedRules, checkInterval, conditionOperator, evaluationCount, evaluationInterval, levelConditions, multipleConditions, name, namespace, subNamespace);
   }
 
 
@@ -277,6 +299,7 @@ public class TemplateRuleForListAlertTemplatesOutput {
     sb.append("    checkInterval: ").append(toIndentedString(checkInterval)).append("\n");
     sb.append("    conditionOperator: ").append(toIndentedString(conditionOperator)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
+    sb.append("    evaluationInterval: ").append(toIndentedString(evaluationInterval)).append("\n");
     sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
