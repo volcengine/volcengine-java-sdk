@@ -715,6 +715,12 @@
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-apmplusserver</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

@@ -333,5 +333,6 @@
         <module>volcengine-java-sdk-insight</module>
         <module>volcengine-java-sdk-llmscan</module>
         <module>volcengine-java-sdk-mem0</module>
+        <module>volcengine-java-sdk-apmplusserver</module>
     </modules>
 </project>
