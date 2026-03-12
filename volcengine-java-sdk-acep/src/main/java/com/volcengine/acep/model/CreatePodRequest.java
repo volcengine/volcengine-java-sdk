@@ -66,6 +66,9 @@ public class CreatePodRequest {
   @SerializedName("ImageId")
   private String imageId = null;
 
+  @SerializedName("IsSelinuxOn")
+  private Boolean isSelinuxOn = null;
+
   @SerializedName("OverlayPersistProperty")
   private List<OverlayPersistPropertyForCreatePodInput> overlayPersistProperty = null;
 
@@ -283,6 +286,24 @@ public class CreatePodRequest {
 
   public void setImageId(String imageId) {
     this.imageId = imageId;
+  }
+
+  public CreatePodRequest isSelinuxOn(Boolean isSelinuxOn) {
+    this.isSelinuxOn = isSelinuxOn;
+    return this;
+  }
+
+   /**
+   * Get isSelinuxOn
+   * @return isSelinuxOn
+  **/
+  @Schema(description = "")
+  public Boolean isIsSelinuxOn() {
+    return isSelinuxOn;
+  }
+
+  public void setIsSelinuxOn(Boolean isSelinuxOn) {
+    this.isSelinuxOn = isSelinuxOn;
   }
 
   public CreatePodRequest overlayPersistProperty(List<OverlayPersistPropertyForCreatePodInput> overlayPersistProperty) {
@@ -584,6 +605,7 @@ public class CreatePodRequest {
         Objects.equals(this.hostId, createPodRequest.hostId) &&
         Objects.equals(this.ipWhiteList, createPodRequest.ipWhiteList) &&
         Objects.equals(this.imageId, createPodRequest.imageId) &&
+        Objects.equals(this.isSelinuxOn, createPodRequest.isSelinuxOn) &&
         Objects.equals(this.overlayPersistProperty, createPodRequest.overlayPersistProperty) &&
         Objects.equals(this.overlayProperty, createPodRequest.overlayProperty) &&
         Objects.equals(this.overlaySettings, createPodRequest.overlaySettings) &&
@@ -601,7 +623,7 @@ public class CreatePodRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationCode, customRouteId, dnSId, dataSize, dc, displayLayoutId, downBandwidthLimit, hostId, ipWhiteList, imageId, overlayPersistProperty, overlayProperty, overlaySettings, phoneTemplateId, podName, podSpecList, portMappingRuleIdList, productId, resourceType, start, tagId, upBandwidthLimit, usePhoneTemplate);
+    return Objects.hash(configurationCode, customRouteId, dnSId, dataSize, dc, displayLayoutId, downBandwidthLimit, hostId, ipWhiteList, imageId, isSelinuxOn, overlayPersistProperty, overlayProperty, overlaySettings, phoneTemplateId, podName, podSpecList, portMappingRuleIdList, productId, resourceType, start, tagId, upBandwidthLimit, usePhoneTemplate);
   }
 
 
@@ -620,6 +642,7 @@ public class CreatePodRequest {
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
     sb.append("    ipWhiteList: ").append(toIndentedString(ipWhiteList)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    isSelinuxOn: ").append(toIndentedString(isSelinuxOn)).append("\n");
     sb.append("    overlayPersistProperty: ").append(toIndentedString(overlayPersistProperty)).append("\n");
     sb.append("    overlayProperty: ").append(toIndentedString(overlayProperty)).append("\n");
     sb.append("    overlaySettings: ").append(toIndentedString(overlaySettings)).append("\n");

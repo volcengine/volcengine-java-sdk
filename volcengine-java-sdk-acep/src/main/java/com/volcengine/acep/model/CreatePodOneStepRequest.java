@@ -72,6 +72,9 @@ public class CreatePodOneStepRequest {
   @SerializedName("IsPreinstall")
   private Boolean isPreinstall = null;
 
+  @SerializedName("IsSelinuxOn")
+  private Boolean isSelinuxOn = null;
+
   @SerializedName("OverlayPersistProperty")
   private List<OverlayPersistPropertyForCreatePodOneStepInput> overlayPersistProperty = null;
 
@@ -332,6 +335,24 @@ public class CreatePodOneStepRequest {
     this.isPreinstall = isPreinstall;
   }
 
+  public CreatePodOneStepRequest isSelinuxOn(Boolean isSelinuxOn) {
+    this.isSelinuxOn = isSelinuxOn;
+    return this;
+  }
+
+   /**
+   * Get isSelinuxOn
+   * @return isSelinuxOn
+  **/
+  @Schema(description = "")
+  public Boolean isIsSelinuxOn() {
+    return isSelinuxOn;
+  }
+
+  public void setIsSelinuxOn(Boolean isSelinuxOn) {
+    this.isSelinuxOn = isSelinuxOn;
+  }
+
   public CreatePodOneStepRequest overlayPersistProperty(List<OverlayPersistPropertyForCreatePodOneStepInput> overlayPersistProperty) {
     this.overlayPersistProperty = overlayPersistProperty;
     return this;
@@ -588,6 +609,7 @@ public class CreatePodOneStepRequest {
         Objects.equals(this.ipWhiteList, createPodOneStepRequest.ipWhiteList) &&
         Objects.equals(this.imageId, createPodOneStepRequest.imageId) &&
         Objects.equals(this.isPreinstall, createPodOneStepRequest.isPreinstall) &&
+        Objects.equals(this.isSelinuxOn, createPodOneStepRequest.isSelinuxOn) &&
         Objects.equals(this.overlayPersistProperty, createPodOneStepRequest.overlayPersistProperty) &&
         Objects.equals(this.overlayProperty, createPodOneStepRequest.overlayProperty) &&
         Objects.equals(this.overlaySettings, createPodOneStepRequest.overlaySettings) &&
@@ -603,7 +625,7 @@ public class CreatePodOneStepRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appList, configurationCode, customRouteId, dnSId, dataSize, dc, displayLayoutId, downBandwidthLimit, hostId, ipWhiteList, imageId, isPreinstall, overlayPersistProperty, overlayProperty, overlaySettings, phoneTemplateId, podName, portMappingRuleIdList, productId, resourceType, tagId, upBandwidthLimit, usePhoneTemplate);
+    return Objects.hash(appList, configurationCode, customRouteId, dnSId, dataSize, dc, displayLayoutId, downBandwidthLimit, hostId, ipWhiteList, imageId, isPreinstall, isSelinuxOn, overlayPersistProperty, overlayProperty, overlaySettings, phoneTemplateId, podName, portMappingRuleIdList, productId, resourceType, tagId, upBandwidthLimit, usePhoneTemplate);
   }
 
 
@@ -624,6 +646,7 @@ public class CreatePodOneStepRequest {
     sb.append("    ipWhiteList: ").append(toIndentedString(ipWhiteList)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    isPreinstall: ").append(toIndentedString(isPreinstall)).append("\n");
+    sb.append("    isSelinuxOn: ").append(toIndentedString(isSelinuxOn)).append("\n");
     sb.append("    overlayPersistProperty: ").append(toIndentedString(overlayPersistProperty)).append("\n");
     sb.append("    overlayProperty: ").append(toIndentedString(overlayProperty)).append("\n");
     sb.append("    overlaySettings: ").append(toIndentedString(overlaySettings)).append("\n");
