@@ -33,6 +33,9 @@ public class UpdateQuotaRequest {
   @SerializedName("CapacityLimit")
   private Long capacityLimit = null;
 
+  @SerializedName("FileSystemId")
+  private String fileSystemId = null;
+
   @SerializedName("InodeLimit")
   private Long inodeLimit = null;
 
@@ -103,6 +106,25 @@ public class UpdateQuotaRequest {
     this.capacityLimit = capacityLimit;
   }
 
+  public UpdateQuotaRequest fileSystemId(String fileSystemId) {
+    this.fileSystemId = fileSystemId;
+    return this;
+  }
+
+   /**
+   * Get fileSystemId
+   * @return fileSystemId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getFileSystemId() {
+    return fileSystemId;
+  }
+
+  public void setFileSystemId(String fileSystemId) {
+    this.fileSystemId = fileSystemId;
+  }
+
   public UpdateQuotaRequest inodeLimit(Long inodeLimit) {
     this.inodeLimit = inodeLimit;
     return this;
@@ -169,6 +191,7 @@ public class UpdateQuotaRequest {
     }
     UpdateQuotaRequest updateQuotaRequest = (UpdateQuotaRequest) o;
     return Objects.equals(this.capacityLimit, updateQuotaRequest.capacityLimit) &&
+        Objects.equals(this.fileSystemId, updateQuotaRequest.fileSystemId) &&
         Objects.equals(this.inodeLimit, updateQuotaRequest.inodeLimit) &&
         Objects.equals(this.limitType, updateQuotaRequest.limitType) &&
         Objects.equals(this.quotaId, updateQuotaRequest.quotaId);
@@ -176,7 +199,7 @@ public class UpdateQuotaRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacityLimit, inodeLimit, limitType, quotaId);
+    return Objects.hash(capacityLimit, fileSystemId, inodeLimit, limitType, quotaId);
   }
 
 
@@ -186,6 +209,7 @@ public class UpdateQuotaRequest {
     sb.append("class UpdateQuotaRequest {\n");
     
     sb.append("    capacityLimit: ").append(toIndentedString(capacityLimit)).append("\n");
+    sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    inodeLimit: ").append(toIndentedString(inodeLimit)).append("\n");
     sb.append("    limitType: ").append(toIndentedString(limitType)).append("\n");
     sb.append("    quotaId: ").append(toIndentedString(quotaId)).append("\n");
