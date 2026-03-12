@@ -134,7 +134,11 @@ public class SecretForDescribeSecretOutput {
     @SerializedName("Redis")
     REDIS("Redis"),
     @SerializedName("ECS")
-    ECS("ECS");
+    ECS("ECS"),
+    @SerializedName("PGSQL")
+    PGSQL("PGSQL"),
+    @SerializedName("SQLServer")
+    SQLSERVER("SQLServer");
 
     private String value;
 
