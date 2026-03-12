@@ -24,17 +24,14 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConditionForListRulesOutput
+ * ConvertConditionForUpdateRuleInput
  */
 
 
 
-public class ConditionForListRulesOutput {
+public class ConvertConditionForUpdateRuleInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
-
-  @SerializedName("DisplayName")
-  private String displayName = null;
 
   @SerializedName("EvaluationWindow")
   private Integer evaluationWindow = null;
@@ -54,7 +51,7 @@ public class ConditionForListRulesOutput {
   @SerializedName("Threshold")
   private String threshold = null;
 
-  public ConditionForListRulesOutput comparisonOperator(String comparisonOperator) {
+  public ConvertConditionForUpdateRuleInput comparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
     return this;
   }
@@ -72,25 +69,7 @@ public class ConditionForListRulesOutput {
     this.comparisonOperator = comparisonOperator;
   }
 
-  public ConditionForListRulesOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public ConditionForListRulesOutput evaluationWindow(Integer evaluationWindow) {
+  public ConvertConditionForUpdateRuleInput evaluationWindow(Integer evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
     return this;
   }
@@ -108,7 +87,7 @@ public class ConditionForListRulesOutput {
     this.evaluationWindow = evaluationWindow;
   }
 
-  public ConditionForListRulesOutput metricName(String metricName) {
+  public ConvertConditionForUpdateRuleInput metricName(String metricName) {
     this.metricName = metricName;
     return this;
   }
@@ -126,7 +105,7 @@ public class ConditionForListRulesOutput {
     this.metricName = metricName;
   }
 
-  public ConditionForListRulesOutput metricUnit(String metricUnit) {
+  public ConvertConditionForUpdateRuleInput metricUnit(String metricUnit) {
     this.metricUnit = metricUnit;
     return this;
   }
@@ -144,7 +123,7 @@ public class ConditionForListRulesOutput {
     this.metricUnit = metricUnit;
   }
 
-  public ConditionForListRulesOutput period(String period) {
+  public ConvertConditionForUpdateRuleInput period(String period) {
     this.period = period;
     return this;
   }
@@ -162,7 +141,7 @@ public class ConditionForListRulesOutput {
     this.period = period;
   }
 
-  public ConditionForListRulesOutput statistics(String statistics) {
+  public ConvertConditionForUpdateRuleInput statistics(String statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -180,7 +159,7 @@ public class ConditionForListRulesOutput {
     this.statistics = statistics;
   }
 
-  public ConditionForListRulesOutput threshold(String threshold) {
+  public ConvertConditionForUpdateRuleInput threshold(String threshold) {
     this.threshold = threshold;
     return this;
   }
@@ -207,30 +186,28 @@ public class ConditionForListRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConditionForListRulesOutput conditionForListRulesOutput = (ConditionForListRulesOutput) o;
-    return Objects.equals(this.comparisonOperator, conditionForListRulesOutput.comparisonOperator) &&
-        Objects.equals(this.displayName, conditionForListRulesOutput.displayName) &&
-        Objects.equals(this.evaluationWindow, conditionForListRulesOutput.evaluationWindow) &&
-        Objects.equals(this.metricName, conditionForListRulesOutput.metricName) &&
-        Objects.equals(this.metricUnit, conditionForListRulesOutput.metricUnit) &&
-        Objects.equals(this.period, conditionForListRulesOutput.period) &&
-        Objects.equals(this.statistics, conditionForListRulesOutput.statistics) &&
-        Objects.equals(this.threshold, conditionForListRulesOutput.threshold);
+    ConvertConditionForUpdateRuleInput convertConditionForUpdateRuleInput = (ConvertConditionForUpdateRuleInput) o;
+    return Objects.equals(this.comparisonOperator, convertConditionForUpdateRuleInput.comparisonOperator) &&
+        Objects.equals(this.evaluationWindow, convertConditionForUpdateRuleInput.evaluationWindow) &&
+        Objects.equals(this.metricName, convertConditionForUpdateRuleInput.metricName) &&
+        Objects.equals(this.metricUnit, convertConditionForUpdateRuleInput.metricUnit) &&
+        Objects.equals(this.period, convertConditionForUpdateRuleInput.period) &&
+        Objects.equals(this.statistics, convertConditionForUpdateRuleInput.statistics) &&
+        Objects.equals(this.threshold, convertConditionForUpdateRuleInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, displayName, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConditionForListRulesOutput {\n");
+    sb.append("class ConvertConditionForUpdateRuleInput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");

@@ -36,11 +36,17 @@ public class UpdateWebhookRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Token")
+  private String token = null;
+
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("Url")
   private String url = null;
+
+  @SerializedName("WithToken")
+  private Boolean withToken = null;
 
   public UpdateWebhookRequest id(String id) {
     this.id = id;
@@ -78,6 +84,24 @@ public class UpdateWebhookRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UpdateWebhookRequest token(String token) {
+    this.token = token;
+    return this;
+  }
+
+   /**
+   * Get token
+   * @return token
+  **/
+  @Schema(description = "")
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
   }
 
   public UpdateWebhookRequest type(String type) {
@@ -118,6 +142,24 @@ public class UpdateWebhookRequest {
     this.url = url;
   }
 
+  public UpdateWebhookRequest withToken(Boolean withToken) {
+    this.withToken = withToken;
+    return this;
+  }
+
+   /**
+   * Get withToken
+   * @return withToken
+  **/
+  @Schema(description = "")
+  public Boolean isWithToken() {
+    return withToken;
+  }
+
+  public void setWithToken(Boolean withToken) {
+    this.withToken = withToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,13 +172,15 @@ public class UpdateWebhookRequest {
     UpdateWebhookRequest updateWebhookRequest = (UpdateWebhookRequest) o;
     return Objects.equals(this.id, updateWebhookRequest.id) &&
         Objects.equals(this.name, updateWebhookRequest.name) &&
+        Objects.equals(this.token, updateWebhookRequest.token) &&
         Objects.equals(this.type, updateWebhookRequest.type) &&
-        Objects.equals(this.url, updateWebhookRequest.url);
+        Objects.equals(this.url, updateWebhookRequest.url) &&
+        Objects.equals(this.withToken, updateWebhookRequest.withToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, url);
+    return Objects.hash(id, name, token, type, url, withToken);
   }
 
 
@@ -147,8 +191,10 @@ public class UpdateWebhookRequest {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    withToken: ").append(toIndentedString(withToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

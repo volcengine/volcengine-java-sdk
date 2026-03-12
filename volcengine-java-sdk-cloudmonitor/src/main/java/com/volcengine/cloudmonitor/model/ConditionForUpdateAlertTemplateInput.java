@@ -33,6 +33,9 @@ public class ConditionForUpdateAlertTemplateInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
 
+  @SerializedName("EvaluationWindow")
+  private Integer evaluationWindow = null;
+
   @SerializedName("MetricName")
   private String metricName = null;
 
@@ -61,6 +64,24 @@ public class ConditionForUpdateAlertTemplateInput {
 
   public void setComparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
+  }
+
+  public ConditionForUpdateAlertTemplateInput evaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
+    return this;
+  }
+
+   /**
+   * Get evaluationWindow
+   * @return evaluationWindow
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationWindow() {
+    return evaluationWindow;
+  }
+
+  public void setEvaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
   }
 
   public ConditionForUpdateAlertTemplateInput metricName(String metricName) {
@@ -146,6 +167,7 @@ public class ConditionForUpdateAlertTemplateInput {
     }
     ConditionForUpdateAlertTemplateInput conditionForUpdateAlertTemplateInput = (ConditionForUpdateAlertTemplateInput) o;
     return Objects.equals(this.comparisonOperator, conditionForUpdateAlertTemplateInput.comparisonOperator) &&
+        Objects.equals(this.evaluationWindow, conditionForUpdateAlertTemplateInput.evaluationWindow) &&
         Objects.equals(this.metricName, conditionForUpdateAlertTemplateInput.metricName) &&
         Objects.equals(this.metricUnit, conditionForUpdateAlertTemplateInput.metricUnit) &&
         Objects.equals(this.statistics, conditionForUpdateAlertTemplateInput.statistics) &&
@@ -154,7 +176,7 @@ public class ConditionForUpdateAlertTemplateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, metricName, metricUnit, statistics, threshold);
+    return Objects.hash(comparisonOperator, evaluationWindow, metricName, metricUnit, statistics, threshold);
   }
 
 
@@ -164,6 +186,7 @@ public class ConditionForUpdateAlertTemplateInput {
     sb.append("class ConditionForUpdateAlertTemplateInput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
+    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
