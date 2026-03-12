@@ -24,22 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateAuthorizedUserRequest
+ * BindZoneForListZonesByVPCOutput
  */
 
 
 
-public class CreateAuthorizedUserRequest {
+public class BindZoneForListZonesByVPCOutput {
   @SerializedName("AccountID")
   private String accountID = null;
 
-  @SerializedName("AuthType")
-  private Integer authType = null;
+  @SerializedName("ZID")
+  private Long ZID = null;
 
-  @SerializedName("VerifyCode")
-  private String verifyCode = null;
-
-  public CreateAuthorizedUserRequest accountID(String accountID) {
+  public BindZoneForListZonesByVPCOutput accountID(String accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -48,8 +45,7 @@ public class CreateAuthorizedUserRequest {
    * Get accountID
    * @return accountID
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAccountID() {
     return accountID;
   }
@@ -58,41 +54,22 @@ public class CreateAuthorizedUserRequest {
     this.accountID = accountID;
   }
 
-  public CreateAuthorizedUserRequest authType(Integer authType) {
-    this.authType = authType;
+  public BindZoneForListZonesByVPCOutput ZID(Long ZID) {
+    this.ZID = ZID;
     return this;
   }
 
    /**
-   * Get authType
-   * @return authType
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getAuthType() {
-    return authType;
-  }
-
-  public void setAuthType(Integer authType) {
-    this.authType = authType;
-  }
-
-  public CreateAuthorizedUserRequest verifyCode(String verifyCode) {
-    this.verifyCode = verifyCode;
-    return this;
-  }
-
-   /**
-   * Get verifyCode
-   * @return verifyCode
+   * Get ZID
+   * @return ZID
   **/
   @Schema(description = "")
-  public String getVerifyCode() {
-    return verifyCode;
+  public Long getZID() {
+    return ZID;
   }
 
-  public void setVerifyCode(String verifyCode) {
-    this.verifyCode = verifyCode;
+  public void setZID(Long ZID) {
+    this.ZID = ZID;
   }
 
 
@@ -104,26 +81,24 @@ public class CreateAuthorizedUserRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAuthorizedUserRequest createAuthorizedUserRequest = (CreateAuthorizedUserRequest) o;
-    return Objects.equals(this.accountID, createAuthorizedUserRequest.accountID) &&
-        Objects.equals(this.authType, createAuthorizedUserRequest.authType) &&
-        Objects.equals(this.verifyCode, createAuthorizedUserRequest.verifyCode);
+    BindZoneForListZonesByVPCOutput bindZoneForListZonesByVPCOutput = (BindZoneForListZonesByVPCOutput) o;
+    return Objects.equals(this.accountID, bindZoneForListZonesByVPCOutput.accountID) &&
+        Objects.equals(this.ZID, bindZoneForListZonesByVPCOutput.ZID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, authType, verifyCode);
+    return Objects.hash(accountID, ZID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAuthorizedUserRequest {\n");
+    sb.append("class BindZoneForListZonesByVPCOutput {\n");
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
-    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
-    sb.append("    verifyCode: ").append(toIndentedString(verifyCode)).append("\n");
+    sb.append("    ZID: ").append(toIndentedString(ZID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
