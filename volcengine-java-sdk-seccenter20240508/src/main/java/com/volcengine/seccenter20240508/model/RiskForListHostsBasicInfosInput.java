@@ -36,6 +36,9 @@ public class RiskForListHostsBasicInfosInput {
   @SerializedName("Baseline")
   private Boolean baseline = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("Virus")
   private Boolean virus = null;
 
@@ -76,6 +79,24 @@ public class RiskForListHostsBasicInfosInput {
 
   public void setBaseline(Boolean baseline) {
     this.baseline = baseline;
+  }
+
+  public RiskForListHostsBasicInfosInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public RiskForListHostsBasicInfosInput virus(Boolean virus) {
@@ -126,13 +147,14 @@ public class RiskForListHostsBasicInfosInput {
     RiskForListHostsBasicInfosInput riskForListHostsBasicInfosInput = (RiskForListHostsBasicInfosInput) o;
     return Objects.equals(this.alarm, riskForListHostsBasicInfosInput.alarm) &&
         Objects.equals(this.baseline, riskForListHostsBasicInfosInput.baseline) &&
+        Objects.equals(this.isRealRiskVul, riskForListHostsBasicInfosInput.isRealRiskVul) &&
         Objects.equals(this.virus, riskForListHostsBasicInfosInput.virus) &&
         Objects.equals(this.vuln, riskForListHostsBasicInfosInput.vuln);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarm, baseline, virus, vuln);
+    return Objects.hash(alarm, baseline, isRealRiskVul, virus, vuln);
   }
 
 
@@ -143,6 +165,7 @@ public class RiskForListHostsBasicInfosInput {
     
     sb.append("    alarm: ").append(toIndentedString(alarm)).append("\n");
     sb.append("    baseline: ").append(toIndentedString(baseline)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    virus: ").append(toIndentedString(virus)).append("\n");
     sb.append("    vuln: ").append(toIndentedString(vuln)).append("\n");
     sb.append("}");

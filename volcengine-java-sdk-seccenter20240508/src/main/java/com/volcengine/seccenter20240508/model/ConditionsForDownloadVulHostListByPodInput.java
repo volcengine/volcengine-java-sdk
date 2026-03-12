@@ -47,6 +47,9 @@ public class ConditionsForDownloadVulHostListByPodInput {
   @SerializedName("IP")
   private String IP = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -162,6 +165,24 @@ public class ConditionsForDownloadVulHostListByPodInput {
     this.IP = IP;
   }
 
+  public ConditionsForDownloadVulHostListByPodInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+  }
+
   public ConditionsForDownloadVulHostListByPodInput leafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
     return this;
@@ -247,6 +268,7 @@ public class ConditionsForDownloadVulHostListByPodInput {
         Objects.equals(this.cloudProviders, conditionsForDownloadVulHostListByPodInput.cloudProviders) &&
         Objects.equals(this.hostName, conditionsForDownloadVulHostListByPodInput.hostName) &&
         Objects.equals(this.IP, conditionsForDownloadVulHostListByPodInput.IP) &&
+        Objects.equals(this.isRealRiskVul, conditionsForDownloadVulHostListByPodInput.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, conditionsForDownloadVulHostListByPodInput.leafGroupIDs) &&
         Objects.equals(this.status, conditionsForDownloadVulHostListByPodInput.status) &&
         Objects.equals(this.topGroupID, conditionsForDownloadVulHostListByPodInput.topGroupID);
@@ -254,7 +276,7 @@ public class ConditionsForDownloadVulHostListByPodInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentTags, assetName, cloudProviders, hostName, IP, leafGroupIDs, status, topGroupID);
+    return Objects.hash(agentTags, assetName, cloudProviders, hostName, IP, isRealRiskVul, leafGroupIDs, status, topGroupID);
   }
 
 
@@ -268,6 +290,7 @@ public class ConditionsForDownloadVulHostListByPodInput {
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");

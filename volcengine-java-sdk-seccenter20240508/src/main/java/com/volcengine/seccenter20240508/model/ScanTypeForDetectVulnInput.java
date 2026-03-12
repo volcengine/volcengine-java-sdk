@@ -39,6 +39,9 @@ public class ScanTypeForDetectVulnInput {
   @SerializedName("DevPy")
   private Boolean devPy = null;
 
+  @SerializedName("Emg")
+  private Boolean emg = null;
+
   @SerializedName("Linux")
   private Boolean linux = null;
 
@@ -100,6 +103,24 @@ public class ScanTypeForDetectVulnInput {
 
   public void setDevPy(Boolean devPy) {
     this.devPy = devPy;
+  }
+
+  public ScanTypeForDetectVulnInput emg(Boolean emg) {
+    this.emg = emg;
+    return this;
+  }
+
+   /**
+   * Get emg
+   * @return emg
+  **/
+  @Schema(description = "")
+  public Boolean isEmg() {
+    return emg;
+  }
+
+  public void setEmg(Boolean emg) {
+    this.emg = emg;
   }
 
   public ScanTypeForDetectVulnInput linux(Boolean linux) {
@@ -169,6 +190,7 @@ public class ScanTypeForDetectVulnInput {
     return Objects.equals(this.app, scanTypeForDetectVulnInput.app) &&
         Objects.equals(this.devLinux, scanTypeForDetectVulnInput.devLinux) &&
         Objects.equals(this.devPy, scanTypeForDetectVulnInput.devPy) &&
+        Objects.equals(this.emg, scanTypeForDetectVulnInput.emg) &&
         Objects.equals(this.linux, scanTypeForDetectVulnInput.linux) &&
         Objects.equals(this.webcms, scanTypeForDetectVulnInput.webcms) &&
         Objects.equals(this.windows, scanTypeForDetectVulnInput.windows);
@@ -176,7 +198,7 @@ public class ScanTypeForDetectVulnInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, devLinux, devPy, linux, webcms, windows);
+    return Objects.hash(app, devLinux, devPy, emg, linux, webcms, windows);
   }
 
 
@@ -188,6 +210,7 @@ public class ScanTypeForDetectVulnInput {
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    devLinux: ").append(toIndentedString(devLinux)).append("\n");
     sb.append("    devPy: ").append(toIndentedString(devPy)).append("\n");
+    sb.append("    emg: ").append(toIndentedString(emg)).append("\n");
     sb.append("    linux: ").append(toIndentedString(linux)).append("\n");
     sb.append("    webcms: ").append(toIndentedString(webcms)).append("\n");
     sb.append("    windows: ").append(toIndentedString(windows)).append("\n");

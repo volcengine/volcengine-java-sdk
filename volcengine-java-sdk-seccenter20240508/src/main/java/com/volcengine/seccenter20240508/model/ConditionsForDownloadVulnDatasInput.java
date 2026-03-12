@@ -47,6 +47,9 @@ public class ConditionsForDownloadVulnDatasInput {
   @SerializedName("IP")
   private String IP = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -162,6 +165,24 @@ public class ConditionsForDownloadVulnDatasInput {
     this.IP = IP;
   }
 
+  public ConditionsForDownloadVulnDatasInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+  }
+
   public ConditionsForDownloadVulnDatasInput leafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
     return this;
@@ -247,6 +268,7 @@ public class ConditionsForDownloadVulnDatasInput {
         Objects.equals(this.cloudProviders, conditionsForDownloadVulnDatasInput.cloudProviders) &&
         Objects.equals(this.hostName, conditionsForDownloadVulnDatasInput.hostName) &&
         Objects.equals(this.IP, conditionsForDownloadVulnDatasInput.IP) &&
+        Objects.equals(this.isRealRiskVul, conditionsForDownloadVulnDatasInput.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, conditionsForDownloadVulnDatasInput.leafGroupIDs) &&
         Objects.equals(this.status, conditionsForDownloadVulnDatasInput.status) &&
         Objects.equals(this.topGroupID, conditionsForDownloadVulnDatasInput.topGroupID);
@@ -254,7 +276,7 @@ public class ConditionsForDownloadVulnDatasInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentTags, assetName, cloudProviders, hostName, IP, leafGroupIDs, status, topGroupID);
+    return Objects.hash(agentTags, assetName, cloudProviders, hostName, IP, isRealRiskVul, leafGroupIDs, status, topGroupID);
   }
 
 
@@ -268,6 +290,7 @@ public class ConditionsForDownloadVulnDatasInput {
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");

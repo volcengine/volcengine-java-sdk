@@ -57,6 +57,9 @@ public class ConditionsForListAssetCenterHostsInput {
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
+  @SerializedName("Os")
+  private String os = null;
+
   @SerializedName("Platforms")
   private List<String> platforms = null;
 
@@ -267,6 +270,24 @@ public class ConditionsForListAssetCenterHostsInput {
 
   public void setLeafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
+  }
+
+  public ConditionsForListAssetCenterHostsInput os(String os) {
+    this.os = os;
+    return this;
+  }
+
+   /**
+   * Get os
+   * @return os
+  **/
+  @Schema(description = "")
+  public String getOs() {
+    return os;
+  }
+
+  public void setOs(String os) {
+    this.os = os;
   }
 
   public ConditionsForListAssetCenterHostsInput platforms(List<String> platforms) {
@@ -552,6 +573,7 @@ public class ConditionsForListAssetCenterHostsInput {
         Objects.equals(this.hostname, conditionsForListAssetCenterHostsInput.hostname) &&
         Objects.equals(this.ip, conditionsForListAssetCenterHostsInput.ip) &&
         Objects.equals(this.leafGroupIDs, conditionsForListAssetCenterHostsInput.leafGroupIDs) &&
+        Objects.equals(this.os, conditionsForListAssetCenterHostsInput.os) &&
         Objects.equals(this.platforms, conditionsForListAssetCenterHostsInput.platforms) &&
         Objects.equals(this.proxyName, conditionsForListAssetCenterHostsInput.proxyName) &&
         Objects.equals(this.proxyServerName, conditionsForListAssetCenterHostsInput.proxyServerName) &&
@@ -568,7 +590,7 @@ public class ConditionsForListAssetCenterHostsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, agentIDList, agentStatus, allHost, cloudProviders, hostname, ip, leafGroupIDs, platforms, proxyName, proxyServerName, regions, risk, securityEnhancement, status, tags, topGroupID, virusFileAutoIsolate, visibility, vpcIds);
+    return Objects.hash(agentID, agentIDList, agentStatus, allHost, cloudProviders, hostname, ip, leafGroupIDs, os, platforms, proxyName, proxyServerName, regions, risk, securityEnhancement, status, tags, topGroupID, virusFileAutoIsolate, visibility, vpcIds);
   }
 
 
@@ -585,6 +607,7 @@ public class ConditionsForListAssetCenterHostsInput {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
     sb.append("    proxyServerName: ").append(toIndentedString(proxyServerName)).append("\n");

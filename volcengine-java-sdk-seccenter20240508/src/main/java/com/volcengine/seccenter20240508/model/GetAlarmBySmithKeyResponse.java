@@ -37,6 +37,7 @@ import com.volcengine.seccenter20240508.model.PlusAlarmInfo6002ForGetAlarmBySmit
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo6003ForGetAlarmBySmithKeyOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo601ForGetAlarmBySmithKeyOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo602ForGetAlarmBySmithKeyOutput;
+import com.volcengine.seccenter20240508.model.PlusAlarmInfo602xForGetAlarmBySmithKeyOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo603ForGetAlarmBySmithKeyOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo604ForGetAlarmBySmithKeyOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo700ForGetAlarmBySmithKeyOutput;
@@ -119,6 +120,9 @@ public class GetAlarmBySmithKeyResponse extends com.volcengine.model.AbstractRes
 
   @SerializedName("PlusAlarmInfo602")
   private PlusAlarmInfo602ForGetAlarmBySmithKeyOutput plusAlarmInfo602 = null;
+
+  @SerializedName("PlusAlarmInfo602x")
+  private PlusAlarmInfo602xForGetAlarmBySmithKeyOutput plusAlarmInfo602x = null;
 
   @SerializedName("PlusAlarmInfo603")
   private PlusAlarmInfo603ForGetAlarmBySmithKeyOutput plusAlarmInfo603 = null;
@@ -543,6 +547,25 @@ public class GetAlarmBySmithKeyResponse extends com.volcengine.model.AbstractRes
     this.plusAlarmInfo602 = plusAlarmInfo602;
   }
 
+  public GetAlarmBySmithKeyResponse plusAlarmInfo602x(PlusAlarmInfo602xForGetAlarmBySmithKeyOutput plusAlarmInfo602x) {
+    this.plusAlarmInfo602x = plusAlarmInfo602x;
+    return this;
+  }
+
+   /**
+   * Get plusAlarmInfo602x
+   * @return plusAlarmInfo602x
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlusAlarmInfo602xForGetAlarmBySmithKeyOutput getPlusAlarmInfo602x() {
+    return plusAlarmInfo602x;
+  }
+
+  public void setPlusAlarmInfo602x(PlusAlarmInfo602xForGetAlarmBySmithKeyOutput plusAlarmInfo602x) {
+    this.plusAlarmInfo602x = plusAlarmInfo602x;
+  }
+
   public GetAlarmBySmithKeyResponse plusAlarmInfo603(PlusAlarmInfo603ForGetAlarmBySmithKeyOutput plusAlarmInfo603) {
     this.plusAlarmInfo603 = plusAlarmInfo603;
     return this;
@@ -745,6 +768,7 @@ public class GetAlarmBySmithKeyResponse extends com.volcengine.model.AbstractRes
         Objects.equals(this.plusAlarmInfo6003, getAlarmBySmithKeyResponse.plusAlarmInfo6003) &&
         Objects.equals(this.plusAlarmInfo601, getAlarmBySmithKeyResponse.plusAlarmInfo601) &&
         Objects.equals(this.plusAlarmInfo602, getAlarmBySmithKeyResponse.plusAlarmInfo602) &&
+        Objects.equals(this.plusAlarmInfo602x, getAlarmBySmithKeyResponse.plusAlarmInfo602x) &&
         Objects.equals(this.plusAlarmInfo603, getAlarmBySmithKeyResponse.plusAlarmInfo603) &&
         Objects.equals(this.plusAlarmInfo604, getAlarmBySmithKeyResponse.plusAlarmInfo604) &&
         Objects.equals(this.plusAlarmInfo700, getAlarmBySmithKeyResponse.plusAlarmInfo700) &&
@@ -758,7 +782,7 @@ public class GetAlarmBySmithKeyResponse extends com.volcengine.model.AbstractRes
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmDataType2439, baseAlarmInfo, baseInfo, commAlarmInfo, containerInfo, dataType, dataTypeStr, endpoint, hubTraceData, plusAlarmInfo101, plusAlarmInfo3004, plusAlarmInfo356, plusAlarmInfo4000, plusAlarmInfo42, plusAlarmInfo49, plusAlarmInfo59, plusAlarmInfo6001, plusAlarmInfo6002, plusAlarmInfo6003, plusAlarmInfo601, plusAlarmInfo602, plusAlarmInfo603, plusAlarmInfo604, plusAlarmInfo700, plusAlarmInfo701, plusAlarmInfo702, plusAlarmInfo703, plusAlarmInfo82, plusAlarmInfo86, plusKillChain);
+    return Objects.hash(alarmDataType2439, baseAlarmInfo, baseInfo, commAlarmInfo, containerInfo, dataType, dataTypeStr, endpoint, hubTraceData, plusAlarmInfo101, plusAlarmInfo3004, plusAlarmInfo356, plusAlarmInfo4000, plusAlarmInfo42, plusAlarmInfo49, plusAlarmInfo59, plusAlarmInfo6001, plusAlarmInfo6002, plusAlarmInfo6003, plusAlarmInfo601, plusAlarmInfo602, plusAlarmInfo602x, plusAlarmInfo603, plusAlarmInfo604, plusAlarmInfo700, plusAlarmInfo701, plusAlarmInfo702, plusAlarmInfo703, plusAlarmInfo82, plusAlarmInfo86, plusKillChain);
   }
 
 
@@ -788,6 +812,7 @@ public class GetAlarmBySmithKeyResponse extends com.volcengine.model.AbstractRes
     sb.append("    plusAlarmInfo6003: ").append(toIndentedString(plusAlarmInfo6003)).append("\n");
     sb.append("    plusAlarmInfo601: ").append(toIndentedString(plusAlarmInfo601)).append("\n");
     sb.append("    plusAlarmInfo602: ").append(toIndentedString(plusAlarmInfo602)).append("\n");
+    sb.append("    plusAlarmInfo602x: ").append(toIndentedString(plusAlarmInfo602x)).append("\n");
     sb.append("    plusAlarmInfo603: ").append(toIndentedString(plusAlarmInfo603)).append("\n");
     sb.append("    plusAlarmInfo604: ").append(toIndentedString(plusAlarmInfo604)).append("\n");
     sb.append("    plusAlarmInfo700: ").append(toIndentedString(plusAlarmInfo700)).append("\n");

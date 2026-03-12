@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
+  @SerializedName("AlarmCount")
+  private Long alarmCount = null;
+
   @SerializedName("AlarmHandleResult")
   private Long alarmHandleResult = null;
 
@@ -41,8 +44,14 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("AlertDesc")
   private String alertDesc = null;
 
+  @SerializedName("AlertDescUS")
+  private String alertDescUS = null;
+
   @SerializedName("AlertDetail")
   private String alertDetail = null;
+
+  @SerializedName("AlertDetailUS")
+  private String alertDetailUS = null;
 
   @SerializedName("AlertTags")
   private List<String> alertTags = null;
@@ -68,6 +77,9 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("DataTypeStr")
   private String dataTypeStr = null;
 
+  @SerializedName("DataTypeStrEn")
+  private String dataTypeStrEn = null;
+
   @SerializedName("Desc")
   private String desc = null;
 
@@ -92,6 +104,12 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("KubeLevel")
   private String kubeLevel = null;
 
+  @SerializedName("LastAlarmTime")
+  private Long lastAlarmTime = null;
+
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
+
   @SerializedName("RaspConfigName")
   private String raspConfigName = null;
 
@@ -107,14 +125,38 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
   @SerializedName("RuleName")
   private String ruleName = null;
 
+  @SerializedName("RuleNameUs")
+  private String ruleNameUs = null;
+
   @SerializedName("Status")
   private Long status = null;
 
   @SerializedName("Suggestion")
   private String suggestion = null;
 
+  @SerializedName("SuggestionUs")
+  private String suggestionUs = null;
+
   @SerializedName("TraceID")
   private String traceID = null;
+
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput alarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
+    return this;
+  }
+
+   /**
+   * Get alarmCount
+   * @return alarmCount
+  **/
+  @Schema(description = "")
+  public Long getAlarmCount() {
+    return alarmCount;
+  }
+
+  public void setAlarmCount(Long alarmCount) {
+    this.alarmCount = alarmCount;
+  }
 
   public AlarmDescForGetMlpAlarmSummaryInfoOutput alarmHandleResult(Long alarmHandleResult) {
     this.alarmHandleResult = alarmHandleResult;
@@ -170,6 +212,24 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.alertDesc = alertDesc;
   }
 
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput alertDescUS(String alertDescUS) {
+    this.alertDescUS = alertDescUS;
+    return this;
+  }
+
+   /**
+   * Get alertDescUS
+   * @return alertDescUS
+  **/
+  @Schema(description = "")
+  public String getAlertDescUS() {
+    return alertDescUS;
+  }
+
+  public void setAlertDescUS(String alertDescUS) {
+    this.alertDescUS = alertDescUS;
+  }
+
   public AlarmDescForGetMlpAlarmSummaryInfoOutput alertDetail(String alertDetail) {
     this.alertDetail = alertDetail;
     return this;
@@ -186,6 +246,24 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
 
   public void setAlertDetail(String alertDetail) {
     this.alertDetail = alertDetail;
+  }
+
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput alertDetailUS(String alertDetailUS) {
+    this.alertDetailUS = alertDetailUS;
+    return this;
+  }
+
+   /**
+   * Get alertDetailUS
+   * @return alertDetailUS
+  **/
+  @Schema(description = "")
+  public String getAlertDetailUS() {
+    return alertDetailUS;
+  }
+
+  public void setAlertDetailUS(String alertDetailUS) {
+    this.alertDetailUS = alertDetailUS;
   }
 
   public AlarmDescForGetMlpAlarmSummaryInfoOutput alertTags(List<String> alertTags) {
@@ -340,6 +418,24 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.dataTypeStr = dataTypeStr;
   }
 
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput dataTypeStrEn(String dataTypeStrEn) {
+    this.dataTypeStrEn = dataTypeStrEn;
+    return this;
+  }
+
+   /**
+   * Get dataTypeStrEn
+   * @return dataTypeStrEn
+  **/
+  @Schema(description = "")
+  public String getDataTypeStrEn() {
+    return dataTypeStrEn;
+  }
+
+  public void setDataTypeStrEn(String dataTypeStrEn) {
+    this.dataTypeStrEn = dataTypeStrEn;
+  }
+
   public AlarmDescForGetMlpAlarmSummaryInfoOutput desc(String desc) {
     this.desc = desc;
     return this;
@@ -484,6 +580,50 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.kubeLevel = kubeLevel;
   }
 
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput lastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTime
+   * @return lastAlarmTime
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTime() {
+    return lastAlarmTime;
+  }
+
+  public void setLastAlarmTime(Long lastAlarmTime) {
+    this.lastAlarmTime = lastAlarmTime;
+  }
+
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
+  }
+
   public AlarmDescForGetMlpAlarmSummaryInfoOutput raspConfigName(String raspConfigName) {
     this.raspConfigName = raspConfigName;
     return this;
@@ -574,6 +714,24 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.ruleName = ruleName;
   }
 
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput ruleNameUs(String ruleNameUs) {
+    this.ruleNameUs = ruleNameUs;
+    return this;
+  }
+
+   /**
+   * Get ruleNameUs
+   * @return ruleNameUs
+  **/
+  @Schema(description = "")
+  public String getRuleNameUs() {
+    return ruleNameUs;
+  }
+
+  public void setRuleNameUs(String ruleNameUs) {
+    this.ruleNameUs = ruleNameUs;
+  }
+
   public AlarmDescForGetMlpAlarmSummaryInfoOutput status(Long status) {
     this.status = status;
     return this;
@@ -610,6 +768,24 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     this.suggestion = suggestion;
   }
 
+  public AlarmDescForGetMlpAlarmSummaryInfoOutput suggestionUs(String suggestionUs) {
+    this.suggestionUs = suggestionUs;
+    return this;
+  }
+
+   /**
+   * Get suggestionUs
+   * @return suggestionUs
+  **/
+  @Schema(description = "")
+  public String getSuggestionUs() {
+    return suggestionUs;
+  }
+
+  public void setSuggestionUs(String suggestionUs) {
+    this.suggestionUs = suggestionUs;
+  }
+
   public AlarmDescForGetMlpAlarmSummaryInfoOutput traceID(String traceID) {
     this.traceID = traceID;
     return this;
@@ -638,10 +814,13 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
       return false;
     }
     AlarmDescForGetMlpAlarmSummaryInfoOutput alarmDescForGetMlpAlarmSummaryInfoOutput = (AlarmDescForGetMlpAlarmSummaryInfoOutput) o;
-    return Objects.equals(this.alarmHandleResult, alarmDescForGetMlpAlarmSummaryInfoOutput.alarmHandleResult) &&
+    return Objects.equals(this.alarmCount, alarmDescForGetMlpAlarmSummaryInfoOutput.alarmCount) &&
+        Objects.equals(this.alarmHandleResult, alarmDescForGetMlpAlarmSummaryInfoOutput.alarmHandleResult) &&
         Objects.equals(this.alarmID, alarmDescForGetMlpAlarmSummaryInfoOutput.alarmID) &&
         Objects.equals(this.alertDesc, alarmDescForGetMlpAlarmSummaryInfoOutput.alertDesc) &&
+        Objects.equals(this.alertDescUS, alarmDescForGetMlpAlarmSummaryInfoOutput.alertDescUS) &&
         Objects.equals(this.alertDetail, alarmDescForGetMlpAlarmSummaryInfoOutput.alertDetail) &&
+        Objects.equals(this.alertDetailUS, alarmDescForGetMlpAlarmSummaryInfoOutput.alertDetailUS) &&
         Objects.equals(this.alertTags, alarmDescForGetMlpAlarmSummaryInfoOutput.alertTags) &&
         Objects.equals(this.alertType, alarmDescForGetMlpAlarmSummaryInfoOutput.alertType) &&
         Objects.equals(this.alertTypeUs, alarmDescForGetMlpAlarmSummaryInfoOutput.alertTypeUs) &&
@@ -650,6 +829,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
         Objects.equals(this.attackID, alarmDescForGetMlpAlarmSummaryInfoOutput.attackID) &&
         Objects.equals(this.attackIDList, alarmDescForGetMlpAlarmSummaryInfoOutput.attackIDList) &&
         Objects.equals(this.dataTypeStr, alarmDescForGetMlpAlarmSummaryInfoOutput.dataTypeStr) &&
+        Objects.equals(this.dataTypeStrEn, alarmDescForGetMlpAlarmSummaryInfoOutput.dataTypeStrEn) &&
         Objects.equals(this.desc, alarmDescForGetMlpAlarmSummaryInfoOutput.desc) &&
         Objects.equals(this.docker, alarmDescForGetMlpAlarmSummaryInfoOutput.docker) &&
         Objects.equals(this.errorReason, alarmDescForGetMlpAlarmSummaryInfoOutput.errorReason) &&
@@ -658,19 +838,23 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
         Objects.equals(this.hidsLevel, alarmDescForGetMlpAlarmSummaryInfoOutput.hidsLevel) &&
         Objects.equals(this.insertTime, alarmDescForGetMlpAlarmSummaryInfoOutput.insertTime) &&
         Objects.equals(this.kubeLevel, alarmDescForGetMlpAlarmSummaryInfoOutput.kubeLevel) &&
+        Objects.equals(this.lastAlarmTime, alarmDescForGetMlpAlarmSummaryInfoOutput.lastAlarmTime) &&
+        Objects.equals(this.operationList, alarmDescForGetMlpAlarmSummaryInfoOutput.operationList) &&
         Objects.equals(this.raspConfigName, alarmDescForGetMlpAlarmSummaryInfoOutput.raspConfigName) &&
         Objects.equals(this.raspLevel, alarmDescForGetMlpAlarmSummaryInfoOutput.raspLevel) &&
         Objects.equals(this.relatedConfigID, alarmDescForGetMlpAlarmSummaryInfoOutput.relatedConfigID) &&
         Objects.equals(this.riskDesc, alarmDescForGetMlpAlarmSummaryInfoOutput.riskDesc) &&
         Objects.equals(this.ruleName, alarmDescForGetMlpAlarmSummaryInfoOutput.ruleName) &&
+        Objects.equals(this.ruleNameUs, alarmDescForGetMlpAlarmSummaryInfoOutput.ruleNameUs) &&
         Objects.equals(this.status, alarmDescForGetMlpAlarmSummaryInfoOutput.status) &&
         Objects.equals(this.suggestion, alarmDescForGetMlpAlarmSummaryInfoOutput.suggestion) &&
+        Objects.equals(this.suggestionUs, alarmDescForGetMlpAlarmSummaryInfoOutput.suggestionUs) &&
         Objects.equals(this.traceID, alarmDescForGetMlpAlarmSummaryInfoOutput.traceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmHandleResult, alarmID, alertDesc, alertDetail, alertTags, alertType, alertTypeUs, analyzeReport, analyzeReportName, attackID, attackIDList, dataTypeStr, desc, docker, errorReason, handleTime, handleUser, hidsLevel, insertTime, kubeLevel, raspConfigName, raspLevel, relatedConfigID, riskDesc, ruleName, status, suggestion, traceID);
+    return Objects.hash(alarmCount, alarmHandleResult, alarmID, alertDesc, alertDescUS, alertDetail, alertDetailUS, alertTags, alertType, alertTypeUs, analyzeReport, analyzeReportName, attackID, attackIDList, dataTypeStr, dataTypeStrEn, desc, docker, errorReason, handleTime, handleUser, hidsLevel, insertTime, kubeLevel, lastAlarmTime, operationList, raspConfigName, raspLevel, relatedConfigID, riskDesc, ruleName, ruleNameUs, status, suggestion, suggestionUs, traceID);
   }
 
 
@@ -679,10 +863,13 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlarmDescForGetMlpAlarmSummaryInfoOutput {\n");
     
+    sb.append("    alarmCount: ").append(toIndentedString(alarmCount)).append("\n");
     sb.append("    alarmHandleResult: ").append(toIndentedString(alarmHandleResult)).append("\n");
     sb.append("    alarmID: ").append(toIndentedString(alarmID)).append("\n");
     sb.append("    alertDesc: ").append(toIndentedString(alertDesc)).append("\n");
+    sb.append("    alertDescUS: ").append(toIndentedString(alertDescUS)).append("\n");
     sb.append("    alertDetail: ").append(toIndentedString(alertDetail)).append("\n");
+    sb.append("    alertDetailUS: ").append(toIndentedString(alertDetailUS)).append("\n");
     sb.append("    alertTags: ").append(toIndentedString(alertTags)).append("\n");
     sb.append("    alertType: ").append(toIndentedString(alertType)).append("\n");
     sb.append("    alertTypeUs: ").append(toIndentedString(alertTypeUs)).append("\n");
@@ -691,6 +878,7 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     sb.append("    attackID: ").append(toIndentedString(attackID)).append("\n");
     sb.append("    attackIDList: ").append(toIndentedString(attackIDList)).append("\n");
     sb.append("    dataTypeStr: ").append(toIndentedString(dataTypeStr)).append("\n");
+    sb.append("    dataTypeStrEn: ").append(toIndentedString(dataTypeStrEn)).append("\n");
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
     sb.append("    docker: ").append(toIndentedString(docker)).append("\n");
     sb.append("    errorReason: ").append(toIndentedString(errorReason)).append("\n");
@@ -699,13 +887,17 @@ public class AlarmDescForGetMlpAlarmSummaryInfoOutput {
     sb.append("    hidsLevel: ").append(toIndentedString(hidsLevel)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
     sb.append("    kubeLevel: ").append(toIndentedString(kubeLevel)).append("\n");
+    sb.append("    lastAlarmTime: ").append(toIndentedString(lastAlarmTime)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    raspConfigName: ").append(toIndentedString(raspConfigName)).append("\n");
     sb.append("    raspLevel: ").append(toIndentedString(raspLevel)).append("\n");
     sb.append("    relatedConfigID: ").append(toIndentedString(relatedConfigID)).append("\n");
     sb.append("    riskDesc: ").append(toIndentedString(riskDesc)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    ruleNameUs: ").append(toIndentedString(ruleNameUs)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    suggestion: ").append(toIndentedString(suggestion)).append("\n");
+    sb.append("    suggestionUs: ").append(toIndentedString(suggestionUs)).append("\n");
     sb.append("    traceID: ").append(toIndentedString(traceID)).append("\n");
     sb.append("}");
     return sb.toString();

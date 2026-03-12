@@ -40,8 +40,14 @@ public class DataForListRaspConfigsOutput {
   @SerializedName("AllProcessInject")
   private Boolean allProcessInject = null;
 
+  @SerializedName("BlockUuid")
+  private String blockUuid = null;
+
   @SerializedName("Blocks")
   private List<BlockForListRaspConfigsOutput> blocks = null;
+
+  @SerializedName("FilterUuid")
+  private String filterUuid = null;
 
   @SerializedName("Filters")
   private List<FilterForListRaspConfigsOutput> filters = null;
@@ -106,6 +112,24 @@ public class DataForListRaspConfigsOutput {
     this.allProcessInject = allProcessInject;
   }
 
+  public DataForListRaspConfigsOutput blockUuid(String blockUuid) {
+    this.blockUuid = blockUuid;
+    return this;
+  }
+
+   /**
+   * Get blockUuid
+   * @return blockUuid
+  **/
+  @Schema(description = "")
+  public String getBlockUuid() {
+    return blockUuid;
+  }
+
+  public void setBlockUuid(String blockUuid) {
+    this.blockUuid = blockUuid;
+  }
+
   public DataForListRaspConfigsOutput blocks(List<BlockForListRaspConfigsOutput> blocks) {
     this.blocks = blocks;
     return this;
@@ -131,6 +155,24 @@ public class DataForListRaspConfigsOutput {
 
   public void setBlocks(List<BlockForListRaspConfigsOutput> blocks) {
     this.blocks = blocks;
+  }
+
+  public DataForListRaspConfigsOutput filterUuid(String filterUuid) {
+    this.filterUuid = filterUuid;
+    return this;
+  }
+
+   /**
+   * Get filterUuid
+   * @return filterUuid
+  **/
+  @Schema(description = "")
+  public String getFilterUuid() {
+    return filterUuid;
+  }
+
+  public void setFilterUuid(String filterUuid) {
+    this.filterUuid = filterUuid;
   }
 
   public DataForListRaspConfigsOutput filters(List<FilterForListRaspConfigsOutput> filters) {
@@ -434,7 +476,9 @@ public class DataForListRaspConfigsOutput {
     }
     DataForListRaspConfigsOutput dataForListRaspConfigsOutput = (DataForListRaspConfigsOutput) o;
     return Objects.equals(this.allProcessInject, dataForListRaspConfigsOutput.allProcessInject) &&
+        Objects.equals(this.blockUuid, dataForListRaspConfigsOutput.blockUuid) &&
         Objects.equals(this.blocks, dataForListRaspConfigsOutput.blocks) &&
+        Objects.equals(this.filterUuid, dataForListRaspConfigsOutput.filterUuid) &&
         Objects.equals(this.filters, dataForListRaspConfigsOutput.filters) &&
         Objects.equals(this.ID, dataForListRaspConfigsOutput.ID) &&
         Objects.equals(this.ifProtect, dataForListRaspConfigsOutput.ifProtect) &&
@@ -454,7 +498,7 @@ public class DataForListRaspConfigsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allProcessInject, blocks, filters, ID, ifProtect, injectConfigList, localProjectInject, name, protectMethod, protectedAgentCount, protectedProcessCount, range, runtime, _switch, toBeProtectedAgentCount, toBeProtectedProcessCount, topGroupID);
+    return Objects.hash(allProcessInject, blockUuid, blocks, filterUuid, filters, ID, ifProtect, injectConfigList, localProjectInject, name, protectMethod, protectedAgentCount, protectedProcessCount, range, runtime, _switch, toBeProtectedAgentCount, toBeProtectedProcessCount, topGroupID);
   }
 
 
@@ -464,7 +508,9 @@ public class DataForListRaspConfigsOutput {
     sb.append("class DataForListRaspConfigsOutput {\n");
     
     sb.append("    allProcessInject: ").append(toIndentedString(allProcessInject)).append("\n");
+    sb.append("    blockUuid: ").append(toIndentedString(blockUuid)).append("\n");
     sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
+    sb.append("    filterUuid: ").append(toIndentedString(filterUuid)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    ifProtect: ").append(toIndentedString(ifProtect)).append("\n");

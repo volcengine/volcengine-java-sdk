@@ -30,8 +30,17 @@ import javax.validation.Valid;
 
 
 public class RaspAuthQuotaForGetTenantQuotaOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
+
+  @SerializedName("NeedRemove")
+  private Boolean needRemove = null;
+
+  @SerializedName("PaidType")
+  private String paidType = null;
 
   @SerializedName("TotalCount")
   private Long totalCount = null;
@@ -41,6 +50,24 @@ public class RaspAuthQuotaForGetTenantQuotaOutput {
 
   @SerializedName("Version")
   private Long version = null;
+
+  public RaspAuthQuotaForGetTenantQuotaOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public RaspAuthQuotaForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
@@ -58,6 +85,42 @@ public class RaspAuthQuotaForGetTenantQuotaOutput {
 
   public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
+  }
+
+  public RaspAuthQuotaForGetTenantQuotaOutput needRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+    return this;
+  }
+
+   /**
+   * Get needRemove
+   * @return needRemove
+  **/
+  @Schema(description = "")
+  public Boolean isNeedRemove() {
+    return needRemove;
+  }
+
+  public void setNeedRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+  }
+
+  public RaspAuthQuotaForGetTenantQuotaOutput paidType(String paidType) {
+    this.paidType = paidType;
+    return this;
+  }
+
+   /**
+   * Get paidType
+   * @return paidType
+  **/
+  @Schema(description = "")
+  public String getPaidType() {
+    return paidType;
+  }
+
+  public void setPaidType(String paidType) {
+    this.paidType = paidType;
   }
 
   public RaspAuthQuotaForGetTenantQuotaOutput totalCount(Long totalCount) {
@@ -124,7 +187,10 @@ public class RaspAuthQuotaForGetTenantQuotaOutput {
       return false;
     }
     RaspAuthQuotaForGetTenantQuotaOutput raspAuthQuotaForGetTenantQuotaOutput = (RaspAuthQuotaForGetTenantQuotaOutput) o;
-    return Objects.equals(this.expireTime, raspAuthQuotaForGetTenantQuotaOutput.expireTime) &&
+    return Objects.equals(this.action, raspAuthQuotaForGetTenantQuotaOutput.action) &&
+        Objects.equals(this.expireTime, raspAuthQuotaForGetTenantQuotaOutput.expireTime) &&
+        Objects.equals(this.needRemove, raspAuthQuotaForGetTenantQuotaOutput.needRemove) &&
+        Objects.equals(this.paidType, raspAuthQuotaForGetTenantQuotaOutput.paidType) &&
         Objects.equals(this.totalCount, raspAuthQuotaForGetTenantQuotaOutput.totalCount) &&
         Objects.equals(this.usedCount, raspAuthQuotaForGetTenantQuotaOutput.usedCount) &&
         Objects.equals(this.version, raspAuthQuotaForGetTenantQuotaOutput.version);
@@ -132,7 +198,7 @@ public class RaspAuthQuotaForGetTenantQuotaOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expireTime, totalCount, usedCount, version);
+    return Objects.hash(action, expireTime, needRemove, paidType, totalCount, usedCount, version);
   }
 
 
@@ -141,7 +207,10 @@ public class RaspAuthQuotaForGetTenantQuotaOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RaspAuthQuotaForGetTenantQuotaOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    needRemove: ").append(toIndentedString(needRemove)).append("\n");
+    sb.append("    paidType: ").append(toIndentedString(paidType)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    usedCount: ").append(toIndentedString(usedCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

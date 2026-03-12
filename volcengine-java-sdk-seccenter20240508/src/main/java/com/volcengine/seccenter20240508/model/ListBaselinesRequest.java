@@ -38,54 +38,14 @@ public class ListBaselinesRequest {
   @SerializedName("AssetID")
   private String assetID = null;
 
-  /**
-   * Gets or Sets assetType
-   */
-  @JsonAdapter(AssetTypeEnum.Adapter.class)
-  public enum AssetTypeEnum {
-    @SerializedName("Host")
-    HOST("Host"),
-    @SerializedName("Dev")
-    DEV("Dev");
-
-    private String value;
-
-    AssetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AssetTypeEnum fromValue(String input) {
-      for (AssetTypeEnum b : AssetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AssetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AssetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AssetType")
-  private AssetTypeEnum assetType = null;
+  @SerializedName("AssetType")
+  private String assetType = null;
 
   @SerializedName("BaselineName")
   private String baselineName = null;
+
+  @SerializedName("BaselineNameEn")
+  private String baselineNameEn = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -159,7 +119,7 @@ public class ListBaselinesRequest {
     this.assetID = assetID;
   }
 
-  public ListBaselinesRequest assetType(AssetTypeEnum assetType) {
+  public ListBaselinesRequest assetType(String assetType) {
     this.assetType = assetType;
     return this;
   }
@@ -169,11 +129,11 @@ public class ListBaselinesRequest {
    * @return assetType
   **/
   @Schema(description = "")
-  public AssetTypeEnum getAssetType() {
+  public String getAssetType() {
     return assetType;
   }
 
-  public void setAssetType(AssetTypeEnum assetType) {
+  public void setAssetType(String assetType) {
     this.assetType = assetType;
   }
 
@@ -193,6 +153,24 @@ public class ListBaselinesRequest {
 
   public void setBaselineName(String baselineName) {
     this.baselineName = baselineName;
+  }
+
+  public ListBaselinesRequest baselineNameEn(String baselineNameEn) {
+    this.baselineNameEn = baselineNameEn;
+    return this;
+  }
+
+   /**
+   * Get baselineNameEn
+   * @return baselineNameEn
+  **/
+  @Schema(description = "")
+  public String getBaselineNameEn() {
+    return baselineNameEn;
+  }
+
+  public void setBaselineNameEn(String baselineNameEn) {
+    this.baselineNameEn = baselineNameEn;
   }
 
   public ListBaselinesRequest cloudProviders(List<String> cloudProviders) {
@@ -443,6 +421,7 @@ public class ListBaselinesRequest {
         Objects.equals(this.assetID, listBaselinesRequest.assetID) &&
         Objects.equals(this.assetType, listBaselinesRequest.assetType) &&
         Objects.equals(this.baselineName, listBaselinesRequest.baselineName) &&
+        Objects.equals(this.baselineNameEn, listBaselinesRequest.baselineNameEn) &&
         Objects.equals(this.cloudProviders, listBaselinesRequest.cloudProviders) &&
         Objects.equals(this.clusterID, listBaselinesRequest.clusterID) &&
         Objects.equals(this.groupID, listBaselinesRequest.groupID) &&
@@ -459,7 +438,7 @@ public class ListBaselinesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, baselineName, cloudProviders, clusterID, groupID, lastDetectedTimeEnd, lastDetectedTimeStart, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, status, topGroupID);
+    return Objects.hash(agentID, assetID, assetType, baselineName, baselineNameEn, cloudProviders, clusterID, groupID, lastDetectedTimeEnd, lastDetectedTimeStart, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, status, topGroupID);
   }
 
 
@@ -472,6 +451,7 @@ public class ListBaselinesRequest {
     sb.append("    assetID: ").append(toIndentedString(assetID)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    baselineName: ").append(toIndentedString(baselineName)).append("\n");
+    sb.append("    baselineNameEn: ").append(toIndentedString(baselineNameEn)).append("\n");
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    groupID: ").append(toIndentedString(groupID)).append("\n");

@@ -54,11 +54,17 @@ public class DataForGetDevFingerprintPortOutput {
   @SerializedName("PrivateIP")
   private String privateIP = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
   @SerializedName("PublicIP")
   private String publicIP = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("Sip")
   private String sip = null;
@@ -225,6 +231,24 @@ public class DataForGetDevFingerprintPortOutput {
     this.privateIP = privateIP;
   }
 
+  public DataForGetDevFingerprintPortOutput protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public DataForGetDevFingerprintPortOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -259,6 +283,24 @@ public class DataForGetDevFingerprintPortOutput {
 
   public void setPublicIP(String publicIP) {
     this.publicIP = publicIP;
+  }
+
+  public DataForGetDevFingerprintPortOutput securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
   }
 
   public DataForGetDevFingerprintPortOutput sip(String sip) {
@@ -405,8 +447,10 @@ public class DataForGetDevFingerprintPortOutput {
         Objects.equals(this.ID, dataForGetDevFingerprintPortOutput.ID) &&
         Objects.equals(this.pid, dataForGetDevFingerprintPortOutput.pid) &&
         Objects.equals(this.privateIP, dataForGetDevFingerprintPortOutput.privateIP) &&
+        Objects.equals(this.protectStatus, dataForGetDevFingerprintPortOutput.protectStatus) &&
         Objects.equals(this.protocol, dataForGetDevFingerprintPortOutput.protocol) &&
         Objects.equals(this.publicIP, dataForGetDevFingerprintPortOutput.publicIP) &&
+        Objects.equals(this.securityEnhancement, dataForGetDevFingerprintPortOutput.securityEnhancement) &&
         Objects.equals(this.sip, dataForGetDevFingerprintPortOutput.sip) &&
         Objects.equals(this.sport, dataForGetDevFingerprintPortOutput.sport) &&
         Objects.equals(this.startTime, dataForGetDevFingerprintPortOutput.startTime) &&
@@ -418,7 +462,7 @@ public class DataForGetDevFingerprintPortOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, assetId, assetName, cmdline, comm, ID, pid, privateIP, protocol, publicIP, sip, sport, startTime, status, uid, updateTime, username);
+    return Objects.hash(accountId, assetId, assetName, cmdline, comm, ID, pid, privateIP, protectStatus, protocol, publicIP, securityEnhancement, sip, sport, startTime, status, uid, updateTime, username);
   }
 
 
@@ -435,8 +479,10 @@ public class DataForGetDevFingerprintPortOutput {
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
     sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    publicIP: ").append(toIndentedString(publicIP)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    sip: ").append(toIndentedString(sip)).append("\n");
     sb.append("    sport: ").append(toIndentedString(sport)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");

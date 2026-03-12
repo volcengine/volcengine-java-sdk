@@ -30,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class ClusterSecForGetTenantQuotaOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
+
+  @SerializedName("NeedRemove")
+  private Boolean needRemove = null;
 
   @SerializedName("TotalCount")
   private Long totalCount = null;
@@ -41,6 +47,24 @@ public class ClusterSecForGetTenantQuotaOutput {
 
   @SerializedName("Version")
   private Long version = null;
+
+  public ClusterSecForGetTenantQuotaOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public ClusterSecForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
@@ -58,6 +82,24 @@ public class ClusterSecForGetTenantQuotaOutput {
 
   public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
+  }
+
+  public ClusterSecForGetTenantQuotaOutput needRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+    return this;
+  }
+
+   /**
+   * Get needRemove
+   * @return needRemove
+  **/
+  @Schema(description = "")
+  public Boolean isNeedRemove() {
+    return needRemove;
+  }
+
+  public void setNeedRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
   }
 
   public ClusterSecForGetTenantQuotaOutput totalCount(Long totalCount) {
@@ -124,7 +166,9 @@ public class ClusterSecForGetTenantQuotaOutput {
       return false;
     }
     ClusterSecForGetTenantQuotaOutput clusterSecForGetTenantQuotaOutput = (ClusterSecForGetTenantQuotaOutput) o;
-    return Objects.equals(this.expireTime, clusterSecForGetTenantQuotaOutput.expireTime) &&
+    return Objects.equals(this.action, clusterSecForGetTenantQuotaOutput.action) &&
+        Objects.equals(this.expireTime, clusterSecForGetTenantQuotaOutput.expireTime) &&
+        Objects.equals(this.needRemove, clusterSecForGetTenantQuotaOutput.needRemove) &&
         Objects.equals(this.totalCount, clusterSecForGetTenantQuotaOutput.totalCount) &&
         Objects.equals(this.usedCount, clusterSecForGetTenantQuotaOutput.usedCount) &&
         Objects.equals(this.version, clusterSecForGetTenantQuotaOutput.version);
@@ -132,7 +176,7 @@ public class ClusterSecForGetTenantQuotaOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expireTime, totalCount, usedCount, version);
+    return Objects.hash(action, expireTime, needRemove, totalCount, usedCount, version);
   }
 
 
@@ -141,7 +185,9 @@ public class ClusterSecForGetTenantQuotaOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClusterSecForGetTenantQuotaOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    needRemove: ").append(toIndentedString(needRemove)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    usedCount: ").append(toIndentedString(usedCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

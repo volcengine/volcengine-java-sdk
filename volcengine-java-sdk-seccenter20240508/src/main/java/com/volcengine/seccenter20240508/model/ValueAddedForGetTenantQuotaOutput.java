@@ -19,10 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.LLMEvalQuotaForGetTenantQuotaOutput;
 import com.volcengine.seccenter20240508.model.LogAnalysisQuotaForGetTenantQuotaOutput;
 import com.volcengine.seccenter20240508.model.MlpDefenderQuotaForGetTenantQuotaOutput;
 import com.volcengine.seccenter20240508.model.MultiLevelManagementForGetTenantQuotaOutput;
 import com.volcengine.seccenter20240508.model.RaspAuthQuotaForGetTenantQuotaOutput;
+import com.volcengine.seccenter20240508.model.VarmorQuotaForGetTenantQuotaOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class ValueAddedForGetTenantQuotaOutput {
+  @SerializedName("LLMEvalQuota")
+  private LLMEvalQuotaForGetTenantQuotaOutput llMEvalQuota = null;
+
   @SerializedName("LogAnalysisQuota")
   private LogAnalysisQuotaForGetTenantQuotaOutput logAnalysisQuota = null;
 
@@ -45,6 +50,28 @@ public class ValueAddedForGetTenantQuotaOutput {
 
   @SerializedName("RaspAuthQuota")
   private RaspAuthQuotaForGetTenantQuotaOutput raspAuthQuota = null;
+
+  @SerializedName("VarmorQuota")
+  private VarmorQuotaForGetTenantQuotaOutput varmorQuota = null;
+
+  public ValueAddedForGetTenantQuotaOutput llMEvalQuota(LLMEvalQuotaForGetTenantQuotaOutput llMEvalQuota) {
+    this.llMEvalQuota = llMEvalQuota;
+    return this;
+  }
+
+   /**
+   * Get llMEvalQuota
+   * @return llMEvalQuota
+  **/
+  @Valid
+  @Schema(description = "")
+  public LLMEvalQuotaForGetTenantQuotaOutput getLlMEvalQuota() {
+    return llMEvalQuota;
+  }
+
+  public void setLlMEvalQuota(LLMEvalQuotaForGetTenantQuotaOutput llMEvalQuota) {
+    this.llMEvalQuota = llMEvalQuota;
+  }
 
   public ValueAddedForGetTenantQuotaOutput logAnalysisQuota(LogAnalysisQuotaForGetTenantQuotaOutput logAnalysisQuota) {
     this.logAnalysisQuota = logAnalysisQuota;
@@ -122,6 +149,25 @@ public class ValueAddedForGetTenantQuotaOutput {
     this.raspAuthQuota = raspAuthQuota;
   }
 
+  public ValueAddedForGetTenantQuotaOutput varmorQuota(VarmorQuotaForGetTenantQuotaOutput varmorQuota) {
+    this.varmorQuota = varmorQuota;
+    return this;
+  }
+
+   /**
+   * Get varmorQuota
+   * @return varmorQuota
+  **/
+  @Valid
+  @Schema(description = "")
+  public VarmorQuotaForGetTenantQuotaOutput getVarmorQuota() {
+    return varmorQuota;
+  }
+
+  public void setVarmorQuota(VarmorQuotaForGetTenantQuotaOutput varmorQuota) {
+    this.varmorQuota = varmorQuota;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,15 +178,17 @@ public class ValueAddedForGetTenantQuotaOutput {
       return false;
     }
     ValueAddedForGetTenantQuotaOutput valueAddedForGetTenantQuotaOutput = (ValueAddedForGetTenantQuotaOutput) o;
-    return Objects.equals(this.logAnalysisQuota, valueAddedForGetTenantQuotaOutput.logAnalysisQuota) &&
+    return Objects.equals(this.llMEvalQuota, valueAddedForGetTenantQuotaOutput.llMEvalQuota) &&
+        Objects.equals(this.logAnalysisQuota, valueAddedForGetTenantQuotaOutput.logAnalysisQuota) &&
         Objects.equals(this.mlpDefenderQuota, valueAddedForGetTenantQuotaOutput.mlpDefenderQuota) &&
         Objects.equals(this.multiLevelManagement, valueAddedForGetTenantQuotaOutput.multiLevelManagement) &&
-        Objects.equals(this.raspAuthQuota, valueAddedForGetTenantQuotaOutput.raspAuthQuota);
+        Objects.equals(this.raspAuthQuota, valueAddedForGetTenantQuotaOutput.raspAuthQuota) &&
+        Objects.equals(this.varmorQuota, valueAddedForGetTenantQuotaOutput.varmorQuota);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logAnalysisQuota, mlpDefenderQuota, multiLevelManagement, raspAuthQuota);
+    return Objects.hash(llMEvalQuota, logAnalysisQuota, mlpDefenderQuota, multiLevelManagement, raspAuthQuota, varmorQuota);
   }
 
 
@@ -149,10 +197,12 @@ public class ValueAddedForGetTenantQuotaOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueAddedForGetTenantQuotaOutput {\n");
     
+    sb.append("    llMEvalQuota: ").append(toIndentedString(llMEvalQuota)).append("\n");
     sb.append("    logAnalysisQuota: ").append(toIndentedString(logAnalysisQuota)).append("\n");
     sb.append("    mlpDefenderQuota: ").append(toIndentedString(mlpDefenderQuota)).append("\n");
     sb.append("    multiLevelManagement: ").append(toIndentedString(multiLevelManagement)).append("\n");
     sb.append("    raspAuthQuota: ").append(toIndentedString(raspAuthQuota)).append("\n");
+    sb.append("    varmorQuota: ").append(toIndentedString(varmorQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

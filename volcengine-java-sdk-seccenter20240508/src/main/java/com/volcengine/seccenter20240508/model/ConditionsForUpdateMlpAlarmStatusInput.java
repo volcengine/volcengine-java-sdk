@@ -104,6 +104,12 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
   @SerializedName("ImageName")
   private String imageName = null;
 
+  @SerializedName("LastAlarmTimeEnd")
+  private Long lastAlarmTimeEnd = null;
+
+  @SerializedName("LastAlarmTimeStart")
+  private Long lastAlarmTimeStart = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -115,6 +121,9 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
 
   @SerializedName("ProbeHook")
   private String probeHook = null;
@@ -151,6 +160,9 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
 
   @SerializedName("WhiteListName")
   private String whiteListName = null;
+
+  @SerializedName("security_intelligence_results")
+  private List<String> securityIntelligenceResults = null;
 
   public ConditionsForUpdateMlpAlarmStatusInput agentGroup(String agentGroup) {
     this.agentGroup = agentGroup;
@@ -640,6 +652,42 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
     this.imageName = imageName;
   }
 
+  public ConditionsForUpdateMlpAlarmStatusInput lastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeEnd
+   * @return lastAlarmTimeEnd
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeEnd() {
+    return lastAlarmTimeEnd;
+  }
+
+  public void setLastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+  }
+
+  public ConditionsForUpdateMlpAlarmStatusInput lastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeStart
+   * @return lastAlarmTimeStart
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeStart() {
+    return lastAlarmTimeStart;
+  }
+
+  public void setLastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+  }
+
   public ConditionsForUpdateMlpAlarmStatusInput leafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
     return this;
@@ -726,6 +774,32 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ConditionsForUpdateMlpAlarmStatusInput operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public ConditionsForUpdateMlpAlarmStatusInput addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
   }
 
   public ConditionsForUpdateMlpAlarmStatusInput probeHook(String probeHook) {
@@ -968,6 +1042,32 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
     this.whiteListName = whiteListName;
   }
 
+  public ConditionsForUpdateMlpAlarmStatusInput securityIntelligenceResults(List<String> securityIntelligenceResults) {
+    this.securityIntelligenceResults = securityIntelligenceResults;
+    return this;
+  }
+
+  public ConditionsForUpdateMlpAlarmStatusInput addSecurityIntelligenceResultsItem(String securityIntelligenceResultsItem) {
+    if (this.securityIntelligenceResults == null) {
+      this.securityIntelligenceResults = new ArrayList<String>();
+    }
+    this.securityIntelligenceResults.add(securityIntelligenceResultsItem);
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceResults
+   * @return securityIntelligenceResults
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityIntelligenceResults() {
+    return securityIntelligenceResults;
+  }
+
+  public void setSecurityIntelligenceResults(List<String> securityIntelligenceResults) {
+    this.securityIntelligenceResults = securityIntelligenceResults;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1002,10 +1102,13 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
         Objects.equals(this.hostname, conditionsForUpdateMlpAlarmStatusInput.hostname) &&
         Objects.equals(this.IP, conditionsForUpdateMlpAlarmStatusInput.IP) &&
         Objects.equals(this.imageName, conditionsForUpdateMlpAlarmStatusInput.imageName) &&
+        Objects.equals(this.lastAlarmTimeEnd, conditionsForUpdateMlpAlarmStatusInput.lastAlarmTimeEnd) &&
+        Objects.equals(this.lastAlarmTimeStart, conditionsForUpdateMlpAlarmStatusInput.lastAlarmTimeStart) &&
         Objects.equals(this.leafGroupIDs, conditionsForUpdateMlpAlarmStatusInput.leafGroupIDs) &&
         Objects.equals(this.level, conditionsForUpdateMlpAlarmStatusInput.level) &&
         Objects.equals(this.mlpInstanceID, conditionsForUpdateMlpAlarmStatusInput.mlpInstanceID) &&
         Objects.equals(this.name, conditionsForUpdateMlpAlarmStatusInput.name) &&
+        Objects.equals(this.operationList, conditionsForUpdateMlpAlarmStatusInput.operationList) &&
         Objects.equals(this.probeHook, conditionsForUpdateMlpAlarmStatusInput.probeHook) &&
         Objects.equals(this.raspArgv, conditionsForUpdateMlpAlarmStatusInput.raspArgv) &&
         Objects.equals(this.status, conditionsForUpdateMlpAlarmStatusInput.status) &&
@@ -1017,12 +1120,13 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
         Objects.equals(this.type, conditionsForUpdateMlpAlarmStatusInput.type) &&
         Objects.equals(this.virusType, conditionsForUpdateMlpAlarmStatusInput.virusType) &&
         Objects.equals(this.whiteListID, conditionsForUpdateMlpAlarmStatusInput.whiteListID) &&
-        Objects.equals(this.whiteListName, conditionsForUpdateMlpAlarmStatusInput.whiteListName);
+        Objects.equals(this.whiteListName, conditionsForUpdateMlpAlarmStatusInput.whiteListName) &&
+        Objects.equals(this.securityIntelligenceResults, conditionsForUpdateMlpAlarmStatusInput.securityIntelligenceResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, leafGroupIDs, level, mlpInstanceID, name, probeHook, raspArgv, status, tags, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName);
+    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, lastAlarmTimeEnd, lastAlarmTimeStart, leafGroupIDs, level, mlpInstanceID, name, operationList, probeHook, raspArgv, status, tags, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName, securityIntelligenceResults);
   }
 
 
@@ -1055,10 +1159,13 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    lastAlarmTimeEnd: ").append(toIndentedString(lastAlarmTimeEnd)).append("\n");
+    sb.append("    lastAlarmTimeStart: ").append(toIndentedString(lastAlarmTimeStart)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    mlpInstanceID: ").append(toIndentedString(mlpInstanceID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    probeHook: ").append(toIndentedString(probeHook)).append("\n");
     sb.append("    raspArgv: ").append(toIndentedString(raspArgv)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -1071,6 +1178,7 @@ public class ConditionsForUpdateMlpAlarmStatusInput {
     sb.append("    virusType: ").append(toIndentedString(virusType)).append("\n");
     sb.append("    whiteListID: ").append(toIndentedString(whiteListID)).append("\n");
     sb.append("    whiteListName: ").append(toIndentedString(whiteListName)).append("\n");
+    sb.append("    securityIntelligenceResults: ").append(toIndentedString(securityIntelligenceResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

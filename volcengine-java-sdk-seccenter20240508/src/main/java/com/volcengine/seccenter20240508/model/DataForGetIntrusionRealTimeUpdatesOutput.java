@@ -42,6 +42,9 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
   @SerializedName("AlarmType")
   private String alarmType = null;
 
+  @SerializedName("AlertDescEn")
+  private String alertDescEn = null;
+
   @SerializedName("AlertDetail")
   private String alertDetail = null;
 
@@ -56,6 +59,9 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("NameEn")
+  private String nameEn = null;
 
   @SerializedName("Status")
   private Long status = null;
@@ -133,6 +139,24 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
 
   public void setAlarmType(String alarmType) {
     this.alarmType = alarmType;
+  }
+
+  public DataForGetIntrusionRealTimeUpdatesOutput alertDescEn(String alertDescEn) {
+    this.alertDescEn = alertDescEn;
+    return this;
+  }
+
+   /**
+   * Get alertDescEn
+   * @return alertDescEn
+  **/
+  @Schema(description = "")
+  public String getAlertDescEn() {
+    return alertDescEn;
+  }
+
+  public void setAlertDescEn(String alertDescEn) {
+    this.alertDescEn = alertDescEn;
   }
 
   public DataForGetIntrusionRealTimeUpdatesOutput alertDetail(String alertDetail) {
@@ -225,6 +249,24 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
     this.name = name;
   }
 
+  public DataForGetIntrusionRealTimeUpdatesOutput nameEn(String nameEn) {
+    this.nameEn = nameEn;
+    return this;
+  }
+
+   /**
+   * Get nameEn
+   * @return nameEn
+  **/
+  @Schema(description = "")
+  public String getNameEn() {
+    return nameEn;
+  }
+
+  public void setNameEn(String nameEn) {
+    this.nameEn = nameEn;
+  }
+
   public DataForGetIntrusionRealTimeUpdatesOutput status(Long status) {
     this.status = status;
     return this;
@@ -275,18 +317,20 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
         Objects.equals(this.alarmID, dataForGetIntrusionRealTimeUpdatesOutput.alarmID) &&
         Objects.equals(this.alarmTime, dataForGetIntrusionRealTimeUpdatesOutput.alarmTime) &&
         Objects.equals(this.alarmType, dataForGetIntrusionRealTimeUpdatesOutput.alarmType) &&
+        Objects.equals(this.alertDescEn, dataForGetIntrusionRealTimeUpdatesOutput.alertDescEn) &&
         Objects.equals(this.alertDetail, dataForGetIntrusionRealTimeUpdatesOutput.alertDetail) &&
         Objects.equals(this.clusterID, dataForGetIntrusionRealTimeUpdatesOutput.clusterID) &&
         Objects.equals(this.dataType, dataForGetIntrusionRealTimeUpdatesOutput.dataType) &&
         Objects.equals(this.harmLevel, dataForGetIntrusionRealTimeUpdatesOutput.harmLevel) &&
         Objects.equals(this.name, dataForGetIntrusionRealTimeUpdatesOutput.name) &&
+        Objects.equals(this.nameEn, dataForGetIntrusionRealTimeUpdatesOutput.nameEn) &&
         Objects.equals(this.status, dataForGetIntrusionRealTimeUpdatesOutput.status) &&
         Objects.equals(this.traceID, dataForGetIntrusionRealTimeUpdatesOutput.traceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, alarmID, alarmTime, alarmType, alertDetail, clusterID, dataType, harmLevel, name, status, traceID);
+    return Objects.hash(agentID, alarmID, alarmTime, alarmType, alertDescEn, alertDetail, clusterID, dataType, harmLevel, name, nameEn, status, traceID);
   }
 
 
@@ -299,11 +343,13 @@ public class DataForGetIntrusionRealTimeUpdatesOutput {
     sb.append("    alarmID: ").append(toIndentedString(alarmID)).append("\n");
     sb.append("    alarmTime: ").append(toIndentedString(alarmTime)).append("\n");
     sb.append("    alarmType: ").append(toIndentedString(alarmType)).append("\n");
+    sb.append("    alertDescEn: ").append(toIndentedString(alertDescEn)).append("\n");
     sb.append("    alertDetail: ").append(toIndentedString(alertDetail)).append("\n");
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    harmLevel: ").append(toIndentedString(harmLevel)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameEn: ").append(toIndentedString(nameEn)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    traceID: ").append(toIndentedString(traceID)).append("\n");
     sb.append("}");

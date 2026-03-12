@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.RangeForModifyWhiteListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,6 +39,9 @@ public class ModifyWhiteListRequest {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("Range")
+  private RangeForModifyWhiteListInput range = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -96,6 +100,25 @@ public class ModifyWhiteListRequest {
     this.name = name;
   }
 
+  public ModifyWhiteListRequest range(RangeForModifyWhiteListInput range) {
+    this.range = range;
+    return this;
+  }
+
+   /**
+   * Get range
+   * @return range
+  **/
+  @Valid
+  @Schema(description = "")
+  public RangeForModifyWhiteListInput getRange() {
+    return range;
+  }
+
+  public void setRange(RangeForModifyWhiteListInput range) {
+    this.range = range;
+  }
+
   public ModifyWhiteListRequest type(String type) {
     this.type = type;
     return this;
@@ -127,12 +150,13 @@ public class ModifyWhiteListRequest {
     return Objects.equals(this.desc, modifyWhiteListRequest.desc) &&
         Objects.equals(this.ID, modifyWhiteListRequest.ID) &&
         Objects.equals(this.name, modifyWhiteListRequest.name) &&
+        Objects.equals(this.range, modifyWhiteListRequest.range) &&
         Objects.equals(this.type, modifyWhiteListRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desc, ID, name, type);
+    return Objects.hash(desc, ID, name, range, type);
   }
 
 
@@ -144,6 +168,7 @@ public class ModifyWhiteListRequest {
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

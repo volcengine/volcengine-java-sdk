@@ -59,6 +59,9 @@ public class ListVulByPodRequest {
   @SerializedName("IfHighAvailability")
   private Boolean ifHighAvailability = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -264,6 +267,24 @@ public class ListVulByPodRequest {
 
   public void setIfHighAvailability(Boolean ifHighAvailability) {
     this.ifHighAvailability = ifHighAvailability;
+  }
+
+  public ListVulByPodRequest isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public ListVulByPodRequest leafGroupIDs(List<String> leafGroupIDs) {
@@ -544,6 +565,7 @@ public class ListVulByPodRequest {
         Objects.equals(this.createTimeStart, listVulByPodRequest.createTimeStart) &&
         Objects.equals(this.cveID, listVulByPodRequest.cveID) &&
         Objects.equals(this.ifHighAvailability, listVulByPodRequest.ifHighAvailability) &&
+        Objects.equals(this.isRealRiskVul, listVulByPodRequest.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, listVulByPodRequest.leafGroupIDs) &&
         Objects.equals(this.level, listVulByPodRequest.level) &&
         Objects.equals(this.pageNumber, listVulByPodRequest.pageNumber) &&
@@ -560,7 +582,7 @@ public class ListVulByPodRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, cloudProviders, clusterID, createTimeEnd, createTimeStart, cveID, ifHighAvailability, leafGroupIDs, level, pageNumber, pageSize, sortBy, sortOrder, status, tag, topGroupID, vulnName, vulnTypeList, workloadID);
+    return Objects.hash(agentID, assetID, assetType, cloudProviders, clusterID, createTimeEnd, createTimeStart, cveID, ifHighAvailability, isRealRiskVul, leafGroupIDs, level, pageNumber, pageSize, sortBy, sortOrder, status, tag, topGroupID, vulnName, vulnTypeList, workloadID);
   }
 
 
@@ -578,6 +600,7 @@ public class ListVulByPodRequest {
     sb.append("    createTimeStart: ").append(toIndentedString(createTimeStart)).append("\n");
     sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    ifHighAvailability: ").append(toIndentedString(ifHighAvailability)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");

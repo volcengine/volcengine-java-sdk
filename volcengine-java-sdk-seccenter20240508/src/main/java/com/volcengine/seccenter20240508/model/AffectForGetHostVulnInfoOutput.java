@@ -33,11 +33,20 @@ import javax.validation.Valid;
 
 
 public class AffectForGetHostVulnInfoOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("AgentID")
   private String agentID = null;
 
   @SerializedName("AssetID")
   private String assetID = null;
+
+  @SerializedName("ClusterID")
+  private String clusterID = null;
+
+  @SerializedName("ClusterName")
+  private String clusterName = null;
 
   @SerializedName("Cmdline")
   private String cmdline = null;
@@ -69,14 +78,41 @@ public class AffectForGetHostVulnInfoOutput {
   @SerializedName("ContainerState")
   private String containerState = null;
 
+  @SerializedName("ControlTime")
+  private Long controlTime = null;
+
+  @SerializedName("CreateTime")
+  private Long createTime = null;
+
+  @SerializedName("CveID")
+  private String cveID = null;
+
   @SerializedName("Cves")
   private List<String> cves = null;
+
+  @SerializedName("CwppID")
+  private String cwppID = null;
+
+  @SerializedName("FixCommand")
+  private String fixCommand = null;
+
+  @SerializedName("FixVersion")
+  private String fixVersion = null;
 
   @SerializedName("ImageID")
   private String imageID = null;
 
   @SerializedName("ImageName")
   private String imageName = null;
+
+  @SerializedName("Level")
+  private String level = null;
+
+  @SerializedName("Namespace")
+  private String namespace = null;
+
+  @SerializedName("OperateReason")
+  private String operateReason = null;
 
   @SerializedName("PidList")
   private List<PidListForGetHostVulnInfoOutput> pidList = null;
@@ -102,65 +138,56 @@ public class AffectForGetHostVulnInfoOutput {
   @SerializedName("State")
   private String state = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
+  @SerializedName("Tag")
+  private List<String> tag = null;
+
+  @SerializedName("TagEn")
+  private List<String> tagEn = null;
+
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("UpdateTime")
   private Long updateTime = null;
 
-  @SerializedName("action")
-  private String action = null;
+  @SerializedName("VulnAffectVersion")
+  private String vulnAffectVersion = null;
 
-  @SerializedName("cluster_id")
-  private String clusterId = null;
-
-  @SerializedName("cluster_name")
-  private String clusterName = null;
-
-  @SerializedName("control_time")
-  private Long controlTime = null;
-
-  @SerializedName("create_time")
-  private Long createTime = null;
-
-  @SerializedName("cve_id")
-  private String cveId = null;
-
-  @SerializedName("cwpp_id")
-  private String cwppId = null;
-
-  @SerializedName("fix_version")
-  private String fixVersion = null;
-
-  @SerializedName("level")
-  private String level = null;
-
-  @SerializedName("namespace")
-  private String namespace = null;
-
-  @SerializedName("operate_reason")
-  private String operateReason = null;
-
-  @SerializedName("pod_hash")
-  private String podHash = null;
-
-  @SerializedName("status")
-  private String status = null;
-
-  @SerializedName("tag")
-  private List<String> tag = null;
-
-  @SerializedName("vuln_name")
+  @SerializedName("VulnName")
   private String vulnName = null;
 
-  @SerializedName("vuln_type")
+  @SerializedName("VulnNameEn")
+  private String vulnNameEn = null;
+
+  @SerializedName("VulnType")
   private String vulnType = null;
 
-  @SerializedName("workload_id")
-  private String workloadId = null;
+  @SerializedName("WorkloadID")
+  private String workloadID = null;
 
-  @SerializedName("workload_name")
+  @SerializedName("WorkloadName")
   private String workloadName = null;
+
+  public AffectForGetHostVulnInfoOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public AffectForGetHostVulnInfoOutput agentID(String agentID) {
     this.agentID = agentID;
@@ -196,6 +223,42 @@ public class AffectForGetHostVulnInfoOutput {
 
   public void setAssetID(String assetID) {
     this.assetID = assetID;
+  }
+
+  public AffectForGetHostVulnInfoOutput clusterID(String clusterID) {
+    this.clusterID = clusterID;
+    return this;
+  }
+
+   /**
+   * Get clusterID
+   * @return clusterID
+  **/
+  @Schema(description = "")
+  public String getClusterID() {
+    return clusterID;
+  }
+
+  public void setClusterID(String clusterID) {
+    this.clusterID = clusterID;
+  }
+
+  public AffectForGetHostVulnInfoOutput clusterName(String clusterName) {
+    this.clusterName = clusterName;
+    return this;
+  }
+
+   /**
+   * Get clusterName
+   * @return clusterName
+  **/
+  @Schema(description = "")
+  public String getClusterName() {
+    return clusterName;
+  }
+
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
   }
 
   public AffectForGetHostVulnInfoOutput cmdline(String cmdline) {
@@ -378,6 +441,60 @@ public class AffectForGetHostVulnInfoOutput {
     this.containerState = containerState;
   }
 
+  public AffectForGetHostVulnInfoOutput controlTime(Long controlTime) {
+    this.controlTime = controlTime;
+    return this;
+  }
+
+   /**
+   * Get controlTime
+   * @return controlTime
+  **/
+  @Schema(description = "")
+  public Long getControlTime() {
+    return controlTime;
+  }
+
+  public void setControlTime(Long controlTime) {
+    this.controlTime = controlTime;
+  }
+
+  public AffectForGetHostVulnInfoOutput createTime(Long createTime) {
+    this.createTime = createTime;
+    return this;
+  }
+
+   /**
+   * Get createTime
+   * @return createTime
+  **/
+  @Schema(description = "")
+  public Long getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(Long createTime) {
+    this.createTime = createTime;
+  }
+
+  public AffectForGetHostVulnInfoOutput cveID(String cveID) {
+    this.cveID = cveID;
+    return this;
+  }
+
+   /**
+   * Get cveID
+   * @return cveID
+  **/
+  @Schema(description = "")
+  public String getCveID() {
+    return cveID;
+  }
+
+  public void setCveID(String cveID) {
+    this.cveID = cveID;
+  }
+
   public AffectForGetHostVulnInfoOutput cves(List<String> cves) {
     this.cves = cves;
     return this;
@@ -402,6 +519,60 @@ public class AffectForGetHostVulnInfoOutput {
 
   public void setCves(List<String> cves) {
     this.cves = cves;
+  }
+
+  public AffectForGetHostVulnInfoOutput cwppID(String cwppID) {
+    this.cwppID = cwppID;
+    return this;
+  }
+
+   /**
+   * Get cwppID
+   * @return cwppID
+  **/
+  @Schema(description = "")
+  public String getCwppID() {
+    return cwppID;
+  }
+
+  public void setCwppID(String cwppID) {
+    this.cwppID = cwppID;
+  }
+
+  public AffectForGetHostVulnInfoOutput fixCommand(String fixCommand) {
+    this.fixCommand = fixCommand;
+    return this;
+  }
+
+   /**
+   * Get fixCommand
+   * @return fixCommand
+  **/
+  @Schema(description = "")
+  public String getFixCommand() {
+    return fixCommand;
+  }
+
+  public void setFixCommand(String fixCommand) {
+    this.fixCommand = fixCommand;
+  }
+
+  public AffectForGetHostVulnInfoOutput fixVersion(String fixVersion) {
+    this.fixVersion = fixVersion;
+    return this;
+  }
+
+   /**
+   * Get fixVersion
+   * @return fixVersion
+  **/
+  @Schema(description = "")
+  public String getFixVersion() {
+    return fixVersion;
+  }
+
+  public void setFixVersion(String fixVersion) {
+    this.fixVersion = fixVersion;
   }
 
   public AffectForGetHostVulnInfoOutput imageID(String imageID) {
@@ -438,6 +609,60 @@ public class AffectForGetHostVulnInfoOutput {
 
   public void setImageName(String imageName) {
     this.imageName = imageName;
+  }
+
+  public AffectForGetHostVulnInfoOutput level(String level) {
+    this.level = level;
+    return this;
+  }
+
+   /**
+   * Get level
+   * @return level
+  **/
+  @Schema(description = "")
+  public String getLevel() {
+    return level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  public AffectForGetHostVulnInfoOutput namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * Get namespace
+   * @return namespace
+  **/
+  @Schema(description = "")
+  public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public AffectForGetHostVulnInfoOutput operateReason(String operateReason) {
+    this.operateReason = operateReason;
+    return this;
+  }
+
+   /**
+   * Get operateReason
+   * @return operateReason
+  **/
+  @Schema(description = "")
+  public String getOperateReason() {
+    return operateReason;
+  }
+
+  public void setOperateReason(String operateReason) {
+    this.operateReason = operateReason;
   }
 
   public AffectForGetHostVulnInfoOutput pidList(List<PidListForGetHostVulnInfoOutput> pidList) {
@@ -593,258 +818,6 @@ public class AffectForGetHostVulnInfoOutput {
     this.state = state;
   }
 
-  public AffectForGetHostVulnInfoOutput type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public AffectForGetHostVulnInfoOutput updateTime(Long updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
-
-   /**
-   * Get updateTime
-   * @return updateTime
-  **/
-  @Schema(description = "")
-  public Long getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(Long updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public AffectForGetHostVulnInfoOutput action(String action) {
-    this.action = action;
-    return this;
-  }
-
-   /**
-   * Get action
-   * @return action
-  **/
-  @Schema(description = "")
-  public String getAction() {
-    return action;
-  }
-
-  public void setAction(String action) {
-    this.action = action;
-  }
-
-  public AffectForGetHostVulnInfoOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
-  public AffectForGetHostVulnInfoOutput clusterName(String clusterName) {
-    this.clusterName = clusterName;
-    return this;
-  }
-
-   /**
-   * Get clusterName
-   * @return clusterName
-  **/
-  @Schema(description = "")
-  public String getClusterName() {
-    return clusterName;
-  }
-
-  public void setClusterName(String clusterName) {
-    this.clusterName = clusterName;
-  }
-
-  public AffectForGetHostVulnInfoOutput controlTime(Long controlTime) {
-    this.controlTime = controlTime;
-    return this;
-  }
-
-   /**
-   * Get controlTime
-   * @return controlTime
-  **/
-  @Schema(description = "")
-  public Long getControlTime() {
-    return controlTime;
-  }
-
-  public void setControlTime(Long controlTime) {
-    this.controlTime = controlTime;
-  }
-
-  public AffectForGetHostVulnInfoOutput createTime(Long createTime) {
-    this.createTime = createTime;
-    return this;
-  }
-
-   /**
-   * Get createTime
-   * @return createTime
-  **/
-  @Schema(description = "")
-  public Long getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(Long createTime) {
-    this.createTime = createTime;
-  }
-
-  public AffectForGetHostVulnInfoOutput cveId(String cveId) {
-    this.cveId = cveId;
-    return this;
-  }
-
-   /**
-   * Get cveId
-   * @return cveId
-  **/
-  @Schema(description = "")
-  public String getCveId() {
-    return cveId;
-  }
-
-  public void setCveId(String cveId) {
-    this.cveId = cveId;
-  }
-
-  public AffectForGetHostVulnInfoOutput cwppId(String cwppId) {
-    this.cwppId = cwppId;
-    return this;
-  }
-
-   /**
-   * Get cwppId
-   * @return cwppId
-  **/
-  @Schema(description = "")
-  public String getCwppId() {
-    return cwppId;
-  }
-
-  public void setCwppId(String cwppId) {
-    this.cwppId = cwppId;
-  }
-
-  public AffectForGetHostVulnInfoOutput fixVersion(String fixVersion) {
-    this.fixVersion = fixVersion;
-    return this;
-  }
-
-   /**
-   * Get fixVersion
-   * @return fixVersion
-  **/
-  @Schema(description = "")
-  public String getFixVersion() {
-    return fixVersion;
-  }
-
-  public void setFixVersion(String fixVersion) {
-    this.fixVersion = fixVersion;
-  }
-
-  public AffectForGetHostVulnInfoOutput level(String level) {
-    this.level = level;
-    return this;
-  }
-
-   /**
-   * Get level
-   * @return level
-  **/
-  @Schema(description = "")
-  public String getLevel() {
-    return level;
-  }
-
-  public void setLevel(String level) {
-    this.level = level;
-  }
-
-  public AffectForGetHostVulnInfoOutput namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-   /**
-   * Get namespace
-   * @return namespace
-  **/
-  @Schema(description = "")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public AffectForGetHostVulnInfoOutput operateReason(String operateReason) {
-    this.operateReason = operateReason;
-    return this;
-  }
-
-   /**
-   * Get operateReason
-   * @return operateReason
-  **/
-  @Schema(description = "")
-  public String getOperateReason() {
-    return operateReason;
-  }
-
-  public void setOperateReason(String operateReason) {
-    this.operateReason = operateReason;
-  }
-
-  public AffectForGetHostVulnInfoOutput podHash(String podHash) {
-    this.podHash = podHash;
-    return this;
-  }
-
-   /**
-   * Get podHash
-   * @return podHash
-  **/
-  @Schema(description = "")
-  public String getPodHash() {
-    return podHash;
-  }
-
-  public void setPodHash(String podHash) {
-    this.podHash = podHash;
-  }
-
   public AffectForGetHostVulnInfoOutput status(String status) {
     this.status = status;
     return this;
@@ -889,6 +862,86 @@ public class AffectForGetHostVulnInfoOutput {
     this.tag = tag;
   }
 
+  public AffectForGetHostVulnInfoOutput tagEn(List<String> tagEn) {
+    this.tagEn = tagEn;
+    return this;
+  }
+
+  public AffectForGetHostVulnInfoOutput addTagEnItem(String tagEnItem) {
+    if (this.tagEn == null) {
+      this.tagEn = new ArrayList<String>();
+    }
+    this.tagEn.add(tagEnItem);
+    return this;
+  }
+
+   /**
+   * Get tagEn
+   * @return tagEn
+  **/
+  @Schema(description = "")
+  public List<String> getTagEn() {
+    return tagEn;
+  }
+
+  public void setTagEn(List<String> tagEn) {
+    this.tagEn = tagEn;
+  }
+
+  public AffectForGetHostVulnInfoOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public AffectForGetHostVulnInfoOutput updateTime(Long updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public Long getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(Long updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public AffectForGetHostVulnInfoOutput vulnAffectVersion(String vulnAffectVersion) {
+    this.vulnAffectVersion = vulnAffectVersion;
+    return this;
+  }
+
+   /**
+   * Get vulnAffectVersion
+   * @return vulnAffectVersion
+  **/
+  @Schema(description = "")
+  public String getVulnAffectVersion() {
+    return vulnAffectVersion;
+  }
+
+  public void setVulnAffectVersion(String vulnAffectVersion) {
+    this.vulnAffectVersion = vulnAffectVersion;
+  }
+
   public AffectForGetHostVulnInfoOutput vulnName(String vulnName) {
     this.vulnName = vulnName;
     return this;
@@ -905,6 +958,24 @@ public class AffectForGetHostVulnInfoOutput {
 
   public void setVulnName(String vulnName) {
     this.vulnName = vulnName;
+  }
+
+  public AffectForGetHostVulnInfoOutput vulnNameEn(String vulnNameEn) {
+    this.vulnNameEn = vulnNameEn;
+    return this;
+  }
+
+   /**
+   * Get vulnNameEn
+   * @return vulnNameEn
+  **/
+  @Schema(description = "")
+  public String getVulnNameEn() {
+    return vulnNameEn;
+  }
+
+  public void setVulnNameEn(String vulnNameEn) {
+    this.vulnNameEn = vulnNameEn;
   }
 
   public AffectForGetHostVulnInfoOutput vulnType(String vulnType) {
@@ -925,22 +996,22 @@ public class AffectForGetHostVulnInfoOutput {
     this.vulnType = vulnType;
   }
 
-  public AffectForGetHostVulnInfoOutput workloadId(String workloadId) {
-    this.workloadId = workloadId;
+  public AffectForGetHostVulnInfoOutput workloadID(String workloadID) {
+    this.workloadID = workloadID;
     return this;
   }
 
    /**
-   * Get workloadId
-   * @return workloadId
+   * Get workloadID
+   * @return workloadID
   **/
   @Schema(description = "")
-  public String getWorkloadId() {
-    return workloadId;
+  public String getWorkloadID() {
+    return workloadID;
   }
 
-  public void setWorkloadId(String workloadId) {
-    this.workloadId = workloadId;
+  public void setWorkloadID(String workloadID) {
+    this.workloadID = workloadID;
   }
 
   public AffectForGetHostVulnInfoOutput workloadName(String workloadName) {
@@ -971,8 +1042,11 @@ public class AffectForGetHostVulnInfoOutput {
       return false;
     }
     AffectForGetHostVulnInfoOutput affectForGetHostVulnInfoOutput = (AffectForGetHostVulnInfoOutput) o;
-    return Objects.equals(this.agentID, affectForGetHostVulnInfoOutput.agentID) &&
+    return Objects.equals(this.action, affectForGetHostVulnInfoOutput.action) &&
+        Objects.equals(this.agentID, affectForGetHostVulnInfoOutput.agentID) &&
         Objects.equals(this.assetID, affectForGetHostVulnInfoOutput.assetID) &&
+        Objects.equals(this.clusterID, affectForGetHostVulnInfoOutput.clusterID) &&
+        Objects.equals(this.clusterName, affectForGetHostVulnInfoOutput.clusterName) &&
         Objects.equals(this.cmdline, affectForGetHostVulnInfoOutput.cmdline) &&
         Objects.equals(this.containerCreateTime, affectForGetHostVulnInfoOutput.containerCreateTime) &&
         Objects.equals(this.containerHostName, affectForGetHostVulnInfoOutput.containerHostName) &&
@@ -983,9 +1057,18 @@ public class AffectForGetHostVulnInfoOutput {
         Objects.equals(this.containerQueryResult, affectForGetHostVulnInfoOutput.containerQueryResult) &&
         Objects.equals(this.containerRunTime, affectForGetHostVulnInfoOutput.containerRunTime) &&
         Objects.equals(this.containerState, affectForGetHostVulnInfoOutput.containerState) &&
+        Objects.equals(this.controlTime, affectForGetHostVulnInfoOutput.controlTime) &&
+        Objects.equals(this.createTime, affectForGetHostVulnInfoOutput.createTime) &&
+        Objects.equals(this.cveID, affectForGetHostVulnInfoOutput.cveID) &&
         Objects.equals(this.cves, affectForGetHostVulnInfoOutput.cves) &&
+        Objects.equals(this.cwppID, affectForGetHostVulnInfoOutput.cwppID) &&
+        Objects.equals(this.fixCommand, affectForGetHostVulnInfoOutput.fixCommand) &&
+        Objects.equals(this.fixVersion, affectForGetHostVulnInfoOutput.fixVersion) &&
         Objects.equals(this.imageID, affectForGetHostVulnInfoOutput.imageID) &&
         Objects.equals(this.imageName, affectForGetHostVulnInfoOutput.imageName) &&
+        Objects.equals(this.level, affectForGetHostVulnInfoOutput.level) &&
+        Objects.equals(this.namespace, affectForGetHostVulnInfoOutput.namespace) &&
+        Objects.equals(this.operateReason, affectForGetHostVulnInfoOutput.operateReason) &&
         Objects.equals(this.pidList, affectForGetHostVulnInfoOutput.pidList) &&
         Objects.equals(this.podID, affectForGetHostVulnInfoOutput.podID) &&
         Objects.equals(this.podName, affectForGetHostVulnInfoOutput.podName) &&
@@ -994,31 +1077,22 @@ public class AffectForGetHostVulnInfoOutput {
         Objects.equals(this.softwareSource, affectForGetHostVulnInfoOutput.softwareSource) &&
         Objects.equals(this.softwareVersion, affectForGetHostVulnInfoOutput.softwareVersion) &&
         Objects.equals(this.state, affectForGetHostVulnInfoOutput.state) &&
-        Objects.equals(this.type, affectForGetHostVulnInfoOutput.type) &&
-        Objects.equals(this.updateTime, affectForGetHostVulnInfoOutput.updateTime) &&
-        Objects.equals(this.action, affectForGetHostVulnInfoOutput.action) &&
-        Objects.equals(this.clusterId, affectForGetHostVulnInfoOutput.clusterId) &&
-        Objects.equals(this.clusterName, affectForGetHostVulnInfoOutput.clusterName) &&
-        Objects.equals(this.controlTime, affectForGetHostVulnInfoOutput.controlTime) &&
-        Objects.equals(this.createTime, affectForGetHostVulnInfoOutput.createTime) &&
-        Objects.equals(this.cveId, affectForGetHostVulnInfoOutput.cveId) &&
-        Objects.equals(this.cwppId, affectForGetHostVulnInfoOutput.cwppId) &&
-        Objects.equals(this.fixVersion, affectForGetHostVulnInfoOutput.fixVersion) &&
-        Objects.equals(this.level, affectForGetHostVulnInfoOutput.level) &&
-        Objects.equals(this.namespace, affectForGetHostVulnInfoOutput.namespace) &&
-        Objects.equals(this.operateReason, affectForGetHostVulnInfoOutput.operateReason) &&
-        Objects.equals(this.podHash, affectForGetHostVulnInfoOutput.podHash) &&
         Objects.equals(this.status, affectForGetHostVulnInfoOutput.status) &&
         Objects.equals(this.tag, affectForGetHostVulnInfoOutput.tag) &&
+        Objects.equals(this.tagEn, affectForGetHostVulnInfoOutput.tagEn) &&
+        Objects.equals(this.type, affectForGetHostVulnInfoOutput.type) &&
+        Objects.equals(this.updateTime, affectForGetHostVulnInfoOutput.updateTime) &&
+        Objects.equals(this.vulnAffectVersion, affectForGetHostVulnInfoOutput.vulnAffectVersion) &&
         Objects.equals(this.vulnName, affectForGetHostVulnInfoOutput.vulnName) &&
+        Objects.equals(this.vulnNameEn, affectForGetHostVulnInfoOutput.vulnNameEn) &&
         Objects.equals(this.vulnType, affectForGetHostVulnInfoOutput.vulnType) &&
-        Objects.equals(this.workloadId, affectForGetHostVulnInfoOutput.workloadId) &&
+        Objects.equals(this.workloadID, affectForGetHostVulnInfoOutput.workloadID) &&
         Objects.equals(this.workloadName, affectForGetHostVulnInfoOutput.workloadName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, cmdline, containerCreateTime, containerHostName, containerID, containerIP, containerName, containerNetMode, containerQueryResult, containerRunTime, containerState, cves, imageID, imageName, pidList, podID, podName, softwareName, softwarePath, softwareSource, softwareVersion, state, type, updateTime, action, clusterId, clusterName, controlTime, createTime, cveId, cwppId, fixVersion, level, namespace, operateReason, podHash, status, tag, vulnName, vulnType, workloadId, workloadName);
+    return Objects.hash(action, agentID, assetID, clusterID, clusterName, cmdline, containerCreateTime, containerHostName, containerID, containerIP, containerName, containerNetMode, containerQueryResult, containerRunTime, containerState, controlTime, createTime, cveID, cves, cwppID, fixCommand, fixVersion, imageID, imageName, level, namespace, operateReason, pidList, podID, podName, softwareName, softwarePath, softwareSource, softwareVersion, state, status, tag, tagEn, type, updateTime, vulnAffectVersion, vulnName, vulnNameEn, vulnType, workloadID, workloadName);
   }
 
 
@@ -1027,8 +1101,11 @@ public class AffectForGetHostVulnInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AffectForGetHostVulnInfoOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    assetID: ").append(toIndentedString(assetID)).append("\n");
+    sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    cmdline: ").append(toIndentedString(cmdline)).append("\n");
     sb.append("    containerCreateTime: ").append(toIndentedString(containerCreateTime)).append("\n");
     sb.append("    containerHostName: ").append(toIndentedString(containerHostName)).append("\n");
@@ -1039,9 +1116,18 @@ public class AffectForGetHostVulnInfoOutput {
     sb.append("    containerQueryResult: ").append(toIndentedString(containerQueryResult)).append("\n");
     sb.append("    containerRunTime: ").append(toIndentedString(containerRunTime)).append("\n");
     sb.append("    containerState: ").append(toIndentedString(containerState)).append("\n");
+    sb.append("    controlTime: ").append(toIndentedString(controlTime)).append("\n");
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    cves: ").append(toIndentedString(cves)).append("\n");
+    sb.append("    cwppID: ").append(toIndentedString(cwppID)).append("\n");
+    sb.append("    fixCommand: ").append(toIndentedString(fixCommand)).append("\n");
+    sb.append("    fixVersion: ").append(toIndentedString(fixVersion)).append("\n");
     sb.append("    imageID: ").append(toIndentedString(imageID)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    operateReason: ").append(toIndentedString(operateReason)).append("\n");
     sb.append("    pidList: ").append(toIndentedString(pidList)).append("\n");
     sb.append("    podID: ").append(toIndentedString(podID)).append("\n");
     sb.append("    podName: ").append(toIndentedString(podName)).append("\n");
@@ -1050,25 +1136,16 @@ public class AffectForGetHostVulnInfoOutput {
     sb.append("    softwareSource: ").append(toIndentedString(softwareSource)).append("\n");
     sb.append("    softwareVersion: ").append(toIndentedString(softwareVersion)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
-    sb.append("    controlTime: ").append(toIndentedString(controlTime)).append("\n");
-    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    cveId: ").append(toIndentedString(cveId)).append("\n");
-    sb.append("    cwppId: ").append(toIndentedString(cwppId)).append("\n");
-    sb.append("    fixVersion: ").append(toIndentedString(fixVersion)).append("\n");
-    sb.append("    level: ").append(toIndentedString(level)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    operateReason: ").append(toIndentedString(operateReason)).append("\n");
-    sb.append("    podHash: ").append(toIndentedString(podHash)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    tagEn: ").append(toIndentedString(tagEn)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    vulnAffectVersion: ").append(toIndentedString(vulnAffectVersion)).append("\n");
     sb.append("    vulnName: ").append(toIndentedString(vulnName)).append("\n");
+    sb.append("    vulnNameEn: ").append(toIndentedString(vulnNameEn)).append("\n");
     sb.append("    vulnType: ").append(toIndentedString(vulnType)).append("\n");
-    sb.append("    workloadId: ").append(toIndentedString(workloadId)).append("\n");
+    sb.append("    workloadID: ").append(toIndentedString(workloadID)).append("\n");
     sb.append("    workloadName: ").append(toIndentedString(workloadName)).append("\n");
     sb.append("}");
     return sb.toString();

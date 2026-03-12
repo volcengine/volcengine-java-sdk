@@ -45,6 +45,9 @@ public class DataForListScanTasksOutput {
   @SerializedName("IDCount")
   private Long idCount = null;
 
+  @SerializedName("IsInternal")
+  private Boolean isInternal = null;
+
   @SerializedName("ResultNum")
   private Long resultNum = null;
 
@@ -181,6 +184,24 @@ public class DataForListScanTasksOutput {
 
   public void setIdCount(Long idCount) {
     this.idCount = idCount;
+  }
+
+  public DataForListScanTasksOutput isInternal(Boolean isInternal) {
+    this.isInternal = isInternal;
+    return this;
+  }
+
+   /**
+   * Get isInternal
+   * @return isInternal
+  **/
+  @Schema(description = "")
+  public Boolean isIsInternal() {
+    return isInternal;
+  }
+
+  public void setIsInternal(Boolean isInternal) {
+    this.isInternal = isInternal;
   }
 
   public DataForListScanTasksOutput resultNum(Long resultNum) {
@@ -486,6 +507,7 @@ public class DataForListScanTasksOutput {
         Objects.equals(this.createTime, dataForListScanTasksOutput.createTime) &&
         Objects.equals(this.filePath, dataForListScanTasksOutput.filePath) &&
         Objects.equals(this.idCount, dataForListScanTasksOutput.idCount) &&
+        Objects.equals(this.isInternal, dataForListScanTasksOutput.isInternal) &&
         Objects.equals(this.resultNum, dataForListScanTasksOutput.resultNum) &&
         Objects.equals(this.subTaskCreated, dataForListScanTasksOutput.subTaskCreated) &&
         Objects.equals(this.subTaskFailed, dataForListScanTasksOutput.subTaskFailed) &&
@@ -506,7 +528,7 @@ public class DataForListScanTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, action, createTime, filePath, idCount, resultNum, subTaskCreated, subTaskFailed, subTaskRunning, subTaskStopped, subTaskSucceed, tag, taskID, taskName, taskStatus, taskTimeout, taskType, taskUser, topGroupID, updateTime, virusTaskID);
+    return Objects.hash(accountID, action, createTime, filePath, idCount, isInternal, resultNum, subTaskCreated, subTaskFailed, subTaskRunning, subTaskStopped, subTaskSucceed, tag, taskID, taskName, taskStatus, taskTimeout, taskType, taskUser, topGroupID, updateTime, virusTaskID);
   }
 
 
@@ -520,6 +542,7 @@ public class DataForListScanTasksOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    idCount: ").append(toIndentedString(idCount)).append("\n");
+    sb.append("    isInternal: ").append(toIndentedString(isInternal)).append("\n");
     sb.append("    resultNum: ").append(toIndentedString(resultNum)).append("\n");
     sb.append("    subTaskCreated: ").append(toIndentedString(subTaskCreated)).append("\n");
     sb.append("    subTaskFailed: ").append(toIndentedString(subTaskFailed)).append("\n");

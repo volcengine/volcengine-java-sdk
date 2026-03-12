@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.seccenter20240508.model.BasicQuotaForGetTenantQuotaOutput;
+import com.volcengine.seccenter20240508.model.CapWhiteListForGetTenantQuotaOutput;
 import com.volcengine.seccenter20240508.model.ValueAddedForGetTenantQuotaOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -40,6 +41,9 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("BasicQuota")
   private BasicQuotaForGetTenantQuotaOutput basicQuota = null;
 
+  @SerializedName("CapWhiteList")
+  private CapWhiteListForGetTenantQuotaOutput capWhiteList = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
 
@@ -57,6 +61,9 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("ValueAdded")
   private ValueAddedForGetTenantQuotaOutput valueAdded = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   public GetTenantQuotaResponse accountID(String accountID) {
     this.accountID = accountID;
@@ -93,6 +100,25 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
 
   public void setBasicQuota(BasicQuotaForGetTenantQuotaOutput basicQuota) {
     this.basicQuota = basicQuota;
+  }
+
+  public GetTenantQuotaResponse capWhiteList(CapWhiteListForGetTenantQuotaOutput capWhiteList) {
+    this.capWhiteList = capWhiteList;
+    return this;
+  }
+
+   /**
+   * Get capWhiteList
+   * @return capWhiteList
+  **/
+  @Valid
+  @Schema(description = "")
+  public CapWhiteListForGetTenantQuotaOutput getCapWhiteList() {
+    return capWhiteList;
+  }
+
+  public void setCapWhiteList(CapWhiteListForGetTenantQuotaOutput capWhiteList) {
+    this.capWhiteList = capWhiteList;
   }
 
   public GetTenantQuotaResponse expireTime(Long expireTime) {
@@ -212,6 +238,24 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     this.valueAdded = valueAdded;
   }
 
+  public GetTenantQuotaResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -224,17 +268,19 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     GetTenantQuotaResponse getTenantQuotaResponse = (GetTenantQuotaResponse) o;
     return Objects.equals(this.accountID, getTenantQuotaResponse.accountID) &&
         Objects.equals(this.basicQuota, getTenantQuotaResponse.basicQuota) &&
+        Objects.equals(this.capWhiteList, getTenantQuotaResponse.capWhiteList) &&
         Objects.equals(this.expireTime, getTenantQuotaResponse.expireTime) &&
         Objects.equals(this.ID, getTenantQuotaResponse.ID) &&
         Objects.equals(this.insertTime, getTenantQuotaResponse.insertTime) &&
         Objects.equals(this.labels, getTenantQuotaResponse.labels) &&
         Objects.equals(this.updateTime, getTenantQuotaResponse.updateTime) &&
-        Objects.equals(this.valueAdded, getTenantQuotaResponse.valueAdded);
+        Objects.equals(this.valueAdded, getTenantQuotaResponse.valueAdded) &&
+        Objects.equals(this.id, getTenantQuotaResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, basicQuota, expireTime, ID, insertTime, labels, updateTime, valueAdded);
+    return Objects.hash(accountID, basicQuota, capWhiteList, expireTime, ID, insertTime, labels, updateTime, valueAdded, id);
   }
 
 
@@ -245,12 +291,14 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    basicQuota: ").append(toIndentedString(basicQuota)).append("\n");
+    sb.append("    capWhiteList: ").append(toIndentedString(capWhiteList)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    valueAdded: ").append(toIndentedString(valueAdded)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

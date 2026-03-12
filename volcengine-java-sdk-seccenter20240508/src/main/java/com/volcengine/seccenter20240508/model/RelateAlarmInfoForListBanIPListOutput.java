@@ -30,11 +30,35 @@ import javax.validation.Valid;
 
 
 public class RelateAlarmInfoForListBanIPListOutput {
+  @SerializedName("AlarmHandleMethod")
+  private Long alarmHandleMethod = null;
+
   @SerializedName("AlarmType")
   private String alarmType = null;
 
+  @SerializedName("CloudProvider")
+  private String cloudProvider = null;
+
   @SerializedName("RelatedAlarmID")
   private String relatedAlarmID = null;
+
+  public RelateAlarmInfoForListBanIPListOutput alarmHandleMethod(Long alarmHandleMethod) {
+    this.alarmHandleMethod = alarmHandleMethod;
+    return this;
+  }
+
+   /**
+   * Get alarmHandleMethod
+   * @return alarmHandleMethod
+  **/
+  @Schema(description = "")
+  public Long getAlarmHandleMethod() {
+    return alarmHandleMethod;
+  }
+
+  public void setAlarmHandleMethod(Long alarmHandleMethod) {
+    this.alarmHandleMethod = alarmHandleMethod;
+  }
 
   public RelateAlarmInfoForListBanIPListOutput alarmType(String alarmType) {
     this.alarmType = alarmType;
@@ -52,6 +76,24 @@ public class RelateAlarmInfoForListBanIPListOutput {
 
   public void setAlarmType(String alarmType) {
     this.alarmType = alarmType;
+  }
+
+  public RelateAlarmInfoForListBanIPListOutput cloudProvider(String cloudProvider) {
+    this.cloudProvider = cloudProvider;
+    return this;
+  }
+
+   /**
+   * Get cloudProvider
+   * @return cloudProvider
+  **/
+  @Schema(description = "")
+  public String getCloudProvider() {
+    return cloudProvider;
+  }
+
+  public void setCloudProvider(String cloudProvider) {
+    this.cloudProvider = cloudProvider;
   }
 
   public RelateAlarmInfoForListBanIPListOutput relatedAlarmID(String relatedAlarmID) {
@@ -82,13 +124,15 @@ public class RelateAlarmInfoForListBanIPListOutput {
       return false;
     }
     RelateAlarmInfoForListBanIPListOutput relateAlarmInfoForListBanIPListOutput = (RelateAlarmInfoForListBanIPListOutput) o;
-    return Objects.equals(this.alarmType, relateAlarmInfoForListBanIPListOutput.alarmType) &&
+    return Objects.equals(this.alarmHandleMethod, relateAlarmInfoForListBanIPListOutput.alarmHandleMethod) &&
+        Objects.equals(this.alarmType, relateAlarmInfoForListBanIPListOutput.alarmType) &&
+        Objects.equals(this.cloudProvider, relateAlarmInfoForListBanIPListOutput.cloudProvider) &&
         Objects.equals(this.relatedAlarmID, relateAlarmInfoForListBanIPListOutput.relatedAlarmID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmType, relatedAlarmID);
+    return Objects.hash(alarmHandleMethod, alarmType, cloudProvider, relatedAlarmID);
   }
 
 
@@ -97,7 +141,9 @@ public class RelateAlarmInfoForListBanIPListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelateAlarmInfoForListBanIPListOutput {\n");
     
+    sb.append("    alarmHandleMethod: ").append(toIndentedString(alarmHandleMethod)).append("\n");
     sb.append("    alarmType: ").append(toIndentedString(alarmType)).append("\n");
+    sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    relatedAlarmID: ").append(toIndentedString(relatedAlarmID)).append("\n");
     sb.append("}");
     return sb.toString();

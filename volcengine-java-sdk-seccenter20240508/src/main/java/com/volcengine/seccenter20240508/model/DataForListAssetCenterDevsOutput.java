@@ -57,11 +57,20 @@ public class DataForListAssetCenterDevsOutput {
   @SerializedName("Platform")
   private String platform = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("UpdateTime")
+  private Long updateTime = null;
 
   @SerializedName("Vul")
   private Long vul = null;
@@ -228,6 +237,24 @@ public class DataForListAssetCenterDevsOutput {
     this.platform = platform;
   }
 
+  public DataForListAssetCenterDevsOutput protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public DataForListAssetCenterDevsOutput region(String region) {
     this.region = region;
     return this;
@@ -246,6 +273,24 @@ public class DataForListAssetCenterDevsOutput {
     this.region = region;
   }
 
+  public DataForListAssetCenterDevsOutput securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+  }
+
   public DataForListAssetCenterDevsOutput status(String status) {
     this.status = status;
     return this;
@@ -262,6 +307,24 @@ public class DataForListAssetCenterDevsOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DataForListAssetCenterDevsOutput updateTime(Long updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public Long getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(Long updateTime) {
+    this.updateTime = updateTime;
   }
 
   public DataForListAssetCenterDevsOutput vul(Long vul) {
@@ -301,14 +364,17 @@ public class DataForListAssetCenterDevsOutput {
         Objects.equals(this.baseline, dataForListAssetCenterDevsOutput.baseline) &&
         Objects.equals(this.ip, dataForListAssetCenterDevsOutput.ip) &&
         Objects.equals(this.platform, dataForListAssetCenterDevsOutput.platform) &&
+        Objects.equals(this.protectStatus, dataForListAssetCenterDevsOutput.protectStatus) &&
         Objects.equals(this.region, dataForListAssetCenterDevsOutput.region) &&
+        Objects.equals(this.securityEnhancement, dataForListAssetCenterDevsOutput.securityEnhancement) &&
         Objects.equals(this.status, dataForListAssetCenterDevsOutput.status) &&
+        Objects.equals(this.updateTime, dataForListAssetCenterDevsOutput.updateTime) &&
         Objects.equals(this.vul, dataForListAssetCenterDevsOutput.vul);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, alarm, assetId, assetName, assetType, assetUk, baseline, ip, platform, region, status, vul);
+    return Objects.hash(accountId, alarm, assetId, assetName, assetType, assetUk, baseline, ip, platform, protectStatus, region, securityEnhancement, status, updateTime, vul);
   }
 
 
@@ -326,8 +392,11 @@ public class DataForListAssetCenterDevsOutput {
     sb.append("    baseline: ").append(toIndentedString(baseline)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vul: ").append(toIndentedString(vul)).append("\n");
     sb.append("}");
     return sb.toString();

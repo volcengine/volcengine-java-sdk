@@ -40,8 +40,14 @@ public class AddRaspConfigRequest {
   @SerializedName("AllProcessInject")
   private Boolean allProcessInject = null;
 
+  @SerializedName("BlockUuid")
+  private String blockUuid = null;
+
   @SerializedName("Blocks")
   private List<BlockForAddRaspConfigInput> blocks = null;
+
+  @SerializedName("FilterUuid")
+  private String filterUuid = null;
 
   @SerializedName("Filters")
   private List<FilterForAddRaspConfigInput> filters = null;
@@ -91,6 +97,24 @@ public class AddRaspConfigRequest {
     this.allProcessInject = allProcessInject;
   }
 
+  public AddRaspConfigRequest blockUuid(String blockUuid) {
+    this.blockUuid = blockUuid;
+    return this;
+  }
+
+   /**
+   * Get blockUuid
+   * @return blockUuid
+  **/
+  @Schema(description = "")
+  public String getBlockUuid() {
+    return blockUuid;
+  }
+
+  public void setBlockUuid(String blockUuid) {
+    this.blockUuid = blockUuid;
+  }
+
   public AddRaspConfigRequest blocks(List<BlockForAddRaspConfigInput> blocks) {
     this.blocks = blocks;
     return this;
@@ -116,6 +140,24 @@ public class AddRaspConfigRequest {
 
   public void setBlocks(List<BlockForAddRaspConfigInput> blocks) {
     this.blocks = blocks;
+  }
+
+  public AddRaspConfigRequest filterUuid(String filterUuid) {
+    this.filterUuid = filterUuid;
+    return this;
+  }
+
+   /**
+   * Get filterUuid
+   * @return filterUuid
+  **/
+  @Schema(description = "")
+  public String getFilterUuid() {
+    return filterUuid;
+  }
+
+  public void setFilterUuid(String filterUuid) {
+    this.filterUuid = filterUuid;
   }
 
   public AddRaspConfigRequest filters(List<FilterForAddRaspConfigInput> filters) {
@@ -332,7 +374,9 @@ public class AddRaspConfigRequest {
     }
     AddRaspConfigRequest addRaspConfigRequest = (AddRaspConfigRequest) o;
     return Objects.equals(this.allProcessInject, addRaspConfigRequest.allProcessInject) &&
+        Objects.equals(this.blockUuid, addRaspConfigRequest.blockUuid) &&
         Objects.equals(this.blocks, addRaspConfigRequest.blocks) &&
+        Objects.equals(this.filterUuid, addRaspConfigRequest.filterUuid) &&
         Objects.equals(this.filters, addRaspConfigRequest.filters) &&
         Objects.equals(this.ifProtect, addRaspConfigRequest.ifProtect) &&
         Objects.equals(this.injectConfigList, addRaspConfigRequest.injectConfigList) &&
@@ -347,7 +391,7 @@ public class AddRaspConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allProcessInject, blocks, filters, ifProtect, injectConfigList, localProjectInject, name, protectMethod, range, runtime, _switch, topGroupID);
+    return Objects.hash(allProcessInject, blockUuid, blocks, filterUuid, filters, ifProtect, injectConfigList, localProjectInject, name, protectMethod, range, runtime, _switch, topGroupID);
   }
 
 
@@ -357,7 +401,9 @@ public class AddRaspConfigRequest {
     sb.append("class AddRaspConfigRequest {\n");
     
     sb.append("    allProcessInject: ").append(toIndentedString(allProcessInject)).append("\n");
+    sb.append("    blockUuid: ").append(toIndentedString(blockUuid)).append("\n");
     sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
+    sb.append("    filterUuid: ").append(toIndentedString(filterUuid)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    ifProtect: ").append(toIndentedString(ifProtect)).append("\n");
     sb.append("    injectConfigList: ").append(toIndentedString(injectConfigList)).append("\n");

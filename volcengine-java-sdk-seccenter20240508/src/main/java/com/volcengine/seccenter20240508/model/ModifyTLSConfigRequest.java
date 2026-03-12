@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.seccenter20240508.model.AlarmTopicConfigForModifyTLSConfigInput;
+import com.volcengine.seccenter20240508.model.BashAuditTopicConfigForModifyTLSConfigInput;
 import com.volcengine.seccenter20240508.model.LoginTopicConfigForModifyTLSConfigInput;
 import com.volcengine.seccenter20240508.model.PortChangeTopicConfigForModifyTLSConfigInput;
 import com.volcengine.seccenter20240508.model.ProcessStartTopicConfigForModifyTLSConfigInput;
@@ -37,6 +38,9 @@ import javax.validation.Valid;
 public class ModifyTLSConfigRequest {
   @SerializedName("AlarmTopicConfig")
   private AlarmTopicConfigForModifyTLSConfigInput alarmTopicConfig = null;
+
+  @SerializedName("BashAuditTopicConfig")
+  private BashAuditTopicConfigForModifyTLSConfigInput bashAuditTopicConfig = null;
 
   @SerializedName("LoginTopicConfig")
   private LoginTopicConfigForModifyTLSConfigInput loginTopicConfig = null;
@@ -73,6 +77,25 @@ public class ModifyTLSConfigRequest {
 
   public void setAlarmTopicConfig(AlarmTopicConfigForModifyTLSConfigInput alarmTopicConfig) {
     this.alarmTopicConfig = alarmTopicConfig;
+  }
+
+  public ModifyTLSConfigRequest bashAuditTopicConfig(BashAuditTopicConfigForModifyTLSConfigInput bashAuditTopicConfig) {
+    this.bashAuditTopicConfig = bashAuditTopicConfig;
+    return this;
+  }
+
+   /**
+   * Get bashAuditTopicConfig
+   * @return bashAuditTopicConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public BashAuditTopicConfigForModifyTLSConfigInput getBashAuditTopicConfig() {
+    return bashAuditTopicConfig;
+  }
+
+  public void setBashAuditTopicConfig(BashAuditTopicConfigForModifyTLSConfigInput bashAuditTopicConfig) {
+    this.bashAuditTopicConfig = bashAuditTopicConfig;
   }
 
   public ModifyTLSConfigRequest loginTopicConfig(LoginTopicConfigForModifyTLSConfigInput loginTopicConfig) {
@@ -198,6 +221,7 @@ public class ModifyTLSConfigRequest {
     }
     ModifyTLSConfigRequest modifyTLSConfigRequest = (ModifyTLSConfigRequest) o;
     return Objects.equals(this.alarmTopicConfig, modifyTLSConfigRequest.alarmTopicConfig) &&
+        Objects.equals(this.bashAuditTopicConfig, modifyTLSConfigRequest.bashAuditTopicConfig) &&
         Objects.equals(this.loginTopicConfig, modifyTLSConfigRequest.loginTopicConfig) &&
         Objects.equals(this.portChangeTopicConfig, modifyTLSConfigRequest.portChangeTopicConfig) &&
         Objects.equals(this.processStartTopicConfig, modifyTLSConfigRequest.processStartTopicConfig) &&
@@ -208,7 +232,7 @@ public class ModifyTLSConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmTopicConfig, loginTopicConfig, portChangeTopicConfig, processStartTopicConfig, storageDays, threshold, vulnTopicConfig);
+    return Objects.hash(alarmTopicConfig, bashAuditTopicConfig, loginTopicConfig, portChangeTopicConfig, processStartTopicConfig, storageDays, threshold, vulnTopicConfig);
   }
 
 
@@ -218,6 +242,7 @@ public class ModifyTLSConfigRequest {
     sb.append("class ModifyTLSConfigRequest {\n");
     
     sb.append("    alarmTopicConfig: ").append(toIndentedString(alarmTopicConfig)).append("\n");
+    sb.append("    bashAuditTopicConfig: ").append(toIndentedString(bashAuditTopicConfig)).append("\n");
     sb.append("    loginTopicConfig: ").append(toIndentedString(loginTopicConfig)).append("\n");
     sb.append("    portChangeTopicConfig: ").append(toIndentedString(portChangeTopicConfig)).append("\n");
     sb.append("    processStartTopicConfig: ").append(toIndentedString(processStartTopicConfig)).append("\n");
