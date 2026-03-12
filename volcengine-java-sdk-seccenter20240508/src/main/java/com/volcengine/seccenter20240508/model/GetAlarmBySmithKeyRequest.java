@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class GetAlarmBySmithKeyRequest {
+  @SerializedName("AlarmCategory")
+  private String alarmCategory = null;
+
   @SerializedName("SmithKey")
   private String smithKey = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  public GetAlarmBySmithKeyRequest alarmCategory(String alarmCategory) {
+    this.alarmCategory = alarmCategory;
+    return this;
+  }
+
+   /**
+   * Get alarmCategory
+   * @return alarmCategory
+  **/
+  @Schema(description = "")
+  public String getAlarmCategory() {
+    return alarmCategory;
+  }
+
+  public void setAlarmCategory(String alarmCategory) {
+    this.alarmCategory = alarmCategory;
+  }
 
   public GetAlarmBySmithKeyRequest smithKey(String smithKey) {
     this.smithKey = smithKey;
@@ -82,13 +103,14 @@ public class GetAlarmBySmithKeyRequest {
       return false;
     }
     GetAlarmBySmithKeyRequest getAlarmBySmithKeyRequest = (GetAlarmBySmithKeyRequest) o;
-    return Objects.equals(this.smithKey, getAlarmBySmithKeyRequest.smithKey) &&
+    return Objects.equals(this.alarmCategory, getAlarmBySmithKeyRequest.alarmCategory) &&
+        Objects.equals(this.smithKey, getAlarmBySmithKeyRequest.smithKey) &&
         Objects.equals(this.type, getAlarmBySmithKeyRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(smithKey, type);
+    return Objects.hash(alarmCategory, smithKey, type);
   }
 
 
@@ -97,6 +119,7 @@ public class GetAlarmBySmithKeyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAlarmBySmithKeyRequest {\n");
     
+    sb.append("    alarmCategory: ").append(toIndentedString(alarmCategory)).append("\n");
     sb.append("    smithKey: ").append(toIndentedString(smithKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

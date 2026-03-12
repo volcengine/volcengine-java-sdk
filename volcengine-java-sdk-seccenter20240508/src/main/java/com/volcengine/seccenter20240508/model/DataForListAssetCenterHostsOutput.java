@@ -37,11 +37,17 @@ public class DataForListAssetCenterHostsOutput {
   @SerializedName("AbnormalPluginsList")
   private String abnormalPluginsList = null;
 
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("AgentID")
   private String agentID = null;
 
   @SerializedName("AgentStatus")
   private String agentStatus = null;
+
+  @SerializedName("ClientPublicIP")
+  private String clientPublicIP = null;
 
   @SerializedName("CloudProvider")
   private String cloudProvider = null;
@@ -67,6 +73,9 @@ public class DataForListAssetCenterHostsOutput {
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("GroupPathEn")
+  private String groupPathEn = null;
+
   @SerializedName("KernelVersion")
   private String kernelVersion = null;
 
@@ -76,11 +85,17 @@ public class DataForListAssetCenterHostsOutput {
   @SerializedName("MemUsage")
   private Double memUsage = null;
 
+  @SerializedName("OldValidCode")
+  private Long oldValidCode = null;
+
   @SerializedName("Online")
   private Boolean online = null;
 
   @SerializedName("Platform")
   private String platform = null;
+
+  @SerializedName("PlatformVersion")
+  private String platformVersion = null;
 
   @SerializedName("PluginsBriefInfo")
   private String pluginsBriefInfo = null;
@@ -115,6 +130,9 @@ public class DataForListAssetCenterHostsOutput {
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
 
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
+
   public DataForListAssetCenterHostsOutput abnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
     return this;
@@ -131,6 +149,24 @@ public class DataForListAssetCenterHostsOutput {
 
   public void setAbnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
+  }
+
+  public DataForListAssetCenterHostsOutput accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
   }
 
   public DataForListAssetCenterHostsOutput agentID(String agentID) {
@@ -167,6 +203,24 @@ public class DataForListAssetCenterHostsOutput {
 
   public void setAgentStatus(String agentStatus) {
     this.agentStatus = agentStatus;
+  }
+
+  public DataForListAssetCenterHostsOutput clientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
+    return this;
+  }
+
+   /**
+   * Get clientPublicIP
+   * @return clientPublicIP
+  **/
+  @Schema(description = "")
+  public String getClientPublicIP() {
+    return clientPublicIP;
+  }
+
+  public void setClientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
   }
 
   public DataForListAssetCenterHostsOutput cloudProvider(String cloudProvider) {
@@ -314,6 +368,24 @@ public class DataForListAssetCenterHostsOutput {
     this.groupPath = groupPath;
   }
 
+  public DataForListAssetCenterHostsOutput groupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+    return this;
+  }
+
+   /**
+   * Get groupPathEn
+   * @return groupPathEn
+  **/
+  @Schema(description = "")
+  public String getGroupPathEn() {
+    return groupPathEn;
+  }
+
+  public void setGroupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+  }
+
   public DataForListAssetCenterHostsOutput kernelVersion(String kernelVersion) {
     this.kernelVersion = kernelVersion;
     return this;
@@ -368,6 +440,24 @@ public class DataForListAssetCenterHostsOutput {
     this.memUsage = memUsage;
   }
 
+  public DataForListAssetCenterHostsOutput oldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+    return this;
+  }
+
+   /**
+   * Get oldValidCode
+   * @return oldValidCode
+  **/
+  @Schema(description = "")
+  public Long getOldValidCode() {
+    return oldValidCode;
+  }
+
+  public void setOldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+  }
+
   public DataForListAssetCenterHostsOutput online(Boolean online) {
     this.online = online;
     return this;
@@ -402,6 +492,24 @@ public class DataForListAssetCenterHostsOutput {
 
   public void setPlatform(String platform) {
     this.platform = platform;
+  }
+
+  public DataForListAssetCenterHostsOutput platformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+    return this;
+  }
+
+   /**
+   * Get platformVersion
+   * @return platformVersion
+  **/
+  @Schema(description = "")
+  public String getPlatformVersion() {
+    return platformVersion;
+  }
+
+  public void setPlatformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
   }
 
   public DataForListAssetCenterHostsOutput pluginsBriefInfo(String pluginsBriefInfo) {
@@ -611,6 +719,24 @@ public class DataForListAssetCenterHostsOutput {
     this.userStatusReason = userStatusReason;
   }
 
+  public DataForListAssetCenterHostsOutput userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -622,8 +748,10 @@ public class DataForListAssetCenterHostsOutput {
     }
     DataForListAssetCenterHostsOutput dataForListAssetCenterHostsOutput = (DataForListAssetCenterHostsOutput) o;
     return Objects.equals(this.abnormalPluginsList, dataForListAssetCenterHostsOutput.abnormalPluginsList) &&
+        Objects.equals(this.accountID, dataForListAssetCenterHostsOutput.accountID) &&
         Objects.equals(this.agentID, dataForListAssetCenterHostsOutput.agentID) &&
         Objects.equals(this.agentStatus, dataForListAssetCenterHostsOutput.agentStatus) &&
+        Objects.equals(this.clientPublicIP, dataForListAssetCenterHostsOutput.clientPublicIP) &&
         Objects.equals(this.cloudProvider, dataForListAssetCenterHostsOutput.cloudProvider) &&
         Objects.equals(this.cpuUsage, dataForListAssetCenterHostsOutput.cpuUsage) &&
         Objects.equals(this.dns, dataForListAssetCenterHostsOutput.dns) &&
@@ -632,11 +760,14 @@ public class DataForListAssetCenterHostsOutput {
         Objects.equals(this.gateway, dataForListAssetCenterHostsOutput.gateway) &&
         Objects.equals(this.group, dataForListAssetCenterHostsOutput.group) &&
         Objects.equals(this.groupPath, dataForListAssetCenterHostsOutput.groupPath) &&
+        Objects.equals(this.groupPathEn, dataForListAssetCenterHostsOutput.groupPathEn) &&
         Objects.equals(this.kernelVersion, dataForListAssetCenterHostsOutput.kernelVersion) &&
         Objects.equals(this.lastHeartbeatTime, dataForListAssetCenterHostsOutput.lastHeartbeatTime) &&
         Objects.equals(this.memUsage, dataForListAssetCenterHostsOutput.memUsage) &&
+        Objects.equals(this.oldValidCode, dataForListAssetCenterHostsOutput.oldValidCode) &&
         Objects.equals(this.online, dataForListAssetCenterHostsOutput.online) &&
         Objects.equals(this.platform, dataForListAssetCenterHostsOutput.platform) &&
+        Objects.equals(this.platformVersion, dataForListAssetCenterHostsOutput.platformVersion) &&
         Objects.equals(this.pluginsBriefInfo, dataForListAssetCenterHostsOutput.pluginsBriefInfo) &&
         Objects.equals(this.pluginsStatus, dataForListAssetCenterHostsOutput.pluginsStatus) &&
         Objects.equals(this.reason, dataForListAssetCenterHostsOutput.reason) &&
@@ -647,12 +778,13 @@ public class DataForListAssetCenterHostsOutput {
         Objects.equals(this.tags, dataForListAssetCenterHostsOutput.tags) &&
         Objects.equals(this.totalMem, dataForListAssetCenterHostsOutput.totalMem) &&
         Objects.equals(this.userStatus, dataForListAssetCenterHostsOutput.userStatus) &&
-        Objects.equals(this.userStatusReason, dataForListAssetCenterHostsOutput.userStatusReason);
+        Objects.equals(this.userStatusReason, dataForListAssetCenterHostsOutput.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, dataForListAssetCenterHostsOutput.userStatusReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, agentID, agentStatus, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, kernelVersion, lastHeartbeatTime, memUsage, online, platform, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -662,8 +794,10 @@ public class DataForListAssetCenterHostsOutput {
     sb.append("class DataForListAssetCenterHostsOutput {\n");
     
     sb.append("    abnormalPluginsList: ").append(toIndentedString(abnormalPluginsList)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    agentStatus: ").append(toIndentedString(agentStatus)).append("\n");
+    sb.append("    clientPublicIP: ").append(toIndentedString(clientPublicIP)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    cpuUsage: ").append(toIndentedString(cpuUsage)).append("\n");
     sb.append("    dns: ").append(toIndentedString(dns)).append("\n");
@@ -672,11 +806,14 @@ public class DataForListAssetCenterHostsOutput {
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    groupPathEn: ").append(toIndentedString(groupPathEn)).append("\n");
     sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
     sb.append("    memUsage: ").append(toIndentedString(memUsage)).append("\n");
+    sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    pluginsBriefInfo: ").append(toIndentedString(pluginsBriefInfo)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -688,6 +825,7 @@ public class DataForListAssetCenterHostsOutput {
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

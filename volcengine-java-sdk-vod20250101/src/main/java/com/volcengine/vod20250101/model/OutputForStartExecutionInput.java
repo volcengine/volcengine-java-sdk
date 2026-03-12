@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.CodecForStartExecutionInput;
+import com.volcengine.vod20250101.model.AudioForStartExecutionInput;
+import com.volcengine.vod20250101.model.VideoForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,194 +32,48 @@ import javax.validation.Valid;
 
 
 public class OutputForStartExecutionInput {
-  @SerializedName("Alpha")
-  private Boolean alpha = null;
+  @SerializedName("Audio")
+  private AudioForStartExecutionInput audio = null;
 
-  @SerializedName("AudioPhaseDetect")
-  private Boolean audioPhaseDetect = null;
+  @SerializedName("Video")
+  private VideoForStartExecutionInput video = null;
 
-  @SerializedName("CanvasWithMax")
-  private Boolean canvasWithMax = null;
-
-  @SerializedName("CanvasWithRatio")
-  private Boolean canvasWithRatio = null;
-
-  @SerializedName("Codec")
-  private CodecForStartExecutionInput codec = null;
-
-  @SerializedName("DisableAudio")
-  private Boolean disableAudio = null;
-
-  @SerializedName("DisableVideo")
-  private Boolean disableVideo = null;
-
-  @SerializedName("Format")
-  private String format = null;
-
-  @SerializedName("Fps")
-  private Double fps = null;
-
-  public OutputForStartExecutionInput alpha(Boolean alpha) {
-    this.alpha = alpha;
+  public OutputForStartExecutionInput audio(AudioForStartExecutionInput audio) {
+    this.audio = audio;
     return this;
   }
 
    /**
-   * Get alpha
-   * @return alpha
-  **/
-  @Schema(description = "")
-  public Boolean isAlpha() {
-    return alpha;
-  }
-
-  public void setAlpha(Boolean alpha) {
-    this.alpha = alpha;
-  }
-
-  public OutputForStartExecutionInput audioPhaseDetect(Boolean audioPhaseDetect) {
-    this.audioPhaseDetect = audioPhaseDetect;
-    return this;
-  }
-
-   /**
-   * Get audioPhaseDetect
-   * @return audioPhaseDetect
-  **/
-  @Schema(description = "")
-  public Boolean isAudioPhaseDetect() {
-    return audioPhaseDetect;
-  }
-
-  public void setAudioPhaseDetect(Boolean audioPhaseDetect) {
-    this.audioPhaseDetect = audioPhaseDetect;
-  }
-
-  public OutputForStartExecutionInput canvasWithMax(Boolean canvasWithMax) {
-    this.canvasWithMax = canvasWithMax;
-    return this;
-  }
-
-   /**
-   * Get canvasWithMax
-   * @return canvasWithMax
-  **/
-  @Schema(description = "")
-  public Boolean isCanvasWithMax() {
-    return canvasWithMax;
-  }
-
-  public void setCanvasWithMax(Boolean canvasWithMax) {
-    this.canvasWithMax = canvasWithMax;
-  }
-
-  public OutputForStartExecutionInput canvasWithRatio(Boolean canvasWithRatio) {
-    this.canvasWithRatio = canvasWithRatio;
-    return this;
-  }
-
-   /**
-   * Get canvasWithRatio
-   * @return canvasWithRatio
-  **/
-  @Schema(description = "")
-  public Boolean isCanvasWithRatio() {
-    return canvasWithRatio;
-  }
-
-  public void setCanvasWithRatio(Boolean canvasWithRatio) {
-    this.canvasWithRatio = canvasWithRatio;
-  }
-
-  public OutputForStartExecutionInput codec(CodecForStartExecutionInput codec) {
-    this.codec = codec;
-    return this;
-  }
-
-   /**
-   * Get codec
-   * @return codec
+   * Get audio
+   * @return audio
   **/
   @Valid
   @Schema(description = "")
-  public CodecForStartExecutionInput getCodec() {
-    return codec;
+  public AudioForStartExecutionInput getAudio() {
+    return audio;
   }
 
-  public void setCodec(CodecForStartExecutionInput codec) {
-    this.codec = codec;
+  public void setAudio(AudioForStartExecutionInput audio) {
+    this.audio = audio;
   }
 
-  public OutputForStartExecutionInput disableAudio(Boolean disableAudio) {
-    this.disableAudio = disableAudio;
+  public OutputForStartExecutionInput video(VideoForStartExecutionInput video) {
+    this.video = video;
     return this;
   }
 
    /**
-   * Get disableAudio
-   * @return disableAudio
+   * Get video
+   * @return video
   **/
+  @Valid
   @Schema(description = "")
-  public Boolean isDisableAudio() {
-    return disableAudio;
+  public VideoForStartExecutionInput getVideo() {
+    return video;
   }
 
-  public void setDisableAudio(Boolean disableAudio) {
-    this.disableAudio = disableAudio;
-  }
-
-  public OutputForStartExecutionInput disableVideo(Boolean disableVideo) {
-    this.disableVideo = disableVideo;
-    return this;
-  }
-
-   /**
-   * Get disableVideo
-   * @return disableVideo
-  **/
-  @Schema(description = "")
-  public Boolean isDisableVideo() {
-    return disableVideo;
-  }
-
-  public void setDisableVideo(Boolean disableVideo) {
-    this.disableVideo = disableVideo;
-  }
-
-  public OutputForStartExecutionInput format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Get format
-   * @return format
-  **/
-  @Schema(description = "")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
-  public OutputForStartExecutionInput fps(Double fps) {
-    this.fps = fps;
-    return this;
-  }
-
-   /**
-   * Get fps
-   * @return fps
-  **/
-  @Schema(description = "")
-  public Double getFps() {
-    return fps;
-  }
-
-  public void setFps(Double fps) {
-    this.fps = fps;
+  public void setVideo(VideoForStartExecutionInput video) {
+    this.video = video;
   }
 
 
@@ -231,20 +86,13 @@ public class OutputForStartExecutionInput {
       return false;
     }
     OutputForStartExecutionInput outputForStartExecutionInput = (OutputForStartExecutionInput) o;
-    return Objects.equals(this.alpha, outputForStartExecutionInput.alpha) &&
-        Objects.equals(this.audioPhaseDetect, outputForStartExecutionInput.audioPhaseDetect) &&
-        Objects.equals(this.canvasWithMax, outputForStartExecutionInput.canvasWithMax) &&
-        Objects.equals(this.canvasWithRatio, outputForStartExecutionInput.canvasWithRatio) &&
-        Objects.equals(this.codec, outputForStartExecutionInput.codec) &&
-        Objects.equals(this.disableAudio, outputForStartExecutionInput.disableAudio) &&
-        Objects.equals(this.disableVideo, outputForStartExecutionInput.disableVideo) &&
-        Objects.equals(this.format, outputForStartExecutionInput.format) &&
-        Objects.equals(this.fps, outputForStartExecutionInput.fps);
+    return Objects.equals(this.audio, outputForStartExecutionInput.audio) &&
+        Objects.equals(this.video, outputForStartExecutionInput.video);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alpha, audioPhaseDetect, canvasWithMax, canvasWithRatio, codec, disableAudio, disableVideo, format, fps);
+    return Objects.hash(audio, video);
   }
 
 
@@ -253,15 +101,8 @@ public class OutputForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutputForStartExecutionInput {\n");
     
-    sb.append("    alpha: ").append(toIndentedString(alpha)).append("\n");
-    sb.append("    audioPhaseDetect: ").append(toIndentedString(audioPhaseDetect)).append("\n");
-    sb.append("    canvasWithMax: ").append(toIndentedString(canvasWithMax)).append("\n");
-    sb.append("    canvasWithRatio: ").append(toIndentedString(canvasWithRatio)).append("\n");
-    sb.append("    codec: ").append(toIndentedString(codec)).append("\n");
-    sb.append("    disableAudio: ").append(toIndentedString(disableAudio)).append("\n");
-    sb.append("    disableVideo: ").append(toIndentedString(disableVideo)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    fps: ").append(toIndentedString(fps)).append("\n");
+    sb.append("    audio: ").append(toIndentedString(audio)).append("\n");
+    sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("}");
     return sb.toString();
   }

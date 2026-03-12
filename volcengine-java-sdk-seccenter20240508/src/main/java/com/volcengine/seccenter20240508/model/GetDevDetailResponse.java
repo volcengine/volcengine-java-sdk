@@ -62,11 +62,17 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("PrivateIP")
   private String privateIP = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("PublicIP")
   private String publicIP = null;
 
   @SerializedName("Region")
   private String region = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -251,6 +257,24 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
     this.privateIP = privateIP;
   }
 
+  public GetDevDetailResponse protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public GetDevDetailResponse publicIP(String publicIP) {
     this.publicIP = publicIP;
     return this;
@@ -285,6 +309,24 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
 
   public void setRegion(String region) {
     this.region = region;
+  }
+
+  public GetDevDetailResponse securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
   }
 
   public GetDevDetailResponse status(String status) {
@@ -388,8 +430,10 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
         Objects.equals(this.platform, getDevDetailResponse.platform) &&
         Objects.equals(this.ports, getDevDetailResponse.ports) &&
         Objects.equals(this.privateIP, getDevDetailResponse.privateIP) &&
+        Objects.equals(this.protectStatus, getDevDetailResponse.protectStatus) &&
         Objects.equals(this.publicIP, getDevDetailResponse.publicIP) &&
         Objects.equals(this.region, getDevDetailResponse.region) &&
+        Objects.equals(this.securityEnhancement, getDevDetailResponse.securityEnhancement) &&
         Objects.equals(this.status, getDevDetailResponse.status) &&
         Objects.equals(this.storages, getDevDetailResponse.storages) &&
         Objects.equals(this.volume, getDevDetailResponse.volume) &&
@@ -398,7 +442,7 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, assetId, assetName, createTime, flavorId, imageID, platform, ports, privateIP, publicIP, region, status, storages, volume, vpcId);
+    return Objects.hash(accountId, assetId, assetName, createTime, flavorId, imageID, platform, ports, privateIP, protectStatus, publicIP, region, securityEnhancement, status, storages, volume, vpcId);
   }
 
 
@@ -416,8 +460,10 @@ public class GetDevDetailResponse extends com.volcengine.model.AbstractResponse 
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    publicIP: ").append(toIndentedString(publicIP)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storages: ").append(toIndentedString(storages)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");

@@ -77,8 +77,7 @@ public class ListOrderedHostsBasicInfosRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Long getPageNumber() {
     return pageNumber;
   }
@@ -96,8 +95,7 @@ public class ListOrderedHostsBasicInfosRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Long getPageSize() {
     return pageSize;
   }
@@ -151,8 +149,7 @@ public class ListOrderedHostsBasicInfosRequest {
    * Get type
    * @return type
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getType() {
     return type;
   }

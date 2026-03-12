@@ -57,11 +57,17 @@ public class ListAssetCenterDevsRequest {
   @SerializedName("Platforms")
   private List<String> platforms = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("Regions")
   private List<String> regions = null;
 
   @SerializedName("Risk")
   private RiskForListAssetCenterDevsInput risk = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("SortBy")
   private String sortBy = null;
@@ -234,6 +240,24 @@ public class ListAssetCenterDevsRequest {
     this.platforms = platforms;
   }
 
+  public ListAssetCenterDevsRequest protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public ListAssetCenterDevsRequest regions(List<String> regions) {
     this.regions = regions;
     return this;
@@ -277,6 +301,24 @@ public class ListAssetCenterDevsRequest {
 
   public void setRisk(RiskForListAssetCenterDevsInput risk) {
     this.risk = risk;
+  }
+
+  public ListAssetCenterDevsRequest securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
   }
 
   public ListAssetCenterDevsRequest sortBy(String sortBy) {
@@ -359,8 +401,10 @@ public class ListAssetCenterDevsRequest {
         Objects.equals(this.pageNumber, listAssetCenterDevsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listAssetCenterDevsRequest.pageSize) &&
         Objects.equals(this.platforms, listAssetCenterDevsRequest.platforms) &&
+        Objects.equals(this.protectStatus, listAssetCenterDevsRequest.protectStatus) &&
         Objects.equals(this.regions, listAssetCenterDevsRequest.regions) &&
         Objects.equals(this.risk, listAssetCenterDevsRequest.risk) &&
+        Objects.equals(this.securityEnhancement, listAssetCenterDevsRequest.securityEnhancement) &&
         Objects.equals(this.sortBy, listAssetCenterDevsRequest.sortBy) &&
         Objects.equals(this.sortOrder, listAssetCenterDevsRequest.sortOrder) &&
         Objects.equals(this.status, listAssetCenterDevsRequest.status);
@@ -368,7 +412,7 @@ public class ListAssetCenterDevsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetId, assetIds, assetName, IP, isAll, pageNumber, pageSize, platforms, regions, risk, sortBy, sortOrder, status);
+    return Objects.hash(assetId, assetIds, assetName, IP, isAll, pageNumber, pageSize, platforms, protectStatus, regions, risk, securityEnhancement, sortBy, sortOrder, status);
   }
 
 
@@ -385,8 +429,10 @@ public class ListAssetCenterDevsRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

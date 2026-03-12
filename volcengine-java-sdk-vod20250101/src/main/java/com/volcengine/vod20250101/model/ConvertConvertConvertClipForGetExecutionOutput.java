@@ -30,49 +30,61 @@ import javax.validation.Valid;
 
 
 public class ConvertConvertConvertClipForGetExecutionOutput {
-  @SerializedName("Dialogue")
-  private String dialogue = null;
+  @SerializedName("CutEnd")
+  private Double cutEnd = null;
+
+  @SerializedName("CutStart")
+  private Double cutStart = null;
 
   @SerializedName("End")
   private Double end = null;
 
-  @SerializedName("Offset")
-  private Integer offset = null;
-
   @SerializedName("Score")
   private Double score = null;
-
-  @SerializedName("Snapshot")
-  private String snapshot = null;
 
   @SerializedName("Start")
   private Double start = null;
 
-  @SerializedName("Summary")
-  private String summary = null;
-
-  @SerializedName("Title")
-  private String title = null;
+  @SerializedName("Type")
+  private String type = null;
 
   @SerializedName("VideoIndex")
   private Integer videoIndex = null;
 
-  public ConvertConvertConvertClipForGetExecutionOutput dialogue(String dialogue) {
-    this.dialogue = dialogue;
+  public ConvertConvertConvertClipForGetExecutionOutput cutEnd(Double cutEnd) {
+    this.cutEnd = cutEnd;
     return this;
   }
 
    /**
-   * Get dialogue
-   * @return dialogue
+   * Get cutEnd
+   * @return cutEnd
   **/
   @Schema(description = "")
-  public String getDialogue() {
-    return dialogue;
+  public Double getCutEnd() {
+    return cutEnd;
   }
 
-  public void setDialogue(String dialogue) {
-    this.dialogue = dialogue;
+  public void setCutEnd(Double cutEnd) {
+    this.cutEnd = cutEnd;
+  }
+
+  public ConvertConvertConvertClipForGetExecutionOutput cutStart(Double cutStart) {
+    this.cutStart = cutStart;
+    return this;
+  }
+
+   /**
+   * Get cutStart
+   * @return cutStart
+  **/
+  @Schema(description = "")
+  public Double getCutStart() {
+    return cutStart;
+  }
+
+  public void setCutStart(Double cutStart) {
+    this.cutStart = cutStart;
   }
 
   public ConvertConvertConvertClipForGetExecutionOutput end(Double end) {
@@ -93,24 +105,6 @@ public class ConvertConvertConvertClipForGetExecutionOutput {
     this.end = end;
   }
 
-  public ConvertConvertConvertClipForGetExecutionOutput offset(Integer offset) {
-    this.offset = offset;
-    return this;
-  }
-
-   /**
-   * Get offset
-   * @return offset
-  **/
-  @Schema(description = "")
-  public Integer getOffset() {
-    return offset;
-  }
-
-  public void setOffset(Integer offset) {
-    this.offset = offset;
-  }
-
   public ConvertConvertConvertClipForGetExecutionOutput score(Double score) {
     this.score = score;
     return this;
@@ -127,24 +121,6 @@ public class ConvertConvertConvertClipForGetExecutionOutput {
 
   public void setScore(Double score) {
     this.score = score;
-  }
-
-  public ConvertConvertConvertClipForGetExecutionOutput snapshot(String snapshot) {
-    this.snapshot = snapshot;
-    return this;
-  }
-
-   /**
-   * Get snapshot
-   * @return snapshot
-  **/
-  @Schema(description = "")
-  public String getSnapshot() {
-    return snapshot;
-  }
-
-  public void setSnapshot(String snapshot) {
-    this.snapshot = snapshot;
   }
 
   public ConvertConvertConvertClipForGetExecutionOutput start(Double start) {
@@ -165,40 +141,22 @@ public class ConvertConvertConvertClipForGetExecutionOutput {
     this.start = start;
   }
 
-  public ConvertConvertConvertClipForGetExecutionOutput summary(String summary) {
-    this.summary = summary;
+  public ConvertConvertConvertClipForGetExecutionOutput type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get summary
-   * @return summary
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public String getSummary() {
-    return summary;
+  public String getType() {
+    return type;
   }
 
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public ConvertConvertConvertClipForGetExecutionOutput title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-  @Schema(description = "")
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
+  public void setType(String type) {
+    this.type = type;
   }
 
   public ConvertConvertConvertClipForGetExecutionOutput videoIndex(Integer videoIndex) {
@@ -229,20 +187,18 @@ public class ConvertConvertConvertClipForGetExecutionOutput {
       return false;
     }
     ConvertConvertConvertClipForGetExecutionOutput convertConvertConvertClipForGetExecutionOutput = (ConvertConvertConvertClipForGetExecutionOutput) o;
-    return Objects.equals(this.dialogue, convertConvertConvertClipForGetExecutionOutput.dialogue) &&
+    return Objects.equals(this.cutEnd, convertConvertConvertClipForGetExecutionOutput.cutEnd) &&
+        Objects.equals(this.cutStart, convertConvertConvertClipForGetExecutionOutput.cutStart) &&
         Objects.equals(this.end, convertConvertConvertClipForGetExecutionOutput.end) &&
-        Objects.equals(this.offset, convertConvertConvertClipForGetExecutionOutput.offset) &&
         Objects.equals(this.score, convertConvertConvertClipForGetExecutionOutput.score) &&
-        Objects.equals(this.snapshot, convertConvertConvertClipForGetExecutionOutput.snapshot) &&
         Objects.equals(this.start, convertConvertConvertClipForGetExecutionOutput.start) &&
-        Objects.equals(this.summary, convertConvertConvertClipForGetExecutionOutput.summary) &&
-        Objects.equals(this.title, convertConvertConvertClipForGetExecutionOutput.title) &&
+        Objects.equals(this.type, convertConvertConvertClipForGetExecutionOutput.type) &&
         Objects.equals(this.videoIndex, convertConvertConvertClipForGetExecutionOutput.videoIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dialogue, end, offset, score, snapshot, start, summary, title, videoIndex);
+    return Objects.hash(cutEnd, cutStart, end, score, start, type, videoIndex);
   }
 
 
@@ -251,14 +207,12 @@ public class ConvertConvertConvertClipForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertConvertConvertClipForGetExecutionOutput {\n");
     
-    sb.append("    dialogue: ").append(toIndentedString(dialogue)).append("\n");
+    sb.append("    cutEnd: ").append(toIndentedString(cutEnd)).append("\n");
+    sb.append("    cutStart: ").append(toIndentedString(cutStart)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
-    sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
     sb.append("}");
     return sb.toString();

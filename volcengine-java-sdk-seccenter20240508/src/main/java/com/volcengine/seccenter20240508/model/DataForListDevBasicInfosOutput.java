@@ -42,8 +42,14 @@ public class DataForListDevBasicInfosOutput {
   @SerializedName("PrivateIP")
   private String privateIP = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("PublicIP")
   private String publicIP = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -120,6 +126,24 @@ public class DataForListDevBasicInfosOutput {
     this.privateIP = privateIP;
   }
 
+  public DataForListDevBasicInfosOutput protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public DataForListDevBasicInfosOutput publicIP(String publicIP) {
     this.publicIP = publicIP;
     return this;
@@ -136,6 +160,24 @@ public class DataForListDevBasicInfosOutput {
 
   public void setPublicIP(String publicIP) {
     this.publicIP = publicIP;
+  }
+
+  public DataForListDevBasicInfosOutput securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
   }
 
   public DataForListDevBasicInfosOutput status(String status) {
@@ -170,13 +212,15 @@ public class DataForListDevBasicInfosOutput {
         Objects.equals(this.assetId, dataForListDevBasicInfosOutput.assetId) &&
         Objects.equals(this.assetName, dataForListDevBasicInfosOutput.assetName) &&
         Objects.equals(this.privateIP, dataForListDevBasicInfosOutput.privateIP) &&
+        Objects.equals(this.protectStatus, dataForListDevBasicInfosOutput.protectStatus) &&
         Objects.equals(this.publicIP, dataForListDevBasicInfosOutput.publicIP) &&
+        Objects.equals(this.securityEnhancement, dataForListDevBasicInfosOutput.securityEnhancement) &&
         Objects.equals(this.status, dataForListDevBasicInfosOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, assetId, assetName, privateIP, publicIP, status);
+    return Objects.hash(accountId, assetId, assetName, privateIP, protectStatus, publicIP, securityEnhancement, status);
   }
 
 
@@ -189,7 +233,9 @@ public class DataForListDevBasicInfosOutput {
     sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
     sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
     sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    publicIP: ").append(toIndentedString(publicIP)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

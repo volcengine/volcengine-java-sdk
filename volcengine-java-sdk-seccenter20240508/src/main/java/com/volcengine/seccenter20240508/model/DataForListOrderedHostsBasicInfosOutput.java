@@ -57,6 +57,9 @@ public class DataForListOrderedHostsBasicInfosOutput {
   @SerializedName("LastHeartbeatTime")
   private Long lastHeartbeatTime = null;
 
+  @SerializedName("OldValidCode")
+  private Long oldValidCode = null;
+
   @SerializedName("Online")
   private Boolean online = null;
 
@@ -83,6 +86,9 @@ public class DataForListOrderedHostsBasicInfosOutput {
 
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
+
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
 
   public DataForListOrderedHostsBasicInfosOutput abnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
@@ -227,6 +233,24 @@ public class DataForListOrderedHostsBasicInfosOutput {
 
   public void setLastHeartbeatTime(Long lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
+  }
+
+  public DataForListOrderedHostsBasicInfosOutput oldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+    return this;
+  }
+
+   /**
+   * Get oldValidCode
+   * @return oldValidCode
+  **/
+  @Schema(description = "")
+  public Long getOldValidCode() {
+    return oldValidCode;
+  }
+
+  public void setOldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
   }
 
   public DataForListOrderedHostsBasicInfosOutput online(Boolean online) {
@@ -399,6 +423,24 @@ public class DataForListOrderedHostsBasicInfosOutput {
     this.userStatusReason = userStatusReason;
   }
 
+  public DataForListOrderedHostsBasicInfosOutput userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -417,6 +459,7 @@ public class DataForListOrderedHostsBasicInfosOutput {
         Objects.equals(this.group, dataForListOrderedHostsBasicInfosOutput.group) &&
         Objects.equals(this.groupPath, dataForListOrderedHostsBasicInfosOutput.groupPath) &&
         Objects.equals(this.lastHeartbeatTime, dataForListOrderedHostsBasicInfosOutput.lastHeartbeatTime) &&
+        Objects.equals(this.oldValidCode, dataForListOrderedHostsBasicInfosOutput.oldValidCode) &&
         Objects.equals(this.online, dataForListOrderedHostsBasicInfosOutput.online) &&
         Objects.equals(this.platform, dataForListOrderedHostsBasicInfosOutput.platform) &&
         Objects.equals(this.pluginsStatus, dataForListOrderedHostsBasicInfosOutput.pluginsStatus) &&
@@ -425,12 +468,13 @@ public class DataForListOrderedHostsBasicInfosOutput {
         Objects.equals(this.status, dataForListOrderedHostsBasicInfosOutput.status) &&
         Objects.equals(this.tags, dataForListOrderedHostsBasicInfosOutput.tags) &&
         Objects.equals(this.userStatus, dataForListOrderedHostsBasicInfosOutput.userStatus) &&
-        Objects.equals(this.userStatusReason, dataForListOrderedHostsBasicInfosOutput.userStatusReason);
+        Objects.equals(this.userStatusReason, dataForListOrderedHostsBasicInfosOutput.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, dataForListOrderedHostsBasicInfosOutput.userStatusReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, agentID, agentStatus, cloudProvider, ecsInstance, group, groupPath, lastHeartbeatTime, online, platform, pluginsStatus, reason, securityEnhancement, status, tags, userStatus, userStatusReason);
+    return Objects.hash(abnormalPluginsList, agentID, agentStatus, cloudProvider, ecsInstance, group, groupPath, lastHeartbeatTime, oldValidCode, online, platform, pluginsStatus, reason, securityEnhancement, status, tags, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -447,6 +491,7 @@ public class DataForListOrderedHostsBasicInfosOutput {
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
+    sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
@@ -456,6 +501,7 @@ public class DataForListOrderedHostsBasicInfosOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

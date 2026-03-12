@@ -30,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class MlpDefenderQuotaForGetTenantQuotaOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("ExpireTime")
   private Long expireTime = null;
+
+  @SerializedName("NeedRemove")
+  private Boolean needRemove = null;
 
   @SerializedName("TotalCount")
   private Long totalCount = null;
@@ -41,6 +47,24 @@ public class MlpDefenderQuotaForGetTenantQuotaOutput {
 
   @SerializedName("Version")
   private Long version = null;
+
+  public MlpDefenderQuotaForGetTenantQuotaOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public MlpDefenderQuotaForGetTenantQuotaOutput expireTime(Long expireTime) {
     this.expireTime = expireTime;
@@ -58,6 +82,24 @@ public class MlpDefenderQuotaForGetTenantQuotaOutput {
 
   public void setExpireTime(Long expireTime) {
     this.expireTime = expireTime;
+  }
+
+  public MlpDefenderQuotaForGetTenantQuotaOutput needRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
+    return this;
+  }
+
+   /**
+   * Get needRemove
+   * @return needRemove
+  **/
+  @Schema(description = "")
+  public Boolean isNeedRemove() {
+    return needRemove;
+  }
+
+  public void setNeedRemove(Boolean needRemove) {
+    this.needRemove = needRemove;
   }
 
   public MlpDefenderQuotaForGetTenantQuotaOutput totalCount(Long totalCount) {
@@ -124,7 +166,9 @@ public class MlpDefenderQuotaForGetTenantQuotaOutput {
       return false;
     }
     MlpDefenderQuotaForGetTenantQuotaOutput mlpDefenderQuotaForGetTenantQuotaOutput = (MlpDefenderQuotaForGetTenantQuotaOutput) o;
-    return Objects.equals(this.expireTime, mlpDefenderQuotaForGetTenantQuotaOutput.expireTime) &&
+    return Objects.equals(this.action, mlpDefenderQuotaForGetTenantQuotaOutput.action) &&
+        Objects.equals(this.expireTime, mlpDefenderQuotaForGetTenantQuotaOutput.expireTime) &&
+        Objects.equals(this.needRemove, mlpDefenderQuotaForGetTenantQuotaOutput.needRemove) &&
         Objects.equals(this.totalCount, mlpDefenderQuotaForGetTenantQuotaOutput.totalCount) &&
         Objects.equals(this.usedCount, mlpDefenderQuotaForGetTenantQuotaOutput.usedCount) &&
         Objects.equals(this.version, mlpDefenderQuotaForGetTenantQuotaOutput.version);
@@ -132,7 +176,7 @@ public class MlpDefenderQuotaForGetTenantQuotaOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expireTime, totalCount, usedCount, version);
+    return Objects.hash(action, expireTime, needRemove, totalCount, usedCount, version);
   }
 
 
@@ -141,7 +185,9 @@ public class MlpDefenderQuotaForGetTenantQuotaOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MlpDefenderQuotaForGetTenantQuotaOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    needRemove: ").append(toIndentedString(needRemove)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    usedCount: ").append(toIndentedString(usedCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

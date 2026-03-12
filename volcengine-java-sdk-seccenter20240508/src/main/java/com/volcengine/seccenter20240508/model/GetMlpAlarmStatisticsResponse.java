@@ -51,6 +51,18 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
   @SerializedName("AlarmWhiteCount")
   private Long alarmWhiteCount = null;
 
+  @SerializedName("AutoBanCount")
+  private Long autoBanCount = null;
+
+  @SerializedName("AutoBanTodayCount")
+  private Long autoBanTodayCount = null;
+
+  @SerializedName("BanIPCount")
+  private Long banIPCount = null;
+
+  @SerializedName("BanIPTodayCount")
+  private Long banIPTodayCount = null;
+
   @SerializedName("IsolateFileCount")
   private Long isolateFileCount = null;
 
@@ -192,6 +204,78 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
     this.alarmWhiteCount = alarmWhiteCount;
   }
 
+  public GetMlpAlarmStatisticsResponse autoBanCount(Long autoBanCount) {
+    this.autoBanCount = autoBanCount;
+    return this;
+  }
+
+   /**
+   * Get autoBanCount
+   * @return autoBanCount
+  **/
+  @Schema(description = "")
+  public Long getAutoBanCount() {
+    return autoBanCount;
+  }
+
+  public void setAutoBanCount(Long autoBanCount) {
+    this.autoBanCount = autoBanCount;
+  }
+
+  public GetMlpAlarmStatisticsResponse autoBanTodayCount(Long autoBanTodayCount) {
+    this.autoBanTodayCount = autoBanTodayCount;
+    return this;
+  }
+
+   /**
+   * Get autoBanTodayCount
+   * @return autoBanTodayCount
+  **/
+  @Schema(description = "")
+  public Long getAutoBanTodayCount() {
+    return autoBanTodayCount;
+  }
+
+  public void setAutoBanTodayCount(Long autoBanTodayCount) {
+    this.autoBanTodayCount = autoBanTodayCount;
+  }
+
+  public GetMlpAlarmStatisticsResponse banIPCount(Long banIPCount) {
+    this.banIPCount = banIPCount;
+    return this;
+  }
+
+   /**
+   * Get banIPCount
+   * @return banIPCount
+  **/
+  @Schema(description = "")
+  public Long getBanIPCount() {
+    return banIPCount;
+  }
+
+  public void setBanIPCount(Long banIPCount) {
+    this.banIPCount = banIPCount;
+  }
+
+  public GetMlpAlarmStatisticsResponse banIPTodayCount(Long banIPTodayCount) {
+    this.banIPTodayCount = banIPTodayCount;
+    return this;
+  }
+
+   /**
+   * Get banIPTodayCount
+   * @return banIPTodayCount
+  **/
+  @Schema(description = "")
+  public Long getBanIPTodayCount() {
+    return banIPTodayCount;
+  }
+
+  public void setBanIPTodayCount(Long banIPTodayCount) {
+    this.banIPTodayCount = banIPTodayCount;
+  }
+
   public GetMlpAlarmStatisticsResponse isolateFileCount(Long isolateFileCount) {
     this.isolateFileCount = isolateFileCount;
     return this;
@@ -299,6 +383,10 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
         Objects.equals(this.alarmProcessedCount, getMlpAlarmStatisticsResponse.alarmProcessedCount) &&
         Objects.equals(this.alarmTotal, getMlpAlarmStatisticsResponse.alarmTotal) &&
         Objects.equals(this.alarmWhiteCount, getMlpAlarmStatisticsResponse.alarmWhiteCount) &&
+        Objects.equals(this.autoBanCount, getMlpAlarmStatisticsResponse.autoBanCount) &&
+        Objects.equals(this.autoBanTodayCount, getMlpAlarmStatisticsResponse.autoBanTodayCount) &&
+        Objects.equals(this.banIPCount, getMlpAlarmStatisticsResponse.banIPCount) &&
+        Objects.equals(this.banIPTodayCount, getMlpAlarmStatisticsResponse.banIPTodayCount) &&
         Objects.equals(this.isolateFileCount, getMlpAlarmStatisticsResponse.isolateFileCount) &&
         Objects.equals(this.isolateTodayCount, getMlpAlarmStatisticsResponse.isolateTodayCount) &&
         Objects.equals(this.precisionDefenseCount, getMlpAlarmStatisticsResponse.precisionDefenseCount) &&
@@ -308,7 +396,7 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmCriticalCount, alarmHighCount, alarmLowCount, alarmMediumCount, alarmProcessedCount, alarmTotal, alarmWhiteCount, isolateFileCount, isolateTodayCount, precisionDefenseCount, precisionDefenseTodayCount, unhandledTodayCount);
+    return Objects.hash(alarmCriticalCount, alarmHighCount, alarmLowCount, alarmMediumCount, alarmProcessedCount, alarmTotal, alarmWhiteCount, autoBanCount, autoBanTodayCount, banIPCount, banIPTodayCount, isolateFileCount, isolateTodayCount, precisionDefenseCount, precisionDefenseTodayCount, unhandledTodayCount);
   }
 
 
@@ -324,6 +412,10 @@ public class GetMlpAlarmStatisticsResponse extends com.volcengine.model.Abstract
     sb.append("    alarmProcessedCount: ").append(toIndentedString(alarmProcessedCount)).append("\n");
     sb.append("    alarmTotal: ").append(toIndentedString(alarmTotal)).append("\n");
     sb.append("    alarmWhiteCount: ").append(toIndentedString(alarmWhiteCount)).append("\n");
+    sb.append("    autoBanCount: ").append(toIndentedString(autoBanCount)).append("\n");
+    sb.append("    autoBanTodayCount: ").append(toIndentedString(autoBanTodayCount)).append("\n");
+    sb.append("    banIPCount: ").append(toIndentedString(banIPCount)).append("\n");
+    sb.append("    banIPTodayCount: ").append(toIndentedString(banIPTodayCount)).append("\n");
     sb.append("    isolateFileCount: ").append(toIndentedString(isolateFileCount)).append("\n");
     sb.append("    isolateTodayCount: ").append(toIndentedString(isolateTodayCount)).append("\n");
     sb.append("    precisionDefenseCount: ").append(toIndentedString(precisionDefenseCount)).append("\n");

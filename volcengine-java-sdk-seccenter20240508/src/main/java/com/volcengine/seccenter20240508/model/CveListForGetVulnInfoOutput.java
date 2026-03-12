@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class CveListForGetVulnInfoOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("CveDetailUrl")
   private String cveDetailUrl = null;
 
@@ -44,14 +47,41 @@ public class CveListForGetVulnInfoOutput {
   @SerializedName("Descript")
   private String descript = null;
 
+  @SerializedName("ExploitLink")
+  private String exploitLink = null;
+
   @SerializedName("HasExploit")
   private Boolean hasExploit = null;
+
+  @SerializedName("HasPayload")
+  private Boolean hasPayload = null;
+
+  @SerializedName("PayloadLink")
+  private String payloadLink = null;
 
   @SerializedName("Tag")
   private List<String> tag = null;
 
   @SerializedName("VulnName")
   private String vulnName = null;
+
+  public CveListForGetVulnInfoOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public CveListForGetVulnInfoOutput cveDetailUrl(String cveDetailUrl) {
     this.cveDetailUrl = cveDetailUrl;
@@ -125,6 +155,24 @@ public class CveListForGetVulnInfoOutput {
     this.descript = descript;
   }
 
+  public CveListForGetVulnInfoOutput exploitLink(String exploitLink) {
+    this.exploitLink = exploitLink;
+    return this;
+  }
+
+   /**
+   * Get exploitLink
+   * @return exploitLink
+  **/
+  @Schema(description = "")
+  public String getExploitLink() {
+    return exploitLink;
+  }
+
+  public void setExploitLink(String exploitLink) {
+    this.exploitLink = exploitLink;
+  }
+
   public CveListForGetVulnInfoOutput hasExploit(Boolean hasExploit) {
     this.hasExploit = hasExploit;
     return this;
@@ -141,6 +189,42 @@ public class CveListForGetVulnInfoOutput {
 
   public void setHasExploit(Boolean hasExploit) {
     this.hasExploit = hasExploit;
+  }
+
+  public CveListForGetVulnInfoOutput hasPayload(Boolean hasPayload) {
+    this.hasPayload = hasPayload;
+    return this;
+  }
+
+   /**
+   * Get hasPayload
+   * @return hasPayload
+  **/
+  @Schema(description = "")
+  public Boolean isHasPayload() {
+    return hasPayload;
+  }
+
+  public void setHasPayload(Boolean hasPayload) {
+    this.hasPayload = hasPayload;
+  }
+
+  public CveListForGetVulnInfoOutput payloadLink(String payloadLink) {
+    this.payloadLink = payloadLink;
+    return this;
+  }
+
+   /**
+   * Get payloadLink
+   * @return payloadLink
+  **/
+  @Schema(description = "")
+  public String getPayloadLink() {
+    return payloadLink;
+  }
+
+  public void setPayloadLink(String payloadLink) {
+    this.payloadLink = payloadLink;
   }
 
   public CveListForGetVulnInfoOutput tag(List<String> tag) {
@@ -197,18 +281,22 @@ public class CveListForGetVulnInfoOutput {
       return false;
     }
     CveListForGetVulnInfoOutput cveListForGetVulnInfoOutput = (CveListForGetVulnInfoOutput) o;
-    return Objects.equals(this.cveDetailUrl, cveListForGetVulnInfoOutput.cveDetailUrl) &&
+    return Objects.equals(this.action, cveListForGetVulnInfoOutput.action) &&
+        Objects.equals(this.cveDetailUrl, cveListForGetVulnInfoOutput.cveDetailUrl) &&
         Objects.equals(this.cveID, cveListForGetVulnInfoOutput.cveID) &&
         Objects.equals(this.cvss, cveListForGetVulnInfoOutput.cvss) &&
         Objects.equals(this.descript, cveListForGetVulnInfoOutput.descript) &&
+        Objects.equals(this.exploitLink, cveListForGetVulnInfoOutput.exploitLink) &&
         Objects.equals(this.hasExploit, cveListForGetVulnInfoOutput.hasExploit) &&
+        Objects.equals(this.hasPayload, cveListForGetVulnInfoOutput.hasPayload) &&
+        Objects.equals(this.payloadLink, cveListForGetVulnInfoOutput.payloadLink) &&
         Objects.equals(this.tag, cveListForGetVulnInfoOutput.tag) &&
         Objects.equals(this.vulnName, cveListForGetVulnInfoOutput.vulnName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cveDetailUrl, cveID, cvss, descript, hasExploit, tag, vulnName);
+    return Objects.hash(action, cveDetailUrl, cveID, cvss, descript, exploitLink, hasExploit, hasPayload, payloadLink, tag, vulnName);
   }
 
 
@@ -217,11 +305,15 @@ public class CveListForGetVulnInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CveListForGetVulnInfoOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    cveDetailUrl: ").append(toIndentedString(cveDetailUrl)).append("\n");
     sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    cvss: ").append(toIndentedString(cvss)).append("\n");
     sb.append("    descript: ").append(toIndentedString(descript)).append("\n");
+    sb.append("    exploitLink: ").append(toIndentedString(exploitLink)).append("\n");
     sb.append("    hasExploit: ").append(toIndentedString(hasExploit)).append("\n");
+    sb.append("    hasPayload: ").append(toIndentedString(hasPayload)).append("\n");
+    sb.append("    payloadLink: ").append(toIndentedString(payloadLink)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    vulnName: ").append(toIndentedString(vulnName)).append("\n");
     sb.append("}");

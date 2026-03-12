@@ -38,51 +38,8 @@ public class ListVulnsRequest {
   @SerializedName("AssetID")
   private String assetID = null;
 
-  /**
-   * Gets or Sets assetType
-   */
-  @JsonAdapter(AssetTypeEnum.Adapter.class)
-  public enum AssetTypeEnum {
-    @SerializedName("Host")
-    HOST("Host"),
-    @SerializedName("Dev")
-    DEV("Dev");
-
-    private String value;
-
-    AssetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AssetTypeEnum fromValue(String input) {
-      for (AssetTypeEnum b : AssetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AssetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AssetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AssetType")
-  private AssetTypeEnum assetType = null;
+  @SerializedName("AssetType")
+  private String assetType = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -98,6 +55,9 @@ public class ListVulnsRequest {
 
   @SerializedName("IfHighAvailability")
   private Boolean ifHighAvailability = null;
+
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
 
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
@@ -168,7 +128,7 @@ public class ListVulnsRequest {
     this.assetID = assetID;
   }
 
-  public ListVulnsRequest assetType(AssetTypeEnum assetType) {
+  public ListVulnsRequest assetType(String assetType) {
     this.assetType = assetType;
     return this;
   }
@@ -178,11 +138,11 @@ public class ListVulnsRequest {
    * @return assetType
   **/
   @Schema(description = "")
-  public AssetTypeEnum getAssetType() {
+  public String getAssetType() {
     return assetType;
   }
 
-  public void setAssetType(AssetTypeEnum assetType) {
+  public void setAssetType(String assetType) {
     this.assetType = assetType;
   }
 
@@ -282,6 +242,24 @@ public class ListVulnsRequest {
 
   public void setIfHighAvailability(Boolean ifHighAvailability) {
     this.ifHighAvailability = ifHighAvailability;
+  }
+
+  public ListVulnsRequest isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public ListVulnsRequest leafGroupIDs(List<String> leafGroupIDs) {
@@ -542,6 +520,7 @@ public class ListVulnsRequest {
         Objects.equals(this.createTimeStart, listVulnsRequest.createTimeStart) &&
         Objects.equals(this.cveID, listVulnsRequest.cveID) &&
         Objects.equals(this.ifHighAvailability, listVulnsRequest.ifHighAvailability) &&
+        Objects.equals(this.isRealRiskVul, listVulnsRequest.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, listVulnsRequest.leafGroupIDs) &&
         Objects.equals(this.level, listVulnsRequest.level) &&
         Objects.equals(this.pageNumber, listVulnsRequest.pageNumber) &&
@@ -557,7 +536,7 @@ public class ListVulnsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, cloudProviders, createTimeEnd, createTimeStart, cveID, ifHighAvailability, leafGroupIDs, level, pageNumber, pageSize, sortBy, sortOrder, status, tag, topGroupID, vulnName, vulnTypeList);
+    return Objects.hash(agentID, assetID, assetType, cloudProviders, createTimeEnd, createTimeStart, cveID, ifHighAvailability, isRealRiskVul, leafGroupIDs, level, pageNumber, pageSize, sortBy, sortOrder, status, tag, topGroupID, vulnName, vulnTypeList);
   }
 
 
@@ -574,6 +553,7 @@ public class ListVulnsRequest {
     sb.append("    createTimeStart: ").append(toIndentedString(createTimeStart)).append("\n");
     sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    ifHighAvailability: ").append(toIndentedString(ifHighAvailability)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");

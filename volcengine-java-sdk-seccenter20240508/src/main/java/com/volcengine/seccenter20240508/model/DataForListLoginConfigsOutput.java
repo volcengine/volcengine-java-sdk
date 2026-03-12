@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.LoginLocationForListLoginConfigsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +39,9 @@ public class DataForListLoginConfigsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DescriptionEn")
+  private String descriptionEn = null;
+
   @SerializedName("ID")
   private String ID = null;
 
@@ -55,6 +59,9 @@ public class DataForListLoginConfigsOutput {
 
   @SerializedName("LoginConfigRules")
   private List<String> loginConfigRules = null;
+
+  @SerializedName("LoginLocations")
+  private List<LoginLocationForListLoginConfigsOutput> loginLocations = null;
 
   @SerializedName("SingleGroupPath")
   private String singleGroupPath = null;
@@ -116,6 +123,24 @@ public class DataForListLoginConfigsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DataForListLoginConfigsOutput descriptionEn(String descriptionEn) {
+    this.descriptionEn = descriptionEn;
+    return this;
+  }
+
+   /**
+   * Get descriptionEn
+   * @return descriptionEn
+  **/
+  @Schema(description = "")
+  public String getDescriptionEn() {
+    return descriptionEn;
+  }
+
+  public void setDescriptionEn(String descriptionEn) {
+    this.descriptionEn = descriptionEn;
   }
 
   public DataForListLoginConfigsOutput ID(String ID) {
@@ -258,6 +283,33 @@ public class DataForListLoginConfigsOutput {
     this.loginConfigRules = loginConfigRules;
   }
 
+  public DataForListLoginConfigsOutput loginLocations(List<LoginLocationForListLoginConfigsOutput> loginLocations) {
+    this.loginLocations = loginLocations;
+    return this;
+  }
+
+  public DataForListLoginConfigsOutput addLoginLocationsItem(LoginLocationForListLoginConfigsOutput loginLocationsItem) {
+    if (this.loginLocations == null) {
+      this.loginLocations = new ArrayList<LoginLocationForListLoginConfigsOutput>();
+    }
+    this.loginLocations.add(loginLocationsItem);
+    return this;
+  }
+
+   /**
+   * Get loginLocations
+   * @return loginLocations
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LoginLocationForListLoginConfigsOutput> getLoginLocations() {
+    return loginLocations;
+  }
+
+  public void setLoginLocations(List<LoginLocationForListLoginConfigsOutput> loginLocations) {
+    this.loginLocations = loginLocations;
+  }
+
   public DataForListLoginConfigsOutput singleGroupPath(String singleGroupPath) {
     this.singleGroupPath = singleGroupPath;
     return this;
@@ -386,12 +438,14 @@ public class DataForListLoginConfigsOutput {
     DataForListLoginConfigsOutput dataForListLoginConfigsOutput = (DataForListLoginConfigsOutput) o;
     return Objects.equals(this.agentIDList, dataForListLoginConfigsOutput.agentIDList) &&
         Objects.equals(this.description, dataForListLoginConfigsOutput.description) &&
+        Objects.equals(this.descriptionEn, dataForListLoginConfigsOutput.descriptionEn) &&
         Objects.equals(this.ID, dataForListLoginConfigsOutput.ID) &&
         Objects.equals(this.ipList, dataForListLoginConfigsOutput.ipList) &&
         Objects.equals(this.ifAllHost, dataForListLoginConfigsOutput.ifAllHost) &&
         Objects.equals(this.leafGroupIDs, dataForListLoginConfigsOutput.leafGroupIDs) &&
         Objects.equals(this.legalUser, dataForListLoginConfigsOutput.legalUser) &&
         Objects.equals(this.loginConfigRules, dataForListLoginConfigsOutput.loginConfigRules) &&
+        Objects.equals(this.loginLocations, dataForListLoginConfigsOutput.loginLocations) &&
         Objects.equals(this.singleGroupPath, dataForListLoginConfigsOutput.singleGroupPath) &&
         Objects.equals(this.singleHostname, dataForListLoginConfigsOutput.singleHostname) &&
         Objects.equals(this.timeIntervals, dataForListLoginConfigsOutput.timeIntervals) &&
@@ -402,7 +456,7 @@ public class DataForListLoginConfigsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentIDList, description, ID, ipList, ifAllHost, leafGroupIDs, legalUser, loginConfigRules, singleGroupPath, singleHostname, timeIntervals, topGroupID, updateTime, updateUser);
+    return Objects.hash(agentIDList, description, descriptionEn, ID, ipList, ifAllHost, leafGroupIDs, legalUser, loginConfigRules, loginLocations, singleGroupPath, singleHostname, timeIntervals, topGroupID, updateTime, updateUser);
   }
 
 
@@ -413,12 +467,14 @@ public class DataForListLoginConfigsOutput {
     
     sb.append("    agentIDList: ").append(toIndentedString(agentIDList)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionEn: ").append(toIndentedString(descriptionEn)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    ifAllHost: ").append(toIndentedString(ifAllHost)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    legalUser: ").append(toIndentedString(legalUser)).append("\n");
     sb.append("    loginConfigRules: ").append(toIndentedString(loginConfigRules)).append("\n");
+    sb.append("    loginLocations: ").append(toIndentedString(loginLocations)).append("\n");
     sb.append("    singleGroupPath: ").append(toIndentedString(singleGroupPath)).append("\n");
     sb.append("    singleHostname: ").append(toIndentedString(singleHostname)).append("\n");
     sb.append("    timeIntervals: ").append(toIndentedString(timeIntervals)).append("\n");

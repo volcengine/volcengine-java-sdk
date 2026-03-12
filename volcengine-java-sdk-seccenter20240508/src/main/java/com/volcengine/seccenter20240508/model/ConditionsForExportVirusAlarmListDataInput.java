@@ -104,6 +104,12 @@ public class ConditionsForExportVirusAlarmListDataInput {
   @SerializedName("ImageName")
   private String imageName = null;
 
+  @SerializedName("LastAlarmTimeEnd")
+  private Long lastAlarmTimeEnd = null;
+
+  @SerializedName("LastAlarmTimeStart")
+  private Long lastAlarmTimeStart = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -115,6 +121,9 @@ public class ConditionsForExportVirusAlarmListDataInput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("OperationList")
+  private List<String> operationList = null;
 
   @SerializedName("ProbeHook")
   private String probeHook = null;
@@ -151,6 +160,9 @@ public class ConditionsForExportVirusAlarmListDataInput {
 
   @SerializedName("WhiteListName")
   private String whiteListName = null;
+
+  @SerializedName("security_intelligence_results")
+  private List<String> securityIntelligenceResults = null;
 
   public ConditionsForExportVirusAlarmListDataInput agentGroup(String agentGroup) {
     this.agentGroup = agentGroup;
@@ -640,6 +652,42 @@ public class ConditionsForExportVirusAlarmListDataInput {
     this.imageName = imageName;
   }
 
+  public ConditionsForExportVirusAlarmListDataInput lastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeEnd
+   * @return lastAlarmTimeEnd
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeEnd() {
+    return lastAlarmTimeEnd;
+  }
+
+  public void setLastAlarmTimeEnd(Long lastAlarmTimeEnd) {
+    this.lastAlarmTimeEnd = lastAlarmTimeEnd;
+  }
+
+  public ConditionsForExportVirusAlarmListDataInput lastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+    return this;
+  }
+
+   /**
+   * Get lastAlarmTimeStart
+   * @return lastAlarmTimeStart
+  **/
+  @Schema(description = "")
+  public Long getLastAlarmTimeStart() {
+    return lastAlarmTimeStart;
+  }
+
+  public void setLastAlarmTimeStart(Long lastAlarmTimeStart) {
+    this.lastAlarmTimeStart = lastAlarmTimeStart;
+  }
+
   public ConditionsForExportVirusAlarmListDataInput leafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
     return this;
@@ -726,6 +774,32 @@ public class ConditionsForExportVirusAlarmListDataInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ConditionsForExportVirusAlarmListDataInput operationList(List<String> operationList) {
+    this.operationList = operationList;
+    return this;
+  }
+
+  public ConditionsForExportVirusAlarmListDataInput addOperationListItem(String operationListItem) {
+    if (this.operationList == null) {
+      this.operationList = new ArrayList<String>();
+    }
+    this.operationList.add(operationListItem);
+    return this;
+  }
+
+   /**
+   * Get operationList
+   * @return operationList
+  **/
+  @Schema(description = "")
+  public List<String> getOperationList() {
+    return operationList;
+  }
+
+  public void setOperationList(List<String> operationList) {
+    this.operationList = operationList;
   }
 
   public ConditionsForExportVirusAlarmListDataInput probeHook(String probeHook) {
@@ -968,6 +1042,32 @@ public class ConditionsForExportVirusAlarmListDataInput {
     this.whiteListName = whiteListName;
   }
 
+  public ConditionsForExportVirusAlarmListDataInput securityIntelligenceResults(List<String> securityIntelligenceResults) {
+    this.securityIntelligenceResults = securityIntelligenceResults;
+    return this;
+  }
+
+  public ConditionsForExportVirusAlarmListDataInput addSecurityIntelligenceResultsItem(String securityIntelligenceResultsItem) {
+    if (this.securityIntelligenceResults == null) {
+      this.securityIntelligenceResults = new ArrayList<String>();
+    }
+    this.securityIntelligenceResults.add(securityIntelligenceResultsItem);
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceResults
+   * @return securityIntelligenceResults
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityIntelligenceResults() {
+    return securityIntelligenceResults;
+  }
+
+  public void setSecurityIntelligenceResults(List<String> securityIntelligenceResults) {
+    this.securityIntelligenceResults = securityIntelligenceResults;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1002,10 +1102,13 @@ public class ConditionsForExportVirusAlarmListDataInput {
         Objects.equals(this.hostname, conditionsForExportVirusAlarmListDataInput.hostname) &&
         Objects.equals(this.IP, conditionsForExportVirusAlarmListDataInput.IP) &&
         Objects.equals(this.imageName, conditionsForExportVirusAlarmListDataInput.imageName) &&
+        Objects.equals(this.lastAlarmTimeEnd, conditionsForExportVirusAlarmListDataInput.lastAlarmTimeEnd) &&
+        Objects.equals(this.lastAlarmTimeStart, conditionsForExportVirusAlarmListDataInput.lastAlarmTimeStart) &&
         Objects.equals(this.leafGroupIDs, conditionsForExportVirusAlarmListDataInput.leafGroupIDs) &&
         Objects.equals(this.level, conditionsForExportVirusAlarmListDataInput.level) &&
         Objects.equals(this.mlpInstanceID, conditionsForExportVirusAlarmListDataInput.mlpInstanceID) &&
         Objects.equals(this.name, conditionsForExportVirusAlarmListDataInput.name) &&
+        Objects.equals(this.operationList, conditionsForExportVirusAlarmListDataInput.operationList) &&
         Objects.equals(this.probeHook, conditionsForExportVirusAlarmListDataInput.probeHook) &&
         Objects.equals(this.raspArgv, conditionsForExportVirusAlarmListDataInput.raspArgv) &&
         Objects.equals(this.status, conditionsForExportVirusAlarmListDataInput.status) &&
@@ -1017,12 +1120,13 @@ public class ConditionsForExportVirusAlarmListDataInput {
         Objects.equals(this.type, conditionsForExportVirusAlarmListDataInput.type) &&
         Objects.equals(this.virusType, conditionsForExportVirusAlarmListDataInput.virusType) &&
         Objects.equals(this.whiteListID, conditionsForExportVirusAlarmListDataInput.whiteListID) &&
-        Objects.equals(this.whiteListName, conditionsForExportVirusAlarmListDataInput.whiteListName);
+        Objects.equals(this.whiteListName, conditionsForExportVirusAlarmListDataInput.whiteListName) &&
+        Objects.equals(this.securityIntelligenceResults, conditionsForExportVirusAlarmListDataInput.securityIntelligenceResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, leafGroupIDs, level, mlpInstanceID, name, probeHook, raspArgv, status, tags, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName);
+    return Objects.hash(agentGroup, agentGroupList, agentID, agentIDList, agentTags, alarmHandleResultList, alarmID, alertTags, cloudProviders, clusterID, clusterName, clusterRegion, clusterTags, containerID, containerName, eventID, eventName, eventReason, exe, fileHash, filePath, hostname, IP, imageName, lastAlarmTimeEnd, lastAlarmTimeStart, leafGroupIDs, level, mlpInstanceID, name, operationList, probeHook, raspArgv, status, tags, taskID, timeEnd, timeStart, topGroupID, type, virusType, whiteListID, whiteListName, securityIntelligenceResults);
   }
 
 
@@ -1055,10 +1159,13 @@ public class ConditionsForExportVirusAlarmListDataInput {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    lastAlarmTimeEnd: ").append(toIndentedString(lastAlarmTimeEnd)).append("\n");
+    sb.append("    lastAlarmTimeStart: ").append(toIndentedString(lastAlarmTimeStart)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    mlpInstanceID: ").append(toIndentedString(mlpInstanceID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    operationList: ").append(toIndentedString(operationList)).append("\n");
     sb.append("    probeHook: ").append(toIndentedString(probeHook)).append("\n");
     sb.append("    raspArgv: ").append(toIndentedString(raspArgv)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -1071,6 +1178,7 @@ public class ConditionsForExportVirusAlarmListDataInput {
     sb.append("    virusType: ").append(toIndentedString(virusType)).append("\n");
     sb.append("    whiteListID: ").append(toIndentedString(whiteListID)).append("\n");
     sb.append("    whiteListName: ").append(toIndentedString(whiteListName)).append("\n");
+    sb.append("    securityIntelligenceResults: ").append(toIndentedString(securityIntelligenceResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

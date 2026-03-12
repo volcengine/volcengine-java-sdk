@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.VideoForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertVideoForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,7 +38,7 @@ public class ConvertVideoMattingForGetExecutionOutput {
   private String model = null;
 
   @SerializedName("Video")
-  private VideoForGetExecutionOutput video = null;
+  private ConvertConvertVideoForGetExecutionOutput video = null;
 
   public ConvertVideoMattingForGetExecutionOutput duration(Double duration) {
     this.duration = duration;
@@ -76,7 +76,7 @@ public class ConvertVideoMattingForGetExecutionOutput {
     this.model = model;
   }
 
-  public ConvertVideoMattingForGetExecutionOutput video(VideoForGetExecutionOutput video) {
+  public ConvertVideoMattingForGetExecutionOutput video(ConvertConvertVideoForGetExecutionOutput video) {
     this.video = video;
     return this;
   }
@@ -87,11 +87,11 @@ public class ConvertVideoMattingForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public VideoForGetExecutionOutput getVideo() {
+  public ConvertConvertVideoForGetExecutionOutput getVideo() {
     return video;
   }
 
-  public void setVideo(VideoForGetExecutionOutput video) {
+  public void setVideo(ConvertConvertVideoForGetExecutionOutput video) {
     this.video = video;
   }
 

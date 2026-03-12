@@ -51,11 +51,17 @@ public class ExportAssetCenterDevsRequest {
   @SerializedName("Platforms")
   private List<String> platforms = null;
 
+  @SerializedName("ProtectStatus")
+  private String protectStatus = null;
+
   @SerializedName("Regions")
   private List<String> regions = null;
 
   @SerializedName("Risk")
   private RiskForExportAssetCenterDevsInput risk = null;
+
+  @SerializedName("SecurityEnhancement")
+  private Boolean securityEnhancement = null;
 
   @SerializedName("Status")
   private List<String> status = null;
@@ -184,6 +190,24 @@ public class ExportAssetCenterDevsRequest {
     this.platforms = platforms;
   }
 
+  public ExportAssetCenterDevsRequest protectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+    return this;
+  }
+
+   /**
+   * Get protectStatus
+   * @return protectStatus
+  **/
+  @Schema(description = "")
+  public String getProtectStatus() {
+    return protectStatus;
+  }
+
+  public void setProtectStatus(String protectStatus) {
+    this.protectStatus = protectStatus;
+  }
+
   public ExportAssetCenterDevsRequest regions(List<String> regions) {
     this.regions = regions;
     return this;
@@ -229,6 +253,24 @@ public class ExportAssetCenterDevsRequest {
     this.risk = risk;
   }
 
+  public ExportAssetCenterDevsRequest securityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+    return this;
+  }
+
+   /**
+   * Get securityEnhancement
+   * @return securityEnhancement
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityEnhancement() {
+    return securityEnhancement;
+  }
+
+  public void setSecurityEnhancement(Boolean securityEnhancement) {
+    this.securityEnhancement = securityEnhancement;
+  }
+
   public ExportAssetCenterDevsRequest status(List<String> status) {
     this.status = status;
     return this;
@@ -271,14 +313,16 @@ public class ExportAssetCenterDevsRequest {
         Objects.equals(this.IP, exportAssetCenterDevsRequest.IP) &&
         Objects.equals(this.isAll, exportAssetCenterDevsRequest.isAll) &&
         Objects.equals(this.platforms, exportAssetCenterDevsRequest.platforms) &&
+        Objects.equals(this.protectStatus, exportAssetCenterDevsRequest.protectStatus) &&
         Objects.equals(this.regions, exportAssetCenterDevsRequest.regions) &&
         Objects.equals(this.risk, exportAssetCenterDevsRequest.risk) &&
+        Objects.equals(this.securityEnhancement, exportAssetCenterDevsRequest.securityEnhancement) &&
         Objects.equals(this.status, exportAssetCenterDevsRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetId, assetIds, assetName, IP, isAll, platforms, regions, risk, status);
+    return Objects.hash(assetId, assetIds, assetName, IP, isAll, platforms, protectStatus, regions, risk, securityEnhancement, status);
   }
 
 
@@ -293,8 +337,10 @@ public class ExportAssetCenterDevsRequest {
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
     sb.append("    isAll: ").append(toIndentedString(isAll)).append("\n");
     sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
+    sb.append("    protectStatus: ").append(toIndentedString(protectStatus)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+    sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -33,6 +33,9 @@ public class CreateWebhookRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Token")
+  private String token = null;
+
   /**
    * Gets or Sets type
    */
@@ -105,6 +108,24 @@ public class CreateWebhookRequest {
     this.name = name;
   }
 
+  public CreateWebhookRequest token(String token) {
+    this.token = token;
+    return this;
+  }
+
+   /**
+   * Get token
+   * @return token
+  **/
+  @Schema(description = "")
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
   public CreateWebhookRequest type(TypeEnum type) {
     this.type = type;
     return this;
@@ -154,13 +175,14 @@ public class CreateWebhookRequest {
     }
     CreateWebhookRequest createWebhookRequest = (CreateWebhookRequest) o;
     return Objects.equals(this.name, createWebhookRequest.name) &&
+        Objects.equals(this.token, createWebhookRequest.token) &&
         Objects.equals(this.type, createWebhookRequest.type) &&
         Objects.equals(this.url, createWebhookRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, url);
+    return Objects.hash(name, token, type, url);
   }
 
 
@@ -170,6 +192,7 @@ public class CreateWebhookRequest {
     sb.append("class CreateWebhookRequest {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

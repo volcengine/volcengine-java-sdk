@@ -46,6 +46,9 @@ public class AddWhiteListRequest {
   @SerializedName("MatchAlarmName")
   private String matchAlarmName = null;
 
+  @SerializedName("MatchName")
+  private String matchName = null;
+
   @SerializedName("Range")
   private RangeForAddWhiteListInput range = null;
 
@@ -130,6 +133,24 @@ public class AddWhiteListRequest {
     this.matchAlarmName = matchAlarmName;
   }
 
+  public AddWhiteListRequest matchName(String matchName) {
+    this.matchName = matchName;
+    return this;
+  }
+
+   /**
+   * Get matchName
+   * @return matchName
+  **/
+  @Schema(description = "")
+  public String getMatchName() {
+    return matchName;
+  }
+
+  public void setMatchName(String matchName) {
+    this.matchName = matchName;
+  }
+
   public AddWhiteListRequest range(RangeForAddWhiteListInput range) {
     this.range = range;
     return this;
@@ -185,7 +206,8 @@ public class AddWhiteListRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }
@@ -226,6 +248,7 @@ public class AddWhiteListRequest {
         Objects.equals(this.isKillchain, addWhiteListRequest.isKillchain) &&
         Objects.equals(this.lang, addWhiteListRequest.lang) &&
         Objects.equals(this.matchAlarmName, addWhiteListRequest.matchAlarmName) &&
+        Objects.equals(this.matchName, addWhiteListRequest.matchName) &&
         Objects.equals(this.range, addWhiteListRequest.range) &&
         Objects.equals(this.ruleList, addWhiteListRequest.ruleList) &&
         Objects.equals(this.type, addWhiteListRequest.type) &&
@@ -234,7 +257,7 @@ public class AddWhiteListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(desc, isKillchain, lang, matchAlarmName, range, ruleList, type, user);
+    return Objects.hash(desc, isKillchain, lang, matchAlarmName, matchName, range, ruleList, type, user);
   }
 
 
@@ -247,6 +270,7 @@ public class AddWhiteListRequest {
     sb.append("    isKillchain: ").append(toIndentedString(isKillchain)).append("\n");
     sb.append("    lang: ").append(toIndentedString(lang)).append("\n");
     sb.append("    matchAlarmName: ").append(toIndentedString(matchAlarmName)).append("\n");
+    sb.append("    matchName: ").append(toIndentedString(matchName)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    ruleList: ").append(toIndentedString(ruleList)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

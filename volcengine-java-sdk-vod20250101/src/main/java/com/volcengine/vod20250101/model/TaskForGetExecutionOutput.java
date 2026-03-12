@@ -19,16 +19,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ABRTranscodeForGetExecutionOutput;
 import com.volcengine.vod20250101.model.AdAuditForGetExecutionOutput;
 import com.volcengine.vod20250101.model.AsrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.AudioExtractForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertFormatForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertSegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.EnhanceForGetExecutionOutput;
 import com.volcengine.vod20250101.model.EraseForGetExecutionOutput;
 import com.volcengine.vod20250101.model.FileDeleteForGetExecutionOutput;
 import com.volcengine.vod20250101.model.HighlightForGetExecutionOutput;
 import com.volcengine.vod20250101.model.OcrForGetExecutionOutput;
-import com.volcengine.vod20250101.model.SegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.StorylineForGetExecutionOutput;
+import com.volcengine.vod20250101.model.TranscodeForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoGenerationForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoMattingForGetExecutionOutput;
 import com.volcengine.vod20250101.model.VideoSummaryForGetExecutionOutput;
@@ -45,6 +48,9 @@ import javax.validation.Valid;
 
 
 public class TaskForGetExecutionOutput {
+  @SerializedName("ABRTranscode")
+  private ABRTranscodeForGetExecutionOutput abRTranscode = null;
+
   @SerializedName("AdAudit")
   private AdAuditForGetExecutionOutput adAudit = null;
 
@@ -53,6 +59,9 @@ public class TaskForGetExecutionOutput {
 
   @SerializedName("AudioExtract")
   private AudioExtractForGetExecutionOutput audioExtract = null;
+
+  @SerializedName("ConvertFormat")
+  private ConvertFormatForGetExecutionOutput convertFormat = null;
 
   @SerializedName("Enhance")
   private EnhanceForGetExecutionOutput enhance = null;
@@ -70,10 +79,16 @@ public class TaskForGetExecutionOutput {
   private OcrForGetExecutionOutput ocr = null;
 
   @SerializedName("Segment")
-  private SegmentForGetExecutionOutput segment = null;
+  private ConvertSegmentForGetExecutionOutput segment = null;
 
   @SerializedName("Storyline")
   private StorylineForGetExecutionOutput storyline = null;
+
+  @SerializedName("StrategyTag")
+  private String strategyTag = null;
+
+  @SerializedName("Transcode")
+  private TranscodeForGetExecutionOutput transcode = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -92,6 +107,25 @@ public class TaskForGetExecutionOutput {
 
   @SerializedName("Vision")
   private VisionForGetExecutionOutput vision = null;
+
+  public TaskForGetExecutionOutput abRTranscode(ABRTranscodeForGetExecutionOutput abRTranscode) {
+    this.abRTranscode = abRTranscode;
+    return this;
+  }
+
+   /**
+   * Get abRTranscode
+   * @return abRTranscode
+  **/
+  @Valid
+  @Schema(description = "")
+  public ABRTranscodeForGetExecutionOutput getAbRTranscode() {
+    return abRTranscode;
+  }
+
+  public void setAbRTranscode(ABRTranscodeForGetExecutionOutput abRTranscode) {
+    this.abRTranscode = abRTranscode;
+  }
 
   public TaskForGetExecutionOutput adAudit(AdAuditForGetExecutionOutput adAudit) {
     this.adAudit = adAudit;
@@ -148,6 +182,25 @@ public class TaskForGetExecutionOutput {
 
   public void setAudioExtract(AudioExtractForGetExecutionOutput audioExtract) {
     this.audioExtract = audioExtract;
+  }
+
+  public TaskForGetExecutionOutput convertFormat(ConvertFormatForGetExecutionOutput convertFormat) {
+    this.convertFormat = convertFormat;
+    return this;
+  }
+
+   /**
+   * Get convertFormat
+   * @return convertFormat
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertFormatForGetExecutionOutput getConvertFormat() {
+    return convertFormat;
+  }
+
+  public void setConvertFormat(ConvertFormatForGetExecutionOutput convertFormat) {
+    this.convertFormat = convertFormat;
   }
 
   public TaskForGetExecutionOutput enhance(EnhanceForGetExecutionOutput enhance) {
@@ -245,7 +298,7 @@ public class TaskForGetExecutionOutput {
     this.ocr = ocr;
   }
 
-  public TaskForGetExecutionOutput segment(SegmentForGetExecutionOutput segment) {
+  public TaskForGetExecutionOutput segment(ConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
     return this;
   }
@@ -256,11 +309,11 @@ public class TaskForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public SegmentForGetExecutionOutput getSegment() {
+  public ConvertSegmentForGetExecutionOutput getSegment() {
     return segment;
   }
 
-  public void setSegment(SegmentForGetExecutionOutput segment) {
+  public void setSegment(ConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
   }
 
@@ -281,6 +334,43 @@ public class TaskForGetExecutionOutput {
 
   public void setStoryline(StorylineForGetExecutionOutput storyline) {
     this.storyline = storyline;
+  }
+
+  public TaskForGetExecutionOutput strategyTag(String strategyTag) {
+    this.strategyTag = strategyTag;
+    return this;
+  }
+
+   /**
+   * Get strategyTag
+   * @return strategyTag
+  **/
+  @Schema(description = "")
+  public String getStrategyTag() {
+    return strategyTag;
+  }
+
+  public void setStrategyTag(String strategyTag) {
+    this.strategyTag = strategyTag;
+  }
+
+  public TaskForGetExecutionOutput transcode(TranscodeForGetExecutionOutput transcode) {
+    this.transcode = transcode;
+    return this;
+  }
+
+   /**
+   * Get transcode
+   * @return transcode
+  **/
+  @Valid
+  @Schema(description = "")
+  public TranscodeForGetExecutionOutput getTranscode() {
+    return transcode;
+  }
+
+  public void setTranscode(TranscodeForGetExecutionOutput transcode) {
+    this.transcode = transcode;
   }
 
   public TaskForGetExecutionOutput type(String type) {
@@ -406,9 +496,11 @@ public class TaskForGetExecutionOutput {
       return false;
     }
     TaskForGetExecutionOutput taskForGetExecutionOutput = (TaskForGetExecutionOutput) o;
-    return Objects.equals(this.adAudit, taskForGetExecutionOutput.adAudit) &&
+    return Objects.equals(this.abRTranscode, taskForGetExecutionOutput.abRTranscode) &&
+        Objects.equals(this.adAudit, taskForGetExecutionOutput.adAudit) &&
         Objects.equals(this.asr, taskForGetExecutionOutput.asr) &&
         Objects.equals(this.audioExtract, taskForGetExecutionOutput.audioExtract) &&
+        Objects.equals(this.convertFormat, taskForGetExecutionOutput.convertFormat) &&
         Objects.equals(this.enhance, taskForGetExecutionOutput.enhance) &&
         Objects.equals(this.erase, taskForGetExecutionOutput.erase) &&
         Objects.equals(this.fileDelete, taskForGetExecutionOutput.fileDelete) &&
@@ -416,6 +508,8 @@ public class TaskForGetExecutionOutput {
         Objects.equals(this.ocr, taskForGetExecutionOutput.ocr) &&
         Objects.equals(this.segment, taskForGetExecutionOutput.segment) &&
         Objects.equals(this.storyline, taskForGetExecutionOutput.storyline) &&
+        Objects.equals(this.strategyTag, taskForGetExecutionOutput.strategyTag) &&
+        Objects.equals(this.transcode, taskForGetExecutionOutput.transcode) &&
         Objects.equals(this.type, taskForGetExecutionOutput.type) &&
         Objects.equals(this.videoGeneration, taskForGetExecutionOutput.videoGeneration) &&
         Objects.equals(this.videoMatting, taskForGetExecutionOutput.videoMatting) &&
@@ -426,7 +520,7 @@ public class TaskForGetExecutionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, enhance, erase, fileDelete, highlight, ocr, segment, storyline, type, videoGeneration, videoMatting, videoSummary, videoUnderstanding, vision);
+    return Objects.hash(abRTranscode, adAudit, asr, audioExtract, convertFormat, enhance, erase, fileDelete, highlight, ocr, segment, storyline, strategyTag, transcode, type, videoGeneration, videoMatting, videoSummary, videoUnderstanding, vision);
   }
 
 
@@ -435,9 +529,11 @@ public class TaskForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskForGetExecutionOutput {\n");
     
+    sb.append("    abRTranscode: ").append(toIndentedString(abRTranscode)).append("\n");
     sb.append("    adAudit: ").append(toIndentedString(adAudit)).append("\n");
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
+    sb.append("    convertFormat: ").append(toIndentedString(convertFormat)).append("\n");
     sb.append("    enhance: ").append(toIndentedString(enhance)).append("\n");
     sb.append("    erase: ").append(toIndentedString(erase)).append("\n");
     sb.append("    fileDelete: ").append(toIndentedString(fileDelete)).append("\n");
@@ -445,6 +541,8 @@ public class TaskForGetExecutionOutput {
     sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
+    sb.append("    strategyTag: ").append(toIndentedString(strategyTag)).append("\n");
+    sb.append("    transcode: ").append(toIndentedString(transcode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    videoGeneration: ").append(toIndentedString(videoGeneration)).append("\n");
     sb.append("    videoMatting: ").append(toIndentedString(videoMatting)).append("\n");

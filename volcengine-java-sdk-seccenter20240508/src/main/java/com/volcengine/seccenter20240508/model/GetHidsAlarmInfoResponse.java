@@ -37,6 +37,7 @@ import com.volcengine.seccenter20240508.model.PlusAlarmInfo6002ForGetHidsAlarmIn
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo6003ForGetHidsAlarmInfoOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo601ForGetHidsAlarmInfoOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo602ForGetHidsAlarmInfoOutput;
+import com.volcengine.seccenter20240508.model.PlusAlarmInfo602xForGetHidsAlarmInfoOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo603ForGetHidsAlarmInfoOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo604ForGetHidsAlarmInfoOutput;
 import com.volcengine.seccenter20240508.model.PlusAlarmInfo700ForGetHidsAlarmInfoOutput;
@@ -119,6 +120,9 @@ public class GetHidsAlarmInfoResponse extends com.volcengine.model.AbstractRespo
 
   @SerializedName("PlusAlarmInfo602")
   private PlusAlarmInfo602ForGetHidsAlarmInfoOutput plusAlarmInfo602 = null;
+
+  @SerializedName("PlusAlarmInfo602x")
+  private PlusAlarmInfo602xForGetHidsAlarmInfoOutput plusAlarmInfo602x = null;
 
   @SerializedName("PlusAlarmInfo603")
   private PlusAlarmInfo603ForGetHidsAlarmInfoOutput plusAlarmInfo603 = null;
@@ -543,6 +547,25 @@ public class GetHidsAlarmInfoResponse extends com.volcengine.model.AbstractRespo
     this.plusAlarmInfo602 = plusAlarmInfo602;
   }
 
+  public GetHidsAlarmInfoResponse plusAlarmInfo602x(PlusAlarmInfo602xForGetHidsAlarmInfoOutput plusAlarmInfo602x) {
+    this.plusAlarmInfo602x = plusAlarmInfo602x;
+    return this;
+  }
+
+   /**
+   * Get plusAlarmInfo602x
+   * @return plusAlarmInfo602x
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlusAlarmInfo602xForGetHidsAlarmInfoOutput getPlusAlarmInfo602x() {
+    return plusAlarmInfo602x;
+  }
+
+  public void setPlusAlarmInfo602x(PlusAlarmInfo602xForGetHidsAlarmInfoOutput plusAlarmInfo602x) {
+    this.plusAlarmInfo602x = plusAlarmInfo602x;
+  }
+
   public GetHidsAlarmInfoResponse plusAlarmInfo603(PlusAlarmInfo603ForGetHidsAlarmInfoOutput plusAlarmInfo603) {
     this.plusAlarmInfo603 = plusAlarmInfo603;
     return this;
@@ -745,6 +768,7 @@ public class GetHidsAlarmInfoResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.plusAlarmInfo6003, getHidsAlarmInfoResponse.plusAlarmInfo6003) &&
         Objects.equals(this.plusAlarmInfo601, getHidsAlarmInfoResponse.plusAlarmInfo601) &&
         Objects.equals(this.plusAlarmInfo602, getHidsAlarmInfoResponse.plusAlarmInfo602) &&
+        Objects.equals(this.plusAlarmInfo602x, getHidsAlarmInfoResponse.plusAlarmInfo602x) &&
         Objects.equals(this.plusAlarmInfo603, getHidsAlarmInfoResponse.plusAlarmInfo603) &&
         Objects.equals(this.plusAlarmInfo604, getHidsAlarmInfoResponse.plusAlarmInfo604) &&
         Objects.equals(this.plusAlarmInfo700, getHidsAlarmInfoResponse.plusAlarmInfo700) &&
@@ -758,7 +782,7 @@ public class GetHidsAlarmInfoResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmDataType2439, baseAlarmInfo, baseInfo, commAlarmInfo, containerInfo, dataType, dataTypeStr, endpoint, hubTraceData, plusAlarmInfo101, plusAlarmInfo3004, plusAlarmInfo356, plusAlarmInfo4000, plusAlarmInfo42, plusAlarmInfo49, plusAlarmInfo59, plusAlarmInfo6001, plusAlarmInfo6002, plusAlarmInfo6003, plusAlarmInfo601, plusAlarmInfo602, plusAlarmInfo603, plusAlarmInfo604, plusAlarmInfo700, plusAlarmInfo701, plusAlarmInfo702, plusAlarmInfo703, plusAlarmInfo82, plusAlarmInfo86, plusKillChain);
+    return Objects.hash(alarmDataType2439, baseAlarmInfo, baseInfo, commAlarmInfo, containerInfo, dataType, dataTypeStr, endpoint, hubTraceData, plusAlarmInfo101, plusAlarmInfo3004, plusAlarmInfo356, plusAlarmInfo4000, plusAlarmInfo42, plusAlarmInfo49, plusAlarmInfo59, plusAlarmInfo6001, plusAlarmInfo6002, plusAlarmInfo6003, plusAlarmInfo601, plusAlarmInfo602, plusAlarmInfo602x, plusAlarmInfo603, plusAlarmInfo604, plusAlarmInfo700, plusAlarmInfo701, plusAlarmInfo702, plusAlarmInfo703, plusAlarmInfo82, plusAlarmInfo86, plusKillChain);
   }
 
 
@@ -788,6 +812,7 @@ public class GetHidsAlarmInfoResponse extends com.volcengine.model.AbstractRespo
     sb.append("    plusAlarmInfo6003: ").append(toIndentedString(plusAlarmInfo6003)).append("\n");
     sb.append("    plusAlarmInfo601: ").append(toIndentedString(plusAlarmInfo601)).append("\n");
     sb.append("    plusAlarmInfo602: ").append(toIndentedString(plusAlarmInfo602)).append("\n");
+    sb.append("    plusAlarmInfo602x: ").append(toIndentedString(plusAlarmInfo602x)).append("\n");
     sb.append("    plusAlarmInfo603: ").append(toIndentedString(plusAlarmInfo603)).append("\n");
     sb.append("    plusAlarmInfo604: ").append(toIndentedString(plusAlarmInfo604)).append("\n");
     sb.append("    plusAlarmInfo700: ").append(toIndentedString(plusAlarmInfo700)).append("\n");

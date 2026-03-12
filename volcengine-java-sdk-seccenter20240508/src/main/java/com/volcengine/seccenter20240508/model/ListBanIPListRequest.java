@@ -44,6 +44,9 @@ public class ListBanIPListRequest {
   @SerializedName("BanIP")
   private String banIP = null;
 
+  @SerializedName("BanPort")
+  private Long banPort = null;
+
   @SerializedName("BanStartTimeEndUnix")
   private Long banStartTimeEndUnix = null;
 
@@ -52,6 +55,9 @@ public class ListBanIPListRequest {
 
   @SerializedName("BanType")
   private String banType = null;
+
+  @SerializedName("BanTypeList")
+  private List<String> banTypeList = null;
 
   @SerializedName("CloudProviders")
   private List<String> cloudProviders = null;
@@ -158,6 +164,24 @@ public class ListBanIPListRequest {
     this.banIP = banIP;
   }
 
+  public ListBanIPListRequest banPort(Long banPort) {
+    this.banPort = banPort;
+    return this;
+  }
+
+   /**
+   * Get banPort
+   * @return banPort
+  **/
+  @Schema(description = "")
+  public Long getBanPort() {
+    return banPort;
+  }
+
+  public void setBanPort(Long banPort) {
+    this.banPort = banPort;
+  }
+
   public ListBanIPListRequest banStartTimeEndUnix(Long banStartTimeEndUnix) {
     this.banStartTimeEndUnix = banStartTimeEndUnix;
     return this;
@@ -210,6 +234,32 @@ public class ListBanIPListRequest {
 
   public void setBanType(String banType) {
     this.banType = banType;
+  }
+
+  public ListBanIPListRequest banTypeList(List<String> banTypeList) {
+    this.banTypeList = banTypeList;
+    return this;
+  }
+
+  public ListBanIPListRequest addBanTypeListItem(String banTypeListItem) {
+    if (this.banTypeList == null) {
+      this.banTypeList = new ArrayList<String>();
+    }
+    this.banTypeList.add(banTypeListItem);
+    return this;
+  }
+
+   /**
+   * Get banTypeList
+   * @return banTypeList
+  **/
+  @Schema(description = "")
+  public List<String> getBanTypeList() {
+    return banTypeList;
+  }
+
+  public void setBanTypeList(List<String> banTypeList) {
+    this.banTypeList = banTypeList;
   }
 
   public ListBanIPListRequest cloudProviders(List<String> cloudProviders) {
@@ -458,9 +508,11 @@ public class ListBanIPListRequest {
         Objects.equals(this.banEndTimeEndUnix, listBanIPListRequest.banEndTimeEndUnix) &&
         Objects.equals(this.banEndTimeStartUnix, listBanIPListRequest.banEndTimeStartUnix) &&
         Objects.equals(this.banIP, listBanIPListRequest.banIP) &&
+        Objects.equals(this.banPort, listBanIPListRequest.banPort) &&
         Objects.equals(this.banStartTimeEndUnix, listBanIPListRequest.banStartTimeEndUnix) &&
         Objects.equals(this.banStartTimeStartUnix, listBanIPListRequest.banStartTimeStartUnix) &&
         Objects.equals(this.banType, listBanIPListRequest.banType) &&
+        Objects.equals(this.banTypeList, listBanIPListRequest.banTypeList) &&
         Objects.equals(this.cloudProviders, listBanIPListRequest.cloudProviders) &&
         Objects.equals(this.hostName, listBanIPListRequest.hostName) &&
         Objects.equals(this.IP, listBanIPListRequest.IP) &&
@@ -476,7 +528,7 @@ public class ListBanIPListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, banEndTimeEndUnix, banEndTimeStartUnix, banIP, banStartTimeEndUnix, banStartTimeStartUnix, banType, cloudProviders, hostName, IP, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, statusList, tags, topGroupID);
+    return Objects.hash(agentID, banEndTimeEndUnix, banEndTimeStartUnix, banIP, banPort, banStartTimeEndUnix, banStartTimeStartUnix, banType, banTypeList, cloudProviders, hostName, IP, leafGroupIDs, pageNumber, pageSize, sortBy, sortOrder, statusList, tags, topGroupID);
   }
 
 
@@ -489,9 +541,11 @@ public class ListBanIPListRequest {
     sb.append("    banEndTimeEndUnix: ").append(toIndentedString(banEndTimeEndUnix)).append("\n");
     sb.append("    banEndTimeStartUnix: ").append(toIndentedString(banEndTimeStartUnix)).append("\n");
     sb.append("    banIP: ").append(toIndentedString(banIP)).append("\n");
+    sb.append("    banPort: ").append(toIndentedString(banPort)).append("\n");
     sb.append("    banStartTimeEndUnix: ").append(toIndentedString(banStartTimeEndUnix)).append("\n");
     sb.append("    banStartTimeStartUnix: ").append(toIndentedString(banStartTimeStartUnix)).append("\n");
     sb.append("    banType: ").append(toIndentedString(banType)).append("\n");
+    sb.append("    banTypeList: ").append(toIndentedString(banTypeList)).append("\n");
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");

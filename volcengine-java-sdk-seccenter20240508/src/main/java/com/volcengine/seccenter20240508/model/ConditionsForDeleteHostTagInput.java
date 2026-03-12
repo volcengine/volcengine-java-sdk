@@ -57,6 +57,9 @@ public class ConditionsForDeleteHostTagInput {
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
+  @SerializedName("Os")
+  private String os = null;
+
   @SerializedName("Platforms")
   private List<String> platforms = null;
 
@@ -267,6 +270,24 @@ public class ConditionsForDeleteHostTagInput {
 
   public void setLeafGroupIDs(List<String> leafGroupIDs) {
     this.leafGroupIDs = leafGroupIDs;
+  }
+
+  public ConditionsForDeleteHostTagInput os(String os) {
+    this.os = os;
+    return this;
+  }
+
+   /**
+   * Get os
+   * @return os
+  **/
+  @Schema(description = "")
+  public String getOs() {
+    return os;
+  }
+
+  public void setOs(String os) {
+    this.os = os;
   }
 
   public ConditionsForDeleteHostTagInput platforms(List<String> platforms) {
@@ -552,6 +573,7 @@ public class ConditionsForDeleteHostTagInput {
         Objects.equals(this.hostname, conditionsForDeleteHostTagInput.hostname) &&
         Objects.equals(this.ip, conditionsForDeleteHostTagInput.ip) &&
         Objects.equals(this.leafGroupIDs, conditionsForDeleteHostTagInput.leafGroupIDs) &&
+        Objects.equals(this.os, conditionsForDeleteHostTagInput.os) &&
         Objects.equals(this.platforms, conditionsForDeleteHostTagInput.platforms) &&
         Objects.equals(this.proxyName, conditionsForDeleteHostTagInput.proxyName) &&
         Objects.equals(this.proxyServerName, conditionsForDeleteHostTagInput.proxyServerName) &&
@@ -568,7 +590,7 @@ public class ConditionsForDeleteHostTagInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, agentIDList, agentStatus, allHost, cloudProviders, hostname, ip, leafGroupIDs, platforms, proxyName, proxyServerName, regions, risk, securityEnhancement, status, tags, topGroupID, virusFileAutoIsolate, visibility, vpcIds);
+    return Objects.hash(agentID, agentIDList, agentStatus, allHost, cloudProviders, hostname, ip, leafGroupIDs, os, platforms, proxyName, proxyServerName, regions, risk, securityEnhancement, status, tags, topGroupID, virusFileAutoIsolate, visibility, vpcIds);
   }
 
 
@@ -585,6 +607,7 @@ public class ConditionsForDeleteHostTagInput {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
     sb.append("    proxyServerName: ").append(toIndentedString(proxyServerName)).append("\n");

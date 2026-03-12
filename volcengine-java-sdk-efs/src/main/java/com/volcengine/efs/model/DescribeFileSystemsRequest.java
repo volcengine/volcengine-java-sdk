@@ -127,9 +127,6 @@ public class DescribeFileSystemsRequest {
   }  @SerializedName("ChargeType")
   private ChargeTypeEnum chargeType = null;
 
-  @SerializedName("ExportOnly")
-  private Boolean exportOnly = null;
-
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
 
@@ -288,54 +285,6 @@ public class DescribeFileSystemsRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  /**
-   * Gets or Sets protocolType
-   */
-  @JsonAdapter(ProtocolTypeEnum.Adapter.class)
-  public enum ProtocolTypeEnum {
-    @SerializedName("NFS")
-    NFS("NFS"),
-    @SerializedName("SMB")
-    SMB("SMB"),
-    @SerializedName("FSX")
-    FSX("FSX");
-
-    private String value;
-
-    ProtocolTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ProtocolTypeEnum fromValue(String input) {
-      for (ProtocolTypeEnum b : ProtocolTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ProtocolTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ProtocolTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ProtocolTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ProtocolTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ProtocolType")
-  private ProtocolTypeEnum protocolType = null;
 
   /**
    * Gets or Sets sortBy
@@ -533,24 +482,6 @@ public class DescribeFileSystemsRequest {
     this.chargeType = chargeType;
   }
 
-  public DescribeFileSystemsRequest exportOnly(Boolean exportOnly) {
-    this.exportOnly = exportOnly;
-    return this;
-  }
-
-   /**
-   * Get exportOnly
-   * @return exportOnly
-  **/
-  @Schema(description = "")
-  public Boolean isExportOnly() {
-    return exportOnly;
-  }
-
-  public void setExportOnly(Boolean exportOnly) {
-    this.exportOnly = exportOnly;
-  }
-
   public DescribeFileSystemsRequest fileSystemId(String fileSystemId) {
     this.fileSystemId = fileSystemId;
     return this;
@@ -630,9 +561,10 @@ public class DescribeFileSystemsRequest {
 
    /**
    * Get pageNumber
+   * minimum: 1
    * @return pageNumber
   **/
-  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -648,9 +580,10 @@ public class DescribeFileSystemsRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -693,24 +626,6 @@ public class DescribeFileSystemsRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public DescribeFileSystemsRequest protocolType(ProtocolTypeEnum protocolType) {
-    this.protocolType = protocolType;
-    return this;
-  }
-
-   /**
-   * Get protocolType
-   * @return protocolType
-  **/
-  @Schema(description = "")
-  public ProtocolTypeEnum getProtocolType() {
-    return protocolType;
-  }
-
-  public void setProtocolType(ProtocolTypeEnum protocolType) {
-    this.protocolType = protocolType;
   }
 
   public DescribeFileSystemsRequest sortBy(SortByEnum sortBy) {
@@ -832,7 +747,6 @@ public class DescribeFileSystemsRequest {
     DescribeFileSystemsRequest describeFileSystemsRequest = (DescribeFileSystemsRequest) o;
     return Objects.equals(this.bandwidthMode, describeFileSystemsRequest.bandwidthMode) &&
         Objects.equals(this.chargeType, describeFileSystemsRequest.chargeType) &&
-        Objects.equals(this.exportOnly, describeFileSystemsRequest.exportOnly) &&
         Objects.equals(this.fileSystemId, describeFileSystemsRequest.fileSystemId) &&
         Objects.equals(this.fileSystemName, describeFileSystemsRequest.fileSystemName) &&
         Objects.equals(this.instanceType, describeFileSystemsRequest.instanceType) &&
@@ -841,7 +755,6 @@ public class DescribeFileSystemsRequest {
         Objects.equals(this.pageSize, describeFileSystemsRequest.pageSize) &&
         Objects.equals(this.performanceDensity, describeFileSystemsRequest.performanceDensity) &&
         Objects.equals(this.projectName, describeFileSystemsRequest.projectName) &&
-        Objects.equals(this.protocolType, describeFileSystemsRequest.protocolType) &&
         Objects.equals(this.sortBy, describeFileSystemsRequest.sortBy) &&
         Objects.equals(this.sortOrder, describeFileSystemsRequest.sortOrder) &&
         Objects.equals(this.statuses, describeFileSystemsRequest.statuses) &&
@@ -851,7 +764,7 @@ public class DescribeFileSystemsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthMode, chargeType, exportOnly, fileSystemId, fileSystemName, instanceType, language, pageNumber, pageSize, performanceDensity, projectName, protocolType, sortBy, sortOrder, statuses, tagFilters, zoneId);
+    return Objects.hash(bandwidthMode, chargeType, fileSystemId, fileSystemName, instanceType, language, pageNumber, pageSize, performanceDensity, projectName, sortBy, sortOrder, statuses, tagFilters, zoneId);
   }
 
 
@@ -862,7 +775,6 @@ public class DescribeFileSystemsRequest {
     
     sb.append("    bandwidthMode: ").append(toIndentedString(bandwidthMode)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    exportOnly: ").append(toIndentedString(exportOnly)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
@@ -871,7 +783,6 @@ public class DescribeFileSystemsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    performanceDensity: ").append(toIndentedString(performanceDensity)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    protocolType: ").append(toIndentedString(protocolType)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");

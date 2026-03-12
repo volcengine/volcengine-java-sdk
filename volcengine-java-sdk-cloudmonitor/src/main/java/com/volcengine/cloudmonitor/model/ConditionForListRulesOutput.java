@@ -36,6 +36,9 @@ public class ConditionForListRulesOutput {
   @SerializedName("DisplayName")
   private String displayName = null;
 
+  @SerializedName("EvaluationWindow")
+  private Integer evaluationWindow = null;
+
   @SerializedName("MetricName")
   private String metricName = null;
 
@@ -85,6 +88,24 @@ public class ConditionForListRulesOutput {
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+  }
+
+  public ConditionForListRulesOutput evaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
+    return this;
+  }
+
+   /**
+   * Get evaluationWindow
+   * @return evaluationWindow
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationWindow() {
+    return evaluationWindow;
+  }
+
+  public void setEvaluationWindow(Integer evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
   }
 
   public ConditionForListRulesOutput metricName(String metricName) {
@@ -189,6 +210,7 @@ public class ConditionForListRulesOutput {
     ConditionForListRulesOutput conditionForListRulesOutput = (ConditionForListRulesOutput) o;
     return Objects.equals(this.comparisonOperator, conditionForListRulesOutput.comparisonOperator) &&
         Objects.equals(this.displayName, conditionForListRulesOutput.displayName) &&
+        Objects.equals(this.evaluationWindow, conditionForListRulesOutput.evaluationWindow) &&
         Objects.equals(this.metricName, conditionForListRulesOutput.metricName) &&
         Objects.equals(this.metricUnit, conditionForListRulesOutput.metricUnit) &&
         Objects.equals(this.period, conditionForListRulesOutput.period) &&
@@ -198,7 +220,7 @@ public class ConditionForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, displayName, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, displayName, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
   }
 
 
@@ -209,6 +231,7 @@ public class ConditionForListRulesOutput {
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

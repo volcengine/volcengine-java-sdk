@@ -31,8 +31,86 @@ import javax.validation.Valid;
 
 
 public class GetMLPAssetSyncTaskDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccountID")
+  private String accountID = null;
+
+  @SerializedName("AssetCount")
+  private Long assetCount = null;
+
+  @SerializedName("Creator")
+  private String creator = null;
+
   @SerializedName("Data")
   private DataForGetMLPAssetSyncTaskDetailOutput data = null;
+
+  @SerializedName("EndTime")
+  private Long endTime = null;
+
+  @SerializedName("StartTime")
+  private Long startTime = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  @SerializedName("TaskID")
+  private String taskID = null;
+
+  @SerializedName("TaskType")
+  private String taskType = null;
+
+  public GetMLPAssetSyncTaskDetailResponse accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse assetCount(Long assetCount) {
+    this.assetCount = assetCount;
+    return this;
+  }
+
+   /**
+   * Get assetCount
+   * @return assetCount
+  **/
+  @Schema(description = "")
+  public Long getAssetCount() {
+    return assetCount;
+  }
+
+  public void setAssetCount(Long assetCount) {
+    this.assetCount = assetCount;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse creator(String creator) {
+    this.creator = creator;
+    return this;
+  }
+
+   /**
+   * Get creator
+   * @return creator
+  **/
+  @Schema(description = "")
+  public String getCreator() {
+    return creator;
+  }
+
+  public void setCreator(String creator) {
+    this.creator = creator;
+  }
 
   public GetMLPAssetSyncTaskDetailResponse data(DataForGetMLPAssetSyncTaskDetailOutput data) {
     this.data = data;
@@ -53,6 +131,96 @@ public class GetMLPAssetSyncTaskDetailResponse extends com.volcengine.model.Abst
     this.data = data;
   }
 
+  public GetMLPAssetSyncTaskDetailResponse endTime(Long endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Get endTime
+   * @return endTime
+  **/
+  @Schema(description = "")
+  public Long getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse startTime(Long startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * Get startTime
+   * @return startTime
+  **/
+  @Schema(description = "")
+  public Long getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse taskID(String taskID) {
+    this.taskID = taskID;
+    return this;
+  }
+
+   /**
+   * Get taskID
+   * @return taskID
+  **/
+  @Schema(description = "")
+  public String getTaskID() {
+    return taskID;
+  }
+
+  public void setTaskID(String taskID) {
+    this.taskID = taskID;
+  }
+
+  public GetMLPAssetSyncTaskDetailResponse taskType(String taskType) {
+    this.taskType = taskType;
+    return this;
+  }
+
+   /**
+   * Get taskType
+   * @return taskType
+  **/
+  @Schema(description = "")
+  public String getTaskType() {
+    return taskType;
+  }
+
+  public void setTaskType(String taskType) {
+    this.taskType = taskType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +231,20 @@ public class GetMLPAssetSyncTaskDetailResponse extends com.volcengine.model.Abst
       return false;
     }
     GetMLPAssetSyncTaskDetailResponse getMLPAssetSyncTaskDetailResponse = (GetMLPAssetSyncTaskDetailResponse) o;
-    return Objects.equals(this.data, getMLPAssetSyncTaskDetailResponse.data);
+    return Objects.equals(this.accountID, getMLPAssetSyncTaskDetailResponse.accountID) &&
+        Objects.equals(this.assetCount, getMLPAssetSyncTaskDetailResponse.assetCount) &&
+        Objects.equals(this.creator, getMLPAssetSyncTaskDetailResponse.creator) &&
+        Objects.equals(this.data, getMLPAssetSyncTaskDetailResponse.data) &&
+        Objects.equals(this.endTime, getMLPAssetSyncTaskDetailResponse.endTime) &&
+        Objects.equals(this.startTime, getMLPAssetSyncTaskDetailResponse.startTime) &&
+        Objects.equals(this.status, getMLPAssetSyncTaskDetailResponse.status) &&
+        Objects.equals(this.taskID, getMLPAssetSyncTaskDetailResponse.taskID) &&
+        Objects.equals(this.taskType, getMLPAssetSyncTaskDetailResponse.taskType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(accountID, assetCount, creator, data, endTime, startTime, status, taskID, taskType);
   }
 
 
@@ -77,7 +253,15 @@ public class GetMLPAssetSyncTaskDetailResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMLPAssetSyncTaskDetailResponse {\n");
     
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    assetCount: ").append(toIndentedString(assetCount)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

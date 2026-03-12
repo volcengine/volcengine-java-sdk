@@ -30,8 +30,75 @@ import javax.validation.Valid;
 
 
 public class EncryptionForGetExecutionOutput {
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("Kid")
   private String kid = null;
+
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("Standard")
+    STANDARD("Standard"),
+    @SerializedName("Private")
+    PRIVATE("Private");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
+
+  public EncryptionForGetExecutionOutput host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
 
   public EncryptionForGetExecutionOutput kid(String kid) {
     this.kid = kid;
@@ -51,6 +118,24 @@ public class EncryptionForGetExecutionOutput {
     this.kid = kid;
   }
 
+  public EncryptionForGetExecutionOutput type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +146,14 @@ public class EncryptionForGetExecutionOutput {
       return false;
     }
     EncryptionForGetExecutionOutput encryptionForGetExecutionOutput = (EncryptionForGetExecutionOutput) o;
-    return Objects.equals(this.kid, encryptionForGetExecutionOutput.kid);
+    return Objects.equals(this.host, encryptionForGetExecutionOutput.host) &&
+        Objects.equals(this.kid, encryptionForGetExecutionOutput.kid) &&
+        Objects.equals(this.type, encryptionForGetExecutionOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kid);
+    return Objects.hash(host, kid, type);
   }
 
 
@@ -75,7 +162,9 @@ public class EncryptionForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptionForGetExecutionOutput {\n");
     
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    kid: ").append(toIndentedString(kid)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

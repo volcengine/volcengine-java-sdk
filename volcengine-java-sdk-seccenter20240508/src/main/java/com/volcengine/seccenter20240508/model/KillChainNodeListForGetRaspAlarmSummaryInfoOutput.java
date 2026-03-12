@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput;
 import com.volcengine.seccenter20240508.model.VirusHitDataListForGetRaspAlarmSummaryInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,11 +40,17 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
   @SerializedName("AdditionalActionsString")
   private String additionalActionsString = null;
 
+  @SerializedName("AnalysisRecordUUID")
+  private String analysisRecordUUID = null;
+
   @SerializedName("ArgsArray")
   private List<String> argsArray = null;
 
   @SerializedName("Argv")
   private String argv = null;
+
+  @SerializedName("BackendAlarmTags")
+  private List<String> backendAlarmTags = null;
 
   @SerializedName("BruteforceSip")
   private String bruteforceSip = null;
@@ -62,6 +69,9 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   @SerializedName("CommandLine")
   private String commandLine = null;
+
+  @SerializedName("Confidence")
+  private String confidence = null;
 
   @SerializedName("Configuration")
   private String _configuration = null;
@@ -114,6 +124,12 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
   @SerializedName("DstList")
   private String dstList = null;
 
+  @SerializedName("ElkeidSaveData")
+  private List<ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput> elkeidSaveData = null;
+
+  @SerializedName("EnHanced")
+  private String enHanced = null;
+
   @SerializedName("EventType")
   private String eventType = null;
 
@@ -134,6 +150,9 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   @SerializedName("FileDownloadable")
   private Boolean fileDownloadable = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
 
   @SerializedName("FilePath")
   private String filePath = null;
@@ -159,6 +178,15 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
   @SerializedName("HomeDirectory")
   private String homeDirectory = null;
 
+  @SerializedName("IPIntelligence")
+  private String ipIntelligence = null;
+
+  @SerializedName("IPSource")
+  private String ipSource = null;
+
+  @SerializedName("IPSourceUs")
+  private String ipSourceUs = null;
+
   @SerializedName("Image")
   private String image = null;
 
@@ -183,11 +211,17 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IsInnerAccount")
+  private Boolean isInnerAccount = null;
+
   @SerializedName("KoFile")
   private String koFile = null;
 
   @SerializedName("LdPreload")
   private String ldPreload = null;
+
+  @SerializedName("LoginCount")
+  private String loginCount = null;
 
   @SerializedName("LogonType")
   private String logonType = null;
@@ -291,11 +325,20 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
   @SerializedName("QueryStatus")
   private String queryStatus = null;
 
+  @SerializedName("RootPns")
+  private String rootPns = null;
+
   @SerializedName("RunPath")
   private String runPath = null;
 
   @SerializedName("SamAccountName")
   private String samAccountName = null;
+
+  @SerializedName("SecurityIntelligenceComplete")
+  private Boolean securityIntelligenceComplete = null;
+
+  @SerializedName("SecurityIntelligenceResult")
+  private String securityIntelligenceResult = null;
 
   @SerializedName("ServiceAccount")
   private String serviceAccount = null;
@@ -480,6 +523,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     this.additionalActionsString = additionalActionsString;
   }
 
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput analysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
+    return this;
+  }
+
+   /**
+   * Get analysisRecordUUID
+   * @return analysisRecordUUID
+  **/
+  @Schema(description = "")
+  public String getAnalysisRecordUUID() {
+    return analysisRecordUUID;
+  }
+
+  public void setAnalysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
+  }
+
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput argsArray(List<String> argsArray) {
     this.argsArray = argsArray;
     return this;
@@ -522,6 +583,32 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   public void setArgv(String argv) {
     this.argv = argv;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput backendAlarmTags(List<String> backendAlarmTags) {
+    this.backendAlarmTags = backendAlarmTags;
+    return this;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput addBackendAlarmTagsItem(String backendAlarmTagsItem) {
+    if (this.backendAlarmTags == null) {
+      this.backendAlarmTags = new ArrayList<String>();
+    }
+    this.backendAlarmTags.add(backendAlarmTagsItem);
+    return this;
+  }
+
+   /**
+   * Get backendAlarmTags
+   * @return backendAlarmTags
+  **/
+  @Schema(description = "")
+  public List<String> getBackendAlarmTags() {
+    return backendAlarmTags;
+  }
+
+  public void setBackendAlarmTags(List<String> backendAlarmTags) {
+    this.backendAlarmTags = backendAlarmTags;
   }
 
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput bruteforceSip(String bruteforceSip) {
@@ -630,6 +717,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   public void setCommandLine(String commandLine) {
     this.commandLine = commandLine;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput confidence(String confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+   /**
+   * Get confidence
+   * @return confidence
+  **/
+  @Schema(description = "")
+  public String getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(String confidence) {
+    this.confidence = confidence;
   }
 
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput _configuration(String _configuration) {
@@ -938,6 +1043,51 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     this.dstList = dstList;
   }
 
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput elkeidSaveData(List<ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput> elkeidSaveData) {
+    this.elkeidSaveData = elkeidSaveData;
+    return this;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput addElkeidSaveDataItem(ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput elkeidSaveDataItem) {
+    if (this.elkeidSaveData == null) {
+      this.elkeidSaveData = new ArrayList<ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput>();
+    }
+    this.elkeidSaveData.add(elkeidSaveDataItem);
+    return this;
+  }
+
+   /**
+   * Get elkeidSaveData
+   * @return elkeidSaveData
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput> getElkeidSaveData() {
+    return elkeidSaveData;
+  }
+
+  public void setElkeidSaveData(List<ElkeidSaveDataForGetRaspAlarmSummaryInfoOutput> elkeidSaveData) {
+    this.elkeidSaveData = elkeidSaveData;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput enHanced(String enHanced) {
+    this.enHanced = enHanced;
+    return this;
+  }
+
+   /**
+   * Get enHanced
+   * @return enHanced
+  **/
+  @Schema(description = "")
+  public String getEnHanced() {
+    return enHanced;
+  }
+
+  public void setEnHanced(String enHanced) {
+    this.enHanced = enHanced;
+  }
+
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput eventType(String eventType) {
     this.eventType = eventType;
     return this;
@@ -1062,6 +1212,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   public void setFileDownloadable(Boolean fileDownloadable) {
     this.fileDownloadable = fileDownloadable;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput filePath(String filePath) {
@@ -1216,6 +1384,60 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     this.homeDirectory = homeDirectory;
   }
 
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput ipIntelligence(String ipIntelligence) {
+    this.ipIntelligence = ipIntelligence;
+    return this;
+  }
+
+   /**
+   * Get ipIntelligence
+   * @return ipIntelligence
+  **/
+  @Schema(description = "")
+  public String getIpIntelligence() {
+    return ipIntelligence;
+  }
+
+  public void setIpIntelligence(String ipIntelligence) {
+    this.ipIntelligence = ipIntelligence;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput ipSource(String ipSource) {
+    this.ipSource = ipSource;
+    return this;
+  }
+
+   /**
+   * Get ipSource
+   * @return ipSource
+  **/
+  @Schema(description = "")
+  public String getIpSource() {
+    return ipSource;
+  }
+
+  public void setIpSource(String ipSource) {
+    this.ipSource = ipSource;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput ipSourceUs(String ipSourceUs) {
+    this.ipSourceUs = ipSourceUs;
+    return this;
+  }
+
+   /**
+   * Get ipSourceUs
+   * @return ipSourceUs
+  **/
+  @Schema(description = "")
+  public String getIpSourceUs() {
+    return ipSourceUs;
+  }
+
+  public void setIpSourceUs(String ipSourceUs) {
+    this.ipSourceUs = ipSourceUs;
+  }
+
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput image(String image) {
     this.image = image;
     return this;
@@ -1360,6 +1582,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     this.ipAddress = ipAddress;
   }
 
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput isInnerAccount(Boolean isInnerAccount) {
+    this.isInnerAccount = isInnerAccount;
+    return this;
+  }
+
+   /**
+   * Get isInnerAccount
+   * @return isInnerAccount
+  **/
+  @Schema(description = "")
+  public Boolean isIsInnerAccount() {
+    return isInnerAccount;
+  }
+
+  public void setIsInnerAccount(Boolean isInnerAccount) {
+    this.isInnerAccount = isInnerAccount;
+  }
+
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput koFile(String koFile) {
     this.koFile = koFile;
     return this;
@@ -1394,6 +1634,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   public void setLdPreload(String ldPreload) {
     this.ldPreload = ldPreload;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput loginCount(String loginCount) {
+    this.loginCount = loginCount;
+    return this;
+  }
+
+   /**
+   * Get loginCount
+   * @return loginCount
+  **/
+  @Schema(description = "")
+  public String getLoginCount() {
+    return loginCount;
+  }
+
+  public void setLoginCount(String loginCount) {
+    this.loginCount = loginCount;
   }
 
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput logonType(String logonType) {
@@ -2008,6 +2266,24 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     this.queryStatus = queryStatus;
   }
 
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput rootPns(String rootPns) {
+    this.rootPns = rootPns;
+    return this;
+  }
+
+   /**
+   * Get rootPns
+   * @return rootPns
+  **/
+  @Schema(description = "")
+  public String getRootPns() {
+    return rootPns;
+  }
+
+  public void setRootPns(String rootPns) {
+    this.rootPns = rootPns;
+  }
+
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput runPath(String runPath) {
     this.runPath = runPath;
     return this;
@@ -2042,6 +2318,42 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   public void setSamAccountName(String samAccountName) {
     this.samAccountName = samAccountName;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput securityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceComplete
+   * @return securityIntelligenceComplete
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityIntelligenceComplete() {
+    return securityIntelligenceComplete;
+  }
+
+  public void setSecurityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+  }
+
+  public KillChainNodeListForGetRaspAlarmSummaryInfoOutput securityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceResult
+   * @return securityIntelligenceResult
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceResult() {
+    return securityIntelligenceResult;
+  }
+
+  public void setSecurityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
   }
 
   public KillChainNodeListForGetRaspAlarmSummaryInfoOutput serviceAccount(String serviceAccount) {
@@ -2947,14 +3259,17 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     KillChainNodeListForGetRaspAlarmSummaryInfoOutput killChainNodeListForGetRaspAlarmSummaryInfoOutput = (KillChainNodeListForGetRaspAlarmSummaryInfoOutput) o;
     return Objects.equals(this.accountExpires, killChainNodeListForGetRaspAlarmSummaryInfoOutput.accountExpires) &&
         Objects.equals(this.additionalActionsString, killChainNodeListForGetRaspAlarmSummaryInfoOutput.additionalActionsString) &&
+        Objects.equals(this.analysisRecordUUID, killChainNodeListForGetRaspAlarmSummaryInfoOutput.analysisRecordUUID) &&
         Objects.equals(this.argsArray, killChainNodeListForGetRaspAlarmSummaryInfoOutput.argsArray) &&
         Objects.equals(this.argv, killChainNodeListForGetRaspAlarmSummaryInfoOutput.argv) &&
+        Objects.equals(this.backendAlarmTags, killChainNodeListForGetRaspAlarmSummaryInfoOutput.backendAlarmTags) &&
         Objects.equals(this.bruteforceSip, killChainNodeListForGetRaspAlarmSummaryInfoOutput.bruteforceSip) &&
         Objects.equals(this.categoryName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.categoryName) &&
         Objects.equals(this.propertyClass, killChainNodeListForGetRaspAlarmSummaryInfoOutput.propertyClass) &&
         Objects.equals(this.cmd, killChainNodeListForGetRaspAlarmSummaryInfoOutput.cmd) &&
         Objects.equals(this.comm, killChainNodeListForGetRaspAlarmSummaryInfoOutput.comm) &&
         Objects.equals(this.commandLine, killChainNodeListForGetRaspAlarmSummaryInfoOutput.commandLine) &&
+        Objects.equals(this.confidence, killChainNodeListForGetRaspAlarmSummaryInfoOutput.confidence) &&
         Objects.equals(this._configuration, killChainNodeListForGetRaspAlarmSummaryInfoOutput._configuration) &&
         Objects.equals(this.configurationFileHash, killChainNodeListForGetRaspAlarmSummaryInfoOutput.configurationFileHash) &&
         Objects.equals(this.connectInfo, killChainNodeListForGetRaspAlarmSummaryInfoOutput.connectInfo) &&
@@ -2972,6 +3287,8 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
         Objects.equals(this.dip, killChainNodeListForGetRaspAlarmSummaryInfoOutput.dip) &&
         Objects.equals(this.dport, killChainNodeListForGetRaspAlarmSummaryInfoOutput.dport) &&
         Objects.equals(this.dstList, killChainNodeListForGetRaspAlarmSummaryInfoOutput.dstList) &&
+        Objects.equals(this.elkeidSaveData, killChainNodeListForGetRaspAlarmSummaryInfoOutput.elkeidSaveData) &&
+        Objects.equals(this.enHanced, killChainNodeListForGetRaspAlarmSummaryInfoOutput.enHanced) &&
         Objects.equals(this.eventType, killChainNodeListForGetRaspAlarmSummaryInfoOutput.eventType) &&
         Objects.equals(this.exe, killChainNodeListForGetRaspAlarmSummaryInfoOutput.exe) &&
         Objects.equals(this.exeHash, killChainNodeListForGetRaspAlarmSummaryInfoOutput.exeHash) &&
@@ -2979,6 +3296,7 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
         Objects.equals(this.failureReason, killChainNodeListForGetRaspAlarmSummaryInfoOutput.failureReason) &&
         Objects.equals(this.fdName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.fdName) &&
         Objects.equals(this.fileDownloadable, killChainNodeListForGetRaspAlarmSummaryInfoOutput.fileDownloadable) &&
+        Objects.equals(this.fileName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.fileName) &&
         Objects.equals(this.filePath, killChainNodeListForGetRaspAlarmSummaryInfoOutput.filePath) &&
         Objects.equals(this.flags, killChainNodeListForGetRaspAlarmSummaryInfoOutput.flags) &&
         Objects.equals(this.hash, killChainNodeListForGetRaspAlarmSummaryInfoOutput.hash) &&
@@ -2987,6 +3305,9 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
         Objects.equals(this.hitArgvList, killChainNodeListForGetRaspAlarmSummaryInfoOutput.hitArgvList) &&
         Objects.equals(this.hitData, killChainNodeListForGetRaspAlarmSummaryInfoOutput.hitData) &&
         Objects.equals(this.homeDirectory, killChainNodeListForGetRaspAlarmSummaryInfoOutput.homeDirectory) &&
+        Objects.equals(this.ipIntelligence, killChainNodeListForGetRaspAlarmSummaryInfoOutput.ipIntelligence) &&
+        Objects.equals(this.ipSource, killChainNodeListForGetRaspAlarmSummaryInfoOutput.ipSource) &&
+        Objects.equals(this.ipSourceUs, killChainNodeListForGetRaspAlarmSummaryInfoOutput.ipSourceUs) &&
         Objects.equals(this.image, killChainNodeListForGetRaspAlarmSummaryInfoOutput.image) &&
         Objects.equals(this.imageLoaded, killChainNodeListForGetRaspAlarmSummaryInfoOutput.imageLoaded) &&
         Objects.equals(this.interruptNumber, killChainNodeListForGetRaspAlarmSummaryInfoOutput.interruptNumber) &&
@@ -2995,8 +3316,10 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
         Objects.equals(this.iocSeverity, killChainNodeListForGetRaspAlarmSummaryInfoOutput.iocSeverity) &&
         Objects.equals(this.iocSource, killChainNodeListForGetRaspAlarmSummaryInfoOutput.iocSource) &&
         Objects.equals(this.ipAddress, killChainNodeListForGetRaspAlarmSummaryInfoOutput.ipAddress) &&
+        Objects.equals(this.isInnerAccount, killChainNodeListForGetRaspAlarmSummaryInfoOutput.isInnerAccount) &&
         Objects.equals(this.koFile, killChainNodeListForGetRaspAlarmSummaryInfoOutput.koFile) &&
         Objects.equals(this.ldPreload, killChainNodeListForGetRaspAlarmSummaryInfoOutput.ldPreload) &&
+        Objects.equals(this.loginCount, killChainNodeListForGetRaspAlarmSummaryInfoOutput.loginCount) &&
         Objects.equals(this.logonType, killChainNodeListForGetRaspAlarmSummaryInfoOutput.logonType) &&
         Objects.equals(this.md5Hash, killChainNodeListForGetRaspAlarmSummaryInfoOutput.md5Hash) &&
         Objects.equals(this.modInfo, killChainNodeListForGetRaspAlarmSummaryInfoOutput.modInfo) &&
@@ -3031,8 +3354,11 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
         Objects.equals(this.queryName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.queryName) &&
         Objects.equals(this.queryResults, killChainNodeListForGetRaspAlarmSummaryInfoOutput.queryResults) &&
         Objects.equals(this.queryStatus, killChainNodeListForGetRaspAlarmSummaryInfoOutput.queryStatus) &&
+        Objects.equals(this.rootPns, killChainNodeListForGetRaspAlarmSummaryInfoOutput.rootPns) &&
         Objects.equals(this.runPath, killChainNodeListForGetRaspAlarmSummaryInfoOutput.runPath) &&
         Objects.equals(this.samAccountName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.samAccountName) &&
+        Objects.equals(this.securityIntelligenceComplete, killChainNodeListForGetRaspAlarmSummaryInfoOutput.securityIntelligenceComplete) &&
+        Objects.equals(this.securityIntelligenceResult, killChainNodeListForGetRaspAlarmSummaryInfoOutput.securityIntelligenceResult) &&
         Objects.equals(this.serviceAccount, killChainNodeListForGetRaspAlarmSummaryInfoOutput.serviceAccount) &&
         Objects.equals(this.serviceFileName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.serviceFileName) &&
         Objects.equals(this.serviceName, killChainNodeListForGetRaspAlarmSummaryInfoOutput.serviceName) &&
@@ -3086,7 +3412,7 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountExpires, additionalActionsString, argsArray, argv, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, koFile, ldPreload, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, runPath, samAccountName, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
+    return Objects.hash(accountExpires, additionalActionsString, analysisRecordUUID, argsArray, argv, backendAlarmTags, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, confidence, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, elkeidSaveData, enHanced, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, fileName, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, ipIntelligence, ipSource, ipSourceUs, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, isInnerAccount, koFile, ldPreload, loginCount, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, rootPns, runPath, samAccountName, securityIntelligenceComplete, securityIntelligenceResult, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
   }
 
 
@@ -3097,14 +3423,17 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     
     sb.append("    accountExpires: ").append(toIndentedString(accountExpires)).append("\n");
     sb.append("    additionalActionsString: ").append(toIndentedString(additionalActionsString)).append("\n");
+    sb.append("    analysisRecordUUID: ").append(toIndentedString(analysisRecordUUID)).append("\n");
     sb.append("    argsArray: ").append(toIndentedString(argsArray)).append("\n");
     sb.append("    argv: ").append(toIndentedString(argv)).append("\n");
+    sb.append("    backendAlarmTags: ").append(toIndentedString(backendAlarmTags)).append("\n");
     sb.append("    bruteforceSip: ").append(toIndentedString(bruteforceSip)).append("\n");
     sb.append("    categoryName: ").append(toIndentedString(categoryName)).append("\n");
     sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
     sb.append("    cmd: ").append(toIndentedString(cmd)).append("\n");
     sb.append("    comm: ").append(toIndentedString(comm)).append("\n");
     sb.append("    commandLine: ").append(toIndentedString(commandLine)).append("\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    configurationFileHash: ").append(toIndentedString(configurationFileHash)).append("\n");
     sb.append("    connectInfo: ").append(toIndentedString(connectInfo)).append("\n");
@@ -3122,6 +3451,8 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     sb.append("    dip: ").append(toIndentedString(dip)).append("\n");
     sb.append("    dport: ").append(toIndentedString(dport)).append("\n");
     sb.append("    dstList: ").append(toIndentedString(dstList)).append("\n");
+    sb.append("    elkeidSaveData: ").append(toIndentedString(elkeidSaveData)).append("\n");
+    sb.append("    enHanced: ").append(toIndentedString(enHanced)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    exe: ").append(toIndentedString(exe)).append("\n");
     sb.append("    exeHash: ").append(toIndentedString(exeHash)).append("\n");
@@ -3129,6 +3460,7 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    fdName: ").append(toIndentedString(fdName)).append("\n");
     sb.append("    fileDownloadable: ").append(toIndentedString(fileDownloadable)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
@@ -3137,6 +3469,9 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     sb.append("    hitArgvList: ").append(toIndentedString(hitArgvList)).append("\n");
     sb.append("    hitData: ").append(toIndentedString(hitData)).append("\n");
     sb.append("    homeDirectory: ").append(toIndentedString(homeDirectory)).append("\n");
+    sb.append("    ipIntelligence: ").append(toIndentedString(ipIntelligence)).append("\n");
+    sb.append("    ipSource: ").append(toIndentedString(ipSource)).append("\n");
+    sb.append("    ipSourceUs: ").append(toIndentedString(ipSourceUs)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageLoaded: ").append(toIndentedString(imageLoaded)).append("\n");
     sb.append("    interruptNumber: ").append(toIndentedString(interruptNumber)).append("\n");
@@ -3145,8 +3480,10 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     sb.append("    iocSeverity: ").append(toIndentedString(iocSeverity)).append("\n");
     sb.append("    iocSource: ").append(toIndentedString(iocSource)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    isInnerAccount: ").append(toIndentedString(isInnerAccount)).append("\n");
     sb.append("    koFile: ").append(toIndentedString(koFile)).append("\n");
     sb.append("    ldPreload: ").append(toIndentedString(ldPreload)).append("\n");
+    sb.append("    loginCount: ").append(toIndentedString(loginCount)).append("\n");
     sb.append("    logonType: ").append(toIndentedString(logonType)).append("\n");
     sb.append("    md5Hash: ").append(toIndentedString(md5Hash)).append("\n");
     sb.append("    modInfo: ").append(toIndentedString(modInfo)).append("\n");
@@ -3181,8 +3518,11 @@ public class KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
     sb.append("    queryName: ").append(toIndentedString(queryName)).append("\n");
     sb.append("    queryResults: ").append(toIndentedString(queryResults)).append("\n");
     sb.append("    queryStatus: ").append(toIndentedString(queryStatus)).append("\n");
+    sb.append("    rootPns: ").append(toIndentedString(rootPns)).append("\n");
     sb.append("    runPath: ").append(toIndentedString(runPath)).append("\n");
     sb.append("    samAccountName: ").append(toIndentedString(samAccountName)).append("\n");
+    sb.append("    securityIntelligenceComplete: ").append(toIndentedString(securityIntelligenceComplete)).append("\n");
+    sb.append("    securityIntelligenceResult: ").append(toIndentedString(securityIntelligenceResult)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    serviceFileName: ").append(toIndentedString(serviceFileName)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");

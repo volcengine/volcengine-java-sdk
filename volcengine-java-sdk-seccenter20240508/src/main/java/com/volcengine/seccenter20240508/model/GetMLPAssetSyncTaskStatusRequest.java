@@ -42,8 +42,7 @@ public class GetMLPAssetSyncTaskStatusRequest {
    * Get assetType
    * @return assetType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAssetType() {
     return assetType;
   }

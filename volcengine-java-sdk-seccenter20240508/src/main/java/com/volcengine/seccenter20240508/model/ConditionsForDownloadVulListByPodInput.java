@@ -41,6 +41,9 @@ public class ConditionsForDownloadVulListByPodInput {
   @SerializedName("IfHighAvailability")
   private Boolean ifHighAvailability = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -116,6 +119,24 @@ public class ConditionsForDownloadVulListByPodInput {
 
   public void setIfHighAvailability(Boolean ifHighAvailability) {
     this.ifHighAvailability = ifHighAvailability;
+  }
+
+  public ConditionsForDownloadVulListByPodInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public ConditionsForDownloadVulListByPodInput leafGroupIDs(List<String> leafGroupIDs) {
@@ -245,6 +266,7 @@ public class ConditionsForDownloadVulListByPodInput {
     return Objects.equals(this.cloudProviders, conditionsForDownloadVulListByPodInput.cloudProviders) &&
         Objects.equals(this.cveID, conditionsForDownloadVulListByPodInput.cveID) &&
         Objects.equals(this.ifHighAvailability, conditionsForDownloadVulListByPodInput.ifHighAvailability) &&
+        Objects.equals(this.isRealRiskVul, conditionsForDownloadVulListByPodInput.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, conditionsForDownloadVulListByPodInput.leafGroupIDs) &&
         Objects.equals(this.level, conditionsForDownloadVulListByPodInput.level) &&
         Objects.equals(this.tag, conditionsForDownloadVulListByPodInput.tag) &&
@@ -254,7 +276,7 @@ public class ConditionsForDownloadVulListByPodInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudProviders, cveID, ifHighAvailability, leafGroupIDs, level, tag, topGroupID, vulnName);
+    return Objects.hash(cloudProviders, cveID, ifHighAvailability, isRealRiskVul, leafGroupIDs, level, tag, topGroupID, vulnName);
   }
 
 
@@ -266,6 +288,7 @@ public class ConditionsForDownloadVulListByPodInput {
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    ifHighAvailability: ").append(toIndentedString(ifHighAvailability)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");

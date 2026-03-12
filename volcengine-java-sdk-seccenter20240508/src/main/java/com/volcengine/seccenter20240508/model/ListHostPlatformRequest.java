@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ListHostPlatformRequest {
+  @SerializedName("Os")
+  private String os = null;
+
   @SerializedName("TopGroupID")
   private String topGroupID = null;
+
+  public ListHostPlatformRequest os(String os) {
+    this.os = os;
+    return this;
+  }
+
+   /**
+   * Get os
+   * @return os
+  **/
+  @Schema(description = "")
+  public String getOs() {
+    return os;
+  }
+
+  public void setOs(String os) {
+    this.os = os;
+  }
 
   public ListHostPlatformRequest topGroupID(String topGroupID) {
     this.topGroupID = topGroupID;
@@ -61,12 +82,13 @@ public class ListHostPlatformRequest {
       return false;
     }
     ListHostPlatformRequest listHostPlatformRequest = (ListHostPlatformRequest) o;
-    return Objects.equals(this.topGroupID, listHostPlatformRequest.topGroupID);
+    return Objects.equals(this.os, listHostPlatformRequest.os) &&
+        Objects.equals(this.topGroupID, listHostPlatformRequest.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(topGroupID);
+    return Objects.hash(os, topGroupID);
   }
 
 
@@ -75,6 +97,7 @@ public class ListHostPlatformRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListHostPlatformRequest {\n");
     
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");
     return sb.toString();

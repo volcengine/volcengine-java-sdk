@@ -54,7 +54,7 @@ public class ConditionsForExportBaselineHostDetailsInput {
   private List<String> leafGroupIDs = null;
 
   @SerializedName("Tag")
-  private String tag = null;
+  private List<String> tag = null;
 
   @SerializedName("TopGroupID")
   private String topGroupID = null;
@@ -201,8 +201,16 @@ public class ConditionsForExportBaselineHostDetailsInput {
     this.leafGroupIDs = leafGroupIDs;
   }
 
-  public ConditionsForExportBaselineHostDetailsInput tag(String tag) {
+  public ConditionsForExportBaselineHostDetailsInput tag(List<String> tag) {
     this.tag = tag;
+    return this;
+  }
+
+  public ConditionsForExportBaselineHostDetailsInput addTagItem(String tagItem) {
+    if (this.tag == null) {
+      this.tag = new ArrayList<String>();
+    }
+    this.tag.add(tagItem);
     return this;
   }
 
@@ -211,11 +219,11 @@ public class ConditionsForExportBaselineHostDetailsInput {
    * @return tag
   **/
   @Schema(description = "")
-  public String getTag() {
+  public List<String> getTag() {
     return tag;
   }
 
-  public void setTag(String tag) {
+  public void setTag(List<String> tag) {
     this.tag = tag;
   }
 

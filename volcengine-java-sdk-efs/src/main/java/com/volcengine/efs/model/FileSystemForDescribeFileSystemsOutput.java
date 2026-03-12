@@ -160,54 +160,6 @@ public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  /**
-   * Gets or Sets protocolTypes
-   */
-  @JsonAdapter(ProtocolTypesEnum.Adapter.class)
-  public enum ProtocolTypesEnum {
-    @SerializedName("NFS")
-    NFS("NFS"),
-    @SerializedName("SMB")
-    SMB("SMB"),
-    @SerializedName("FSX")
-    FSX("FSX");
-
-    private String value;
-
-    ProtocolTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ProtocolTypesEnum fromValue(String input) {
-      for (ProtocolTypesEnum b : ProtocolTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ProtocolTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ProtocolTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ProtocolTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ProtocolTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ProtocolTypes")
-  private List<ProtocolTypesEnum> protocolTypes = null;
-
   @SerializedName("Status")
   private String status = null;
 
@@ -444,32 +396,6 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.projectName = projectName;
   }
 
-  public FileSystemForDescribeFileSystemsOutput protocolTypes(List<ProtocolTypesEnum> protocolTypes) {
-    this.protocolTypes = protocolTypes;
-    return this;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput addProtocolTypesItem(ProtocolTypesEnum protocolTypesItem) {
-    if (this.protocolTypes == null) {
-      this.protocolTypes = new ArrayList<ProtocolTypesEnum>();
-    }
-    this.protocolTypes.add(protocolTypesItem);
-    return this;
-  }
-
-   /**
-   * Get protocolTypes
-   * @return protocolTypes
-  **/
-  @Schema(description = "")
-  public List<ProtocolTypesEnum> getProtocolTypes() {
-    return protocolTypes;
-  }
-
-  public void setProtocolTypes(List<ProtocolTypesEnum> protocolTypes) {
-    this.protocolTypes = protocolTypes;
-  }
-
   public FileSystemForDescribeFileSystemsOutput status(String status) {
     this.status = status;
     return this;
@@ -610,7 +536,6 @@ public class FileSystemForDescribeFileSystemsOutput {
         Objects.equals(this.performance, fileSystemForDescribeFileSystemsOutput.performance) &&
         Objects.equals(this.performanceDensity, fileSystemForDescribeFileSystemsOutput.performanceDensity) &&
         Objects.equals(this.projectName, fileSystemForDescribeFileSystemsOutput.projectName) &&
-        Objects.equals(this.protocolTypes, fileSystemForDescribeFileSystemsOutput.protocolTypes) &&
         Objects.equals(this.status, fileSystemForDescribeFileSystemsOutput.status) &&
         Objects.equals(this.storage, fileSystemForDescribeFileSystemsOutput.storage) &&
         Objects.equals(this.tags, fileSystemForDescribeFileSystemsOutput.tags) &&
@@ -621,7 +546,7 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPointLimit, chargeConfig, createTime, description, downgradeUnlockTime, fileSystemId, fileSystemName, instanceType, mountPointLimit, performance, performanceDensity, projectName, protocolTypes, status, storage, tags, updateTime, zoneId, zoneName);
+    return Objects.hash(accessPointLimit, chargeConfig, createTime, description, downgradeUnlockTime, fileSystemId, fileSystemName, instanceType, mountPointLimit, performance, performanceDensity, projectName, status, storage, tags, updateTime, zoneId, zoneName);
   }
 
 
@@ -642,7 +567,6 @@ public class FileSystemForDescribeFileSystemsOutput {
     sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
     sb.append("    performanceDensity: ").append(toIndentedString(performanceDensity)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    protocolTypes: ").append(toIndentedString(protocolTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

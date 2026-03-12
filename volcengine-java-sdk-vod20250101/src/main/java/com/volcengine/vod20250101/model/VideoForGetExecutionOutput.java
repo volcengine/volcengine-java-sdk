@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ConvertBitrateControlForGetExecutionOutput;
+import com.volcengine.vod20250101.model.FpsControlForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ScaleControlForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,67 +33,178 @@ import javax.validation.Valid;
 
 
 public class VideoForGetExecutionOutput {
-  @SerializedName("FileName")
-  private String fileName = null;
+  @SerializedName("BitDepth")
+  private Integer bitDepth = null;
 
-  @SerializedName("Size")
-  private String size = null;
+  @SerializedName("BitrateControl")
+  private ConvertBitrateControlForGetExecutionOutput bitrateControl = null;
 
-  @SerializedName("Vid")
-  private String vid = null;
+  /**
+   * Gets or Sets codec
+   */
+  @JsonAdapter(CodecEnum.Adapter.class)
+  public enum CodecEnum {
+    @SerializedName("h264")
+    H264("h264"),
+    @SerializedName("h265")
+    H265("h265"),
+    @SerializedName("h266")
+    H266("h266");
 
-  public VideoForGetExecutionOutput fileName(String fileName) {
-    this.fileName = fileName;
+    private String value;
+
+    CodecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static CodecEnum fromValue(String input) {
+      for (CodecEnum b : CodecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<CodecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CodecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public CodecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return CodecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Codec")
+  private CodecEnum codec = null;
+
+  @SerializedName("FpsControl")
+  private FpsControlForGetExecutionOutput fpsControl = null;
+
+  @SerializedName("HDRMode")
+  private Integer hdRMode = null;
+
+  @SerializedName("ScaleControl")
+  private ScaleControlForGetExecutionOutput scaleControl = null;
+
+  public VideoForGetExecutionOutput bitDepth(Integer bitDepth) {
+    this.bitDepth = bitDepth;
     return this;
   }
 
    /**
-   * Get fileName
-   * @return fileName
+   * Get bitDepth
+   * @return bitDepth
   **/
   @Schema(description = "")
-  public String getFileName() {
-    return fileName;
+  public Integer getBitDepth() {
+    return bitDepth;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
+  public void setBitDepth(Integer bitDepth) {
+    this.bitDepth = bitDepth;
   }
 
-  public VideoForGetExecutionOutput size(String size) {
-    this.size = size;
+  public VideoForGetExecutionOutput bitrateControl(ConvertBitrateControlForGetExecutionOutput bitrateControl) {
+    this.bitrateControl = bitrateControl;
     return this;
   }
 
    /**
-   * Get size
-   * @return size
+   * Get bitrateControl
+   * @return bitrateControl
   **/
+  @Valid
   @Schema(description = "")
-  public String getSize() {
-    return size;
+  public ConvertBitrateControlForGetExecutionOutput getBitrateControl() {
+    return bitrateControl;
   }
 
-  public void setSize(String size) {
-    this.size = size;
+  public void setBitrateControl(ConvertBitrateControlForGetExecutionOutput bitrateControl) {
+    this.bitrateControl = bitrateControl;
   }
 
-  public VideoForGetExecutionOutput vid(String vid) {
-    this.vid = vid;
+  public VideoForGetExecutionOutput codec(CodecEnum codec) {
+    this.codec = codec;
     return this;
   }
 
    /**
-   * Get vid
-   * @return vid
+   * Get codec
+   * @return codec
   **/
   @Schema(description = "")
-  public String getVid() {
-    return vid;
+  public CodecEnum getCodec() {
+    return codec;
   }
 
-  public void setVid(String vid) {
-    this.vid = vid;
+  public void setCodec(CodecEnum codec) {
+    this.codec = codec;
+  }
+
+  public VideoForGetExecutionOutput fpsControl(FpsControlForGetExecutionOutput fpsControl) {
+    this.fpsControl = fpsControl;
+    return this;
+  }
+
+   /**
+   * Get fpsControl
+   * @return fpsControl
+  **/
+  @Valid
+  @Schema(description = "")
+  public FpsControlForGetExecutionOutput getFpsControl() {
+    return fpsControl;
+  }
+
+  public void setFpsControl(FpsControlForGetExecutionOutput fpsControl) {
+    this.fpsControl = fpsControl;
+  }
+
+  public VideoForGetExecutionOutput hdRMode(Integer hdRMode) {
+    this.hdRMode = hdRMode;
+    return this;
+  }
+
+   /**
+   * Get hdRMode
+   * @return hdRMode
+  **/
+  @Schema(description = "")
+  public Integer getHdRMode() {
+    return hdRMode;
+  }
+
+  public void setHdRMode(Integer hdRMode) {
+    this.hdRMode = hdRMode;
+  }
+
+  public VideoForGetExecutionOutput scaleControl(ScaleControlForGetExecutionOutput scaleControl) {
+    this.scaleControl = scaleControl;
+    return this;
+  }
+
+   /**
+   * Get scaleControl
+   * @return scaleControl
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScaleControlForGetExecutionOutput getScaleControl() {
+    return scaleControl;
+  }
+
+  public void setScaleControl(ScaleControlForGetExecutionOutput scaleControl) {
+    this.scaleControl = scaleControl;
   }
 
 
@@ -103,14 +217,17 @@ public class VideoForGetExecutionOutput {
       return false;
     }
     VideoForGetExecutionOutput videoForGetExecutionOutput = (VideoForGetExecutionOutput) o;
-    return Objects.equals(this.fileName, videoForGetExecutionOutput.fileName) &&
-        Objects.equals(this.size, videoForGetExecutionOutput.size) &&
-        Objects.equals(this.vid, videoForGetExecutionOutput.vid);
+    return Objects.equals(this.bitDepth, videoForGetExecutionOutput.bitDepth) &&
+        Objects.equals(this.bitrateControl, videoForGetExecutionOutput.bitrateControl) &&
+        Objects.equals(this.codec, videoForGetExecutionOutput.codec) &&
+        Objects.equals(this.fpsControl, videoForGetExecutionOutput.fpsControl) &&
+        Objects.equals(this.hdRMode, videoForGetExecutionOutput.hdRMode) &&
+        Objects.equals(this.scaleControl, videoForGetExecutionOutput.scaleControl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName, size, vid);
+    return Objects.hash(bitDepth, bitrateControl, codec, fpsControl, hdRMode, scaleControl);
   }
 
 
@@ -119,9 +236,12 @@ public class VideoForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoForGetExecutionOutput {\n");
     
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
+    sb.append("    bitDepth: ").append(toIndentedString(bitDepth)).append("\n");
+    sb.append("    bitrateControl: ").append(toIndentedString(bitrateControl)).append("\n");
+    sb.append("    codec: ").append(toIndentedString(codec)).append("\n");
+    sb.append("    fpsControl: ").append(toIndentedString(fpsControl)).append("\n");
+    sb.append("    hdRMode: ").append(toIndentedString(hdRMode)).append("\n");
+    sb.append("    scaleControl: ").append(toIndentedString(scaleControl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

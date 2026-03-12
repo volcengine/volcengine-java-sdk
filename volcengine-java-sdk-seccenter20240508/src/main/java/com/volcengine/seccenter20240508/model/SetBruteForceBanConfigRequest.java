@@ -72,6 +72,12 @@ public class SetBruteForceBanConfigRequest {
   @SerializedName("RuleList")
   private List<RuleListForSetBruteForceBanConfigInput> ruleList = null;
 
+  @SerializedName("SingleGroupPath")
+  private String singleGroupPath = null;
+
+  @SerializedName("SingleHostname")
+  private String singleHostname = null;
+
   @SerializedName("TopGroupID")
   private String topGroupID = null;
 
@@ -358,6 +364,42 @@ public class SetBruteForceBanConfigRequest {
     this.ruleList = ruleList;
   }
 
+  public SetBruteForceBanConfigRequest singleGroupPath(String singleGroupPath) {
+    this.singleGroupPath = singleGroupPath;
+    return this;
+  }
+
+   /**
+   * Get singleGroupPath
+   * @return singleGroupPath
+  **/
+  @Schema(description = "")
+  public String getSingleGroupPath() {
+    return singleGroupPath;
+  }
+
+  public void setSingleGroupPath(String singleGroupPath) {
+    this.singleGroupPath = singleGroupPath;
+  }
+
+  public SetBruteForceBanConfigRequest singleHostname(String singleHostname) {
+    this.singleHostname = singleHostname;
+    return this;
+  }
+
+   /**
+   * Get singleHostname
+   * @return singleHostname
+  **/
+  @Schema(description = "")
+  public String getSingleHostname() {
+    return singleHostname;
+  }
+
+  public void setSingleHostname(String singleHostname) {
+    this.singleHostname = singleHostname;
+  }
+
   public SetBruteForceBanConfigRequest topGroupID(String topGroupID) {
     this.topGroupID = topGroupID;
     return this;
@@ -399,12 +441,14 @@ public class SetBruteForceBanConfigRequest {
         Objects.equals(this.managerID, setBruteForceBanConfigRequest.managerID) &&
         Objects.equals(this.operator, setBruteForceBanConfigRequest.operator) &&
         Objects.equals(this.ruleList, setBruteForceBanConfigRequest.ruleList) &&
+        Objects.equals(this.singleGroupPath, setBruteForceBanConfigRequest.singleGroupPath) &&
+        Objects.equals(this.singleHostname, setBruteForceBanConfigRequest.singleHostname) &&
         Objects.equals(this.topGroupID, setBruteForceBanConfigRequest.topGroupID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, agentIDList, allHost, banScenes, banType, banTypeList, cloudProviders, enable, ID, leafGroupIDs, managerID, operator, ruleList, topGroupID);
+    return Objects.hash(accountID, agentIDList, allHost, banScenes, banType, banTypeList, cloudProviders, enable, ID, leafGroupIDs, managerID, operator, ruleList, singleGroupPath, singleHostname, topGroupID);
   }
 
 
@@ -426,6 +470,8 @@ public class SetBruteForceBanConfigRequest {
     sb.append("    managerID: ").append(toIndentedString(managerID)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    ruleList: ").append(toIndentedString(ruleList)).append("\n");
+    sb.append("    singleGroupPath: ").append(toIndentedString(singleGroupPath)).append("\n");
+    sb.append("    singleHostname: ").append(toIndentedString(singleHostname)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
     sb.append("}");
     return sb.toString();

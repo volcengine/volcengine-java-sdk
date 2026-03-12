@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ConvertMoeEnhanceForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,25 +31,88 @@ import javax.validation.Valid;
 
 
 public class ConvertEnhanceForStartExecutionInput {
-  @SerializedName("TemplateId")
-  private String templateId = null;
+  @SerializedName("MoeEnhance")
+  private ConvertMoeEnhanceForStartExecutionInput moeEnhance = null;
 
-  public ConvertEnhanceForStartExecutionInput templateId(String templateId) {
-    this.templateId = templateId;
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("Moe")
+    MOE("Moe");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
+
+  public ConvertEnhanceForStartExecutionInput moeEnhance(ConvertMoeEnhanceForStartExecutionInput moeEnhance) {
+    this.moeEnhance = moeEnhance;
     return this;
   }
 
    /**
-   * Get templateId
-   * @return templateId
+   * Get moeEnhance
+   * @return moeEnhance
   **/
+  @Valid
   @Schema(description = "")
-  public String getTemplateId() {
-    return templateId;
+  public ConvertMoeEnhanceForStartExecutionInput getMoeEnhance() {
+    return moeEnhance;
   }
 
-  public void setTemplateId(String templateId) {
-    this.templateId = templateId;
+  public void setMoeEnhance(ConvertMoeEnhanceForStartExecutionInput moeEnhance) {
+    this.moeEnhance = moeEnhance;
+  }
+
+  public ConvertEnhanceForStartExecutionInput type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -61,12 +125,13 @@ public class ConvertEnhanceForStartExecutionInput {
       return false;
     }
     ConvertEnhanceForStartExecutionInput convertEnhanceForStartExecutionInput = (ConvertEnhanceForStartExecutionInput) o;
-    return Objects.equals(this.templateId, convertEnhanceForStartExecutionInput.templateId);
+    return Objects.equals(this.moeEnhance, convertEnhanceForStartExecutionInput.moeEnhance) &&
+        Objects.equals(this.type, convertEnhanceForStartExecutionInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId);
+    return Objects.hash(moeEnhance, type);
   }
 
 
@@ -75,7 +140,8 @@ public class ConvertEnhanceForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertEnhanceForStartExecutionInput {\n");
     
-    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
+    sb.append("    moeEnhance: ").append(toIndentedString(moeEnhance)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

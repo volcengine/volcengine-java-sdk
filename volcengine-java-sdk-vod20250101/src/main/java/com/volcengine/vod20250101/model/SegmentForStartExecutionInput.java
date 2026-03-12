@@ -30,109 +30,67 @@ import javax.validation.Valid;
 
 
 public class SegmentForStartExecutionInput {
-  @SerializedName("ClipFade")
-  private Boolean clipFade = null;
+  @SerializedName("Duration")
+  private Integer duration = null;
 
-  @SerializedName("MaxDuration")
-  private Double maxDuration = null;
+  @SerializedName("Format")
+  private String format = null;
 
-  @SerializedName("MinDuration")
-  private Double minDuration = null;
+  @SerializedName("Type")
+  private String type = null;
 
-  @SerializedName("NoFile")
-  private Boolean noFile = null;
-
-  @SerializedName("Threshold")
-  private Double threshold = null;
-
-  public SegmentForStartExecutionInput clipFade(Boolean clipFade) {
-    this.clipFade = clipFade;
+  public SegmentForStartExecutionInput duration(Integer duration) {
+    this.duration = duration;
     return this;
   }
 
    /**
-   * Get clipFade
-   * @return clipFade
+   * Get duration
+   * @return duration
   **/
   @Schema(description = "")
-  public Boolean isClipFade() {
-    return clipFade;
+  public Integer getDuration() {
+    return duration;
   }
 
-  public void setClipFade(Boolean clipFade) {
-    this.clipFade = clipFade;
+  public void setDuration(Integer duration) {
+    this.duration = duration;
   }
 
-  public SegmentForStartExecutionInput maxDuration(Double maxDuration) {
-    this.maxDuration = maxDuration;
+  public SegmentForStartExecutionInput format(String format) {
+    this.format = format;
     return this;
   }
 
    /**
-   * Get maxDuration
-   * @return maxDuration
+   * Get format
+   * @return format
   **/
   @Schema(description = "")
-  public Double getMaxDuration() {
-    return maxDuration;
+  public String getFormat() {
+    return format;
   }
 
-  public void setMaxDuration(Double maxDuration) {
-    this.maxDuration = maxDuration;
+  public void setFormat(String format) {
+    this.format = format;
   }
 
-  public SegmentForStartExecutionInput minDuration(Double minDuration) {
-    this.minDuration = minDuration;
+  public SegmentForStartExecutionInput type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get minDuration
-   * @return minDuration
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public Double getMinDuration() {
-    return minDuration;
+  public String getType() {
+    return type;
   }
 
-  public void setMinDuration(Double minDuration) {
-    this.minDuration = minDuration;
-  }
-
-  public SegmentForStartExecutionInput noFile(Boolean noFile) {
-    this.noFile = noFile;
-    return this;
-  }
-
-   /**
-   * Get noFile
-   * @return noFile
-  **/
-  @Schema(description = "")
-  public Boolean isNoFile() {
-    return noFile;
-  }
-
-  public void setNoFile(Boolean noFile) {
-    this.noFile = noFile;
-  }
-
-  public SegmentForStartExecutionInput threshold(Double threshold) {
-    this.threshold = threshold;
-    return this;
-  }
-
-   /**
-   * Get threshold
-   * @return threshold
-  **/
-  @Schema(description = "")
-  public Double getThreshold() {
-    return threshold;
-  }
-
-  public void setThreshold(Double threshold) {
-    this.threshold = threshold;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -145,16 +103,14 @@ public class SegmentForStartExecutionInput {
       return false;
     }
     SegmentForStartExecutionInput segmentForStartExecutionInput = (SegmentForStartExecutionInput) o;
-    return Objects.equals(this.clipFade, segmentForStartExecutionInput.clipFade) &&
-        Objects.equals(this.maxDuration, segmentForStartExecutionInput.maxDuration) &&
-        Objects.equals(this.minDuration, segmentForStartExecutionInput.minDuration) &&
-        Objects.equals(this.noFile, segmentForStartExecutionInput.noFile) &&
-        Objects.equals(this.threshold, segmentForStartExecutionInput.threshold);
+    return Objects.equals(this.duration, segmentForStartExecutionInput.duration) &&
+        Objects.equals(this.format, segmentForStartExecutionInput.format) &&
+        Objects.equals(this.type, segmentForStartExecutionInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clipFade, maxDuration, minDuration, noFile, threshold);
+    return Objects.hash(duration, format, type);
   }
 
 
@@ -163,11 +119,9 @@ public class SegmentForStartExecutionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SegmentForStartExecutionInput {\n");
     
-    sb.append("    clipFade: ").append(toIndentedString(clipFade)).append("\n");
-    sb.append("    maxDuration: ").append(toIndentedString(maxDuration)).append("\n");
-    sb.append("    minDuration: ").append(toIndentedString(minDuration)).append("\n");
-    sb.append("    noFile: ").append(toIndentedString(noFile)).append("\n");
-    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

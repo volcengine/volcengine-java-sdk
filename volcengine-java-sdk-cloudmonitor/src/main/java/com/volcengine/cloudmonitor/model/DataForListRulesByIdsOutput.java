@@ -77,6 +77,9 @@ public class DataForListRulesByIdsOutput {
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
 
+  @SerializedName("EvaluationInterval")
+  private Integer evaluationInterval = null;
+
   @SerializedName("Id")
   private String id = null;
 
@@ -383,6 +386,24 @@ public class DataForListRulesByIdsOutput {
 
   public void setEvaluationCount(Integer evaluationCount) {
     this.evaluationCount = evaluationCount;
+  }
+
+  public DataForListRulesByIdsOutput evaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
+    return this;
+  }
+
+   /**
+   * Get evaluationInterval
+   * @return evaluationInterval
+  **/
+  @Schema(description = "")
+  public Integer getEvaluationInterval() {
+    return evaluationInterval;
+  }
+
+  public void setEvaluationInterval(Integer evaluationInterval) {
+    this.evaluationInterval = evaluationInterval;
   }
 
   public DataForListRulesByIdsOutput id(String id) {
@@ -857,6 +878,7 @@ public class DataForListRulesByIdsOutput {
         Objects.equals(this.effectStartAt, dataForListRulesByIdsOutput.effectStartAt) &&
         Objects.equals(this.enableState, dataForListRulesByIdsOutput.enableState) &&
         Objects.equals(this.evaluationCount, dataForListRulesByIdsOutput.evaluationCount) &&
+        Objects.equals(this.evaluationInterval, dataForListRulesByIdsOutput.evaluationInterval) &&
         Objects.equals(this.id, dataForListRulesByIdsOutput.id) &&
         Objects.equals(this.level, dataForListRulesByIdsOutput.level) &&
         Objects.equals(this.levelConditions, dataForListRulesByIdsOutput.levelConditions) &&
@@ -883,7 +905,7 @@ public class DataForListRulesByIdsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, projectName, recoveryNotify, regions, resourceType, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, evaluationInterval, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, notifyTemplates, objectGroupId, originalDimensions, projectName, recoveryNotify, regions, resourceType, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
   }
 
 
@@ -904,6 +926,7 @@ public class DataForListRulesByIdsOutput {
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
+    sb.append("    evaluationInterval: ").append(toIndentedString(evaluationInterval)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");

@@ -51,6 +51,9 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
   @SerializedName("ProtectionException")
   private Long protectionException = null;
 
+  @SerializedName("RealRiskVul")
+  private Long realRiskVul = null;
+
   @SerializedName("Risk")
   private Long risk = null;
 
@@ -192,6 +195,24 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
     this.protectionException = protectionException;
   }
 
+  public GetMultiLevelHostAssetOverviewResponse realRiskVul(Long realRiskVul) {
+    this.realRiskVul = realRiskVul;
+    return this;
+  }
+
+   /**
+   * Get realRiskVul
+   * @return realRiskVul
+  **/
+  @Schema(description = "")
+  public Long getRealRiskVul() {
+    return realRiskVul;
+  }
+
+  public void setRealRiskVul(Long realRiskVul) {
+    this.realRiskVul = realRiskVul;
+  }
+
   public GetMultiLevelHostAssetOverviewResponse risk(Long risk) {
     this.risk = risk;
     return this;
@@ -299,6 +320,7 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
         Objects.equals(this.offline, getMultiLevelHostAssetOverviewResponse.offline) &&
         Objects.equals(this.protecting, getMultiLevelHostAssetOverviewResponse.protecting) &&
         Objects.equals(this.protectionException, getMultiLevelHostAssetOverviewResponse.protectionException) &&
+        Objects.equals(this.realRiskVul, getMultiLevelHostAssetOverviewResponse.realRiskVul) &&
         Objects.equals(this.risk, getMultiLevelHostAssetOverviewResponse.risk) &&
         Objects.equals(this.unprotected, getMultiLevelHostAssetOverviewResponse.unprotected) &&
         Objects.equals(this.unprotectedCpu, getMultiLevelHostAssetOverviewResponse.unprotectedCpu) &&
@@ -308,7 +330,7 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarm, baseline, cpu, hostNum, offline, protecting, protectionException, risk, unprotected, unprotectedCpu, virus, vuln);
+    return Objects.hash(alarm, baseline, cpu, hostNum, offline, protecting, protectionException, realRiskVul, risk, unprotected, unprotectedCpu, virus, vuln);
   }
 
 
@@ -324,6 +346,7 @@ public class GetMultiLevelHostAssetOverviewResponse extends com.volcengine.model
     sb.append("    offline: ").append(toIndentedString(offline)).append("\n");
     sb.append("    protecting: ").append(toIndentedString(protecting)).append("\n");
     sb.append("    protectionException: ").append(toIndentedString(protectionException)).append("\n");
+    sb.append("    realRiskVul: ").append(toIndentedString(realRiskVul)).append("\n");
     sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
     sb.append("    unprotected: ").append(toIndentedString(unprotected)).append("\n");
     sb.append("    unprotectedCpu: ").append(toIndentedString(unprotectedCpu)).append("\n");

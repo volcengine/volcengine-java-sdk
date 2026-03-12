@@ -45,7 +45,8 @@ public class GetWhiteListFieldRequest {
    * Get alarmID
    * @return alarmID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAlarmID() {
     return alarmID;
   }

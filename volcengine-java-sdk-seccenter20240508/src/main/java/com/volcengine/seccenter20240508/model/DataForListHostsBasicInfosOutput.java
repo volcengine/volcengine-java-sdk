@@ -36,11 +36,17 @@ public class DataForListHostsBasicInfosOutput {
   @SerializedName("AbnormalPluginsList")
   private String abnormalPluginsList = null;
 
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("AgentID")
   private String agentID = null;
 
   @SerializedName("AgentStatus")
   private String agentStatus = null;
+
+  @SerializedName("ClientPublicIP")
+  private String clientPublicIP = null;
 
   @SerializedName("CloudProvider")
   private String cloudProvider = null;
@@ -69,6 +75,9 @@ public class DataForListHostsBasicInfosOutput {
   @SerializedName("GroupPath")
   private String groupPath = null;
 
+  @SerializedName("GroupPathEn")
+  private String groupPathEn = null;
+
   @SerializedName("KernelVersion")
   private String kernelVersion = null;
 
@@ -78,11 +87,17 @@ public class DataForListHostsBasicInfosOutput {
   @SerializedName("MemUsage")
   private Double memUsage = null;
 
+  @SerializedName("OldValidCode")
+  private Long oldValidCode = null;
+
   @SerializedName("Online")
   private Boolean online = null;
 
   @SerializedName("Platform")
   private String platform = null;
+
+  @SerializedName("PlatformVersion")
+  private String platformVersion = null;
 
   @SerializedName("PluginsBriefInfo")
   private String pluginsBriefInfo = null;
@@ -114,6 +129,9 @@ public class DataForListHostsBasicInfosOutput {
   @SerializedName("UserStatusReason")
   private String userStatusReason = null;
 
+  @SerializedName("UserStatusReasonCode")
+  private Long userStatusReasonCode = null;
+
   public DataForListHostsBasicInfosOutput abnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
     return this;
@@ -130,6 +148,24 @@ public class DataForListHostsBasicInfosOutput {
 
   public void setAbnormalPluginsList(String abnormalPluginsList) {
     this.abnormalPluginsList = abnormalPluginsList;
+  }
+
+  public DataForListHostsBasicInfosOutput accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
   }
 
   public DataForListHostsBasicInfosOutput agentID(String agentID) {
@@ -166,6 +202,24 @@ public class DataForListHostsBasicInfosOutput {
 
   public void setAgentStatus(String agentStatus) {
     this.agentStatus = agentStatus;
+  }
+
+  public DataForListHostsBasicInfosOutput clientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
+    return this;
+  }
+
+   /**
+   * Get clientPublicIP
+   * @return clientPublicIP
+  **/
+  @Schema(description = "")
+  public String getClientPublicIP() {
+    return clientPublicIP;
+  }
+
+  public void setClientPublicIP(String clientPublicIP) {
+    this.clientPublicIP = clientPublicIP;
   }
 
   public DataForListHostsBasicInfosOutput cloudProvider(String cloudProvider) {
@@ -331,6 +385,24 @@ public class DataForListHostsBasicInfosOutput {
     this.groupPath = groupPath;
   }
 
+  public DataForListHostsBasicInfosOutput groupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+    return this;
+  }
+
+   /**
+   * Get groupPathEn
+   * @return groupPathEn
+  **/
+  @Schema(description = "")
+  public String getGroupPathEn() {
+    return groupPathEn;
+  }
+
+  public void setGroupPathEn(String groupPathEn) {
+    this.groupPathEn = groupPathEn;
+  }
+
   public DataForListHostsBasicInfosOutput kernelVersion(String kernelVersion) {
     this.kernelVersion = kernelVersion;
     return this;
@@ -385,6 +457,24 @@ public class DataForListHostsBasicInfosOutput {
     this.memUsage = memUsage;
   }
 
+  public DataForListHostsBasicInfosOutput oldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+    return this;
+  }
+
+   /**
+   * Get oldValidCode
+   * @return oldValidCode
+  **/
+  @Schema(description = "")
+  public Long getOldValidCode() {
+    return oldValidCode;
+  }
+
+  public void setOldValidCode(Long oldValidCode) {
+    this.oldValidCode = oldValidCode;
+  }
+
   public DataForListHostsBasicInfosOutput online(Boolean online) {
     this.online = online;
     return this;
@@ -419,6 +509,24 @@ public class DataForListHostsBasicInfosOutput {
 
   public void setPlatform(String platform) {
     this.platform = platform;
+  }
+
+  public DataForListHostsBasicInfosOutput platformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
+    return this;
+  }
+
+   /**
+   * Get platformVersion
+   * @return platformVersion
+  **/
+  @Schema(description = "")
+  public String getPlatformVersion() {
+    return platformVersion;
+  }
+
+  public void setPlatformVersion(String platformVersion) {
+    this.platformVersion = platformVersion;
   }
 
   public DataForListHostsBasicInfosOutput pluginsBriefInfo(String pluginsBriefInfo) {
@@ -609,6 +717,24 @@ public class DataForListHostsBasicInfosOutput {
     this.userStatusReason = userStatusReason;
   }
 
+  public DataForListHostsBasicInfosOutput userStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+    return this;
+  }
+
+   /**
+   * Get userStatusReasonCode
+   * @return userStatusReasonCode
+  **/
+  @Schema(description = "")
+  public Long getUserStatusReasonCode() {
+    return userStatusReasonCode;
+  }
+
+  public void setUserStatusReasonCode(Long userStatusReasonCode) {
+    this.userStatusReasonCode = userStatusReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -620,8 +746,10 @@ public class DataForListHostsBasicInfosOutput {
     }
     DataForListHostsBasicInfosOutput dataForListHostsBasicInfosOutput = (DataForListHostsBasicInfosOutput) o;
     return Objects.equals(this.abnormalPluginsList, dataForListHostsBasicInfosOutput.abnormalPluginsList) &&
+        Objects.equals(this.accountID, dataForListHostsBasicInfosOutput.accountID) &&
         Objects.equals(this.agentID, dataForListHostsBasicInfosOutput.agentID) &&
         Objects.equals(this.agentStatus, dataForListHostsBasicInfosOutput.agentStatus) &&
+        Objects.equals(this.clientPublicIP, dataForListHostsBasicInfosOutput.clientPublicIP) &&
         Objects.equals(this.cloudProvider, dataForListHostsBasicInfosOutput.cloudProvider) &&
         Objects.equals(this.collectStatus, dataForListHostsBasicInfosOutput.collectStatus) &&
         Objects.equals(this.cpuUsage, dataForListHostsBasicInfosOutput.cpuUsage) &&
@@ -631,11 +759,14 @@ public class DataForListHostsBasicInfosOutput {
         Objects.equals(this.gateway, dataForListHostsBasicInfosOutput.gateway) &&
         Objects.equals(this.group, dataForListHostsBasicInfosOutput.group) &&
         Objects.equals(this.groupPath, dataForListHostsBasicInfosOutput.groupPath) &&
+        Objects.equals(this.groupPathEn, dataForListHostsBasicInfosOutput.groupPathEn) &&
         Objects.equals(this.kernelVersion, dataForListHostsBasicInfosOutput.kernelVersion) &&
         Objects.equals(this.lastHeartbeatTime, dataForListHostsBasicInfosOutput.lastHeartbeatTime) &&
         Objects.equals(this.memUsage, dataForListHostsBasicInfosOutput.memUsage) &&
+        Objects.equals(this.oldValidCode, dataForListHostsBasicInfosOutput.oldValidCode) &&
         Objects.equals(this.online, dataForListHostsBasicInfosOutput.online) &&
         Objects.equals(this.platform, dataForListHostsBasicInfosOutput.platform) &&
+        Objects.equals(this.platformVersion, dataForListHostsBasicInfosOutput.platformVersion) &&
         Objects.equals(this.pluginsBriefInfo, dataForListHostsBasicInfosOutput.pluginsBriefInfo) &&
         Objects.equals(this.pluginsStatus, dataForListHostsBasicInfosOutput.pluginsStatus) &&
         Objects.equals(this.reason, dataForListHostsBasicInfosOutput.reason) &&
@@ -645,12 +776,13 @@ public class DataForListHostsBasicInfosOutput {
         Objects.equals(this.tags, dataForListHostsBasicInfosOutput.tags) &&
         Objects.equals(this.totalMem, dataForListHostsBasicInfosOutput.totalMem) &&
         Objects.equals(this.userStatus, dataForListHostsBasicInfosOutput.userStatus) &&
-        Objects.equals(this.userStatusReason, dataForListHostsBasicInfosOutput.userStatusReason);
+        Objects.equals(this.userStatusReason, dataForListHostsBasicInfosOutput.userStatusReason) &&
+        Objects.equals(this.userStatusReasonCode, dataForListHostsBasicInfosOutput.userStatusReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, agentID, agentStatus, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, kernelVersion, lastHeartbeatTime, memUsage, online, platform, pluginsBriefInfo, pluginsStatus, reason, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, clientPublicIP, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -660,8 +792,10 @@ public class DataForListHostsBasicInfosOutput {
     sb.append("class DataForListHostsBasicInfosOutput {\n");
     
     sb.append("    abnormalPluginsList: ").append(toIndentedString(abnormalPluginsList)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    agentStatus: ").append(toIndentedString(agentStatus)).append("\n");
+    sb.append("    clientPublicIP: ").append(toIndentedString(clientPublicIP)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    collectStatus: ").append(toIndentedString(collectStatus)).append("\n");
     sb.append("    cpuUsage: ").append(toIndentedString(cpuUsage)).append("\n");
@@ -671,11 +805,14 @@ public class DataForListHostsBasicInfosOutput {
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
+    sb.append("    groupPathEn: ").append(toIndentedString(groupPathEn)).append("\n");
     sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    lastHeartbeatTime: ").append(toIndentedString(lastHeartbeatTime)).append("\n");
     sb.append("    memUsage: ").append(toIndentedString(memUsage)).append("\n");
+    sb.append("    oldValidCode: ").append(toIndentedString(oldValidCode)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    pluginsBriefInfo: ").append(toIndentedString(pluginsBriefInfo)).append("\n");
     sb.append("    pluginsStatus: ").append(toIndentedString(pluginsStatus)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -686,6 +823,7 @@ public class DataForListHostsBasicInfosOutput {
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("    userStatusReason: ").append(toIndentedString(userStatusReason)).append("\n");
+    sb.append("    userStatusReasonCode: ").append(toIndentedString(userStatusReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

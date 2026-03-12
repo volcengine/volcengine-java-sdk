@@ -36,6 +36,9 @@ public class CheckAlarmSupportBanIPResponse extends com.volcengine.model.Abstrac
   @SerializedName("BanPortRange")
   private String banPortRange = null;
 
+  @SerializedName("BanType")
+  private String banType = null;
+
   @SerializedName("Direction")
   private String direction = null;
 
@@ -79,6 +82,24 @@ public class CheckAlarmSupportBanIPResponse extends com.volcengine.model.Abstrac
 
   public void setBanPortRange(String banPortRange) {
     this.banPortRange = banPortRange;
+  }
+
+  public CheckAlarmSupportBanIPResponse banType(String banType) {
+    this.banType = banType;
+    return this;
+  }
+
+   /**
+   * Get banType
+   * @return banType
+  **/
+  @Schema(description = "")
+  public String getBanType() {
+    return banType;
+  }
+
+  public void setBanType(String banType) {
+    this.banType = banType;
   }
 
   public CheckAlarmSupportBanIPResponse direction(String direction) {
@@ -147,6 +168,7 @@ public class CheckAlarmSupportBanIPResponse extends com.volcengine.model.Abstrac
     CheckAlarmSupportBanIPResponse checkAlarmSupportBanIPResponse = (CheckAlarmSupportBanIPResponse) o;
     return Objects.equals(this.banIP, checkAlarmSupportBanIPResponse.banIP) &&
         Objects.equals(this.banPortRange, checkAlarmSupportBanIPResponse.banPortRange) &&
+        Objects.equals(this.banType, checkAlarmSupportBanIPResponse.banType) &&
         Objects.equals(this.direction, checkAlarmSupportBanIPResponse.direction) &&
         Objects.equals(this.securityGroupName, checkAlarmSupportBanIPResponse.securityGroupName) &&
         Objects.equals(this.support, checkAlarmSupportBanIPResponse.support);
@@ -154,7 +176,7 @@ public class CheckAlarmSupportBanIPResponse extends com.volcengine.model.Abstrac
 
   @Override
   public int hashCode() {
-    return Objects.hash(banIP, banPortRange, direction, securityGroupName, support);
+    return Objects.hash(banIP, banPortRange, banType, direction, securityGroupName, support);
   }
 
 
@@ -165,6 +187,7 @@ public class CheckAlarmSupportBanIPResponse extends com.volcengine.model.Abstrac
     
     sb.append("    banIP: ").append(toIndentedString(banIP)).append("\n");
     sb.append("    banPortRange: ").append(toIndentedString(banPortRange)).append("\n");
+    sb.append("    banType: ").append(toIndentedString(banType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
     sb.append("    support: ").append(toIndentedString(support)).append("\n");

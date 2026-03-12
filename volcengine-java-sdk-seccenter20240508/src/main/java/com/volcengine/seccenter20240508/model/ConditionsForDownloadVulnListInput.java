@@ -41,6 +41,9 @@ public class ConditionsForDownloadVulnListInput {
   @SerializedName("IfHighAvailability")
   private Boolean ifHighAvailability = null;
 
+  @SerializedName("IsRealRiskVul")
+  private Boolean isRealRiskVul = null;
+
   @SerializedName("LeafGroupIDs")
   private List<String> leafGroupIDs = null;
 
@@ -116,6 +119,24 @@ public class ConditionsForDownloadVulnListInput {
 
   public void setIfHighAvailability(Boolean ifHighAvailability) {
     this.ifHighAvailability = ifHighAvailability;
+  }
+
+  public ConditionsForDownloadVulnListInput isRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
+    return this;
+  }
+
+   /**
+   * Get isRealRiskVul
+   * @return isRealRiskVul
+  **/
+  @Schema(description = "")
+  public Boolean isIsRealRiskVul() {
+    return isRealRiskVul;
+  }
+
+  public void setIsRealRiskVul(Boolean isRealRiskVul) {
+    this.isRealRiskVul = isRealRiskVul;
   }
 
   public ConditionsForDownloadVulnListInput leafGroupIDs(List<String> leafGroupIDs) {
@@ -245,6 +266,7 @@ public class ConditionsForDownloadVulnListInput {
     return Objects.equals(this.cloudProviders, conditionsForDownloadVulnListInput.cloudProviders) &&
         Objects.equals(this.cveID, conditionsForDownloadVulnListInput.cveID) &&
         Objects.equals(this.ifHighAvailability, conditionsForDownloadVulnListInput.ifHighAvailability) &&
+        Objects.equals(this.isRealRiskVul, conditionsForDownloadVulnListInput.isRealRiskVul) &&
         Objects.equals(this.leafGroupIDs, conditionsForDownloadVulnListInput.leafGroupIDs) &&
         Objects.equals(this.level, conditionsForDownloadVulnListInput.level) &&
         Objects.equals(this.tag, conditionsForDownloadVulnListInput.tag) &&
@@ -254,7 +276,7 @@ public class ConditionsForDownloadVulnListInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudProviders, cveID, ifHighAvailability, leafGroupIDs, level, tag, topGroupID, vulnName);
+    return Objects.hash(cloudProviders, cveID, ifHighAvailability, isRealRiskVul, leafGroupIDs, level, tag, topGroupID, vulnName);
   }
 
 
@@ -266,6 +288,7 @@ public class ConditionsForDownloadVulnListInput {
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    cveID: ").append(toIndentedString(cveID)).append("\n");
     sb.append("    ifHighAvailability: ").append(toIndentedString(ifHighAvailability)).append("\n");
+    sb.append("    isRealRiskVul: ").append(toIndentedString(isRealRiskVul)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");

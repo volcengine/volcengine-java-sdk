@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput;
 import com.volcengine.seccenter20240508.model.VirusHitDataListForGetVirusAlarmSummaryInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,11 +40,17 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("AdditionalActionsString")
   private String additionalActionsString = null;
 
+  @SerializedName("AnalysisRecordUUID")
+  private String analysisRecordUUID = null;
+
   @SerializedName("ArgsArray")
   private List<String> argsArray = null;
 
   @SerializedName("Argv")
   private String argv = null;
+
+  @SerializedName("BackendAlarmTags")
+  private List<String> backendAlarmTags = null;
 
   @SerializedName("BruteforceSip")
   private String bruteforceSip = null;
@@ -62,6 +69,9 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   @SerializedName("CommandLine")
   private String commandLine = null;
+
+  @SerializedName("Confidence")
+  private String confidence = null;
 
   @SerializedName("Configuration")
   private String _configuration = null;
@@ -114,6 +124,12 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("DstList")
   private String dstList = null;
 
+  @SerializedName("ElkeidSaveData")
+  private List<ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput> elkeidSaveData = null;
+
+  @SerializedName("EnHanced")
+  private String enHanced = null;
+
   @SerializedName("EventType")
   private String eventType = null;
 
@@ -134,6 +150,9 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   @SerializedName("FileDownloadable")
   private Boolean fileDownloadable = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
 
   @SerializedName("FilePath")
   private String filePath = null;
@@ -159,6 +178,15 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("HomeDirectory")
   private String homeDirectory = null;
 
+  @SerializedName("IPIntelligence")
+  private String ipIntelligence = null;
+
+  @SerializedName("IPSource")
+  private String ipSource = null;
+
+  @SerializedName("IPSourceUs")
+  private String ipSourceUs = null;
+
   @SerializedName("Image")
   private String image = null;
 
@@ -183,11 +211,17 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IsInnerAccount")
+  private Boolean isInnerAccount = null;
+
   @SerializedName("KoFile")
   private String koFile = null;
 
   @SerializedName("LdPreload")
   private String ldPreload = null;
+
+  @SerializedName("LoginCount")
+  private String loginCount = null;
 
   @SerializedName("LogonType")
   private String logonType = null;
@@ -291,11 +325,20 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
   @SerializedName("QueryStatus")
   private String queryStatus = null;
 
+  @SerializedName("RootPns")
+  private String rootPns = null;
+
   @SerializedName("RunPath")
   private String runPath = null;
 
   @SerializedName("SamAccountName")
   private String samAccountName = null;
+
+  @SerializedName("SecurityIntelligenceComplete")
+  private Boolean securityIntelligenceComplete = null;
+
+  @SerializedName("SecurityIntelligenceResult")
+  private String securityIntelligenceResult = null;
 
   @SerializedName("ServiceAccount")
   private String serviceAccount = null;
@@ -480,6 +523,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     this.additionalActionsString = additionalActionsString;
   }
 
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput analysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
+    return this;
+  }
+
+   /**
+   * Get analysisRecordUUID
+   * @return analysisRecordUUID
+  **/
+  @Schema(description = "")
+  public String getAnalysisRecordUUID() {
+    return analysisRecordUUID;
+  }
+
+  public void setAnalysisRecordUUID(String analysisRecordUUID) {
+    this.analysisRecordUUID = analysisRecordUUID;
+  }
+
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput argsArray(List<String> argsArray) {
     this.argsArray = argsArray;
     return this;
@@ -522,6 +583,32 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   public void setArgv(String argv) {
     this.argv = argv;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput backendAlarmTags(List<String> backendAlarmTags) {
+    this.backendAlarmTags = backendAlarmTags;
+    return this;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput addBackendAlarmTagsItem(String backendAlarmTagsItem) {
+    if (this.backendAlarmTags == null) {
+      this.backendAlarmTags = new ArrayList<String>();
+    }
+    this.backendAlarmTags.add(backendAlarmTagsItem);
+    return this;
+  }
+
+   /**
+   * Get backendAlarmTags
+   * @return backendAlarmTags
+  **/
+  @Schema(description = "")
+  public List<String> getBackendAlarmTags() {
+    return backendAlarmTags;
+  }
+
+  public void setBackendAlarmTags(List<String> backendAlarmTags) {
+    this.backendAlarmTags = backendAlarmTags;
   }
 
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput bruteforceSip(String bruteforceSip) {
@@ -630,6 +717,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   public void setCommandLine(String commandLine) {
     this.commandLine = commandLine;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput confidence(String confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+   /**
+   * Get confidence
+   * @return confidence
+  **/
+  @Schema(description = "")
+  public String getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(String confidence) {
+    this.confidence = confidence;
   }
 
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput _configuration(String _configuration) {
@@ -938,6 +1043,51 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     this.dstList = dstList;
   }
 
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput elkeidSaveData(List<ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput> elkeidSaveData) {
+    this.elkeidSaveData = elkeidSaveData;
+    return this;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput addElkeidSaveDataItem(ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput elkeidSaveDataItem) {
+    if (this.elkeidSaveData == null) {
+      this.elkeidSaveData = new ArrayList<ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput>();
+    }
+    this.elkeidSaveData.add(elkeidSaveDataItem);
+    return this;
+  }
+
+   /**
+   * Get elkeidSaveData
+   * @return elkeidSaveData
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput> getElkeidSaveData() {
+    return elkeidSaveData;
+  }
+
+  public void setElkeidSaveData(List<ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput> elkeidSaveData) {
+    this.elkeidSaveData = elkeidSaveData;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput enHanced(String enHanced) {
+    this.enHanced = enHanced;
+    return this;
+  }
+
+   /**
+   * Get enHanced
+   * @return enHanced
+  **/
+  @Schema(description = "")
+  public String getEnHanced() {
+    return enHanced;
+  }
+
+  public void setEnHanced(String enHanced) {
+    this.enHanced = enHanced;
+  }
+
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput eventType(String eventType) {
     this.eventType = eventType;
     return this;
@@ -1062,6 +1212,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   public void setFileDownloadable(Boolean fileDownloadable) {
     this.fileDownloadable = fileDownloadable;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput filePath(String filePath) {
@@ -1216,6 +1384,60 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     this.homeDirectory = homeDirectory;
   }
 
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput ipIntelligence(String ipIntelligence) {
+    this.ipIntelligence = ipIntelligence;
+    return this;
+  }
+
+   /**
+   * Get ipIntelligence
+   * @return ipIntelligence
+  **/
+  @Schema(description = "")
+  public String getIpIntelligence() {
+    return ipIntelligence;
+  }
+
+  public void setIpIntelligence(String ipIntelligence) {
+    this.ipIntelligence = ipIntelligence;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput ipSource(String ipSource) {
+    this.ipSource = ipSource;
+    return this;
+  }
+
+   /**
+   * Get ipSource
+   * @return ipSource
+  **/
+  @Schema(description = "")
+  public String getIpSource() {
+    return ipSource;
+  }
+
+  public void setIpSource(String ipSource) {
+    this.ipSource = ipSource;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput ipSourceUs(String ipSourceUs) {
+    this.ipSourceUs = ipSourceUs;
+    return this;
+  }
+
+   /**
+   * Get ipSourceUs
+   * @return ipSourceUs
+  **/
+  @Schema(description = "")
+  public String getIpSourceUs() {
+    return ipSourceUs;
+  }
+
+  public void setIpSourceUs(String ipSourceUs) {
+    this.ipSourceUs = ipSourceUs;
+  }
+
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput image(String image) {
     this.image = image;
     return this;
@@ -1360,6 +1582,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     this.ipAddress = ipAddress;
   }
 
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput isInnerAccount(Boolean isInnerAccount) {
+    this.isInnerAccount = isInnerAccount;
+    return this;
+  }
+
+   /**
+   * Get isInnerAccount
+   * @return isInnerAccount
+  **/
+  @Schema(description = "")
+  public Boolean isIsInnerAccount() {
+    return isInnerAccount;
+  }
+
+  public void setIsInnerAccount(Boolean isInnerAccount) {
+    this.isInnerAccount = isInnerAccount;
+  }
+
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput koFile(String koFile) {
     this.koFile = koFile;
     return this;
@@ -1394,6 +1634,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   public void setLdPreload(String ldPreload) {
     this.ldPreload = ldPreload;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput loginCount(String loginCount) {
+    this.loginCount = loginCount;
+    return this;
+  }
+
+   /**
+   * Get loginCount
+   * @return loginCount
+  **/
+  @Schema(description = "")
+  public String getLoginCount() {
+    return loginCount;
+  }
+
+  public void setLoginCount(String loginCount) {
+    this.loginCount = loginCount;
   }
 
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput logonType(String logonType) {
@@ -2008,6 +2266,24 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     this.queryStatus = queryStatus;
   }
 
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput rootPns(String rootPns) {
+    this.rootPns = rootPns;
+    return this;
+  }
+
+   /**
+   * Get rootPns
+   * @return rootPns
+  **/
+  @Schema(description = "")
+  public String getRootPns() {
+    return rootPns;
+  }
+
+  public void setRootPns(String rootPns) {
+    this.rootPns = rootPns;
+  }
+
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput runPath(String runPath) {
     this.runPath = runPath;
     return this;
@@ -2042,6 +2318,42 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   public void setSamAccountName(String samAccountName) {
     this.samAccountName = samAccountName;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput securityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceComplete
+   * @return securityIntelligenceComplete
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityIntelligenceComplete() {
+    return securityIntelligenceComplete;
+  }
+
+  public void setSecurityIntelligenceComplete(Boolean securityIntelligenceComplete) {
+    this.securityIntelligenceComplete = securityIntelligenceComplete;
+  }
+
+  public AlarmNodeForGetVirusAlarmSummaryInfoOutput securityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceResult
+   * @return securityIntelligenceResult
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceResult() {
+    return securityIntelligenceResult;
+  }
+
+  public void setSecurityIntelligenceResult(String securityIntelligenceResult) {
+    this.securityIntelligenceResult = securityIntelligenceResult;
   }
 
   public AlarmNodeForGetVirusAlarmSummaryInfoOutput serviceAccount(String serviceAccount) {
@@ -2947,14 +3259,17 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     AlarmNodeForGetVirusAlarmSummaryInfoOutput alarmNodeForGetVirusAlarmSummaryInfoOutput = (AlarmNodeForGetVirusAlarmSummaryInfoOutput) o;
     return Objects.equals(this.accountExpires, alarmNodeForGetVirusAlarmSummaryInfoOutput.accountExpires) &&
         Objects.equals(this.additionalActionsString, alarmNodeForGetVirusAlarmSummaryInfoOutput.additionalActionsString) &&
+        Objects.equals(this.analysisRecordUUID, alarmNodeForGetVirusAlarmSummaryInfoOutput.analysisRecordUUID) &&
         Objects.equals(this.argsArray, alarmNodeForGetVirusAlarmSummaryInfoOutput.argsArray) &&
         Objects.equals(this.argv, alarmNodeForGetVirusAlarmSummaryInfoOutput.argv) &&
+        Objects.equals(this.backendAlarmTags, alarmNodeForGetVirusAlarmSummaryInfoOutput.backendAlarmTags) &&
         Objects.equals(this.bruteforceSip, alarmNodeForGetVirusAlarmSummaryInfoOutput.bruteforceSip) &&
         Objects.equals(this.categoryName, alarmNodeForGetVirusAlarmSummaryInfoOutput.categoryName) &&
         Objects.equals(this.propertyClass, alarmNodeForGetVirusAlarmSummaryInfoOutput.propertyClass) &&
         Objects.equals(this.cmd, alarmNodeForGetVirusAlarmSummaryInfoOutput.cmd) &&
         Objects.equals(this.comm, alarmNodeForGetVirusAlarmSummaryInfoOutput.comm) &&
         Objects.equals(this.commandLine, alarmNodeForGetVirusAlarmSummaryInfoOutput.commandLine) &&
+        Objects.equals(this.confidence, alarmNodeForGetVirusAlarmSummaryInfoOutput.confidence) &&
         Objects.equals(this._configuration, alarmNodeForGetVirusAlarmSummaryInfoOutput._configuration) &&
         Objects.equals(this.configurationFileHash, alarmNodeForGetVirusAlarmSummaryInfoOutput.configurationFileHash) &&
         Objects.equals(this.connectInfo, alarmNodeForGetVirusAlarmSummaryInfoOutput.connectInfo) &&
@@ -2972,6 +3287,8 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.dip, alarmNodeForGetVirusAlarmSummaryInfoOutput.dip) &&
         Objects.equals(this.dport, alarmNodeForGetVirusAlarmSummaryInfoOutput.dport) &&
         Objects.equals(this.dstList, alarmNodeForGetVirusAlarmSummaryInfoOutput.dstList) &&
+        Objects.equals(this.elkeidSaveData, alarmNodeForGetVirusAlarmSummaryInfoOutput.elkeidSaveData) &&
+        Objects.equals(this.enHanced, alarmNodeForGetVirusAlarmSummaryInfoOutput.enHanced) &&
         Objects.equals(this.eventType, alarmNodeForGetVirusAlarmSummaryInfoOutput.eventType) &&
         Objects.equals(this.exe, alarmNodeForGetVirusAlarmSummaryInfoOutput.exe) &&
         Objects.equals(this.exeHash, alarmNodeForGetVirusAlarmSummaryInfoOutput.exeHash) &&
@@ -2979,6 +3296,7 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.failureReason, alarmNodeForGetVirusAlarmSummaryInfoOutput.failureReason) &&
         Objects.equals(this.fdName, alarmNodeForGetVirusAlarmSummaryInfoOutput.fdName) &&
         Objects.equals(this.fileDownloadable, alarmNodeForGetVirusAlarmSummaryInfoOutput.fileDownloadable) &&
+        Objects.equals(this.fileName, alarmNodeForGetVirusAlarmSummaryInfoOutput.fileName) &&
         Objects.equals(this.filePath, alarmNodeForGetVirusAlarmSummaryInfoOutput.filePath) &&
         Objects.equals(this.flags, alarmNodeForGetVirusAlarmSummaryInfoOutput.flags) &&
         Objects.equals(this.hash, alarmNodeForGetVirusAlarmSummaryInfoOutput.hash) &&
@@ -2987,6 +3305,9 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.hitArgvList, alarmNodeForGetVirusAlarmSummaryInfoOutput.hitArgvList) &&
         Objects.equals(this.hitData, alarmNodeForGetVirusAlarmSummaryInfoOutput.hitData) &&
         Objects.equals(this.homeDirectory, alarmNodeForGetVirusAlarmSummaryInfoOutput.homeDirectory) &&
+        Objects.equals(this.ipIntelligence, alarmNodeForGetVirusAlarmSummaryInfoOutput.ipIntelligence) &&
+        Objects.equals(this.ipSource, alarmNodeForGetVirusAlarmSummaryInfoOutput.ipSource) &&
+        Objects.equals(this.ipSourceUs, alarmNodeForGetVirusAlarmSummaryInfoOutput.ipSourceUs) &&
         Objects.equals(this.image, alarmNodeForGetVirusAlarmSummaryInfoOutput.image) &&
         Objects.equals(this.imageLoaded, alarmNodeForGetVirusAlarmSummaryInfoOutput.imageLoaded) &&
         Objects.equals(this.interruptNumber, alarmNodeForGetVirusAlarmSummaryInfoOutput.interruptNumber) &&
@@ -2995,8 +3316,10 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.iocSeverity, alarmNodeForGetVirusAlarmSummaryInfoOutput.iocSeverity) &&
         Objects.equals(this.iocSource, alarmNodeForGetVirusAlarmSummaryInfoOutput.iocSource) &&
         Objects.equals(this.ipAddress, alarmNodeForGetVirusAlarmSummaryInfoOutput.ipAddress) &&
+        Objects.equals(this.isInnerAccount, alarmNodeForGetVirusAlarmSummaryInfoOutput.isInnerAccount) &&
         Objects.equals(this.koFile, alarmNodeForGetVirusAlarmSummaryInfoOutput.koFile) &&
         Objects.equals(this.ldPreload, alarmNodeForGetVirusAlarmSummaryInfoOutput.ldPreload) &&
+        Objects.equals(this.loginCount, alarmNodeForGetVirusAlarmSummaryInfoOutput.loginCount) &&
         Objects.equals(this.logonType, alarmNodeForGetVirusAlarmSummaryInfoOutput.logonType) &&
         Objects.equals(this.md5Hash, alarmNodeForGetVirusAlarmSummaryInfoOutput.md5Hash) &&
         Objects.equals(this.modInfo, alarmNodeForGetVirusAlarmSummaryInfoOutput.modInfo) &&
@@ -3031,8 +3354,11 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
         Objects.equals(this.queryName, alarmNodeForGetVirusAlarmSummaryInfoOutput.queryName) &&
         Objects.equals(this.queryResults, alarmNodeForGetVirusAlarmSummaryInfoOutput.queryResults) &&
         Objects.equals(this.queryStatus, alarmNodeForGetVirusAlarmSummaryInfoOutput.queryStatus) &&
+        Objects.equals(this.rootPns, alarmNodeForGetVirusAlarmSummaryInfoOutput.rootPns) &&
         Objects.equals(this.runPath, alarmNodeForGetVirusAlarmSummaryInfoOutput.runPath) &&
         Objects.equals(this.samAccountName, alarmNodeForGetVirusAlarmSummaryInfoOutput.samAccountName) &&
+        Objects.equals(this.securityIntelligenceComplete, alarmNodeForGetVirusAlarmSummaryInfoOutput.securityIntelligenceComplete) &&
+        Objects.equals(this.securityIntelligenceResult, alarmNodeForGetVirusAlarmSummaryInfoOutput.securityIntelligenceResult) &&
         Objects.equals(this.serviceAccount, alarmNodeForGetVirusAlarmSummaryInfoOutput.serviceAccount) &&
         Objects.equals(this.serviceFileName, alarmNodeForGetVirusAlarmSummaryInfoOutput.serviceFileName) &&
         Objects.equals(this.serviceName, alarmNodeForGetVirusAlarmSummaryInfoOutput.serviceName) &&
@@ -3086,7 +3412,7 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountExpires, additionalActionsString, argsArray, argv, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, koFile, ldPreload, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, runPath, samAccountName, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
+    return Objects.hash(accountExpires, additionalActionsString, analysisRecordUUID, argsArray, argv, backendAlarmTags, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, confidence, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, elkeidSaveData, enHanced, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, fileName, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, ipIntelligence, ipSource, ipSourceUs, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, isInnerAccount, koFile, ldPreload, loginCount, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, rootPns, runPath, samAccountName, securityIntelligenceComplete, securityIntelligenceResult, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
   }
 
 
@@ -3097,14 +3423,17 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     
     sb.append("    accountExpires: ").append(toIndentedString(accountExpires)).append("\n");
     sb.append("    additionalActionsString: ").append(toIndentedString(additionalActionsString)).append("\n");
+    sb.append("    analysisRecordUUID: ").append(toIndentedString(analysisRecordUUID)).append("\n");
     sb.append("    argsArray: ").append(toIndentedString(argsArray)).append("\n");
     sb.append("    argv: ").append(toIndentedString(argv)).append("\n");
+    sb.append("    backendAlarmTags: ").append(toIndentedString(backendAlarmTags)).append("\n");
     sb.append("    bruteforceSip: ").append(toIndentedString(bruteforceSip)).append("\n");
     sb.append("    categoryName: ").append(toIndentedString(categoryName)).append("\n");
     sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
     sb.append("    cmd: ").append(toIndentedString(cmd)).append("\n");
     sb.append("    comm: ").append(toIndentedString(comm)).append("\n");
     sb.append("    commandLine: ").append(toIndentedString(commandLine)).append("\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    configurationFileHash: ").append(toIndentedString(configurationFileHash)).append("\n");
     sb.append("    connectInfo: ").append(toIndentedString(connectInfo)).append("\n");
@@ -3122,6 +3451,8 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     sb.append("    dip: ").append(toIndentedString(dip)).append("\n");
     sb.append("    dport: ").append(toIndentedString(dport)).append("\n");
     sb.append("    dstList: ").append(toIndentedString(dstList)).append("\n");
+    sb.append("    elkeidSaveData: ").append(toIndentedString(elkeidSaveData)).append("\n");
+    sb.append("    enHanced: ").append(toIndentedString(enHanced)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    exe: ").append(toIndentedString(exe)).append("\n");
     sb.append("    exeHash: ").append(toIndentedString(exeHash)).append("\n");
@@ -3129,6 +3460,7 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    fdName: ").append(toIndentedString(fdName)).append("\n");
     sb.append("    fileDownloadable: ").append(toIndentedString(fileDownloadable)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
@@ -3137,6 +3469,9 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     sb.append("    hitArgvList: ").append(toIndentedString(hitArgvList)).append("\n");
     sb.append("    hitData: ").append(toIndentedString(hitData)).append("\n");
     sb.append("    homeDirectory: ").append(toIndentedString(homeDirectory)).append("\n");
+    sb.append("    ipIntelligence: ").append(toIndentedString(ipIntelligence)).append("\n");
+    sb.append("    ipSource: ").append(toIndentedString(ipSource)).append("\n");
+    sb.append("    ipSourceUs: ").append(toIndentedString(ipSourceUs)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageLoaded: ").append(toIndentedString(imageLoaded)).append("\n");
     sb.append("    interruptNumber: ").append(toIndentedString(interruptNumber)).append("\n");
@@ -3145,8 +3480,10 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     sb.append("    iocSeverity: ").append(toIndentedString(iocSeverity)).append("\n");
     sb.append("    iocSource: ").append(toIndentedString(iocSource)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    isInnerAccount: ").append(toIndentedString(isInnerAccount)).append("\n");
     sb.append("    koFile: ").append(toIndentedString(koFile)).append("\n");
     sb.append("    ldPreload: ").append(toIndentedString(ldPreload)).append("\n");
+    sb.append("    loginCount: ").append(toIndentedString(loginCount)).append("\n");
     sb.append("    logonType: ").append(toIndentedString(logonType)).append("\n");
     sb.append("    md5Hash: ").append(toIndentedString(md5Hash)).append("\n");
     sb.append("    modInfo: ").append(toIndentedString(modInfo)).append("\n");
@@ -3181,8 +3518,11 @@ public class AlarmNodeForGetVirusAlarmSummaryInfoOutput {
     sb.append("    queryName: ").append(toIndentedString(queryName)).append("\n");
     sb.append("    queryResults: ").append(toIndentedString(queryResults)).append("\n");
     sb.append("    queryStatus: ").append(toIndentedString(queryStatus)).append("\n");
+    sb.append("    rootPns: ").append(toIndentedString(rootPns)).append("\n");
     sb.append("    runPath: ").append(toIndentedString(runPath)).append("\n");
     sb.append("    samAccountName: ").append(toIndentedString(samAccountName)).append("\n");
+    sb.append("    securityIntelligenceComplete: ").append(toIndentedString(securityIntelligenceComplete)).append("\n");
+    sb.append("    securityIntelligenceResult: ").append(toIndentedString(securityIntelligenceResult)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    serviceFileName: ").append(toIndentedString(serviceFileName)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");

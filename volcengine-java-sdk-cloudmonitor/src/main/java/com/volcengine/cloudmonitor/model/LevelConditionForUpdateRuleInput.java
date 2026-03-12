@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cloudmonitor.model.ConditionForUpdateRuleInput;
+import com.volcengine.cloudmonitor.model.ConvertConditionForUpdateRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,19 +34,19 @@ import javax.validation.Valid;
 
 public class LevelConditionForUpdateRuleInput {
   @SerializedName("Conditions")
-  private List<ConditionForUpdateRuleInput> conditions = null;
+  private List<ConvertConditionForUpdateRuleInput> conditions = null;
 
   @SerializedName("Level")
   private String level = null;
 
-  public LevelConditionForUpdateRuleInput conditions(List<ConditionForUpdateRuleInput> conditions) {
+  public LevelConditionForUpdateRuleInput conditions(List<ConvertConditionForUpdateRuleInput> conditions) {
     this.conditions = conditions;
     return this;
   }
 
-  public LevelConditionForUpdateRuleInput addConditionsItem(ConditionForUpdateRuleInput conditionsItem) {
+  public LevelConditionForUpdateRuleInput addConditionsItem(ConvertConditionForUpdateRuleInput conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<ConditionForUpdateRuleInput>();
+      this.conditions = new ArrayList<ConvertConditionForUpdateRuleInput>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -58,11 +58,11 @@ public class LevelConditionForUpdateRuleInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConditionForUpdateRuleInput> getConditions() {
+  public List<ConvertConditionForUpdateRuleInput> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<ConditionForUpdateRuleInput> conditions) {
+  public void setConditions(List<ConvertConditionForUpdateRuleInput> conditions) {
     this.conditions = conditions;
   }
 

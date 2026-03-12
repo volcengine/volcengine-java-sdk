@@ -19,10 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.seccenter20240508.model.HostInfoForListBanIPListOutput;
+import com.volcengine.seccenter20240508.model.EcsInstanceForListBanIPListOutput;
 import com.volcengine.seccenter20240508.model.RelateAlarmInfoForListBanIPListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 public class DataForListBanIPListOutput {
   @SerializedName("AccountID")
   private String accountID = null;
+
+  @SerializedName("AgentID")
+  private String agentID = null;
 
   @SerializedName("BanEndTimeUnix")
   private Long banEndTimeUnix = null;
@@ -47,11 +52,26 @@ public class DataForListBanIPListOutput {
   @SerializedName("BanType")
   private String banType = null;
 
+  @SerializedName("CloudProvider")
+  private String cloudProvider = null;
+
+  @SerializedName("EcsInstance")
+  private EcsInstanceForListBanIPListOutput ecsInstance = null;
+
+  @SerializedName("GroupID")
+  private String groupID = null;
+
   @SerializedName("ID")
   private String ID = null;
 
+  @SerializedName("IPtablesID")
+  private String iptablesID = null;
+
   @SerializedName("InsertTime")
   private Long insertTime = null;
+
+  @SerializedName("Platform")
+  private String platform = null;
 
   @SerializedName("PortEnd")
   private Long portEnd = null;
@@ -74,8 +94,14 @@ public class DataForListBanIPListOutput {
   @SerializedName("Status")
   private String status = null;
 
-  @SerializedName("hostInfo")
-  private HostInfoForListBanIPListOutput hostInfo = null;
+  @SerializedName("Tags")
+  private List<String> tags = null;
+
+  @SerializedName("TopGroupID")
+  private String topGroupID = null;
+
+  @SerializedName("UpdateTime")
+  private Long updateTime = null;
 
   public DataForListBanIPListOutput accountID(String accountID) {
     this.accountID = accountID;
@@ -93,6 +119,24 @@ public class DataForListBanIPListOutput {
 
   public void setAccountID(String accountID) {
     this.accountID = accountID;
+  }
+
+  public DataForListBanIPListOutput agentID(String agentID) {
+    this.agentID = agentID;
+    return this;
+  }
+
+   /**
+   * Get agentID
+   * @return agentID
+  **/
+  @Schema(description = "")
+  public String getAgentID() {
+    return agentID;
+  }
+
+  public void setAgentID(String agentID) {
+    this.agentID = agentID;
   }
 
   public DataForListBanIPListOutput banEndTimeUnix(Long banEndTimeUnix) {
@@ -167,6 +211,61 @@ public class DataForListBanIPListOutput {
     this.banType = banType;
   }
 
+  public DataForListBanIPListOutput cloudProvider(String cloudProvider) {
+    this.cloudProvider = cloudProvider;
+    return this;
+  }
+
+   /**
+   * Get cloudProvider
+   * @return cloudProvider
+  **/
+  @Schema(description = "")
+  public String getCloudProvider() {
+    return cloudProvider;
+  }
+
+  public void setCloudProvider(String cloudProvider) {
+    this.cloudProvider = cloudProvider;
+  }
+
+  public DataForListBanIPListOutput ecsInstance(EcsInstanceForListBanIPListOutput ecsInstance) {
+    this.ecsInstance = ecsInstance;
+    return this;
+  }
+
+   /**
+   * Get ecsInstance
+   * @return ecsInstance
+  **/
+  @Valid
+  @Schema(description = "")
+  public EcsInstanceForListBanIPListOutput getEcsInstance() {
+    return ecsInstance;
+  }
+
+  public void setEcsInstance(EcsInstanceForListBanIPListOutput ecsInstance) {
+    this.ecsInstance = ecsInstance;
+  }
+
+  public DataForListBanIPListOutput groupID(String groupID) {
+    this.groupID = groupID;
+    return this;
+  }
+
+   /**
+   * Get groupID
+   * @return groupID
+  **/
+  @Schema(description = "")
+  public String getGroupID() {
+    return groupID;
+  }
+
+  public void setGroupID(String groupID) {
+    this.groupID = groupID;
+  }
+
   public DataForListBanIPListOutput ID(String ID) {
     this.ID = ID;
     return this;
@@ -185,6 +284,24 @@ public class DataForListBanIPListOutput {
     this.ID = ID;
   }
 
+  public DataForListBanIPListOutput iptablesID(String iptablesID) {
+    this.iptablesID = iptablesID;
+    return this;
+  }
+
+   /**
+   * Get iptablesID
+   * @return iptablesID
+  **/
+  @Schema(description = "")
+  public String getIptablesID() {
+    return iptablesID;
+  }
+
+  public void setIptablesID(String iptablesID) {
+    this.iptablesID = iptablesID;
+  }
+
   public DataForListBanIPListOutput insertTime(Long insertTime) {
     this.insertTime = insertTime;
     return this;
@@ -201,6 +318,24 @@ public class DataForListBanIPListOutput {
 
   public void setInsertTime(Long insertTime) {
     this.insertTime = insertTime;
+  }
+
+  public DataForListBanIPListOutput platform(String platform) {
+    this.platform = platform;
+    return this;
+  }
+
+   /**
+   * Get platform
+   * @return platform
+  **/
+  @Schema(description = "")
+  public String getPlatform() {
+    return platform;
+  }
+
+  public void setPlatform(String platform) {
+    this.platform = platform;
   }
 
   public DataForListBanIPListOutput portEnd(Long portEnd) {
@@ -330,23 +465,66 @@ public class DataForListBanIPListOutput {
     this.status = status;
   }
 
-  public DataForListBanIPListOutput hostInfo(HostInfoForListBanIPListOutput hostInfo) {
-    this.hostInfo = hostInfo;
+  public DataForListBanIPListOutput tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DataForListBanIPListOutput addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * Get hostInfo
-   * @return hostInfo
+   * Get tags
+   * @return tags
   **/
-  @Valid
   @Schema(description = "")
-  public HostInfoForListBanIPListOutput getHostInfo() {
-    return hostInfo;
+  public List<String> getTags() {
+    return tags;
   }
 
-  public void setHostInfo(HostInfoForListBanIPListOutput hostInfo) {
-    this.hostInfo = hostInfo;
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  public DataForListBanIPListOutput topGroupID(String topGroupID) {
+    this.topGroupID = topGroupID;
+    return this;
+  }
+
+   /**
+   * Get topGroupID
+   * @return topGroupID
+  **/
+  @Schema(description = "")
+  public String getTopGroupID() {
+    return topGroupID;
+  }
+
+  public void setTopGroupID(String topGroupID) {
+    this.topGroupID = topGroupID;
+  }
+
+  public DataForListBanIPListOutput updateTime(Long updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public Long getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(Long updateTime) {
+    this.updateTime = updateTime;
   }
 
 
@@ -360,12 +538,18 @@ public class DataForListBanIPListOutput {
     }
     DataForListBanIPListOutput dataForListBanIPListOutput = (DataForListBanIPListOutput) o;
     return Objects.equals(this.accountID, dataForListBanIPListOutput.accountID) &&
+        Objects.equals(this.agentID, dataForListBanIPListOutput.agentID) &&
         Objects.equals(this.banEndTimeUnix, dataForListBanIPListOutput.banEndTimeUnix) &&
         Objects.equals(this.banIP, dataForListBanIPListOutput.banIP) &&
         Objects.equals(this.banStartTimeUnix, dataForListBanIPListOutput.banStartTimeUnix) &&
         Objects.equals(this.banType, dataForListBanIPListOutput.banType) &&
+        Objects.equals(this.cloudProvider, dataForListBanIPListOutput.cloudProvider) &&
+        Objects.equals(this.ecsInstance, dataForListBanIPListOutput.ecsInstance) &&
+        Objects.equals(this.groupID, dataForListBanIPListOutput.groupID) &&
         Objects.equals(this.ID, dataForListBanIPListOutput.ID) &&
+        Objects.equals(this.iptablesID, dataForListBanIPListOutput.iptablesID) &&
         Objects.equals(this.insertTime, dataForListBanIPListOutput.insertTime) &&
+        Objects.equals(this.platform, dataForListBanIPListOutput.platform) &&
         Objects.equals(this.portEnd, dataForListBanIPListOutput.portEnd) &&
         Objects.equals(this.portStart, dataForListBanIPListOutput.portStart) &&
         Objects.equals(this.reason, dataForListBanIPListOutput.reason) &&
@@ -373,12 +557,14 @@ public class DataForListBanIPListOutput {
         Objects.equals(this.relateAlarmInfo, dataForListBanIPListOutput.relateAlarmInfo) &&
         Objects.equals(this.securityGroupID, dataForListBanIPListOutput.securityGroupID) &&
         Objects.equals(this.status, dataForListBanIPListOutput.status) &&
-        Objects.equals(this.hostInfo, dataForListBanIPListOutput.hostInfo);
+        Objects.equals(this.tags, dataForListBanIPListOutput.tags) &&
+        Objects.equals(this.topGroupID, dataForListBanIPListOutput.topGroupID) &&
+        Objects.equals(this.updateTime, dataForListBanIPListOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, banEndTimeUnix, banIP, banStartTimeUnix, banType, ID, insertTime, portEnd, portStart, reason, region, relateAlarmInfo, securityGroupID, status, hostInfo);
+    return Objects.hash(accountID, agentID, banEndTimeUnix, banIP, banStartTimeUnix, banType, cloudProvider, ecsInstance, groupID, ID, iptablesID, insertTime, platform, portEnd, portStart, reason, region, relateAlarmInfo, securityGroupID, status, tags, topGroupID, updateTime);
   }
 
 
@@ -388,12 +574,18 @@ public class DataForListBanIPListOutput {
     sb.append("class DataForListBanIPListOutput {\n");
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
     sb.append("    banEndTimeUnix: ").append(toIndentedString(banEndTimeUnix)).append("\n");
     sb.append("    banIP: ").append(toIndentedString(banIP)).append("\n");
     sb.append("    banStartTimeUnix: ").append(toIndentedString(banStartTimeUnix)).append("\n");
     sb.append("    banType: ").append(toIndentedString(banType)).append("\n");
+    sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
+    sb.append("    ecsInstance: ").append(toIndentedString(ecsInstance)).append("\n");
+    sb.append("    groupID: ").append(toIndentedString(groupID)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    iptablesID: ").append(toIndentedString(iptablesID)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
+    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    portEnd: ").append(toIndentedString(portEnd)).append("\n");
     sb.append("    portStart: ").append(toIndentedString(portStart)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -401,7 +593,9 @@ public class DataForListBanIPListOutput {
     sb.append("    relateAlarmInfo: ").append(toIndentedString(relateAlarmInfo)).append("\n");
     sb.append("    securityGroupID: ").append(toIndentedString(securityGroupID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    hostInfo: ").append(toIndentedString(hostInfo)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
