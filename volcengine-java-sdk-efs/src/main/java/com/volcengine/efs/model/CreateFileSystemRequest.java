@@ -90,9 +90,7 @@ public class CreateFileSystemRequest {
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
     @SerializedName("PayAsYouGo")
-    PAYASYOUGO("PayAsYouGo"),
-    @SerializedName("NotEnabled")
-    NOTENABLED("NotEnabled");
+    PAYASYOUGO("PayAsYouGo");
 
     private String value;
 
@@ -141,14 +139,10 @@ public class CreateFileSystemRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Basic")
     BASIC("Basic"),
     @SerializedName("Premium")
-    PREMIUM("Premium"),
-    @SerializedName("IntelliTier")
-    INTELLITIER("IntelliTier");
+    PREMIUM("Premium");
 
     private String value;
 
@@ -186,16 +180,11 @@ public class CreateFileSystemRequest {
   }  @SerializedName("InstanceType")
   private InstanceTypeEnum instanceType = null;
 
-  @SerializedName("OneStep")
-  private Boolean oneStep = null;
-
   /**
    * Gets or Sets performanceDensity
    */
   @JsonAdapter(PerformanceDensityEnum.Adapter.class)
   public enum PerformanceDensityEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Basic_50")
     BASIC_50("Basic_50"),
     @SerializedName("Premium_125")
@@ -360,24 +349,6 @@ public class CreateFileSystemRequest {
     this.instanceType = instanceType;
   }
 
-  public CreateFileSystemRequest oneStep(Boolean oneStep) {
-    this.oneStep = oneStep;
-    return this;
-  }
-
-   /**
-   * Get oneStep
-   * @return oneStep
-  **/
-  @Schema(description = "")
-  public Boolean isOneStep() {
-    return oneStep;
-  }
-
-  public void setOneStep(Boolean oneStep) {
-    this.oneStep = oneStep;
-  }
-
   public CreateFileSystemRequest performanceDensity(PerformanceDensityEnum performanceDensity) {
     this.performanceDensity = performanceDensity;
     return this;
@@ -495,7 +466,6 @@ public class CreateFileSystemRequest {
         Objects.equals(this.description, createFileSystemRequest.description) &&
         Objects.equals(this.fileSystemName, createFileSystemRequest.fileSystemName) &&
         Objects.equals(this.instanceType, createFileSystemRequest.instanceType) &&
-        Objects.equals(this.oneStep, createFileSystemRequest.oneStep) &&
         Objects.equals(this.performanceDensity, createFileSystemRequest.performanceDensity) &&
         Objects.equals(this.projectName, createFileSystemRequest.projectName) &&
         Objects.equals(this.provisionedBandwidth, createFileSystemRequest.provisionedBandwidth) &&
@@ -505,7 +475,7 @@ public class CreateFileSystemRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthMode, burstBandwidth, chargeType, description, fileSystemName, instanceType, oneStep, performanceDensity, projectName, provisionedBandwidth, tags, zoneId);
+    return Objects.hash(bandwidthMode, burstBandwidth, chargeType, description, fileSystemName, instanceType, performanceDensity, projectName, provisionedBandwidth, tags, zoneId);
   }
 
 
@@ -520,7 +490,6 @@ public class CreateFileSystemRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    oneStep: ").append(toIndentedString(oneStep)).append("\n");
     sb.append("    performanceDensity: ").append(toIndentedString(performanceDensity)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    provisionedBandwidth: ").append(toIndentedString(provisionedBandwidth)).append("\n");

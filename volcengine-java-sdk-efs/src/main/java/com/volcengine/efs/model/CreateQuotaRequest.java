@@ -134,9 +134,6 @@ public class CreateQuotaRequest {
   }  @SerializedName("QuotaType")
   private QuotaTypeEnum quotaType = null;
 
-  @SerializedName("UserId")
-  private String userId = null;
-
   /**
    * Gets or Sets userType
    */
@@ -297,24 +294,6 @@ public class CreateQuotaRequest {
     this.quotaType = quotaType;
   }
 
-  public CreateQuotaRequest userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @Schema(description = "")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
   public CreateQuotaRequest userType(UserTypeEnum userType) {
     this.userType = userType;
     return this;
@@ -349,13 +328,12 @@ public class CreateQuotaRequest {
         Objects.equals(this.inodeLimit, createQuotaRequest.inodeLimit) &&
         Objects.equals(this.limitType, createQuotaRequest.limitType) &&
         Objects.equals(this.quotaType, createQuotaRequest.quotaType) &&
-        Objects.equals(this.userId, createQuotaRequest.userId) &&
         Objects.equals(this.userType, createQuotaRequest.userType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacityLimit, fileSystemId, fileSystemPath, inodeLimit, limitType, quotaType, userId, userType);
+    return Objects.hash(capacityLimit, fileSystemId, fileSystemPath, inodeLimit, limitType, quotaType, userType);
   }
 
 
@@ -370,7 +348,6 @@ public class CreateQuotaRequest {
     sb.append("    inodeLimit: ").append(toIndentedString(inodeLimit)).append("\n");
     sb.append("    limitType: ").append(toIndentedString(limitType)).append("\n");
     sb.append("    quotaType: ").append(toIndentedString(quotaType)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("}");
     return sb.toString();
