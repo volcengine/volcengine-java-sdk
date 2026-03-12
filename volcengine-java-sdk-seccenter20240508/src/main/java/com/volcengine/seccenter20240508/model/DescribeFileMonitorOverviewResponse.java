@@ -36,48 +36,6 @@ public class DescribeFileMonitorOverviewResponse extends com.volcengine.model.Ab
   @SerializedName("MonitorDirectoryCount")
   private Long monitorDirectoryCount = null;
 
-  @SerializedName("monitor_agent_count")
-  private Long monitorAgentCount = null;
-
-  @SerializedName("monitor_directory_count")
-  private Long monitorDirectoryCount = null;
-
-  public DescribeFileMonitorOverviewResponse monitorAgentCount(Long monitorAgentCount) {
-    this.monitorAgentCount = monitorAgentCount;
-    return this;
-  }
-
-   /**
-   * Get monitorAgentCount
-   * @return monitorAgentCount
-  **/
-  @Schema(description = "")
-  public Long getMonitorAgentCount() {
-    return monitorAgentCount;
-  }
-
-  public void setMonitorAgentCount(Long monitorAgentCount) {
-    this.monitorAgentCount = monitorAgentCount;
-  }
-
-  public DescribeFileMonitorOverviewResponse monitorDirectoryCount(Long monitorDirectoryCount) {
-    this.monitorDirectoryCount = monitorDirectoryCount;
-    return this;
-  }
-
-   /**
-   * Get monitorDirectoryCount
-   * @return monitorDirectoryCount
-  **/
-  @Schema(description = "")
-  public Long getMonitorDirectoryCount() {
-    return monitorDirectoryCount;
-  }
-
-  public void setMonitorDirectoryCount(Long monitorDirectoryCount) {
-    this.monitorDirectoryCount = monitorDirectoryCount;
-  }
-
   public DescribeFileMonitorOverviewResponse monitorAgentCount(Long monitorAgentCount) {
     this.monitorAgentCount = monitorAgentCount;
     return this;
