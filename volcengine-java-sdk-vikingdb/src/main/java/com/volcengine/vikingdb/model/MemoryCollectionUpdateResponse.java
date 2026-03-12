@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SampleDataForGetVikingdbTaskOutput
+ * MemoryCollectionUpdateResponse
  */
 
 
 
-public class SampleDataForGetVikingdbTaskOutput {
+public class MemoryCollectionUpdateResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class SampleDataForGetVikingdbTaskOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SampleDataForGetVikingdbTaskOutput {\n");
+    sb.append("class MemoryCollectionUpdateResponse {\n");
     
     sb.append("}");
     return sb.toString();

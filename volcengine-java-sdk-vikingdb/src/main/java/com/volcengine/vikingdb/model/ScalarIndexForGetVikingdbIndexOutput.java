@@ -119,7 +119,6 @@ public class ScalarIndexForGetVikingdbIndexOutput {
    * Get defaultValue
    * @return defaultValue
   **/
-  @Valid
   @Schema(description = "")
   public Object getDefaultValue() {
     return defaultValue;

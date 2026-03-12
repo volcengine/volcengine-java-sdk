@@ -33,6 +33,9 @@ public class InstructionForCreateVikingdbCollectionInput {
   @SerializedName("AutoFill")
   private Boolean autoFill = null;
 
+  @SerializedName("Content")
+  private String content = null;
+
   public InstructionForCreateVikingdbCollectionInput autoFill(Boolean autoFill) {
     this.autoFill = autoFill;
     return this;
@@ -51,6 +54,24 @@ public class InstructionForCreateVikingdbCollectionInput {
     this.autoFill = autoFill;
   }
 
+  public InstructionForCreateVikingdbCollectionInput content(String content) {
+    this.content = content;
+    return this;
+  }
+
+   /**
+   * Get content
+   * @return content
+  **/
+  @Schema(description = "")
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class InstructionForCreateVikingdbCollectionInput {
       return false;
     }
     InstructionForCreateVikingdbCollectionInput instructionForCreateVikingdbCollectionInput = (InstructionForCreateVikingdbCollectionInput) o;
-    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill);
+    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill) &&
+        Objects.equals(this.content, instructionForCreateVikingdbCollectionInput.content);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoFill);
+    return Objects.hash(autoFill, content);
   }
 
 
@@ -76,6 +98,7 @@ public class InstructionForCreateVikingdbCollectionInput {
     sb.append("class InstructionForCreateVikingdbCollectionInput {\n");
     
     sb.append("    autoFill: ").append(toIndentedString(autoFill)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();
   }

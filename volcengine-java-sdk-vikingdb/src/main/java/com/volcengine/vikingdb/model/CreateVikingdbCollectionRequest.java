@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vikingdb.model.FieldForCreateVikingdbCollectionInput;
+import com.volcengine.vikingdb.model.FullTextForCreateVikingdbCollectionInput;
 import com.volcengine.vikingdb.model.TagForCreateVikingdbCollectionInput;
 import com.volcengine.vikingdb.model.VectorizeForCreateVikingdbCollectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -43,6 +44,9 @@ public class CreateVikingdbCollectionRequest {
 
   @SerializedName("Fields")
   private List<FieldForCreateVikingdbCollectionInput> fields = null;
+
+  @SerializedName("FullText")
+  private List<FullTextForCreateVikingdbCollectionInput> fullText = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -115,6 +119,33 @@ public class CreateVikingdbCollectionRequest {
 
   public void setFields(List<FieldForCreateVikingdbCollectionInput> fields) {
     this.fields = fields;
+  }
+
+  public CreateVikingdbCollectionRequest fullText(List<FullTextForCreateVikingdbCollectionInput> fullText) {
+    this.fullText = fullText;
+    return this;
+  }
+
+  public CreateVikingdbCollectionRequest addFullTextItem(FullTextForCreateVikingdbCollectionInput fullTextItem) {
+    if (this.fullText == null) {
+      this.fullText = new ArrayList<FullTextForCreateVikingdbCollectionInput>();
+    }
+    this.fullText.add(fullTextItem);
+    return this;
+  }
+
+   /**
+   * Get fullText
+   * @return fullText
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FullTextForCreateVikingdbCollectionInput> getFullText() {
+    return fullText;
+  }
+
+  public void setFullText(List<FullTextForCreateVikingdbCollectionInput> fullText) {
+    this.fullText = fullText;
   }
 
   public CreateVikingdbCollectionRequest projectName(String projectName) {
@@ -194,6 +225,7 @@ public class CreateVikingdbCollectionRequest {
     return Objects.equals(this.collectionName, createVikingdbCollectionRequest.collectionName) &&
         Objects.equals(this.description, createVikingdbCollectionRequest.description) &&
         Objects.equals(this.fields, createVikingdbCollectionRequest.fields) &&
+        Objects.equals(this.fullText, createVikingdbCollectionRequest.fullText) &&
         Objects.equals(this.projectName, createVikingdbCollectionRequest.projectName) &&
         Objects.equals(this.tags, createVikingdbCollectionRequest.tags) &&
         Objects.equals(this.vectorize, createVikingdbCollectionRequest.vectorize);
@@ -201,7 +233,7 @@ public class CreateVikingdbCollectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, fields, projectName, tags, vectorize);
+    return Objects.hash(collectionName, description, fields, fullText, projectName, tags, vectorize);
   }
 
 
@@ -213,6 +245,7 @@ public class CreateVikingdbCollectionRequest {
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    fullText: ").append(toIndentedString(fullText)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vectorize: ").append(toIndentedString(vectorize)).append("\n");

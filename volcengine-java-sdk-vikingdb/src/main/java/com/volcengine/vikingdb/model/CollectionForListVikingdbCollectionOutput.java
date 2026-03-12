@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vikingdb.model.CollectionStatsForListVikingdbCollectionOutput;
 import com.volcengine.vikingdb.model.FieldForListVikingdbCollectionOutput;
+import com.volcengine.vikingdb.model.FullTextForListVikingdbCollectionOutput;
 import com.volcengine.vikingdb.model.TagForListVikingdbCollectionOutput;
 import com.volcengine.vikingdb.model.VectorizeForListVikingdbCollectionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -53,6 +54,9 @@ public class CollectionForListVikingdbCollectionOutput {
 
   @SerializedName("Fields")
   private List<FieldForListVikingdbCollectionOutput> fields = null;
+
+  @SerializedName("FullText")
+  private List<FullTextForListVikingdbCollectionOutput> fullText = null;
 
   @SerializedName("IndexCount")
   private Integer indexCount = null;
@@ -194,6 +198,33 @@ public class CollectionForListVikingdbCollectionOutput {
 
   public void setFields(List<FieldForListVikingdbCollectionOutput> fields) {
     this.fields = fields;
+  }
+
+  public CollectionForListVikingdbCollectionOutput fullText(List<FullTextForListVikingdbCollectionOutput> fullText) {
+    this.fullText = fullText;
+    return this;
+  }
+
+  public CollectionForListVikingdbCollectionOutput addFullTextItem(FullTextForListVikingdbCollectionOutput fullTextItem) {
+    if (this.fullText == null) {
+      this.fullText = new ArrayList<FullTextForListVikingdbCollectionOutput>();
+    }
+    this.fullText.add(fullTextItem);
+    return this;
+  }
+
+   /**
+   * Get fullText
+   * @return fullText
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FullTextForListVikingdbCollectionOutput> getFullText() {
+    return fullText;
+  }
+
+  public void setFullText(List<FullTextForListVikingdbCollectionOutput> fullText) {
+    this.fullText = fullText;
   }
 
   public CollectionForListVikingdbCollectionOutput indexCount(Integer indexCount) {
@@ -374,6 +405,7 @@ public class CollectionForListVikingdbCollectionOutput {
         Objects.equals(this.description, collectionForListVikingdbCollectionOutput.description) &&
         Objects.equals(this.enableKeywordsSearch, collectionForListVikingdbCollectionOutput.enableKeywordsSearch) &&
         Objects.equals(this.fields, collectionForListVikingdbCollectionOutput.fields) &&
+        Objects.equals(this.fullText, collectionForListVikingdbCollectionOutput.fullText) &&
         Objects.equals(this.indexCount, collectionForListVikingdbCollectionOutput.indexCount) &&
         Objects.equals(this.indexNames, collectionForListVikingdbCollectionOutput.indexNames) &&
         Objects.equals(this.projectName, collectionForListVikingdbCollectionOutput.projectName) &&
@@ -386,7 +418,7 @@ public class CollectionForListVikingdbCollectionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, collectionStats, createTime, description, enableKeywordsSearch, fields, indexCount, indexNames, projectName, resourceId, tags, updatePerson, updateTime, vectorize);
+    return Objects.hash(collectionName, collectionStats, createTime, description, enableKeywordsSearch, fields, fullText, indexCount, indexNames, projectName, resourceId, tags, updatePerson, updateTime, vectorize);
   }
 
 
@@ -401,6 +433,7 @@ public class CollectionForListVikingdbCollectionOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableKeywordsSearch: ").append(toIndentedString(enableKeywordsSearch)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    fullText: ").append(toIndentedString(fullText)).append("\n");
     sb.append("    indexCount: ").append(toIndentedString(indexCount)).append("\n");
     sb.append("    indexNames: ").append(toIndentedString(indexNames)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
