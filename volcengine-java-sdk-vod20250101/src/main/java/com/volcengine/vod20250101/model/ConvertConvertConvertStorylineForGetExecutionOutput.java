@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.AllTagForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertConvertConvertClipForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertConvertClipForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertConvertStorylineForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
   private List<AllTagForGetExecutionOutput> allTags = null;
 
   @SerializedName("Clips")
-  private List<ConvertConvertConvertClipForGetExecutionOutput> clips = null;
+  private List<ConvertConvertConvertConvertClipForGetExecutionOutput> clips = null;
 
   @SerializedName("Duration")
   private Double duration = null;
@@ -80,14 +80,14 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
     this.allTags = allTags;
   }
 
-  public ConvertConvertConvertStorylineForGetExecutionOutput clips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
+  public ConvertConvertConvertStorylineForGetExecutionOutput clips(List<ConvertConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
     return this;
   }
 
-  public ConvertConvertConvertStorylineForGetExecutionOutput addClipsItem(ConvertConvertConvertClipForGetExecutionOutput clipsItem) {
+  public ConvertConvertConvertStorylineForGetExecutionOutput addClipsItem(ConvertConvertConvertConvertClipForGetExecutionOutput clipsItem) {
     if (this.clips == null) {
-      this.clips = new ArrayList<ConvertConvertConvertClipForGetExecutionOutput>();
+      this.clips = new ArrayList<ConvertConvertConvertConvertClipForGetExecutionOutput>();
     }
     this.clips.add(clipsItem);
     return this;
@@ -99,11 +99,11 @@ public class ConvertConvertConvertStorylineForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertConvertConvertClipForGetExecutionOutput> getClips() {
+  public List<ConvertConvertConvertConvertClipForGetExecutionOutput> getClips() {
     return clips;
   }
 
-  public void setClips(List<ConvertConvertConvertClipForGetExecutionOutput> clips) {
+  public void setClips(List<ConvertConvertConvertConvertClipForGetExecutionOutput> clips) {
     this.clips = clips;
   }
 

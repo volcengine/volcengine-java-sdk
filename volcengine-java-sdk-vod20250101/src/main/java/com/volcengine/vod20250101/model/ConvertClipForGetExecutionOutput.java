@@ -30,67 +30,46 @@ import javax.validation.Valid;
 
 
 public class ConvertClipForGetExecutionOutput {
-  @SerializedName("End")
-  private Double end = null;
+  @SerializedName("EndTime")
+  private Integer endTime = null;
 
-  @SerializedName("Start")
-  private Double start = null;
+  @SerializedName("StartTime")
+  private Integer startTime = null;
 
-  @SerializedName("VideoIndex")
-  private Integer videoIndex = null;
-
-  public ConvertClipForGetExecutionOutput end(Double end) {
-    this.end = end;
+  public ConvertClipForGetExecutionOutput endTime(Integer endTime) {
+    this.endTime = endTime;
     return this;
   }
 
    /**
-   * Get end
-   * @return end
+   * Get endTime
+   * @return endTime
   **/
   @Schema(description = "")
-  public Double getEnd() {
-    return end;
+  public Integer getEndTime() {
+    return endTime;
   }
 
-  public void setEnd(Double end) {
-    this.end = end;
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
   }
 
-  public ConvertClipForGetExecutionOutput start(Double start) {
-    this.start = start;
+  public ConvertClipForGetExecutionOutput startTime(Integer startTime) {
+    this.startTime = startTime;
     return this;
   }
 
    /**
-   * Get start
-   * @return start
+   * Get startTime
+   * @return startTime
   **/
   @Schema(description = "")
-  public Double getStart() {
-    return start;
+  public Integer getStartTime() {
+    return startTime;
   }
 
-  public void setStart(Double start) {
-    this.start = start;
-  }
-
-  public ConvertClipForGetExecutionOutput videoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
-    return this;
-  }
-
-   /**
-   * Get videoIndex
-   * @return videoIndex
-  **/
-  @Schema(description = "")
-  public Integer getVideoIndex() {
-    return videoIndex;
-  }
-
-  public void setVideoIndex(Integer videoIndex) {
-    this.videoIndex = videoIndex;
+  public void setStartTime(Integer startTime) {
+    this.startTime = startTime;
   }
 
 
@@ -103,14 +82,13 @@ public class ConvertClipForGetExecutionOutput {
       return false;
     }
     ConvertClipForGetExecutionOutput convertClipForGetExecutionOutput = (ConvertClipForGetExecutionOutput) o;
-    return Objects.equals(this.end, convertClipForGetExecutionOutput.end) &&
-        Objects.equals(this.start, convertClipForGetExecutionOutput.start) &&
-        Objects.equals(this.videoIndex, convertClipForGetExecutionOutput.videoIndex);
+    return Objects.equals(this.endTime, convertClipForGetExecutionOutput.endTime) &&
+        Objects.equals(this.startTime, convertClipForGetExecutionOutput.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, start, videoIndex);
+    return Objects.hash(endTime, startTime);
   }
 
 
@@ -119,9 +97,8 @@ public class ConvertClipForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertClipForGetExecutionOutput {\n");
     
-    sb.append("    end: ").append(toIndentedString(end)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    videoIndex: ").append(toIndentedString(videoIndex)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

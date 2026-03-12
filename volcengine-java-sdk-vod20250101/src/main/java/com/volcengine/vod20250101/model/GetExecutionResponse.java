@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ControlForGetExecutionOutput;
-import com.volcengine.vod20250101.model.ConvertConvertOutputForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertOutputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertOperationForGetExecutionOutput;
 import com.volcengine.vod20250101.model.InputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.MetaForGetExecutionOutput;
@@ -57,7 +57,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
   private ConvertOperationForGetExecutionOutput operation = null;
 
   @SerializedName("Output")
-  private ConvertConvertOutputForGetExecutionOutput output = null;
+  private ConvertConvertConvertOutputForGetExecutionOutput output = null;
 
   @SerializedName("RunId")
   private String runId = null;
@@ -189,7 +189,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
     this.operation = operation;
   }
 
-  public GetExecutionResponse output(ConvertConvertOutputForGetExecutionOutput output) {
+  public GetExecutionResponse output(ConvertConvertConvertOutputForGetExecutionOutput output) {
     this.output = output;
     return this;
   }
@@ -200,11 +200,11 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
   **/
   @Valid
   @Schema(description = "")
-  public ConvertConvertOutputForGetExecutionOutput getOutput() {
+  public ConvertConvertConvertOutputForGetExecutionOutput getOutput() {
     return output;
   }
 
-  public void setOutput(ConvertConvertOutputForGetExecutionOutput output) {
+  public void setOutput(ConvertConvertConvertOutputForGetExecutionOutput output) {
     this.output = output;
   }
 

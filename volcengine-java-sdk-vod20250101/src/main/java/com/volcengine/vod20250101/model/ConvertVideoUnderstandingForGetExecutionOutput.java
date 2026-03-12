@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class ConvertVideoUnderstandingForGetExecutionOutput {
   private Double duration = null;
 
   @SerializedName("Segments")
-  private List<ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments = null;
+  private List<ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments = null;
 
   public ConvertVideoUnderstandingForGetExecutionOutput content(String content) {
     this.content = content;
@@ -78,14 +78,14 @@ public class ConvertVideoUnderstandingForGetExecutionOutput {
     this.duration = duration;
   }
 
-  public ConvertVideoUnderstandingForGetExecutionOutput segments(List<ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
+  public ConvertVideoUnderstandingForGetExecutionOutput segments(List<ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
     this.segments = segments;
     return this;
   }
 
-  public ConvertVideoUnderstandingForGetExecutionOutput addSegmentsItem(ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput segmentsItem) {
+  public ConvertVideoUnderstandingForGetExecutionOutput addSegmentsItem(ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput segmentsItem) {
     if (this.segments == null) {
-      this.segments = new ArrayList<ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput>();
+      this.segments = new ArrayList<ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput>();
     }
     this.segments.add(segmentsItem);
     return this;
@@ -97,11 +97,11 @@ public class ConvertVideoUnderstandingForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> getSegments() {
+  public List<ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> getSegments() {
     return segments;
   }
 
-  public void setSegments(List<ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
+  public void setSegments(List<ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput> segments) {
     this.segments = segments;
   }
 

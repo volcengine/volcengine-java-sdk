@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.ConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertConvertSegmentForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertModelForGetExecutionOutput;
 import com.volcengine.vod20250101.model.SnapshotParamForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -46,7 +46,7 @@ public class VisionForGetExecutionOutput {
   private String responseFormatType = null;
 
   @SerializedName("Segment")
-  private ConvertConvertSegmentForGetExecutionOutput segment = null;
+  private ConvertConvertConvertSegmentForGetExecutionOutput segment = null;
 
   @SerializedName("SnapshotParam")
   private SnapshotParamForGetExecutionOutput snapshotParam = null;
@@ -124,7 +124,7 @@ public class VisionForGetExecutionOutput {
     this.responseFormatType = responseFormatType;
   }
 
-  public VisionForGetExecutionOutput segment(ConvertConvertSegmentForGetExecutionOutput segment) {
+  public VisionForGetExecutionOutput segment(ConvertConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
     return this;
   }
@@ -135,11 +135,11 @@ public class VisionForGetExecutionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ConvertConvertSegmentForGetExecutionOutput getSegment() {
+  public ConvertConvertConvertSegmentForGetExecutionOutput getSegment() {
     return segment;
   }
 
-  public void setSegment(ConvertConvertSegmentForGetExecutionOutput segment) {
+  public void setSegment(ConvertConvertConvertSegmentForGetExecutionOutput segment) {
     this.segment = segment;
   }
 

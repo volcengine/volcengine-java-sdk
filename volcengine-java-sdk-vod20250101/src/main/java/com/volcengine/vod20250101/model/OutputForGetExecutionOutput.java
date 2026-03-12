@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vod20250101.model.CodecForGetExecutionOutput;
+import com.volcengine.vod20250101.model.AudioForGetExecutionOutput;
+import com.volcengine.vod20250101.model.VideoForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,194 +32,48 @@ import javax.validation.Valid;
 
 
 public class OutputForGetExecutionOutput {
-  @SerializedName("Alpha")
-  private Boolean alpha = null;
+  @SerializedName("Audio")
+  private AudioForGetExecutionOutput audio = null;
 
-  @SerializedName("AudioPhaseDetect")
-  private Boolean audioPhaseDetect = null;
+  @SerializedName("Video")
+  private VideoForGetExecutionOutput video = null;
 
-  @SerializedName("CanvasWithMax")
-  private Boolean canvasWithMax = null;
-
-  @SerializedName("CanvasWithRatio")
-  private Boolean canvasWithRatio = null;
-
-  @SerializedName("Codec")
-  private CodecForGetExecutionOutput codec = null;
-
-  @SerializedName("DisableAudio")
-  private Boolean disableAudio = null;
-
-  @SerializedName("DisableVideo")
-  private Boolean disableVideo = null;
-
-  @SerializedName("Format")
-  private String format = null;
-
-  @SerializedName("Fps")
-  private Double fps = null;
-
-  public OutputForGetExecutionOutput alpha(Boolean alpha) {
-    this.alpha = alpha;
+  public OutputForGetExecutionOutput audio(AudioForGetExecutionOutput audio) {
+    this.audio = audio;
     return this;
   }
 
    /**
-   * Get alpha
-   * @return alpha
-  **/
-  @Schema(description = "")
-  public Boolean isAlpha() {
-    return alpha;
-  }
-
-  public void setAlpha(Boolean alpha) {
-    this.alpha = alpha;
-  }
-
-  public OutputForGetExecutionOutput audioPhaseDetect(Boolean audioPhaseDetect) {
-    this.audioPhaseDetect = audioPhaseDetect;
-    return this;
-  }
-
-   /**
-   * Get audioPhaseDetect
-   * @return audioPhaseDetect
-  **/
-  @Schema(description = "")
-  public Boolean isAudioPhaseDetect() {
-    return audioPhaseDetect;
-  }
-
-  public void setAudioPhaseDetect(Boolean audioPhaseDetect) {
-    this.audioPhaseDetect = audioPhaseDetect;
-  }
-
-  public OutputForGetExecutionOutput canvasWithMax(Boolean canvasWithMax) {
-    this.canvasWithMax = canvasWithMax;
-    return this;
-  }
-
-   /**
-   * Get canvasWithMax
-   * @return canvasWithMax
-  **/
-  @Schema(description = "")
-  public Boolean isCanvasWithMax() {
-    return canvasWithMax;
-  }
-
-  public void setCanvasWithMax(Boolean canvasWithMax) {
-    this.canvasWithMax = canvasWithMax;
-  }
-
-  public OutputForGetExecutionOutput canvasWithRatio(Boolean canvasWithRatio) {
-    this.canvasWithRatio = canvasWithRatio;
-    return this;
-  }
-
-   /**
-   * Get canvasWithRatio
-   * @return canvasWithRatio
-  **/
-  @Schema(description = "")
-  public Boolean isCanvasWithRatio() {
-    return canvasWithRatio;
-  }
-
-  public void setCanvasWithRatio(Boolean canvasWithRatio) {
-    this.canvasWithRatio = canvasWithRatio;
-  }
-
-  public OutputForGetExecutionOutput codec(CodecForGetExecutionOutput codec) {
-    this.codec = codec;
-    return this;
-  }
-
-   /**
-   * Get codec
-   * @return codec
+   * Get audio
+   * @return audio
   **/
   @Valid
   @Schema(description = "")
-  public CodecForGetExecutionOutput getCodec() {
-    return codec;
+  public AudioForGetExecutionOutput getAudio() {
+    return audio;
   }
 
-  public void setCodec(CodecForGetExecutionOutput codec) {
-    this.codec = codec;
+  public void setAudio(AudioForGetExecutionOutput audio) {
+    this.audio = audio;
   }
 
-  public OutputForGetExecutionOutput disableAudio(Boolean disableAudio) {
-    this.disableAudio = disableAudio;
+  public OutputForGetExecutionOutput video(VideoForGetExecutionOutput video) {
+    this.video = video;
     return this;
   }
 
    /**
-   * Get disableAudio
-   * @return disableAudio
+   * Get video
+   * @return video
   **/
+  @Valid
   @Schema(description = "")
-  public Boolean isDisableAudio() {
-    return disableAudio;
+  public VideoForGetExecutionOutput getVideo() {
+    return video;
   }
 
-  public void setDisableAudio(Boolean disableAudio) {
-    this.disableAudio = disableAudio;
-  }
-
-  public OutputForGetExecutionOutput disableVideo(Boolean disableVideo) {
-    this.disableVideo = disableVideo;
-    return this;
-  }
-
-   /**
-   * Get disableVideo
-   * @return disableVideo
-  **/
-  @Schema(description = "")
-  public Boolean isDisableVideo() {
-    return disableVideo;
-  }
-
-  public void setDisableVideo(Boolean disableVideo) {
-    this.disableVideo = disableVideo;
-  }
-
-  public OutputForGetExecutionOutput format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Get format
-   * @return format
-  **/
-  @Schema(description = "")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
-  public OutputForGetExecutionOutput fps(Double fps) {
-    this.fps = fps;
-    return this;
-  }
-
-   /**
-   * Get fps
-   * @return fps
-  **/
-  @Schema(description = "")
-  public Double getFps() {
-    return fps;
-  }
-
-  public void setFps(Double fps) {
-    this.fps = fps;
+  public void setVideo(VideoForGetExecutionOutput video) {
+    this.video = video;
   }
 
 
@@ -231,20 +86,13 @@ public class OutputForGetExecutionOutput {
       return false;
     }
     OutputForGetExecutionOutput outputForGetExecutionOutput = (OutputForGetExecutionOutput) o;
-    return Objects.equals(this.alpha, outputForGetExecutionOutput.alpha) &&
-        Objects.equals(this.audioPhaseDetect, outputForGetExecutionOutput.audioPhaseDetect) &&
-        Objects.equals(this.canvasWithMax, outputForGetExecutionOutput.canvasWithMax) &&
-        Objects.equals(this.canvasWithRatio, outputForGetExecutionOutput.canvasWithRatio) &&
-        Objects.equals(this.codec, outputForGetExecutionOutput.codec) &&
-        Objects.equals(this.disableAudio, outputForGetExecutionOutput.disableAudio) &&
-        Objects.equals(this.disableVideo, outputForGetExecutionOutput.disableVideo) &&
-        Objects.equals(this.format, outputForGetExecutionOutput.format) &&
-        Objects.equals(this.fps, outputForGetExecutionOutput.fps);
+    return Objects.equals(this.audio, outputForGetExecutionOutput.audio) &&
+        Objects.equals(this.video, outputForGetExecutionOutput.video);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alpha, audioPhaseDetect, canvasWithMax, canvasWithRatio, codec, disableAudio, disableVideo, format, fps);
+    return Objects.hash(audio, video);
   }
 
 
@@ -253,15 +101,8 @@ public class OutputForGetExecutionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutputForGetExecutionOutput {\n");
     
-    sb.append("    alpha: ").append(toIndentedString(alpha)).append("\n");
-    sb.append("    audioPhaseDetect: ").append(toIndentedString(audioPhaseDetect)).append("\n");
-    sb.append("    canvasWithMax: ").append(toIndentedString(canvasWithMax)).append("\n");
-    sb.append("    canvasWithRatio: ").append(toIndentedString(canvasWithRatio)).append("\n");
-    sb.append("    codec: ").append(toIndentedString(codec)).append("\n");
-    sb.append("    disableAudio: ").append(toIndentedString(disableAudio)).append("\n");
-    sb.append("    disableVideo: ").append(toIndentedString(disableVideo)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    fps: ").append(toIndentedString(fps)).append("\n");
+    sb.append("    audio: ").append(toIndentedString(audio)).append("\n");
+    sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("}");
     return sb.toString();
   }
