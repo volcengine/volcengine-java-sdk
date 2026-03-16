@@ -70,8 +70,6 @@ public class ConnectUtils {
 
         RequestInterceptorContext reqCtx = context.getRequestContext();
         reqCtx.setPresigned(true);
-        reqCtx.setSchema(schema);
-        reqCtx.setHost(endpoint);
         reqCtx.setMethod("GET");
         reqCtx.setServiceInfo(new ServiceInfo(SERVICE_NAME, "GET"));
         reqCtx.setHeaderParams(new HashMap<>());
@@ -82,6 +80,7 @@ public class ConnectUtils {
         queryParams.add(new Pair("X-Expires", String.valueOf(expires)));
         queryParams.add(new Pair("DBUser", dbUser));
         queryParams.add(new Pair("InstanceId", instanceId));
+        queryParams.add(new Pair("X-Host", schema + "://" + endpoint));
         reqCtx.setQueryParams(queryParams);
 
         // Execute sign interceptor for presigning

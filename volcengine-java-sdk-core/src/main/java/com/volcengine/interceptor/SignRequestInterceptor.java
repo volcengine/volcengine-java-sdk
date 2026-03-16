@@ -28,7 +28,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
     @Override
     public InterceptorContext intercept(InterceptorContext context) throws ApiException {
         String path = context.getRequestContext().getPath();
-        String method=context.getRequestContext().getMethod();
+        String method = context.getRequestContext().getMethod();
         Map<String, String> headerParams = context.getRequestContext().getHeaderParams();
         List<Pair> queryParams = context.getRequestContext().getQueryParams();
         ServiceInfo serviceInfo = context.getRequestContext().getServiceInfo();
@@ -75,8 +75,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
             String host = context.getRequestContext().getHost();
             try {
                 Map<String, String> presignedParams = volcengineSign.presign(queryParamsMap, host);
-                String presignedUrl = buildPresignedUrl(
-                        context.getRequestContext().getSchema(), host, presignedParams);
+                String presignedUrl = buildPresignedUrl(context.getRequestContext().getSchema(), host, presignedParams);
                 context.getRequestContext().setPresignedUrl(presignedUrl);
             } catch (Exception e) {
                 throw new ApiException(e);
@@ -125,7 +124,9 @@ public class SignRequestInterceptor implements RequestInterceptor {
 
     private static String buildPresignedUrl(String scheme, String host, Map<String, String> presignedParams) {
         StringBuilder url = new StringBuilder();
-        url.append(scheme).append("://").append(host).append("?");
+        if (StringUtils.isNotEmpty(scheme) && StringUtils.isNotEmpty(host)) {
+            url.append(scheme).append("://").append(host).append("?");
+        }
 
         List<String> keys = new ArrayList<>(presignedParams.keySet());
         Collections.sort(keys);
