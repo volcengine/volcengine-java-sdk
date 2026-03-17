@@ -67,6 +67,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("DrSecondsBehindMaster")
   private Integer drSecondsBehindMaster = null;
 
+  @SerializedName("EngineType")
+  private String engineType = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -96,6 +99,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("Memory")
   private Integer memory = null;
+
+  @SerializedName("NewNodeSpec")
+  private String newNodeSpec = null;
 
   @SerializedName("NodeNumber")
   private String nodeNumber = null;
@@ -337,6 +343,24 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.drSecondsBehindMaster = drSecondsBehindMaster;
   }
 
+  public BasicInfoForDescribeDBInstanceDetailOutput engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Get engineType
+   * @return engineType
+  **/
+  @Schema(description = "")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
+  }
+
   public BasicInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -516,6 +540,24 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setMemory(Integer memory) {
     this.memory = memory;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput newNodeSpec(String newNodeSpec) {
+    this.newNodeSpec = newNodeSpec;
+    return this;
+  }
+
+   /**
+   * Get newNodeSpec
+   * @return newNodeSpec
+  **/
+  @Schema(description = "")
+  public String getNewNodeSpec() {
+    return newNodeSpec;
+  }
+
+  public void setNewNodeSpec(String newNodeSpec) {
+    this.newNodeSpec = newNodeSpec;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput nodeNumber(String nodeNumber) {
@@ -800,6 +842,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.drDtsTaskName, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskName) &&
         Objects.equals(this.drDtsTaskStatus, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskStatus) &&
         Objects.equals(this.drSecondsBehindMaster, basicInfoForDescribeDBInstanceDetailOutput.drSecondsBehindMaster) &&
+        Objects.equals(this.engineType, basicInfoForDescribeDBInstanceDetailOutput.engineType) &&
         Objects.equals(this.instanceId, basicInfoForDescribeDBInstanceDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, basicInfoForDescribeDBInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
@@ -810,6 +853,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.masterInstanceName, basicInfoForDescribeDBInstanceDetailOutput.masterInstanceName) &&
         Objects.equals(this.masterRegion, basicInfoForDescribeDBInstanceDetailOutput.masterRegion) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
+        Objects.equals(this.newNodeSpec, basicInfoForDescribeDBInstanceDetailOutput.newNodeSpec) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
         Objects.equals(this.projectName, basicInfoForDescribeDBInstanceDetailOutput.projectName) &&
@@ -828,7 +872,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, engineType, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, newNodeSpec, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -848,6 +892,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    drDtsTaskName: ").append(toIndentedString(drDtsTaskName)).append("\n");
     sb.append("    drDtsTaskStatus: ").append(toIndentedString(drDtsTaskStatus)).append("\n");
     sb.append("    drSecondsBehindMaster: ").append(toIndentedString(drSecondsBehindMaster)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
@@ -858,6 +903,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    masterInstanceName: ").append(toIndentedString(masterInstanceName)).append("\n");
     sb.append("    masterRegion: ").append(toIndentedString(masterRegion)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
+    sb.append("    newNodeSpec: ").append(toIndentedString(newNodeSpec)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

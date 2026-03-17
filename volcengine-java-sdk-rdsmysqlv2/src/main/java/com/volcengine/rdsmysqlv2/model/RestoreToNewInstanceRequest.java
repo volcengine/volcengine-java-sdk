@@ -70,6 +70,9 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("PrivateIpAddress")
+  private String privateIpAddress = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -320,6 +323,24 @@ public class RestoreToNewInstanceRequest {
     this.port = port;
   }
 
+  public RestoreToNewInstanceRequest privateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+    return this;
+  }
+
+   /**
+   * Get privateIpAddress
+   * @return privateIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateIpAddress() {
+    return privateIpAddress;
+  }
+
+  public void setPrivateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+  }
+
   public RestoreToNewInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -490,6 +511,7 @@ public class RestoreToNewInstanceRequest {
         Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, restoreToNewInstanceRequest.port) &&
+        Objects.equals(this.privateIpAddress, restoreToNewInstanceRequest.privateIpAddress) &&
         Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, restoreToNewInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
@@ -502,7 +524,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, enableExternalReplication, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, enableExternalReplication, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -522,6 +544,7 @@ public class RestoreToNewInstanceRequest {
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");

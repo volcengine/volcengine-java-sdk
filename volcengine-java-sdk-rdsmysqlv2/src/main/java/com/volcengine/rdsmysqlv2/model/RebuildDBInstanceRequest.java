@@ -70,6 +70,9 @@ public class RebuildDBInstanceRequest {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("PrivateIpAddress")
+  private String privateIpAddress = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -318,6 +321,24 @@ public class RebuildDBInstanceRequest {
     this.port = port;
   }
 
+  public RebuildDBInstanceRequest privateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+    return this;
+  }
+
+   /**
+   * Get privateIpAddress
+   * @return privateIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateIpAddress() {
+    return privateIpAddress;
+  }
+
+  public void setPrivateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+  }
+
   public RebuildDBInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -466,6 +487,7 @@ public class RebuildDBInstanceRequest {
         Objects.equals(this.instanceTags, rebuildDBInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, rebuildDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, rebuildDBInstanceRequest.port) &&
+        Objects.equals(this.privateIpAddress, rebuildDBInstanceRequest.privateIpAddress) &&
         Objects.equals(this.projectName, rebuildDBInstanceRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, rebuildDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.requestSource, rebuildDBInstanceRequest.requestSource) &&
@@ -477,7 +499,7 @@ public class RebuildDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, requestSource, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, requestSource, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -497,6 +519,7 @@ public class RebuildDBInstanceRequest {
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    requestSource: ").append(toIndentedString(requestSource)).append("\n");

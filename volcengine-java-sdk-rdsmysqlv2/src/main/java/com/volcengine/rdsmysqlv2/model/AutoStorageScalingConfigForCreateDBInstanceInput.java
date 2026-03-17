@@ -33,6 +33,9 @@ public class AutoStorageScalingConfigForCreateDBInstanceInput {
   @SerializedName("EnableStorageAutoScale")
   private Boolean enableStorageAutoScale = null;
 
+  @SerializedName("ScalingDetectNode")
+  private String scalingDetectNode = null;
+
   @SerializedName("StorageThreshold")
   private Integer storageThreshold = null;
 
@@ -55,6 +58,24 @@ public class AutoStorageScalingConfigForCreateDBInstanceInput {
 
   public void setEnableStorageAutoScale(Boolean enableStorageAutoScale) {
     this.enableStorageAutoScale = enableStorageAutoScale;
+  }
+
+  public AutoStorageScalingConfigForCreateDBInstanceInput scalingDetectNode(String scalingDetectNode) {
+    this.scalingDetectNode = scalingDetectNode;
+    return this;
+  }
+
+   /**
+   * Get scalingDetectNode
+   * @return scalingDetectNode
+  **/
+  @Schema(description = "")
+  public String getScalingDetectNode() {
+    return scalingDetectNode;
+  }
+
+  public void setScalingDetectNode(String scalingDetectNode) {
+    this.scalingDetectNode = scalingDetectNode;
   }
 
   public AutoStorageScalingConfigForCreateDBInstanceInput storageThreshold(Integer storageThreshold) {
@@ -104,13 +125,14 @@ public class AutoStorageScalingConfigForCreateDBInstanceInput {
     }
     AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfigForCreateDBInstanceInput = (AutoStorageScalingConfigForCreateDBInstanceInput) o;
     return Objects.equals(this.enableStorageAutoScale, autoStorageScalingConfigForCreateDBInstanceInput.enableStorageAutoScale) &&
+        Objects.equals(this.scalingDetectNode, autoStorageScalingConfigForCreateDBInstanceInput.scalingDetectNode) &&
         Objects.equals(this.storageThreshold, autoStorageScalingConfigForCreateDBInstanceInput.storageThreshold) &&
         Objects.equals(this.storageUpperBound, autoStorageScalingConfigForCreateDBInstanceInput.storageUpperBound);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableStorageAutoScale, storageThreshold, storageUpperBound);
+    return Objects.hash(enableStorageAutoScale, scalingDetectNode, storageThreshold, storageUpperBound);
   }
 
 
@@ -120,6 +142,7 @@ public class AutoStorageScalingConfigForCreateDBInstanceInput {
     sb.append("class AutoStorageScalingConfigForCreateDBInstanceInput {\n");
     
     sb.append("    enableStorageAutoScale: ").append(toIndentedString(enableStorageAutoScale)).append("\n");
+    sb.append("    scalingDetectNode: ").append(toIndentedString(scalingDetectNode)).append("\n");
     sb.append("    storageThreshold: ").append(toIndentedString(storageThreshold)).append("\n");
     sb.append("    storageUpperBound: ").append(toIndentedString(storageUpperBound)).append("\n");
     sb.append("}");

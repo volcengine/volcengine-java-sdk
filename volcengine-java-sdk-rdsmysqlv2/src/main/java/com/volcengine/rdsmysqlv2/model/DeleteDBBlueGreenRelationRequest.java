@@ -24,52 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CheckDetailForDescribeTaskDetailOutput
+ * DeleteDBBlueGreenRelationRequest
  */
 
 
 
-public class CheckDetailForDescribeTaskDetailOutput {
-  @SerializedName("Impact")
-  private String impact = null;
+public class DeleteDBBlueGreenRelationRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  @SerializedName("Issue")
-  private String issue = null;
-
-  public CheckDetailForDescribeTaskDetailOutput impact(String impact) {
-    this.impact = impact;
+  public DeleteDBBlueGreenRelationRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get impact
-   * @return impact
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getImpact() {
-    return impact;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setImpact(String impact) {
-    this.impact = impact;
-  }
-
-  public CheckDetailForDescribeTaskDetailOutput issue(String issue) {
-    this.issue = issue;
-    return this;
-  }
-
-   /**
-   * Get issue
-   * @return issue
-  **/
-  @Schema(description = "")
-  public String getIssue() {
-    return issue;
-  }
-
-  public void setIssue(String issue) {
-    this.issue = issue;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +61,22 @@ public class CheckDetailForDescribeTaskDetailOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckDetailForDescribeTaskDetailOutput checkDetailForDescribeTaskDetailOutput = (CheckDetailForDescribeTaskDetailOutput) o;
-    return Objects.equals(this.impact, checkDetailForDescribeTaskDetailOutput.impact) &&
-        Objects.equals(this.issue, checkDetailForDescribeTaskDetailOutput.issue);
+    DeleteDBBlueGreenRelationRequest deleteDBBlueGreenRelationRequest = (DeleteDBBlueGreenRelationRequest) o;
+    return Objects.equals(this.instanceId, deleteDBBlueGreenRelationRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impact, issue);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckDetailForDescribeTaskDetailOutput {\n");
+    sb.append("class DeleteDBBlueGreenRelationRequest {\n");
     
-    sb.append("    impact: ").append(toIndentedString(impact)).append("\n");
-    sb.append("    issue: ").append(toIndentedString(issue)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
