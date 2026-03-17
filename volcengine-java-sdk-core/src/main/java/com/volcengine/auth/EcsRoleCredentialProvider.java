@@ -175,7 +175,7 @@ public class EcsRoleCredentialProvider implements Provider {
                 return doGet(urlStr);
             } catch (ApiException e) {
                 lastException = e;
-                if (attempt < maxRetries) {
+                if (attempt < maxRetries - 1) {
                     try {
                         Thread.sleep(retryIntervalMs);
                     } catch (InterruptedException ie) {
