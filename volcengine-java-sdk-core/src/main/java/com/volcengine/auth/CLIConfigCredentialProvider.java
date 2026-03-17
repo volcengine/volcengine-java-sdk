@@ -17,7 +17,7 @@ public class CLIConfigCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "CLIConfigCredentialProvider";
 
     private final String profileName;
-    private CredentialValue credentialValue;
+    private volatile CredentialValue credentialValue;
 
     public CLIConfigCredentialProvider() {
         this(null);

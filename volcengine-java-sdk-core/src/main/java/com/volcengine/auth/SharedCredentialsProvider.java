@@ -16,7 +16,7 @@ public class SharedCredentialsProvider implements Provider {
     private static final String PROVIDER_NAME = "SharedCredentialsProvider";
 
     private final String profileName;
-    private CredentialValue credentialValue;
+    private volatile CredentialValue credentialValue;
 
     public SharedCredentialsProvider() {
         this(null);

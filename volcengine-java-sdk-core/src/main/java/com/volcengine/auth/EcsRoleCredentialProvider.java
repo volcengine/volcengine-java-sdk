@@ -170,7 +170,7 @@ public class EcsRoleCredentialProvider implements Provider {
     private String doGetWithRetry(String urlStr) throws ApiException {
         ApiException lastException = null;
 
-        for (int attempt = 0; attempt <= maxRetries; attempt++) {
+        for (int attempt = 0; attempt < maxRetries; attempt++) {
             try {
                 return doGet(urlStr);
             } catch (ApiException e) {
@@ -207,8 +207,13 @@ public class EcsRoleCredentialProvider implements Provider {
             try (BufferedReader reader = new BufferedReader(
                     new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
                 String line;
+                boolean first = true;
                 while ((line = reader.readLine()) != null) {
+                    if (!first) {
+                        sb.append('\n');
+                    }
                     sb.append(line);
+                    first = false;
                 }
             }
             return sb.toString();
