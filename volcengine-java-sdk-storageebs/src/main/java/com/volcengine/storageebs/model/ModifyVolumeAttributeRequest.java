@@ -30,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class ModifyVolumeAttributeRequest {
+  @SerializedName("DeleteProtection")
+  private Boolean deleteProtection = null;
+
+  @SerializedName("DeleteProtectionRetentionDays")
+  private Integer deleteProtectionRetentionDays = null;
+
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
 
@@ -41,6 +47,42 @@ public class ModifyVolumeAttributeRequest {
 
   @SerializedName("VolumeName")
   private String volumeName = null;
+
+  public ModifyVolumeAttributeRequest deleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+  public ModifyVolumeAttributeRequest deleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
+    return this;
+  }
+
+   /**
+   * Get deleteProtectionRetentionDays
+   * @return deleteProtectionRetentionDays
+  **/
+  @Schema(description = "")
+  public Integer getDeleteProtectionRetentionDays() {
+    return deleteProtectionRetentionDays;
+  }
+
+  public void setDeleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
+  }
 
   public ModifyVolumeAttributeRequest deleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
@@ -126,7 +168,9 @@ public class ModifyVolumeAttributeRequest {
       return false;
     }
     ModifyVolumeAttributeRequest modifyVolumeAttributeRequest = (ModifyVolumeAttributeRequest) o;
-    return Objects.equals(this.deleteWithInstance, modifyVolumeAttributeRequest.deleteWithInstance) &&
+    return Objects.equals(this.deleteProtection, modifyVolumeAttributeRequest.deleteProtection) &&
+        Objects.equals(this.deleteProtectionRetentionDays, modifyVolumeAttributeRequest.deleteProtectionRetentionDays) &&
+        Objects.equals(this.deleteWithInstance, modifyVolumeAttributeRequest.deleteWithInstance) &&
         Objects.equals(this.description, modifyVolumeAttributeRequest.description) &&
         Objects.equals(this.volumeId, modifyVolumeAttributeRequest.volumeId) &&
         Objects.equals(this.volumeName, modifyVolumeAttributeRequest.volumeName);
@@ -134,7 +178,7 @@ public class ModifyVolumeAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, description, volumeId, volumeName);
+    return Objects.hash(deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, volumeId, volumeName);
   }
 
 
@@ -143,6 +187,8 @@ public class ModifyVolumeAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVolumeAttributeRequest {\n");
     
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");

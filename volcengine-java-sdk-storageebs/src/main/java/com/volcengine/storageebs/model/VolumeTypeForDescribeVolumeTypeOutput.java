@@ -33,9 +33,6 @@ import javax.validation.Valid;
 
 
 public class VolumeTypeForDescribeVolumeTypeOutput {
-  @SerializedName("CreatedAt")
-  private String createdAt = null;
-
   @SerializedName("ExtraPerformanceTypes")
   private List<ExtraPerformanceTypeForDescribeVolumeTypeOutput> extraPerformanceTypes = null;
 
@@ -44,24 +41,6 @@ public class VolumeTypeForDescribeVolumeTypeOutput {
 
   @SerializedName("Zones")
   private List<String> zones = null;
-
-  public VolumeTypeForDescribeVolumeTypeOutput createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @Schema(description = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
 
   public VolumeTypeForDescribeVolumeTypeOutput extraPerformanceTypes(List<ExtraPerformanceTypeForDescribeVolumeTypeOutput> extraPerformanceTypes) {
     this.extraPerformanceTypes = extraPerformanceTypes;
@@ -144,15 +123,14 @@ public class VolumeTypeForDescribeVolumeTypeOutput {
       return false;
     }
     VolumeTypeForDescribeVolumeTypeOutput volumeTypeForDescribeVolumeTypeOutput = (VolumeTypeForDescribeVolumeTypeOutput) o;
-    return Objects.equals(this.createdAt, volumeTypeForDescribeVolumeTypeOutput.createdAt) &&
-        Objects.equals(this.extraPerformanceTypes, volumeTypeForDescribeVolumeTypeOutput.extraPerformanceTypes) &&
+    return Objects.equals(this.extraPerformanceTypes, volumeTypeForDescribeVolumeTypeOutput.extraPerformanceTypes) &&
         Objects.equals(this.id, volumeTypeForDescribeVolumeTypeOutput.id) &&
         Objects.equals(this.zones, volumeTypeForDescribeVolumeTypeOutput.zones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, extraPerformanceTypes, id, zones);
+    return Objects.hash(extraPerformanceTypes, id, zones);
   }
 
 
@@ -161,7 +139,6 @@ public class VolumeTypeForDescribeVolumeTypeOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeTypeForDescribeVolumeTypeOutput {\n");
     
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    extraPerformanceTypes: ").append(toIndentedString(extraPerformanceTypes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
