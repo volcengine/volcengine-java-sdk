@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class ProjectNamespaceDetailRequest {
   @SerializedName("namespaceId")
-  private String namespaceId = null;
+  private Integer namespaceId = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(String namespaceId) {
+  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -47,11 +47,11 @@ public class ProjectNamespaceDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getNamespaceId() {
+  public Integer getNamespaceId() {
     return namespaceId;
   }
 
-  public void setNamespaceId(String namespaceId) {
+  public void setNamespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
   }
 
