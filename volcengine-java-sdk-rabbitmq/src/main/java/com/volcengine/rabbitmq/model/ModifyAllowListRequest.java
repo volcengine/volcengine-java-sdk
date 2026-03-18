@@ -42,8 +42,8 @@ public class ModifyAllowListRequest {
   @SerializedName("AllowListName")
   private String allowListName = null;
 
-  @SerializedName("ApplyDBInstanceNum")
-  private Integer applyDBInstanceNum = null;
+  @SerializedName("ApplyInstanceNum")
+  private Integer applyInstanceNum = null;
 
   @SerializedName("ModifyMode")
   private String modifyMode = null;
@@ -122,23 +122,22 @@ public class ModifyAllowListRequest {
     this.allowListName = allowListName;
   }
 
-  public ModifyAllowListRequest applyDBInstanceNum(Integer applyDBInstanceNum) {
-    this.applyDBInstanceNum = applyDBInstanceNum;
+  public ModifyAllowListRequest applyInstanceNum(Integer applyInstanceNum) {
+    this.applyInstanceNum = applyInstanceNum;
     return this;
   }
 
    /**
-   * Get applyDBInstanceNum
-   * @return applyDBInstanceNum
+   * Get applyInstanceNum
+   * @return applyInstanceNum
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getApplyDBInstanceNum() {
-    return applyDBInstanceNum;
+  @Schema(description = "")
+  public Integer getApplyInstanceNum() {
+    return applyInstanceNum;
   }
 
-  public void setApplyDBInstanceNum(Integer applyDBInstanceNum) {
-    this.applyDBInstanceNum = applyDBInstanceNum;
+  public void setApplyInstanceNum(Integer applyInstanceNum) {
+    this.applyInstanceNum = applyInstanceNum;
   }
 
   public ModifyAllowListRequest modifyMode(String modifyMode) {
@@ -173,13 +172,13 @@ public class ModifyAllowListRequest {
         Objects.equals(this.allowListDesc, modifyAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
-        Objects.equals(this.applyDBInstanceNum, modifyAllowListRequest.applyDBInstanceNum) &&
+        Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
         Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyDBInstanceNum, modifyMode);
+    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
   }
 
 
@@ -192,7 +191,7 @@ public class ModifyAllowListRequest {
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
-    sb.append("    applyDBInstanceNum: ").append(toIndentedString(applyDBInstanceNum)).append("\n");
+    sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
     sb.append("}");
     return sb.toString();
