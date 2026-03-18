@@ -14,6 +14,8 @@ import okio.Buffer;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.*;
 
 public class SignRequestInterceptor implements RequestInterceptor {
@@ -134,7 +136,13 @@ public class SignRequestInterceptor implements RequestInterceptor {
         for (int i = 0; i < keys.size(); i++) {
             String key = keys.get(i);
             String value = presignedParams.get(key);
-            url.append(key).append("=").append(value);
+            try {
+                url.append(key)
+                   .append("=")
+                   .append(URLEncoder.encode(value, "UTF-8").replace("+", "%20"));
+            } catch (UnsupportedEncodingException e) {
+                url.append(key).append("=").append(value);
+            }
             if (i < keys.size() - 1) {
                 url.append("&");
             }
