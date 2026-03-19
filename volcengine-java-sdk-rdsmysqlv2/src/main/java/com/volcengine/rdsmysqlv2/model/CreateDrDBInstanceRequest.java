@@ -53,6 +53,9 @@ public class CreateDrDBInstanceRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDrDBInstanceInput> nodeInfo = null;
 
+  @SerializedName("PrivateIpAddress")
+  private String privateIpAddress = null;
+
   @SerializedName("ProxyNodeCustom")
   private ProxyNodeCustomForCreateDrDBInstanceInput proxyNodeCustom = null;
 
@@ -188,6 +191,24 @@ public class CreateDrDBInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
+  public CreateDrDBInstanceRequest privateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+    return this;
+  }
+
+   /**
+   * Get privateIpAddress
+   * @return privateIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateIpAddress() {
+    return privateIpAddress;
+  }
+
+  public void setPrivateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+  }
+
   public CreateDrDBInstanceRequest proxyNodeCustom(ProxyNodeCustomForCreateDrDBInstanceInput proxyNodeCustom) {
     this.proxyNodeCustom = proxyNodeCustom;
     return this;
@@ -298,6 +319,7 @@ public class CreateDrDBInstanceRequest {
         Objects.equals(this.masterInstanceId, createDrDBInstanceRequest.masterInstanceId) &&
         Objects.equals(this.masterRegion, createDrDBInstanceRequest.masterRegion) &&
         Objects.equals(this.nodeInfo, createDrDBInstanceRequest.nodeInfo) &&
+        Objects.equals(this.privateIpAddress, createDrDBInstanceRequest.privateIpAddress) &&
         Objects.equals(this.proxyNodeCustom, createDrDBInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, createDrDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, createDrDBInstanceRequest.storageType) &&
@@ -307,7 +329,7 @@ public class CreateDrDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -322,6 +344,7 @@ public class CreateDrDBInstanceRequest {
     sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");
     sb.append("    masterRegion: ").append(toIndentedString(masterRegion)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");

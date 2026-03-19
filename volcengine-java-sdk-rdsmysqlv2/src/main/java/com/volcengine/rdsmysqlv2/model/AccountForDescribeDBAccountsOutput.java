@@ -51,6 +51,9 @@ public class AccountForDescribeDBAccountsOutput {
   @SerializedName("AccountType")
   private String accountType = null;
 
+  @SerializedName("AuthenticationType")
+  private String authenticationType = null;
+
   @SerializedName("GlobalAccountPrivileges")
   private List<String> globalAccountPrivileges = null;
 
@@ -185,6 +188,24 @@ public class AccountForDescribeDBAccountsOutput {
     this.accountType = accountType;
   }
 
+  public AccountForDescribeDBAccountsOutput authenticationType(String authenticationType) {
+    this.authenticationType = authenticationType;
+    return this;
+  }
+
+   /**
+   * Get authenticationType
+   * @return authenticationType
+  **/
+  @Schema(description = "")
+  public String getAuthenticationType() {
+    return authenticationType;
+  }
+
+  public void setAuthenticationType(String authenticationType) {
+    this.authenticationType = authenticationType;
+  }
+
   public AccountForDescribeDBAccountsOutput globalAccountPrivileges(List<String> globalAccountPrivileges) {
     this.globalAccountPrivileges = globalAccountPrivileges;
     return this;
@@ -271,6 +292,7 @@ public class AccountForDescribeDBAccountsOutput {
         Objects.equals(this.accountPrivilegesSQL, accountForDescribeDBAccountsOutput.accountPrivilegesSQL) &&
         Objects.equals(this.accountStatus, accountForDescribeDBAccountsOutput.accountStatus) &&
         Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType) &&
+        Objects.equals(this.authenticationType, accountForDescribeDBAccountsOutput.authenticationType) &&
         Objects.equals(this.globalAccountPrivileges, accountForDescribeDBAccountsOutput.globalAccountPrivileges) &&
         Objects.equals(this.hasTableColumnPrivilegeDBNames, accountForDescribeDBAccountsOutput.hasTableColumnPrivilegeDBNames) &&
         Objects.equals(this.host, accountForDescribeDBAccountsOutput.host);
@@ -278,7 +300,7 @@ public class AccountForDescribeDBAccountsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesSQL, accountStatus, accountType, globalAccountPrivileges, hasTableColumnPrivilegeDBNames, host);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesSQL, accountStatus, accountType, authenticationType, globalAccountPrivileges, hasTableColumnPrivilegeDBNames, host);
   }
 
 
@@ -293,6 +315,7 @@ public class AccountForDescribeDBAccountsOutput {
     sb.append("    accountPrivilegesSQL: ").append(toIndentedString(accountPrivilegesSQL)).append("\n");
     sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    globalAccountPrivileges: ").append(toIndentedString(globalAccountPrivileges)).append("\n");
     sb.append("    hasTableColumnPrivilegeDBNames: ").append(toIndentedString(hasTableColumnPrivilegeDBNames)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
