@@ -45,7 +45,7 @@ public class OidcCredentialProvider implements Provider {
             throw new IllegalArgumentException("roleTrn must not be null or empty");
         }
         if (isNullOrEmpty(roleSessionName)) {
-            throw new IllegalArgumentException("roleSessionName must not be null or empty");
+            roleSessionName = "credentials-java-" + System.currentTimeMillis() / 1000;
         }
         if (isNullOrEmpty(oidcTokenFile)) {
             throw new IllegalArgumentException("oidcTokenFile must not be null or empty");
@@ -68,10 +68,9 @@ public class OidcCredentialProvider implements Provider {
         String rolePolicy = System.getenv("VOLCENGINE_OIDC_ROLE_POLICY");
         String stsEndpoint = System.getenv("VOLCENGINE_OIDC_STS_ENDPOINT");
 
-        if (isNullOrEmpty(roleTrn) || isNullOrEmpty(roleSessionName) || isNullOrEmpty(oidcTokenFile)) {
+        if (isNullOrEmpty(roleTrn) || isNullOrEmpty(oidcTokenFile)) {
             throw new ApiException(PROVIDER_NAME + ": required environment variables "
-                    + "VOLCENGINE_OIDC_ROLE_TRN, VOLCENGINE_OIDC_ROLE_SESSION_NAME, "
-                    + "VOLCENGINE_OIDC_TOKEN_FILE are not all set");
+                    + "VOLCENGINE_OIDC_ROLE_TRN and VOLCENGINE_OIDC_TOKEN_FILE are not set");
         }
 
         return new OidcCredentialProvider(roleTrn, roleSessionName, oidcTokenFile, rolePolicy, stsEndpoint);

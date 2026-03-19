@@ -23,7 +23,6 @@ public class EcsRoleCredentialProvider implements Provider {
     // TODO: IMDS endpoint to be confirmed by ECS team
     private static final String IMDS_ENDPOINT = "http://100.96.0.96";
     // TODO: IMDS paths to be confirmed
-    private static final String IMDS_ROLE_LIST_PATH = "/volcstack/latest/iam/security_credentials/";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/";
     // TODO: IMDSv2 token support to be confirmed
     // private static final String IMDS_TOKEN_PATH = "/volcstack/latest/api/token";
@@ -34,7 +33,7 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final String FIELD_ACCESS_KEY_ID = "AccessKeyId";
     private static final String FIELD_SECRET_ACCESS_KEY = "SecretAccessKey";
     private static final String FIELD_SESSION_TOKEN = "SessionToken";
-    private static final String FIELD_EXPIRATION = "Expiration";
+    private static final String FIELD_EXPIRATION = "ExpiredTime";
 
     private static final int DEFAULT_CONNECT_TIMEOUT_MS = 1000;
     private static final int DEFAULT_READ_TIMEOUT_MS = 1000;
@@ -78,7 +77,10 @@ public class EcsRoleCredentialProvider implements Provider {
             resolvedRoleName = System.getenv("VOLCENGINE_ECS_METADATA");
         }
 
-        // roleName can be null here -- will be auto-detected on first refresh
+        if (isNullOrEmpty(resolvedRoleName)) {
+            throw new ApiException(PROVIDER_NAME + ": roleName is required. Set it via parameter or VOLCENGINE_ECS_METADATA environment variable");
+        }
+
         return new EcsRoleCredentialProvider(resolvedRoleName);
     }
 
@@ -89,13 +91,11 @@ public class EcsRoleCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        String effectiveRoleName = this.roleName;
-
-        if (isNullOrEmpty(effectiveRoleName)) {
-            effectiveRoleName = autoDetectRoleName();
+        if (isNullOrEmpty(this.roleName)) {
+            throw new ApiException(PROVIDER_NAME + ": roleName is required. Set it via parameter or VOLCENGINE_ECS_METADATA environment variable");
         }
 
-        String url = IMDS_ENDPOINT + IMDS_CREDENTIALS_PATH + effectiveRoleName;
+        String url = IMDS_ENDPOINT + IMDS_CREDENTIALS_PATH + this.roleName;
         String responseBody = doGetWithRetry(url);
 
         Gson gson = new Gson();
@@ -144,27 +144,6 @@ public class EcsRoleCredentialProvider implements Provider {
             refresh();
         }
         return credentialValue;
-    }
-
-    private String autoDetectRoleName() throws ApiException {
-        String url = IMDS_ENDPOINT + IMDS_ROLE_LIST_PATH;
-        String responseBody = doGetWithRetry(url);
-
-        if (isNullOrEmpty(responseBody)) {
-            throw new ApiException(PROVIDER_NAME + ": IMDS returned empty role list");
-        }
-
-        String[] roles = responseBody.trim().split("\\s+");
-        if (roles.length == 0 || (roles.length == 1 && roles[0].isEmpty())) {
-            throw new ApiException(PROVIDER_NAME + ": no ECS role found from IMDS");
-        }
-
-        if (roles.length > 1) {
-            LOGGER.warning(PROVIDER_NAME + ": multiple ECS roles found, using the first one: " + roles[0]
-                    + ". Consider setting roleName explicitly to avoid ambiguity.");
-        }
-
-        return roles[0];
     }
 
     private String doGetWithRetry(String urlStr) throws ApiException {

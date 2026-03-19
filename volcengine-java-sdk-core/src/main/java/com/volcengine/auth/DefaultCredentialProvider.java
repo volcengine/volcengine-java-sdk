@@ -15,7 +15,7 @@ public class DefaultCredentialProvider implements Provider {
 
     private DefaultCredentialProvider(Builder builder) {
         this.reuseLastProviderEnabled = builder.reuseLastProviderEnabled;
-        this.providers = buildProviderChain(builder.roleName, builder.profileName);
+        this.providers = buildProviderChain(builder.roleName);
     }
 
     public static DefaultCredentialProvider create() {
@@ -83,7 +83,7 @@ public class DefaultCredentialProvider implements Provider {
         throw new ApiException(sb.toString());
     }
 
-    private static List<Provider> buildProviderChain(String roleName, String profileName) {
+    private static List<Provider> buildProviderChain(String roleName) {
         List<Provider> chain = new ArrayList<>();
 
         // Step 1: Environment variables (AK/SK/STS)
@@ -93,12 +93,9 @@ public class DefaultCredentialProvider implements Provider {
         chain.add(new OidcEnvProviderWrapper());
 
         // Step 3: CLI config.json
-        chain.add(new CLIConfigCredentialProvider(profileName));
+        chain.add(new CLIConfigCredentialProvider());
 
-        // Step 4: Shared credentials file (~/.volcengine/credentials)
-        chain.add(new SharedCredentialsProvider(profileName));
-
-        // Step 5: ECS Role (IMDS)
+        // Step 4: ECS Role (IMDS)
         chain.add(new EcsRoleProviderWrapper(roleName));
 
         return chain;
@@ -202,16 +199,10 @@ public class DefaultCredentialProvider implements Provider {
 
     public static class Builder {
         private String roleName;
-        private String profileName;
         private boolean reuseLastProviderEnabled = true;
 
         public Builder roleName(String roleName) {
             this.roleName = roleName;
-            return this;
-        }
-
-        public Builder profileName(String profileName) {
-            this.profileName = profileName;
             return this;
         }
 

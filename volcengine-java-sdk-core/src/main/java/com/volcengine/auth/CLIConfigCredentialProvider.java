@@ -87,15 +87,38 @@ public class CLIConfigCredentialProvider implements Provider {
             throw new ApiException(PROVIDER_NAME + ": profile '" + profile + "' not found in config");
         }
 
-        String ak = getStringValue(profileData, "access-key");
-        String sk = getStringValue(profileData, "secret-key");
-        String sessionToken = getStringValue(profileData, "session-token");
-
-        if (isNullOrEmpty(ak) || isNullOrEmpty(sk)) {
-            throw new ApiException(PROVIDER_NAME + ": access-key and secret-key not found in profile '" + profile + "'");
+        String mode = getStringValue(profileData, "mode");
+        if (mode == null) {
+            mode = "";
         }
 
-        return new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
+        switch (mode) {
+            case "":
+            case "AK": {
+                String ak = getStringValue(profileData, "access-key");
+                String sk = getStringValue(profileData, "secret-key");
+                String sessionToken = getStringValue(profileData, "session-token");
+
+                if (isNullOrEmpty(ak) || isNullOrEmpty(sk)) {
+                    throw new ApiException(PROVIDER_NAME + ": access-key and secret-key not found in profile '" + profile + "'");
+                }
+
+                return new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
+            }
+            case "StsToken": {
+                String ak = getStringValue(profileData, "access-key");
+                String sk = getStringValue(profileData, "secret-key");
+                String sessionToken = getStringValue(profileData, "session-token");
+
+                if (isNullOrEmpty(ak) || isNullOrEmpty(sk) || isNullOrEmpty(sessionToken)) {
+                    throw new ApiException(PROVIDER_NAME + ": access-key, secret-key and session-token are all required for StsToken mode in profile '" + profile + "'");
+                }
+
+                return new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
+            }
+            default:
+                throw new RuntimeException(PROVIDER_NAME + ": unsupported mode: " + mode);
+        }
     }
 
     private Path resolveConfigPath() {
@@ -112,9 +135,13 @@ public class CLIConfigCredentialProvider implements Provider {
         if (!isNullOrEmpty(profileName)) {
             return profileName;
         }
-        String envProfile = System.getenv("VOLCENGINE_CLI_PROFILE");
+        String envProfile = System.getenv("VOLCENGINE_PROFILE");
         if (!isNullOrEmpty(envProfile)) {
             return envProfile;
+        }
+        String fallbackProfile = System.getenv("VOLCSTACK_PROFILE");
+        if (!isNullOrEmpty(fallbackProfile)) {
+            return fallbackProfile;
         }
         Object current = configMap.get("current");
         if (current instanceof String && !((String) current).isEmpty()) {
