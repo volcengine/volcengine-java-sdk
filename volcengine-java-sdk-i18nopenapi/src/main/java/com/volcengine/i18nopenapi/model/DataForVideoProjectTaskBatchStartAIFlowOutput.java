@@ -19,59 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.BaseRespForVideoProjectTaskBatchStartAIFlowOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * DataForVideoProjectTaskBatchStartAIFlowOutput
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class DataForVideoProjectTaskBatchStartAIFlowOutput {
+  @SerializedName("BaseResp")
+  private BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
-
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public DataForVideoProjectTaskBatchStartAIFlowOutput baseResp(BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp) {
+    this.baseResp = baseResp;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get baseResp
+   * @return baseResp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Valid
+  @Schema(description = "")
+  public BaseRespForVideoProjectTaskBatchStartAIFlowOutput getBaseResp() {
+    return baseResp;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setBaseResp(BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp) {
+    this.baseResp = baseResp;
   }
 
 
@@ -83,24 +62,22 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    DataForVideoProjectTaskBatchStartAIFlowOutput dataForVideoProjectTaskBatchStartAIFlowOutput = (DataForVideoProjectTaskBatchStartAIFlowOutput) o;
+    return Objects.equals(this.baseResp, dataForVideoProjectTaskBatchStartAIFlowOutput.baseResp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(baseResp);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class DataForVideoProjectTaskBatchStartAIFlowOutput {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

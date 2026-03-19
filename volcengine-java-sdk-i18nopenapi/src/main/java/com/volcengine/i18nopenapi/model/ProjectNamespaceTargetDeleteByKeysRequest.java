@@ -21,22 +21,49 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectNamespaceTargetDeleteByKeysRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
+public class ProjectNamespaceTargetDeleteByKeysRequest {
+  @SerializedName("locale")
+  private String locale = null;
+
   @SerializedName("namespaceId")
   private Integer namespaceId = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
+  @SerializedName("textKeys")
+  private List<String> textKeys = null;
+
+  public ProjectNamespaceTargetDeleteByKeysRequest locale(String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+   /**
+   * Get locale
+   * @return locale
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getLocale() {
+    return locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public ProjectNamespaceTargetDeleteByKeysRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -55,7 +82,7 @@ public class ProjectNamespaceDetailRequest {
     this.namespaceId = namespaceId;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectNamespaceTargetDeleteByKeysRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -74,6 +101,32 @@ public class ProjectNamespaceDetailRequest {
     this.projectId = projectId;
   }
 
+  public ProjectNamespaceTargetDeleteByKeysRequest textKeys(List<String> textKeys) {
+    this.textKeys = textKeys;
+    return this;
+  }
+
+  public ProjectNamespaceTargetDeleteByKeysRequest addTextKeysItem(String textKeysItem) {
+    if (this.textKeys == null) {
+      this.textKeys = new ArrayList<String>();
+    }
+    this.textKeys.add(textKeysItem);
+    return this;
+  }
+
+   /**
+   * Get textKeys
+   * @return textKeys
+  **/
+  @Schema(description = "")
+  public List<String> getTextKeys() {
+    return textKeys;
+  }
+
+  public void setTextKeys(List<String> textKeys) {
+    this.textKeys = textKeys;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +136,28 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectNamespaceTargetDeleteByKeysRequest projectNamespaceTargetDeleteByKeysRequest = (ProjectNamespaceTargetDeleteByKeysRequest) o;
+    return Objects.equals(this.locale, projectNamespaceTargetDeleteByKeysRequest.locale) &&
+        Objects.equals(this.namespaceId, projectNamespaceTargetDeleteByKeysRequest.namespaceId) &&
+        Objects.equals(this.projectId, projectNamespaceTargetDeleteByKeysRequest.projectId) &&
+        Objects.equals(this.textKeys, projectNamespaceTargetDeleteByKeysRequest.textKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(locale, namespaceId, projectId, textKeys);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectNamespaceTargetDeleteByKeysRequest {\n");
     
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    textKeys: ").append(toIndentedString(textKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }

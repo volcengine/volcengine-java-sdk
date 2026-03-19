@@ -19,59 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForProjectTaskTextImportOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTaskTextImportResponse
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class ProjectTaskTextImportResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private DataForProjectTaskTextImportOutput data = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
-
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public ProjectTaskTextImportResponse data(DataForProjectTaskTextImportOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get data
+   * @return data
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Valid
+  @Schema(description = "")
+  public DataForProjectTaskTextImportOutput getData() {
+    return data;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setData(DataForProjectTaskTextImportOutput data) {
+    this.data = data;
   }
 
 
@@ -83,24 +62,22 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTaskTextImportResponse projectTaskTextImportResponse = (ProjectTaskTextImportResponse) o;
+    return Objects.equals(this.data, projectTaskTextImportResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTaskTextImportResponse {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * SuppressionParamsForDocumentTaskDetailOutput
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class SuppressionParamsForDocumentTaskDetailOutput {
+  @SerializedName("excludeSubtitle")
+  private Boolean excludeSubtitle = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
-
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public SuppressionParamsForDocumentTaskDetailOutput excludeSubtitle(Boolean excludeSubtitle) {
+    this.excludeSubtitle = excludeSubtitle;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get excludeSubtitle
+   * @return excludeSubtitle
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Schema(description = "")
+  public Boolean isExcludeSubtitle() {
+    return excludeSubtitle;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setExcludeSubtitle(Boolean excludeSubtitle) {
+    this.excludeSubtitle = excludeSubtitle;
   }
 
 
@@ -83,24 +60,22 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    SuppressionParamsForDocumentTaskDetailOutput suppressionParamsForDocumentTaskDetailOutput = (SuppressionParamsForDocumentTaskDetailOutput) o;
+    return Objects.equals(this.excludeSubtitle, suppressionParamsForDocumentTaskDetailOutput.excludeSubtitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(excludeSubtitle);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class SuppressionParamsForDocumentTaskDetailOutput {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    excludeSubtitle: ").append(toIndentedString(excludeSubtitle)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,59 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForProjectTaskSourceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTaskSourceDetailResponse
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class ProjectTaskSourceDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private DataForProjectTaskSourceDetailOutput data = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
+  @SerializedName("message")
+  private String message = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public ProjectTaskSourceDetailResponse data(DataForProjectTaskSourceDetailOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get data
+   * @return data
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Valid
+  @Schema(description = "")
+  public DataForProjectTaskSourceDetailOutput getData() {
+    return data;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public void setData(DataForProjectTaskSourceDetailOutput data) {
+    this.data = data;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
+  public ProjectTaskSourceDetailResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get message
+   * @return message
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
   }
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -83,24 +83,24 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTaskSourceDetailResponse projectTaskSourceDetailResponse = (ProjectTaskSourceDetailResponse) o;
+    return Objects.equals(this.data, projectTaskSourceDetailResponse.data) &&
+        Objects.equals(this.message, projectTaskSourceDetailResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(data, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTaskSourceDetailResponse {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

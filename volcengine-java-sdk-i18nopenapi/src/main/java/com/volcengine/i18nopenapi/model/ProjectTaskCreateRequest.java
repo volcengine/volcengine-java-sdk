@@ -21,41 +21,46 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTaskCreateRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class ProjectTaskCreateRequest {
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  @SerializedName("syncNamespaces")
+  private List<Integer> syncNamespaces = null;
+
+  public ProjectTaskCreateRequest name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get name
+   * @return name
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  public String getName() {
+    return name;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectTaskCreateRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -74,6 +79,32 @@ public class ProjectNamespaceDetailRequest {
     this.projectId = projectId;
   }
 
+  public ProjectTaskCreateRequest syncNamespaces(List<Integer> syncNamespaces) {
+    this.syncNamespaces = syncNamespaces;
+    return this;
+  }
+
+  public ProjectTaskCreateRequest addSyncNamespacesItem(Integer syncNamespacesItem) {
+    if (this.syncNamespaces == null) {
+      this.syncNamespaces = new ArrayList<Integer>();
+    }
+    this.syncNamespaces.add(syncNamespacesItem);
+    return this;
+  }
+
+   /**
+   * Get syncNamespaces
+   * @return syncNamespaces
+  **/
+  @Schema(description = "")
+  public List<Integer> getSyncNamespaces() {
+    return syncNamespaces;
+  }
+
+  public void setSyncNamespaces(List<Integer> syncNamespaces) {
+    this.syncNamespaces = syncNamespaces;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +114,26 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTaskCreateRequest projectTaskCreateRequest = (ProjectTaskCreateRequest) o;
+    return Objects.equals(this.name, projectTaskCreateRequest.name) &&
+        Objects.equals(this.projectId, projectTaskCreateRequest.projectId) &&
+        Objects.equals(this.syncNamespaces, projectTaskCreateRequest.syncNamespaces);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(name, projectId, syncNamespaces);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTaskCreateRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    syncNamespaces: ").append(toIndentedString(syncNamespaces)).append("\n");
     sb.append("}");
     return sb.toString();
   }

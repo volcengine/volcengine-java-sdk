@@ -24,38 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTermDetailRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
-
+public class ProjectTermDetailRequest {
   @SerializedName("projectId")
-  private Integer projectId = null;
+  private String projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-    return this;
-  }
-
-   /**
-   * Get namespaceId
-   * @return namespaceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
-  }
-
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectTermDetailRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -66,11 +44,11 @@ public class ProjectNamespaceDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getProjectId() {
+  public String getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(Integer projectId) {
+  public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
 
@@ -83,23 +61,21 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTermDetailRequest projectTermDetailRequest = (ProjectTermDetailRequest) o;
+    return Objects.equals(this.projectId, projectTermDetailRequest.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(projectId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTermDetailRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();

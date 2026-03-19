@@ -19,24 +19,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.TargetForProjectNamespaceTargetUpdateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectNamespaceTargetUpdateRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
+public class ProjectNamespaceTargetUpdateRequest {
   @SerializedName("namespaceId")
   private Integer namespaceId = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
+  @SerializedName("targets")
+  private List<TargetForProjectNamespaceTargetUpdateInput> targets = null;
+
+  public ProjectNamespaceTargetUpdateRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -55,7 +61,7 @@ public class ProjectNamespaceDetailRequest {
     this.namespaceId = namespaceId;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectNamespaceTargetUpdateRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -74,6 +80,33 @@ public class ProjectNamespaceDetailRequest {
     this.projectId = projectId;
   }
 
+  public ProjectNamespaceTargetUpdateRequest targets(List<TargetForProjectNamespaceTargetUpdateInput> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public ProjectNamespaceTargetUpdateRequest addTargetsItem(TargetForProjectNamespaceTargetUpdateInput targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<TargetForProjectNamespaceTargetUpdateInput>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+   /**
+   * Get targets
+   * @return targets
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TargetForProjectNamespaceTargetUpdateInput> getTargets() {
+    return targets;
+  }
+
+  public void setTargets(List<TargetForProjectNamespaceTargetUpdateInput> targets) {
+    this.targets = targets;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +116,26 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectNamespaceTargetUpdateRequest projectNamespaceTargetUpdateRequest = (ProjectNamespaceTargetUpdateRequest) o;
+    return Objects.equals(this.namespaceId, projectNamespaceTargetUpdateRequest.namespaceId) &&
+        Objects.equals(this.projectId, projectNamespaceTargetUpdateRequest.projectId) &&
+        Objects.equals(this.targets, projectNamespaceTargetUpdateRequest.targets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(namespaceId, projectId, targets);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectNamespaceTargetUpdateRequest {\n");
     
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,57 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * DataForMtSupportLangOutput
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class DataForMtSupportLangOutput {
+  @SerializedName("count")
+  private Long count = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
+  @SerializedName("langs")
+  private List<String> langs = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public DataForMtSupportLangOutput count(Long count) {
+    this.count = count;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get count
+   * @return count
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Schema(description = "")
+  public Long getCount() {
+    return count;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public void setCount(Long count) {
+    this.count = count;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
+  public DataForMtSupportLangOutput langs(List<String> langs) {
+    this.langs = langs;
+    return this;
+  }
+
+  public DataForMtSupportLangOutput addLangsItem(String langsItem) {
+    if (this.langs == null) {
+      this.langs = new ArrayList<String>();
+    }
+    this.langs.add(langsItem);
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get langs
+   * @return langs
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
+  @Schema(description = "")
+  public List<String> getLangs() {
+    return langs;
   }
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setLangs(List<String> langs) {
+    this.langs = langs;
   }
 
 
@@ -83,24 +91,24 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    DataForMtSupportLangOutput dataForMtSupportLangOutput = (DataForMtSupportLangOutput) o;
+    return Objects.equals(this.count, dataForMtSupportLangOutput.count) &&
+        Objects.equals(this.langs, dataForMtSupportLangOutput.langs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(count, langs);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class DataForMtSupportLangOutput {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    langs: ").append(toIndentedString(langs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

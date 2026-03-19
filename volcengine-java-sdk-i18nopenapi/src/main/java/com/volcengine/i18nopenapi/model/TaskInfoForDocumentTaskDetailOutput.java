@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.ReferenceDocForVideoProjectSerialTaskCreateInput;
-import com.volcengine.i18nopenapi.model.SuppressionParamsForVideoProjectSerialTaskCreateInput;
-import com.volcengine.i18nopenapi.model.TargetStyleMapForVideoProjectSerialTaskCreateInput;
+import com.volcengine.i18nopenapi.model.ReferenceDocForDocumentTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.SuppressionParamsForDocumentTaskDetailOutput;
+import com.volcengine.i18nopenapi.model.TargetStyleMapForDocumentTaskDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,12 +29,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TaskInfoForVideoProjectSerialTaskCreateInput
+ * TaskInfoForDocumentTaskDetailOutput
  */
 
 
 
-public class TaskInfoForVideoProjectSerialTaskCreateInput {
+public class TaskInfoForDocumentTaskDetailOutput {
   @SerializedName("aiRemoveType")
   private String aiRemoveType = null;
 
@@ -87,7 +87,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   private Integer procedures = null;
 
   @SerializedName("referenceDoc")
-  private ReferenceDocForVideoProjectSerialTaskCreateInput referenceDoc = null;
+  private ReferenceDocForDocumentTaskDetailOutput referenceDoc = null;
 
   @SerializedName("serialNumber")
   private Integer serialNumber = null;
@@ -102,7 +102,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   private Integer state = null;
 
   @SerializedName("suppressionParams")
-  private SuppressionParamsForVideoProjectSerialTaskCreateInput suppressionParams = null;
+  private SuppressionParamsForDocumentTaskDetailOutput suppressionParams = null;
 
   @SerializedName("targetLangs")
   private List<String> targetLangs = null;
@@ -111,7 +111,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   private List<String> targetLocale = null;
 
   @SerializedName("targetStyleMap")
-  private TargetStyleMapForVideoProjectSerialTaskCreateInput targetStyleMap = null;
+  private TargetStyleMapForDocumentTaskDetailOutput targetStyleMap = null;
 
   @SerializedName("taskId")
   private Integer taskId = null;
@@ -122,7 +122,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   @SerializedName("useMT")
   private Boolean useMT = null;
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput aiRemoveType(String aiRemoveType) {
+  public TaskInfoForDocumentTaskDetailOutput aiRemoveType(String aiRemoveType) {
     this.aiRemoveType = aiRemoveType;
     return this;
   }
@@ -140,7 +140,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.aiRemoveType = aiRemoveType;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput asrModel(Integer asrModel) {
+  public TaskInfoForDocumentTaskDetailOutput asrModel(Integer asrModel) {
     this.asrModel = asrModel;
     return this;
   }
@@ -158,7 +158,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.asrModel = asrModel;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput bgmPolicy(Integer bgmPolicy) {
+  public TaskInfoForDocumentTaskDetailOutput bgmPolicy(Integer bgmPolicy) {
     this.bgmPolicy = bgmPolicy;
     return this;
   }
@@ -176,7 +176,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.bgmPolicy = bgmPolicy;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput comment(String comment) {
+  public TaskInfoForDocumentTaskDetailOutput comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -194,7 +194,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.comment = comment;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput createdAt(String createdAt) {
+  public TaskInfoForDocumentTaskDetailOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -212,7 +212,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.createdAt = createdAt;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput deadline(String deadline) {
+  public TaskInfoForDocumentTaskDetailOutput deadline(String deadline) {
     this.deadline = deadline;
     return this;
   }
@@ -230,7 +230,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.deadline = deadline;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput dramaCoverUrl(String dramaCoverUrl) {
+  public TaskInfoForDocumentTaskDetailOutput dramaCoverUrl(String dramaCoverUrl) {
     this.dramaCoverUrl = dramaCoverUrl;
     return this;
   }
@@ -248,7 +248,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.dramaCoverUrl = dramaCoverUrl;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput dramaDescription(String dramaDescription) {
+  public TaskInfoForDocumentTaskDetailOutput dramaDescription(String dramaDescription) {
     this.dramaDescription = dramaDescription;
     return this;
   }
@@ -266,7 +266,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.dramaDescription = dramaDescription;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput dramaTitle(String dramaTitle) {
+  public TaskInfoForDocumentTaskDetailOutput dramaTitle(String dramaTitle) {
     this.dramaTitle = dramaTitle;
     return this;
   }
@@ -284,7 +284,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.dramaTitle = dramaTitle;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput dubOrTranslationTaskID(String dubOrTranslationTaskID) {
+  public TaskInfoForDocumentTaskDetailOutput dubOrTranslationTaskID(String dubOrTranslationTaskID) {
     this.dubOrTranslationTaskID = dubOrTranslationTaskID;
     return this;
   }
@@ -302,7 +302,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.dubOrTranslationTaskID = dubOrTranslationTaskID;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput isDub(Boolean isDub) {
+  public TaskInfoForDocumentTaskDetailOutput isDub(Boolean isDub) {
     this.isDub = isDub;
     return this;
   }
@@ -320,7 +320,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.isDub = isDub;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput needTranslateCover(Boolean needTranslateCover) {
+  public TaskInfoForDocumentTaskDetailOutput needTranslateCover(Boolean needTranslateCover) {
     this.needTranslateCover = needTranslateCover;
     return this;
   }
@@ -338,7 +338,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.needTranslateCover = needTranslateCover;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput needTranslateDesc(Boolean needTranslateDesc) {
+  public TaskInfoForDocumentTaskDetailOutput needTranslateDesc(Boolean needTranslateDesc) {
     this.needTranslateDesc = needTranslateDesc;
     return this;
   }
@@ -356,7 +356,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.needTranslateDesc = needTranslateDesc;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput needTranslateTitle(Boolean needTranslateTitle) {
+  public TaskInfoForDocumentTaskDetailOutput needTranslateTitle(Boolean needTranslateTitle) {
     this.needTranslateTitle = needTranslateTitle;
     return this;
   }
@@ -374,7 +374,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.needTranslateTitle = needTranslateTitle;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput needTranslateTitleAndDesc(Boolean needTranslateTitleAndDesc) {
+  public TaskInfoForDocumentTaskDetailOutput needTranslateTitleAndDesc(Boolean needTranslateTitleAndDesc) {
     this.needTranslateTitleAndDesc = needTranslateTitleAndDesc;
     return this;
   }
@@ -392,7 +392,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.needTranslateTitleAndDesc = needTranslateTitleAndDesc;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput needVideoSpeed(Boolean needVideoSpeed) {
+  public TaskInfoForDocumentTaskDetailOutput needVideoSpeed(Boolean needVideoSpeed) {
     this.needVideoSpeed = needVideoSpeed;
     return this;
   }
@@ -410,7 +410,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.needVideoSpeed = needVideoSpeed;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput procedures(Integer procedures) {
+  public TaskInfoForDocumentTaskDetailOutput procedures(Integer procedures) {
     this.procedures = procedures;
     return this;
   }
@@ -428,7 +428,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.procedures = procedures;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput referenceDoc(ReferenceDocForVideoProjectSerialTaskCreateInput referenceDoc) {
+  public TaskInfoForDocumentTaskDetailOutput referenceDoc(ReferenceDocForDocumentTaskDetailOutput referenceDoc) {
     this.referenceDoc = referenceDoc;
     return this;
   }
@@ -439,15 +439,15 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public ReferenceDocForVideoProjectSerialTaskCreateInput getReferenceDoc() {
+  public ReferenceDocForDocumentTaskDetailOutput getReferenceDoc() {
     return referenceDoc;
   }
 
-  public void setReferenceDoc(ReferenceDocForVideoProjectSerialTaskCreateInput referenceDoc) {
+  public void setReferenceDoc(ReferenceDocForDocumentTaskDetailOutput referenceDoc) {
     this.referenceDoc = referenceDoc;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput serialNumber(Integer serialNumber) {
+  public TaskInfoForDocumentTaskDetailOutput serialNumber(Integer serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
@@ -465,7 +465,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.serialNumber = serialNumber;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput sourceLang(String sourceLang) {
+  public TaskInfoForDocumentTaskDetailOutput sourceLang(String sourceLang) {
     this.sourceLang = sourceLang;
     return this;
   }
@@ -483,7 +483,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.sourceLang = sourceLang;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput sourceLocale(String sourceLocale) {
+  public TaskInfoForDocumentTaskDetailOutput sourceLocale(String sourceLocale) {
     this.sourceLocale = sourceLocale;
     return this;
   }
@@ -501,7 +501,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.sourceLocale = sourceLocale;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput state(Integer state) {
+  public TaskInfoForDocumentTaskDetailOutput state(Integer state) {
     this.state = state;
     return this;
   }
@@ -519,7 +519,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.state = state;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput suppressionParams(SuppressionParamsForVideoProjectSerialTaskCreateInput suppressionParams) {
+  public TaskInfoForDocumentTaskDetailOutput suppressionParams(SuppressionParamsForDocumentTaskDetailOutput suppressionParams) {
     this.suppressionParams = suppressionParams;
     return this;
   }
@@ -530,20 +530,20 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public SuppressionParamsForVideoProjectSerialTaskCreateInput getSuppressionParams() {
+  public SuppressionParamsForDocumentTaskDetailOutput getSuppressionParams() {
     return suppressionParams;
   }
 
-  public void setSuppressionParams(SuppressionParamsForVideoProjectSerialTaskCreateInput suppressionParams) {
+  public void setSuppressionParams(SuppressionParamsForDocumentTaskDetailOutput suppressionParams) {
     this.suppressionParams = suppressionParams;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput targetLangs(List<String> targetLangs) {
+  public TaskInfoForDocumentTaskDetailOutput targetLangs(List<String> targetLangs) {
     this.targetLangs = targetLangs;
     return this;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput addTargetLangsItem(String targetLangsItem) {
+  public TaskInfoForDocumentTaskDetailOutput addTargetLangsItem(String targetLangsItem) {
     if (this.targetLangs == null) {
       this.targetLangs = new ArrayList<String>();
     }
@@ -564,12 +564,12 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.targetLangs = targetLangs;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput targetLocale(List<String> targetLocale) {
+  public TaskInfoForDocumentTaskDetailOutput targetLocale(List<String> targetLocale) {
     this.targetLocale = targetLocale;
     return this;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput addTargetLocaleItem(String targetLocaleItem) {
+  public TaskInfoForDocumentTaskDetailOutput addTargetLocaleItem(String targetLocaleItem) {
     if (this.targetLocale == null) {
       this.targetLocale = new ArrayList<String>();
     }
@@ -590,7 +590,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.targetLocale = targetLocale;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput targetStyleMap(TargetStyleMapForVideoProjectSerialTaskCreateInput targetStyleMap) {
+  public TaskInfoForDocumentTaskDetailOutput targetStyleMap(TargetStyleMapForDocumentTaskDetailOutput targetStyleMap) {
     this.targetStyleMap = targetStyleMap;
     return this;
   }
@@ -601,15 +601,15 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   **/
   @Valid
   @Schema(description = "")
-  public TargetStyleMapForVideoProjectSerialTaskCreateInput getTargetStyleMap() {
+  public TargetStyleMapForDocumentTaskDetailOutput getTargetStyleMap() {
     return targetStyleMap;
   }
 
-  public void setTargetStyleMap(TargetStyleMapForVideoProjectSerialTaskCreateInput targetStyleMap) {
+  public void setTargetStyleMap(TargetStyleMapForDocumentTaskDetailOutput targetStyleMap) {
     this.targetStyleMap = targetStyleMap;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput taskId(Integer taskId) {
+  public TaskInfoForDocumentTaskDetailOutput taskId(Integer taskId) {
     this.taskId = taskId;
     return this;
   }
@@ -627,7 +627,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.taskId = taskId;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput taskName(String taskName) {
+  public TaskInfoForDocumentTaskDetailOutput taskName(String taskName) {
     this.taskName = taskName;
     return this;
   }
@@ -645,7 +645,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.taskName = taskName;
   }
 
-  public TaskInfoForVideoProjectSerialTaskCreateInput useMT(Boolean useMT) {
+  public TaskInfoForDocumentTaskDetailOutput useMT(Boolean useMT) {
     this.useMT = useMT;
     return this;
   }
@@ -672,36 +672,36 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TaskInfoForVideoProjectSerialTaskCreateInput taskInfoForVideoProjectSerialTaskCreateInput = (TaskInfoForVideoProjectSerialTaskCreateInput) o;
-    return Objects.equals(this.aiRemoveType, taskInfoForVideoProjectSerialTaskCreateInput.aiRemoveType) &&
-        Objects.equals(this.asrModel, taskInfoForVideoProjectSerialTaskCreateInput.asrModel) &&
-        Objects.equals(this.bgmPolicy, taskInfoForVideoProjectSerialTaskCreateInput.bgmPolicy) &&
-        Objects.equals(this.comment, taskInfoForVideoProjectSerialTaskCreateInput.comment) &&
-        Objects.equals(this.createdAt, taskInfoForVideoProjectSerialTaskCreateInput.createdAt) &&
-        Objects.equals(this.deadline, taskInfoForVideoProjectSerialTaskCreateInput.deadline) &&
-        Objects.equals(this.dramaCoverUrl, taskInfoForVideoProjectSerialTaskCreateInput.dramaCoverUrl) &&
-        Objects.equals(this.dramaDescription, taskInfoForVideoProjectSerialTaskCreateInput.dramaDescription) &&
-        Objects.equals(this.dramaTitle, taskInfoForVideoProjectSerialTaskCreateInput.dramaTitle) &&
-        Objects.equals(this.dubOrTranslationTaskID, taskInfoForVideoProjectSerialTaskCreateInput.dubOrTranslationTaskID) &&
-        Objects.equals(this.isDub, taskInfoForVideoProjectSerialTaskCreateInput.isDub) &&
-        Objects.equals(this.needTranslateCover, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateCover) &&
-        Objects.equals(this.needTranslateDesc, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateDesc) &&
-        Objects.equals(this.needTranslateTitle, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateTitle) &&
-        Objects.equals(this.needTranslateTitleAndDesc, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateTitleAndDesc) &&
-        Objects.equals(this.needVideoSpeed, taskInfoForVideoProjectSerialTaskCreateInput.needVideoSpeed) &&
-        Objects.equals(this.procedures, taskInfoForVideoProjectSerialTaskCreateInput.procedures) &&
-        Objects.equals(this.referenceDoc, taskInfoForVideoProjectSerialTaskCreateInput.referenceDoc) &&
-        Objects.equals(this.serialNumber, taskInfoForVideoProjectSerialTaskCreateInput.serialNumber) &&
-        Objects.equals(this.sourceLang, taskInfoForVideoProjectSerialTaskCreateInput.sourceLang) &&
-        Objects.equals(this.sourceLocale, taskInfoForVideoProjectSerialTaskCreateInput.sourceLocale) &&
-        Objects.equals(this.state, taskInfoForVideoProjectSerialTaskCreateInput.state) &&
-        Objects.equals(this.suppressionParams, taskInfoForVideoProjectSerialTaskCreateInput.suppressionParams) &&
-        Objects.equals(this.targetLangs, taskInfoForVideoProjectSerialTaskCreateInput.targetLangs) &&
-        Objects.equals(this.targetLocale, taskInfoForVideoProjectSerialTaskCreateInput.targetLocale) &&
-        Objects.equals(this.targetStyleMap, taskInfoForVideoProjectSerialTaskCreateInput.targetStyleMap) &&
-        Objects.equals(this.taskId, taskInfoForVideoProjectSerialTaskCreateInput.taskId) &&
-        Objects.equals(this.taskName, taskInfoForVideoProjectSerialTaskCreateInput.taskName) &&
-        Objects.equals(this.useMT, taskInfoForVideoProjectSerialTaskCreateInput.useMT);
+    TaskInfoForDocumentTaskDetailOutput taskInfoForDocumentTaskDetailOutput = (TaskInfoForDocumentTaskDetailOutput) o;
+    return Objects.equals(this.aiRemoveType, taskInfoForDocumentTaskDetailOutput.aiRemoveType) &&
+        Objects.equals(this.asrModel, taskInfoForDocumentTaskDetailOutput.asrModel) &&
+        Objects.equals(this.bgmPolicy, taskInfoForDocumentTaskDetailOutput.bgmPolicy) &&
+        Objects.equals(this.comment, taskInfoForDocumentTaskDetailOutput.comment) &&
+        Objects.equals(this.createdAt, taskInfoForDocumentTaskDetailOutput.createdAt) &&
+        Objects.equals(this.deadline, taskInfoForDocumentTaskDetailOutput.deadline) &&
+        Objects.equals(this.dramaCoverUrl, taskInfoForDocumentTaskDetailOutput.dramaCoverUrl) &&
+        Objects.equals(this.dramaDescription, taskInfoForDocumentTaskDetailOutput.dramaDescription) &&
+        Objects.equals(this.dramaTitle, taskInfoForDocumentTaskDetailOutput.dramaTitle) &&
+        Objects.equals(this.dubOrTranslationTaskID, taskInfoForDocumentTaskDetailOutput.dubOrTranslationTaskID) &&
+        Objects.equals(this.isDub, taskInfoForDocumentTaskDetailOutput.isDub) &&
+        Objects.equals(this.needTranslateCover, taskInfoForDocumentTaskDetailOutput.needTranslateCover) &&
+        Objects.equals(this.needTranslateDesc, taskInfoForDocumentTaskDetailOutput.needTranslateDesc) &&
+        Objects.equals(this.needTranslateTitle, taskInfoForDocumentTaskDetailOutput.needTranslateTitle) &&
+        Objects.equals(this.needTranslateTitleAndDesc, taskInfoForDocumentTaskDetailOutput.needTranslateTitleAndDesc) &&
+        Objects.equals(this.needVideoSpeed, taskInfoForDocumentTaskDetailOutput.needVideoSpeed) &&
+        Objects.equals(this.procedures, taskInfoForDocumentTaskDetailOutput.procedures) &&
+        Objects.equals(this.referenceDoc, taskInfoForDocumentTaskDetailOutput.referenceDoc) &&
+        Objects.equals(this.serialNumber, taskInfoForDocumentTaskDetailOutput.serialNumber) &&
+        Objects.equals(this.sourceLang, taskInfoForDocumentTaskDetailOutput.sourceLang) &&
+        Objects.equals(this.sourceLocale, taskInfoForDocumentTaskDetailOutput.sourceLocale) &&
+        Objects.equals(this.state, taskInfoForDocumentTaskDetailOutput.state) &&
+        Objects.equals(this.suppressionParams, taskInfoForDocumentTaskDetailOutput.suppressionParams) &&
+        Objects.equals(this.targetLangs, taskInfoForDocumentTaskDetailOutput.targetLangs) &&
+        Objects.equals(this.targetLocale, taskInfoForDocumentTaskDetailOutput.targetLocale) &&
+        Objects.equals(this.targetStyleMap, taskInfoForDocumentTaskDetailOutput.targetStyleMap) &&
+        Objects.equals(this.taskId, taskInfoForDocumentTaskDetailOutput.taskId) &&
+        Objects.equals(this.taskName, taskInfoForDocumentTaskDetailOutput.taskName) &&
+        Objects.equals(this.useMT, taskInfoForDocumentTaskDetailOutput.useMT);
   }
 
   @Override
@@ -713,7 +713,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TaskInfoForVideoProjectSerialTaskCreateInput {\n");
+    sb.append("class TaskInfoForDocumentTaskDetailOutput {\n");
     
     sb.append("    aiRemoveType: ").append(toIndentedString(aiRemoveType)).append("\n");
     sb.append("    asrModel: ").append(toIndentedString(asrModel)).append("\n");

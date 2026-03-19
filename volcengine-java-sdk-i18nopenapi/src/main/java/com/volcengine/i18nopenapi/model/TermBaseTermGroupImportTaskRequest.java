@@ -24,54 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * TermBaseTermGroupImportTaskRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class TermBaseTermGroupImportTaskRequest {
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
+  @SerializedName("termBaseId")
+  private String termBaseId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public TermBaseTermGroupImportTaskRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get id
+   * @return id
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  public String getId() {
+    return id;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
+  public TermBaseTermGroupImportTaskRequest termBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get termBaseId
+   * @return termBaseId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
+  public String getTermBaseId() {
+    return termBaseId;
   }
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setTermBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
   }
 
 
@@ -83,24 +83,24 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    TermBaseTermGroupImportTaskRequest termBaseTermGroupImportTaskRequest = (TermBaseTermGroupImportTaskRequest) o;
+    return Objects.equals(this.id, termBaseTermGroupImportTaskRequest.id) &&
+        Objects.equals(this.termBaseId, termBaseTermGroupImportTaskRequest.termBaseId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(id, termBaseId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class TermBaseTermGroupImportTaskRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

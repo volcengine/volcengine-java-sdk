@@ -24,19 +24,62 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectNamespaceSourceDetailRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
+public class ProjectNamespaceSourceDetailRequest {
+  @SerializedName("keyText")
+  private String keyText = null;
+
+  @SerializedName("locale")
+  private String locale = null;
+
   @SerializedName("namespaceId")
   private Integer namespaceId = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
+  public ProjectNamespaceSourceDetailRequest keyText(String keyText) {
+    this.keyText = keyText;
+    return this;
+  }
+
+   /**
+   * Get keyText
+   * @return keyText
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getKeyText() {
+    return keyText;
+  }
+
+  public void setKeyText(String keyText) {
+    this.keyText = keyText;
+  }
+
+  public ProjectNamespaceSourceDetailRequest locale(String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+   /**
+   * Get locale
+   * @return locale
+  **/
+  @Schema(description = "")
+  public String getLocale() {
+    return locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public ProjectNamespaceSourceDetailRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -55,7 +98,7 @@ public class ProjectNamespaceDetailRequest {
     this.namespaceId = namespaceId;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectNamespaceSourceDetailRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -83,22 +126,26 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectNamespaceSourceDetailRequest projectNamespaceSourceDetailRequest = (ProjectNamespaceSourceDetailRequest) o;
+    return Objects.equals(this.keyText, projectNamespaceSourceDetailRequest.keyText) &&
+        Objects.equals(this.locale, projectNamespaceSourceDetailRequest.locale) &&
+        Objects.equals(this.namespaceId, projectNamespaceSourceDetailRequest.namespaceId) &&
+        Objects.equals(this.projectId, projectNamespaceSourceDetailRequest.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(keyText, locale, namespaceId, projectId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectNamespaceSourceDetailRequest {\n");
     
+    sb.append("    keyText: ").append(toIndentedString(keyText)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");

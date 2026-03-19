@@ -24,38 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTextAcrossImportCheckRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
-
+public class ProjectTextAcrossImportCheckRequest {
   @SerializedName("projectId")
-  private Integer projectId = null;
+  private Long projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-    return this;
-  }
+  @SerializedName("uri")
+  private String uri = null;
 
-   /**
-   * Get namespaceId
-   * @return namespaceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
-  }
-
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectTextAcrossImportCheckRequest projectId(Long projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -66,12 +47,30 @@ public class ProjectNamespaceDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getProjectId() {
+  public Long getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(Integer projectId) {
+  public void setProjectId(Long projectId) {
     this.projectId = projectId;
+  }
+
+  public ProjectTextAcrossImportCheckRequest uri(String uri) {
+    this.uri = uri;
+    return this;
+  }
+
+   /**
+   * Get uri
+   * @return uri
+  **/
+  @Schema(description = "")
+  public String getUri() {
+    return uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
   }
 
 
@@ -83,24 +82,24 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTextAcrossImportCheckRequest projectTextAcrossImportCheckRequest = (ProjectTextAcrossImportCheckRequest) o;
+    return Objects.equals(this.projectId, projectTextAcrossImportCheckRequest.projectId) &&
+        Objects.equals(this.uri, projectTextAcrossImportCheckRequest.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(projectId, uri);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTextAcrossImportCheckRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

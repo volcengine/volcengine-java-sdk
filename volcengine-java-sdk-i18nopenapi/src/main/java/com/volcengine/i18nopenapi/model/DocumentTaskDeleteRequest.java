@@ -24,54 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * DocumentTaskDeleteRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class DocumentTaskDeleteRequest {
+  @SerializedName("deleteDoc")
+  private Long deleteDoc = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
+  @SerializedName("taskId")
+  private Long taskId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public DocumentTaskDeleteRequest deleteDoc(Long deleteDoc) {
+    this.deleteDoc = deleteDoc;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get deleteDoc
+   * @return deleteDoc
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Schema(description = "")
+  public Long getDeleteDoc() {
+    return deleteDoc;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public void setDeleteDoc(Long deleteDoc) {
+    this.deleteDoc = deleteDoc;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
+  public DocumentTaskDeleteRequest taskId(Long taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get taskId
+   * @return taskId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
+  public Long getTaskId() {
+    return taskId;
   }
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setTaskId(Long taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -83,24 +82,24 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    DocumentTaskDeleteRequest documentTaskDeleteRequest = (DocumentTaskDeleteRequest) o;
+    return Objects.equals(this.deleteDoc, documentTaskDeleteRequest.deleteDoc) &&
+        Objects.equals(this.taskId, documentTaskDeleteRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(deleteDoc, taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class DocumentTaskDeleteRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    deleteDoc: ").append(toIndentedString(deleteDoc)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTextImportStatusQueryRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class ProjectTextImportStatusQueryRequest {
+  @SerializedName("recordId")
+  private Long recordId = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
-
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public ProjectTextImportStatusQueryRequest recordId(Long recordId) {
+    this.recordId = recordId;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get recordId
+   * @return recordId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  public Long getRecordId() {
+    return recordId;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setRecordId(Long recordId) {
+    this.recordId = recordId;
   }
 
 
@@ -83,24 +61,22 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTextImportStatusQueryRequest projectTextImportStatusQueryRequest = (ProjectTextImportStatusQueryRequest) o;
+    return Objects.equals(this.recordId, projectTextImportStatusQueryRequest.recordId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(recordId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTextImportStatusQueryRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    recordId: ").append(toIndentedString(recordId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

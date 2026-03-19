@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectNamespaceSourceDownloadResponse
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
+public class ProjectNamespaceSourceDownloadResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("downloadTaskId")
+  private String downloadTaskId = null;
 
-  @SerializedName("projectId")
-  private Integer projectId = null;
-
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
+  public ProjectNamespaceSourceDownloadResponse downloadTaskId(String downloadTaskId) {
+    this.downloadTaskId = downloadTaskId;
     return this;
   }
 
    /**
-   * Get namespaceId
-   * @return namespaceId
+   * Get downloadTaskId
+   * @return downloadTaskId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
+  @Schema(description = "")
+  public String getDownloadTaskId() {
+    return downloadTaskId;
   }
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setDownloadTaskId(String downloadTaskId) {
+    this.downloadTaskId = downloadTaskId;
   }
 
 
@@ -83,24 +60,22 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectNamespaceSourceDownloadResponse projectNamespaceSourceDownloadResponse = (ProjectNamespaceSourceDownloadResponse) o;
+    return Objects.equals(this.downloadTaskId, projectNamespaceSourceDownloadResponse.downloadTaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(downloadTaskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectNamespaceSourceDownloadResponse {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    downloadTaskId: ").append(toIndentedString(downloadTaskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

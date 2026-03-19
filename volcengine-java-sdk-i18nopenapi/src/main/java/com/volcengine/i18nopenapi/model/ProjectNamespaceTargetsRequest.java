@@ -24,19 +24,43 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectNamespaceTargetsRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
+public class ProjectNamespaceTargetsRequest {
+  @SerializedName("limit")
+  private Integer limit = null;
+
   @SerializedName("namespaceId")
   private Integer namespaceId = null;
+
+  @SerializedName("offset")
+  private Integer offset = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
+  public ProjectNamespaceTargetsRequest limit(Integer limit) {
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * Get limit
+   * @return limit
+  **/
+  @Schema(description = "")
+  public Integer getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public ProjectNamespaceTargetsRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -55,7 +79,25 @@ public class ProjectNamespaceDetailRequest {
     this.namespaceId = namespaceId;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectNamespaceTargetsRequest offset(Integer offset) {
+    this.offset = offset;
+    return this;
+  }
+
+   /**
+   * Get offset
+   * @return offset
+  **/
+  @Schema(description = "")
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public ProjectNamespaceTargetsRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -83,23 +125,27 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectNamespaceTargetsRequest projectNamespaceTargetsRequest = (ProjectNamespaceTargetsRequest) o;
+    return Objects.equals(this.limit, projectNamespaceTargetsRequest.limit) &&
+        Objects.equals(this.namespaceId, projectNamespaceTargetsRequest.namespaceId) &&
+        Objects.equals(this.offset, projectNamespaceTargetsRequest.offset) &&
+        Objects.equals(this.projectId, projectNamespaceTargetsRequest.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(limit, namespaceId, offset, projectId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectNamespaceTargetsRequest {\n");
     
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -24,38 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectTaskSourceDetailRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
-  @SerializedName("namespaceId")
-  private Integer namespaceId = null;
-
+public class ProjectTaskSourceDetailRequest {
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-    return this;
-  }
+  @SerializedName("sourceId")
+  private Integer sourceId = null;
 
-   /**
-   * Get namespaceId
-   * @return namespaceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getNamespaceId() {
-    return namespaceId;
-  }
+  @SerializedName("taskId")
+  private Integer taskId = null;
 
-  public void setNamespaceId(Integer namespaceId) {
-    this.namespaceId = namespaceId;
-  }
-
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectTaskSourceDetailRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -74,6 +58,44 @@ public class ProjectNamespaceDetailRequest {
     this.projectId = projectId;
   }
 
+  public ProjectTaskSourceDetailRequest sourceId(Integer sourceId) {
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Get sourceId
+   * @return sourceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getSourceId() {
+    return sourceId;
+  }
+
+  public void setSourceId(Integer sourceId) {
+    this.sourceId = sourceId;
+  }
+
+  public ProjectTaskSourceDetailRequest taskId(Integer taskId) {
+    this.taskId = taskId;
+    return this;
+  }
+
+   /**
+   * Get taskId
+   * @return taskId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(Integer taskId) {
+    this.taskId = taskId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +105,26 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectTaskSourceDetailRequest projectTaskSourceDetailRequest = (ProjectTaskSourceDetailRequest) o;
+    return Objects.equals(this.projectId, projectTaskSourceDetailRequest.projectId) &&
+        Objects.equals(this.sourceId, projectTaskSourceDetailRequest.sourceId) &&
+        Objects.equals(this.taskId, projectTaskSourceDetailRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(projectId, sourceId, taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectTaskSourceDetailRequest {\n");
     
-    sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

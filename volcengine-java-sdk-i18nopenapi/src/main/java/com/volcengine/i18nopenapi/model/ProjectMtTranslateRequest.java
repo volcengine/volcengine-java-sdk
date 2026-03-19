@@ -24,19 +24,66 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ProjectNamespaceDetailRequest
+ * ProjectMtTranslateRequest
  */
 
 
 
-public class ProjectNamespaceDetailRequest {
+public class ProjectMtTranslateRequest {
+  @SerializedName("key")
+  private String key = null;
+
+  @SerializedName("locale")
+  private String locale = null;
+
   @SerializedName("namespaceId")
   private Integer namespaceId = null;
 
   @SerializedName("projectId")
   private Integer projectId = null;
 
-  public ProjectNamespaceDetailRequest namespaceId(Integer namespaceId) {
+  @SerializedName("taskId")
+  private Integer taskId = null;
+
+  public ProjectMtTranslateRequest key(String key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public ProjectMtTranslateRequest locale(String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+   /**
+   * Get locale
+   * @return locale
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getLocale() {
+    return locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public ProjectMtTranslateRequest namespaceId(Integer namespaceId) {
     this.namespaceId = namespaceId;
     return this;
   }
@@ -45,8 +92,7 @@ public class ProjectNamespaceDetailRequest {
    * Get namespaceId
    * @return namespaceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getNamespaceId() {
     return namespaceId;
   }
@@ -55,7 +101,7 @@ public class ProjectNamespaceDetailRequest {
     this.namespaceId = namespaceId;
   }
 
-  public ProjectNamespaceDetailRequest projectId(Integer projectId) {
+  public ProjectMtTranslateRequest projectId(Integer projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -74,6 +120,24 @@ public class ProjectNamespaceDetailRequest {
     this.projectId = projectId;
   }
 
+  public ProjectMtTranslateRequest taskId(Integer taskId) {
+    this.taskId = taskId;
+    return this;
+  }
+
+   /**
+   * Get taskId
+   * @return taskId
+  **/
+  @Schema(description = "")
+  public Integer getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(Integer taskId) {
+    this.taskId = taskId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +147,30 @@ public class ProjectNamespaceDetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectNamespaceDetailRequest projectNamespaceDetailRequest = (ProjectNamespaceDetailRequest) o;
-    return Objects.equals(this.namespaceId, projectNamespaceDetailRequest.namespaceId) &&
-        Objects.equals(this.projectId, projectNamespaceDetailRequest.projectId);
+    ProjectMtTranslateRequest projectMtTranslateRequest = (ProjectMtTranslateRequest) o;
+    return Objects.equals(this.key, projectMtTranslateRequest.key) &&
+        Objects.equals(this.locale, projectMtTranslateRequest.locale) &&
+        Objects.equals(this.namespaceId, projectMtTranslateRequest.namespaceId) &&
+        Objects.equals(this.projectId, projectMtTranslateRequest.projectId) &&
+        Objects.equals(this.taskId, projectMtTranslateRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceId, projectId);
+    return Objects.hash(key, locale, namespaceId, projectId, taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectNamespaceDetailRequest {\n");
+    sb.append("class ProjectMtTranslateRequest {\n");
     
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
