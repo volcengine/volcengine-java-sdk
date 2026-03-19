@@ -87,6 +87,9 @@ public class CreateDataFlowTaskRequest {
   @SerializedName("DeletePolicy")
   private DeletePolicyForCreateDataFlowTaskInput deletePolicy = null;
 
+  @SerializedName("EnableTlsLog")
+  private Boolean enableTlsLog = null;
+
   @SerializedName("EntryListFileInfo")
   private EntryListFileInfoForCreateDataFlowTaskInput entryListFileInfo = null;
 
@@ -317,6 +320,24 @@ public class CreateDataFlowTaskRequest {
     this.deletePolicy = deletePolicy;
   }
 
+  public CreateDataFlowTaskRequest enableTlsLog(Boolean enableTlsLog) {
+    this.enableTlsLog = enableTlsLog;
+    return this;
+  }
+
+   /**
+   * Get enableTlsLog
+   * @return enableTlsLog
+  **/
+  @Schema(description = "")
+  public Boolean isEnableTlsLog() {
+    return enableTlsLog;
+  }
+
+  public void setEnableTlsLog(Boolean enableTlsLog) {
+    this.enableTlsLog = enableTlsLog;
+  }
+
   public CreateDataFlowTaskRequest entryListFileInfo(EntryListFileInfoForCreateDataFlowTaskInput entryListFileInfo) {
     this.entryListFileInfo = entryListFileInfo;
     return this;
@@ -460,6 +481,7 @@ public class CreateDataFlowTaskRequest {
         Objects.equals(this.dataStoragePath, createDataFlowTaskRequest.dataStoragePath) &&
         Objects.equals(this.dataType, createDataFlowTaskRequest.dataType) &&
         Objects.equals(this.deletePolicy, createDataFlowTaskRequest.deletePolicy) &&
+        Objects.equals(this.enableTlsLog, createDataFlowTaskRequest.enableTlsLog) &&
         Objects.equals(this.entryListFileInfo, createDataFlowTaskRequest.entryListFileInfo) &&
         Objects.equals(this.exportSymlinkPolicy, createDataFlowTaskRequest.exportSymlinkPolicy) &&
         Objects.equals(this.fileSystemId, createDataFlowTaskRequest.fileSystemId) &&
@@ -471,7 +493,7 @@ public class CreateDataFlowTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataStorage, dataStoragePath, dataType, deletePolicy, entryListFileInfo, exportSymlinkPolicy, fileSystemId, filesetId, sameNameFilePolicy, subPath, taskAction);
+    return Objects.hash(dataStorage, dataStoragePath, dataType, deletePolicy, enableTlsLog, entryListFileInfo, exportSymlinkPolicy, fileSystemId, filesetId, sameNameFilePolicy, subPath, taskAction);
   }
 
 
@@ -484,6 +506,7 @@ public class CreateDataFlowTaskRequest {
     sb.append("    dataStoragePath: ").append(toIndentedString(dataStoragePath)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    deletePolicy: ").append(toIndentedString(deletePolicy)).append("\n");
+    sb.append("    enableTlsLog: ").append(toIndentedString(enableTlsLog)).append("\n");
     sb.append("    entryListFileInfo: ").append(toIndentedString(entryListFileInfo)).append("\n");
     sb.append("    exportSymlinkPolicy: ").append(toIndentedString(exportSymlinkPolicy)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
