@@ -119,7 +119,6 @@ public class FieldForUpdateVikingdbCollectionInput {
    * Get defaultValue
    * @return defaultValue
   **/
-  @Valid
   @Schema(description = "")
   public Object getDefaultValue() {
     return defaultValue;

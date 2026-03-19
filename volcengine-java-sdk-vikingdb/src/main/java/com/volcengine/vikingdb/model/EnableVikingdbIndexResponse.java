@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstructionForCreateVikingdbCollectionInput
+ * EnableVikingdbIndexResponse
  */
 
 
 
-public class InstructionForCreateVikingdbCollectionInput {
-  @SerializedName("AutoFill")
-  private Boolean autoFill = null;
+public class EnableVikingdbIndexResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Message")
+  private String message = null;
 
-  @SerializedName("Content")
-  private String content = null;
-
-  public InstructionForCreateVikingdbCollectionInput autoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public EnableVikingdbIndexResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get autoFill
-   * @return autoFill
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public Boolean isAutoFill() {
-    return autoFill;
+  public String getMessage() {
+    return message;
   }
 
-  public void setAutoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
-  }
-
-  public InstructionForCreateVikingdbCollectionInput content(String content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Get content
-   * @return content
-  **/
-  @Schema(description = "")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -81,24 +60,22 @@ public class InstructionForCreateVikingdbCollectionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstructionForCreateVikingdbCollectionInput instructionForCreateVikingdbCollectionInput = (InstructionForCreateVikingdbCollectionInput) o;
-    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill) &&
-        Objects.equals(this.content, instructionForCreateVikingdbCollectionInput.content);
+    EnableVikingdbIndexResponse enableVikingdbIndexResponse = (EnableVikingdbIndexResponse) o;
+    return Objects.equals(this.message, enableVikingdbIndexResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoFill, content);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstructionForCreateVikingdbCollectionInput {\n");
+    sb.append("class EnableVikingdbIndexResponse {\n");
     
-    sb.append("    autoFill: ").append(toIndentedString(autoFill)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

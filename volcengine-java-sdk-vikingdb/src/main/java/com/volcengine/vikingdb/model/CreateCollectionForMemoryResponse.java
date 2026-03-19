@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstructionForCreateVikingdbCollectionInput
+ * CreateCollectionForMemoryResponse
  */
 
 
 
-public class InstructionForCreateVikingdbCollectionInput {
-  @SerializedName("AutoFill")
-  private Boolean autoFill = null;
+public class CreateCollectionForMemoryResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("resource_id")
+  private String resourceId = null;
 
-  @SerializedName("Content")
-  private String content = null;
-
-  public InstructionForCreateVikingdbCollectionInput autoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public CreateCollectionForMemoryResponse resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get autoFill
-   * @return autoFill
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public Boolean isAutoFill() {
-    return autoFill;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setAutoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
-  }
-
-  public InstructionForCreateVikingdbCollectionInput content(String content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Get content
-   * @return content
-  **/
-  @Schema(description = "")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
   }
 
 
@@ -81,24 +60,22 @@ public class InstructionForCreateVikingdbCollectionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstructionForCreateVikingdbCollectionInput instructionForCreateVikingdbCollectionInput = (InstructionForCreateVikingdbCollectionInput) o;
-    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill) &&
-        Objects.equals(this.content, instructionForCreateVikingdbCollectionInput.content);
+    CreateCollectionForMemoryResponse createCollectionForMemoryResponse = (CreateCollectionForMemoryResponse) o;
+    return Objects.equals(this.resourceId, createCollectionForMemoryResponse.resourceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoFill, content);
+    return Objects.hash(resourceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstructionForCreateVikingdbCollectionInput {\n");
+    sb.append("class CreateCollectionForMemoryResponse {\n");
     
-    sb.append("    autoFill: ").append(toIndentedString(autoFill)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SampleDataForListVikingdbTaskOutput
+ * PipelineConfigForMemoryCollectionListOutput
  */
 
 
 
-public class SampleDataForListVikingdbTaskOutput {
+public class PipelineConfigForMemoryCollectionListOutput {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class SampleDataForListVikingdbTaskOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SampleDataForListVikingdbTaskOutput {\n");
+    sb.append("class PipelineConfigForMemoryCollectionListOutput {\n");
     
     sb.append("}");
     return sb.toString();

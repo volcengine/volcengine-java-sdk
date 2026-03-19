@@ -19,57 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vikingdb.model.AnalyzerForListVikingdbCollectionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstructionForCreateVikingdbCollectionInput
+ * FullTextForListVikingdbCollectionOutput
  */
 
 
 
-public class InstructionForCreateVikingdbCollectionInput {
-  @SerializedName("AutoFill")
-  private Boolean autoFill = null;
+public class FullTextForListVikingdbCollectionOutput {
+  @SerializedName("Analyzer")
+  private AnalyzerForListVikingdbCollectionOutput analyzer = null;
 
-  @SerializedName("Content")
-  private String content = null;
+  @SerializedName("Field")
+  private String field = null;
 
-  public InstructionForCreateVikingdbCollectionInput autoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public FullTextForListVikingdbCollectionOutput analyzer(AnalyzerForListVikingdbCollectionOutput analyzer) {
+    this.analyzer = analyzer;
     return this;
   }
 
    /**
-   * Get autoFill
-   * @return autoFill
+   * Get analyzer
+   * @return analyzer
   **/
+  @Valid
   @Schema(description = "")
-  public Boolean isAutoFill() {
-    return autoFill;
+  public AnalyzerForListVikingdbCollectionOutput getAnalyzer() {
+    return analyzer;
   }
 
-  public void setAutoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public void setAnalyzer(AnalyzerForListVikingdbCollectionOutput analyzer) {
+    this.analyzer = analyzer;
   }
 
-  public InstructionForCreateVikingdbCollectionInput content(String content) {
-    this.content = content;
+  public FullTextForListVikingdbCollectionOutput field(String field) {
+    this.field = field;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get field
+   * @return field
   **/
-  @Schema(description = "")
-  public String getContent() {
-    return content;
+ @Size(min=1)  @Schema(description = "")
+  public String getField() {
+    return field;
   }
 
-  public void setContent(String content) {
-    this.content = content;
+  public void setField(String field) {
+    this.field = field;
   }
 
 
@@ -81,24 +83,24 @@ public class InstructionForCreateVikingdbCollectionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstructionForCreateVikingdbCollectionInput instructionForCreateVikingdbCollectionInput = (InstructionForCreateVikingdbCollectionInput) o;
-    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill) &&
-        Objects.equals(this.content, instructionForCreateVikingdbCollectionInput.content);
+    FullTextForListVikingdbCollectionOutput fullTextForListVikingdbCollectionOutput = (FullTextForListVikingdbCollectionOutput) o;
+    return Objects.equals(this.analyzer, fullTextForListVikingdbCollectionOutput.analyzer) &&
+        Objects.equals(this.field, fullTextForListVikingdbCollectionOutput.field);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoFill, content);
+    return Objects.hash(analyzer, field);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstructionForCreateVikingdbCollectionInput {\n");
+    sb.append("class FullTextForListVikingdbCollectionOutput {\n");
     
-    sb.append("    autoFill: ").append(toIndentedString(autoFill)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    analyzer: ").append(toIndentedString(analyzer)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstructionForCreateVikingdbCollectionInput
+ * TagForMemoryCollectionInfoOutput
  */
 
 
 
-public class InstructionForCreateVikingdbCollectionInput {
-  @SerializedName("AutoFill")
-  private Boolean autoFill = null;
+public class TagForMemoryCollectionInfoOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Content")
-  private String content = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public InstructionForCreateVikingdbCollectionInput autoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public TagForMemoryCollectionInfoOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get autoFill
-   * @return autoFill
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isAutoFill() {
-    return autoFill;
+  public String getKey() {
+    return key;
   }
 
-  public void setAutoFill(Boolean autoFill) {
-    this.autoFill = autoFill;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public InstructionForCreateVikingdbCollectionInput content(String content) {
-    this.content = content;
+  public TagForMemoryCollectionInfoOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getContent() {
-    return content;
+  public String getValue() {
+    return value;
   }
 
-  public void setContent(String content) {
-    this.content = content;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class InstructionForCreateVikingdbCollectionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstructionForCreateVikingdbCollectionInput instructionForCreateVikingdbCollectionInput = (InstructionForCreateVikingdbCollectionInput) o;
-    return Objects.equals(this.autoFill, instructionForCreateVikingdbCollectionInput.autoFill) &&
-        Objects.equals(this.content, instructionForCreateVikingdbCollectionInput.content);
+    TagForMemoryCollectionInfoOutput tagForMemoryCollectionInfoOutput = (TagForMemoryCollectionInfoOutput) o;
+    return Objects.equals(this.key, tagForMemoryCollectionInfoOutput.key) &&
+        Objects.equals(this.value, tagForMemoryCollectionInfoOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoFill, content);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstructionForCreateVikingdbCollectionInput {\n");
+    sb.append("class TagForMemoryCollectionInfoOutput {\n");
     
-    sb.append("    autoFill: ").append(toIndentedString(autoFill)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
