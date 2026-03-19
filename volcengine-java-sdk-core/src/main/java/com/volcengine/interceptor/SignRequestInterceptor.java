@@ -42,7 +42,11 @@ public class SignRequestInterceptor implements RequestInterceptor {
         } else {
             CredentialProvider credentialProvider = context.getApiClient().getCredentialProvider();
             if (credentialProvider == null) {
-                throw new ApiException("one of credentials and credentialProvider must set");
+                // No explicit credentials or provider set — use default credential chain
+                credentialProvider = new com.volcengine.auth.CredentialProvider(
+                    com.volcengine.auth.DefaultCredentialProvider.create()
+                );
+                context.getApiClient().setCredentialProvider(credentialProvider);
             }
             CredentialValue credentialValue = credentialProvider.get();
             if (credentialValue == null) {
