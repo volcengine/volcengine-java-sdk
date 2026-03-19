@@ -61,7 +61,7 @@ public class EcsRoleCredentialProvider implements Provider {
         this.roleName = roleName;
         this.connectTimeoutMs = connectTimeoutMs;
         this.readTimeoutMs = readTimeoutMs;
-        this.maxRetries = maxRetries;
+        this.maxRetries = Math.max(maxRetries, 1);
         this.retryIntervalMs = retryIntervalMs;
         this.expireBufferSeconds = expireBufferSeconds;
     }

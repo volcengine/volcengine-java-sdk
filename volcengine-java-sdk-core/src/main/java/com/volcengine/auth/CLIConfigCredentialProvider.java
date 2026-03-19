@@ -117,7 +117,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 return new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
             }
             default:
-                throw new RuntimeException(PROVIDER_NAME + ": unsupported mode: " + mode);
+                throw new ApiException(PROVIDER_NAME + ": unsupported mode: " + mode);
         }
     }
 

@@ -137,7 +137,18 @@ public class OidcCredentialProvider implements Provider {
                         String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
                         String sessionToken = (String) credentialMap.get("SessionToken");
                         this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, PROVIDER_NAME);
-                        this.expirationTime = now + durationSeconds - expireBufferSeconds;
+                        // Prefer server-side Expiration; fallback to local duration estimate
+                        long expiration = now + durationSeconds;
+                        String expirationStr = (String) credentialMap.get("Expiration");
+                        if (expirationStr != null && !expirationStr.isEmpty()) {
+                            try {
+                                java.time.Instant instant = java.time.Instant.parse(expirationStr);
+                                expiration = instant.getEpochSecond();
+                            } catch (Exception ignored) {
+                                // fallback to local estimate
+                            }
+                        }
+                        this.expirationTime = expiration - expireBufferSeconds;
                         return;
                     }
                 }
