@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vikingdb.model.CollectionStatsForGetVikingdbCollectionOutput;
 import com.volcengine.vikingdb.model.FieldForGetVikingdbCollectionOutput;
+import com.volcengine.vikingdb.model.FullTextForGetVikingdbCollectionOutput;
 import com.volcengine.vikingdb.model.VectorizeForGetVikingdbCollectionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -52,6 +53,9 @@ public class GetVikingdbCollectionResponse extends com.volcengine.model.Abstract
 
   @SerializedName("Fields")
   private List<FieldForGetVikingdbCollectionOutput> fields = null;
+
+  @SerializedName("FullText")
+  private List<FullTextForGetVikingdbCollectionOutput> fullText = null;
 
   @SerializedName("IndexCount")
   private Integer indexCount = null;
@@ -190,6 +194,33 @@ public class GetVikingdbCollectionResponse extends com.volcengine.model.Abstract
 
   public void setFields(List<FieldForGetVikingdbCollectionOutput> fields) {
     this.fields = fields;
+  }
+
+  public GetVikingdbCollectionResponse fullText(List<FullTextForGetVikingdbCollectionOutput> fullText) {
+    this.fullText = fullText;
+    return this;
+  }
+
+  public GetVikingdbCollectionResponse addFullTextItem(FullTextForGetVikingdbCollectionOutput fullTextItem) {
+    if (this.fullText == null) {
+      this.fullText = new ArrayList<FullTextForGetVikingdbCollectionOutput>();
+    }
+    this.fullText.add(fullTextItem);
+    return this;
+  }
+
+   /**
+   * Get fullText
+   * @return fullText
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FullTextForGetVikingdbCollectionOutput> getFullText() {
+    return fullText;
+  }
+
+  public void setFullText(List<FullTextForGetVikingdbCollectionOutput> fullText) {
+    this.fullText = fullText;
   }
 
   public GetVikingdbCollectionResponse indexCount(Integer indexCount) {
@@ -343,6 +374,7 @@ public class GetVikingdbCollectionResponse extends com.volcengine.model.Abstract
         Objects.equals(this.description, getVikingdbCollectionResponse.description) &&
         Objects.equals(this.enableKeywordsSearch, getVikingdbCollectionResponse.enableKeywordsSearch) &&
         Objects.equals(this.fields, getVikingdbCollectionResponse.fields) &&
+        Objects.equals(this.fullText, getVikingdbCollectionResponse.fullText) &&
         Objects.equals(this.indexCount, getVikingdbCollectionResponse.indexCount) &&
         Objects.equals(this.indexNames, getVikingdbCollectionResponse.indexNames) &&
         Objects.equals(this.projectName, getVikingdbCollectionResponse.projectName) &&
@@ -354,7 +386,7 @@ public class GetVikingdbCollectionResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, collectionStats, createTime, description, enableKeywordsSearch, fields, indexCount, indexNames, projectName, resourceId, updatePerson, updateTime, vectorize);
+    return Objects.hash(collectionName, collectionStats, createTime, description, enableKeywordsSearch, fields, fullText, indexCount, indexNames, projectName, resourceId, updatePerson, updateTime, vectorize);
   }
 
 
@@ -369,6 +401,7 @@ public class GetVikingdbCollectionResponse extends com.volcengine.model.Abstract
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableKeywordsSearch: ").append(toIndentedString(enableKeywordsSearch)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    fullText: ").append(toIndentedString(fullText)).append("\n");
     sb.append("    indexCount: ").append(toIndentedString(indexCount)).append("\n");
     sb.append("    indexNames: ").append(toIndentedString(indexNames)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

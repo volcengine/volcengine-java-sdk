@@ -55,6 +55,9 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
   @SerializedName("AssociatedInstances")
   private List<AssociatedInstanceForDescribeAllowListDetailOutput> associatedInstances = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> securityGroupBindInfos = null;
 
@@ -196,6 +199,24 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     this.associatedInstances = associatedInstances;
   }
 
+  public DescribeAllowListDetailResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeAllowListDetailResponse securityGroupBindInfos(List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> securityGroupBindInfos) {
     this.securityGroupBindInfos = securityGroupBindInfos;
     return this;
@@ -258,13 +279,14 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
         Objects.equals(this.allowListName, describeAllowListDetailResponse.allowListName) &&
         Objects.equals(this.allowListType, describeAllowListDetailResponse.allowListType) &&
         Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances) &&
+        Objects.equals(this.projectName, describeAllowListDetailResponse.projectName) &&
         Objects.equals(this.securityGroupBindInfos, describeAllowListDetailResponse.securityGroupBindInfos) &&
         Objects.equals(this.userAllowList, describeAllowListDetailResponse.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances, securityGroupBindInfos, userAllowList);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances, projectName, securityGroupBindInfos, userAllowList);
   }
 
 
@@ -280,6 +302,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstances: ").append(toIndentedString(associatedInstances)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");

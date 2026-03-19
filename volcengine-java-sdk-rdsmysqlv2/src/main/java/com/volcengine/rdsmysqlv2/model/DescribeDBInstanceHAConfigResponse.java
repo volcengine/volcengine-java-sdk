@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput;
 import com.volcengine.rdsmysqlv2.model.NodeForDescribeDBInstanceHAConfigOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,11 +34,33 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstanceHAConfigResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AutoStorageScalingConfig")
+  private AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput autoStorageScalingConfig = null;
+
   @SerializedName("DataSyncMode")
   private String dataSyncMode = null;
 
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceHAConfigOutput> nodes = null;
+
+  public DescribeDBInstanceHAConfigResponse autoStorageScalingConfig(AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+    return this;
+  }
+
+   /**
+   * Get autoStorageScalingConfig
+   * @return autoStorageScalingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput getAutoStorageScalingConfig() {
+    return autoStorageScalingConfig;
+  }
+
+  public void setAutoStorageScalingConfig(AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+  }
 
   public DescribeDBInstanceHAConfigResponse dataSyncMode(String dataSyncMode) {
     this.dataSyncMode = dataSyncMode;
@@ -94,13 +117,14 @@ public class DescribeDBInstanceHAConfigResponse extends com.volcengine.model.Abs
       return false;
     }
     DescribeDBInstanceHAConfigResponse describeDBInstanceHAConfigResponse = (DescribeDBInstanceHAConfigResponse) o;
-    return Objects.equals(this.dataSyncMode, describeDBInstanceHAConfigResponse.dataSyncMode) &&
+    return Objects.equals(this.autoStorageScalingConfig, describeDBInstanceHAConfigResponse.autoStorageScalingConfig) &&
+        Objects.equals(this.dataSyncMode, describeDBInstanceHAConfigResponse.dataSyncMode) &&
         Objects.equals(this.nodes, describeDBInstanceHAConfigResponse.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSyncMode, nodes);
+    return Objects.hash(autoStorageScalingConfig, dataSyncMode, nodes);
   }
 
 
@@ -109,6 +133,7 @@ public class DescribeDBInstanceHAConfigResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstanceHAConfigResponse {\n");
     
+    sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
     sb.append("    dataSyncMode: ").append(toIndentedString(dataSyncMode)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");

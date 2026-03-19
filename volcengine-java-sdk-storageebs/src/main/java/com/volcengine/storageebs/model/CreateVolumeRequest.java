@@ -36,6 +36,12 @@ public class CreateVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DeleteProtection")
+  private Boolean deleteProtection = null;
+
+  @SerializedName("DeleteProtectionRetentionDays")
+  private Integer deleteProtectionRetentionDays = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -100,6 +106,42 @@ public class CreateVolumeRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public CreateVolumeRequest deleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+  public CreateVolumeRequest deleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
+    return this;
+  }
+
+   /**
+   * Get deleteProtectionRetentionDays
+   * @return deleteProtectionRetentionDays
+  **/
+  @Schema(description = "")
+  public Integer getDeleteProtectionRetentionDays() {
+    return deleteProtectionRetentionDays;
+  }
+
+  public void setDeleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
   }
 
   public CreateVolumeRequest description(String description) {
@@ -413,6 +455,8 @@ public class CreateVolumeRequest {
     }
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
     return Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
+        Objects.equals(this.deleteProtection, createVolumeRequest.deleteProtection) &&
+        Objects.equals(this.deleteProtectionRetentionDays, createVolumeRequest.deleteProtectionRetentionDays) &&
         Objects.equals(this.description, createVolumeRequest.description) &&
         Objects.equals(this.extraPerformanceIOPS, createVolumeRequest.extraPerformanceIOPS) &&
         Objects.equals(this.extraPerformanceThroughputMB, createVolumeRequest.extraPerformanceThroughputMB) &&
@@ -433,7 +477,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, placementGroupId, projectName, size, snapshotId, subgroupNumber, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, deleteProtection, deleteProtectionRetentionDays, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, placementGroupId, projectName, size, snapshotId, subgroupNumber, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -443,6 +487,8 @@ public class CreateVolumeRequest {
     sb.append("class CreateVolumeRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
     sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");

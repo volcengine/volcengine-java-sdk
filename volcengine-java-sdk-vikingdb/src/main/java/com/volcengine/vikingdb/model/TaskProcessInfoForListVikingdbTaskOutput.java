@@ -88,7 +88,6 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
    * Get sampleData
    * @return sampleData
   **/
-  @Valid
   @Schema(description = "")
   public List<Object> getSampleData() {
     return sampleData;

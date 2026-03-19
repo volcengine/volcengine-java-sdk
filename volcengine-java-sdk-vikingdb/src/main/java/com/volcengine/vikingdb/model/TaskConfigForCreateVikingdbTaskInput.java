@@ -179,7 +179,6 @@ public class TaskConfigForCreateVikingdbTaskInput {
    * Get filterConds
    * @return filterConds
   **/
-  @Valid
   @Schema(description = "")
   public List<Object> getFilterConds() {
     return filterConds;
@@ -288,7 +287,6 @@ public class TaskConfigForCreateVikingdbTaskInput {
    * Get updateFields
    * @return updateFields
   **/
-  @Valid
   @Schema(description = "")
   public Object getUpdateFields() {
     return updateFields;

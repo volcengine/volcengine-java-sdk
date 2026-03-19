@@ -70,6 +70,9 @@ public class RestoreToCrossRegionInstanceRequest {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("PrivateIpAddress")
+  private String privateIpAddress = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -324,6 +327,24 @@ public class RestoreToCrossRegionInstanceRequest {
     this.port = port;
   }
 
+  public RestoreToCrossRegionInstanceRequest privateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+    return this;
+  }
+
+   /**
+   * Get privateIpAddress
+   * @return privateIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateIpAddress() {
+    return privateIpAddress;
+  }
+
+  public void setPrivateIpAddress(String privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+  }
+
   public RestoreToCrossRegionInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -513,6 +534,7 @@ public class RestoreToCrossRegionInstanceRequest {
         Objects.equals(this.instanceTags, restoreToCrossRegionInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToCrossRegionInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, restoreToCrossRegionInstanceRequest.port) &&
+        Objects.equals(this.privateIpAddress, restoreToCrossRegionInstanceRequest.privateIpAddress) &&
         Objects.equals(this.projectName, restoreToCrossRegionInstanceRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, restoreToCrossRegionInstanceRequest.proxyNodeCustom) &&
         Objects.equals(this.restoreTime, restoreToCrossRegionInstanceRequest.restoreTime) &&
@@ -526,7 +548,7 @@ public class RestoreToCrossRegionInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, dstRegionId, instanceName, instanceTags, nodeInfo, port, projectName, proxyNodeCustom, restoreTime, srcRegionId, srcRegionInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, dstRegionId, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcRegionId, srcRegionInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -546,6 +568,7 @@ public class RestoreToCrossRegionInstanceRequest {
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");

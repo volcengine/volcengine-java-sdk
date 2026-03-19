@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.ReferenceDocForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.SuppressionParamsForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.TargetStyleMapForVideoProjectSerialDubTaskCreateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -46,8 +47,11 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("comment")
   private String comment = null;
 
+  @SerializedName("createdAt")
+  private String createdAt = null;
+
   @SerializedName("deadline")
-  private Integer deadline = null;
+  private String deadline = null;
 
   @SerializedName("dramaCoverUrl")
   private String dramaCoverUrl = null;
@@ -57,6 +61,9 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   @SerializedName("dramaTitle")
   private String dramaTitle = null;
+
+  @SerializedName("dubOrTranslationTaskID")
+  private String dubOrTranslationTaskID = null;
 
   @SerializedName("isDub")
   private Boolean isDub = null;
@@ -76,11 +83,23 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("needVideoSpeed")
   private Boolean needVideoSpeed = null;
 
+  @SerializedName("procedures")
+  private Integer procedures = null;
+
+  @SerializedName("referenceDoc")
+  private ReferenceDocForVideoProjectSerialDubTaskCreateInput referenceDoc = null;
+
   @SerializedName("serialNumber")
   private Integer serialNumber = null;
 
   @SerializedName("sourceLang")
   private String sourceLang = null;
+
+  @SerializedName("sourceLocale")
+  private String sourceLocale = null;
+
+  @SerializedName("state")
+  private Integer state = null;
 
   @SerializedName("suppressionParams")
   private SuppressionParamsForVideoProjectSerialDubTaskCreateInput suppressionParams = null;
@@ -88,8 +107,14 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("targetLangs")
   private List<String> targetLangs = null;
 
+  @SerializedName("targetLocale")
+  private List<String> targetLocale = null;
+
   @SerializedName("targetStyleMap")
   private TargetStyleMapForVideoProjectSerialDubTaskCreateInput targetStyleMap = null;
+
+  @SerializedName("taskId")
+  private Integer taskId = null;
 
   @SerializedName("taskName")
   private String taskName = null;
@@ -169,7 +194,25 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     this.comment = comment;
   }
 
-  public TaskInfoForVideoProjectSerialDubTaskCreateInput deadline(Integer deadline) {
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @Schema(description = "")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput deadline(String deadline) {
     this.deadline = deadline;
     return this;
   }
@@ -179,11 +222,11 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
    * @return deadline
   **/
   @Schema(description = "")
-  public Integer getDeadline() {
+  public String getDeadline() {
     return deadline;
   }
 
-  public void setDeadline(Integer deadline) {
+  public void setDeadline(String deadline) {
     this.deadline = deadline;
   }
 
@@ -239,6 +282,24 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   public void setDramaTitle(String dramaTitle) {
     this.dramaTitle = dramaTitle;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput dubOrTranslationTaskID(String dubOrTranslationTaskID) {
+    this.dubOrTranslationTaskID = dubOrTranslationTaskID;
+    return this;
+  }
+
+   /**
+   * Get dubOrTranslationTaskID
+   * @return dubOrTranslationTaskID
+  **/
+  @Schema(description = "")
+  public String getDubOrTranslationTaskID() {
+    return dubOrTranslationTaskID;
+  }
+
+  public void setDubOrTranslationTaskID(String dubOrTranslationTaskID) {
+    this.dubOrTranslationTaskID = dubOrTranslationTaskID;
   }
 
   public TaskInfoForVideoProjectSerialDubTaskCreateInput isDub(Boolean isDub) {
@@ -349,6 +410,43 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     this.needVideoSpeed = needVideoSpeed;
   }
 
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput procedures(Integer procedures) {
+    this.procedures = procedures;
+    return this;
+  }
+
+   /**
+   * Get procedures
+   * @return procedures
+  **/
+  @Schema(description = "")
+  public Integer getProcedures() {
+    return procedures;
+  }
+
+  public void setProcedures(Integer procedures) {
+    this.procedures = procedures;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput referenceDoc(ReferenceDocForVideoProjectSerialDubTaskCreateInput referenceDoc) {
+    this.referenceDoc = referenceDoc;
+    return this;
+  }
+
+   /**
+   * Get referenceDoc
+   * @return referenceDoc
+  **/
+  @Valid
+  @Schema(description = "")
+  public ReferenceDocForVideoProjectSerialDubTaskCreateInput getReferenceDoc() {
+    return referenceDoc;
+  }
+
+  public void setReferenceDoc(ReferenceDocForVideoProjectSerialDubTaskCreateInput referenceDoc) {
+    this.referenceDoc = referenceDoc;
+  }
+
   public TaskInfoForVideoProjectSerialDubTaskCreateInput serialNumber(Integer serialNumber) {
     this.serialNumber = serialNumber;
     return this;
@@ -383,6 +481,42 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   public void setSourceLang(String sourceLang) {
     this.sourceLang = sourceLang;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput sourceLocale(String sourceLocale) {
+    this.sourceLocale = sourceLocale;
+    return this;
+  }
+
+   /**
+   * Get sourceLocale
+   * @return sourceLocale
+  **/
+  @Schema(description = "")
+  public String getSourceLocale() {
+    return sourceLocale;
+  }
+
+  public void setSourceLocale(String sourceLocale) {
+    this.sourceLocale = sourceLocale;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput state(Integer state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @Schema(description = "")
+  public Integer getState() {
+    return state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
   }
 
   public TaskInfoForVideoProjectSerialDubTaskCreateInput suppressionParams(SuppressionParamsForVideoProjectSerialDubTaskCreateInput suppressionParams) {
@@ -430,6 +564,32 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     this.targetLangs = targetLangs;
   }
 
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput targetLocale(List<String> targetLocale) {
+    this.targetLocale = targetLocale;
+    return this;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput addTargetLocaleItem(String targetLocaleItem) {
+    if (this.targetLocale == null) {
+      this.targetLocale = new ArrayList<String>();
+    }
+    this.targetLocale.add(targetLocaleItem);
+    return this;
+  }
+
+   /**
+   * Get targetLocale
+   * @return targetLocale
+  **/
+  @Schema(description = "")
+  public List<String> getTargetLocale() {
+    return targetLocale;
+  }
+
+  public void setTargetLocale(List<String> targetLocale) {
+    this.targetLocale = targetLocale;
+  }
+
   public TaskInfoForVideoProjectSerialDubTaskCreateInput targetStyleMap(TargetStyleMapForVideoProjectSerialDubTaskCreateInput targetStyleMap) {
     this.targetStyleMap = targetStyleMap;
     return this;
@@ -447,6 +607,24 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   public void setTargetStyleMap(TargetStyleMapForVideoProjectSerialDubTaskCreateInput targetStyleMap) {
     this.targetStyleMap = targetStyleMap;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput taskId(Integer taskId) {
+    this.taskId = taskId;
+    return this;
+  }
+
+   /**
+   * Get taskId
+   * @return taskId
+  **/
+  @Schema(description = "")
+  public Integer getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(Integer taskId) {
+    this.taskId = taskId;
   }
 
   public TaskInfoForVideoProjectSerialDubTaskCreateInput taskName(String taskName) {
@@ -499,28 +677,36 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
         Objects.equals(this.asrModel, taskInfoForVideoProjectSerialDubTaskCreateInput.asrModel) &&
         Objects.equals(this.bgmPolicy, taskInfoForVideoProjectSerialDubTaskCreateInput.bgmPolicy) &&
         Objects.equals(this.comment, taskInfoForVideoProjectSerialDubTaskCreateInput.comment) &&
+        Objects.equals(this.createdAt, taskInfoForVideoProjectSerialDubTaskCreateInput.createdAt) &&
         Objects.equals(this.deadline, taskInfoForVideoProjectSerialDubTaskCreateInput.deadline) &&
         Objects.equals(this.dramaCoverUrl, taskInfoForVideoProjectSerialDubTaskCreateInput.dramaCoverUrl) &&
         Objects.equals(this.dramaDescription, taskInfoForVideoProjectSerialDubTaskCreateInput.dramaDescription) &&
         Objects.equals(this.dramaTitle, taskInfoForVideoProjectSerialDubTaskCreateInput.dramaTitle) &&
+        Objects.equals(this.dubOrTranslationTaskID, taskInfoForVideoProjectSerialDubTaskCreateInput.dubOrTranslationTaskID) &&
         Objects.equals(this.isDub, taskInfoForVideoProjectSerialDubTaskCreateInput.isDub) &&
         Objects.equals(this.needTranslateCover, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateCover) &&
         Objects.equals(this.needTranslateDesc, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateDesc) &&
         Objects.equals(this.needTranslateTitle, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateTitle) &&
         Objects.equals(this.needTranslateTitleAndDesc, taskInfoForVideoProjectSerialDubTaskCreateInput.needTranslateTitleAndDesc) &&
         Objects.equals(this.needVideoSpeed, taskInfoForVideoProjectSerialDubTaskCreateInput.needVideoSpeed) &&
+        Objects.equals(this.procedures, taskInfoForVideoProjectSerialDubTaskCreateInput.procedures) &&
+        Objects.equals(this.referenceDoc, taskInfoForVideoProjectSerialDubTaskCreateInput.referenceDoc) &&
         Objects.equals(this.serialNumber, taskInfoForVideoProjectSerialDubTaskCreateInput.serialNumber) &&
         Objects.equals(this.sourceLang, taskInfoForVideoProjectSerialDubTaskCreateInput.sourceLang) &&
+        Objects.equals(this.sourceLocale, taskInfoForVideoProjectSerialDubTaskCreateInput.sourceLocale) &&
+        Objects.equals(this.state, taskInfoForVideoProjectSerialDubTaskCreateInput.state) &&
         Objects.equals(this.suppressionParams, taskInfoForVideoProjectSerialDubTaskCreateInput.suppressionParams) &&
         Objects.equals(this.targetLangs, taskInfoForVideoProjectSerialDubTaskCreateInput.targetLangs) &&
+        Objects.equals(this.targetLocale, taskInfoForVideoProjectSerialDubTaskCreateInput.targetLocale) &&
         Objects.equals(this.targetStyleMap, taskInfoForVideoProjectSerialDubTaskCreateInput.targetStyleMap) &&
+        Objects.equals(this.taskId, taskInfoForVideoProjectSerialDubTaskCreateInput.taskId) &&
         Objects.equals(this.taskName, taskInfoForVideoProjectSerialDubTaskCreateInput.taskName) &&
         Objects.equals(this.useMT, taskInfoForVideoProjectSerialDubTaskCreateInput.useMT);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, isDub, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
   }
 
 
@@ -533,21 +719,29 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     sb.append("    asrModel: ").append(toIndentedString(asrModel)).append("\n");
     sb.append("    bgmPolicy: ").append(toIndentedString(bgmPolicy)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    dramaCoverUrl: ").append(toIndentedString(dramaCoverUrl)).append("\n");
     sb.append("    dramaDescription: ").append(toIndentedString(dramaDescription)).append("\n");
     sb.append("    dramaTitle: ").append(toIndentedString(dramaTitle)).append("\n");
+    sb.append("    dubOrTranslationTaskID: ").append(toIndentedString(dubOrTranslationTaskID)).append("\n");
     sb.append("    isDub: ").append(toIndentedString(isDub)).append("\n");
     sb.append("    needTranslateCover: ").append(toIndentedString(needTranslateCover)).append("\n");
     sb.append("    needTranslateDesc: ").append(toIndentedString(needTranslateDesc)).append("\n");
     sb.append("    needTranslateTitle: ").append(toIndentedString(needTranslateTitle)).append("\n");
     sb.append("    needTranslateTitleAndDesc: ").append(toIndentedString(needTranslateTitleAndDesc)).append("\n");
     sb.append("    needVideoSpeed: ").append(toIndentedString(needVideoSpeed)).append("\n");
+    sb.append("    procedures: ").append(toIndentedString(procedures)).append("\n");
+    sb.append("    referenceDoc: ").append(toIndentedString(referenceDoc)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
+    sb.append("    sourceLocale: ").append(toIndentedString(sourceLocale)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    suppressionParams: ").append(toIndentedString(suppressionParams)).append("\n");
     sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
+    sb.append("    targetLocale: ").append(toIndentedString(targetLocale)).append("\n");
     sb.append("    targetStyleMap: ").append(toIndentedString(targetStyleMap)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("    useMT: ").append(toIndentedString(useMT)).append("\n");
     sb.append("}");
