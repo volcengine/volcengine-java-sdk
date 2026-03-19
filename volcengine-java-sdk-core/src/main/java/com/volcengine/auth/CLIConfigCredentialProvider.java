@@ -110,14 +110,12 @@ public class CLIConfigCredentialProvider implements Provider {
             throw new ApiException(PROVIDER_NAME + ": profile '" + profile + "' not found in config");
         }
 
-        String mode = getStringValue(profileData, "mode");
-        if (mode == null) {
-            mode = "";
-        }
+        String rawMode = getStringValue(profileData, "mode");
+        String mode = (rawMode == null) ? "" : rawMode.toLowerCase().trim();
 
         switch (mode) {
             case "":
-            case "AK": {
+            case "ak": {
                 String ak = getStringValue(profileData, "access-key");
                 String sk = getStringValue(profileData, "secret-key");
                 String sessionToken = getStringValue(profileData, "session-token");
@@ -129,7 +127,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 credentialValue = new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
                 return credentialValue;
             }
-            case "StsToken": {
+            case "ststoken": {
                 String ak = getStringValue(profileData, "access-key");
                 String sk = getStringValue(profileData, "secret-key");
                 String sessionToken = getStringValue(profileData, "session-token");
@@ -141,7 +139,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 credentialValue = new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
                 return credentialValue;
             }
-            case "RamRoleArn": {
+            case "ramrolearn": {
                 String ak = getStringValue(profileData, "access-key");
                 String sk = getStringValue(profileData, "secret-key");
                 String roleName = getStringValue(profileData, "role-name");
@@ -157,7 +155,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 delegate = new StsAssumeRoleProvider(ak, sk, roleName, accountId);
                 return delegate.retrieve();
             }
-            case "OIDC": {
+            case "oidc": {
                 String oidcTokenFile = getStringValue(profileData, "oidc-token-file");
                 String roleTrn = getStringValue(profileData, "role-trn");
 
@@ -168,13 +166,13 @@ public class CLIConfigCredentialProvider implements Provider {
                 delegate = new OidcCredentialProvider(roleTrn, null, oidcTokenFile, null, null);
                 return delegate.retrieve();
             }
-            case "EcsRole": {
+            case "ecsrole": {
                 String roleName = getStringValue(profileData, "role-name");
 
                 delegate = EcsRoleCredentialProvider.create(roleName);
                 return delegate.retrieve();
             }
-            case "SSO": {
+            case "sso": {
                 return loadSsoCredentials(profileData, profile, configMap);
             }
             default:
