@@ -30,26 +30,26 @@ import javax.validation.Valid;
 
 
 public class DescribeAllowListsRequest {
-  @SerializedName("RegionID")
-  private String regionID = null;
+  @SerializedName("RegionId")
+  private String regionId = null;
 
-  public DescribeAllowListsRequest regionID(String regionID) {
-    this.regionID = regionID;
+  public DescribeAllowListsRequest regionId(String regionId) {
+    this.regionId = regionId;
     return this;
   }
 
    /**
-   * Get regionID
-   * @return regionID
+   * Get regionId
+   * @return regionId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getRegionID() {
-    return regionID;
+  public String getRegionId() {
+    return regionId;
   }
 
-  public void setRegionID(String regionID) {
-    this.regionID = regionID;
+  public void setRegionId(String regionId) {
+    this.regionId = regionId;
   }
 
 
@@ -62,12 +62,12 @@ public class DescribeAllowListsRequest {
       return false;
     }
     DescribeAllowListsRequest describeAllowListsRequest = (DescribeAllowListsRequest) o;
-    return Objects.equals(this.regionID, describeAllowListsRequest.regionID);
+    return Objects.equals(this.regionId, describeAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regionID);
+    return Objects.hash(regionId);
   }
 
 
@@ -76,7 +76,7 @@ public class DescribeAllowListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAllowListsRequest {\n");
     
-    sb.append("    regionID: ").append(toIndentedString(regionID)).append("\n");
+    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
