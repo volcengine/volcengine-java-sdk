@@ -51,11 +51,20 @@ public class VolumeForDescribeVolumesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("DeleteProtection")
+  private Boolean deleteProtection = null;
+
+  @SerializedName("DeleteProtectionRetentionDays")
+  private Integer deleteProtectionRetentionDays = null;
+
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DetachedTime")
+  private String detachedTime = null;
 
   @SerializedName("ErrorDetail")
   private String errorDetail = null;
@@ -223,6 +232,42 @@ public class VolumeForDescribeVolumesOutput {
     this.createdAt = createdAt;
   }
 
+  public VolumeForDescribeVolumesOutput deleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+  public VolumeForDescribeVolumesOutput deleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
+    return this;
+  }
+
+   /**
+   * Get deleteProtectionRetentionDays
+   * @return deleteProtectionRetentionDays
+  **/
+  @Schema(description = "")
+  public Integer getDeleteProtectionRetentionDays() {
+    return deleteProtectionRetentionDays;
+  }
+
+  public void setDeleteProtectionRetentionDays(Integer deleteProtectionRetentionDays) {
+    this.deleteProtectionRetentionDays = deleteProtectionRetentionDays;
+  }
+
   public VolumeForDescribeVolumesOutput deleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
     return this;
@@ -257,6 +302,24 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public VolumeForDescribeVolumesOutput detachedTime(String detachedTime) {
+    this.detachedTime = detachedTime;
+    return this;
+  }
+
+   /**
+   * Get detachedTime
+   * @return detachedTime
+  **/
+  @Schema(description = "")
+  public String getDetachedTime() {
+    return detachedTime;
+  }
+
+  public void setDetachedTime(String detachedTime) {
+    this.detachedTime = detachedTime;
   }
 
   public VolumeForDescribeVolumesOutput errorDetail(String errorDetail) {
@@ -735,8 +798,11 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.baselinePerformance, volumeForDescribeVolumesOutput.baselinePerformance) &&
         Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
         Objects.equals(this.createdAt, volumeForDescribeVolumesOutput.createdAt) &&
+        Objects.equals(this.deleteProtection, volumeForDescribeVolumesOutput.deleteProtection) &&
+        Objects.equals(this.deleteProtectionRetentionDays, volumeForDescribeVolumesOutput.deleteProtectionRetentionDays) &&
         Objects.equals(this.deleteWithInstance, volumeForDescribeVolumesOutput.deleteWithInstance) &&
         Objects.equals(this.description, volumeForDescribeVolumesOutput.description) &&
+        Objects.equals(this.detachedTime, volumeForDescribeVolumesOutput.detachedTime) &&
         Objects.equals(this.errorDetail, volumeForDescribeVolumesOutput.errorDetail) &&
         Objects.equals(this.expiredTime, volumeForDescribeVolumesOutput.expiredTime) &&
         Objects.equals(this.extraPerformance, volumeForDescribeVolumesOutput.extraPerformance) &&
@@ -766,7 +832,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteWithInstance, description, errorDetail, expiredTime, extraPerformance, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, placementGroupId, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, subgroupNumber, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, detachedTime, errorDetail, expiredTime, extraPerformance, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, placementGroupId, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, subgroupNumber, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -780,8 +846,11 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    baselinePerformance: ").append(toIndentedString(baselinePerformance)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    detachedTime: ").append(toIndentedString(detachedTime)).append("\n");
     sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    extraPerformance: ").append(toIndentedString(extraPerformance)).append("\n");
