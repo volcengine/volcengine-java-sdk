@@ -21,15 +21,21 @@ public class CLIConfigCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "CLIConfigCredentialProvider";
 
     private final String profileName;
+    private final String configPath;
     private volatile CredentialValue credentialValue;
     private volatile Provider delegate;
 
     public CLIConfigCredentialProvider() {
-        this(null);
+        this(null, null);
     }
 
     public CLIConfigCredentialProvider(String profileName) {
+        this(profileName, null);
+    }
+
+    public CLIConfigCredentialProvider(String profileName, String configPath) {
         this.profileName = profileName;
+        this.configPath = configPath;
     }
 
     @Override
@@ -451,6 +457,9 @@ public class CLIConfigCredentialProvider implements Provider {
     }
 
     private Path resolveConfigPath() {
+        if (!isNullOrEmpty(configPath)) {
+            return Paths.get(configPath);
+        }
         String envPath = System.getenv("VOLCENGINE_CLI_CONFIG_FILE");
         if (!isNullOrEmpty(envPath)) {
             return Paths.get(envPath);
