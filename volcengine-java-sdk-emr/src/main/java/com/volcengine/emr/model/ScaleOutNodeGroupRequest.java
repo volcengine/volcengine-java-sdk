@@ -36,6 +36,107 @@ public class ScaleOutNodeGroupRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("ElasticScheduledInstanceAutoReleaseAt")
+  private String elasticScheduledInstanceAutoReleaseAt = null;
+
+  /**
+   * Gets or Sets elasticScheduledInstanceDeliveryType
+   */
+  @JsonAdapter(ElasticScheduledInstanceDeliveryTypeEnum.Adapter.class)
+  public enum ElasticScheduledInstanceDeliveryTypeEnum {
+    @SerializedName("Reserve")
+    RESERVE("Reserve"),
+    @SerializedName("Immediate")
+    IMMEDIATE("Immediate");
+
+    private String value;
+
+    ElasticScheduledInstanceDeliveryTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ElasticScheduledInstanceDeliveryTypeEnum fromValue(String input) {
+      for (ElasticScheduledInstanceDeliveryTypeEnum b : ElasticScheduledInstanceDeliveryTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ElasticScheduledInstanceDeliveryTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ElasticScheduledInstanceDeliveryTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ElasticScheduledInstanceDeliveryTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ElasticScheduledInstanceDeliveryTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ElasticScheduledInstanceDeliveryType")
+  private ElasticScheduledInstanceDeliveryTypeEnum elasticScheduledInstanceDeliveryType = null;
+
+  @SerializedName("ElasticScheduledInstanceEndDeliveryAt")
+  private String elasticScheduledInstanceEndDeliveryAt = null;
+
+  @SerializedName("ElasticScheduledInstanceStartDeliveryAt")
+  private String elasticScheduledInstanceStartDeliveryAt = null;
+
+  /**
+   * Gets or Sets elasticScheduledInstanceType
+   */
+  @JsonAdapter(ElasticScheduledInstanceTypeEnum.Adapter.class)
+  public enum ElasticScheduledInstanceTypeEnum {
+    @SerializedName("Esi")
+    ESI("Esi"),
+    @SerializedName("Segmented")
+    SEGMENTED("Segmented");
+
+    private String value;
+
+    ElasticScheduledInstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ElasticScheduledInstanceTypeEnum fromValue(String input) {
+      for (ElasticScheduledInstanceTypeEnum b : ElasticScheduledInstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ElasticScheduledInstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ElasticScheduledInstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ElasticScheduledInstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ElasticScheduledInstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ElasticScheduledInstanceType")
+  private ElasticScheduledInstanceTypeEnum elasticScheduledInstanceType = null;
+
   @SerializedName("NodeGroupId")
   private String nodeGroupId = null;
 
@@ -77,6 +178,96 @@ public class ScaleOutNodeGroupRequest {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  public ScaleOutNodeGroupRequest elasticScheduledInstanceAutoReleaseAt(String elasticScheduledInstanceAutoReleaseAt) {
+    this.elasticScheduledInstanceAutoReleaseAt = elasticScheduledInstanceAutoReleaseAt;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceAutoReleaseAt
+   * @return elasticScheduledInstanceAutoReleaseAt
+  **/
+  @Schema(description = "")
+  public String getElasticScheduledInstanceAutoReleaseAt() {
+    return elasticScheduledInstanceAutoReleaseAt;
+  }
+
+  public void setElasticScheduledInstanceAutoReleaseAt(String elasticScheduledInstanceAutoReleaseAt) {
+    this.elasticScheduledInstanceAutoReleaseAt = elasticScheduledInstanceAutoReleaseAt;
+  }
+
+  public ScaleOutNodeGroupRequest elasticScheduledInstanceDeliveryType(ElasticScheduledInstanceDeliveryTypeEnum elasticScheduledInstanceDeliveryType) {
+    this.elasticScheduledInstanceDeliveryType = elasticScheduledInstanceDeliveryType;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceDeliveryType
+   * @return elasticScheduledInstanceDeliveryType
+  **/
+  @Schema(description = "")
+  public ElasticScheduledInstanceDeliveryTypeEnum getElasticScheduledInstanceDeliveryType() {
+    return elasticScheduledInstanceDeliveryType;
+  }
+
+  public void setElasticScheduledInstanceDeliveryType(ElasticScheduledInstanceDeliveryTypeEnum elasticScheduledInstanceDeliveryType) {
+    this.elasticScheduledInstanceDeliveryType = elasticScheduledInstanceDeliveryType;
+  }
+
+  public ScaleOutNodeGroupRequest elasticScheduledInstanceEndDeliveryAt(String elasticScheduledInstanceEndDeliveryAt) {
+    this.elasticScheduledInstanceEndDeliveryAt = elasticScheduledInstanceEndDeliveryAt;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceEndDeliveryAt
+   * @return elasticScheduledInstanceEndDeliveryAt
+  **/
+  @Schema(description = "")
+  public String getElasticScheduledInstanceEndDeliveryAt() {
+    return elasticScheduledInstanceEndDeliveryAt;
+  }
+
+  public void setElasticScheduledInstanceEndDeliveryAt(String elasticScheduledInstanceEndDeliveryAt) {
+    this.elasticScheduledInstanceEndDeliveryAt = elasticScheduledInstanceEndDeliveryAt;
+  }
+
+  public ScaleOutNodeGroupRequest elasticScheduledInstanceStartDeliveryAt(String elasticScheduledInstanceStartDeliveryAt) {
+    this.elasticScheduledInstanceStartDeliveryAt = elasticScheduledInstanceStartDeliveryAt;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceStartDeliveryAt
+   * @return elasticScheduledInstanceStartDeliveryAt
+  **/
+  @Schema(description = "")
+  public String getElasticScheduledInstanceStartDeliveryAt() {
+    return elasticScheduledInstanceStartDeliveryAt;
+  }
+
+  public void setElasticScheduledInstanceStartDeliveryAt(String elasticScheduledInstanceStartDeliveryAt) {
+    this.elasticScheduledInstanceStartDeliveryAt = elasticScheduledInstanceStartDeliveryAt;
+  }
+
+  public ScaleOutNodeGroupRequest elasticScheduledInstanceType(ElasticScheduledInstanceTypeEnum elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceType
+   * @return elasticScheduledInstanceType
+  **/
+  @Schema(description = "")
+  public ElasticScheduledInstanceTypeEnum getElasticScheduledInstanceType() {
+    return elasticScheduledInstanceType;
+  }
+
+  public void setElasticScheduledInstanceType(ElasticScheduledInstanceTypeEnum elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
   }
 
   public ScaleOutNodeGroupRequest nodeGroupId(String nodeGroupId) {
@@ -131,13 +322,18 @@ public class ScaleOutNodeGroupRequest {
     ScaleOutNodeGroupRequest scaleOutNodeGroupRequest = (ScaleOutNodeGroupRequest) o;
     return Objects.equals(this.clientToken, scaleOutNodeGroupRequest.clientToken) &&
         Objects.equals(this.clusterId, scaleOutNodeGroupRequest.clusterId) &&
+        Objects.equals(this.elasticScheduledInstanceAutoReleaseAt, scaleOutNodeGroupRequest.elasticScheduledInstanceAutoReleaseAt) &&
+        Objects.equals(this.elasticScheduledInstanceDeliveryType, scaleOutNodeGroupRequest.elasticScheduledInstanceDeliveryType) &&
+        Objects.equals(this.elasticScheduledInstanceEndDeliveryAt, scaleOutNodeGroupRequest.elasticScheduledInstanceEndDeliveryAt) &&
+        Objects.equals(this.elasticScheduledInstanceStartDeliveryAt, scaleOutNodeGroupRequest.elasticScheduledInstanceStartDeliveryAt) &&
+        Objects.equals(this.elasticScheduledInstanceType, scaleOutNodeGroupRequest.elasticScheduledInstanceType) &&
         Objects.equals(this.nodeGroupId, scaleOutNodeGroupRequest.nodeGroupId) &&
         Objects.equals(this.scaleOutNodeCount, scaleOutNodeGroupRequest.scaleOutNodeCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterId, nodeGroupId, scaleOutNodeCount);
+    return Objects.hash(clientToken, clusterId, elasticScheduledInstanceAutoReleaseAt, elasticScheduledInstanceDeliveryType, elasticScheduledInstanceEndDeliveryAt, elasticScheduledInstanceStartDeliveryAt, elasticScheduledInstanceType, nodeGroupId, scaleOutNodeCount);
   }
 
 
@@ -148,6 +344,11 @@ public class ScaleOutNodeGroupRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    elasticScheduledInstanceAutoReleaseAt: ").append(toIndentedString(elasticScheduledInstanceAutoReleaseAt)).append("\n");
+    sb.append("    elasticScheduledInstanceDeliveryType: ").append(toIndentedString(elasticScheduledInstanceDeliveryType)).append("\n");
+    sb.append("    elasticScheduledInstanceEndDeliveryAt: ").append(toIndentedString(elasticScheduledInstanceEndDeliveryAt)).append("\n");
+    sb.append("    elasticScheduledInstanceStartDeliveryAt: ").append(toIndentedString(elasticScheduledInstanceStartDeliveryAt)).append("\n");
+    sb.append("    elasticScheduledInstanceType: ").append(toIndentedString(elasticScheduledInstanceType)).append("\n");
     sb.append("    nodeGroupId: ").append(toIndentedString(nodeGroupId)).append("\n");
     sb.append("    scaleOutNodeCount: ").append(toIndentedString(scaleOutNodeCount)).append("\n");
     sb.append("}");
