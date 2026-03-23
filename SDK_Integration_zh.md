@@ -11,9 +11,16 @@
       - [图形化界面设置](#图形化界面设置)
       - [命令行设置](#命令行设置)
 - [访问凭据](#访问凭据)
+  - [CredentialProvider 总览](#credentialprovider-总览)
+  - [已支持的 VOLCENGINE 环境变量](#已支持的-volcengine-环境变量)
   - [AK/SK设置](#aksk设置)
   - [STS Token设置](#sts-token设置)
   - [AssumeRole](#assumerole)
+  - [OIDC（AssumeRoleWithOIDC）](#oidcassumerolewithoidc)
+  - [环境变量凭证 Provider](#环境变量凭证-provider)
+  - [CLI 配置凭证 Provider](#cli-配置凭证-provider)
+  - [ECS Role 凭证 Provider](#ecs-role-凭证-provider)
+  - [默认凭证 Provider](#默认凭证-provider)
 - [EndPoint配置](#endpoint配置)
   - [自定义Endpoint](#自定义endpoint)
   - [自定义RegionId](#自定义regionid)
@@ -100,9 +107,40 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 
 # 访问凭据
 
-为保障资源访问安全，火山引擎 SDK 支持三种主流的认证方式：**AK/SK**、**STS 临时凭证** 和 **AssumeRole**。不同认证方式适用于不同场景，开发者可根据业务需求选择合适的方式接入。
+火山引擎 Java SDK 支持显式凭证和 `CredentialProvider` 自动解析两种方式。
 
 环境变量设置可以参考这里:[**环境变量设置**](#环境变量设置)
+
+## CredentialProvider 总览
+
+| Provider | 用途 | 是否自动刷新 | 典型场景 |
+|---|---|---|---|
+| `StaticCredentialProvider` | 静态 AK/SK(/Token) | 否 | 服务端长期凭证 |
+| `StsAssumeRoleProvider` | STS AssumeRole | 是 | 角色扮演临时凭证 |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token) | 否 | CI/CD、容器注入 |
+| `CLIConfigCredentialProvider` | 读取 `~/.volcengine/config.json` | 取决于 mode | 复用 CLI 配置和登录态 |
+| `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证 | 是 | ECS 实例角色 |
+| `DefaultCredentialProvider` | 默认凭证链包装 | 取决于代理 Provider | 业务代码不写 AK/SK |
+
+## 已支持的 VOLCENGINE 环境变量
+
+- 基础凭证：
+  - `VOLCENGINE_ACCESS_KEY`
+  - `VOLCENGINE_SECRET_KEY`
+  - `VOLCENGINE_SESSION_TOKEN`
+- OIDC：
+  - `VOLCENGINE_OIDC_ROLE_TRN`
+  - `VOLCENGINE_OIDC_TOKEN_FILE`
+  - `VOLCENGINE_OIDC_ROLE_SESSION_NAME`
+  - `VOLCENGINE_OIDC_ROLE_POLICY`
+  - `VOLCENGINE_OIDC_STS_ENDPOINT`
+- CLI 配置：
+  - `VOLCENGINE_CLI_CONFIG_FILE`
+  - `VOLCENGINE_PROFILE`
+- ECS 元数据：
+  - `VOLCENGINE_ECS_METADATA`
+  - `VOLCENGINE_ECS_METADATA_DISABLED`
 
 ## AK、SK设置
 
@@ -206,6 +244,184 @@ public class SampleCode {
             .setRegion(region);
   }
 
+}
+```
+
+## OIDC（AssumeRoleWithOIDC）
+
+`OidcCredentialProvider` 通过 OIDC Token 调用 STS 获取临时凭证。
+
+参考文档：https://www.volcengine.com/docs/6257/1494877
+
+显式参数示例：
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.OidcCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    String region = "cn-beijing";
+
+    OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
+            "trn:iam::1234567890:role/oidc-role", // roleTrn
+            null,                                 // roleSessionName（可选）
+            "/var/run/secrets/oidc/token",        // oidcTokenFile
+            null,                                 // rolePolicy（可选）
+            "sts.volcengineapi.com"               // stsEndpoint（可选）
+    );
+    oidcProvider.setDurationSeconds(3600);
+    oidcProvider.setExpireBufferSeconds(60);
+
+    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion(region);
+  }
+}
+```
+
+环境变量示例：
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.OidcCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) throws Exception {
+    // 必填：
+    // VOLCENGINE_OIDC_ROLE_TRN
+    // VOLCENGINE_OIDC_TOKEN_FILE
+    OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
+    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## 环境变量凭证 Provider
+
+`EnvironmentVariableCredentialProvider` 读取：
+
+- `VOLCENGINE_ACCESS_KEY`
+- `VOLCENGINE_SECRET_KEY`
+- `VOLCENGINE_SESSION_TOKEN`（可选）
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.EnvironmentVariableCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    CredentialProvider credentialProvider =
+            new CredentialProvider(new EnvironmentVariableCredentialProvider());
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## CLI 配置凭证 Provider
+
+`CLIConfigCredentialProvider` 默认读取 `~/.volcengine/config.json`。
+
+- 配置文件优先级：构造参数 `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Profile 优先级：构造参数 `profileName` > `VOLCENGINE_PROFILE` > 配置里的 `current` > `default`
+
+支持的 profile `mode`：
+
+- `AK` / 空值
+- `StsToken`
+- `RamRoleArn`（委托给 `StsAssumeRoleProvider`）
+- `OIDC`（委托给 `OidcCredentialProvider`）
+- `EcsRole`（委托给 `EcsRoleCredentialProvider`）
+- `SSO`
+
+> mode 不区分大小写。
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CLIConfigCredentialProvider;
+import com.volcengine.auth.CredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    CLIConfigCredentialProvider cliProvider =
+            new CLIConfigCredentialProvider("prod", "~/.volcengine/config.json");
+    CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## ECS Role 凭证 Provider
+
+`EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证。
+
+- RoleName 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 报错（不自动探测）
+- 禁用开关：`VOLCENGINE_ECS_METADATA_DISABLED=true`
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.EcsRoleCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) throws Exception {
+    CredentialProvider credentialProvider =
+            new CredentialProvider(EcsRoleCredentialProvider.create("your-ecs-role-name"));
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## 默认凭证 Provider
+
+当 `credentials` 和 `credentialProvider` 均未设置时，SDK 自动使用 `DefaultCredentialProvider`，无需手动配置。
+
+如需自定义参数（如 `roleName`），也可显式指定。
+
+默认链顺序：
+
+1. `EnvironmentVariableCredentialProvider`
+2. `OidcCredentialProvider`（从 OIDC 环境变量读取）
+3. `CLIConfigCredentialProvider`
+4. `EcsRoleCredentialProvider`
+
+`reuseLastProviderEnabled` 默认值为 `true`。
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.DefaultCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
+            .reuseLastProviderEnabled(true)
+            .roleName(null) // 可选：ECS provider 使用
+            .build();
+    // 或：DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
+
+    CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
 }
 ```
 

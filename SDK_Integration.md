@@ -11,9 +11,16 @@ English | [中文](SDK_Integration_zh.md)
       - [GUI Setup](#gui-setup)
       - [Command Line Setup](#command-line-setup)
 - [Credentials](#credentials)
+  - [Credential Providers Overview](#credential-providers-overview)
+  - [Supported VOLCENGINE Environment Variables](#supported-volcengine-environment-variables)
   - [AK/SK](#aksk)
   - [STS Token](#sts-token)
   - [AssumeRole](#assumerole)
+  - [OIDC (AssumeRoleWithOIDC)](#oidc-assumerolewithoidc)
+  - [Environment Variable Credential Provider](#environment-variable-credential-provider)
+  - [CLI Config Credential Provider](#cli-config-credential-provider)
+  - [ECS Role Credential Provider](#ecs-role-credential-provider)
+  - [Default Credential Provider](#default-credential-provider)
 - [Endpoint Configuration](#endpoint-configuration)
   - [Custom Endpoint](#custom-endpoint)
   - [Custom RegionId](#custom-regionid)
@@ -98,9 +105,40 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 
 # Credentials
 
-Volcengine SDK supports three common authentication mechanisms: **AK/SK**, **STS temporary credentials**, and **AssumeRole**.
+Volcengine Java SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
 
 You can refer to: [Environment Variable Setup](#environment-variable-setup)
+
+## Credential Providers Overview
+
+| Provider | Purpose | Auto Refresh | Typical Scenario |
+|---|---|---|---|
+| `StaticCredentialProvider` | Static AK/SK(/Token) | No | Long-lived server credentials |
+| `StsAssumeRoleProvider` | STS AssumeRole | Yes | IAM role-based temporary credentials |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env | No | CI/CD and container env injection |
+| `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI profile and login state |
+| `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
+| `DefaultCredentialProvider` | Default chain wrapper | Depends on delegated provider | No AK/SK in application code |
+
+## Supported VOLCENGINE Environment Variables
+
+- Basic credentials:
+  - `VOLCENGINE_ACCESS_KEY`
+  - `VOLCENGINE_SECRET_KEY`
+  - `VOLCENGINE_SESSION_TOKEN`
+- OIDC:
+  - `VOLCENGINE_OIDC_ROLE_TRN`
+  - `VOLCENGINE_OIDC_TOKEN_FILE`
+  - `VOLCENGINE_OIDC_ROLE_SESSION_NAME`
+  - `VOLCENGINE_OIDC_ROLE_POLICY`
+  - `VOLCENGINE_OIDC_STS_ENDPOINT`
+- CLI config:
+  - `VOLCENGINE_CLI_CONFIG_FILE`
+  - `VOLCENGINE_PROFILE`
+- ECS metadata:
+  - `VOLCENGINE_ECS_METADATA`
+  - `VOLCENGINE_ECS_METADATA_DISABLED`
 
 ## AK/SK
 
@@ -199,6 +237,184 @@ public class SampleCode {
     ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion(region);
+  }
+}
+```
+
+## OIDC (AssumeRoleWithOIDC)
+
+`OidcCredentialProvider` gets temporary credentials from STS via OIDC token.
+
+Reference: https://www.volcengine.com/docs/6257/1494877
+
+Explicit parameter example:
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.OidcCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    String region = "cn-beijing";
+
+    OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
+            "trn:iam::1234567890:role/oidc-role", // roleTrn
+            null,                                 // roleSessionName (optional)
+            "/var/run/secrets/oidc/token",        // oidcTokenFile
+            null,                                 // rolePolicy (optional)
+            "sts.volcengineapi.com"               // stsEndpoint (optional)
+    );
+    oidcProvider.setDurationSeconds(3600);
+    oidcProvider.setExpireBufferSeconds(60);
+
+    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion(region);
+  }
+}
+```
+
+Environment-variable example:
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.OidcCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) throws Exception {
+    // Required:
+    // VOLCENGINE_OIDC_ROLE_TRN
+    // VOLCENGINE_OIDC_TOKEN_FILE
+    OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
+    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## Environment Variable Credential Provider
+
+`EnvironmentVariableCredentialProvider` reads:
+
+- `VOLCENGINE_ACCESS_KEY`
+- `VOLCENGINE_SECRET_KEY`
+- `VOLCENGINE_SESSION_TOKEN` (optional)
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.EnvironmentVariableCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    CredentialProvider credentialProvider =
+            new CredentialProvider(new EnvironmentVariableCredentialProvider());
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## CLI Config Credential Provider
+
+`CLIConfigCredentialProvider` reads `~/.volcengine/config.json` by default.
+
+- Config path priority: constructor `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Profile priority: constructor `profileName` > `VOLCENGINE_PROFILE` > `current` in config > `default`
+
+Supported profile `mode`:
+
+- `AK` / empty
+- `StsToken`
+- `RamRoleArn` (delegates to `StsAssumeRoleProvider`)
+- `OIDC` (delegates to `OidcCredentialProvider`)
+- `EcsRole` (delegates to `EcsRoleCredentialProvider`)
+- `SSO`
+
+> Mode matching is case-insensitive.
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CLIConfigCredentialProvider;
+import com.volcengine.auth.CredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    CLIConfigCredentialProvider cliProvider =
+            new CLIConfigCredentialProvider("prod", "~/.volcengine/config.json");
+    CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## ECS Role Credential Provider
+
+`EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
+
+- Role name priority: constructor arg > `VOLCENGINE_ECS_METADATA` > error (no auto-detect)
+- Disable switch: `VOLCENGINE_ECS_METADATA_DISABLED=true`
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.EcsRoleCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) throws Exception {
+    CredentialProvider credentialProvider =
+            new CredentialProvider(EcsRoleCredentialProvider.create("your-ecs-role-name"));
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## Default Credential Provider
+
+When `credentials` and `credentialProvider` are both unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.
+
+You can also explicitly set it if you need to customize options (e.g., `roleName`).
+
+Default chain order:
+
+1. `EnvironmentVariableCredentialProvider`
+2. `OidcCredentialProvider` (from OIDC env vars)
+3. `CLIConfigCredentialProvider`
+4. `EcsRoleCredentialProvider`
+
+`reuseLastProviderEnabled` is `true` by default.
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.DefaultCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
+            .reuseLastProviderEnabled(true)
+            .roleName(null) // optional: used by ECS provider
+            .build();
+    // Or: DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
+
+    CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
   }
 }
 ```
