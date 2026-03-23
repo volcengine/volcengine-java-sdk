@@ -477,10 +477,6 @@ public class CLIConfigCredentialProvider implements Provider {
         if (!isNullOrEmpty(envProfile)) {
             return envProfile;
         }
-        String fallbackProfile = System.getenv("VOLCSTACK_PROFILE");
-        if (!isNullOrEmpty(fallbackProfile)) {
-            return fallbackProfile;
-        }
         Object current = configMap.get("current");
         if (current instanceof String && !((String) current).isEmpty()) {
             return (String) current;

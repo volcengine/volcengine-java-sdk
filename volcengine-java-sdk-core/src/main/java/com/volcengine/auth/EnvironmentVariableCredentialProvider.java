@@ -18,9 +18,9 @@ public class EnvironmentVariableCredentialProvider implements Provider {
 
     @Override
     public CredentialValue retrieve() throws ApiException {
-        String ak = getEnvWithFallback("VOLCENGINE_ACCESS_KEY", "VOLCSTACK_ACCESS_KEY_ID", "VOLCSTACK_ACCESS_KEY");
-        String sk = getEnvWithFallback("VOLCENGINE_SECRET_KEY", "VOLCSTACK_SECRET_ACCESS_KEY", "VOLCSTACK_SECRET_KEY");
-        String token = getEnvWithFallback("VOLCENGINE_SESSION_TOKEN", "VOLCSTACK_SESSION_TOKEN");
+        String ak = getEnvWithFallback("VOLCENGINE_ACCESS_KEY");
+        String sk = getEnvWithFallback("VOLCENGINE_SECRET_KEY");
+        String token = getEnvWithFallback("VOLCENGINE_SESSION_TOKEN");
 
         if (isNullOrEmpty(ak) || isNullOrEmpty(sk)) {
             throw new ApiException(PROVIDER_NAME + ": required environment variables VOLCENGINE_ACCESS_KEY and "
