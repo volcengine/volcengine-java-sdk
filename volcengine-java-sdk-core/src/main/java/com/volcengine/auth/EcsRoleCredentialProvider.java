@@ -7,10 +7,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,16 +22,18 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final Logger LOGGER = Logger.getLogger(EcsRoleCredentialProvider.class.getName());
     private static final String PROVIDER_NAME = "EcsRoleCredentialProvider";
 
-    // TODO: IMDS endpoint to be confirmed by ECS team
+    // IMDSv2 endpoint and paths
     private static final String IMDS_ENDPOINT = "http://100.96.0.96";
-    // TODO: IMDS paths to be confirmed
-    private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/";
-    // TODO: IMDSv2 token support to be confirmed
-    // private static final String IMDS_TOKEN_PATH = "/volcstack/latest/api/token";
-    // private static final String IMDS_TOKEN_TTL_HEADER = "X-volcengine-ecs-metadata-token-ttl-seconds";
-    // private static final String IMDS_TOKEN_HEADER = "X-volcengine-ecs-metadata-token";
+    private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
+    private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
+    private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
 
-    // TODO: Response field names to be confirmed
+    // IMDSv2 headers
+    private static final String IMDS_TOKEN_TTL_HEADER = "X-volc-ecs-metadata-token-ttl-seconds";
+    private static final String IMDS_TOKEN_HEADER = "X-volc-ecs-metadata-token";
+    private static final String IMDS_TOKEN_TTL_SECONDS = "21600"; // 6 hours
+
+    // Response field names
     private static final String FIELD_ACCESS_KEY_ID = "AccessKeyId";
     private static final String FIELD_SECRET_ACCESS_KEY = "SecretAccessKey";
     private static final String FIELD_SESSION_TOKEN = "SessionToken";
@@ -72,15 +76,11 @@ public class EcsRoleCredentialProvider implements Provider {
         }
 
         String resolvedRoleName = roleName;
-
         if (isNullOrEmpty(resolvedRoleName)) {
             resolvedRoleName = System.getenv("VOLCENGINE_ECS_METADATA");
         }
 
-        if (isNullOrEmpty(resolvedRoleName)) {
-            throw new ApiException(PROVIDER_NAME + ": roleName is required. Set it via parameter or VOLCENGINE_ECS_METADATA environment variable");
-        }
-
+        // roleName can be null — will be auto-detected on first refresh
         return new EcsRoleCredentialProvider(resolvedRoleName);
     }
 
@@ -91,12 +91,16 @@ public class EcsRoleCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        if (isNullOrEmpty(this.roleName)) {
-            throw new ApiException(PROVIDER_NAME + ": roleName is required. Set it via parameter or VOLCENGINE_ECS_METADATA environment variable");
-        }
+        // Step 1: Get IMDSv2 token (fresh every time)
+        String imdsToken = getIMDSv2Token();
 
-        String url = IMDS_ENDPOINT + IMDS_CREDENTIALS_PATH + this.roleName;
-        String responseBody = doGetWithRetry(url);
+        // Step 2: Resolve role name
+        String effectiveRoleName = resolveRoleName(imdsToken);
+
+        // Step 3: POST to get credentials
+        String url = IMDS_ENDPOINT + IMDS_CREDENTIALS_PATH + effectiveRoleName;
+        String responseBody = doRequestWithRetry(url, "POST",
+                new String[][]{{IMDS_TOKEN_HEADER, imdsToken}});
 
         Gson gson = new Gson();
         Type mapType = new TypeToken<Map<String, Object>>() {}.getType();
@@ -120,16 +124,13 @@ public class EcsRoleCredentialProvider implements Provider {
         }
 
         long now = System.currentTimeMillis() / 1000;
-        // Try to parse expiration from response; fall back to a default duration
         long expiration = now + 3600;
         Object expirationObj = responseMap.get(FIELD_EXPIRATION);
         if (expirationObj instanceof String) {
             try {
-                // Attempt ISO 8601 parse
                 java.time.Instant instant = java.time.Instant.parse((String) expirationObj);
                 expiration = instant.getEpochSecond();
             } catch (Exception e) {
-                // Fall back to default duration
                 LOGGER.log(Level.WARNING, PROVIDER_NAME + ": failed to parse expiration: " + expirationObj, e);
             }
         }
@@ -146,12 +147,73 @@ public class EcsRoleCredentialProvider implements Provider {
         return credentialValue;
     }
 
-    private String doGetWithRetry(String urlStr) throws ApiException {
+    // --- IMDSv2 token ---
+
+    private String getIMDSv2Token() throws ApiException {
+        String url = IMDS_ENDPOINT + IMDS_TOKEN_PATH;
+        String body = doRequestWithRetry(url, "GET",
+                new String[][]{{IMDS_TOKEN_TTL_HEADER, IMDS_TOKEN_TTL_SECONDS}});
+        String token = body.trim();
+        if (token.isEmpty()) {
+            throw new ApiException(PROVIDER_NAME + ": IMDSv2 token endpoint returned empty response");
+        }
+        return token;
+    }
+
+    // --- roleName resolution ---
+
+    private String resolveRoleName(String imdsToken) throws ApiException {
+        if (!isNullOrEmpty(this.roleName)) {
+            return this.roleName;
+        }
+
+        String envRole = System.getenv("VOLCENGINE_ECS_METADATA");
+        if (!isNullOrEmpty(envRole)) {
+            return envRole;
+        }
+
+        // Auto-detect from IMDS (not cached — roles can change dynamically)
+        return autoDetectRoleName(imdsToken);
+    }
+
+    private String autoDetectRoleName(String imdsToken) throws ApiException {
+        String url = IMDS_ENDPOINT + IMDS_ROLE_NAME_PATH;
+        String body = doRequestWithRetry(url, "GET",
+                new String[][]{{IMDS_TOKEN_HEADER, imdsToken}});
+
+        Gson gson = new Gson();
+        List<String> roles;
+        try {
+            roles = gson.fromJson(body, new TypeToken<List<String>>() {}.getType());
+        } catch (Exception e) {
+            // Fallback: split by whitespace
+            String[] parts = body.trim().split("\\s+");
+            roles = new java.util.ArrayList<>();
+            for (String p : parts) {
+                if (!p.isEmpty()) roles.add(p);
+            }
+        }
+
+        if (roles == null || roles.isEmpty()) {
+            throw new ApiException(PROVIDER_NAME + ": no IAM roles found via IMDS");
+        }
+
+        if (roles.size() > 1) {
+            LOGGER.warning(PROVIDER_NAME + ": multiple IAM roles found: " + roles
+                    + ". Using '" + roles.get(0) + "'. Set VOLCENGINE_ECS_METADATA to avoid ambiguity.");
+        }
+
+        return roles.get(0);
+    }
+
+    // --- HTTP helpers ---
+
+    private String doRequestWithRetry(String urlStr, String method, String[][] headers) throws ApiException {
         ApiException lastException = null;
 
         for (int attempt = 0; attempt < maxRetries; attempt++) {
             try {
-                return doGet(urlStr);
+                return doRequest(urlStr, method, headers);
             } catch (ApiException e) {
                 lastException = e;
                 if (attempt < maxRetries - 1) {
@@ -168,14 +230,28 @@ public class EcsRoleCredentialProvider implements Provider {
         throw lastException;
     }
 
-    private String doGet(String urlStr) throws ApiException {
+    private String doRequest(String urlStr, String method, String[][] headers) throws ApiException {
         HttpURLConnection conn = null;
         try {
             URL url = new URL(urlStr);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
+            conn.setRequestMethod(method);
             conn.setConnectTimeout(connectTimeoutMs);
             conn.setReadTimeout(readTimeoutMs);
+
+            if (headers != null) {
+                for (String[] header : headers) {
+                    conn.setRequestProperty(header[0], header[1]);
+                }
+            }
+
+            // For POST, we need to enable output even with empty body
+            if ("POST".equalsIgnoreCase(method)) {
+                conn.setDoOutput(true);
+                try (OutputStream os = conn.getOutputStream()) {
+                    // empty body
+                }
+            }
 
             int statusCode = conn.getResponseCode();
             if (statusCode != 200) {
