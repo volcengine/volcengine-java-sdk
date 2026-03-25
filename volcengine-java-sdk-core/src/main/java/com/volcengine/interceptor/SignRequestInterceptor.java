@@ -11,7 +11,6 @@ import com.volcengine.sign.Credentials;
 import com.volcengine.sign.ServiceInfo;
 import com.volcengine.sign.VolcstackSign;
 import okio.Buffer;
-import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -58,16 +57,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
         volcengineSign.setRegion(context.getApiClient().getRegion());
         volcengineSign.setService(serviceInfo.getServiceName());
         volcengineSign.setMethod(serviceInfo.getMethod().toUpperCase());
-
-        if (volcengineSign.getCredentials() == null) {
-            throw new RuntimeException("Credentials must set when ApiClient init");
-        }
-        if (StringUtils.isEmpty(volcengineSign.getCredentials().getAccessKey()) || StringUtils.isEmpty(volcengineSign.getCredentials().getSecretKey())) {
-            throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
-        }
-        if (StringUtils.isEmpty(volcengineSign.getRegion())) {
-            throw new RuntimeException("Region must set when ApiClient init");
-        }
+        context.getApiClient().validateSigningCredentials(volcengineSign);
 
         // Presigned branch
         if (context.getRequestContext().isPresigned()) {

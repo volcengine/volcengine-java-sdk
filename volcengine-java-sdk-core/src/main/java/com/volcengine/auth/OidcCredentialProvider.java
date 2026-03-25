@@ -94,72 +94,78 @@ public class OidcCredentialProvider implements Provider {
             throw new ApiException("OIDC token file is empty: " + oidcTokenFile);
         }
 
-        // AssumeRoleWithOIDC is an anonymous API call (no AK/SK needed on the request itself,
-        // the OIDC token serves as the identity proof). We clear credentials on the client
-        // so the sign interceptor uses empty AK/SK, or we build a minimal unsigned request.
-        // Following the STS convention used in StsAssumeRoleProvider, we need to provide
-        // credentials for signing. For OIDC, the call itself is unsigned so we use empty creds.
+        Credentials previousCredentials = apiClient.getCredentials();
+        boolean previousAllowEmptyCredentialsForSign = apiClient.isAllowEmptyCredentialsForSign();
+        apiClient.setAllowEmptyCredentialsForSign(true);
+        // AssumeRoleWithOIDC 本身不依赖 AK/SK；这里只保留一个空 Credentials 对象，
+        // 让签名链路能够正常走到 OIDC 这个匿名换证请求，而不会被强校验直接拦截。
         apiClient.setCredentials(Credentials.getCredentials("", ""));
 
-        UniversalApi api = new UniversalApi(apiClient);
-        UniversalRequest request = new UniversalRequest("sts", "AssumeRoleWithOIDC", "2018-01-01",
-                HttpMethod.GET, ContentType.Default);
+        try {
+            UniversalApi api = new UniversalApi(apiClient);
+            UniversalRequest request = new UniversalRequest("sts", "AssumeRoleWithOIDC", "2018-01-01",
+                    HttpMethod.GET, ContentType.Default);
 
-        Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("DurationSeconds", durationSeconds);
-        requestMap.put("RoleSessionName", roleSessionName);
-        requestMap.put("RoleTrn", roleTrn);
-        requestMap.put("OIDCToken", oidcToken);
-        if (!isNullOrEmpty(rolePolicy)) {
-            requestMap.put("Policy", rolePolicy);
-        }
+            Map<String, Object> requestMap = new HashMap<>();
+            requestMap.put("DurationSeconds", durationSeconds);
+            requestMap.put("RoleSessionName", roleSessionName);
+            requestMap.put("RoleTrn", roleTrn);
+            requestMap.put("OIDCToken", oidcToken);
+            System.out.println("OIDCToken=" + oidcToken);
+            if (!isNullOrEmpty(rolePolicy)) {
+                requestMap.put("Policy", rolePolicy);
+            }
 
-        long now = System.currentTimeMillis() / 1000;
-        ApiResponse<Map<String, Object>> apiResponse = api.doCallWithHttpInfo(request, requestMap);
+            long now = System.currentTimeMillis() / 1000;
+            ApiResponse<Map<String, Object>> apiResponse = api.doCallWithHttpInfo(request, requestMap);
 
-        if (apiResponse.getStatusCode() == 200) {
-            Map<String, Object> responseData = apiResponse.getData();
-            try {
-                if (responseData != null) {
-                    if (responseData.get("ResponseMetadata") != null) {
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> responseMetadata = (Map<String, Object>) responseData.get("ResponseMetadata");
-                        if (responseMetadata.get("Error") != null) {
-                            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC returned error");
-                        }
-                    }
-                    if (responseData.get("Result") != null) {
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> resultMap = (Map<String, Object>) responseData.get("Result");
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> credentialMap = (Map<String, Object>) resultMap.get("Credentials");
-                        String accessKey = (String) credentialMap.get("AccessKeyId");
-                        String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
-                        String sessionToken = (String) credentialMap.get("SessionToken");
-                        this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, PROVIDER_NAME);
-                        // Prefer server-side Expiration; fallback to local duration estimate
-                        long expiration = now + durationSeconds;
-                        String expirationStr = (String) credentialMap.get("Expiration");
-                        if (expirationStr != null && !expirationStr.isEmpty()) {
-                            try {
-                                java.time.Instant instant = java.time.Instant.parse(expirationStr);
-                                expiration = instant.getEpochSecond();
-                            } catch (Exception ignored) {
-                                // fallback to local estimate
+            if (apiResponse.getStatusCode() == 200) {
+                Map<String, Object> responseData = apiResponse.getData();
+                try {
+                    if (responseData != null) {
+                        if (responseData.get("ResponseMetadata") != null) {
+                            @SuppressWarnings("unchecked")
+                            Map<String, Object> responseMetadata = (Map<String, Object>) responseData.get("ResponseMetadata");
+                            if (responseMetadata.get("Error") != null) {
+                                throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC returned error");
                             }
                         }
-                        this.expirationTime = expiration - expireBufferSeconds;
-                        return;
+                        if (responseData.get("Result") != null) {
+                            @SuppressWarnings("unchecked")
+                            Map<String, Object> resultMap = (Map<String, Object>) responseData.get("Result");
+                            @SuppressWarnings("unchecked")
+                            Map<String, Object> credentialMap = (Map<String, Object>) resultMap.get("Credentials");
+                            String accessKey = (String) credentialMap.get("AccessKeyId");
+                            String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
+                            String sessionToken = (String) credentialMap.get("SessionToken");
+                            this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, PROVIDER_NAME);
+                            // Prefer server-side Expiration; fallback to local duration estimate
+                            long expiration = now + durationSeconds;
+                            String expirationStr = (String) credentialMap.get("Expiration");
+                            if (expirationStr != null && !expirationStr.isEmpty()) {
+                                try {
+                                    java.time.Instant instant = java.time.Instant.parse(expirationStr);
+                                    expiration = instant.getEpochSecond();
+                                } catch (Exception ignored) {
+                                    // fallback to local estimate
+                                }
+                            }
+                            this.expirationTime = expiration - expireBufferSeconds;
+                            return;
+                        }
                     }
+                    throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC returned no result");
+                } catch (ApiException e) {
+                    throw e;
+                } catch (Exception e) {
+                    throw new ApiException(PROVIDER_NAME + ": failed to parse AssumeRoleWithOIDC response - " + e.getMessage());
                 }
-                throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC returned no result");
-            } catch (ApiException e) {
-                throw e;
-            } catch (Exception e) {
-                throw new ApiException(PROVIDER_NAME + ": failed to parse AssumeRoleWithOIDC response - " + e.getMessage());
             }
+            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC request failed with status " + apiResponse.getStatusCode());
+        } finally {
+            apiClient.setAllowEmptyCredentialsForSign(previousAllowEmptyCredentialsForSign);
+            apiClient.setCredentials(previousCredentials);
         }
-        throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC request failed with status " + apiResponse.getStatusCode());
     }
 
     @Override
