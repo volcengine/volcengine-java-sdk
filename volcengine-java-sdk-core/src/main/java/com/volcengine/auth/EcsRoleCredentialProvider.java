@@ -12,6 +12,8 @@ import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -23,10 +25,12 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "EcsRoleCredentialProvider";
 
     // IMDSv2 endpoint and paths
-    private static final String IMDS_ENDPOINT = "http://100.96.0.96";
+    private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
     private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
+    private static final String IMDS_ENDPOINT_ENV = "VOLCENGINE_ECS_METADATA_ENDPOINT";
+    private static final String IMDS_ENDPOINT_PROPERTY = "volcengine.ecs.metadata.endpoint";
 
     // IMDSv2 headers
     private static final String IMDS_TOKEN_TTL_HEADER = "X-volc-ecs-metadata-token-ttl-seconds";
@@ -51,6 +55,7 @@ public class EcsRoleCredentialProvider implements Provider {
     private final int maxRetries;
     private final int retryIntervalMs;
     private final int expireBufferSeconds;
+    private final String imdsEndpoint;
 
     private volatile CredentialValue credentialValue;
     private volatile long expirationTime;
@@ -68,6 +73,7 @@ public class EcsRoleCredentialProvider implements Provider {
         this.maxRetries = Math.max(maxRetries, 1);
         this.retryIntervalMs = retryIntervalMs;
         this.expireBufferSeconds = expireBufferSeconds;
+        this.imdsEndpoint = resolveImdsEndpoint();
     }
 
     public static EcsRoleCredentialProvider create(String roleName) throws ApiException {
@@ -98,7 +104,7 @@ public class EcsRoleCredentialProvider implements Provider {
         String effectiveRoleName = resolveRoleName(imdsToken);
 
         // Step 3: POST to get credentials
-        String url = IMDS_ENDPOINT + IMDS_CREDENTIALS_PATH + effectiveRoleName;
+        String url = imdsEndpoint + IMDS_CREDENTIALS_PATH + effectiveRoleName;
         String responseBody = doRequestWithRetry(url, "POST",
                 new String[][]{{IMDS_TOKEN_HEADER, imdsToken}});
 
@@ -128,8 +134,7 @@ public class EcsRoleCredentialProvider implements Provider {
         Object expirationObj = responseMap.get(FIELD_EXPIRATION);
         if (expirationObj instanceof String) {
             try {
-                java.time.Instant instant = java.time.Instant.parse((String) expirationObj);
-                expiration = instant.getEpochSecond();
+                expiration = parseExpirationEpochSecond((String) expirationObj);
             } catch (Exception e) {
                 LOGGER.log(Level.WARNING, PROVIDER_NAME + ": failed to parse expiration: " + expirationObj, e);
             }
@@ -150,7 +155,7 @@ public class EcsRoleCredentialProvider implements Provider {
     // --- IMDSv2 token ---
 
     private String getIMDSv2Token() throws ApiException {
-        String url = IMDS_ENDPOINT + IMDS_TOKEN_PATH;
+        String url = imdsEndpoint + IMDS_TOKEN_PATH;
         String body = doRequestWithRetry(url, "GET",
                 new String[][]{{IMDS_TOKEN_TTL_HEADER, IMDS_TOKEN_TTL_SECONDS}});
         String token = body.trim();
@@ -177,7 +182,7 @@ public class EcsRoleCredentialProvider implements Provider {
     }
 
     private String autoDetectRoleName(String imdsToken) throws ApiException {
-        String url = IMDS_ENDPOINT + IMDS_ROLE_NAME_PATH;
+        String url = imdsEndpoint + IMDS_ROLE_NAME_PATH;
         String body = doRequestWithRetry(url, "GET",
                 new String[][]{{IMDS_TOKEN_HEADER, imdsToken}});
 
@@ -285,5 +290,29 @@ public class EcsRoleCredentialProvider implements Provider {
 
     private static boolean isNullOrEmpty(String s) {
         return s == null || s.isEmpty();
+    }
+
+    static long parseExpirationEpochSecond(String expiration) {
+        try {
+            return Instant.parse(expiration).getEpochSecond();
+        } catch (Exception ignored) {
+            return OffsetDateTime.parse(expiration).toInstant().getEpochSecond();
+        }
+    }
+
+    private static String resolveImdsEndpoint() {
+        String endpoint = System.getProperty(IMDS_ENDPOINT_PROPERTY);
+        if (isNullOrEmpty(endpoint)) {
+            endpoint = System.getenv(IMDS_ENDPOINT_ENV);
+        }
+        if (isNullOrEmpty(endpoint)) {
+            endpoint = DEFAULT_IMDS_ENDPOINT;
+        }
+        endpoint = endpoint.trim();
+
+        while (endpoint.endsWith("/")) {
+            endpoint = endpoint.substring(0, endpoint.length() - 1);
+        }
+        return endpoint;
     }
 }

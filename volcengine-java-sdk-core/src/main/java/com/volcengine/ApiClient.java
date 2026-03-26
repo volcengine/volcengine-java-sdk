@@ -129,11 +129,6 @@ public class ApiClient extends BaseClient{
     private String region;
     private String endpoint;
     private boolean disableSSL = false;
-    /**
-     * 仅用于 OIDC 这类内部匿名换证请求。
-     * 默认关闭，避免普通业务请求绕过 ak/sk 强校验。
-     */
-    private volatile boolean allowEmptyCredentialsForSign = false;
 
     private InterceptorChain interceptorChain = new InterceptorChain();
 
@@ -1744,9 +1739,6 @@ public class ApiClient extends BaseClient{
         for (String authName : authNames) {
             Authentication auth = authentications.get(authName);
             if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
-            if (auth instanceof VolcstackSign) {
-                validateSigningCredentials((VolcstackSign) auth);
-            }
             auth.applyToParams(queryParams, headerParams, "");
         }
     }
@@ -1757,7 +1749,15 @@ public class ApiClient extends BaseClient{
             if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
             if (auth instanceof VolcstackSign) {
                 VolcstackSign volcengineSign = (VolcstackSign) auth;
-                validateSigningCredentials(volcengineSign);
+                if (volcengineSign.getCredentials() == null) {
+                    throw new RuntimeException("Credentials must set when ApiClient init");
+                }
+                if (StringUtils.isEmpty(credentials.getAccessKey()) || StringUtils.isEmpty(credentials.getSecretKey())) {
+                    throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
+                }
+                if (StringUtils.isEmpty(volcengineSign.getRegion())) {
+                    throw new RuntimeException("Region must set when ApiClient init");
+                }
                 VolcstackSign requestSign = volcengineSign.copy();
                 requestSign.setMethod(serviceInfo.getMethod().toUpperCase());
                 requestSign.setService(serviceInfo.getServiceName());
@@ -1899,39 +1899,6 @@ public class ApiClient extends BaseClient{
     public ApiClient setCredentialProvider(CredentialProvider credentialProvider) {
         this.credentialProvider = credentialProvider;
         return this;
-    }
-
-    public boolean isAllowEmptyCredentialsForSign() {
-        return allowEmptyCredentialsForSign;
-    }
-
-    public ApiClient setAllowEmptyCredentialsForSign(boolean allowEmptyCredentialsForSign) {
-        this.allowEmptyCredentialsForSign = allowEmptyCredentialsForSign;
-        return this;
-    }
-
-    /**
-     * 统一校验签名所需的上下文。
-     *
-     * <p>当 allowEmptyCredentialsForSign 打开时，允许 ak/sk 为空，
-     * 这样 OIDC 之类的内部换证请求就可以继续走签名流程而不被强校验拦住。
-     * 普通业务请求仍然保持原有严格校验。</p>
-     */
-    public void validateSigningCredentials(VolcstackSign volcengineSign) {
-        if (volcengineSign == null) {
-            throw new IllegalArgumentException("volcengineSign is null");
-        }
-        if (volcengineSign.getCredentials() == null) {
-            throw new RuntimeException("Credentials must set when ApiClient init");
-        }
-        if (!allowEmptyCredentialsForSign
-                && (StringUtils.isEmpty(volcengineSign.getCredentials().getAccessKey())
-                || StringUtils.isEmpty(volcengineSign.getCredentials().getSecretKey()))) {
-            throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
-        }
-        if (StringUtils.isEmpty(volcengineSign.getRegion())) {
-            throw new RuntimeException("Region must set when ApiClient init");
-        }
     }
 
     public EndpointResolver getEndpointResolver() {
