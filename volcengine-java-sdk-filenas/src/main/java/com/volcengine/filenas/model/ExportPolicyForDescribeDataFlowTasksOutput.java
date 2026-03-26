@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.filenas.model.FilterInfoForDescribeDataFlowTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +33,52 @@ import javax.validation.Valid;
 
 
 public class ExportPolicyForDescribeDataFlowTasksOutput {
+  /**
+   * Gets or Sets eventTypes
+   */
+  @JsonAdapter(EventTypesEnum.Adapter.class)
+  public enum EventTypesEnum {
+    @SerializedName("CreateAndUpdate")
+    CREATEANDUPDATE("CreateAndUpdate"),
+    @SerializedName("Delete")
+    DELETE("Delete");
+
+    private String value;
+
+    EventTypesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EventTypesEnum fromValue(String input) {
+      for (EventTypesEnum b : EventTypesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EventTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EventTypesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EventTypesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EventTypesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EventTypes")
+  private List<EventTypesEnum> eventTypes = null;
+
   @SerializedName("FilterInfo")
   private FilterInfoForDescribeDataFlowTasksOutput filterInfo = null;
 
@@ -87,6 +135,56 @@ public class ExportPolicyForDescribeDataFlowTasksOutput {
   private StatusEnum status = null;
 
   /**
+   * Gets or Sets tosDeletePolicy
+   */
+  @JsonAdapter(TosDeletePolicyEnum.Adapter.class)
+  public enum TosDeletePolicyEnum {
+    @SerializedName("None")
+    NONE("None"),
+    @SerializedName("LatestVersionOnly")
+    LATESTVERSIONONLY("LatestVersionOnly"),
+    @SerializedName("AllVersions")
+    ALLVERSIONS("AllVersions"),
+    @SerializedName("SpecifiedVersion")
+    SPECIFIEDVERSION("SpecifiedVersion");
+
+    private String value;
+
+    TosDeletePolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TosDeletePolicyEnum fromValue(String input) {
+      for (TosDeletePolicyEnum b : TosDeletePolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TosDeletePolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TosDeletePolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TosDeletePolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TosDeletePolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TosDeletePolicy")
+  private TosDeletePolicyEnum tosDeletePolicy = null;
+
+  /**
    * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
@@ -132,6 +230,32 @@ public class ExportPolicyForDescribeDataFlowTasksOutput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
+  public ExportPolicyForDescribeDataFlowTasksOutput eventTypes(List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
+    return this;
+  }
+
+  public ExportPolicyForDescribeDataFlowTasksOutput addEventTypesItem(EventTypesEnum eventTypesItem) {
+    if (this.eventTypes == null) {
+      this.eventTypes = new ArrayList<EventTypesEnum>();
+    }
+    this.eventTypes.add(eventTypesItem);
+    return this;
+  }
+
+   /**
+   * Get eventTypes
+   * @return eventTypes
+  **/
+  @Schema(description = "")
+  public List<EventTypesEnum> getEventTypes() {
+    return eventTypes;
+  }
+
+  public void setEventTypes(List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
+  }
+
   public ExportPolicyForDescribeDataFlowTasksOutput filterInfo(FilterInfoForDescribeDataFlowTasksOutput filterInfo) {
     this.filterInfo = filterInfo;
     return this;
@@ -169,6 +293,24 @@ public class ExportPolicyForDescribeDataFlowTasksOutput {
     this.status = status;
   }
 
+  public ExportPolicyForDescribeDataFlowTasksOutput tosDeletePolicy(TosDeletePolicyEnum tosDeletePolicy) {
+    this.tosDeletePolicy = tosDeletePolicy;
+    return this;
+  }
+
+   /**
+   * Get tosDeletePolicy
+   * @return tosDeletePolicy
+  **/
+  @Schema(description = "")
+  public TosDeletePolicyEnum getTosDeletePolicy() {
+    return tosDeletePolicy;
+  }
+
+  public void setTosDeletePolicy(TosDeletePolicyEnum tosDeletePolicy) {
+    this.tosDeletePolicy = tosDeletePolicy;
+  }
+
   public ExportPolicyForDescribeDataFlowTasksOutput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -197,14 +339,16 @@ public class ExportPolicyForDescribeDataFlowTasksOutput {
       return false;
     }
     ExportPolicyForDescribeDataFlowTasksOutput exportPolicyForDescribeDataFlowTasksOutput = (ExportPolicyForDescribeDataFlowTasksOutput) o;
-    return Objects.equals(this.filterInfo, exportPolicyForDescribeDataFlowTasksOutput.filterInfo) &&
+    return Objects.equals(this.eventTypes, exportPolicyForDescribeDataFlowTasksOutput.eventTypes) &&
+        Objects.equals(this.filterInfo, exportPolicyForDescribeDataFlowTasksOutput.filterInfo) &&
         Objects.equals(this.status, exportPolicyForDescribeDataFlowTasksOutput.status) &&
+        Objects.equals(this.tosDeletePolicy, exportPolicyForDescribeDataFlowTasksOutput.tosDeletePolicy) &&
         Objects.equals(this.type, exportPolicyForDescribeDataFlowTasksOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filterInfo, status, type);
+    return Objects.hash(eventTypes, filterInfo, status, tosDeletePolicy, type);
   }
 
 
@@ -213,8 +357,10 @@ public class ExportPolicyForDescribeDataFlowTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportPolicyForDescribeDataFlowTasksOutput {\n");
     
+    sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
     sb.append("    filterInfo: ").append(toIndentedString(filterInfo)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tosDeletePolicy: ").append(toIndentedString(tosDeletePolicy)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

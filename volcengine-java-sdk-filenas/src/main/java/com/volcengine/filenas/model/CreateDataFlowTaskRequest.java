@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.filenas.model.DeletePolicyForCreateDataFlowTaskInput;
 import com.volcengine.filenas.model.EvictPolicyForCreateDataFlowTaskInput;
 import com.volcengine.filenas.model.ExportPolicyForCreateDataFlowTaskInput;
 import com.volcengine.filenas.model.ImportPolicyForCreateDataFlowTaskInput;
@@ -41,6 +42,12 @@ public class CreateDataFlowTaskRequest {
 
   @SerializedName("DataFlowId")
   private String dataFlowId = null;
+
+  @SerializedName("DeletePolicy")
+  private DeletePolicyForCreateDataFlowTaskInput deletePolicy = null;
+
+  @SerializedName("EntryListFileBucket")
+  private String entryListFileBucket = null;
 
   @SerializedName("EntryListFileKey")
   private String entryListFileKey = null;
@@ -124,7 +131,9 @@ public class CreateDataFlowTaskRequest {
     @SerializedName("Export")
     EXPORT("Export"),
     @SerializedName("Evict")
-    EVICT("Evict");
+    EVICT("Evict"),
+    @SerializedName("Delete")
+    DELETE("Delete");
 
     private String value;
 
@@ -214,6 +223,43 @@ public class CreateDataFlowTaskRequest {
 
   public void setDataFlowId(String dataFlowId) {
     this.dataFlowId = dataFlowId;
+  }
+
+  public CreateDataFlowTaskRequest deletePolicy(DeletePolicyForCreateDataFlowTaskInput deletePolicy) {
+    this.deletePolicy = deletePolicy;
+    return this;
+  }
+
+   /**
+   * Get deletePolicy
+   * @return deletePolicy
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeletePolicyForCreateDataFlowTaskInput getDeletePolicy() {
+    return deletePolicy;
+  }
+
+  public void setDeletePolicy(DeletePolicyForCreateDataFlowTaskInput deletePolicy) {
+    this.deletePolicy = deletePolicy;
+  }
+
+  public CreateDataFlowTaskRequest entryListFileBucket(String entryListFileBucket) {
+    this.entryListFileBucket = entryListFileBucket;
+    return this;
+  }
+
+   /**
+   * Get entryListFileBucket
+   * @return entryListFileBucket
+  **/
+  @Schema(description = "")
+  public String getEntryListFileBucket() {
+    return entryListFileBucket;
+  }
+
+  public void setEntryListFileBucket(String entryListFileBucket) {
+    this.entryListFileBucket = entryListFileBucket;
   }
 
   public CreateDataFlowTaskRequest entryListFileKey(String entryListFileKey) {
@@ -412,6 +458,8 @@ public class CreateDataFlowTaskRequest {
     return Objects.equals(this.bucketName, createDataFlowTaskRequest.bucketName) &&
         Objects.equals(this.bucketPrefix, createDataFlowTaskRequest.bucketPrefix) &&
         Objects.equals(this.dataFlowId, createDataFlowTaskRequest.dataFlowId) &&
+        Objects.equals(this.deletePolicy, createDataFlowTaskRequest.deletePolicy) &&
+        Objects.equals(this.entryListFileBucket, createDataFlowTaskRequest.entryListFileBucket) &&
         Objects.equals(this.entryListFileKey, createDataFlowTaskRequest.entryListFileKey) &&
         Objects.equals(this.entryListFileName, createDataFlowTaskRequest.entryListFileName) &&
         Objects.equals(this.evictPolicy, createDataFlowTaskRequest.evictPolicy) &&
@@ -426,7 +474,7 @@ public class CreateDataFlowTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketPrefix, dataFlowId, entryListFileKey, entryListFileName, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, importPolicy, sameNameFilePolicy, srcId, type);
+    return Objects.hash(bucketName, bucketPrefix, dataFlowId, deletePolicy, entryListFileBucket, entryListFileKey, entryListFileName, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, importPolicy, sameNameFilePolicy, srcId, type);
   }
 
 
@@ -438,6 +486,8 @@ public class CreateDataFlowTaskRequest {
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    bucketPrefix: ").append(toIndentedString(bucketPrefix)).append("\n");
     sb.append("    dataFlowId: ").append(toIndentedString(dataFlowId)).append("\n");
+    sb.append("    deletePolicy: ").append(toIndentedString(deletePolicy)).append("\n");
+    sb.append("    entryListFileBucket: ").append(toIndentedString(entryListFileBucket)).append("\n");
     sb.append("    entryListFileKey: ").append(toIndentedString(entryListFileKey)).append("\n");
     sb.append("    entryListFileName: ").append(toIndentedString(entryListFileName)).append("\n");
     sb.append("    evictPolicy: ").append(toIndentedString(evictPolicy)).append("\n");
