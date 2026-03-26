@@ -96,6 +96,15 @@ public class DescribeInstanceResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("TopicLimit")
   private Integer topicLimit = null;
 
+  @SerializedName("UsedGroups")
+  private Integer usedGroups = null;
+
+  @SerializedName("UsedPartitions")
+  private Integer usedPartitions = null;
+
+  @SerializedName("UsedTopics")
+  private Integer usedTopics = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -498,6 +507,60 @@ public class DescribeInstanceResponse extends com.volcengine.model.AbstractRespo
     this.topicLimit = topicLimit;
   }
 
+  public DescribeInstanceResponse usedGroups(Integer usedGroups) {
+    this.usedGroups = usedGroups;
+    return this;
+  }
+
+   /**
+   * Get usedGroups
+   * @return usedGroups
+  **/
+  @Schema(description = "")
+  public Integer getUsedGroups() {
+    return usedGroups;
+  }
+
+  public void setUsedGroups(Integer usedGroups) {
+    this.usedGroups = usedGroups;
+  }
+
+  public DescribeInstanceResponse usedPartitions(Integer usedPartitions) {
+    this.usedPartitions = usedPartitions;
+    return this;
+  }
+
+   /**
+   * Get usedPartitions
+   * @return usedPartitions
+  **/
+  @Schema(description = "")
+  public Integer getUsedPartitions() {
+    return usedPartitions;
+  }
+
+  public void setUsedPartitions(Integer usedPartitions) {
+    this.usedPartitions = usedPartitions;
+  }
+
+  public DescribeInstanceResponse usedTopics(Integer usedTopics) {
+    this.usedTopics = usedTopics;
+    return this;
+  }
+
+   /**
+   * Get usedTopics
+   * @return usedTopics
+  **/
+  @Schema(description = "")
+  public Integer getUsedTopics() {
+    return usedTopics;
+  }
+
+  public void setUsedTopics(Integer usedTopics) {
+    this.usedTopics = usedTopics;
+  }
+
   public DescribeInstanceResponse vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -572,13 +635,16 @@ public class DescribeInstanceResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.subnetIdList, describeInstanceResponse.subnetIdList) &&
         Objects.equals(this.tags, describeInstanceResponse.tags) &&
         Objects.equals(this.topicLimit, describeInstanceResponse.topicLimit) &&
+        Objects.equals(this.usedGroups, describeInstanceResponse.usedGroups) &&
+        Objects.equals(this.usedPartitions, describeInstanceResponse.usedPartitions) &&
+        Objects.equals(this.usedTopics, describeInstanceResponse.usedTopics) &&
         Objects.equals(this.vpcId, describeInstanceResponse.vpcId) &&
         Objects.equals(this.zoneIdList, describeInstanceResponse.zoneIdList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, createTime, description, endpoints, expirationTime, groupLimit, instanceId, messageRetention, name, partitionLimit, projectName, regionId, resourceTags, resources, securityGroupIdList, specification, status, subnetIdList, tags, topicLimit, vpcId, zoneIdList);
+    return Objects.hash(billingType, createTime, description, endpoints, expirationTime, groupLimit, instanceId, messageRetention, name, partitionLimit, projectName, regionId, resourceTags, resources, securityGroupIdList, specification, status, subnetIdList, tags, topicLimit, usedGroups, usedPartitions, usedTopics, vpcId, zoneIdList);
   }
 
 
@@ -607,6 +673,9 @@ public class DescribeInstanceResponse extends com.volcengine.model.AbstractRespo
     sb.append("    subnetIdList: ").append(toIndentedString(subnetIdList)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    topicLimit: ").append(toIndentedString(topicLimit)).append("\n");
+    sb.append("    usedGroups: ").append(toIndentedString(usedGroups)).append("\n");
+    sb.append("    usedPartitions: ").append(toIndentedString(usedPartitions)).append("\n");
+    sb.append("    usedTopics: ").append(toIndentedString(usedTopics)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIdList: ").append(toIndentedString(zoneIdList)).append("\n");
     sb.append("}");

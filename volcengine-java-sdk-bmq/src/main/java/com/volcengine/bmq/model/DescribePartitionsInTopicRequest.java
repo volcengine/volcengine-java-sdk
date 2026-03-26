@@ -30,8 +30,32 @@ import javax.validation.Valid;
 
 
 public class DescribePartitionsInTopicRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("TopicId")
   private String topicId = null;
+
+  @SerializedName("TopicName")
+  private String topicName = null;
+
+  public DescribePartitionsInTopicRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
 
   public DescribePartitionsInTopicRequest topicId(String topicId) {
     this.topicId = topicId;
@@ -51,6 +75,24 @@ public class DescribePartitionsInTopicRequest {
     this.topicId = topicId;
   }
 
+  public DescribePartitionsInTopicRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @Schema(description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +103,14 @@ public class DescribePartitionsInTopicRequest {
       return false;
     }
     DescribePartitionsInTopicRequest describePartitionsInTopicRequest = (DescribePartitionsInTopicRequest) o;
-    return Objects.equals(this.topicId, describePartitionsInTopicRequest.topicId);
+    return Objects.equals(this.instanceId, describePartitionsInTopicRequest.instanceId) &&
+        Objects.equals(this.topicId, describePartitionsInTopicRequest.topicId) &&
+        Objects.equals(this.topicName, describePartitionsInTopicRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(topicId);
+    return Objects.hash(instanceId, topicId, topicName);
   }
 
 
@@ -75,7 +119,9 @@ public class DescribePartitionsInTopicRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePartitionsInTopicRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

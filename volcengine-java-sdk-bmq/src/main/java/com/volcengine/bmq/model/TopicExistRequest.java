@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeGroupsInTopicRequest
+ * TopicExistRequest
  */
 
 
 
-public class DescribeGroupsInTopicRequest {
+public class TopicExistRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -39,7 +39,7 @@ public class DescribeGroupsInTopicRequest {
   @SerializedName("TopicName")
   private String topicName = null;
 
-  public DescribeGroupsInTopicRequest instanceId(String instanceId) {
+  public TopicExistRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -57,7 +57,7 @@ public class DescribeGroupsInTopicRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeGroupsInTopicRequest topicId(String topicId) {
+  public TopicExistRequest topicId(String topicId) {
     this.topicId = topicId;
     return this;
   }
@@ -75,7 +75,7 @@ public class DescribeGroupsInTopicRequest {
     this.topicId = topicId;
   }
 
-  public DescribeGroupsInTopicRequest topicName(String topicName) {
+  public TopicExistRequest topicName(String topicName) {
     this.topicName = topicName;
     return this;
   }
@@ -102,10 +102,10 @@ public class DescribeGroupsInTopicRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeGroupsInTopicRequest describeGroupsInTopicRequest = (DescribeGroupsInTopicRequest) o;
-    return Objects.equals(this.instanceId, describeGroupsInTopicRequest.instanceId) &&
-        Objects.equals(this.topicId, describeGroupsInTopicRequest.topicId) &&
-        Objects.equals(this.topicName, describeGroupsInTopicRequest.topicName);
+    TopicExistRequest topicExistRequest = (TopicExistRequest) o;
+    return Objects.equals(this.instanceId, topicExistRequest.instanceId) &&
+        Objects.equals(this.topicId, topicExistRequest.topicId) &&
+        Objects.equals(this.topicName, topicExistRequest.topicName);
   }
 
   @Override
@@ -117,7 +117,7 @@ public class DescribeGroupsInTopicRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeGroupsInTopicRequest {\n");
+    sb.append("class TopicExistRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");

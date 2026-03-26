@@ -24,22 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeGroupsInTopicRequest
+ * ScaleDownInstanceRequest
  */
 
 
 
-public class DescribeGroupsInTopicRequest {
+public class ScaleDownInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("TopicId")
-  private String topicId = null;
+  @SerializedName("TargetSpecification")
+  private String targetSpecification = null;
 
-  @SerializedName("TopicName")
-  private String topicName = null;
-
-  public DescribeGroupsInTopicRequest instanceId(String instanceId) {
+  public ScaleDownInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -48,7 +45,8 @@ public class DescribeGroupsInTopicRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -57,40 +55,23 @@ public class DescribeGroupsInTopicRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeGroupsInTopicRequest topicId(String topicId) {
-    this.topicId = topicId;
+  public ScaleDownInstanceRequest targetSpecification(String targetSpecification) {
+    this.targetSpecification = targetSpecification;
     return this;
   }
 
    /**
-   * Get topicId
-   * @return topicId
+   * Get targetSpecification
+   * @return targetSpecification
   **/
-  @Schema(description = "")
-  public String getTopicId() {
-    return topicId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getTargetSpecification() {
+    return targetSpecification;
   }
 
-  public void setTopicId(String topicId) {
-    this.topicId = topicId;
-  }
-
-  public DescribeGroupsInTopicRequest topicName(String topicName) {
-    this.topicName = topicName;
-    return this;
-  }
-
-   /**
-   * Get topicName
-   * @return topicName
-  **/
-  @Schema(description = "")
-  public String getTopicName() {
-    return topicName;
-  }
-
-  public void setTopicName(String topicName) {
-    this.topicName = topicName;
+  public void setTargetSpecification(String targetSpecification) {
+    this.targetSpecification = targetSpecification;
   }
 
 
@@ -102,26 +83,24 @@ public class DescribeGroupsInTopicRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeGroupsInTopicRequest describeGroupsInTopicRequest = (DescribeGroupsInTopicRequest) o;
-    return Objects.equals(this.instanceId, describeGroupsInTopicRequest.instanceId) &&
-        Objects.equals(this.topicId, describeGroupsInTopicRequest.topicId) &&
-        Objects.equals(this.topicName, describeGroupsInTopicRequest.topicName);
+    ScaleDownInstanceRequest scaleDownInstanceRequest = (ScaleDownInstanceRequest) o;
+    return Objects.equals(this.instanceId, scaleDownInstanceRequest.instanceId) &&
+        Objects.equals(this.targetSpecification, scaleDownInstanceRequest.targetSpecification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, topicId, topicName);
+    return Objects.hash(instanceId, targetSpecification);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeGroupsInTopicRequest {\n");
+    sb.append("class ScaleDownInstanceRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");
-    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
+    sb.append("    targetSpecification: ").append(toIndentedString(targetSpecification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

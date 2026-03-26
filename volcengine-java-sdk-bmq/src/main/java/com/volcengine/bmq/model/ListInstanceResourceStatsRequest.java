@@ -33,6 +33,9 @@ public class ListInstanceResourceStatsRequest {
   @SerializedName("InstanceIds")
   private String instanceIds = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("WithGroup")
   private Boolean withGroup = null;
 
@@ -59,6 +62,24 @@ public class ListInstanceResourceStatsRequest {
 
   public void setInstanceIds(String instanceIds) {
     this.instanceIds = instanceIds;
+  }
+
+  public ListInstanceResourceStatsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ListInstanceResourceStatsRequest withGroup(Boolean withGroup) {
@@ -126,6 +147,7 @@ public class ListInstanceResourceStatsRequest {
     }
     ListInstanceResourceStatsRequest listInstanceResourceStatsRequest = (ListInstanceResourceStatsRequest) o;
     return Objects.equals(this.instanceIds, listInstanceResourceStatsRequest.instanceIds) &&
+        Objects.equals(this.projectName, listInstanceResourceStatsRequest.projectName) &&
         Objects.equals(this.withGroup, listInstanceResourceStatsRequest.withGroup) &&
         Objects.equals(this.withPartition, listInstanceResourceStatsRequest.withPartition) &&
         Objects.equals(this.withTopic, listInstanceResourceStatsRequest.withTopic);
@@ -133,7 +155,7 @@ public class ListInstanceResourceStatsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceIds, withGroup, withPartition, withTopic);
+    return Objects.hash(instanceIds, projectName, withGroup, withPartition, withTopic);
   }
 
 
@@ -143,6 +165,7 @@ public class ListInstanceResourceStatsRequest {
     sb.append("class ListInstanceResourceStatsRequest {\n");
     
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    withGroup: ").append(toIndentedString(withGroup)).append("\n");
     sb.append("    withPartition: ").append(toIndentedString(withPartition)).append("\n");
     sb.append("    withTopic: ").append(toIndentedString(withTopic)).append("\n");

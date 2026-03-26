@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HeaderForPreviewTopicDataOutput
+ * TopicExistResponse
  */
 
 
 
-public class HeaderForPreviewTopicDataOutput {
-  @SerializedName("key")
-  private String key = null;
+public class TopicExistResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Existed")
+  private Boolean existed = null;
 
-  @SerializedName("value")
-  private String value = null;
-
-  public HeaderForPreviewTopicDataOutput key(String key) {
-    this.key = key;
+  public TopicExistResponse existed(Boolean existed) {
+    this.existed = existed;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get existed
+   * @return existed
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public Boolean isExisted() {
+    return existed;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public HeaderForPreviewTopicDataOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setExisted(Boolean existed) {
+    this.existed = existed;
   }
 
 
@@ -81,24 +60,22 @@ public class HeaderForPreviewTopicDataOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HeaderForPreviewTopicDataOutput headerForPreviewTopicDataOutput = (HeaderForPreviewTopicDataOutput) o;
-    return Objects.equals(this.key, headerForPreviewTopicDataOutput.key) &&
-        Objects.equals(this.value, headerForPreviewTopicDataOutput.value);
+    TopicExistResponse topicExistResponse = (TopicExistResponse) o;
+    return Objects.equals(this.existed, topicExistResponse.existed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(existed);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HeaderForPreviewTopicDataOutput {\n");
+    sb.append("class TopicExistResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    existed: ").append(toIndentedString(existed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

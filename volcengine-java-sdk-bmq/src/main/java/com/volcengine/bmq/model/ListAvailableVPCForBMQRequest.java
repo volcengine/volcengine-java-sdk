@@ -44,6 +44,9 @@ public class ListAvailableVPCForBMQRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VpcIds")
   private List<String> vpcIds = null;
 
@@ -121,6 +124,25 @@ public class ListAvailableVPCForBMQRequest {
     this.nextToken = nextToken;
   }
 
+  public ListAvailableVPCForBMQRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAvailableVPCForBMQRequest vpcIds(List<String> vpcIds) {
     this.vpcIds = vpcIds;
     return this;
@@ -161,12 +183,13 @@ public class ListAvailableVPCForBMQRequest {
         Objects.equals(this.maxResults, listAvailableVPCForBMQRequest.maxResults) &&
         Objects.equals(this.name, listAvailableVPCForBMQRequest.name) &&
         Objects.equals(this.nextToken, listAvailableVPCForBMQRequest.nextToken) &&
+        Objects.equals(this.projectName, listAvailableVPCForBMQRequest.projectName) &&
         Objects.equals(this.vpcIds, listAvailableVPCForBMQRequest.vpcIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, maxResults, name, nextToken, vpcIds);
+    return Objects.hash(instanceId, maxResults, name, nextToken, projectName, vpcIds);
   }
 
 
@@ -179,6 +202,7 @@ public class ListAvailableVPCForBMQRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("}");
     return sb.toString();
