@@ -55,6 +55,9 @@ public class UpdateFunctionRequest {
   @SerializedName("EnableApmplus")
   private Boolean enableApmplus = null;
 
+  @SerializedName("EnableZTIToken")
+  private String enableZTIToken = null;
+
   @SerializedName("Envs")
   private List<EnvForUpdateFunctionInput> envs = null;
 
@@ -198,6 +201,24 @@ public class UpdateFunctionRequest {
 
   public void setEnableApmplus(Boolean enableApmplus) {
     this.enableApmplus = enableApmplus;
+  }
+
+  public UpdateFunctionRequest enableZTIToken(String enableZTIToken) {
+    this.enableZTIToken = enableZTIToken;
+    return this;
+  }
+
+   /**
+   * Get enableZTIToken
+   * @return enableZTIToken
+  **/
+  @Schema(description = "")
+  public String getEnableZTIToken() {
+    return enableZTIToken;
+  }
+
+  public void setEnableZTIToken(String enableZTIToken) {
+    this.enableZTIToken = enableZTIToken;
   }
 
   public UpdateFunctionRequest envs(List<EnvForUpdateFunctionInput> envs) {
@@ -563,6 +584,7 @@ public class UpdateFunctionRequest {
         Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
         Objects.equals(this.description, updateFunctionRequest.description) &&
         Objects.equals(this.enableApmplus, updateFunctionRequest.enableApmplus) &&
+        Objects.equals(this.enableZTIToken, updateFunctionRequest.enableZTIToken) &&
         Objects.equals(this.envs, updateFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, updateFunctionRequest.exclusiveMode) &&
         Objects.equals(this.id, updateFunctionRequest.id) &&
@@ -585,7 +607,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, port, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, enableZTIToken, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, port, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -599,6 +621,7 @@ public class UpdateFunctionRequest {
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
+    sb.append("    enableZTIToken: ").append(toIndentedString(enableZTIToken)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

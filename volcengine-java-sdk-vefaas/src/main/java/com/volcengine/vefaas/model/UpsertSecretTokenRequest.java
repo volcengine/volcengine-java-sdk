@@ -24,22 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TransitionSandboxResponse
+ * UpsertSecretTokenRequest
  */
 
 
 
-public class TransitionSandboxResponse extends com.volcengine.model.AbstractResponse {
+public class UpsertSecretTokenRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
   @SerializedName("SandboxId")
   private String sandboxId = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  @SerializedName("Token")
+  private String token = null;
 
-  public TransitionSandboxResponse functionId(String functionId) {
+  public UpsertSecretTokenRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -48,7 +48,8 @@ public class TransitionSandboxResponse extends com.volcengine.model.AbstractResp
    * Get functionId
    * @return functionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFunctionId() {
     return functionId;
   }
@@ -57,7 +58,7 @@ public class TransitionSandboxResponse extends com.volcengine.model.AbstractResp
     this.functionId = functionId;
   }
 
-  public TransitionSandboxResponse sandboxId(String sandboxId) {
+  public UpsertSecretTokenRequest sandboxId(String sandboxId) {
     this.sandboxId = sandboxId;
     return this;
   }
@@ -75,22 +76,23 @@ public class TransitionSandboxResponse extends com.volcengine.model.AbstractResp
     this.sandboxId = sandboxId;
   }
 
-  public TransitionSandboxResponse status(String status) {
-    this.status = status;
+  public UpsertSecretTokenRequest token(String token) {
+    this.token = token;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get token
+   * @return token
   **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getToken() {
+    return token;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setToken(String token) {
+    this.token = token;
   }
 
 
@@ -102,26 +104,26 @@ public class TransitionSandboxResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransitionSandboxResponse transitionSandboxResponse = (TransitionSandboxResponse) o;
-    return Objects.equals(this.functionId, transitionSandboxResponse.functionId) &&
-        Objects.equals(this.sandboxId, transitionSandboxResponse.sandboxId) &&
-        Objects.equals(this.status, transitionSandboxResponse.status);
+    UpsertSecretTokenRequest upsertSecretTokenRequest = (UpsertSecretTokenRequest) o;
+    return Objects.equals(this.functionId, upsertSecretTokenRequest.functionId) &&
+        Objects.equals(this.sandboxId, upsertSecretTokenRequest.sandboxId) &&
+        Objects.equals(this.token, upsertSecretTokenRequest.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, sandboxId, status);
+    return Objects.hash(functionId, sandboxId, token);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransitionSandboxResponse {\n");
+    sb.append("class UpsertSecretTokenRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }

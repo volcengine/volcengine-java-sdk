@@ -61,6 +61,9 @@ public class CreateFunctionRequest {
   @SerializedName("EnableApmplus")
   private Boolean enableApmplus = null;
 
+  @SerializedName("EnableZTIToken")
+  private String enableZTIToken = null;
+
   @SerializedName("Envs")
   private List<EnvForCreateFunctionInput> envs = null;
 
@@ -246,6 +249,24 @@ public class CreateFunctionRequest {
 
   public void setEnableApmplus(Boolean enableApmplus) {
     this.enableApmplus = enableApmplus;
+  }
+
+  public CreateFunctionRequest enableZTIToken(String enableZTIToken) {
+    this.enableZTIToken = enableZTIToken;
+    return this;
+  }
+
+   /**
+   * Get enableZTIToken
+   * @return enableZTIToken
+  **/
+  @Schema(description = "")
+  public String getEnableZTIToken() {
+    return enableZTIToken;
+  }
+
+  public void setEnableZTIToken(String enableZTIToken) {
+    this.enableZTIToken = enableZTIToken;
   }
 
   public CreateFunctionRequest envs(List<EnvForCreateFunctionInput> envs) {
@@ -650,6 +671,7 @@ public class CreateFunctionRequest {
         Objects.equals(this.cpuStrategy, createFunctionRequest.cpuStrategy) &&
         Objects.equals(this.description, createFunctionRequest.description) &&
         Objects.equals(this.enableApmplus, createFunctionRequest.enableApmplus) &&
+        Objects.equals(this.enableZTIToken, createFunctionRequest.enableZTIToken) &&
         Objects.equals(this.envs, createFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, createFunctionRequest.exclusiveMode) &&
         Objects.equals(this.initializerSec, createFunctionRequest.initializerSec) &&
@@ -674,7 +696,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, cell, command, cpuMilli, cpuStrategy, description, enableApmplus, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, port, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, cell, command, cpuMilli, cpuStrategy, description, enableApmplus, enableZTIToken, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, port, projectName, requestTimeout, role, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -690,6 +712,7 @@ public class CreateFunctionRequest {
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
+    sb.append("    enableZTIToken: ").append(toIndentedString(enableZTIToken)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
