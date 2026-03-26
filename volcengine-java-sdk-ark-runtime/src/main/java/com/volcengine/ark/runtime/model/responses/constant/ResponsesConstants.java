@@ -78,6 +78,7 @@ public class ResponsesConstants {
     public static final String TOOL_TYPE_WEB_SEARCH = "web_search";
     public static final String TOOL_TYPE_IMAGE_PROCESS = "image_process";
     public static final String TOOL_TYPE_MCP = "mcp";
+    public static final String TOOL_TYPE_KNOWLEDGE_SEARCH = "knowledge_search";
     public static final String TOOL_TYPE_DOUBAO_APP = "doubao_app";
 
     // UserLocationType.Enum
@@ -156,6 +157,12 @@ public class ResponsesConstants {
     public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_REASONING_SEARCH_COMPLETED = "response.doubao_app_call_reasoning_search.completed";
     public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_ADDED = "response.doubao_app_call_block.added";
     public static final String EVENT_TYPE_RESPONSE_DOUBAO_APP_CALL_BLOCK_DONE = "response.doubao_app_call_block.done";
+
+    // Knowledge search events
+    public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_IN_PROGRESS = "response.knowledge_search_call.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_SEARCHING = "response.knowledge_search_call.searching";
+    public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_COMPLETED = "response.knowledge_search_call.completed";
+    public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_FAILED = "response.knowledge_search_call.failed";
 
     // IncludeType.Enum
     public static final String INCLUDE_TYPE_IMAGE_URL = "message.input_image.image_url";

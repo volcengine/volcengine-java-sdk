@@ -2,6 +2,9 @@ package com.volcengine.ark.runtime.model.responses.tool.websearch;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+import java.util.Map;
+
 public class Annotation {
     @JsonProperty("type")
     private String type;
@@ -32,6 +35,18 @@ public class Annotation {
 
     @JsonProperty("freshness_info")
     private String freshnessInfo;
+
+    @JsonProperty("doc_id")
+    private String docId;
+
+    @JsonProperty("doc_name")
+    private String docName;
+
+    @JsonProperty("chunk_id")
+    private Integer chunkId;
+
+    @JsonProperty("chunk_attachment")
+    private List<Map<String, Object>> chunkAttachments;
 
     public String getType() {
         return type;
@@ -113,6 +128,38 @@ public class Annotation {
         this.freshnessInfo = freshnessInfo;
     }
 
+    public String getDocId() {
+        return docId;
+    }
+
+    public void setDocId(String docId) {
+        this.docId = docId;
+    }
+
+    public String getDocName() {
+        return docName;
+    }
+
+    public void setDocName(String docName) {
+        this.docName = docName;
+    }
+
+    public Integer getChunkId() {
+        return chunkId;
+    }
+
+    public void setChunkId(Integer chunkId) {
+        this.chunkId = chunkId;
+    }
+
+    public List<Map<String, Object>> getChunkAttachments() {
+        return chunkAttachments;
+    }
+
+    public void setChunkAttachments(List<Map<String, Object>> chunkAttachments) {
+        this.chunkAttachments = chunkAttachments;
+    }
+
     @Override
     public String toString() {
         return "Annotation{" +
@@ -126,6 +173,10 @@ public class Annotation {
                 ", coverImage=" + coverImage +
                 ", summary='" + summary + '\'' +
                 ", freshnessInfo='" + freshnessInfo + '\'' +
+                ", docId='" + docId + '\'' +
+                ", docName='" + docName + '\'' +
+                ", chunkId=" + chunkId +
+                ", chunkAttachments=" + chunkAttachments +
                 '}';
     }
 
@@ -144,6 +195,10 @@ public class Annotation {
         private CoverImage coverImage;
         private String summary;
         private String freshnessInfo;
+        private String docId;
+        private String docName;
+        private Integer chunkId;
+        private List<Map<String, Object>> chunkAttachments;
 
         public Builder type(String type) {
             this.type = type;
@@ -195,6 +250,26 @@ public class Annotation {
             return this;
         }
 
+        public Builder docId(String docId) {
+            this.docId = docId;
+            return this;
+        }
+
+        public Builder docName(String docName) {
+            this.docName = docName;
+            return this;
+        }
+
+        public Builder chunkId(Integer chunkId) {
+            this.chunkId = chunkId;
+            return this;
+        }
+
+        public Builder chunkAttachments(List<Map<String, Object>> chunkAttachments) {
+            this.chunkAttachments = chunkAttachments;
+            return this;
+        }
+
         public Annotation build() {
             Annotation annotation = new Annotation();
             annotation.setType(type);
@@ -207,6 +282,10 @@ public class Annotation {
             annotation.setCoverImage(coverImage);
             annotation.setSummary(summary);
             annotation.setFreshnessInfo(freshnessInfo);
+            annotation.setDocId(docId);
+            annotation.setDocName(docName);
+            annotation.setChunkId(chunkId);
+            annotation.setChunkAttachments(chunkAttachments);
             return annotation;
         }
     }

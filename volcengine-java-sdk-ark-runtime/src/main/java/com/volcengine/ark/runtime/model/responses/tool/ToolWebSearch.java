@@ -17,6 +17,9 @@ public class ToolWebSearch extends ResponsesTool {
     @JsonProperty("sources")
     private List<String> sources;
 
+    @JsonProperty("max_keyword")
+    private Integer maxKeyword;
+
     public Long getLimit() {
         return limit;
     }
@@ -41,6 +44,14 @@ public class ToolWebSearch extends ResponsesTool {
         this.sources = sources;
     }
 
+    public Integer getMaxKeyword() {
+        return maxKeyword;
+    }
+
+    public void setMaxKeyword(Integer maxKeyword) {
+        this.maxKeyword = maxKeyword;
+    }
+
     public ToolWebSearch() {
         super(ResponsesConstants.TOOL_TYPE_WEB_SEARCH);
     }
@@ -52,6 +63,7 @@ public class ToolWebSearch extends ResponsesTool {
                 ", limit=" + limit +
                 ", userLocation=" + userLocation +
                 ", sources=" + sources +
+                ", maxKeyword=" + maxKeyword +
                 '}';
     }
 
@@ -63,6 +75,7 @@ public class ToolWebSearch extends ResponsesTool {
         private Long limit;
         private UserLocation userLocation;
         private List<String> sources;
+        private Integer maxKeyword;
 
         public Builder limit(Long limit) {
             this.limit = limit;
@@ -79,11 +92,17 @@ public class ToolWebSearch extends ResponsesTool {
             return this;
         }
 
+        public Builder maxKeyword(Integer maxKeyword) {
+            this.maxKeyword = maxKeyword;
+            return this;
+        }
+
         public ToolWebSearch build() {
             ToolWebSearch toolWebSearch = new ToolWebSearch();
             toolWebSearch.setLimit(limit);
             toolWebSearch.setUserLocation(userLocation);
             toolWebSearch.setSources(sources);
+            toolWebSearch.setMaxKeyword(maxKeyword);
             return toolWebSearch;
         }
     }

@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = ToolWebSearch.class, name = "web_search"),
         @JsonSubTypes.Type(value = ToolImageProcess.class, name = "image_process"),
         @JsonSubTypes.Type(value = ToolMCP.class, name = "mcp"),
+        @JsonSubTypes.Type(value = ToolKnowledgeSearch.class, name = "knowledge_search"),
         @JsonSubTypes.Type(value = ToolDoubaoApp.class, name = "doubao_app")
 })
 public abstract class ResponsesTool {
