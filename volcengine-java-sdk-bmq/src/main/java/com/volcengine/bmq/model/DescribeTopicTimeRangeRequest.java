@@ -30,8 +30,32 @@ import javax.validation.Valid;
 
 
 public class DescribeTopicTimeRangeRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("TopicId")
   private String topicId = null;
+
+  @SerializedName("TopicName")
+  private String topicName = null;
+
+  public DescribeTopicTimeRangeRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
 
   public DescribeTopicTimeRangeRequest topicId(String topicId) {
     this.topicId = topicId;
@@ -42,14 +66,31 @@ public class DescribeTopicTimeRangeRequest {
    * Get topicId
    * @return topicId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTopicId() {
     return topicId;
   }
 
   public void setTopicId(String topicId) {
     this.topicId = topicId;
+  }
+
+  public DescribeTopicTimeRangeRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @Schema(description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
   }
 
 
@@ -62,12 +103,14 @@ public class DescribeTopicTimeRangeRequest {
       return false;
     }
     DescribeTopicTimeRangeRequest describeTopicTimeRangeRequest = (DescribeTopicTimeRangeRequest) o;
-    return Objects.equals(this.topicId, describeTopicTimeRangeRequest.topicId);
+    return Objects.equals(this.instanceId, describeTopicTimeRangeRequest.instanceId) &&
+        Objects.equals(this.topicId, describeTopicTimeRangeRequest.topicId) &&
+        Objects.equals(this.topicName, describeTopicTimeRangeRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(topicId);
+    return Objects.hash(instanceId, topicId, topicName);
   }
 
 
@@ -76,7 +119,9 @@ public class DescribeTopicTimeRangeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTopicTimeRangeRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

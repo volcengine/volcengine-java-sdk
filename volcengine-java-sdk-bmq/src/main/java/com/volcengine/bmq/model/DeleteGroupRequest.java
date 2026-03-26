@@ -33,6 +33,12 @@ public class DeleteGroupRequest {
   @SerializedName("GroupId")
   private String groupId = null;
 
+  @SerializedName("GroupName")
+  private String groupName = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   public DeleteGroupRequest groupId(String groupId) {
     this.groupId = groupId;
     return this;
@@ -42,14 +48,49 @@ public class DeleteGroupRequest {
    * Get groupId
    * @return groupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getGroupId() {
     return groupId;
   }
 
   public void setGroupId(String groupId) {
     this.groupId = groupId;
+  }
+
+  public DeleteGroupRequest groupName(String groupName) {
+    this.groupName = groupName;
+    return this;
+  }
+
+   /**
+   * Get groupName
+   * @return groupName
+  **/
+  @Schema(description = "")
+  public String getGroupName() {
+    return groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
+
+  public DeleteGroupRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -62,12 +103,14 @@ public class DeleteGroupRequest {
       return false;
     }
     DeleteGroupRequest deleteGroupRequest = (DeleteGroupRequest) o;
-    return Objects.equals(this.groupId, deleteGroupRequest.groupId);
+    return Objects.equals(this.groupId, deleteGroupRequest.groupId) &&
+        Objects.equals(this.groupName, deleteGroupRequest.groupName) &&
+        Objects.equals(this.instanceId, deleteGroupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupId);
+    return Objects.hash(groupId, groupName, instanceId);
   }
 
 
@@ -77,6 +120,8 @@ public class DeleteGroupRequest {
     sb.append("class DeleteGroupRequest {\n");
     
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

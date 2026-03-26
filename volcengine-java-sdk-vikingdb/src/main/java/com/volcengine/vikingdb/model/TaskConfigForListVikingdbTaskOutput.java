@@ -93,6 +93,9 @@ public class TaskConfigForListVikingdbTaskOutput {
   @SerializedName("NeedConfirm")
   private Boolean needConfirm = null;
 
+  @SerializedName("OutputFields")
+  private List<String> outputFields = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -224,6 +227,32 @@ public class TaskConfigForListVikingdbTaskOutput {
     this.needConfirm = needConfirm;
   }
 
+  public TaskConfigForListVikingdbTaskOutput outputFields(List<String> outputFields) {
+    this.outputFields = outputFields;
+    return this;
+  }
+
+  public TaskConfigForListVikingdbTaskOutput addOutputFieldsItem(String outputFieldsItem) {
+    if (this.outputFields == null) {
+      this.outputFields = new ArrayList<String>();
+    }
+    this.outputFields.add(outputFieldsItem);
+    return this;
+  }
+
+   /**
+   * Get outputFields
+   * @return outputFields
+  **/
+  @Schema(description = "")
+  public List<String> getOutputFields() {
+    return outputFields;
+  }
+
+  public void setOutputFields(List<String> outputFields) {
+    this.outputFields = outputFields;
+  }
+
   public TaskConfigForListVikingdbTaskOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -330,6 +359,7 @@ public class TaskConfigForListVikingdbTaskOutput {
         Objects.equals(this.filterConds, taskConfigForListVikingdbTaskOutput.filterConds) &&
         Objects.equals(this.ignoreError, taskConfigForListVikingdbTaskOutput.ignoreError) &&
         Objects.equals(this.needConfirm, taskConfigForListVikingdbTaskOutput.needConfirm) &&
+        Objects.equals(this.outputFields, taskConfigForListVikingdbTaskOutput.outputFields) &&
         Objects.equals(this.projectName, taskConfigForListVikingdbTaskOutput.projectName) &&
         Objects.equals(this.resourceId, taskConfigForListVikingdbTaskOutput.resourceId) &&
         Objects.equals(this.tosPath, taskConfigForListVikingdbTaskOutput.tosPath) &&
@@ -339,7 +369,7 @@ public class TaskConfigForListVikingdbTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, exportAll, fileType, filterConds, ignoreError, needConfirm, projectName, resourceId, tosPath, updateFields, usePublic);
+    return Objects.hash(collectionName, exportAll, fileType, filterConds, ignoreError, needConfirm, outputFields, projectName, resourceId, tosPath, updateFields, usePublic);
   }
 
 
@@ -354,6 +384,7 @@ public class TaskConfigForListVikingdbTaskOutput {
     sb.append("    filterConds: ").append(toIndentedString(filterConds)).append("\n");
     sb.append("    ignoreError: ").append(toIndentedString(ignoreError)).append("\n");
     sb.append("    needConfirm: ").append(toIndentedString(needConfirm)).append("\n");
+    sb.append("    outputFields: ").append(toIndentedString(outputFields)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    tosPath: ").append(toIndentedString(tosPath)).append("\n");

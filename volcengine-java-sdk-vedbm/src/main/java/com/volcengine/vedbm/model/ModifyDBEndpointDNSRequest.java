@@ -14,6 +14,13 @@ package com.volcengine.vedbm.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,135 @@ import javax.validation.Valid;
 
 
 public class ModifyDBEndpointDNSRequest {
+  @SerializedName("DNSVisibility")
+  private Boolean dnSVisibility = null;
+
+  @SerializedName("EndpointId")
+  private String endpointId = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  /**
+   * Gets or Sets networkType
+   */
+  @JsonAdapter(NetworkTypeEnum.Adapter.class)
+  public enum NetworkTypeEnum {
+    @SerializedName("Private")
+    PRIVATE("Private");
+
+    private String value;
+
+    NetworkTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NetworkTypeEnum fromValue(String input) {
+      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NetworkTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NetworkType")
+  private NetworkTypeEnum networkType = null;
+
+  public ModifyDBEndpointDNSRequest dnSVisibility(Boolean dnSVisibility) {
+    this.dnSVisibility = dnSVisibility;
+    return this;
+  }
+
+   /**
+   * Get dnSVisibility
+   * @return dnSVisibility
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Boolean isDnSVisibility() {
+    return dnSVisibility;
+  }
+
+  public void setDnSVisibility(Boolean dnSVisibility) {
+    this.dnSVisibility = dnSVisibility;
+  }
+
+  public ModifyDBEndpointDNSRequest endpointId(String endpointId) {
+    this.endpointId = endpointId;
+    return this;
+  }
+
+   /**
+   * Get endpointId
+   * @return endpointId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getEndpointId() {
+    return endpointId;
+  }
+
+  public void setEndpointId(String endpointId) {
+    this.endpointId = endpointId;
+  }
+
+  public ModifyDBEndpointDNSRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public ModifyDBEndpointDNSRequest networkType(NetworkTypeEnum networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public NetworkTypeEnum getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(NetworkTypeEnum networkType) {
+    this.networkType = networkType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +168,16 @@ public class ModifyDBEndpointDNSRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ModifyDBEndpointDNSRequest modifyDBEndpointDNSRequest = (ModifyDBEndpointDNSRequest) o;
+    return Objects.equals(this.dnSVisibility, modifyDBEndpointDNSRequest.dnSVisibility) &&
+        Objects.equals(this.endpointId, modifyDBEndpointDNSRequest.endpointId) &&
+        Objects.equals(this.instanceId, modifyDBEndpointDNSRequest.instanceId) &&
+        Objects.equals(this.networkType, modifyDBEndpointDNSRequest.networkType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(dnSVisibility, endpointId, instanceId, networkType);
   }
 
 
@@ -46,6 +186,10 @@ public class ModifyDBEndpointDNSRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBEndpointDNSRequest {\n");
     
+    sb.append("    dnSVisibility: ").append(toIndentedString(dnSVisibility)).append("\n");
+    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

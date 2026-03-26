@@ -14,6 +14,13 @@ package com.volcengine.bmq.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class HeaderForPreviewTopicDataOutput {
+  @SerializedName("key")
+  private String key = null;
+
+  @SerializedName("value")
+  private String value = null;
+
+  public HeaderForPreviewTopicDataOutput key(String key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @Schema(description = "")
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public HeaderForPreviewTopicDataOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class HeaderForPreviewTopicDataOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    HeaderForPreviewTopicDataOutput headerForPreviewTopicDataOutput = (HeaderForPreviewTopicDataOutput) o;
+    return Objects.equals(this.key, headerForPreviewTopicDataOutput.key) &&
+        Objects.equals(this.value, headerForPreviewTopicDataOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(key, value);
   }
 
 
@@ -46,6 +97,8 @@ public class HeaderForPreviewTopicDataOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderForPreviewTopicDataOutput {\n");
     
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
