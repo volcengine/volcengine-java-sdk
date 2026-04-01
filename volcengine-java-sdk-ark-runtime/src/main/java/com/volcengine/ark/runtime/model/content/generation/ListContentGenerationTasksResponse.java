@@ -40,6 +40,9 @@ public class ListContentGenerationTasksResponse {
         @JsonProperty("model")
         private String model;
 
+        @JsonProperty("safety_identifier")
+        private String safetyIdentifier;
+
         @JsonProperty("status")
         private String status;
 
@@ -117,6 +120,14 @@ public class ListContentGenerationTasksResponse {
 
         public void setModel(String model) {
             this.model = model;
+        }
+
+        public String getSafetyIdentifier() {
+            return safetyIdentifier;
+        }
+
+        public void setSafetyIdentifier(String safetyIdentifier) {
+            this.safetyIdentifier = safetyIdentifier;
         }
 
         public String getStatus() {
@@ -374,6 +385,7 @@ public class ListContentGenerationTasksResponse {
             return "Item{" +
                     "id='" + id + '\'' +
                     ", model='" + model + '\'' +
+                    ", safetyIdentifier='" + safetyIdentifier + '\'' +
                     ", status='" + status + '\'' +
                     ", error='" + error + '\'' +
                     ", content=" + (content != null ? content.toString() : "null") +

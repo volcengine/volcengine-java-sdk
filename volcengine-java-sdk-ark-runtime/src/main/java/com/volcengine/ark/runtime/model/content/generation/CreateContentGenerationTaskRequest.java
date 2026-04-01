@@ -14,6 +14,9 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("content")
     private List<Content> content;
 
+    @JsonProperty("safety_identifier")
+    private String safetyIdentifier;
+
     @JsonProperty("callback_url")
     private String callbackUrl;
 
@@ -72,8 +75,13 @@ public class CreateContentGenerationTaskRequest {
     }
 
     public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl, Boolean returnLastFrame, String serviceTier, Long executionExpiresAfter, Boolean generateAudio, Boolean cameraFixed, Boolean watermark, Long seed, String resolution, String ratio, Long duration, Long frames, Boolean draft, List<ContentGenerationTool> tools ) {
+        this(model, content, null, callbackUrl, returnLastFrame, serviceTier, executionExpiresAfter, generateAudio, cameraFixed, watermark, seed, resolution, ratio, duration, frames, draft, tools);
+    }
+
+    public CreateContentGenerationTaskRequest(String model, List<Content> content, String safetyIdentifier, String callbackUrl, Boolean returnLastFrame, String serviceTier, Long executionExpiresAfter, Boolean generateAudio, Boolean cameraFixed, Boolean watermark, Long seed, String resolution, String ratio, Long duration, Long frames, Boolean draft, List<ContentGenerationTool> tools ) {
         this.model = model;
         this.content = content;
+        this.safetyIdentifier = safetyIdentifier;
         this.callbackUrl = callbackUrl;
         this.returnLastFrame = returnLastFrame;
         this.serviceTier = serviceTier;
@@ -104,6 +112,14 @@ public class CreateContentGenerationTaskRequest {
 
     public void setContent(List<Content> content) {
         this.content = content;
+    }
+
+    public String getSafetyIdentifier() {
+        return safetyIdentifier;
+    }
+
+    public void setSafetyIdentifier(String safetyIdentifier) {
+        this.safetyIdentifier = safetyIdentifier;
     }
 
     public String getCallbackUrl() {
@@ -217,6 +233,7 @@ public class CreateContentGenerationTaskRequest {
         return "CreateContentGenerationTaskRequest{" +
                 "model='" + model + '\'' +
                 ", content=" + content +
+                ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 ", callbackUrl='" + callbackUrl + '\'' +
                 ", returnLastFrame=" + returnLastFrame +
                 ", serviceTier='" + serviceTier + '\'' +
@@ -241,6 +258,7 @@ public class CreateContentGenerationTaskRequest {
     public static class Builder {
         private String model;
         private List<Content> content;
+        private String safetyIdentifier;
         private String callbackUrl;
         private Boolean returnLastFrame;
         private String serviceTier;
@@ -266,6 +284,11 @@ public class CreateContentGenerationTaskRequest {
 
         public Builder content(List<Content> content) {
             this.content = content;
+            return this;
+        }
+
+        public Builder safetyIdentifier(String safetyIdentifier) {
+            this.safetyIdentifier = safetyIdentifier;
             return this;
         }
 
@@ -343,6 +366,7 @@ public class CreateContentGenerationTaskRequest {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
             createContentGenerationTaskRequest.setContent(content);
+            createContentGenerationTaskRequest.setSafetyIdentifier(safetyIdentifier);
             createContentGenerationTaskRequest.setCallbackUrl(callbackUrl);
             createContentGenerationTaskRequest.setReturnLastFrame(returnLastFrame);
             createContentGenerationTaskRequest.setServiceTier(serviceTier);
