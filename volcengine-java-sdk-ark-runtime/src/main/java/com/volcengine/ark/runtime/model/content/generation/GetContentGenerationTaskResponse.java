@@ -3,6 +3,8 @@ package com.volcengine.ark.runtime.model.content.generation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GetContentGenerationTaskResponse {
 
@@ -11,6 +13,9 @@ public class GetContentGenerationTaskResponse {
 
     @JsonProperty("model")
     private String model;
+
+    @JsonProperty("safety_identifier")
+    private String safetyIdentifier;
 
     @JsonProperty("status")
     private String status;
@@ -72,7 +77,8 @@ public class GetContentGenerationTaskResponse {
     @JsonProperty("draft_task_id")
     private String draftTaskID;
 
-
+    @JsonProperty("tools")
+    private List<CreateContentGenerationTaskRequest.ContentGenerationTool> tools;
 
     public String getId() {
         return id;
@@ -88,6 +94,14 @@ public class GetContentGenerationTaskResponse {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getSafetyIdentifier() {
+        return safetyIdentifier;
+    }
+
+    public void setSafetyIdentifier(String safetyIdentifier) {
+        this.safetyIdentifier = safetyIdentifier;
     }
 
     public String getStatus() {
@@ -250,6 +264,13 @@ public class GetContentGenerationTaskResponse {
         this.draftTaskID = draftTaskID;
     }
 
+    public List<CreateContentGenerationTaskRequest.ContentGenerationTool> getTools() {
+        return tools;
+    }
+
+    public void setTools(List<CreateContentGenerationTaskRequest.ContentGenerationTool> tools) {
+        this.tools = tools;
+    }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Content {
@@ -350,6 +371,7 @@ public class GetContentGenerationTaskResponse {
         return "GetContentGenerationTaskResponse{" +
                 "id='" + id + '\'' +
                 ", model='" + model + '\'' +
+                ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 ", status='" + status + '\'' +
                 ", error='" + error + '\'' +
                 ", content=" + (content != null ? content.toString() : "null") +
@@ -370,6 +392,7 @@ public class GetContentGenerationTaskResponse {
                 ", resolution='" + resolution + '\'' +
                 ", draft=" + draft +
                 ", draftTaskID='" + draftTaskID + '\'' +
+                ", tools='" + tools + '\'' +
                 '}';
     }
 }
