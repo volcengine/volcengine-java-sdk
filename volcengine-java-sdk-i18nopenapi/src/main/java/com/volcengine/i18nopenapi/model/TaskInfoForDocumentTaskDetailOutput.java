@@ -36,7 +36,7 @@ import javax.validation.Valid;
 
 public class TaskInfoForDocumentTaskDetailOutput {
   @SerializedName("aiRemoveType")
-  private String aiRemoveType = null;
+  private Integer aiRemoveType = null;
 
   @SerializedName("asrModel")
   private Integer asrModel = null;
@@ -122,7 +122,7 @@ public class TaskInfoForDocumentTaskDetailOutput {
   @SerializedName("useMT")
   private Boolean useMT = null;
 
-  public TaskInfoForDocumentTaskDetailOutput aiRemoveType(String aiRemoveType) {
+  public TaskInfoForDocumentTaskDetailOutput aiRemoveType(Integer aiRemoveType) {
     this.aiRemoveType = aiRemoveType;
     return this;
   }
@@ -132,11 +132,11 @@ public class TaskInfoForDocumentTaskDetailOutput {
    * @return aiRemoveType
   **/
   @Schema(description = "")
-  public String getAiRemoveType() {
+  public Integer getAiRemoveType() {
     return aiRemoveType;
   }
 
-  public void setAiRemoveType(String aiRemoveType) {
+  public void setAiRemoveType(Integer aiRemoveType) {
     this.aiRemoveType = aiRemoveType;
   }
 

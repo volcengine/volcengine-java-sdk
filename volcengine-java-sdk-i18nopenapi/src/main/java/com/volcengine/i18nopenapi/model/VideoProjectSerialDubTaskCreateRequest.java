@@ -35,7 +35,7 @@ import javax.validation.Valid;
 
 public class VideoProjectSerialDubTaskCreateRequest {
   @SerializedName("projectId")
-  private Long projectId = null;
+  private String projectId = null;
 
   @SerializedName("serialInfo")
   private List<SerialInfoForVideoProjectSerialDubTaskCreateInput> serialInfo = null;
@@ -43,7 +43,7 @@ public class VideoProjectSerialDubTaskCreateRequest {
   @SerializedName("taskInfo")
   private TaskInfoForVideoProjectSerialDubTaskCreateInput taskInfo = null;
 
-  public VideoProjectSerialDubTaskCreateRequest projectId(Long projectId) {
+  public VideoProjectSerialDubTaskCreateRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -54,11 +54,11 @@ public class VideoProjectSerialDubTaskCreateRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Long getProjectId() {
+  public String getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(Long projectId) {
+  public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
 

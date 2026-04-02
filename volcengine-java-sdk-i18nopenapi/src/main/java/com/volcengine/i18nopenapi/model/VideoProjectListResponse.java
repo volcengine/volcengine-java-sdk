@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.DataForVideoProjectListOutput;
+import com.volcengine.i18nopenapi.model.PaginationForVideoProjectListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,12 @@ import javax.validation.Valid;
 public class VideoProjectListResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("data")
   private List<DataForVideoProjectListOutput> data = null;
+
+  @SerializedName("pagination")
+  private PaginationForVideoProjectListOutput pagination = null;
+
+  @SerializedName("total")
+  private Integer total = null;
 
   public VideoProjectListResponse data(List<DataForVideoProjectListOutput> data) {
     this.data = data;
@@ -63,6 +70,43 @@ public class VideoProjectListResponse extends com.volcengine.model.AbstractRespo
     this.data = data;
   }
 
+  public VideoProjectListResponse pagination(PaginationForVideoProjectListOutput pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+   /**
+   * Get pagination
+   * @return pagination
+  **/
+  @Valid
+  @Schema(description = "")
+  public PaginationForVideoProjectListOutput getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(PaginationForVideoProjectListOutput pagination) {
+    this.pagination = pagination;
+  }
+
+  public VideoProjectListResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +117,14 @@ public class VideoProjectListResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     VideoProjectListResponse videoProjectListResponse = (VideoProjectListResponse) o;
-    return Objects.equals(this.data, videoProjectListResponse.data);
+    return Objects.equals(this.data, videoProjectListResponse.data) &&
+        Objects.equals(this.pagination, videoProjectListResponse.pagination) &&
+        Objects.equals(this.total, videoProjectListResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, pagination, total);
   }
 
 
@@ -88,6 +134,8 @@ public class VideoProjectListResponse extends com.volcengine.model.AbstractRespo
     sb.append("class VideoProjectListResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

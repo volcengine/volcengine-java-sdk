@@ -37,6 +37,9 @@ public class DataForVideoProjectSerialTaskCreateOutput {
   @SerializedName("BaseResp")
   private BaseRespForVideoProjectSerialTaskCreateOutput baseResp = null;
 
+  @SerializedName("DubTaskIDs")
+  private List<String> dubTaskIDs = null;
+
   @SerializedName("SubtitleFileCheckReports")
   private List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> subtitleFileCheckReports = null;
 
@@ -60,6 +63,32 @@ public class DataForVideoProjectSerialTaskCreateOutput {
 
   public void setBaseResp(BaseRespForVideoProjectSerialTaskCreateOutput baseResp) {
     this.baseResp = baseResp;
+  }
+
+  public DataForVideoProjectSerialTaskCreateOutput dubTaskIDs(List<String> dubTaskIDs) {
+    this.dubTaskIDs = dubTaskIDs;
+    return this;
+  }
+
+  public DataForVideoProjectSerialTaskCreateOutput addDubTaskIDsItem(String dubTaskIDsItem) {
+    if (this.dubTaskIDs == null) {
+      this.dubTaskIDs = new ArrayList<String>();
+    }
+    this.dubTaskIDs.add(dubTaskIDsItem);
+    return this;
+  }
+
+   /**
+   * Get dubTaskIDs
+   * @return dubTaskIDs
+  **/
+  @Schema(description = "")
+  public List<String> getDubTaskIDs() {
+    return dubTaskIDs;
+  }
+
+  public void setDubTaskIDs(List<String> dubTaskIDs) {
+    this.dubTaskIDs = dubTaskIDs;
   }
 
   public DataForVideoProjectSerialTaskCreateOutput subtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput> subtitleFileCheckReports) {
@@ -126,13 +155,14 @@ public class DataForVideoProjectSerialTaskCreateOutput {
     }
     DataForVideoProjectSerialTaskCreateOutput dataForVideoProjectSerialTaskCreateOutput = (DataForVideoProjectSerialTaskCreateOutput) o;
     return Objects.equals(this.baseResp, dataForVideoProjectSerialTaskCreateOutput.baseResp) &&
+        Objects.equals(this.dubTaskIDs, dataForVideoProjectSerialTaskCreateOutput.dubTaskIDs) &&
         Objects.equals(this.subtitleFileCheckReports, dataForVideoProjectSerialTaskCreateOutput.subtitleFileCheckReports) &&
         Objects.equals(this.taskIDs, dataForVideoProjectSerialTaskCreateOutput.taskIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseResp, subtitleFileCheckReports, taskIDs);
+    return Objects.hash(baseResp, dubTaskIDs, subtitleFileCheckReports, taskIDs);
   }
 
 
@@ -142,6 +172,7 @@ public class DataForVideoProjectSerialTaskCreateOutput {
     sb.append("class DataForVideoProjectSerialTaskCreateOutput {\n");
     
     sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
+    sb.append("    dubTaskIDs: ").append(toIndentedString(dubTaskIDs)).append("\n");
     sb.append("    subtitleFileCheckReports: ").append(toIndentedString(subtitleFileCheckReports)).append("\n");
     sb.append("    taskIDs: ").append(toIndentedString(taskIDs)).append("\n");
     sb.append("}");

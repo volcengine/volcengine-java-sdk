@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.CreatorForProjectsOutput;
 import com.volcengine.i18nopenapi.model.ExtraForProjectsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,6 +37,9 @@ public class DataForProjectsOutput {
   @SerializedName("createdAt")
   private String createdAt = null;
 
+  @SerializedName("creator")
+  private CreatorForProjectsOutput creator = null;
+
   @SerializedName("creatorId")
   private String creatorId = null;
 
@@ -46,13 +50,19 @@ public class DataForProjectsOutput {
   private ExtraForProjectsOutput extra = null;
 
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("sourceLang")
+  private String sourceLang = null;
+
   @SerializedName("sourceLocale")
   private String sourceLocale = null;
+
+  @SerializedName("targetLangs")
+  private List<String> targetLangs = null;
 
   @SerializedName("targetLocales")
   private List<String> targetLocales = null;
@@ -76,6 +86,25 @@ public class DataForProjectsOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public DataForProjectsOutput creator(CreatorForProjectsOutput creator) {
+    this.creator = creator;
+    return this;
+  }
+
+   /**
+   * Get creator
+   * @return creator
+  **/
+  @Valid
+  @Schema(description = "")
+  public CreatorForProjectsOutput getCreator() {
+    return creator;
+  }
+
+  public void setCreator(CreatorForProjectsOutput creator) {
+    this.creator = creator;
   }
 
   public DataForProjectsOutput creatorId(String creatorId) {
@@ -133,7 +162,7 @@ public class DataForProjectsOutput {
     this.extra = extra;
   }
 
-  public DataForProjectsOutput id(Integer id) {
+  public DataForProjectsOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -143,11 +172,11 @@ public class DataForProjectsOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -169,6 +198,24 @@ public class DataForProjectsOutput {
     this.name = name;
   }
 
+  public DataForProjectsOutput sourceLang(String sourceLang) {
+    this.sourceLang = sourceLang;
+    return this;
+  }
+
+   /**
+   * Get sourceLang
+   * @return sourceLang
+  **/
+  @Schema(description = "")
+  public String getSourceLang() {
+    return sourceLang;
+  }
+
+  public void setSourceLang(String sourceLang) {
+    this.sourceLang = sourceLang;
+  }
+
   public DataForProjectsOutput sourceLocale(String sourceLocale) {
     this.sourceLocale = sourceLocale;
     return this;
@@ -185,6 +232,32 @@ public class DataForProjectsOutput {
 
   public void setSourceLocale(String sourceLocale) {
     this.sourceLocale = sourceLocale;
+  }
+
+  public DataForProjectsOutput targetLangs(List<String> targetLangs) {
+    this.targetLangs = targetLangs;
+    return this;
+  }
+
+  public DataForProjectsOutput addTargetLangsItem(String targetLangsItem) {
+    if (this.targetLangs == null) {
+      this.targetLangs = new ArrayList<String>();
+    }
+    this.targetLangs.add(targetLangsItem);
+    return this;
+  }
+
+   /**
+   * Get targetLangs
+   * @return targetLangs
+  **/
+  @Schema(description = "")
+  public List<String> getTargetLangs() {
+    return targetLangs;
+  }
+
+  public void setTargetLangs(List<String> targetLangs) {
+    this.targetLangs = targetLangs;
   }
 
   public DataForProjectsOutput targetLocales(List<String> targetLocales) {
@@ -242,19 +315,22 @@ public class DataForProjectsOutput {
     }
     DataForProjectsOutput dataForProjectsOutput = (DataForProjectsOutput) o;
     return Objects.equals(this.createdAt, dataForProjectsOutput.createdAt) &&
+        Objects.equals(this.creator, dataForProjectsOutput.creator) &&
         Objects.equals(this.creatorId, dataForProjectsOutput.creatorId) &&
         Objects.equals(this.description, dataForProjectsOutput.description) &&
         Objects.equals(this.extra, dataForProjectsOutput.extra) &&
         Objects.equals(this.id, dataForProjectsOutput.id) &&
         Objects.equals(this.name, dataForProjectsOutput.name) &&
+        Objects.equals(this.sourceLang, dataForProjectsOutput.sourceLang) &&
         Objects.equals(this.sourceLocale, dataForProjectsOutput.sourceLocale) &&
+        Objects.equals(this.targetLangs, dataForProjectsOutput.targetLangs) &&
         Objects.equals(this.targetLocales, dataForProjectsOutput.targetLocales) &&
         Objects.equals(this.updatedAt, dataForProjectsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creatorId, description, extra, id, name, sourceLocale, targetLocales, updatedAt);
+    return Objects.hash(createdAt, creator, creatorId, description, extra, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
   }
 
 
@@ -264,12 +340,15 @@ public class DataForProjectsOutput {
     sb.append("class DataForProjectsOutput {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
     sb.append("    sourceLocale: ").append(toIndentedString(sourceLocale)).append("\n");
+    sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
     sb.append("    targetLocales: ").append(toIndentedString(targetLocales)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

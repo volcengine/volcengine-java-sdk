@@ -46,7 +46,7 @@ public class TaskForVideoProjectTaskDetailOutput {
   private String deadline = null;
 
   @SerializedName("dramaTaskWorkflow")
-  private String dramaTaskWorkflow = null;
+  private Integer dramaTaskWorkflow = null;
 
   @SerializedName("durationCount")
   private String durationCount = null;
@@ -70,16 +70,16 @@ public class TaskForVideoProjectTaskDetailOutput {
   private String sourceVideos = null;
 
   @SerializedName("status")
-  private String status = null;
+  private Integer status = null;
 
   @SerializedName("targetLanguages")
   private List<String> targetLanguages = null;
 
   @SerializedName("taskType")
-  private String taskType = null;
+  private Integer taskType = null;
 
   @SerializedName("translationTeam")
-  private String translationTeam = null;
+  private Integer translationTeam = null;
 
   @SerializedName("updatedAt")
   private String updatedAt = null;
@@ -91,7 +91,7 @@ public class TaskForVideoProjectTaskDetailOutput {
   private String wordsCount = null;
 
   @SerializedName("workflowType")
-  private String workflowType = null;
+  private Integer workflowType = null;
 
   public TaskForVideoProjectTaskDetailOutput comment(String comment) {
     this.comment = comment;
@@ -166,7 +166,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     this.deadline = deadline;
   }
 
-  public TaskForVideoProjectTaskDetailOutput dramaTaskWorkflow(String dramaTaskWorkflow) {
+  public TaskForVideoProjectTaskDetailOutput dramaTaskWorkflow(Integer dramaTaskWorkflow) {
     this.dramaTaskWorkflow = dramaTaskWorkflow;
     return this;
   }
@@ -176,11 +176,11 @@ public class TaskForVideoProjectTaskDetailOutput {
    * @return dramaTaskWorkflow
   **/
   @Schema(description = "")
-  public String getDramaTaskWorkflow() {
+  public Integer getDramaTaskWorkflow() {
     return dramaTaskWorkflow;
   }
 
-  public void setDramaTaskWorkflow(String dramaTaskWorkflow) {
+  public void setDramaTaskWorkflow(Integer dramaTaskWorkflow) {
     this.dramaTaskWorkflow = dramaTaskWorkflow;
   }
 
@@ -310,7 +310,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     this.sourceVideos = sourceVideos;
   }
 
-  public TaskForVideoProjectTaskDetailOutput status(String status) {
+  public TaskForVideoProjectTaskDetailOutput status(Integer status) {
     this.status = status;
     return this;
   }
@@ -320,11 +320,11 @@ public class TaskForVideoProjectTaskDetailOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 
@@ -354,7 +354,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     this.targetLanguages = targetLanguages;
   }
 
-  public TaskForVideoProjectTaskDetailOutput taskType(String taskType) {
+  public TaskForVideoProjectTaskDetailOutput taskType(Integer taskType) {
     this.taskType = taskType;
     return this;
   }
@@ -364,15 +364,15 @@ public class TaskForVideoProjectTaskDetailOutput {
    * @return taskType
   **/
   @Schema(description = "")
-  public String getTaskType() {
+  public Integer getTaskType() {
     return taskType;
   }
 
-  public void setTaskType(String taskType) {
+  public void setTaskType(Integer taskType) {
     this.taskType = taskType;
   }
 
-  public TaskForVideoProjectTaskDetailOutput translationTeam(String translationTeam) {
+  public TaskForVideoProjectTaskDetailOutput translationTeam(Integer translationTeam) {
     this.translationTeam = translationTeam;
     return this;
   }
@@ -382,11 +382,11 @@ public class TaskForVideoProjectTaskDetailOutput {
    * @return translationTeam
   **/
   @Schema(description = "")
-  public String getTranslationTeam() {
+  public Integer getTranslationTeam() {
     return translationTeam;
   }
 
-  public void setTranslationTeam(String translationTeam) {
+  public void setTranslationTeam(Integer translationTeam) {
     this.translationTeam = translationTeam;
   }
 
@@ -444,7 +444,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     this.wordsCount = wordsCount;
   }
 
-  public TaskForVideoProjectTaskDetailOutput workflowType(String workflowType) {
+  public TaskForVideoProjectTaskDetailOutput workflowType(Integer workflowType) {
     this.workflowType = workflowType;
     return this;
   }
@@ -454,11 +454,11 @@ public class TaskForVideoProjectTaskDetailOutput {
    * @return workflowType
   **/
   @Schema(description = "")
-  public String getWorkflowType() {
+  public Integer getWorkflowType() {
     return workflowType;
   }
 
-  public void setWorkflowType(String workflowType) {
+  public void setWorkflowType(Integer workflowType) {
     this.workflowType = workflowType;
   }
 

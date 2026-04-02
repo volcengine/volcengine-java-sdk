@@ -37,7 +37,7 @@ public class VideoProjectTaskDetailRequest {
   private String subtaskIds = null;
 
   @SerializedName("taskId")
-  private Integer taskId = null;
+  private String taskId = null;
 
   public VideoProjectTaskDetailRequest projectId(String projectId) {
     this.projectId = projectId;
@@ -76,7 +76,7 @@ public class VideoProjectTaskDetailRequest {
     this.subtaskIds = subtaskIds;
   }
 
-  public VideoProjectTaskDetailRequest taskId(Integer taskId) {
+  public VideoProjectTaskDetailRequest taskId(String taskId) {
     this.taskId = taskId;
     return this;
   }
@@ -87,11 +87,11 @@ public class VideoProjectTaskDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getTaskId() {
+  public String getTaskId() {
     return taskId;
   }
 
-  public void setTaskId(Integer taskId) {
+  public void setTaskId(String taskId) {
     this.taskId = taskId;
   }
 
