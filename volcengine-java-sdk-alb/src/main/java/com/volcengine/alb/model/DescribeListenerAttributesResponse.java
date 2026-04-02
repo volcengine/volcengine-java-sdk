@@ -128,6 +128,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("XRealIpEnabled")
+  private String xrealIpEnabled = null;
+
   public DescribeListenerAttributesResponse accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
     this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
     return this;
@@ -721,6 +724,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.updateTime = updateTime;
   }
 
+  public DescribeListenerAttributesResponse xrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+    return this;
+  }
+
+   /**
+   * Get xrealIpEnabled
+   * @return xrealIpEnabled
+  **/
+  @Schema(description = "")
+  public String getXrealIpEnabled() {
+    return xrealIpEnabled;
+  }
+
+  public void setXrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -761,12 +782,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.serverGroups, describeListenerAttributesResponse.serverGroups) &&
         Objects.equals(this.status, describeListenerAttributesResponse.status) &&
         Objects.equals(this.tags, describeListenerAttributesResponse.tags) &&
-        Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime);
+        Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime) &&
+        Objects.equals(this.xrealIpEnabled, describeListenerAttributesResponse.xrealIpEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, requestId, serverGroupId, serverGroups, status, tags, updateTime);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, requestId, serverGroupId, serverGroups, status, tags, updateTime, xrealIpEnabled);
   }
 
 
@@ -806,6 +828,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    xrealIpEnabled: ").append(toIndentedString(xrealIpEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

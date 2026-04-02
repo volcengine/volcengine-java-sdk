@@ -44,6 +44,9 @@ public class CloneLoadBalancerRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DryRun")
+  private String dryRun = null;
+
   @SerializedName("EipBillingConfig")
   private EipBillingConfigForCloneLoadBalancerInput eipBillingConfig = null;
 
@@ -120,6 +123,24 @@ public class CloneLoadBalancerRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CloneLoadBalancerRequest dryRun(String dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public String getDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(String dryRun) {
+    this.dryRun = dryRun;
   }
 
   public CloneLoadBalancerRequest eipBillingConfig(EipBillingConfigForCloneLoadBalancerInput eipBillingConfig) {
@@ -292,6 +313,7 @@ public class CloneLoadBalancerRequest {
     return Objects.equals(this.bandwidthPackageId, cloneLoadBalancerRequest.bandwidthPackageId) &&
         Objects.equals(this.deleteProtection, cloneLoadBalancerRequest.deleteProtection) &&
         Objects.equals(this.description, cloneLoadBalancerRequest.description) &&
+        Objects.equals(this.dryRun, cloneLoadBalancerRequest.dryRun) &&
         Objects.equals(this.eipBillingConfig, cloneLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.ipv6BandwidthPackageId, cloneLoadBalancerRequest.ipv6BandwidthPackageId) &&
         Objects.equals(this.ipv6EipBillingConfig, cloneLoadBalancerRequest.ipv6EipBillingConfig) &&
@@ -304,7 +326,7 @@ public class CloneLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerId, loadBalancerName, projectName, regionId, zoneMappings);
+    return Objects.hash(bandwidthPackageId, deleteProtection, description, dryRun, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerId, loadBalancerName, projectName, regionId, zoneMappings);
   }
 
 
@@ -316,6 +338,7 @@ public class CloneLoadBalancerRequest {
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    ipv6BandwidthPackageId: ").append(toIndentedString(ipv6BandwidthPackageId)).append("\n");
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");

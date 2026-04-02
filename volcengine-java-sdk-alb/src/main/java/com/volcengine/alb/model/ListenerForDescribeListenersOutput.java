@@ -125,6 +125,9 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("XRealIpEnabled")
+  private String xrealIpEnabled = null;
+
   public ListenerForDescribeListenersOutput accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
     this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
     return this;
@@ -700,6 +703,24 @@ public class ListenerForDescribeListenersOutput {
     this.updateTime = updateTime;
   }
 
+  public ListenerForDescribeListenersOutput xrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+    return this;
+  }
+
+   /**
+   * Get xrealIpEnabled
+   * @return xrealIpEnabled
+  **/
+  @Schema(description = "")
+  public String getXrealIpEnabled() {
+    return xrealIpEnabled;
+  }
+
+  public void setXrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -739,12 +760,13 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.serverGroups, listenerForDescribeListenersOutput.serverGroups) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
         Objects.equals(this.tags, listenerForDescribeListenersOutput.tags) &&
-        Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
+        Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime) &&
+        Objects.equals(this.xrealIpEnabled, listenerForDescribeListenersOutput.xrealIpEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, serverGroupId, serverGroups, status, tags, updateTime);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, projectName, protocol, serverGroupId, serverGroups, status, tags, updateTime, xrealIpEnabled);
   }
 
 
@@ -783,6 +805,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    xrealIpEnabled: ").append(toIndentedString(xrealIpEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

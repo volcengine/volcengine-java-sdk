@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.ConvertForwardGroupConfigForCreateRulesInput;
 import com.volcengine.alb.model.ConvertRedirectConfigForCreateRulesInput;
 import com.volcengine.alb.model.ConvertRewriteConfigForCreateRulesInput;
+import com.volcengine.alb.model.CorsConfigForCreateRulesInput;
 import com.volcengine.alb.model.FixedResponseConfigForCreateRulesInput;
 import com.volcengine.alb.model.TrafficLimitConfigForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class RulesRuleActionForCreateRulesInput {
+  @SerializedName("CorsConfig")
+  private CorsConfigForCreateRulesInput corsConfig = null;
+
   @SerializedName("FixedResponseConfig")
   private FixedResponseConfigForCreateRulesInput fixedResponseConfig = null;
 
@@ -52,6 +56,25 @@ public class RulesRuleActionForCreateRulesInput {
 
   @SerializedName("Type")
   private String type = null;
+
+  public RulesRuleActionForCreateRulesInput corsConfig(CorsConfigForCreateRulesInput corsConfig) {
+    this.corsConfig = corsConfig;
+    return this;
+  }
+
+   /**
+   * Get corsConfig
+   * @return corsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public CorsConfigForCreateRulesInput getCorsConfig() {
+    return corsConfig;
+  }
+
+  public void setCorsConfig(CorsConfigForCreateRulesInput corsConfig) {
+    this.corsConfig = corsConfig;
+  }
 
   public RulesRuleActionForCreateRulesInput fixedResponseConfig(FixedResponseConfigForCreateRulesInput fixedResponseConfig) {
     this.fixedResponseConfig = fixedResponseConfig;
@@ -176,7 +199,8 @@ public class RulesRuleActionForCreateRulesInput {
       return false;
     }
     RulesRuleActionForCreateRulesInput rulesRuleActionForCreateRulesInput = (RulesRuleActionForCreateRulesInput) o;
-    return Objects.equals(this.fixedResponseConfig, rulesRuleActionForCreateRulesInput.fixedResponseConfig) &&
+    return Objects.equals(this.corsConfig, rulesRuleActionForCreateRulesInput.corsConfig) &&
+        Objects.equals(this.fixedResponseConfig, rulesRuleActionForCreateRulesInput.fixedResponseConfig) &&
         Objects.equals(this.forwardGroupConfig, rulesRuleActionForCreateRulesInput.forwardGroupConfig) &&
         Objects.equals(this.redirectConfig, rulesRuleActionForCreateRulesInput.redirectConfig) &&
         Objects.equals(this.rewriteConfig, rulesRuleActionForCreateRulesInput.rewriteConfig) &&
@@ -186,7 +210,7 @@ public class RulesRuleActionForCreateRulesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedResponseConfig, forwardGroupConfig, redirectConfig, rewriteConfig, trafficLimitConfig, type);
+    return Objects.hash(corsConfig, fixedResponseConfig, forwardGroupConfig, redirectConfig, rewriteConfig, trafficLimitConfig, type);
   }
 
 
@@ -195,6 +219,7 @@ public class RulesRuleActionForCreateRulesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RulesRuleActionForCreateRulesInput {\n");
     
+    sb.append("    corsConfig: ").append(toIndentedString(corsConfig)).append("\n");
     sb.append("    fixedResponseConfig: ").append(toIndentedString(fixedResponseConfig)).append("\n");
     sb.append("    forwardGroupConfig: ").append(toIndentedString(forwardGroupConfig)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
