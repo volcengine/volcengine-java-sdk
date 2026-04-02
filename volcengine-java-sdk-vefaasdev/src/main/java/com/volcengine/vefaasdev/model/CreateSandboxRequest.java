@@ -20,11 +20,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaasdev.model.EnvForCreateSandboxInput;
-import com.volcengine.vefaasdev.model.MetadataForCreateSandboxInput;
+import com.volcengine.vefaasdev.model.InstanceImageInfoForCreateSandboxInput;
+import com.volcengine.vefaasdev.model.InstanceNasMountConfigForCreateSandboxInput;
+import com.volcengine.vefaasdev.model.InstanceTosMountConfigForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,17 +38,83 @@ import javax.validation.Valid;
 
 
 public class CreateSandboxRequest {
+  @SerializedName("Async")
+  private Boolean async = null;
+
+  @SerializedName("CpuMilli")
+  private Integer cpuMilli = null;
+
   @SerializedName("Envs")
   private List<EnvForCreateSandboxInput> envs = null;
 
   @SerializedName("FunctionId")
   private String functionId = null;
 
+  @SerializedName("InstanceImageInfo")
+  private InstanceImageInfoForCreateSandboxInput instanceImageInfo = null;
+
+  @SerializedName("InstanceNasMountConfig")
+  private InstanceNasMountConfigForCreateSandboxInput instanceNasMountConfig = null;
+
+  @SerializedName("InstanceTosMountConfig")
+  private InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig = null;
+
+  @SerializedName("MaxConcurrency")
+  private Integer maxConcurrency = null;
+
+  @SerializedName("MemoryMB")
+  private Integer memoryMB = null;
+
   @SerializedName("Metadata")
-  private MetadataForCreateSandboxInput metadata = null;
+  private Map<String, String> metadata = null;
+
+  @SerializedName("RequestTimeout")
+  private Integer requestTimeout = null;
+
+  @SerializedName("SessionId")
+  private String sessionId = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
+
+  @SerializedName("TimeoutUnit")
+  private String timeoutUnit = null;
+
+  public CreateSandboxRequest async(Boolean async) {
+    this.async = async;
+    return this;
+  }
+
+   /**
+   * Get async
+   * @return async
+  **/
+  @Schema(description = "")
+  public Boolean isAsync() {
+    return async;
+  }
+
+  public void setAsync(Boolean async) {
+    this.async = async;
+  }
+
+  public CreateSandboxRequest cpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+    return this;
+  }
+
+   /**
+   * Get cpuMilli
+   * @return cpuMilli
+  **/
+  @Schema(description = "")
+  public Integer getCpuMilli() {
+    return cpuMilli;
+  }
+
+  public void setCpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+  }
 
   public CreateSandboxRequest envs(List<EnvForCreateSandboxInput> envs) {
     this.envs = envs;
@@ -92,8 +162,109 @@ public class CreateSandboxRequest {
     this.functionId = functionId;
   }
 
-  public CreateSandboxRequest metadata(MetadataForCreateSandboxInput metadata) {
+  public CreateSandboxRequest instanceImageInfo(InstanceImageInfoForCreateSandboxInput instanceImageInfo) {
+    this.instanceImageInfo = instanceImageInfo;
+    return this;
+  }
+
+   /**
+   * Get instanceImageInfo
+   * @return instanceImageInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceImageInfoForCreateSandboxInput getInstanceImageInfo() {
+    return instanceImageInfo;
+  }
+
+  public void setInstanceImageInfo(InstanceImageInfoForCreateSandboxInput instanceImageInfo) {
+    this.instanceImageInfo = instanceImageInfo;
+  }
+
+  public CreateSandboxRequest instanceNasMountConfig(InstanceNasMountConfigForCreateSandboxInput instanceNasMountConfig) {
+    this.instanceNasMountConfig = instanceNasMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceNasMountConfig
+   * @return instanceNasMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceNasMountConfigForCreateSandboxInput getInstanceNasMountConfig() {
+    return instanceNasMountConfig;
+  }
+
+  public void setInstanceNasMountConfig(InstanceNasMountConfigForCreateSandboxInput instanceNasMountConfig) {
+    this.instanceNasMountConfig = instanceNasMountConfig;
+  }
+
+  public CreateSandboxRequest instanceTosMountConfig(InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig) {
+    this.instanceTosMountConfig = instanceTosMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceTosMountConfig
+   * @return instanceTosMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceTosMountConfigForCreateSandboxInput getInstanceTosMountConfig() {
+    return instanceTosMountConfig;
+  }
+
+  public void setInstanceTosMountConfig(InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig) {
+    this.instanceTosMountConfig = instanceTosMountConfig;
+  }
+
+  public CreateSandboxRequest maxConcurrency(Integer maxConcurrency) {
+    this.maxConcurrency = maxConcurrency;
+    return this;
+  }
+
+   /**
+   * Get maxConcurrency
+   * @return maxConcurrency
+  **/
+  @Schema(description = "")
+  public Integer getMaxConcurrency() {
+    return maxConcurrency;
+  }
+
+  public void setMaxConcurrency(Integer maxConcurrency) {
+    this.maxConcurrency = maxConcurrency;
+  }
+
+  public CreateSandboxRequest memoryMB(Integer memoryMB) {
+    this.memoryMB = memoryMB;
+    return this;
+  }
+
+   /**
+   * Get memoryMB
+   * @return memoryMB
+  **/
+  @Schema(description = "")
+  public Integer getMemoryMB() {
+    return memoryMB;
+  }
+
+  public void setMemoryMB(Integer memoryMB) {
+    this.memoryMB = memoryMB;
+  }
+
+  public CreateSandboxRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  public CreateSandboxRequest putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -101,14 +272,49 @@ public class CreateSandboxRequest {
    * Get metadata
    * @return metadata
   **/
-  @Valid
   @Schema(description = "")
-  public MetadataForCreateSandboxInput getMetadata() {
+  public Map<String, String> getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(MetadataForCreateSandboxInput metadata) {
+  public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+  public CreateSandboxRequest requestTimeout(Integer requestTimeout) {
+    this.requestTimeout = requestTimeout;
+    return this;
+  }
+
+   /**
+   * Get requestTimeout
+   * @return requestTimeout
+  **/
+  @Schema(description = "")
+  public Integer getRequestTimeout() {
+    return requestTimeout;
+  }
+
+  public void setRequestTimeout(Integer requestTimeout) {
+    this.requestTimeout = requestTimeout;
+  }
+
+  public CreateSandboxRequest sessionId(String sessionId) {
+    this.sessionId = sessionId;
+    return this;
+  }
+
+   /**
+   * Get sessionId
+   * @return sessionId
+  **/
+  @Schema(description = "")
+  public String getSessionId() {
+    return sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
   }
 
   public CreateSandboxRequest timeout(Integer timeout) {
@@ -129,6 +335,24 @@ public class CreateSandboxRequest {
     this.timeout = timeout;
   }
 
+  public CreateSandboxRequest timeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+    return this;
+  }
+
+   /**
+   * Get timeoutUnit
+   * @return timeoutUnit
+  **/
+  @Schema(description = "")
+  public String getTimeoutUnit() {
+    return timeoutUnit;
+  }
+
+  public void setTimeoutUnit(String timeoutUnit) {
+    this.timeoutUnit = timeoutUnit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,15 +363,25 @@ public class CreateSandboxRequest {
       return false;
     }
     CreateSandboxRequest createSandboxRequest = (CreateSandboxRequest) o;
-    return Objects.equals(this.envs, createSandboxRequest.envs) &&
+    return Objects.equals(this.async, createSandboxRequest.async) &&
+        Objects.equals(this.cpuMilli, createSandboxRequest.cpuMilli) &&
+        Objects.equals(this.envs, createSandboxRequest.envs) &&
         Objects.equals(this.functionId, createSandboxRequest.functionId) &&
+        Objects.equals(this.instanceImageInfo, createSandboxRequest.instanceImageInfo) &&
+        Objects.equals(this.instanceNasMountConfig, createSandboxRequest.instanceNasMountConfig) &&
+        Objects.equals(this.instanceTosMountConfig, createSandboxRequest.instanceTosMountConfig) &&
+        Objects.equals(this.maxConcurrency, createSandboxRequest.maxConcurrency) &&
+        Objects.equals(this.memoryMB, createSandboxRequest.memoryMB) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
-        Objects.equals(this.timeout, createSandboxRequest.timeout);
+        Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
+        Objects.equals(this.sessionId, createSandboxRequest.sessionId) &&
+        Objects.equals(this.timeout, createSandboxRequest.timeout) &&
+        Objects.equals(this.timeoutUnit, createSandboxRequest.timeoutUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(envs, functionId, metadata, timeout);
+    return Objects.hash(async, cpuMilli, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, sessionId, timeout, timeoutUnit);
   }
 
 
@@ -156,10 +390,20 @@ public class CreateSandboxRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSandboxRequest {\n");
     
+    sb.append("    async: ").append(toIndentedString(async)).append("\n");
+    sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    instanceImageInfo: ").append(toIndentedString(instanceImageInfo)).append("\n");
+    sb.append("    instanceNasMountConfig: ").append(toIndentedString(instanceNasMountConfig)).append("\n");
+    sb.append("    instanceTosMountConfig: ").append(toIndentedString(instanceTosMountConfig)).append("\n");
+    sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
+    sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    timeoutUnit: ").append(toIndentedString(timeoutUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
