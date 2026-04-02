@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.CreatorForVideoProjectListOutput;
 import com.volcengine.i18nopenapi.model.ExtraForVideoProjectListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,6 +37,9 @@ public class DataForVideoProjectListOutput {
   @SerializedName("createdAt")
   private String createdAt = null;
 
+  @SerializedName("creator")
+  private CreatorForVideoProjectListOutput creator = null;
+
   @SerializedName("creatorId")
   private String creatorId = null;
 
@@ -46,13 +50,19 @@ public class DataForVideoProjectListOutput {
   private ExtraForVideoProjectListOutput extra = null;
 
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("sourceLang")
+  private String sourceLang = null;
+
   @SerializedName("sourceLocale")
   private String sourceLocale = null;
+
+  @SerializedName("targetLangs")
+  private List<String> targetLangs = null;
 
   @SerializedName("targetLocales")
   private List<String> targetLocales = null;
@@ -76,6 +86,25 @@ public class DataForVideoProjectListOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public DataForVideoProjectListOutput creator(CreatorForVideoProjectListOutput creator) {
+    this.creator = creator;
+    return this;
+  }
+
+   /**
+   * Get creator
+   * @return creator
+  **/
+  @Valid
+  @Schema(description = "")
+  public CreatorForVideoProjectListOutput getCreator() {
+    return creator;
+  }
+
+  public void setCreator(CreatorForVideoProjectListOutput creator) {
+    this.creator = creator;
   }
 
   public DataForVideoProjectListOutput creatorId(String creatorId) {
@@ -133,7 +162,7 @@ public class DataForVideoProjectListOutput {
     this.extra = extra;
   }
 
-  public DataForVideoProjectListOutput id(Integer id) {
+  public DataForVideoProjectListOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -143,11 +172,11 @@ public class DataForVideoProjectListOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -169,6 +198,24 @@ public class DataForVideoProjectListOutput {
     this.name = name;
   }
 
+  public DataForVideoProjectListOutput sourceLang(String sourceLang) {
+    this.sourceLang = sourceLang;
+    return this;
+  }
+
+   /**
+   * Get sourceLang
+   * @return sourceLang
+  **/
+  @Schema(description = "")
+  public String getSourceLang() {
+    return sourceLang;
+  }
+
+  public void setSourceLang(String sourceLang) {
+    this.sourceLang = sourceLang;
+  }
+
   public DataForVideoProjectListOutput sourceLocale(String sourceLocale) {
     this.sourceLocale = sourceLocale;
     return this;
@@ -185,6 +232,32 @@ public class DataForVideoProjectListOutput {
 
   public void setSourceLocale(String sourceLocale) {
     this.sourceLocale = sourceLocale;
+  }
+
+  public DataForVideoProjectListOutput targetLangs(List<String> targetLangs) {
+    this.targetLangs = targetLangs;
+    return this;
+  }
+
+  public DataForVideoProjectListOutput addTargetLangsItem(String targetLangsItem) {
+    if (this.targetLangs == null) {
+      this.targetLangs = new ArrayList<String>();
+    }
+    this.targetLangs.add(targetLangsItem);
+    return this;
+  }
+
+   /**
+   * Get targetLangs
+   * @return targetLangs
+  **/
+  @Schema(description = "")
+  public List<String> getTargetLangs() {
+    return targetLangs;
+  }
+
+  public void setTargetLangs(List<String> targetLangs) {
+    this.targetLangs = targetLangs;
   }
 
   public DataForVideoProjectListOutput targetLocales(List<String> targetLocales) {
@@ -242,19 +315,22 @@ public class DataForVideoProjectListOutput {
     }
     DataForVideoProjectListOutput dataForVideoProjectListOutput = (DataForVideoProjectListOutput) o;
     return Objects.equals(this.createdAt, dataForVideoProjectListOutput.createdAt) &&
+        Objects.equals(this.creator, dataForVideoProjectListOutput.creator) &&
         Objects.equals(this.creatorId, dataForVideoProjectListOutput.creatorId) &&
         Objects.equals(this.description, dataForVideoProjectListOutput.description) &&
         Objects.equals(this.extra, dataForVideoProjectListOutput.extra) &&
         Objects.equals(this.id, dataForVideoProjectListOutput.id) &&
         Objects.equals(this.name, dataForVideoProjectListOutput.name) &&
+        Objects.equals(this.sourceLang, dataForVideoProjectListOutput.sourceLang) &&
         Objects.equals(this.sourceLocale, dataForVideoProjectListOutput.sourceLocale) &&
+        Objects.equals(this.targetLangs, dataForVideoProjectListOutput.targetLangs) &&
         Objects.equals(this.targetLocales, dataForVideoProjectListOutput.targetLocales) &&
         Objects.equals(this.updatedAt, dataForVideoProjectListOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creatorId, description, extra, id, name, sourceLocale, targetLocales, updatedAt);
+    return Objects.hash(createdAt, creator, creatorId, description, extra, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
   }
 
 
@@ -264,12 +340,15 @@ public class DataForVideoProjectListOutput {
     sb.append("class DataForVideoProjectListOutput {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
     sb.append("    sourceLocale: ").append(toIndentedString(sourceLocale)).append("\n");
+    sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
     sb.append("    targetLocales: ").append(toIndentedString(targetLocales)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

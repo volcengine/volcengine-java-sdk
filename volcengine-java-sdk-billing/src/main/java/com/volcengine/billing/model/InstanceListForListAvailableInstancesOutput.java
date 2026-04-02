@@ -54,6 +54,9 @@ public class InstanceListForListAvailableInstancesOutput {
   @SerializedName("Product")
   private String product = null;
 
+  @SerializedName("ProductName")
+  private String productName = null;
+
   @SerializedName("RemainRenewTimes")
   private String remainRenewTimes = null;
 
@@ -216,6 +219,24 @@ public class InstanceListForListAvailableInstancesOutput {
     this.product = product;
   }
 
+  public InstanceListForListAvailableInstancesOutput productName(String productName) {
+    this.productName = productName;
+    return this;
+  }
+
+   /**
+   * Get productName
+   * @return productName
+  **/
+  @Schema(description = "")
+  public String getProductName() {
+    return productName;
+  }
+
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
+
   public InstanceListForListAvailableInstancesOutput remainRenewTimes(String remainRenewTimes) {
     this.remainRenewTimes = remainRenewTimes;
     return this;
@@ -342,6 +363,7 @@ public class InstanceListForListAvailableInstancesOutput {
         Objects.equals(this.instanceName, instanceListForListAvailableInstancesOutput.instanceName) &&
         Objects.equals(this.paymentMethod, instanceListForListAvailableInstancesOutput.paymentMethod) &&
         Objects.equals(this.product, instanceListForListAvailableInstancesOutput.product) &&
+        Objects.equals(this.productName, instanceListForListAvailableInstancesOutput.productName) &&
         Objects.equals(this.remainRenewTimes, instanceListForListAvailableInstancesOutput.remainRenewTimes) &&
         Objects.equals(this.renewType, instanceListForListAvailableInstancesOutput.renewType) &&
         Objects.equals(this.renewalDurationUnit, instanceListForListAvailableInstancesOutput.renewalDurationUnit) &&
@@ -352,7 +374,7 @@ public class InstanceListForListAvailableInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, beginTime, configurationCode, expiredTime, instanceID, instanceName, paymentMethod, product, remainRenewTimes, renewType, renewalDurationUnit, renewalTimes, status, subStatus);
+    return Objects.hash(accountID, beginTime, configurationCode, expiredTime, instanceID, instanceName, paymentMethod, product, productName, remainRenewTimes, renewType, renewalDurationUnit, renewalTimes, status, subStatus);
   }
 
 
@@ -369,6 +391,7 @@ public class InstanceListForListAvailableInstancesOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    renewalDurationUnit: ").append(toIndentedString(renewalDurationUnit)).append("\n");

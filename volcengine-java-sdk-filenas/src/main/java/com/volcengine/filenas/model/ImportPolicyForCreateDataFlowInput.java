@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.filenas.model.FilterInfoForCreateDataFlowInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +33,52 @@ import javax.validation.Valid;
 
 
 public class ImportPolicyForCreateDataFlowInput {
+  /**
+   * Gets or Sets eventTypes
+   */
+  @JsonAdapter(EventTypesEnum.Adapter.class)
+  public enum EventTypesEnum {
+    @SerializedName("CreateAndUpdate")
+    CREATEANDUPDATE("CreateAndUpdate"),
+    @SerializedName("Delete")
+    DELETE("Delete");
+
+    private String value;
+
+    EventTypesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EventTypesEnum fromValue(String input) {
+      for (EventTypesEnum b : EventTypesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EventTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EventTypesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EventTypesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EventTypesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EventTypes")
+  private List<EventTypesEnum> eventTypes = null;
+
   @SerializedName("FilterInfo")
   private FilterInfoForCreateDataFlowInput filterInfo = null;
 
@@ -134,6 +182,32 @@ public class ImportPolicyForCreateDataFlowInput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
+  public ImportPolicyForCreateDataFlowInput eventTypes(List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
+    return this;
+  }
+
+  public ImportPolicyForCreateDataFlowInput addEventTypesItem(EventTypesEnum eventTypesItem) {
+    if (this.eventTypes == null) {
+      this.eventTypes = new ArrayList<EventTypesEnum>();
+    }
+    this.eventTypes.add(eventTypesItem);
+    return this;
+  }
+
+   /**
+   * Get eventTypes
+   * @return eventTypes
+  **/
+  @Schema(description = "")
+  public List<EventTypesEnum> getEventTypes() {
+    return eventTypes;
+  }
+
+  public void setEventTypes(List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
+  }
+
   public ImportPolicyForCreateDataFlowInput filterInfo(FilterInfoForCreateDataFlowInput filterInfo) {
     this.filterInfo = filterInfo;
     return this;
@@ -199,14 +273,15 @@ public class ImportPolicyForCreateDataFlowInput {
       return false;
     }
     ImportPolicyForCreateDataFlowInput importPolicyForCreateDataFlowInput = (ImportPolicyForCreateDataFlowInput) o;
-    return Objects.equals(this.filterInfo, importPolicyForCreateDataFlowInput.filterInfo) &&
+    return Objects.equals(this.eventTypes, importPolicyForCreateDataFlowInput.eventTypes) &&
+        Objects.equals(this.filterInfo, importPolicyForCreateDataFlowInput.filterInfo) &&
         Objects.equals(this.status, importPolicyForCreateDataFlowInput.status) &&
         Objects.equals(this.type, importPolicyForCreateDataFlowInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filterInfo, status, type);
+    return Objects.hash(eventTypes, filterInfo, status, type);
   }
 
 
@@ -215,6 +290,7 @@ public class ImportPolicyForCreateDataFlowInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImportPolicyForCreateDataFlowInput {\n");
     
+    sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
     sb.append("    filterInfo: ").append(toIndentedString(filterInfo)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

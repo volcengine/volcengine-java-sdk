@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.filenas.model.DeletePolicyForDescribeDataFlowTasksOutput;
 import com.volcengine.filenas.model.EvictPolicyForDescribeDataFlowTasksOutput;
 import com.volcengine.filenas.model.ExportPolicyForDescribeDataFlowTasksOutput;
 import com.volcengine.filenas.model.ImportPolicyForDescribeDataFlowTasksOutput;
@@ -45,8 +46,14 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
   @SerializedName("DataFlowId")
   private String dataFlowId = null;
 
+  @SerializedName("DeletePolicy")
+  private DeletePolicyForDescribeDataFlowTasksOutput deletePolicy = null;
+
   @SerializedName("EndTime")
   private String endTime = null;
+
+  @SerializedName("EntryListFileBucket")
+  private String entryListFileBucket = null;
 
   @SerializedName("EntryListFileKey")
   private String entryListFileKey = null;
@@ -201,7 +208,9 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     @SerializedName("Export")
     EXPORT("Export"),
     @SerializedName("Evict")
-    EVICT("Evict");
+    EVICT("Evict"),
+    @SerializedName("Delete")
+    DELETE("Delete");
 
     private String value;
 
@@ -314,6 +323,25 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     this.dataFlowId = dataFlowId;
   }
 
+  public DataFlowTaskForDescribeDataFlowTasksOutput deletePolicy(DeletePolicyForDescribeDataFlowTasksOutput deletePolicy) {
+    this.deletePolicy = deletePolicy;
+    return this;
+  }
+
+   /**
+   * Get deletePolicy
+   * @return deletePolicy
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeletePolicyForDescribeDataFlowTasksOutput getDeletePolicy() {
+    return deletePolicy;
+  }
+
+  public void setDeletePolicy(DeletePolicyForDescribeDataFlowTasksOutput deletePolicy) {
+    this.deletePolicy = deletePolicy;
+  }
+
   public DataFlowTaskForDescribeDataFlowTasksOutput endTime(String endTime) {
     this.endTime = endTime;
     return this;
@@ -330,6 +358,24 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public DataFlowTaskForDescribeDataFlowTasksOutput entryListFileBucket(String entryListFileBucket) {
+    this.entryListFileBucket = entryListFileBucket;
+    return this;
+  }
+
+   /**
+   * Get entryListFileBucket
+   * @return entryListFileBucket
+  **/
+  @Schema(description = "")
+  public String getEntryListFileBucket() {
+    return entryListFileBucket;
+  }
+
+  public void setEntryListFileBucket(String entryListFileBucket) {
+    this.entryListFileBucket = entryListFileBucket;
   }
 
   public DataFlowTaskForDescribeDataFlowTasksOutput entryListFileKey(String entryListFileKey) {
@@ -655,7 +701,9 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
         Objects.equals(this.bucketPrefix, dataFlowTaskForDescribeDataFlowTasksOutput.bucketPrefix) &&
         Objects.equals(this.createTime, dataFlowTaskForDescribeDataFlowTasksOutput.createTime) &&
         Objects.equals(this.dataFlowId, dataFlowTaskForDescribeDataFlowTasksOutput.dataFlowId) &&
+        Objects.equals(this.deletePolicy, dataFlowTaskForDescribeDataFlowTasksOutput.deletePolicy) &&
         Objects.equals(this.endTime, dataFlowTaskForDescribeDataFlowTasksOutput.endTime) &&
+        Objects.equals(this.entryListFileBucket, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileBucket) &&
         Objects.equals(this.entryListFileKey, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileKey) &&
         Objects.equals(this.entryListFileName, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileName) &&
         Objects.equals(this.entryListFileUrl, dataFlowTaskForDescribeDataFlowTasksOutput.entryListFileUrl) &&
@@ -677,7 +725,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketPrefix, createTime, dataFlowId, endTime, entryListFileKey, entryListFileName, entryListFileUrl, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, id, importPolicy, queueExec, queueFailed, queueLen, sameNameFilePolicy, startTime, status, type, updateTime);
+    return Objects.hash(bucketName, bucketPrefix, createTime, dataFlowId, deletePolicy, endTime, entryListFileBucket, entryListFileKey, entryListFileName, entryListFileUrl, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, id, importPolicy, queueExec, queueFailed, queueLen, sameNameFilePolicy, startTime, status, type, updateTime);
   }
 
 
@@ -690,7 +738,9 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     sb.append("    bucketPrefix: ").append(toIndentedString(bucketPrefix)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dataFlowId: ").append(toIndentedString(dataFlowId)).append("\n");
+    sb.append("    deletePolicy: ").append(toIndentedString(deletePolicy)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    entryListFileBucket: ").append(toIndentedString(entryListFileBucket)).append("\n");
     sb.append("    entryListFileKey: ").append(toIndentedString(entryListFileKey)).append("\n");
     sb.append("    entryListFileName: ").append(toIndentedString(entryListFileName)).append("\n");
     sb.append("    entryListFileUrl: ").append(toIndentedString(entryListFileUrl)).append("\n");

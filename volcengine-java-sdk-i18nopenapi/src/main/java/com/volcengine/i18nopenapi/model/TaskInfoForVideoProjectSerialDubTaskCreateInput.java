@@ -36,7 +36,7 @@ import javax.validation.Valid;
 
 public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("aiRemoveType")
-  private String aiRemoveType = null;
+  private Integer aiRemoveType = null;
 
   @SerializedName("asrModel")
   private Integer asrModel = null;
@@ -122,7 +122,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("useMT")
   private Boolean useMT = null;
 
-  public TaskInfoForVideoProjectSerialDubTaskCreateInput aiRemoveType(String aiRemoveType) {
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput aiRemoveType(Integer aiRemoveType) {
     this.aiRemoveType = aiRemoveType;
     return this;
   }
@@ -132,11 +132,11 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
    * @return aiRemoveType
   **/
   @Schema(description = "")
-  public String getAiRemoveType() {
+  public Integer getAiRemoveType() {
     return aiRemoveType;
   }
 
-  public void setAiRemoveType(String aiRemoveType) {
+  public void setAiRemoveType(Integer aiRemoveType) {
     this.aiRemoveType = aiRemoveType;
   }
 

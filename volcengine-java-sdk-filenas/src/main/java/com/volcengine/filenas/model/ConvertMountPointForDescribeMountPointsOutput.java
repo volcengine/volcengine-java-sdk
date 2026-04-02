@@ -54,8 +54,6 @@ public class ConvertMountPointForDescribeMountPointsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Creating")
     CREATING("Creating"),
     @SerializedName("Running")

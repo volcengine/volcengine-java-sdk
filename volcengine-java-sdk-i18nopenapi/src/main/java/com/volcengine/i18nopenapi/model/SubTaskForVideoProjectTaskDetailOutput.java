@@ -37,19 +37,19 @@ public class SubTaskForVideoProjectTaskDetailOutput {
   private String createTime = null;
 
   @SerializedName("currentStage")
-  private String currentStage = null;
+  private Integer currentStage = null;
 
   @SerializedName("defaultStyle")
   private String defaultStyle = null;
 
   @SerializedName("episodeNum")
-  private Integer episodeNum = null;
+  private String episodeNum = null;
 
   @SerializedName("id")
   private String id = null;
 
   @SerializedName("opStatus")
-  private String opStatus = null;
+  private Integer opStatus = null;
 
   @SerializedName("sourceLanguage")
   private String sourceLanguage = null;
@@ -58,7 +58,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
   private SourceSubtitleFileInfoForVideoProjectTaskDetailOutput sourceSubtitleFileInfo = null;
 
   @SerializedName("status")
-  private String status = null;
+  private Integer status = null;
 
   @SerializedName("subtaskType")
   private Integer subtaskType = null;
@@ -85,7 +85,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
   private String updateTime = null;
 
   @SerializedName("useDubTask")
-  private String useDubTask = null;
+  private Boolean useDubTask = null;
 
   @SerializedName("useMt")
   private Boolean useMt = null;
@@ -120,7 +120,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.createTime = createTime;
   }
 
-  public SubTaskForVideoProjectTaskDetailOutput currentStage(String currentStage) {
+  public SubTaskForVideoProjectTaskDetailOutput currentStage(Integer currentStage) {
     this.currentStage = currentStage;
     return this;
   }
@@ -130,11 +130,11 @@ public class SubTaskForVideoProjectTaskDetailOutput {
    * @return currentStage
   **/
   @Schema(description = "")
-  public String getCurrentStage() {
+  public Integer getCurrentStage() {
     return currentStage;
   }
 
-  public void setCurrentStage(String currentStage) {
+  public void setCurrentStage(Integer currentStage) {
     this.currentStage = currentStage;
   }
 
@@ -156,7 +156,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.defaultStyle = defaultStyle;
   }
 
-  public SubTaskForVideoProjectTaskDetailOutput episodeNum(Integer episodeNum) {
+  public SubTaskForVideoProjectTaskDetailOutput episodeNum(String episodeNum) {
     this.episodeNum = episodeNum;
     return this;
   }
@@ -166,11 +166,11 @@ public class SubTaskForVideoProjectTaskDetailOutput {
    * @return episodeNum
   **/
   @Schema(description = "")
-  public Integer getEpisodeNum() {
+  public String getEpisodeNum() {
     return episodeNum;
   }
 
-  public void setEpisodeNum(Integer episodeNum) {
+  public void setEpisodeNum(String episodeNum) {
     this.episodeNum = episodeNum;
   }
 
@@ -192,7 +192,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.id = id;
   }
 
-  public SubTaskForVideoProjectTaskDetailOutput opStatus(String opStatus) {
+  public SubTaskForVideoProjectTaskDetailOutput opStatus(Integer opStatus) {
     this.opStatus = opStatus;
     return this;
   }
@@ -202,11 +202,11 @@ public class SubTaskForVideoProjectTaskDetailOutput {
    * @return opStatus
   **/
   @Schema(description = "")
-  public String getOpStatus() {
+  public Integer getOpStatus() {
     return opStatus;
   }
 
-  public void setOpStatus(String opStatus) {
+  public void setOpStatus(Integer opStatus) {
     this.opStatus = opStatus;
   }
 
@@ -247,7 +247,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.sourceSubtitleFileInfo = sourceSubtitleFileInfo;
   }
 
-  public SubTaskForVideoProjectTaskDetailOutput status(String status) {
+  public SubTaskForVideoProjectTaskDetailOutput status(Integer status) {
     this.status = status;
     return this;
   }
@@ -257,11 +257,11 @@ public class SubTaskForVideoProjectTaskDetailOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 
@@ -411,7 +411,7 @@ public class SubTaskForVideoProjectTaskDetailOutput {
     this.updateTime = updateTime;
   }
 
-  public SubTaskForVideoProjectTaskDetailOutput useDubTask(String useDubTask) {
+  public SubTaskForVideoProjectTaskDetailOutput useDubTask(Boolean useDubTask) {
     this.useDubTask = useDubTask;
     return this;
   }
@@ -421,11 +421,11 @@ public class SubTaskForVideoProjectTaskDetailOutput {
    * @return useDubTask
   **/
   @Schema(description = "")
-  public String getUseDubTask() {
+  public Boolean isUseDubTask() {
     return useDubTask;
   }
 
-  public void setUseDubTask(String useDubTask) {
+  public void setUseDubTask(Boolean useDubTask) {
     this.useDubTask = useDubTask;
   }
 

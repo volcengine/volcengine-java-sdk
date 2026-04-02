@@ -19,11 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaasdev.model.RevisionCountForListSandboxesOutput;
 import com.volcengine.vefaasdev.model.SandboxForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,11 +36,36 @@ import javax.validation.Valid;
 
 
 public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RevisionCount")
+  private RevisionCountForListSandboxesOutput revisionCount = null;
+
   @SerializedName("Sandboxes")
   private List<SandboxForListSandboxesOutput> sandboxes = null;
 
+  @SerializedName("StatusCount")
+  private Map<String, Integer> statusCount = null;
+
   @SerializedName("Total")
   private Integer total = null;
+
+  public ListSandboxesResponse revisionCount(RevisionCountForListSandboxesOutput revisionCount) {
+    this.revisionCount = revisionCount;
+    return this;
+  }
+
+   /**
+   * Get revisionCount
+   * @return revisionCount
+  **/
+  @Valid
+  @Schema(description = "")
+  public RevisionCountForListSandboxesOutput getRevisionCount() {
+    return revisionCount;
+  }
+
+  public void setRevisionCount(RevisionCountForListSandboxesOutput revisionCount) {
+    this.revisionCount = revisionCount;
+  }
 
   public ListSandboxesResponse sandboxes(List<SandboxForListSandboxesOutput> sandboxes) {
     this.sandboxes = sandboxes;
@@ -64,6 +92,32 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
 
   public void setSandboxes(List<SandboxForListSandboxesOutput> sandboxes) {
     this.sandboxes = sandboxes;
+  }
+
+  public ListSandboxesResponse statusCount(Map<String, Integer> statusCount) {
+    this.statusCount = statusCount;
+    return this;
+  }
+
+  public ListSandboxesResponse putStatusCountItem(String key, Integer statusCountItem) {
+    if (this.statusCount == null) {
+      this.statusCount = new HashMap<String, Integer>();
+    }
+    this.statusCount.put(key, statusCountItem);
+    return this;
+  }
+
+   /**
+   * Get statusCount
+   * @return statusCount
+  **/
+  @Schema(description = "")
+  public Map<String, Integer> getStatusCount() {
+    return statusCount;
+  }
+
+  public void setStatusCount(Map<String, Integer> statusCount) {
+    this.statusCount = statusCount;
   }
 
   public ListSandboxesResponse total(Integer total) {
@@ -94,13 +148,15 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     ListSandboxesResponse listSandboxesResponse = (ListSandboxesResponse) o;
-    return Objects.equals(this.sandboxes, listSandboxesResponse.sandboxes) &&
+    return Objects.equals(this.revisionCount, listSandboxesResponse.revisionCount) &&
+        Objects.equals(this.sandboxes, listSandboxesResponse.sandboxes) &&
+        Objects.equals(this.statusCount, listSandboxesResponse.statusCount) &&
         Objects.equals(this.total, listSandboxesResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sandboxes, total);
+    return Objects.hash(revisionCount, sandboxes, statusCount, total);
   }
 
 
@@ -109,7 +165,9 @@ public class ListSandboxesResponse extends com.volcengine.model.AbstractResponse
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSandboxesResponse {\n");
     
+    sb.append("    revisionCount: ").append(toIndentedString(revisionCount)).append("\n");
     sb.append("    sandboxes: ").append(toIndentedString(sandboxes)).append("\n");
+    sb.append("    statusCount: ").append(toIndentedString(statusCount)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

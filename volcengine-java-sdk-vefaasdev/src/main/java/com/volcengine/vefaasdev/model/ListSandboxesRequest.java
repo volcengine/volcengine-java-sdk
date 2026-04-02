@@ -19,9 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaasdev.model.MetadataForListSandboxesInput;
+import com.volcengine.vefaasdev.model.FilterForListSandboxesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,11 +35,17 @@ import javax.validation.Valid;
 
 
 public class ListSandboxesRequest {
+  @SerializedName("Filters")
+  private List<FilterForListSandboxesInput> filters = null;
+
   @SerializedName("FunctionId")
   private String functionId = null;
 
+  @SerializedName("ImageUrl")
+  private String imageUrl = null;
+
   @SerializedName("Metadata")
-  private MetadataForListSandboxesInput metadata = null;
+  private Map<String, String> metadata = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -45,6 +55,36 @@ public class ListSandboxesRequest {
 
   @SerializedName("SandboxId")
   private String sandboxId = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  public ListSandboxesRequest filters(List<FilterForListSandboxesInput> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public ListSandboxesRequest addFiltersItem(FilterForListSandboxesInput filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<FilterForListSandboxesInput>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterForListSandboxesInput> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<FilterForListSandboxesInput> filters) {
+    this.filters = filters;
+  }
 
   public ListSandboxesRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -65,8 +105,34 @@ public class ListSandboxesRequest {
     this.functionId = functionId;
   }
 
-  public ListSandboxesRequest metadata(MetadataForListSandboxesInput metadata) {
+  public ListSandboxesRequest imageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+    return this;
+  }
+
+   /**
+   * Get imageUrl
+   * @return imageUrl
+  **/
+  @Schema(description = "")
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+  public ListSandboxesRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  public ListSandboxesRequest putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -74,13 +140,12 @@ public class ListSandboxesRequest {
    * Get metadata
    * @return metadata
   **/
-  @Valid
   @Schema(description = "")
-  public MetadataForListSandboxesInput getMetadata() {
+  public Map<String, String> getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(MetadataForListSandboxesInput metadata) {
+  public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
@@ -138,6 +203,24 @@ public class ListSandboxesRequest {
     this.sandboxId = sandboxId;
   }
 
+  public ListSandboxesRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,16 +231,19 @@ public class ListSandboxesRequest {
       return false;
     }
     ListSandboxesRequest listSandboxesRequest = (ListSandboxesRequest) o;
-    return Objects.equals(this.functionId, listSandboxesRequest.functionId) &&
+    return Objects.equals(this.filters, listSandboxesRequest.filters) &&
+        Objects.equals(this.functionId, listSandboxesRequest.functionId) &&
+        Objects.equals(this.imageUrl, listSandboxesRequest.imageUrl) &&
         Objects.equals(this.metadata, listSandboxesRequest.metadata) &&
         Objects.equals(this.pageNumber, listSandboxesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listSandboxesRequest.pageSize) &&
-        Objects.equals(this.sandboxId, listSandboxesRequest.sandboxId);
+        Objects.equals(this.sandboxId, listSandboxesRequest.sandboxId) &&
+        Objects.equals(this.status, listSandboxesRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, metadata, pageNumber, pageSize, sandboxId);
+    return Objects.hash(filters, functionId, imageUrl, metadata, pageNumber, pageSize, sandboxId, status);
   }
 
 
@@ -166,11 +252,14 @@ public class ListSandboxesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSandboxesRequest {\n");
     
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

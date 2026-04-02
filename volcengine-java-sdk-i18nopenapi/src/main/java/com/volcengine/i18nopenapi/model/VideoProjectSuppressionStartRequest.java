@@ -51,7 +51,7 @@ public class VideoProjectSuppressionStartRequest {
   private String manualStyle = null;
 
   @SerializedName("projectId")
-  private Long projectId = null;
+  private String projectId = null;
 
   @SerializedName("startTime")
   private Integer startTime = null;
@@ -171,7 +171,7 @@ public class VideoProjectSuppressionStartRequest {
     this.manualStyle = manualStyle;
   }
 
-  public VideoProjectSuppressionStartRequest projectId(Long projectId) {
+  public VideoProjectSuppressionStartRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -182,11 +182,11 @@ public class VideoProjectSuppressionStartRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Long getProjectId() {
+  public String getProjectId() {
     return projectId;
   }
 
-  public void setProjectId(Long projectId) {
+  public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
 
