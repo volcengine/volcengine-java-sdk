@@ -46,6 +46,9 @@ public class DataFlowForDescribeDataFlowsOutput {
   @SerializedName("EnableBucketVersioning")
   private Boolean enableBucketVersioning = null;
 
+  @SerializedName("ErrorMessage")
+  private String errorMessage = null;
+
   @SerializedName("EvictPolicy")
   private EvictPolicyForDescribeDataFlowsOutput evictPolicy = null;
 
@@ -306,6 +309,24 @@ public class DataFlowForDescribeDataFlowsOutput {
 
   public void setEnableBucketVersioning(Boolean enableBucketVersioning) {
     this.enableBucketVersioning = enableBucketVersioning;
+  }
+
+  public DataFlowForDescribeDataFlowsOutput errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
   public DataFlowForDescribeDataFlowsOutput evictPolicy(EvictPolicyForDescribeDataFlowsOutput evictPolicy) {
@@ -632,6 +653,7 @@ public class DataFlowForDescribeDataFlowsOutput {
         Objects.equals(this.bucketPrefix, dataFlowForDescribeDataFlowsOutput.bucketPrefix) &&
         Objects.equals(this.createTime, dataFlowForDescribeDataFlowsOutput.createTime) &&
         Objects.equals(this.enableBucketVersioning, dataFlowForDescribeDataFlowsOutput.enableBucketVersioning) &&
+        Objects.equals(this.errorMessage, dataFlowForDescribeDataFlowsOutput.errorMessage) &&
         Objects.equals(this.evictPolicy, dataFlowForDescribeDataFlowsOutput.evictPolicy) &&
         Objects.equals(this.exportPolicy, dataFlowForDescribeDataFlowsOutput.exportPolicy) &&
         Objects.equals(this.fileSystemId, dataFlowForDescribeDataFlowsOutput.fileSystemId) &&
@@ -653,7 +675,7 @@ public class DataFlowForDescribeDataFlowsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketPrefix, createTime, enableBucketVersioning, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, id, importPolicy, name, queueExec, queueFailed, queueLen, releasing, runningTaskNumber, sameNameFilePolicy, status, syncStatus, tlsInfo, updateTime);
+    return Objects.hash(bucketName, bucketPrefix, createTime, enableBucketVersioning, errorMessage, evictPolicy, exportPolicy, fileSystemId, fileSystemPath, id, importPolicy, name, queueExec, queueFailed, queueLen, releasing, runningTaskNumber, sameNameFilePolicy, status, syncStatus, tlsInfo, updateTime);
   }
 
 
@@ -666,6 +688,7 @@ public class DataFlowForDescribeDataFlowsOutput {
     sb.append("    bucketPrefix: ").append(toIndentedString(bucketPrefix)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    enableBucketVersioning: ").append(toIndentedString(enableBucketVersioning)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    evictPolicy: ").append(toIndentedString(evictPolicy)).append("\n");
     sb.append("    exportPolicy: ").append(toIndentedString(exportPolicy)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
