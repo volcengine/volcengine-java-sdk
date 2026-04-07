@@ -65,6 +65,7 @@ You can refer to: [Environment Variable Setup](#environment-variable-setup)
 | `StaticCredentialProvider` | Static AK/SK(/Token) | No | Long-lived server credentials |
 | `StsAssumeRoleProvider` | STS AssumeRole | Yes | IAM role-based temporary credentials |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
 | `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI profile and login state |
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
@@ -240,6 +241,40 @@ public class SampleCode {
     OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
     CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
 
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## SAML (AssumeRoleWithSAML)
+
+`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
+
+> ⚠️ Notes
+>
+> 1. Least privilege.
+> 2. Reasonable TTL; recommended ≤ 1 hour.
+> 3. `samlAssertion` is the base64-encoded SAML Response returned by your IdP.
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.SamlCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    SamlCredentialProvider samlProvider = new SamlCredentialProvider(
+            "YourRoleName",
+            "1234567890",                          // accountId
+            "MyIdp",                               // SAML provider name
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
+    );
+    samlProvider.setDurationSeconds(3600);
+    samlProvider.setExpireBufferSeconds(60);
+
+    CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
     ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");

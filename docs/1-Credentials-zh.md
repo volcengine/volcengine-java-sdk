@@ -67,6 +67,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 | `StaticCredentialProvider` | 静态 AK/SK(/Token) | 否 | 服务端长期凭证 |
 | `StsAssumeRoleProvider` | STS AssumeRole | 是 | 角色扮演临时凭证 |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token) | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 读取 `~/.volcengine/config.json` | 取决于 mode | 复用 CLI 配置和登录态 |
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证 | 是 | ECS 实例角色 |
@@ -246,6 +247,40 @@ public class SampleCode {
     OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
     CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
 
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
+## SAML（AssumeRoleWithSAML）
+
+`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
+
+> ⚠️ 注意事项
+>
+> 1. 最小权限原则。
+> 2. 合理的有效期；建议不超过 1 小时。
+> 3. `samlAssertion` 为 IdP 返回的 base64 编码的 SAML Response。
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.SamlCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    SamlCredentialProvider samlProvider = new SamlCredentialProvider(
+            "YourRoleName",
+            "1234567890",                          // accountId
+            "MyIdp",                               // SAML provider name
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
+    );
+    samlProvider.setDurationSeconds(3600);
+    samlProvider.setExpireBufferSeconds(60);
+
+    CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
     ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
