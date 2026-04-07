@@ -36,6 +36,9 @@ public class ListUsersRequest {
   @SerializedName("Offset")
   private Integer offset = null;
 
+  @SerializedName("PiiRedaction")
+  private Integer piiRedaction = null;
+
   @SerializedName("Query")
   private String query = null;
 
@@ -75,6 +78,24 @@ public class ListUsersRequest {
     this.offset = offset;
   }
 
+  public ListUsersRequest piiRedaction(Integer piiRedaction) {
+    this.piiRedaction = piiRedaction;
+    return this;
+  }
+
+   /**
+   * Get piiRedaction
+   * @return piiRedaction
+  **/
+  @Schema(description = "")
+  public Integer getPiiRedaction() {
+    return piiRedaction;
+  }
+
+  public void setPiiRedaction(Integer piiRedaction) {
+    this.piiRedaction = piiRedaction;
+  }
+
   public ListUsersRequest query(String query) {
     this.query = query;
     return this;
@@ -105,12 +126,13 @@ public class ListUsersRequest {
     ListUsersRequest listUsersRequest = (ListUsersRequest) o;
     return Objects.equals(this.limit, listUsersRequest.limit) &&
         Objects.equals(this.offset, listUsersRequest.offset) &&
+        Objects.equals(this.piiRedaction, listUsersRequest.piiRedaction) &&
         Objects.equals(this.query, listUsersRequest.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, query);
+    return Objects.hash(limit, offset, piiRedaction, query);
   }
 
 
@@ -121,6 +143,7 @@ public class ListUsersRequest {
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    piiRedaction: ").append(toIndentedString(piiRedaction)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
     return sb.toString();
