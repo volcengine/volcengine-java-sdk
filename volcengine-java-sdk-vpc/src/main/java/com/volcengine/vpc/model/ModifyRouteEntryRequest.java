@@ -33,6 +33,12 @@ public class ModifyRouteEntryRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("NextHopId")
+  private String nextHopId = null;
+
+  @SerializedName("NextHopType")
+  private String nextHopType = null;
+
   @SerializedName("RouteEntryId")
   private String routeEntryId = null;
 
@@ -55,6 +61,42 @@ public class ModifyRouteEntryRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyRouteEntryRequest nextHopId(String nextHopId) {
+    this.nextHopId = nextHopId;
+    return this;
+  }
+
+   /**
+   * Get nextHopId
+   * @return nextHopId
+  **/
+  @Schema(description = "")
+  public String getNextHopId() {
+    return nextHopId;
+  }
+
+  public void setNextHopId(String nextHopId) {
+    this.nextHopId = nextHopId;
+  }
+
+  public ModifyRouteEntryRequest nextHopType(String nextHopType) {
+    this.nextHopType = nextHopType;
+    return this;
+  }
+
+   /**
+   * Get nextHopType
+   * @return nextHopType
+  **/
+  @Schema(description = "")
+  public String getNextHopType() {
+    return nextHopType;
+  }
+
+  public void setNextHopType(String nextHopType) {
+    this.nextHopType = nextHopType;
   }
 
   public ModifyRouteEntryRequest routeEntryId(String routeEntryId) {
@@ -105,13 +147,15 @@ public class ModifyRouteEntryRequest {
     }
     ModifyRouteEntryRequest modifyRouteEntryRequest = (ModifyRouteEntryRequest) o;
     return Objects.equals(this.description, modifyRouteEntryRequest.description) &&
+        Objects.equals(this.nextHopId, modifyRouteEntryRequest.nextHopId) &&
+        Objects.equals(this.nextHopType, modifyRouteEntryRequest.nextHopType) &&
         Objects.equals(this.routeEntryId, modifyRouteEntryRequest.routeEntryId) &&
         Objects.equals(this.routeEntryName, modifyRouteEntryRequest.routeEntryName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, routeEntryId, routeEntryName);
+    return Objects.hash(description, nextHopId, nextHopType, routeEntryId, routeEntryName);
   }
 
 
@@ -121,6 +165,8 @@ public class ModifyRouteEntryRequest {
     sb.append("class ModifyRouteEntryRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
+    sb.append("    nextHopType: ").append(toIndentedString(nextHopType)).append("\n");
     sb.append("    routeEntryId: ").append(toIndentedString(routeEntryId)).append("\n");
     sb.append("    routeEntryName: ").append(toIndentedString(routeEntryName)).append("\n");
     sb.append("}");

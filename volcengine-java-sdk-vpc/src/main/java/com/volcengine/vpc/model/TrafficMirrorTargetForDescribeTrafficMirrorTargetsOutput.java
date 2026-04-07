@@ -60,6 +60,9 @@ public class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
   @SerializedName("TrafficMirrorTargetName")
   private String trafficMirrorTargetName = null;
 
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
+
   public TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
@@ -231,6 +234,24 @@ public class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
     this.trafficMirrorTargetName = trafficMirrorTargetName;
   }
 
+  public TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +270,13 @@ public class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
         Objects.equals(this.status, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.status) &&
         Objects.equals(this.tags, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.tags) &&
         Objects.equals(this.trafficMirrorTargetId, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.trafficMirrorTargetId) &&
-        Objects.equals(this.trafficMirrorTargetName, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.trafficMirrorTargetName);
+        Objects.equals(this.trafficMirrorTargetName, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.trafficMirrorTargetName) &&
+        Objects.equals(this.updatedAt, trafficMirrorTargetForDescribeTrafficMirrorTargetsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, instanceId, instanceType, projectName, status, tags, trafficMirrorTargetId, trafficMirrorTargetName);
+    return Objects.hash(createdAt, description, instanceId, instanceType, projectName, status, tags, trafficMirrorTargetId, trafficMirrorTargetName, updatedAt);
   }
 
 
@@ -272,6 +294,7 @@ public class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trafficMirrorTargetId: ").append(toIndentedString(trafficMirrorTargetId)).append("\n");
     sb.append("    trafficMirrorTargetName: ").append(toIndentedString(trafficMirrorTargetName)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

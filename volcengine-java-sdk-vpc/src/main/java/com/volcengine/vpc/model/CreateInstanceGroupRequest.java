@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateInstanceGroupRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -38,6 +41,24 @@ public class CreateInstanceGroupRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateInstanceGroupRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateInstanceGroupRequest description(String description) {
     this.description = description;
@@ -104,14 +125,15 @@ public class CreateInstanceGroupRequest {
       return false;
     }
     CreateInstanceGroupRequest createInstanceGroupRequest = (CreateInstanceGroupRequest) o;
-    return Objects.equals(this.description, createInstanceGroupRequest.description) &&
+    return Objects.equals(this.clientToken, createInstanceGroupRequest.clientToken) &&
+        Objects.equals(this.description, createInstanceGroupRequest.description) &&
         Objects.equals(this.name, createInstanceGroupRequest.name) &&
         Objects.equals(this.vpcId, createInstanceGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, vpcId);
+    return Objects.hash(clientToken, description, name, vpcId);
   }
 
 
@@ -120,6 +142,7 @@ public class CreateInstanceGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateInstanceGroupRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

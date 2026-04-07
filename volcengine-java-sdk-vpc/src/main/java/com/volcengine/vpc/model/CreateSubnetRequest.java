@@ -54,6 +54,9 @@ public class CreateSubnetRequest {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("VpcIpv6CidrBlock")
+  private String vpcIpv6CidrBlock = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -196,6 +199,24 @@ public class CreateSubnetRequest {
     this.vpcId = vpcId;
   }
 
+  public CreateSubnetRequest vpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+    this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get vpcIpv6CidrBlock
+   * @return vpcIpv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getVpcIpv6CidrBlock() {
+    return vpcIpv6CidrBlock;
+  }
+
+  public void setVpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+    this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+  }
+
   public CreateSubnetRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -232,12 +253,13 @@ public class CreateSubnetRequest {
         Objects.equals(this.subnetName, createSubnetRequest.subnetName) &&
         Objects.equals(this.tags, createSubnetRequest.tags) &&
         Objects.equals(this.vpcId, createSubnetRequest.vpcId) &&
+        Objects.equals(this.vpcIpv6CidrBlock, createSubnetRequest.vpcIpv6CidrBlock) &&
         Objects.equals(this.zoneId, createSubnetRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, clientToken, description, ipv6CidrBlock, subnetName, tags, vpcId, zoneId);
+    return Objects.hash(cidrBlock, clientToken, description, ipv6CidrBlock, subnetName, tags, vpcId, vpcIpv6CidrBlock, zoneId);
   }
 
 
@@ -253,6 +275,7 @@ public class CreateSubnetRequest {
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    vpcIpv6CidrBlock: ").append(toIndentedString(vpcIpv6CidrBlock)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

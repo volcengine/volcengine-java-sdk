@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
+  @SerializedName("CreatedAt")
+  private String createdAt = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -44,9 +47,6 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 
   @SerializedName("Priority")
   private Integer priority = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
@@ -68,6 +68,27 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 
   @SerializedName("TrafficMirrorFilterRuleId")
   private String trafficMirrorFilterRuleId = null;
+
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
+
+  public EgressFilterRuleForDescribeTrafficMirrorFiltersOutput createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @Schema(description = "")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
 
   public EgressFilterRuleForDescribeTrafficMirrorFiltersOutput description(String description) {
     this.description = description;
@@ -157,24 +178,6 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
 
   public void setPriority(Integer priority) {
     this.priority = priority;
-  }
-
-  public EgressFilterRuleForDescribeTrafficMirrorFiltersOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public EgressFilterRuleForDescribeTrafficMirrorFiltersOutput protocol(String protocol) {
@@ -303,6 +306,24 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
     this.trafficMirrorFilterRuleId = trafficMirrorFilterRuleId;
   }
 
+  public EgressFilterRuleForDescribeTrafficMirrorFiltersOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -313,24 +334,25 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
       return false;
     }
     EgressFilterRuleForDescribeTrafficMirrorFiltersOutput egressFilterRuleForDescribeTrafficMirrorFiltersOutput = (EgressFilterRuleForDescribeTrafficMirrorFiltersOutput) o;
-    return Objects.equals(this.description, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.description) &&
+    return Objects.equals(this.createdAt, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.createdAt) &&
+        Objects.equals(this.description, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.description) &&
         Objects.equals(this.destinationCidrBlock, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.destinationCidrBlock) &&
         Objects.equals(this.destinationPortRange, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.destinationPortRange) &&
         Objects.equals(this.policy, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.policy) &&
         Objects.equals(this.priority, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.priority) &&
-        Objects.equals(this.projectName, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.projectName) &&
         Objects.equals(this.protocol, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.protocol) &&
         Objects.equals(this.sourceCidrBlock, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.sourceCidrBlock) &&
         Objects.equals(this.sourcePortRange, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.sourcePortRange) &&
         Objects.equals(this.status, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.status) &&
         Objects.equals(this.trafficDirection, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.trafficDirection) &&
         Objects.equals(this.trafficMirrorFilterId, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterId) &&
-        Objects.equals(this.trafficMirrorFilterRuleId, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterRuleId);
+        Objects.equals(this.trafficMirrorFilterRuleId, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterRuleId) &&
+        Objects.equals(this.updatedAt, egressFilterRuleForDescribeTrafficMirrorFiltersOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrBlock, destinationPortRange, policy, priority, projectName, protocol, sourceCidrBlock, sourcePortRange, status, trafficDirection, trafficMirrorFilterId, trafficMirrorFilterRuleId);
+    return Objects.hash(createdAt, description, destinationCidrBlock, destinationPortRange, policy, priority, protocol, sourceCidrBlock, sourcePortRange, status, trafficDirection, trafficMirrorFilterId, trafficMirrorFilterRuleId, updatedAt);
   }
 
 
@@ -339,12 +361,12 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {\n");
     
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    destinationPortRange: ").append(toIndentedString(destinationPortRange)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    sourceCidrBlock: ").append(toIndentedString(sourceCidrBlock)).append("\n");
     sb.append("    sourcePortRange: ").append(toIndentedString(sourcePortRange)).append("\n");
@@ -352,6 +374,7 @@ public class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput {
     sb.append("    trafficDirection: ").append(toIndentedString(trafficDirection)).append("\n");
     sb.append("    trafficMirrorFilterId: ").append(toIndentedString(trafficMirrorFilterId)).append("\n");
     sb.append("    trafficMirrorFilterRuleId: ").append(toIndentedString(trafficMirrorFilterRuleId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

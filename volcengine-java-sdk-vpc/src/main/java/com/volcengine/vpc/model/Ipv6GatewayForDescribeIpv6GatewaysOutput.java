@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeIpv6GatewaysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,6 +53,9 @@ public class Ipv6GatewayForDescribeIpv6GatewaysOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeIpv6GatewaysOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -183,6 +189,33 @@ public class Ipv6GatewayForDescribeIpv6GatewaysOutput {
     this.status = status;
   }
 
+  public Ipv6GatewayForDescribeIpv6GatewaysOutput tags(List<TagForDescribeIpv6GatewaysOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Ipv6GatewayForDescribeIpv6GatewaysOutput addTagsItem(TagForDescribeIpv6GatewaysOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeIpv6GatewaysOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeIpv6GatewaysOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeIpv6GatewaysOutput> tags) {
+    this.tags = tags;
+  }
+
   public Ipv6GatewayForDescribeIpv6GatewaysOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -236,13 +269,14 @@ public class Ipv6GatewayForDescribeIpv6GatewaysOutput {
         Objects.equals(this.projectName, ipv6GatewayForDescribeIpv6GatewaysOutput.projectName) &&
         Objects.equals(this.routeTableId, ipv6GatewayForDescribeIpv6GatewaysOutput.routeTableId) &&
         Objects.equals(this.status, ipv6GatewayForDescribeIpv6GatewaysOutput.status) &&
+        Objects.equals(this.tags, ipv6GatewayForDescribeIpv6GatewaysOutput.tags) &&
         Objects.equals(this.updateTime, ipv6GatewayForDescribeIpv6GatewaysOutput.updateTime) &&
         Objects.equals(this.vpcId, ipv6GatewayForDescribeIpv6GatewaysOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, ipv6GatewayId, name, projectName, routeTableId, status, updateTime, vpcId);
+    return Objects.hash(creationTime, description, ipv6GatewayId, name, projectName, routeTableId, status, tags, updateTime, vpcId);
   }
 
 
@@ -258,6 +292,7 @@ public class Ipv6GatewayForDescribeIpv6GatewaysOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

@@ -62,6 +62,9 @@ public class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
   @SerializedName("TrafficMirrorFilterName")
   private String trafficMirrorFilterName = null;
 
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
+
   public TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
@@ -251,6 +254,24 @@ public class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
     this.trafficMirrorFilterName = trafficMirrorFilterName;
   }
 
+  public TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,12 +290,13 @@ public class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
         Objects.equals(this.status, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.status) &&
         Objects.equals(this.tags, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.tags) &&
         Objects.equals(this.trafficMirrorFilterId, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterId) &&
-        Objects.equals(this.trafficMirrorFilterName, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterName);
+        Objects.equals(this.trafficMirrorFilterName, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.trafficMirrorFilterName) &&
+        Objects.equals(this.updatedAt, trafficMirrorFilterForDescribeTrafficMirrorFiltersOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, egressFilterRules, ingressFilterRules, projectName, status, tags, trafficMirrorFilterId, trafficMirrorFilterName);
+    return Objects.hash(createdAt, description, egressFilterRules, ingressFilterRules, projectName, status, tags, trafficMirrorFilterId, trafficMirrorFilterName, updatedAt);
   }
 
 
@@ -292,6 +314,7 @@ public class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trafficMirrorFilterId: ").append(toIndentedString(trafficMirrorFilterId)).append("\n");
     sb.append("    trafficMirrorFilterName: ").append(toIndentedString(trafficMirrorFilterName)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

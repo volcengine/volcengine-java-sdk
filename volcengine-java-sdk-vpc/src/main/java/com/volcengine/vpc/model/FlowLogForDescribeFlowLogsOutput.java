@@ -63,9 +63,6 @@ public class FlowLogForDescribeFlowLogsOutput {
   @SerializedName("LogTopicId")
   private String logTopicId = null;
 
-  @SerializedName("OpenAnalyzeProductLog")
-  private Boolean openAnalyzeProductLog = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -315,24 +312,6 @@ public class FlowLogForDescribeFlowLogsOutput {
     this.logTopicId = logTopicId;
   }
 
-  public FlowLogForDescribeFlowLogsOutput openAnalyzeProductLog(Boolean openAnalyzeProductLog) {
-    this.openAnalyzeProductLog = openAnalyzeProductLog;
-    return this;
-  }
-
-   /**
-   * Get openAnalyzeProductLog
-   * @return openAnalyzeProductLog
-  **/
-  @Schema(description = "")
-  public Boolean isOpenAnalyzeProductLog() {
-    return openAnalyzeProductLog;
-  }
-
-  public void setOpenAnalyzeProductLog(Boolean openAnalyzeProductLog) {
-    this.openAnalyzeProductLog = openAnalyzeProductLog;
-  }
-
   public FlowLogForDescribeFlowLogsOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -506,7 +485,6 @@ public class FlowLogForDescribeFlowLogsOutput {
         Objects.equals(this.lockReason, flowLogForDescribeFlowLogsOutput.lockReason) &&
         Objects.equals(this.logProjectId, flowLogForDescribeFlowLogsOutput.logProjectId) &&
         Objects.equals(this.logTopicId, flowLogForDescribeFlowLogsOutput.logTopicId) &&
-        Objects.equals(this.openAnalyzeProductLog, flowLogForDescribeFlowLogsOutput.openAnalyzeProductLog) &&
         Objects.equals(this.projectName, flowLogForDescribeFlowLogsOutput.projectName) &&
         Objects.equals(this.resourceId, flowLogForDescribeFlowLogsOutput.resourceId) &&
         Objects.equals(this.resourceType, flowLogForDescribeFlowLogsOutput.resourceType) &&
@@ -519,7 +497,7 @@ public class FlowLogForDescribeFlowLogsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, aggregationInterval, businessStatus, createdAt, description, flowLogId, flowLogName, lockReason, logProjectId, logTopicId, openAnalyzeProductLog, projectName, resourceId, resourceType, status, tags, trafficType, updatedAt, vpcId);
+    return Objects.hash(accountId, aggregationInterval, businessStatus, createdAt, description, flowLogId, flowLogName, lockReason, logProjectId, logTopicId, projectName, resourceId, resourceType, status, tags, trafficType, updatedAt, vpcId);
   }
 
 
@@ -538,7 +516,6 @@ public class FlowLogForDescribeFlowLogsOutput {
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    logProjectId: ").append(toIndentedString(logProjectId)).append("\n");
     sb.append("    logTopicId: ").append(toIndentedString(logTopicId)).append("\n");
-    sb.append("    openAnalyzeProductLog: ").append(toIndentedString(openAnalyzeProductLog)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");

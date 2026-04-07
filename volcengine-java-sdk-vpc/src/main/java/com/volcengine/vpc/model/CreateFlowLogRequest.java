@@ -42,6 +42,9 @@ public class CreateFlowLogRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableIndex")
+  private Boolean enableIndex = null;
+
   @SerializedName("FlowLogName")
   private String flowLogName = null;
 
@@ -119,6 +122,24 @@ public class CreateFlowLogRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateFlowLogRequest enableIndex(Boolean enableIndex) {
+    this.enableIndex = enableIndex;
+    return this;
+  }
+
+   /**
+   * Get enableIndex
+   * @return enableIndex
+  **/
+  @Schema(description = "")
+  public Boolean isEnableIndex() {
+    return enableIndex;
+  }
+
+  public void setEnableIndex(Boolean enableIndex) {
+    this.enableIndex = enableIndex;
   }
 
   public CreateFlowLogRequest flowLogName(String flowLogName) {
@@ -293,6 +314,7 @@ public class CreateFlowLogRequest {
     return Objects.equals(this.aggregationInterval, createFlowLogRequest.aggregationInterval) &&
         Objects.equals(this.clientToken, createFlowLogRequest.clientToken) &&
         Objects.equals(this.description, createFlowLogRequest.description) &&
+        Objects.equals(this.enableIndex, createFlowLogRequest.enableIndex) &&
         Objects.equals(this.flowLogName, createFlowLogRequest.flowLogName) &&
         Objects.equals(this.logProjectName, createFlowLogRequest.logProjectName) &&
         Objects.equals(this.logTopicName, createFlowLogRequest.logTopicName) &&
@@ -305,7 +327,7 @@ public class CreateFlowLogRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationInterval, clientToken, description, flowLogName, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficType);
+    return Objects.hash(aggregationInterval, clientToken, description, enableIndex, flowLogName, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficType);
   }
 
 
@@ -317,6 +339,7 @@ public class CreateFlowLogRequest {
     sb.append("    aggregationInterval: ").append(toIndentedString(aggregationInterval)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableIndex: ").append(toIndentedString(enableIndex)).append("\n");
     sb.append("    flowLogName: ").append(toIndentedString(flowLogName)).append("\n");
     sb.append("    logProjectName: ").append(toIndentedString(logProjectName)).append("\n");
     sb.append("    logTopicName: ").append(toIndentedString(logTopicName)).append("\n");
