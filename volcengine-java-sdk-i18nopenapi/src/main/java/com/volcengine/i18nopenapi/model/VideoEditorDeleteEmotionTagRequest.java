@@ -24,52 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AutoFillTargetTextForVideoProjectListOutput
+ * VideoEditorDeleteEmotionTagRequest
  */
 
 
 
-public class AutoFillTargetTextForVideoProjectListOutput {
-  @SerializedName("onCreate")
-  private Boolean onCreate = null;
+public class VideoEditorDeleteEmotionTagRequest {
+  @SerializedName("id")
+  private Integer id = null;
 
-  @SerializedName("onUpdate")
-  private Boolean onUpdate = null;
+  @SerializedName("subtaskId")
+  private Integer subtaskId = null;
 
-  public AutoFillTargetTextForVideoProjectListOutput onCreate(Boolean onCreate) {
-    this.onCreate = onCreate;
+  public VideoEditorDeleteEmotionTagRequest id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get onCreate
-   * @return onCreate
+   * Get id
+   * @return id
   **/
-  @Schema(description = "")
-  public Boolean isOnCreate() {
-    return onCreate;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getId() {
+    return id;
   }
 
-  public void setOnCreate(Boolean onCreate) {
-    this.onCreate = onCreate;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
-  public AutoFillTargetTextForVideoProjectListOutput onUpdate(Boolean onUpdate) {
-    this.onUpdate = onUpdate;
+  public VideoEditorDeleteEmotionTagRequest subtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
     return this;
   }
 
    /**
-   * Get onUpdate
-   * @return onUpdate
+   * Get subtaskId
+   * @return subtaskId
   **/
-  @Schema(description = "")
-  public Boolean isOnUpdate() {
-    return onUpdate;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getSubtaskId() {
+    return subtaskId;
   }
 
-  public void setOnUpdate(Boolean onUpdate) {
-    this.onUpdate = onUpdate;
+  public void setSubtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
   }
 
 
@@ -81,24 +83,24 @@ public class AutoFillTargetTextForVideoProjectListOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoFillTargetTextForVideoProjectListOutput autoFillTargetTextForVideoProjectListOutput = (AutoFillTargetTextForVideoProjectListOutput) o;
-    return Objects.equals(this.onCreate, autoFillTargetTextForVideoProjectListOutput.onCreate) &&
-        Objects.equals(this.onUpdate, autoFillTargetTextForVideoProjectListOutput.onUpdate);
+    VideoEditorDeleteEmotionTagRequest videoEditorDeleteEmotionTagRequest = (VideoEditorDeleteEmotionTagRequest) o;
+    return Objects.equals(this.id, videoEditorDeleteEmotionTagRequest.id) &&
+        Objects.equals(this.subtaskId, videoEditorDeleteEmotionTagRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(onCreate, onUpdate);
+    return Objects.hash(id, subtaskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoFillTargetTextForVideoProjectListOutput {\n");
+    sb.append("class VideoEditorDeleteEmotionTagRequest {\n");
     
-    sb.append("    onCreate: ").append(toIndentedString(onCreate)).append("\n");
-    sb.append("    onUpdate: ").append(toIndentedString(onUpdate)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

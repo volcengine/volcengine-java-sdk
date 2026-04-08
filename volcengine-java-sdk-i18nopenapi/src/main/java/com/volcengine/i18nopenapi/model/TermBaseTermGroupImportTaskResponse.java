@@ -14,6 +14,14 @@ package com.volcengine.i18nopenapi.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForTermBaseTermGroupImportTaskOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +31,70 @@ import javax.validation.Valid;
 
 
 public class TermBaseTermGroupImportTaskResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("code")
+  private Integer code = null;
+
+  @SerializedName("data")
+  private DataForTermBaseTermGroupImportTaskOutput data = null;
+
+  @SerializedName("message")
+  private String message = null;
+
+  public TermBaseTermGroupImportTaskResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @Schema(description = "")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public TermBaseTermGroupImportTaskResponse data(DataForTermBaseTermGroupImportTaskOutput data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @Valid
+  @Schema(description = "")
+  public DataForTermBaseTermGroupImportTaskOutput getData() {
+    return data;
+  }
+
+  public void setData(DataForTermBaseTermGroupImportTaskOutput data) {
+    this.data = data;
+  }
+
+  public TermBaseTermGroupImportTaskResponse message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +104,15 @@ public class TermBaseTermGroupImportTaskResponse extends com.volcengine.model.Ab
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    TermBaseTermGroupImportTaskResponse termBaseTermGroupImportTaskResponse = (TermBaseTermGroupImportTaskResponse) o;
+    return Objects.equals(this.code, termBaseTermGroupImportTaskResponse.code) &&
+        Objects.equals(this.data, termBaseTermGroupImportTaskResponse.data) &&
+        Objects.equals(this.message, termBaseTermGroupImportTaskResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(code, data, message);
   }
 
 
@@ -46,6 +121,9 @@ public class TermBaseTermGroupImportTaskResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class TermBaseTermGroupImportTaskResponse {\n");
     
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

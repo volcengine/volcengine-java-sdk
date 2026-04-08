@@ -30,8 +30,50 @@ import javax.validation.Valid;
 
 
 public class DataForTermBaseTermGroupImportOutput {
+  @SerializedName("code")
+  private Integer code = null;
+
+  @SerializedName("message")
+  private String message = null;
+
   @SerializedName("taskId")
   private Integer taskId = null;
+
+  public DataForTermBaseTermGroupImportOutput code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @Schema(description = "")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public DataForTermBaseTermGroupImportOutput message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
   public DataForTermBaseTermGroupImportOutput taskId(Integer taskId) {
     this.taskId = taskId;
@@ -61,12 +103,14 @@ public class DataForTermBaseTermGroupImportOutput {
       return false;
     }
     DataForTermBaseTermGroupImportOutput dataForTermBaseTermGroupImportOutput = (DataForTermBaseTermGroupImportOutput) o;
-    return Objects.equals(this.taskId, dataForTermBaseTermGroupImportOutput.taskId);
+    return Objects.equals(this.code, dataForTermBaseTermGroupImportOutput.code) &&
+        Objects.equals(this.message, dataForTermBaseTermGroupImportOutput.message) &&
+        Objects.equals(this.taskId, dataForTermBaseTermGroupImportOutput.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(code, message, taskId);
   }
 
 
@@ -75,6 +119,8 @@ public class DataForTermBaseTermGroupImportOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForTermBaseTermGroupImportOutput {\n");
     
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();

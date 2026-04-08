@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.CreatorForVideoProjectListOutput;
-import com.volcengine.i18nopenapi.model.ExtraForVideoProjectListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,20 +33,14 @@ import javax.validation.Valid;
 
 
 public class DataForVideoProjectListOutput {
+  @SerializedName("comment")
+  private String comment = null;
+
   @SerializedName("createdAt")
   private String createdAt = null;
 
   @SerializedName("creator")
   private CreatorForVideoProjectListOutput creator = null;
-
-  @SerializedName("creatorId")
-  private String creatorId = null;
-
-  @SerializedName("description")
-  private String description = null;
-
-  @SerializedName("extra")
-  private ExtraForVideoProjectListOutput extra = null;
 
   @SerializedName("id")
   private String id = null;
@@ -69,6 +62,24 @@ public class DataForVideoProjectListOutput {
 
   @SerializedName("updatedAt")
   private String updatedAt = null;
+
+  public DataForVideoProjectListOutput comment(String comment) {
+    this.comment = comment;
+    return this;
+  }
+
+   /**
+   * Get comment
+   * @return comment
+  **/
+  @Schema(description = "")
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 
   public DataForVideoProjectListOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -105,61 +116,6 @@ public class DataForVideoProjectListOutput {
 
   public void setCreator(CreatorForVideoProjectListOutput creator) {
     this.creator = creator;
-  }
-
-  public DataForVideoProjectListOutput creatorId(String creatorId) {
-    this.creatorId = creatorId;
-    return this;
-  }
-
-   /**
-   * Get creatorId
-   * @return creatorId
-  **/
-  @Schema(description = "")
-  public String getCreatorId() {
-    return creatorId;
-  }
-
-  public void setCreatorId(String creatorId) {
-    this.creatorId = creatorId;
-  }
-
-  public DataForVideoProjectListOutput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public DataForVideoProjectListOutput extra(ExtraForVideoProjectListOutput extra) {
-    this.extra = extra;
-    return this;
-  }
-
-   /**
-   * Get extra
-   * @return extra
-  **/
-  @Valid
-  @Schema(description = "")
-  public ExtraForVideoProjectListOutput getExtra() {
-    return extra;
-  }
-
-  public void setExtra(ExtraForVideoProjectListOutput extra) {
-    this.extra = extra;
   }
 
   public DataForVideoProjectListOutput id(String id) {
@@ -314,11 +270,9 @@ public class DataForVideoProjectListOutput {
       return false;
     }
     DataForVideoProjectListOutput dataForVideoProjectListOutput = (DataForVideoProjectListOutput) o;
-    return Objects.equals(this.createdAt, dataForVideoProjectListOutput.createdAt) &&
+    return Objects.equals(this.comment, dataForVideoProjectListOutput.comment) &&
+        Objects.equals(this.createdAt, dataForVideoProjectListOutput.createdAt) &&
         Objects.equals(this.creator, dataForVideoProjectListOutput.creator) &&
-        Objects.equals(this.creatorId, dataForVideoProjectListOutput.creatorId) &&
-        Objects.equals(this.description, dataForVideoProjectListOutput.description) &&
-        Objects.equals(this.extra, dataForVideoProjectListOutput.extra) &&
         Objects.equals(this.id, dataForVideoProjectListOutput.id) &&
         Objects.equals(this.name, dataForVideoProjectListOutput.name) &&
         Objects.equals(this.sourceLang, dataForVideoProjectListOutput.sourceLang) &&
@@ -330,7 +284,7 @@ public class DataForVideoProjectListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creator, creatorId, description, extra, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
+    return Objects.hash(comment, createdAt, creator, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
   }
 
 
@@ -339,11 +293,9 @@ public class DataForVideoProjectListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForVideoProjectListOutput {\n");
     
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-    sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
