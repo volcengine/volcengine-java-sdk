@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociatedElasticIpForDescribeNetworkInterfacesOutput;
+import com.volcengine.vpc.model.AttachmentForDescribeNetworkInterfacesOutput;
 import com.volcengine.vpc.model.PrivateIpSetsForDescribeNetworkInterfacesOutput;
 import com.volcengine.vpc.model.TagForDescribeNetworkInterfacesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,6 +41,9 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @SerializedName("AssociatedElasticIp")
   private AssociatedElasticIpForDescribeNetworkInterfacesOutput associatedElasticIp = null;
+
+  @SerializedName("Attachment")
+  private AttachmentForDescribeNetworkInterfacesOutput attachment = null;
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -139,6 +143,25 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   public void setAssociatedElasticIp(AssociatedElasticIpForDescribeNetworkInterfacesOutput associatedElasticIp) {
     this.associatedElasticIp = associatedElasticIp;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput attachment(AttachmentForDescribeNetworkInterfacesOutput attachment) {
+    this.attachment = attachment;
+    return this;
+  }
+
+   /**
+   * Get attachment
+   * @return attachment
+  **/
+  @Valid
+  @Schema(description = "")
+  public AttachmentForDescribeNetworkInterfacesOutput getAttachment() {
+    return attachment;
+  }
+
+  public void setAttachment(AttachmentForDescribeNetworkInterfacesOutput attachment) {
+    this.attachment = attachment;
   }
 
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput createdAt(String createdAt) {
@@ -557,6 +580,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     NetworkInterfaceSetForDescribeNetworkInterfacesOutput networkInterfaceSetForDescribeNetworkInterfacesOutput = (NetworkInterfaceSetForDescribeNetworkInterfacesOutput) o;
     return Objects.equals(this.accountId, networkInterfaceSetForDescribeNetworkInterfacesOutput.accountId) &&
         Objects.equals(this.associatedElasticIp, networkInterfaceSetForDescribeNetworkInterfacesOutput.associatedElasticIp) &&
+        Objects.equals(this.attachment, networkInterfaceSetForDescribeNetworkInterfacesOutput.attachment) &&
         Objects.equals(this.createdAt, networkInterfaceSetForDescribeNetworkInterfacesOutput.createdAt) &&
         Objects.equals(this.description, networkInterfaceSetForDescribeNetworkInterfacesOutput.description) &&
         Objects.equals(this.deviceId, networkInterfaceSetForDescribeNetworkInterfacesOutput.deviceId) &&
@@ -582,7 +606,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, attachment, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -593,6 +617,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associatedElasticIp: ").append(toIndentedString(associatedElasticIp)).append("\n");
+    sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");

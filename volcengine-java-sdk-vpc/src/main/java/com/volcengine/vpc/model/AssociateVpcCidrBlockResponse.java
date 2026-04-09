@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.Ipv6CidrBlockForAssociateVpcCidrBlockOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class AssociateVpcCidrBlockResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AsyncTaskId")
   private String asyncTaskId = null;
+
+  @SerializedName("Ipv6CidrBlocks")
+  private List<Ipv6CidrBlockForAssociateVpcCidrBlockOutput> ipv6CidrBlocks = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -60,6 +64,33 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
 
   public void setAsyncTaskId(String asyncTaskId) {
     this.asyncTaskId = asyncTaskId;
+  }
+
+  public AssociateVpcCidrBlockResponse ipv6CidrBlocks(List<Ipv6CidrBlockForAssociateVpcCidrBlockOutput> ipv6CidrBlocks) {
+    this.ipv6CidrBlocks = ipv6CidrBlocks;
+    return this;
+  }
+
+  public AssociateVpcCidrBlockResponse addIpv6CidrBlocksItem(Ipv6CidrBlockForAssociateVpcCidrBlockOutput ipv6CidrBlocksItem) {
+    if (this.ipv6CidrBlocks == null) {
+      this.ipv6CidrBlocks = new ArrayList<Ipv6CidrBlockForAssociateVpcCidrBlockOutput>();
+    }
+    this.ipv6CidrBlocks.add(ipv6CidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlocks
+   * @return ipv6CidrBlocks
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<Ipv6CidrBlockForAssociateVpcCidrBlockOutput> getIpv6CidrBlocks() {
+    return ipv6CidrBlocks;
+  }
+
+  public void setIpv6CidrBlocks(List<Ipv6CidrBlockForAssociateVpcCidrBlockOutput> ipv6CidrBlocks) {
+    this.ipv6CidrBlocks = ipv6CidrBlocks;
   }
 
   public AssociateVpcCidrBlockResponse requestId(String requestId) {
@@ -135,6 +166,7 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
     }
     AssociateVpcCidrBlockResponse associateVpcCidrBlockResponse = (AssociateVpcCidrBlockResponse) o;
     return Objects.equals(this.asyncTaskId, associateVpcCidrBlockResponse.asyncTaskId) &&
+        Objects.equals(this.ipv6CidrBlocks, associateVpcCidrBlockResponse.ipv6CidrBlocks) &&
         Objects.equals(this.requestId, associateVpcCidrBlockResponse.requestId) &&
         Objects.equals(this.secondaryCidrBlocks, associateVpcCidrBlockResponse.secondaryCidrBlocks) &&
         Objects.equals(this.vpcId, associateVpcCidrBlockResponse.vpcId);
@@ -142,7 +174,7 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskId, requestId, secondaryCidrBlocks, vpcId);
+    return Objects.hash(asyncTaskId, ipv6CidrBlocks, requestId, secondaryCidrBlocks, vpcId);
   }
 
 
@@ -152,6 +184,7 @@ public class AssociateVpcCidrBlockResponse extends com.volcengine.model.Abstract
     sb.append("class AssociateVpcCidrBlockResponse {\n");
     
     sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
+    sb.append("    ipv6CidrBlocks: ").append(toIndentedString(ipv6CidrBlocks)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    secondaryCidrBlocks: ").append(toIndentedString(secondaryCidrBlocks)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

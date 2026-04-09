@@ -37,6 +37,9 @@ public class ModifyInstanceGroupMembersRequest {
   @SerializedName("AppendMembers")
   private List<AppendMemberForModifyInstanceGroupMembersInput> appendMembers = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceGroupId")
   private String instanceGroupId = null;
 
@@ -68,6 +71,24 @@ public class ModifyInstanceGroupMembersRequest {
 
   public void setAppendMembers(List<AppendMemberForModifyInstanceGroupMembersInput> appendMembers) {
     this.appendMembers = appendMembers;
+  }
+
+  public ModifyInstanceGroupMembersRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ModifyInstanceGroupMembersRequest instanceGroupId(String instanceGroupId) {
@@ -127,13 +148,14 @@ public class ModifyInstanceGroupMembersRequest {
     }
     ModifyInstanceGroupMembersRequest modifyInstanceGroupMembersRequest = (ModifyInstanceGroupMembersRequest) o;
     return Objects.equals(this.appendMembers, modifyInstanceGroupMembersRequest.appendMembers) &&
+        Objects.equals(this.clientToken, modifyInstanceGroupMembersRequest.clientToken) &&
         Objects.equals(this.instanceGroupId, modifyInstanceGroupMembersRequest.instanceGroupId) &&
         Objects.equals(this.removeMembers, modifyInstanceGroupMembersRequest.removeMembers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appendMembers, instanceGroupId, removeMembers);
+    return Objects.hash(appendMembers, clientToken, instanceGroupId, removeMembers);
   }
 
 
@@ -143,6 +165,7 @@ public class ModifyInstanceGroupMembersRequest {
     sb.append("class ModifyInstanceGroupMembersRequest {\n");
     
     sb.append("    appendMembers: ").append(toIndentedString(appendMembers)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceGroupId: ").append(toIndentedString(instanceGroupId)).append("\n");
     sb.append("    removeMembers: ").append(toIndentedString(removeMembers)).append("\n");
     sb.append("}");

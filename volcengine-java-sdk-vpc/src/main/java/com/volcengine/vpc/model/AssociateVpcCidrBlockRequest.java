@@ -30,11 +30,74 @@ import javax.validation.Valid;
 
 
 public class AssociateVpcCidrBlockRequest {
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
+  @SerializedName("Ipv6Isp")
+  private String ipv6Isp = null;
+
+  @SerializedName("Ipv6MaskLen")
+  private Integer ipv6MaskLen = null;
+
   @SerializedName("SecondaryCidrBlock")
   private String secondaryCidrBlock = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public AssociateVpcCidrBlockRequest ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+  }
+
+  public AssociateVpcCidrBlockRequest ipv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+    return this;
+  }
+
+   /**
+   * Get ipv6Isp
+   * @return ipv6Isp
+  **/
+  @Schema(description = "")
+  public String getIpv6Isp() {
+    return ipv6Isp;
+  }
+
+  public void setIpv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+  }
+
+  public AssociateVpcCidrBlockRequest ipv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
+    return this;
+  }
+
+   /**
+   * Get ipv6MaskLen
+   * @return ipv6MaskLen
+  **/
+  @Schema(description = "")
+  public Integer getIpv6MaskLen() {
+    return ipv6MaskLen;
+  }
+
+  public void setIpv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
+  }
 
   public AssociateVpcCidrBlockRequest secondaryCidrBlock(String secondaryCidrBlock) {
     this.secondaryCidrBlock = secondaryCidrBlock;
@@ -83,13 +146,16 @@ public class AssociateVpcCidrBlockRequest {
       return false;
     }
     AssociateVpcCidrBlockRequest associateVpcCidrBlockRequest = (AssociateVpcCidrBlockRequest) o;
-    return Objects.equals(this.secondaryCidrBlock, associateVpcCidrBlockRequest.secondaryCidrBlock) &&
+    return Objects.equals(this.ipv6CidrBlock, associateVpcCidrBlockRequest.ipv6CidrBlock) &&
+        Objects.equals(this.ipv6Isp, associateVpcCidrBlockRequest.ipv6Isp) &&
+        Objects.equals(this.ipv6MaskLen, associateVpcCidrBlockRequest.ipv6MaskLen) &&
+        Objects.equals(this.secondaryCidrBlock, associateVpcCidrBlockRequest.secondaryCidrBlock) &&
         Objects.equals(this.vpcId, associateVpcCidrBlockRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondaryCidrBlock, vpcId);
+    return Objects.hash(ipv6CidrBlock, ipv6Isp, ipv6MaskLen, secondaryCidrBlock, vpcId);
   }
 
 
@@ -98,6 +164,9 @@ public class AssociateVpcCidrBlockRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateVpcCidrBlockRequest {\n");
     
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
+    sb.append("    ipv6Isp: ").append(toIndentedString(ipv6Isp)).append("\n");
+    sb.append("    ipv6MaskLen: ").append(toIndentedString(ipv6MaskLen)).append("\n");
     sb.append("    secondaryCidrBlock: ").append(toIndentedString(secondaryCidrBlock)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

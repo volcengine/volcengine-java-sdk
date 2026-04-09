@@ -44,6 +44,12 @@ public class ModifyVpcAttributesRequest {
   @SerializedName("Ipv6CidrBlock")
   private String ipv6CidrBlock = null;
 
+  @SerializedName("Ipv6Isp")
+  private String ipv6Isp = null;
+
+  @SerializedName("Ipv6MaskLen")
+  private Integer ipv6MaskLen = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -130,6 +136,42 @@ public class ModifyVpcAttributesRequest {
     this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
+  public ModifyVpcAttributesRequest ipv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+    return this;
+  }
+
+   /**
+   * Get ipv6Isp
+   * @return ipv6Isp
+  **/
+  @Schema(description = "")
+  public String getIpv6Isp() {
+    return ipv6Isp;
+  }
+
+  public void setIpv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+  }
+
+  public ModifyVpcAttributesRequest ipv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
+    return this;
+  }
+
+   /**
+   * Get ipv6MaskLen
+   * @return ipv6MaskLen
+  **/
+  @Schema(description = "")
+  public Integer getIpv6MaskLen() {
+    return ipv6MaskLen;
+  }
+
+  public void setIpv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
+  }
+
   public ModifyVpcAttributesRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -181,13 +223,15 @@ public class ModifyVpcAttributesRequest {
         Objects.equals(this.dnsServers, modifyVpcAttributesRequest.dnsServers) &&
         Objects.equals(this.enableIpv6, modifyVpcAttributesRequest.enableIpv6) &&
         Objects.equals(this.ipv6CidrBlock, modifyVpcAttributesRequest.ipv6CidrBlock) &&
+        Objects.equals(this.ipv6Isp, modifyVpcAttributesRequest.ipv6Isp) &&
+        Objects.equals(this.ipv6MaskLen, modifyVpcAttributesRequest.ipv6MaskLen) &&
         Objects.equals(this.vpcId, modifyVpcAttributesRequest.vpcId) &&
         Objects.equals(this.vpcName, modifyVpcAttributesRequest.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dnsServers, enableIpv6, ipv6CidrBlock, vpcId, vpcName);
+    return Objects.hash(description, dnsServers, enableIpv6, ipv6CidrBlock, ipv6Isp, ipv6MaskLen, vpcId, vpcName);
   }
 
 
@@ -200,6 +244,8 @@ public class ModifyVpcAttributesRequest {
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
     sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
+    sb.append("    ipv6Isp: ").append(toIndentedString(ipv6Isp)).append("\n");
+    sb.append("    ipv6MaskLen: ").append(toIndentedString(ipv6MaskLen)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");

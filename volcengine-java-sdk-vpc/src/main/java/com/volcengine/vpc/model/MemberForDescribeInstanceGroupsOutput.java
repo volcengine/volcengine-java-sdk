@@ -30,35 +30,17 @@ import javax.validation.Valid;
 
 
 public class MemberForDescribeInstanceGroupsOutput {
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
-
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("Type")
   private String type = null;
 
   @SerializedName("Weight")
   private Integer weight = null;
-
-  public MemberForDescribeInstanceGroupsOutput enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-   /**
-   * Get enabled
-   * @return enabled
-  **/
-  @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
 
   public MemberForDescribeInstanceGroupsOutput id(String id) {
     this.id = id;
@@ -76,6 +58,24 @@ public class MemberForDescribeInstanceGroupsOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public MemberForDescribeInstanceGroupsOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public MemberForDescribeInstanceGroupsOutput type(String type) {
@@ -124,15 +124,15 @@ public class MemberForDescribeInstanceGroupsOutput {
       return false;
     }
     MemberForDescribeInstanceGroupsOutput memberForDescribeInstanceGroupsOutput = (MemberForDescribeInstanceGroupsOutput) o;
-    return Objects.equals(this.enabled, memberForDescribeInstanceGroupsOutput.enabled) &&
-        Objects.equals(this.id, memberForDescribeInstanceGroupsOutput.id) &&
+    return Objects.equals(this.id, memberForDescribeInstanceGroupsOutput.id) &&
+        Objects.equals(this.status, memberForDescribeInstanceGroupsOutput.status) &&
         Objects.equals(this.type, memberForDescribeInstanceGroupsOutput.type) &&
         Objects.equals(this.weight, memberForDescribeInstanceGroupsOutput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, type, weight);
+    return Objects.hash(id, status, type, weight);
   }
 
 
@@ -141,8 +141,8 @@ public class MemberForDescribeInstanceGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberForDescribeInstanceGroupsOutput {\n");
     
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");

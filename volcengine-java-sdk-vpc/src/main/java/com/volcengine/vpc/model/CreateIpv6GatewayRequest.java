@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateIpv6GatewayInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class CreateIpv6GatewayRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateIpv6GatewayInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -117,6 +123,33 @@ public class CreateIpv6GatewayRequest {
     this.projectName = projectName;
   }
 
+  public CreateIpv6GatewayRequest tags(List<TagForCreateIpv6GatewayInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateIpv6GatewayRequest addTagsItem(TagForCreateIpv6GatewayInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateIpv6GatewayInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateIpv6GatewayInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateIpv6GatewayInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateIpv6GatewayRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -150,12 +183,13 @@ public class CreateIpv6GatewayRequest {
         Objects.equals(this.description, createIpv6GatewayRequest.description) &&
         Objects.equals(this.name, createIpv6GatewayRequest.name) &&
         Objects.equals(this.projectName, createIpv6GatewayRequest.projectName) &&
+        Objects.equals(this.tags, createIpv6GatewayRequest.tags) &&
         Objects.equals(this.vpcId, createIpv6GatewayRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, name, projectName, vpcId);
+    return Objects.hash(clientToken, description, name, projectName, tags, vpcId);
   }
 
 
@@ -168,6 +202,7 @@ public class CreateIpv6GatewayRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

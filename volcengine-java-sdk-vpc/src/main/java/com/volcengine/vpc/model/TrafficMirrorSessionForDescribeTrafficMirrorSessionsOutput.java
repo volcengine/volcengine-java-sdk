@@ -75,6 +75,9 @@ public class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
   @SerializedName("TrafficMirrorTargetId")
   private String trafficMirrorTargetId = null;
 
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
+
   @SerializedName("VirtualNetworkId")
   private Integer virtualNetworkId = null;
 
@@ -347,6 +350,24 @@ public class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
     this.trafficMirrorTargetId = trafficMirrorTargetId;
   }
 
+  public TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   public TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput virtualNetworkId(Integer virtualNetworkId) {
     this.virtualNetworkId = virtualNetworkId;
     return this;
@@ -389,12 +410,13 @@ public class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
         Objects.equals(this.trafficMirrorSessionName, trafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.trafficMirrorSessionName) &&
         Objects.equals(this.trafficMirrorSourceIds, trafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.trafficMirrorSourceIds) &&
         Objects.equals(this.trafficMirrorTargetId, trafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.trafficMirrorTargetId) &&
+        Objects.equals(this.updatedAt, trafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.updatedAt) &&
         Objects.equals(this.virtualNetworkId, trafficMirrorSessionForDescribeTrafficMirrorSessionsOutput.virtualNetworkId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createdAt, description, lockReason, packetLength, priority, projectName, status, tags, trafficMirrorFilterId, trafficMirrorSessionId, trafficMirrorSessionName, trafficMirrorSourceIds, trafficMirrorTargetId, virtualNetworkId);
+    return Objects.hash(businessStatus, createdAt, description, lockReason, packetLength, priority, projectName, status, tags, trafficMirrorFilterId, trafficMirrorSessionId, trafficMirrorSessionName, trafficMirrorSourceIds, trafficMirrorTargetId, updatedAt, virtualNetworkId);
   }
 
 
@@ -417,6 +439,7 @@ public class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput {
     sb.append("    trafficMirrorSessionName: ").append(toIndentedString(trafficMirrorSessionName)).append("\n");
     sb.append("    trafficMirrorSourceIds: ").append(toIndentedString(trafficMirrorSourceIds)).append("\n");
     sb.append("    trafficMirrorTargetId: ").append(toIndentedString(trafficMirrorTargetId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    virtualNetworkId: ").append(toIndentedString(virtualNetworkId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociateCenForDescribeVpcsOutput;
+import com.volcengine.vpc.model.Ipv6CidrBlockForDescribeVpcsOutput;
 import com.volcengine.vpc.model.TagForDescribeVpcsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -54,6 +55,12 @@ public class VpcForDescribeVpcsOutput {
 
   @SerializedName("Ipv4GatewayId")
   private String ipv4GatewayId = null;
+
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
+  @SerializedName("Ipv6CidrBlocks")
+  private List<Ipv6CidrBlockForDescribeVpcsOutput> ipv6CidrBlocks = null;
 
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
@@ -241,6 +248,51 @@ public class VpcForDescribeVpcsOutput {
 
   public void setIpv4GatewayId(String ipv4GatewayId) {
     this.ipv4GatewayId = ipv4GatewayId;
+  }
+
+  public VpcForDescribeVpcsOutput ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+  }
+
+  public VpcForDescribeVpcsOutput ipv6CidrBlocks(List<Ipv6CidrBlockForDescribeVpcsOutput> ipv6CidrBlocks) {
+    this.ipv6CidrBlocks = ipv6CidrBlocks;
+    return this;
+  }
+
+  public VpcForDescribeVpcsOutput addIpv6CidrBlocksItem(Ipv6CidrBlockForDescribeVpcsOutput ipv6CidrBlocksItem) {
+    if (this.ipv6CidrBlocks == null) {
+      this.ipv6CidrBlocks = new ArrayList<Ipv6CidrBlockForDescribeVpcsOutput>();
+    }
+    this.ipv6CidrBlocks.add(ipv6CidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlocks
+   * @return ipv6CidrBlocks
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<Ipv6CidrBlockForDescribeVpcsOutput> getIpv6CidrBlocks() {
+    return ipv6CidrBlocks;
+  }
+
+  public void setIpv6CidrBlocks(List<Ipv6CidrBlockForDescribeVpcsOutput> ipv6CidrBlocks) {
+    this.ipv6CidrBlocks = ipv6CidrBlocks;
   }
 
   public VpcForDescribeVpcsOutput isDefault(Boolean isDefault) {
@@ -587,6 +639,8 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.description, vpcForDescribeVpcsOutput.description) &&
         Objects.equals(this.dnsServers, vpcForDescribeVpcsOutput.dnsServers) &&
         Objects.equals(this.ipv4GatewayId, vpcForDescribeVpcsOutput.ipv4GatewayId) &&
+        Objects.equals(this.ipv6CidrBlock, vpcForDescribeVpcsOutput.ipv6CidrBlock) &&
+        Objects.equals(this.ipv6CidrBlocks, vpcForDescribeVpcsOutput.ipv6CidrBlocks) &&
         Objects.equals(this.isDefault, vpcForDescribeVpcsOutput.isDefault) &&
         Objects.equals(this.natGatewayIds, vpcForDescribeVpcsOutput.natGatewayIds) &&
         Objects.equals(this.networkAclNum, vpcForDescribeVpcsOutput.networkAclNum) &&
@@ -606,7 +660,7 @@ public class VpcForDescribeVpcsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv4GatewayId, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, supportIpv4Gateway, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv4GatewayId, ipv6CidrBlock, ipv6CidrBlocks, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, supportIpv4Gateway, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -622,6 +676,8 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
     sb.append("    ipv4GatewayId: ").append(toIndentedString(ipv4GatewayId)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
+    sb.append("    ipv6CidrBlocks: ").append(toIndentedString(ipv6CidrBlocks)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
