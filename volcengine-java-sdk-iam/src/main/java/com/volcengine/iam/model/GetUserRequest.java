@@ -36,6 +36,9 @@ public class GetUserRequest {
   @SerializedName("ID")
   private Long ID = null;
 
+  @SerializedName("PiiRedaction")
+  private Integer piiRedaction = null;
+
   @SerializedName("UserName")
   private String userName = null;
 
@@ -75,6 +78,24 @@ public class GetUserRequest {
     this.ID = ID;
   }
 
+  public GetUserRequest piiRedaction(Integer piiRedaction) {
+    this.piiRedaction = piiRedaction;
+    return this;
+  }
+
+   /**
+   * Get piiRedaction
+   * @return piiRedaction
+  **/
+  @Schema(description = "")
+  public Integer getPiiRedaction() {
+    return piiRedaction;
+  }
+
+  public void setPiiRedaction(Integer piiRedaction) {
+    this.piiRedaction = piiRedaction;
+  }
+
   public GetUserRequest userName(String userName) {
     this.userName = userName;
     return this;
@@ -105,12 +126,13 @@ public class GetUserRequest {
     GetUserRequest getUserRequest = (GetUserRequest) o;
     return Objects.equals(this.accessKeyID, getUserRequest.accessKeyID) &&
         Objects.equals(this.ID, getUserRequest.ID) &&
+        Objects.equals(this.piiRedaction, getUserRequest.piiRedaction) &&
         Objects.equals(this.userName, getUserRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyID, ID, userName);
+    return Objects.hash(accessKeyID, ID, piiRedaction, userName);
   }
 
 
@@ -121,6 +143,7 @@ public class GetUserRequest {
     
     sb.append("    accessKeyID: ").append(toIndentedString(accessKeyID)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    piiRedaction: ").append(toIndentedString(piiRedaction)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();
