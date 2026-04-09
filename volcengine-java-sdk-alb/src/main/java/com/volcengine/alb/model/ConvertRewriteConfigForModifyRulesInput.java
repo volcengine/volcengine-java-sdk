@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ConvertRewriteConfigForModifyRulesInput {
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("Path")
   private String path = null;
+
+  public ConvertRewriteConfigForModifyRulesInput host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
 
   public ConvertRewriteConfigForModifyRulesInput path(String path) {
     this.path = path;
@@ -61,12 +82,13 @@ public class ConvertRewriteConfigForModifyRulesInput {
       return false;
     }
     ConvertRewriteConfigForModifyRulesInput convertRewriteConfigForModifyRulesInput = (ConvertRewriteConfigForModifyRulesInput) o;
-    return Objects.equals(this.path, convertRewriteConfigForModifyRulesInput.path);
+    return Objects.equals(this.host, convertRewriteConfigForModifyRulesInput.host) &&
+        Objects.equals(this.path, convertRewriteConfigForModifyRulesInput.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path);
+    return Objects.hash(host, path);
   }
 
 
@@ -75,6 +97,7 @@ public class ConvertRewriteConfigForModifyRulesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertRewriteConfigForModifyRulesInput {\n");
     
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();

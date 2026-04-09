@@ -103,6 +103,9 @@ public class CreateListenerRequest {
   @SerializedName("Tags")
   private List<TagForCreateListenerInput> tags = null;
 
+  @SerializedName("XRealIpEnabled")
+  private String xrealIpEnabled = null;
+
   public CreateListenerRequest accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
     this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
     return this;
@@ -547,6 +550,24 @@ public class CreateListenerRequest {
     this.tags = tags;
   }
 
+  public CreateListenerRequest xrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+    return this;
+  }
+
+   /**
+   * Get xrealIpEnabled
+   * @return xrealIpEnabled
+  **/
+  @Schema(description = "")
+  public String getXrealIpEnabled() {
+    return xrealIpEnabled;
+  }
+
+  public void setXrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -579,12 +600,13 @@ public class CreateListenerRequest {
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
         Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId) &&
-        Objects.equals(this.tags, createListenerRequest.tags);
+        Objects.equals(this.tags, createListenerRequest.tags) &&
+        Objects.equals(this.xrealIpEnabled, createListenerRequest.xrealIpEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, protocol, serverGroupId, tags);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, port, protocol, serverGroupId, tags, xrealIpEnabled);
   }
 
 
@@ -616,6 +638,7 @@ public class CreateListenerRequest {
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    xrealIpEnabled: ").append(toIndentedString(xrealIpEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

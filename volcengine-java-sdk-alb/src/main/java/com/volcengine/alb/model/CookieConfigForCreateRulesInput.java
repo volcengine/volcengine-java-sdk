@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.CookieConfigValueForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertRewriteConfigForDescribeRulesOutput
+ * CookieConfigForCreateRulesInput
  */
 
 
 
-public class ConvertRewriteConfigForDescribeRulesOutput {
-  @SerializedName("Host")
-  private String host = null;
+public class CookieConfigForCreateRulesInput {
+  @SerializedName("Values")
+  private List<CookieConfigValueForCreateRulesInput> values = null;
 
-  @SerializedName("Path")
-  private String path = null;
+  public CookieConfigForCreateRulesInput values(List<CookieConfigValueForCreateRulesInput> values) {
+    this.values = values;
+    return this;
+  }
 
-  public ConvertRewriteConfigForDescribeRulesOutput host(String host) {
-    this.host = host;
+  public CookieConfigForCreateRulesInput addValuesItem(CookieConfigValueForCreateRulesInput valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<CookieConfigValueForCreateRulesInput>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get values
+   * @return values
   **/
+  @Valid
   @Schema(description = "")
-  public String getHost() {
-    return host;
+  public List<CookieConfigValueForCreateRulesInput> getValues() {
+    return values;
   }
 
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-  public ConvertRewriteConfigForDescribeRulesOutput path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * Get path
-   * @return path
-  **/
-  @Schema(description = "")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setValues(List<CookieConfigValueForCreateRulesInput> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +72,22 @@ public class ConvertRewriteConfigForDescribeRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertRewriteConfigForDescribeRulesOutput convertRewriteConfigForDescribeRulesOutput = (ConvertRewriteConfigForDescribeRulesOutput) o;
-    return Objects.equals(this.host, convertRewriteConfigForDescribeRulesOutput.host) &&
-        Objects.equals(this.path, convertRewriteConfigForDescribeRulesOutput.path);
+    CookieConfigForCreateRulesInput cookieConfigForCreateRulesInput = (CookieConfigForCreateRulesInput) o;
+    return Objects.equals(this.values, cookieConfigForCreateRulesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, path);
+    return Objects.hash(values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertRewriteConfigForDescribeRulesOutput {\n");
+    sb.append("class CookieConfigForCreateRulesInput {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

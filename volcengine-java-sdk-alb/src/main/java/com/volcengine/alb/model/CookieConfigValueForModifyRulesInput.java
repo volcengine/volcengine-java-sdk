@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertRewriteConfigForDescribeRulesOutput
+ * CookieConfigValueForModifyRulesInput
  */
 
 
 
-public class ConvertRewriteConfigForDescribeRulesOutput {
-  @SerializedName("Host")
-  private String host = null;
+public class CookieConfigValueForModifyRulesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Path")
-  private String path = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public ConvertRewriteConfigForDescribeRulesOutput host(String host) {
-    this.host = host;
+  public CookieConfigValueForModifyRulesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getHost() {
-    return host;
+  public String getKey() {
+    return key;
   }
 
-  public void setHost(String host) {
-    this.host = host;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ConvertRewriteConfigForDescribeRulesOutput path(String path) {
-    this.path = path;
+  public CookieConfigValueForModifyRulesInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get path
-   * @return path
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getPath() {
-    return path;
+  public String getValue() {
+    return value;
   }
 
-  public void setPath(String path) {
-    this.path = path;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class ConvertRewriteConfigForDescribeRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertRewriteConfigForDescribeRulesOutput convertRewriteConfigForDescribeRulesOutput = (ConvertRewriteConfigForDescribeRulesOutput) o;
-    return Objects.equals(this.host, convertRewriteConfigForDescribeRulesOutput.host) &&
-        Objects.equals(this.path, convertRewriteConfigForDescribeRulesOutput.path);
+    CookieConfigValueForModifyRulesInput cookieConfigValueForModifyRulesInput = (CookieConfigValueForModifyRulesInput) o;
+    return Objects.equals(this.key, cookieConfigValueForModifyRulesInput.key) &&
+        Objects.equals(this.value, cookieConfigValueForModifyRulesInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, path);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertRewriteConfigForDescribeRulesOutput {\n");
+    sb.append("class CookieConfigValueForModifyRulesInput {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

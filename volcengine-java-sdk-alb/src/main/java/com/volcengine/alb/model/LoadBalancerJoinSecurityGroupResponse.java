@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertRewriteConfigForDescribeRulesOutput
+ * LoadBalancerJoinSecurityGroupResponse
  */
 
 
 
-public class ConvertRewriteConfigForDescribeRulesOutput {
-  @SerializedName("Host")
-  private String host = null;
+public class LoadBalancerJoinSecurityGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RequestId")
+  private String requestId = null;
 
-  @SerializedName("Path")
-  private String path = null;
-
-  public ConvertRewriteConfigForDescribeRulesOutput host(String host) {
-    this.host = host;
+  public LoadBalancerJoinSecurityGroupResponse requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get requestId
+   * @return requestId
   **/
   @Schema(description = "")
-  public String getHost() {
-    return host;
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-  public ConvertRewriteConfigForDescribeRulesOutput path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * Get path
-   * @return path
-  **/
-  @Schema(description = "")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -81,24 +60,22 @@ public class ConvertRewriteConfigForDescribeRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertRewriteConfigForDescribeRulesOutput convertRewriteConfigForDescribeRulesOutput = (ConvertRewriteConfigForDescribeRulesOutput) o;
-    return Objects.equals(this.host, convertRewriteConfigForDescribeRulesOutput.host) &&
-        Objects.equals(this.path, convertRewriteConfigForDescribeRulesOutput.path);
+    LoadBalancerJoinSecurityGroupResponse loadBalancerJoinSecurityGroupResponse = (LoadBalancerJoinSecurityGroupResponse) o;
+    return Objects.equals(this.requestId, loadBalancerJoinSecurityGroupResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, path);
+    return Objects.hash(requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertRewriteConfigForDescribeRulesOutput {\n");
+    sb.append("class LoadBalancerJoinSecurityGroupResponse {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

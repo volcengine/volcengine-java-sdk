@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.ValueForDescribeRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertRewriteConfigForDescribeRulesOutput
+ * CookieConfigForDescribeRulesOutput
  */
 
 
 
-public class ConvertRewriteConfigForDescribeRulesOutput {
-  @SerializedName("Host")
-  private String host = null;
+public class CookieConfigForDescribeRulesOutput {
+  @SerializedName("Values")
+  private List<ValueForDescribeRulesOutput> values = null;
 
-  @SerializedName("Path")
-  private String path = null;
+  public CookieConfigForDescribeRulesOutput values(List<ValueForDescribeRulesOutput> values) {
+    this.values = values;
+    return this;
+  }
 
-  public ConvertRewriteConfigForDescribeRulesOutput host(String host) {
-    this.host = host;
+  public CookieConfigForDescribeRulesOutput addValuesItem(ValueForDescribeRulesOutput valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<ValueForDescribeRulesOutput>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get values
+   * @return values
   **/
+  @Valid
   @Schema(description = "")
-  public String getHost() {
-    return host;
+  public List<ValueForDescribeRulesOutput> getValues() {
+    return values;
   }
 
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-  public ConvertRewriteConfigForDescribeRulesOutput path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * Get path
-   * @return path
-  **/
-  @Schema(description = "")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setValues(List<ValueForDescribeRulesOutput> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +72,22 @@ public class ConvertRewriteConfigForDescribeRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertRewriteConfigForDescribeRulesOutput convertRewriteConfigForDescribeRulesOutput = (ConvertRewriteConfigForDescribeRulesOutput) o;
-    return Objects.equals(this.host, convertRewriteConfigForDescribeRulesOutput.host) &&
-        Objects.equals(this.path, convertRewriteConfigForDescribeRulesOutput.path);
+    CookieConfigForDescribeRulesOutput cookieConfigForDescribeRulesOutput = (CookieConfigForDescribeRulesOutput) o;
+    return Objects.equals(this.values, cookieConfigForDescribeRulesOutput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, path);
+    return Objects.hash(values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertRewriteConfigForDescribeRulesOutput {\n");
+    sb.append("class CookieConfigForDescribeRulesOutput {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,55 +21,44 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConvertRewriteConfigForDescribeRulesOutput
+ * SourceIpConfigForDescribeRulesOutput
  */
 
 
 
-public class ConvertRewriteConfigForDescribeRulesOutput {
-  @SerializedName("Host")
-  private String host = null;
+public class SourceIpConfigForDescribeRulesOutput {
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  @SerializedName("Path")
-  private String path = null;
+  public SourceIpConfigForDescribeRulesOutput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
 
-  public ConvertRewriteConfigForDescribeRulesOutput host(String host) {
-    this.host = host;
+  public SourceIpConfigForDescribeRulesOutput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getHost() {
-    return host;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-  public ConvertRewriteConfigForDescribeRulesOutput path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * Get path
-   * @return path
-  **/
-  @Schema(description = "")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +70,22 @@ public class ConvertRewriteConfigForDescribeRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertRewriteConfigForDescribeRulesOutput convertRewriteConfigForDescribeRulesOutput = (ConvertRewriteConfigForDescribeRulesOutput) o;
-    return Objects.equals(this.host, convertRewriteConfigForDescribeRulesOutput.host) &&
-        Objects.equals(this.path, convertRewriteConfigForDescribeRulesOutput.path);
+    SourceIpConfigForDescribeRulesOutput sourceIpConfigForDescribeRulesOutput = (SourceIpConfigForDescribeRulesOutput) o;
+    return Objects.equals(this.values, sourceIpConfigForDescribeRulesOutput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, path);
+    return Objects.hash(values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertRewriteConfigForDescribeRulesOutput {\n");
+    sb.append("class SourceIpConfigForDescribeRulesOutput {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -96,6 +96,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("XRealIpEnabled")
+  private String xrealIpEnabled = null;
+
   public ModifyListenerAttributesRequest accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
     this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
     return this;
@@ -492,6 +495,24 @@ public class ModifyListenerAttributesRequest {
     this.serverGroupId = serverGroupId;
   }
 
+  public ModifyListenerAttributesRequest xrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+    return this;
+  }
+
+   /**
+   * Get xrealIpEnabled
+   * @return xrealIpEnabled
+  **/
+  @Schema(description = "")
+  public String getXrealIpEnabled() {
+    return xrealIpEnabled;
+  }
+
+  public void setXrealIpEnabled(String xrealIpEnabled) {
+    this.xrealIpEnabled = xrealIpEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -522,12 +543,13 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.pcaLeafCertificateId, modifyListenerAttributesRequest.pcaLeafCertificateId) &&
         Objects.equals(this.pcaRootCACertificateId, modifyListenerAttributesRequest.pcaRootCACertificateId) &&
         Objects.equals(this.pcaSubCACertificateId, modifyListenerAttributesRequest.pcaSubCACertificateId) &&
-        Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId);
+        Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId) &&
+        Objects.equals(this.xrealIpEnabled, modifyListenerAttributesRequest.xrealIpEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, serverGroupId);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, caCertificateSource, certCenterCertificateId, certificateId, certificateSource, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, pcaLeafCertificateId, pcaRootCACertificateId, pcaSubCACertificateId, serverGroupId, xrealIpEnabled);
   }
 
 
@@ -557,6 +579,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    pcaRootCACertificateId: ").append(toIndentedString(pcaRootCACertificateId)).append("\n");
     sb.append("    pcaSubCACertificateId: ").append(toIndentedString(pcaSubCACertificateId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    xrealIpEnabled: ").append(toIndentedString(xrealIpEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

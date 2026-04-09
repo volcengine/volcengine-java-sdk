@@ -33,6 +33,9 @@ public class ZoneForDescribeZonesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
+  @SerializedName("ZoneType")
+  private String zoneType = null;
+
   public ZoneForDescribeZonesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -51,6 +54,24 @@ public class ZoneForDescribeZonesOutput {
     this.zoneId = zoneId;
   }
 
+  public ZoneForDescribeZonesOutput zoneType(String zoneType) {
+    this.zoneType = zoneType;
+    return this;
+  }
+
+   /**
+   * Get zoneType
+   * @return zoneType
+  **/
+  @Schema(description = "")
+  public String getZoneType() {
+    return zoneType;
+  }
+
+  public void setZoneType(String zoneType) {
+    this.zoneType = zoneType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class ZoneForDescribeZonesOutput {
       return false;
     }
     ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
-    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
+    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId) &&
+        Objects.equals(this.zoneType, zoneForDescribeZonesOutput.zoneType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneId);
+    return Objects.hash(zoneId, zoneType);
   }
 
 
@@ -76,6 +98,7 @@ public class ZoneForDescribeZonesOutput {
     sb.append("class ZoneForDescribeZonesOutput {\n");
     
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
+    sb.append("    zoneType: ").append(toIndentedString(zoneType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
