@@ -19,38 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.SettingForProjectsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExtraForProjectsOutput
+ * VideoEditorGetEmotionTagsRequest
  */
 
 
 
-public class ExtraForProjectsOutput {
-  @SerializedName("setting")
-  private SettingForProjectsOutput setting = null;
+public class VideoEditorGetEmotionTagsRequest {
+  @SerializedName("subtaskId")
+  private Integer subtaskId = null;
 
-  public ExtraForProjectsOutput setting(SettingForProjectsOutput setting) {
-    this.setting = setting;
+  public VideoEditorGetEmotionTagsRequest subtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
     return this;
   }
 
    /**
-   * Get setting
-   * @return setting
+   * Get subtaskId
+   * @return subtaskId
   **/
-  @Valid
-  @Schema(description = "")
-  public SettingForProjectsOutput getSetting() {
-    return setting;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getSubtaskId() {
+    return subtaskId;
   }
 
-  public void setSetting(SettingForProjectsOutput setting) {
-    this.setting = setting;
+  public void setSubtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
   }
 
 
@@ -62,22 +61,22 @@ public class ExtraForProjectsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExtraForProjectsOutput extraForProjectsOutput = (ExtraForProjectsOutput) o;
-    return Objects.equals(this.setting, extraForProjectsOutput.setting);
+    VideoEditorGetEmotionTagsRequest videoEditorGetEmotionTagsRequest = (VideoEditorGetEmotionTagsRequest) o;
+    return Objects.equals(this.subtaskId, videoEditorGetEmotionTagsRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(setting);
+    return Objects.hash(subtaskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExtraForProjectsOutput {\n");
+    sb.append("class VideoEditorGetEmotionTagsRequest {\n");
     
-    sb.append("    setting: ").append(toIndentedString(setting)).append("\n");
+    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

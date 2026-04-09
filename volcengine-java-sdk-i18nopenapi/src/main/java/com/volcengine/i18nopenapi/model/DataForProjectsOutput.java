@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.CreatorForProjectsOutput;
-import com.volcengine.i18nopenapi.model.ExtraForProjectsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,20 +33,14 @@ import javax.validation.Valid;
 
 
 public class DataForProjectsOutput {
+  @SerializedName("comment")
+  private String comment = null;
+
   @SerializedName("createdAt")
   private String createdAt = null;
 
   @SerializedName("creator")
   private CreatorForProjectsOutput creator = null;
-
-  @SerializedName("creatorId")
-  private String creatorId = null;
-
-  @SerializedName("description")
-  private String description = null;
-
-  @SerializedName("extra")
-  private ExtraForProjectsOutput extra = null;
 
   @SerializedName("id")
   private String id = null;
@@ -69,6 +62,24 @@ public class DataForProjectsOutput {
 
   @SerializedName("updatedAt")
   private String updatedAt = null;
+
+  public DataForProjectsOutput comment(String comment) {
+    this.comment = comment;
+    return this;
+  }
+
+   /**
+   * Get comment
+   * @return comment
+  **/
+  @Schema(description = "")
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 
   public DataForProjectsOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -105,61 +116,6 @@ public class DataForProjectsOutput {
 
   public void setCreator(CreatorForProjectsOutput creator) {
     this.creator = creator;
-  }
-
-  public DataForProjectsOutput creatorId(String creatorId) {
-    this.creatorId = creatorId;
-    return this;
-  }
-
-   /**
-   * Get creatorId
-   * @return creatorId
-  **/
-  @Schema(description = "")
-  public String getCreatorId() {
-    return creatorId;
-  }
-
-  public void setCreatorId(String creatorId) {
-    this.creatorId = creatorId;
-  }
-
-  public DataForProjectsOutput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public DataForProjectsOutput extra(ExtraForProjectsOutput extra) {
-    this.extra = extra;
-    return this;
-  }
-
-   /**
-   * Get extra
-   * @return extra
-  **/
-  @Valid
-  @Schema(description = "")
-  public ExtraForProjectsOutput getExtra() {
-    return extra;
-  }
-
-  public void setExtra(ExtraForProjectsOutput extra) {
-    this.extra = extra;
   }
 
   public DataForProjectsOutput id(String id) {
@@ -314,11 +270,9 @@ public class DataForProjectsOutput {
       return false;
     }
     DataForProjectsOutput dataForProjectsOutput = (DataForProjectsOutput) o;
-    return Objects.equals(this.createdAt, dataForProjectsOutput.createdAt) &&
+    return Objects.equals(this.comment, dataForProjectsOutput.comment) &&
+        Objects.equals(this.createdAt, dataForProjectsOutput.createdAt) &&
         Objects.equals(this.creator, dataForProjectsOutput.creator) &&
-        Objects.equals(this.creatorId, dataForProjectsOutput.creatorId) &&
-        Objects.equals(this.description, dataForProjectsOutput.description) &&
-        Objects.equals(this.extra, dataForProjectsOutput.extra) &&
         Objects.equals(this.id, dataForProjectsOutput.id) &&
         Objects.equals(this.name, dataForProjectsOutput.name) &&
         Objects.equals(this.sourceLang, dataForProjectsOutput.sourceLang) &&
@@ -330,7 +284,7 @@ public class DataForProjectsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creator, creatorId, description, extra, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
+    return Objects.hash(comment, createdAt, creator, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
   }
 
 
@@ -339,11 +293,9 @@ public class DataForProjectsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForProjectsOutput {\n");
     
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-    sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");

@@ -46,7 +46,7 @@ public class TermBaseTermGroupsRequest {
   private Integer sorting = null;
 
   @SerializedName("termBaseId")
-  private Integer termBaseId = null;
+  private String termBaseId = null;
 
   public TermBaseTermGroupsRequest caseSensitive(Integer caseSensitive) {
     this.caseSensitive = caseSensitive;
@@ -140,7 +140,7 @@ public class TermBaseTermGroupsRequest {
     this.sorting = sorting;
   }
 
-  public TermBaseTermGroupsRequest termBaseId(Integer termBaseId) {
+  public TermBaseTermGroupsRequest termBaseId(String termBaseId) {
     this.termBaseId = termBaseId;
     return this;
   }
@@ -151,11 +151,11 @@ public class TermBaseTermGroupsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getTermBaseId() {
+  public String getTermBaseId() {
     return termBaseId;
   }
 
-  public void setTermBaseId(Integer termBaseId) {
+  public void setTermBaseId(String termBaseId) {
     this.termBaseId = termBaseId;
   }
 

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.BaseRespForVideoProjectTaskBatchStartAIFlowOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,26 +30,46 @@ import javax.validation.Valid;
 
 
 public class DataForVideoProjectTaskBatchStartAIFlowOutput {
-  @SerializedName("BaseResp")
-  private BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp = null;
+  @SerializedName("statusCode")
+  private String statusCode = null;
 
-  public DataForVideoProjectTaskBatchStartAIFlowOutput baseResp(BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp) {
-    this.baseResp = baseResp;
+  @SerializedName("statusMessage")
+  private String statusMessage = null;
+
+  public DataForVideoProjectTaskBatchStartAIFlowOutput statusCode(String statusCode) {
+    this.statusCode = statusCode;
     return this;
   }
 
    /**
-   * Get baseResp
-   * @return baseResp
+   * Get statusCode
+   * @return statusCode
   **/
-  @Valid
   @Schema(description = "")
-  public BaseRespForVideoProjectTaskBatchStartAIFlowOutput getBaseResp() {
-    return baseResp;
+  public String getStatusCode() {
+    return statusCode;
   }
 
-  public void setBaseResp(BaseRespForVideoProjectTaskBatchStartAIFlowOutput baseResp) {
-    this.baseResp = baseResp;
+  public void setStatusCode(String statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  public DataForVideoProjectTaskBatchStartAIFlowOutput statusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
+    return this;
+  }
+
+   /**
+   * Get statusMessage
+   * @return statusMessage
+  **/
+  @Schema(description = "")
+  public String getStatusMessage() {
+    return statusMessage;
+  }
+
+  public void setStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
   }
 
 
@@ -63,12 +82,13 @@ public class DataForVideoProjectTaskBatchStartAIFlowOutput {
       return false;
     }
     DataForVideoProjectTaskBatchStartAIFlowOutput dataForVideoProjectTaskBatchStartAIFlowOutput = (DataForVideoProjectTaskBatchStartAIFlowOutput) o;
-    return Objects.equals(this.baseResp, dataForVideoProjectTaskBatchStartAIFlowOutput.baseResp);
+    return Objects.equals(this.statusCode, dataForVideoProjectTaskBatchStartAIFlowOutput.statusCode) &&
+        Objects.equals(this.statusMessage, dataForVideoProjectTaskBatchStartAIFlowOutput.statusMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseResp);
+    return Objects.hash(statusCode, statusMessage);
   }
 
 
@@ -77,7 +97,8 @@ public class DataForVideoProjectTaskBatchStartAIFlowOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForVideoProjectTaskBatchStartAIFlowOutput {\n");
     
-    sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    statusMessage: ").append(toIndentedString(statusMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
