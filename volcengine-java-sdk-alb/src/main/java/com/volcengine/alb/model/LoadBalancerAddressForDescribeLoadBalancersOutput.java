@@ -23,6 +23,8 @@ import com.volcengine.alb.model.EipForDescribeLoadBalancersOutput;
 import com.volcengine.alb.model.Ipv6EipForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,11 +52,17 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
   @SerializedName("EniIpv6Address")
   private String eniIpv6Address = null;
 
+  @SerializedName("Ipv4LocalAddresses")
+  private List<String> ipv4LocalAddresses = null;
+
   @SerializedName("Ipv6Eip")
   private Ipv6EipForDescribeLoadBalancersOutput ipv6Eip = null;
 
   @SerializedName("Ipv6EipId")
   private String ipv6EipId = null;
+
+  @SerializedName("Ipv6LocalAddresses")
+  private List<String> ipv6LocalAddresses = null;
 
   public LoadBalancerAddressForDescribeLoadBalancersOutput eip(EipForDescribeLoadBalancersOutput eip) {
     this.eip = eip;
@@ -165,6 +173,32 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
     this.eniIpv6Address = eniIpv6Address;
   }
 
+  public LoadBalancerAddressForDescribeLoadBalancersOutput ipv4LocalAddresses(List<String> ipv4LocalAddresses) {
+    this.ipv4LocalAddresses = ipv4LocalAddresses;
+    return this;
+  }
+
+  public LoadBalancerAddressForDescribeLoadBalancersOutput addIpv4LocalAddressesItem(String ipv4LocalAddressesItem) {
+    if (this.ipv4LocalAddresses == null) {
+      this.ipv4LocalAddresses = new ArrayList<String>();
+    }
+    this.ipv4LocalAddresses.add(ipv4LocalAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get ipv4LocalAddresses
+   * @return ipv4LocalAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getIpv4LocalAddresses() {
+    return ipv4LocalAddresses;
+  }
+
+  public void setIpv4LocalAddresses(List<String> ipv4LocalAddresses) {
+    this.ipv4LocalAddresses = ipv4LocalAddresses;
+  }
+
   public LoadBalancerAddressForDescribeLoadBalancersOutput ipv6Eip(Ipv6EipForDescribeLoadBalancersOutput ipv6Eip) {
     this.ipv6Eip = ipv6Eip;
     return this;
@@ -202,6 +236,32 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
     this.ipv6EipId = ipv6EipId;
   }
 
+  public LoadBalancerAddressForDescribeLoadBalancersOutput ipv6LocalAddresses(List<String> ipv6LocalAddresses) {
+    this.ipv6LocalAddresses = ipv6LocalAddresses;
+    return this;
+  }
+
+  public LoadBalancerAddressForDescribeLoadBalancersOutput addIpv6LocalAddressesItem(String ipv6LocalAddressesItem) {
+    if (this.ipv6LocalAddresses == null) {
+      this.ipv6LocalAddresses = new ArrayList<String>();
+    }
+    this.ipv6LocalAddresses.add(ipv6LocalAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6LocalAddresses
+   * @return ipv6LocalAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6LocalAddresses() {
+    return ipv6LocalAddresses;
+  }
+
+  public void setIpv6LocalAddresses(List<String> ipv6LocalAddresses) {
+    this.ipv6LocalAddresses = ipv6LocalAddresses;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -218,13 +278,15 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
         Objects.equals(this.eniAddress, loadBalancerAddressForDescribeLoadBalancersOutput.eniAddress) &&
         Objects.equals(this.eniId, loadBalancerAddressForDescribeLoadBalancersOutput.eniId) &&
         Objects.equals(this.eniIpv6Address, loadBalancerAddressForDescribeLoadBalancersOutput.eniIpv6Address) &&
+        Objects.equals(this.ipv4LocalAddresses, loadBalancerAddressForDescribeLoadBalancersOutput.ipv4LocalAddresses) &&
         Objects.equals(this.ipv6Eip, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6Eip) &&
-        Objects.equals(this.ipv6EipId, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6EipId);
+        Objects.equals(this.ipv6EipId, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6EipId) &&
+        Objects.equals(this.ipv6LocalAddresses, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6LocalAddresses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eip, eipAddress, eipId, eniAddress, eniId, eniIpv6Address, ipv6Eip, ipv6EipId);
+    return Objects.hash(eip, eipAddress, eipId, eniAddress, eniId, eniIpv6Address, ipv4LocalAddresses, ipv6Eip, ipv6EipId, ipv6LocalAddresses);
   }
 
 
@@ -239,8 +301,10 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniId: ").append(toIndentedString(eniId)).append("\n");
     sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
+    sb.append("    ipv4LocalAddresses: ").append(toIndentedString(ipv4LocalAddresses)).append("\n");
     sb.append("    ipv6Eip: ").append(toIndentedString(ipv6Eip)).append("\n");
     sb.append("    ipv6EipId: ").append(toIndentedString(ipv6EipId)).append("\n");
+    sb.append("    ipv6LocalAddresses: ").append(toIndentedString(ipv6LocalAddresses)).append("\n");
     sb.append("}");
     return sb.toString();
   }

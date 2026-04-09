@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AutoFillTargetTextForVideoProjectListOutput
+ * VideoEditorAddSpeakerResponse
  */
 
 
 
-public class AutoFillTargetTextForVideoProjectListOutput {
-  @SerializedName("onCreate")
-  private Boolean onCreate = null;
+public class VideoEditorAddSpeakerResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("id")
+  private Integer id = null;
 
-  @SerializedName("onUpdate")
-  private Boolean onUpdate = null;
-
-  public AutoFillTargetTextForVideoProjectListOutput onCreate(Boolean onCreate) {
-    this.onCreate = onCreate;
+  public VideoEditorAddSpeakerResponse id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get onCreate
-   * @return onCreate
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Boolean isOnCreate() {
-    return onCreate;
+  public Integer getId() {
+    return id;
   }
 
-  public void setOnCreate(Boolean onCreate) {
-    this.onCreate = onCreate;
-  }
-
-  public AutoFillTargetTextForVideoProjectListOutput onUpdate(Boolean onUpdate) {
-    this.onUpdate = onUpdate;
-    return this;
-  }
-
-   /**
-   * Get onUpdate
-   * @return onUpdate
-  **/
-  @Schema(description = "")
-  public Boolean isOnUpdate() {
-    return onUpdate;
-  }
-
-  public void setOnUpdate(Boolean onUpdate) {
-    this.onUpdate = onUpdate;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
 
@@ -81,24 +60,22 @@ public class AutoFillTargetTextForVideoProjectListOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoFillTargetTextForVideoProjectListOutput autoFillTargetTextForVideoProjectListOutput = (AutoFillTargetTextForVideoProjectListOutput) o;
-    return Objects.equals(this.onCreate, autoFillTargetTextForVideoProjectListOutput.onCreate) &&
-        Objects.equals(this.onUpdate, autoFillTargetTextForVideoProjectListOutput.onUpdate);
+    VideoEditorAddSpeakerResponse videoEditorAddSpeakerResponse = (VideoEditorAddSpeakerResponse) o;
+    return Objects.equals(this.id, videoEditorAddSpeakerResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(onCreate, onUpdate);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoFillTargetTextForVideoProjectListOutput {\n");
+    sb.append("class VideoEditorAddSpeakerResponse {\n");
     
-    sb.append("    onCreate: ").append(toIndentedString(onCreate)).append("\n");
-    sb.append("    onUpdate: ").append(toIndentedString(onUpdate)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -57,7 +57,7 @@ public class VideoProjectSuppressionStartRequest {
   private Integer startTime = null;
 
   @SerializedName("subtaskIds")
-  private List<Integer> subtaskIds = null;
+  private List<String> subtaskIds = null;
 
   public VideoProjectSuppressionStartRequest arrangeMent(Integer arrangeMent) {
     this.arrangeMent = arrangeMent;
@@ -208,14 +208,14 @@ public class VideoProjectSuppressionStartRequest {
     this.startTime = startTime;
   }
 
-  public VideoProjectSuppressionStartRequest subtaskIds(List<Integer> subtaskIds) {
+  public VideoProjectSuppressionStartRequest subtaskIds(List<String> subtaskIds) {
     this.subtaskIds = subtaskIds;
     return this;
   }
 
-  public VideoProjectSuppressionStartRequest addSubtaskIdsItem(Integer subtaskIdsItem) {
+  public VideoProjectSuppressionStartRequest addSubtaskIdsItem(String subtaskIdsItem) {
     if (this.subtaskIds == null) {
-      this.subtaskIds = new ArrayList<Integer>();
+      this.subtaskIds = new ArrayList<String>();
     }
     this.subtaskIds.add(subtaskIdsItem);
     return this;
@@ -226,11 +226,11 @@ public class VideoProjectSuppressionStartRequest {
    * @return subtaskIds
   **/
   @Schema(description = "")
-  public List<Integer> getSubtaskIds() {
+  public List<String> getSubtaskIds() {
     return subtaskIds;
   }
 
-  public void setSubtaskIds(List<Integer> subtaskIds) {
+  public void setSubtaskIds(List<String> subtaskIds) {
     this.subtaskIds = subtaskIds;
   }
 

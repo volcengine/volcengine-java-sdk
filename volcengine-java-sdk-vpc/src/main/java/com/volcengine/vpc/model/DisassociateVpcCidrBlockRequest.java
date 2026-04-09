@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class DisassociateVpcCidrBlockRequest {
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
   @SerializedName("SecondaryCidrBlock")
   private String secondaryCidrBlock = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DisassociateVpcCidrBlockRequest ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+  }
 
   public DisassociateVpcCidrBlockRequest secondaryCidrBlock(String secondaryCidrBlock) {
     this.secondaryCidrBlock = secondaryCidrBlock;
@@ -83,13 +104,14 @@ public class DisassociateVpcCidrBlockRequest {
       return false;
     }
     DisassociateVpcCidrBlockRequest disassociateVpcCidrBlockRequest = (DisassociateVpcCidrBlockRequest) o;
-    return Objects.equals(this.secondaryCidrBlock, disassociateVpcCidrBlockRequest.secondaryCidrBlock) &&
+    return Objects.equals(this.ipv6CidrBlock, disassociateVpcCidrBlockRequest.ipv6CidrBlock) &&
+        Objects.equals(this.secondaryCidrBlock, disassociateVpcCidrBlockRequest.secondaryCidrBlock) &&
         Objects.equals(this.vpcId, disassociateVpcCidrBlockRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondaryCidrBlock, vpcId);
+    return Objects.hash(ipv6CidrBlock, secondaryCidrBlock, vpcId);
   }
 
 
@@ -98,6 +120,7 @@ public class DisassociateVpcCidrBlockRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisassociateVpcCidrBlockRequest {\n");
     
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    secondaryCidrBlock: ").append(toIndentedString(secondaryCidrBlock)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

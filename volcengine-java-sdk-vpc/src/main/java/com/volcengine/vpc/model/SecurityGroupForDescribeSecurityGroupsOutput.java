@@ -33,6 +33,15 @@ import javax.validation.Valid;
 
 
 public class SecurityGroupForDescribeSecurityGroupsOutput {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
+  @SerializedName("AvailableIpCount")
+  private Integer availableIpCount = null;
+
+  @SerializedName("AvailableNetworkInterfaceCount")
+  private Integer availableNetworkInterfaceCount = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -60,8 +69,68 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
   @SerializedName("Type")
   private String type = null;
 
+  @SerializedName("UsedIpCount")
+  private Integer usedIpCount = null;
+
+  @SerializedName("UsedNetworkInterfaceCount")
+  private Integer usedNetworkInterfaceCount = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public SecurityGroupForDescribeSecurityGroupsOutput accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public SecurityGroupForDescribeSecurityGroupsOutput availableIpCount(Integer availableIpCount) {
+    this.availableIpCount = availableIpCount;
+    return this;
+  }
+
+   /**
+   * Get availableIpCount
+   * @return availableIpCount
+  **/
+  @Schema(description = "")
+  public Integer getAvailableIpCount() {
+    return availableIpCount;
+  }
+
+  public void setAvailableIpCount(Integer availableIpCount) {
+    this.availableIpCount = availableIpCount;
+  }
+
+  public SecurityGroupForDescribeSecurityGroupsOutput availableNetworkInterfaceCount(Integer availableNetworkInterfaceCount) {
+    this.availableNetworkInterfaceCount = availableNetworkInterfaceCount;
+    return this;
+  }
+
+   /**
+   * Get availableNetworkInterfaceCount
+   * @return availableNetworkInterfaceCount
+  **/
+  @Schema(description = "")
+  public Integer getAvailableNetworkInterfaceCount() {
+    return availableNetworkInterfaceCount;
+  }
+
+  public void setAvailableNetworkInterfaceCount(Integer availableNetworkInterfaceCount) {
+    this.availableNetworkInterfaceCount = availableNetworkInterfaceCount;
+  }
 
   public SecurityGroupForDescribeSecurityGroupsOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -234,6 +303,42 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     this.type = type;
   }
 
+  public SecurityGroupForDescribeSecurityGroupsOutput usedIpCount(Integer usedIpCount) {
+    this.usedIpCount = usedIpCount;
+    return this;
+  }
+
+   /**
+   * Get usedIpCount
+   * @return usedIpCount
+  **/
+  @Schema(description = "")
+  public Integer getUsedIpCount() {
+    return usedIpCount;
+  }
+
+  public void setUsedIpCount(Integer usedIpCount) {
+    this.usedIpCount = usedIpCount;
+  }
+
+  public SecurityGroupForDescribeSecurityGroupsOutput usedNetworkInterfaceCount(Integer usedNetworkInterfaceCount) {
+    this.usedNetworkInterfaceCount = usedNetworkInterfaceCount;
+    return this;
+  }
+
+   /**
+   * Get usedNetworkInterfaceCount
+   * @return usedNetworkInterfaceCount
+  **/
+  @Schema(description = "")
+  public Integer getUsedNetworkInterfaceCount() {
+    return usedNetworkInterfaceCount;
+  }
+
+  public void setUsedNetworkInterfaceCount(Integer usedNetworkInterfaceCount) {
+    this.usedNetworkInterfaceCount = usedNetworkInterfaceCount;
+  }
+
   public SecurityGroupForDescribeSecurityGroupsOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -262,7 +367,10 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
       return false;
     }
     SecurityGroupForDescribeSecurityGroupsOutput securityGroupForDescribeSecurityGroupsOutput = (SecurityGroupForDescribeSecurityGroupsOutput) o;
-    return Objects.equals(this.creationTime, securityGroupForDescribeSecurityGroupsOutput.creationTime) &&
+    return Objects.equals(this.accountId, securityGroupForDescribeSecurityGroupsOutput.accountId) &&
+        Objects.equals(this.availableIpCount, securityGroupForDescribeSecurityGroupsOutput.availableIpCount) &&
+        Objects.equals(this.availableNetworkInterfaceCount, securityGroupForDescribeSecurityGroupsOutput.availableNetworkInterfaceCount) &&
+        Objects.equals(this.creationTime, securityGroupForDescribeSecurityGroupsOutput.creationTime) &&
         Objects.equals(this.description, securityGroupForDescribeSecurityGroupsOutput.description) &&
         Objects.equals(this.projectName, securityGroupForDescribeSecurityGroupsOutput.projectName) &&
         Objects.equals(this.securityGroupId, securityGroupForDescribeSecurityGroupsOutput.securityGroupId) &&
@@ -271,12 +379,14 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
         Objects.equals(this.status, securityGroupForDescribeSecurityGroupsOutput.status) &&
         Objects.equals(this.tags, securityGroupForDescribeSecurityGroupsOutput.tags) &&
         Objects.equals(this.type, securityGroupForDescribeSecurityGroupsOutput.type) &&
+        Objects.equals(this.usedIpCount, securityGroupForDescribeSecurityGroupsOutput.usedIpCount) &&
+        Objects.equals(this.usedNetworkInterfaceCount, securityGroupForDescribeSecurityGroupsOutput.usedNetworkInterfaceCount) &&
         Objects.equals(this.vpcId, securityGroupForDescribeSecurityGroupsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, projectName, securityGroupId, securityGroupName, serviceManaged, status, tags, type, vpcId);
+    return Objects.hash(accountId, availableIpCount, availableNetworkInterfaceCount, creationTime, description, projectName, securityGroupId, securityGroupName, serviceManaged, status, tags, type, usedIpCount, usedNetworkInterfaceCount, vpcId);
   }
 
 
@@ -285,6 +395,9 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityGroupForDescribeSecurityGroupsOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    availableIpCount: ").append(toIndentedString(availableIpCount)).append("\n");
+    sb.append("    availableNetworkInterfaceCount: ").append(toIndentedString(availableNetworkInterfaceCount)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
@@ -294,6 +407,8 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    usedIpCount: ").append(toIndentedString(usedIpCount)).append("\n");
+    sb.append("    usedNetworkInterfaceCount: ").append(toIndentedString(usedNetworkInterfaceCount)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

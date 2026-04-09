@@ -36,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class NetworkAclForDescribeNetworkAclsOutput {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -71,6 +74,24 @@ public class NetworkAclForDescribeNetworkAclsOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public NetworkAclForDescribeNetworkAclsOutput accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public NetworkAclForDescribeNetworkAclsOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -334,7 +355,8 @@ public class NetworkAclForDescribeNetworkAclsOutput {
       return false;
     }
     NetworkAclForDescribeNetworkAclsOutput networkAclForDescribeNetworkAclsOutput = (NetworkAclForDescribeNetworkAclsOutput) o;
-    return Objects.equals(this.creationTime, networkAclForDescribeNetworkAclsOutput.creationTime) &&
+    return Objects.equals(this.accountId, networkAclForDescribeNetworkAclsOutput.accountId) &&
+        Objects.equals(this.creationTime, networkAclForDescribeNetworkAclsOutput.creationTime) &&
         Objects.equals(this.description, networkAclForDescribeNetworkAclsOutput.description) &&
         Objects.equals(this.egressAclEntries, networkAclForDescribeNetworkAclsOutput.egressAclEntries) &&
         Objects.equals(this.ingressAclEntries, networkAclForDescribeNetworkAclsOutput.ingressAclEntries) &&
@@ -350,7 +372,7 @@ public class NetworkAclForDescribeNetworkAclsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, projectName, resources, status, tags, updateTime, vpcId);
+    return Objects.hash(accountId, creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, projectName, resources, status, tags, updateTime, vpcId);
   }
 
 
@@ -359,6 +381,7 @@ public class NetworkAclForDescribeNetworkAclsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkAclForDescribeNetworkAclsOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    egressAclEntries: ").append(toIndentedString(egressAclEntries)).append("\n");

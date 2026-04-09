@@ -33,11 +33,20 @@ public class ServerForModifyServerGroupBackendServersInput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("Ip")
+  private String ip = null;
+
   @SerializedName("Port")
   private Integer port = null;
 
   @SerializedName("ServerId")
   private String serverId = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   @SerializedName("Weight")
   private Integer weight = null;
@@ -58,6 +67,42 @@ public class ServerForModifyServerGroupBackendServersInput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ServerForModifyServerGroupBackendServersInput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public ServerForModifyServerGroupBackendServersInput ip(String ip) {
+    this.ip = ip;
+    return this;
+  }
+
+   /**
+   * Get ip
+   * @return ip
+  **/
+  @Schema(description = "")
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
   }
 
   public ServerForModifyServerGroupBackendServersInput port(Integer port) {
@@ -88,14 +133,31 @@ public class ServerForModifyServerGroupBackendServersInput {
    * Get serverId
    * @return serverId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getServerId() {
     return serverId;
   }
 
   public void setServerId(String serverId) {
     this.serverId = serverId;
+  }
+
+  public ServerForModifyServerGroupBackendServersInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public ServerForModifyServerGroupBackendServersInput weight(Integer weight) {
@@ -128,14 +190,17 @@ public class ServerForModifyServerGroupBackendServersInput {
     }
     ServerForModifyServerGroupBackendServersInput serverForModifyServerGroupBackendServersInput = (ServerForModifyServerGroupBackendServersInput) o;
     return Objects.equals(this.description, serverForModifyServerGroupBackendServersInput.description) &&
+        Objects.equals(this.instanceId, serverForModifyServerGroupBackendServersInput.instanceId) &&
+        Objects.equals(this.ip, serverForModifyServerGroupBackendServersInput.ip) &&
         Objects.equals(this.port, serverForModifyServerGroupBackendServersInput.port) &&
         Objects.equals(this.serverId, serverForModifyServerGroupBackendServersInput.serverId) &&
+        Objects.equals(this.type, serverForModifyServerGroupBackendServersInput.type) &&
         Objects.equals(this.weight, serverForModifyServerGroupBackendServersInput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, port, serverId, weight);
+    return Objects.hash(description, instanceId, ip, port, serverId, type, weight);
   }
 
 
@@ -145,8 +210,11 @@ public class ServerForModifyServerGroupBackendServersInput {
     sb.append("class ServerForModifyServerGroupBackendServersInput {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    serverId: ").append(toIndentedString(serverId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
     return sb.toString();

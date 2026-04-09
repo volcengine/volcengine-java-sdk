@@ -45,11 +45,20 @@ public class CreateVpcRequest {
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("EnableIpv6")
   private Boolean enableIpv6 = null;
 
   @SerializedName("Ipv6CidrBlock")
   private String ipv6CidrBlock = null;
+
+  @SerializedName("Ipv6Isp")
+  private String ipv6Isp = null;
+
+  @SerializedName("Ipv6MaskLen")
+  private Integer ipv6MaskLen = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -141,6 +150,24 @@ public class CreateVpcRequest {
     this.dnsServers = dnsServers;
   }
 
+  public CreateVpcRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
+
   public CreateVpcRequest enableIpv6(Boolean enableIpv6) {
     this.enableIpv6 = enableIpv6;
     return this;
@@ -175,6 +202,42 @@ public class CreateVpcRequest {
 
   public void setIpv6CidrBlock(String ipv6CidrBlock) {
     this.ipv6CidrBlock = ipv6CidrBlock;
+  }
+
+  public CreateVpcRequest ipv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+    return this;
+  }
+
+   /**
+   * Get ipv6Isp
+   * @return ipv6Isp
+  **/
+  @Schema(description = "")
+  public String getIpv6Isp() {
+    return ipv6Isp;
+  }
+
+  public void setIpv6Isp(String ipv6Isp) {
+    this.ipv6Isp = ipv6Isp;
+  }
+
+  public CreateVpcRequest ipv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
+    return this;
+  }
+
+   /**
+   * Get ipv6MaskLen
+   * @return ipv6MaskLen
+  **/
+  @Schema(description = "")
+  public Integer getIpv6MaskLen() {
+    return ipv6MaskLen;
+  }
+
+  public void setIpv6MaskLen(Integer ipv6MaskLen) {
+    this.ipv6MaskLen = ipv6MaskLen;
   }
 
   public CreateVpcRequest projectName(String projectName) {
@@ -254,8 +317,11 @@ public class CreateVpcRequest {
         Objects.equals(this.clientToken, createVpcRequest.clientToken) &&
         Objects.equals(this.description, createVpcRequest.description) &&
         Objects.equals(this.dnsServers, createVpcRequest.dnsServers) &&
+        Objects.equals(this.dryRun, createVpcRequest.dryRun) &&
         Objects.equals(this.enableIpv6, createVpcRequest.enableIpv6) &&
         Objects.equals(this.ipv6CidrBlock, createVpcRequest.ipv6CidrBlock) &&
+        Objects.equals(this.ipv6Isp, createVpcRequest.ipv6Isp) &&
+        Objects.equals(this.ipv6MaskLen, createVpcRequest.ipv6MaskLen) &&
         Objects.equals(this.projectName, createVpcRequest.projectName) &&
         Objects.equals(this.tags, createVpcRequest.tags) &&
         Objects.equals(this.vpcName, createVpcRequest.vpcName);
@@ -263,7 +329,7 @@ public class CreateVpcRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, clientToken, description, dnsServers, enableIpv6, ipv6CidrBlock, projectName, tags, vpcName);
+    return Objects.hash(cidrBlock, clientToken, description, dnsServers, dryRun, enableIpv6, ipv6CidrBlock, ipv6Isp, ipv6MaskLen, projectName, tags, vpcName);
   }
 
 
@@ -276,8 +342,11 @@ public class CreateVpcRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
+    sb.append("    ipv6Isp: ").append(toIndentedString(ipv6Isp)).append("\n");
+    sb.append("    ipv6MaskLen: ").append(toIndentedString(ipv6MaskLen)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

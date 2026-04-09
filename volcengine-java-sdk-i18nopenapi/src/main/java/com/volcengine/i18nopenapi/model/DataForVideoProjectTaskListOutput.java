@@ -42,9 +42,6 @@ public class DataForVideoProjectTaskListOutput {
   @SerializedName("tasks")
   private List<TaskForVideoProjectTaskListOutput> tasks = null;
 
-  @SerializedName("total")
-  private Integer total = null;
-
   @SerializedName("totalCount")
   private String totalCount = null;
 
@@ -127,24 +124,6 @@ public class DataForVideoProjectTaskListOutput {
     this.tasks = tasks;
   }
 
-  public DataForVideoProjectTaskListOutput total(Integer total) {
-    this.total = total;
-    return this;
-  }
-
-   /**
-   * Get total
-   * @return total
-  **/
-  @Schema(description = "")
-  public Integer getTotal() {
-    return total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
   public DataForVideoProjectTaskListOutput totalCount(String totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -176,13 +155,12 @@ public class DataForVideoProjectTaskListOutput {
     return Objects.equals(this.allSourceLanguages, dataForVideoProjectTaskListOutput.allSourceLanguages) &&
         Objects.equals(this.allTargetLanguages, dataForVideoProjectTaskListOutput.allTargetLanguages) &&
         Objects.equals(this.tasks, dataForVideoProjectTaskListOutput.tasks) &&
-        Objects.equals(this.total, dataForVideoProjectTaskListOutput.total) &&
         Objects.equals(this.totalCount, dataForVideoProjectTaskListOutput.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allSourceLanguages, allTargetLanguages, tasks, total, totalCount);
+    return Objects.hash(allSourceLanguages, allTargetLanguages, tasks, totalCount);
   }
 
 
@@ -194,7 +172,6 @@ public class DataForVideoProjectTaskListOutput {
     sb.append("    allSourceLanguages: ").append(toIndentedString(allSourceLanguages)).append("\n");
     sb.append("    allTargetLanguages: ").append(toIndentedString(allTargetLanguages)).append("\n");
     sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

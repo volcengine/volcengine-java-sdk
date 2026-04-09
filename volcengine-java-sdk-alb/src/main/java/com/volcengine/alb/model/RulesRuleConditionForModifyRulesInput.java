@@ -19,11 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.CookieConfigForModifyRulesInput;
 import com.volcengine.alb.model.HeaderConfigForModifyRulesInput;
 import com.volcengine.alb.model.HostConfigForModifyRulesInput;
 import com.volcengine.alb.model.MethodConfigForModifyRulesInput;
 import com.volcengine.alb.model.PathConfigForModifyRulesInput;
 import com.volcengine.alb.model.QueryStringConfigForModifyRulesInput;
+import com.volcengine.alb.model.SourceIpConfigForModifyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -35,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class RulesRuleConditionForModifyRulesInput {
+  @SerializedName("CookieConfig")
+  private CookieConfigForModifyRulesInput cookieConfig = null;
+
   @SerializedName("HeaderConfig")
   private HeaderConfigForModifyRulesInput headerConfig = null;
 
@@ -50,8 +55,30 @@ public class RulesRuleConditionForModifyRulesInput {
   @SerializedName("QueryStringConfig")
   private QueryStringConfigForModifyRulesInput queryStringConfig = null;
 
+  @SerializedName("SourceIpConfig")
+  private SourceIpConfigForModifyRulesInput sourceIpConfig = null;
+
   @SerializedName("Type")
   private String type = null;
+
+  public RulesRuleConditionForModifyRulesInput cookieConfig(CookieConfigForModifyRulesInput cookieConfig) {
+    this.cookieConfig = cookieConfig;
+    return this;
+  }
+
+   /**
+   * Get cookieConfig
+   * @return cookieConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public CookieConfigForModifyRulesInput getCookieConfig() {
+    return cookieConfig;
+  }
+
+  public void setCookieConfig(CookieConfigForModifyRulesInput cookieConfig) {
+    this.cookieConfig = cookieConfig;
+  }
 
   public RulesRuleConditionForModifyRulesInput headerConfig(HeaderConfigForModifyRulesInput headerConfig) {
     this.headerConfig = headerConfig;
@@ -148,6 +175,25 @@ public class RulesRuleConditionForModifyRulesInput {
     this.queryStringConfig = queryStringConfig;
   }
 
+  public RulesRuleConditionForModifyRulesInput sourceIpConfig(SourceIpConfigForModifyRulesInput sourceIpConfig) {
+    this.sourceIpConfig = sourceIpConfig;
+    return this;
+  }
+
+   /**
+   * Get sourceIpConfig
+   * @return sourceIpConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceIpConfigForModifyRulesInput getSourceIpConfig() {
+    return sourceIpConfig;
+  }
+
+  public void setSourceIpConfig(SourceIpConfigForModifyRulesInput sourceIpConfig) {
+    this.sourceIpConfig = sourceIpConfig;
+  }
+
   public RulesRuleConditionForModifyRulesInput type(String type) {
     this.type = type;
     return this;
@@ -176,17 +222,19 @@ public class RulesRuleConditionForModifyRulesInput {
       return false;
     }
     RulesRuleConditionForModifyRulesInput rulesRuleConditionForModifyRulesInput = (RulesRuleConditionForModifyRulesInput) o;
-    return Objects.equals(this.headerConfig, rulesRuleConditionForModifyRulesInput.headerConfig) &&
+    return Objects.equals(this.cookieConfig, rulesRuleConditionForModifyRulesInput.cookieConfig) &&
+        Objects.equals(this.headerConfig, rulesRuleConditionForModifyRulesInput.headerConfig) &&
         Objects.equals(this.hostConfig, rulesRuleConditionForModifyRulesInput.hostConfig) &&
         Objects.equals(this.methodConfig, rulesRuleConditionForModifyRulesInput.methodConfig) &&
         Objects.equals(this.pathConfig, rulesRuleConditionForModifyRulesInput.pathConfig) &&
         Objects.equals(this.queryStringConfig, rulesRuleConditionForModifyRulesInput.queryStringConfig) &&
+        Objects.equals(this.sourceIpConfig, rulesRuleConditionForModifyRulesInput.sourceIpConfig) &&
         Objects.equals(this.type, rulesRuleConditionForModifyRulesInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headerConfig, hostConfig, methodConfig, pathConfig, queryStringConfig, type);
+    return Objects.hash(cookieConfig, headerConfig, hostConfig, methodConfig, pathConfig, queryStringConfig, sourceIpConfig, type);
   }
 
 
@@ -195,11 +243,13 @@ public class RulesRuleConditionForModifyRulesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RulesRuleConditionForModifyRulesInput {\n");
     
+    sb.append("    cookieConfig: ").append(toIndentedString(cookieConfig)).append("\n");
     sb.append("    headerConfig: ").append(toIndentedString(headerConfig)).append("\n");
     sb.append("    hostConfig: ").append(toIndentedString(hostConfig)).append("\n");
     sb.append("    methodConfig: ").append(toIndentedString(methodConfig)).append("\n");
     sb.append("    pathConfig: ").append(toIndentedString(pathConfig)).append("\n");
     sb.append("    queryStringConfig: ").append(toIndentedString(queryStringConfig)).append("\n");
+    sb.append("    sourceIpConfig: ").append(toIndentedString(sourceIpConfig)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

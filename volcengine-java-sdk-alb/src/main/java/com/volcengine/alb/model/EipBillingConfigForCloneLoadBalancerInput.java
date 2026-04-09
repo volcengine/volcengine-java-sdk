@@ -39,6 +39,12 @@ public class EipBillingConfigForCloneLoadBalancerInput {
   @SerializedName("ISP")
   private String ISP = null;
 
+  @SerializedName("SecurityProtectionInstanceId")
+  private Integer securityProtectionInstanceId = null;
+
+  @SerializedName("SecurityProtectionTypes")
+  private String securityProtectionTypes = null;
+
   public EipBillingConfigForCloneLoadBalancerInput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
@@ -93,6 +99,42 @@ public class EipBillingConfigForCloneLoadBalancerInput {
     this.ISP = ISP;
   }
 
+  public EipBillingConfigForCloneLoadBalancerInput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionInstanceId
+   * @return securityProtectionInstanceId
+  **/
+  @Schema(description = "")
+  public Integer getSecurityProtectionInstanceId() {
+    return securityProtectionInstanceId;
+  }
+
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+  }
+
+  public EipBillingConfigForCloneLoadBalancerInput securityProtectionTypes(String securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public String getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(String securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +147,14 @@ public class EipBillingConfigForCloneLoadBalancerInput {
     EipBillingConfigForCloneLoadBalancerInput eipBillingConfigForCloneLoadBalancerInput = (EipBillingConfigForCloneLoadBalancerInput) o;
     return Objects.equals(this.bandwidth, eipBillingConfigForCloneLoadBalancerInput.bandwidth) &&
         Objects.equals(this.eipBillingType, eipBillingConfigForCloneLoadBalancerInput.eipBillingType) &&
-        Objects.equals(this.ISP, eipBillingConfigForCloneLoadBalancerInput.ISP);
+        Objects.equals(this.ISP, eipBillingConfigForCloneLoadBalancerInput.ISP) &&
+        Objects.equals(this.securityProtectionInstanceId, eipBillingConfigForCloneLoadBalancerInput.securityProtectionInstanceId) &&
+        Objects.equals(this.securityProtectionTypes, eipBillingConfigForCloneLoadBalancerInput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, eipBillingType, ISP);
+    return Objects.hash(bandwidth, eipBillingType, ISP, securityProtectionInstanceId, securityProtectionTypes);
   }
 
 
@@ -122,6 +166,8 @@ public class EipBillingConfigForCloneLoadBalancerInput {
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

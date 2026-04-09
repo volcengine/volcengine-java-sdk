@@ -19,38 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.SettingForVideoProjectListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExtraForVideoProjectListOutput
+ * VideoEditorDeleteEmotionTagRequest
  */
 
 
 
-public class ExtraForVideoProjectListOutput {
-  @SerializedName("setting")
-  private SettingForVideoProjectListOutput setting = null;
+public class VideoEditorDeleteEmotionTagRequest {
+  @SerializedName("id")
+  private Integer id = null;
 
-  public ExtraForVideoProjectListOutput setting(SettingForVideoProjectListOutput setting) {
-    this.setting = setting;
+  @SerializedName("subtaskId")
+  private Integer subtaskId = null;
+
+  public VideoEditorDeleteEmotionTagRequest id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get setting
-   * @return setting
+   * Get id
+   * @return id
   **/
-  @Valid
-  @Schema(description = "")
-  public SettingForVideoProjectListOutput getSetting() {
-    return setting;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getId() {
+    return id;
   }
 
-  public void setSetting(SettingForVideoProjectListOutput setting) {
-    this.setting = setting;
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public VideoEditorDeleteEmotionTagRequest subtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
+    return this;
+  }
+
+   /**
+   * Get subtaskId
+   * @return subtaskId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getSubtaskId() {
+    return subtaskId;
+  }
+
+  public void setSubtaskId(Integer subtaskId) {
+    this.subtaskId = subtaskId;
   }
 
 
@@ -62,22 +83,24 @@ public class ExtraForVideoProjectListOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExtraForVideoProjectListOutput extraForVideoProjectListOutput = (ExtraForVideoProjectListOutput) o;
-    return Objects.equals(this.setting, extraForVideoProjectListOutput.setting);
+    VideoEditorDeleteEmotionTagRequest videoEditorDeleteEmotionTagRequest = (VideoEditorDeleteEmotionTagRequest) o;
+    return Objects.equals(this.id, videoEditorDeleteEmotionTagRequest.id) &&
+        Objects.equals(this.subtaskId, videoEditorDeleteEmotionTagRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(setting);
+    return Objects.hash(id, subtaskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExtraForVideoProjectListOutput {\n");
+    sb.append("class VideoEditorDeleteEmotionTagRequest {\n");
     
-    sb.append("    setting: ").append(toIndentedString(setting)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.acep.model.ConfigurationForListPodOutput;
 import com.volcengine.acep.model.DcInfoForListPodOutput;
+import com.volcengine.acep.model.EipForListPodOutput;
 import com.volcengine.acep.model.PortMappingRuleListForListPodOutput;
 import com.volcengine.acep.model.TagForListPodOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -84,6 +85,9 @@ public class RowForListPodOutput {
   @SerializedName("DownBandwidthLimit")
   private Integer downBandwidthLimit = null;
 
+  @SerializedName("Eip")
+  private EipForListPodOutput eip = null;
+
   @SerializedName("HostId")
   private String hostId = null;
 
@@ -98,6 +102,9 @@ public class RowForListPodOutput {
 
   @SerializedName("Online")
   private Integer online = null;
+
+  @SerializedName("PhoneTemplateId")
+  private String phoneTemplateId = null;
 
   @SerializedName("PodId")
   private String podId = null;
@@ -413,6 +420,25 @@ public class RowForListPodOutput {
     this.downBandwidthLimit = downBandwidthLimit;
   }
 
+  public RowForListPodOutput eip(EipForListPodOutput eip) {
+    this.eip = eip;
+    return this;
+  }
+
+   /**
+   * Get eip
+   * @return eip
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipForListPodOutput getEip() {
+    return eip;
+  }
+
+  public void setEip(EipForListPodOutput eip) {
+    this.eip = eip;
+  }
+
   public RowForListPodOutput hostId(String hostId) {
     this.hostId = hostId;
     return this;
@@ -501,6 +527,24 @@ public class RowForListPodOutput {
 
   public void setOnline(Integer online) {
     this.online = online;
+  }
+
+  public RowForListPodOutput phoneTemplateId(String phoneTemplateId) {
+    this.phoneTemplateId = phoneTemplateId;
+    return this;
+  }
+
+   /**
+   * Get phoneTemplateId
+   * @return phoneTemplateId
+  **/
+  @Schema(description = "")
+  public String getPhoneTemplateId() {
+    return phoneTemplateId;
+  }
+
+  public void setPhoneTemplateId(String phoneTemplateId) {
+    this.phoneTemplateId = phoneTemplateId;
   }
 
   public RowForListPodOutput podId(String podId) {
@@ -683,11 +727,13 @@ public class RowForListPodOutput {
         Objects.equals(this.dcInfo, rowForListPodOutput.dcInfo) &&
         Objects.equals(this.displayLayoutId, rowForListPodOutput.displayLayoutId) &&
         Objects.equals(this.downBandwidthLimit, rowForListPodOutput.downBandwidthLimit) &&
+        Objects.equals(this.eip, rowForListPodOutput.eip) &&
         Objects.equals(this.hostId, rowForListPodOutput.hostId) &&
         Objects.equals(this.imageId, rowForListPodOutput.imageId) &&
         Objects.equals(this.imageName, rowForListPodOutput.imageName) &&
         Objects.equals(this.intranetIP, rowForListPodOutput.intranetIP) &&
         Objects.equals(this.online, rowForListPodOutput.online) &&
+        Objects.equals(this.phoneTemplateId, rowForListPodOutput.phoneTemplateId) &&
         Objects.equals(this.podId, rowForListPodOutput.podId) &&
         Objects.equals(this.podName, rowForListPodOutput.podName) &&
         Objects.equals(this.portMappingRuleList, rowForListPodOutput.portMappingRuleList) &&
@@ -700,7 +746,7 @@ public class RowForListPodOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, _configuration, createAt, customRouteId, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, downBandwidthLimit, hostId, imageId, imageName, intranetIP, online, podId, podName, portMappingRuleList, productId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
+    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, _configuration, createAt, customRouteId, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, downBandwidthLimit, eip, hostId, imageId, imageName, intranetIP, online, phoneTemplateId, podId, podName, portMappingRuleList, productId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
   }
 
 
@@ -725,11 +771,13 @@ public class RowForListPodOutput {
     sb.append("    dcInfo: ").append(toIndentedString(dcInfo)).append("\n");
     sb.append("    displayLayoutId: ").append(toIndentedString(displayLayoutId)).append("\n");
     sb.append("    downBandwidthLimit: ").append(toIndentedString(downBandwidthLimit)).append("\n");
+    sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    intranetIP: ").append(toIndentedString(intranetIP)).append("\n");
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
+    sb.append("    phoneTemplateId: ").append(toIndentedString(phoneTemplateId)).append("\n");
     sb.append("    podId: ").append(toIndentedString(podId)).append("\n");
     sb.append("    podName: ").append(toIndentedString(podName)).append("\n");
     sb.append("    portMappingRuleList: ").append(toIndentedString(portMappingRuleList)).append("\n");

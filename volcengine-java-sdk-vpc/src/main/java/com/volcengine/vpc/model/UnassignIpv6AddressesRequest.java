@@ -32,11 +32,32 @@ import javax.validation.Valid;
 
 
 public class UnassignIpv6AddressesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Ipv6Address")
   private List<String> ipv6Address = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  public UnassignIpv6AddressesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public UnassignIpv6AddressesRequest ipv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
@@ -93,13 +114,14 @@ public class UnassignIpv6AddressesRequest {
       return false;
     }
     UnassignIpv6AddressesRequest unassignIpv6AddressesRequest = (UnassignIpv6AddressesRequest) o;
-    return Objects.equals(this.ipv6Address, unassignIpv6AddressesRequest.ipv6Address) &&
+    return Objects.equals(this.clientToken, unassignIpv6AddressesRequest.clientToken) &&
+        Objects.equals(this.ipv6Address, unassignIpv6AddressesRequest.ipv6Address) &&
         Objects.equals(this.networkInterfaceId, unassignIpv6AddressesRequest.networkInterfaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6Address, networkInterfaceId);
+    return Objects.hash(clientToken, ipv6Address, networkInterfaceId);
   }
 
 
@@ -108,6 +130,7 @@ public class UnassignIpv6AddressesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnassignIpv6AddressesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("}");

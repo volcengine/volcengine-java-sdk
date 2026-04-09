@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,7 +39,7 @@ public class DescribeIpv6EgressOnlyRulesRequest {
   private String ipv6Address = null;
 
   @SerializedName("Ipv6EgressOnlyRuleIds")
-  private String ipv6EgressOnlyRuleIds = null;
+  private List<String> ipv6EgressOnlyRuleIds = null;
 
   @SerializedName("Ipv6GatewayId")
   private String ipv6GatewayId = null;
@@ -87,8 +89,16 @@ public class DescribeIpv6EgressOnlyRulesRequest {
     this.ipv6Address = ipv6Address;
   }
 
-  public DescribeIpv6EgressOnlyRulesRequest ipv6EgressOnlyRuleIds(String ipv6EgressOnlyRuleIds) {
+  public DescribeIpv6EgressOnlyRulesRequest ipv6EgressOnlyRuleIds(List<String> ipv6EgressOnlyRuleIds) {
     this.ipv6EgressOnlyRuleIds = ipv6EgressOnlyRuleIds;
+    return this;
+  }
+
+  public DescribeIpv6EgressOnlyRulesRequest addIpv6EgressOnlyRuleIdsItem(String ipv6EgressOnlyRuleIdsItem) {
+    if (this.ipv6EgressOnlyRuleIds == null) {
+      this.ipv6EgressOnlyRuleIds = new ArrayList<String>();
+    }
+    this.ipv6EgressOnlyRuleIds.add(ipv6EgressOnlyRuleIdsItem);
     return this;
   }
 
@@ -97,11 +107,11 @@ public class DescribeIpv6EgressOnlyRulesRequest {
    * @return ipv6EgressOnlyRuleIds
   **/
   @Schema(description = "")
-  public String getIpv6EgressOnlyRuleIds() {
+  public List<String> getIpv6EgressOnlyRuleIds() {
     return ipv6EgressOnlyRuleIds;
   }
 
-  public void setIpv6EgressOnlyRuleIds(String ipv6EgressOnlyRuleIds) {
+  public void setIpv6EgressOnlyRuleIds(List<String> ipv6EgressOnlyRuleIds) {
     this.ipv6EgressOnlyRuleIds = ipv6EgressOnlyRuleIds;
   }
 

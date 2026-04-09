@@ -45,6 +45,9 @@ public class ModifySubnetAttributesRequest {
   @SerializedName("SubnetName")
   private String subnetName = null;
 
+  @SerializedName("VpcIpv6CidrBlock")
+  private String vpcIpv6CidrBlock = null;
+
   public ModifySubnetAttributesRequest description(String description) {
     this.description = description;
     return this;
@@ -138,6 +141,24 @@ public class ModifySubnetAttributesRequest {
     this.subnetName = subnetName;
   }
 
+  public ModifySubnetAttributesRequest vpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+    this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get vpcIpv6CidrBlock
+   * @return vpcIpv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getVpcIpv6CidrBlock() {
+    return vpcIpv6CidrBlock;
+  }
+
+  public void setVpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+    this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,12 +173,13 @@ public class ModifySubnetAttributesRequest {
         Objects.equals(this.enableIpv6, modifySubnetAttributesRequest.enableIpv6) &&
         Objects.equals(this.ipv6CidrBlock, modifySubnetAttributesRequest.ipv6CidrBlock) &&
         Objects.equals(this.subnetId, modifySubnetAttributesRequest.subnetId) &&
-        Objects.equals(this.subnetName, modifySubnetAttributesRequest.subnetName);
+        Objects.equals(this.subnetName, modifySubnetAttributesRequest.subnetName) &&
+        Objects.equals(this.vpcIpv6CidrBlock, modifySubnetAttributesRequest.vpcIpv6CidrBlock);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enableIpv6, ipv6CidrBlock, subnetId, subnetName);
+    return Objects.hash(description, enableIpv6, ipv6CidrBlock, subnetId, subnetName, vpcIpv6CidrBlock);
   }
 
 
@@ -171,6 +193,7 @@ public class ModifySubnetAttributesRequest {
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
+    sb.append("    vpcIpv6CidrBlock: ").append(toIndentedString(vpcIpv6CidrBlock)).append("\n");
     sb.append("}");
     return sb.toString();
   }

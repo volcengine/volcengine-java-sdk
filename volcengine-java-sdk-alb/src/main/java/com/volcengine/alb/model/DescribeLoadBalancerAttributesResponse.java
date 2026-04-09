@@ -124,6 +124,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("SecurityGroupIds")
+  private List<String> securityGroupIds = null;
+
   @SerializedName("SniAutoMatch")
   private String sniAutoMatch = null;
 
@@ -690,6 +693,32 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.requestId = requestId;
   }
 
+  public DescribeLoadBalancerAttributesResponse securityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addSecurityGroupIdsItem(String securityGroupIdsItem) {
+    if (this.securityGroupIds == null) {
+      this.securityGroupIds = new ArrayList<String>();
+    }
+    this.securityGroupIds.add(securityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupIds
+   * @return securityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityGroupIds() {
+    return securityGroupIds;
+  }
+
+  public void setSecurityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+  }
+
   public DescribeLoadBalancerAttributesResponse sniAutoMatch(String sniAutoMatch) {
     this.sniAutoMatch = sniAutoMatch;
     return this;
@@ -945,6 +974,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
+        Objects.equals(this.securityGroupIds, describeLoadBalancerAttributesResponse.securityGroupIds) &&
         Objects.equals(this.sniAutoMatch, describeLoadBalancerAttributesResponse.sniAutoMatch) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
@@ -960,7 +990,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, securityGroupIds, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -997,6 +1027,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

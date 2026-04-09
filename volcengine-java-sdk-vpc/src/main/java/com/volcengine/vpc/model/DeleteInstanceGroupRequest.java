@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteInstanceGroupRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceGroupId")
   private String instanceGroupId = null;
+
+  public DeleteInstanceGroupRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteInstanceGroupRequest instanceGroupId(String instanceGroupId) {
     this.instanceGroupId = instanceGroupId;
@@ -62,12 +83,13 @@ public class DeleteInstanceGroupRequest {
       return false;
     }
     DeleteInstanceGroupRequest deleteInstanceGroupRequest = (DeleteInstanceGroupRequest) o;
-    return Objects.equals(this.instanceGroupId, deleteInstanceGroupRequest.instanceGroupId);
+    return Objects.equals(this.clientToken, deleteInstanceGroupRequest.clientToken) &&
+        Objects.equals(this.instanceGroupId, deleteInstanceGroupRequest.instanceGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceGroupId);
+    return Objects.hash(clientToken, instanceGroupId);
   }
 
 
@@ -76,6 +98,7 @@ public class DeleteInstanceGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInstanceGroupRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceGroupId: ").append(toIndentedString(instanceGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ModifyInstanceGroupAttributesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -38,6 +41,24 @@ public class ModifyInstanceGroupAttributesRequest {
 
   @SerializedName("Name")
   private String name = null;
+
+  public ModifyInstanceGroupAttributesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyInstanceGroupAttributesRequest description(String description) {
     this.description = description;
@@ -104,14 +125,15 @@ public class ModifyInstanceGroupAttributesRequest {
       return false;
     }
     ModifyInstanceGroupAttributesRequest modifyInstanceGroupAttributesRequest = (ModifyInstanceGroupAttributesRequest) o;
-    return Objects.equals(this.description, modifyInstanceGroupAttributesRequest.description) &&
+    return Objects.equals(this.clientToken, modifyInstanceGroupAttributesRequest.clientToken) &&
+        Objects.equals(this.description, modifyInstanceGroupAttributesRequest.description) &&
         Objects.equals(this.instanceGroupId, modifyInstanceGroupAttributesRequest.instanceGroupId) &&
         Objects.equals(this.name, modifyInstanceGroupAttributesRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, instanceGroupId, name);
+    return Objects.hash(clientToken, description, instanceGroupId, name);
   }
 
 
@@ -120,6 +142,7 @@ public class ModifyInstanceGroupAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceGroupAttributesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceGroupId: ").append(toIndentedString(instanceGroupId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
