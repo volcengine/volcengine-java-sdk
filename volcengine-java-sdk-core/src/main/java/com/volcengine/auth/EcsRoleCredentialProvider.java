@@ -25,7 +25,7 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "EcsRoleCredentialProvider";
 
     // IMDSv2 endpoint and paths
-    private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
+    private static final String DEFAULT_IMDS_ENDPOINT = "http://10.251.237.190:8765";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
     private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
@@ -50,11 +50,11 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final int DEFAULT_EXPIRE_BUFFER_SECONDS = 300;
 
     private final String roleName;
-    private final int connectTimeoutMs;
-    private final int readTimeoutMs;
-    private final int maxRetries;
-    private final int retryIntervalMs;
-    private final int expireBufferSeconds;
+    private int connectTimeoutMs;
+    private int readTimeoutMs;
+    private int maxRetries;
+    private int retryIntervalMs;
+    private int expireBufferSeconds;
     private final String imdsEndpoint;
 
     private volatile CredentialValue credentialValue;
@@ -70,7 +70,7 @@ public class EcsRoleCredentialProvider implements Provider {
         this.roleName = roleName;
         this.connectTimeoutMs = connectTimeoutMs;
         this.readTimeoutMs = readTimeoutMs;
-        this.maxRetries = Math.max(maxRetries, 1);
+        this.maxRetries = Math.max(maxRetries, 0);
         this.retryIntervalMs = retryIntervalMs;
         this.expireBufferSeconds = expireBufferSeconds;
         this.imdsEndpoint = resolveImdsEndpoint();
@@ -88,6 +88,41 @@ public class EcsRoleCredentialProvider implements Provider {
 
         // roleName can be null — will be auto-detected on first refresh
         return new EcsRoleCredentialProvider(resolvedRoleName);
+    }
+
+    public void setConnectTimeoutMs(int connectTimeoutMs) {
+        if (connectTimeoutMs < 0) {
+            throw new IllegalArgumentException("connectTimeoutMs must be >= 0");
+        }
+        this.connectTimeoutMs = connectTimeoutMs;
+    }
+
+    public void setReadTimeoutMs(int readTimeoutMs) {
+        if (readTimeoutMs < 0) {
+            throw new IllegalArgumentException("readTimeoutMs must be >= 0");
+        }
+        this.readTimeoutMs = readTimeoutMs;
+    }
+
+    public void setMaxRetries(int maxRetries) {
+        if (maxRetries < 0) {
+            throw new IllegalArgumentException("maxRetries must be >= 0");
+        }
+        this.maxRetries = maxRetries;
+    }
+
+    public void setRetryIntervalMs(int retryIntervalMs) {
+        if (retryIntervalMs < 0) {
+            throw new IllegalArgumentException("retryIntervalMs must be >= 0");
+        }
+        this.retryIntervalMs = retryIntervalMs;
+    }
+
+    public void setExpireBufferSeconds(int expireBufferSeconds) {
+        if (expireBufferSeconds < 0) {
+            throw new IllegalArgumentException("expireBufferSeconds must be >= 0");
+        }
+        this.expireBufferSeconds = expireBufferSeconds;
     }
 
     @Override
@@ -216,12 +251,12 @@ public class EcsRoleCredentialProvider implements Provider {
     private String doRequestWithRetry(String urlStr, String method, String[][] headers) throws ApiException {
         ApiException lastException = null;
 
-        for (int attempt = 0; attempt < maxRetries; attempt++) {
+        for (int attempt = 0; attempt <= maxRetries; attempt++) {
             try {
                 return doRequest(urlStr, method, headers);
             } catch (ApiException e) {
                 lastException = e;
-                if (attempt < maxRetries - 1) {
+                if (attempt < maxRetries) {
                     try {
                         Thread.sleep(retryIntervalMs);
                     } catch (InterruptedException ie) {
@@ -232,7 +267,10 @@ public class EcsRoleCredentialProvider implements Provider {
             }
         }
 
-        throw lastException;
+        if (lastException != null) {
+            throw lastException;
+        }
+        throw new ApiException(PROVIDER_NAME + ": IMDS request failed after " + (maxRetries + 1) + " attempts");
     }
 
     private String doRequest(String urlStr, String method, String[][] headers) throws ApiException {

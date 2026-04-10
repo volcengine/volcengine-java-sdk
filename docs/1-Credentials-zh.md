@@ -221,8 +221,12 @@ public class SampleCode {
             null,                                 // rolePolicy（可选）
             "sts.volcengineapi.com"               // stsEndpoint（可选）
     );
-    oidcProvider.setDurationSeconds(3600);
-    oidcProvider.setExpireBufferSeconds(60);
+    // 选填字段
+    oidcProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
+    oidcProvider.setExpireBufferSeconds(60);         // 过期缓冲时间（秒），默认: 300
+    oidcProvider.setSchema("https");                // STS 协议，默认: https
+    oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
+    oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
 
     CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
     ApiClient apiClient = new ApiClient()
@@ -277,8 +281,12 @@ public class SampleCode {
             "MyIdp",                               // SAML provider name
             "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
     );
-    samlProvider.setDurationSeconds(3600);
-    samlProvider.setExpireBufferSeconds(60);
+    // 选填字段
+    samlProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
+    samlProvider.setExpireBufferSeconds(60);         // 过期缓冲时间（秒），默认: 60，最大: 600
+    samlProvider.setSchema("https");                // STS 协议，默认: https
+    samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
+    samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
 
     CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
     ApiClient apiClient = new ApiClient()
@@ -353,7 +361,7 @@ public class SampleCode {
 
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证。
 
-- RoleName 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 报错（不自动探测）
+- RoleName 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动检测
 - 禁用开关：`VOLCENGINE_ECS_METADATA_DISABLED=true`
 
 ```java
@@ -363,9 +371,15 @@ import com.volcengine.auth.EcsRoleCredentialProvider;
 
 public class SampleCode {
   public static void main(String[] args) throws Exception {
-    CredentialProvider credentialProvider =
-            new CredentialProvider(EcsRoleCredentialProvider.create("your-ecs-role-name"));
+    EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
+    // 选填字段
+    ecsProvider.setMaxRetries(3);                   // 重试次数，默认: 3，0 表示不重试
+    ecsProvider.setRetryIntervalMs(1000);           // 重试间隔（毫秒），默认: 1000
+    ecsProvider.setConnectTimeoutMs(1000);           // 连接超时（毫秒），默认: 1000
+    ecsProvider.setReadTimeoutMs(1000);              // 读取超时（毫秒），默认: 1000
+    ecsProvider.setExpireBufferSeconds(300);          // 过期缓冲时间（秒），默认: 300
 
+    CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
     ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");

@@ -215,8 +215,12 @@ public class SampleCode {
             null,                                 // rolePolicy (optional)
             "sts.volcengineapi.com"               // stsEndpoint (optional)
     );
-    oidcProvider.setDurationSeconds(3600);
-    oidcProvider.setExpireBufferSeconds(60);
+    // Optional setters
+    oidcProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
+    oidcProvider.setExpireBufferSeconds(60);         // Expire buffer in seconds, default: 300
+    oidcProvider.setSchema("https");                // STS scheme, default: https
+    oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
+    oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
 
     CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
     ApiClient apiClient = new ApiClient()
@@ -271,8 +275,12 @@ public class SampleCode {
             "MyIdp",                               // SAML provider name
             "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
     );
-    samlProvider.setDurationSeconds(3600);
-    samlProvider.setExpireBufferSeconds(60);
+    // Optional setters
+    samlProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
+    samlProvider.setExpireBufferSeconds(60);         // Expire buffer in seconds, default: 60, max: 600
+    samlProvider.setSchema("https");                // STS scheme, default: https
+    samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
+    samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
 
     CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
     ApiClient apiClient = new ApiClient()
@@ -347,7 +355,7 @@ public class SampleCode {
 
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
-- Role name priority: constructor arg > `VOLCENGINE_ECS_METADATA` > error (no auto-detect)
+- Role name priority: constructor arg > `VOLCENGINE_ECS_METADATA` > auto-detect from IMDS
 - Disable switch: `VOLCENGINE_ECS_METADATA_DISABLED=true`
 
 ```java
@@ -357,9 +365,15 @@ import com.volcengine.auth.EcsRoleCredentialProvider;
 
 public class SampleCode {
   public static void main(String[] args) throws Exception {
-    CredentialProvider credentialProvider =
-            new CredentialProvider(EcsRoleCredentialProvider.create("your-ecs-role-name"));
+    EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
+    // Optional setters
+    ecsProvider.setMaxRetries(3);                   // Retry attempts, default: 3, 0 disables retry
+    ecsProvider.setRetryIntervalMs(1000);           // Retry interval in ms, default: 1000
+    ecsProvider.setConnectTimeoutMs(1000);           // Connect timeout in ms, default: 1000
+    ecsProvider.setReadTimeoutMs(1000);              // Read timeout in ms, default: 1000
+    ecsProvider.setExpireBufferSeconds(300);          // Expire buffer in seconds, default: 300
 
+    CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
     ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");

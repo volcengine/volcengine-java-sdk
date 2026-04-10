@@ -4,14 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.volcengine.ApiException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,14 +17,9 @@ import java.util.Map;
 public class OidcCredentialProvider implements Provider {
 
     private static final String PROVIDER_NAME = "OidcCredentialProvider";
-    private static final String DEFAULT_STS_ENDPOINT = "sts.volcengineapi.com";
     private static final String ASSUME_ROLE_ACTION = "AssumeRoleWithOIDC";
-    private static final String STS_VERSION = "2018-01-01";
     private static final int DEFAULT_DURATION_SECONDS = 3600;
     private static final int DEFAULT_EXPIRE_BUFFER_SECONDS = 300;
-    private static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
-    private static final int DEFAULT_READ_TIMEOUT_MS = 3000;
-    private static final String FORM_URLENCODED = "application/x-www-form-urlencoded";
     private static final Gson GSON = new Gson();
     private static final Type MAP_TYPE = new TypeToken<Map<String, Object>>() {
     }.getType();
@@ -43,6 +32,9 @@ public class OidcCredentialProvider implements Provider {
 
     private int durationSeconds = DEFAULT_DURATION_SECONDS;
     private int expireBufferSeconds = DEFAULT_EXPIRE_BUFFER_SECONDS;
+    private String schema = "https";
+    private int maxRetries = StsFormRequest.DEFAULT_MAX_RETRIES;
+    private int retryIntervalMs = StsFormRequest.DEFAULT_RETRY_INTERVAL_MS;
 
     private volatile CredentialValue credentialValue;
     private volatile long expirationTime;
@@ -62,7 +54,7 @@ public class OidcCredentialProvider implements Provider {
         this.roleSessionName = roleSessionName;
         this.oidcTokenFile = oidcTokenFile;
         this.rolePolicy = rolePolicy;
-        this.stsEndpoint = isNullOrEmpty(stsEndpoint) ? DEFAULT_STS_ENDPOINT : stsEndpoint;
+        this.stsEndpoint = isNullOrEmpty(stsEndpoint) ? StsFormRequest.DEFAULT_STS_ENDPOINT : stsEndpoint;
     }
 
     public static OidcCredentialProvider fromEnvironment() throws ApiException {
@@ -99,7 +91,9 @@ public class OidcCredentialProvider implements Provider {
         }
 
         long now = System.currentTimeMillis() / 1000;
-        String responseBody = doRequest(buildRequestBody(oidcToken));
+        String responseBody = StsFormRequest.doPostWithRetry(
+                stsEndpoint, schema, ASSUME_ROLE_ACTION,
+                buildRequestBody(oidcToken), maxRetries, retryIntervalMs, PROVIDER_NAME);
         Map<String, Object> responseData = parseResponse(responseBody);
 
         Map<String, Object> responseMetadata = asMap(responseData.get("ResponseMetadata"));
@@ -154,6 +148,27 @@ public class OidcCredentialProvider implements Provider {
         this.expireBufferSeconds = expireBufferSeconds;
     }
 
+    public void setSchema(String schema) {
+        if (!"http".equals(schema) && !"https".equals(schema)) {
+            throw new IllegalArgumentException("schema must be 'http' or 'https'");
+        }
+        this.schema = schema;
+    }
+
+    public void setMaxRetries(int maxRetries) {
+        if (maxRetries < 0) {
+            throw new IllegalArgumentException("maxRetries must be >= 0");
+        }
+        this.maxRetries = maxRetries;
+    }
+
+    public void setRetryIntervalMs(int retryIntervalMs) {
+        if (retryIntervalMs < 0) {
+            throw new IllegalArgumentException("retryIntervalMs must be >= 0");
+        }
+        this.retryIntervalMs = retryIntervalMs;
+    }
+
     private static boolean isNullOrEmpty(String s) {
         return s == null || s.isEmpty();
     }
@@ -182,72 +197,12 @@ public class OidcCredentialProvider implements Provider {
             if (!first) {
                 body.append('&');
             }
-            body.append(urlEncode(entry.getKey()));
+            body.append(StsFormRequest.urlEncode(entry.getKey()));
             body.append('=');
-            body.append(urlEncode(entry.getValue()));
+            body.append(StsFormRequest.urlEncode(entry.getValue()));
             first = false;
         }
         return body.toString();
-    }
-
-    private String doRequest(String requestBody) throws ApiException {
-        HttpURLConnection connection = null;
-        try {
-            connection = (HttpURLConnection) new URL(buildRequestUrl()).openConnection();
-            connection.setRequestMethod("POST");
-            connection.setConnectTimeout(DEFAULT_CONNECT_TIMEOUT_MS);
-            connection.setReadTimeout(DEFAULT_READ_TIMEOUT_MS);
-            connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestProperty("Content-Type", FORM_URLENCODED);
-            connection.setDoOutput(true);
-
-            byte[] bodyBytes = requestBody.getBytes(StandardCharsets.UTF_8);
-            connection.setFixedLengthStreamingMode(bodyBytes.length);
-            java.io.OutputStream outputStream = null;
-            try {
-                outputStream = connection.getOutputStream();
-                outputStream.write(bodyBytes);
-                outputStream.flush();
-            } finally {
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            }
-
-            int statusCode = connection.getResponseCode();
-            InputStream responseStream = statusCode >= 400 ? connection.getErrorStream() : connection.getInputStream();
-            String responseBody = readResponseBody(responseStream);
-            if (statusCode != 200) {
-                throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC request failed with status "
-                        + statusCode + (responseBody.isEmpty() ? "" : " - " + responseBody));
-            }
-            return responseBody;
-        } catch (ApiException e) {
-            throw e;
-        } catch (IOException e) {
-            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithOIDC request failed - " + e.getMessage());
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
-        }
-    }
-
-    private String buildRequestUrl() {
-        String normalizedEndpoint = normalizeEndpoint(stsEndpoint);
-        try {
-            URL endpointUrl = new URL(normalizedEndpoint);
-            String path = endpointUrl.getPath();
-            StringBuilder url = new StringBuilder(normalizedEndpoint);
-            if (path == null || path.isEmpty()) {
-                url.append('/');
-            }
-            url.append("?Action=").append(urlEncode(ASSUME_ROLE_ACTION));
-            url.append("&Version=").append(urlEncode(STS_VERSION));
-            return url.toString();
-        } catch (Exception e) {
-            throw new IllegalStateException("Invalid STS endpoint: " + normalizedEndpoint, e);
-        }
     }
 
     private Map<String, Object> parseResponse(String responseBody) throws ApiException {
@@ -279,44 +234,5 @@ public class OidcCredentialProvider implements Provider {
 
     private static String stringify(Object value) {
         return value == null ? null : GSON.toJson(value);
-    }
-
-    private static String normalizeEndpoint(String endpoint) {
-        String normalized = endpoint == null ? DEFAULT_STS_ENDPOINT : endpoint.trim();
-        while (normalized.endsWith("/")) {
-            normalized = normalized.substring(0, normalized.length() - 1);
-        }
-        if (!normalized.startsWith("http://") && !normalized.startsWith("https://")) {
-            normalized = "https://" + normalized;
-        }
-        return normalized;
-    }
-
-    private static String readResponseBody(InputStream stream) throws IOException {
-        if (stream == null) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-            String line;
-            boolean first = true;
-            while ((line = reader.readLine()) != null) {
-                if (!first) {
-                    sb.append('\n');
-                }
-                sb.append(line);
-                first = false;
-            }
-        }
-        return sb.toString();
-    }
-
-    private static String urlEncode(String value) {
-        try {
-            return URLEncoder.encode(value, StandardCharsets.UTF_8.name());
-        } catch (Exception e) {
-            throw new IllegalStateException("Failed to encode query parameter", e);
-        }
     }
 }
