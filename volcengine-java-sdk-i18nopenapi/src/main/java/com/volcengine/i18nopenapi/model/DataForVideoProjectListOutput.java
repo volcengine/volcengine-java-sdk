@@ -51,14 +51,8 @@ public class DataForVideoProjectListOutput {
   @SerializedName("sourceLang")
   private String sourceLang = null;
 
-  @SerializedName("sourceLocale")
-  private String sourceLocale = null;
-
   @SerializedName("targetLangs")
   private List<String> targetLangs = null;
-
-  @SerializedName("targetLocales")
-  private List<String> targetLocales = null;
 
   @SerializedName("updatedAt")
   private String updatedAt = null;
@@ -172,24 +166,6 @@ public class DataForVideoProjectListOutput {
     this.sourceLang = sourceLang;
   }
 
-  public DataForVideoProjectListOutput sourceLocale(String sourceLocale) {
-    this.sourceLocale = sourceLocale;
-    return this;
-  }
-
-   /**
-   * Get sourceLocale
-   * @return sourceLocale
-  **/
-  @Schema(description = "")
-  public String getSourceLocale() {
-    return sourceLocale;
-  }
-
-  public void setSourceLocale(String sourceLocale) {
-    this.sourceLocale = sourceLocale;
-  }
-
   public DataForVideoProjectListOutput targetLangs(List<String> targetLangs) {
     this.targetLangs = targetLangs;
     return this;
@@ -214,32 +190,6 @@ public class DataForVideoProjectListOutput {
 
   public void setTargetLangs(List<String> targetLangs) {
     this.targetLangs = targetLangs;
-  }
-
-  public DataForVideoProjectListOutput targetLocales(List<String> targetLocales) {
-    this.targetLocales = targetLocales;
-    return this;
-  }
-
-  public DataForVideoProjectListOutput addTargetLocalesItem(String targetLocalesItem) {
-    if (this.targetLocales == null) {
-      this.targetLocales = new ArrayList<String>();
-    }
-    this.targetLocales.add(targetLocalesItem);
-    return this;
-  }
-
-   /**
-   * Get targetLocales
-   * @return targetLocales
-  **/
-  @Schema(description = "")
-  public List<String> getTargetLocales() {
-    return targetLocales;
-  }
-
-  public void setTargetLocales(List<String> targetLocales) {
-    this.targetLocales = targetLocales;
   }
 
   public DataForVideoProjectListOutput updatedAt(String updatedAt) {
@@ -276,15 +226,13 @@ public class DataForVideoProjectListOutput {
         Objects.equals(this.id, dataForVideoProjectListOutput.id) &&
         Objects.equals(this.name, dataForVideoProjectListOutput.name) &&
         Objects.equals(this.sourceLang, dataForVideoProjectListOutput.sourceLang) &&
-        Objects.equals(this.sourceLocale, dataForVideoProjectListOutput.sourceLocale) &&
         Objects.equals(this.targetLangs, dataForVideoProjectListOutput.targetLangs) &&
-        Objects.equals(this.targetLocales, dataForVideoProjectListOutput.targetLocales) &&
         Objects.equals(this.updatedAt, dataForVideoProjectListOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, createdAt, creator, id, name, sourceLang, sourceLocale, targetLangs, targetLocales, updatedAt);
+    return Objects.hash(comment, createdAt, creator, id, name, sourceLang, targetLangs, updatedAt);
   }
 
 
@@ -299,9 +247,7 @@ public class DataForVideoProjectListOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
-    sb.append("    sourceLocale: ").append(toIndentedString(sourceLocale)).append("\n");
     sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
-    sb.append("    targetLocales: ").append(toIndentedString(targetLocales)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
