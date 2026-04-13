@@ -37,7 +37,7 @@ public class DescribeNonWhiteSessionListRequest {
   private List<DisassociateAllowListInfoForDescribeNonWhiteSessionListInput> disassociateAllowListInfos = null;
 
   @SerializedName("InstanceIds")
-  private String instanceIds = null;
+  private List<String> instanceIds = null;
 
   public DescribeNonWhiteSessionListRequest disassociateAllowListInfos(List<DisassociateAllowListInfoForDescribeNonWhiteSessionListInput> disassociateAllowListInfos) {
     this.disassociateAllowListInfos = disassociateAllowListInfos;
@@ -66,8 +66,16 @@ public class DescribeNonWhiteSessionListRequest {
     this.disassociateAllowListInfos = disassociateAllowListInfos;
   }
 
-  public DescribeNonWhiteSessionListRequest instanceIds(String instanceIds) {
+  public DescribeNonWhiteSessionListRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
+    return this;
+  }
+
+  public DescribeNonWhiteSessionListRequest addInstanceIdsItem(String instanceIdsItem) {
+    if (this.instanceIds == null) {
+      this.instanceIds = new ArrayList<String>();
+    }
+    this.instanceIds.add(instanceIdsItem);
     return this;
   }
 
@@ -76,11 +84,11 @@ public class DescribeNonWhiteSessionListRequest {
    * @return instanceIds
   **/
   @Schema(description = "")
-  public String getInstanceIds() {
+  public List<String> getInstanceIds() {
     return instanceIds;
   }
 
-  public void setInstanceIds(String instanceIds) {
+  public void setInstanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
   }
 

@@ -33,6 +33,9 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
   @SerializedName("BackupEnabled")
   private Boolean backupEnabled = null;
 
+  @SerializedName("CrossBackupAllRetention")
+  private Boolean crossBackupAllRetention = null;
+
   @SerializedName("CrossBackupRegion")
   private String crossBackupRegion = null;
 
@@ -61,6 +64,24 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
 
   public void setBackupEnabled(Boolean backupEnabled) {
     this.backupEnabled = backupEnabled;
+  }
+
+  public DescribeCrossBackupPolicyResponse crossBackupAllRetention(Boolean crossBackupAllRetention) {
+    this.crossBackupAllRetention = crossBackupAllRetention;
+    return this;
+  }
+
+   /**
+   * Get crossBackupAllRetention
+   * @return crossBackupAllRetention
+  **/
+  @Schema(description = "")
+  public Boolean isCrossBackupAllRetention() {
+    return crossBackupAllRetention;
+  }
+
+  public void setCrossBackupAllRetention(Boolean crossBackupAllRetention) {
+    this.crossBackupAllRetention = crossBackupAllRetention;
   }
 
   public DescribeCrossBackupPolicyResponse crossBackupRegion(String crossBackupRegion) {
@@ -146,6 +167,7 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
     }
     DescribeCrossBackupPolicyResponse describeCrossBackupPolicyResponse = (DescribeCrossBackupPolicyResponse) o;
     return Objects.equals(this.backupEnabled, describeCrossBackupPolicyResponse.backupEnabled) &&
+        Objects.equals(this.crossBackupAllRetention, describeCrossBackupPolicyResponse.crossBackupAllRetention) &&
         Objects.equals(this.crossBackupRegion, describeCrossBackupPolicyResponse.crossBackupRegion) &&
         Objects.equals(this.instanceId, describeCrossBackupPolicyResponse.instanceId) &&
         Objects.equals(this.logBackupEnabled, describeCrossBackupPolicyResponse.logBackupEnabled) &&
@@ -154,7 +176,7 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEnabled, crossBackupRegion, instanceId, logBackupEnabled, retention);
+    return Objects.hash(backupEnabled, crossBackupAllRetention, crossBackupRegion, instanceId, logBackupEnabled, retention);
   }
 
 
@@ -164,6 +186,7 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
     sb.append("class DescribeCrossBackupPolicyResponse {\n");
     
     sb.append("    backupEnabled: ").append(toIndentedString(backupEnabled)).append("\n");
+    sb.append("    crossBackupAllRetention: ").append(toIndentedString(crossBackupAllRetention)).append("\n");
     sb.append("    crossBackupRegion: ").append(toIndentedString(crossBackupRegion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    logBackupEnabled: ").append(toIndentedString(logBackupEnabled)).append("\n");

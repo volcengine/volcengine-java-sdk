@@ -24,19 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteUserUploadBackupRequest
+ * ModifyBackupNameRequest
  */
 
 
 
-public class DeleteUserUploadBackupRequest {
+public class ModifyBackupNameRequest {
   @SerializedName("BackupId")
   private String backupId = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
+  @SerializedName("BackupName")
+  private String backupName = null;
 
-  public DeleteUserUploadBackupRequest backupId(String backupId) {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  public ModifyBackupNameRequest backupId(String backupId) {
     this.backupId = backupId;
     return this;
   }
@@ -55,23 +58,42 @@ public class DeleteUserUploadBackupRequest {
     this.backupId = backupId;
   }
 
-  public DeleteUserUploadBackupRequest projectName(String projectName) {
-    this.projectName = projectName;
+  public ModifyBackupNameRequest backupName(String backupName) {
+    this.backupName = backupName;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get backupName
+   * @return backupName
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getProjectName() {
-    return projectName;
+  public String getBackupName() {
+    return backupName;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setBackupName(String backupName) {
+    this.backupName = backupName;
+  }
+
+  public ModifyBackupNameRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -83,24 +105,26 @@ public class DeleteUserUploadBackupRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteUserUploadBackupRequest deleteUserUploadBackupRequest = (DeleteUserUploadBackupRequest) o;
-    return Objects.equals(this.backupId, deleteUserUploadBackupRequest.backupId) &&
-        Objects.equals(this.projectName, deleteUserUploadBackupRequest.projectName);
+    ModifyBackupNameRequest modifyBackupNameRequest = (ModifyBackupNameRequest) o;
+    return Objects.equals(this.backupId, modifyBackupNameRequest.backupId) &&
+        Objects.equals(this.backupName, modifyBackupNameRequest.backupName) &&
+        Objects.equals(this.instanceId, modifyBackupNameRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, projectName);
+    return Objects.hash(backupId, backupName, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteUserUploadBackupRequest {\n");
+    sb.append("class ModifyBackupNameRequest {\n");
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

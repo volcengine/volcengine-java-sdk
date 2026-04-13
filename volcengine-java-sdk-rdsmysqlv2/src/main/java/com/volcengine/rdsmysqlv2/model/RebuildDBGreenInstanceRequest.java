@@ -24,52 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForAddTagFromUserBackupInfoInput
+ * RebuildDBGreenInstanceRequest
  */
 
 
 
-public class TagForAddTagFromUserBackupInfoInput {
-  @SerializedName("Key")
-  private String key = null;
+public class RebuildDBGreenInstanceRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public TagForAddTagFromUserBackupInfoInput key(String key) {
-    this.key = key;
+  public RebuildDBGreenInstanceRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForAddTagFromUserBackupInfoInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +61,22 @@ public class TagForAddTagFromUserBackupInfoInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForAddTagFromUserBackupInfoInput tagForAddTagFromUserBackupInfoInput = (TagForAddTagFromUserBackupInfoInput) o;
-    return Objects.equals(this.key, tagForAddTagFromUserBackupInfoInput.key) &&
-        Objects.equals(this.value, tagForAddTagFromUserBackupInfoInput.value);
+    RebuildDBGreenInstanceRequest rebuildDBGreenInstanceRequest = (RebuildDBGreenInstanceRequest) o;
+    return Objects.equals(this.instanceId, rebuildDBGreenInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForAddTagFromUserBackupInfoInput {\n");
+    sb.append("class RebuildDBGreenInstanceRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
