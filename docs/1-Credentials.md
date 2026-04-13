@@ -1,4 +1,4 @@
-[← SDK Integration](../SDK_Integration.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
+[← Overview](0-Overview.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
 
 ---
 
@@ -419,4 +419,4 @@ public class SampleCode {
 
 ---
 
-[← SDK Integration](../SDK_Integration.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)
+[← Overview](0-Overview.md) | Credentials[(中文)](1-Credentials-zh.md) | [Endpoint →](2-Endpoint.md)

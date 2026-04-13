@@ -1,4 +1,4 @@
-[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [SDK 集成 →](../SDK_Integration_zh.md)
+[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [概览 →](0-Overview-zh.md)
 
 ---
 
@@ -22,4 +22,4 @@ Java SDK日志使用的是slf4j，需要依赖客户的配置文件，客户可�
 
 ---
 
-[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [SDK 集成 →](../SDK_Integration_zh.md)
+[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [概览 →](0-Overview-zh.md)
