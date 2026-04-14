@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,6 +40,9 @@ public class SwitchOverRequest {
 
   @SerializedName("TargetPrimaryNodeId")
   private String targetPrimaryNodeId = null;
+
+  @SerializedName("TargetPrimaryNodeIds")
+  private List<String> targetPrimaryNodeIds = null;
 
   public SwitchOverRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -85,14 +90,39 @@ public class SwitchOverRequest {
    * Get targetPrimaryNodeId
    * @return targetPrimaryNodeId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTargetPrimaryNodeId() {
     return targetPrimaryNodeId;
   }
 
   public void setTargetPrimaryNodeId(String targetPrimaryNodeId) {
     this.targetPrimaryNodeId = targetPrimaryNodeId;
+  }
+
+  public SwitchOverRequest targetPrimaryNodeIds(List<String> targetPrimaryNodeIds) {
+    this.targetPrimaryNodeIds = targetPrimaryNodeIds;
+    return this;
+  }
+
+  public SwitchOverRequest addTargetPrimaryNodeIdsItem(String targetPrimaryNodeIdsItem) {
+    if (this.targetPrimaryNodeIds == null) {
+      this.targetPrimaryNodeIds = new ArrayList<String>();
+    }
+    this.targetPrimaryNodeIds.add(targetPrimaryNodeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get targetPrimaryNodeIds
+   * @return targetPrimaryNodeIds
+  **/
+  @Schema(description = "")
+  public List<String> getTargetPrimaryNodeIds() {
+    return targetPrimaryNodeIds;
+  }
+
+  public void setTargetPrimaryNodeIds(List<String> targetPrimaryNodeIds) {
+    this.targetPrimaryNodeIds = targetPrimaryNodeIds;
   }
 
 
@@ -107,12 +137,13 @@ public class SwitchOverRequest {
     SwitchOverRequest switchOverRequest = (SwitchOverRequest) o;
     return Objects.equals(this.clientToken, switchOverRequest.clientToken) &&
         Objects.equals(this.instanceId, switchOverRequest.instanceId) &&
-        Objects.equals(this.targetPrimaryNodeId, switchOverRequest.targetPrimaryNodeId);
+        Objects.equals(this.targetPrimaryNodeId, switchOverRequest.targetPrimaryNodeId) &&
+        Objects.equals(this.targetPrimaryNodeIds, switchOverRequest.targetPrimaryNodeIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceId, targetPrimaryNodeId);
+    return Objects.hash(clientToken, instanceId, targetPrimaryNodeId, targetPrimaryNodeIds);
   }
 
 
@@ -124,6 +155,7 @@ public class SwitchOverRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    targetPrimaryNodeId: ").append(toIndentedString(targetPrimaryNodeId)).append("\n");
+    sb.append("    targetPrimaryNodeIds: ").append(toIndentedString(targetPrimaryNodeIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
