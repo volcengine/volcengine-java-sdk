@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
 import com.volcengine.ark.runtime.model.responses.event.doubaoapp.*;
+import com.volcengine.ark.runtime.model.responses.event.agenttoolcall.*;
 import com.volcengine.ark.runtime.model.responses.event.knowledgesearch.*;
 import com.volcengine.ark.runtime.model.responses.event.mcp.*;
 import com.volcengine.ark.runtime.model.responses.event.outputtext.AnnotationAddedEvent;
@@ -90,6 +91,8 @@ import com.volcengine.ark.runtime.model.responses.event.websearch.WebSearchCallC
         @JsonSubTypes.Type(value = KnowledgeSearchCallSearchingEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_SEARCHING),
         @JsonSubTypes.Type(value = KnowledgeSearchCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_COMPLETED),
         @JsonSubTypes.Type(value = KnowledgeSearchCallFailedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_FAILED),
+        @JsonSubTypes.Type(value = AgentToolCallInProgressEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_AGENT_TOOL_CALL_IN_PROGRESS),
+        @JsonSubTypes.Type(value = AgentToolCallCompletedEvent.class, name = ResponsesConstants.EVENT_TYPE_RESPONSE_AGENT_TOOL_CALL_COMPLETED),
 })
 public abstract class StreamEvent {
 

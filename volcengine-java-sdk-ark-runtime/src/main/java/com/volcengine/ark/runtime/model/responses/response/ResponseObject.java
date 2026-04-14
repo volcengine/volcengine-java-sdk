@@ -3,6 +3,7 @@ package com.volcengine.ark.runtime.model.responses.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.volcengine.ark.runtime.model.responses.common.Error;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
+import com.volcengine.ark.runtime.model.responses.common.Session;
 import com.volcengine.ark.runtime.model.responses.item.BaseItem;
 import com.volcengine.ark.runtime.model.responses.usage.IncompleteDetails;
 import com.volcengine.ark.runtime.model.responses.usage.Usage;
@@ -90,6 +91,9 @@ public class ResponseObject {
 
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
+
+    @JsonProperty("session")
+    private Session session;
 
     @JsonProperty("prompt_cache_key")
     private String promptCacheKey;
@@ -297,6 +301,14 @@ public class ResponseObject {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
     public String getPromptCacheKey() {
         return promptCacheKey;
     }
@@ -341,6 +353,7 @@ public class ResponseObject {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", session=" + session +
                 ", promptCacheKey='" + promptCacheKey + '\'' +
                 ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 '}';
