@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class VideoTermBasesRequest {
+  @SerializedName("keyword")
+  private String keyword = null;
+
   @SerializedName("limit")
   private Integer limit = null;
 
@@ -42,6 +45,30 @@ public class VideoTermBasesRequest {
   @SerializedName("targetProject")
   private String targetProject = null;
 
+  @SerializedName("termBaseId")
+  private String termBaseId = null;
+
+  @SerializedName("termBaseType")
+  private Integer termBaseType = null;
+
+  public VideoTermBasesRequest keyword(String keyword) {
+    this.keyword = keyword;
+    return this;
+  }
+
+   /**
+   * Get keyword
+   * @return keyword
+  **/
+  @Schema(description = "")
+  public String getKeyword() {
+    return keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
   public VideoTermBasesRequest limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -51,8 +78,7 @@ public class VideoTermBasesRequest {
    * Get limit
    * @return limit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getLimit() {
     return limit;
   }
@@ -70,8 +96,7 @@ public class VideoTermBasesRequest {
    * Get offset
    * @return offset
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getOffset() {
     return offset;
   }
@@ -118,6 +143,42 @@ public class VideoTermBasesRequest {
     this.targetProject = targetProject;
   }
 
+  public VideoTermBasesRequest termBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
+    return this;
+  }
+
+   /**
+   * Get termBaseId
+   * @return termBaseId
+  **/
+  @Schema(description = "")
+  public String getTermBaseId() {
+    return termBaseId;
+  }
+
+  public void setTermBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
+  }
+
+  public VideoTermBasesRequest termBaseType(Integer termBaseType) {
+    this.termBaseType = termBaseType;
+    return this;
+  }
+
+   /**
+   * Get termBaseType
+   * @return termBaseType
+  **/
+  @Schema(description = "")
+  public Integer getTermBaseType() {
+    return termBaseType;
+  }
+
+  public void setTermBaseType(Integer termBaseType) {
+    this.termBaseType = termBaseType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +189,18 @@ public class VideoTermBasesRequest {
       return false;
     }
     VideoTermBasesRequest videoTermBasesRequest = (VideoTermBasesRequest) o;
-    return Objects.equals(this.limit, videoTermBasesRequest.limit) &&
+    return Objects.equals(this.keyword, videoTermBasesRequest.keyword) &&
+        Objects.equals(this.limit, videoTermBasesRequest.limit) &&
         Objects.equals(this.offset, videoTermBasesRequest.offset) &&
         Objects.equals(this.projectId, videoTermBasesRequest.projectId) &&
-        Objects.equals(this.targetProject, videoTermBasesRequest.targetProject);
+        Objects.equals(this.targetProject, videoTermBasesRequest.targetProject) &&
+        Objects.equals(this.termBaseId, videoTermBasesRequest.termBaseId) &&
+        Objects.equals(this.termBaseType, videoTermBasesRequest.termBaseType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, projectId, targetProject);
+    return Objects.hash(keyword, limit, offset, projectId, targetProject, termBaseId, termBaseType);
   }
 
 
@@ -145,10 +209,13 @@ public class VideoTermBasesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoTermBasesRequest {\n");
     
+    sb.append("    keyword: ").append(toIndentedString(keyword)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    targetProject: ").append(toIndentedString(targetProject)).append("\n");
+    sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
+    sb.append("    termBaseType: ").append(toIndentedString(termBaseType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class DataForProjectUsersOutput {
+  @SerializedName("avatar")
+  private String avatar = null;
+
   @SerializedName("createAt")
   private String createAt = null;
+
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("role")
   private Integer role = null;
@@ -40,7 +46,25 @@ public class DataForProjectUsersOutput {
   private String updatedAt = null;
 
   @SerializedName("userId")
-  private Integer userId = null;
+  private String userId = null;
+
+  public DataForProjectUsersOutput avatar(String avatar) {
+    this.avatar = avatar;
+    return this;
+  }
+
+   /**
+   * Get avatar
+   * @return avatar
+  **/
+  @Schema(description = "")
+  public String getAvatar() {
+    return avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
 
   public DataForProjectUsersOutput createAt(String createAt) {
     this.createAt = createAt;
@@ -58,6 +82,24 @@ public class DataForProjectUsersOutput {
 
   public void setCreateAt(String createAt) {
     this.createAt = createAt;
+  }
+
+  public DataForProjectUsersOutput name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public DataForProjectUsersOutput role(Integer role) {
@@ -96,7 +138,7 @@ public class DataForProjectUsersOutput {
     this.updatedAt = updatedAt;
   }
 
-  public DataForProjectUsersOutput userId(Integer userId) {
+  public DataForProjectUsersOutput userId(String userId) {
     this.userId = userId;
     return this;
   }
@@ -106,11 +148,11 @@ public class DataForProjectUsersOutput {
    * @return userId
   **/
   @Schema(description = "")
-  public Integer getUserId() {
+  public String getUserId() {
     return userId;
   }
 
-  public void setUserId(Integer userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -124,7 +166,9 @@ public class DataForProjectUsersOutput {
       return false;
     }
     DataForProjectUsersOutput dataForProjectUsersOutput = (DataForProjectUsersOutput) o;
-    return Objects.equals(this.createAt, dataForProjectUsersOutput.createAt) &&
+    return Objects.equals(this.avatar, dataForProjectUsersOutput.avatar) &&
+        Objects.equals(this.createAt, dataForProjectUsersOutput.createAt) &&
+        Objects.equals(this.name, dataForProjectUsersOutput.name) &&
         Objects.equals(this.role, dataForProjectUsersOutput.role) &&
         Objects.equals(this.updatedAt, dataForProjectUsersOutput.updatedAt) &&
         Objects.equals(this.userId, dataForProjectUsersOutput.userId);
@@ -132,7 +176,7 @@ public class DataForProjectUsersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createAt, role, updatedAt, userId);
+    return Objects.hash(avatar, createAt, name, role, updatedAt, userId);
   }
 
 
@@ -141,7 +185,9 @@ public class DataForProjectUsersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForProjectUsersOutput {\n");
     
+    sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
     sb.append("    createAt: ").append(toIndentedString(createAt)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

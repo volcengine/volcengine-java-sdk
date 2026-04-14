@@ -14,6 +14,17 @@ package com.volcengine.i18nopenapi.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PaginationForTermBaseTermGroupsOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +34,79 @@ import javax.validation.Valid;
 
 
 public class TermBaseTermGroupsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private List<DataForTermBaseTermGroupsOutput> data = null;
+
+  @SerializedName("pagination")
+  private PaginationForTermBaseTermGroupsOutput pagination = null;
+
+  @SerializedName("total")
+  private Integer total = null;
+
+  public TermBaseTermGroupsResponse data(List<DataForTermBaseTermGroupsOutput> data) {
+    this.data = data;
+    return this;
+  }
+
+  public TermBaseTermGroupsResponse addDataItem(DataForTermBaseTermGroupsOutput dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<DataForTermBaseTermGroupsOutput>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DataForTermBaseTermGroupsOutput> getData() {
+    return data;
+  }
+
+  public void setData(List<DataForTermBaseTermGroupsOutput> data) {
+    this.data = data;
+  }
+
+  public TermBaseTermGroupsResponse pagination(PaginationForTermBaseTermGroupsOutput pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+   /**
+   * Get pagination
+   * @return pagination
+  **/
+  @Valid
+  @Schema(description = "")
+  public PaginationForTermBaseTermGroupsOutput getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(PaginationForTermBaseTermGroupsOutput pagination) {
+    this.pagination = pagination;
+  }
+
+  public TermBaseTermGroupsResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +116,15 @@ public class TermBaseTermGroupsResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    TermBaseTermGroupsResponse termBaseTermGroupsResponse = (TermBaseTermGroupsResponse) o;
+    return Objects.equals(this.data, termBaseTermGroupsResponse.data) &&
+        Objects.equals(this.pagination, termBaseTermGroupsResponse.pagination) &&
+        Objects.equals(this.total, termBaseTermGroupsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(data, pagination, total);
   }
 
 
@@ -46,6 +133,9 @@ public class TermBaseTermGroupsResponse extends com.volcengine.model.AbstractRes
     StringBuilder sb = new StringBuilder();
     sb.append("class TermBaseTermGroupsResponse {\n");
     
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
