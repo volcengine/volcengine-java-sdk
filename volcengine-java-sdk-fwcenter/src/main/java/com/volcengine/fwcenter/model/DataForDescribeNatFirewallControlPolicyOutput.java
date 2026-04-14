@@ -86,17 +86,23 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
   @SerializedName("Direction")
   private String direction = null;
 
+  @SerializedName("DomainResolutionMode")
+  private String domainResolutionMode = null;
+
   @SerializedName("EffectStatus")
   private Integer effectStatus = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("FirewallId")
   private String firewallId = null;
 
   @SerializedName("HitCnt")
-  private Integer hitCnt = null;
+  private Long hitCnt = null;
+
+  @SerializedName("InsertTime")
+  private String insertTime = null;
 
   @SerializedName("IpType")
   private String ipType = null;
@@ -105,10 +111,10 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
   private Boolean isEffected = null;
 
   @SerializedName("LastHitTime")
-  private Integer lastHitTime = null;
+  private Long lastHitTime = null;
 
   @SerializedName("Prio")
-  private Integer prio = null;
+  private Long prio = null;
 
   @SerializedName("Proto")
   private String proto = null;
@@ -147,16 +153,16 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
   private String sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UseCount")
-  private Integer useCount = null;
+  private Long useCount = null;
 
   public DataForDescribeNatFirewallControlPolicyOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -522,6 +528,24 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.direction = direction;
   }
 
+  public DataForDescribeNatFirewallControlPolicyOutput domainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public String getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
   public DataForDescribeNatFirewallControlPolicyOutput effectStatus(Integer effectStatus) {
     this.effectStatus = effectStatus;
     return this;
@@ -540,7 +564,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.effectStatus = effectStatus;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput endTime(Integer endTime) {
+  public DataForDescribeNatFirewallControlPolicyOutput endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -550,11 +574,11 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -576,7 +600,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.firewallId = firewallId;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput hitCnt(Integer hitCnt) {
+  public DataForDescribeNatFirewallControlPolicyOutput hitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
     return this;
   }
@@ -586,12 +610,30 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return hitCnt
   **/
   @Schema(description = "")
-  public Integer getHitCnt() {
+  public Long getHitCnt() {
     return hitCnt;
   }
 
-  public void setHitCnt(Integer hitCnt) {
+  public void setHitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
+  }
+
+  public DataForDescribeNatFirewallControlPolicyOutput insertTime(String insertTime) {
+    this.insertTime = insertTime;
+    return this;
+  }
+
+   /**
+   * Get insertTime
+   * @return insertTime
+  **/
+  @Schema(description = "")
+  public String getInsertTime() {
+    return insertTime;
+  }
+
+  public void setInsertTime(String insertTime) {
+    this.insertTime = insertTime;
   }
 
   public DataForDescribeNatFirewallControlPolicyOutput ipType(String ipType) {
@@ -630,7 +672,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.isEffected = isEffected;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput lastHitTime(Integer lastHitTime) {
+  public DataForDescribeNatFirewallControlPolicyOutput lastHitTime(Long lastHitTime) {
     this.lastHitTime = lastHitTime;
     return this;
   }
@@ -640,15 +682,15 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return lastHitTime
   **/
   @Schema(description = "")
-  public Integer getLastHitTime() {
+  public Long getLastHitTime() {
     return lastHitTime;
   }
 
-  public void setLastHitTime(Integer lastHitTime) {
+  public void setLastHitTime(Long lastHitTime) {
     this.lastHitTime = lastHitTime;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput prio(Integer prio) {
+  public DataForDescribeNatFirewallControlPolicyOutput prio(Long prio) {
     this.prio = prio;
     return this;
   }
@@ -658,11 +700,11 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return prio
   **/
   @Schema(description = "")
-  public Integer getPrio() {
+  public Long getPrio() {
     return prio;
   }
 
-  public void setPrio(Integer prio) {
+  public void setPrio(Long prio) {
     this.prio = prio;
   }
 
@@ -915,7 +957,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.sourceType = sourceType;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput startTime(Integer startTime) {
+  public DataForDescribeNatFirewallControlPolicyOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -925,11 +967,11 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -951,7 +993,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     this.status = status;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput updateTime(Integer updateTime) {
+  public DataForDescribeNatFirewallControlPolicyOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -961,15 +1003,15 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
-  public DataForDescribeNatFirewallControlPolicyOutput useCount(Integer useCount) {
+  public DataForDescribeNatFirewallControlPolicyOutput useCount(Long useCount) {
     this.useCount = useCount;
     return this;
   }
@@ -979,11 +1021,11 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
    * @return useCount
   **/
   @Schema(description = "")
-  public Integer getUseCount() {
+  public Long getUseCount() {
     return useCount;
   }
 
-  public void setUseCount(Integer useCount) {
+  public void setUseCount(Long useCount) {
     this.useCount = useCount;
   }
 
@@ -1014,10 +1056,12 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
         Objects.equals(this.destinationGroupType, dataForDescribeNatFirewallControlPolicyOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeNatFirewallControlPolicyOutput.destinationType) &&
         Objects.equals(this.direction, dataForDescribeNatFirewallControlPolicyOutput.direction) &&
+        Objects.equals(this.domainResolutionMode, dataForDescribeNatFirewallControlPolicyOutput.domainResolutionMode) &&
         Objects.equals(this.effectStatus, dataForDescribeNatFirewallControlPolicyOutput.effectStatus) &&
         Objects.equals(this.endTime, dataForDescribeNatFirewallControlPolicyOutput.endTime) &&
         Objects.equals(this.firewallId, dataForDescribeNatFirewallControlPolicyOutput.firewallId) &&
         Objects.equals(this.hitCnt, dataForDescribeNatFirewallControlPolicyOutput.hitCnt) &&
+        Objects.equals(this.insertTime, dataForDescribeNatFirewallControlPolicyOutput.insertTime) &&
         Objects.equals(this.ipType, dataForDescribeNatFirewallControlPolicyOutput.ipType) &&
         Objects.equals(this.isEffected, dataForDescribeNatFirewallControlPolicyOutput.isEffected) &&
         Objects.equals(this.lastHitTime, dataForDescribeNatFirewallControlPolicyOutput.lastHitTime) &&
@@ -1042,7 +1086,7 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupList, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupList, destinationGroupType, destinationType, direction, effectStatus, endTime, firewallId, hitCnt, ipType, isEffected, lastHitTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupList, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupList, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupList, destinationGroupType, destinationType, direction, domainResolutionMode, effectStatus, endTime, firewallId, hitCnt, insertTime, ipType, isEffected, lastHitTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupList, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
   }
 
 
@@ -1068,10 +1112,12 @@ public class DataForDescribeNatFirewallControlPolicyOutput {
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    firewallId: ").append(toIndentedString(firewallId)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
+    sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
     sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    isEffected: ").append(toIndentedString(isEffected)).append("\n");
     sb.append("    lastHitTime: ").append(toIndentedString(lastHitTime)).append("\n");

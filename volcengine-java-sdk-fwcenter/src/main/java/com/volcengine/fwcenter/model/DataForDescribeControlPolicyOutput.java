@@ -80,6 +80,9 @@ public class DataForDescribeControlPolicyOutput {
   @SerializedName("Direction")
   private String direction = null;
 
+  @SerializedName("DomainResolutionMode")
+  private String domainResolutionMode = null;
+
   @SerializedName("EffectStatus")
   private Integer effectStatus = null;
 
@@ -87,7 +90,7 @@ public class DataForDescribeControlPolicyOutput {
   private Integer endTime = null;
 
   @SerializedName("HitCnt")
-  private Integer hitCnt = null;
+  private Long hitCnt = null;
 
   @SerializedName("IpType")
   private String ipType = null;
@@ -96,7 +99,7 @@ public class DataForDescribeControlPolicyOutput {
   private Boolean isEffected = null;
 
   @SerializedName("Prio")
-  private Integer prio = null;
+  private Long prio = null;
 
   @SerializedName("Proto")
   private String proto = null;
@@ -132,16 +135,16 @@ public class DataForDescribeControlPolicyOutput {
   private String sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UseCount")
-  private Integer useCount = null;
+  private Long useCount = null;
 
   public DataForDescribeControlPolicyOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -455,6 +458,24 @@ public class DataForDescribeControlPolicyOutput {
     this.direction = direction;
   }
 
+  public DataForDescribeControlPolicyOutput domainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public String getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
   public DataForDescribeControlPolicyOutput effectStatus(Integer effectStatus) {
     this.effectStatus = effectStatus;
     return this;
@@ -491,7 +512,7 @@ public class DataForDescribeControlPolicyOutput {
     this.endTime = endTime;
   }
 
-  public DataForDescribeControlPolicyOutput hitCnt(Integer hitCnt) {
+  public DataForDescribeControlPolicyOutput hitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
     return this;
   }
@@ -501,11 +522,11 @@ public class DataForDescribeControlPolicyOutput {
    * @return hitCnt
   **/
   @Schema(description = "")
-  public Integer getHitCnt() {
+  public Long getHitCnt() {
     return hitCnt;
   }
 
-  public void setHitCnt(Integer hitCnt) {
+  public void setHitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
   }
 
@@ -545,7 +566,7 @@ public class DataForDescribeControlPolicyOutput {
     this.isEffected = isEffected;
   }
 
-  public DataForDescribeControlPolicyOutput prio(Integer prio) {
+  public DataForDescribeControlPolicyOutput prio(Long prio) {
     this.prio = prio;
     return this;
   }
@@ -555,11 +576,11 @@ public class DataForDescribeControlPolicyOutput {
    * @return prio
   **/
   @Schema(description = "")
-  public Integer getPrio() {
+  public Long getPrio() {
     return prio;
   }
 
-  public void setPrio(Integer prio) {
+  public void setPrio(Long prio) {
     this.prio = prio;
   }
 
@@ -786,7 +807,7 @@ public class DataForDescribeControlPolicyOutput {
     this.sourceType = sourceType;
   }
 
-  public DataForDescribeControlPolicyOutput startTime(Integer startTime) {
+  public DataForDescribeControlPolicyOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -796,11 +817,11 @@ public class DataForDescribeControlPolicyOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -822,7 +843,7 @@ public class DataForDescribeControlPolicyOutput {
     this.status = status;
   }
 
-  public DataForDescribeControlPolicyOutput updateTime(Integer updateTime) {
+  public DataForDescribeControlPolicyOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -832,15 +853,15 @@ public class DataForDescribeControlPolicyOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
-  public DataForDescribeControlPolicyOutput useCount(Integer useCount) {
+  public DataForDescribeControlPolicyOutput useCount(Long useCount) {
     this.useCount = useCount;
     return this;
   }
@@ -850,11 +871,11 @@ public class DataForDescribeControlPolicyOutput {
    * @return useCount
   **/
   @Schema(description = "")
-  public Integer getUseCount() {
+  public Long getUseCount() {
     return useCount;
   }
 
-  public void setUseCount(Integer useCount) {
+  public void setUseCount(Long useCount) {
     this.useCount = useCount;
   }
 
@@ -883,6 +904,7 @@ public class DataForDescribeControlPolicyOutput {
         Objects.equals(this.destinationGroupType, dataForDescribeControlPolicyOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeControlPolicyOutput.destinationType) &&
         Objects.equals(this.direction, dataForDescribeControlPolicyOutput.direction) &&
+        Objects.equals(this.domainResolutionMode, dataForDescribeControlPolicyOutput.domainResolutionMode) &&
         Objects.equals(this.effectStatus, dataForDescribeControlPolicyOutput.effectStatus) &&
         Objects.equals(this.endTime, dataForDescribeControlPolicyOutput.endTime) &&
         Objects.equals(this.hitCnt, dataForDescribeControlPolicyOutput.hitCnt) &&
@@ -908,7 +930,7 @@ public class DataForDescribeControlPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, direction, effectStatus, endTime, hitCnt, ipType, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, direction, domainResolutionMode, effectStatus, endTime, hitCnt, ipType, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
   }
 
 
@@ -932,6 +954,7 @@ public class DataForDescribeControlPolicyOutput {
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");

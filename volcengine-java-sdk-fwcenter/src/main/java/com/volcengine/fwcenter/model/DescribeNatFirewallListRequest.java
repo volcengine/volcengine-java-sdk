@@ -50,6 +50,52 @@ public class DescribeNatFirewallListRequest {
   @SerializedName("NatGatewayName")
   private String natGatewayName = null;
 
+  /**
+   * Gets or Sets orderDir
+   */
+  @JsonAdapter(OrderDirEnum.Adapter.class)
+  public enum OrderDirEnum {
+    @SerializedName("asc")
+    ASC("asc"),
+    @SerializedName("desc")
+    DESC("desc");
+
+    private String value;
+
+    OrderDirEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static OrderDirEnum fromValue(String input) {
+      for (OrderDirEnum b : OrderDirEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<OrderDirEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrderDirEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public OrderDirEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return OrderDirEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("OrderDir")
+  private OrderDirEnum orderDir = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -182,6 +228,24 @@ public class DescribeNatFirewallListRequest {
 
   public void setNatGatewayName(String natGatewayName) {
     this.natGatewayName = natGatewayName;
+  }
+
+  public DescribeNatFirewallListRequest orderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
+    return this;
+  }
+
+   /**
+   * Get orderDir
+   * @return orderDir
+  **/
+  @Schema(description = "")
+  public OrderDirEnum getOrderDir() {
+    return orderDir;
+  }
+
+  public void setOrderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
   }
 
   public DescribeNatFirewallListRequest pageNumber(Integer pageNumber) {
@@ -317,6 +381,7 @@ public class DescribeNatFirewallListRequest {
         Objects.equals(this.natFirewallName, describeNatFirewallListRequest.natFirewallName) &&
         Objects.equals(this.natGatewayId, describeNatFirewallListRequest.natGatewayId) &&
         Objects.equals(this.natGatewayName, describeNatFirewallListRequest.natGatewayName) &&
+        Objects.equals(this.orderDir, describeNatFirewallListRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeNatFirewallListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNatFirewallListRequest.pageSize) &&
         Objects.equals(this.projectName, describeNatFirewallListRequest.projectName) &&
@@ -327,7 +392,7 @@ public class DescribeNatFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudFirewallId, firewallStatus, natFirewallId, natFirewallName, natGatewayId, natGatewayName, pageNumber, pageSize, projectName, regionCode, vpcId, vpcName);
+    return Objects.hash(cloudFirewallId, firewallStatus, natFirewallId, natFirewallName, natGatewayId, natGatewayName, orderDir, pageNumber, pageSize, projectName, regionCode, vpcId, vpcName);
   }
 
 
@@ -342,6 +407,7 @@ public class DescribeNatFirewallListRequest {
     sb.append("    natFirewallName: ").append(toIndentedString(natFirewallName)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
+    sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

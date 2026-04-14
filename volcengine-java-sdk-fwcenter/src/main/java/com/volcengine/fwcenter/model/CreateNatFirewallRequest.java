@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class CreateNatFirewallRequest {
   @SerializedName("Bandwidth")
-  private Integer bandwidth = null;
+  private Long bandwidth = null;
 
   @SerializedName("CloudFirewallId")
   private String cloudFirewallId = null;
@@ -54,7 +54,7 @@ public class CreateNatFirewallRequest {
   @SerializedName("Tags")
   private List<TagForCreateNatFirewallInput> tags = null;
 
-  public CreateNatFirewallRequest bandwidth(Integer bandwidth) {
+  public CreateNatFirewallRequest bandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -66,11 +66,11 @@ public class CreateNatFirewallRequest {
   **/
   @NotNull
  @Min(10)  @Schema(required = true, description = "")
-  public Integer getBandwidth() {
+  public Long getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(Integer bandwidth) {
+  public void setBandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
   }
 

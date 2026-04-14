@@ -135,10 +135,9 @@ public class DescribeAddressBookRequest {
 
    /**
    * Get pageNumber
-   * maximum: 100
    * @return pageNumber
   **/
- @Max(100)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }

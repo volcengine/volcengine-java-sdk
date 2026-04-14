@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class ModifyVpcFirewallAclRulePositionRequest {
   @SerializedName("NewPrio")
-  private Integer newPrio = null;
+  private Long newPrio = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -39,7 +39,7 @@ public class ModifyVpcFirewallAclRulePositionRequest {
   @SerializedName("VpcFirewallId")
   private String vpcFirewallId = null;
 
-  public ModifyVpcFirewallAclRulePositionRequest newPrio(Integer newPrio) {
+  public ModifyVpcFirewallAclRulePositionRequest newPrio(Long newPrio) {
     this.newPrio = newPrio;
     return this;
   }
@@ -51,11 +51,11 @@ public class ModifyVpcFirewallAclRulePositionRequest {
   **/
   @NotNull
  @Min(1)  @Schema(required = true, description = "")
-  public Integer getNewPrio() {
+  public Long getNewPrio() {
     return newPrio;
   }
 
-  public void setNewPrio(Integer newPrio) {
+  public void setNewPrio(Long newPrio) {
     this.newPrio = newPrio;
   }
 

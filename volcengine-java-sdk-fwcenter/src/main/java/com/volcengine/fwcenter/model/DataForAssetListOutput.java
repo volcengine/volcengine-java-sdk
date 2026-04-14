@@ -52,7 +52,7 @@ public class DataForAssetListOutput {
   private String ipType = null;
 
   @SerializedName("latest_7_days_peak_traffic")
-  private Integer latest7DaysPeakTraffic = null;
+  private Long latest7DaysPeakTraffic = null;
 
   @SerializedName("name")
   private String name = null;
@@ -192,7 +192,7 @@ public class DataForAssetListOutput {
     this.ipType = ipType;
   }
 
-  public DataForAssetListOutput latest7DaysPeakTraffic(Integer latest7DaysPeakTraffic) {
+  public DataForAssetListOutput latest7DaysPeakTraffic(Long latest7DaysPeakTraffic) {
     this.latest7DaysPeakTraffic = latest7DaysPeakTraffic;
     return this;
   }
@@ -202,11 +202,11 @@ public class DataForAssetListOutput {
    * @return latest7DaysPeakTraffic
   **/
   @Schema(description = "")
-  public Integer getLatest7DaysPeakTraffic() {
+  public Long getLatest7DaysPeakTraffic() {
     return latest7DaysPeakTraffic;
   }
 
-  public void setLatest7DaysPeakTraffic(Integer latest7DaysPeakTraffic) {
+  public void setLatest7DaysPeakTraffic(Long latest7DaysPeakTraffic) {
     this.latest7DaysPeakTraffic = latest7DaysPeakTraffic;
   }
 

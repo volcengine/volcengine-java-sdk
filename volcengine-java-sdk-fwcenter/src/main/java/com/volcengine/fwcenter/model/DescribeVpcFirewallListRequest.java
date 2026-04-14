@@ -38,6 +38,52 @@ public class DescribeVpcFirewallListRequest {
   @SerializedName("FirewallStatus")
   private List<String> firewallStatus = null;
 
+  /**
+   * Gets or Sets orderDir
+   */
+  @JsonAdapter(OrderDirEnum.Adapter.class)
+  public enum OrderDirEnum {
+    @SerializedName("asc")
+    ASC("asc"),
+    @SerializedName("desc")
+    DESC("desc");
+
+    private String value;
+
+    OrderDirEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static OrderDirEnum fromValue(String input) {
+      for (OrderDirEnum b : OrderDirEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<OrderDirEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrderDirEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public OrderDirEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return OrderDirEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("OrderDir")
+  private OrderDirEnum orderDir = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -110,6 +156,24 @@ public class DescribeVpcFirewallListRequest {
 
   public void setFirewallStatus(List<String> firewallStatus) {
     this.firewallStatus = firewallStatus;
+  }
+
+  public DescribeVpcFirewallListRequest orderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
+    return this;
+  }
+
+   /**
+   * Get orderDir
+   * @return orderDir
+  **/
+  @Schema(description = "")
+  public OrderDirEnum getOrderDir() {
+    return orderDir;
+  }
+
+  public void setOrderDir(OrderDirEnum orderDir) {
+    this.orderDir = orderDir;
   }
 
   public DescribeVpcFirewallListRequest pageNumber(Integer pageNumber) {
@@ -329,6 +393,7 @@ public class DescribeVpcFirewallListRequest {
     DescribeVpcFirewallListRequest describeVpcFirewallListRequest = (DescribeVpcFirewallListRequest) o;
     return Objects.equals(this.cloudFirewallId, describeVpcFirewallListRequest.cloudFirewallId) &&
         Objects.equals(this.firewallStatus, describeVpcFirewallListRequest.firewallStatus) &&
+        Objects.equals(this.orderDir, describeVpcFirewallListRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeVpcFirewallListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcFirewallListRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpcFirewallListRequest.projectName) &&
@@ -343,7 +408,7 @@ public class DescribeVpcFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudFirewallId, firewallStatus, pageNumber, pageSize, projectName, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(cloudFirewallId, firewallStatus, orderDir, pageNumber, pageSize, projectName, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -354,6 +419,7 @@ public class DescribeVpcFirewallListRequest {
     
     sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
+    sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

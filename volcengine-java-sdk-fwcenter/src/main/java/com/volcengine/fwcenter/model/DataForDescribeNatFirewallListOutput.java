@@ -34,7 +34,7 @@ public class DataForDescribeNatFirewallListOutput {
   private String accountId = null;
 
   @SerializedName("Bandwidth")
-  private Integer bandwidth = null;
+  private Long bandwidth = null;
 
   @SerializedName("CanCreate")
   private Boolean canCreate = null;
@@ -61,10 +61,10 @@ public class DataForDescribeNatFirewallListOutput {
   private String natGatewayName = null;
 
   @SerializedName("PeakTrafficWithin7Day")
-  private Integer peakTrafficWithin7Day = null;
+  private Long peakTrafficWithin7Day = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
+  @SerializedName("ProjectNameForNatGate")
+  private String projectNameForNatGate = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -99,7 +99,7 @@ public class DataForDescribeNatFirewallListOutput {
     this.accountId = accountId;
   }
 
-  public DataForDescribeNatFirewallListOutput bandwidth(Integer bandwidth) {
+  public DataForDescribeNatFirewallListOutput bandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -109,11 +109,11 @@ public class DataForDescribeNatFirewallListOutput {
    * @return bandwidth
   **/
   @Schema(description = "")
-  public Integer getBandwidth() {
+  public Long getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(Integer bandwidth) {
+  public void setBandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
   }
 
@@ -261,7 +261,7 @@ public class DataForDescribeNatFirewallListOutput {
     this.natGatewayName = natGatewayName;
   }
 
-  public DataForDescribeNatFirewallListOutput peakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
+  public DataForDescribeNatFirewallListOutput peakTrafficWithin7Day(Long peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
     return this;
   }
@@ -271,30 +271,30 @@ public class DataForDescribeNatFirewallListOutput {
    * @return peakTrafficWithin7Day
   **/
   @Schema(description = "")
-  public Integer getPeakTrafficWithin7Day() {
+  public Long getPeakTrafficWithin7Day() {
     return peakTrafficWithin7Day;
   }
 
-  public void setPeakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
+  public void setPeakTrafficWithin7Day(Long peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
   }
 
-  public DataForDescribeNatFirewallListOutput projectName(String projectName) {
-    this.projectName = projectName;
+  public DataForDescribeNatFirewallListOutput projectNameForNatGate(String projectNameForNatGate) {
+    this.projectNameForNatGate = projectNameForNatGate;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get projectNameForNatGate
+   * @return projectNameForNatGate
   **/
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public String getProjectNameForNatGate() {
+    return projectNameForNatGate;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setProjectNameForNatGate(String projectNameForNatGate) {
+    this.projectNameForNatGate = projectNameForNatGate;
   }
 
   public DataForDescribeNatFirewallListOutput region(String region) {
@@ -408,7 +408,7 @@ public class DataForDescribeNatFirewallListOutput {
         Objects.equals(this.natGatewayId, dataForDescribeNatFirewallListOutput.natGatewayId) &&
         Objects.equals(this.natGatewayName, dataForDescribeNatFirewallListOutput.natGatewayName) &&
         Objects.equals(this.peakTrafficWithin7Day, dataForDescribeNatFirewallListOutput.peakTrafficWithin7Day) &&
-        Objects.equals(this.projectName, dataForDescribeNatFirewallListOutput.projectName) &&
+        Objects.equals(this.projectNameForNatGate, dataForDescribeNatFirewallListOutput.projectNameForNatGate) &&
         Objects.equals(this.region, dataForDescribeNatFirewallListOutput.region) &&
         Objects.equals(this.vpcCidr, dataForDescribeNatFirewallListOutput.vpcCidr) &&
         Objects.equals(this.vpcId, dataForDescribeNatFirewallListOutput.vpcId) &&
@@ -418,7 +418,7 @@ public class DataForDescribeNatFirewallListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, canCreate, errMessage, firewallStatus, natFirewallId, natFirewallName, natFirewallSubnetCidr, natGatewayId, natGatewayName, peakTrafficWithin7Day, projectName, region, vpcCidr, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, bandwidth, canCreate, errMessage, firewallStatus, natFirewallId, natFirewallName, natFirewallSubnetCidr, natGatewayId, natGatewayName, peakTrafficWithin7Day, projectNameForNatGate, region, vpcCidr, vpcId, vpcName, zoneId);
   }
 
 
@@ -438,7 +438,7 @@ public class DataForDescribeNatFirewallListOutput {
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    peakTrafficWithin7Day: ").append(toIndentedString(peakTrafficWithin7Day)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    projectNameForNatGate: ").append(toIndentedString(projectNameForNatGate)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    vpcCidr: ").append(toIndentedString(vpcCidr)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

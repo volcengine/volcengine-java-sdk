@@ -34,13 +34,13 @@ public class DescribeNatFirewallControlPolicyPriorityUsedResponse extends com.vo
   private String accountId = null;
 
   @SerializedName("End")
-  private Integer end = null;
+  private Long end = null;
 
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
 
   @SerializedName("Start")
-  private Integer start = null;
+  private Long start = null;
 
   public DescribeNatFirewallControlPolicyPriorityUsedResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -60,7 +60,7 @@ public class DescribeNatFirewallControlPolicyPriorityUsedResponse extends com.vo
     this.accountId = accountId;
   }
 
-  public DescribeNatFirewallControlPolicyPriorityUsedResponse end(Integer end) {
+  public DescribeNatFirewallControlPolicyPriorityUsedResponse end(Long end) {
     this.end = end;
     return this;
   }
@@ -70,11 +70,11 @@ public class DescribeNatFirewallControlPolicyPriorityUsedResponse extends com.vo
    * @return end
   **/
   @Schema(description = "")
-  public Integer getEnd() {
+  public Long getEnd() {
     return end;
   }
 
-  public void setEnd(Integer end) {
+  public void setEnd(Long end) {
     this.end = end;
   }
 
@@ -96,7 +96,7 @@ public class DescribeNatFirewallControlPolicyPriorityUsedResponse extends com.vo
     this.natFirewallId = natFirewallId;
   }
 
-  public DescribeNatFirewallControlPolicyPriorityUsedResponse start(Integer start) {
+  public DescribeNatFirewallControlPolicyPriorityUsedResponse start(Long start) {
     this.start = start;
     return this;
   }
@@ -106,11 +106,11 @@ public class DescribeNatFirewallControlPolicyPriorityUsedResponse extends com.vo
    * @return start
   **/
   @Schema(description = "")
-  public Integer getStart() {
+  public Long getStart() {
     return start;
   }
 
-  public void setStart(Integer start) {
+  public void setStart(Long start) {
     this.start = start;
   }
 

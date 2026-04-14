@@ -231,14 +231,60 @@ public class AddNatFirewallControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  /**
+   * Gets or Sets domainResolutionMode
+   */
+  @JsonAdapter(DomainResolutionModeEnum.Adapter.class)
+  public enum DomainResolutionModeEnum {
+    @SerializedName("fqdn")
+    FQDN("fqdn"),
+    @SerializedName("dns")
+    DNS("dns");
+
+    private String value;
+
+    DomainResolutionModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DomainResolutionModeEnum fromValue(String input) {
+      for (DomainResolutionModeEnum b : DomainResolutionModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DomainResolutionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainResolutionModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DomainResolutionModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DomainResolutionModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DomainResolutionMode")
+  private DomainResolutionModeEnum domainResolutionMode = null;
+
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
 
   @SerializedName("Prio")
-  private Integer prio = null;
+  private Long prio = null;
 
   /**
    * Gets or Sets proto
@@ -403,7 +449,7 @@ public class AddNatFirewallControlPolicyRequest {
   private SourceTypeEnum sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
@@ -538,7 +584,25 @@ public class AddNatFirewallControlPolicyRequest {
     this.direction = direction;
   }
 
-  public AddNatFirewallControlPolicyRequest endTime(Integer endTime) {
+  public AddNatFirewallControlPolicyRequest domainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public DomainResolutionModeEnum getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
+  public AddNatFirewallControlPolicyRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -548,11 +612,11 @@ public class AddNatFirewallControlPolicyRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -575,7 +639,7 @@ public class AddNatFirewallControlPolicyRequest {
     this.natFirewallId = natFirewallId;
   }
 
-  public AddNatFirewallControlPolicyRequest prio(Integer prio) {
+  public AddNatFirewallControlPolicyRequest prio(Long prio) {
     this.prio = prio;
     return this;
   }
@@ -585,11 +649,11 @@ public class AddNatFirewallControlPolicyRequest {
    * @return prio
   **/
   @Schema(description = "")
-  public Integer getPrio() {
+  public Long getPrio() {
     return prio;
   }
 
-  public void setPrio(Integer prio) {
+  public void setPrio(Long prio) {
     this.prio = prio;
   }
 
@@ -730,7 +794,7 @@ public class AddNatFirewallControlPolicyRequest {
     this.sourceType = sourceType;
   }
 
-  public AddNatFirewallControlPolicyRequest startTime(Integer startTime) {
+  public AddNatFirewallControlPolicyRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -740,11 +804,11 @@ public class AddNatFirewallControlPolicyRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -783,6 +847,7 @@ public class AddNatFirewallControlPolicyRequest {
         Objects.equals(this.destination, addNatFirewallControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, addNatFirewallControlPolicyRequest.destinationType) &&
         Objects.equals(this.direction, addNatFirewallControlPolicyRequest.direction) &&
+        Objects.equals(this.domainResolutionMode, addNatFirewallControlPolicyRequest.domainResolutionMode) &&
         Objects.equals(this.endTime, addNatFirewallControlPolicyRequest.endTime) &&
         Objects.equals(this.natFirewallId, addNatFirewallControlPolicyRequest.natFirewallId) &&
         Objects.equals(this.prio, addNatFirewallControlPolicyRequest.prio) &&
@@ -799,7 +864,7 @@ public class AddNatFirewallControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, natFirewallId, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, domainResolutionMode, endTime, natFirewallId, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
   }
 
 
@@ -815,6 +880,7 @@ public class AddNatFirewallControlPolicyRequest {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
