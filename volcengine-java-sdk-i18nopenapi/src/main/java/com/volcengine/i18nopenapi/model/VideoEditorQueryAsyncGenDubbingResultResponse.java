@@ -19,10 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoEditorQueryAsyncGenDubbingResultOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,75 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoEditorQueryAsyncGenDubbingResultResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("status")
-  private Integer status = null;
+  @SerializedName("data")
+  private DataForVideoEditorQueryAsyncGenDubbingResultOutput data = null;
 
-  @SerializedName("tosUrl")
-  private String tosUrl = null;
-
-  @SerializedName("tosUrlList")
-  private List<String> tosUrlList = null;
-
-  public VideoEditorQueryAsyncGenDubbingResultResponse status(Integer status) {
-    this.status = status;
+  public VideoEditorQueryAsyncGenDubbingResultResponse data(DataForVideoEditorQueryAsyncGenDubbingResultOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public Integer getStatus() {
-    return status;
+  public DataForVideoEditorQueryAsyncGenDubbingResultOutput getData() {
+    return data;
   }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public VideoEditorQueryAsyncGenDubbingResultResponse tosUrl(String tosUrl) {
-    this.tosUrl = tosUrl;
-    return this;
-  }
-
-   /**
-   * Get tosUrl
-   * @return tosUrl
-  **/
-  @Schema(description = "")
-  public String getTosUrl() {
-    return tosUrl;
-  }
-
-  public void setTosUrl(String tosUrl) {
-    this.tosUrl = tosUrl;
-  }
-
-  public VideoEditorQueryAsyncGenDubbingResultResponse tosUrlList(List<String> tosUrlList) {
-    this.tosUrlList = tosUrlList;
-    return this;
-  }
-
-  public VideoEditorQueryAsyncGenDubbingResultResponse addTosUrlListItem(String tosUrlListItem) {
-    if (this.tosUrlList == null) {
-      this.tosUrlList = new ArrayList<String>();
-    }
-    this.tosUrlList.add(tosUrlListItem);
-    return this;
-  }
-
-   /**
-   * Get tosUrlList
-   * @return tosUrlList
-  **/
-  @Schema(description = "")
-  public List<String> getTosUrlList() {
-    return tosUrlList;
-  }
-
-  public void setTosUrlList(List<String> tosUrlList) {
-    this.tosUrlList = tosUrlList;
+  public void setData(DataForVideoEditorQueryAsyncGenDubbingResultOutput data) {
+    this.data = data;
   }
 
 
@@ -113,14 +63,12 @@ public class VideoEditorQueryAsyncGenDubbingResultResponse extends com.volcengin
       return false;
     }
     VideoEditorQueryAsyncGenDubbingResultResponse videoEditorQueryAsyncGenDubbingResultResponse = (VideoEditorQueryAsyncGenDubbingResultResponse) o;
-    return Objects.equals(this.status, videoEditorQueryAsyncGenDubbingResultResponse.status) &&
-        Objects.equals(this.tosUrl, videoEditorQueryAsyncGenDubbingResultResponse.tosUrl) &&
-        Objects.equals(this.tosUrlList, videoEditorQueryAsyncGenDubbingResultResponse.tosUrlList);
+    return Objects.equals(this.data, videoEditorQueryAsyncGenDubbingResultResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, tosUrl, tosUrlList);
+    return Objects.hash(data);
   }
 
 
@@ -129,9 +77,7 @@ public class VideoEditorQueryAsyncGenDubbingResultResponse extends com.volcengin
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorQueryAsyncGenDubbingResultResponse {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tosUrl: ").append(toIndentedString(tosUrl)).append("\n");
-    sb.append("    tosUrlList: ").append(toIndentedString(tosUrlList)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

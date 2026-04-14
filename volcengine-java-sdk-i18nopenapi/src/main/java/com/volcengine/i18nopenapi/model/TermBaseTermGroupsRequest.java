@@ -33,17 +33,26 @@ public class TermBaseTermGroupsRequest {
   @SerializedName("caseSensitive")
   private Integer caseSensitive = null;
 
+  @SerializedName("keyword")
+  private String keyword = null;
+
   @SerializedName("limit")
   private Integer limit = null;
 
   @SerializedName("offset")
   private Integer offset = null;
 
+  @SerializedName("sortLocale")
+  private String sortLocale = null;
+
   @SerializedName("sortType")
   private Integer sortType = null;
 
   @SerializedName("sorting")
   private Integer sorting = null;
+
+  @SerializedName("tags")
+  private String tags = null;
 
   @SerializedName("termBaseId")
   private String termBaseId = null;
@@ -66,6 +75,24 @@ public class TermBaseTermGroupsRequest {
     this.caseSensitive = caseSensitive;
   }
 
+  public TermBaseTermGroupsRequest keyword(String keyword) {
+    this.keyword = keyword;
+    return this;
+  }
+
+   /**
+   * Get keyword
+   * @return keyword
+  **/
+  @Schema(description = "")
+  public String getKeyword() {
+    return keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
   public TermBaseTermGroupsRequest limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -75,8 +102,7 @@ public class TermBaseTermGroupsRequest {
    * Get limit
    * @return limit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getLimit() {
     return limit;
   }
@@ -94,14 +120,31 @@ public class TermBaseTermGroupsRequest {
    * Get offset
    * @return offset
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getOffset() {
     return offset;
   }
 
   public void setOffset(Integer offset) {
     this.offset = offset;
+  }
+
+  public TermBaseTermGroupsRequest sortLocale(String sortLocale) {
+    this.sortLocale = sortLocale;
+    return this;
+  }
+
+   /**
+   * Get sortLocale
+   * @return sortLocale
+  **/
+  @Schema(description = "")
+  public String getSortLocale() {
+    return sortLocale;
+  }
+
+  public void setSortLocale(String sortLocale) {
+    this.sortLocale = sortLocale;
   }
 
   public TermBaseTermGroupsRequest sortType(Integer sortType) {
@@ -140,6 +183,24 @@ public class TermBaseTermGroupsRequest {
     this.sorting = sorting;
   }
 
+  public TermBaseTermGroupsRequest tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Schema(description = "")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
   public TermBaseTermGroupsRequest termBaseId(String termBaseId) {
     this.termBaseId = termBaseId;
     return this;
@@ -170,16 +231,19 @@ public class TermBaseTermGroupsRequest {
     }
     TermBaseTermGroupsRequest termBaseTermGroupsRequest = (TermBaseTermGroupsRequest) o;
     return Objects.equals(this.caseSensitive, termBaseTermGroupsRequest.caseSensitive) &&
+        Objects.equals(this.keyword, termBaseTermGroupsRequest.keyword) &&
         Objects.equals(this.limit, termBaseTermGroupsRequest.limit) &&
         Objects.equals(this.offset, termBaseTermGroupsRequest.offset) &&
+        Objects.equals(this.sortLocale, termBaseTermGroupsRequest.sortLocale) &&
         Objects.equals(this.sortType, termBaseTermGroupsRequest.sortType) &&
         Objects.equals(this.sorting, termBaseTermGroupsRequest.sorting) &&
+        Objects.equals(this.tags, termBaseTermGroupsRequest.tags) &&
         Objects.equals(this.termBaseId, termBaseTermGroupsRequest.termBaseId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caseSensitive, limit, offset, sortType, sorting, termBaseId);
+    return Objects.hash(caseSensitive, keyword, limit, offset, sortLocale, sortType, sorting, tags, termBaseId);
   }
 
 
@@ -189,10 +253,13 @@ public class TermBaseTermGroupsRequest {
     sb.append("class TermBaseTermGroupsRequest {\n");
     
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
+    sb.append("    keyword: ").append(toIndentedString(keyword)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    sortLocale: ").append(toIndentedString(sortLocale)).append("\n");
     sb.append("    sortType: ").append(toIndentedString(sortType)).append("\n");
     sb.append("    sorting: ").append(toIndentedString(sorting)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
     sb.append("}");
     return sb.toString();
