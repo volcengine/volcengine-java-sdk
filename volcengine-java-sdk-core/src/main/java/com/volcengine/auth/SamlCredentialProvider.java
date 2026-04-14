@@ -15,15 +15,14 @@ public class SamlCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "SamlCredentialProvider";
     private static final String ASSUME_ROLE_ACTION = "AssumeRoleWithSAML";
     private static final int DEFAULT_DURATION_SECONDS = 3600;
-    private static final int DEFAULT_EXPIRE_BUFFER_SECONDS = 60;
+    private static final int DEFAULT_EXPIRE_BUFFER_SECONDS = 300;
     private static final int MAX_EXPIRE_BUFFER_SECONDS = 600;
     private static final Gson GSON = new Gson();
     private static final Type MAP_TYPE = new TypeToken<Map<String, Object>>() {
     }.getType();
 
-    private final String roleName;
-    private final String accountId;
-    private final String samlProviderName;
+    private final String roleTrn;
+    private final String samlProviderTrn;
     private final String samlAssertion;
     private final String rolePolicy;
     private final String stsEndpoint;
@@ -37,31 +36,31 @@ public class SamlCredentialProvider implements Provider {
     private volatile CredentialValue credentialValue;
     private volatile long expirationTime;
 
-    public SamlCredentialProvider(String roleName, String accountId, String samlProviderName,
+    /**
+     * Creates a new SamlCredentialProvider.
+     *
+     * @param roleTrn         the TRN of the role to assume, e.g. {@code trn:iam::1234567890:role/YourRoleName}
+     * @param samlProviderTrn the TRN of the SAML provider, e.g. {@code trn:iam::1234567890:saml-provider/MyIdp}
+     * @param samlAssertion   the base64-encoded SAML Response from your IdP
+     * @param rolePolicy      optional inline policy to restrict permissions (may be null)
+     * @param stsEndpoint     optional STS endpoint override (may be null for default)
+     */
+    public SamlCredentialProvider(String roleTrn, String samlProviderTrn,
                                   String samlAssertion, String rolePolicy, String stsEndpoint) {
-        if (isNullOrEmpty(roleName)) {
-            throw new IllegalArgumentException("roleName must not be null or empty");
+        if (isNullOrEmpty(roleTrn)) {
+            throw new IllegalArgumentException("roleTrn must not be null or empty");
         }
-        if (isNullOrEmpty(accountId)) {
-            throw new IllegalArgumentException("accountId must not be null or empty");
-        }
-        if (isNullOrEmpty(samlProviderName)) {
-            throw new IllegalArgumentException("samlProviderName must not be null or empty");
+        if (isNullOrEmpty(samlProviderTrn)) {
+            throw new IllegalArgumentException("samlProviderTrn must not be null or empty");
         }
         if (isNullOrEmpty(samlAssertion)) {
             throw new IllegalArgumentException("samlAssertion must not be null or empty");
         }
-        this.roleName = roleName;
-        this.accountId = accountId;
-        this.samlProviderName = samlProviderName;
+        this.roleTrn = roleTrn;
+        this.samlProviderTrn = samlProviderTrn;
         this.samlAssertion = samlAssertion;
         this.rolePolicy = rolePolicy;
         this.stsEndpoint = isNullOrEmpty(stsEndpoint) ? StsFormRequest.DEFAULT_STS_ENDPOINT : stsEndpoint;
-    }
-
-    public SamlCredentialProvider(String roleName, String accountId, String samlProviderName,
-                                  String samlAssertion) {
-        this(roleName, accountId, samlProviderName, samlAssertion, null, null);
     }
 
     @Override
@@ -168,8 +167,8 @@ public class SamlCredentialProvider implements Provider {
     private String buildRequestBody() {
         Map<String, String> params = new LinkedHashMap<String, String>();
         params.put("DurationSeconds", String.valueOf(durationSeconds));
-        params.put("RoleTrn", "trn:iam::" + accountId + ":role/" + roleName);
-        params.put("SAMLProviderTrn", "trn:iam::" + accountId + ":saml-provider/" + samlProviderName);
+        params.put("RoleTrn", roleTrn);
+        params.put("SAMLProviderTrn", samlProviderTrn);
         params.put("SAMLResp", samlAssertion);
         if (!isNullOrEmpty(rolePolicy)) {
             params.put("Policy", rolePolicy);

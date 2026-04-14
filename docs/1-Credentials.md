@@ -270,14 +270,15 @@ import com.volcengine.auth.SamlCredentialProvider;
 public class SampleCode {
   public static void main(String[] args) {
     SamlCredentialProvider samlProvider = new SamlCredentialProvider(
-            "YourRoleName",
-            "1234567890",                          // accountId
-            "MyIdp",                               // SAML provider name
-            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
+            "trn:iam::1234567890:role/YourRoleName",           // roleTrn
+            "trn:iam::1234567890:saml-provider/MyIdp",         // samlProviderTrn
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",           // samlAssertion
+            null,                                              // rolePolicy (optional)
+            null                                               // stsEndpoint (optional, uses default)
     );
     // Optional setters
     samlProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
-    samlProvider.setExpireBufferSeconds(60);         // Expire buffer in seconds, default: 60, max: 600
+    samlProvider.setExpireBufferSeconds(300);        // Expire buffer in seconds, default: 300
     samlProvider.setSchema("https");                // STS scheme, default: https
     samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
     samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000

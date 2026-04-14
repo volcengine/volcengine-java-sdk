@@ -276,14 +276,15 @@ import com.volcengine.auth.SamlCredentialProvider;
 public class SampleCode {
   public static void main(String[] args) {
     SamlCredentialProvider samlProvider = new SamlCredentialProvider(
-            "YourRoleName",
-            "1234567890",                          // accountId
-            "MyIdp",                               // SAML provider name
-            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP"
+            "trn:iam::1234567890:role/YourRoleName",           // roleTrn
+            "trn:iam::1234567890:saml-provider/MyIdp",         // samlProviderTrn
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",           // samlAssertion
+            null,                                              // rolePolicy（选填）
+            null                                               // stsEndpoint（选填，使用默认值）
     );
     // 选填字段
     samlProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
-    samlProvider.setExpireBufferSeconds(60);         // 过期缓冲时间（秒），默认: 60，最大: 600
+    samlProvider.setExpireBufferSeconds(300);        // 过期缓冲时间（秒），默认: 300
     samlProvider.setSchema("https");                // STS 协议，默认: https
     samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
     samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
