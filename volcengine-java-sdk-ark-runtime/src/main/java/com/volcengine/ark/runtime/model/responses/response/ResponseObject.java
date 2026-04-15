@@ -91,6 +91,12 @@ public class ResponseObject {
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
 
+    @JsonProperty("prompt_cache_key")
+    private String promptCacheKey;
+
+    @JsonProperty("safety_identifier")
+    private String safetyIdentifier;
+
     public Long getCreatedAt() {
         return createdAt;
     }
@@ -291,6 +297,22 @@ public class ResponseObject {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public String getPromptCacheKey() {
+        return promptCacheKey;
+    }
+
+    public void setPromptCacheKey(String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+    }
+
+    public String getSafetyIdentifier() {
+        return safetyIdentifier;
+    }
+
+    public void setSafetyIdentifier(String safetyIdentifier) {
+        this.safetyIdentifier = safetyIdentifier;
+    }
+
     @Override
     public String toString() {
         return "ResponseObject{" +
@@ -319,6 +341,8 @@ public class ResponseObject {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", promptCacheKey='" + promptCacheKey + '\'' +
+                ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 '}';
     }
 }
