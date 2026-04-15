@@ -8,6 +8,9 @@ public class InputTokensDetails {
     @JsonProperty("cached_tokens")
     private Long cachedTokens;
 
+    @JsonProperty("audio_tokens")
+    private Long audioTokens;
+
     public Long getCachedTokens() {
         return cachedTokens;
     }
@@ -16,10 +19,19 @@ public class InputTokensDetails {
         this.cachedTokens = cachedTokens;
     }
 
+    public Long getAudioTokens() {
+        return audioTokens;
+    }
+
+    public void setAudioTokens(Long audioTokens) {
+        this.audioTokens = audioTokens;
+    }
+
     @Override
     public String toString() {
         return "InputTokensDetails{" +
                 "cachedTokens=" + cachedTokens +
+                ", audioTokens=" + audioTokens +
                 '}';
     }
 }
