@@ -12,6 +12,9 @@ public class PromptTokensDetails {
     @JsonProperty("provisioned_tokens")
     private Integer provisionedTokens;
 
+    @JsonProperty("audio_tokens")
+    private Integer audioTokens;
+
     public Integer getCachedTokens() {
         return cachedTokens;
     }
@@ -28,11 +31,20 @@ public class PromptTokensDetails {
         this.provisionedTokens = provisionedTokens;
     }
 
+    public Integer getAudioTokens() {
+        return audioTokens;
+    }
+
+    public void setAudioTokens(Integer audioTokens) {
+        this.audioTokens = audioTokens;
+    }
+
     @Override
     public String toString() {
         return "PromptTokensDetails{" +
                 "cachedTokens=" + cachedTokens +
                 ", provisionedTokens=" + provisionedTokens +
+                ", audioTokens=" + audioTokens +
                 '}';
     }
 }

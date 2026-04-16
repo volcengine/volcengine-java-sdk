@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForCreateDrDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForCreateDrDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForCreateDrDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,9 +34,6 @@ import javax.validation.Valid;
 
 
 public class CreateDrDBInstanceRequest {
-  @SerializedName("AutoStorageScalingConfig")
-  private AutoStorageScalingConfigForCreateDrDBInstanceInput autoStorageScalingConfig = null;
-
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
@@ -70,25 +66,6 @@ public class CreateDrDBInstanceRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  public CreateDrDBInstanceRequest autoStorageScalingConfig(AutoStorageScalingConfigForCreateDrDBInstanceInput autoStorageScalingConfig) {
-    this.autoStorageScalingConfig = autoStorageScalingConfig;
-    return this;
-  }
-
-   /**
-   * Get autoStorageScalingConfig
-   * @return autoStorageScalingConfig
-  **/
-  @Valid
-  @Schema(description = "")
-  public AutoStorageScalingConfigForCreateDrDBInstanceInput getAutoStorageScalingConfig() {
-    return autoStorageScalingConfig;
-  }
-
-  public void setAutoStorageScalingConfig(AutoStorageScalingConfigForCreateDrDBInstanceInput autoStorageScalingConfig) {
-    this.autoStorageScalingConfig = autoStorageScalingConfig;
-  }
 
   public CreateDrDBInstanceRequest deletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
@@ -313,8 +290,7 @@ public class CreateDrDBInstanceRequest {
       return false;
     }
     CreateDrDBInstanceRequest createDrDBInstanceRequest = (CreateDrDBInstanceRequest) o;
-    return Objects.equals(this.autoStorageScalingConfig, createDrDBInstanceRequest.autoStorageScalingConfig) &&
-        Objects.equals(this.deletionProtection, createDrDBInstanceRequest.deletionProtection) &&
+    return Objects.equals(this.deletionProtection, createDrDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.instanceName, createDrDBInstanceRequest.instanceName) &&
         Objects.equals(this.masterInstanceId, createDrDBInstanceRequest.masterInstanceId) &&
         Objects.equals(this.masterRegion, createDrDBInstanceRequest.masterRegion) &&
@@ -329,7 +305,7 @@ public class CreateDrDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoStorageScalingConfig, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -338,7 +314,6 @@ public class CreateDrDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDrDBInstanceRequest {\n");
     
-    sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");

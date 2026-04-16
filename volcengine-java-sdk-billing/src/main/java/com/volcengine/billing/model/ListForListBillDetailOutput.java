@@ -57,6 +57,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("BusinessMode")
   private String businessMode = null;
 
+  @SerializedName("ChargeItemCode")
+  private String chargeItemCode = null;
+
   @SerializedName("ConfigName")
   private String configName = null;
 
@@ -478,6 +481,24 @@ public class ListForListBillDetailOutput {
 
   public void setBusinessMode(String businessMode) {
     this.businessMode = businessMode;
+  }
+
+  public ListForListBillDetailOutput chargeItemCode(String chargeItemCode) {
+    this.chargeItemCode = chargeItemCode;
+    return this;
+  }
+
+   /**
+   * Get chargeItemCode
+   * @return chargeItemCode
+  **/
+  @Schema(description = "")
+  public String getChargeItemCode() {
+    return chargeItemCode;
+  }
+
+  public void setChargeItemCode(String chargeItemCode) {
+    this.chargeItemCode = chargeItemCode;
   }
 
   public ListForListBillDetailOutput configName(String configName) {
@@ -2065,6 +2086,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.billingMode, listForListBillDetailOutput.billingMode) &&
         Objects.equals(this.busiPeriod, listForListBillDetailOutput.busiPeriod) &&
         Objects.equals(this.businessMode, listForListBillDetailOutput.businessMode) &&
+        Objects.equals(this.chargeItemCode, listForListBillDetailOutput.chargeItemCode) &&
         Objects.equals(this.configName, listForListBillDetailOutput.configName) &&
         Objects.equals(this.configurationCode, listForListBillDetailOutput.configurationCode) &&
         Objects.equals(this.count, listForListBillDetailOutput.count) &&
@@ -2156,7 +2178,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2174,6 +2196,7 @@ public class ListForListBillDetailOutput {
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
+    sb.append("    chargeItemCode: ").append(toIndentedString(chargeItemCode)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");

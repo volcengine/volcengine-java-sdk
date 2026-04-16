@@ -81,6 +81,9 @@ public class ListForListCouponsOutput {
   @SerializedName("UsageLimit")
   private Integer usageLimit = null;
 
+  @SerializedName("VoidReason")
+  private String voidReason = null;
+
   public ListForListCouponsOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
@@ -386,6 +389,24 @@ public class ListForListCouponsOutput {
     this.usageLimit = usageLimit;
   }
 
+  public ListForListCouponsOutput voidReason(String voidReason) {
+    this.voidReason = voidReason;
+    return this;
+  }
+
+   /**
+   * Get voidReason
+   * @return voidReason
+  **/
+  @Schema(description = "")
+  public String getVoidReason() {
+    return voidReason;
+  }
+
+  public void setVoidReason(String voidReason) {
+    this.voidReason = voidReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -411,12 +432,13 @@ public class ListForListCouponsOutput {
         Objects.equals(this.remark, listForListCouponsOutput.remark) &&
         Objects.equals(this.status, listForListCouponsOutput.status) &&
         Objects.equals(this.totalAmount, listForListCouponsOutput.totalAmount) &&
-        Objects.equals(this.usageLimit, listForListCouponsOutput.usageLimit);
+        Objects.equals(this.usageLimit, listForListCouponsOutput.usageLimit) &&
+        Objects.equals(this.voidReason, listForListCouponsOutput.voidReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, acquireTime, amountLimit, assignedOwnerIDList, beginTime, couponID, couponName, expiredTime, orderTypeLimit, payTypeLimit, productLimitList, remainingAmount, remark, status, totalAmount, usageLimit);
+    return Objects.hash(accountID, acquireTime, amountLimit, assignedOwnerIDList, beginTime, couponID, couponName, expiredTime, orderTypeLimit, payTypeLimit, productLimitList, remainingAmount, remark, status, totalAmount, usageLimit, voidReason);
   }
 
 
@@ -441,6 +463,7 @@ public class ListForListCouponsOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    usageLimit: ").append(toIndentedString(usageLimit)).append("\n");
+    sb.append("    voidReason: ").append(toIndentedString(voidReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }
