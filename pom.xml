@@ -334,6 +334,7 @@
         <module>volcengine-java-sdk-llmscan</module>
         <module>volcengine-java-sdk-mem0</module>
         <module>volcengine-java-sdk-apmplusserver</module>
+        <module>volcengine-java-sdk-dataleap20260301</module>
         <module>volcengine-java-sdk-arkclaw</module>
     </modules>
 </project>

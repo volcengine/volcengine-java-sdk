@@ -723,6 +723,12 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-dataleap20260301</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-arkclaw</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
