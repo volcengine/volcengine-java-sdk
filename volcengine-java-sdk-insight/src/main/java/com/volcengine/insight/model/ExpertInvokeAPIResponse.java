@@ -19,9 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.insight.model.ResultForExpertInvokeAPIOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,26 +32,327 @@ import javax.validation.Valid;
 
 
 public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Result")
-  private ResultForExpertInvokeAPIOutput result = null;
+  @SerializedName("Asr")
+  private String asr = null;
 
-  public ExpertInvokeAPIResponse result(ResultForExpertInvokeAPIOutput result) {
-    this.result = result;
+  @SerializedName("Content")
+  private String content = null;
+
+  @SerializedName("DomainLevel")
+  private Integer domainLevel = null;
+
+  @SerializedName("FansCnt")
+  private Long fansCnt = null;
+
+  @SerializedName("HasRisk")
+  private Boolean hasRisk = null;
+
+  @SerializedName("Ocr")
+  private String ocr = null;
+
+  @SerializedName("OriginId")
+  private String originId = null;
+
+  @SerializedName("Related")
+  private Boolean related = null;
+
+  @SerializedName("RelatedReason")
+  private String relatedReason = null;
+
+  @SerializedName("RiskLevel")
+  private String riskLevel = null;
+
+  @SerializedName("RiskReason")
+  private String riskReason = null;
+
+  @SerializedName("RiskTags")
+  private List<String> riskTags = null;
+
+  @SerializedName("Suggestion")
+  private String suggestion = null;
+
+  @SerializedName("Summary")
+  private String summary = null;
+
+  @SerializedName("Title")
+  private String title = null;
+
+  public ExpertInvokeAPIResponse asr(String asr) {
+    this.asr = asr;
     return this;
   }
 
    /**
-   * Get result
-   * @return result
+   * Get asr
+   * @return asr
   **/
-  @Valid
   @Schema(description = "")
-  public ResultForExpertInvokeAPIOutput getResult() {
-    return result;
+  public String getAsr() {
+    return asr;
   }
 
-  public void setResult(ResultForExpertInvokeAPIOutput result) {
-    this.result = result;
+  public void setAsr(String asr) {
+    this.asr = asr;
+  }
+
+  public ExpertInvokeAPIResponse content(String content) {
+    this.content = content;
+    return this;
+  }
+
+   /**
+   * Get content
+   * @return content
+  **/
+  @Schema(description = "")
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public ExpertInvokeAPIResponse domainLevel(Integer domainLevel) {
+    this.domainLevel = domainLevel;
+    return this;
+  }
+
+   /**
+   * Get domainLevel
+   * @return domainLevel
+  **/
+  @Schema(description = "")
+  public Integer getDomainLevel() {
+    return domainLevel;
+  }
+
+  public void setDomainLevel(Integer domainLevel) {
+    this.domainLevel = domainLevel;
+  }
+
+  public ExpertInvokeAPIResponse fansCnt(Long fansCnt) {
+    this.fansCnt = fansCnt;
+    return this;
+  }
+
+   /**
+   * Get fansCnt
+   * @return fansCnt
+  **/
+  @Schema(description = "")
+  public Long getFansCnt() {
+    return fansCnt;
+  }
+
+  public void setFansCnt(Long fansCnt) {
+    this.fansCnt = fansCnt;
+  }
+
+  public ExpertInvokeAPIResponse hasRisk(Boolean hasRisk) {
+    this.hasRisk = hasRisk;
+    return this;
+  }
+
+   /**
+   * Get hasRisk
+   * @return hasRisk
+  **/
+  @Schema(description = "")
+  public Boolean isHasRisk() {
+    return hasRisk;
+  }
+
+  public void setHasRisk(Boolean hasRisk) {
+    this.hasRisk = hasRisk;
+  }
+
+  public ExpertInvokeAPIResponse ocr(String ocr) {
+    this.ocr = ocr;
+    return this;
+  }
+
+   /**
+   * Get ocr
+   * @return ocr
+  **/
+  @Schema(description = "")
+  public String getOcr() {
+    return ocr;
+  }
+
+  public void setOcr(String ocr) {
+    this.ocr = ocr;
+  }
+
+  public ExpertInvokeAPIResponse originId(String originId) {
+    this.originId = originId;
+    return this;
+  }
+
+   /**
+   * Get originId
+   * @return originId
+  **/
+  @Schema(description = "")
+  public String getOriginId() {
+    return originId;
+  }
+
+  public void setOriginId(String originId) {
+    this.originId = originId;
+  }
+
+  public ExpertInvokeAPIResponse related(Boolean related) {
+    this.related = related;
+    return this;
+  }
+
+   /**
+   * Get related
+   * @return related
+  **/
+  @Schema(description = "")
+  public Boolean isRelated() {
+    return related;
+  }
+
+  public void setRelated(Boolean related) {
+    this.related = related;
+  }
+
+  public ExpertInvokeAPIResponse relatedReason(String relatedReason) {
+    this.relatedReason = relatedReason;
+    return this;
+  }
+
+   /**
+   * Get relatedReason
+   * @return relatedReason
+  **/
+  @Schema(description = "")
+  public String getRelatedReason() {
+    return relatedReason;
+  }
+
+  public void setRelatedReason(String relatedReason) {
+    this.relatedReason = relatedReason;
+  }
+
+  public ExpertInvokeAPIResponse riskLevel(String riskLevel) {
+    this.riskLevel = riskLevel;
+    return this;
+  }
+
+   /**
+   * Get riskLevel
+   * @return riskLevel
+  **/
+  @Schema(description = "")
+  public String getRiskLevel() {
+    return riskLevel;
+  }
+
+  public void setRiskLevel(String riskLevel) {
+    this.riskLevel = riskLevel;
+  }
+
+  public ExpertInvokeAPIResponse riskReason(String riskReason) {
+    this.riskReason = riskReason;
+    return this;
+  }
+
+   /**
+   * Get riskReason
+   * @return riskReason
+  **/
+  @Schema(description = "")
+  public String getRiskReason() {
+    return riskReason;
+  }
+
+  public void setRiskReason(String riskReason) {
+    this.riskReason = riskReason;
+  }
+
+  public ExpertInvokeAPIResponse riskTags(List<String> riskTags) {
+    this.riskTags = riskTags;
+    return this;
+  }
+
+  public ExpertInvokeAPIResponse addRiskTagsItem(String riskTagsItem) {
+    if (this.riskTags == null) {
+      this.riskTags = new ArrayList<String>();
+    }
+    this.riskTags.add(riskTagsItem);
+    return this;
+  }
+
+   /**
+   * Get riskTags
+   * @return riskTags
+  **/
+  @Schema(description = "")
+  public List<String> getRiskTags() {
+    return riskTags;
+  }
+
+  public void setRiskTags(List<String> riskTags) {
+    this.riskTags = riskTags;
+  }
+
+  public ExpertInvokeAPIResponse suggestion(String suggestion) {
+    this.suggestion = suggestion;
+    return this;
+  }
+
+   /**
+   * Get suggestion
+   * @return suggestion
+  **/
+  @Schema(description = "")
+  public String getSuggestion() {
+    return suggestion;
+  }
+
+  public void setSuggestion(String suggestion) {
+    this.suggestion = suggestion;
+  }
+
+  public ExpertInvokeAPIResponse summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * Get summary
+   * @return summary
+  **/
+  @Schema(description = "")
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public ExpertInvokeAPIResponse title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Get title
+   * @return title
+  **/
+  @Schema(description = "")
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -63,12 +365,26 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     ExpertInvokeAPIResponse expertInvokeAPIResponse = (ExpertInvokeAPIResponse) o;
-    return Objects.equals(this.result, expertInvokeAPIResponse.result);
+    return Objects.equals(this.asr, expertInvokeAPIResponse.asr) &&
+        Objects.equals(this.content, expertInvokeAPIResponse.content) &&
+        Objects.equals(this.domainLevel, expertInvokeAPIResponse.domainLevel) &&
+        Objects.equals(this.fansCnt, expertInvokeAPIResponse.fansCnt) &&
+        Objects.equals(this.hasRisk, expertInvokeAPIResponse.hasRisk) &&
+        Objects.equals(this.ocr, expertInvokeAPIResponse.ocr) &&
+        Objects.equals(this.originId, expertInvokeAPIResponse.originId) &&
+        Objects.equals(this.related, expertInvokeAPIResponse.related) &&
+        Objects.equals(this.relatedReason, expertInvokeAPIResponse.relatedReason) &&
+        Objects.equals(this.riskLevel, expertInvokeAPIResponse.riskLevel) &&
+        Objects.equals(this.riskReason, expertInvokeAPIResponse.riskReason) &&
+        Objects.equals(this.riskTags, expertInvokeAPIResponse.riskTags) &&
+        Objects.equals(this.suggestion, expertInvokeAPIResponse.suggestion) &&
+        Objects.equals(this.summary, expertInvokeAPIResponse.summary) &&
+        Objects.equals(this.title, expertInvokeAPIResponse.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result);
+    return Objects.hash(asr, content, domainLevel, fansCnt, hasRisk, ocr, originId, related, relatedReason, riskLevel, riskReason, riskTags, suggestion, summary, title);
   }
 
 
@@ -77,7 +393,21 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class ExpertInvokeAPIResponse {\n");
     
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    domainLevel: ").append(toIndentedString(domainLevel)).append("\n");
+    sb.append("    fansCnt: ").append(toIndentedString(fansCnt)).append("\n");
+    sb.append("    hasRisk: ").append(toIndentedString(hasRisk)).append("\n");
+    sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
+    sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
+    sb.append("    related: ").append(toIndentedString(related)).append("\n");
+    sb.append("    relatedReason: ").append(toIndentedString(relatedReason)).append("\n");
+    sb.append("    riskLevel: ").append(toIndentedString(riskLevel)).append("\n");
+    sb.append("    riskReason: ").append(toIndentedString(riskReason)).append("\n");
+    sb.append("    riskTags: ").append(toIndentedString(riskTags)).append("\n");
+    sb.append("    suggestion: ").append(toIndentedString(suggestion)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

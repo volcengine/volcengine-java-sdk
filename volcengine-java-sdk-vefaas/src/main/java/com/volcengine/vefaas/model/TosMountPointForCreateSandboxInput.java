@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.CredentialsForCreateSandboxInput;
+import com.volcengine.vefaas.model.EncryptionConfigForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,11 +32,65 @@ import javax.validation.Valid;
 
 
 public class TosMountPointForCreateSandboxInput {
+  @SerializedName("AuthMode")
+  private String authMode = null;
+
+  @SerializedName("BucketName")
+  private String bucketName = null;
+
   @SerializedName("BucketPath")
   private String bucketPath = null;
 
+  @SerializedName("Credentials")
+  private CredentialsForCreateSandboxInput credentials = null;
+
+  @SerializedName("EncryptionConfig")
+  private EncryptionConfigForCreateSandboxInput encryptionConfig = null;
+
+  @SerializedName("Endpoint")
+  private String endpoint = null;
+
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
+
+  @SerializedName("ReadOnly")
+  private Boolean readOnly = null;
+
+  public TosMountPointForCreateSandboxInput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
+
+  public TosMountPointForCreateSandboxInput bucketName(String bucketName) {
+    this.bucketName = bucketName;
+    return this;
+  }
+
+   /**
+   * Get bucketName
+   * @return bucketName
+  **/
+  @Schema(description = "")
+  public String getBucketName() {
+    return bucketName;
+  }
+
+  public void setBucketName(String bucketName) {
+    this.bucketName = bucketName;
+  }
 
   public TosMountPointForCreateSandboxInput bucketPath(String bucketPath) {
     this.bucketPath = bucketPath;
@@ -52,6 +108,62 @@ public class TosMountPointForCreateSandboxInput {
 
   public void setBucketPath(String bucketPath) {
     this.bucketPath = bucketPath;
+  }
+
+  public TosMountPointForCreateSandboxInput credentials(CredentialsForCreateSandboxInput credentials) {
+    this.credentials = credentials;
+    return this;
+  }
+
+   /**
+   * Get credentials
+   * @return credentials
+  **/
+  @Valid
+  @Schema(description = "")
+  public CredentialsForCreateSandboxInput getCredentials() {
+    return credentials;
+  }
+
+  public void setCredentials(CredentialsForCreateSandboxInput credentials) {
+    this.credentials = credentials;
+  }
+
+  public TosMountPointForCreateSandboxInput encryptionConfig(EncryptionConfigForCreateSandboxInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
+    return this;
+  }
+
+   /**
+   * Get encryptionConfig
+   * @return encryptionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EncryptionConfigForCreateSandboxInput getEncryptionConfig() {
+    return encryptionConfig;
+  }
+
+  public void setEncryptionConfig(EncryptionConfigForCreateSandboxInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
+  }
+
+  public TosMountPointForCreateSandboxInput endpoint(String endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * Get endpoint
+   * @return endpoint
+  **/
+  @Schema(description = "")
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
   }
 
   public TosMountPointForCreateSandboxInput localMountPath(String localMountPath) {
@@ -72,6 +184,24 @@ public class TosMountPointForCreateSandboxInput {
     this.localMountPath = localMountPath;
   }
 
+  public TosMountPointForCreateSandboxInput readOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @Schema(description = "")
+  public Boolean isReadOnly() {
+    return readOnly;
+  }
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +212,19 @@ public class TosMountPointForCreateSandboxInput {
       return false;
     }
     TosMountPointForCreateSandboxInput tosMountPointForCreateSandboxInput = (TosMountPointForCreateSandboxInput) o;
-    return Objects.equals(this.bucketPath, tosMountPointForCreateSandboxInput.bucketPath) &&
-        Objects.equals(this.localMountPath, tosMountPointForCreateSandboxInput.localMountPath);
+    return Objects.equals(this.authMode, tosMountPointForCreateSandboxInput.authMode) &&
+        Objects.equals(this.bucketName, tosMountPointForCreateSandboxInput.bucketName) &&
+        Objects.equals(this.bucketPath, tosMountPointForCreateSandboxInput.bucketPath) &&
+        Objects.equals(this.credentials, tosMountPointForCreateSandboxInput.credentials) &&
+        Objects.equals(this.encryptionConfig, tosMountPointForCreateSandboxInput.encryptionConfig) &&
+        Objects.equals(this.endpoint, tosMountPointForCreateSandboxInput.endpoint) &&
+        Objects.equals(this.localMountPath, tosMountPointForCreateSandboxInput.localMountPath) &&
+        Objects.equals(this.readOnly, tosMountPointForCreateSandboxInput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketPath, localMountPath);
+    return Objects.hash(authMode, bucketName, bucketPath, credentials, encryptionConfig, endpoint, localMountPath, readOnly);
   }
 
 
@@ -97,8 +233,14 @@ public class TosMountPointForCreateSandboxInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TosMountPointForCreateSandboxInput {\n");
     
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
+    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    bucketPath: ").append(toIndentedString(bucketPath)).append("\n");
+    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
+    sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
+    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
+    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }
