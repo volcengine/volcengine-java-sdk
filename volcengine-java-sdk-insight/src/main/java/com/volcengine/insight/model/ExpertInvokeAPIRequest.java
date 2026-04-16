@@ -55,7 +55,7 @@ public class ExpertInvokeAPIRequest {
   private String ocr = null;
 
   @SerializedName("OriginId")
-  private Long originId = null;
+  private String originId = null;
 
   @SerializedName("Title")
   private String title = null;
@@ -208,7 +208,7 @@ public class ExpertInvokeAPIRequest {
     this.ocr = ocr;
   }
 
-  public ExpertInvokeAPIRequest originId(Long originId) {
+  public ExpertInvokeAPIRequest originId(String originId) {
     this.originId = originId;
     return this;
   }
@@ -218,11 +218,11 @@ public class ExpertInvokeAPIRequest {
    * @return originId
   **/
   @Schema(description = "")
-  public Long getOriginId() {
+  public String getOriginId() {
     return originId;
   }
 
-  public void setOriginId(Long originId) {
+  public void setOriginId(String originId) {
     this.originId = originId;
   }
 
