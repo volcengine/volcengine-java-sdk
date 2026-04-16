@@ -16,6 +16,8 @@ public class ChatCompletionContentPart {
 
     ChatCompletionContentPartVideoURL videoUrl;
 
+    ChatCompletionContentPartInputAudio inputAudio;
+
     public String getType() {
         return type;
     }
@@ -56,6 +58,14 @@ public class ChatCompletionContentPart {
         this.videoUrl = videoUrl;
     }
 
+    public ChatCompletionContentPartInputAudio getInputAudio() {
+        return inputAudio;
+    }
+
+    public void setInputAudio(ChatCompletionContentPartInputAudio inputAudio) {
+        this.inputAudio = inputAudio;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -68,6 +78,7 @@ public class ChatCompletionContentPart {
                 ", text='" + text + '\'' +
                 ", imageUrl=" + imageUrl +
                 ", videoUrl=" + videoUrl +
+                ", inputAudio=" + inputAudio +
                 '}';
     }
 
@@ -150,12 +161,71 @@ public class ChatCompletionContentPart {
         }
     }
 
+    public static class ChatCompletionContentPartInputAudio {
+        String url;
+
+        String fileId;
+
+        String data;
+
+        String format;
+
+        public ChatCompletionContentPartInputAudio() {}
+
+        public ChatCompletionContentPartInputAudio(String url) {
+            this.url = url;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getFileId() {
+            return fileId;
+        }
+
+        public void setFileId(String fileId) {
+            this.fileId = fileId;
+        }
+
+        public String getData() {
+            return data;
+        }
+
+        public void setData(String data) {
+            this.data = data;
+        }
+
+        public String getFormat() {
+            return format;
+        }
+
+        public void setFormat(String format) {
+            this.format = format;
+        }
+
+        @Override
+        public String toString() {
+            return "ChatCompletionContentPartInputAudio{" +
+                    "url='" + url + '\'' +
+                    ", fileId='" + fileId + '\'' +
+                    ", data='" + data + '\'' +
+                    ", format='" + format + '\'' +
+                    '}';
+        }
+    }
+
     public static final class Builder {
         private String type;
         private String content;
         private String text;
         private ChatCompletionContentPartImageURL imageUrl;
         private ChatCompletionContentPartVideoURL videoUrl;
+        private ChatCompletionContentPartInputAudio inputAudio;
 
         public Builder type(String type) {
             this.type = type;
@@ -182,6 +252,11 @@ public class ChatCompletionContentPart {
             return this;
         }
 
+        public Builder inputAudio(ChatCompletionContentPartInputAudio inputAudio) {
+            this.inputAudio = inputAudio;
+            return this;
+        }
+
         public ChatCompletionContentPart build() {
             ChatCompletionContentPart chatCompletionContentPart = new ChatCompletionContentPart();
             chatCompletionContentPart.setType(type);
@@ -189,6 +264,7 @@ public class ChatCompletionContentPart {
             chatCompletionContentPart.setText(text);
             chatCompletionContentPart.setImageUrl(imageUrl);
             chatCompletionContentPart.setVideoUrl(videoUrl);
+            chatCompletionContentPart.setInputAudio(inputAudio);
             return chatCompletionContentPart;
         }
     }

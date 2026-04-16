@@ -71,6 +71,12 @@ public class CreateResponsesRequest {
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
 
+    @JsonProperty("prompt_cache_key")
+    private String promptCacheKey;
+
+    @JsonProperty("safety_identifier")
+    private String safetyIdentifier;
+
     public ResponsesInput getInput() {
         return input;
     }
@@ -231,6 +237,22 @@ public class CreateResponsesRequest {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public String getPromptCacheKey() {
+        return promptCacheKey;
+    }
+
+    public void setPromptCacheKey(String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+    }
+
+    public String getSafetyIdentifier() {
+        return safetyIdentifier;
+    }
+
+    public void setSafetyIdentifier(String safetyIdentifier) {
+        this.safetyIdentifier = safetyIdentifier;
+    }
+
     @Override
     public String toString() {
         return "ResponsesRequest{" +
@@ -254,6 +276,8 @@ public class CreateResponsesRequest {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", promptCacheKey='" + promptCacheKey + '\'' +
+                ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 '}';
     }
 
@@ -282,6 +306,8 @@ public class CreateResponsesRequest {
         private ResponsesToolChoice toolChoice;
         private Boolean parallelToolCalls;
         private Long maxToolCalls;
+        private String promptCacheKey;
+        private String safetyIdentifier;
 
         public Builder input(ResponsesInput input) {
             this.input = input;
@@ -383,6 +409,16 @@ public class CreateResponsesRequest {
             return this;
         }
 
+        public Builder promptCacheKey(String promptCacheKey) {
+            this.promptCacheKey = promptCacheKey;
+            return this;
+        }
+
+        public Builder safetyIdentifier(String safetyIdentifier) {
+            this.safetyIdentifier = safetyIdentifier;
+            return this;
+        }
+
         public CreateResponsesRequest build() {
             CreateResponsesRequest responsesRequest = new CreateResponsesRequest();
             responsesRequest.setInput(input);
@@ -405,6 +441,8 @@ public class CreateResponsesRequest {
             responsesRequest.setToolChoice(toolChoice);
             responsesRequest.setParallelToolCalls(parallelToolCalls);
             responsesRequest.setMaxToolCalls(maxToolCalls);
+            responsesRequest.setPromptCacheKey(promptCacheKey);
+            responsesRequest.setSafetyIdentifier(safetyIdentifier);
             return responsesRequest;
         }
     }

@@ -132,8 +132,14 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("BusinessMode")
   private String businessMode = null;
 
+  @SerializedName("ChargeItemCode")
+  private String chargeItemCode = null;
+
   @SerializedName("ConfigName")
   private String configName = null;
+
+  @SerializedName("ConfigurationCode")
+  private String configurationCode = null;
 
   @SerializedName("Count")
   private String count = null;
@@ -1140,6 +1146,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.businessMode = businessMode;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput chargeItemCode(String chargeItemCode) {
+    this.chargeItemCode = chargeItemCode;
+    return this;
+  }
+
+   /**
+   * Get chargeItemCode
+   * @return chargeItemCode
+  **/
+  @Schema(description = "")
+  public String getChargeItemCode() {
+    return chargeItemCode;
+  }
+
+  public void setChargeItemCode(String chargeItemCode) {
+    this.chargeItemCode = chargeItemCode;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput configName(String configName) {
     this.configName = configName;
     return this;
@@ -1156,6 +1180,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setConfigName(String configName) {
     this.configName = configName;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput configurationCode(String configurationCode) {
+    this.configurationCode = configurationCode;
+    return this;
+  }
+
+   /**
+   * Get configurationCode
+   * @return configurationCode
+  **/
+  @Schema(description = "")
+  public String getConfigurationCode() {
+    return configurationCode;
+  }
+
+  public void setConfigurationCode(String configurationCode) {
+    this.configurationCode = configurationCode;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput count(String count) {
@@ -3560,7 +3602,9 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.billingMode, listForListAmortizedCostBillMonthlyOutput.billingMode) &&
         Objects.equals(this.busiPeriod, listForListAmortizedCostBillMonthlyOutput.busiPeriod) &&
         Objects.equals(this.businessMode, listForListAmortizedCostBillMonthlyOutput.businessMode) &&
+        Objects.equals(this.chargeItemCode, listForListAmortizedCostBillMonthlyOutput.chargeItemCode) &&
         Objects.equals(this.configName, listForListAmortizedCostBillMonthlyOutput.configName) &&
+        Objects.equals(this.configurationCode, listForListAmortizedCostBillMonthlyOutput.configurationCode) &&
         Objects.equals(this.count, listForListAmortizedCostBillMonthlyOutput.count) &&
         Objects.equals(this.countryRegion, listForListAmortizedCostBillMonthlyOutput.countryRegion) &&
         Objects.equals(this.couponAmount, listForListAmortizedCostBillMonthlyOutput.couponAmount) &&
@@ -3696,7 +3740,7 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPosttaxAmount, beforeAmortizedPreTaxPayableAmount, beforeAmortizedPreTaxRealValue, beforeAmortizedPreferentialBillAmount, beforeAmortizedPretaxAmount, beforeAmortizedRealValue, beforeAmortizedRoundAmount, beforeAmortizedSavingPlanOriginalAmount, beforeAmortizedSettlePayableAmount, beforeAmortizedSettlePosttaxAmount, beforeAmortizedSettlePreTaxPayableAmount, beforeAmortizedSettlePreTaxRealValue, beforeAmortizedSettlePretaxAmount, beforeAmortizedSettleRealValue, beforeAmortizedSettleTaxAmount, beforeAmortizedTaxAmount, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, resourceID, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unAmortizedSavingPlanOriginalAmount, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPosttaxAmount, unamortizedPreTaxPayableAmount, unamortizedPreTaxRealValue, unamortizedPreferentialBillAmount, unamortizedPretaxAmount, unamortizedRealValue, unamortizedRoundAmount, unamortizedSettlePayableAmount, unamortizedSettlePosttaxAmount, unamortizedSettlePreTaxPayableAmount, unamortizedSettlePreTaxRealValue, unamortizedSettlePretaxAmount, unamortizedSettleRealValue, unamortizedSettleTaxAmount, unamortizedTaxAmount, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPosttaxAmount, beforeAmortizedPreTaxPayableAmount, beforeAmortizedPreTaxRealValue, beforeAmortizedPreferentialBillAmount, beforeAmortizedPretaxAmount, beforeAmortizedRealValue, beforeAmortizedRoundAmount, beforeAmortizedSavingPlanOriginalAmount, beforeAmortizedSettlePayableAmount, beforeAmortizedSettlePosttaxAmount, beforeAmortizedSettlePreTaxPayableAmount, beforeAmortizedSettlePreTaxRealValue, beforeAmortizedSettlePretaxAmount, beforeAmortizedSettleRealValue, beforeAmortizedSettleTaxAmount, beforeAmortizedTaxAmount, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, resourceID, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unAmortizedSavingPlanOriginalAmount, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPosttaxAmount, unamortizedPreTaxPayableAmount, unamortizedPreTaxRealValue, unamortizedPreferentialBillAmount, unamortizedPretaxAmount, unamortizedRealValue, unamortizedRoundAmount, unamortizedSettlePayableAmount, unamortizedSettlePosttaxAmount, unamortizedSettlePreTaxPayableAmount, unamortizedSettlePreTaxRealValue, unamortizedSettlePretaxAmount, unamortizedSettleRealValue, unamortizedSettleTaxAmount, unamortizedTaxAmount, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -3739,7 +3783,9 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
+    sb.append("    chargeItemCode: ").append(toIndentedString(chargeItemCode)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
+    sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    countryRegion: ").append(toIndentedString(countryRegion)).append("\n");
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
