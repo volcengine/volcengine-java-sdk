@@ -34,9 +34,6 @@ public class DescribeDBProxyPriceDetailRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("ProxyNodeCustom")
   private ProxyNodeCustomForDescribeDBProxyPriceDetailInput proxyNodeCustom = null;
 
@@ -57,24 +54,6 @@ public class DescribeDBProxyPriceDetailRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
-  }
-
-  public DescribeDBProxyPriceDetailRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public DescribeDBProxyPriceDetailRequest proxyNodeCustom(ProxyNodeCustomForDescribeDBProxyPriceDetailInput proxyNodeCustom) {
@@ -107,13 +86,12 @@ public class DescribeDBProxyPriceDetailRequest {
     }
     DescribeDBProxyPriceDetailRequest describeDBProxyPriceDetailRequest = (DescribeDBProxyPriceDetailRequest) o;
     return Objects.equals(this.instanceId, describeDBProxyPriceDetailRequest.instanceId) &&
-        Objects.equals(this.projectName, describeDBProxyPriceDetailRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, describeDBProxyPriceDetailRequest.proxyNodeCustom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, projectName, proxyNodeCustom);
+    return Objects.hash(instanceId, proxyNodeCustom);
   }
 
 
@@ -123,7 +101,6 @@ public class DescribeDBProxyPriceDetailRequest {
     sb.append("class DescribeDBProxyPriceDetailRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("}");
     return sb.toString();

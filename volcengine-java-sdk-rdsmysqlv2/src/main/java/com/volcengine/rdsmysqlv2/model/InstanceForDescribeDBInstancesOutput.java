@@ -81,9 +81,6 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow = null;
 
-  @SerializedName("NewNodeSpec")
-  private String newNodeSpec = null;
-
   @SerializedName("NodeCPUUsedPercentage")
   private Double nodeCPUUsedPercentage = null;
 
@@ -104,9 +101,6 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("RegionId")
   private String regionId = null;
-
-  @SerializedName("SecondsMonitorConfig")
-  private String secondsMonitorConfig = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -413,24 +407,6 @@ public class InstanceForDescribeDBInstancesOutput {
     this.maintenanceWindow = maintenanceWindow;
   }
 
-  public InstanceForDescribeDBInstancesOutput newNodeSpec(String newNodeSpec) {
-    this.newNodeSpec = newNodeSpec;
-    return this;
-  }
-
-   /**
-   * Get newNodeSpec
-   * @return newNodeSpec
-  **/
-  @Schema(description = "")
-  public String getNewNodeSpec() {
-    return newNodeSpec;
-  }
-
-  public void setNewNodeSpec(String newNodeSpec) {
-    this.newNodeSpec = newNodeSpec;
-  }
-
   public InstanceForDescribeDBInstancesOutput nodeCPUUsedPercentage(Double nodeCPUUsedPercentage) {
     this.nodeCPUUsedPercentage = nodeCPUUsedPercentage;
     return this;
@@ -555,24 +531,6 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setRegionId(String regionId) {
     this.regionId = regionId;
-  }
-
-  public InstanceForDescribeDBInstancesOutput secondsMonitorConfig(String secondsMonitorConfig) {
-    this.secondsMonitorConfig = secondsMonitorConfig;
-    return this;
-  }
-
-   /**
-   * Get secondsMonitorConfig
-   * @return secondsMonitorConfig
-  **/
-  @Schema(description = "")
-  public String getSecondsMonitorConfig() {
-    return secondsMonitorConfig;
-  }
-
-  public void setSecondsMonitorConfig(String secondsMonitorConfig) {
-    this.secondsMonitorConfig = secondsMonitorConfig;
   }
 
   public InstanceForDescribeDBInstancesOutput storageSpace(Integer storageSpace) {
@@ -761,7 +719,6 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.instanceType, instanceForDescribeDBInstancesOutput.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, instanceForDescribeDBInstancesOutput.lowerCaseTableNames) &&
         Objects.equals(this.maintenanceWindow, instanceForDescribeDBInstancesOutput.maintenanceWindow) &&
-        Objects.equals(this.newNodeSpec, instanceForDescribeDBInstancesOutput.newNodeSpec) &&
         Objects.equals(this.nodeCPUUsedPercentage, instanceForDescribeDBInstancesOutput.nodeCPUUsedPercentage) &&
         Objects.equals(this.nodeMemoryUsedPercentage, instanceForDescribeDBInstancesOutput.nodeMemoryUsedPercentage) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
@@ -769,7 +726,6 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.nodeSpec, instanceForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
-        Objects.equals(this.secondsMonitorConfig, instanceForDescribeDBInstancesOutput.secondsMonitorConfig) &&
         Objects.equals(this.storageSpace, instanceForDescribeDBInstancesOutput.storageSpace) &&
         Objects.equals(this.storageType, instanceForDescribeDBInstancesOutput.storageType) &&
         Objects.equals(this.subnetId, instanceForDescribeDBInstancesOutput.subnetId) &&
@@ -782,7 +738,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, drDtsTaskId, engineType, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, newNodeSpec, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, secondsMonitorConfig, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
+    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, drDtsTaskId, engineType, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
   }
 
 
@@ -806,7 +762,6 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
-    sb.append("    newNodeSpec: ").append(toIndentedString(newNodeSpec)).append("\n");
     sb.append("    nodeCPUUsedPercentage: ").append(toIndentedString(nodeCPUUsedPercentage)).append("\n");
     sb.append("    nodeMemoryUsedPercentage: ").append(toIndentedString(nodeMemoryUsedPercentage)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
@@ -814,7 +769,6 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
-    sb.append("    secondsMonitorConfig: ").append(toIndentedString(secondsMonitorConfig)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

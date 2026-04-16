@@ -49,9 +49,6 @@ public class DescribeDBInstancePriceDetailRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("ProxyNodeCustom")
   private ProxyNodeCustomForDescribeDBInstancePriceDetailInput proxyNodeCustom = null;
 
@@ -161,24 +158,6 @@ public class DescribeDBInstancePriceDetailRequest {
     this.periodUnit = periodUnit;
   }
 
-  public DescribeDBInstancePriceDetailRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public DescribeDBInstancePriceDetailRequest proxyNodeCustom(ProxyNodeCustomForDescribeDBInstancePriceDetailInput proxyNodeCustom) {
     this.proxyNodeCustom = proxyNodeCustom;
     return this;
@@ -251,7 +230,6 @@ public class DescribeDBInstancePriceDetailRequest {
         Objects.equals(this.number, describeDBInstancePriceDetailRequest.number) &&
         Objects.equals(this.period, describeDBInstancePriceDetailRequest.period) &&
         Objects.equals(this.periodUnit, describeDBInstancePriceDetailRequest.periodUnit) &&
-        Objects.equals(this.projectName, describeDBInstancePriceDetailRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, describeDBInstancePriceDetailRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, describeDBInstancePriceDetailRequest.storageSpace) &&
         Objects.equals(this.storageType, describeDBInstancePriceDetailRequest.storageType);
@@ -259,7 +237,7 @@ public class DescribeDBInstancePriceDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, projectName, proxyNodeCustom, storageSpace, storageType);
+    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, proxyNodeCustom, storageSpace, storageType);
   }
 
 
@@ -273,7 +251,6 @@ public class DescribeDBInstancePriceDetailRequest {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
