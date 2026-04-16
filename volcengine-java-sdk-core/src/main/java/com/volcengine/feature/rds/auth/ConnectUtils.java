@@ -80,7 +80,7 @@ public class ConnectUtils {
         queryParams.add(new Pair("X-Expires", String.valueOf(expires)));
         queryParams.add(new Pair("DBUser", dbUser));
         queryParams.add(new Pair("InstanceId", instanceId));
-        queryParams.add(new Pair("X-Host", schema + "://" + endpoint));
+        queryParams.add(new Pair("X-HOST", schema + "://" + endpoint));
         reqCtx.setQueryParams(queryParams);
 
         // Execute sign interceptor for presigning
