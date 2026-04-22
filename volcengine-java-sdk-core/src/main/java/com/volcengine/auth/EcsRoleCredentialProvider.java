@@ -29,8 +29,6 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
     private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
-    private static final String IMDS_ENDPOINT_ENV = "VOLCENGINE_ECS_METADATA_ENDPOINT";
-    private static final String IMDS_ENDPOINT_PROPERTY = "volcengine.ecs.metadata.endpoint";
 
     // IMDSv2 headers
     private static final String IMDS_TOKEN_TTL_HEADER = "X-volc-ecs-metadata-token-ttl-seconds";
@@ -73,7 +71,7 @@ public class EcsRoleCredentialProvider implements Provider {
         this.maxRetries = Math.max(maxRetries, 0);
         this.retryIntervalMs = retryIntervalMs;
         this.expireBufferSeconds = expireBufferSeconds;
-        this.imdsEndpoint = resolveImdsEndpoint();
+        this.imdsEndpoint = DEFAULT_IMDS_ENDPOINT;
     }
 
     public static EcsRoleCredentialProvider create(String roleName) throws ApiException {
@@ -338,19 +336,4 @@ public class EcsRoleCredentialProvider implements Provider {
         }
     }
 
-    private static String resolveImdsEndpoint() {
-        String endpoint = System.getProperty(IMDS_ENDPOINT_PROPERTY);
-        if (isNullOrEmpty(endpoint)) {
-            endpoint = System.getenv(IMDS_ENDPOINT_ENV);
-        }
-        if (isNullOrEmpty(endpoint)) {
-            endpoint = DEFAULT_IMDS_ENDPOINT;
-        }
-        endpoint = endpoint.trim();
-
-        while (endpoint.endsWith("/")) {
-            endpoint = endpoint.substring(0, endpoint.length() - 1);
-        }
-        return endpoint;
-    }
 }
