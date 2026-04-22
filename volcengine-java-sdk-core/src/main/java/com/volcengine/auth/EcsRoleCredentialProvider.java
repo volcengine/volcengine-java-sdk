@@ -25,7 +25,7 @@ public class EcsRoleCredentialProvider implements Provider {
     private static final String PROVIDER_NAME = "EcsRoleCredentialProvider";
 
     // IMDSv2 endpoint and paths
-    private static final String DEFAULT_IMDS_ENDPOINT = "http://10.251.237.190:8765";
+    private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
     private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
