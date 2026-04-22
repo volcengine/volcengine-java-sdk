@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.arkclaw.model.EnvVarForCreateClawOmniInstanceInput;
 import com.volcengine.arkclaw.model.ModelConfigForCreateClawOmniInstanceInput;
 import com.volcengine.arkclaw.model.TagForCreateClawOmniInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -39,6 +40,9 @@ public class CreateClawOmniInstanceRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EnvVars")
+  private List<EnvVarForCreateClawOmniInstanceInput> envVars = null;
 
   @SerializedName("ExpiredAction")
   private String expiredAction = null;
@@ -105,6 +109,33 @@ public class CreateClawOmniInstanceRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateClawOmniInstanceRequest envVars(List<EnvVarForCreateClawOmniInstanceInput> envVars) {
+    this.envVars = envVars;
+    return this;
+  }
+
+  public CreateClawOmniInstanceRequest addEnvVarsItem(EnvVarForCreateClawOmniInstanceInput envVarsItem) {
+    if (this.envVars == null) {
+      this.envVars = new ArrayList<EnvVarForCreateClawOmniInstanceInput>();
+    }
+    this.envVars.add(envVarsItem);
+    return this;
+  }
+
+   /**
+   * Get envVars
+   * @return envVars
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EnvVarForCreateClawOmniInstanceInput> getEnvVars() {
+    return envVars;
+  }
+
+  public void setEnvVars(List<EnvVarForCreateClawOmniInstanceInput> envVars) {
+    this.envVars = envVars;
   }
 
   public CreateClawOmniInstanceRequest expiredAction(String expiredAction) {
@@ -313,6 +344,7 @@ public class CreateClawOmniInstanceRequest {
     CreateClawOmniInstanceRequest createClawOmniInstanceRequest = (CreateClawOmniInstanceRequest) o;
     return Objects.equals(this.cpuMilli, createClawOmniInstanceRequest.cpuMilli) &&
         Objects.equals(this.description, createClawOmniInstanceRequest.description) &&
+        Objects.equals(this.envVars, createClawOmniInstanceRequest.envVars) &&
         Objects.equals(this.expiredAction, createClawOmniInstanceRequest.expiredAction) &&
         Objects.equals(this.image, createClawOmniInstanceRequest.image) &&
         Objects.equals(this.memoryMb, createClawOmniInstanceRequest.memoryMb) &&
@@ -327,7 +359,7 @@ public class CreateClawOmniInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, description, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, timeout);
+    return Objects.hash(cpuMilli, description, envVars, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, timeout);
   }
 
 
@@ -338,6 +370,7 @@ public class CreateClawOmniInstanceRequest {
     
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    envVars: ").append(toIndentedString(envVars)).append("\n");
     sb.append("    expiredAction: ").append(toIndentedString(expiredAction)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    memoryMb: ").append(toIndentedString(memoryMb)).append("\n");

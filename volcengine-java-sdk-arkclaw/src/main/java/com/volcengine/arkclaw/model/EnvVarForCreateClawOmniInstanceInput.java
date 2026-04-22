@@ -24,52 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModelConfigForCreateClawOmniInstanceInput
+ * EnvVarForCreateClawOmniInstanceInput
  */
 
 
 
-public class ModelConfigForCreateClawOmniInstanceInput {
-  @SerializedName("ModelId")
-  private String modelId = null;
+public class EnvVarForCreateClawOmniInstanceInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("ModelSource")
-  private String modelSource = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public ModelConfigForCreateClawOmniInstanceInput modelId(String modelId) {
-    this.modelId = modelId;
+  public EnvVarForCreateClawOmniInstanceInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get modelId
-   * @return modelId
+   * Get key
+   * @return key
   **/
-  @Schema(description = "")
-  public String getModelId() {
-    return modelId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setModelId(String modelId) {
-    this.modelId = modelId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ModelConfigForCreateClawOmniInstanceInput modelSource(String modelSource) {
-    this.modelSource = modelSource;
+  public EnvVarForCreateClawOmniInstanceInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get modelSource
-   * @return modelSource
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getModelSource() {
-    return modelSource;
+  public String getValue() {
+    return value;
   }
 
-  public void setModelSource(String modelSource) {
-    this.modelSource = modelSource;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +82,24 @@ public class ModelConfigForCreateClawOmniInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelConfigForCreateClawOmniInstanceInput modelConfigForCreateClawOmniInstanceInput = (ModelConfigForCreateClawOmniInstanceInput) o;
-    return Objects.equals(this.modelId, modelConfigForCreateClawOmniInstanceInput.modelId) &&
-        Objects.equals(this.modelSource, modelConfigForCreateClawOmniInstanceInput.modelSource);
+    EnvVarForCreateClawOmniInstanceInput envVarForCreateClawOmniInstanceInput = (EnvVarForCreateClawOmniInstanceInput) o;
+    return Objects.equals(this.key, envVarForCreateClawOmniInstanceInput.key) &&
+        Objects.equals(this.value, envVarForCreateClawOmniInstanceInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, modelSource);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModelConfigForCreateClawOmniInstanceInput {\n");
+    sb.append("class EnvVarForCreateClawOmniInstanceInput {\n");
     
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    modelSource: ").append(toIndentedString(modelSource)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
