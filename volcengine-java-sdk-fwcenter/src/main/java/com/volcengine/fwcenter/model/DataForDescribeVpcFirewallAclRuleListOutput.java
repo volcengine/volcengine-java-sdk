@@ -77,20 +77,23 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
   @SerializedName("DestinationType")
   private String destinationType = null;
 
+  @SerializedName("DomainResolutionMode")
+  private String domainResolutionMode = null;
+
   @SerializedName("EffectStatus")
   private Integer effectStatus = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("HitCnt")
-  private Integer hitCnt = null;
+  private Long hitCnt = null;
 
   @SerializedName("IsEffected")
   private Boolean isEffected = null;
 
   @SerializedName("Prio")
-  private Integer prio = null;
+  private Long prio = null;
 
   @SerializedName("Proto")
   private String proto = null;
@@ -126,16 +129,16 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
   private String sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
 
   @SerializedName("UpdateTime")
-  private Integer updateTime = null;
+  private Long updateTime = null;
 
   @SerializedName("UseCount")
-  private Integer useCount = null;
+  private Long useCount = null;
 
   @SerializedName("VpcFirewallId")
   private String vpcFirewallId = null;
@@ -437,6 +440,24 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.destinationType = destinationType;
   }
 
+  public DataForDescribeVpcFirewallAclRuleListOutput domainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public String getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(String domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
   public DataForDescribeVpcFirewallAclRuleListOutput effectStatus(Integer effectStatus) {
     this.effectStatus = effectStatus;
     return this;
@@ -455,7 +476,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.effectStatus = effectStatus;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput endTime(Integer endTime) {
+  public DataForDescribeVpcFirewallAclRuleListOutput endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -465,15 +486,15 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput hitCnt(Integer hitCnt) {
+  public DataForDescribeVpcFirewallAclRuleListOutput hitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
     return this;
   }
@@ -483,11 +504,11 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return hitCnt
   **/
   @Schema(description = "")
-  public Integer getHitCnt() {
+  public Long getHitCnt() {
     return hitCnt;
   }
 
-  public void setHitCnt(Integer hitCnt) {
+  public void setHitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
   }
 
@@ -509,7 +530,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.isEffected = isEffected;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput prio(Integer prio) {
+  public DataForDescribeVpcFirewallAclRuleListOutput prio(Long prio) {
     this.prio = prio;
     return this;
   }
@@ -519,11 +540,11 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return prio
   **/
   @Schema(description = "")
-  public Integer getPrio() {
+  public Long getPrio() {
     return prio;
   }
 
-  public void setPrio(Integer prio) {
+  public void setPrio(Long prio) {
     this.prio = prio;
   }
 
@@ -750,7 +771,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.sourceType = sourceType;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput startTime(Integer startTime) {
+  public DataForDescribeVpcFirewallAclRuleListOutput startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -760,11 +781,11 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -786,7 +807,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.status = status;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput updateTime(Integer updateTime) {
+  public DataForDescribeVpcFirewallAclRuleListOutput updateTime(Long updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -796,15 +817,15 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return updateTime
   **/
   @Schema(description = "")
-  public Integer getUpdateTime() {
+  public Long getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(Integer updateTime) {
+  public void setUpdateTime(Long updateTime) {
     this.updateTime = updateTime;
   }
 
-  public DataForDescribeVpcFirewallAclRuleListOutput useCount(Integer useCount) {
+  public DataForDescribeVpcFirewallAclRuleListOutput useCount(Long useCount) {
     this.useCount = useCount;
     return this;
   }
@@ -814,11 +835,11 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
    * @return useCount
   **/
   @Schema(description = "")
-  public Integer getUseCount() {
+  public Long getUseCount() {
     return useCount;
   }
 
-  public void setUseCount(Integer useCount) {
+  public void setUseCount(Long useCount) {
     this.useCount = useCount;
   }
 
@@ -882,6 +903,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
         Objects.equals(this.destinationDomainList, dataForDescribeVpcFirewallAclRuleListOutput.destinationDomainList) &&
         Objects.equals(this.destinationGroupType, dataForDescribeVpcFirewallAclRuleListOutput.destinationGroupType) &&
         Objects.equals(this.destinationType, dataForDescribeVpcFirewallAclRuleListOutput.destinationType) &&
+        Objects.equals(this.domainResolutionMode, dataForDescribeVpcFirewallAclRuleListOutput.domainResolutionMode) &&
         Objects.equals(this.effectStatus, dataForDescribeVpcFirewallAclRuleListOutput.effectStatus) &&
         Objects.equals(this.endTime, dataForDescribeVpcFirewallAclRuleListOutput.endTime) &&
         Objects.equals(this.hitCnt, dataForDescribeVpcFirewallAclRuleListOutput.hitCnt) &&
@@ -908,7 +930,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, domainResolutionMode, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -931,6 +953,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     sb.append("    destinationDomainList: ").append(toIndentedString(destinationDomainList)).append("\n");
     sb.append("    destinationGroupType: ").append(toIndentedString(destinationGroupType)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    effectStatus: ").append(toIndentedString(effectStatus)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");

@@ -56,10 +56,10 @@ public class DataForDescribeDnsControlPolicyOutput {
   private List<DomainListV1ForDescribeDnsControlPolicyOutput> domainListV1 = null;
 
   @SerializedName("HitCnt")
-  private Integer hitCnt = null;
+  private Long hitCnt = null;
 
   @SerializedName("LastHitTime")
-  private Integer lastHitTime = null;
+  private Long lastHitTime = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -71,7 +71,7 @@ public class DataForDescribeDnsControlPolicyOutput {
   private Boolean status = null;
 
   @SerializedName("UseCount")
-  private Integer useCount = null;
+  private Long useCount = null;
 
   public DataForDescribeDnsControlPolicyOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -224,7 +224,7 @@ public class DataForDescribeDnsControlPolicyOutput {
     this.domainListV1 = domainListV1;
   }
 
-  public DataForDescribeDnsControlPolicyOutput hitCnt(Integer hitCnt) {
+  public DataForDescribeDnsControlPolicyOutput hitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
     return this;
   }
@@ -234,15 +234,15 @@ public class DataForDescribeDnsControlPolicyOutput {
    * @return hitCnt
   **/
   @Schema(description = "")
-  public Integer getHitCnt() {
+  public Long getHitCnt() {
     return hitCnt;
   }
 
-  public void setHitCnt(Integer hitCnt) {
+  public void setHitCnt(Long hitCnt) {
     this.hitCnt = hitCnt;
   }
 
-  public DataForDescribeDnsControlPolicyOutput lastHitTime(Integer lastHitTime) {
+  public DataForDescribeDnsControlPolicyOutput lastHitTime(Long lastHitTime) {
     this.lastHitTime = lastHitTime;
     return this;
   }
@@ -252,11 +252,11 @@ public class DataForDescribeDnsControlPolicyOutput {
    * @return lastHitTime
   **/
   @Schema(description = "")
-  public Integer getLastHitTime() {
+  public Long getLastHitTime() {
     return lastHitTime;
   }
 
-  public void setLastHitTime(Integer lastHitTime) {
+  public void setLastHitTime(Long lastHitTime) {
     this.lastHitTime = lastHitTime;
   }
 
@@ -323,7 +323,7 @@ public class DataForDescribeDnsControlPolicyOutput {
     this.status = status;
   }
 
-  public DataForDescribeDnsControlPolicyOutput useCount(Integer useCount) {
+  public DataForDescribeDnsControlPolicyOutput useCount(Long useCount) {
     this.useCount = useCount;
     return this;
   }
@@ -333,11 +333,11 @@ public class DataForDescribeDnsControlPolicyOutput {
    * @return useCount
   **/
   @Schema(description = "")
-  public Integer getUseCount() {
+  public Long getUseCount() {
     return useCount;
   }
 
-  public void setUseCount(Integer useCount) {
+  public void setUseCount(Long useCount) {
     this.useCount = useCount;
   }
 

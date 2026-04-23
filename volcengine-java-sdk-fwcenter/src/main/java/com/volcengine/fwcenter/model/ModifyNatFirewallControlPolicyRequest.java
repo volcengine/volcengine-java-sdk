@@ -231,8 +231,54 @@ public class ModifyNatFirewallControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  /**
+   * Gets or Sets domainResolutionMode
+   */
+  @JsonAdapter(DomainResolutionModeEnum.Adapter.class)
+  public enum DomainResolutionModeEnum {
+    @SerializedName("fqdn")
+    FQDN("fqdn"),
+    @SerializedName("dns")
+    DNS("dns");
+
+    private String value;
+
+    DomainResolutionModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DomainResolutionModeEnum fromValue(String input) {
+      for (DomainResolutionModeEnum b : DomainResolutionModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DomainResolutionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainResolutionModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DomainResolutionModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DomainResolutionModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DomainResolutionMode")
+  private DomainResolutionModeEnum domainResolutionMode = null;
+
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
@@ -403,7 +449,7 @@ public class ModifyNatFirewallControlPolicyRequest {
   private SourceTypeEnum sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
@@ -538,7 +584,25 @@ public class ModifyNatFirewallControlPolicyRequest {
     this.direction = direction;
   }
 
-  public ModifyNatFirewallControlPolicyRequest endTime(Integer endTime) {
+  public ModifyNatFirewallControlPolicyRequest domainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public DomainResolutionModeEnum getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
+  public ModifyNatFirewallControlPolicyRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -548,11 +612,11 @@ public class ModifyNatFirewallControlPolicyRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -731,7 +795,7 @@ public class ModifyNatFirewallControlPolicyRequest {
     this.sourceType = sourceType;
   }
 
-  public ModifyNatFirewallControlPolicyRequest startTime(Integer startTime) {
+  public ModifyNatFirewallControlPolicyRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -741,11 +805,11 @@ public class ModifyNatFirewallControlPolicyRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -784,6 +848,7 @@ public class ModifyNatFirewallControlPolicyRequest {
         Objects.equals(this.destination, modifyNatFirewallControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, modifyNatFirewallControlPolicyRequest.destinationType) &&
         Objects.equals(this.direction, modifyNatFirewallControlPolicyRequest.direction) &&
+        Objects.equals(this.domainResolutionMode, modifyNatFirewallControlPolicyRequest.domainResolutionMode) &&
         Objects.equals(this.endTime, modifyNatFirewallControlPolicyRequest.endTime) &&
         Objects.equals(this.natFirewallId, modifyNatFirewallControlPolicyRequest.natFirewallId) &&
         Objects.equals(this.proto, modifyNatFirewallControlPolicyRequest.proto) &&
@@ -800,7 +865,7 @@ public class ModifyNatFirewallControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, natFirewallId, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, domainResolutionMode, endTime, natFirewallId, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status);
   }
 
 
@@ -816,6 +881,7 @@ public class ModifyNatFirewallControlPolicyRequest {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");

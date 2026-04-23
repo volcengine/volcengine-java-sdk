@@ -34,10 +34,10 @@ public class DescribeControlPolicyPriorUsedResponse extends com.volcengine.model
   private String accountId = null;
 
   @SerializedName("End")
-  private Integer end = null;
+  private Long end = null;
 
   @SerializedName("Start")
-  private Integer start = null;
+  private Long start = null;
 
   public DescribeControlPolicyPriorUsedResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -57,7 +57,7 @@ public class DescribeControlPolicyPriorUsedResponse extends com.volcengine.model
     this.accountId = accountId;
   }
 
-  public DescribeControlPolicyPriorUsedResponse end(Integer end) {
+  public DescribeControlPolicyPriorUsedResponse end(Long end) {
     this.end = end;
     return this;
   }
@@ -67,15 +67,15 @@ public class DescribeControlPolicyPriorUsedResponse extends com.volcengine.model
    * @return end
   **/
   @Schema(description = "")
-  public Integer getEnd() {
+  public Long getEnd() {
     return end;
   }
 
-  public void setEnd(Integer end) {
+  public void setEnd(Long end) {
     this.end = end;
   }
 
-  public DescribeControlPolicyPriorUsedResponse start(Integer start) {
+  public DescribeControlPolicyPriorUsedResponse start(Long start) {
     this.start = start;
     return this;
   }
@@ -85,11 +85,11 @@ public class DescribeControlPolicyPriorUsedResponse extends com.volcengine.model
    * @return start
   **/
   @Schema(description = "")
-  public Integer getStart() {
+  public Long getStart() {
     return start;
   }
 
-  public void setStart(Integer start) {
+  public void setStart(Long start) {
     this.start = start;
   }
 

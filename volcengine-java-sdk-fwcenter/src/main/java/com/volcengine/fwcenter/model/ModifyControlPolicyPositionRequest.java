@@ -80,7 +80,7 @@ public class ModifyControlPolicyPositionRequest {
   private String internetFirewallId = null;
 
   @SerializedName("NewPrio")
-  private Integer newPrio = null;
+  private Long newPrio = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -122,7 +122,7 @@ public class ModifyControlPolicyPositionRequest {
     this.internetFirewallId = internetFirewallId;
   }
 
-  public ModifyControlPolicyPositionRequest newPrio(Integer newPrio) {
+  public ModifyControlPolicyPositionRequest newPrio(Long newPrio) {
     this.newPrio = newPrio;
     return this;
   }
@@ -134,11 +134,11 @@ public class ModifyControlPolicyPositionRequest {
   **/
   @NotNull
  @Min(1)  @Schema(required = true, description = "")
-  public Integer getNewPrio() {
+  public Long getNewPrio() {
     return newPrio;
   }
 
-  public void setNewPrio(Integer newPrio) {
+  public void setNewPrio(Long newPrio) {
     this.newPrio = newPrio;
   }
 

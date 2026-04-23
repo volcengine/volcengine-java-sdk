@@ -38,6 +38,12 @@ public class AssetListRequest {
   @SerializedName("asset")
   private String asset = null;
 
+  @SerializedName("asset_ip")
+  private List<String> assetIp = null;
+
+  @SerializedName("asset_name")
+  private List<String> assetName = null;
+
   @SerializedName("asset_type")
   private List<String> assetType = null;
 
@@ -182,6 +188,58 @@ public class AssetListRequest {
 
   public void setAsset(String asset) {
     this.asset = asset;
+  }
+
+  public AssetListRequest assetIp(List<String> assetIp) {
+    this.assetIp = assetIp;
+    return this;
+  }
+
+  public AssetListRequest addAssetIpItem(String assetIpItem) {
+    if (this.assetIp == null) {
+      this.assetIp = new ArrayList<String>();
+    }
+    this.assetIp.add(assetIpItem);
+    return this;
+  }
+
+   /**
+   * Get assetIp
+   * @return assetIp
+  **/
+  @Schema(description = "")
+  public List<String> getAssetIp() {
+    return assetIp;
+  }
+
+  public void setAssetIp(List<String> assetIp) {
+    this.assetIp = assetIp;
+  }
+
+  public AssetListRequest assetName(List<String> assetName) {
+    this.assetName = assetName;
+    return this;
+  }
+
+  public AssetListRequest addAssetNameItem(String assetNameItem) {
+    if (this.assetName == null) {
+      this.assetName = new ArrayList<String>();
+    }
+    this.assetName.add(assetNameItem);
+    return this;
+  }
+
+   /**
+   * Get assetName
+   * @return assetName
+  **/
+  @Schema(description = "")
+  public List<String> getAssetName() {
+    return assetName;
+  }
+
+  public void setAssetName(List<String> assetName) {
+    this.assetName = assetName;
   }
 
   public AssetListRequest assetType(List<String> assetType) {
@@ -365,6 +423,8 @@ public class AssetListRequest {
     AssetListRequest assetListRequest = (AssetListRequest) o;
     return Objects.equals(this.internetFirewallId, assetListRequest.internetFirewallId) &&
         Objects.equals(this.asset, assetListRequest.asset) &&
+        Objects.equals(this.assetIp, assetListRequest.assetIp) &&
+        Objects.equals(this.assetName, assetListRequest.assetName) &&
         Objects.equals(this.assetType, assetListRequest.assetType) &&
         Objects.equals(this.currentPage, assetListRequest.currentPage) &&
         Objects.equals(this.instanceType, assetListRequest.instanceType) &&
@@ -377,7 +437,7 @@ public class AssetListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(internetFirewallId, asset, assetType, currentPage, instanceType, ipType, orderDir, pageSize, regionCode, stat);
+    return Objects.hash(internetFirewallId, asset, assetIp, assetName, assetType, currentPage, instanceType, ipType, orderDir, pageSize, regionCode, stat);
   }
 
 
@@ -388,6 +448,8 @@ public class AssetListRequest {
     
     sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    asset: ").append(toIndentedString(asset)).append("\n");
+    sb.append("    assetIp: ").append(toIndentedString(assetIp)).append("\n");
+    sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

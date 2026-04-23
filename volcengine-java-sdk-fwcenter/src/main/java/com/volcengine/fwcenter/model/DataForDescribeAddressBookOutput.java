@@ -59,7 +59,7 @@ public class DataForDescribeAddressBookOutput {
   private List<String> instanceTypeList = null;
 
   @SerializedName("RefCnt")
-  private Integer refCnt = null;
+  private Long refCnt = null;
 
   @SerializedName("ResourceType")
   private String resourceType = null;
@@ -71,7 +71,7 @@ public class DataForDescribeAddressBookOutput {
   private List<TagForDescribeAddressBookOutput> tags = null;
 
   @SerializedName("Updated")
-  private Integer updated = null;
+  private Long updated = null;
 
   public DataForDescribeAddressBookOutput addressDetailList(List<AddressDetailListForDescribeAddressBookOutput> addressDetailList) {
     this.addressDetailList = addressDetailList;
@@ -242,7 +242,7 @@ public class DataForDescribeAddressBookOutput {
     this.instanceTypeList = instanceTypeList;
   }
 
-  public DataForDescribeAddressBookOutput refCnt(Integer refCnt) {
+  public DataForDescribeAddressBookOutput refCnt(Long refCnt) {
     this.refCnt = refCnt;
     return this;
   }
@@ -252,11 +252,11 @@ public class DataForDescribeAddressBookOutput {
    * @return refCnt
   **/
   @Schema(description = "")
-  public Integer getRefCnt() {
+  public Long getRefCnt() {
     return refCnt;
   }
 
-  public void setRefCnt(Integer refCnt) {
+  public void setRefCnt(Long refCnt) {
     this.refCnt = refCnt;
   }
 
@@ -323,7 +323,7 @@ public class DataForDescribeAddressBookOutput {
     this.tags = tags;
   }
 
-  public DataForDescribeAddressBookOutput updated(Integer updated) {
+  public DataForDescribeAddressBookOutput updated(Long updated) {
     this.updated = updated;
     return this;
   }
@@ -333,11 +333,11 @@ public class DataForDescribeAddressBookOutput {
    * @return updated
   **/
   @Schema(description = "")
-  public Integer getUpdated() {
+  public Long getUpdated() {
     return updated;
   }
 
-  public void setUpdated(Integer updated) {
+  public void setUpdated(Long updated) {
     this.updated = updated;
   }
 

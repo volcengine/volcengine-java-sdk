@@ -33,9 +33,6 @@ public class ModelConfigForCreateClawOmniInstanceInput {
   @SerializedName("ModelId")
   private String modelId = null;
 
-  @SerializedName("ModelName")
-  private String modelName = null;
-
   @SerializedName("ModelSource")
   private String modelSource = null;
 
@@ -55,24 +52,6 @@ public class ModelConfigForCreateClawOmniInstanceInput {
 
   public void setModelId(String modelId) {
     this.modelId = modelId;
-  }
-
-  public ModelConfigForCreateClawOmniInstanceInput modelName(String modelName) {
-    this.modelName = modelName;
-    return this;
-  }
-
-   /**
-   * Get modelName
-   * @return modelName
-  **/
-  @Schema(description = "")
-  public String getModelName() {
-    return modelName;
-  }
-
-  public void setModelName(String modelName) {
-    this.modelName = modelName;
   }
 
   public ModelConfigForCreateClawOmniInstanceInput modelSource(String modelSource) {
@@ -104,13 +83,12 @@ public class ModelConfigForCreateClawOmniInstanceInput {
     }
     ModelConfigForCreateClawOmniInstanceInput modelConfigForCreateClawOmniInstanceInput = (ModelConfigForCreateClawOmniInstanceInput) o;
     return Objects.equals(this.modelId, modelConfigForCreateClawOmniInstanceInput.modelId) &&
-        Objects.equals(this.modelName, modelConfigForCreateClawOmniInstanceInput.modelName) &&
         Objects.equals(this.modelSource, modelConfigForCreateClawOmniInstanceInput.modelSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, modelName, modelSource);
+    return Objects.hash(modelId, modelSource);
   }
 
 
@@ -120,7 +98,6 @@ public class ModelConfigForCreateClawOmniInstanceInput {
     sb.append("class ModelConfigForCreateClawOmniInstanceInput {\n");
     
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    modelSource: ").append(toIndentedString(modelSource)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -45,6 +45,9 @@ public class ItemDocForPullPostOutput {
   @SerializedName("DedupID")
   private String dedupID = null;
 
+  @SerializedName("DocStatus")
+  private String docStatus = null;
+
   @SerializedName("Emotion")
   private String emotion = null;
 
@@ -160,6 +163,24 @@ public class ItemDocForPullPostOutput {
 
   public void setDedupID(String dedupID) {
     this.dedupID = dedupID;
+  }
+
+  public ItemDocForPullPostOutput docStatus(String docStatus) {
+    this.docStatus = docStatus;
+    return this;
+  }
+
+   /**
+   * Get docStatus
+   * @return docStatus
+  **/
+  @Schema(description = "")
+  public String getDocStatus() {
+    return docStatus;
+  }
+
+  public void setDocStatus(String docStatus) {
+    this.docStatus = docStatus;
   }
 
   public ItemDocForPullPostOutput emotion(String emotion) {
@@ -463,6 +484,7 @@ public class ItemDocForPullPostOutput {
         Objects.equals(this.content, itemDocForPullPostOutput.content) &&
         Objects.equals(this.coverUrl, itemDocForPullPostOutput.coverUrl) &&
         Objects.equals(this.dedupID, itemDocForPullPostOutput.dedupID) &&
+        Objects.equals(this.docStatus, itemDocForPullPostOutput.docStatus) &&
         Objects.equals(this.emotion, itemDocForPullPostOutput.emotion) &&
         Objects.equals(this.fansCount, itemDocForPullPostOutput.fansCount) &&
         Objects.equals(this.isFollow, itemDocForPullPostOutput.isFollow) &&
@@ -482,7 +504,7 @@ public class ItemDocForPullPostOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asr, content, coverUrl, dedupID, emotion, fansCount, isFollow, mainDomain, mediaName, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, locations);
+    return Objects.hash(asr, content, coverUrl, dedupID, docStatus, emotion, fansCount, isFollow, mainDomain, mediaName, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, locations);
   }
 
 
@@ -495,6 +517,7 @@ public class ItemDocForPullPostOutput {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    coverUrl: ").append(toIndentedString(coverUrl)).append("\n");
     sb.append("    dedupID: ").append(toIndentedString(dedupID)).append("\n");
+    sb.append("    docStatus: ").append(toIndentedString(docStatus)).append("\n");
     sb.append("    emotion: ").append(toIndentedString(emotion)).append("\n");
     sb.append("    fansCount: ").append(toIndentedString(fansCount)).append("\n");
     sb.append("    isFollow: ").append(toIndentedString(isFollow)).append("\n");
