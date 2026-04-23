@@ -60,16 +60,16 @@ You can refer to: [Environment Variable Setup](#environment-variable-setup)
 
 ## Credential Providers Overview
 
-| Provider | Purpose | Auto Refresh | Typical Scenario |
-|---|---|---|---|
-| `StaticCredentialProvider` | Static AK/SK(/Token) | No | Long-lived server credentials |
-| `StsAssumeRoleProvider` | STS AssumeRole | Yes | IAM role-based temporary credentials |
-| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
-| `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
-| `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env | No | CI/CD and container env injection |
-| `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI profile and login state |
-| `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
-| `DefaultCredentialProvider` | Default chain wrapper | Depends on delegated provider | No AK/SK in application code |
+| Provider | Purpose                                   | Auto Refresh | Typical Scenario |
+|---|-------------------------------------------|---|---|
+| `StaticCredentialProvider` | Static AK/SK(/Token)                      | No | Long-lived server credentials |
+| `StsAssumeRoleProvider` | STS AssumeRole                            | Yes | IAM role-based temporary credentials |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC                    | Yes | OIDC federation |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML                    | Yes | SAML federation |
+| `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env               | No | CI/CD and container env injection |
+| `CLIConfigCredentialProvider` | Read from `$HOME/.volcengine/config.json` | Depends on mode | Reuse CLI profile and login state |
+| `EcsRoleCredentialProvider` | Read from ECS IMDS                        | Yes | ECS instance role credentials |
+| `DefaultCredentialProvider` | Default chain wrapper                     | Depends on delegated provider | No AK/SK in application code |
 
 ## Supported VOLCENGINE Environment Variables
 
@@ -318,9 +318,9 @@ public class SampleCode {
 
 ## CLI Config Credential Provider
 
-`CLIConfigCredentialProvider` reads `~/.volcengine/config.json` by default.
+`CLIConfigCredentialProvider` reads `$HOME/.volcengine/config.json` by default.
 
-- Config path priority: constructor `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Config path priority: constructor `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `$HOME/.volcengine/config.json`
 - Profile priority: constructor `profileName` > `VOLCENGINE_PROFILE` > `current` in config > `default`
 
 Supported profile `mode`:
@@ -339,10 +339,12 @@ import com.volcengine.ApiClient;
 import com.volcengine.auth.CLIConfigCredentialProvider;
 import com.volcengine.auth.CredentialProvider;
 
+import java.nio.file.Paths;
+
 public class SampleCode {
   public static void main(String[] args) {
     CLIConfigCredentialProvider cliProvider =
-            new CLIConfigCredentialProvider("prod", "~/.volcengine/config.json");
+            new CLIConfigCredentialProvider("prod", Paths.get(System.getProperty("user.home"), ".volcengine", "config.json").toString());
     CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
 
     ApiClient apiClient = new ApiClient()

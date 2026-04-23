@@ -312,7 +312,7 @@ class SsoPortalClient {
         String accessKeyId;
         @SerializedName("SecretAccessKey")
         String secretAccessKey;
-        @SerializedName("sessionToken")
+        @SerializedName("SessionToken")
         String sessionToken;
         @SerializedName("Expiration")
         long expiration;

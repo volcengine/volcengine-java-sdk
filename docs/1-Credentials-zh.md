@@ -62,16 +62,16 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 
 ## CredentialProvider 总览
 
-| Provider | 用途 | 是否自动刷新 | 典型场景 |
-|---|---|---|---|
-| `StaticCredentialProvider` | 静态 AK/SK(/Token) | 否 | 服务端长期凭证 |
-| `StsAssumeRoleProvider` | STS AssumeRole | 是 | 角色扮演临时凭证 |
-| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
-| `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
-| `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token) | 否 | CI/CD、容器注入 |
-| `CLIConfigCredentialProvider` | 读取 `~/.volcengine/config.json` | 取决于 mode | 复用 CLI 配置和登录态 |
-| `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证 | 是 | ECS 实例角色 |
-| `DefaultCredentialProvider` | 默认凭证链包装 | 取决于代理 Provider | 业务代码不写 AK/SK |
+| Provider | 用途                                 | 是否自动刷新 | 典型场景 |
+|---|------------------------------------|---|---|
+| `StaticCredentialProvider` | 静态 AK/SK(/Token)                   | 否 | 服务端长期凭证 |
+| `StsAssumeRoleProvider` | STS AssumeRole                     | 是 | 角色扮演临时凭证 |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC             | 是 | OIDC 联邦身份 |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML             | 是 | SAML 联邦身份 |
+| `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token)              | 否 | CI/CD、容器注入 |
+| `CLIConfigCredentialProvider` | 读取 `$HOME/.volcengine/config.json` | 取决于 mode | 复用 CLI 配置和登录态 |
+| `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证                    | 是 | ECS 实例角色 |
+| `DefaultCredentialProvider` | 默认凭证链包装                            | 取决于代理 Provider | 业务代码不写 AK/SK |
 
 ## 已支持的 VOLCENGINE 环境变量
 
@@ -324,9 +324,9 @@ public class SampleCode {
 
 ## CLI 配置凭证 Provider
 
-`CLIConfigCredentialProvider` 默认读取 `~/.volcengine/config.json`。
+`CLIConfigCredentialProvider` 默认读取 `$HOME/.volcengine/config.json`。
 
-- 配置文件优先级：构造参数 `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- 配置文件优先级：构造参数 `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `$HOME/.volcengine/config.json`
 - Profile 优先级：构造参数 `profileName` > `VOLCENGINE_PROFILE` > 配置里的 `current` > `default`
 
 支持的 profile `mode`：
@@ -345,10 +345,12 @@ import com.volcengine.ApiClient;
 import com.volcengine.auth.CLIConfigCredentialProvider;
 import com.volcengine.auth.CredentialProvider;
 
+import java.nio.file.Paths;
+
 public class SampleCode {
   public static void main(String[] args) {
     CLIConfigCredentialProvider cliProvider =
-            new CLIConfigCredentialProvider("prod", "~/.volcengine/config.json");
+            new CLIConfigCredentialProvider("prod", Paths.get(System.getProperty("user.home"), ".volcengine", "config.json").toString());
     CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
 
     ApiClient apiClient = new ApiClient()
