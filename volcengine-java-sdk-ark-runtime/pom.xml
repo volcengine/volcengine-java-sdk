@@ -3,7 +3,7 @@
     <parent>
         <artifactId>volcengine-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>1.0.20</version>
+        <version>2.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <build>
