@@ -4,7 +4,8 @@ name: Release Java SDK
 on:
   push:
     branches: [master]
-    paths-ignore: ['**.md', '.gitignore', 'LICENSE']
+    paths:
+      - '.changelog/v*.md'
 
 jobs:
   release:
