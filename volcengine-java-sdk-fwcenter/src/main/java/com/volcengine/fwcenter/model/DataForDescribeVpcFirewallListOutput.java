@@ -31,10 +31,13 @@ import javax.validation.Valid;
 
 public class DataForDescribeVpcFirewallListOutput {
   @SerializedName("Bandwidth")
-  private Integer bandwidth = null;
+  private Long bandwidth = null;
 
   @SerializedName("BypassStatus")
   private String bypassStatus = null;
+
+  @SerializedName("EnableIpv6")
+  private Boolean enableIpv6 = null;
 
   @SerializedName("ErrMessage")
   private String errMessage = null;
@@ -46,10 +49,10 @@ public class DataForDescribeVpcFirewallListOutput {
   private Integer instanceType = null;
 
   @SerializedName("PeakTrafficWithin7Day")
-  private Integer peakTrafficWithin7Day = null;
+  private Long peakTrafficWithin7Day = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
+  @SerializedName("ProjectNameForTR")
+  private String projectNameForTR = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -61,10 +64,10 @@ public class DataForDescribeVpcFirewallListOutput {
   private String routePolicyStatus = null;
 
   @SerializedName("ScheduleEndTime")
-  private Integer scheduleEndTime = null;
+  private Long scheduleEndTime = null;
 
   @SerializedName("ScheduleStartTime")
-  private Integer scheduleStartTime = null;
+  private Long scheduleStartTime = null;
 
   @SerializedName("TransitRouterDescription")
   private String transitRouterDescription = null;
@@ -93,7 +96,7 @@ public class DataForDescribeVpcFirewallListOutput {
   @SerializedName("VpcFirewallName")
   private String vpcFirewallName = null;
 
-  public DataForDescribeVpcFirewallListOutput bandwidth(Integer bandwidth) {
+  public DataForDescribeVpcFirewallListOutput bandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -103,11 +106,11 @@ public class DataForDescribeVpcFirewallListOutput {
    * @return bandwidth
   **/
   @Schema(description = "")
-  public Integer getBandwidth() {
+  public Long getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(Integer bandwidth) {
+  public void setBandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
   }
 
@@ -127,6 +130,24 @@ public class DataForDescribeVpcFirewallListOutput {
 
   public void setBypassStatus(String bypassStatus) {
     this.bypassStatus = bypassStatus;
+  }
+
+  public DataForDescribeVpcFirewallListOutput enableIpv6(Boolean enableIpv6) {
+    this.enableIpv6 = enableIpv6;
+    return this;
+  }
+
+   /**
+   * Get enableIpv6
+   * @return enableIpv6
+  **/
+  @Schema(description = "")
+  public Boolean isEnableIpv6() {
+    return enableIpv6;
+  }
+
+  public void setEnableIpv6(Boolean enableIpv6) {
+    this.enableIpv6 = enableIpv6;
   }
 
   public DataForDescribeVpcFirewallListOutput errMessage(String errMessage) {
@@ -183,7 +204,7 @@ public class DataForDescribeVpcFirewallListOutput {
     this.instanceType = instanceType;
   }
 
-  public DataForDescribeVpcFirewallListOutput peakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
+  public DataForDescribeVpcFirewallListOutput peakTrafficWithin7Day(Long peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
     return this;
   }
@@ -193,30 +214,30 @@ public class DataForDescribeVpcFirewallListOutput {
    * @return peakTrafficWithin7Day
   **/
   @Schema(description = "")
-  public Integer getPeakTrafficWithin7Day() {
+  public Long getPeakTrafficWithin7Day() {
     return peakTrafficWithin7Day;
   }
 
-  public void setPeakTrafficWithin7Day(Integer peakTrafficWithin7Day) {
+  public void setPeakTrafficWithin7Day(Long peakTrafficWithin7Day) {
     this.peakTrafficWithin7Day = peakTrafficWithin7Day;
   }
 
-  public DataForDescribeVpcFirewallListOutput projectName(String projectName) {
-    this.projectName = projectName;
+  public DataForDescribeVpcFirewallListOutput projectNameForTR(String projectNameForTR) {
+    this.projectNameForTR = projectNameForTR;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get projectNameForTR
+   * @return projectNameForTR
   **/
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public String getProjectNameForTR() {
+    return projectNameForTR;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setProjectNameForTR(String projectNameForTR) {
+    this.projectNameForTR = projectNameForTR;
   }
 
   public DataForDescribeVpcFirewallListOutput region(String region) {
@@ -273,7 +294,7 @@ public class DataForDescribeVpcFirewallListOutput {
     this.routePolicyStatus = routePolicyStatus;
   }
 
-  public DataForDescribeVpcFirewallListOutput scheduleEndTime(Integer scheduleEndTime) {
+  public DataForDescribeVpcFirewallListOutput scheduleEndTime(Long scheduleEndTime) {
     this.scheduleEndTime = scheduleEndTime;
     return this;
   }
@@ -283,15 +304,15 @@ public class DataForDescribeVpcFirewallListOutput {
    * @return scheduleEndTime
   **/
   @Schema(description = "")
-  public Integer getScheduleEndTime() {
+  public Long getScheduleEndTime() {
     return scheduleEndTime;
   }
 
-  public void setScheduleEndTime(Integer scheduleEndTime) {
+  public void setScheduleEndTime(Long scheduleEndTime) {
     this.scheduleEndTime = scheduleEndTime;
   }
 
-  public DataForDescribeVpcFirewallListOutput scheduleStartTime(Integer scheduleStartTime) {
+  public DataForDescribeVpcFirewallListOutput scheduleStartTime(Long scheduleStartTime) {
     this.scheduleStartTime = scheduleStartTime;
     return this;
   }
@@ -301,11 +322,11 @@ public class DataForDescribeVpcFirewallListOutput {
    * @return scheduleStartTime
   **/
   @Schema(description = "")
-  public Integer getScheduleStartTime() {
+  public Long getScheduleStartTime() {
     return scheduleStartTime;
   }
 
-  public void setScheduleStartTime(Integer scheduleStartTime) {
+  public void setScheduleStartTime(Long scheduleStartTime) {
     this.scheduleStartTime = scheduleStartTime;
   }
 
@@ -483,11 +504,12 @@ public class DataForDescribeVpcFirewallListOutput {
     DataForDescribeVpcFirewallListOutput dataForDescribeVpcFirewallListOutput = (DataForDescribeVpcFirewallListOutput) o;
     return Objects.equals(this.bandwidth, dataForDescribeVpcFirewallListOutput.bandwidth) &&
         Objects.equals(this.bypassStatus, dataForDescribeVpcFirewallListOutput.bypassStatus) &&
+        Objects.equals(this.enableIpv6, dataForDescribeVpcFirewallListOutput.enableIpv6) &&
         Objects.equals(this.errMessage, dataForDescribeVpcFirewallListOutput.errMessage) &&
         Objects.equals(this.firewallStatus, dataForDescribeVpcFirewallListOutput.firewallStatus) &&
         Objects.equals(this.instanceType, dataForDescribeVpcFirewallListOutput.instanceType) &&
         Objects.equals(this.peakTrafficWithin7Day, dataForDescribeVpcFirewallListOutput.peakTrafficWithin7Day) &&
-        Objects.equals(this.projectName, dataForDescribeVpcFirewallListOutput.projectName) &&
+        Objects.equals(this.projectNameForTR, dataForDescribeVpcFirewallListOutput.projectNameForTR) &&
         Objects.equals(this.region, dataForDescribeVpcFirewallListOutput.region) &&
         Objects.equals(this.routeMode, dataForDescribeVpcFirewallListOutput.routeMode) &&
         Objects.equals(this.routePolicyStatus, dataForDescribeVpcFirewallListOutput.routePolicyStatus) &&
@@ -506,7 +528,7 @@ public class DataForDescribeVpcFirewallListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bypassStatus, errMessage, firewallStatus, instanceType, peakTrafficWithin7Day, projectName, region, routeMode, routePolicyStatus, scheduleEndTime, scheduleStartTime, transitRouterDescription, transitRouterId, transitRouterName, upgradeProgress, upgradeStatus, upgradeVersionCode, versionCode, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(bandwidth, bypassStatus, enableIpv6, errMessage, firewallStatus, instanceType, peakTrafficWithin7Day, projectNameForTR, region, routeMode, routePolicyStatus, scheduleEndTime, scheduleStartTime, transitRouterDescription, transitRouterId, transitRouterName, upgradeProgress, upgradeStatus, upgradeVersionCode, versionCode, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -517,11 +539,12 @@ public class DataForDescribeVpcFirewallListOutput {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    bypassStatus: ").append(toIndentedString(bypassStatus)).append("\n");
+    sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    errMessage: ").append(toIndentedString(errMessage)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    peakTrafficWithin7Day: ").append(toIndentedString(peakTrafficWithin7Day)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    projectNameForTR: ").append(toIndentedString(projectNameForTR)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    routeMode: ").append(toIndentedString(routeMode)).append("\n");
     sb.append("    routePolicyStatus: ").append(toIndentedString(routePolicyStatus)).append("\n");

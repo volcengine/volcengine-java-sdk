@@ -42,6 +42,52 @@ public class DescribeVpcFirewallAclRuleListRequest {
   private String destination = null;
 
   /**
+   * Gets or Sets ipType
+   */
+  @JsonAdapter(IpTypeEnum.Adapter.class)
+  public enum IpTypeEnum {
+    @SerializedName("v4")
+    V4("v4"),
+    @SerializedName("v6")
+    V6("v6");
+
+    private String value;
+
+    IpTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpTypeEnum fromValue(String input) {
+      for (IpTypeEnum b : IpTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpType")
+  private IpTypeEnum ipType = null;
+
+  /**
    * Gets or Sets orderDir
    */
   @JsonAdapter(OrderDirEnum.Adapter.class)
@@ -171,6 +217,24 @@ public class DescribeVpcFirewallAclRuleListRequest {
 
   public void setDestination(String destination) {
     this.destination = destination;
+  }
+
+  public DescribeVpcFirewallAclRuleListRequest ipType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public IpTypeEnum getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(IpTypeEnum ipType) {
+    this.ipType = ipType;
   }
 
   public DescribeVpcFirewallAclRuleListRequest orderDir(OrderDirEnum orderDir) {
@@ -374,6 +438,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
     return Objects.equals(this.action, describeVpcFirewallAclRuleListRequest.action) &&
         Objects.equals(this.description, describeVpcFirewallAclRuleListRequest.description) &&
         Objects.equals(this.destination, describeVpcFirewallAclRuleListRequest.destination) &&
+        Objects.equals(this.ipType, describeVpcFirewallAclRuleListRequest.ipType) &&
         Objects.equals(this.orderDir, describeVpcFirewallAclRuleListRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeVpcFirewallAclRuleListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcFirewallAclRuleListRequest.pageSize) &&
@@ -387,7 +452,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destination, orderDir, pageNumber, pageSize, proto, repeatType, ruleId, source, status, vpcFirewallId);
+    return Objects.hash(action, description, destination, ipType, orderDir, pageNumber, pageSize, proto, repeatType, ruleId, source, status, vpcFirewallId);
   }
 
 
@@ -399,6 +464,7 @@ public class DescribeVpcFirewallAclRuleListRequest {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

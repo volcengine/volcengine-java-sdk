@@ -231,8 +231,54 @@ public class ModifyControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  /**
+   * Gets or Sets domainResolutionMode
+   */
+  @JsonAdapter(DomainResolutionModeEnum.Adapter.class)
+  public enum DomainResolutionModeEnum {
+    @SerializedName("fqdn")
+    FQDN("fqdn"),
+    @SerializedName("dns")
+    DNS("dns");
+
+    private String value;
+
+    DomainResolutionModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DomainResolutionModeEnum fromValue(String input) {
+      for (DomainResolutionModeEnum b : DomainResolutionModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DomainResolutionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainResolutionModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DomainResolutionModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DomainResolutionModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DomainResolutionMode")
+  private DomainResolutionModeEnum domainResolutionMode = null;
+
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("InternetFirewallId")
   private String internetFirewallId = null;
@@ -449,7 +495,7 @@ public class ModifyControlPolicyRequest {
   private SourceTypeEnum sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
@@ -584,7 +630,25 @@ public class ModifyControlPolicyRequest {
     this.direction = direction;
   }
 
-  public ModifyControlPolicyRequest endTime(Integer endTime) {
+  public ModifyControlPolicyRequest domainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public DomainResolutionModeEnum getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
+  public ModifyControlPolicyRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -594,11 +658,11 @@ public class ModifyControlPolicyRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -794,7 +858,7 @@ public class ModifyControlPolicyRequest {
     this.sourceType = sourceType;
   }
 
-  public ModifyControlPolicyRequest startTime(Integer startTime) {
+  public ModifyControlPolicyRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -804,11 +868,11 @@ public class ModifyControlPolicyRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -847,6 +911,7 @@ public class ModifyControlPolicyRequest {
         Objects.equals(this.destination, modifyControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, modifyControlPolicyRequest.destinationType) &&
         Objects.equals(this.direction, modifyControlPolicyRequest.direction) &&
+        Objects.equals(this.domainResolutionMode, modifyControlPolicyRequest.domainResolutionMode) &&
         Objects.equals(this.endTime, modifyControlPolicyRequest.endTime) &&
         Objects.equals(this.internetFirewallId, modifyControlPolicyRequest.internetFirewallId) &&
         Objects.equals(this.ipType, modifyControlPolicyRequest.ipType) &&
@@ -864,7 +929,7 @@ public class ModifyControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, internetFirewallId, ipType, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, domainResolutionMode, endTime, internetFirewallId, ipType, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status);
   }
 
 
@@ -880,6 +945,7 @@ public class ModifyControlPolicyRequest {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");

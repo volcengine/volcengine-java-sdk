@@ -183,8 +183,100 @@ public class ModifyVpcFirewallAclRuleRequest {
   }  @SerializedName("DestinationType")
   private DestinationTypeEnum destinationType = null;
 
+  /**
+   * Gets or Sets domainResolutionMode
+   */
+  @JsonAdapter(DomainResolutionModeEnum.Adapter.class)
+  public enum DomainResolutionModeEnum {
+    @SerializedName("fqdn")
+    FQDN("fqdn"),
+    @SerializedName("dns")
+    DNS("dns");
+
+    private String value;
+
+    DomainResolutionModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DomainResolutionModeEnum fromValue(String input) {
+      for (DomainResolutionModeEnum b : DomainResolutionModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DomainResolutionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainResolutionModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DomainResolutionModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DomainResolutionModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DomainResolutionMode")
+  private DomainResolutionModeEnum domainResolutionMode = null;
+
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
+
+  /**
+   * Gets or Sets ipType
+   */
+  @JsonAdapter(IpTypeEnum.Adapter.class)
+  public enum IpTypeEnum {
+    @SerializedName("v4")
+    V4("v4"),
+    @SerializedName("v6")
+    V6("v6");
+
+    private String value;
+
+    IpTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpTypeEnum fromValue(String input) {
+      for (IpTypeEnum b : IpTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpType")
+  private IpTypeEnum ipType = null;
 
   /**
    * Gets or Sets proto
@@ -350,7 +442,7 @@ public class ModifyVpcFirewallAclRuleRequest {
   private SourceTypeEnum sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
@@ -469,7 +561,25 @@ public class ModifyVpcFirewallAclRuleRequest {
     this.destinationType = destinationType;
   }
 
-  public ModifyVpcFirewallAclRuleRequest endTime(Integer endTime) {
+  public ModifyVpcFirewallAclRuleRequest domainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public DomainResolutionModeEnum getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
+  public ModifyVpcFirewallAclRuleRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -479,12 +589,30 @@ public class ModifyVpcFirewallAclRuleRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
+  }
+
+  public ModifyVpcFirewallAclRuleRequest ipType(IpTypeEnum ipType) {
+    this.ipType = ipType;
+    return this;
+  }
+
+   /**
+   * Get ipType
+   * @return ipType
+  **/
+  @Schema(description = "")
+  public IpTypeEnum getIpType() {
+    return ipType;
+  }
+
+  public void setIpType(IpTypeEnum ipType) {
+    this.ipType = ipType;
   }
 
   public ModifyVpcFirewallAclRuleRequest proto(ProtoEnum proto) {
@@ -643,7 +771,7 @@ public class ModifyVpcFirewallAclRuleRequest {
     this.sourceType = sourceType;
   }
 
-  public ModifyVpcFirewallAclRuleRequest startTime(Integer startTime) {
+  public ModifyVpcFirewallAclRuleRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -653,11 +781,11 @@ public class ModifyVpcFirewallAclRuleRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -714,7 +842,9 @@ public class ModifyVpcFirewallAclRuleRequest {
         Objects.equals(this.destPortType, modifyVpcFirewallAclRuleRequest.destPortType) &&
         Objects.equals(this.destination, modifyVpcFirewallAclRuleRequest.destination) &&
         Objects.equals(this.destinationType, modifyVpcFirewallAclRuleRequest.destinationType) &&
+        Objects.equals(this.domainResolutionMode, modifyVpcFirewallAclRuleRequest.domainResolutionMode) &&
         Objects.equals(this.endTime, modifyVpcFirewallAclRuleRequest.endTime) &&
+        Objects.equals(this.ipType, modifyVpcFirewallAclRuleRequest.ipType) &&
         Objects.equals(this.proto, modifyVpcFirewallAclRuleRequest.proto) &&
         Objects.equals(this.repeatDays, modifyVpcFirewallAclRuleRequest.repeatDays) &&
         Objects.equals(this.repeatEndTime, modifyVpcFirewallAclRuleRequest.repeatEndTime) &&
@@ -730,7 +860,7 @@ public class ModifyVpcFirewallAclRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, endTime, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status, vpcFirewallId);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, domainResolutionMode, endTime, ipType, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceType, startTime, status, vpcFirewallId);
   }
 
 
@@ -745,7 +875,9 @@ public class ModifyVpcFirewallAclRuleRequest {
     sb.append("    destPortType: ").append(toIndentedString(destPortType)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatEndTime: ").append(toIndentedString(repeatEndTime)).append("\n");

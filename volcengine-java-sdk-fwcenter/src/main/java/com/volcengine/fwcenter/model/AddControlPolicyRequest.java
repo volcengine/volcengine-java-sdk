@@ -231,8 +231,54 @@ public class AddControlPolicyRequest {
   }  @SerializedName("Direction")
   private DirectionEnum direction = null;
 
+  /**
+   * Gets or Sets domainResolutionMode
+   */
+  @JsonAdapter(DomainResolutionModeEnum.Adapter.class)
+  public enum DomainResolutionModeEnum {
+    @SerializedName("fqdn")
+    FQDN("fqdn"),
+    @SerializedName("dns")
+    DNS("dns");
+
+    private String value;
+
+    DomainResolutionModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DomainResolutionModeEnum fromValue(String input) {
+      for (DomainResolutionModeEnum b : DomainResolutionModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DomainResolutionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainResolutionModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DomainResolutionModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DomainResolutionModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DomainResolutionMode")
+  private DomainResolutionModeEnum domainResolutionMode = null;
+
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("InternetFirewallId")
   private String internetFirewallId = null;
@@ -284,7 +330,7 @@ public class AddControlPolicyRequest {
   private IpTypeEnum ipType = null;
 
   @SerializedName("Prio")
-  private Integer prio = null;
+  private Long prio = null;
 
   /**
    * Gets or Sets proto
@@ -449,7 +495,7 @@ public class AddControlPolicyRequest {
   private SourceTypeEnum sourceType = null;
 
   @SerializedName("StartTime")
-  private Integer startTime = null;
+  private Long startTime = null;
 
   @SerializedName("Status")
   private Boolean status = null;
@@ -584,7 +630,25 @@ public class AddControlPolicyRequest {
     this.direction = direction;
   }
 
-  public AddControlPolicyRequest endTime(Integer endTime) {
+  public AddControlPolicyRequest domainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+    return this;
+  }
+
+   /**
+   * Get domainResolutionMode
+   * @return domainResolutionMode
+  **/
+  @Schema(description = "")
+  public DomainResolutionModeEnum getDomainResolutionMode() {
+    return domainResolutionMode;
+  }
+
+  public void setDomainResolutionMode(DomainResolutionModeEnum domainResolutionMode) {
+    this.domainResolutionMode = domainResolutionMode;
+  }
+
+  public AddControlPolicyRequest endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -594,11 +658,11 @@ public class AddControlPolicyRequest {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
@@ -638,7 +702,7 @@ public class AddControlPolicyRequest {
     this.ipType = ipType;
   }
 
-  public AddControlPolicyRequest prio(Integer prio) {
+  public AddControlPolicyRequest prio(Long prio) {
     this.prio = prio;
     return this;
   }
@@ -648,11 +712,11 @@ public class AddControlPolicyRequest {
    * @return prio
   **/
   @Schema(description = "")
-  public Integer getPrio() {
+  public Long getPrio() {
     return prio;
   }
 
-  public void setPrio(Integer prio) {
+  public void setPrio(Long prio) {
     this.prio = prio;
   }
 
@@ -793,7 +857,7 @@ public class AddControlPolicyRequest {
     this.sourceType = sourceType;
   }
 
-  public AddControlPolicyRequest startTime(Integer startTime) {
+  public AddControlPolicyRequest startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -803,11 +867,11 @@ public class AddControlPolicyRequest {
    * @return startTime
   **/
   @Schema(description = "")
-  public Integer getStartTime() {
+  public Long getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(Integer startTime) {
+  public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
 
@@ -846,6 +910,7 @@ public class AddControlPolicyRequest {
         Objects.equals(this.destination, addControlPolicyRequest.destination) &&
         Objects.equals(this.destinationType, addControlPolicyRequest.destinationType) &&
         Objects.equals(this.direction, addControlPolicyRequest.direction) &&
+        Objects.equals(this.domainResolutionMode, addControlPolicyRequest.domainResolutionMode) &&
         Objects.equals(this.endTime, addControlPolicyRequest.endTime) &&
         Objects.equals(this.internetFirewallId, addControlPolicyRequest.internetFirewallId) &&
         Objects.equals(this.ipType, addControlPolicyRequest.ipType) &&
@@ -863,7 +928,7 @@ public class AddControlPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, endTime, internetFirewallId, ipType, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
+    return Objects.hash(action, description, destPort, destPortType, destination, destinationType, direction, domainResolutionMode, endTime, internetFirewallId, ipType, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, source, sourceType, startTime, status);
   }
 
 
@@ -879,6 +944,7 @@ public class AddControlPolicyRequest {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    domainResolutionMode: ").append(toIndentedString(domainResolutionMode)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
     sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");

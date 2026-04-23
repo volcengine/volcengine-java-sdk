@@ -34,10 +34,10 @@ public class DescribeVpcFirewallAclRulePriorUsedResponse extends com.volcengine.
   private String accountId = null;
 
   @SerializedName("End")
-  private Integer end = null;
+  private Long end = null;
 
   @SerializedName("Start")
-  private Integer start = null;
+  private Long start = null;
 
   @SerializedName("VpcFirewallId")
   private String vpcFirewallId = null;
@@ -60,7 +60,7 @@ public class DescribeVpcFirewallAclRulePriorUsedResponse extends com.volcengine.
     this.accountId = accountId;
   }
 
-  public DescribeVpcFirewallAclRulePriorUsedResponse end(Integer end) {
+  public DescribeVpcFirewallAclRulePriorUsedResponse end(Long end) {
     this.end = end;
     return this;
   }
@@ -70,15 +70,15 @@ public class DescribeVpcFirewallAclRulePriorUsedResponse extends com.volcengine.
    * @return end
   **/
   @Schema(description = "")
-  public Integer getEnd() {
+  public Long getEnd() {
     return end;
   }
 
-  public void setEnd(Integer end) {
+  public void setEnd(Long end) {
     this.end = end;
   }
 
-  public DescribeVpcFirewallAclRulePriorUsedResponse start(Integer start) {
+  public DescribeVpcFirewallAclRulePriorUsedResponse start(Long start) {
     this.start = start;
     return this;
   }
@@ -88,11 +88,11 @@ public class DescribeVpcFirewallAclRulePriorUsedResponse extends com.volcengine.
    * @return start
   **/
   @Schema(description = "")
-  public Integer getStart() {
+  public Long getStart() {
     return start;
   }
 
-  public void setStart(Integer start) {
+  public void setStart(Long start) {
     this.start = start;
   }
 
