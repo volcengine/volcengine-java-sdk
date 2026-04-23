@@ -1,0 +1,97 @@
+# .github/workflows/main.yml (Java)
+name: Release Java SDK
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.changelog/v*.md'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          server-id: central
+          server-username: MAVEN_CENTRAL_USERNAME
+          server-password: MAVEN_CENTRAL_TOKEN
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
+
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build and Test
+        run: mvn clean verify -B
+
+      - name: Create Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a ${{ steps.version.outputs.tag }} -m "Release ${{ steps.version.outputs.tag }}"
+          git push origin ${{ steps.version.outputs.tag }}
+
+      - name: Read Changelog
+        id: changelog
+        run: |
+          CHANGELOG_FILE=".changelog/${{ steps.version.outputs.tag }}.md"
+          if [ -f "$CHANGELOG_FILE" ]; then
+            delimiter="$(openssl rand -hex 8)"
+            echo "content<<$delimiter" >> $GITHUB_OUTPUT
+            cat "$CHANGELOG_FILE" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+            echo "$delimiter" >> $GITHUB_OUTPUT
+          else
+            echo "content=Release ${{ steps.version.outputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          body: ${{ steps.changelog.outputs.content }}
+
+      - name: Check Maven Central Version
+        id: maven_check
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          GROUP_PATH="com/volcengine"
+          ARTIFACT_ID="volcengine-java-sdk"
+          POM_URL="https://repo.maven.apache.org/maven2/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}/${ARTIFACT_ID}-${VERSION}.pom"
+          CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$POM_URL")
+          if [ "$CODE" = "200" ]; then
+            echo "publish_needed=false" >> $GITHUB_OUTPUT
+            echo "maven_version_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "publish_needed=true" >> $GITHUB_OUTPUT
+            echo "maven_version_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to Maven Central
+        if: steps.maven_check.outputs.publish_needed == 'true'
+        run: |
+          mvn clean deploy -B -Ppublic -DskipTests \
+            -Dmaven.javadoc.failOnError=false \
+            -Dmaven.javadoc.quiet=true
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.OSSRH_TOKEN }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
