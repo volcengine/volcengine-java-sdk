@@ -10,6 +10,20 @@ import java.time.OffsetDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Provider that obtains temporary credentials via STS AssumeRoleWithSAML.
+ *
+ * <p>Follows the {@link Provider} CQS contract:
+ * <ul>
+ *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
+ *   <li>{@link #refresh()} is the only method that mutates state.</li>
+ * </ul>
+ *
+ * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
+ * refresh through a {@link java.util.concurrent.locks.ReadWriteLock} and
+ * guarantees the {@code isExpired → refresh → retrieve} sequence. Direct use
+ * (without wrapping) is not a supported mode.
+ */
 public class SamlCredentialProvider implements Provider {
 
     private static final String PROVIDER_NAME = "SamlCredentialProvider";
@@ -33,8 +47,8 @@ public class SamlCredentialProvider implements Provider {
     private int maxRetries = StsFormRequest.DEFAULT_MAX_RETRIES;
     private int retryIntervalMs = StsFormRequest.DEFAULT_RETRY_INTERVAL_MS;
 
-    private volatile CredentialValue credentialValue;
-    private volatile long expirationTime;
+    private CredentialValue credentialValue;
+    private long expirationTime;
 
     /**
      * Creates a new SamlCredentialProvider.
@@ -114,10 +128,11 @@ public class SamlCredentialProvider implements Provider {
 
     @Override
     public CredentialValue retrieve() throws ApiException {
-        if (isExpired()) {
-            refresh();
+        CredentialValue v = credentialValue;
+        if (v == null) {
+            throw new ApiException(PROVIDER_NAME + ": not refreshed; call refresh() first or use CredentialProvider");
         }
-        return credentialValue;
+        return v;
     }
 
     public void setDurationSeconds(int durationSeconds) {

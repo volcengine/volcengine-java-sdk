@@ -19,6 +19,20 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Provider that fetches temporary credentials from the ECS IMDS.
+ *
+ * <p>Follows the {@link Provider} CQS contract:
+ * <ul>
+ *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
+ *   <li>{@link #refresh()} is the only method that mutates state.</li>
+ * </ul>
+ *
+ * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
+ * refresh through a {@link java.util.concurrent.locks.ReadWriteLock} and
+ * guarantees the {@code isExpired → refresh → retrieve} sequence. Direct use
+ * (without wrapping) is not a supported mode.
+ */
 public class EcsRoleCredentialProvider implements Provider {
 
     private static final Logger LOGGER = Logger.getLogger(EcsRoleCredentialProvider.class.getName());
@@ -55,8 +69,8 @@ public class EcsRoleCredentialProvider implements Provider {
     private int expireBufferSeconds;
     private final String imdsEndpoint;
 
-    private volatile CredentialValue credentialValue;
-    private volatile long expirationTime;
+    private CredentialValue credentialValue;
+    private long expirationTime;
 
     public EcsRoleCredentialProvider(String roleName) {
         this(roleName, DEFAULT_CONNECT_TIMEOUT_MS, DEFAULT_READ_TIMEOUT_MS,
@@ -65,6 +79,10 @@ public class EcsRoleCredentialProvider implements Provider {
 
     public EcsRoleCredentialProvider(String roleName, int connectTimeoutMs, int readTimeoutMs,
                                      int maxRetries, int retryIntervalMs, int expireBufferSeconds) {
+        if (isDisabledByEnv()) {
+            throw new IllegalStateException(
+                    PROVIDER_NAME + ": IMDS is disabled via VOLCENGINE_ECS_METADATA_DISABLED=true");
+        }
         this.roleName = roleName;
         this.connectTimeoutMs = connectTimeoutMs;
         this.readTimeoutMs = readTimeoutMs;
@@ -74,17 +92,23 @@ public class EcsRoleCredentialProvider implements Provider {
         this.imdsEndpoint = DEFAULT_IMDS_ENDPOINT;
     }
 
-    public static EcsRoleCredentialProvider create(String roleName) throws ApiException {
-        if ("true".equalsIgnoreCase(System.getenv("VOLCENGINE_ECS_METADATA_DISABLED"))) {
-            throw new ApiException(PROVIDER_NAME + ": IMDS is disabled via VOLCENGINE_ECS_METADATA_DISABLED=true");
-        }
+    /**
+     * Returns true when {@code VOLCENGINE_ECS_METADATA_DISABLED=true} is set.
+     * Used by {@link DefaultCredentialProvider} to skip adding the IMDS step
+     * to the chain, and by the constructor to fail fast on direct {@code new}.
+     */
+    public static boolean isDisabledByEnv() {
+        return "true".equalsIgnoreCase(System.getenv("VOLCENGINE_ECS_METADATA_DISABLED"));
+    }
 
+    public static EcsRoleCredentialProvider create(String roleName) {
         String resolvedRoleName = roleName;
         if (isNullOrEmpty(resolvedRoleName)) {
             resolvedRoleName = System.getenv("VOLCENGINE_ECS_METADATA");
         }
-
-        // roleName can be null — will be auto-detected on first refresh
+        // roleName can be null — will be auto-detected on first refresh.
+        // The VOLCENGINE_ECS_METADATA_DISABLED kill-switch is enforced
+        // inside the constructor, so it applies to direct `new` calls too.
         return new EcsRoleCredentialProvider(resolvedRoleName);
     }
 
@@ -179,10 +203,11 @@ public class EcsRoleCredentialProvider implements Provider {
 
     @Override
     public CredentialValue retrieve() throws ApiException {
-        if (isExpired()) {
-            refresh();
+        CredentialValue v = credentialValue;
+        if (v == null) {
+            throw new ApiException(PROVIDER_NAME + ": not refreshed; call refresh() first or use CredentialProvider");
         }
-        return credentialValue;
+        return v;
     }
 
     // --- IMDSv2 token ---

@@ -13,7 +13,12 @@ public class EnvironmentVariableCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        // No-op: environment variable credentials do not expire.
+        String ak = getEnvWithFallback("VOLCENGINE_ACCESS_KEY");
+        String sk = getEnvWithFallback("VOLCENGINE_SECRET_KEY");
+        if (isNullOrEmpty(ak) || isNullOrEmpty(sk)) {
+            throw new ApiException(PROVIDER_NAME + ": required environment variables VOLCENGINE_ACCESS_KEY and "
+                    + "VOLCENGINE_SECRET_KEY are not set");
+        }
     }
 
     @Override

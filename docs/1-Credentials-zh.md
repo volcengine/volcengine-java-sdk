@@ -157,6 +157,32 @@ public class SampleCode {
 
 ```
 
+## StaticCredentialProvider
+
+如果需要把静态 AK/SK(/Token) 按 `Provider` 形式使用（和动态 Provider 的 API 风格一致），可以用 `StaticCredentialProvider` 包装：
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.StaticCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    // sessionToken 可为 null（长期 AK/SK 场景）
+    StaticCredentialProvider staticProvider = new StaticCredentialProvider(
+            "Your AK",
+            "Your SK",
+            "Your Session Token");
+
+    CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
 ## AssumeRole
 
 动态访问凭证信息，支持动态刷新，在STS临时Token过期前60S会进行自动的刷新，避免临界时间点Token过期
@@ -183,7 +209,6 @@ public class SampleCode {
     // 选填字段
     stsAssumeRoleProvider.setHost("sts.volcengineapi.com"); // STS服务地址，默认: sts.volcengineapi.com
     stsAssumeRoleProvider.setRegion("cn-north-1"); // STS服务区域, 默认: cn-north-1
-    stsAssumeRoleProvider.setTimeout(30); // STS请求过期时间，单位秒,默认: 30秒
     stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
     stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
     stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
@@ -334,6 +359,10 @@ public class SampleCode {
 - `AK` / 空值
 - `StsToken`
 - `RamRoleArn`（委托给 `StsAssumeRoleProvider`）
+  - 必填：`access-key`、`secret-key`、`role-name`、`account-id`
+  - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证
+    （比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的
+    `X-Security-Token` header。
 - `OIDC`（委托给 `OidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
 - `SSO`

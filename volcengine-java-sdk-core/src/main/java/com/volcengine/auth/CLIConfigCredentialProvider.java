@@ -16,14 +16,30 @@ import java.time.Instant;
 import java.time.format.DateTimeParseException;
 import java.util.Map;
 
+/**
+ * Provider that resolves credentials from the Volcengine CLI {@code config.json}.
+ *
+ * <p>Follows the {@link Provider} CQS contract:
+ * <ul>
+ *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
+ *   <li>{@link #refresh()} is the only method that mutates state. It re-reads
+ *       the CLI config, resolves the profile's mode to a {@link Provider}
+ *       instance, and publishes it.</li>
+ * </ul>
+ *
+ * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
+ * refresh through a {@link java.util.concurrent.locks.ReadWriteLock} and
+ * guarantees the {@code isExpired → refresh → retrieve} sequence. Direct use
+ * (without wrapping) is not a supported mode.
+ */
 public class CLIConfigCredentialProvider implements Provider {
 
     private static final String PROVIDER_NAME = "CLIConfigCredentialProvider";
+    private static final long EXPIRE_BUFFER_SECONDS = 60;
 
     private final String profileName;
     private final String configPath;
-    private volatile CredentialValue credentialValue;
-    private volatile Provider delegate;
+    private Provider delegate;
 
     public CLIConfigCredentialProvider() {
         this(null, null);
@@ -38,44 +54,65 @@ public class CLIConfigCredentialProvider implements Provider {
         this.configPath = configPath;
     }
 
+    /**
+     * A {@link Provider} that wraps an already-materialized credential value.
+     * Used for static AK/SK modes (ak / ststoken) and for SSO paths where the
+     * CLI config or the SSO portal has already returned a full credential.
+     *
+     * <p>{@link #refresh()} is a no-op: the outer
+     * {@link CLIConfigCredentialProvider#refresh()} is the thing that re-reads
+     * the CLI config and publishes a new provider instance.
+     */
+    private static final class StaticCredentialProvider implements Provider {
+        private final CredentialValue value;
+        private final long expirationSeconds; // epoch seconds; 0 = never expires
+
+        StaticCredentialProvider(CredentialValue value, long expirationSeconds) {
+            this.value = value;
+            this.expirationSeconds = expirationSeconds;
+        }
+
+        @Override
+        public boolean isExpired() {
+            if (expirationSeconds == 0) {
+                return false;
+            }
+            return System.currentTimeMillis() / 1000 + EXPIRE_BUFFER_SECONDS >= expirationSeconds;
+        }
+
+        @Override
+        public void refresh() {
+            // No-op: the outer CLIConfigCredentialProvider.refresh() re-resolves
+            // the profile and publishes a fresh provider instance when this one
+            // is reported expired.
+        }
+
+        @Override
+        public CredentialValue retrieve() {
+            return value;
+        }
+    }
+
     @Override
     public boolean isExpired() {
-        if (delegate != null) {
-            return delegate.isExpired();
-        }
-        return false;
+        return delegate == null || delegate.isExpired();
     }
 
     @Override
     public void refresh() throws ApiException {
-        if (delegate instanceof SsoCredentialDelegate) {
-            // SSO delegate cannot self-refresh; reset and re-resolve from config
-            delegate = null;
-            credentialValue = null;
-        } else if (delegate != null) {
-            delegate.refresh();
-        }
+        this.delegate = loadFromConfig();
     }
 
     @Override
     public CredentialValue retrieve() throws ApiException {
-        if (delegate != null) {
-            if (delegate.isExpired()) {
-                refresh();
-                if (delegate == null) {
-                    // SSO path: delegate was cleared, re-load from config
-                    return loadFromConfig();
-                }
-            }
-            return delegate.retrieve();
+        Provider d = delegate;
+        if (d == null) {
+            throw new ApiException(PROVIDER_NAME + ": not refreshed; call refresh() first or use CredentialProvider");
         }
-        if (credentialValue != null) {
-            return credentialValue;
-        }
-        return loadFromConfig();
+        return d.retrieve();
     }
 
-    private CredentialValue loadFromConfig() throws ApiException {
+    private Provider loadFromConfig() throws ApiException {
         Path configPath = resolveConfigPath();
 
         if (!Files.exists(configPath)) {
@@ -130,8 +167,8 @@ public class CLIConfigCredentialProvider implements Provider {
                     throw new ApiException(PROVIDER_NAME + ": access-key and secret-key not found in profile '" + profile + "'");
                 }
 
-                credentialValue = new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
-                return credentialValue;
+                return new StaticCredentialProvider(
+                        new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME), 0);
             }
             case "ststoken": {
                 String ak = getStringValue(profileData, "access-key");
@@ -142,12 +179,13 @@ public class CLIConfigCredentialProvider implements Provider {
                     throw new ApiException(PROVIDER_NAME + ": access-key, secret-key and session-token are all required for StsToken mode in profile '" + profile + "'");
                 }
 
-                credentialValue = new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME);
-                return credentialValue;
+                return new StaticCredentialProvider(
+                        new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME), 0);
             }
             case "ramrolearn": {
                 String ak = getStringValue(profileData, "access-key");
                 String sk = getStringValue(profileData, "secret-key");
+                String sourceSessionToken = getStringValue(profileData, "session-token");
                 String roleName = getStringValue(profileData, "role-name");
                 String accountId = getStringValue(profileData, "account-id");
 
@@ -158,8 +196,11 @@ public class CLIConfigCredentialProvider implements Provider {
                     throw new ApiException(PROVIDER_NAME + ": role-name and account-id are required for RamRoleArn mode in profile '" + profile + "'");
                 }
 
-                delegate = new StsAssumeRoleProvider(ak, sk, roleName, accountId);
-                return delegate.retrieve();
+                Provider d = new StsAssumeRoleProvider(ak, sk,
+                        sourceSessionToken == null ? "" : sourceSessionToken,
+                        roleName, accountId);
+                d.refresh();
+                return d;
             }
             case "oidc": {
                 String oidcTokenFile = getStringValue(profileData, "oidc-token-file");
@@ -169,17 +210,19 @@ public class CLIConfigCredentialProvider implements Provider {
                     throw new ApiException(PROVIDER_NAME + ": oidc-token-file and role-trn are required for OIDC mode in profile '" + profile + "'");
                 }
 
-                delegate = new OidcCredentialProvider(roleTrn, null, oidcTokenFile, null, null);
-                return delegate.retrieve();
+                Provider d = new OidcCredentialProvider(roleTrn, null, oidcTokenFile, null, null);
+                d.refresh();
+                return d;
             }
             case "ecsrole": {
                 String roleName = getStringValue(profileData, "role-name");
 
-                delegate = EcsRoleCredentialProvider.create(roleName);
-                return delegate.retrieve();
+                Provider d = EcsRoleCredentialProvider.create(roleName);
+                d.refresh();
+                return d;
             }
             case "sso": {
-                return loadSsoCredentials(profileData, profile, configMap);
+                return loadSsoProvider(profileData, profile, configMap);
             }
             default:
                 throw new ApiException(PROVIDER_NAME + ": unsupported mode: " + mode);
@@ -187,8 +230,8 @@ public class CLIConfigCredentialProvider implements Provider {
     }
 
     @SuppressWarnings("unchecked")
-    private CredentialValue loadSsoCredentials(Map<String, Object> profileData, String profile,
-                                                Map<String, Object> configMap) throws ApiException {
+    private Provider loadSsoProvider(Map<String, Object> profileData, String profile,
+                                     Map<String, Object> configMap) throws ApiException {
         // Step 1: Check if profile has valid cached STS credentials
         String cachedAk = getStringValue(profileData, "access-key");
         String cachedSk = getStringValue(profileData, "secret-key");
@@ -196,9 +239,10 @@ public class CLIConfigCredentialProvider implements Provider {
         long stsExpiration = getLongValue(profileData, "sts-expiration");
         if (!isNullOrEmpty(cachedAk) && !isNullOrEmpty(cachedSk) && stsExpiration > 0) {
             long expSeconds = normalizeTimestamp(stsExpiration);
-            if (System.currentTimeMillis() / 1000 < expSeconds) {
-                credentialValue = new CredentialValue(cachedAk, cachedSk, cachedToken, PROVIDER_NAME);
-                return credentialValue;
+            if (System.currentTimeMillis() / 1000 + EXPIRE_BUFFER_SECONDS < expSeconds) {
+                return new StaticCredentialProvider(
+                        new CredentialValue(cachedAk, cachedSk, cachedToken, PROVIDER_NAME),
+                        expSeconds);
             }
         }
 
@@ -278,8 +322,12 @@ public class CLIConfigCredentialProvider implements Provider {
         SsoPortalClient portalClient = new SsoPortalClient(region);
         SsoPortalClient.RoleCredentialsResult creds = portalClient.getRoleCredentials(accessToken, accountId, roleName);
 
-        delegate = new SsoCredentialDelegate(creds, PROVIDER_NAME);
-        return delegate.retrieve();
+        long expirationSeconds = (creds.expiration > 0)
+                ? normalizeTimestamp(creds.expiration)
+                : System.currentTimeMillis() / 1000 + 3600;
+        return new StaticCredentialProvider(
+                new CredentialValue(creds.accessKeyId, creds.secretAccessKey, creds.sessionToken, PROVIDER_NAME),
+                expirationSeconds);
     }
 
     private String refreshAccessToken(SsoTokenCache tokenCache, Path tokenCachePath,
@@ -305,16 +353,24 @@ public class CLIConfigCredentialProvider implements Provider {
         SsoPortalClient portalClient = new SsoPortalClient(region);
         SsoPortalClient.OAuthTokenResponse resp = portalClient.refreshToken(clientId, clientSecret, refreshToken);
 
-        // Update cache
-        tokenCache.setAccessToken(resp.accessToken);
-        if (!isNullOrEmpty(resp.refreshToken)) {
-            tokenCache.setRefreshToken(resp.refreshToken);
-        }
-        tokenCache.setExpiresAt(
-                Instant.now().plusSeconds(resp.expiresIn).toString()
-        );
+        // Build the updated cache object without modifying tokenCache yet
+        String newAccessToken = resp.accessToken;
+        String newRefreshToken = isNullOrEmpty(resp.refreshToken) ? tokenCache.getRefreshToken() : resp.refreshToken;
+        String newExpiresAt = Instant.now().plusSeconds(resp.expiresIn).toString();
 
-        // Write cache file back
+        SsoTokenCache updatedCache = new SsoTokenCache();
+        updatedCache.setStartUrl(tokenCache.getStartUrl());
+        updatedCache.setSessionName(tokenCache.getSessionName());
+        updatedCache.setRegion(tokenCache.getRegion());
+        updatedCache.setClientId(tokenCache.getClientId());
+        updatedCache.setClientSecret(tokenCache.getClientSecret());
+        updatedCache.setClientIdIssuedAt(tokenCache.getClientIdIssuedAt());
+        updatedCache.setClientSecretExpiresAt(tokenCache.getClientSecretExpiresAt());
+        updatedCache.setAccessToken(newAccessToken);
+        updatedCache.setRefreshToken(newRefreshToken);
+        updatedCache.setExpiresAt(newExpiresAt);
+
+        // Write to disk first; only update in-memory tokenCache on success
         try {
             Path parent = tokenCachePath.getParent();
             if (parent != null) {
@@ -322,7 +378,7 @@ public class CLIConfigCredentialProvider implements Provider {
             }
             Path tempFile = Files.createTempFile(parent, ".tmp-", ".json");
             try {
-                byte[] data = gson.toJson(tokenCache).getBytes(StandardCharsets.UTF_8);
+                byte[] data = gson.toJson(updatedCache).getBytes(StandardCharsets.UTF_8);
                 try (OutputStream os = Files.newOutputStream(tempFile)) {
                     os.write(data);
                 }
@@ -336,6 +392,11 @@ public class CLIConfigCredentialProvider implements Provider {
         } catch (IOException e) {
             throw new ApiException(PROVIDER_NAME + ": failed to write SSO token cache: " + e.getMessage());
         }
+
+        // Disk write succeeded — now update in-memory state
+        tokenCache.setAccessToken(newAccessToken);
+        tokenCache.setRefreshToken(newRefreshToken);
+        tokenCache.setExpiresAt(newExpiresAt);
 
         return tokenCache.getAccessToken();
     }
@@ -369,6 +430,7 @@ public class CLIConfigCredentialProvider implements Provider {
         }
     }
 
+    // Escape a string to match Go encoding/json.Marshal default output
     private static String escapeJsonString(String s) {
         if (s == null) return "";
         StringBuilder sb = new StringBuilder();
@@ -377,11 +439,14 @@ public class CLIConfigCredentialProvider implements Provider {
             switch (c) {
                 case '"':  sb.append("\\\""); break;
                 case '\\': sb.append("\\\\"); break;
-                case '\b': sb.append("\\b");  break;
-                case '\f': sb.append("\\f");  break;
                 case '\n': sb.append("\\n");  break;
                 case '\r': sb.append("\\r");  break;
                 case '\t': sb.append("\\t");  break;
+                case '<':  sb.append("\\u003c"); break;
+                case '>':  sb.append("\\u003e"); break;
+                case '&':  sb.append("\\u0026"); break;
+                case '\u2028': sb.append("\\u2028"); break;
+                case '\u2029': sb.append("\\u2029"); break;
                 default:
                     if (c < 0x20) {
                         sb.append(String.format("\\u%04x", (int) c));
@@ -423,49 +488,16 @@ public class CLIConfigCredentialProvider implements Provider {
         return ts;                              // seconds
     }
 
-    /**
-     * Internal delegate for SSO-sourced credentials that tracks expiration.
-     */
-    private static class SsoCredentialDelegate implements Provider {
-        private final CredentialValue credentialValue;
-        private final long expirationSeconds;
-
-        SsoCredentialDelegate(SsoPortalClient.RoleCredentialsResult creds, String providerName) {
-            this.credentialValue = new CredentialValue(
-                    creds.accessKeyId, creds.secretAccessKey, creds.sessionToken, providerName);
-            if (creds.expiration > 0) {
-                this.expirationSeconds = normalizeTimestamp(creds.expiration);
-            } else {
-                this.expirationSeconds = System.currentTimeMillis() / 1000 + 3600;
-            }
-        }
-
-        @Override
-        public boolean isExpired() {
-            return System.currentTimeMillis() / 1000 >= expirationSeconds;
-        }
-
-        @Override
-        public void refresh() throws ApiException {
-            // Refresh is handled by re-running loadFromConfig via the outer provider
-        }
-
-        @Override
-        public CredentialValue retrieve() throws ApiException {
-            return credentialValue;
-        }
-    }
-
     private Path resolveConfigPath() {
         if (!isNullOrEmpty(configPath)) {
-            return Paths.get(configPath);
+            return Paths.get(configPath).toAbsolutePath().normalize();
         }
         String envPath = System.getenv("VOLCENGINE_CLI_CONFIG_FILE");
         if (!isNullOrEmpty(envPath)) {
-            return Paths.get(envPath);
+            return Paths.get(envPath).toAbsolutePath().normalize();
         }
         String home = System.getProperty("user.home");
-        return Paths.get(home, ".volcengine", "config.json");
+        return Paths.get(home, ".volcengine", "config.json").toAbsolutePath().normalize();
     }
 
     private String resolveProfile(Map<String, Object> configMap) {

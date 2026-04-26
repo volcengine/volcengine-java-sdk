@@ -5,13 +5,31 @@ import com.volcengine.ApiException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Default provider chain. Walks a fixed list of providers on refresh,
+ * selecting the first provider that successfully obtains credentials.
+ *
+ * <p>Follows the {@link Provider} CQS contract:
+ * <ul>
+ *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
+ *   <li>{@link #refresh()} is the only method that mutates state.
+ *       It either refreshes the last successful provider (when
+ *       {@code reuseLastProviderEnabled} is true) or walks the chain
+ *       and sets {@code lastSuccessProvider} on the first success.</li>
+ * </ul>
+ *
+ * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
+ * refresh through a {@link java.util.concurrent.locks.ReadWriteLock} and
+ * guarantees the {@code isExpired → refresh → retrieve} sequence. Direct use
+ * (without wrapping) is not a supported mode.
+ */
 public class DefaultCredentialProvider implements Provider {
 
     private static final String PROVIDER_NAME = "DefaultCredentialProvider";
 
     private final List<Provider> providers;
     private final boolean reuseLastProviderEnabled;
-    private volatile Provider lastSuccessProvider;
+    private Provider lastSuccessProvider;
 
     private DefaultCredentialProvider(Builder builder) {
         this.reuseLastProviderEnabled = builder.reuseLastProviderEnabled;
@@ -28,46 +46,29 @@ public class DefaultCredentialProvider implements Provider {
 
     @Override
     public boolean isExpired() {
-        if (lastSuccessProvider != null) {
-            return lastSuccessProvider.isExpired();
-        }
-        return true;
+        return lastSuccessProvider == null || lastSuccessProvider.isExpired();
     }
 
     @Override
     public void refresh() throws ApiException {
-        if (lastSuccessProvider != null) {
-            lastSuccessProvider.refresh();
-        }
-    }
-
-    @Override
-    public CredentialValue retrieve() throws ApiException {
         // Fast path: reuse last successful provider
         if (reuseLastProviderEnabled && lastSuccessProvider != null) {
             try {
-                CredentialValue creds = lastSuccessProvider.retrieve();
-                if (creds != null) {
-                    return creds;
-                }
+                lastSuccessProvider.refresh();
+                return;
             } catch (Exception e) {
-                // Clear cached provider and fall through to full chain
+                // Fall through to full chain traversal
                 lastSuccessProvider = null;
             }
         }
 
-        // Full chain traversal
+        // Full chain traversal: pick the first provider that refreshes successfully
         List<String> errors = new ArrayList<>();
-
         for (Provider provider : providers) {
             try {
-                CredentialValue creds = provider.retrieve();
-                if (creds != null) {
-                    if (reuseLastProviderEnabled) {
-                        lastSuccessProvider = provider;
-                    }
-                    return creds;
-                }
+                provider.refresh();
+                lastSuccessProvider = provider;
+                return;
             } catch (Exception e) {
                 errors.add(provider.getClass().getSimpleName() + ": " + e.getMessage());
             }
@@ -83,6 +84,15 @@ public class DefaultCredentialProvider implements Provider {
         throw new ApiException(sb.toString());
     }
 
+    @Override
+    public CredentialValue retrieve() throws ApiException {
+        Provider last = lastSuccessProvider;
+        if (last == null) {
+            throw new ApiException(PROVIDER_NAME + ": not refreshed; call refresh() first or use CredentialProvider");
+        }
+        return last.retrieve();
+    }
+
     private static List<Provider> buildProviderChain(String roleName) {
         List<Provider> chain = new ArrayList<>();
 
@@ -95,67 +105,53 @@ public class DefaultCredentialProvider implements Provider {
         // Step 3: CLI config.json
         chain.add(new CLIConfigCredentialProvider());
 
-        // Step 4: ECS Role (IMDS)
-        chain.add(new EcsRoleProviderWrapper(roleName));
+        // Step 4: ECS Role (IMDS) — skipped entirely when
+        // VOLCENGINE_ECS_METADATA_DISABLED=true. The provider's constructor
+        // also enforces this kill-switch so that direct
+        // `new EcsRoleCredentialProvider(...)` fails fast in the same way.
+        if (!EcsRoleCredentialProvider.isDisabledByEnv()) {
+            chain.add(new EcsRoleProviderWrapper(roleName));
+        }
 
         return chain;
     }
 
     /**
-     * Wrapper for OidcCredentialProvider that handles the case where
-     * environment variables are not set (returns a clear error rather than
-     * failing at construction time).
+     * Wrapper for OidcCredentialProvider that defers construction until
+     * the first refresh (when the relevant environment variables are
+     * known to be set). Follows the same CQS contract as the outer chain.
      */
     private static class OidcEnvProviderWrapper implements Provider {
-        private volatile Provider delegate;
-        private volatile boolean initialized;
-        private volatile String initError;
+        private Provider delegate;
 
         @Override
         public boolean isExpired() {
-            if (delegate != null) {
-                return delegate.isExpired();
-            }
-            return true;
+            return delegate == null || delegate.isExpired();
         }
 
         @Override
         public void refresh() throws ApiException {
-            if (delegate != null) {
-                delegate.refresh();
+            if (delegate == null) {
+                delegate = OidcCredentialProvider.fromEnvironment();
             }
+            delegate.refresh();
         }
 
         @Override
         public CredentialValue retrieve() throws ApiException {
-            if (!initialized) {
-                synchronized (this) {
-                    if (!initialized) {
-                        try {
-                            delegate = OidcCredentialProvider.fromEnvironment();
-                        } catch (Exception e) {
-                            initError = e.getMessage();
-                        }
-                        initialized = true;
-                    }
-                }
-            }
-            if (delegate == null) {
-                throw new ApiException("OidcCredentialProvider: " + initError);
-            }
             return delegate.retrieve();
         }
     }
 
     /**
-     * Wrapper for EcsRoleCredentialProvider that handles IMDS disabled check
-     * and defers construction to avoid blocking at chain build time.
+     * Wrapper for EcsRoleCredentialProvider that defers construction until
+     * the first refresh (to honour the IMDS-disabled env check without
+     * throwing at chain build time). Follows the same CQS contract as the
+     * outer chain.
      */
     private static class EcsRoleProviderWrapper implements Provider {
         private final String roleName;
-        private volatile Provider delegate;
-        private volatile boolean initialized;
-        private volatile String initError;
+        private Provider delegate;
 
         EcsRoleProviderWrapper(String roleName) {
             this.roleName = roleName;
@@ -163,36 +159,19 @@ public class DefaultCredentialProvider implements Provider {
 
         @Override
         public boolean isExpired() {
-            if (delegate != null) {
-                return delegate.isExpired();
-            }
-            return true;
+            return delegate == null || delegate.isExpired();
         }
 
         @Override
         public void refresh() throws ApiException {
-            if (delegate != null) {
-                delegate.refresh();
+            if (delegate == null) {
+                delegate = EcsRoleCredentialProvider.create(roleName);
             }
+            delegate.refresh();
         }
 
         @Override
         public CredentialValue retrieve() throws ApiException {
-            if (!initialized) {
-                synchronized (this) {
-                    if (!initialized) {
-                        try {
-                            delegate = EcsRoleCredentialProvider.create(roleName);
-                        } catch (Exception e) {
-                            initError = e.getMessage();
-                        }
-                        initialized = true;
-                    }
-                }
-            }
-            if (delegate == null) {
-                throw new ApiException("EcsRoleCredentialProvider: " + initError);
-            }
             return delegate.retrieve();
         }
     }

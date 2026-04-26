@@ -152,6 +152,32 @@ public class SampleCode {
 }
 ```
 
+## StaticCredentialProvider
+
+To wrap static AK/SK(/Token) in the `Provider` form (so the API style matches the dynamic providers), use `StaticCredentialProvider`:
+
+```java
+import com.volcengine.ApiClient;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.auth.StaticCredentialProvider;
+
+public class SampleCode {
+  public static void main(String[] args) {
+    // sessionToken may be null (long-lived AK/SK scenario)
+    StaticCredentialProvider staticProvider = new StaticCredentialProvider(
+            "Your AK",
+            "Your SK",
+            "Your Session Token");
+
+    CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
+
+    ApiClient apiClient = new ApiClient()
+            .setCredentialProvider(credentialProvider)
+            .setRegion("cn-beijing");
+  }
+}
+```
+
 ## AssumeRole
 
 AssumeRole supports dynamic credentials with auto refresh.
@@ -178,7 +204,6 @@ public class SampleCode {
     // Optional fields
     stsAssumeRoleProvider.setHost("sts.volcengineapi.com");
     stsAssumeRoleProvider.setRegion("cn-north-1");
-    stsAssumeRoleProvider.setTimeout(30);
     stsAssumeRoleProvider.setDurationSeconds(3600);
     stsAssumeRoleProvider.setExpireBufferSeconds(60);
     stsAssumeRoleProvider.setSchema("https");
@@ -328,6 +353,10 @@ Supported profile `mode`:
 - `AK` / empty
 - `StsToken`
 - `RamRoleArn` (delegates to `StsAssumeRoleProvider`)
+  - Required: `access-key`, `secret-key`, `role-name`, `account-id`
+  - Optional: `session-token` — when the source `access-key` / `secret-key` are
+    themselves STS temporaries (e.g. issued by SSO/OIDC), this token is forwarded
+    to the chained AssumeRole call as `X-Security-Token`.
 - `OIDC` (delegates to `OidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
 - `SSO`
