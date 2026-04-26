@@ -170,18 +170,6 @@ public class CLIConfigCredentialProvider implements Provider {
                 return new StaticCredentialProvider(
                         new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME), 0);
             }
-            case "ststoken": {
-                String ak = getStringValue(profileData, "access-key");
-                String sk = getStringValue(profileData, "secret-key");
-                String sessionToken = getStringValue(profileData, "session-token");
-
-                if (isNullOrEmpty(ak) || isNullOrEmpty(sk) || isNullOrEmpty(sessionToken)) {
-                    throw new ApiException(PROVIDER_NAME + ": access-key, secret-key and session-token are all required for StsToken mode in profile '" + profile + "'");
-                }
-
-                return new StaticCredentialProvider(
-                        new CredentialValue(ak, sk, sessionToken, PROVIDER_NAME), 0);
-            }
             case "ramrolearn": {
                 String ak = getStringValue(profileData, "access-key");
                 String sk = getStringValue(profileData, "secret-key");
