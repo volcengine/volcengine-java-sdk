@@ -40,7 +40,7 @@ public class EcsRoleCredentialProvider implements Provider {
 
     // IMDSv2 endpoint and paths
     private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
-    private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // POST
+    private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // GET
     private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
 
@@ -160,9 +160,9 @@ public class EcsRoleCredentialProvider implements Provider {
         // Step 2: Resolve role name
         String effectiveRoleName = resolveRoleName(imdsToken);
 
-        // Step 3: POST to get credentials
+        // Step 3: GET to get credentials
         String url = imdsEndpoint + IMDS_CREDENTIALS_PATH + effectiveRoleName;
-        String responseBody = doRequestWithRetry(url, "POST",
+        String responseBody = doRequestWithRetry(url, "GET",
                 new String[][]{{IMDS_TOKEN_HEADER, imdsToken}});
 
         Gson gson = new Gson();
