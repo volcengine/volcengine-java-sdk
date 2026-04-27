@@ -41,8 +41,8 @@ public class EcsRoleCredentialProvider implements Provider {
     // IMDSv2 endpoint and paths
     private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // GET
-    private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user"; // GET
-    private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // GET
+    private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?fetchuserrole=true"; // GET
+    private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // PUT
 
     // IMDSv2 headers
     private static final String IMDS_TOKEN_TTL_HEADER = "X-volc-ecs-metadata-token-ttl-seconds";
@@ -214,7 +214,7 @@ public class EcsRoleCredentialProvider implements Provider {
 
     private String getIMDSv2Token() throws ApiException {
         String url = imdsEndpoint + IMDS_TOKEN_PATH;
-        String body = doRequestWithRetry(url, "GET",
+        String body = doRequestWithRetry(url, "PUT",
                 new String[][]{{IMDS_TOKEN_TTL_HEADER, IMDS_TOKEN_TTL_SECONDS}});
         String token = body.trim();
         if (token.isEmpty()) {
@@ -311,8 +311,8 @@ public class EcsRoleCredentialProvider implements Provider {
                 }
             }
 
-            // For POST, we need to enable output even with empty body
-            if ("POST".equalsIgnoreCase(method)) {
+            // For POST/PUT, we need to enable output even with empty body
+            if ("POST".equalsIgnoreCase(method) || "PUT".equalsIgnoreCase(method)) {
                 conn.setDoOutput(true);
                 try (OutputStream os = conn.getOutputStream()) {
                     // empty body
