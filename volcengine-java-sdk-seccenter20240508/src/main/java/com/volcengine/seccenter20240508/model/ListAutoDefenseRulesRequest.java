@@ -36,6 +36,9 @@ public class ListAutoDefenseRulesRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
+  @SerializedName("RuleScope")
+  private String ruleScope = null;
+
   @SerializedName("SortBy")
   private String sortBy = null;
 
@@ -81,6 +84,24 @@ public class ListAutoDefenseRulesRequest {
 
   public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public ListAutoDefenseRulesRequest ruleScope(String ruleScope) {
+    this.ruleScope = ruleScope;
+    return this;
+  }
+
+   /**
+   * Get ruleScope
+   * @return ruleScope
+  **/
+  @Schema(description = "")
+  public String getRuleScope() {
+    return ruleScope;
+  }
+
+  public void setRuleScope(String ruleScope) {
+    this.ruleScope = ruleScope;
   }
 
   public ListAutoDefenseRulesRequest sortBy(String sortBy) {
@@ -149,6 +170,7 @@ public class ListAutoDefenseRulesRequest {
     ListAutoDefenseRulesRequest listAutoDefenseRulesRequest = (ListAutoDefenseRulesRequest) o;
     return Objects.equals(this.pageNumber, listAutoDefenseRulesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listAutoDefenseRulesRequest.pageSize) &&
+        Objects.equals(this.ruleScope, listAutoDefenseRulesRequest.ruleScope) &&
         Objects.equals(this.sortBy, listAutoDefenseRulesRequest.sortBy) &&
         Objects.equals(this.sortOrder, listAutoDefenseRulesRequest.sortOrder) &&
         Objects.equals(this.topGroupID, listAutoDefenseRulesRequest.topGroupID);
@@ -156,7 +178,7 @@ public class ListAutoDefenseRulesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, sortBy, sortOrder, topGroupID);
+    return Objects.hash(pageNumber, pageSize, ruleScope, sortBy, sortOrder, topGroupID);
   }
 
 
@@ -167,6 +189,7 @@ public class ListAutoDefenseRulesRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    ruleScope: ").append(toIndentedString(ruleScope)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    topGroupID: ").append(toIndentedString(topGroupID)).append("\n");

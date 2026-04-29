@@ -14,6 +14,13 @@ package com.volcengine.seccenter20240508.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,27 @@ import javax.validation.Valid;
 
 
 public class SetBruteForceBanConfigResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Data")
+  private String data = null;
+
+  public SetBruteForceBanConfigResponse data(String data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @Schema(description = "")
+  public String getData() {
+    return data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +60,13 @@ public class SetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    SetBruteForceBanConfigResponse setBruteForceBanConfigResponse = (SetBruteForceBanConfigResponse) o;
+    return Objects.equals(this.data, setBruteForceBanConfigResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(data);
   }
 
 
@@ -46,6 +75,7 @@ public class SetBruteForceBanConfigResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class SetBruteForceBanConfigResponse {\n");
     
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

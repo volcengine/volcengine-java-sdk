@@ -117,15 +117,12 @@ public class DescribeLastWeekFileChangeTrendsResponse extends com.volcengine.mod
     DescribeLastWeekFileChangeTrendsResponse describeLastWeekFileChangeTrendsResponse = (DescribeLastWeekFileChangeTrendsResponse) o;
     return Objects.equals(this.lastSevenChange, describeLastWeekFileChangeTrendsResponse.lastSevenChange) &&
         Objects.equals(this.pointInfo, describeLastWeekFileChangeTrendsResponse.pointInfo) &&
-        Objects.equals(this.todayChange, describeLastWeekFileChangeTrendsResponse.todayChange) &&
-        Objects.equals(this.lastSevenChange, describeLastWeekFileChangeTrendsResponse.lastSevenChange) &&
-        Objects.equals(this.pointInfo, describeLastWeekFileChangeTrendsResponse.pointInfo) &&
         Objects.equals(this.todayChange, describeLastWeekFileChangeTrendsResponse.todayChange);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastSevenChange, pointInfo, todayChange, lastSevenChange, pointInfo, todayChange);
+    return Objects.hash(lastSevenChange, pointInfo, todayChange);
   }
 
 
@@ -134,9 +131,6 @@ public class DescribeLastWeekFileChangeTrendsResponse extends com.volcengine.mod
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeLastWeekFileChangeTrendsResponse {\n");
     
-    sb.append("    lastSevenChange: ").append(toIndentedString(lastSevenChange)).append("\n");
-    sb.append("    pointInfo: ").append(toIndentedString(pointInfo)).append("\n");
-    sb.append("    todayChange: ").append(toIndentedString(todayChange)).append("\n");
     sb.append("    lastSevenChange: ").append(toIndentedString(lastSevenChange)).append("\n");
     sb.append("    pointInfo: ").append(toIndentedString(pointInfo)).append("\n");
     sb.append("    todayChange: ").append(toIndentedString(todayChange)).append("\n");

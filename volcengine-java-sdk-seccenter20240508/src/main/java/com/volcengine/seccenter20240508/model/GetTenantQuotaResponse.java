@@ -62,9 +62,6 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("ValueAdded")
   private ValueAddedForGetTenantQuotaOutput valueAdded = null;
 
-  @SerializedName("id")
-  private String id = null;
-
   public GetTenantQuotaResponse accountID(String accountID) {
     this.accountID = accountID;
     return this;
@@ -238,24 +235,6 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     this.valueAdded = valueAdded;
   }
 
-  public GetTenantQuotaResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -274,13 +253,12 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.insertTime, getTenantQuotaResponse.insertTime) &&
         Objects.equals(this.labels, getTenantQuotaResponse.labels) &&
         Objects.equals(this.updateTime, getTenantQuotaResponse.updateTime) &&
-        Objects.equals(this.valueAdded, getTenantQuotaResponse.valueAdded) &&
-        Objects.equals(this.id, getTenantQuotaResponse.id);
+        Objects.equals(this.valueAdded, getTenantQuotaResponse.valueAdded);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, basicQuota, capWhiteList, expireTime, ID, insertTime, labels, updateTime, valueAdded, id);
+    return Objects.hash(accountID, basicQuota, capWhiteList, expireTime, ID, insertTime, labels, updateTime, valueAdded);
   }
 
 
@@ -298,7 +276,6 @@ public class GetTenantQuotaResponse extends com.volcengine.model.AbstractRespons
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    valueAdded: ").append(toIndentedString(valueAdded)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
