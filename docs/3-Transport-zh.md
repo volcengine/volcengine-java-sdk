@@ -62,15 +62,14 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-   public static void main(String[] args) {
-      String regionId = "cn-beijing";
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(Credentials.getEnvCredentials())
-              .setRegion(regionId)
-              .setVerifyingSsl(false); // 忽略SSL验证
-   }
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setRegion(regionId)
+                .setVerifyingSsl(false); // 忽略SSL验证
+    }
 }
-
 ```
 
 # Http(s)代理配置
@@ -84,13 +83,15 @@ public class SampleCode {
 import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
-public static void main(String[] args) {
-    String regionId = "cn-beijing";
-    ApiClient apiClient = new ApiClient()
-            .setCredentials(Credentials.getEnvCredentials())
-            .setRegion(regionId)
-            .setHttpProxy("http://your_http_proxy:proxy_port") // 设置http代理
-            .setHttpsProxy("http://your_https_proxy:proxy_port"); // 设置https代理
+public class SampleCode {
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setRegion(regionId)
+                .setHttpProxy("http://your_http_proxy:proxy_port") // 设置http代理
+                .setHttpsProxy("http://your_https_proxy:proxy_port"); // 设置https代理
+    }
 }
 ```
 

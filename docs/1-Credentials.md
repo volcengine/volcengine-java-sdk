@@ -105,20 +105,20 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-      String ak = "Your AK";
-      String sk = "Your SK";
-      String region = "cn-beijing";
+    public static void main(String[] args) {
+        String ak = "Your AK";
+        String sk = "Your SK";
+        String region = "cn-beijing";
 
-      // 1. Using static AK/SK may leak credentials; do not use in production.
-      Credentials akSkCredential = Credentials.getCredentials(ak, sk);
-      // 2. Recommended in production: read from env vars: VOLCENGINE_ACCESS_KEY / VOLCENGINE_SECRET_KEY
-      // Credentials akSkCredential = Credentials.getEnvCredentials();
+        // 1. Using static AK/SK may leak credentials; do not use in production.
+        Credentials akSkCredential = Credentials.getCredentials(ak, sk);
+        // 2. Recommended in production: read from env vars: VOLCENGINE_ACCESS_KEY / VOLCENGINE_SECRET_KEY
+        // Credentials akSkCredential = Credentials.getEnvCredentials();
 
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(akSkCredential)
-              .setRegion(region);
-  }
+        ApiClient apiClient = new ApiClient()
+            .setCredentials(akSkCredential)
+            .setRegion(region);
+    }
 }
 ```
 
@@ -136,19 +136,19 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-      String ak = "Your AK";
-      String sk = "Your SK";
-      String sessionToken = "Your Session Token";
-      String region = "cn-beijing";
+    public static void main(String[] args) {
+        String ak = "Your AK";
+        String sk = "Your SK";
+        String sessionToken = "Your Session Token";
+        String region = "cn-beijing";
 
-      Credentials sessionTokenCredential = Credentials.getCredentials(ak, sk, sessionToken);
-      // Credentials sessionTokenCredential = Credentials.getEnvCredentials();
+        Credentials sessionTokenCredential = Credentials.getCredentials(ak, sk, sessionToken);
+        // Credentials sessionTokenCredential = Credentials.getEnvCredentials();
 
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(sessionTokenCredential)
-              .setRegion(region);
-  }
+        ApiClient apiClient = new ApiClient()
+            .setCredentials(sessionTokenCredential)
+            .setRegion(region);
+    }
 }
 ```
 
@@ -162,19 +162,19 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.StaticCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    // sessionToken may be null (long-lived AK/SK scenario)
-    StaticCredentialProvider staticProvider = new StaticCredentialProvider(
+    public static void main(String[] args) {
+        // sessionToken may be null (long-lived AK/SK scenario)
+        StaticCredentialProvider staticProvider = new StaticCredentialProvider(
             "Your AK",
             "Your SK",
             "Your Session Token");
 
-    CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
+        CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -193,26 +193,26 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.StsAssumeRoleProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
-    StsAssumeRoleProvider stsAssumeRoleProvider = new StsAssumeRoleProvider(
+    public static void main(String[] args) {
+        String region = "cn-beijing";
+        StsAssumeRoleProvider stsAssumeRoleProvider = new StsAssumeRoleProvider(
             "YourAccessKey",
             "YourSecretKey",
             "YourRoleName",
             "YourAccountId");
 
-    // Optional fields
-    stsAssumeRoleProvider.setHost("sts.volcengineapi.com");
-    stsAssumeRoleProvider.setRegion("cn-north-1");
-    stsAssumeRoleProvider.setDurationSeconds(3600);
-    stsAssumeRoleProvider.setExpireBufferSeconds(60);
-    stsAssumeRoleProvider.setSchema("https");
-    CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
+        // Optional fields
+        stsAssumeRoleProvider.setHost("sts.volcengineapi.com");
+        stsAssumeRoleProvider.setRegion("cn-north-1");
+        stsAssumeRoleProvider.setDurationSeconds(3600);
+        stsAssumeRoleProvider.setExpireBufferSeconds(60);
+        stsAssumeRoleProvider.setSchema("https");
+        CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion(region);
-  }
+    }
 }
 ```
 
@@ -230,28 +230,28 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.OidcCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
+    public static void main(String[] args) {
+        String region = "cn-beijing";
 
-    OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
+        OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
             "trn:iam::1234567890:role/oidc-role", // roleTrn
             null,                                 // roleSessionName (optional)
             "/var/run/secrets/oidc/token",        // oidcTokenFile
             null,                                 // rolePolicy (optional)
             "sts.volcengineapi.com"               // stsEndpoint (optional)
-    );
-    // Optional setters
-    oidcProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
-    oidcProvider.setExpireBufferSeconds(60);         // Expire buffer in seconds, default: 300
-    oidcProvider.setSchema("https");                // STS scheme, default: https
-    oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
-    oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
+        );
+        // Optional setters
+        oidcProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
+        oidcProvider.setExpireBufferSeconds(60);         // Expire buffer in seconds, default: 300
+        oidcProvider.setSchema("https");                // STS scheme, default: https
+        oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
+        oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
 
-    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion(region);
-  }
+    }
 }
 ```
 
@@ -263,17 +263,17 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.OidcCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) throws Exception {
-    // Required:
-    // VOLCENGINE_OIDC_ROLE_TRN
-    // VOLCENGINE_OIDC_TOKEN_FILE
-    OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
-    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+    public static void main(String[] args) throws Exception {
+        // Required:
+        // VOLCENGINE_OIDC_ROLE_TRN
+        // VOLCENGINE_OIDC_TOKEN_FILE
+        OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
+        CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -293,26 +293,26 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.SamlCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    SamlCredentialProvider samlProvider = new SamlCredentialProvider(
+    public static void main(String[] args) {
+        SamlCredentialProvider samlProvider = new SamlCredentialProvider(
             "trn:iam::1234567890:role/YourRoleName",           // roleTrn
             "trn:iam::1234567890:saml-provider/MyIdp",         // samlProviderTrn
             "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",           // samlAssertion
             null,                                              // rolePolicy (optional)
             null                                               // stsEndpoint (optional, uses default)
-    );
-    // Optional setters
-    samlProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
-    samlProvider.setExpireBufferSeconds(300);        // Expire buffer in seconds, default: 300
-    samlProvider.setSchema("https");                // STS scheme, default: https
-    samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
-    samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
+        );
+        // Optional setters
+        samlProvider.setDurationSeconds(3600);          // Credential TTL in seconds, default: 3600
+        samlProvider.setExpireBufferSeconds(300);        // Expire buffer in seconds, default: 300
+        samlProvider.setSchema("https");                // STS scheme, default: https
+        samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
+        samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
 
-    CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -330,14 +330,14 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.EnvironmentVariableCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    CredentialProvider credentialProvider =
+    public static void main(String[] args) {
+        CredentialProvider credentialProvider =
             new CredentialProvider(new EnvironmentVariableCredentialProvider());
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -371,15 +371,15 @@ import com.volcengine.auth.CredentialProvider;
 import java.nio.file.Paths;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    CLIConfigCredentialProvider cliProvider =
+    public static void main(String[] args) {
+        CLIConfigCredentialProvider cliProvider =
             new CLIConfigCredentialProvider("prod", Paths.get(System.getProperty("user.home"), ".volcengine", "config.json").toString());
-    CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
+        CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -396,20 +396,20 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.EcsRoleCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) throws Exception {
-    EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
-    // Optional setters
-    ecsProvider.setMaxRetries(3);                   // Retry attempts, default: 3, 0 disables retry
-    ecsProvider.setRetryIntervalMs(1000);           // Retry interval in ms, default: 1000
-    ecsProvider.setConnectTimeoutMs(1000);           // Connect timeout in ms, default: 1000
-    ecsProvider.setReadTimeoutMs(1000);              // Read timeout in ms, default: 1000
-    ecsProvider.setExpireBufferSeconds(300);          // Expire buffer in seconds, default: 300
+    public static void main(String[] args) throws Exception {
+        EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
+        // Optional setters
+        ecsProvider.setMaxRetries(3);                   // Retry attempts, default: 3, 0 disables retry
+        ecsProvider.setRetryIntervalMs(1000);           // Retry interval in ms, default: 1000
+        ecsProvider.setConnectTimeoutMs(1000);           // Connect timeout in ms, default: 1000
+        ecsProvider.setReadTimeoutMs(1000);              // Read timeout in ms, default: 1000
+        ecsProvider.setExpireBufferSeconds(300);          // Expire buffer in seconds, default: 300
 
-    CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -434,18 +434,18 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.DefaultCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
+    public static void main(String[] args) {
+        DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
             .reuseLastProviderEnabled(true)
             .roleName(null) // optional: used by ECS provider
             .build();
-    // Or: DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
+        // Or: DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
 
-    CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 

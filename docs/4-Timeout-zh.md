@@ -20,15 +20,15 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String regionId = "cn-beijing";
-    ApiClient apiClient = new ApiClient()
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
             .setCredentials(Credentials.getEnvCredentials())
             .setRegion(regionId)
             .setConnectTimeout(10 * 1000)
             .setReadTimeout(15 * 1000)
             .setWriteTimeout(15 * 1000);
-  }
+    }
 }
 ```
 

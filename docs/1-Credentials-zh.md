@@ -45,10 +45,11 @@
 
 以管理员身份打开命令提示符，并使用以下命令在系统中新增环境变量。
 
-复制
+```
 setx VOLCENGINE_ACCESS_KEY yourAccessKeyID /M
 setx VOLCENGINE_SECRET_KEY yourAccessKeySecret /M
 setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
+```
 
 > ⚠️ 注意事项
 >
@@ -107,20 +108,20 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-      String ak = "Your AK";
-      String sk = "Your SK";
-      String region = "cn-beijing";
+    public static void main(String[] args) {
+        String ak = "Your AK";
+        String sk = "Your SK";
+        String region = "cn-beijing";
 
-      // 1. 输入静态ak和sk可能泄漏会导致AK/SK泄漏，生产环境不能这样使用
-      Credentials akSkCredential = Credentials.getCredentials(ak, sk);
-      // 2. 推荐使用环境变量获取AK/SK，避免代码泄漏;会读取环境变量中：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY
-      //Credentials akSkCredential = Credentials.getEnvCredentials();
+        // 1. 输入静态ak和sk可能泄漏会导致AK/SK泄漏，生产环境不能这样使用
+        Credentials akSkCredential = Credentials.getCredentials(ak, sk);
+        // 2. 推荐使用环境变量获取AK/SK，避免代码泄漏;会读取环境变量中：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY
+        //Credentials akSkCredential = Credentials.getEnvCredentials();
 
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(akSkCredential)
-              .setRegion(region);
-  }
+        ApiClient apiClient = new ApiClient()
+            .setCredentials(akSkCredential)
+            .setRegion(region);
+    }
 }
 ```
 
@@ -138,21 +139,21 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-      String ak = "Your AK";
-      String sk = "Your SK";
-      String sessionToken = "Your Session Token";
-      String region = "cn-beijing";
+    public static void main(String[] args) {
+        String ak = "Your AK";
+        String sk = "Your SK";
+        String sessionToken = "Your Session Token";
+        String region = "cn-beijing";
 
-      // 1. 输入静态AK/SK、Session Token可能泄漏会导致AK/SK、Session Token泄漏，生产环境不能这样使用
-      Credentials sessionTokenCredential = Credentials.getCredentials(ak, sk, sessionToken);
-      // 2. 推荐使用环境变量获取AK/SK、Session Token避免代码泄漏;会读取环境变量中：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY和VOLCENGINE_SESSION_TOKEN
-      //Credentials sessionTokenCredential = Credentials.getEnvCredentials();
+        // 1. 输入静态AK/SK、Session Token可能泄漏会导致AK/SK、Session Token泄漏，生产环境不能这样使用
+        Credentials sessionTokenCredential = Credentials.getCredentials(ak, sk, sessionToken);
+        // 2. 推荐使用环境变量获取AK/SK、Session Token避免代码泄漏;会读取环境变量中：VOLCENGINE_ACCESS_KEY、VOLCENGINE_SECRET_KEY和VOLCENGINE_SESSION_TOKEN
+        //Credentials sessionTokenCredential = Credentials.getEnvCredentials();
 
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(sessionTokenCredential)
-              .setRegion(region);
-  }
+        ApiClient apiClient = new ApiClient()
+            .setCredentials(sessionTokenCredential)
+            .setRegion(region);
+    }
 }
 
 ```
@@ -167,19 +168,19 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.StaticCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    // sessionToken 可为 null（长期 AK/SK 场景）
-    StaticCredentialProvider staticProvider = new StaticCredentialProvider(
+    public static void main(String[] args) {
+        // sessionToken 可为 null（长期 AK/SK 场景）
+        StaticCredentialProvider staticProvider = new StaticCredentialProvider(
             "Your AK",
             "Your SK",
             "Your Session Token");
 
-    CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
+        CredentialProvider credentialProvider = new CredentialProvider(staticProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -198,26 +199,26 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.StsAssumeRoleProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
-    StsAssumeRoleProvider stsAssumeRoleProvider = new StsAssumeRoleProvider(
+    public static void main(String[] args) {
+        String region = "cn-beijing";
+        StsAssumeRoleProvider stsAssumeRoleProvider = new StsAssumeRoleProvider(
             "YourAccessKey",  // 子账号AK
             "YourSecretKey",            // 子账号SK
             "YourRoleName",             // 扮演角色名称
             "YourAccountId");           // 被扮演的主账号ID，即角色所属的主账号ID
 
-    // 选填字段
-    stsAssumeRoleProvider.setHost("sts.volcengineapi.com"); // STS服务地址，默认: sts.volcengineapi.com
-    stsAssumeRoleProvider.setRegion("cn-north-1"); // STS服务区域, 默认: cn-north-1
-    stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
-    stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
-    stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
-    CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
+        // 选填字段
+        stsAssumeRoleProvider.setHost("sts.volcengineapi.com"); // STS服务地址，默认: sts.volcengineapi.com
+        stsAssumeRoleProvider.setRegion("cn-north-1"); // STS服务区域, 默认: cn-north-1
+        stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
+        stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
+        stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
+        CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion(region);
-  }
+    }
 
 }
 ```
@@ -236,28 +237,28 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.OidcCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
+    public static void main(String[] args) {
+        String region = "cn-beijing";
 
-    OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
+        OidcCredentialProvider oidcProvider = new OidcCredentialProvider(
             "trn:iam::1234567890:role/oidc-role", // roleTrn
             null,                                 // roleSessionName（可选）
             "/var/run/secrets/oidc/token",        // oidcTokenFile
             null,                                 // rolePolicy（可选）
             "sts.volcengineapi.com"               // stsEndpoint（可选）
-    );
-    // 选填字段
-    oidcProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
-    oidcProvider.setExpireBufferSeconds(60);         // 过期缓冲时间（秒），默认: 300
-    oidcProvider.setSchema("https");                // STS 协议，默认: https
-    oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
-    oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
+        );
+        // 选填字段
+        oidcProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
+        oidcProvider.setExpireBufferSeconds(60);         // 过期缓冲时间（秒），默认: 300
+        oidcProvider.setSchema("https");                // STS 协议，默认: https
+        oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
+        oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
 
-    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion(region);
-  }
+    }
 }
 ```
 
@@ -269,17 +270,17 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.OidcCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) throws Exception {
-    // 必填：
-    // VOLCENGINE_OIDC_ROLE_TRN
-    // VOLCENGINE_OIDC_TOKEN_FILE
-    OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
-    CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
+    public static void main(String[] args) throws Exception {
+        // 必填：
+        // VOLCENGINE_OIDC_ROLE_TRN
+        // VOLCENGINE_OIDC_TOKEN_FILE
+        OidcCredentialProvider oidcProvider = OidcCredentialProvider.fromEnvironment();
+        CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -299,26 +300,26 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.SamlCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    SamlCredentialProvider samlProvider = new SamlCredentialProvider(
+    public static void main(String[] args) {
+        SamlCredentialProvider samlProvider = new SamlCredentialProvider(
             "trn:iam::1234567890:role/YourRoleName",           // roleTrn
             "trn:iam::1234567890:saml-provider/MyIdp",         // samlProviderTrn
             "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",           // samlAssertion
             null,                                              // rolePolicy（选填）
             null                                               // stsEndpoint（选填，使用默认值）
-    );
-    // 选填字段
-    samlProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
-    samlProvider.setExpireBufferSeconds(300);        // 过期缓冲时间（秒），默认: 300
-    samlProvider.setSchema("https");                // STS 协议，默认: https
-    samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
-    samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
+        );
+        // 选填字段
+        samlProvider.setDurationSeconds(3600);          // 临时凭证有效期（秒），默认: 3600
+        samlProvider.setExpireBufferSeconds(300);        // 过期缓冲时间（秒），默认: 300
+        samlProvider.setSchema("https");                // STS 协议，默认: https
+        samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
+        samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
 
-    CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -336,14 +337,14 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.EnvironmentVariableCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    CredentialProvider credentialProvider =
+    public static void main(String[] args) {
+        CredentialProvider credentialProvider =
             new CredentialProvider(new EnvironmentVariableCredentialProvider());
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -377,15 +378,15 @@ import com.volcengine.auth.CredentialProvider;
 import java.nio.file.Paths;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    CLIConfigCredentialProvider cliProvider =
+    public static void main(String[] args) {
+        CLIConfigCredentialProvider cliProvider =
             new CLIConfigCredentialProvider("prod", Paths.get(System.getProperty("user.home"), ".volcengine", "config.json").toString());
-    CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
+        CredentialProvider credentialProvider = new CredentialProvider(cliProvider);
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -402,20 +403,20 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.EcsRoleCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) throws Exception {
-    EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
-    // 选填字段
-    ecsProvider.setMaxRetries(3);                   // 重试次数，默认: 3，0 表示不重试
-    ecsProvider.setRetryIntervalMs(1000);           // 重试间隔（毫秒），默认: 1000
-    ecsProvider.setConnectTimeoutMs(1000);           // 连接超时（毫秒），默认: 1000
-    ecsProvider.setReadTimeoutMs(1000);              // 读取超时（毫秒），默认: 1000
-    ecsProvider.setExpireBufferSeconds(300);          // 过期缓冲时间（秒），默认: 300
+    public static void main(String[] args) throws Exception {
+        EcsRoleCredentialProvider ecsProvider = EcsRoleCredentialProvider.create("your-ecs-role-name");
+        // 选填字段
+        ecsProvider.setMaxRetries(3);                   // 重试次数，默认: 3，0 表示不重试
+        ecsProvider.setRetryIntervalMs(1000);           // 重试间隔（毫秒），默认: 1000
+        ecsProvider.setConnectTimeoutMs(1000);           // 连接超时（毫秒），默认: 1000
+        ecsProvider.setReadTimeoutMs(1000);              // 读取超时（毫秒），默认: 1000
+        ecsProvider.setExpireBufferSeconds(300);          // 过期缓冲时间（秒），默认: 300
 
-    CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(ecsProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 
@@ -440,18 +441,18 @@ import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.DefaultCredentialProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
+    public static void main(String[] args) {
+        DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.builder()
             .reuseLastProviderEnabled(true)
             .roleName(null) // 可选：ECS provider 使用
             .build();
-    // 或：DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
+        // 或：DefaultCredentialProvider defaultProvider = DefaultCredentialProvider.create();
 
-    CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
-    ApiClient apiClient = new ApiClient()
+        CredentialProvider credentialProvider = new CredentialProvider(defaultProvider);
+        ApiClient apiClient = new ApiClient()
             .setCredentialProvider(credentialProvider)
             .setRegion("cn-beijing");
-  }
+    }
 }
 ```
 

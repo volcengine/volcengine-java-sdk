@@ -23,10 +23,10 @@ import com.volcengine.retryer.ExponentialBackoffStrategy;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
+    public static void main(String[] args) {
+        String region = "cn-beijing";
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentials(Credentials.getEnvCredentials())
             .setRegion(region)
             .setDebugging(true)
@@ -37,7 +37,7 @@ public class SampleCode {
             .setRetryCondition(new DefaultRetryCondition())
             .setBackoffStrategy(new ExponentialBackoffStrategy())
             .addRetryErrorCode("InvalidAuthorization");
-  }
+    }
 }
 ```
 
@@ -77,12 +77,12 @@ public abstract class CustomRetryCondition extends RetryCondition {
 import com.volcengine.retryer.DefaultRetryCondition;
 
 public class CustomRetryCondition extends DefaultRetryCondition{
-   @Override
-  public boolean shouldRetry(ApiResponse response, Exception error) {
-      boolean shouldRetry = super.shouldRetry(response, error);
-      // Implement your own logic
-      return false;
-  }
+    @Override
+    public boolean shouldRetry(ApiResponse response, Exception error) {
+        boolean shouldRetry = super.shouldRetry(response, error);
+        // Implement your own logic
+        return false;
+    }
 
 }
 ```
@@ -127,13 +127,13 @@ class CustomBackoffStrategy extends BackoffStrategy {
 import com.volcengine.retryer.ExponentialWithDecayBackoffStrategy;
 
 class CustomBackoffStrategy extends ExponentialWithDecayBackoffStrategy{
-   public long computeDelay(int retryCount){
-      long base = super.computeDelay(retryCount); // Call the parent implementation
-      long minRetryDelayMs = this.minRetryDelayMs;
-      long maxRetryDelayMs = this.maxRetryDelayMs;
-      // Implement your own logic
-      return 0;
-  }
+    public long computeDelay(int retryCount){
+        long base = super.computeDelay(retryCount); // Call the parent implementation
+        long minRetryDelayMs = this.minRetryDelayMs;
+        long maxRetryDelayMs = this.maxRetryDelayMs;
+        // Implement your own logic
+        return 0;
+    }
 }
 ```
 

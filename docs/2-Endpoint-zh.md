@@ -109,14 +109,14 @@ import java.util.HashSet;
 import com.volcengine.endpoint.StandardEndpointProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String regionId = "cn-beijing";
-    ApiClient apiClient = new ApiClient()
-            .setCredentials(Credentials.getEnvCredentials())
-            .setEndpointResolver(new StandardEndpointProvider()) // 设置标准寻址
-            .setRegion(regionId) // 设置region
-            .setUseDualStack(true); // 设置是否双栈
-  }
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setEndpointResolver(new StandardEndpointProvider()) // 设置标准寻址
+                .setRegion(regionId) // 设置region
+                .setUseDualStack(true); // 设置是否双栈
+    }
 }
 ```
 

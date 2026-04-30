@@ -37,12 +37,12 @@ public class SampleCode {
         ApiClient apiClient = null;
 
         try {
-          apiClient = new ApiClient()
-                  .setCredentials(Credentials.getEnvCredentials())
-                  .setRegion(region)
-          ;
+            apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setRegion(region)
+            ;
         }catch (Exception e) {
-          System.out.println("1. Client error: " + e.getMessage());
+            System.out.println("1. Client error: " + e.getMessage());
         }
 
         EcsApi api = new EcsApi(apiClient);
@@ -57,13 +57,13 @@ public class SampleCode {
             Throwable cause = e.getCause();
             if(cause == null){
                 if (e.getCode() == 0 &&  !StringUtils.isEmpty(e.getMessage())) {
-                  System.out.println("1. Client error: " + e.getMessage());
+                    System.out.println("1. Client error: " + e.getMessage());
                 }
             }else {
                 if (cause instanceof SocketTimeoutException ||
-                        cause instanceof UnknownHostException ||
-                        cause instanceof UnknownServiceException ||
-                        cause instanceof SocketException
+                    cause instanceof UnknownHostException ||
+                    cause instanceof UnknownServiceException ||
+                    cause instanceof SocketException
                 ) {
                     System.out.println("2. Network/timeout error: " + cause.getMessage());
                 }else {

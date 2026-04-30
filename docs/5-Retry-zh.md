@@ -24,10 +24,10 @@ import com.volcengine.retryer.ExponentialBackoffStrategy;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String region = "cn-beijing";
+    public static void main(String[] args) {
+        String region = "cn-beijing";
 
-    ApiClient apiClient = new ApiClient()
+        ApiClient apiClient = new ApiClient()
             .setCredentials(Credentials.getEnvCredentials())
             .setRegion(region)
             .setDebugging(true)
@@ -38,12 +38,12 @@ public class SampleCode {
             .setRetryCondition(new DefaultRetryCondition()) // 重试条件
             .setBackoffStrategy(new ExponentialBackoffStrategy()) // 重试间隔策略
             .addRetryErrorCode("InvalidAuthorization") // 重试错误码
-                /*.addRetryErrorCodes(new HashSet<String>(){{
-                    add("InvalidAuthorization");
-                    add("InvalidAccessKeyId");
-                 }})*/
-            ;
-  }
+            /*.addRetryErrorCodes(new HashSet<String>(){{
+                add("InvalidAuthorization");
+                add("InvalidAccessKeyId");
+            }})*/
+        ;
+    }
 
 }
 
@@ -78,12 +78,12 @@ public abstract class CustomRetryCondition extends RetryCondition {
 import com.volcengine.retryer.DefaultRetryCondition;
 
 public class CustomRetryCondition extends DefaultRetryCondition{
-   @Override
-  public boolean shouldRetry(ApiResponse response, Exception error) {
-      boolean shouldRetry = super.shouldRetry(response, error);
-      // #................实现自己逻辑
-      return false;
-  }
+    @Override
+    public boolean shouldRetry(ApiResponse response, Exception error) {
+        boolean shouldRetry = super.shouldRetry(response, error);
+        // #................实现自己逻辑
+        return false;
+    }
 
 }
 ```
@@ -121,13 +121,13 @@ class CustomBackoffStrategy extends BackoffStrategy {
 import com.volcengine.retryer.ExponentialWithDecayBackoffStrategy;
 
 class CustomBackoffStrategy extends ExponentialWithDecayBackoffStrategy{
-   public long computeDelay(int retryCount){
-      long base = super.computeDelay(retryCount); // 调用父类的实现
-      long minRetryDelayMs = this.minRetryDelayMs;
-      long maxRetryDelayMs = this.maxRetryDelayMs;
-      // ....实现自己逻辑
-      return 0;
-  }
+    public long computeDelay(int retryCount){
+        long base = super.computeDelay(retryCount); // 调用父类的实现
+        long minRetryDelayMs = this.minRetryDelayMs;
+        long maxRetryDelayMs = this.maxRetryDelayMs;
+        // ....实现自己逻辑
+        return 0;
+    }
 }
 ```
 

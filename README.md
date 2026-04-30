@@ -26,6 +26,8 @@
 </dependency>
 ```
 
+SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试、异常处理、Debug）请参考：[SDK 接入文档](./docs/0-Overview-zh.md)
+
 ### Usage ###
 
 * Getting Started
@@ -167,4 +169,3 @@ public class TestVpc {
 
 ```
 
-更多代码示例请参考：[SDK接入文档](./docs/0-Overview-zh.md)

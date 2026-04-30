@@ -60,13 +60,13 @@ import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
 public class SampleCode {
-   public static void main(String[] args) {
-      String regionId = "cn-beijing";
-      ApiClient apiClient = new ApiClient()
-              .setCredentials(Credentials.getEnvCredentials())
-              .setRegion(regionId)
-              .setVerifyingSsl(false);
-   }
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setRegion(regionId)
+                .setVerifyingSsl(false);
+    }
 }
 ```
 
@@ -80,13 +80,15 @@ public class SampleCode {
 import com.volcengine.ApiClient;
 import com.volcengine.sign.Credentials;
 
-public static void main(String[] args) {
-    String regionId = "cn-beijing";
-    ApiClient apiClient = new ApiClient()
-            .setCredentials(Credentials.getEnvCredentials())
-            .setRegion(regionId)
-            .setHttpProxy("http://your_http_proxy:proxy_port")
-            .setHttpsProxy("http://your_https_proxy:proxy_port");
+public class SampleCode {
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setRegion(regionId)
+                .setHttpProxy("http://your_http_proxy:proxy_port")
+                .setHttpsProxy("http://your_https_proxy:proxy_port");
+    }
 }
 ```
 

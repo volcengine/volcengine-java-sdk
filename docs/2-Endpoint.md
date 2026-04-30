@@ -93,14 +93,14 @@ import com.volcengine.sign.Credentials;
 import com.volcengine.endpoint.StandardEndpointProvider;
 
 public class SampleCode {
-  public static void main(String[] args) {
-    String regionId = "cn-beijing";
-    ApiClient apiClient = new ApiClient()
-            .setCredentials(Credentials.getEnvCredentials())
-            .setEndpointResolver(new StandardEndpointProvider())
-            .setRegion(regionId)
-            .setUseDualStack(true);
-  }
+    public static void main(String[] args) {
+        String regionId = "cn-beijing";
+        ApiClient apiClient = new ApiClient()
+                .setCredentials(Credentials.getEnvCredentials())
+                .setEndpointResolver(new StandardEndpointProvider())
+                .setRegion(regionId)
+                .setUseDualStack(true);
+    }
 }
 ```
 
