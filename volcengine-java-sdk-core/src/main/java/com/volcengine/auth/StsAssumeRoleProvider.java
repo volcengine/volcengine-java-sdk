@@ -15,7 +15,7 @@ public class StsAssumeRoleProvider implements Provider {
     private String roleName;
     private String accountId;
     private String host = "sts.volcengineapi.com";
-    private String region = "cn-north-1";
+    private String region = "cn-beijing";
     private String schema = "https";
     //STS 请求过期时间
     private int timeout = 30;
