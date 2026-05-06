@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.VoiceForVideoEditorGetSpeakersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,16 +31,16 @@ import javax.validation.Valid;
 
 public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
   @SerializedName("createAt")
-  private Integer createAt = null;
+  private String createAt = null;
 
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("speakerDesc")
   private String speakerDesc = null;
 
   @SerializedName("speakerId")
-  private Integer speakerId = null;
+  private String speakerId = null;
 
   @SerializedName("speakerName")
   private String speakerName = null;
@@ -51,16 +48,10 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
   @SerializedName("speakerType")
   private Integer speakerType = null;
 
-  @SerializedName("status")
-  private Integer status = null;
-
   @SerializedName("updateAt")
-  private Integer updateAt = null;
+  private String updateAt = null;
 
-  @SerializedName("voices")
-  private List<VoiceForVideoEditorGetSpeakersOutput> voices = null;
-
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput createAt(Integer createAt) {
+  public SubTaskSpeakerForVideoEditorGetSpeakersOutput createAt(String createAt) {
     this.createAt = createAt;
     return this;
   }
@@ -70,15 +61,15 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return createAt
   **/
   @Schema(description = "")
-  public Integer getCreateAt() {
+  public String getCreateAt() {
     return createAt;
   }
 
-  public void setCreateAt(Integer createAt) {
+  public void setCreateAt(String createAt) {
     this.createAt = createAt;
   }
 
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput id(Integer id) {
+  public SubTaskSpeakerForVideoEditorGetSpeakersOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -88,11 +79,11 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -114,7 +105,7 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
     this.speakerDesc = speakerDesc;
   }
 
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput speakerId(Integer speakerId) {
+  public SubTaskSpeakerForVideoEditorGetSpeakersOutput speakerId(String speakerId) {
     this.speakerId = speakerId;
     return this;
   }
@@ -124,11 +115,11 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return speakerId
   **/
   @Schema(description = "")
-  public Integer getSpeakerId() {
+  public String getSpeakerId() {
     return speakerId;
   }
 
-  public void setSpeakerId(Integer speakerId) {
+  public void setSpeakerId(String speakerId) {
     this.speakerId = speakerId;
   }
 
@@ -168,25 +159,7 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
     this.speakerType = speakerType;
   }
 
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput status(Integer status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput updateAt(Integer updateAt) {
+  public SubTaskSpeakerForVideoEditorGetSpeakersOutput updateAt(String updateAt) {
     this.updateAt = updateAt;
     return this;
   }
@@ -196,39 +169,12 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return updateAt
   **/
   @Schema(description = "")
-  public Integer getUpdateAt() {
+  public String getUpdateAt() {
     return updateAt;
   }
 
-  public void setUpdateAt(Integer updateAt) {
+  public void setUpdateAt(String updateAt) {
     this.updateAt = updateAt;
-  }
-
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput voices(List<VoiceForVideoEditorGetSpeakersOutput> voices) {
-    this.voices = voices;
-    return this;
-  }
-
-  public SubTaskSpeakerForVideoEditorGetSpeakersOutput addVoicesItem(VoiceForVideoEditorGetSpeakersOutput voicesItem) {
-    if (this.voices == null) {
-      this.voices = new ArrayList<VoiceForVideoEditorGetSpeakersOutput>();
-    }
-    this.voices.add(voicesItem);
-    return this;
-  }
-
-   /**
-   * Get voices
-   * @return voices
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<VoiceForVideoEditorGetSpeakersOutput> getVoices() {
-    return voices;
-  }
-
-  public void setVoices(List<VoiceForVideoEditorGetSpeakersOutput> voices) {
-    this.voices = voices;
   }
 
 
@@ -247,14 +193,12 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
         Objects.equals(this.speakerId, subTaskSpeakerForVideoEditorGetSpeakersOutput.speakerId) &&
         Objects.equals(this.speakerName, subTaskSpeakerForVideoEditorGetSpeakersOutput.speakerName) &&
         Objects.equals(this.speakerType, subTaskSpeakerForVideoEditorGetSpeakersOutput.speakerType) &&
-        Objects.equals(this.status, subTaskSpeakerForVideoEditorGetSpeakersOutput.status) &&
-        Objects.equals(this.updateAt, subTaskSpeakerForVideoEditorGetSpeakersOutput.updateAt) &&
-        Objects.equals(this.voices, subTaskSpeakerForVideoEditorGetSpeakersOutput.voices);
+        Objects.equals(this.updateAt, subTaskSpeakerForVideoEditorGetSpeakersOutput.updateAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createAt, id, speakerDesc, speakerId, speakerName, speakerType, status, updateAt, voices);
+    return Objects.hash(createAt, id, speakerDesc, speakerId, speakerName, speakerType, updateAt);
   }
 
 
@@ -269,9 +213,7 @@ public class SubTaskSpeakerForVideoEditorGetSpeakersOutput {
     sb.append("    speakerId: ").append(toIndentedString(speakerId)).append("\n");
     sb.append("    speakerName: ").append(toIndentedString(speakerName)).append("\n");
     sb.append("    speakerType: ").append(toIndentedString(speakerType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateAt: ").append(toIndentedString(updateAt)).append("\n");
-    sb.append("    voices: ").append(toIndentedString(voices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

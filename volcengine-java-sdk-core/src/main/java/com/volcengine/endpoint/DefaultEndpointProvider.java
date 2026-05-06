@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- i18n_openapi ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("i18n_openapi", new ServiceEndpointInfo(
+                "i18n_openapi",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

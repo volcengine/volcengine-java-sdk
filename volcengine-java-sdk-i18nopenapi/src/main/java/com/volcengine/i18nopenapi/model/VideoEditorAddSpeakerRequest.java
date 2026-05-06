@@ -34,7 +34,7 @@ public class VideoEditorAddSpeakerRequest {
   private String speakerName = null;
 
   @SerializedName("subtaskId")
-  private Integer subtaskId = null;
+  private String subtaskId = null;
 
   @SerializedName("type")
   private Integer type = null;
@@ -58,7 +58,7 @@ public class VideoEditorAddSpeakerRequest {
     this.speakerName = speakerName;
   }
 
-  public VideoEditorAddSpeakerRequest subtaskId(Integer subtaskId) {
+  public VideoEditorAddSpeakerRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -69,11 +69,11 @@ public class VideoEditorAddSpeakerRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubtaskId() {
+  public String getSubtaskId() {
     return subtaskId;
   }
 
-  public void setSubtaskId(Integer subtaskId) {
+  public void setSubtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
   }
 
@@ -86,7 +86,8 @@ public class VideoEditorAddSpeakerRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getType() {
     return type;
   }

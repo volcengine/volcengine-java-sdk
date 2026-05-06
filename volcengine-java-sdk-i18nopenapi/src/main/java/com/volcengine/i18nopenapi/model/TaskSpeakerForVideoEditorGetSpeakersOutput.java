@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.VoiceForVideoEditorGetSpeakersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,16 +31,16 @@ import javax.validation.Valid;
 
 public class TaskSpeakerForVideoEditorGetSpeakersOutput {
   @SerializedName("createAt")
-  private Integer createAt = null;
+  private String createAt = null;
 
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("speakerDesc")
   private String speakerDesc = null;
 
   @SerializedName("speakerId")
-  private Integer speakerId = null;
+  private String speakerId = null;
 
   @SerializedName("speakerName")
   private String speakerName = null;
@@ -51,16 +48,10 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
   @SerializedName("speakerType")
   private Integer speakerType = null;
 
-  @SerializedName("status")
-  private Integer status = null;
-
   @SerializedName("updateAt")
-  private Integer updateAt = null;
+  private String updateAt = null;
 
-  @SerializedName("voices")
-  private List<VoiceForVideoEditorGetSpeakersOutput> voices = null;
-
-  public TaskSpeakerForVideoEditorGetSpeakersOutput createAt(Integer createAt) {
+  public TaskSpeakerForVideoEditorGetSpeakersOutput createAt(String createAt) {
     this.createAt = createAt;
     return this;
   }
@@ -70,15 +61,15 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return createAt
   **/
   @Schema(description = "")
-  public Integer getCreateAt() {
+  public String getCreateAt() {
     return createAt;
   }
 
-  public void setCreateAt(Integer createAt) {
+  public void setCreateAt(String createAt) {
     this.createAt = createAt;
   }
 
-  public TaskSpeakerForVideoEditorGetSpeakersOutput id(Integer id) {
+  public TaskSpeakerForVideoEditorGetSpeakersOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -88,11 +79,11 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -114,7 +105,7 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
     this.speakerDesc = speakerDesc;
   }
 
-  public TaskSpeakerForVideoEditorGetSpeakersOutput speakerId(Integer speakerId) {
+  public TaskSpeakerForVideoEditorGetSpeakersOutput speakerId(String speakerId) {
     this.speakerId = speakerId;
     return this;
   }
@@ -124,11 +115,11 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return speakerId
   **/
   @Schema(description = "")
-  public Integer getSpeakerId() {
+  public String getSpeakerId() {
     return speakerId;
   }
 
-  public void setSpeakerId(Integer speakerId) {
+  public void setSpeakerId(String speakerId) {
     this.speakerId = speakerId;
   }
 
@@ -168,25 +159,7 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
     this.speakerType = speakerType;
   }
 
-  public TaskSpeakerForVideoEditorGetSpeakersOutput status(Integer status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public TaskSpeakerForVideoEditorGetSpeakersOutput updateAt(Integer updateAt) {
+  public TaskSpeakerForVideoEditorGetSpeakersOutput updateAt(String updateAt) {
     this.updateAt = updateAt;
     return this;
   }
@@ -196,39 +169,12 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
    * @return updateAt
   **/
   @Schema(description = "")
-  public Integer getUpdateAt() {
+  public String getUpdateAt() {
     return updateAt;
   }
 
-  public void setUpdateAt(Integer updateAt) {
+  public void setUpdateAt(String updateAt) {
     this.updateAt = updateAt;
-  }
-
-  public TaskSpeakerForVideoEditorGetSpeakersOutput voices(List<VoiceForVideoEditorGetSpeakersOutput> voices) {
-    this.voices = voices;
-    return this;
-  }
-
-  public TaskSpeakerForVideoEditorGetSpeakersOutput addVoicesItem(VoiceForVideoEditorGetSpeakersOutput voicesItem) {
-    if (this.voices == null) {
-      this.voices = new ArrayList<VoiceForVideoEditorGetSpeakersOutput>();
-    }
-    this.voices.add(voicesItem);
-    return this;
-  }
-
-   /**
-   * Get voices
-   * @return voices
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<VoiceForVideoEditorGetSpeakersOutput> getVoices() {
-    return voices;
-  }
-
-  public void setVoices(List<VoiceForVideoEditorGetSpeakersOutput> voices) {
-    this.voices = voices;
   }
 
 
@@ -247,14 +193,12 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
         Objects.equals(this.speakerId, taskSpeakerForVideoEditorGetSpeakersOutput.speakerId) &&
         Objects.equals(this.speakerName, taskSpeakerForVideoEditorGetSpeakersOutput.speakerName) &&
         Objects.equals(this.speakerType, taskSpeakerForVideoEditorGetSpeakersOutput.speakerType) &&
-        Objects.equals(this.status, taskSpeakerForVideoEditorGetSpeakersOutput.status) &&
-        Objects.equals(this.updateAt, taskSpeakerForVideoEditorGetSpeakersOutput.updateAt) &&
-        Objects.equals(this.voices, taskSpeakerForVideoEditorGetSpeakersOutput.voices);
+        Objects.equals(this.updateAt, taskSpeakerForVideoEditorGetSpeakersOutput.updateAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createAt, id, speakerDesc, speakerId, speakerName, speakerType, status, updateAt, voices);
+    return Objects.hash(createAt, id, speakerDesc, speakerId, speakerName, speakerType, updateAt);
   }
 
 
@@ -269,9 +213,7 @@ public class TaskSpeakerForVideoEditorGetSpeakersOutput {
     sb.append("    speakerId: ").append(toIndentedString(speakerId)).append("\n");
     sb.append("    speakerName: ").append(toIndentedString(speakerName)).append("\n");
     sb.append("    speakerType: ").append(toIndentedString(speakerType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateAt: ").append(toIndentedString(updateAt)).append("\n");
-    sb.append("    voices: ").append(toIndentedString(voices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

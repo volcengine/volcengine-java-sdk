@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoEditorAddEmotionTagOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,25 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoEditorAddEmotionTagResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("id")
-  private Integer id = null;
+  @SerializedName("data")
+  private DataForVideoEditorAddEmotionTagOutput data = null;
 
-  public VideoEditorAddEmotionTagResponse id(Integer id) {
-    this.id = id;
+  public VideoEditorAddEmotionTagResponse data(DataForVideoEditorAddEmotionTagOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public Integer getId() {
-    return id;
+  public DataForVideoEditorAddEmotionTagOutput getData() {
+    return data;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setData(DataForVideoEditorAddEmotionTagOutput data) {
+    this.data = data;
   }
 
 
@@ -61,12 +63,12 @@ public class VideoEditorAddEmotionTagResponse extends com.volcengine.model.Abstr
       return false;
     }
     VideoEditorAddEmotionTagResponse videoEditorAddEmotionTagResponse = (VideoEditorAddEmotionTagResponse) o;
-    return Objects.equals(this.id, videoEditorAddEmotionTagResponse.id);
+    return Objects.equals(this.data, videoEditorAddEmotionTagResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(data);
   }
 
 
@@ -75,7 +77,7 @@ public class VideoEditorAddEmotionTagResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorAddEmotionTagResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

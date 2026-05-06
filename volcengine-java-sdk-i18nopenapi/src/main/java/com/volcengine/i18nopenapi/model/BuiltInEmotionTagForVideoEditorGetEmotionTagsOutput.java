@@ -31,13 +31,13 @@ import javax.validation.Valid;
 
 public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
   @SerializedName("createTime")
-  private Integer createTime = null;
+  private String createTime = null;
 
   @SerializedName("emotionTag")
   private String emotionTag = null;
 
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -46,15 +46,12 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
   private String operator = null;
 
   @SerializedName("taskId")
-  private Integer taskId = null;
+  private String taskId = null;
 
   @SerializedName("type")
   private Integer type = null;
 
-  @SerializedName("voiceId")
-  private String voiceId = null;
-
-  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput createTime(Integer createTime) {
+  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -64,11 +61,11 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
    * @return createTime
   **/
   @Schema(description = "")
-  public Integer getCreateTime() {
+  public String getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Integer createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -90,7 +87,7 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
     this.emotionTag = emotionTag;
   }
 
-  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput id(Integer id) {
+  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -100,11 +97,11 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -144,7 +141,7 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
     this.operator = operator;
   }
 
-  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput taskId(Integer taskId) {
+  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput taskId(String taskId) {
     this.taskId = taskId;
     return this;
   }
@@ -154,11 +151,11 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
    * @return taskId
   **/
   @Schema(description = "")
-  public Integer getTaskId() {
+  public String getTaskId() {
     return taskId;
   }
 
-  public void setTaskId(Integer taskId) {
+  public void setTaskId(String taskId) {
     this.taskId = taskId;
   }
 
@@ -180,24 +177,6 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
     this.type = type;
   }
 
-  public BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput voiceId(String voiceId) {
-    this.voiceId = voiceId;
-    return this;
-  }
-
-   /**
-   * Get voiceId
-   * @return voiceId
-  **/
-  @Schema(description = "")
-  public String getVoiceId() {
-    return voiceId;
-  }
-
-  public void setVoiceId(String voiceId) {
-    this.voiceId = voiceId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -214,13 +193,12 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
         Objects.equals(this.name, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.name) &&
         Objects.equals(this.operator, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.operator) &&
         Objects.equals(this.taskId, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.taskId) &&
-        Objects.equals(this.type, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.type) &&
-        Objects.equals(this.voiceId, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.voiceId);
+        Objects.equals(this.type, builtInEmotionTagForVideoEditorGetEmotionTagsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, emotionTag, id, name, operator, taskId, type, voiceId);
+    return Objects.hash(createTime, emotionTag, id, name, operator, taskId, type);
   }
 
 
@@ -236,7 +214,6 @@ public class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput {
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    voiceId: ").append(toIndentedString(voiceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
