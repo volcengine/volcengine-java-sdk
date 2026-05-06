@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- arkclaw ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("arkclaw", new ServiceEndpointInfo(
+                "arkclaw",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
