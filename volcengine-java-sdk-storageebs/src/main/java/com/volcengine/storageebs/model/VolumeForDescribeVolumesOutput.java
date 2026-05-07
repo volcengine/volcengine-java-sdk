@@ -48,6 +48,9 @@ public class VolumeForDescribeVolumesOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
 
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -212,6 +215,24 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
+  }
+
+  public VolumeForDescribeVolumesOutput burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
   }
 
   public VolumeForDescribeVolumesOutput createdAt(String createdAt) {
@@ -797,6 +818,7 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.autoSnapshotPolicyName, volumeForDescribeVolumesOutput.autoSnapshotPolicyName) &&
         Objects.equals(this.baselinePerformance, volumeForDescribeVolumesOutput.baselinePerformance) &&
         Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
+        Objects.equals(this.burstEnabled, volumeForDescribeVolumesOutput.burstEnabled) &&
         Objects.equals(this.createdAt, volumeForDescribeVolumesOutput.createdAt) &&
         Objects.equals(this.deleteProtection, volumeForDescribeVolumesOutput.deleteProtection) &&
         Objects.equals(this.deleteProtectionRetentionDays, volumeForDescribeVolumesOutput.deleteProtectionRetentionDays) &&
@@ -832,7 +854,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, detachedTime, errorDetail, expiredTime, extraPerformance, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, placementGroupId, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, subgroupNumber, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, burstEnabled, createdAt, deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, detachedTime, errorDetail, expiredTime, extraPerformance, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, placementGroupId, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, subgroupNumber, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -845,6 +867,7 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
     sb.append("    baselinePerformance: ").append(toIndentedString(baselinePerformance)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");

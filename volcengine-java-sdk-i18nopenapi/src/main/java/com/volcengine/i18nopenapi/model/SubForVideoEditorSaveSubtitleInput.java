@@ -38,6 +38,9 @@ public class SubForVideoEditorSaveSubtitleInput {
   @SerializedName("effectType")
   private String effectType = null;
 
+  @SerializedName("emotionTag")
+  private String emotionTag = null;
+
   @SerializedName("endTime")
   private String endTime = null;
 
@@ -99,6 +102,24 @@ public class SubForVideoEditorSaveSubtitleInput {
 
   public void setEffectType(String effectType) {
     this.effectType = effectType;
+  }
+
+  public SubForVideoEditorSaveSubtitleInput emotionTag(String emotionTag) {
+    this.emotionTag = emotionTag;
+    return this;
+  }
+
+   /**
+   * Get emotionTag
+   * @return emotionTag
+  **/
+  @Schema(description = "")
+  public String getEmotionTag() {
+    return emotionTag;
+  }
+
+  public void setEmotionTag(String emotionTag) {
+    this.emotionTag = emotionTag;
   }
 
   public SubForVideoEditorSaveSubtitleInput endTime(String endTime) {
@@ -277,6 +298,7 @@ public class SubForVideoEditorSaveSubtitleInput {
     SubForVideoEditorSaveSubtitleInput subForVideoEditorSaveSubtitleInput = (SubForVideoEditorSaveSubtitleInput) o;
     return Objects.equals(this.aiVoiceId, subForVideoEditorSaveSubtitleInput.aiVoiceId) &&
         Objects.equals(this.effectType, subForVideoEditorSaveSubtitleInput.effectType) &&
+        Objects.equals(this.emotionTag, subForVideoEditorSaveSubtitleInput.emotionTag) &&
         Objects.equals(this.endTime, subForVideoEditorSaveSubtitleInput.endTime) &&
         Objects.equals(this.segmentId, subForVideoEditorSaveSubtitleInput.segmentId) &&
         Objects.equals(this.source, subForVideoEditorSaveSubtitleInput.source) &&
@@ -290,7 +312,7 @@ public class SubForVideoEditorSaveSubtitleInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiVoiceId, effectType, endTime, segmentId, source, sourceStyle, speakerId, startTime, target, targetStyle, voiceTosUrl);
+    return Objects.hash(aiVoiceId, effectType, emotionTag, endTime, segmentId, source, sourceStyle, speakerId, startTime, target, targetStyle, voiceTosUrl);
   }
 
 
@@ -301,6 +323,7 @@ public class SubForVideoEditorSaveSubtitleInput {
     
     sb.append("    aiVoiceId: ").append(toIndentedString(aiVoiceId)).append("\n");
     sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
+    sb.append("    emotionTag: ").append(toIndentedString(emotionTag)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    segmentId: ").append(toIndentedString(segmentId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");

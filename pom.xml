@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -337,5 +337,6 @@
         <module>volcengine-java-sdk-clawsentry</module>
         <module>volcengine-java-sdk-dataleap20260301</module>
         <module>volcengine-java-sdk-arkclaw</module>
+        <module>volcengine-java-sdk-las20240430</module>
     </modules>
 </project>

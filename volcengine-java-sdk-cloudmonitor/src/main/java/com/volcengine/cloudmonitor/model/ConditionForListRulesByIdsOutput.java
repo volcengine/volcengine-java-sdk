@@ -51,6 +51,9 @@ public class ConditionForListRulesByIdsOutput {
   @SerializedName("Statistics")
   private String statistics = null;
 
+  @SerializedName("SubNamespace")
+  private String subNamespace = null;
+
   @SerializedName("Threshold")
   private String threshold = null;
 
@@ -180,6 +183,24 @@ public class ConditionForListRulesByIdsOutput {
     this.statistics = statistics;
   }
 
+  public ConditionForListRulesByIdsOutput subNamespace(String subNamespace) {
+    this.subNamespace = subNamespace;
+    return this;
+  }
+
+   /**
+   * Get subNamespace
+   * @return subNamespace
+  **/
+  @Schema(description = "")
+  public String getSubNamespace() {
+    return subNamespace;
+  }
+
+  public void setSubNamespace(String subNamespace) {
+    this.subNamespace = subNamespace;
+  }
+
   public ConditionForListRulesByIdsOutput threshold(String threshold) {
     this.threshold = threshold;
     return this;
@@ -215,12 +236,13 @@ public class ConditionForListRulesByIdsOutput {
         Objects.equals(this.metricUnit, conditionForListRulesByIdsOutput.metricUnit) &&
         Objects.equals(this.period, conditionForListRulesByIdsOutput.period) &&
         Objects.equals(this.statistics, conditionForListRulesByIdsOutput.statistics) &&
+        Objects.equals(this.subNamespace, conditionForListRulesByIdsOutput.subNamespace) &&
         Objects.equals(this.threshold, conditionForListRulesByIdsOutput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, displayName, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, displayName, evaluationWindow, metricName, metricUnit, period, statistics, subNamespace, threshold);
   }
 
 
@@ -236,6 +258,7 @@ public class ConditionForListRulesByIdsOutput {
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
     return sb.toString();

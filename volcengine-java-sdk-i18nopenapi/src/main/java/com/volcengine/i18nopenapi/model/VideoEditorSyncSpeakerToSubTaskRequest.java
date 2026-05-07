@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class VideoEditorSyncSpeakerToSubTaskRequest {
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("subtaskId")
-  private Integer subtaskId = null;
+  private String subtaskId = null;
 
-  public VideoEditorSyncSpeakerToSubTaskRequest id(Integer id) {
+  public VideoEditorSyncSpeakerToSubTaskRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -47,15 +47,15 @@ public class VideoEditorSyncSpeakerToSubTaskRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public VideoEditorSyncSpeakerToSubTaskRequest subtaskId(Integer subtaskId) {
+  public VideoEditorSyncSpeakerToSubTaskRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -66,11 +66,11 @@ public class VideoEditorSyncSpeakerToSubTaskRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubtaskId() {
+  public String getSubtaskId() {
     return subtaskId;
   }
 
-  public void setSubtaskId(Integer subtaskId) {
+  public void setSubtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
   }
 

@@ -112,6 +112,9 @@ public class CreateEventRuleRequest {
   @SerializedName("MessageQueue")
   private List<MessageQueueForCreateEventRuleInput> messageQueue = null;
 
+  @SerializedName("NotificationId")
+  private String notificationId = null;
+
   @SerializedName("NotifyTemplates")
   private List<NotifyTemplateForCreateEventRuleInput> notifyTemplates = null;
 
@@ -413,6 +416,24 @@ public class CreateEventRuleRequest {
     this.messageQueue = messageQueue;
   }
 
+  public CreateEventRuleRequest notificationId(String notificationId) {
+    this.notificationId = notificationId;
+    return this;
+  }
+
+   /**
+   * Get notificationId
+   * @return notificationId
+  **/
+  @Schema(description = "")
+  public String getNotificationId() {
+    return notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
+
   public CreateEventRuleRequest notifyTemplates(List<NotifyTemplateForCreateEventRuleInput> notifyTemplates) {
     this.notifyTemplates = notifyTemplates;
     return this;
@@ -551,6 +572,7 @@ public class CreateEventRuleRequest {
         Objects.equals(this.filterPattern, createEventRuleRequest.filterPattern) &&
         Objects.equals(this.level, createEventRuleRequest.level) &&
         Objects.equals(this.messageQueue, createEventRuleRequest.messageQueue) &&
+        Objects.equals(this.notificationId, createEventRuleRequest.notificationId) &&
         Objects.equals(this.notifyTemplates, createEventRuleRequest.notifyTemplates) &&
         Objects.equals(this.ruleName, createEventRuleRequest.ruleName) &&
         Objects.equals(this.status, createEventRuleRequest.status) &&
@@ -560,7 +582,7 @@ public class CreateEventRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactGroupIds, contactMethods, description, effectiveTime, endpoint, eventBusName, eventSource, eventType, filterPattern, level, messageQueue, notifyTemplates, ruleName, status, tlSTarget, webhookIds);
+    return Objects.hash(contactGroupIds, contactMethods, description, effectiveTime, endpoint, eventBusName, eventSource, eventType, filterPattern, level, messageQueue, notificationId, notifyTemplates, ruleName, status, tlSTarget, webhookIds);
   }
 
 
@@ -580,6 +602,7 @@ public class CreateEventRuleRequest {
     sb.append("    filterPattern: ").append(toIndentedString(filterPattern)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    messageQueue: ").append(toIndentedString(messageQueue)).append("\n");
+    sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

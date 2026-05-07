@@ -71,6 +71,9 @@ public class CreateClawOmniInstanceRequest {
   @SerializedName("Tags")
   private List<TagForCreateClawOmniInstanceInput> tags = null;
 
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
   @SerializedName("Timeout")
   private Integer timeout = null;
 
@@ -83,8 +86,7 @@ public class CreateClawOmniInstanceRequest {
    * Get cpuMilli
    * @return cpuMilli
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getCpuMilli() {
     return cpuMilli;
   }
@@ -165,8 +167,7 @@ public class CreateClawOmniInstanceRequest {
    * Get image
    * @return image
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getImage() {
     return image;
   }
@@ -313,6 +314,24 @@ public class CreateClawOmniInstanceRequest {
     this.tags = tags;
   }
 
+  public CreateClawOmniInstanceRequest templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
   public CreateClawOmniInstanceRequest timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
@@ -354,12 +373,13 @@ public class CreateClawOmniInstanceRequest {
         Objects.equals(this.soul, createClawOmniInstanceRequest.soul) &&
         Objects.equals(this.spaceId, createClawOmniInstanceRequest.spaceId) &&
         Objects.equals(this.tags, createClawOmniInstanceRequest.tags) &&
+        Objects.equals(this.templateId, createClawOmniInstanceRequest.templateId) &&
         Objects.equals(this.timeout, createClawOmniInstanceRequest.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, description, envVars, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, timeout);
+    return Objects.hash(cpuMilli, description, envVars, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, templateId, timeout);
   }
 
 
@@ -380,6 +400,7 @@ public class CreateClawOmniInstanceRequest {
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("}");
     return sb.toString();

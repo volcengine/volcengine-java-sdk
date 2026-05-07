@@ -1,0 +1,5 @@
+{
+  "description": "I18N_OPENAPI: 新增 VideoEditorDeleteSpeaker, VideoEditorUpdateGlobalStyle, VideoEditorUpdateSpeaker, VideoEditorAddSubtitle, VideoEditorSyncSpeakerToSubTask, VideoEditorAddEmotionTag, VideoEditorAiMTBySegment, VideoEditorDeleteSubtitle, VideoEditorDownloadSubtitleFileUrl, VideoEditorQueryAIMTBySegmentResult, VideoEditorAddSpeaker, VideoEditorBatchAddSubtitle, VideoEditorBatchUpdateStyle, VideoEditorDeleteEmotionTag；修改 VideoEditorAddSpeaker, VideoEditorDeleteEmotionTag, VideoEditorUpdateSpeaker, VideoEditorListSubtitles, VideoEditorGetSpeakers, VideoEditorSaveSubtitle, VideoEditorAddEmotionTag, VideoEditorDeleteSpeaker, VideoEditorSyncSpeakerToSubTask, VideoEditorGetEmotionTags",
+  "modules": "service/i18n_openapi",
+  "type": "breaking-change"
+}

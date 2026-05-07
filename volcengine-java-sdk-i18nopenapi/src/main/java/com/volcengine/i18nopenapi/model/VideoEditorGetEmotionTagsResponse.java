@@ -19,12 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput;
-import com.volcengine.i18nopenapi.model.CustomEmotionTagForVideoEditorGetEmotionTagsOutput;
+import com.volcengine.i18nopenapi.model.DataForVideoEditorGetEmotionTagsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,64 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoEditorGetEmotionTagsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("builtInEmotionTags")
-  private List<BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput> builtInEmotionTags = null;
+  @SerializedName("data")
+  private DataForVideoEditorGetEmotionTagsOutput data = null;
 
-  @SerializedName("customEmotionTags")
-  private List<CustomEmotionTagForVideoEditorGetEmotionTagsOutput> customEmotionTags = null;
-
-  public VideoEditorGetEmotionTagsResponse builtInEmotionTags(List<BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput> builtInEmotionTags) {
-    this.builtInEmotionTags = builtInEmotionTags;
-    return this;
-  }
-
-  public VideoEditorGetEmotionTagsResponse addBuiltInEmotionTagsItem(BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput builtInEmotionTagsItem) {
-    if (this.builtInEmotionTags == null) {
-      this.builtInEmotionTags = new ArrayList<BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput>();
-    }
-    this.builtInEmotionTags.add(builtInEmotionTagsItem);
+  public VideoEditorGetEmotionTagsResponse data(DataForVideoEditorGetEmotionTagsOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get builtInEmotionTags
-   * @return builtInEmotionTags
+   * Get data
+   * @return data
   **/
   @Valid
   @Schema(description = "")
-  public List<BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput> getBuiltInEmotionTags() {
-    return builtInEmotionTags;
+  public DataForVideoEditorGetEmotionTagsOutput getData() {
+    return data;
   }
 
-  public void setBuiltInEmotionTags(List<BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput> builtInEmotionTags) {
-    this.builtInEmotionTags = builtInEmotionTags;
-  }
-
-  public VideoEditorGetEmotionTagsResponse customEmotionTags(List<CustomEmotionTagForVideoEditorGetEmotionTagsOutput> customEmotionTags) {
-    this.customEmotionTags = customEmotionTags;
-    return this;
-  }
-
-  public VideoEditorGetEmotionTagsResponse addCustomEmotionTagsItem(CustomEmotionTagForVideoEditorGetEmotionTagsOutput customEmotionTagsItem) {
-    if (this.customEmotionTags == null) {
-      this.customEmotionTags = new ArrayList<CustomEmotionTagForVideoEditorGetEmotionTagsOutput>();
-    }
-    this.customEmotionTags.add(customEmotionTagsItem);
-    return this;
-  }
-
-   /**
-   * Get customEmotionTags
-   * @return customEmotionTags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<CustomEmotionTagForVideoEditorGetEmotionTagsOutput> getCustomEmotionTags() {
-    return customEmotionTags;
-  }
-
-  public void setCustomEmotionTags(List<CustomEmotionTagForVideoEditorGetEmotionTagsOutput> customEmotionTags) {
-    this.customEmotionTags = customEmotionTags;
+  public void setData(DataForVideoEditorGetEmotionTagsOutput data) {
+    this.data = data;
   }
 
 
@@ -104,13 +63,12 @@ public class VideoEditorGetEmotionTagsResponse extends com.volcengine.model.Abst
       return false;
     }
     VideoEditorGetEmotionTagsResponse videoEditorGetEmotionTagsResponse = (VideoEditorGetEmotionTagsResponse) o;
-    return Objects.equals(this.builtInEmotionTags, videoEditorGetEmotionTagsResponse.builtInEmotionTags) &&
-        Objects.equals(this.customEmotionTags, videoEditorGetEmotionTagsResponse.customEmotionTags);
+    return Objects.equals(this.data, videoEditorGetEmotionTagsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(builtInEmotionTags, customEmotionTags);
+    return Objects.hash(data);
   }
 
 
@@ -119,8 +77,7 @@ public class VideoEditorGetEmotionTagsResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorGetEmotionTagsResponse {\n");
     
-    sb.append("    builtInEmotionTags: ").append(toIndentedString(builtInEmotionTags)).append("\n");
-    sb.append("    customEmotionTags: ").append(toIndentedString(customEmotionTags)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

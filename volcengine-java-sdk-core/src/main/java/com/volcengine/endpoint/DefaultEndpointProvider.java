@@ -730,6 +730,56 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- i18n_openapi ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("i18n_openapi", new ServiceEndpointInfo(
+                "i18n_openapi",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- arkclaw ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("arkclaw", new ServiceEndpointInfo(
+                "arkclaw",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- las ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("las", new ServiceEndpointInfo(
+                "las",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- insight ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("insight", new ServiceEndpointInfo(
+                "insight",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cloudmonitor ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cloudmonitor", new ServiceEndpointInfo(
+                "cloudmonitor",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        
+        // --------------------------- cbr ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cbr", new ServiceEndpointInfo(
+                "cbr",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

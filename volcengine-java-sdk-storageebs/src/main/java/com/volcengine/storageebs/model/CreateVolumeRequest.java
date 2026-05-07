@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateVolumeRequest {
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -89,6 +92,24 @@ public class CreateVolumeRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateVolumeRequest burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+  }
 
   public CreateVolumeRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -454,7 +475,8 @@ public class CreateVolumeRequest {
       return false;
     }
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
-    return Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
+    return Objects.equals(this.burstEnabled, createVolumeRequest.burstEnabled) &&
+        Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
         Objects.equals(this.deleteProtection, createVolumeRequest.deleteProtection) &&
         Objects.equals(this.deleteProtectionRetentionDays, createVolumeRequest.deleteProtectionRetentionDays) &&
         Objects.equals(this.description, createVolumeRequest.description) &&
@@ -477,7 +499,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deleteProtection, deleteProtectionRetentionDays, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, placementGroupId, projectName, size, snapshotId, subgroupNumber, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(burstEnabled, clientToken, deleteProtection, deleteProtectionRetentionDays, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, placementGroupId, projectName, size, snapshotId, subgroupNumber, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -486,6 +508,7 @@ public class CreateVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVolumeRequest {\n");
     
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");

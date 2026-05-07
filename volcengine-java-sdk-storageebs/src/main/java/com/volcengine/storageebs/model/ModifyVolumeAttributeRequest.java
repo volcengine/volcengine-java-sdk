@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ModifyVolumeAttributeRequest {
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("DeleteProtection")
   private Boolean deleteProtection = null;
 
@@ -47,6 +50,24 @@ public class ModifyVolumeAttributeRequest {
 
   @SerializedName("VolumeName")
   private String volumeName = null;
+
+  public ModifyVolumeAttributeRequest burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+  }
 
   public ModifyVolumeAttributeRequest deleteProtection(Boolean deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -168,7 +189,8 @@ public class ModifyVolumeAttributeRequest {
       return false;
     }
     ModifyVolumeAttributeRequest modifyVolumeAttributeRequest = (ModifyVolumeAttributeRequest) o;
-    return Objects.equals(this.deleteProtection, modifyVolumeAttributeRequest.deleteProtection) &&
+    return Objects.equals(this.burstEnabled, modifyVolumeAttributeRequest.burstEnabled) &&
+        Objects.equals(this.deleteProtection, modifyVolumeAttributeRequest.deleteProtection) &&
         Objects.equals(this.deleteProtectionRetentionDays, modifyVolumeAttributeRequest.deleteProtectionRetentionDays) &&
         Objects.equals(this.deleteWithInstance, modifyVolumeAttributeRequest.deleteWithInstance) &&
         Objects.equals(this.description, modifyVolumeAttributeRequest.description) &&
@@ -178,7 +200,7 @@ public class ModifyVolumeAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, volumeId, volumeName);
+    return Objects.hash(burstEnabled, deleteProtection, deleteProtectionRetentionDays, deleteWithInstance, description, volumeId, volumeName);
   }
 
 
@@ -187,6 +209,7 @@ public class ModifyVolumeAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVolumeAttributeRequest {\n");
     
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deleteProtectionRetentionDays: ").append(toIndentedString(deleteProtectionRetentionDays)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");

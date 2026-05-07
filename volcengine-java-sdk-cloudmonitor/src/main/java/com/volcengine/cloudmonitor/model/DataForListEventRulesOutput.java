@@ -77,7 +77,10 @@ public class DataForListEventRulesOutput {
   private String level = null;
 
   @SerializedName("MessageQueue")
-  private MessageQueueForListEventRulesOutput messageQueue = null;
+  private List<MessageQueueForListEventRulesOutput> messageQueue = null;
+
+  @SerializedName("NotificationId")
+  private String notificationId = null;
 
   @SerializedName("NotifyTemplates")
   private List<NotifyTemplateForListEventRulesOutput> notifyTemplates = null;
@@ -369,8 +372,16 @@ public class DataForListEventRulesOutput {
     this.level = level;
   }
 
-  public DataForListEventRulesOutput messageQueue(MessageQueueForListEventRulesOutput messageQueue) {
+  public DataForListEventRulesOutput messageQueue(List<MessageQueueForListEventRulesOutput> messageQueue) {
     this.messageQueue = messageQueue;
+    return this;
+  }
+
+  public DataForListEventRulesOutput addMessageQueueItem(MessageQueueForListEventRulesOutput messageQueueItem) {
+    if (this.messageQueue == null) {
+      this.messageQueue = new ArrayList<MessageQueueForListEventRulesOutput>();
+    }
+    this.messageQueue.add(messageQueueItem);
     return this;
   }
 
@@ -380,12 +391,30 @@ public class DataForListEventRulesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public MessageQueueForListEventRulesOutput getMessageQueue() {
+  public List<MessageQueueForListEventRulesOutput> getMessageQueue() {
     return messageQueue;
   }
 
-  public void setMessageQueue(MessageQueueForListEventRulesOutput messageQueue) {
+  public void setMessageQueue(List<MessageQueueForListEventRulesOutput> messageQueue) {
     this.messageQueue = messageQueue;
+  }
+
+  public DataForListEventRulesOutput notificationId(String notificationId) {
+    this.notificationId = notificationId;
+    return this;
+  }
+
+   /**
+   * Get notificationId
+   * @return notificationId
+  **/
+  @Schema(description = "")
+  public String getNotificationId() {
+    return notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
   }
 
   public DataForListEventRulesOutput notifyTemplates(List<NotifyTemplateForListEventRulesOutput> notifyTemplates) {
@@ -582,6 +611,7 @@ public class DataForListEventRulesOutput {
         Objects.equals(this.filterPattern, dataForListEventRulesOutput.filterPattern) &&
         Objects.equals(this.level, dataForListEventRulesOutput.level) &&
         Objects.equals(this.messageQueue, dataForListEventRulesOutput.messageQueue) &&
+        Objects.equals(this.notificationId, dataForListEventRulesOutput.notificationId) &&
         Objects.equals(this.notifyTemplates, dataForListEventRulesOutput.notifyTemplates) &&
         Objects.equals(this.region, dataForListEventRulesOutput.region) &&
         Objects.equals(this.ruleId, dataForListEventRulesOutput.ruleId) &&
@@ -594,7 +624,7 @@ public class DataForListEventRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, contactGroupIds, contactMethods, createdAt, description, effectEndAt, effectStartAt, enableState, endpoint, eventBusName, eventType, filterPattern, level, messageQueue, notifyTemplates, region, ruleId, ruleName, source, tlSTarget, updatedAt, webhookIds);
+    return Objects.hash(accountId, contactGroupIds, contactMethods, createdAt, description, effectEndAt, effectStartAt, enableState, endpoint, eventBusName, eventType, filterPattern, level, messageQueue, notificationId, notifyTemplates, region, ruleId, ruleName, source, tlSTarget, updatedAt, webhookIds);
   }
 
 
@@ -617,6 +647,7 @@ public class DataForListEventRulesOutput {
     sb.append("    filterPattern: ").append(toIndentedString(filterPattern)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    messageQueue: ").append(toIndentedString(messageQueue)).append("\n");
+    sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notifyTemplates: ").append(toIndentedString(notifyTemplates)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");

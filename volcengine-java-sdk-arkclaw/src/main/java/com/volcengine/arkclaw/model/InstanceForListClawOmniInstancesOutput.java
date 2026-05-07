@@ -85,6 +85,9 @@ public class InstanceForListClawOmniInstancesOutput {
   @SerializedName("Tags")
   private List<TagForListClawOmniInstancesOutput> tags = null;
 
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -404,6 +407,24 @@ public class InstanceForListClawOmniInstancesOutput {
     this.tags = tags;
   }
 
+  public InstanceForListClawOmniInstancesOutput templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
   public InstanceForListClawOmniInstancesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -449,12 +470,13 @@ public class InstanceForListClawOmniInstancesOutput {
         Objects.equals(this.spaceId, instanceForListClawOmniInstancesOutput.spaceId) &&
         Objects.equals(this.status, instanceForListClawOmniInstancesOutput.status) &&
         Objects.equals(this.tags, instanceForListClawOmniInstancesOutput.tags) &&
+        Objects.equals(this.templateId, instanceForListClawOmniInstancesOutput.templateId) &&
         Objects.equals(this.updatedAt, instanceForListClawOmniInstancesOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, updatedAt);
+    return Objects.hash(cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
   }
 
 
@@ -480,6 +502,7 @@ public class InstanceForListClawOmniInstancesOutput {
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
