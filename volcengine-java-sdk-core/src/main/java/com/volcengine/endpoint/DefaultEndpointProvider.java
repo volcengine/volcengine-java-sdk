@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- las ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("las", new ServiceEndpointInfo(
+                "las",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
         // --------------------------- insight ---------------------------
         DEFAULT_ENDPOINT_MAP.put("insight", new ServiceEndpointInfo(
                 "insight",
