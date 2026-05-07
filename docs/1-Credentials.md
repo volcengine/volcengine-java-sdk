@@ -2,7 +2,7 @@
 
 ---
 
-# Securely Configure Access Credentials
+# Credentials
 
 To prevent credential leakage, do not hardcode credentials in plaintext in your code. Volcengine provides multiple secure ways to load credentials, such as environment variables.
 
