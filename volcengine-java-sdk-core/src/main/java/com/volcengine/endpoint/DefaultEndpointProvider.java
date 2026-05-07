@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- cbr ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cbr", new ServiceEndpointInfo(
+                "cbr",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
