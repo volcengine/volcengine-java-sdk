@@ -382,6 +382,10 @@ public class SampleCode {
 
 ### ECS Role 凭证 Provider
 
+> 🚨 **当前版本限制**
+>
+> **当前版本暂不支持从 IMDS 自动探测角色名**，必须通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
+
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证。
 
 - RoleName 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动检测
