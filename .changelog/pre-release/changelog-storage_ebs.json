@@ -1,0 +1,5 @@
+{
+  "description": "STORAGE_EBS: 修改 ModifyVolumeAttribute, CreateVolume, DescribeVolumes",
+  "modules": "service/storage_ebs",
+  "type": "feature"
+}
