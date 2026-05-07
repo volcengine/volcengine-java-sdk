@@ -2,10 +2,11 @@
 
 ---
 
-# HTTP Connection Pool
+## HTTP Connection Pool
 
 > **Default**
-> - `maxIdleConns`: 5
+>
+> - `maxIdleConns`: `5`
 > - `keepAliveDurationMs`: `5 * 60 * 1000`
 
 The Java SDK uses `com.squareup.okhttp.ConnectionPool`. You can adjust the pool behavior via these two parameters.
@@ -26,11 +27,13 @@ public class SampleCode {
 }
 ```
 
-# HTTPS Request Configuration
+## HTTPS Request Configuration
 
-## Specify Scheme
+### Specify Scheme
 
-> **Default**: `disableSSL=false` (HTTPS)
+> **Default**
+>
+> - `disableSSL`: `false` (HTTPS)
 
 Set `disableSSL=true` to use HTTP.
 
@@ -49,9 +52,11 @@ public class SampleCode {
 }
 ```
 
-## Ignore SSL Verification
+### Ignore SSL Verification
 
-> **Default**: `verifyingSsl=true`
+> **Default**
+>
+> - `verifyingSsl`: `true`
 
 Set `verifyingSsl=false` to skip SSL verification.
 
@@ -70,11 +75,13 @@ public class SampleCode {
 }
 ```
 
-# HTTP(S) Proxy
+## HTTP(S) Proxy
 
-> **Default**: no proxy
+> **Default**
+>
+> No proxy.
 
-## Configure HTTP(S) Proxy
+### Configure HTTP(S) Proxy
 
 ```java
 import com.volcengine.ApiClient;
@@ -92,11 +99,12 @@ public class SampleCode {
 }
 ```
 
-## Notes
+### Notes
 
-Supported environment variables:
+The following environment variables are supported:
 
-- `http_proxy`/`HTTP_PROXY`, `https_proxy`/`HTTPS_PROXY`
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
 
 Priority: code > environment variables.
 

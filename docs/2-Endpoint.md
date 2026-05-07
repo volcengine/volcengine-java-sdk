@@ -2,11 +2,13 @@
 
 ---
 
-# Endpoint Configuration
+## Endpoint Configuration
 
-## Custom Endpoint
+> **Default**
+>
+> If `Endpoint` is not specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
 
-> - **Default**: if `endpoint` is not specified, the SDK uses [Automatic Endpoint Resolution](#automatic-endpoint-resolution).
+### Custom Endpoint
 
 ```java
 import com.volcengine.ApiClient;
@@ -23,7 +25,7 @@ public class SampleCode {
 }
 ```
 
-## Custom RegionId
+### Custom RegionId
 
 ```java
 import com.volcengine.ApiClient;
@@ -45,16 +47,28 @@ Volcengine provides a flexible endpoint resolution mechanism. The SDK automatica
 
 ### Default Endpoint Resolution
 
-1. Whether region is in the bootstrap list.
-   - Built-in list: `./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/DefaultEndpointProvider.java#BOOTSTRAP_REGION`.
-   - Only predefined regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions are auto-resolved; others fall back to `open.volcengineapi.com`.
-   - You can extend the list via env var `VOLC_BOOTSTRAP_REGION_LIST_CONF` or `customBootstrapRegion`.
-2. DualStack support (IPv6)
-   - Enable via `setUseDualStack(true)` or env var `VOLC_ENABLE_DUALSTACK=true`.
-   - When enabled, the suffix changes from `volcengineapi.com` to `volcengine-api.com`.
-3. Construct endpoint:
-   - Global services: `<service>.volcengineapi.com`.
-   - Regional services: `<service>.<region>.volcengineapi.com`.
+#### Resolution Logic
+
+1. **Whether the region is in the bootstrap list**
+
+    Built-in list: [`./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/DefaultEndpointProvider.java#BOOTSTRAP_REGION`](./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/DefaultEndpointProvider.java#L25).
+
+    Only predefined regions (e.g., `cn-beijing-autodriving`, `ap-southeast-2`) or user-configured regions are auto-resolved; others fall back to `open.volcengineapi.com`.
+
+    You can extend the list via env var `VOLC_BOOTSTRAP_REGION_LIST_CONF` or `customBootstrapRegion`.
+
+2. **DualStack support (IPv6)**
+
+    Enable via `setUseDualStack(true)` or env var `VOLC_ENABLE_DUALSTACK=true`. Priority: `useDualStack` > `VOLC_ENABLE_DUALSTACK`.
+
+    When enabled, the suffix changes from `volcengineapi.com` to `volcengine-api.com`.
+
+3. **Construct endpoint based on service name and region**
+
+    - **Global services (e.g., `CDN`, `IAM`)**: `<service>.volcengineapi.com` (or `volcengine-api.com` when DualStack is enabled). Example: `cdn.volcengineapi.com`.
+    - **Regional services (e.g., `ECS`, `RDS`)**: `<service>.<region>.volcengineapi.com` is used as the default endpoint. Example: `ecs.cn-beijing.volcengineapi.com`.
+
+#### Code Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -78,6 +92,8 @@ public class SampleCode {
 
 ### Standard Endpoint Resolution
 
+#### Resolution Rules
+
 | Global service | DualStack | Format |
 |---|---|---|
 | Yes | Yes | `{Service}.volcengine-api.com` |
@@ -85,7 +101,9 @@ public class SampleCode {
 | No  | Yes | `{Service}.{region}.volcengine-api.com` |
 | No  | No  | `{Service}.{region}.volcengineapi.com` |
 
-Whether a service is global depends on the service itself and cannot be changed. See: `./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#SERVICE_INFOS`.
+Whether a service is global depends on the service itself and cannot be changed. See: [`./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#SERVICE_INFOS`](./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#L142).
+
+#### Code Example
 
 ```java
 import com.volcengine.ApiClient;

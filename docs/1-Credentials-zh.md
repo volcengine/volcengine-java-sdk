@@ -2,7 +2,7 @@
 
 ---
 
-# 访问凭据
+## 访问凭据
 
 为了防止访问凭据泄露，建议不要在代码中以明文形式硬编码访问凭据。火山引擎提供了多种安全的凭据加载方式，比如将凭据存储到环境变量中。
 
@@ -12,38 +12,35 @@
 
 > ⚠️ **注意事项**
 >
-> **使用export命令配置的临时环境变量仅当前会话有效，当会话退出之后所设置的环境变量将会丢失。若需长期保留环境变量，可将export命令配置到对应操作系统的启动配置文件中**。
+> 使用 `export` 命令配置的临时环境变量仅当前会话有效，会话退出之后所设置的环境变量将会丢失。若需长期保留环境变量，可将 `export` 命令配置到对应操作系统的启动配置文件中。
 
+| Key | 命令 |
+|---|---|
+| `VOLCENGINE_ACCESS_KEY` | `export VOLCENGINE_ACCESS_KEY=yourAccessKeyID` |
+| `VOLCENGINE_SECRET_KEY` | `export VOLCENGINE_SECRET_KEY=yourSecretAccessKey` |
+| `VOLCENGINE_SESSION_TOKEN` | `export VOLCENGINE_SESSION_TOKEN=yourSessionToken` |
 
-| Key                     | 命令                                                   |
-|-------------------------| ------------------------------------------------------ |
-| VOLCENGINE_ACCESS_KEY   | export VOLCENGINE_ACCESS_KEY=yourAccessKeyID         |
-| VOLCENGINE_SECRET_KEY   | export VOLCENGINE_SECRET_KEY=yourSecretAccessKey |
-| VOLCENGINE_SESSION_TOKEN | export VOLCENGINE_SESSION_TOKEN=yourSessionToken       |
-
-**验证是否设置成功：** 执行echo $VOLCENGINE_ACCESS_KEY命令，如果返回正确的AccessKey ID，则说明配置成功。
+**验证是否设置成功**：执行 `echo $VOLCENGINE_ACCESS_KEY` 命令，如果返回正确的 AccessKey ID，则说明配置成功。
 
 ### Windows 设置
 
 下面提供了**图形化界面设置**和**命令行设置**两种方式。
-**验证是否设置成功：**
-单击**开始**（或快捷键：**Win+R**）> **运行**（输入 cmd）> **确定**（或按 Enter 键），打开命令提示符，执行echo %VOLCENGINE_ACCESS_KEY%、echo %VOLCENGINE_SECRET_KEY%、echo %VOLCENGINE_SESSION_TOKEN%命令。若返回正确的值，则说明配置成功。
+
+**验证是否设置成功**：单击 **开始**（或快捷键 **Win+R**）> **运行**（输入 `cmd`）> **确定**（或按 Enter 键），打开命令提示符，执行 `echo %VOLCENGINE_ACCESS_KEY%`、`echo %VOLCENGINE_SECRET_KEY%`、`echo %VOLCENGINE_SESSION_TOKEN%` 命令。若返回正确的值，则说明配置成功。
 
 #### 图形化界面设置
 
-以下为Windows 10中通过图形用户界面设置环境变量的步骤。
-在桌面右键单击**此电脑**，选择**属性>高级系统设置>环境变量>系统变量/用户变量>新建**，完成以下配置：
+以下为 Windows 10 中通过图形用户界面设置环境变量的步骤。在桌面右键单击 **此电脑**，选择 **属性 > 高级系统设置 > 环境变量 > 系统变量/用户变量 > 新建**，完成以下配置：
 
-
-| 变量             | 示例                                                  |
-| ---------------- | ----------------------------------------------------- |
-| AccessKey Id     | 变量名：VOLCENGINE_ACCESS_KEY<br />变量值：*****     |
-| AccessKey Secret | 变量名：VOLCENGINE_SECRET_KEY<br />变量值：***** |
-| Session Token    | 变量名：VOLCENGINE_SESSION_TOKEN<br />变量值：*****     |
+| 变量 | 示例 |
+|---|---|
+| AccessKey Id | 变量名：`VOLCENGINE_ACCESS_KEY`<br/>变量值：`*****` |
+| AccessKey Secret | 变量名：`VOLCENGINE_SECRET_KEY`<br/>变量值：`*****` |
+| Session Token | 变量名：`VOLCENGINE_SESSION_TOKEN`<br/>变量值：`*****` |
 
 #### 命令行设置
 
-以管理员身份打开命令提示符，并使用以下命令在系统中新增环境变量。
+以管理员身份打开命令提示符，并使用以下命令在系统中新增环境变量：
 
 ```
 setx VOLCENGINE_ACCESS_KEY yourAccessKeyID /M
@@ -51,28 +48,22 @@ setx VOLCENGINE_SECRET_KEY yourAccessKeySecret /M
 setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 ```
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 其中/M表示系统级环境变量，设置用户级环境变量时可以不携带该参数。
-
-# 访问凭据
-
-火山引擎 Java SDK 支持显式凭证和 `CredentialProvider` 自动解析两种方式。
-
-环境变量设置可以参考这里:[**环境变量设置**](#环境变量设置)
+> 其中 `/M` 表示系统级环境变量，设置用户级环境变量时可以不携带该参数。
 
 ## CredentialProvider 总览
 
-| Provider | 用途                                 | 是否自动刷新 | 典型场景 |
-|---|------------------------------------|---|---|
-| `StaticCredentialProvider` | 静态 AK/SK(/Token)                   | 否 | 服务端长期凭证 |
-| `StsAssumeRoleProvider` | STS AssumeRole                     | 是 | 角色扮演临时凭证 |
-| `OidcCredentialProvider` | STS AssumeRoleWithOIDC             | 是 | OIDC 联邦身份 |
-| `SamlCredentialProvider` | STS AssumeRoleWithSAML             | 是 | SAML 联邦身份 |
-| `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token)              | 否 | CI/CD、容器注入 |
+| Provider | 用途 | 是否自动刷新 | 典型场景 |
+|---|---|---|---|
+| `StaticCredentialProvider` | 静态 AK/SK(/Token) | 否 | 服务端长期凭证 |
+| `StsAssumeRoleProvider` | STS AssumeRole | 是 | 角色扮演临时凭证 |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
+| `EnvironmentVariableCredentialProvider` | 从环境变量读取 AK/SK(/Token) | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 读取 `$HOME/.volcengine/config.json` | 取决于 mode | 复用 CLI 配置和登录态 |
-| `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证                    | 是 | ECS 实例角色 |
-| `DefaultCredentialProvider` | 默认凭证链包装                            | 取决于代理 Provider | 业务代码不写 AK/SK |
+| `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证 | 是 | ECS 实例角色 |
+| `DefaultCredentialProvider` | 默认凭证链包装 | 取决于代理 Provider | 业务代码不写 AK/SK |
 
 ## 已支持的 VOLCENGINE 环境变量
 
@@ -93,11 +84,13 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
   - `VOLCENGINE_ECS_METADATA`
   - `VOLCENGINE_ECS_METADATA_DISABLED`
 
-## AK、SK设置
+完整说明详见 [环境变量](EnvironmentVariables-zh.md)。
+
+## AK/SK 设置
 
 AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SDK 使用该密钥对每次请求进行签名，从而完成身份验证。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 不得在客户端嵌入或暴露 AK/SK。
 > 2. 推荐使用配置中心或环境变量存储密钥。
@@ -125,14 +118,14 @@ public class SampleCode {
 }
 ```
 
-## STS Token设置
+## STS Token 设置
 
 STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
-> 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 `*` 通配符授予全资源、全操作权限。
+> 2. 设置合理的有效期：请根据实际情况设置合理有效期，越短越安全，建议不要超过 1 小时。
 
 ```java
 import com.volcengine.ApiClient;
@@ -155,7 +148,6 @@ public class SampleCode {
             .setRegion(region);
     }
 }
-
 ```
 
 ## StaticCredentialProvider
@@ -186,13 +178,13 @@ public class SampleCode {
 
 ## AssumeRole
 
-动态访问凭证信息，支持动态刷新，在STS临时Token过期前60S会进行自动的刷新，避免临界时间点Token过期
+动态访问凭证信息，支持动态刷新；在 STS 临时 Token 过期前 60s 会进行自动刷新，避免临界时间点 Token 过期。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
-> 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，最长不能超过12小时。
-> 3. 细粒度角色: 角色应绑定精细的访问控制策略，仅允许访问特定服务、资源、操作，防止角色滥用。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 `*` 通配符授予全资源、全操作权限。
+> 2. 设置合理的有效期：请根据实际情况设置合理有效期，越短越安全，最长不能超过 12 小时。
+> 3. 细粒度角色：角色应绑定精细的访问控制策略，仅允许访问特定服务、资源、操作，防止角色滥用。
 
 ```java
 import com.volcengine.auth.CredentialProvider;
@@ -229,7 +221,7 @@ public class SampleCode {
 
 参考文档：https://www.volcengine.com/docs/6257/1494877
 
-显式参数示例：
+### 显式参数示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -262,7 +254,7 @@ public class SampleCode {
 }
 ```
 
-环境变量示例：
+### 环境变量示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -288,7 +280,7 @@ public class SampleCode {
 
 `SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 最小权限原则。
 > 2. 合理的有效期；建议不超过 1 小时。
@@ -361,9 +353,7 @@ public class SampleCode {
 - `StsToken`
 - `RamRoleArn`（委托给 `StsAssumeRoleProvider`）
   - 必填：`access-key`、`secret-key`、`role-name`、`account-id`
-  - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证
-    （比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的
-    `X-Security-Token` header。
+  - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证（比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的 `X-Security-Token` header。
 - `OIDC`（委托给 `OidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
 - `SSO`

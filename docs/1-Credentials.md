@@ -2,7 +2,7 @@
 
 ---
 
-# Credentials
+## Credentials
 
 To prevent credential leakage, do not hardcode credentials in plaintext in your code. Volcengine provides multiple secure ways to load credentials, such as environment variables.
 
@@ -30,13 +30,13 @@ Two options are provided: **GUI setup** and **command line setup**.
 
 #### GUI Setup
 
-On Windows 10, right-click **This PC** -> **Properties** -> **Advanced system settings** -> **Environment Variables** -> **System variables/User variables** -> **New**, then set:
+On Windows 10, right-click **This PC** → **Properties** → **Advanced system settings** → **Environment Variables** → **System variables / User variables** → **New**, then set:
 
 | Variable | Example |
 |---|---|
-| AccessKey Id | Name: `VOLCENGINE_ACCESS_KEY` <br/> Value: `*****` |
-| AccessKey Secret | Name: `VOLCENGINE_SECRET_KEY` <br/> Value: `*****` |
-| Session Token | Name: `VOLCENGINE_SESSION_TOKEN` <br/> Value: `*****` |
+| AccessKey Id | Name: `VOLCENGINE_ACCESS_KEY`<br/>Value: `*****` |
+| AccessKey Secret | Name: `VOLCENGINE_SECRET_KEY`<br/>Value: `*****` |
+| Session Token | Name: `VOLCENGINE_SESSION_TOKEN`<br/>Value: `*****` |
 
 #### Command Line Setup
 
@@ -48,28 +48,22 @@ setx VOLCENGINE_SECRET_KEY yourAccessKeySecret /M
 setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 ```
 
-> ⚠️ Note
+> ⚠️ **Note**
 >
 > `/M` means system-level variables. You may omit it for user-level variables.
 
-# Credentials
-
-Volcengine Java SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
-
-You can refer to: [Environment Variable Setup](#environment-variable-setup)
-
 ## Credential Providers Overview
 
-| Provider | Purpose                                   | Auto Refresh | Typical Scenario |
-|---|-------------------------------------------|---|---|
-| `StaticCredentialProvider` | Static AK/SK(/Token)                      | No | Long-lived server credentials |
-| `StsAssumeRoleProvider` | STS AssumeRole                            | Yes | IAM role-based temporary credentials |
-| `OidcCredentialProvider` | STS AssumeRoleWithOIDC                    | Yes | OIDC federation |
-| `SamlCredentialProvider` | STS AssumeRoleWithSAML                    | Yes | SAML federation |
-| `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env               | No | CI/CD and container env injection |
+| Provider | Purpose | Auto Refresh | Typical Scenario |
+|---|---|---|---|
+| `StaticCredentialProvider` | Static AK/SK(/Token) | No | Long-lived server credentials |
+| `StsAssumeRoleProvider` | STS AssumeRole | Yes | IAM role-based temporary credentials |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
+| `EnvironmentVariableCredentialProvider` | Read AK/SK(/Token) from env | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `$HOME/.volcengine/config.json` | Depends on mode | Reuse CLI profile and login state |
-| `EcsRoleCredentialProvider` | Read from ECS IMDS                        | Yes | ECS instance role credentials |
-| `DefaultCredentialProvider` | Default chain wrapper                     | Depends on delegated provider | No AK/SK in application code |
+| `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
+| `DefaultCredentialProvider` | Default chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
 ## Supported VOLCENGINE Environment Variables
 
@@ -90,11 +84,13 @@ You can refer to: [Environment Variable Setup](#environment-variable-setup)
   - `VOLCENGINE_ECS_METADATA`
   - `VOLCENGINE_ECS_METADATA_DISABLED`
 
+For full details, see [Environment Variables](EnvironmentVariables.md).
+
 ## AK/SK
 
 AK/SK is a pair of permanent access keys created in the Volcengine console. The SDK signs each request to authenticate.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Do not embed or expose AK/SK in client-side applications.
 > 2. Use a configuration center or environment variables.
@@ -126,7 +122,7 @@ public class SampleCode {
 
 STS (Security Token Service) provides temporary credentials (temporary AK/SK and Token).
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Use a reasonable TTL. Shorter is safer; avoid exceeding 1 hour.
@@ -182,7 +178,7 @@ public class SampleCode {
 
 AssumeRole supports dynamic credentials with auto refresh.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Choose a reasonable TTL; maximum is 12 hours.
@@ -222,7 +218,7 @@ public class SampleCode {
 
 Reference: https://www.volcengine.com/docs/6257/1494877
 
-Explicit parameter example:
+### Explicit Parameter Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -255,7 +251,7 @@ public class SampleCode {
 }
 ```
 
-Environment-variable example:
+### Environment-variable Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -281,7 +277,7 @@ public class SampleCode {
 
 `SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Reasonable TTL; recommended ≤ 1 hour.
@@ -354,9 +350,7 @@ Supported profile `mode`:
 - `StsToken`
 - `RamRoleArn` (delegates to `StsAssumeRoleProvider`)
   - Required: `access-key`, `secret-key`, `role-name`, `account-id`
-  - Optional: `session-token` — when the source `access-key` / `secret-key` are
-    themselves STS temporaries (e.g. issued by SSO/OIDC), this token is forwarded
-    to the chained AssumeRole call as `X-Security-Token`.
+  - Optional: `session-token` — when the source `access-key` / `secret-key` are themselves STS temporaries (e.g. issued by SSO/OIDC), this token is forwarded to the chained AssumeRole call as `X-Security-Token`.
 - `OIDC` (delegates to `OidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
 - `SSO`

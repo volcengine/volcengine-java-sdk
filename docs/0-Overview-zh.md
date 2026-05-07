@@ -2,16 +2,16 @@
 
 ---
 
-# 集成SDK
+## 集成 SDK
 
 在调用接口时，推荐在项目中集成 SDK 的方式进行接入。通过使用 SDK，不仅可以简化开发流程、加快功能集成速度，还能有效降低后期的维护成本。火山引擎 SDK 的集成主要包括以下三个步骤：引入 SDK、配置访问凭证，以及编写接口调用代码。
 
-# 环境要求
+## 环境要求
 
-- 运行 SDK需要jdk **Java 1.8.0_131+**. 你可以下载最新的版本： http://developers.sun.com/downloads/.
-- 如果 SDK版本 高于或者等于 **Java 9** 请依赖javax.annotation-api由于在高于或者等于 **Java 9** 中 javax.annotation-api 被移除
+- 运行 SDK 需要 JDK **Java 1.8.0_131+**。可以下载最新版本：http://developers.sun.com/downloads/。
+- 如果 Java 版本 ≥ **Java 9**，请额外引入 `javax.annotation-api` 依赖（该模块在 JDK 9+ 中已被移除）。
 
-# 目录
+## 目录
 
 1. [访问凭据](1-Credentials-zh.md) — AK/SK、STS、AssumeRole、OIDC、SAML、ECS 角色、默认凭证链
 2. [Endpoint 配置](2-Endpoint-zh.md) — 自定义 Endpoint、RegionId、自动化寻址
@@ -23,4 +23,4 @@
 
 ---
 
-中文 | [English](0-Overview.md)
+概览[(English)](0-Overview.md) | [访问凭据 →](1-Credentials-zh.md)

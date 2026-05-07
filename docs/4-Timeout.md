@@ -2,11 +2,12 @@
 
 ---
 
-# Timeouts
+## Timeouts
 
-## Global Timeouts (Client Level)
+### Global Timeouts (Client Level)
 
 > **Default (milliseconds)**
+>
 > - `connectTimeout`: `10 * 1000`
 > - `writeTimeout`: `10 * 1000`
 > - `readTimeout`: `10 * 1000`

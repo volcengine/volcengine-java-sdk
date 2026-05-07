@@ -2,13 +2,14 @@
 
 ---
 
-# Http连接池配置
+## HTTP 连接池配置
 
 > **默认**
-> * `maxIdleConns` - `5`
-> * `keepAliveDurationMs` - `5 * 60 * 1000`
+>
+> - `maxIdleConns` - `5`
+> - `keepAliveDurationMs` - `5 * 60 * 1000`
 
-Java SDK连接池用的是`com.squareup.okhttp.ConnectionPool`，可以通过设置`maxIdleConns`和`keepAliveDurationMs`来控制连接池的行为。
+Java SDK 连接池用的是 `com.squareup.okhttp.ConnectionPool`，可以通过设置 `maxIdleConns` 和 `keepAliveDurationMs` 来控制连接池的行为。
 
 ```java
 import com.volcengine.ApiClient;
@@ -26,14 +27,15 @@ public class SampleCode {
 }
 ```
 
-# Https请求配置
+## HTTPS 请求配置
 
-## 指定scheme
+### 指定 scheme
 
 > **默认**
-> * `disableSSL` - `false`(表示https)
+>
+> - `disableSSL` - `false`（表示 HTTPS）
 
-Java SDK默认使用https请求，如需使用http请求，可通过设置`disableSSL`为`true`来实现。
+Java SDK 默认使用 HTTPS 请求，如需使用 HTTP 请求，可通过设置 `disableSSL` 为 `true` 来实现。
 
 ```java
 import com.volcengine.ApiClient;
@@ -50,12 +52,13 @@ public class SampleCode {
 }
 ```
 
-## 忽略SSL验证
+### 忽略 SSL 验证
 
 > **默认**
-> * `verifyingSsl` - `true` (表示启用SSL验证)
+>
+> - `verifyingSsl` - `true`（表示启用 SSL 验证）
 
-Java SDK默认启用SSL验证，如需忽略SSL验证，可通过设置`verifyingSsl`为`false`来实现。
+Java SDK 默认启用 SSL 验证，如需忽略 SSL 验证，可通过设置 `verifyingSsl` 为 `false` 来实现。
 
 ```java
 import com.volcengine.ApiClient;
@@ -72,12 +75,13 @@ public class SampleCode {
 }
 ```
 
-# Http(s)代理配置
+## HTTP(S) 代理配置
 
 > **默认**
-> * 无代理
+>
+> 无代理。
 
-## 配置Http(s)代理
+### 配置 HTTP(S) 代理
 
 ```java
 import com.volcengine.ApiClient;
@@ -95,13 +99,14 @@ public class SampleCode {
 }
 ```
 
-## 注意事项
+### 注意事项
 
-支持通过以下环境变量配置代理:
+支持通过以下环境变量配置代理：
 
-http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY
+- `http_proxy` / `HTTP_PROXY`
+- `https_proxy` / `HTTPS_PROXY`
 
-优先级：代码指定 > 环境变量
+优先级：代码指定 > 环境变量。
 
 ---
 

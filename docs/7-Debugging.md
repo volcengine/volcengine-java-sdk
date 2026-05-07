@@ -2,13 +2,19 @@
 
 ---
 
-# Debugging
+## Debugging
+
+To help with troubleshooting and debugging when handling requests, the SDK supports logging with multiple levels. Configure your logging settings based on your needs to get detailed request/response information and improve observability.
 
 ## Enable Debug Mode
 
-> **Default**: `debug=false`
+> **Default**
+>
+> - `debug`: `false`
 
-Java SDK logging uses SLF4J. Configure your own logging settings. Example:
+The Java SDK uses SLF4J for logging. Configure your own logging settings based on your needs.
+
+**Example:**
 
 ```xml
 <!-- enable debug logs -->

@@ -2,7 +2,7 @@
 
 ---
 
-# Environment Variables
+## Environment Variables
 
 This page consolidates all credential-related environment variables supported by the SDK, for easy deployment / CI injection. Other categories (Region, TLS, etc.) can be appended here as new sections later.
 
