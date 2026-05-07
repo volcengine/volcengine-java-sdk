@@ -337,5 +337,6 @@
         <module>volcengine-java-sdk-clawsentry</module>
         <module>volcengine-java-sdk-dataleap20260301</module>
         <module>volcengine-java-sdk-arkclaw</module>
+        <module>volcengine-java-sdk-las20240430</module>
     </modules>
 </project>
