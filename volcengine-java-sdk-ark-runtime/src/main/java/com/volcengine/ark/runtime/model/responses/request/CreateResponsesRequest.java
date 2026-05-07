@@ -3,6 +3,7 @@ package com.volcengine.ark.runtime.model.responses.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesCaching;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
+import com.volcengine.ark.runtime.model.responses.common.Session;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesText;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.tool.ResponsesTool;
@@ -70,6 +71,9 @@ public class CreateResponsesRequest {
 
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
+
+    @JsonProperty("session")
+    private Session session;
 
     @JsonProperty("prompt_cache_key")
     private String promptCacheKey;
@@ -237,6 +241,14 @@ public class CreateResponsesRequest {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
     public String getPromptCacheKey() {
         return promptCacheKey;
     }
@@ -276,6 +288,7 @@ public class CreateResponsesRequest {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", session=" + session +
                 ", promptCacheKey='" + promptCacheKey + '\'' +
                 ", safetyIdentifier='" + safetyIdentifier + '\'' +
                 '}';
@@ -306,6 +319,7 @@ public class CreateResponsesRequest {
         private ResponsesToolChoice toolChoice;
         private Boolean parallelToolCalls;
         private Long maxToolCalls;
+        private Session session;
         private String promptCacheKey;
         private String safetyIdentifier;
 
@@ -409,6 +423,11 @@ public class CreateResponsesRequest {
             return this;
         }
 
+        public Builder session(Session session) {
+            this.session = session;
+            return this;
+        }
+
         public Builder promptCacheKey(String promptCacheKey) {
             this.promptCacheKey = promptCacheKey;
             return this;
@@ -441,6 +460,7 @@ public class CreateResponsesRequest {
             responsesRequest.setToolChoice(toolChoice);
             responsesRequest.setParallelToolCalls(parallelToolCalls);
             responsesRequest.setMaxToolCalls(maxToolCalls);
+            responsesRequest.setSession(session);
             responsesRequest.setPromptCacheKey(promptCacheKey);
             responsesRequest.setSafetyIdentifier(safetyIdentifier);
             return responsesRequest;

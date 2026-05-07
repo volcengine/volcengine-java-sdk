@@ -23,6 +23,8 @@ If your Java version is **Java 9 or later**, add `javax.annotation-api` because 
 </dependency>
 ```
 
+For detailed SDK documentation (credentials, endpoint, transport, timeout, retry, error handling, debugging), see: [SDK Integration Guide](./docs/0-Overview.md)
+
 ### Usage
 
 * Getting Started
@@ -158,4 +160,3 @@ public class TestVpc {
 }
 ```
 
-For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
