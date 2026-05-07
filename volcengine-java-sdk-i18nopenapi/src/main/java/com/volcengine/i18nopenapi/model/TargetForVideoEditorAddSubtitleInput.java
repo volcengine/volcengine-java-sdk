@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * TargetForVideoEditorAddSubtitleInput
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class TargetForVideoEditorAddSubtitleInput {
+  @SerializedName("style")
+  private String style = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  @SerializedName("text")
+  private String text = null;
+
+  public TargetForVideoEditorAddSubtitleInput style(String style) {
+    this.style = style;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get style
+   * @return style
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Schema(description = "")
+  public String getStyle() {
+    return style;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setStyle(String style) {
+    this.style = style;
+  }
+
+  public TargetForVideoEditorAddSubtitleInput text(String text) {
+    this.text = text;
+    return this;
+  }
+
+   /**
+   * Get text
+   * @return text
+  **/
+  @Schema(description = "")
+  public String getText() {
+    return text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -61,22 +81,24 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    TargetForVideoEditorAddSubtitleInput targetForVideoEditorAddSubtitleInput = (TargetForVideoEditorAddSubtitleInput) o;
+    return Objects.equals(this.style, targetForVideoEditorAddSubtitleInput.style) &&
+        Objects.equals(this.text, targetForVideoEditorAddSubtitleInput.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(style, text);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class TargetForVideoEditorAddSubtitleInput {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

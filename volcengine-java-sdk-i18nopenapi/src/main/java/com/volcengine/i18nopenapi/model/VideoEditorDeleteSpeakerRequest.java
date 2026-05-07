@@ -31,15 +31,15 @@ import javax.validation.Valid;
 
 public class VideoEditorDeleteSpeakerRequest {
   @SerializedName("id")
-  private Integer id = null;
+  private String id = null;
 
   @SerializedName("subtaskId")
-  private Integer subtaskId = null;
+  private String subtaskId = null;
 
   @SerializedName("type")
   private Integer type = null;
 
-  public VideoEditorDeleteSpeakerRequest id(Integer id) {
+  public VideoEditorDeleteSpeakerRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -50,15 +50,15 @@ public class VideoEditorDeleteSpeakerRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public VideoEditorDeleteSpeakerRequest subtaskId(Integer subtaskId) {
+  public VideoEditorDeleteSpeakerRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -69,11 +69,11 @@ public class VideoEditorDeleteSpeakerRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubtaskId() {
+  public String getSubtaskId() {
     return subtaskId;
   }
 
-  public void setSubtaskId(Integer subtaskId) {
+  public void setSubtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
   }
 
@@ -86,7 +86,8 @@ public class VideoEditorDeleteSpeakerRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getType() {
     return type;
   }

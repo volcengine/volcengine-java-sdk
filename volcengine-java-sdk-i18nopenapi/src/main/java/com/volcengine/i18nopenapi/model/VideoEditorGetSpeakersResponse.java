@@ -19,12 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.SubTaskSpeakerForVideoEditorGetSpeakersOutput;
-import com.volcengine.i18nopenapi.model.TaskSpeakerForVideoEditorGetSpeakersOutput;
+import com.volcengine.i18nopenapi.model.DataForVideoEditorGetSpeakersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,64 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoEditorGetSpeakersResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("subTaskSpeakers")
-  private List<SubTaskSpeakerForVideoEditorGetSpeakersOutput> subTaskSpeakers = null;
+  @SerializedName("data")
+  private DataForVideoEditorGetSpeakersOutput data = null;
 
-  @SerializedName("taskSpeakers")
-  private List<TaskSpeakerForVideoEditorGetSpeakersOutput> taskSpeakers = null;
-
-  public VideoEditorGetSpeakersResponse subTaskSpeakers(List<SubTaskSpeakerForVideoEditorGetSpeakersOutput> subTaskSpeakers) {
-    this.subTaskSpeakers = subTaskSpeakers;
-    return this;
-  }
-
-  public VideoEditorGetSpeakersResponse addSubTaskSpeakersItem(SubTaskSpeakerForVideoEditorGetSpeakersOutput subTaskSpeakersItem) {
-    if (this.subTaskSpeakers == null) {
-      this.subTaskSpeakers = new ArrayList<SubTaskSpeakerForVideoEditorGetSpeakersOutput>();
-    }
-    this.subTaskSpeakers.add(subTaskSpeakersItem);
+  public VideoEditorGetSpeakersResponse data(DataForVideoEditorGetSpeakersOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get subTaskSpeakers
-   * @return subTaskSpeakers
+   * Get data
+   * @return data
   **/
   @Valid
   @Schema(description = "")
-  public List<SubTaskSpeakerForVideoEditorGetSpeakersOutput> getSubTaskSpeakers() {
-    return subTaskSpeakers;
+  public DataForVideoEditorGetSpeakersOutput getData() {
+    return data;
   }
 
-  public void setSubTaskSpeakers(List<SubTaskSpeakerForVideoEditorGetSpeakersOutput> subTaskSpeakers) {
-    this.subTaskSpeakers = subTaskSpeakers;
-  }
-
-  public VideoEditorGetSpeakersResponse taskSpeakers(List<TaskSpeakerForVideoEditorGetSpeakersOutput> taskSpeakers) {
-    this.taskSpeakers = taskSpeakers;
-    return this;
-  }
-
-  public VideoEditorGetSpeakersResponse addTaskSpeakersItem(TaskSpeakerForVideoEditorGetSpeakersOutput taskSpeakersItem) {
-    if (this.taskSpeakers == null) {
-      this.taskSpeakers = new ArrayList<TaskSpeakerForVideoEditorGetSpeakersOutput>();
-    }
-    this.taskSpeakers.add(taskSpeakersItem);
-    return this;
-  }
-
-   /**
-   * Get taskSpeakers
-   * @return taskSpeakers
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TaskSpeakerForVideoEditorGetSpeakersOutput> getTaskSpeakers() {
-    return taskSpeakers;
-  }
-
-  public void setTaskSpeakers(List<TaskSpeakerForVideoEditorGetSpeakersOutput> taskSpeakers) {
-    this.taskSpeakers = taskSpeakers;
+  public void setData(DataForVideoEditorGetSpeakersOutput data) {
+    this.data = data;
   }
 
 
@@ -104,13 +63,12 @@ public class VideoEditorGetSpeakersResponse extends com.volcengine.model.Abstrac
       return false;
     }
     VideoEditorGetSpeakersResponse videoEditorGetSpeakersResponse = (VideoEditorGetSpeakersResponse) o;
-    return Objects.equals(this.subTaskSpeakers, videoEditorGetSpeakersResponse.subTaskSpeakers) &&
-        Objects.equals(this.taskSpeakers, videoEditorGetSpeakersResponse.taskSpeakers);
+    return Objects.equals(this.data, videoEditorGetSpeakersResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subTaskSpeakers, taskSpeakers);
+    return Objects.hash(data);
   }
 
 
@@ -119,8 +77,7 @@ public class VideoEditorGetSpeakersResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorGetSpeakersResponse {\n");
     
-    sb.append("    subTaskSpeakers: ").append(toIndentedString(subTaskSpeakers)).append("\n");
-    sb.append("    taskSpeakers: ").append(toIndentedString(taskSpeakers)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

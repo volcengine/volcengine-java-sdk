@@ -37,7 +37,7 @@ public class VideoEditorAddEmotionTagRequest {
   private String name = null;
 
   @SerializedName("subtaskId")
-  private Integer subtaskId = null;
+  private String subtaskId = null;
 
   public VideoEditorAddEmotionTagRequest emotionTag(String emotionTag) {
     this.emotionTag = emotionTag;
@@ -77,7 +77,7 @@ public class VideoEditorAddEmotionTagRequest {
     this.name = name;
   }
 
-  public VideoEditorAddEmotionTagRequest subtaskId(Integer subtaskId) {
+  public VideoEditorAddEmotionTagRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -88,11 +88,11 @@ public class VideoEditorAddEmotionTagRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubtaskId() {
+  public String getSubtaskId() {
     return subtaskId;
   }
 
-  public void setSubtaskId(Integer subtaskId) {
+  public void setSubtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
   }
 

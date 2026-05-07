@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.ResultForVideoEditorQueryAIMTBySegmentResultOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SourceForVideoEditorListSubtitlesOutput
+ * DataForVideoEditorQueryAIMTBySegmentResultOutput
  */
 
 
 
-public class SourceForVideoEditorListSubtitlesOutput {
-  @SerializedName("style")
-  private String style = null;
+public class DataForVideoEditorQueryAIMTBySegmentResultOutput {
+  @SerializedName("results")
+  private List<ResultForVideoEditorQueryAIMTBySegmentResultOutput> results = null;
 
-  @SerializedName("text")
-  private String text = null;
+  public DataForVideoEditorQueryAIMTBySegmentResultOutput results(List<ResultForVideoEditorQueryAIMTBySegmentResultOutput> results) {
+    this.results = results;
+    return this;
+  }
 
-  public SourceForVideoEditorListSubtitlesOutput style(String style) {
-    this.style = style;
+  public DataForVideoEditorQueryAIMTBySegmentResultOutput addResultsItem(ResultForVideoEditorQueryAIMTBySegmentResultOutput resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<ResultForVideoEditorQueryAIMTBySegmentResultOutput>();
+    }
+    this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * Get style
-   * @return style
+   * Get results
+   * @return results
   **/
+  @Valid
   @Schema(description = "")
-  public String getStyle() {
-    return style;
+  public List<ResultForVideoEditorQueryAIMTBySegmentResultOutput> getResults() {
+    return results;
   }
 
-  public void setStyle(String style) {
-    this.style = style;
-  }
-
-  public SourceForVideoEditorListSubtitlesOutput text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Get text
-   * @return text
-  **/
-  @Schema(description = "")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
+  public void setResults(List<ResultForVideoEditorQueryAIMTBySegmentResultOutput> results) {
+    this.results = results;
   }
 
 
@@ -81,24 +72,22 @@ public class SourceForVideoEditorListSubtitlesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SourceForVideoEditorListSubtitlesOutput sourceForVideoEditorListSubtitlesOutput = (SourceForVideoEditorListSubtitlesOutput) o;
-    return Objects.equals(this.style, sourceForVideoEditorListSubtitlesOutput.style) &&
-        Objects.equals(this.text, sourceForVideoEditorListSubtitlesOutput.text);
+    DataForVideoEditorQueryAIMTBySegmentResultOutput dataForVideoEditorQueryAIMTBySegmentResultOutput = (DataForVideoEditorQueryAIMTBySegmentResultOutput) o;
+    return Objects.equals(this.results, dataForVideoEditorQueryAIMTBySegmentResultOutput.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(style, text);
+    return Objects.hash(results);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SourceForVideoEditorListSubtitlesOutput {\n");
+    sb.append("class DataForVideoEditorQueryAIMTBySegmentResultOutput {\n");
     
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,32 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * VideoEditorDeleteSubtitleRequest
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class VideoEditorDeleteSubtitleRequest {
+  @SerializedName("segmentIds")
+  private String segmentIds = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public VideoEditorDeleteSubtitleRequest segmentIds(String segmentIds) {
+    this.segmentIds = segmentIds;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get segmentIds
+   * @return segmentIds
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  public String getSegmentIds() {
+    return segmentIds;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setSegmentIds(String segmentIds) {
+    this.segmentIds = segmentIds;
   }
 
 
@@ -61,22 +61,22 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    VideoEditorDeleteSubtitleRequest videoEditorDeleteSubtitleRequest = (VideoEditorDeleteSubtitleRequest) o;
+    return Objects.equals(this.segmentIds, videoEditorDeleteSubtitleRequest.segmentIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(segmentIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class VideoEditorDeleteSubtitleRequest {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    segmentIds: ").append(toIndentedString(segmentIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

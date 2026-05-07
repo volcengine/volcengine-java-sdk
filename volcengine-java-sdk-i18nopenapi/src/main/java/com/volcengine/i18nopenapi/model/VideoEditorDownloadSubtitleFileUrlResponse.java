@@ -19,37 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoEditorDownloadSubtitleFileUrlOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * VideoEditorDownloadSubtitleFileUrlResponse
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class VideoEditorDownloadSubtitleFileUrlResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private DataForVideoEditorDownloadSubtitleFileUrlOutput data = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public VideoEditorDownloadSubtitleFileUrlResponse data(DataForVideoEditorDownloadSubtitleFileUrlOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get data
+   * @return data
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Valid
+  @Schema(description = "")
+  public DataForVideoEditorDownloadSubtitleFileUrlOutput getData() {
+    return data;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setData(DataForVideoEditorDownloadSubtitleFileUrlOutput data) {
+    this.data = data;
   }
 
 
@@ -61,22 +62,22 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    VideoEditorDownloadSubtitleFileUrlResponse videoEditorDownloadSubtitleFileUrlResponse = (VideoEditorDownloadSubtitleFileUrlResponse) o;
+    return Objects.equals(this.data, videoEditorDownloadSubtitleFileUrlResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class VideoEditorDownloadSubtitleFileUrlResponse {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

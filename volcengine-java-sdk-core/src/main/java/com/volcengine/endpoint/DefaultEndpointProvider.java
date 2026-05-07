@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- i18n_openapi ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("i18n_openapi", new ServiceEndpointInfo(
+                "i18n_openapi",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
         // --------------------------- arkclaw ---------------------------
         DEFAULT_ENDPOINT_MAP.put("arkclaw", new ServiceEndpointInfo(
                 "arkclaw",
@@ -754,6 +762,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+
         // --------------------------- cloudmonitor ---------------------------
         DEFAULT_ENDPOINT_MAP.put("cloudmonitor", new ServiceEndpointInfo(
                 "cloudmonitor",

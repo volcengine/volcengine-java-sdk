@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * DataForVideoEditorAddEmotionTagOutput
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class DataForVideoEditorAddEmotionTagOutput {
+  @SerializedName("id")
+  private String id = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public DataForVideoEditorAddEmotionTagOutput id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get id
+   * @return id
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Schema(description = "")
+  public String getId() {
+    return id;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -61,22 +60,22 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    DataForVideoEditorAddEmotionTagOutput dataForVideoEditorAddEmotionTagOutput = (DataForVideoEditorAddEmotionTagOutput) o;
+    return Objects.equals(this.id, dataForVideoEditorAddEmotionTagOutput.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class DataForVideoEditorAddEmotionTagOutput {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

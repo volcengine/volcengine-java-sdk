@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * DataForVideoEditorDownloadSubtitleFileUrlOutput
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class DataForVideoEditorDownloadSubtitleFileUrlOutput {
+  @SerializedName("filename")
+  private String filename = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  @SerializedName("url")
+  private String url = null;
+
+  public DataForVideoEditorDownloadSubtitleFileUrlOutput filename(String filename) {
+    this.filename = filename;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get filename
+   * @return filename
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Schema(description = "")
+  public String getFilename() {
+    return filename;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public DataForVideoEditorDownloadSubtitleFileUrlOutput url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @Schema(description = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -61,22 +81,24 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    DataForVideoEditorDownloadSubtitleFileUrlOutput dataForVideoEditorDownloadSubtitleFileUrlOutput = (DataForVideoEditorDownloadSubtitleFileUrlOutput) o;
+    return Objects.equals(this.filename, dataForVideoEditorDownloadSubtitleFileUrlOutput.filename) &&
+        Objects.equals(this.url, dataForVideoEditorDownloadSubtitleFileUrlOutput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(filename, url);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class DataForVideoEditorDownloadSubtitleFileUrlOutput {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

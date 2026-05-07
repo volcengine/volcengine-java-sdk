@@ -24,16 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * VideoEditorUpdateGlobalStyleRequest
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
+public class VideoEditorUpdateGlobalStyleRequest {
+  @SerializedName("style")
+  private String style = null;
+
   @SerializedName("subtaskId")
   private String subtaskId = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
+  public VideoEditorUpdateGlobalStyleRequest style(String style) {
+    this.style = style;
+    return this;
+  }
+
+   /**
+   * Get style
+   * @return style
+  **/
+  @Schema(description = "")
+  public String getStyle() {
+    return style;
+  }
+
+  public void setStyle(String style) {
+    this.style = style;
+  }
+
+  public VideoEditorUpdateGlobalStyleRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -42,8 +63,7 @@ public class VideoEditorGetSpeakersRequest {
    * Get subtaskId
    * @return subtaskId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSubtaskId() {
     return subtaskId;
   }
@@ -61,21 +81,23 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    VideoEditorUpdateGlobalStyleRequest videoEditorUpdateGlobalStyleRequest = (VideoEditorUpdateGlobalStyleRequest) o;
+    return Objects.equals(this.style, videoEditorUpdateGlobalStyleRequest.style) &&
+        Objects.equals(this.subtaskId, videoEditorUpdateGlobalStyleRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(style, subtaskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class VideoEditorUpdateGlobalStyleRequest {\n");
     
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();

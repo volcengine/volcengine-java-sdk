@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetSpeakersRequest
+ * DataForVideoEditorAiMTBySegmentOutput
  */
 
 
 
-public class VideoEditorGetSpeakersRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class DataForVideoEditorAiMTBySegmentOutput {
+  @SerializedName("mtid")
+  private String mtid = null;
 
-  public VideoEditorGetSpeakersRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public DataForVideoEditorAiMTBySegmentOutput mtid(String mtid) {
+    this.mtid = mtid;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get mtid
+   * @return mtid
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Schema(description = "")
+  public String getMtid() {
+    return mtid;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setMtid(String mtid) {
+    this.mtid = mtid;
   }
 
 
@@ -61,22 +60,22 @@ public class VideoEditorGetSpeakersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetSpeakersRequest videoEditorGetSpeakersRequest = (VideoEditorGetSpeakersRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetSpeakersRequest.subtaskId);
+    DataForVideoEditorAiMTBySegmentOutput dataForVideoEditorAiMTBySegmentOutput = (DataForVideoEditorAiMTBySegmentOutput) o;
+    return Objects.equals(this.mtid, dataForVideoEditorAiMTBySegmentOutput.mtid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(mtid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetSpeakersRequest {\n");
+    sb.append("class DataForVideoEditorAiMTBySegmentOutput {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    mtid: ").append(toIndentedString(mtid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
