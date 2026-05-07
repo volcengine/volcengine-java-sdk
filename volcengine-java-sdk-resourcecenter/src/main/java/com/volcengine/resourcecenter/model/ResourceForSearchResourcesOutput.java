@@ -34,10 +34,13 @@ import javax.validation.Valid;
 
 public class ResourceForSearchResourcesOutput {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("Identifier")
+  private String identifier = null;
 
   @SerializedName("PrivateIpAddress")
   private List<String> privateIpAddress = null;
@@ -66,7 +69,10 @@ public class ResourceForSearchResourcesOutput {
   @SerializedName("Tags")
   private List<TagForSearchResourcesOutput> tags = null;
 
-  public ResourceForSearchResourcesOutput accountID(Integer accountID) {
+  @SerializedName("TypeName")
+  private String typeName = null;
+
+  public ResourceForSearchResourcesOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -76,11 +82,11 @@ public class ResourceForSearchResourcesOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 
@@ -100,6 +106,24 @@ public class ResourceForSearchResourcesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public ResourceForSearchResourcesOutput identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * Get identifier
+   * @return identifier
+  **/
+  @Schema(description = "")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
   }
 
   public ResourceForSearchResourcesOutput privateIpAddress(List<String> privateIpAddress) {
@@ -289,6 +313,24 @@ public class ResourceForSearchResourcesOutput {
     this.tags = tags;
   }
 
+  public ResourceForSearchResourcesOutput typeName(String typeName) {
+    this.typeName = typeName;
+    return this;
+  }
+
+   /**
+   * Get typeName
+   * @return typeName
+  **/
+  @Schema(description = "")
+  public String getTypeName() {
+    return typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -301,6 +343,7 @@ public class ResourceForSearchResourcesOutput {
     ResourceForSearchResourcesOutput resourceForSearchResourcesOutput = (ResourceForSearchResourcesOutput) o;
     return Objects.equals(this.accountID, resourceForSearchResourcesOutput.accountID) &&
         Objects.equals(this.createTime, resourceForSearchResourcesOutput.createTime) &&
+        Objects.equals(this.identifier, resourceForSearchResourcesOutput.identifier) &&
         Objects.equals(this.privateIpAddress, resourceForSearchResourcesOutput.privateIpAddress) &&
         Objects.equals(this.projectName, resourceForSearchResourcesOutput.projectName) &&
         Objects.equals(this.publicIpAddress, resourceForSearchResourcesOutput.publicIpAddress) &&
@@ -309,12 +352,13 @@ public class ResourceForSearchResourcesOutput {
         Objects.equals(this.resourceName, resourceForSearchResourcesOutput.resourceName) &&
         Objects.equals(this.resourceType, resourceForSearchResourcesOutput.resourceType) &&
         Objects.equals(this.service, resourceForSearchResourcesOutput.service) &&
-        Objects.equals(this.tags, resourceForSearchResourcesOutput.tags);
+        Objects.equals(this.tags, resourceForSearchResourcesOutput.tags) &&
+        Objects.equals(this.typeName, resourceForSearchResourcesOutput.typeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, createTime, privateIpAddress, projectName, publicIpAddress, region, resourceID, resourceName, resourceType, service, tags);
+    return Objects.hash(accountID, createTime, identifier, privateIpAddress, projectName, publicIpAddress, region, resourceID, resourceName, resourceType, service, tags, typeName);
   }
 
 
@@ -325,6 +369,7 @@ public class ResourceForSearchResourcesOutput {
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicIpAddress: ").append(toIndentedString(publicIpAddress)).append("\n");
@@ -334,6 +379,7 @@ public class ResourceForSearchResourcesOutput {
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
