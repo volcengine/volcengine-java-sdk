@@ -36,7 +36,10 @@ import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
         @JsonSubTypes.Type(value = ItemFunctionKnowledgeSearch.class, name = ResponsesConstants.ITEM_TYPE_KNOWLEDGE_SEARCH_CALL),
 
         // DoubaoApp type
-        @JsonSubTypes.Type(value = ItemDoubaoAppCall.class, name = ResponsesConstants.ITEM_TYPE_DOUBAO_APP_CALL)
+        @JsonSubTypes.Type(value = ItemDoubaoAppCall.class, name = ResponsesConstants.ITEM_TYPE_DOUBAO_APP_CALL),
+
+        // Agent tool call type
+        @JsonSubTypes.Type(value = ItemAgentToolCall.class, name = ResponsesConstants.ITEM_TYPE_AGENT_TOOL_CALL)
 })
 public class BaseItem {
     @JsonProperty("type")
