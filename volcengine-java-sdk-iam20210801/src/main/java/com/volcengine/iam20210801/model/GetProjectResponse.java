@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class GetProjectResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("CreateDate")
   private String createDate = null;
@@ -57,7 +57,7 @@ public class GetProjectResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public GetProjectResponse accountID(Integer accountID) {
+  public GetProjectResponse accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -67,11 +67,11 @@ public class GetProjectResponse extends com.volcengine.model.AbstractResponse {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 
