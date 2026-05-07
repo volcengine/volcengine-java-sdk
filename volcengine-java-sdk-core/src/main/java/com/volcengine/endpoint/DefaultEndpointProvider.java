@@ -730,6 +730,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- insight ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("insight", new ServiceEndpointInfo(
+                "insight",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
         // --------------------------- cloudmonitor ---------------------------
         DEFAULT_ENDPOINT_MAP.put("cloudmonitor", new ServiceEndpointInfo(
                 "cloudmonitor",
