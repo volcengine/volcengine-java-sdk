@@ -41,13 +41,13 @@ public class SampleCode {
 }
 ```
 
-## Automatic Endpoint Resolution
+### Automatic Endpoint Resolution
 
 Volcengine provides a flexible endpoint resolution mechanism. The SDK automatically builds the endpoint based on service name and region, and supports DualStack.
 
-### Default Endpoint Resolution
+#### Default Endpoint Resolution
 
-#### Resolution Logic
+##### Resolution Logic
 
 1. **Whether the region is in the bootstrap list**
 
@@ -68,7 +68,7 @@ Volcengine provides a flexible endpoint resolution mechanism. The SDK automatica
     - **Global services (e.g., `CDN`, `IAM`)**: `<service>.volcengineapi.com` (or `volcengine-api.com` when DualStack is enabled). Example: `cdn.volcengineapi.com`.
     - **Regional services (e.g., `ECS`, `RDS`)**: `<service>.<region>.volcengineapi.com` is used as the default endpoint. Example: `ecs.cn-beijing.volcengineapi.com`.
 
-#### Code Example
+##### Code Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -90,9 +90,9 @@ public class SampleCode {
 }
 ```
 
-### Standard Endpoint Resolution
+#### Standard Endpoint Resolution
 
-#### Resolution Rules
+##### Resolution Rules
 
 | Global service | DualStack | Format |
 |---|---|---|
@@ -103,7 +103,7 @@ public class SampleCode {
 
 Whether a service is global depends on the service itself and cannot be changed. See: [`./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#SERVICE_INFOS`](./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#L142).
 
-#### Code Example
+##### Code Example
 
 ```java
 import com.volcengine.ApiClient;

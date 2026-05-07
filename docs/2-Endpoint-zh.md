@@ -43,7 +43,7 @@ public class SampleCode {
 }
 ```
 
-## 自动化 Endpoint 寻址
+### 自动化 Endpoint 寻址
 
 > **默认**
 >
@@ -51,9 +51,9 @@ public class SampleCode {
 
 为了简化用户配置，Volcengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义 DualStack（双栈）。
 
-### Endpoint 默认寻址
+#### Endpoint 默认寻址
 
-#### 寻址逻辑
+##### 寻址逻辑
 
 1. **是否自动寻址 Region**
 
@@ -74,7 +74,7 @@ public class SampleCode {
     - **全局服务（如 `CDN`、`IAM`）**：使用 `<服务名>.volcengineapi.com`（或启用双栈时使用 `volcengine-api.com`）。示例：`cdn.volcengineapi.com`。
     - **区域服务（如 `ECS`、`RDS`）**：使用 `<服务名>.<区域名>.volcengineapi.com` 作为默认 Endpoint。示例：`ecs.cn-beijing.volcengineapi.com`。
 
-#### 代码示例
+##### 代码示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -96,9 +96,9 @@ public class SampleCode {
 }
 ```
 
-### Endpoint 标准寻址
+#### Endpoint 标准寻址
 
-#### 标准寻址规则
+##### 标准寻址规则
 
 | Global 服务 | 双栈 | 格式 |
 |---|---|---|
@@ -109,7 +109,7 @@ public class SampleCode {
 
 是否 Global 服务由具体调用的服务决定，不可修改。可以参考列表：[`./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#SERVICE_INFOS`](./volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/StandardEndpointProvider.java#L142)。
 
-#### 代码示例
+##### 代码示例
 
 ```java
 import com.volcengine.ApiClient;

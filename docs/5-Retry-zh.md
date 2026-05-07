@@ -15,7 +15,7 @@
 
 请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK 将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
 
-## 重试代码配置
+### 重试代码配置
 
 ```java
 import com.volcengine.ApiClient;
@@ -48,11 +48,11 @@ public class SampleCode {
 }
 ```
 
-## 重试条件
+### 重试条件
 
 重试条件定义了哪些情况下需要进行重试。SDK 内置了默认的重试条件，用户也可以根据自己的业务需求，自定义重试条件。
 
-### 默认重试条件
+#### 默认重试条件
 
 默认重试条件 `DefaultRetryCondition`，其中包含以下重试条件：
 
@@ -60,7 +60,7 @@ public class SampleCode {
 2. 服务端限流错误会进行重试。
 3. 包含客户自定义的错误码 `retryErrorCodes`。
 
-### 自定义重试条件
+#### 自定义重试条件
 
 用户可以根据自己的业务需求，自定义重试条件。
 
@@ -96,7 +96,7 @@ public class SampleCode {
     }
     ```
 
-## 退避策略
+### 退避策略
 
 退避策略定义了在重试时，每次重试之间的延迟时间。SDK 内置了默认的退避策略，用户也可以根据自己的业务需求，自定义退避策略。
 
@@ -104,7 +104,7 @@ public class SampleCode {
 >
 > `ExponentialWithRandomJitterBackoffStrategy`
 
-### 内置退避策略
+#### 内置退避策略
 
 边界值说明：`minRetryDelay` 最小延迟时间，`maxRetryDelay` 最大延迟时间，`n` 为重试次数。
 
@@ -114,7 +114,7 @@ public class SampleCode {
 | `ExponentialBackoffStrategy` | 每次重试延时按 2ⁿ 级数增长，受最小/最大延时约束。可快速降低请求频率。 | `delay = min(minRetryDelay * 2ⁿ, maxRetryDelay)` |
 | `ExponentialWithRandomJitterBackoffStrategy` | 在 `[base, 2·base]` 之间取值：始终 ≥ `base`，抖动幅度与基线等宽。 | `base = min(minRetryDelay · 2ⁿ, maxRetryDelay)`<br/>`delay = base + U(0, base)` |
 
-### 自定义退避策略
+#### 自定义退避策略
 
 用户可以根据自己的需求，自定义退避策略。
 

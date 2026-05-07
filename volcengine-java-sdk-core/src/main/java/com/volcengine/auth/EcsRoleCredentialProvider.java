@@ -41,7 +41,7 @@ public class EcsRoleCredentialProvider implements Provider {
     // IMDSv2 endpoint and paths
     private static final String DEFAULT_IMDS_ENDPOINT = "http://100.96.0.96";
     private static final String IMDS_CREDENTIALS_PATH = "/volcstack/latest/iam/security_credentials/"; // GET
-    private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?fetchuserrole=true"; // GET
+    private static final String IMDS_ROLE_NAME_PATH = "/volcstack/latest/iam/security_credentials?type=user&format=json"; // GET
     private static final String IMDS_TOKEN_PATH = "/latest/api/token"; // PUT
 
     // IMDSv2 headers

@@ -6,9 +6,9 @@
 
 为了防止访问凭据泄露，建议不要在代码中以明文形式硬编码访问凭据。火山引擎提供了多种安全的凭据加载方式，比如将凭据存储到环境变量中。
 
-## 环境变量设置
+### 环境变量设置
 
-### Linux 设置
+#### Linux 设置
 
 > ⚠️ **注意事项**
 >
@@ -22,13 +22,13 @@
 
 **验证是否设置成功**：执行 `echo $VOLCENGINE_ACCESS_KEY` 命令，如果返回正确的 AccessKey ID，则说明配置成功。
 
-### Windows 设置
+#### Windows 设置
 
 下面提供了**图形化界面设置**和**命令行设置**两种方式。
 
 **验证是否设置成功**：单击 **开始**（或快捷键 **Win+R**）> **运行**（输入 `cmd`）> **确定**（或按 Enter 键），打开命令提示符，执行 `echo %VOLCENGINE_ACCESS_KEY%`、`echo %VOLCENGINE_SECRET_KEY%`、`echo %VOLCENGINE_SESSION_TOKEN%` 命令。若返回正确的值，则说明配置成功。
 
-#### 图形化界面设置
+##### 图形化界面设置
 
 以下为 Windows 10 中通过图形用户界面设置环境变量的步骤。在桌面右键单击 **此电脑**，选择 **属性 > 高级系统设置 > 环境变量 > 系统变量/用户变量 > 新建**，完成以下配置：
 
@@ -38,7 +38,7 @@
 | AccessKey Secret | 变量名：`VOLCENGINE_SECRET_KEY`<br/>变量值：`*****` |
 | Session Token | 变量名：`VOLCENGINE_SESSION_TOKEN`<br/>变量值：`*****` |
 
-#### 命令行设置
+##### 命令行设置
 
 以管理员身份打开命令提示符，并使用以下命令在系统中新增环境变量：
 
@@ -52,7 +52,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 >
 > 其中 `/M` 表示系统级环境变量，设置用户级环境变量时可以不携带该参数。
 
-## CredentialProvider 总览
+### CredentialProvider 总览
 
 | Provider | 用途 | 是否自动刷新 | 典型场景 |
 |---|---|---|---|
@@ -65,7 +65,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 获取凭证 | 是 | ECS 实例角色 |
 | `DefaultCredentialProvider` | 默认凭证链包装 | 取决于代理 Provider | 业务代码不写 AK/SK |
 
-## 已支持的 VOLCENGINE 环境变量
+### 已支持的 VOLCENGINE 环境变量
 
 - 基础凭证：
   - `VOLCENGINE_ACCESS_KEY`
@@ -86,7 +86,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 
 完整说明详见 [环境变量](EnvironmentVariables-zh.md)。
 
-## AK/SK 设置
+### AK/SK 设置
 
 AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SDK 使用该密钥对每次请求进行签名，从而完成身份验证。
 
@@ -118,7 +118,7 @@ public class SampleCode {
 }
 ```
 
-## STS Token 设置
+### STS Token 设置
 
 STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
@@ -150,7 +150,7 @@ public class SampleCode {
 }
 ```
 
-## StaticCredentialProvider
+### StaticCredentialProvider
 
 如果需要把静态 AK/SK(/Token) 按 `Provider` 形式使用（和动态 Provider 的 API 风格一致），可以用 `StaticCredentialProvider` 包装：
 
@@ -176,7 +176,7 @@ public class SampleCode {
 }
 ```
 
-## AssumeRole
+### AssumeRole
 
 动态访问凭证信息，支持动态刷新；在 STS 临时 Token 过期前 60s 会进行自动刷新，避免临界时间点 Token 过期。
 
@@ -215,13 +215,13 @@ public class SampleCode {
 }
 ```
 
-## OIDC（AssumeRoleWithOIDC）
+### OIDC（AssumeRoleWithOIDC）
 
 `OidcCredentialProvider` 通过 OIDC Token 调用 STS 获取临时凭证。
 
 参考文档：https://www.volcengine.com/docs/6257/1494877
 
-### 显式参数示例
+#### 显式参数示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -254,7 +254,7 @@ public class SampleCode {
 }
 ```
 
-### 环境变量示例
+#### 环境变量示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -276,7 +276,7 @@ public class SampleCode {
 }
 ```
 
-## SAML（AssumeRoleWithSAML）
+### SAML（AssumeRoleWithSAML）
 
 `SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
 
@@ -315,7 +315,7 @@ public class SampleCode {
 }
 ```
 
-## 环境变量凭证 Provider
+### 环境变量凭证 Provider
 
 `EnvironmentVariableCredentialProvider` 读取：
 
@@ -340,7 +340,7 @@ public class SampleCode {
 }
 ```
 
-## CLI 配置凭证 Provider
+### CLI 配置凭证 Provider
 
 `CLIConfigCredentialProvider` 默认读取 `$HOME/.volcengine/config.json`。
 
@@ -380,7 +380,7 @@ public class SampleCode {
 }
 ```
 
-## ECS Role 凭证 Provider
+### ECS Role 凭证 Provider
 
 `EcsRoleCredentialProvider` 从 ECS IMDS 获取临时凭证。
 
@@ -410,7 +410,7 @@ public class SampleCode {
 }
 ```
 
-## 默认凭证 Provider
+### 默认凭证 Provider
 
 当 `credentials` 和 `credentialProvider` 均未设置时，SDK 自动使用 `DefaultCredentialProvider`，无需手动配置。
 

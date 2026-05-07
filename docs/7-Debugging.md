@@ -6,7 +6,7 @@
 
 To help with troubleshooting and debugging when handling requests, the SDK supports logging with multiple levels. Configure your logging settings based on your needs to get detailed request/response information and improve observability.
 
-## Enable Debug Mode
+### Enable Debug Mode
 
 > **Default**
 >

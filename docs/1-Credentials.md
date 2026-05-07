@@ -6,9 +6,9 @@
 
 To prevent credential leakage, do not hardcode credentials in plaintext in your code. Volcengine provides multiple secure ways to load credentials, such as environment variables.
 
-## Environment Variable Setup
+### Environment Variable Setup
 
-### Linux
+#### Linux
 
 > ⚠️ **Note**
 >
@@ -22,13 +22,13 @@ To prevent credential leakage, do not hardcode credentials in plaintext in your 
 
 **Verify**: run `echo $VOLCENGINE_ACCESS_KEY`. If it returns the correct value, the configuration is effective.
 
-### Windows
+#### Windows
 
 Two options are provided: **GUI setup** and **command line setup**.
 
 **Verify**: open Command Prompt and run `echo %VOLCENGINE_ACCESS_KEY%`, `echo %VOLCENGINE_SECRET_KEY%`, `echo %VOLCENGINE_SESSION_TOKEN%`. If the returned values are correct, the configuration is effective.
 
-#### GUI Setup
+##### GUI Setup
 
 On Windows 10, right-click **This PC** → **Properties** → **Advanced system settings** → **Environment Variables** → **System variables / User variables** → **New**, then set:
 
@@ -38,7 +38,7 @@ On Windows 10, right-click **This PC** → **Properties** → **Advanced system 
 | AccessKey Secret | Name: `VOLCENGINE_SECRET_KEY`<br/>Value: `*****` |
 | Session Token | Name: `VOLCENGINE_SESSION_TOKEN`<br/>Value: `*****` |
 
-#### Command Line Setup
+##### Command Line Setup
 
 Run Command Prompt as Administrator, and add environment variables:
 
@@ -52,7 +52,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 >
 > `/M` means system-level variables. You may omit it for user-level variables.
 
-## Credential Providers Overview
+### Credential Providers Overview
 
 | Provider | Purpose | Auto Refresh | Typical Scenario |
 |---|---|---|---|
@@ -65,7 +65,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | Default chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
-## Supported VOLCENGINE Environment Variables
+### Supported VOLCENGINE Environment Variables
 
 - Basic credentials:
   - `VOLCENGINE_ACCESS_KEY`
@@ -86,7 +86,7 @@ setx VOLCENGINE_SESSION_TOKEN yourSessionToken /M
 
 For full details, see [Environment Variables](EnvironmentVariables.md).
 
-## AK/SK
+### AK/SK
 
 AK/SK is a pair of permanent access keys created in the Volcengine console. The SDK signs each request to authenticate.
 
@@ -118,7 +118,7 @@ public class SampleCode {
 }
 ```
 
-## STS Token
+### STS Token
 
 STS (Security Token Service) provides temporary credentials (temporary AK/SK and Token).
 
@@ -148,7 +148,7 @@ public class SampleCode {
 }
 ```
 
-## StaticCredentialProvider
+### StaticCredentialProvider
 
 To wrap static AK/SK(/Token) in the `Provider` form (so the API style matches the dynamic providers), use `StaticCredentialProvider`:
 
@@ -174,7 +174,7 @@ public class SampleCode {
 }
 ```
 
-## AssumeRole
+### AssumeRole
 
 AssumeRole supports dynamic credentials with auto refresh.
 
@@ -212,13 +212,13 @@ public class SampleCode {
 }
 ```
 
-## OIDC (AssumeRoleWithOIDC)
+### OIDC (AssumeRoleWithOIDC)
 
 `OidcCredentialProvider` gets temporary credentials from STS via OIDC token.
 
 Reference: https://www.volcengine.com/docs/6257/1494877
 
-### Explicit Parameter Example
+#### Explicit Parameter Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -251,7 +251,7 @@ public class SampleCode {
 }
 ```
 
-### Environment-variable Example
+#### Environment-variable Example
 
 ```java
 import com.volcengine.ApiClient;
@@ -273,7 +273,7 @@ public class SampleCode {
 }
 ```
 
-## SAML (AssumeRoleWithSAML)
+### SAML (AssumeRoleWithSAML)
 
 `SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
 
@@ -312,7 +312,7 @@ public class SampleCode {
 }
 ```
 
-## Environment Variable Credential Provider
+### Environment Variable Credential Provider
 
 `EnvironmentVariableCredentialProvider` reads:
 
@@ -337,7 +337,7 @@ public class SampleCode {
 }
 ```
 
-## CLI Config Credential Provider
+### CLI Config Credential Provider
 
 `CLIConfigCredentialProvider` reads `$HOME/.volcengine/config.json` by default.
 
@@ -377,7 +377,7 @@ public class SampleCode {
 }
 ```
 
-## ECS Role Credential Provider
+### ECS Role Credential Provider
 
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
@@ -407,7 +407,7 @@ public class SampleCode {
 }
 ```
 
-## Default Credential Provider
+### Default Credential Provider
 
 When `credentials` and `credentialProvider` are both unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.
 

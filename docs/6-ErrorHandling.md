@@ -6,7 +6,7 @@
 
 When calling APIs, different types of errors may be returned. You can adopt targeted handling strategies based on the specific error type and error code. For example, network errors can be retried, while business logic errors should be addressed by adjusting parameters or fixing business logic based on the error message. This improves system robustness and user experience.
 
-## Error Classification
+### Error Classification
 
 | Error Type | Description | Exception Type | Notes |
 |---|---|---|---|
@@ -15,7 +15,7 @@ When calling APIs, different types of errors may be returned. You can adopt targ
 | 3. Server Error | Request reached the server; business logic error returned | `ApiException` | A `requestId` is available for troubleshooting; see code example below |
 | 4. Other Errors | Any other errors not covered above | `Exception` | See code example below |
 
-## Code Example
+### Code Example
 
 ```java
 import com.volcengine.ApiClient;

@@ -15,7 +15,7 @@
 
 The SDK retries on network errors and throttling. Business logic errors are not retried.
 
-## Retry Code Configuration
+### Retry Code Configuration
 
 ```java
 import com.volcengine.ApiClient;
@@ -42,11 +42,11 @@ public class SampleCode {
 }
 ```
 
-## Retry Conditions
+### Retry Conditions
 
 Retry conditions define which situations should trigger a retry. The SDK includes a default retry condition, and users can also customize retry conditions based on their business needs.
 
-### Default Retry Conditions
+#### Default Retry Conditions
 
 The default retry condition `DefaultRetryCondition` includes the following:
 
@@ -54,7 +54,7 @@ The default retry condition `DefaultRetryCondition` includes the following:
 2. Retry on server throttling errors.
 3. Retry on user-specified error codes (`retryErrorCodes`).
 
-### Custom Retry Conditions
+#### Custom Retry Conditions
 
 Users can customize retry conditions based on their business needs.
 
@@ -90,7 +90,7 @@ Users can customize retry conditions based on their business needs.
     }
     ```
 
-## Backoff Strategy
+### Backoff Strategy
 
 The backoff strategy defines the delay between each retry attempt. The SDK includes built-in backoff strategies, and users can also customize their own based on their needs.
 
@@ -98,7 +98,7 @@ The backoff strategy defines the delay between each retry attempt. The SDK inclu
 >
 > `ExponentialWithRandomJitterBackoffStrategy`
 
-### Built-in Strategies
+#### Built-in Strategies
 
 Boundary values: `minRetryDelay` (min delay), `maxRetryDelay` (max delay), `n` is the retry count.
 
@@ -108,7 +108,7 @@ Boundary values: `minRetryDelay` (min delay), `maxRetryDelay` (max delay), `n` i
 | `ExponentialBackoffStrategy` | Exponential backoff with bounds. | `delay = min(minRetryDelay * 2ⁿ, maxRetryDelay)` |
 | `ExponentialWithRandomJitterBackoffStrategy` | Exponential with jitter; value lies in `[base, 2·base]`. | `base = min(minRetryDelay · 2ⁿ, maxRetryDelay)`<br/>`delay = base + U(0, base)` |
 
-### Custom Backoff Strategy
+#### Custom Backoff Strategy
 
 Users can customize their own backoff strategy based on their needs.
 
