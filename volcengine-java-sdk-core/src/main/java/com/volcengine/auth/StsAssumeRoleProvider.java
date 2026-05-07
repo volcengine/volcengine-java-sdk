@@ -11,10 +11,11 @@ import java.util.UUID;
 public class StsAssumeRoleProvider implements Provider {
     private String accessKey;
     private String securityKey;
+    private String sessionToken;
     private String roleName;
     private String accountId;
     private String host = "sts.volcengineapi.com";
-    private String region = "cn-north-1";
+    private String region = "cn-beijing";
     private String schema = "https";
     //STS 请求过期时间
     private int timeout = 30;
@@ -31,13 +32,19 @@ public class StsAssumeRoleProvider implements Provider {
 
 
     public StsAssumeRoleProvider(String accessKey, String securityKey, String roleName, String accountId) {
+        this(accessKey, securityKey, "", roleName, accountId);
+    }
+
+    public StsAssumeRoleProvider(String accessKey, String securityKey, String sessionToken,
+                                 String roleName, String accountId) {
         this.accessKey = accessKey;
         this.securityKey = securityKey;
+        this.sessionToken = sessionToken;
         this.roleName = roleName;
         this.accountId = accountId;
         this.apiClient = new ApiClient()
                 .setEndpoint(this.host)
-                .setCredentials(Credentials.getCredentials(accessKey, securityKey))
+                .setCredentials(Credentials.getCredentials(accessKey, securityKey, sessionToken))
                 .setRegion(this.region);
     }
 
@@ -58,6 +65,15 @@ public class StsAssumeRoleProvider implements Provider {
         this.securityKey = securityKey;
         this.apiClient.getCredentials().setSecretKey(securityKey);
 
+    }
+
+    public String getSessionToken() {
+        return sessionToken;
+    }
+
+    public void setSessionToken(String sessionToken) {
+        this.sessionToken = sessionToken;
+        this.apiClient.getCredentials().setSessionToken(sessionToken);
     }
 
     public String getRoleName() {
@@ -144,10 +160,11 @@ public class StsAssumeRoleProvider implements Provider {
     }
 
     public CredentialValue retrieve() throws ApiException {
-        if (isExpired()) {
-            refresh();
+        CredentialValue v = credentialValue;
+        if (v == null) {
+            throw new ApiException("StsAssumeRoleProvider: not refreshed; call refresh() first or use CredentialProvider");
         }
-        return credentialValue;
+        return v;
     }
 
     public boolean isExpired() {
