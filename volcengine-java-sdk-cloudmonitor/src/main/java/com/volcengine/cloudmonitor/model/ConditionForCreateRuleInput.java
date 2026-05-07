@@ -48,6 +48,9 @@ public class ConditionForCreateRuleInput {
   @SerializedName("Statistics")
   private String statistics = null;
 
+  @SerializedName("SubNamespace")
+  private String subNamespace = null;
+
   @SerializedName("Threshold")
   private String threshold = null;
 
@@ -159,6 +162,24 @@ public class ConditionForCreateRuleInput {
     this.statistics = statistics;
   }
 
+  public ConditionForCreateRuleInput subNamespace(String subNamespace) {
+    this.subNamespace = subNamespace;
+    return this;
+  }
+
+   /**
+   * Get subNamespace
+   * @return subNamespace
+  **/
+  @Schema(description = "")
+  public String getSubNamespace() {
+    return subNamespace;
+  }
+
+  public void setSubNamespace(String subNamespace) {
+    this.subNamespace = subNamespace;
+  }
+
   public ConditionForCreateRuleInput threshold(String threshold) {
     this.threshold = threshold;
     return this;
@@ -193,12 +214,13 @@ public class ConditionForCreateRuleInput {
         Objects.equals(this.metricUnit, conditionForCreateRuleInput.metricUnit) &&
         Objects.equals(this.period, conditionForCreateRuleInput.period) &&
         Objects.equals(this.statistics, conditionForCreateRuleInput.statistics) &&
+        Objects.equals(this.subNamespace, conditionForCreateRuleInput.subNamespace) &&
         Objects.equals(this.threshold, conditionForCreateRuleInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, evaluationWindow, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, evaluationWindow, metricName, metricUnit, period, statistics, subNamespace, threshold);
   }
 
 
@@ -213,6 +235,7 @@ public class ConditionForCreateRuleInput {
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
     return sb.toString();

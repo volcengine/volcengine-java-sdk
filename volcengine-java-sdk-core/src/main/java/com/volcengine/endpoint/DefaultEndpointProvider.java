@@ -738,6 +738,31 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- insight ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("insight", new ServiceEndpointInfo(
+                "insight",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- cloudmonitor ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cloudmonitor", new ServiceEndpointInfo(
+                "cloudmonitor",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        
+        // --------------------------- cbr ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cbr", new ServiceEndpointInfo(
+                "cbr",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

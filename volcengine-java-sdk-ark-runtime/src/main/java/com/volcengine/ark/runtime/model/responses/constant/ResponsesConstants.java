@@ -25,6 +25,7 @@ public class ResponsesConstants {
     public static final String ITEM_TYPE_MCP_CALL = "mcp_call";
     public static final String ITEM_TYPE_KNOWLEDGE_SEARCH_CALL = "knowledge_search_call";
     public static final String ITEM_TYPE_DOUBAO_APP_CALL = "doubao_app_call";
+    public static final String ITEM_TYPE_AGENT_TOOL_CALL = "agent_tool_call";
 
     // MessageRole.Enum
     public static final String MESSAGE_ROLE_USER = "user";
@@ -164,6 +165,10 @@ public class ResponsesConstants {
     public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_SEARCHING = "response.knowledge_search_call.searching";
     public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_COMPLETED = "response.knowledge_search_call.completed";
     public static final String EVENT_TYPE_RESPONSE_KNOWLEDGE_SEARCH_CALL_FAILED = "response.knowledge_search_call.failed";
+
+    // Agent tool call events
+    public static final String EVENT_TYPE_RESPONSE_AGENT_TOOL_CALL_IN_PROGRESS = "response.agent_tool_call.in_progress";
+    public static final String EVENT_TYPE_RESPONSE_AGENT_TOOL_CALL_COMPLETED = "response.agent_tool_call.completed";
 
     // IncludeType.Enum
     public static final String INCLUDE_TYPE_IMAGE_URL = "message.input_image.image_url";
