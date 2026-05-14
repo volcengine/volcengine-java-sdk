@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.resourcecenter.model.TagForSearchResourcesOutput;
+import com.volcengine.resourcecenter.model.TagForSearchMultiAccountResourcesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceForSearchResourcesOutput
+ * ResourceForSearchMultiAccountResourcesOutput
  */
 
 
 
-public class ResourceForSearchResourcesOutput {
+public class ResourceForSearchMultiAccountResourcesOutput {
   @SerializedName("AccountID")
   private Long accountID = null;
 
@@ -67,12 +67,12 @@ public class ResourceForSearchResourcesOutput {
   private String service = null;
 
   @SerializedName("Tags")
-  private List<TagForSearchResourcesOutput> tags = null;
+  private List<TagForSearchMultiAccountResourcesOutput> tags = null;
 
   @SerializedName("TypeName")
   private String typeName = null;
 
-  public ResourceForSearchResourcesOutput accountID(Long accountID) {
+  public ResourceForSearchMultiAccountResourcesOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -90,7 +90,7 @@ public class ResourceForSearchResourcesOutput {
     this.accountID = accountID;
   }
 
-  public ResourceForSearchResourcesOutput createTime(String createTime) {
+  public ResourceForSearchMultiAccountResourcesOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -108,7 +108,7 @@ public class ResourceForSearchResourcesOutput {
     this.createTime = createTime;
   }
 
-  public ResourceForSearchResourcesOutput identifier(String identifier) {
+  public ResourceForSearchMultiAccountResourcesOutput identifier(String identifier) {
     this.identifier = identifier;
     return this;
   }
@@ -126,12 +126,12 @@ public class ResourceForSearchResourcesOutput {
     this.identifier = identifier;
   }
 
-  public ResourceForSearchResourcesOutput privateIpAddress(List<String> privateIpAddress) {
+  public ResourceForSearchMultiAccountResourcesOutput privateIpAddress(List<String> privateIpAddress) {
     this.privateIpAddress = privateIpAddress;
     return this;
   }
 
-  public ResourceForSearchResourcesOutput addPrivateIpAddressItem(String privateIpAddressItem) {
+  public ResourceForSearchMultiAccountResourcesOutput addPrivateIpAddressItem(String privateIpAddressItem) {
     if (this.privateIpAddress == null) {
       this.privateIpAddress = new ArrayList<String>();
     }
@@ -152,7 +152,7 @@ public class ResourceForSearchResourcesOutput {
     this.privateIpAddress = privateIpAddress;
   }
 
-  public ResourceForSearchResourcesOutput projectName(String projectName) {
+  public ResourceForSearchMultiAccountResourcesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -170,12 +170,12 @@ public class ResourceForSearchResourcesOutput {
     this.projectName = projectName;
   }
 
-  public ResourceForSearchResourcesOutput publicIpAddress(List<String> publicIpAddress) {
+  public ResourceForSearchMultiAccountResourcesOutput publicIpAddress(List<String> publicIpAddress) {
     this.publicIpAddress = publicIpAddress;
     return this;
   }
 
-  public ResourceForSearchResourcesOutput addPublicIpAddressItem(String publicIpAddressItem) {
+  public ResourceForSearchMultiAccountResourcesOutput addPublicIpAddressItem(String publicIpAddressItem) {
     if (this.publicIpAddress == null) {
       this.publicIpAddress = new ArrayList<String>();
     }
@@ -196,7 +196,7 @@ public class ResourceForSearchResourcesOutput {
     this.publicIpAddress = publicIpAddress;
   }
 
-  public ResourceForSearchResourcesOutput region(String region) {
+  public ResourceForSearchMultiAccountResourcesOutput region(String region) {
     this.region = region;
     return this;
   }
@@ -214,7 +214,7 @@ public class ResourceForSearchResourcesOutput {
     this.region = region;
   }
 
-  public ResourceForSearchResourcesOutput resourceID(String resourceID) {
+  public ResourceForSearchMultiAccountResourcesOutput resourceID(String resourceID) {
     this.resourceID = resourceID;
     return this;
   }
@@ -232,7 +232,7 @@ public class ResourceForSearchResourcesOutput {
     this.resourceID = resourceID;
   }
 
-  public ResourceForSearchResourcesOutput resourceName(String resourceName) {
+  public ResourceForSearchMultiAccountResourcesOutput resourceName(String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
@@ -250,7 +250,7 @@ public class ResourceForSearchResourcesOutput {
     this.resourceName = resourceName;
   }
 
-  public ResourceForSearchResourcesOutput resourceType(String resourceType) {
+  public ResourceForSearchMultiAccountResourcesOutput resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -268,7 +268,7 @@ public class ResourceForSearchResourcesOutput {
     this.resourceType = resourceType;
   }
 
-  public ResourceForSearchResourcesOutput service(String service) {
+  public ResourceForSearchMultiAccountResourcesOutput service(String service) {
     this.service = service;
     return this;
   }
@@ -286,14 +286,14 @@ public class ResourceForSearchResourcesOutput {
     this.service = service;
   }
 
-  public ResourceForSearchResourcesOutput tags(List<TagForSearchResourcesOutput> tags) {
+  public ResourceForSearchMultiAccountResourcesOutput tags(List<TagForSearchMultiAccountResourcesOutput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public ResourceForSearchResourcesOutput addTagsItem(TagForSearchResourcesOutput tagsItem) {
+  public ResourceForSearchMultiAccountResourcesOutput addTagsItem(TagForSearchMultiAccountResourcesOutput tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<TagForSearchResourcesOutput>();
+      this.tags = new ArrayList<TagForSearchMultiAccountResourcesOutput>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -305,15 +305,15 @@ public class ResourceForSearchResourcesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForSearchResourcesOutput> getTags() {
+  public List<TagForSearchMultiAccountResourcesOutput> getTags() {
     return tags;
   }
 
-  public void setTags(List<TagForSearchResourcesOutput> tags) {
+  public void setTags(List<TagForSearchMultiAccountResourcesOutput> tags) {
     this.tags = tags;
   }
 
-  public ResourceForSearchResourcesOutput typeName(String typeName) {
+  public ResourceForSearchMultiAccountResourcesOutput typeName(String typeName) {
     this.typeName = typeName;
     return this;
   }
@@ -340,20 +340,20 @@ public class ResourceForSearchResourcesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceForSearchResourcesOutput resourceForSearchResourcesOutput = (ResourceForSearchResourcesOutput) o;
-    return Objects.equals(this.accountID, resourceForSearchResourcesOutput.accountID) &&
-        Objects.equals(this.createTime, resourceForSearchResourcesOutput.createTime) &&
-        Objects.equals(this.identifier, resourceForSearchResourcesOutput.identifier) &&
-        Objects.equals(this.privateIpAddress, resourceForSearchResourcesOutput.privateIpAddress) &&
-        Objects.equals(this.projectName, resourceForSearchResourcesOutput.projectName) &&
-        Objects.equals(this.publicIpAddress, resourceForSearchResourcesOutput.publicIpAddress) &&
-        Objects.equals(this.region, resourceForSearchResourcesOutput.region) &&
-        Objects.equals(this.resourceID, resourceForSearchResourcesOutput.resourceID) &&
-        Objects.equals(this.resourceName, resourceForSearchResourcesOutput.resourceName) &&
-        Objects.equals(this.resourceType, resourceForSearchResourcesOutput.resourceType) &&
-        Objects.equals(this.service, resourceForSearchResourcesOutput.service) &&
-        Objects.equals(this.tags, resourceForSearchResourcesOutput.tags) &&
-        Objects.equals(this.typeName, resourceForSearchResourcesOutput.typeName);
+    ResourceForSearchMultiAccountResourcesOutput resourceForSearchMultiAccountResourcesOutput = (ResourceForSearchMultiAccountResourcesOutput) o;
+    return Objects.equals(this.accountID, resourceForSearchMultiAccountResourcesOutput.accountID) &&
+        Objects.equals(this.createTime, resourceForSearchMultiAccountResourcesOutput.createTime) &&
+        Objects.equals(this.identifier, resourceForSearchMultiAccountResourcesOutput.identifier) &&
+        Objects.equals(this.privateIpAddress, resourceForSearchMultiAccountResourcesOutput.privateIpAddress) &&
+        Objects.equals(this.projectName, resourceForSearchMultiAccountResourcesOutput.projectName) &&
+        Objects.equals(this.publicIpAddress, resourceForSearchMultiAccountResourcesOutput.publicIpAddress) &&
+        Objects.equals(this.region, resourceForSearchMultiAccountResourcesOutput.region) &&
+        Objects.equals(this.resourceID, resourceForSearchMultiAccountResourcesOutput.resourceID) &&
+        Objects.equals(this.resourceName, resourceForSearchMultiAccountResourcesOutput.resourceName) &&
+        Objects.equals(this.resourceType, resourceForSearchMultiAccountResourcesOutput.resourceType) &&
+        Objects.equals(this.service, resourceForSearchMultiAccountResourcesOutput.service) &&
+        Objects.equals(this.tags, resourceForSearchMultiAccountResourcesOutput.tags) &&
+        Objects.equals(this.typeName, resourceForSearchMultiAccountResourcesOutput.typeName);
   }
 
   @Override
@@ -365,7 +365,7 @@ public class ResourceForSearchResourcesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceForSearchResourcesOutput {\n");
+    sb.append("class ResourceForSearchMultiAccountResourcesOutput {\n");
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
