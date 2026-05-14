@@ -44,11 +44,60 @@ public class DescribeLensTasksRequest {
   @SerializedName("LensTaskName")
   private String lensTaskName = null;
 
+  @SerializedName("MasterTaskId")
+  private String masterTaskId = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  /**
+   * Gets or Sets scheduleType
+   */
+  @JsonAdapter(ScheduleTypeEnum.Adapter.class)
+  public enum ScheduleTypeEnum {
+    @SerializedName("Once")
+    ONCE("Once"),
+    @SerializedName("Timed")
+    TIMED("Timed");
+
+    private String value;
+
+    ScheduleTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ScheduleTypeEnum fromValue(String input) {
+      for (ScheduleTypeEnum b : ScheduleTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ScheduleTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScheduleTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ScheduleTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ScheduleTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ScheduleType")
+  private ScheduleTypeEnum scheduleType = null;
 
   /**
    * Gets or Sets status
@@ -184,6 +233,24 @@ public class DescribeLensTasksRequest {
     this.lensTaskName = lensTaskName;
   }
 
+  public DescribeLensTasksRequest masterTaskId(String masterTaskId) {
+    this.masterTaskId = masterTaskId;
+    return this;
+  }
+
+   /**
+   * Get masterTaskId
+   * @return masterTaskId
+  **/
+  @Schema(description = "")
+  public String getMasterTaskId() {
+    return masterTaskId;
+  }
+
+  public void setMasterTaskId(String masterTaskId) {
+    this.masterTaskId = masterTaskId;
+  }
+
   public DescribeLensTasksRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -218,6 +285,24 @@ public class DescribeLensTasksRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeLensTasksRequest scheduleType(ScheduleTypeEnum scheduleType) {
+    this.scheduleType = scheduleType;
+    return this;
+  }
+
+   /**
+   * Get scheduleType
+   * @return scheduleType
+  **/
+  @Schema(description = "")
+  public ScheduleTypeEnum getScheduleType() {
+    return scheduleType;
+  }
+
+  public void setScheduleType(ScheduleTypeEnum scheduleType) {
+    this.scheduleType = scheduleType;
   }
 
   public DescribeLensTasksRequest status(List<StatusEnum> status) {
@@ -260,14 +345,16 @@ public class DescribeLensTasksRequest {
         Objects.equals(this.lensPolicyId, describeLensTasksRequest.lensPolicyId) &&
         Objects.equals(this.lensTaskId, describeLensTasksRequest.lensTaskId) &&
         Objects.equals(this.lensTaskName, describeLensTasksRequest.lensTaskName) &&
+        Objects.equals(this.masterTaskId, describeLensTasksRequest.masterTaskId) &&
         Objects.equals(this.pageNumber, describeLensTasksRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLensTasksRequest.pageSize) &&
+        Objects.equals(this.scheduleType, describeLensTasksRequest.scheduleType) &&
         Objects.equals(this.status, describeLensTasksRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystemId, lensPolicyId, lensTaskId, lensTaskName, pageNumber, pageSize, status);
+    return Objects.hash(fileSystemId, lensPolicyId, lensTaskId, lensTaskName, masterTaskId, pageNumber, pageSize, scheduleType, status);
   }
 
 
@@ -280,8 +367,10 @@ public class DescribeLensTasksRequest {
     sb.append("    lensPolicyId: ").append(toIndentedString(lensPolicyId)).append("\n");
     sb.append("    lensTaskId: ").append(toIndentedString(lensTaskId)).append("\n");
     sb.append("    lensTaskName: ").append(toIndentedString(lensTaskName)).append("\n");
+    sb.append("    masterTaskId: ").append(toIndentedString(masterTaskId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    scheduleType: ").append(toIndentedString(scheduleType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
