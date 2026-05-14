@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -46,7 +48,7 @@ public class ListHostRequest {
   private String hostId = null;
 
   @SerializedName("HostIdList")
-  private String hostIdList = null;
+  private List<String> hostIdList = null;
 
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -58,7 +60,7 @@ public class ListHostRequest {
   private String podId = null;
 
   @SerializedName("PodIdList")
-  private String podIdList = null;
+  private List<String> podIdList = null;
 
   @SerializedName("ProductId")
   private String productId = null;
@@ -70,7 +72,7 @@ public class ListHostRequest {
   private String resourceSetId = null;
 
   @SerializedName("StatusList")
-  private String statusList = null;
+  private List<Integer> statusList = null;
 
   @SerializedName("SyncRenewType")
   private Boolean syncRenewType = null;
@@ -171,8 +173,16 @@ public class ListHostRequest {
     this.hostId = hostId;
   }
 
-  public ListHostRequest hostIdList(String hostIdList) {
+  public ListHostRequest hostIdList(List<String> hostIdList) {
     this.hostIdList = hostIdList;
+    return this;
+  }
+
+  public ListHostRequest addHostIdListItem(String hostIdListItem) {
+    if (this.hostIdList == null) {
+      this.hostIdList = new ArrayList<String>();
+    }
+    this.hostIdList.add(hostIdListItem);
     return this;
   }
 
@@ -181,11 +191,11 @@ public class ListHostRequest {
    * @return hostIdList
   **/
   @Schema(description = "")
-  public String getHostIdList() {
+  public List<String> getHostIdList() {
     return hostIdList;
   }
 
-  public void setHostIdList(String hostIdList) {
+  public void setHostIdList(List<String> hostIdList) {
     this.hostIdList = hostIdList;
   }
 
@@ -243,8 +253,16 @@ public class ListHostRequest {
     this.podId = podId;
   }
 
-  public ListHostRequest podIdList(String podIdList) {
+  public ListHostRequest podIdList(List<String> podIdList) {
     this.podIdList = podIdList;
+    return this;
+  }
+
+  public ListHostRequest addPodIdListItem(String podIdListItem) {
+    if (this.podIdList == null) {
+      this.podIdList = new ArrayList<String>();
+    }
+    this.podIdList.add(podIdListItem);
     return this;
   }
 
@@ -253,11 +271,11 @@ public class ListHostRequest {
    * @return podIdList
   **/
   @Schema(description = "")
-  public String getPodIdList() {
+  public List<String> getPodIdList() {
     return podIdList;
   }
 
-  public void setPodIdList(String podIdList) {
+  public void setPodIdList(List<String> podIdList) {
     this.podIdList = podIdList;
   }
 
@@ -316,8 +334,16 @@ public class ListHostRequest {
     this.resourceSetId = resourceSetId;
   }
 
-  public ListHostRequest statusList(String statusList) {
+  public ListHostRequest statusList(List<Integer> statusList) {
     this.statusList = statusList;
+    return this;
+  }
+
+  public ListHostRequest addStatusListItem(Integer statusListItem) {
+    if (this.statusList == null) {
+      this.statusList = new ArrayList<Integer>();
+    }
+    this.statusList.add(statusListItem);
     return this;
   }
 
@@ -326,11 +352,11 @@ public class ListHostRequest {
    * @return statusList
   **/
   @Schema(description = "")
-  public String getStatusList() {
+  public List<Integer> getStatusList() {
     return statusList;
   }
 
-  public void setStatusList(String statusList) {
+  public void setStatusList(List<Integer> statusList) {
     this.statusList = statusList;
   }
 
