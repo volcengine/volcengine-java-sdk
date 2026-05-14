@@ -56,6 +56,9 @@ public class ListAOSPImageRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("PlatformType")
+  private String platformType = null;
+
   @SerializedName("ProductId")
   private String productId = null;
 
@@ -211,6 +214,24 @@ public class ListAOSPImageRequest {
     this.nextToken = nextToken;
   }
 
+  public ListAOSPImageRequest platformType(String platformType) {
+    this.platformType = platformType;
+    return this;
+  }
+
+   /**
+   * Get platformType
+   * @return platformType
+  **/
+  @Schema(description = "")
+  public String getPlatformType() {
+    return platformType;
+  }
+
+  public void setPlatformType(String platformType) {
+    this.platformType = platformType;
+  }
+
   public ListAOSPImageRequest productId(String productId) {
     this.productId = productId;
     return this;
@@ -248,12 +269,13 @@ public class ListAOSPImageRequest {
         Objects.equals(this.isPublic, listAOSPImageRequest.isPublic) &&
         Objects.equals(this.maxResults, listAOSPImageRequest.maxResults) &&
         Objects.equals(this.nextToken, listAOSPImageRequest.nextToken) &&
+        Objects.equals(this.platformType, listAOSPImageRequest.platformType) &&
         Objects.equals(this.productId, listAOSPImageRequest.productId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aoSPVersion, expandScope, imageIdList, imageName, imageStatus, isPublic, maxResults, nextToken, productId);
+    return Objects.hash(aoSPVersion, expandScope, imageIdList, imageName, imageStatus, isPublic, maxResults, nextToken, platformType, productId);
   }
 
 
@@ -270,6 +292,7 @@ public class ListAOSPImageRequest {
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    platformType: ").append(toIndentedString(platformType)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -60,6 +60,9 @@ public class RowForListAOSPImageOutput {
   @SerializedName("ImageStatusStr")
   private String imageStatusStr = null;
 
+  @SerializedName("PlatformType")
+  private String platformType = null;
+
   @SerializedName("PreheatStatus")
   private Integer preheatStatus = null;
 
@@ -249,6 +252,24 @@ public class RowForListAOSPImageOutput {
     this.imageStatusStr = imageStatusStr;
   }
 
+  public RowForListAOSPImageOutput platformType(String platformType) {
+    this.platformType = platformType;
+    return this;
+  }
+
+   /**
+   * Get platformType
+   * @return platformType
+  **/
+  @Schema(description = "")
+  public String getPlatformType() {
+    return platformType;
+  }
+
+  public void setPlatformType(String platformType) {
+    this.platformType = platformType;
+  }
+
   public RowForListAOSPImageOutput preheatStatus(Integer preheatStatus) {
     this.preheatStatus = preheatStatus;
     return this;
@@ -323,6 +344,7 @@ public class RowForListAOSPImageOutput {
         Objects.equals(this.imageSize, rowForListAOSPImageOutput.imageSize) &&
         Objects.equals(this.imageStatus, rowForListAOSPImageOutput.imageStatus) &&
         Objects.equals(this.imageStatusStr, rowForListAOSPImageOutput.imageStatusStr) &&
+        Objects.equals(this.platformType, rowForListAOSPImageOutput.platformType) &&
         Objects.equals(this.preheatStatus, rowForListAOSPImageOutput.preheatStatus) &&
         Objects.equals(this.updateAt, rowForListAOSPImageOutput.updateAt) &&
         Objects.equals(this.uploadImageStatus, rowForListAOSPImageOutput.uploadImageStatus);
@@ -330,7 +352,7 @@ public class RowForListAOSPImageOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aoSPVersion, createAt, imageDownloadUrl, imageId, imageName, imageRemark, imageResourceType, imageSize, imageStatus, imageStatusStr, preheatStatus, updateAt, uploadImageStatus);
+    return Objects.hash(aoSPVersion, createAt, imageDownloadUrl, imageId, imageName, imageRemark, imageResourceType, imageSize, imageStatus, imageStatusStr, platformType, preheatStatus, updateAt, uploadImageStatus);
   }
 
 
@@ -349,6 +371,7 @@ public class RowForListAOSPImageOutput {
     sb.append("    imageSize: ").append(toIndentedString(imageSize)).append("\n");
     sb.append("    imageStatus: ").append(toIndentedString(imageStatus)).append("\n");
     sb.append("    imageStatusStr: ").append(toIndentedString(imageStatusStr)).append("\n");
+    sb.append("    platformType: ").append(toIndentedString(platformType)).append("\n");
     sb.append("    preheatStatus: ").append(toIndentedString(preheatStatus)).append("\n");
     sb.append("    updateAt: ").append(toIndentedString(updateAt)).append("\n");
     sb.append("    uploadImageStatus: ").append(toIndentedString(uploadImageStatus)).append("\n");

@@ -62,6 +62,9 @@ public class RowForListHostOutput {
   @SerializedName("HostId")
   private String hostId = null;
 
+  @SerializedName("LastRebootTime")
+  private String lastRebootTime = null;
+
   @SerializedName("PodIdList")
   private List<String> podIdList = null;
 
@@ -76,6 +79,9 @@ public class RowForListHostOutput {
 
   @SerializedName("Region")
   private String region = null;
+
+  @SerializedName("RenewType")
+  private Integer renewType = null;
 
   @SerializedName("ResourceSetId")
   private String resourceSetId = null;
@@ -269,6 +275,24 @@ public class RowForListHostOutput {
     this.hostId = hostId;
   }
 
+  public RowForListHostOutput lastRebootTime(String lastRebootTime) {
+    this.lastRebootTime = lastRebootTime;
+    return this;
+  }
+
+   /**
+   * Get lastRebootTime
+   * @return lastRebootTime
+  **/
+  @Schema(description = "")
+  public String getLastRebootTime() {
+    return lastRebootTime;
+  }
+
+  public void setLastRebootTime(String lastRebootTime) {
+    this.lastRebootTime = lastRebootTime;
+  }
+
   public RowForListHostOutput podIdList(List<String> podIdList) {
     this.podIdList = podIdList;
     return this;
@@ -367,6 +391,24 @@ public class RowForListHostOutput {
     this.region = region;
   }
 
+  public RowForListHostOutput renewType(Integer renewType) {
+    this.renewType = renewType;
+    return this;
+  }
+
+   /**
+   * Get renewType
+   * @return renewType
+  **/
+  @Schema(description = "")
+  public Integer getRenewType() {
+    return renewType;
+  }
+
+  public void setRenewType(Integer renewType) {
+    this.renewType = renewType;
+  }
+
   public RowForListHostOutput resourceSetId(String resourceSetId) {
     this.resourceSetId = resourceSetId;
     return this;
@@ -459,11 +501,13 @@ public class RowForListHostOutput {
         Objects.equals(this.dc, rowForListHostOutput.dc) &&
         Objects.equals(this.expireAt, rowForListHostOutput.expireAt) &&
         Objects.equals(this.hostId, rowForListHostOutput.hostId) &&
+        Objects.equals(this.lastRebootTime, rowForListHostOutput.lastRebootTime) &&
         Objects.equals(this.podIdList, rowForListHostOutput.podIdList) &&
         Objects.equals(this.podNumAvailable, rowForListHostOutput.podNumAvailable) &&
         Objects.equals(this.podNumOnHost, rowForListHostOutput.podNumOnHost) &&
         Objects.equals(this.productId, rowForListHostOutput.productId) &&
         Objects.equals(this.region, rowForListHostOutput.region) &&
+        Objects.equals(this.renewType, rowForListHostOutput.renewType) &&
         Objects.equals(this.resourceSetId, rowForListHostOutput.resourceSetId) &&
         Objects.equals(this.serverTypeCode, rowForListHostOutput.serverTypeCode) &&
         Objects.equals(this.status, rowForListHostOutput.status) &&
@@ -472,7 +516,7 @@ public class RowForListHostOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, podIdList, podNumAvailable, podNumOnHost, productId, region, resourceSetId, serverTypeCode, status, volcRegion);
+    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, lastRebootTime, podIdList, podNumAvailable, podNumOnHost, productId, region, renewType, resourceSetId, serverTypeCode, status, volcRegion);
   }
 
 
@@ -491,11 +535,13 @@ public class RowForListHostOutput {
     sb.append("    dc: ").append(toIndentedString(dc)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
+    sb.append("    lastRebootTime: ").append(toIndentedString(lastRebootTime)).append("\n");
     sb.append("    podIdList: ").append(toIndentedString(podIdList)).append("\n");
     sb.append("    podNumAvailable: ").append(toIndentedString(podNumAvailable)).append("\n");
     sb.append("    podNumOnHost: ").append(toIndentedString(podNumOnHost)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    resourceSetId: ").append(toIndentedString(resourceSetId)).append("\n");
     sb.append("    serverTypeCode: ").append(toIndentedString(serverTypeCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
