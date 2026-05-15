@@ -33,6 +33,240 @@ public class TargetStyleMapForVideoProjectSerialTaskCreateInput {
   @SerializedName("af")
   private String af = null;
 
+  @SerializedName("af-ZA")
+  private String afZA = null;
+
+  @SerializedName("ar")
+  private String ar = null;
+
+  @SerializedName("ar-AR")
+  private String arAR = null;
+
+  @SerializedName("ar-DZ")
+  private String arDZ = null;
+
+  @SerializedName("ar-SY")
+  private String arSY = null;
+
+  @SerializedName("ar-YE")
+  private String arYE = null;
+
+  @SerializedName("be")
+  private String be = null;
+
+  @SerializedName("bn")
+  private String bn = null;
+
+  @SerializedName("bn-BD")
+  private String bnBD = null;
+
+  @SerializedName("da")
+  private String da = null;
+
+  @SerializedName("de")
+  private String de = null;
+
+  @SerializedName("de-DE")
+  private String deDE = null;
+
+  @SerializedName("en")
+  private String en = null;
+
+  @SerializedName("en-DA")
+  private String enDA = null;
+
+  @SerializedName("en-GB")
+  private String enGB = null;
+
+  @SerializedName("en-IN")
+  private String enIN = null;
+
+  @SerializedName("en-PH")
+  private String enPH = null;
+
+  @SerializedName("en-SG")
+  private String enSG = null;
+
+  @SerializedName("en-US")
+  private String enUS = null;
+
+  @SerializedName("es")
+  private String es = null;
+
+  @SerializedName("es-419")
+  private String es419 = null;
+
+  @SerializedName("es-ES")
+  private String esES = null;
+
+  @SerializedName("es-US")
+  private String esUS = null;
+
+  @SerializedName("fa-IR")
+  private String faIR = null;
+
+  @SerializedName("fil")
+  private String fil = null;
+
+  @SerializedName("fil-PH")
+  private String filPH = null;
+
+  @SerializedName("fr")
+  private String fr = null;
+
+  @SerializedName("fr-FR")
+  private String frFR = null;
+
+  @SerializedName("hi")
+  private String hi = null;
+
+  @SerializedName("hi-IN")
+  private String hiIN = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("id-ID")
+  private String idID = null;
+
+  @SerializedName("it")
+  private String it = null;
+
+  @SerializedName("it-IT")
+  private String itIT = null;
+
+  @SerializedName("ja")
+  private String ja = null;
+
+  @SerializedName("ja-JP")
+  private String jaJP = null;
+
+  @SerializedName("ka")
+  private String ka = null;
+
+  @SerializedName("kk-KZ")
+  private String kkKZ = null;
+
+  @SerializedName("kl")
+  private String kl = null;
+
+  @SerializedName("km")
+  private String km = null;
+
+  @SerializedName("km-KH")
+  private String kmKH = null;
+
+  @SerializedName("ko")
+  private String ko = null;
+
+  @SerializedName("ko-KR")
+  private String koKR = null;
+
+  @SerializedName("mn")
+  private String mn = null;
+
+  @SerializedName("ms")
+  private String ms = null;
+
+  @SerializedName("ms-MY")
+  private String msMY = null;
+
+  @SerializedName("my")
+  private String my = null;
+
+  @SerializedName("ne")
+  private String ne = null;
+
+  @SerializedName("pl")
+  private String pl = null;
+
+  @SerializedName("pl-PL")
+  private String plPL = null;
+
+  @SerializedName("pt")
+  private String pt = null;
+
+  @SerializedName("pt-BR")
+  private String ptBR = null;
+
+  @SerializedName("pt-PT")
+  private String ptPT = null;
+
+  @SerializedName("ro")
+  private String ro = null;
+
+  @SerializedName("ru")
+  private String ru = null;
+
+  @SerializedName("ru-RU")
+  private String ruRU = null;
+
+  @SerializedName("sk")
+  private String sk = null;
+
+  @SerializedName("sl")
+  private String sl = null;
+
+  @SerializedName("sr")
+  private String sr = null;
+
+  @SerializedName("sv")
+  private String sv = null;
+
+  @SerializedName("ta")
+  private String ta = null;
+
+  @SerializedName("te")
+  private String te = null;
+
+  @SerializedName("th")
+  private String th = null;
+
+  @SerializedName("th-TH")
+  private String thTH = null;
+
+  @SerializedName("tl-PH")
+  private String tlPH = null;
+
+  @SerializedName("tr")
+  private String tr = null;
+
+  @SerializedName("tr-TR")
+  private String trTR = null;
+
+  @SerializedName("ur")
+  private String ur = null;
+
+  @SerializedName("uz")
+  private String uz = null;
+
+  @SerializedName("vi")
+  private String vi = null;
+
+  @SerializedName("vi-VN")
+  private String viVN = null;
+
+  @SerializedName("zh")
+  private String zh = null;
+
+  @SerializedName("zh-CN")
+  private String zhCN = null;
+
+  @SerializedName("zh-HK")
+  private String zhHK = null;
+
+  @SerializedName("zh-Hans")
+  private String zhHans = null;
+
+  @SerializedName("zh-Hans-CN")
+  private String zhHansCN = null;
+
+  @SerializedName("zh-Hant")
+  private String zhHant = null;
+
+  @SerializedName("zh-TW")
+  private String zhTW = null;
+
   public TargetStyleMapForVideoProjectSerialTaskCreateInput af(String af) {
     this.af = af;
     return this;
@@ -51,6 +285,1410 @@ public class TargetStyleMapForVideoProjectSerialTaskCreateInput {
     this.af = af;
   }
 
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput afZA(String afZA) {
+    this.afZA = afZA;
+    return this;
+  }
+
+   /**
+   * Get afZA
+   * @return afZA
+  **/
+  @Schema(description = "")
+  public String getAfZA() {
+    return afZA;
+  }
+
+  public void setAfZA(String afZA) {
+    this.afZA = afZA;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ar(String ar) {
+    this.ar = ar;
+    return this;
+  }
+
+   /**
+   * Get ar
+   * @return ar
+  **/
+  @Schema(description = "")
+  public String getAr() {
+    return ar;
+  }
+
+  public void setAr(String ar) {
+    this.ar = ar;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput arAR(String arAR) {
+    this.arAR = arAR;
+    return this;
+  }
+
+   /**
+   * Get arAR
+   * @return arAR
+  **/
+  @Schema(description = "")
+  public String getArAR() {
+    return arAR;
+  }
+
+  public void setArAR(String arAR) {
+    this.arAR = arAR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput arDZ(String arDZ) {
+    this.arDZ = arDZ;
+    return this;
+  }
+
+   /**
+   * Get arDZ
+   * @return arDZ
+  **/
+  @Schema(description = "")
+  public String getArDZ() {
+    return arDZ;
+  }
+
+  public void setArDZ(String arDZ) {
+    this.arDZ = arDZ;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput arSY(String arSY) {
+    this.arSY = arSY;
+    return this;
+  }
+
+   /**
+   * Get arSY
+   * @return arSY
+  **/
+  @Schema(description = "")
+  public String getArSY() {
+    return arSY;
+  }
+
+  public void setArSY(String arSY) {
+    this.arSY = arSY;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput arYE(String arYE) {
+    this.arYE = arYE;
+    return this;
+  }
+
+   /**
+   * Get arYE
+   * @return arYE
+  **/
+  @Schema(description = "")
+  public String getArYE() {
+    return arYE;
+  }
+
+  public void setArYE(String arYE) {
+    this.arYE = arYE;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput be(String be) {
+    this.be = be;
+    return this;
+  }
+
+   /**
+   * Get be
+   * @return be
+  **/
+  @Schema(description = "")
+  public String getBe() {
+    return be;
+  }
+
+  public void setBe(String be) {
+    this.be = be;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput bn(String bn) {
+    this.bn = bn;
+    return this;
+  }
+
+   /**
+   * Get bn
+   * @return bn
+  **/
+  @Schema(description = "")
+  public String getBn() {
+    return bn;
+  }
+
+  public void setBn(String bn) {
+    this.bn = bn;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput bnBD(String bnBD) {
+    this.bnBD = bnBD;
+    return this;
+  }
+
+   /**
+   * Get bnBD
+   * @return bnBD
+  **/
+  @Schema(description = "")
+  public String getBnBD() {
+    return bnBD;
+  }
+
+  public void setBnBD(String bnBD) {
+    this.bnBD = bnBD;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput da(String da) {
+    this.da = da;
+    return this;
+  }
+
+   /**
+   * Get da
+   * @return da
+  **/
+  @Schema(description = "")
+  public String getDa() {
+    return da;
+  }
+
+  public void setDa(String da) {
+    this.da = da;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput de(String de) {
+    this.de = de;
+    return this;
+  }
+
+   /**
+   * Get de
+   * @return de
+  **/
+  @Schema(description = "")
+  public String getDe() {
+    return de;
+  }
+
+  public void setDe(String de) {
+    this.de = de;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput deDE(String deDE) {
+    this.deDE = deDE;
+    return this;
+  }
+
+   /**
+   * Get deDE
+   * @return deDE
+  **/
+  @Schema(description = "")
+  public String getDeDE() {
+    return deDE;
+  }
+
+  public void setDeDE(String deDE) {
+    this.deDE = deDE;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput en(String en) {
+    this.en = en;
+    return this;
+  }
+
+   /**
+   * Get en
+   * @return en
+  **/
+  @Schema(description = "")
+  public String getEn() {
+    return en;
+  }
+
+  public void setEn(String en) {
+    this.en = en;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enDA(String enDA) {
+    this.enDA = enDA;
+    return this;
+  }
+
+   /**
+   * Get enDA
+   * @return enDA
+  **/
+  @Schema(description = "")
+  public String getEnDA() {
+    return enDA;
+  }
+
+  public void setEnDA(String enDA) {
+    this.enDA = enDA;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enGB(String enGB) {
+    this.enGB = enGB;
+    return this;
+  }
+
+   /**
+   * Get enGB
+   * @return enGB
+  **/
+  @Schema(description = "")
+  public String getEnGB() {
+    return enGB;
+  }
+
+  public void setEnGB(String enGB) {
+    this.enGB = enGB;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enIN(String enIN) {
+    this.enIN = enIN;
+    return this;
+  }
+
+   /**
+   * Get enIN
+   * @return enIN
+  **/
+  @Schema(description = "")
+  public String getEnIN() {
+    return enIN;
+  }
+
+  public void setEnIN(String enIN) {
+    this.enIN = enIN;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enPH(String enPH) {
+    this.enPH = enPH;
+    return this;
+  }
+
+   /**
+   * Get enPH
+   * @return enPH
+  **/
+  @Schema(description = "")
+  public String getEnPH() {
+    return enPH;
+  }
+
+  public void setEnPH(String enPH) {
+    this.enPH = enPH;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enSG(String enSG) {
+    this.enSG = enSG;
+    return this;
+  }
+
+   /**
+   * Get enSG
+   * @return enSG
+  **/
+  @Schema(description = "")
+  public String getEnSG() {
+    return enSG;
+  }
+
+  public void setEnSG(String enSG) {
+    this.enSG = enSG;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput enUS(String enUS) {
+    this.enUS = enUS;
+    return this;
+  }
+
+   /**
+   * Get enUS
+   * @return enUS
+  **/
+  @Schema(description = "")
+  public String getEnUS() {
+    return enUS;
+  }
+
+  public void setEnUS(String enUS) {
+    this.enUS = enUS;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput es(String es) {
+    this.es = es;
+    return this;
+  }
+
+   /**
+   * Get es
+   * @return es
+  **/
+  @Schema(description = "")
+  public String getEs() {
+    return es;
+  }
+
+  public void setEs(String es) {
+    this.es = es;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput es419(String es419) {
+    this.es419 = es419;
+    return this;
+  }
+
+   /**
+   * Get es419
+   * @return es419
+  **/
+  @Schema(description = "")
+  public String getEs419() {
+    return es419;
+  }
+
+  public void setEs419(String es419) {
+    this.es419 = es419;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput esES(String esES) {
+    this.esES = esES;
+    return this;
+  }
+
+   /**
+   * Get esES
+   * @return esES
+  **/
+  @Schema(description = "")
+  public String getEsES() {
+    return esES;
+  }
+
+  public void setEsES(String esES) {
+    this.esES = esES;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput esUS(String esUS) {
+    this.esUS = esUS;
+    return this;
+  }
+
+   /**
+   * Get esUS
+   * @return esUS
+  **/
+  @Schema(description = "")
+  public String getEsUS() {
+    return esUS;
+  }
+
+  public void setEsUS(String esUS) {
+    this.esUS = esUS;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput faIR(String faIR) {
+    this.faIR = faIR;
+    return this;
+  }
+
+   /**
+   * Get faIR
+   * @return faIR
+  **/
+  @Schema(description = "")
+  public String getFaIR() {
+    return faIR;
+  }
+
+  public void setFaIR(String faIR) {
+    this.faIR = faIR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput fil(String fil) {
+    this.fil = fil;
+    return this;
+  }
+
+   /**
+   * Get fil
+   * @return fil
+  **/
+  @Schema(description = "")
+  public String getFil() {
+    return fil;
+  }
+
+  public void setFil(String fil) {
+    this.fil = fil;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput filPH(String filPH) {
+    this.filPH = filPH;
+    return this;
+  }
+
+   /**
+   * Get filPH
+   * @return filPH
+  **/
+  @Schema(description = "")
+  public String getFilPH() {
+    return filPH;
+  }
+
+  public void setFilPH(String filPH) {
+    this.filPH = filPH;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput fr(String fr) {
+    this.fr = fr;
+    return this;
+  }
+
+   /**
+   * Get fr
+   * @return fr
+  **/
+  @Schema(description = "")
+  public String getFr() {
+    return fr;
+  }
+
+  public void setFr(String fr) {
+    this.fr = fr;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput frFR(String frFR) {
+    this.frFR = frFR;
+    return this;
+  }
+
+   /**
+   * Get frFR
+   * @return frFR
+  **/
+  @Schema(description = "")
+  public String getFrFR() {
+    return frFR;
+  }
+
+  public void setFrFR(String frFR) {
+    this.frFR = frFR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput hi(String hi) {
+    this.hi = hi;
+    return this;
+  }
+
+   /**
+   * Get hi
+   * @return hi
+  **/
+  @Schema(description = "")
+  public String getHi() {
+    return hi;
+  }
+
+  public void setHi(String hi) {
+    this.hi = hi;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput hiIN(String hiIN) {
+    this.hiIN = hiIN;
+    return this;
+  }
+
+   /**
+   * Get hiIN
+   * @return hiIN
+  **/
+  @Schema(description = "")
+  public String getHiIN() {
+    return hiIN;
+  }
+
+  public void setHiIN(String hiIN) {
+    this.hiIN = hiIN;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput idID(String idID) {
+    this.idID = idID;
+    return this;
+  }
+
+   /**
+   * Get idID
+   * @return idID
+  **/
+  @Schema(description = "")
+  public String getIdID() {
+    return idID;
+  }
+
+  public void setIdID(String idID) {
+    this.idID = idID;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput it(String it) {
+    this.it = it;
+    return this;
+  }
+
+   /**
+   * Get it
+   * @return it
+  **/
+  @Schema(description = "")
+  public String getIt() {
+    return it;
+  }
+
+  public void setIt(String it) {
+    this.it = it;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput itIT(String itIT) {
+    this.itIT = itIT;
+    return this;
+  }
+
+   /**
+   * Get itIT
+   * @return itIT
+  **/
+  @Schema(description = "")
+  public String getItIT() {
+    return itIT;
+  }
+
+  public void setItIT(String itIT) {
+    this.itIT = itIT;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ja(String ja) {
+    this.ja = ja;
+    return this;
+  }
+
+   /**
+   * Get ja
+   * @return ja
+  **/
+  @Schema(description = "")
+  public String getJa() {
+    return ja;
+  }
+
+  public void setJa(String ja) {
+    this.ja = ja;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput jaJP(String jaJP) {
+    this.jaJP = jaJP;
+    return this;
+  }
+
+   /**
+   * Get jaJP
+   * @return jaJP
+  **/
+  @Schema(description = "")
+  public String getJaJP() {
+    return jaJP;
+  }
+
+  public void setJaJP(String jaJP) {
+    this.jaJP = jaJP;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ka(String ka) {
+    this.ka = ka;
+    return this;
+  }
+
+   /**
+   * Get ka
+   * @return ka
+  **/
+  @Schema(description = "")
+  public String getKa() {
+    return ka;
+  }
+
+  public void setKa(String ka) {
+    this.ka = ka;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput kkKZ(String kkKZ) {
+    this.kkKZ = kkKZ;
+    return this;
+  }
+
+   /**
+   * Get kkKZ
+   * @return kkKZ
+  **/
+  @Schema(description = "")
+  public String getKkKZ() {
+    return kkKZ;
+  }
+
+  public void setKkKZ(String kkKZ) {
+    this.kkKZ = kkKZ;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput kl(String kl) {
+    this.kl = kl;
+    return this;
+  }
+
+   /**
+   * Get kl
+   * @return kl
+  **/
+  @Schema(description = "")
+  public String getKl() {
+    return kl;
+  }
+
+  public void setKl(String kl) {
+    this.kl = kl;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput km(String km) {
+    this.km = km;
+    return this;
+  }
+
+   /**
+   * Get km
+   * @return km
+  **/
+  @Schema(description = "")
+  public String getKm() {
+    return km;
+  }
+
+  public void setKm(String km) {
+    this.km = km;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput kmKH(String kmKH) {
+    this.kmKH = kmKH;
+    return this;
+  }
+
+   /**
+   * Get kmKH
+   * @return kmKH
+  **/
+  @Schema(description = "")
+  public String getKmKH() {
+    return kmKH;
+  }
+
+  public void setKmKH(String kmKH) {
+    this.kmKH = kmKH;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ko(String ko) {
+    this.ko = ko;
+    return this;
+  }
+
+   /**
+   * Get ko
+   * @return ko
+  **/
+  @Schema(description = "")
+  public String getKo() {
+    return ko;
+  }
+
+  public void setKo(String ko) {
+    this.ko = ko;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput koKR(String koKR) {
+    this.koKR = koKR;
+    return this;
+  }
+
+   /**
+   * Get koKR
+   * @return koKR
+  **/
+  @Schema(description = "")
+  public String getKoKR() {
+    return koKR;
+  }
+
+  public void setKoKR(String koKR) {
+    this.koKR = koKR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput mn(String mn) {
+    this.mn = mn;
+    return this;
+  }
+
+   /**
+   * Get mn
+   * @return mn
+  **/
+  @Schema(description = "")
+  public String getMn() {
+    return mn;
+  }
+
+  public void setMn(String mn) {
+    this.mn = mn;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ms(String ms) {
+    this.ms = ms;
+    return this;
+  }
+
+   /**
+   * Get ms
+   * @return ms
+  **/
+  @Schema(description = "")
+  public String getMs() {
+    return ms;
+  }
+
+  public void setMs(String ms) {
+    this.ms = ms;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput msMY(String msMY) {
+    this.msMY = msMY;
+    return this;
+  }
+
+   /**
+   * Get msMY
+   * @return msMY
+  **/
+  @Schema(description = "")
+  public String getMsMY() {
+    return msMY;
+  }
+
+  public void setMsMY(String msMY) {
+    this.msMY = msMY;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput my(String my) {
+    this.my = my;
+    return this;
+  }
+
+   /**
+   * Get my
+   * @return my
+  **/
+  @Schema(description = "")
+  public String getMy() {
+    return my;
+  }
+
+  public void setMy(String my) {
+    this.my = my;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ne(String ne) {
+    this.ne = ne;
+    return this;
+  }
+
+   /**
+   * Get ne
+   * @return ne
+  **/
+  @Schema(description = "")
+  public String getNe() {
+    return ne;
+  }
+
+  public void setNe(String ne) {
+    this.ne = ne;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput pl(String pl) {
+    this.pl = pl;
+    return this;
+  }
+
+   /**
+   * Get pl
+   * @return pl
+  **/
+  @Schema(description = "")
+  public String getPl() {
+    return pl;
+  }
+
+  public void setPl(String pl) {
+    this.pl = pl;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput plPL(String plPL) {
+    this.plPL = plPL;
+    return this;
+  }
+
+   /**
+   * Get plPL
+   * @return plPL
+  **/
+  @Schema(description = "")
+  public String getPlPL() {
+    return plPL;
+  }
+
+  public void setPlPL(String plPL) {
+    this.plPL = plPL;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput pt(String pt) {
+    this.pt = pt;
+    return this;
+  }
+
+   /**
+   * Get pt
+   * @return pt
+  **/
+  @Schema(description = "")
+  public String getPt() {
+    return pt;
+  }
+
+  public void setPt(String pt) {
+    this.pt = pt;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ptBR(String ptBR) {
+    this.ptBR = ptBR;
+    return this;
+  }
+
+   /**
+   * Get ptBR
+   * @return ptBR
+  **/
+  @Schema(description = "")
+  public String getPtBR() {
+    return ptBR;
+  }
+
+  public void setPtBR(String ptBR) {
+    this.ptBR = ptBR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ptPT(String ptPT) {
+    this.ptPT = ptPT;
+    return this;
+  }
+
+   /**
+   * Get ptPT
+   * @return ptPT
+  **/
+  @Schema(description = "")
+  public String getPtPT() {
+    return ptPT;
+  }
+
+  public void setPtPT(String ptPT) {
+    this.ptPT = ptPT;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ro(String ro) {
+    this.ro = ro;
+    return this;
+  }
+
+   /**
+   * Get ro
+   * @return ro
+  **/
+  @Schema(description = "")
+  public String getRo() {
+    return ro;
+  }
+
+  public void setRo(String ro) {
+    this.ro = ro;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ru(String ru) {
+    this.ru = ru;
+    return this;
+  }
+
+   /**
+   * Get ru
+   * @return ru
+  **/
+  @Schema(description = "")
+  public String getRu() {
+    return ru;
+  }
+
+  public void setRu(String ru) {
+    this.ru = ru;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ruRU(String ruRU) {
+    this.ruRU = ruRU;
+    return this;
+  }
+
+   /**
+   * Get ruRU
+   * @return ruRU
+  **/
+  @Schema(description = "")
+  public String getRuRU() {
+    return ruRU;
+  }
+
+  public void setRuRU(String ruRU) {
+    this.ruRU = ruRU;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput sk(String sk) {
+    this.sk = sk;
+    return this;
+  }
+
+   /**
+   * Get sk
+   * @return sk
+  **/
+  @Schema(description = "")
+  public String getSk() {
+    return sk;
+  }
+
+  public void setSk(String sk) {
+    this.sk = sk;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput sl(String sl) {
+    this.sl = sl;
+    return this;
+  }
+
+   /**
+   * Get sl
+   * @return sl
+  **/
+  @Schema(description = "")
+  public String getSl() {
+    return sl;
+  }
+
+  public void setSl(String sl) {
+    this.sl = sl;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput sr(String sr) {
+    this.sr = sr;
+    return this;
+  }
+
+   /**
+   * Get sr
+   * @return sr
+  **/
+  @Schema(description = "")
+  public String getSr() {
+    return sr;
+  }
+
+  public void setSr(String sr) {
+    this.sr = sr;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput sv(String sv) {
+    this.sv = sv;
+    return this;
+  }
+
+   /**
+   * Get sv
+   * @return sv
+  **/
+  @Schema(description = "")
+  public String getSv() {
+    return sv;
+  }
+
+  public void setSv(String sv) {
+    this.sv = sv;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ta(String ta) {
+    this.ta = ta;
+    return this;
+  }
+
+   /**
+   * Get ta
+   * @return ta
+  **/
+  @Schema(description = "")
+  public String getTa() {
+    return ta;
+  }
+
+  public void setTa(String ta) {
+    this.ta = ta;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput te(String te) {
+    this.te = te;
+    return this;
+  }
+
+   /**
+   * Get te
+   * @return te
+  **/
+  @Schema(description = "")
+  public String getTe() {
+    return te;
+  }
+
+  public void setTe(String te) {
+    this.te = te;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput th(String th) {
+    this.th = th;
+    return this;
+  }
+
+   /**
+   * Get th
+   * @return th
+  **/
+  @Schema(description = "")
+  public String getTh() {
+    return th;
+  }
+
+  public void setTh(String th) {
+    this.th = th;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput thTH(String thTH) {
+    this.thTH = thTH;
+    return this;
+  }
+
+   /**
+   * Get thTH
+   * @return thTH
+  **/
+  @Schema(description = "")
+  public String getThTH() {
+    return thTH;
+  }
+
+  public void setThTH(String thTH) {
+    this.thTH = thTH;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput tlPH(String tlPH) {
+    this.tlPH = tlPH;
+    return this;
+  }
+
+   /**
+   * Get tlPH
+   * @return tlPH
+  **/
+  @Schema(description = "")
+  public String getTlPH() {
+    return tlPH;
+  }
+
+  public void setTlPH(String tlPH) {
+    this.tlPH = tlPH;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput tr(String tr) {
+    this.tr = tr;
+    return this;
+  }
+
+   /**
+   * Get tr
+   * @return tr
+  **/
+  @Schema(description = "")
+  public String getTr() {
+    return tr;
+  }
+
+  public void setTr(String tr) {
+    this.tr = tr;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput trTR(String trTR) {
+    this.trTR = trTR;
+    return this;
+  }
+
+   /**
+   * Get trTR
+   * @return trTR
+  **/
+  @Schema(description = "")
+  public String getTrTR() {
+    return trTR;
+  }
+
+  public void setTrTR(String trTR) {
+    this.trTR = trTR;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput ur(String ur) {
+    this.ur = ur;
+    return this;
+  }
+
+   /**
+   * Get ur
+   * @return ur
+  **/
+  @Schema(description = "")
+  public String getUr() {
+    return ur;
+  }
+
+  public void setUr(String ur) {
+    this.ur = ur;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput uz(String uz) {
+    this.uz = uz;
+    return this;
+  }
+
+   /**
+   * Get uz
+   * @return uz
+  **/
+  @Schema(description = "")
+  public String getUz() {
+    return uz;
+  }
+
+  public void setUz(String uz) {
+    this.uz = uz;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput vi(String vi) {
+    this.vi = vi;
+    return this;
+  }
+
+   /**
+   * Get vi
+   * @return vi
+  **/
+  @Schema(description = "")
+  public String getVi() {
+    return vi;
+  }
+
+  public void setVi(String vi) {
+    this.vi = vi;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput viVN(String viVN) {
+    this.viVN = viVN;
+    return this;
+  }
+
+   /**
+   * Get viVN
+   * @return viVN
+  **/
+  @Schema(description = "")
+  public String getViVN() {
+    return viVN;
+  }
+
+  public void setViVN(String viVN) {
+    this.viVN = viVN;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zh(String zh) {
+    this.zh = zh;
+    return this;
+  }
+
+   /**
+   * Get zh
+   * @return zh
+  **/
+  @Schema(description = "")
+  public String getZh() {
+    return zh;
+  }
+
+  public void setZh(String zh) {
+    this.zh = zh;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhCN(String zhCN) {
+    this.zhCN = zhCN;
+    return this;
+  }
+
+   /**
+   * Get zhCN
+   * @return zhCN
+  **/
+  @Schema(description = "")
+  public String getZhCN() {
+    return zhCN;
+  }
+
+  public void setZhCN(String zhCN) {
+    this.zhCN = zhCN;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhHK(String zhHK) {
+    this.zhHK = zhHK;
+    return this;
+  }
+
+   /**
+   * Get zhHK
+   * @return zhHK
+  **/
+  @Schema(description = "")
+  public String getZhHK() {
+    return zhHK;
+  }
+
+  public void setZhHK(String zhHK) {
+    this.zhHK = zhHK;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhHans(String zhHans) {
+    this.zhHans = zhHans;
+    return this;
+  }
+
+   /**
+   * Get zhHans
+   * @return zhHans
+  **/
+  @Schema(description = "")
+  public String getZhHans() {
+    return zhHans;
+  }
+
+  public void setZhHans(String zhHans) {
+    this.zhHans = zhHans;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhHansCN(String zhHansCN) {
+    this.zhHansCN = zhHansCN;
+    return this;
+  }
+
+   /**
+   * Get zhHansCN
+   * @return zhHansCN
+  **/
+  @Schema(description = "")
+  public String getZhHansCN() {
+    return zhHansCN;
+  }
+
+  public void setZhHansCN(String zhHansCN) {
+    this.zhHansCN = zhHansCN;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhHant(String zhHant) {
+    this.zhHant = zhHant;
+    return this;
+  }
+
+   /**
+   * Get zhHant
+   * @return zhHant
+  **/
+  @Schema(description = "")
+  public String getZhHant() {
+    return zhHant;
+  }
+
+  public void setZhHant(String zhHant) {
+    this.zhHant = zhHant;
+  }
+
+  public TargetStyleMapForVideoProjectSerialTaskCreateInput zhTW(String zhTW) {
+    this.zhTW = zhTW;
+    return this;
+  }
+
+   /**
+   * Get zhTW
+   * @return zhTW
+  **/
+  @Schema(description = "")
+  public String getZhTW() {
+    return zhTW;
+  }
+
+  public void setZhTW(String zhTW) {
+    this.zhTW = zhTW;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +1699,90 @@ public class TargetStyleMapForVideoProjectSerialTaskCreateInput {
       return false;
     }
     TargetStyleMapForVideoProjectSerialTaskCreateInput targetStyleMapForVideoProjectSerialTaskCreateInput = (TargetStyleMapForVideoProjectSerialTaskCreateInput) o;
-    return Objects.equals(this.af, targetStyleMapForVideoProjectSerialTaskCreateInput.af);
+    return Objects.equals(this.af, targetStyleMapForVideoProjectSerialTaskCreateInput.af) &&
+        Objects.equals(this.afZA, targetStyleMapForVideoProjectSerialTaskCreateInput.afZA) &&
+        Objects.equals(this.ar, targetStyleMapForVideoProjectSerialTaskCreateInput.ar) &&
+        Objects.equals(this.arAR, targetStyleMapForVideoProjectSerialTaskCreateInput.arAR) &&
+        Objects.equals(this.arDZ, targetStyleMapForVideoProjectSerialTaskCreateInput.arDZ) &&
+        Objects.equals(this.arSY, targetStyleMapForVideoProjectSerialTaskCreateInput.arSY) &&
+        Objects.equals(this.arYE, targetStyleMapForVideoProjectSerialTaskCreateInput.arYE) &&
+        Objects.equals(this.be, targetStyleMapForVideoProjectSerialTaskCreateInput.be) &&
+        Objects.equals(this.bn, targetStyleMapForVideoProjectSerialTaskCreateInput.bn) &&
+        Objects.equals(this.bnBD, targetStyleMapForVideoProjectSerialTaskCreateInput.bnBD) &&
+        Objects.equals(this.da, targetStyleMapForVideoProjectSerialTaskCreateInput.da) &&
+        Objects.equals(this.de, targetStyleMapForVideoProjectSerialTaskCreateInput.de) &&
+        Objects.equals(this.deDE, targetStyleMapForVideoProjectSerialTaskCreateInput.deDE) &&
+        Objects.equals(this.en, targetStyleMapForVideoProjectSerialTaskCreateInput.en) &&
+        Objects.equals(this.enDA, targetStyleMapForVideoProjectSerialTaskCreateInput.enDA) &&
+        Objects.equals(this.enGB, targetStyleMapForVideoProjectSerialTaskCreateInput.enGB) &&
+        Objects.equals(this.enIN, targetStyleMapForVideoProjectSerialTaskCreateInput.enIN) &&
+        Objects.equals(this.enPH, targetStyleMapForVideoProjectSerialTaskCreateInput.enPH) &&
+        Objects.equals(this.enSG, targetStyleMapForVideoProjectSerialTaskCreateInput.enSG) &&
+        Objects.equals(this.enUS, targetStyleMapForVideoProjectSerialTaskCreateInput.enUS) &&
+        Objects.equals(this.es, targetStyleMapForVideoProjectSerialTaskCreateInput.es) &&
+        Objects.equals(this.es419, targetStyleMapForVideoProjectSerialTaskCreateInput.es419) &&
+        Objects.equals(this.esES, targetStyleMapForVideoProjectSerialTaskCreateInput.esES) &&
+        Objects.equals(this.esUS, targetStyleMapForVideoProjectSerialTaskCreateInput.esUS) &&
+        Objects.equals(this.faIR, targetStyleMapForVideoProjectSerialTaskCreateInput.faIR) &&
+        Objects.equals(this.fil, targetStyleMapForVideoProjectSerialTaskCreateInput.fil) &&
+        Objects.equals(this.filPH, targetStyleMapForVideoProjectSerialTaskCreateInput.filPH) &&
+        Objects.equals(this.fr, targetStyleMapForVideoProjectSerialTaskCreateInput.fr) &&
+        Objects.equals(this.frFR, targetStyleMapForVideoProjectSerialTaskCreateInput.frFR) &&
+        Objects.equals(this.hi, targetStyleMapForVideoProjectSerialTaskCreateInput.hi) &&
+        Objects.equals(this.hiIN, targetStyleMapForVideoProjectSerialTaskCreateInput.hiIN) &&
+        Objects.equals(this.id, targetStyleMapForVideoProjectSerialTaskCreateInput.id) &&
+        Objects.equals(this.idID, targetStyleMapForVideoProjectSerialTaskCreateInput.idID) &&
+        Objects.equals(this.it, targetStyleMapForVideoProjectSerialTaskCreateInput.it) &&
+        Objects.equals(this.itIT, targetStyleMapForVideoProjectSerialTaskCreateInput.itIT) &&
+        Objects.equals(this.ja, targetStyleMapForVideoProjectSerialTaskCreateInput.ja) &&
+        Objects.equals(this.jaJP, targetStyleMapForVideoProjectSerialTaskCreateInput.jaJP) &&
+        Objects.equals(this.ka, targetStyleMapForVideoProjectSerialTaskCreateInput.ka) &&
+        Objects.equals(this.kkKZ, targetStyleMapForVideoProjectSerialTaskCreateInput.kkKZ) &&
+        Objects.equals(this.kl, targetStyleMapForVideoProjectSerialTaskCreateInput.kl) &&
+        Objects.equals(this.km, targetStyleMapForVideoProjectSerialTaskCreateInput.km) &&
+        Objects.equals(this.kmKH, targetStyleMapForVideoProjectSerialTaskCreateInput.kmKH) &&
+        Objects.equals(this.ko, targetStyleMapForVideoProjectSerialTaskCreateInput.ko) &&
+        Objects.equals(this.koKR, targetStyleMapForVideoProjectSerialTaskCreateInput.koKR) &&
+        Objects.equals(this.mn, targetStyleMapForVideoProjectSerialTaskCreateInput.mn) &&
+        Objects.equals(this.ms, targetStyleMapForVideoProjectSerialTaskCreateInput.ms) &&
+        Objects.equals(this.msMY, targetStyleMapForVideoProjectSerialTaskCreateInput.msMY) &&
+        Objects.equals(this.my, targetStyleMapForVideoProjectSerialTaskCreateInput.my) &&
+        Objects.equals(this.ne, targetStyleMapForVideoProjectSerialTaskCreateInput.ne) &&
+        Objects.equals(this.pl, targetStyleMapForVideoProjectSerialTaskCreateInput.pl) &&
+        Objects.equals(this.plPL, targetStyleMapForVideoProjectSerialTaskCreateInput.plPL) &&
+        Objects.equals(this.pt, targetStyleMapForVideoProjectSerialTaskCreateInput.pt) &&
+        Objects.equals(this.ptBR, targetStyleMapForVideoProjectSerialTaskCreateInput.ptBR) &&
+        Objects.equals(this.ptPT, targetStyleMapForVideoProjectSerialTaskCreateInput.ptPT) &&
+        Objects.equals(this.ro, targetStyleMapForVideoProjectSerialTaskCreateInput.ro) &&
+        Objects.equals(this.ru, targetStyleMapForVideoProjectSerialTaskCreateInput.ru) &&
+        Objects.equals(this.ruRU, targetStyleMapForVideoProjectSerialTaskCreateInput.ruRU) &&
+        Objects.equals(this.sk, targetStyleMapForVideoProjectSerialTaskCreateInput.sk) &&
+        Objects.equals(this.sl, targetStyleMapForVideoProjectSerialTaskCreateInput.sl) &&
+        Objects.equals(this.sr, targetStyleMapForVideoProjectSerialTaskCreateInput.sr) &&
+        Objects.equals(this.sv, targetStyleMapForVideoProjectSerialTaskCreateInput.sv) &&
+        Objects.equals(this.ta, targetStyleMapForVideoProjectSerialTaskCreateInput.ta) &&
+        Objects.equals(this.te, targetStyleMapForVideoProjectSerialTaskCreateInput.te) &&
+        Objects.equals(this.th, targetStyleMapForVideoProjectSerialTaskCreateInput.th) &&
+        Objects.equals(this.thTH, targetStyleMapForVideoProjectSerialTaskCreateInput.thTH) &&
+        Objects.equals(this.tlPH, targetStyleMapForVideoProjectSerialTaskCreateInput.tlPH) &&
+        Objects.equals(this.tr, targetStyleMapForVideoProjectSerialTaskCreateInput.tr) &&
+        Objects.equals(this.trTR, targetStyleMapForVideoProjectSerialTaskCreateInput.trTR) &&
+        Objects.equals(this.ur, targetStyleMapForVideoProjectSerialTaskCreateInput.ur) &&
+        Objects.equals(this.uz, targetStyleMapForVideoProjectSerialTaskCreateInput.uz) &&
+        Objects.equals(this.vi, targetStyleMapForVideoProjectSerialTaskCreateInput.vi) &&
+        Objects.equals(this.viVN, targetStyleMapForVideoProjectSerialTaskCreateInput.viVN) &&
+        Objects.equals(this.zh, targetStyleMapForVideoProjectSerialTaskCreateInput.zh) &&
+        Objects.equals(this.zhCN, targetStyleMapForVideoProjectSerialTaskCreateInput.zhCN) &&
+        Objects.equals(this.zhHK, targetStyleMapForVideoProjectSerialTaskCreateInput.zhHK) &&
+        Objects.equals(this.zhHans, targetStyleMapForVideoProjectSerialTaskCreateInput.zhHans) &&
+        Objects.equals(this.zhHansCN, targetStyleMapForVideoProjectSerialTaskCreateInput.zhHansCN) &&
+        Objects.equals(this.zhHant, targetStyleMapForVideoProjectSerialTaskCreateInput.zhHant) &&
+        Objects.equals(this.zhTW, targetStyleMapForVideoProjectSerialTaskCreateInput.zhTW);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(af);
+    return Objects.hash(af, afZA, ar, arAR, arDZ, arSY, arYE, be, bn, bnBD, da, de, deDE, en, enDA, enGB, enIN, enPH, enSG, enUS, es, es419, esES, esUS, faIR, fil, filPH, fr, frFR, hi, hiIN, id, idID, it, itIT, ja, jaJP, ka, kkKZ, kl, km, kmKH, ko, koKR, mn, ms, msMY, my, ne, pl, plPL, pt, ptBR, ptPT, ro, ru, ruRU, sk, sl, sr, sv, ta, te, th, thTH, tlPH, tr, trTR, ur, uz, vi, viVN, zh, zhCN, zhHK, zhHans, zhHansCN, zhHant, zhTW);
   }
 
 
@@ -76,6 +1792,84 @@ public class TargetStyleMapForVideoProjectSerialTaskCreateInput {
     sb.append("class TargetStyleMapForVideoProjectSerialTaskCreateInput {\n");
     
     sb.append("    af: ").append(toIndentedString(af)).append("\n");
+    sb.append("    afZA: ").append(toIndentedString(afZA)).append("\n");
+    sb.append("    ar: ").append(toIndentedString(ar)).append("\n");
+    sb.append("    arAR: ").append(toIndentedString(arAR)).append("\n");
+    sb.append("    arDZ: ").append(toIndentedString(arDZ)).append("\n");
+    sb.append("    arSY: ").append(toIndentedString(arSY)).append("\n");
+    sb.append("    arYE: ").append(toIndentedString(arYE)).append("\n");
+    sb.append("    be: ").append(toIndentedString(be)).append("\n");
+    sb.append("    bn: ").append(toIndentedString(bn)).append("\n");
+    sb.append("    bnBD: ").append(toIndentedString(bnBD)).append("\n");
+    sb.append("    da: ").append(toIndentedString(da)).append("\n");
+    sb.append("    de: ").append(toIndentedString(de)).append("\n");
+    sb.append("    deDE: ").append(toIndentedString(deDE)).append("\n");
+    sb.append("    en: ").append(toIndentedString(en)).append("\n");
+    sb.append("    enDA: ").append(toIndentedString(enDA)).append("\n");
+    sb.append("    enGB: ").append(toIndentedString(enGB)).append("\n");
+    sb.append("    enIN: ").append(toIndentedString(enIN)).append("\n");
+    sb.append("    enPH: ").append(toIndentedString(enPH)).append("\n");
+    sb.append("    enSG: ").append(toIndentedString(enSG)).append("\n");
+    sb.append("    enUS: ").append(toIndentedString(enUS)).append("\n");
+    sb.append("    es: ").append(toIndentedString(es)).append("\n");
+    sb.append("    es419: ").append(toIndentedString(es419)).append("\n");
+    sb.append("    esES: ").append(toIndentedString(esES)).append("\n");
+    sb.append("    esUS: ").append(toIndentedString(esUS)).append("\n");
+    sb.append("    faIR: ").append(toIndentedString(faIR)).append("\n");
+    sb.append("    fil: ").append(toIndentedString(fil)).append("\n");
+    sb.append("    filPH: ").append(toIndentedString(filPH)).append("\n");
+    sb.append("    fr: ").append(toIndentedString(fr)).append("\n");
+    sb.append("    frFR: ").append(toIndentedString(frFR)).append("\n");
+    sb.append("    hi: ").append(toIndentedString(hi)).append("\n");
+    sb.append("    hiIN: ").append(toIndentedString(hiIN)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    idID: ").append(toIndentedString(idID)).append("\n");
+    sb.append("    it: ").append(toIndentedString(it)).append("\n");
+    sb.append("    itIT: ").append(toIndentedString(itIT)).append("\n");
+    sb.append("    ja: ").append(toIndentedString(ja)).append("\n");
+    sb.append("    jaJP: ").append(toIndentedString(jaJP)).append("\n");
+    sb.append("    ka: ").append(toIndentedString(ka)).append("\n");
+    sb.append("    kkKZ: ").append(toIndentedString(kkKZ)).append("\n");
+    sb.append("    kl: ").append(toIndentedString(kl)).append("\n");
+    sb.append("    km: ").append(toIndentedString(km)).append("\n");
+    sb.append("    kmKH: ").append(toIndentedString(kmKH)).append("\n");
+    sb.append("    ko: ").append(toIndentedString(ko)).append("\n");
+    sb.append("    koKR: ").append(toIndentedString(koKR)).append("\n");
+    sb.append("    mn: ").append(toIndentedString(mn)).append("\n");
+    sb.append("    ms: ").append(toIndentedString(ms)).append("\n");
+    sb.append("    msMY: ").append(toIndentedString(msMY)).append("\n");
+    sb.append("    my: ").append(toIndentedString(my)).append("\n");
+    sb.append("    ne: ").append(toIndentedString(ne)).append("\n");
+    sb.append("    pl: ").append(toIndentedString(pl)).append("\n");
+    sb.append("    plPL: ").append(toIndentedString(plPL)).append("\n");
+    sb.append("    pt: ").append(toIndentedString(pt)).append("\n");
+    sb.append("    ptBR: ").append(toIndentedString(ptBR)).append("\n");
+    sb.append("    ptPT: ").append(toIndentedString(ptPT)).append("\n");
+    sb.append("    ro: ").append(toIndentedString(ro)).append("\n");
+    sb.append("    ru: ").append(toIndentedString(ru)).append("\n");
+    sb.append("    ruRU: ").append(toIndentedString(ruRU)).append("\n");
+    sb.append("    sk: ").append(toIndentedString(sk)).append("\n");
+    sb.append("    sl: ").append(toIndentedString(sl)).append("\n");
+    sb.append("    sr: ").append(toIndentedString(sr)).append("\n");
+    sb.append("    sv: ").append(toIndentedString(sv)).append("\n");
+    sb.append("    ta: ").append(toIndentedString(ta)).append("\n");
+    sb.append("    te: ").append(toIndentedString(te)).append("\n");
+    sb.append("    th: ").append(toIndentedString(th)).append("\n");
+    sb.append("    thTH: ").append(toIndentedString(thTH)).append("\n");
+    sb.append("    tlPH: ").append(toIndentedString(tlPH)).append("\n");
+    sb.append("    tr: ").append(toIndentedString(tr)).append("\n");
+    sb.append("    trTR: ").append(toIndentedString(trTR)).append("\n");
+    sb.append("    ur: ").append(toIndentedString(ur)).append("\n");
+    sb.append("    uz: ").append(toIndentedString(uz)).append("\n");
+    sb.append("    vi: ").append(toIndentedString(vi)).append("\n");
+    sb.append("    viVN: ").append(toIndentedString(viVN)).append("\n");
+    sb.append("    zh: ").append(toIndentedString(zh)).append("\n");
+    sb.append("    zhCN: ").append(toIndentedString(zhCN)).append("\n");
+    sb.append("    zhHK: ").append(toIndentedString(zhHK)).append("\n");
+    sb.append("    zhHans: ").append(toIndentedString(zhHans)).append("\n");
+    sb.append("    zhHansCN: ").append(toIndentedString(zhHansCN)).append("\n");
+    sb.append("    zhHant: ").append(toIndentedString(zhHant)).append("\n");
+    sb.append("    zhTW: ").append(toIndentedString(zhTW)).append("\n");
     sb.append("}");
     return sb.toString();
   }

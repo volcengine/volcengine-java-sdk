@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.StyleConfigForVideoEditorUpdateGlobalStyleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,28 +31,29 @@ import javax.validation.Valid;
 
 
 public class VideoEditorUpdateGlobalStyleRequest {
-  @SerializedName("style")
-  private String style = null;
+  @SerializedName("styleConfig")
+  private StyleConfigForVideoEditorUpdateGlobalStyleInput styleConfig = null;
 
   @SerializedName("subtaskId")
   private String subtaskId = null;
 
-  public VideoEditorUpdateGlobalStyleRequest style(String style) {
-    this.style = style;
+  public VideoEditorUpdateGlobalStyleRequest styleConfig(StyleConfigForVideoEditorUpdateGlobalStyleInput styleConfig) {
+    this.styleConfig = styleConfig;
     return this;
   }
 
    /**
-   * Get style
-   * @return style
+   * Get styleConfig
+   * @return styleConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getStyle() {
-    return style;
+  public StyleConfigForVideoEditorUpdateGlobalStyleInput getStyleConfig() {
+    return styleConfig;
   }
 
-  public void setStyle(String style) {
-    this.style = style;
+  public void setStyleConfig(StyleConfigForVideoEditorUpdateGlobalStyleInput styleConfig) {
+    this.styleConfig = styleConfig;
   }
 
   public VideoEditorUpdateGlobalStyleRequest subtaskId(String subtaskId) {
@@ -82,13 +84,13 @@ public class VideoEditorUpdateGlobalStyleRequest {
       return false;
     }
     VideoEditorUpdateGlobalStyleRequest videoEditorUpdateGlobalStyleRequest = (VideoEditorUpdateGlobalStyleRequest) o;
-    return Objects.equals(this.style, videoEditorUpdateGlobalStyleRequest.style) &&
+    return Objects.equals(this.styleConfig, videoEditorUpdateGlobalStyleRequest.styleConfig) &&
         Objects.equals(this.subtaskId, videoEditorUpdateGlobalStyleRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(style, subtaskId);
+    return Objects.hash(styleConfig, subtaskId);
   }
 
 
@@ -97,7 +99,7 @@ public class VideoEditorUpdateGlobalStyleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorUpdateGlobalStyleRequest {\n");
     
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    styleConfig: ").append(toIndentedString(styleConfig)).append("\n");
     sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();
