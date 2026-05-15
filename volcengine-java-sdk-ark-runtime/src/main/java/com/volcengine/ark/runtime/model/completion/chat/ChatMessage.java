@@ -17,6 +17,9 @@ public class ChatMessage {
 	@JsonProperty("reasoning_content")
 	String reasoningContent;
 
+	@JsonProperty("encrypted_content")
+	String encryptedContent;
+
 	private String name;
 	@JsonProperty("function_call")
 	ChatFunctionCall functionCall;
@@ -92,6 +95,14 @@ public class ChatMessage {
 		this.reasoningContent = reasoningContent;
 	}
 
+	public String getEncryptedContent() {
+		return encryptedContent;
+	}
+
+	public void setEncryptedContent(String encryptedContent) {
+		this.encryptedContent = encryptedContent;
+	}
+
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -102,6 +113,7 @@ public class ChatMessage {
 				"role=" + role +
 				", content=" + content +
 				", reasoningContent='" + reasoningContent + '\'' +
+				", encryptedContent='" + encryptedContent + '\'' +
 				", name='" + name + '\'' +
 				", functionCall=" + functionCall +
 				", toolCalls=" + toolCalls +
@@ -117,6 +129,9 @@ public class ChatMessage {
 
 		@JsonProperty("reasoning_content")
 		private String reasoningContent;
+
+		@JsonProperty("encrypted_content")
+		private String encryptedContent;
 
 		private String name;
 		@JsonProperty("function_call")
@@ -168,11 +183,17 @@ public class ChatMessage {
 			return this;
 		}
 
+		public ChatMessage.Builder encryptedContent(String encryptedContent) {
+			this.encryptedContent = encryptedContent;
+			return this;
+		}
+
 		public ChatMessage build() {
 			ChatMessage chatMessage = new ChatMessage();
 			chatMessage.setRole(role);
 			chatMessage.setContent(content);
 			chatMessage.setReasoningContent(reasoningContent);
+			chatMessage.setEncryptedContent(encryptedContent);
 			chatMessage.setName(name);
 			chatMessage.setFunctionCall(functionCall);
 			chatMessage.setToolCalls(toolCalls);
