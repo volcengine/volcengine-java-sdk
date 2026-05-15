@@ -13,6 +13,12 @@ public class ResponsesTextFormat {
     @JsonProperty("schema")
     private JsonNode schema;
 
+    @JsonProperty("description")
+    private String description;
+
+    @JsonProperty("strict")
+    private Boolean strict;
+
     public String getType() {
         return type;
     }
@@ -37,6 +43,22 @@ public class ResponsesTextFormat {
         this.schema = schema;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getStrict() {
+        return strict;
+    }
+
+    public void setStrict(Boolean strict) {
+        this.strict = strict;
+    }
+
     @Override
     public String toString() {
         return "ResponsesTextFormat{" +
@@ -52,6 +74,8 @@ public class ResponsesTextFormat {
         private String type;
         private String name;
         private JsonNode schema;
+        private String description;
+        private Boolean strict;
 
         public Builder type(String type) {
             this.type = type;
@@ -68,11 +92,23 @@ public class ResponsesTextFormat {
             return this;
         }
 
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder strict(Boolean strict) {
+            this.strict = strict;
+            return this;
+        }
+
         public ResponsesTextFormat build() {
             ResponsesTextFormat responsesTextFormat = new ResponsesTextFormat();
             responsesTextFormat.setType(type);
             responsesTextFormat.setName(name);
             responsesTextFormat.setSchema(schema);
+            responsesTextFormat.setDescription(description);
+            responsesTextFormat.setStrict(strict);
             return responsesTextFormat;
         }
     }
