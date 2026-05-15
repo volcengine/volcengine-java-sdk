@@ -19,7 +19,87 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.CreatorForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.AfForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.AfZAForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ArARForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ArDZForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ArForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ArSYForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ArYEForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.BeForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.BnBDForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.BnForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.DaForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.DeDEForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.DeForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnDAForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnGBForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnINForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnPHForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnSGForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EnUSForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.Es419ForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EsESForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EsForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.EsUSForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.FaIRForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.FilForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.FilPHForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.FrFRForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.FrForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.HiForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.HiINForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.IdForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.IdIDForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ItForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ItITForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.JaForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.JaJPForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KaForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KkKZForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KlForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KmForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KmKHForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KoForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.KoKRForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.MnForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.MsForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.MsMYForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.MyForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.NeForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PlForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PlPLForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PtBRForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PtForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.PtPTForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.RoForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.RuForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.RuRUForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.SkForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.SlForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.SourceForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.SrForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.SvForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TaForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TargetForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TeForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ThForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ThTHForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TlPHForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TrForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.TrTRForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.UrForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.UzForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ViForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ViVNForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhCNForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhHKForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhHansCNForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhHansForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhHantForTermBaseTermGroupsOutput;
+import com.volcengine.i18nopenapi.model.ZhTWForTermBaseTermGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,179 +111,839 @@ import javax.validation.Valid;
 
 
 public class LangItemMapForTermBaseTermGroupsOutput {
-  @SerializedName("acronym")
-  private String acronym = null;
+  @SerializedName("af")
+  private AfForTermBaseTermGroupsOutput af = null;
 
-  @SerializedName("applyMode")
-  private Integer applyMode = null;
+  @SerializedName("afZA")
+  private AfZAForTermBaseTermGroupsOutput afZA = null;
 
-  @SerializedName("caseSensitive")
-  private Long caseSensitive = null;
+  @SerializedName("ar")
+  private ArForTermBaseTermGroupsOutput ar = null;
 
-  @SerializedName("content")
-  private String content = null;
+  @SerializedName("arAR")
+  private ArARForTermBaseTermGroupsOutput arAR = null;
 
-  @SerializedName("createTime")
-  private String createTime = null;
+  @SerializedName("arDZ")
+  private ArDZForTermBaseTermGroupsOutput arDZ = null;
 
-  @SerializedName("createdAt")
-  private String createdAt = null;
+  @SerializedName("arSY")
+  private ArSYForTermBaseTermGroupsOutput arSY = null;
 
-  @SerializedName("creator")
-  private CreatorForTermBaseTermGroupsOutput creator = null;
+  @SerializedName("arYE")
+  private ArYEForTermBaseTermGroupsOutput arYE = null;
+
+  @SerializedName("be")
+  private BeForTermBaseTermGroupsOutput be = null;
+
+  @SerializedName("bn")
+  private BnForTermBaseTermGroupsOutput bn = null;
+
+  @SerializedName("bnBD")
+  private BnBDForTermBaseTermGroupsOutput bnBD = null;
+
+  @SerializedName("da")
+  private DaForTermBaseTermGroupsOutput da = null;
+
+  @SerializedName("de")
+  private DeForTermBaseTermGroupsOutput de = null;
+
+  @SerializedName("deDE")
+  private DeDEForTermBaseTermGroupsOutput deDE = null;
+
+  @SerializedName("en")
+  private EnForTermBaseTermGroupsOutput en = null;
+
+  @SerializedName("enDA")
+  private EnDAForTermBaseTermGroupsOutput enDA = null;
+
+  @SerializedName("enGB")
+  private EnGBForTermBaseTermGroupsOutput enGB = null;
+
+  @SerializedName("enIN")
+  private EnINForTermBaseTermGroupsOutput enIN = null;
+
+  @SerializedName("enPH")
+  private EnPHForTermBaseTermGroupsOutput enPH = null;
+
+  @SerializedName("enSG")
+  private EnSGForTermBaseTermGroupsOutput enSG = null;
+
+  @SerializedName("enUS")
+  private EnUSForTermBaseTermGroupsOutput enUS = null;
+
+  @SerializedName("es")
+  private EsForTermBaseTermGroupsOutput es = null;
+
+  @SerializedName("es419")
+  private Es419ForTermBaseTermGroupsOutput es419 = null;
+
+  @SerializedName("esES")
+  private EsESForTermBaseTermGroupsOutput esES = null;
+
+  @SerializedName("esUS")
+  private EsUSForTermBaseTermGroupsOutput esUS = null;
+
+  @SerializedName("faIR")
+  private FaIRForTermBaseTermGroupsOutput faIR = null;
+
+  @SerializedName("fil")
+  private FilForTermBaseTermGroupsOutput fil = null;
+
+  @SerializedName("filPH")
+  private FilPHForTermBaseTermGroupsOutput filPH = null;
+
+  @SerializedName("fr")
+  private FrForTermBaseTermGroupsOutput fr = null;
+
+  @SerializedName("frFR")
+  private FrFRForTermBaseTermGroupsOutput frFR = null;
+
+  @SerializedName("hi")
+  private HiForTermBaseTermGroupsOutput hi = null;
+
+  @SerializedName("hiIN")
+  private HiINForTermBaseTermGroupsOutput hiIN = null;
 
   @SerializedName("id")
-  private String id = null;
+  private IdForTermBaseTermGroupsOutput id = null;
 
-  @SerializedName("lang")
-  private String lang = null;
+  @SerializedName("idID")
+  private IdIDForTermBaseTermGroupsOutput idID = null;
 
-  @SerializedName("operator")
-  private CreatorForTermBaseTermGroupsOutput operator = null;
+  @SerializedName("it")
+  private ItForTermBaseTermGroupsOutput it = null;
 
-  @SerializedName("partOfSpeech")
-  private Integer partOfSpeech = null;
+  @SerializedName("itIT")
+  private ItITForTermBaseTermGroupsOutput itIT = null;
 
-  @SerializedName("termBaseId")
-  private String termBaseId = null;
+  @SerializedName("ja")
+  private JaForTermBaseTermGroupsOutput ja = null;
 
-  @SerializedName("termGroupId")
-  private String termGroupId = null;
+  @SerializedName("jaJP")
+  private JaJPForTermBaseTermGroupsOutput jaJP = null;
 
-  @SerializedName("updateTime")
-  private String updateTime = null;
+  @SerializedName("ka")
+  private KaForTermBaseTermGroupsOutput ka = null;
 
-  @SerializedName("updatedAt")
-  private String updatedAt = null;
+  @SerializedName("kkKZ")
+  private KkKZForTermBaseTermGroupsOutput kkKZ = null;
 
-  public LangItemMapForTermBaseTermGroupsOutput acronym(String acronym) {
-    this.acronym = acronym;
+  @SerializedName("kl")
+  private KlForTermBaseTermGroupsOutput kl = null;
+
+  @SerializedName("km")
+  private KmForTermBaseTermGroupsOutput km = null;
+
+  @SerializedName("kmKH")
+  private KmKHForTermBaseTermGroupsOutput kmKH = null;
+
+  @SerializedName("ko")
+  private KoForTermBaseTermGroupsOutput ko = null;
+
+  @SerializedName("koKR")
+  private KoKRForTermBaseTermGroupsOutput koKR = null;
+
+  @SerializedName("mn")
+  private MnForTermBaseTermGroupsOutput mn = null;
+
+  @SerializedName("ms")
+  private MsForTermBaseTermGroupsOutput ms = null;
+
+  @SerializedName("msMY")
+  private MsMYForTermBaseTermGroupsOutput msMY = null;
+
+  @SerializedName("my")
+  private MyForTermBaseTermGroupsOutput my = null;
+
+  @SerializedName("ne")
+  private NeForTermBaseTermGroupsOutput ne = null;
+
+  @SerializedName("pl")
+  private PlForTermBaseTermGroupsOutput pl = null;
+
+  @SerializedName("plPL")
+  private PlPLForTermBaseTermGroupsOutput plPL = null;
+
+  @SerializedName("pt")
+  private PtForTermBaseTermGroupsOutput pt = null;
+
+  @SerializedName("ptBR")
+  private PtBRForTermBaseTermGroupsOutput ptBR = null;
+
+  @SerializedName("ptPT")
+  private PtPTForTermBaseTermGroupsOutput ptPT = null;
+
+  @SerializedName("ro")
+  private RoForTermBaseTermGroupsOutput ro = null;
+
+  @SerializedName("ru")
+  private RuForTermBaseTermGroupsOutput ru = null;
+
+  @SerializedName("ruRU")
+  private RuRUForTermBaseTermGroupsOutput ruRU = null;
+
+  @SerializedName("sk")
+  private SkForTermBaseTermGroupsOutput sk = null;
+
+  @SerializedName("sl")
+  private SlForTermBaseTermGroupsOutput sl = null;
+
+  @SerializedName("source")
+  private SourceForTermBaseTermGroupsOutput source = null;
+
+  @SerializedName("sr")
+  private SrForTermBaseTermGroupsOutput sr = null;
+
+  @SerializedName("sv")
+  private SvForTermBaseTermGroupsOutput sv = null;
+
+  @SerializedName("ta")
+  private TaForTermBaseTermGroupsOutput ta = null;
+
+  @SerializedName("target")
+  private TargetForTermBaseTermGroupsOutput target = null;
+
+  @SerializedName("te")
+  private TeForTermBaseTermGroupsOutput te = null;
+
+  @SerializedName("th")
+  private ThForTermBaseTermGroupsOutput th = null;
+
+  @SerializedName("thTH")
+  private ThTHForTermBaseTermGroupsOutput thTH = null;
+
+  @SerializedName("tlPH")
+  private TlPHForTermBaseTermGroupsOutput tlPH = null;
+
+  @SerializedName("tr")
+  private TrForTermBaseTermGroupsOutput tr = null;
+
+  @SerializedName("trTR")
+  private TrTRForTermBaseTermGroupsOutput trTR = null;
+
+  @SerializedName("ur")
+  private UrForTermBaseTermGroupsOutput ur = null;
+
+  @SerializedName("uz")
+  private UzForTermBaseTermGroupsOutput uz = null;
+
+  @SerializedName("vi")
+  private ViForTermBaseTermGroupsOutput vi = null;
+
+  @SerializedName("viVN")
+  private ViVNForTermBaseTermGroupsOutput viVN = null;
+
+  @SerializedName("zh")
+  private ZhForTermBaseTermGroupsOutput zh = null;
+
+  @SerializedName("zhCN")
+  private ZhCNForTermBaseTermGroupsOutput zhCN = null;
+
+  @SerializedName("zhHK")
+  private ZhHKForTermBaseTermGroupsOutput zhHK = null;
+
+  @SerializedName("zhHans")
+  private ZhHansForTermBaseTermGroupsOutput zhHans = null;
+
+  @SerializedName("zhHansCN")
+  private ZhHansCNForTermBaseTermGroupsOutput zhHansCN = null;
+
+  @SerializedName("zhHant")
+  private ZhHantForTermBaseTermGroupsOutput zhHant = null;
+
+  @SerializedName("zhTW")
+  private ZhTWForTermBaseTermGroupsOutput zhTW = null;
+
+  public LangItemMapForTermBaseTermGroupsOutput af(AfForTermBaseTermGroupsOutput af) {
+    this.af = af;
     return this;
   }
 
    /**
-   * Get acronym
-   * @return acronym
-  **/
-  @Schema(description = "")
-  public String getAcronym() {
-    return acronym;
-  }
-
-  public void setAcronym(String acronym) {
-    this.acronym = acronym;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput applyMode(Integer applyMode) {
-    this.applyMode = applyMode;
-    return this;
-  }
-
-   /**
-   * Get applyMode
-   * @return applyMode
-  **/
-  @Schema(description = "")
-  public Integer getApplyMode() {
-    return applyMode;
-  }
-
-  public void setApplyMode(Integer applyMode) {
-    this.applyMode = applyMode;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput caseSensitive(Long caseSensitive) {
-    this.caseSensitive = caseSensitive;
-    return this;
-  }
-
-   /**
-   * Get caseSensitive
-   * @return caseSensitive
-  **/
-  @Schema(description = "")
-  public Long getCaseSensitive() {
-    return caseSensitive;
-  }
-
-  public void setCaseSensitive(Long caseSensitive) {
-    this.caseSensitive = caseSensitive;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput content(String content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Get content
-   * @return content
-  **/
-  @Schema(description = "")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput createTime(String createTime) {
-    this.createTime = createTime;
-    return this;
-  }
-
-   /**
-   * Get createTime
-   * @return createTime
-  **/
-  @Schema(description = "")
-  public String getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @Schema(description = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput creator(CreatorForTermBaseTermGroupsOutput creator) {
-    this.creator = creator;
-    return this;
-  }
-
-   /**
-   * Get creator
-   * @return creator
+   * Get af
+   * @return af
   **/
   @Valid
   @Schema(description = "")
-  public CreatorForTermBaseTermGroupsOutput getCreator() {
-    return creator;
+  public AfForTermBaseTermGroupsOutput getAf() {
+    return af;
   }
 
-  public void setCreator(CreatorForTermBaseTermGroupsOutput creator) {
-    this.creator = creator;
+  public void setAf(AfForTermBaseTermGroupsOutput af) {
+    this.af = af;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput id(String id) {
+  public LangItemMapForTermBaseTermGroupsOutput afZA(AfZAForTermBaseTermGroupsOutput afZA) {
+    this.afZA = afZA;
+    return this;
+  }
+
+   /**
+   * Get afZA
+   * @return afZA
+  **/
+  @Valid
+  @Schema(description = "")
+  public AfZAForTermBaseTermGroupsOutput getAfZA() {
+    return afZA;
+  }
+
+  public void setAfZA(AfZAForTermBaseTermGroupsOutput afZA) {
+    this.afZA = afZA;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ar(ArForTermBaseTermGroupsOutput ar) {
+    this.ar = ar;
+    return this;
+  }
+
+   /**
+   * Get ar
+   * @return ar
+  **/
+  @Valid
+  @Schema(description = "")
+  public ArForTermBaseTermGroupsOutput getAr() {
+    return ar;
+  }
+
+  public void setAr(ArForTermBaseTermGroupsOutput ar) {
+    this.ar = ar;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput arAR(ArARForTermBaseTermGroupsOutput arAR) {
+    this.arAR = arAR;
+    return this;
+  }
+
+   /**
+   * Get arAR
+   * @return arAR
+  **/
+  @Valid
+  @Schema(description = "")
+  public ArARForTermBaseTermGroupsOutput getArAR() {
+    return arAR;
+  }
+
+  public void setArAR(ArARForTermBaseTermGroupsOutput arAR) {
+    this.arAR = arAR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput arDZ(ArDZForTermBaseTermGroupsOutput arDZ) {
+    this.arDZ = arDZ;
+    return this;
+  }
+
+   /**
+   * Get arDZ
+   * @return arDZ
+  **/
+  @Valid
+  @Schema(description = "")
+  public ArDZForTermBaseTermGroupsOutput getArDZ() {
+    return arDZ;
+  }
+
+  public void setArDZ(ArDZForTermBaseTermGroupsOutput arDZ) {
+    this.arDZ = arDZ;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput arSY(ArSYForTermBaseTermGroupsOutput arSY) {
+    this.arSY = arSY;
+    return this;
+  }
+
+   /**
+   * Get arSY
+   * @return arSY
+  **/
+  @Valid
+  @Schema(description = "")
+  public ArSYForTermBaseTermGroupsOutput getArSY() {
+    return arSY;
+  }
+
+  public void setArSY(ArSYForTermBaseTermGroupsOutput arSY) {
+    this.arSY = arSY;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput arYE(ArYEForTermBaseTermGroupsOutput arYE) {
+    this.arYE = arYE;
+    return this;
+  }
+
+   /**
+   * Get arYE
+   * @return arYE
+  **/
+  @Valid
+  @Schema(description = "")
+  public ArYEForTermBaseTermGroupsOutput getArYE() {
+    return arYE;
+  }
+
+  public void setArYE(ArYEForTermBaseTermGroupsOutput arYE) {
+    this.arYE = arYE;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput be(BeForTermBaseTermGroupsOutput be) {
+    this.be = be;
+    return this;
+  }
+
+   /**
+   * Get be
+   * @return be
+  **/
+  @Valid
+  @Schema(description = "")
+  public BeForTermBaseTermGroupsOutput getBe() {
+    return be;
+  }
+
+  public void setBe(BeForTermBaseTermGroupsOutput be) {
+    this.be = be;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput bn(BnForTermBaseTermGroupsOutput bn) {
+    this.bn = bn;
+    return this;
+  }
+
+   /**
+   * Get bn
+   * @return bn
+  **/
+  @Valid
+  @Schema(description = "")
+  public BnForTermBaseTermGroupsOutput getBn() {
+    return bn;
+  }
+
+  public void setBn(BnForTermBaseTermGroupsOutput bn) {
+    this.bn = bn;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput bnBD(BnBDForTermBaseTermGroupsOutput bnBD) {
+    this.bnBD = bnBD;
+    return this;
+  }
+
+   /**
+   * Get bnBD
+   * @return bnBD
+  **/
+  @Valid
+  @Schema(description = "")
+  public BnBDForTermBaseTermGroupsOutput getBnBD() {
+    return bnBD;
+  }
+
+  public void setBnBD(BnBDForTermBaseTermGroupsOutput bnBD) {
+    this.bnBD = bnBD;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput da(DaForTermBaseTermGroupsOutput da) {
+    this.da = da;
+    return this;
+  }
+
+   /**
+   * Get da
+   * @return da
+  **/
+  @Valid
+  @Schema(description = "")
+  public DaForTermBaseTermGroupsOutput getDa() {
+    return da;
+  }
+
+  public void setDa(DaForTermBaseTermGroupsOutput da) {
+    this.da = da;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput de(DeForTermBaseTermGroupsOutput de) {
+    this.de = de;
+    return this;
+  }
+
+   /**
+   * Get de
+   * @return de
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeForTermBaseTermGroupsOutput getDe() {
+    return de;
+  }
+
+  public void setDe(DeForTermBaseTermGroupsOutput de) {
+    this.de = de;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput deDE(DeDEForTermBaseTermGroupsOutput deDE) {
+    this.deDE = deDE;
+    return this;
+  }
+
+   /**
+   * Get deDE
+   * @return deDE
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeDEForTermBaseTermGroupsOutput getDeDE() {
+    return deDE;
+  }
+
+  public void setDeDE(DeDEForTermBaseTermGroupsOutput deDE) {
+    this.deDE = deDE;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput en(EnForTermBaseTermGroupsOutput en) {
+    this.en = en;
+    return this;
+  }
+
+   /**
+   * Get en
+   * @return en
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnForTermBaseTermGroupsOutput getEn() {
+    return en;
+  }
+
+  public void setEn(EnForTermBaseTermGroupsOutput en) {
+    this.en = en;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enDA(EnDAForTermBaseTermGroupsOutput enDA) {
+    this.enDA = enDA;
+    return this;
+  }
+
+   /**
+   * Get enDA
+   * @return enDA
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnDAForTermBaseTermGroupsOutput getEnDA() {
+    return enDA;
+  }
+
+  public void setEnDA(EnDAForTermBaseTermGroupsOutput enDA) {
+    this.enDA = enDA;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enGB(EnGBForTermBaseTermGroupsOutput enGB) {
+    this.enGB = enGB;
+    return this;
+  }
+
+   /**
+   * Get enGB
+   * @return enGB
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnGBForTermBaseTermGroupsOutput getEnGB() {
+    return enGB;
+  }
+
+  public void setEnGB(EnGBForTermBaseTermGroupsOutput enGB) {
+    this.enGB = enGB;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enIN(EnINForTermBaseTermGroupsOutput enIN) {
+    this.enIN = enIN;
+    return this;
+  }
+
+   /**
+   * Get enIN
+   * @return enIN
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnINForTermBaseTermGroupsOutput getEnIN() {
+    return enIN;
+  }
+
+  public void setEnIN(EnINForTermBaseTermGroupsOutput enIN) {
+    this.enIN = enIN;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enPH(EnPHForTermBaseTermGroupsOutput enPH) {
+    this.enPH = enPH;
+    return this;
+  }
+
+   /**
+   * Get enPH
+   * @return enPH
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnPHForTermBaseTermGroupsOutput getEnPH() {
+    return enPH;
+  }
+
+  public void setEnPH(EnPHForTermBaseTermGroupsOutput enPH) {
+    this.enPH = enPH;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enSG(EnSGForTermBaseTermGroupsOutput enSG) {
+    this.enSG = enSG;
+    return this;
+  }
+
+   /**
+   * Get enSG
+   * @return enSG
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnSGForTermBaseTermGroupsOutput getEnSG() {
+    return enSG;
+  }
+
+  public void setEnSG(EnSGForTermBaseTermGroupsOutput enSG) {
+    this.enSG = enSG;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput enUS(EnUSForTermBaseTermGroupsOutput enUS) {
+    this.enUS = enUS;
+    return this;
+  }
+
+   /**
+   * Get enUS
+   * @return enUS
+  **/
+  @Valid
+  @Schema(description = "")
+  public EnUSForTermBaseTermGroupsOutput getEnUS() {
+    return enUS;
+  }
+
+  public void setEnUS(EnUSForTermBaseTermGroupsOutput enUS) {
+    this.enUS = enUS;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput es(EsForTermBaseTermGroupsOutput es) {
+    this.es = es;
+    return this;
+  }
+
+   /**
+   * Get es
+   * @return es
+  **/
+  @Valid
+  @Schema(description = "")
+  public EsForTermBaseTermGroupsOutput getEs() {
+    return es;
+  }
+
+  public void setEs(EsForTermBaseTermGroupsOutput es) {
+    this.es = es;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput es419(Es419ForTermBaseTermGroupsOutput es419) {
+    this.es419 = es419;
+    return this;
+  }
+
+   /**
+   * Get es419
+   * @return es419
+  **/
+  @Valid
+  @Schema(description = "")
+  public Es419ForTermBaseTermGroupsOutput getEs419() {
+    return es419;
+  }
+
+  public void setEs419(Es419ForTermBaseTermGroupsOutput es419) {
+    this.es419 = es419;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput esES(EsESForTermBaseTermGroupsOutput esES) {
+    this.esES = esES;
+    return this;
+  }
+
+   /**
+   * Get esES
+   * @return esES
+  **/
+  @Valid
+  @Schema(description = "")
+  public EsESForTermBaseTermGroupsOutput getEsES() {
+    return esES;
+  }
+
+  public void setEsES(EsESForTermBaseTermGroupsOutput esES) {
+    this.esES = esES;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput esUS(EsUSForTermBaseTermGroupsOutput esUS) {
+    this.esUS = esUS;
+    return this;
+  }
+
+   /**
+   * Get esUS
+   * @return esUS
+  **/
+  @Valid
+  @Schema(description = "")
+  public EsUSForTermBaseTermGroupsOutput getEsUS() {
+    return esUS;
+  }
+
+  public void setEsUS(EsUSForTermBaseTermGroupsOutput esUS) {
+    this.esUS = esUS;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput faIR(FaIRForTermBaseTermGroupsOutput faIR) {
+    this.faIR = faIR;
+    return this;
+  }
+
+   /**
+   * Get faIR
+   * @return faIR
+  **/
+  @Valid
+  @Schema(description = "")
+  public FaIRForTermBaseTermGroupsOutput getFaIR() {
+    return faIR;
+  }
+
+  public void setFaIR(FaIRForTermBaseTermGroupsOutput faIR) {
+    this.faIR = faIR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput fil(FilForTermBaseTermGroupsOutput fil) {
+    this.fil = fil;
+    return this;
+  }
+
+   /**
+   * Get fil
+   * @return fil
+  **/
+  @Valid
+  @Schema(description = "")
+  public FilForTermBaseTermGroupsOutput getFil() {
+    return fil;
+  }
+
+  public void setFil(FilForTermBaseTermGroupsOutput fil) {
+    this.fil = fil;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput filPH(FilPHForTermBaseTermGroupsOutput filPH) {
+    this.filPH = filPH;
+    return this;
+  }
+
+   /**
+   * Get filPH
+   * @return filPH
+  **/
+  @Valid
+  @Schema(description = "")
+  public FilPHForTermBaseTermGroupsOutput getFilPH() {
+    return filPH;
+  }
+
+  public void setFilPH(FilPHForTermBaseTermGroupsOutput filPH) {
+    this.filPH = filPH;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput fr(FrForTermBaseTermGroupsOutput fr) {
+    this.fr = fr;
+    return this;
+  }
+
+   /**
+   * Get fr
+   * @return fr
+  **/
+  @Valid
+  @Schema(description = "")
+  public FrForTermBaseTermGroupsOutput getFr() {
+    return fr;
+  }
+
+  public void setFr(FrForTermBaseTermGroupsOutput fr) {
+    this.fr = fr;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput frFR(FrFRForTermBaseTermGroupsOutput frFR) {
+    this.frFR = frFR;
+    return this;
+  }
+
+   /**
+   * Get frFR
+   * @return frFR
+  **/
+  @Valid
+  @Schema(description = "")
+  public FrFRForTermBaseTermGroupsOutput getFrFR() {
+    return frFR;
+  }
+
+  public void setFrFR(FrFRForTermBaseTermGroupsOutput frFR) {
+    this.frFR = frFR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput hi(HiForTermBaseTermGroupsOutput hi) {
+    this.hi = hi;
+    return this;
+  }
+
+   /**
+   * Get hi
+   * @return hi
+  **/
+  @Valid
+  @Schema(description = "")
+  public HiForTermBaseTermGroupsOutput getHi() {
+    return hi;
+  }
+
+  public void setHi(HiForTermBaseTermGroupsOutput hi) {
+    this.hi = hi;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput hiIN(HiINForTermBaseTermGroupsOutput hiIN) {
+    this.hiIN = hiIN;
+    return this;
+  }
+
+   /**
+   * Get hiIN
+   * @return hiIN
+  **/
+  @Valid
+  @Schema(description = "")
+  public HiINForTermBaseTermGroupsOutput getHiIN() {
+    return hiIN;
+  }
+
+  public void setHiIN(HiINForTermBaseTermGroupsOutput hiIN) {
+    this.hiIN = hiIN;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput id(IdForTermBaseTermGroupsOutput id) {
     this.id = id;
     return this;
   }
@@ -212,140 +952,945 @@ public class LangItemMapForTermBaseTermGroupsOutput {
    * Get id
    * @return id
   **/
+  @Valid
   @Schema(description = "")
-  public String getId() {
+  public IdForTermBaseTermGroupsOutput getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(IdForTermBaseTermGroupsOutput id) {
     this.id = id;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput lang(String lang) {
-    this.lang = lang;
+  public LangItemMapForTermBaseTermGroupsOutput idID(IdIDForTermBaseTermGroupsOutput idID) {
+    this.idID = idID;
     return this;
   }
 
    /**
-   * Get lang
-   * @return lang
-  **/
-  @Schema(description = "")
-  public String getLang() {
-    return lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public LangItemMapForTermBaseTermGroupsOutput operator(CreatorForTermBaseTermGroupsOutput operator) {
-    this.operator = operator;
-    return this;
-  }
-
-   /**
-   * Get operator
-   * @return operator
+   * Get idID
+   * @return idID
   **/
   @Valid
   @Schema(description = "")
-  public CreatorForTermBaseTermGroupsOutput getOperator() {
-    return operator;
+  public IdIDForTermBaseTermGroupsOutput getIdID() {
+    return idID;
   }
 
-  public void setOperator(CreatorForTermBaseTermGroupsOutput operator) {
-    this.operator = operator;
+  public void setIdID(IdIDForTermBaseTermGroupsOutput idID) {
+    this.idID = idID;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput partOfSpeech(Integer partOfSpeech) {
-    this.partOfSpeech = partOfSpeech;
+  public LangItemMapForTermBaseTermGroupsOutput it(ItForTermBaseTermGroupsOutput it) {
+    this.it = it;
     return this;
   }
 
    /**
-   * Get partOfSpeech
-   * @return partOfSpeech
+   * Get it
+   * @return it
   **/
+  @Valid
   @Schema(description = "")
-  public Integer getPartOfSpeech() {
-    return partOfSpeech;
+  public ItForTermBaseTermGroupsOutput getIt() {
+    return it;
   }
 
-  public void setPartOfSpeech(Integer partOfSpeech) {
-    this.partOfSpeech = partOfSpeech;
+  public void setIt(ItForTermBaseTermGroupsOutput it) {
+    this.it = it;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput termBaseId(String termBaseId) {
-    this.termBaseId = termBaseId;
+  public LangItemMapForTermBaseTermGroupsOutput itIT(ItITForTermBaseTermGroupsOutput itIT) {
+    this.itIT = itIT;
     return this;
   }
 
    /**
-   * Get termBaseId
-   * @return termBaseId
+   * Get itIT
+   * @return itIT
   **/
+  @Valid
   @Schema(description = "")
-  public String getTermBaseId() {
-    return termBaseId;
+  public ItITForTermBaseTermGroupsOutput getItIT() {
+    return itIT;
   }
 
-  public void setTermBaseId(String termBaseId) {
-    this.termBaseId = termBaseId;
+  public void setItIT(ItITForTermBaseTermGroupsOutput itIT) {
+    this.itIT = itIT;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput termGroupId(String termGroupId) {
-    this.termGroupId = termGroupId;
+  public LangItemMapForTermBaseTermGroupsOutput ja(JaForTermBaseTermGroupsOutput ja) {
+    this.ja = ja;
     return this;
   }
 
    /**
-   * Get termGroupId
-   * @return termGroupId
+   * Get ja
+   * @return ja
   **/
+  @Valid
   @Schema(description = "")
-  public String getTermGroupId() {
-    return termGroupId;
+  public JaForTermBaseTermGroupsOutput getJa() {
+    return ja;
   }
 
-  public void setTermGroupId(String termGroupId) {
-    this.termGroupId = termGroupId;
+  public void setJa(JaForTermBaseTermGroupsOutput ja) {
+    this.ja = ja;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput updateTime(String updateTime) {
-    this.updateTime = updateTime;
+  public LangItemMapForTermBaseTermGroupsOutput jaJP(JaJPForTermBaseTermGroupsOutput jaJP) {
+    this.jaJP = jaJP;
     return this;
   }
 
    /**
-   * Get updateTime
-   * @return updateTime
+   * Get jaJP
+   * @return jaJP
   **/
+  @Valid
   @Schema(description = "")
-  public String getUpdateTime() {
-    return updateTime;
+  public JaJPForTermBaseTermGroupsOutput getJaJP() {
+    return jaJP;
   }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
+  public void setJaJP(JaJPForTermBaseTermGroupsOutput jaJP) {
+    this.jaJP = jaJP;
   }
 
-  public LangItemMapForTermBaseTermGroupsOutput updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public LangItemMapForTermBaseTermGroupsOutput ka(KaForTermBaseTermGroupsOutput ka) {
+    this.ka = ka;
     return this;
   }
 
    /**
-   * Get updatedAt
-   * @return updatedAt
+   * Get ka
+   * @return ka
   **/
+  @Valid
   @Schema(description = "")
-  public String getUpdatedAt() {
-    return updatedAt;
+  public KaForTermBaseTermGroupsOutput getKa() {
+    return ka;
   }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setKa(KaForTermBaseTermGroupsOutput ka) {
+    this.ka = ka;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput kkKZ(KkKZForTermBaseTermGroupsOutput kkKZ) {
+    this.kkKZ = kkKZ;
+    return this;
+  }
+
+   /**
+   * Get kkKZ
+   * @return kkKZ
+  **/
+  @Valid
+  @Schema(description = "")
+  public KkKZForTermBaseTermGroupsOutput getKkKZ() {
+    return kkKZ;
+  }
+
+  public void setKkKZ(KkKZForTermBaseTermGroupsOutput kkKZ) {
+    this.kkKZ = kkKZ;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput kl(KlForTermBaseTermGroupsOutput kl) {
+    this.kl = kl;
+    return this;
+  }
+
+   /**
+   * Get kl
+   * @return kl
+  **/
+  @Valid
+  @Schema(description = "")
+  public KlForTermBaseTermGroupsOutput getKl() {
+    return kl;
+  }
+
+  public void setKl(KlForTermBaseTermGroupsOutput kl) {
+    this.kl = kl;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput km(KmForTermBaseTermGroupsOutput km) {
+    this.km = km;
+    return this;
+  }
+
+   /**
+   * Get km
+   * @return km
+  **/
+  @Valid
+  @Schema(description = "")
+  public KmForTermBaseTermGroupsOutput getKm() {
+    return km;
+  }
+
+  public void setKm(KmForTermBaseTermGroupsOutput km) {
+    this.km = km;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput kmKH(KmKHForTermBaseTermGroupsOutput kmKH) {
+    this.kmKH = kmKH;
+    return this;
+  }
+
+   /**
+   * Get kmKH
+   * @return kmKH
+  **/
+  @Valid
+  @Schema(description = "")
+  public KmKHForTermBaseTermGroupsOutput getKmKH() {
+    return kmKH;
+  }
+
+  public void setKmKH(KmKHForTermBaseTermGroupsOutput kmKH) {
+    this.kmKH = kmKH;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ko(KoForTermBaseTermGroupsOutput ko) {
+    this.ko = ko;
+    return this;
+  }
+
+   /**
+   * Get ko
+   * @return ko
+  **/
+  @Valid
+  @Schema(description = "")
+  public KoForTermBaseTermGroupsOutput getKo() {
+    return ko;
+  }
+
+  public void setKo(KoForTermBaseTermGroupsOutput ko) {
+    this.ko = ko;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput koKR(KoKRForTermBaseTermGroupsOutput koKR) {
+    this.koKR = koKR;
+    return this;
+  }
+
+   /**
+   * Get koKR
+   * @return koKR
+  **/
+  @Valid
+  @Schema(description = "")
+  public KoKRForTermBaseTermGroupsOutput getKoKR() {
+    return koKR;
+  }
+
+  public void setKoKR(KoKRForTermBaseTermGroupsOutput koKR) {
+    this.koKR = koKR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput mn(MnForTermBaseTermGroupsOutput mn) {
+    this.mn = mn;
+    return this;
+  }
+
+   /**
+   * Get mn
+   * @return mn
+  **/
+  @Valid
+  @Schema(description = "")
+  public MnForTermBaseTermGroupsOutput getMn() {
+    return mn;
+  }
+
+  public void setMn(MnForTermBaseTermGroupsOutput mn) {
+    this.mn = mn;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ms(MsForTermBaseTermGroupsOutput ms) {
+    this.ms = ms;
+    return this;
+  }
+
+   /**
+   * Get ms
+   * @return ms
+  **/
+  @Valid
+  @Schema(description = "")
+  public MsForTermBaseTermGroupsOutput getMs() {
+    return ms;
+  }
+
+  public void setMs(MsForTermBaseTermGroupsOutput ms) {
+    this.ms = ms;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput msMY(MsMYForTermBaseTermGroupsOutput msMY) {
+    this.msMY = msMY;
+    return this;
+  }
+
+   /**
+   * Get msMY
+   * @return msMY
+  **/
+  @Valid
+  @Schema(description = "")
+  public MsMYForTermBaseTermGroupsOutput getMsMY() {
+    return msMY;
+  }
+
+  public void setMsMY(MsMYForTermBaseTermGroupsOutput msMY) {
+    this.msMY = msMY;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput my(MyForTermBaseTermGroupsOutput my) {
+    this.my = my;
+    return this;
+  }
+
+   /**
+   * Get my
+   * @return my
+  **/
+  @Valid
+  @Schema(description = "")
+  public MyForTermBaseTermGroupsOutput getMy() {
+    return my;
+  }
+
+  public void setMy(MyForTermBaseTermGroupsOutput my) {
+    this.my = my;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ne(NeForTermBaseTermGroupsOutput ne) {
+    this.ne = ne;
+    return this;
+  }
+
+   /**
+   * Get ne
+   * @return ne
+  **/
+  @Valid
+  @Schema(description = "")
+  public NeForTermBaseTermGroupsOutput getNe() {
+    return ne;
+  }
+
+  public void setNe(NeForTermBaseTermGroupsOutput ne) {
+    this.ne = ne;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput pl(PlForTermBaseTermGroupsOutput pl) {
+    this.pl = pl;
+    return this;
+  }
+
+   /**
+   * Get pl
+   * @return pl
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlForTermBaseTermGroupsOutput getPl() {
+    return pl;
+  }
+
+  public void setPl(PlForTermBaseTermGroupsOutput pl) {
+    this.pl = pl;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput plPL(PlPLForTermBaseTermGroupsOutput plPL) {
+    this.plPL = plPL;
+    return this;
+  }
+
+   /**
+   * Get plPL
+   * @return plPL
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlPLForTermBaseTermGroupsOutput getPlPL() {
+    return plPL;
+  }
+
+  public void setPlPL(PlPLForTermBaseTermGroupsOutput plPL) {
+    this.plPL = plPL;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput pt(PtForTermBaseTermGroupsOutput pt) {
+    this.pt = pt;
+    return this;
+  }
+
+   /**
+   * Get pt
+   * @return pt
+  **/
+  @Valid
+  @Schema(description = "")
+  public PtForTermBaseTermGroupsOutput getPt() {
+    return pt;
+  }
+
+  public void setPt(PtForTermBaseTermGroupsOutput pt) {
+    this.pt = pt;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ptBR(PtBRForTermBaseTermGroupsOutput ptBR) {
+    this.ptBR = ptBR;
+    return this;
+  }
+
+   /**
+   * Get ptBR
+   * @return ptBR
+  **/
+  @Valid
+  @Schema(description = "")
+  public PtBRForTermBaseTermGroupsOutput getPtBR() {
+    return ptBR;
+  }
+
+  public void setPtBR(PtBRForTermBaseTermGroupsOutput ptBR) {
+    this.ptBR = ptBR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ptPT(PtPTForTermBaseTermGroupsOutput ptPT) {
+    this.ptPT = ptPT;
+    return this;
+  }
+
+   /**
+   * Get ptPT
+   * @return ptPT
+  **/
+  @Valid
+  @Schema(description = "")
+  public PtPTForTermBaseTermGroupsOutput getPtPT() {
+    return ptPT;
+  }
+
+  public void setPtPT(PtPTForTermBaseTermGroupsOutput ptPT) {
+    this.ptPT = ptPT;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ro(RoForTermBaseTermGroupsOutput ro) {
+    this.ro = ro;
+    return this;
+  }
+
+   /**
+   * Get ro
+   * @return ro
+  **/
+  @Valid
+  @Schema(description = "")
+  public RoForTermBaseTermGroupsOutput getRo() {
+    return ro;
+  }
+
+  public void setRo(RoForTermBaseTermGroupsOutput ro) {
+    this.ro = ro;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ru(RuForTermBaseTermGroupsOutput ru) {
+    this.ru = ru;
+    return this;
+  }
+
+   /**
+   * Get ru
+   * @return ru
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuForTermBaseTermGroupsOutput getRu() {
+    return ru;
+  }
+
+  public void setRu(RuForTermBaseTermGroupsOutput ru) {
+    this.ru = ru;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ruRU(RuRUForTermBaseTermGroupsOutput ruRU) {
+    this.ruRU = ruRU;
+    return this;
+  }
+
+   /**
+   * Get ruRU
+   * @return ruRU
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuRUForTermBaseTermGroupsOutput getRuRU() {
+    return ruRU;
+  }
+
+  public void setRuRU(RuRUForTermBaseTermGroupsOutput ruRU) {
+    this.ruRU = ruRU;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput sk(SkForTermBaseTermGroupsOutput sk) {
+    this.sk = sk;
+    return this;
+  }
+
+   /**
+   * Get sk
+   * @return sk
+  **/
+  @Valid
+  @Schema(description = "")
+  public SkForTermBaseTermGroupsOutput getSk() {
+    return sk;
+  }
+
+  public void setSk(SkForTermBaseTermGroupsOutput sk) {
+    this.sk = sk;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput sl(SlForTermBaseTermGroupsOutput sl) {
+    this.sl = sl;
+    return this;
+  }
+
+   /**
+   * Get sl
+   * @return sl
+  **/
+  @Valid
+  @Schema(description = "")
+  public SlForTermBaseTermGroupsOutput getSl() {
+    return sl;
+  }
+
+  public void setSl(SlForTermBaseTermGroupsOutput sl) {
+    this.sl = sl;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput source(SourceForTermBaseTermGroupsOutput source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceForTermBaseTermGroupsOutput getSource() {
+    return source;
+  }
+
+  public void setSource(SourceForTermBaseTermGroupsOutput source) {
+    this.source = source;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput sr(SrForTermBaseTermGroupsOutput sr) {
+    this.sr = sr;
+    return this;
+  }
+
+   /**
+   * Get sr
+   * @return sr
+  **/
+  @Valid
+  @Schema(description = "")
+  public SrForTermBaseTermGroupsOutput getSr() {
+    return sr;
+  }
+
+  public void setSr(SrForTermBaseTermGroupsOutput sr) {
+    this.sr = sr;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput sv(SvForTermBaseTermGroupsOutput sv) {
+    this.sv = sv;
+    return this;
+  }
+
+   /**
+   * Get sv
+   * @return sv
+  **/
+  @Valid
+  @Schema(description = "")
+  public SvForTermBaseTermGroupsOutput getSv() {
+    return sv;
+  }
+
+  public void setSv(SvForTermBaseTermGroupsOutput sv) {
+    this.sv = sv;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ta(TaForTermBaseTermGroupsOutput ta) {
+    this.ta = ta;
+    return this;
+  }
+
+   /**
+   * Get ta
+   * @return ta
+  **/
+  @Valid
+  @Schema(description = "")
+  public TaForTermBaseTermGroupsOutput getTa() {
+    return ta;
+  }
+
+  public void setTa(TaForTermBaseTermGroupsOutput ta) {
+    this.ta = ta;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput target(TargetForTermBaseTermGroupsOutput target) {
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Get target
+   * @return target
+  **/
+  @Valid
+  @Schema(description = "")
+  public TargetForTermBaseTermGroupsOutput getTarget() {
+    return target;
+  }
+
+  public void setTarget(TargetForTermBaseTermGroupsOutput target) {
+    this.target = target;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput te(TeForTermBaseTermGroupsOutput te) {
+    this.te = te;
+    return this;
+  }
+
+   /**
+   * Get te
+   * @return te
+  **/
+  @Valid
+  @Schema(description = "")
+  public TeForTermBaseTermGroupsOutput getTe() {
+    return te;
+  }
+
+  public void setTe(TeForTermBaseTermGroupsOutput te) {
+    this.te = te;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput th(ThForTermBaseTermGroupsOutput th) {
+    this.th = th;
+    return this;
+  }
+
+   /**
+   * Get th
+   * @return th
+  **/
+  @Valid
+  @Schema(description = "")
+  public ThForTermBaseTermGroupsOutput getTh() {
+    return th;
+  }
+
+  public void setTh(ThForTermBaseTermGroupsOutput th) {
+    this.th = th;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput thTH(ThTHForTermBaseTermGroupsOutput thTH) {
+    this.thTH = thTH;
+    return this;
+  }
+
+   /**
+   * Get thTH
+   * @return thTH
+  **/
+  @Valid
+  @Schema(description = "")
+  public ThTHForTermBaseTermGroupsOutput getThTH() {
+    return thTH;
+  }
+
+  public void setThTH(ThTHForTermBaseTermGroupsOutput thTH) {
+    this.thTH = thTH;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput tlPH(TlPHForTermBaseTermGroupsOutput tlPH) {
+    this.tlPH = tlPH;
+    return this;
+  }
+
+   /**
+   * Get tlPH
+   * @return tlPH
+  **/
+  @Valid
+  @Schema(description = "")
+  public TlPHForTermBaseTermGroupsOutput getTlPH() {
+    return tlPH;
+  }
+
+  public void setTlPH(TlPHForTermBaseTermGroupsOutput tlPH) {
+    this.tlPH = tlPH;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput tr(TrForTermBaseTermGroupsOutput tr) {
+    this.tr = tr;
+    return this;
+  }
+
+   /**
+   * Get tr
+   * @return tr
+  **/
+  @Valid
+  @Schema(description = "")
+  public TrForTermBaseTermGroupsOutput getTr() {
+    return tr;
+  }
+
+  public void setTr(TrForTermBaseTermGroupsOutput tr) {
+    this.tr = tr;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput trTR(TrTRForTermBaseTermGroupsOutput trTR) {
+    this.trTR = trTR;
+    return this;
+  }
+
+   /**
+   * Get trTR
+   * @return trTR
+  **/
+  @Valid
+  @Schema(description = "")
+  public TrTRForTermBaseTermGroupsOutput getTrTR() {
+    return trTR;
+  }
+
+  public void setTrTR(TrTRForTermBaseTermGroupsOutput trTR) {
+    this.trTR = trTR;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput ur(UrForTermBaseTermGroupsOutput ur) {
+    this.ur = ur;
+    return this;
+  }
+
+   /**
+   * Get ur
+   * @return ur
+  **/
+  @Valid
+  @Schema(description = "")
+  public UrForTermBaseTermGroupsOutput getUr() {
+    return ur;
+  }
+
+  public void setUr(UrForTermBaseTermGroupsOutput ur) {
+    this.ur = ur;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput uz(UzForTermBaseTermGroupsOutput uz) {
+    this.uz = uz;
+    return this;
+  }
+
+   /**
+   * Get uz
+   * @return uz
+  **/
+  @Valid
+  @Schema(description = "")
+  public UzForTermBaseTermGroupsOutput getUz() {
+    return uz;
+  }
+
+  public void setUz(UzForTermBaseTermGroupsOutput uz) {
+    this.uz = uz;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput vi(ViForTermBaseTermGroupsOutput vi) {
+    this.vi = vi;
+    return this;
+  }
+
+   /**
+   * Get vi
+   * @return vi
+  **/
+  @Valid
+  @Schema(description = "")
+  public ViForTermBaseTermGroupsOutput getVi() {
+    return vi;
+  }
+
+  public void setVi(ViForTermBaseTermGroupsOutput vi) {
+    this.vi = vi;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput viVN(ViVNForTermBaseTermGroupsOutput viVN) {
+    this.viVN = viVN;
+    return this;
+  }
+
+   /**
+   * Get viVN
+   * @return viVN
+  **/
+  @Valid
+  @Schema(description = "")
+  public ViVNForTermBaseTermGroupsOutput getViVN() {
+    return viVN;
+  }
+
+  public void setViVN(ViVNForTermBaseTermGroupsOutput viVN) {
+    this.viVN = viVN;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zh(ZhForTermBaseTermGroupsOutput zh) {
+    this.zh = zh;
+    return this;
+  }
+
+   /**
+   * Get zh
+   * @return zh
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhForTermBaseTermGroupsOutput getZh() {
+    return zh;
+  }
+
+  public void setZh(ZhForTermBaseTermGroupsOutput zh) {
+    this.zh = zh;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhCN(ZhCNForTermBaseTermGroupsOutput zhCN) {
+    this.zhCN = zhCN;
+    return this;
+  }
+
+   /**
+   * Get zhCN
+   * @return zhCN
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhCNForTermBaseTermGroupsOutput getZhCN() {
+    return zhCN;
+  }
+
+  public void setZhCN(ZhCNForTermBaseTermGroupsOutput zhCN) {
+    this.zhCN = zhCN;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhHK(ZhHKForTermBaseTermGroupsOutput zhHK) {
+    this.zhHK = zhHK;
+    return this;
+  }
+
+   /**
+   * Get zhHK
+   * @return zhHK
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhHKForTermBaseTermGroupsOutput getZhHK() {
+    return zhHK;
+  }
+
+  public void setZhHK(ZhHKForTermBaseTermGroupsOutput zhHK) {
+    this.zhHK = zhHK;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhHans(ZhHansForTermBaseTermGroupsOutput zhHans) {
+    this.zhHans = zhHans;
+    return this;
+  }
+
+   /**
+   * Get zhHans
+   * @return zhHans
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhHansForTermBaseTermGroupsOutput getZhHans() {
+    return zhHans;
+  }
+
+  public void setZhHans(ZhHansForTermBaseTermGroupsOutput zhHans) {
+    this.zhHans = zhHans;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhHansCN(ZhHansCNForTermBaseTermGroupsOutput zhHansCN) {
+    this.zhHansCN = zhHansCN;
+    return this;
+  }
+
+   /**
+   * Get zhHansCN
+   * @return zhHansCN
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhHansCNForTermBaseTermGroupsOutput getZhHansCN() {
+    return zhHansCN;
+  }
+
+  public void setZhHansCN(ZhHansCNForTermBaseTermGroupsOutput zhHansCN) {
+    this.zhHansCN = zhHansCN;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhHant(ZhHantForTermBaseTermGroupsOutput zhHant) {
+    this.zhHant = zhHant;
+    return this;
+  }
+
+   /**
+   * Get zhHant
+   * @return zhHant
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhHantForTermBaseTermGroupsOutput getZhHant() {
+    return zhHant;
+  }
+
+  public void setZhHant(ZhHantForTermBaseTermGroupsOutput zhHant) {
+    this.zhHant = zhHant;
+  }
+
+  public LangItemMapForTermBaseTermGroupsOutput zhTW(ZhTWForTermBaseTermGroupsOutput zhTW) {
+    this.zhTW = zhTW;
+    return this;
+  }
+
+   /**
+   * Get zhTW
+   * @return zhTW
+  **/
+  @Valid
+  @Schema(description = "")
+  public ZhTWForTermBaseTermGroupsOutput getZhTW() {
+    return zhTW;
+  }
+
+  public void setZhTW(ZhTWForTermBaseTermGroupsOutput zhTW) {
+    this.zhTW = zhTW;
   }
 
 
@@ -358,26 +1903,92 @@ public class LangItemMapForTermBaseTermGroupsOutput {
       return false;
     }
     LangItemMapForTermBaseTermGroupsOutput langItemMapForTermBaseTermGroupsOutput = (LangItemMapForTermBaseTermGroupsOutput) o;
-    return Objects.equals(this.acronym, langItemMapForTermBaseTermGroupsOutput.acronym) &&
-        Objects.equals(this.applyMode, langItemMapForTermBaseTermGroupsOutput.applyMode) &&
-        Objects.equals(this.caseSensitive, langItemMapForTermBaseTermGroupsOutput.caseSensitive) &&
-        Objects.equals(this.content, langItemMapForTermBaseTermGroupsOutput.content) &&
-        Objects.equals(this.createTime, langItemMapForTermBaseTermGroupsOutput.createTime) &&
-        Objects.equals(this.createdAt, langItemMapForTermBaseTermGroupsOutput.createdAt) &&
-        Objects.equals(this.creator, langItemMapForTermBaseTermGroupsOutput.creator) &&
+    return Objects.equals(this.af, langItemMapForTermBaseTermGroupsOutput.af) &&
+        Objects.equals(this.afZA, langItemMapForTermBaseTermGroupsOutput.afZA) &&
+        Objects.equals(this.ar, langItemMapForTermBaseTermGroupsOutput.ar) &&
+        Objects.equals(this.arAR, langItemMapForTermBaseTermGroupsOutput.arAR) &&
+        Objects.equals(this.arDZ, langItemMapForTermBaseTermGroupsOutput.arDZ) &&
+        Objects.equals(this.arSY, langItemMapForTermBaseTermGroupsOutput.arSY) &&
+        Objects.equals(this.arYE, langItemMapForTermBaseTermGroupsOutput.arYE) &&
+        Objects.equals(this.be, langItemMapForTermBaseTermGroupsOutput.be) &&
+        Objects.equals(this.bn, langItemMapForTermBaseTermGroupsOutput.bn) &&
+        Objects.equals(this.bnBD, langItemMapForTermBaseTermGroupsOutput.bnBD) &&
+        Objects.equals(this.da, langItemMapForTermBaseTermGroupsOutput.da) &&
+        Objects.equals(this.de, langItemMapForTermBaseTermGroupsOutput.de) &&
+        Objects.equals(this.deDE, langItemMapForTermBaseTermGroupsOutput.deDE) &&
+        Objects.equals(this.en, langItemMapForTermBaseTermGroupsOutput.en) &&
+        Objects.equals(this.enDA, langItemMapForTermBaseTermGroupsOutput.enDA) &&
+        Objects.equals(this.enGB, langItemMapForTermBaseTermGroupsOutput.enGB) &&
+        Objects.equals(this.enIN, langItemMapForTermBaseTermGroupsOutput.enIN) &&
+        Objects.equals(this.enPH, langItemMapForTermBaseTermGroupsOutput.enPH) &&
+        Objects.equals(this.enSG, langItemMapForTermBaseTermGroupsOutput.enSG) &&
+        Objects.equals(this.enUS, langItemMapForTermBaseTermGroupsOutput.enUS) &&
+        Objects.equals(this.es, langItemMapForTermBaseTermGroupsOutput.es) &&
+        Objects.equals(this.es419, langItemMapForTermBaseTermGroupsOutput.es419) &&
+        Objects.equals(this.esES, langItemMapForTermBaseTermGroupsOutput.esES) &&
+        Objects.equals(this.esUS, langItemMapForTermBaseTermGroupsOutput.esUS) &&
+        Objects.equals(this.faIR, langItemMapForTermBaseTermGroupsOutput.faIR) &&
+        Objects.equals(this.fil, langItemMapForTermBaseTermGroupsOutput.fil) &&
+        Objects.equals(this.filPH, langItemMapForTermBaseTermGroupsOutput.filPH) &&
+        Objects.equals(this.fr, langItemMapForTermBaseTermGroupsOutput.fr) &&
+        Objects.equals(this.frFR, langItemMapForTermBaseTermGroupsOutput.frFR) &&
+        Objects.equals(this.hi, langItemMapForTermBaseTermGroupsOutput.hi) &&
+        Objects.equals(this.hiIN, langItemMapForTermBaseTermGroupsOutput.hiIN) &&
         Objects.equals(this.id, langItemMapForTermBaseTermGroupsOutput.id) &&
-        Objects.equals(this.lang, langItemMapForTermBaseTermGroupsOutput.lang) &&
-        Objects.equals(this.operator, langItemMapForTermBaseTermGroupsOutput.operator) &&
-        Objects.equals(this.partOfSpeech, langItemMapForTermBaseTermGroupsOutput.partOfSpeech) &&
-        Objects.equals(this.termBaseId, langItemMapForTermBaseTermGroupsOutput.termBaseId) &&
-        Objects.equals(this.termGroupId, langItemMapForTermBaseTermGroupsOutput.termGroupId) &&
-        Objects.equals(this.updateTime, langItemMapForTermBaseTermGroupsOutput.updateTime) &&
-        Objects.equals(this.updatedAt, langItemMapForTermBaseTermGroupsOutput.updatedAt);
+        Objects.equals(this.idID, langItemMapForTermBaseTermGroupsOutput.idID) &&
+        Objects.equals(this.it, langItemMapForTermBaseTermGroupsOutput.it) &&
+        Objects.equals(this.itIT, langItemMapForTermBaseTermGroupsOutput.itIT) &&
+        Objects.equals(this.ja, langItemMapForTermBaseTermGroupsOutput.ja) &&
+        Objects.equals(this.jaJP, langItemMapForTermBaseTermGroupsOutput.jaJP) &&
+        Objects.equals(this.ka, langItemMapForTermBaseTermGroupsOutput.ka) &&
+        Objects.equals(this.kkKZ, langItemMapForTermBaseTermGroupsOutput.kkKZ) &&
+        Objects.equals(this.kl, langItemMapForTermBaseTermGroupsOutput.kl) &&
+        Objects.equals(this.km, langItemMapForTermBaseTermGroupsOutput.km) &&
+        Objects.equals(this.kmKH, langItemMapForTermBaseTermGroupsOutput.kmKH) &&
+        Objects.equals(this.ko, langItemMapForTermBaseTermGroupsOutput.ko) &&
+        Objects.equals(this.koKR, langItemMapForTermBaseTermGroupsOutput.koKR) &&
+        Objects.equals(this.mn, langItemMapForTermBaseTermGroupsOutput.mn) &&
+        Objects.equals(this.ms, langItemMapForTermBaseTermGroupsOutput.ms) &&
+        Objects.equals(this.msMY, langItemMapForTermBaseTermGroupsOutput.msMY) &&
+        Objects.equals(this.my, langItemMapForTermBaseTermGroupsOutput.my) &&
+        Objects.equals(this.ne, langItemMapForTermBaseTermGroupsOutput.ne) &&
+        Objects.equals(this.pl, langItemMapForTermBaseTermGroupsOutput.pl) &&
+        Objects.equals(this.plPL, langItemMapForTermBaseTermGroupsOutput.plPL) &&
+        Objects.equals(this.pt, langItemMapForTermBaseTermGroupsOutput.pt) &&
+        Objects.equals(this.ptBR, langItemMapForTermBaseTermGroupsOutput.ptBR) &&
+        Objects.equals(this.ptPT, langItemMapForTermBaseTermGroupsOutput.ptPT) &&
+        Objects.equals(this.ro, langItemMapForTermBaseTermGroupsOutput.ro) &&
+        Objects.equals(this.ru, langItemMapForTermBaseTermGroupsOutput.ru) &&
+        Objects.equals(this.ruRU, langItemMapForTermBaseTermGroupsOutput.ruRU) &&
+        Objects.equals(this.sk, langItemMapForTermBaseTermGroupsOutput.sk) &&
+        Objects.equals(this.sl, langItemMapForTermBaseTermGroupsOutput.sl) &&
+        Objects.equals(this.source, langItemMapForTermBaseTermGroupsOutput.source) &&
+        Objects.equals(this.sr, langItemMapForTermBaseTermGroupsOutput.sr) &&
+        Objects.equals(this.sv, langItemMapForTermBaseTermGroupsOutput.sv) &&
+        Objects.equals(this.ta, langItemMapForTermBaseTermGroupsOutput.ta) &&
+        Objects.equals(this.target, langItemMapForTermBaseTermGroupsOutput.target) &&
+        Objects.equals(this.te, langItemMapForTermBaseTermGroupsOutput.te) &&
+        Objects.equals(this.th, langItemMapForTermBaseTermGroupsOutput.th) &&
+        Objects.equals(this.thTH, langItemMapForTermBaseTermGroupsOutput.thTH) &&
+        Objects.equals(this.tlPH, langItemMapForTermBaseTermGroupsOutput.tlPH) &&
+        Objects.equals(this.tr, langItemMapForTermBaseTermGroupsOutput.tr) &&
+        Objects.equals(this.trTR, langItemMapForTermBaseTermGroupsOutput.trTR) &&
+        Objects.equals(this.ur, langItemMapForTermBaseTermGroupsOutput.ur) &&
+        Objects.equals(this.uz, langItemMapForTermBaseTermGroupsOutput.uz) &&
+        Objects.equals(this.vi, langItemMapForTermBaseTermGroupsOutput.vi) &&
+        Objects.equals(this.viVN, langItemMapForTermBaseTermGroupsOutput.viVN) &&
+        Objects.equals(this.zh, langItemMapForTermBaseTermGroupsOutput.zh) &&
+        Objects.equals(this.zhCN, langItemMapForTermBaseTermGroupsOutput.zhCN) &&
+        Objects.equals(this.zhHK, langItemMapForTermBaseTermGroupsOutput.zhHK) &&
+        Objects.equals(this.zhHans, langItemMapForTermBaseTermGroupsOutput.zhHans) &&
+        Objects.equals(this.zhHansCN, langItemMapForTermBaseTermGroupsOutput.zhHansCN) &&
+        Objects.equals(this.zhHant, langItemMapForTermBaseTermGroupsOutput.zhHant) &&
+        Objects.equals(this.zhTW, langItemMapForTermBaseTermGroupsOutput.zhTW);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acronym, applyMode, caseSensitive, content, createTime, createdAt, creator, id, lang, operator, partOfSpeech, termBaseId, termGroupId, updateTime, updatedAt);
+    return Objects.hash(af, afZA, ar, arAR, arDZ, arSY, arYE, be, bn, bnBD, da, de, deDE, en, enDA, enGB, enIN, enPH, enSG, enUS, es, es419, esES, esUS, faIR, fil, filPH, fr, frFR, hi, hiIN, id, idID, it, itIT, ja, jaJP, ka, kkKZ, kl, km, kmKH, ko, koKR, mn, ms, msMY, my, ne, pl, plPL, pt, ptBR, ptPT, ro, ru, ruRU, sk, sl, source, sr, sv, ta, target, te, th, thTH, tlPH, tr, trTR, ur, uz, vi, viVN, zh, zhCN, zhHK, zhHans, zhHansCN, zhHant, zhTW);
   }
 
 
@@ -386,21 +1997,87 @@ public class LangItemMapForTermBaseTermGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LangItemMapForTermBaseTermGroupsOutput {\n");
     
-    sb.append("    acronym: ").append(toIndentedString(acronym)).append("\n");
-    sb.append("    applyMode: ").append(toIndentedString(applyMode)).append("\n");
-    sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+    sb.append("    af: ").append(toIndentedString(af)).append("\n");
+    sb.append("    afZA: ").append(toIndentedString(afZA)).append("\n");
+    sb.append("    ar: ").append(toIndentedString(ar)).append("\n");
+    sb.append("    arAR: ").append(toIndentedString(arAR)).append("\n");
+    sb.append("    arDZ: ").append(toIndentedString(arDZ)).append("\n");
+    sb.append("    arSY: ").append(toIndentedString(arSY)).append("\n");
+    sb.append("    arYE: ").append(toIndentedString(arYE)).append("\n");
+    sb.append("    be: ").append(toIndentedString(be)).append("\n");
+    sb.append("    bn: ").append(toIndentedString(bn)).append("\n");
+    sb.append("    bnBD: ").append(toIndentedString(bnBD)).append("\n");
+    sb.append("    da: ").append(toIndentedString(da)).append("\n");
+    sb.append("    de: ").append(toIndentedString(de)).append("\n");
+    sb.append("    deDE: ").append(toIndentedString(deDE)).append("\n");
+    sb.append("    en: ").append(toIndentedString(en)).append("\n");
+    sb.append("    enDA: ").append(toIndentedString(enDA)).append("\n");
+    sb.append("    enGB: ").append(toIndentedString(enGB)).append("\n");
+    sb.append("    enIN: ").append(toIndentedString(enIN)).append("\n");
+    sb.append("    enPH: ").append(toIndentedString(enPH)).append("\n");
+    sb.append("    enSG: ").append(toIndentedString(enSG)).append("\n");
+    sb.append("    enUS: ").append(toIndentedString(enUS)).append("\n");
+    sb.append("    es: ").append(toIndentedString(es)).append("\n");
+    sb.append("    es419: ").append(toIndentedString(es419)).append("\n");
+    sb.append("    esES: ").append(toIndentedString(esES)).append("\n");
+    sb.append("    esUS: ").append(toIndentedString(esUS)).append("\n");
+    sb.append("    faIR: ").append(toIndentedString(faIR)).append("\n");
+    sb.append("    fil: ").append(toIndentedString(fil)).append("\n");
+    sb.append("    filPH: ").append(toIndentedString(filPH)).append("\n");
+    sb.append("    fr: ").append(toIndentedString(fr)).append("\n");
+    sb.append("    frFR: ").append(toIndentedString(frFR)).append("\n");
+    sb.append("    hi: ").append(toIndentedString(hi)).append("\n");
+    sb.append("    hiIN: ").append(toIndentedString(hiIN)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    lang: ").append(toIndentedString(lang)).append("\n");
-    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    partOfSpeech: ").append(toIndentedString(partOfSpeech)).append("\n");
-    sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
-    sb.append("    termGroupId: ").append(toIndentedString(termGroupId)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    idID: ").append(toIndentedString(idID)).append("\n");
+    sb.append("    it: ").append(toIndentedString(it)).append("\n");
+    sb.append("    itIT: ").append(toIndentedString(itIT)).append("\n");
+    sb.append("    ja: ").append(toIndentedString(ja)).append("\n");
+    sb.append("    jaJP: ").append(toIndentedString(jaJP)).append("\n");
+    sb.append("    ka: ").append(toIndentedString(ka)).append("\n");
+    sb.append("    kkKZ: ").append(toIndentedString(kkKZ)).append("\n");
+    sb.append("    kl: ").append(toIndentedString(kl)).append("\n");
+    sb.append("    km: ").append(toIndentedString(km)).append("\n");
+    sb.append("    kmKH: ").append(toIndentedString(kmKH)).append("\n");
+    sb.append("    ko: ").append(toIndentedString(ko)).append("\n");
+    sb.append("    koKR: ").append(toIndentedString(koKR)).append("\n");
+    sb.append("    mn: ").append(toIndentedString(mn)).append("\n");
+    sb.append("    ms: ").append(toIndentedString(ms)).append("\n");
+    sb.append("    msMY: ").append(toIndentedString(msMY)).append("\n");
+    sb.append("    my: ").append(toIndentedString(my)).append("\n");
+    sb.append("    ne: ").append(toIndentedString(ne)).append("\n");
+    sb.append("    pl: ").append(toIndentedString(pl)).append("\n");
+    sb.append("    plPL: ").append(toIndentedString(plPL)).append("\n");
+    sb.append("    pt: ").append(toIndentedString(pt)).append("\n");
+    sb.append("    ptBR: ").append(toIndentedString(ptBR)).append("\n");
+    sb.append("    ptPT: ").append(toIndentedString(ptPT)).append("\n");
+    sb.append("    ro: ").append(toIndentedString(ro)).append("\n");
+    sb.append("    ru: ").append(toIndentedString(ru)).append("\n");
+    sb.append("    ruRU: ").append(toIndentedString(ruRU)).append("\n");
+    sb.append("    sk: ").append(toIndentedString(sk)).append("\n");
+    sb.append("    sl: ").append(toIndentedString(sl)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    sr: ").append(toIndentedString(sr)).append("\n");
+    sb.append("    sv: ").append(toIndentedString(sv)).append("\n");
+    sb.append("    ta: ").append(toIndentedString(ta)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    te: ").append(toIndentedString(te)).append("\n");
+    sb.append("    th: ").append(toIndentedString(th)).append("\n");
+    sb.append("    thTH: ").append(toIndentedString(thTH)).append("\n");
+    sb.append("    tlPH: ").append(toIndentedString(tlPH)).append("\n");
+    sb.append("    tr: ").append(toIndentedString(tr)).append("\n");
+    sb.append("    trTR: ").append(toIndentedString(trTR)).append("\n");
+    sb.append("    ur: ").append(toIndentedString(ur)).append("\n");
+    sb.append("    uz: ").append(toIndentedString(uz)).append("\n");
+    sb.append("    vi: ").append(toIndentedString(vi)).append("\n");
+    sb.append("    viVN: ").append(toIndentedString(viVN)).append("\n");
+    sb.append("    zh: ").append(toIndentedString(zh)).append("\n");
+    sb.append("    zhCN: ").append(toIndentedString(zhCN)).append("\n");
+    sb.append("    zhHK: ").append(toIndentedString(zhHK)).append("\n");
+    sb.append("    zhHans: ").append(toIndentedString(zhHans)).append("\n");
+    sb.append("    zhHansCN: ").append(toIndentedString(zhHansCN)).append("\n");
+    sb.append("    zhHant: ").append(toIndentedString(zhHant)).append("\n");
+    sb.append("    zhTW: ").append(toIndentedString(zhTW)).append("\n");
     sb.append("}");
     return sb.toString();
   }
