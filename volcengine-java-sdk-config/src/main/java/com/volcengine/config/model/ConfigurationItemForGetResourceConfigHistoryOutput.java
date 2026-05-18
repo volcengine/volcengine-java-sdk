@@ -61,8 +61,53 @@ public class ConfigurationItemForGetResourceConfigHistoryOutput {
   @SerializedName("ResourceCreationTime")
   private String resourceCreationTime = null;
 
-  @SerializedName("ResourceEventType")
-  private String resourceEventType = null;
+  /**
+   * Gets or Sets resourceEventType
+   */
+  @JsonAdapter(ResourceEventTypeEnum.Adapter.class)
+  public enum ResourceEventTypeEnum {
+    @SerializedName("Discovered")
+    DISCOVERED("Discovered"),
+    @SerializedName("Update")
+    UPDATE("Update"),
+    @SerializedName("Delete")
+    DELETE("Delete");
+
+    private String value;
+
+    ResourceEventTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceEventTypeEnum fromValue(String input) {
+      for (ResourceEventTypeEnum b : ResourceEventTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceEventTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceEventTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceEventTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceEventTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceEventType")
+  private ResourceEventTypeEnum resourceEventType = null;
 
   @SerializedName("ResourceIdentifier")
   private String resourceIdentifier = null;
@@ -238,7 +283,7 @@ public class ConfigurationItemForGetResourceConfigHistoryOutput {
     this.resourceCreationTime = resourceCreationTime;
   }
 
-  public ConfigurationItemForGetResourceConfigHistoryOutput resourceEventType(String resourceEventType) {
+  public ConfigurationItemForGetResourceConfigHistoryOutput resourceEventType(ResourceEventTypeEnum resourceEventType) {
     this.resourceEventType = resourceEventType;
     return this;
   }
@@ -248,11 +293,11 @@ public class ConfigurationItemForGetResourceConfigHistoryOutput {
    * @return resourceEventType
   **/
   @Schema(description = "")
-  public String getResourceEventType() {
+  public ResourceEventTypeEnum getResourceEventType() {
     return resourceEventType;
   }
 
-  public void setResourceEventType(String resourceEventType) {
+  public void setResourceEventType(ResourceEventTypeEnum resourceEventType) {
     this.resourceEventType = resourceEventType;
   }
 
