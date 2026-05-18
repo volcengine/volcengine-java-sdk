@@ -33,6 +33,9 @@ public class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTabl
   @SerializedName("CreationTime")
   private String creationTime = null;
 
+  @SerializedName("PropagationGranularity")
+  private String propagationGranularity = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -58,6 +61,24 @@ public class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTabl
 
   public void setCreationTime(String creationTime) {
     this.creationTime = creationTime;
+  }
+
+  public TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput propagationGranularity(String propagationGranularity) {
+    this.propagationGranularity = propagationGranularity;
+    return this;
+  }
+
+   /**
+   * Get propagationGranularity
+   * @return propagationGranularity
+  **/
+  @Schema(description = "")
+  public String getPropagationGranularity() {
+    return propagationGranularity;
+  }
+
+  public void setPropagationGranularity(String propagationGranularity) {
+    this.propagationGranularity = propagationGranularity;
   }
 
   public TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput status(String status) {
@@ -125,6 +146,7 @@ public class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTabl
     }
     TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput = (TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput) o;
     return Objects.equals(this.creationTime, transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput.creationTime) &&
+        Objects.equals(this.propagationGranularity, transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput.propagationGranularity) &&
         Objects.equals(this.status, transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput.status) &&
         Objects.equals(this.transitRouterAttachmentId, transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterRouteTableId, transitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput.transitRouterRouteTableId);
@@ -132,7 +154,7 @@ public class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTabl
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, status, transitRouterAttachmentId, transitRouterRouteTableId);
+    return Objects.hash(creationTime, propagationGranularity, status, transitRouterAttachmentId, transitRouterRouteTableId);
   }
 
 
@@ -142,6 +164,7 @@ public class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTabl
     sb.append("class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput {\n");
     
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
+    sb.append("    propagationGranularity: ").append(toIndentedString(propagationGranularity)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");
