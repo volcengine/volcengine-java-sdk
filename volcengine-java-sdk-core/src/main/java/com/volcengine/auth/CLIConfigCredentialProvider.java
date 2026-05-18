@@ -2,6 +2,7 @@ package com.volcengine.auth;
 
 import com.volcengine.ApiException;
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class CLIConfigCredentialProvider implements Provider {
 
     private static final String PROVIDER_NAME = "CLIConfigCredentialProvider";
     private static final long EXPIRE_BUFFER_SECONDS = 60;
+    private static final String LOGIN_CACHE_DIRECTORY_ENV = "VOLCENGINE_LOGIN_CACHE_DIRECTORY";
 
     private final String profileName;
     private final String configPath;
@@ -212,9 +214,56 @@ public class CLIConfigCredentialProvider implements Provider {
             case "sso": {
                 return loadSsoProvider(profileData, profile, configMap);
             }
+            case "console-login": {
+                return loadConsoleLoginProvider(profileData, profile, configPath, gson);
+            }
             default:
                 throw new ApiException(PROVIDER_NAME + ": unsupported mode: " + mode);
         }
+    }
+
+    private Provider loadConsoleLoginProvider(Map<String, Object> profileData, String profile,
+                                              Path configFilePath, Gson gson) throws ApiException {
+        String loginSession = getStringValue(profileData, "login-session");
+        if (isNullOrEmpty(loginSession)) {
+            throw new ApiException(PROVIDER_NAME + ": login-session not found in console-login profile '" + profile + "', please run 've login' first");
+        }
+
+        String customCacheDir = System.getenv(LOGIN_CACHE_DIRECTORY_ENV);
+        Path cacheDir = !isNullOrEmpty(customCacheDir)
+                ? Paths.get(customCacheDir).toAbsolutePath().normalize()
+                : configFilePath.getParent().resolve("login").resolve("cache");
+        Path tokenCachePath = cacheDir.resolve(computeLoginCacheFileName(loginSession));
+        if (!Files.exists(tokenCachePath)) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache file not found: " + tokenCachePath + ", please run 've login' first");
+        }
+
+        String tokenContent;
+        try {
+            tokenContent = new String(Files.readAllBytes(tokenCachePath), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new ApiException(PROVIDER_NAME + ": failed to read console-login token cache: " + tokenCachePath + " - " + e.getMessage());
+        }
+
+        LoginTokenCache tokenCache;
+        try {
+            tokenCache = gson.fromJson(tokenContent, LoginTokenCache.class);
+        } catch (Exception e) {
+            throw new ApiException(PROVIDER_NAME + ": failed to parse console-login token cache: " + e.getMessage());
+        }
+        if (tokenCache == null) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache file is empty");
+        }
+
+        long expirationSeconds = consoleLoginExpiration(tokenCache, tokenCachePath);
+        if (System.currentTimeMillis() / 1000 + EXPIRE_BUFFER_SECONDS >= expirationSeconds) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache has expired or is about to expire: " + tokenCachePath + ", please run 've login' to refresh it");
+        }
+
+        ConsoleLoginStsCredentials creds = parseConsoleLoginAccessToken(tokenCache.getAccessToken(), tokenCachePath, gson);
+        return new StaticCredentialProvider(
+                new CredentialValue(creds.accessKeyId, creds.secretAccessKey, creds.sessionToken, PROVIDER_NAME),
+                expirationSeconds);
     }
 
     @SuppressWarnings("unchecked")
@@ -319,7 +368,7 @@ public class CLIConfigCredentialProvider implements Provider {
     }
 
     private String refreshAccessToken(SsoTokenCache tokenCache, Path tokenCachePath,
-                                       String region, Gson gson) throws ApiException {
+                                      String region, Gson gson) throws ApiException {
         String refreshToken = tokenCache.getRefreshToken();
         if (isNullOrEmpty(refreshToken)) {
             throw new ApiException(PROVIDER_NAME + ": SSO token cache missing refresh_token, please re-login with CLI");
@@ -374,7 +423,10 @@ public class CLIConfigCredentialProvider implements Provider {
                         java.nio.file.StandardCopyOption.REPLACE_EXISTING,
                         java.nio.file.StandardCopyOption.ATOMIC_MOVE);
             } catch (Exception e) {
-                try { Files.deleteIfExists(tempFile); } catch (IOException ignored) { }
+                try {
+                    Files.deleteIfExists(tempFile);
+                } catch (IOException ignored) {
+                }
                 throw e;
             }
         } catch (IOException e) {
@@ -415,6 +467,20 @@ public class CLIConfigCredentialProvider implements Provider {
             return hex.toString() + ".json";
         } catch (java.security.NoSuchAlgorithmException e) {
             throw new ApiException("CLIConfigCredentialProvider: SHA-1 algorithm not available");
+        }
+    }
+
+    private static String computeLoginCacheFileName(String loginSession) throws ApiException {
+        try {
+            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
+            byte[] hash = sha1.digest(loginSession.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hex = new StringBuilder();
+            for (byte b : hash) {
+                hex.append(String.format("%02x", b));
+            }
+            return hex.toString() + ".json";
+        } catch (java.security.NoSuchAlgorithmException e) {
+            throw new ApiException(PROVIDER_NAME + ": SHA-1 algorithm not available");
         }
     }
 
@@ -476,6 +542,47 @@ public class CLIConfigCredentialProvider implements Provider {
         return ts;                              // seconds
     }
 
+    private static long consoleLoginExpiration(LoginTokenCache tokenCache, Path tokenCachePath) throws ApiException {
+        if (tokenCache == null || isNullOrEmpty(tokenCache.getIssuedAt())) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing issued_at: " + tokenCachePath);
+        }
+        if (tokenCache.getExpiresIn() <= 0) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing valid expires_in: " + tokenCachePath);
+        }
+        try {
+            return Instant.parse(tokenCache.getIssuedAt().trim()).getEpochSecond() + tokenCache.getExpiresIn();
+        } catch (DateTimeParseException e) {
+            throw new ApiException(PROVIDER_NAME + ": failed to parse console-login issued_at in " + tokenCachePath + ": " + e.getMessage());
+        }
+    }
+
+    private static ConsoleLoginStsCredentials parseConsoleLoginAccessToken(Object accessToken, Path tokenCachePath, Gson gson) throws ApiException {
+        if (accessToken == null) {
+            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing access_token: " + tokenCachePath);
+        }
+
+        ConsoleLoginStsCredentials creds;
+        if (accessToken instanceof String) {
+            try {
+                creds = gson.fromJson((String) accessToken, ConsoleLoginStsCredentials.class);
+            } catch (Exception e) {
+                throw new ApiException(PROVIDER_NAME + ": failed to parse console-login access_token in " + tokenCachePath + ": " + e.getMessage());
+            }
+        } else {
+            try {
+                creds = gson.fromJson(gson.toJson(accessToken), ConsoleLoginStsCredentials.class);
+            } catch (Exception e) {
+                throw new ApiException(PROVIDER_NAME + ": failed to parse console-login access_token in " + tokenCachePath + ": " + e.getMessage());
+            }
+        }
+
+        if (creds == null || isNullOrEmpty(creds.accessKeyId)
+                || isNullOrEmpty(creds.secretAccessKey) || isNullOrEmpty(creds.sessionToken)) {
+            throw new ApiException(PROVIDER_NAME + ": console-login access_token missing STS credential fields: " + tokenCachePath);
+        }
+        return creds;
+    }
+
     private Path resolveConfigPath() {
         if (!isNullOrEmpty(configPath)) {
             return Paths.get(configPath).toAbsolutePath().normalize();
@@ -515,5 +622,44 @@ public class CLIConfigCredentialProvider implements Provider {
 
     private static boolean isNullOrEmpty(String s) {
         return s == null || s.isEmpty();
+    }
+
+    private static final class LoginTokenCache {
+        /**
+         * The CLI persists {@code access_token} as Go's {@code json.RawMessage},
+         * which preserves whatever was returned by the server verbatim. In
+         * practice this may be either a JSON-encoded string (quoted) or a
+         * nested JSON object containing the STS credentials. Kept as
+         * {@link Object} so Gson can deserialize either shape;
+         * {@link #parseConsoleLoginAccessToken} handles both forms to stay
+         * aligned with the CLI's own {@code readLoginCache} behavior.
+         */
+        @SerializedName("access_token")
+        private Object accessToken;
+        @SerializedName("issued_at")
+        private String issuedAt;
+        @SerializedName("expires_in")
+        private long expiresIn;
+
+        Object getAccessToken() {
+            return accessToken;
+        }
+
+        String getIssuedAt() {
+            return issuedAt;
+        }
+
+        long getExpiresIn() {
+            return expiresIn;
+        }
+    }
+
+    private static final class ConsoleLoginStsCredentials {
+        @SerializedName("access_key_id")
+        private String accessKeyId;
+        @SerializedName("secret_access_key")
+        private String secretAccessKey;
+        @SerializedName("session_token")
+        private String sessionToken;
     }
 }

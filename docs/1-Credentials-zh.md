@@ -356,7 +356,8 @@ public class SampleCode {
   - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证（比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的 `X-Security-Token` header。
 - `OIDC`（委托给 `OidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
-- `SSO`
+- `SSO` （从 CLI sso 缓存读取 STS 凭证）
+- `console-login`（从 CLI console-login 缓存读取 STS 凭证）
 
 > mode 不区分大小写。
 

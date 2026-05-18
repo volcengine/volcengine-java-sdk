@@ -353,7 +353,8 @@ Supported profile `mode`:
   - Optional: `session-token` — when the source `access-key` / `secret-key` are themselves STS temporaries (e.g. issued by SSO/OIDC), this token is forwarded to the chained AssumeRole call as `X-Security-Token`.
 - `OIDC` (delegates to `OidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
-- `SSO`
+- `SSO` (reads STS credentials from the CLI sso cache)
+- `console-login` (reads STS credentials from the CLI console-login cache)
 
 > Mode matching is case-insensitive.
 
