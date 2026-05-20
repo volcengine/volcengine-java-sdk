@@ -3,7 +3,7 @@ package com.volcengine.llmshield;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
@@ -26,6 +26,10 @@ public class ApiClient {
     private final String sk;
     private final String region;
     private CloseableHttpClient httpClient;
+    // 请求级超时配置（毫秒），-1 表示未设置，使用底层 httpClient 的默认配置
+    private int requestConnectTimeout = -1;
+    private int requestSocketTimeout = -1;
+    private int requestConnectionRequestTimeout = -1;
 
     private ApiClient(String url, String ak, String sk, String region, long timeout) {
         this.url = url;
@@ -111,6 +115,68 @@ public class ApiClient {
     }
 
     /**
+     * 设置请求级超时（毫秒），客户端初始化后可调用以覆盖默认超时配置。
+     * 任意参数传 -1 表示该项使用底层 HttpClient 的默认值。
+     *
+     * @param connectTimeout            建立 TCP 连接的超时时间
+     * @param socketTimeout             两个数据包之间的最大等待时间（读超时）
+     * @param connectionRequestTimeout  从连接池获取连接的最大等待时间
+     */
+    public void SetRequestTimeout(int connectTimeout, int socketTimeout, int connectionRequestTimeout) {
+        this.requestConnectTimeout = connectTimeout;
+        this.requestSocketTimeout = socketTimeout;
+        this.requestConnectionRequestTimeout = connectionRequestTimeout;
+    }
+
+    /**
+     * 仅设置请求级 socket 读超时（毫秒）。
+     *
+     * @param socketTimeout 读超时时间
+     */
+    public void SetRequestSocketTimeout(int socketTimeout) {
+        this.requestSocketTimeout = socketTimeout;
+    }
+
+    /**
+     * 仅设置请求级建立连接超时（毫秒）。
+     *
+     * @param connectTimeout 连接超时时间
+     */
+    public void SetRequestConnectTimeout(int connectTimeout) {
+        this.requestConnectTimeout = connectTimeout;
+    }
+
+    /**
+     * 仅设置请求级从连接池获取连接的超时（毫秒）。
+     *
+     * @param connectionRequestTimeout 从连接池获取连接超时时间
+     */
+    public void SetRequestConnectionRequestTimeout(int connectionRequestTimeout) {
+        this.requestConnectionRequestTimeout = connectionRequestTimeout;
+    }
+
+    /**
+     * 根据当前的请求级超时配置构建 RequestConfig，并应用到 HttpPost 上。
+     * 若三项均未设置，则不修改请求配置，沿用 httpClient 默认。
+     */
+    private void applyRequestConfig(HttpPost httpPost) {
+        if (requestConnectTimeout < 0 && requestSocketTimeout < 0 && requestConnectionRequestTimeout < 0) {
+            return;
+        }
+        RequestConfig.Builder builder = RequestConfig.custom();
+        if (requestConnectTimeout >= 0) {
+            builder.setConnectTimeout(requestConnectTimeout);
+        }
+        if (requestSocketTimeout >= 0) {
+            builder.setSocketTimeout(requestSocketTimeout);
+        }
+        if (requestConnectionRequestTimeout >= 0) {
+            builder.setConnectionRequestTimeout(requestConnectionRequestTimeout);
+        }
+        httpPost.setConfig(builder.build());
+    }
+
+    /**
      * 设置环境
      * @param IsDev 是否为dev环境
      */
@@ -152,6 +218,7 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
         HttpResponse response = httpClient.execute(httpPost);
@@ -201,6 +268,7 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
         HttpResponse response = httpClient.execute(httpPost);
@@ -242,6 +310,7 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Generate" , ak , sk , region);
         HttpResponse response = httpClient.execute(httpPost);

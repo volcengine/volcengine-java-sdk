@@ -3,7 +3,9 @@ package com.volcengine.llmshield;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // 审核请求结构
 public class ModerateV2Request {
@@ -21,6 +23,9 @@ public class ModerateV2Request {
 
     @JsonProperty("History")
     private List<MessageV2> history;  // 历史消息
+
+    @JsonProperty("Extensions")
+    private Map<String, String> extensions;  // 扩展字段，如HookName
 
     // 深拷贝构造方法：接收另一个ModerateV2Request实例，复制所有内容（包括引用类型的深度拷贝）
     public ModerateV2Request(ModerateV2Request other) {
@@ -40,6 +45,11 @@ public class ModerateV2Request {
             for (MessageV2 msg : other.history) {
                 this.history.add(new MessageV2(msg)); // 假设MessageV2有深拷贝构造方法
             }
+        }
+
+        // Map<String, String>：新建Map并复制所有键值（字符串无需深拷贝）
+        if (other.extensions != null) {
+            this.extensions = new HashMap<>(other.extensions);
         }
     }
 
@@ -84,6 +94,14 @@ public class ModerateV2Request {
 
     public void setHistory(List<MessageV2> history) {
         this.history = history;
+    }
+
+    public Map<String, String> getExtensions() {
+        return extensions;
+    }
+
+    public void setExtensions(Map<String, String> extensions) {
+        this.extensions = extensions;
     }
     // 追加单条历史消息
     public ModerateV2Request appendHistory(MessageV2 message) {
