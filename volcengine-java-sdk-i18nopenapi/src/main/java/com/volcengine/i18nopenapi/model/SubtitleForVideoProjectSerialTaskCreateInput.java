@@ -30,14 +30,38 @@ import javax.validation.Valid;
 
 
 public class SubtitleForVideoProjectSerialTaskCreateInput {
+  @SerializedName("arrangement")
+  private Integer arrangement = null;
+
   @SerializedName("fileType")
   private Integer fileType = null;
 
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("subtitleLang")
+  private Integer subtitleLang = null;
+
   @SerializedName("uri")
   private String uri = null;
+
+  public SubtitleForVideoProjectSerialTaskCreateInput arrangement(Integer arrangement) {
+    this.arrangement = arrangement;
+    return this;
+  }
+
+   /**
+   * Get arrangement
+   * @return arrangement
+  **/
+  @Schema(description = "")
+  public Integer getArrangement() {
+    return arrangement;
+  }
+
+  public void setArrangement(Integer arrangement) {
+    this.arrangement = arrangement;
+  }
 
   public SubtitleForVideoProjectSerialTaskCreateInput fileType(Integer fileType) {
     this.fileType = fileType;
@@ -75,6 +99,24 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
     this.name = name;
   }
 
+  public SubtitleForVideoProjectSerialTaskCreateInput subtitleLang(Integer subtitleLang) {
+    this.subtitleLang = subtitleLang;
+    return this;
+  }
+
+   /**
+   * Get subtitleLang
+   * @return subtitleLang
+  **/
+  @Schema(description = "")
+  public Integer getSubtitleLang() {
+    return subtitleLang;
+  }
+
+  public void setSubtitleLang(Integer subtitleLang) {
+    this.subtitleLang = subtitleLang;
+  }
+
   public SubtitleForVideoProjectSerialTaskCreateInput uri(String uri) {
     this.uri = uri;
     return this;
@@ -103,14 +145,16 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
       return false;
     }
     SubtitleForVideoProjectSerialTaskCreateInput subtitleForVideoProjectSerialTaskCreateInput = (SubtitleForVideoProjectSerialTaskCreateInput) o;
-    return Objects.equals(this.fileType, subtitleForVideoProjectSerialTaskCreateInput.fileType) &&
+    return Objects.equals(this.arrangement, subtitleForVideoProjectSerialTaskCreateInput.arrangement) &&
+        Objects.equals(this.fileType, subtitleForVideoProjectSerialTaskCreateInput.fileType) &&
         Objects.equals(this.name, subtitleForVideoProjectSerialTaskCreateInput.name) &&
+        Objects.equals(this.subtitleLang, subtitleForVideoProjectSerialTaskCreateInput.subtitleLang) &&
         Objects.equals(this.uri, subtitleForVideoProjectSerialTaskCreateInput.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileType, name, uri);
+    return Objects.hash(arrangement, fileType, name, subtitleLang, uri);
   }
 
 
@@ -119,8 +163,10 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubtitleForVideoProjectSerialTaskCreateInput {\n");
     
+    sb.append("    arrangement: ").append(toIndentedString(arrangement)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subtitleLang: ").append(toIndentedString(subtitleLang)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();
