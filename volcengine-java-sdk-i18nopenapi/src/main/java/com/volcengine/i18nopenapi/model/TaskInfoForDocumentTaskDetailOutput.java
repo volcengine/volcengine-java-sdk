@@ -41,6 +41,9 @@ public class TaskInfoForDocumentTaskDetailOutput {
   @SerializedName("asrModel")
   private Integer asrModel = null;
 
+  @SerializedName("auditFailPolicy")
+  private Integer auditFailPolicy = null;
+
   @SerializedName("bgmPolicy")
   private Integer bgmPolicy = null;
 
@@ -159,6 +162,24 @@ public class TaskInfoForDocumentTaskDetailOutput {
 
   public void setAsrModel(Integer asrModel) {
     this.asrModel = asrModel;
+  }
+
+  public TaskInfoForDocumentTaskDetailOutput auditFailPolicy(Integer auditFailPolicy) {
+    this.auditFailPolicy = auditFailPolicy;
+    return this;
+  }
+
+   /**
+   * Get auditFailPolicy
+   * @return auditFailPolicy
+  **/
+  @Schema(description = "")
+  public Integer getAuditFailPolicy() {
+    return auditFailPolicy;
+  }
+
+  public void setAuditFailPolicy(Integer auditFailPolicy) {
+    this.auditFailPolicy = auditFailPolicy;
   }
 
   public TaskInfoForDocumentTaskDetailOutput bgmPolicy(Integer bgmPolicy) {
@@ -696,6 +717,7 @@ public class TaskInfoForDocumentTaskDetailOutput {
     TaskInfoForDocumentTaskDetailOutput taskInfoForDocumentTaskDetailOutput = (TaskInfoForDocumentTaskDetailOutput) o;
     return Objects.equals(this.aiRemoveType, taskInfoForDocumentTaskDetailOutput.aiRemoveType) &&
         Objects.equals(this.asrModel, taskInfoForDocumentTaskDetailOutput.asrModel) &&
+        Objects.equals(this.auditFailPolicy, taskInfoForDocumentTaskDetailOutput.auditFailPolicy) &&
         Objects.equals(this.bgmPolicy, taskInfoForDocumentTaskDetailOutput.bgmPolicy) &&
         Objects.equals(this.comment, taskInfoForDocumentTaskDetailOutput.comment) &&
         Objects.equals(this.createdAt, taskInfoForDocumentTaskDetailOutput.createdAt) &&
@@ -728,7 +750,7 @@ public class TaskInfoForDocumentTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, isDub, llmVideoUnderstandingType, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, isDub, llmVideoUnderstandingType, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
   }
 
 
@@ -739,6 +761,7 @@ public class TaskInfoForDocumentTaskDetailOutput {
     
     sb.append("    aiRemoveType: ").append(toIndentedString(aiRemoveType)).append("\n");
     sb.append("    asrModel: ").append(toIndentedString(asrModel)).append("\n");
+    sb.append("    auditFailPolicy: ").append(toIndentedString(auditFailPolicy)).append("\n");
     sb.append("    bgmPolicy: ").append(toIndentedString(bgmPolicy)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

@@ -44,6 +44,52 @@ public class CreateTransitRouterTrafficQosQueueEntryRequest {
   @SerializedName("Dscps")
   private List<Integer> dscps = null;
 
+  /**
+   * Gets or Sets priority
+   */
+  @JsonAdapter(PriorityEnum.Adapter.class)
+  public enum PriorityEnum {
+    @SerializedName("Normal")
+    NORMAL("Normal"),
+    @SerializedName("High")
+    HIGH("High");
+
+    private String value;
+
+    PriorityEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PriorityEnum fromValue(String input) {
+      for (PriorityEnum b : PriorityEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PriorityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PriorityEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PriorityEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PriorityEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Priority")
+  private PriorityEnum priority = null;
+
   @SerializedName("TransitRouterTrafficQosQueueEntryName")
   private String transitRouterTrafficQosQueueEntryName = null;
 
@@ -57,10 +103,10 @@ public class CreateTransitRouterTrafficQosQueueEntryRequest {
 
    /**
    * Get bandwidthPercent
+   * maximum: 100
    * @return bandwidthPercent
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+ @Max(100)  @Schema(description = "")
   public Integer getBandwidthPercent() {
     return bandwidthPercent;
   }
@@ -131,6 +177,24 @@ public class CreateTransitRouterTrafficQosQueueEntryRequest {
     this.dscps = dscps;
   }
 
+  public CreateTransitRouterTrafficQosQueueEntryRequest priority(PriorityEnum priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * @return priority
+  **/
+  @Schema(description = "")
+  public PriorityEnum getPriority() {
+    return priority;
+  }
+
+  public void setPriority(PriorityEnum priority) {
+    this.priority = priority;
+  }
+
   public CreateTransitRouterTrafficQosQueueEntryRequest transitRouterTrafficQosQueueEntryName(String transitRouterTrafficQosQueueEntryName) {
     this.transitRouterTrafficQosQueueEntryName = transitRouterTrafficQosQueueEntryName;
     return this;
@@ -183,13 +247,14 @@ public class CreateTransitRouterTrafficQosQueueEntryRequest {
         Objects.equals(this.clientToken, createTransitRouterTrafficQosQueueEntryRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterTrafficQosQueueEntryRequest.description) &&
         Objects.equals(this.dscps, createTransitRouterTrafficQosQueueEntryRequest.dscps) &&
+        Objects.equals(this.priority, createTransitRouterTrafficQosQueueEntryRequest.priority) &&
         Objects.equals(this.transitRouterTrafficQosQueueEntryName, createTransitRouterTrafficQosQueueEntryRequest.transitRouterTrafficQosQueueEntryName) &&
         Objects.equals(this.transitRouterTrafficQosQueuePolicyId, createTransitRouterTrafficQosQueueEntryRequest.transitRouterTrafficQosQueuePolicyId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPercent, clientToken, description, dscps, transitRouterTrafficQosQueueEntryName, transitRouterTrafficQosQueuePolicyId);
+    return Objects.hash(bandwidthPercent, clientToken, description, dscps, priority, transitRouterTrafficQosQueueEntryName, transitRouterTrafficQosQueuePolicyId);
   }
 
 
@@ -202,6 +267,7 @@ public class CreateTransitRouterTrafficQosQueueEntryRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dscps: ").append(toIndentedString(dscps)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    transitRouterTrafficQosQueueEntryName: ").append(toIndentedString(transitRouterTrafficQosQueueEntryName)).append("\n");
     sb.append("    transitRouterTrafficQosQueuePolicyId: ").append(toIndentedString(transitRouterTrafficQosQueuePolicyId)).append("\n");
     sb.append("}");

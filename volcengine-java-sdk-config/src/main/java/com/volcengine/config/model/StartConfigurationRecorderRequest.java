@@ -30,10 +30,53 @@ import javax.validation.Valid;
 
 
 public class StartConfigurationRecorderRequest {
-  @SerializedName("RecorderType")
-  private String recorderType = null;
+  /**
+   * Gets or Sets recorderType
+   */
+  @JsonAdapter(RecorderTypeEnum.Adapter.class)
+  public enum RecorderTypeEnum {
+    @SerializedName("SingleAccount")
+    SINGLEACCOUNT("SingleAccount"),
+    @SerializedName("Organization")
+    ORGANIZATION("Organization");
 
-  public StartConfigurationRecorderRequest recorderType(String recorderType) {
+    private String value;
+
+    RecorderTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RecorderTypeEnum fromValue(String input) {
+      for (RecorderTypeEnum b : RecorderTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RecorderTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RecorderTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RecorderTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RecorderTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RecorderType")
+  private RecorderTypeEnum recorderType = null;
+
+  public StartConfigurationRecorderRequest recorderType(RecorderTypeEnum recorderType) {
     this.recorderType = recorderType;
     return this;
   }
@@ -44,11 +87,11 @@ public class StartConfigurationRecorderRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getRecorderType() {
+  public RecorderTypeEnum getRecorderType() {
     return recorderType;
   }
 
-  public void setRecorderType(String recorderType) {
+  public void setRecorderType(RecorderTypeEnum recorderType) {
     this.recorderType = recorderType;
   }
 

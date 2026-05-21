@@ -47,6 +47,9 @@ public class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQos
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
+  @SerializedName("Priority")
+  private String priority = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -160,6 +163,24 @@ public class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQos
     this.isDefault = isDefault;
   }
 
+  public TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput priority(String priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * @return priority
+  **/
+  @Schema(description = "")
+  public String getPriority() {
+    return priority;
+  }
+
+  public void setPriority(String priority) {
+    this.priority = priority;
+  }
+
   public TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput status(String status) {
     this.status = status;
     return this;
@@ -265,6 +286,7 @@ public class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQos
         Objects.equals(this.description, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.description) &&
         Objects.equals(this.dscps, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.dscps) &&
         Objects.equals(this.isDefault, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.isDefault) &&
+        Objects.equals(this.priority, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.priority) &&
         Objects.equals(this.status, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.status) &&
         Objects.equals(this.transitRouterTrafficQosQueueEntryId, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.transitRouterTrafficQosQueueEntryId) &&
         Objects.equals(this.transitRouterTrafficQosQueueEntryName, transitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput.transitRouterTrafficQosQueueEntryName) &&
@@ -274,7 +296,7 @@ public class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQos
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPercent, creationTime, description, dscps, isDefault, status, transitRouterTrafficQosQueueEntryId, transitRouterTrafficQosQueueEntryName, transitRouterTrafficQosQueuePolicyId, updateTime);
+    return Objects.hash(bandwidthPercent, creationTime, description, dscps, isDefault, priority, status, transitRouterTrafficQosQueueEntryId, transitRouterTrafficQosQueueEntryName, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -288,6 +310,7 @@ public class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQos
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dscps: ").append(toIndentedString(dscps)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transitRouterTrafficQosQueueEntryId: ").append(toIndentedString(transitRouterTrafficQosQueueEntryId)).append("\n");
     sb.append("    transitRouterTrafficQosQueueEntryName: ").append(toIndentedString(transitRouterTrafficQosQueueEntryName)).append("\n");

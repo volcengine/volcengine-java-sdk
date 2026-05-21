@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstanceSpecInfoForDescribeDBInstanceSpecsOutput
+ * InstanceSpecsInfoForDescribeDBInstanceSpecsOutput
  */
 
 
 
-public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
+public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
@@ -60,7 +60,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput dbEngineVersion(String dbEngineVersion) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -78,7 +78,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.dbEngineVersion = dbEngineVersion;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput generation(String generation) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput generation(String generation) {
     this.generation = generation;
     return this;
   }
@@ -96,7 +96,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.generation = generation;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput instanceType(String instanceType) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -114,7 +114,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.instanceType = instanceType;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput memory(Integer memory) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput memory(Integer memory) {
     this.memory = memory;
     return this;
   }
@@ -132,7 +132,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.memory = memory;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput specCode(String specCode) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput specCode(String specCode) {
     this.specCode = specCode;
     return this;
   }
@@ -150,7 +150,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.specCode = specCode;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput specFamily(String specFamily) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput specFamily(String specFamily) {
     this.specFamily = specFamily;
     return this;
   }
@@ -168,7 +168,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.specFamily = specFamily;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput specSaleType(String specSaleType) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput specSaleType(String specSaleType) {
     this.specSaleType = specSaleType;
     return this;
   }
@@ -186,7 +186,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.specSaleType = specSaleType;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput specStatus(String specStatus) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput specStatus(String specStatus) {
     this.specStatus = specStatus;
     return this;
   }
@@ -204,7 +204,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.specStatus = specStatus;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput VCPU(Integer VCPU) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput VCPU(Integer VCPU) {
     this.VCPU = VCPU;
     return this;
   }
@@ -222,7 +222,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     this.VCPU = VCPU;
   }
 
-  public InstanceSpecInfoForDescribeDBInstanceSpecsOutput zoneId(String zoneId) {
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -249,17 +249,17 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstanceSpecInfoForDescribeDBInstanceSpecsOutput instanceSpecInfoForDescribeDBInstanceSpecsOutput = (InstanceSpecInfoForDescribeDBInstanceSpecsOutput) o;
-    return Objects.equals(this.dbEngineVersion, instanceSpecInfoForDescribeDBInstanceSpecsOutput.dbEngineVersion) &&
-        Objects.equals(this.generation, instanceSpecInfoForDescribeDBInstanceSpecsOutput.generation) &&
-        Objects.equals(this.instanceType, instanceSpecInfoForDescribeDBInstanceSpecsOutput.instanceType) &&
-        Objects.equals(this.memory, instanceSpecInfoForDescribeDBInstanceSpecsOutput.memory) &&
-        Objects.equals(this.specCode, instanceSpecInfoForDescribeDBInstanceSpecsOutput.specCode) &&
-        Objects.equals(this.specFamily, instanceSpecInfoForDescribeDBInstanceSpecsOutput.specFamily) &&
-        Objects.equals(this.specSaleType, instanceSpecInfoForDescribeDBInstanceSpecsOutput.specSaleType) &&
-        Objects.equals(this.specStatus, instanceSpecInfoForDescribeDBInstanceSpecsOutput.specStatus) &&
-        Objects.equals(this.VCPU, instanceSpecInfoForDescribeDBInstanceSpecsOutput.VCPU) &&
-        Objects.equals(this.zoneId, instanceSpecInfoForDescribeDBInstanceSpecsOutput.zoneId);
+    InstanceSpecsInfoForDescribeDBInstanceSpecsOutput instanceSpecsInfoForDescribeDBInstanceSpecsOutput = (InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) o;
+    return Objects.equals(this.dbEngineVersion, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.dbEngineVersion) &&
+        Objects.equals(this.generation, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.generation) &&
+        Objects.equals(this.instanceType, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.instanceType) &&
+        Objects.equals(this.memory, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.memory) &&
+        Objects.equals(this.specCode, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.specCode) &&
+        Objects.equals(this.specFamily, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.specFamily) &&
+        Objects.equals(this.specSaleType, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.specSaleType) &&
+        Objects.equals(this.specStatus, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.specStatus) &&
+        Objects.equals(this.VCPU, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.VCPU) &&
+        Objects.equals(this.zoneId, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.zoneId);
   }
 
   @Override
@@ -271,7 +271,7 @@ public class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstanceSpecInfoForDescribeDBInstanceSpecsOutput {\n");
+    sb.append("class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {\n");
     
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    generation: ").append(toIndentedString(generation)).append("\n");

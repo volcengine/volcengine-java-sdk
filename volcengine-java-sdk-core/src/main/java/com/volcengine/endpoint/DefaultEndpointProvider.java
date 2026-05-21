@@ -780,6 +780,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- config ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("config", new ServiceEndpointInfo(
+                "config",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

@@ -45,6 +45,9 @@ public class CreateTransitRouterPeerAttachmentRequest {
   @SerializedName("PeerTransitRouterId")
   private String peerTransitRouterId = null;
 
+  @SerializedName("PeerTransitRouterOwnerId")
+  private String peerTransitRouterOwnerId = null;
+
   @SerializedName("PeerTransitRouterRegionId")
   private String peerTransitRouterRegionId = null;
 
@@ -131,6 +134,24 @@ public class CreateTransitRouterPeerAttachmentRequest {
 
   public void setPeerTransitRouterId(String peerTransitRouterId) {
     this.peerTransitRouterId = peerTransitRouterId;
+  }
+
+  public CreateTransitRouterPeerAttachmentRequest peerTransitRouterOwnerId(String peerTransitRouterOwnerId) {
+    this.peerTransitRouterOwnerId = peerTransitRouterOwnerId;
+    return this;
+  }
+
+   /**
+   * Get peerTransitRouterOwnerId
+   * @return peerTransitRouterOwnerId
+  **/
+  @Schema(description = "")
+  public String getPeerTransitRouterOwnerId() {
+    return peerTransitRouterOwnerId;
+  }
+
+  public void setPeerTransitRouterOwnerId(String peerTransitRouterOwnerId) {
+    this.peerTransitRouterOwnerId = peerTransitRouterOwnerId;
   }
 
   public CreateTransitRouterPeerAttachmentRequest peerTransitRouterRegionId(String peerTransitRouterRegionId) {
@@ -248,6 +269,7 @@ public class CreateTransitRouterPeerAttachmentRequest {
         Objects.equals(this.clientToken, createTransitRouterPeerAttachmentRequest.clientToken) &&
         Objects.equals(this.description, createTransitRouterPeerAttachmentRequest.description) &&
         Objects.equals(this.peerTransitRouterId, createTransitRouterPeerAttachmentRequest.peerTransitRouterId) &&
+        Objects.equals(this.peerTransitRouterOwnerId, createTransitRouterPeerAttachmentRequest.peerTransitRouterOwnerId) &&
         Objects.equals(this.peerTransitRouterRegionId, createTransitRouterPeerAttachmentRequest.peerTransitRouterRegionId) &&
         Objects.equals(this.tags, createTransitRouterPeerAttachmentRequest.tags) &&
         Objects.equals(this.transitRouterAttachmentName, createTransitRouterPeerAttachmentRequest.transitRouterAttachmentName) &&
@@ -257,7 +279,7 @@ public class CreateTransitRouterPeerAttachmentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, clientToken, description, peerTransitRouterId, peerTransitRouterRegionId, tags, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterId);
+    return Objects.hash(bandwidth, clientToken, description, peerTransitRouterId, peerTransitRouterOwnerId, peerTransitRouterRegionId, tags, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterId);
   }
 
 
@@ -270,6 +292,7 @@ public class CreateTransitRouterPeerAttachmentRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    peerTransitRouterId: ").append(toIndentedString(peerTransitRouterId)).append("\n");
+    sb.append("    peerTransitRouterOwnerId: ").append(toIndentedString(peerTransitRouterOwnerId)).append("\n");
     sb.append("    peerTransitRouterRegionId: ").append(toIndentedString(peerTransitRouterRegionId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
