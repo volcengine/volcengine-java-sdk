@@ -30,6 +30,52 @@ import javax.validation.Valid;
 
 
 public class ModifyTransitRouterAttributesRequest {
+  /**
+   * Gets or Sets billingOwnerType
+   */
+  @JsonAdapter(BillingOwnerTypeEnum.Adapter.class)
+  public enum BillingOwnerTypeEnum {
+    @SerializedName("ResourceOwner")
+    RESOURCEOWNER("ResourceOwner"),
+    @SerializedName("TransitRouterOwner")
+    TRANSITROUTEROWNER("TransitRouterOwner");
+
+    private String value;
+
+    BillingOwnerTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BillingOwnerTypeEnum fromValue(String input) {
+      for (BillingOwnerTypeEnum b : BillingOwnerTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BillingOwnerTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BillingOwnerTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BillingOwnerTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BillingOwnerTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BillingOwnerType")
+  private BillingOwnerTypeEnum billingOwnerType = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -38,6 +84,24 @@ public class ModifyTransitRouterAttributesRequest {
 
   @SerializedName("TransitRouterName")
   private String transitRouterName = null;
+
+  public ModifyTransitRouterAttributesRequest billingOwnerType(BillingOwnerTypeEnum billingOwnerType) {
+    this.billingOwnerType = billingOwnerType;
+    return this;
+  }
+
+   /**
+   * Get billingOwnerType
+   * @return billingOwnerType
+  **/
+  @Schema(description = "")
+  public BillingOwnerTypeEnum getBillingOwnerType() {
+    return billingOwnerType;
+  }
+
+  public void setBillingOwnerType(BillingOwnerTypeEnum billingOwnerType) {
+    this.billingOwnerType = billingOwnerType;
+  }
 
   public ModifyTransitRouterAttributesRequest description(String description) {
     this.description = description;
@@ -104,14 +168,15 @@ public class ModifyTransitRouterAttributesRequest {
       return false;
     }
     ModifyTransitRouterAttributesRequest modifyTransitRouterAttributesRequest = (ModifyTransitRouterAttributesRequest) o;
-    return Objects.equals(this.description, modifyTransitRouterAttributesRequest.description) &&
+    return Objects.equals(this.billingOwnerType, modifyTransitRouterAttributesRequest.billingOwnerType) &&
+        Objects.equals(this.description, modifyTransitRouterAttributesRequest.description) &&
         Objects.equals(this.transitRouterId, modifyTransitRouterAttributesRequest.transitRouterId) &&
         Objects.equals(this.transitRouterName, modifyTransitRouterAttributesRequest.transitRouterName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, transitRouterId, transitRouterName);
+    return Objects.hash(billingOwnerType, description, transitRouterId, transitRouterName);
   }
 
 
@@ -120,6 +185,7 @@ public class ModifyTransitRouterAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTransitRouterAttributesRequest {\n");
     
+    sb.append("    billingOwnerType: ").append(toIndentedString(billingOwnerType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    transitRouterName: ").append(toIndentedString(transitRouterName)).append("\n");

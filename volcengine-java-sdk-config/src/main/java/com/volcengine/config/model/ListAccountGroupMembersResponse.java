@@ -39,6 +39,9 @@ public class ListAccountGroupMembersResponse extends com.volcengine.model.Abstra
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("TotalCount")
+  private Long totalCount = null;
+
   public ListAccountGroupMembersResponse accountList(List<AccountListForListAccountGroupMembersOutput> accountList) {
     this.accountList = accountList;
     return this;
@@ -84,6 +87,24 @@ public class ListAccountGroupMembersResponse extends com.volcengine.model.Abstra
     this.nextToken = nextToken;
   }
 
+  public ListAccountGroupMembersResponse totalCount(Long totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Long getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Long totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,12 +116,13 @@ public class ListAccountGroupMembersResponse extends com.volcengine.model.Abstra
     }
     ListAccountGroupMembersResponse listAccountGroupMembersResponse = (ListAccountGroupMembersResponse) o;
     return Objects.equals(this.accountList, listAccountGroupMembersResponse.accountList) &&
-        Objects.equals(this.nextToken, listAccountGroupMembersResponse.nextToken);
+        Objects.equals(this.nextToken, listAccountGroupMembersResponse.nextToken) &&
+        Objects.equals(this.totalCount, listAccountGroupMembersResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountList, nextToken);
+    return Objects.hash(accountList, nextToken, totalCount);
   }
 
 
@@ -111,6 +133,7 @@ public class ListAccountGroupMembersResponse extends com.volcengine.model.Abstra
     
     sb.append("    accountList: ").append(toIndentedString(accountList)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -72,9 +72,10 @@ public class DescribeTransitRouterTrafficQosQueueEntriesRequest {
 
    /**
    * Get pageSize
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(100)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

@@ -39,6 +39,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
   @SerializedName("AutoPublishRouteEnabled")
   private Boolean autoPublishRouteEnabled = null;
 
+  @SerializedName("BillingAccountId")
+  private String billingAccountId = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -127,6 +130,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 
   public void setAutoPublishRouteEnabled(Boolean autoPublishRouteEnabled) {
     this.autoPublishRouteEnabled = autoPublishRouteEnabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput billingAccountId(String billingAccountId) {
+    this.billingAccountId = billingAccountId;
+    return this;
+  }
+
+   /**
+   * Get billingAccountId
+   * @return billingAccountId
+  **/
+  @Schema(description = "")
+  public String getBillingAccountId() {
+    return billingAccountId;
+  }
+
+  public void setBillingAccountId(String billingAccountId) {
+    this.billingAccountId = billingAccountId;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput businessStatus(String businessStatus) {
@@ -474,6 +495,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
     TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput = (TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) o;
     return Objects.equals(this.accountId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.accountId) &&
         Objects.equals(this.autoPublishRouteEnabled, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.autoPublishRouteEnabled) &&
+        Objects.equals(this.billingAccountId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.billingAccountId) &&
         Objects.equals(this.businessStatus, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.businessStatus) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.creationTime) &&
         Objects.equals(this.deletedTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.deletedTime) &&
@@ -496,7 +518,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, autoPublishRouteEnabled, businessStatus, creationTime, deletedTime, description, ipv6Enabled, overdueTime, resourceId, resourceType, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
+    return Objects.hash(accountId, autoPublishRouteEnabled, billingAccountId, businessStatus, creationTime, deletedTime, description, ipv6Enabled, overdueTime, resourceId, resourceType, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -507,6 +529,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
+    sb.append("    billingAccountId: ").append(toIndentedString(billingAccountId)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");

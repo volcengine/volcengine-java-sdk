@@ -125,6 +125,10 @@ public class ChatCompletionContentPart {
 
         String detail;
 
+        Long minPixels;
+
+        Long maxPixels;
+
         public ChatCompletionContentPartImageURL(String url, String detail) {
             this.url = url;
             this.detail = detail;
@@ -152,11 +156,29 @@ public class ChatCompletionContentPart {
             this.detail = detail;
         }
 
+        public Long getMinPixels() {
+            return minPixels;
+        }
+
+        public void setMinPixels(Long minPixels) {
+            this.minPixels = minPixels;
+        }
+
+        public Long getMaxPixels() {
+            return maxPixels;
+        }
+
+        public void setMaxPixels(Long maxPixels) {
+            this.maxPixels = maxPixels;
+        }
+
         @Override
         public String toString() {
             return "ChatCompletionContentPartImageURL{" +
                     "url='" + url + '\'' +
                     ", detail='" + detail + '\'' +
+                    ", minPixels=" + minPixels +
+                    ", maxPixels=" + maxPixels +
                     '}';
         }
     }

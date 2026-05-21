@@ -51,6 +51,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
   @SerializedName("PeerTransitRouterId")
   private String peerTransitRouterId = null;
 
+  @SerializedName("PeerTransitRouterOwnerId")
+  private String peerTransitRouterOwnerId = null;
+
   @SerializedName("PeerTransitRouterRegionId")
   private String peerTransitRouterRegionId = null;
 
@@ -68,6 +71,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   @SerializedName("TransitRouterBandwidthPackageId")
   private String transitRouterBandwidthPackageId = null;
+
+  @SerializedName("TransitRouterBandwidthPackageOwnerId")
+  private String transitRouterBandwidthPackageOwnerId = null;
 
   @SerializedName("TransitRouterForwardPolicyTableId")
   private String transitRouterForwardPolicyTableId = null;
@@ -195,6 +201,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     this.peerTransitRouterId = peerTransitRouterId;
   }
 
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput peerTransitRouterOwnerId(String peerTransitRouterOwnerId) {
+    this.peerTransitRouterOwnerId = peerTransitRouterOwnerId;
+    return this;
+  }
+
+   /**
+   * Get peerTransitRouterOwnerId
+   * @return peerTransitRouterOwnerId
+  **/
+  @Schema(description = "")
+  public String getPeerTransitRouterOwnerId() {
+    return peerTransitRouterOwnerId;
+  }
+
+  public void setPeerTransitRouterOwnerId(String peerTransitRouterOwnerId) {
+    this.peerTransitRouterOwnerId = peerTransitRouterOwnerId;
+  }
+
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput peerTransitRouterRegionId(String peerTransitRouterRegionId) {
     this.peerTransitRouterRegionId = peerTransitRouterRegionId;
     return this;
@@ -310,6 +334,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   public void setTransitRouterBandwidthPackageId(String transitRouterBandwidthPackageId) {
     this.transitRouterBandwidthPackageId = transitRouterBandwidthPackageId;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput transitRouterBandwidthPackageOwnerId(String transitRouterBandwidthPackageOwnerId) {
+    this.transitRouterBandwidthPackageOwnerId = transitRouterBandwidthPackageOwnerId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterBandwidthPackageOwnerId
+   * @return transitRouterBandwidthPackageOwnerId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterBandwidthPackageOwnerId() {
+    return transitRouterBandwidthPackageOwnerId;
+  }
+
+  public void setTransitRouterBandwidthPackageOwnerId(String transitRouterBandwidthPackageOwnerId) {
+    this.transitRouterBandwidthPackageOwnerId = transitRouterBandwidthPackageOwnerId;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput transitRouterForwardPolicyTableId(String transitRouterForwardPolicyTableId) {
@@ -436,12 +478,14 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.description) &&
         Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.ipv6Enabled) &&
         Objects.equals(this.peerTransitRouterId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterId) &&
+        Objects.equals(this.peerTransitRouterOwnerId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterOwnerId) &&
         Objects.equals(this.peerTransitRouterRegionId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterRegionId) &&
         Objects.equals(this.status, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.status) &&
         Objects.equals(this.tags, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.tags) &&
         Objects.equals(this.transitRouterAttachmentId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterAttachmentName, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterAttachmentName) &&
         Objects.equals(this.transitRouterBandwidthPackageId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterBandwidthPackageId) &&
+        Objects.equals(this.transitRouterBandwidthPackageOwnerId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterBandwidthPackageOwnerId) &&
         Objects.equals(this.transitRouterForwardPolicyTableId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterForwardPolicyTableId) &&
         Objects.equals(this.transitRouterId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterId) &&
         Objects.equals(this.transitRouterRouteTableId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterRouteTableId) &&
@@ -452,7 +496,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, ipv6Enabled, peerTransitRouterId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
+    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, ipv6Enabled, peerTransitRouterId, peerTransitRouterOwnerId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterBandwidthPackageOwnerId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -467,12 +511,14 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    peerTransitRouterId: ").append(toIndentedString(peerTransitRouterId)).append("\n");
+    sb.append("    peerTransitRouterOwnerId: ").append(toIndentedString(peerTransitRouterOwnerId)).append("\n");
     sb.append("    peerTransitRouterRegionId: ").append(toIndentedString(peerTransitRouterRegionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
     sb.append("    transitRouterBandwidthPackageId: ").append(toIndentedString(transitRouterBandwidthPackageId)).append("\n");
+    sb.append("    transitRouterBandwidthPackageOwnerId: ").append(toIndentedString(transitRouterBandwidthPackageOwnerId)).append("\n");
     sb.append("    transitRouterForwardPolicyTableId: ").append(toIndentedString(transitRouterForwardPolicyTableId)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");

@@ -35,8 +35,54 @@ public class GetAccountGroupDiscoveredResourceCountsRequest {
   @SerializedName("AccountGroupId")
   private String accountGroupId = null;
 
-  @SerializedName("ResourceStatus")
-  private String resourceStatus = null;
+  @SerializedName("ResourceAccountId")
+  private Long resourceAccountId = null;
+
+  /**
+   * Gets or Sets resourceStatus
+   */
+  @JsonAdapter(ResourceStatusEnum.Adapter.class)
+  public enum ResourceStatusEnum {
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Held")
+    HELD("Held");
+
+    private String value;
+
+    ResourceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceStatusEnum fromValue(String input) {
+      for (ResourceStatusEnum b : ResourceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceStatus")
+  private ResourceStatusEnum resourceStatus = null;
 
   @SerializedName("ResourceTypes")
   private List<String> resourceTypes = null;
@@ -60,7 +106,25 @@ public class GetAccountGroupDiscoveredResourceCountsRequest {
     this.accountGroupId = accountGroupId;
   }
 
-  public GetAccountGroupDiscoveredResourceCountsRequest resourceStatus(String resourceStatus) {
+  public GetAccountGroupDiscoveredResourceCountsRequest resourceAccountId(Long resourceAccountId) {
+    this.resourceAccountId = resourceAccountId;
+    return this;
+  }
+
+   /**
+   * Get resourceAccountId
+   * @return resourceAccountId
+  **/
+  @Schema(description = "")
+  public Long getResourceAccountId() {
+    return resourceAccountId;
+  }
+
+  public void setResourceAccountId(Long resourceAccountId) {
+    this.resourceAccountId = resourceAccountId;
+  }
+
+  public GetAccountGroupDiscoveredResourceCountsRequest resourceStatus(ResourceStatusEnum resourceStatus) {
     this.resourceStatus = resourceStatus;
     return this;
   }
@@ -70,11 +134,11 @@ public class GetAccountGroupDiscoveredResourceCountsRequest {
    * @return resourceStatus
   **/
   @Schema(description = "")
-  public String getResourceStatus() {
+  public ResourceStatusEnum getResourceStatus() {
     return resourceStatus;
   }
 
-  public void setResourceStatus(String resourceStatus) {
+  public void setResourceStatus(ResourceStatusEnum resourceStatus) {
     this.resourceStatus = resourceStatus;
   }
 
@@ -115,13 +179,14 @@ public class GetAccountGroupDiscoveredResourceCountsRequest {
     }
     GetAccountGroupDiscoveredResourceCountsRequest getAccountGroupDiscoveredResourceCountsRequest = (GetAccountGroupDiscoveredResourceCountsRequest) o;
     return Objects.equals(this.accountGroupId, getAccountGroupDiscoveredResourceCountsRequest.accountGroupId) &&
+        Objects.equals(this.resourceAccountId, getAccountGroupDiscoveredResourceCountsRequest.resourceAccountId) &&
         Objects.equals(this.resourceStatus, getAccountGroupDiscoveredResourceCountsRequest.resourceStatus) &&
         Objects.equals(this.resourceTypes, getAccountGroupDiscoveredResourceCountsRequest.resourceTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroupId, resourceStatus, resourceTypes);
+    return Objects.hash(accountGroupId, resourceAccountId, resourceStatus, resourceTypes);
   }
 
 
@@ -131,6 +196,7 @@ public class GetAccountGroupDiscoveredResourceCountsRequest {
     sb.append("class GetAccountGroupDiscoveredResourceCountsRequest {\n");
     
     sb.append("    accountGroupId: ").append(toIndentedString(accountGroupId)).append("\n");
+    sb.append("    resourceAccountId: ").append(toIndentedString(resourceAccountId)).append("\n");
     sb.append("    resourceStatus: ").append(toIndentedString(resourceStatus)).append("\n");
     sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
     sb.append("}");

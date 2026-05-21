@@ -324,6 +324,9 @@ public class GetContentGenerationTaskResponse {
         @JsonProperty("completion_tokens")
         private int completionTokens;
 
+        @JsonProperty("total_tokens")
+        private int totalTokens;
+
         public int getCompletionTokens() {
             return completionTokens;
         }
@@ -332,10 +335,19 @@ public class GetContentGenerationTaskResponse {
             this.completionTokens = completionTokens;
         }
 
+        public int getTotalTokens() {
+            return totalTokens;
+        }
+
+        public void setTotalTokens(int totalTokens) {
+            this.totalTokens = totalTokens;
+        }
+
         @Override
         public String toString() {
             return "Usage{" +
                     "completionTokens=" + completionTokens +
+                    ", totalTokens=" + totalTokens +
                     '}';
         }
     }

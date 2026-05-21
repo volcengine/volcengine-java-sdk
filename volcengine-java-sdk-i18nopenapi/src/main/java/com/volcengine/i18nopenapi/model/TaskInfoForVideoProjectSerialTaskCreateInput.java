@@ -41,6 +41,9 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   @SerializedName("asrModel")
   private Integer asrModel = null;
 
+  @SerializedName("auditFailPolicy")
+  private Integer auditFailPolicy = null;
+
   @SerializedName("bgmPolicy")
   private Integer bgmPolicy = null;
 
@@ -162,6 +165,24 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   public void setAsrModel(Integer asrModel) {
     this.asrModel = asrModel;
+  }
+
+  public TaskInfoForVideoProjectSerialTaskCreateInput auditFailPolicy(Integer auditFailPolicy) {
+    this.auditFailPolicy = auditFailPolicy;
+    return this;
+  }
+
+   /**
+   * Get auditFailPolicy
+   * @return auditFailPolicy
+  **/
+  @Schema(description = "")
+  public Integer getAuditFailPolicy() {
+    return auditFailPolicy;
+  }
+
+  public void setAuditFailPolicy(Integer auditFailPolicy) {
+    this.auditFailPolicy = auditFailPolicy;
   }
 
   public TaskInfoForVideoProjectSerialTaskCreateInput bgmPolicy(Integer bgmPolicy) {
@@ -717,6 +738,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     TaskInfoForVideoProjectSerialTaskCreateInput taskInfoForVideoProjectSerialTaskCreateInput = (TaskInfoForVideoProjectSerialTaskCreateInput) o;
     return Objects.equals(this.aiRemoveType, taskInfoForVideoProjectSerialTaskCreateInput.aiRemoveType) &&
         Objects.equals(this.asrModel, taskInfoForVideoProjectSerialTaskCreateInput.asrModel) &&
+        Objects.equals(this.auditFailPolicy, taskInfoForVideoProjectSerialTaskCreateInput.auditFailPolicy) &&
         Objects.equals(this.bgmPolicy, taskInfoForVideoProjectSerialTaskCreateInput.bgmPolicy) &&
         Objects.equals(this.comment, taskInfoForVideoProjectSerialTaskCreateInput.comment) &&
         Objects.equals(this.createdAt, taskInfoForVideoProjectSerialTaskCreateInput.createdAt) &&
@@ -750,7 +772,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
   }
 
 
@@ -761,6 +783,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     
     sb.append("    aiRemoveType: ").append(toIndentedString(aiRemoveType)).append("\n");
     sb.append("    asrModel: ").append(toIndentedString(asrModel)).append("\n");
+    sb.append("    auditFailPolicy: ").append(toIndentedString(auditFailPolicy)).append("\n");
     sb.append("    bgmPolicy: ").append(toIndentedString(bgmPolicy)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

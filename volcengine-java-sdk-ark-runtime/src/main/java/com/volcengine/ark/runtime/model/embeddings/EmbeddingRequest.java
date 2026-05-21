@@ -1,6 +1,8 @@
 package com.volcengine.ark.runtime.model.embeddings;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 
@@ -26,6 +28,20 @@ public class EmbeddingRequest {
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse.
      */
     String user;
+
+    /**
+     * The format of the embeddings data.
+     * Currently supports "float" and "base64".
+     */
+    @JsonProperty("encoding_format")
+    String encodingFormat;
+
+    /**
+     * The number of dimensions the resulting output embeddings should have.
+     * Only supported in certain models that allow dynamic dimension output.
+     */
+    @JsonProperty("dimensions")
+    Long dimensions;
 
     public EmbeddingRequest() {
     }
@@ -54,6 +70,22 @@ public class EmbeddingRequest {
         this.user = user;
     }
 
+    public String getEncodingFormat() {
+        return encodingFormat;
+    }
+
+    public void setEncodingFormat(String encodingFormat) {
+        this.encodingFormat = encodingFormat;
+    }
+
+    public Long getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(Long dimensions) {
+        this.dimensions = dimensions;
+    }
+
     public static EmbeddingRequest.Builder builder() {
         return new Builder();
     }
@@ -62,6 +94,8 @@ public class EmbeddingRequest {
         private String model;
         private List<String> input;
         private String user;
+        private String encodingFormat;
+        private Long dimensions;
 
         private Builder() {
         }
@@ -81,11 +115,23 @@ public class EmbeddingRequest {
             return this;
         }
 
+        public Builder encodingFormat(String encodingFormat) {
+            this.encodingFormat = encodingFormat;
+            return this;
+        }
+
+        public Builder dimensions(Long dimensions) {
+            this.dimensions = dimensions;
+            return this;
+        }
+
         public EmbeddingRequest build() {
             EmbeddingRequest embeddingRequest = new EmbeddingRequest();
             embeddingRequest.setModel(model);
             embeddingRequest.setInput(input);
             embeddingRequest.setUser(user);
+            embeddingRequest.setEncodingFormat(encodingFormat);
+            embeddingRequest.setDimensions(dimensions);
             return embeddingRequest;
         }
     }

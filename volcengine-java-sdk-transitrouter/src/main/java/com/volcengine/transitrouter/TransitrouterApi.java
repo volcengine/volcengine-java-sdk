@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
+import com.volcengine.transitrouter.model.AcceptTransitRouterPeerAttachmentRequest;
+import com.volcengine.transitrouter.model.AcceptTransitRouterPeerAttachmentResponse;
 import com.volcengine.transitrouter.model.AssociateTransitRouterAttachmentToRouteTableRequest;
 import com.volcengine.transitrouter.model.AssociateTransitRouterAttachmentToRouteTableResponse;
 import com.volcengine.transitrouter.model.AssociateTransitRouterForwardPolicyTableToAttachmentRequest;
@@ -221,6 +223,8 @@ import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPo
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest;
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueueEntryAttributesRequest;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueueEntryAttributesResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest;
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest;
@@ -229,6 +233,8 @@ import com.volcengine.transitrouter.model.ModifyTransitRouterVpcAttachmentAttrib
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpcAttachmentAttributesResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpnAttachmentAttributesRequest;
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpnAttachmentAttributesResponse;
+import com.volcengine.transitrouter.model.RejectTransitRouterPeerAttachmentRequest;
+import com.volcengine.transitrouter.model.RejectTransitRouterPeerAttachmentResponse;
 import com.volcengine.transitrouter.model.RenewTransitRouterBandwidthPackageRequest;
 import com.volcengine.transitrouter.model.RenewTransitRouterBandwidthPackageResponse;
 import com.volcengine.transitrouter.model.SetTransitRouterBandwidthPackageRenewalRequest;
@@ -267,6 +273,130 @@ public class TransitrouterApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for acceptTransitRouterPeerAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call acceptTransitRouterPeerAttachmentCall(AcceptTransitRouterPeerAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AcceptTransitRouterPeerAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call acceptTransitRouterPeerAttachmentValidateBeforeCall(AcceptTransitRouterPeerAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling acceptTransitRouterPeerAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = acceptTransitRouterPeerAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AcceptTransitRouterPeerAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AcceptTransitRouterPeerAttachmentResponse acceptTransitRouterPeerAttachment(AcceptTransitRouterPeerAttachmentRequest body) throws ApiException {
+        ApiResponse<AcceptTransitRouterPeerAttachmentResponse> resp = acceptTransitRouterPeerAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AcceptTransitRouterPeerAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AcceptTransitRouterPeerAttachmentResponse> acceptTransitRouterPeerAttachmentWithHttpInfo( @NotNull AcceptTransitRouterPeerAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = acceptTransitRouterPeerAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AcceptTransitRouterPeerAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call acceptTransitRouterPeerAttachmentAsync(AcceptTransitRouterPeerAttachmentRequest body, final ApiCallback<AcceptTransitRouterPeerAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = acceptTransitRouterPeerAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AcceptTransitRouterPeerAttachmentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for associateTransitRouterAttachmentToRouteTable
      * @param body  (required)
@@ -12296,6 +12426,130 @@ public class TransitrouterApi {
         return call;
     }
     /**
+     * Build call for modifyTransitRouterTrafficQosQueueEntryAttributes
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueueEntryAttributesCall(ModifyTransitRouterTrafficQosQueueEntryAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyTransitRouterTrafficQosQueueEntryAttributes/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueueEntryAttributesValidateBeforeCall(ModifyTransitRouterTrafficQosQueueEntryAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyTransitRouterTrafficQosQueueEntryAttributes(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueueEntryAttributesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyTransitRouterTrafficQosQueueEntryAttributesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyTransitRouterTrafficQosQueueEntryAttributesResponse modifyTransitRouterTrafficQosQueueEntryAttributes(ModifyTransitRouterTrafficQosQueueEntryAttributesRequest body) throws ApiException {
+        ApiResponse<ModifyTransitRouterTrafficQosQueueEntryAttributesResponse> resp = modifyTransitRouterTrafficQosQueueEntryAttributesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyTransitRouterTrafficQosQueueEntryAttributesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyTransitRouterTrafficQosQueueEntryAttributesResponse> modifyTransitRouterTrafficQosQueueEntryAttributesWithHttpInfo( @NotNull ModifyTransitRouterTrafficQosQueueEntryAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueueEntryAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueueEntryAttributesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueueEntryAttributesAsync(ModifyTransitRouterTrafficQosQueueEntryAttributesRequest body, final ApiCallback<ModifyTransitRouterTrafficQosQueueEntryAttributesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueueEntryAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueueEntryAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyTransitRouterTrafficQosQueuePolicyAssociation
      * @param body  (required)
      * @param progressListener Progress listener
@@ -12788,6 +13042,130 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = modifyTransitRouterVpnAttachmentAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyTransitRouterVpnAttachmentAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for rejectTransitRouterPeerAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call rejectTransitRouterPeerAttachmentCall(RejectTransitRouterPeerAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/RejectTransitRouterPeerAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call rejectTransitRouterPeerAttachmentValidateBeforeCall(RejectTransitRouterPeerAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling rejectTransitRouterPeerAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = rejectTransitRouterPeerAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RejectTransitRouterPeerAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RejectTransitRouterPeerAttachmentResponse rejectTransitRouterPeerAttachment(RejectTransitRouterPeerAttachmentRequest body) throws ApiException {
+        ApiResponse<RejectTransitRouterPeerAttachmentResponse> resp = rejectTransitRouterPeerAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RejectTransitRouterPeerAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RejectTransitRouterPeerAttachmentResponse> rejectTransitRouterPeerAttachmentWithHttpInfo( @NotNull RejectTransitRouterPeerAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = rejectTransitRouterPeerAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RejectTransitRouterPeerAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call rejectTransitRouterPeerAttachmentAsync(RejectTransitRouterPeerAttachmentRequest body, final ApiCallback<RejectTransitRouterPeerAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = rejectTransitRouterPeerAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RejectTransitRouterPeerAttachmentResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

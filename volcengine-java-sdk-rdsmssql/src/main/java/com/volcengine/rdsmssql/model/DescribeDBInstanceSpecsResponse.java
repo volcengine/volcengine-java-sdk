@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmssql.model.InstanceSpecInfoForDescribeDBInstanceSpecsOutput;
+import com.volcengine.rdsmssql.model.InstanceSpecsInfoForDescribeDBInstanceSpecsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,34 +33,34 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstanceSpecsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InstanceSpecInfo")
-  private List<InstanceSpecInfoForDescribeDBInstanceSpecsOutput> instanceSpecInfo = null;
+  @SerializedName("InstanceSpecsInfo")
+  private List<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput> instanceSpecsInfo = null;
 
-  public DescribeDBInstanceSpecsResponse instanceSpecInfo(List<InstanceSpecInfoForDescribeDBInstanceSpecsOutput> instanceSpecInfo) {
-    this.instanceSpecInfo = instanceSpecInfo;
+  public DescribeDBInstanceSpecsResponse instanceSpecsInfo(List<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput> instanceSpecsInfo) {
+    this.instanceSpecsInfo = instanceSpecsInfo;
     return this;
   }
 
-  public DescribeDBInstanceSpecsResponse addInstanceSpecInfoItem(InstanceSpecInfoForDescribeDBInstanceSpecsOutput instanceSpecInfoItem) {
-    if (this.instanceSpecInfo == null) {
-      this.instanceSpecInfo = new ArrayList<InstanceSpecInfoForDescribeDBInstanceSpecsOutput>();
+  public DescribeDBInstanceSpecsResponse addInstanceSpecsInfoItem(InstanceSpecsInfoForDescribeDBInstanceSpecsOutput instanceSpecsInfoItem) {
+    if (this.instanceSpecsInfo == null) {
+      this.instanceSpecsInfo = new ArrayList<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput>();
     }
-    this.instanceSpecInfo.add(instanceSpecInfoItem);
+    this.instanceSpecsInfo.add(instanceSpecsInfoItem);
     return this;
   }
 
    /**
-   * Get instanceSpecInfo
-   * @return instanceSpecInfo
+   * Get instanceSpecsInfo
+   * @return instanceSpecsInfo
   **/
   @Valid
   @Schema(description = "")
-  public List<InstanceSpecInfoForDescribeDBInstanceSpecsOutput> getInstanceSpecInfo() {
-    return instanceSpecInfo;
+  public List<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput> getInstanceSpecsInfo() {
+    return instanceSpecsInfo;
   }
 
-  public void setInstanceSpecInfo(List<InstanceSpecInfoForDescribeDBInstanceSpecsOutput> instanceSpecInfo) {
-    this.instanceSpecInfo = instanceSpecInfo;
+  public void setInstanceSpecsInfo(List<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput> instanceSpecsInfo) {
+    this.instanceSpecsInfo = instanceSpecsInfo;
   }
 
 
@@ -73,12 +73,12 @@ public class DescribeDBInstanceSpecsResponse extends com.volcengine.model.Abstra
       return false;
     }
     DescribeDBInstanceSpecsResponse describeDBInstanceSpecsResponse = (DescribeDBInstanceSpecsResponse) o;
-    return Objects.equals(this.instanceSpecInfo, describeDBInstanceSpecsResponse.instanceSpecInfo);
+    return Objects.equals(this.instanceSpecsInfo, describeDBInstanceSpecsResponse.instanceSpecsInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceSpecInfo);
+    return Objects.hash(instanceSpecsInfo);
   }
 
 
@@ -87,7 +87,7 @@ public class DescribeDBInstanceSpecsResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstanceSpecsResponse {\n");
     
-    sb.append("    instanceSpecInfo: ").append(toIndentedString(instanceSpecInfo)).append("\n");
+    sb.append("    instanceSpecsInfo: ").append(toIndentedString(instanceSpecsInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

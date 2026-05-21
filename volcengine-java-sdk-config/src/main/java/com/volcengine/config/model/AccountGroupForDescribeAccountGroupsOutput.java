@@ -44,14 +44,102 @@ public class AccountGroupForDescribeAccountGroupsOutput {
   @SerializedName("GroupName")
   private String groupName = null;
 
-  @SerializedName("GroupType")
-  private String groupType = null;
+  /**
+   * Gets or Sets groupType
+   */
+  @JsonAdapter(GroupTypeEnum.Adapter.class)
+  public enum GroupTypeEnum {
+    @SerializedName("Org")
+    ORG("Org"),
+    @SerializedName("OrgUnit")
+    ORGUNIT("OrgUnit"),
+    @SerializedName("OrgMember")
+    ORGMEMBER("OrgMember");
+
+    private String value;
+
+    GroupTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static GroupTypeEnum fromValue(String input) {
+      for (GroupTypeEnum b : GroupTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<GroupTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final GroupTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public GroupTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return GroupTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("GroupType")
+  private GroupTypeEnum groupType = null;
 
   @SerializedName("Principals")
   private List<String> principals = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Enabled")
+    ENABLED("Enabled");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("UpdatedTime")
   private String updatedTime = null;
@@ -128,7 +216,7 @@ public class AccountGroupForDescribeAccountGroupsOutput {
     this.groupName = groupName;
   }
 
-  public AccountGroupForDescribeAccountGroupsOutput groupType(String groupType) {
+  public AccountGroupForDescribeAccountGroupsOutput groupType(GroupTypeEnum groupType) {
     this.groupType = groupType;
     return this;
   }
@@ -138,11 +226,11 @@ public class AccountGroupForDescribeAccountGroupsOutput {
    * @return groupType
   **/
   @Schema(description = "")
-  public String getGroupType() {
+  public GroupTypeEnum getGroupType() {
     return groupType;
   }
 
-  public void setGroupType(String groupType) {
+  public void setGroupType(GroupTypeEnum groupType) {
     this.groupType = groupType;
   }
 
@@ -172,7 +260,7 @@ public class AccountGroupForDescribeAccountGroupsOutput {
     this.principals = principals;
   }
 
-  public AccountGroupForDescribeAccountGroupsOutput status(String status) {
+  public AccountGroupForDescribeAccountGroupsOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -182,11 +270,11 @@ public class AccountGroupForDescribeAccountGroupsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

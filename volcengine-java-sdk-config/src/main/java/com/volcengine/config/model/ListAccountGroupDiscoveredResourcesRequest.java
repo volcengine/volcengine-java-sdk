@@ -44,11 +44,17 @@ public class ListAccountGroupDiscoveredResourcesRequest {
   @SerializedName("Regions")
   private List<String> regions = null;
 
+  @SerializedName("ResourceAccountId")
+  private Long resourceAccountId = null;
+
   @SerializedName("ResourceIdentifiers")
   private List<String> resourceIdentifiers = null;
 
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
+
+  @SerializedName("ResourceName")
+  private String resourceName = null;
 
   /**
    * Gets or Sets resourceStatus
@@ -181,6 +187,24 @@ public class ListAccountGroupDiscoveredResourcesRequest {
     this.regions = regions;
   }
 
+  public ListAccountGroupDiscoveredResourcesRequest resourceAccountId(Long resourceAccountId) {
+    this.resourceAccountId = resourceAccountId;
+    return this;
+  }
+
+   /**
+   * Get resourceAccountId
+   * @return resourceAccountId
+  **/
+  @Schema(description = "")
+  public Long getResourceAccountId() {
+    return resourceAccountId;
+  }
+
+  public void setResourceAccountId(Long resourceAccountId) {
+    this.resourceAccountId = resourceAccountId;
+  }
+
   public ListAccountGroupDiscoveredResourcesRequest resourceIdentifiers(List<String> resourceIdentifiers) {
     this.resourceIdentifiers = resourceIdentifiers;
     return this;
@@ -231,6 +255,24 @@ public class ListAccountGroupDiscoveredResourcesRequest {
 
   public void setResourceIds(List<String> resourceIds) {
     this.resourceIds = resourceIds;
+  }
+
+  public ListAccountGroupDiscoveredResourcesRequest resourceName(String resourceName) {
+    this.resourceName = resourceName;
+    return this;
+  }
+
+   /**
+   * Get resourceName
+   * @return resourceName
+  **/
+  @Schema(description = "")
+  public String getResourceName() {
+    return resourceName;
+  }
+
+  public void setResourceName(String resourceName) {
+    this.resourceName = resourceName;
   }
 
   public ListAccountGroupDiscoveredResourcesRequest resourceStatus(ResourceStatusEnum resourceStatus) {
@@ -291,15 +333,17 @@ public class ListAccountGroupDiscoveredResourcesRequest {
         Objects.equals(this.maxResults, listAccountGroupDiscoveredResourcesRequest.maxResults) &&
         Objects.equals(this.nextToken, listAccountGroupDiscoveredResourcesRequest.nextToken) &&
         Objects.equals(this.regions, listAccountGroupDiscoveredResourcesRequest.regions) &&
+        Objects.equals(this.resourceAccountId, listAccountGroupDiscoveredResourcesRequest.resourceAccountId) &&
         Objects.equals(this.resourceIdentifiers, listAccountGroupDiscoveredResourcesRequest.resourceIdentifiers) &&
         Objects.equals(this.resourceIds, listAccountGroupDiscoveredResourcesRequest.resourceIds) &&
+        Objects.equals(this.resourceName, listAccountGroupDiscoveredResourcesRequest.resourceName) &&
         Objects.equals(this.resourceStatus, listAccountGroupDiscoveredResourcesRequest.resourceStatus) &&
         Objects.equals(this.resourceTypes, listAccountGroupDiscoveredResourcesRequest.resourceTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroupId, maxResults, nextToken, regions, resourceIdentifiers, resourceIds, resourceStatus, resourceTypes);
+    return Objects.hash(accountGroupId, maxResults, nextToken, regions, resourceAccountId, resourceIdentifiers, resourceIds, resourceName, resourceStatus, resourceTypes);
   }
 
 
@@ -312,8 +356,10 @@ public class ListAccountGroupDiscoveredResourcesRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
+    sb.append("    resourceAccountId: ").append(toIndentedString(resourceAccountId)).append("\n");
     sb.append("    resourceIdentifiers: ").append(toIndentedString(resourceIdentifiers)).append("\n");
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
+    sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
     sb.append("    resourceStatus: ").append(toIndentedString(resourceStatus)).append("\n");
     sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
     sb.append("}");

@@ -77,6 +77,15 @@ public class CreateClawOmniInstanceRequest {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
+  @SerializedName("TokenLimitPerDay")
+  private Integer tokenLimitPerDay = null;
+
+  @SerializedName("TokenLimitPerMin")
+  private Integer tokenLimitPerMin = null;
+
+  @SerializedName("TokenLimitPerWeek")
+  private Integer tokenLimitPerWeek = null;
+
   public CreateClawOmniInstanceRequest cpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
     return this;
@@ -351,6 +360,60 @@ public class CreateClawOmniInstanceRequest {
     this.timeout = timeout;
   }
 
+  public CreateClawOmniInstanceRequest tokenLimitPerDay(Integer tokenLimitPerDay) {
+    this.tokenLimitPerDay = tokenLimitPerDay;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerDay
+   * @return tokenLimitPerDay
+  **/
+  @Schema(description = "")
+  public Integer getTokenLimitPerDay() {
+    return tokenLimitPerDay;
+  }
+
+  public void setTokenLimitPerDay(Integer tokenLimitPerDay) {
+    this.tokenLimitPerDay = tokenLimitPerDay;
+  }
+
+  public CreateClawOmniInstanceRequest tokenLimitPerMin(Integer tokenLimitPerMin) {
+    this.tokenLimitPerMin = tokenLimitPerMin;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerMin
+   * @return tokenLimitPerMin
+  **/
+  @Schema(description = "")
+  public Integer getTokenLimitPerMin() {
+    return tokenLimitPerMin;
+  }
+
+  public void setTokenLimitPerMin(Integer tokenLimitPerMin) {
+    this.tokenLimitPerMin = tokenLimitPerMin;
+  }
+
+  public CreateClawOmniInstanceRequest tokenLimitPerWeek(Integer tokenLimitPerWeek) {
+    this.tokenLimitPerWeek = tokenLimitPerWeek;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerWeek
+   * @return tokenLimitPerWeek
+  **/
+  @Schema(description = "")
+  public Integer getTokenLimitPerWeek() {
+    return tokenLimitPerWeek;
+  }
+
+  public void setTokenLimitPerWeek(Integer tokenLimitPerWeek) {
+    this.tokenLimitPerWeek = tokenLimitPerWeek;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -374,12 +437,15 @@ public class CreateClawOmniInstanceRequest {
         Objects.equals(this.spaceId, createClawOmniInstanceRequest.spaceId) &&
         Objects.equals(this.tags, createClawOmniInstanceRequest.tags) &&
         Objects.equals(this.templateId, createClawOmniInstanceRequest.templateId) &&
-        Objects.equals(this.timeout, createClawOmniInstanceRequest.timeout);
+        Objects.equals(this.timeout, createClawOmniInstanceRequest.timeout) &&
+        Objects.equals(this.tokenLimitPerDay, createClawOmniInstanceRequest.tokenLimitPerDay) &&
+        Objects.equals(this.tokenLimitPerMin, createClawOmniInstanceRequest.tokenLimitPerMin) &&
+        Objects.equals(this.tokenLimitPerWeek, createClawOmniInstanceRequest.tokenLimitPerWeek);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, description, envVars, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, templateId, timeout);
+    return Objects.hash(cpuMilli, description, envVars, expiredAction, image, memoryMb, modelConfig, name, projectName, soul, spaceId, tags, templateId, timeout, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek);
   }
 
 
@@ -402,6 +468,9 @@ public class CreateClawOmniInstanceRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    tokenLimitPerDay: ").append(toIndentedString(tokenLimitPerDay)).append("\n");
+    sb.append("    tokenLimitPerMin: ").append(toIndentedString(tokenLimitPerMin)).append("\n");
+    sb.append("    tokenLimitPerWeek: ").append(toIndentedString(tokenLimitPerWeek)).append("\n");
     sb.append("}");
     return sb.toString();
   }
