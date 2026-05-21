@@ -40,8 +40,14 @@ public class BasicInfoForDescribeInstanceDetailOutput {
   @SerializedName("ApplyPrivateDNSToPublic")
   private Boolean applyPrivateDNSToPublic = null;
 
+  @SerializedName("AvailableGroupNumber")
+  private Integer availableGroupNumber = null;
+
   @SerializedName("AvailableQueueNumber")
   private Integer availableQueueNumber = null;
+
+  @SerializedName("AvailableTopicNumber")
+  private Integer availableTopicNumber = null;
 
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeInstanceDetailOutput chargeDetail = null;
@@ -54,6 +60,9 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
   @SerializedName("EipId")
   private String eipId = null;
+
+  @SerializedName("EnableInspect")
+  private Boolean enableInspect = null;
 
   @SerializedName("EnableSSL")
   private Boolean enableSSL = null;
@@ -76,6 +85,9 @@ public class BasicInfoForDescribeInstanceDetailOutput {
   @SerializedName("InstanceTags")
   private List<InstanceTagForDescribeInstanceDetailOutput> instanceTags = null;
 
+  @SerializedName("ProductVersion")
+  private String productVersion = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -85,11 +97,17 @@ public class BasicInfoForDescribeInstanceDetailOutput {
   @SerializedName("SSLMode")
   private String ssLMode = null;
 
+  @SerializedName("SendReceiveRatio")
+  private Integer sendReceiveRatio = null;
+
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TotalTps")
+  private Integer totalTps = null;
 
   @SerializedName("UsedGroupNumber")
   private Integer usedGroupNumber = null;
@@ -148,6 +166,24 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     this.applyPrivateDNSToPublic = applyPrivateDNSToPublic;
   }
 
+  public BasicInfoForDescribeInstanceDetailOutput availableGroupNumber(Integer availableGroupNumber) {
+    this.availableGroupNumber = availableGroupNumber;
+    return this;
+  }
+
+   /**
+   * Get availableGroupNumber
+   * @return availableGroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getAvailableGroupNumber() {
+    return availableGroupNumber;
+  }
+
+  public void setAvailableGroupNumber(Integer availableGroupNumber) {
+    this.availableGroupNumber = availableGroupNumber;
+  }
+
   public BasicInfoForDescribeInstanceDetailOutput availableQueueNumber(Integer availableQueueNumber) {
     this.availableQueueNumber = availableQueueNumber;
     return this;
@@ -164,6 +200,24 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
   public void setAvailableQueueNumber(Integer availableQueueNumber) {
     this.availableQueueNumber = availableQueueNumber;
+  }
+
+  public BasicInfoForDescribeInstanceDetailOutput availableTopicNumber(Integer availableTopicNumber) {
+    this.availableTopicNumber = availableTopicNumber;
+    return this;
+  }
+
+   /**
+   * Get availableTopicNumber
+   * @return availableTopicNumber
+  **/
+  @Schema(description = "")
+  public Integer getAvailableTopicNumber() {
+    return availableTopicNumber;
+  }
+
+  public void setAvailableTopicNumber(Integer availableTopicNumber) {
+    this.availableTopicNumber = availableTopicNumber;
   }
 
   public BasicInfoForDescribeInstanceDetailOutput chargeDetail(ChargeDetailForDescribeInstanceDetailOutput chargeDetail) {
@@ -237,6 +291,24 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public BasicInfoForDescribeInstanceDetailOutput enableInspect(Boolean enableInspect) {
+    this.enableInspect = enableInspect;
+    return this;
+  }
+
+   /**
+   * Get enableInspect
+   * @return enableInspect
+  **/
+  @Schema(description = "")
+  public Boolean isEnableInspect() {
+    return enableInspect;
+  }
+
+  public void setEnableInspect(Boolean enableInspect) {
+    this.enableInspect = enableInspect;
   }
 
   public BasicInfoForDescribeInstanceDetailOutput enableSSL(Boolean enableSSL) {
@@ -374,6 +446,24 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     this.instanceTags = instanceTags;
   }
 
+  public BasicInfoForDescribeInstanceDetailOutput productVersion(String productVersion) {
+    this.productVersion = productVersion;
+    return this;
+  }
+
+   /**
+   * Get productVersion
+   * @return productVersion
+  **/
+  @Schema(description = "")
+  public String getProductVersion() {
+    return productVersion;
+  }
+
+  public void setProductVersion(String productVersion) {
+    this.productVersion = productVersion;
+  }
+
   public BasicInfoForDescribeInstanceDetailOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -428,6 +518,26 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     this.ssLMode = ssLMode;
   }
 
+  public BasicInfoForDescribeInstanceDetailOutput sendReceiveRatio(Integer sendReceiveRatio) {
+    this.sendReceiveRatio = sendReceiveRatio;
+    return this;
+  }
+
+   /**
+   * Get sendReceiveRatio
+   * minimum: 1
+   * maximum: 99
+   * @return sendReceiveRatio
+  **/
+ @Min(1) @Max(99)  @Schema(description = "")
+  public Integer getSendReceiveRatio() {
+    return sendReceiveRatio;
+  }
+
+  public void setSendReceiveRatio(Integer sendReceiveRatio) {
+    this.sendReceiveRatio = sendReceiveRatio;
+  }
+
   public BasicInfoForDescribeInstanceDetailOutput storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -462,6 +572,24 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public BasicInfoForDescribeInstanceDetailOutput totalTps(Integer totalTps) {
+    this.totalTps = totalTps;
+    return this;
+  }
+
+   /**
+   * Get totalTps
+   * @return totalTps
+  **/
+  @Schema(description = "")
+  public Integer getTotalTps() {
+    return totalTps;
+  }
+
+  public void setTotalTps(Integer totalTps) {
+    this.totalTps = totalTps;
   }
 
   public BasicInfoForDescribeInstanceDetailOutput usedGroupNumber(Integer usedGroupNumber) {
@@ -602,11 +730,14 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     BasicInfoForDescribeInstanceDetailOutput basicInfoForDescribeInstanceDetailOutput = (BasicInfoForDescribeInstanceDetailOutput) o;
     return Objects.equals(this.accountId, basicInfoForDescribeInstanceDetailOutput.accountId) &&
         Objects.equals(this.applyPrivateDNSToPublic, basicInfoForDescribeInstanceDetailOutput.applyPrivateDNSToPublic) &&
+        Objects.equals(this.availableGroupNumber, basicInfoForDescribeInstanceDetailOutput.availableGroupNumber) &&
         Objects.equals(this.availableQueueNumber, basicInfoForDescribeInstanceDetailOutput.availableQueueNumber) &&
+        Objects.equals(this.availableTopicNumber, basicInfoForDescribeInstanceDetailOutput.availableTopicNumber) &&
         Objects.equals(this.chargeDetail, basicInfoForDescribeInstanceDetailOutput.chargeDetail) &&
         Objects.equals(this.computeSpec, basicInfoForDescribeInstanceDetailOutput.computeSpec) &&
         Objects.equals(this.createTime, basicInfoForDescribeInstanceDetailOutput.createTime) &&
         Objects.equals(this.eipId, basicInfoForDescribeInstanceDetailOutput.eipId) &&
+        Objects.equals(this.enableInspect, basicInfoForDescribeInstanceDetailOutput.enableInspect) &&
         Objects.equals(this.enableSSL, basicInfoForDescribeInstanceDetailOutput.enableSSL) &&
         Objects.equals(this.fileReservedTime, basicInfoForDescribeInstanceDetailOutput.fileReservedTime) &&
         Objects.equals(this.instanceDescription, basicInfoForDescribeInstanceDetailOutput.instanceDescription) &&
@@ -614,11 +745,14 @@ public class BasicInfoForDescribeInstanceDetailOutput {
         Objects.equals(this.instanceName, basicInfoForDescribeInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, basicInfoForDescribeInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceTags, basicInfoForDescribeInstanceDetailOutput.instanceTags) &&
+        Objects.equals(this.productVersion, basicInfoForDescribeInstanceDetailOutput.productVersion) &&
         Objects.equals(this.projectName, basicInfoForDescribeInstanceDetailOutput.projectName) &&
         Objects.equals(this.regionId, basicInfoForDescribeInstanceDetailOutput.regionId) &&
         Objects.equals(this.ssLMode, basicInfoForDescribeInstanceDetailOutput.ssLMode) &&
+        Objects.equals(this.sendReceiveRatio, basicInfoForDescribeInstanceDetailOutput.sendReceiveRatio) &&
         Objects.equals(this.storageSpace, basicInfoForDescribeInstanceDetailOutput.storageSpace) &&
         Objects.equals(this.subnetId, basicInfoForDescribeInstanceDetailOutput.subnetId) &&
+        Objects.equals(this.totalTps, basicInfoForDescribeInstanceDetailOutput.totalTps) &&
         Objects.equals(this.usedGroupNumber, basicInfoForDescribeInstanceDetailOutput.usedGroupNumber) &&
         Objects.equals(this.usedQueueNumber, basicInfoForDescribeInstanceDetailOutput.usedQueueNumber) &&
         Objects.equals(this.usedStorageSpace, basicInfoForDescribeInstanceDetailOutput.usedStorageSpace) &&
@@ -630,7 +764,7 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, applyPrivateDNSToPublic, availableQueueNumber, chargeDetail, computeSpec, createTime, eipId, enableSSL, fileReservedTime, instanceDescription, instanceId, instanceName, instanceStatus, instanceTags, projectName, regionId, ssLMode, storageSpace, subnetId, usedGroupNumber, usedQueueNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
+    return Objects.hash(accountId, applyPrivateDNSToPublic, availableGroupNumber, availableQueueNumber, availableTopicNumber, chargeDetail, computeSpec, createTime, eipId, enableInspect, enableSSL, fileReservedTime, instanceDescription, instanceId, instanceName, instanceStatus, instanceTags, productVersion, projectName, regionId, ssLMode, sendReceiveRatio, storageSpace, subnetId, totalTps, usedGroupNumber, usedQueueNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
   }
 
 
@@ -641,11 +775,14 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    applyPrivateDNSToPublic: ").append(toIndentedString(applyPrivateDNSToPublic)).append("\n");
+    sb.append("    availableGroupNumber: ").append(toIndentedString(availableGroupNumber)).append("\n");
     sb.append("    availableQueueNumber: ").append(toIndentedString(availableQueueNumber)).append("\n");
+    sb.append("    availableTopicNumber: ").append(toIndentedString(availableTopicNumber)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    enableInspect: ").append(toIndentedString(enableInspect)).append("\n");
     sb.append("    enableSSL: ").append(toIndentedString(enableSSL)).append("\n");
     sb.append("    fileReservedTime: ").append(toIndentedString(fileReservedTime)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
@@ -653,11 +790,14 @@ public class BasicInfoForDescribeInstanceDetailOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
+    sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    ssLMode: ").append(toIndentedString(ssLMode)).append("\n");
+    sb.append("    sendReceiveRatio: ").append(toIndentedString(sendReceiveRatio)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    totalTps: ").append(toIndentedString(totalTps)).append("\n");
     sb.append("    usedGroupNumber: ").append(toIndentedString(usedGroupNumber)).append("\n");
     sb.append("    usedQueueNumber: ").append(toIndentedString(usedQueueNumber)).append("\n");
     sb.append("    usedStorageSpace: ").append(toIndentedString(usedStorageSpace)).append("\n");

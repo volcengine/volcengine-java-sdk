@@ -19,48 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rocketmq.model.ResendResultForResendDLQMessageByIdOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResendDLQMessageByIdResponse
+ * CreateAccessKeyResponse
  */
 
 
 
-public class ResendDLQMessageByIdResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ResendResults")
-  private List<ResendResultForResendDLQMessageByIdOutput> resendResults = null;
+public class CreateAccessKeyResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccessKey")
+  private String accessKey = null;
 
-  public ResendDLQMessageByIdResponse resendResults(List<ResendResultForResendDLQMessageByIdOutput> resendResults) {
-    this.resendResults = resendResults;
-    return this;
-  }
+  @SerializedName("SecretKey")
+  private String secretKey = null;
 
-  public ResendDLQMessageByIdResponse addResendResultsItem(ResendResultForResendDLQMessageByIdOutput resendResultsItem) {
-    if (this.resendResults == null) {
-      this.resendResults = new ArrayList<ResendResultForResendDLQMessageByIdOutput>();
-    }
-    this.resendResults.add(resendResultsItem);
+  public CreateAccessKeyResponse accessKey(String accessKey) {
+    this.accessKey = accessKey;
     return this;
   }
 
    /**
-   * Get resendResults
-   * @return resendResults
+   * Get accessKey
+   * @return accessKey
   **/
-  @Valid
   @Schema(description = "")
-  public List<ResendResultForResendDLQMessageByIdOutput> getResendResults() {
-    return resendResults;
+  public String getAccessKey() {
+    return accessKey;
   }
 
-  public void setResendResults(List<ResendResultForResendDLQMessageByIdOutput> resendResults) {
-    this.resendResults = resendResults;
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
+  }
+
+  public CreateAccessKeyResponse secretKey(String secretKey) {
+    this.secretKey = secretKey;
+    return this;
+  }
+
+   /**
+   * Get secretKey
+   * @return secretKey
+  **/
+  @Schema(description = "")
+  public String getSecretKey() {
+    return secretKey;
+  }
+
+  public void setSecretKey(String secretKey) {
+    this.secretKey = secretKey;
   }
 
 
@@ -72,22 +81,24 @@ public class ResendDLQMessageByIdResponse extends com.volcengine.model.AbstractR
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResendDLQMessageByIdResponse resendDLQMessageByIdResponse = (ResendDLQMessageByIdResponse) o;
-    return Objects.equals(this.resendResults, resendDLQMessageByIdResponse.resendResults);
+    CreateAccessKeyResponse createAccessKeyResponse = (CreateAccessKeyResponse) o;
+    return Objects.equals(this.accessKey, createAccessKeyResponse.accessKey) &&
+        Objects.equals(this.secretKey, createAccessKeyResponse.secretKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resendResults);
+    return Objects.hash(accessKey, secretKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResendDLQMessageByIdResponse {\n");
+    sb.append("class CreateAccessKeyResponse {\n");
     
-    sb.append("    resendResults: ").append(toIndentedString(resendResults)).append("\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
+    sb.append("    secretKey: ").append(toIndentedString(secretKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

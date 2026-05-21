@@ -36,6 +36,9 @@ public class DescribeInstancesRequest {
   @SerializedName("ChargeType")
   private String chargeType = null;
 
+  @SerializedName("IgnoreBrokerInfo")
+  private Boolean ignoreBrokerInfo = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -91,6 +94,24 @@ public class DescribeInstancesRequest {
 
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public DescribeInstancesRequest ignoreBrokerInfo(Boolean ignoreBrokerInfo) {
+    this.ignoreBrokerInfo = ignoreBrokerInfo;
+    return this;
+  }
+
+   /**
+   * Get ignoreBrokerInfo
+   * @return ignoreBrokerInfo
+  **/
+  @Schema(description = "")
+  public Boolean isIgnoreBrokerInfo() {
+    return ignoreBrokerInfo;
+  }
+
+  public void setIgnoreBrokerInfo(Boolean ignoreBrokerInfo) {
+    this.ignoreBrokerInfo = ignoreBrokerInfo;
   }
 
   public DescribeInstancesRequest instanceId(String instanceId) {
@@ -349,6 +370,7 @@ public class DescribeInstancesRequest {
     }
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
     return Objects.equals(this.chargeType, describeInstancesRequest.chargeType) &&
+        Objects.equals(this.ignoreBrokerInfo, describeInstancesRequest.ignoreBrokerInfo) &&
         Objects.equals(this.instanceId, describeInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeInstancesRequest.instanceStatus) &&
@@ -366,7 +388,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, sortBy, sortOrder, spec, tagFilters, version, vpcId, zoneId);
+    return Objects.hash(chargeType, ignoreBrokerInfo, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, sortBy, sortOrder, spec, tagFilters, version, vpcId, zoneId);
   }
 
 
@@ -376,6 +398,7 @@ public class DescribeInstancesRequest {
     sb.append("class DescribeInstancesRequest {\n");
     
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    ignoreBrokerInfo: ").append(toIndentedString(ignoreBrokerInfo)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
