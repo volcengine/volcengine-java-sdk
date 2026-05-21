@@ -57,6 +57,9 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
   @SerializedName("MessageModel")
   private String messageModel = null;
 
+  @SerializedName("ReadEnable")
+  private Boolean readEnable = null;
+
   @SerializedName("RetryMaxTimes")
   private Integer retryMaxTimes = null;
 
@@ -237,6 +240,24 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
     this.messageModel = messageModel;
   }
 
+  public DescribeGroupsDetailResponse readEnable(Boolean readEnable) {
+    this.readEnable = readEnable;
+    return this;
+  }
+
+   /**
+   * Get readEnable
+   * @return readEnable
+  **/
+  @Schema(description = "")
+  public Boolean isReadEnable() {
+    return readEnable;
+  }
+
+  public void setReadEnable(Boolean readEnable) {
+    this.readEnable = readEnable;
+  }
+
   public DescribeGroupsDetailResponse retryMaxTimes(Integer retryMaxTimes) {
     this.retryMaxTimes = retryMaxTimes;
     return this;
@@ -364,6 +385,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.lastUpdateTimestamp, describeGroupsDetailResponse.lastUpdateTimestamp) &&
         Objects.equals(this.messageDelayTime, describeGroupsDetailResponse.messageDelayTime) &&
         Objects.equals(this.messageModel, describeGroupsDetailResponse.messageModel) &&
+        Objects.equals(this.readEnable, describeGroupsDetailResponse.readEnable) &&
         Objects.equals(this.retryMaxTimes, describeGroupsDetailResponse.retryMaxTimes) &&
         Objects.equals(this.rocketmqVersion, describeGroupsDetailResponse.rocketmqVersion) &&
         Objects.equals(this.serviceStatus, describeGroupsDetailResponse.serviceStatus) &&
@@ -374,7 +396,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumeMessageOrderly, createTime, description, groupId, groupType, isSubSame, lastUpdateTimestamp, messageDelayTime, messageModel, retryMaxTimes, rocketmqVersion, serviceStatus, status, totalConsumedRate, totalDiff);
+    return Objects.hash(consumeMessageOrderly, createTime, description, groupId, groupType, isSubSame, lastUpdateTimestamp, messageDelayTime, messageModel, readEnable, retryMaxTimes, rocketmqVersion, serviceStatus, status, totalConsumedRate, totalDiff);
   }
 
 
@@ -392,6 +414,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
     sb.append("    lastUpdateTimestamp: ").append(toIndentedString(lastUpdateTimestamp)).append("\n");
     sb.append("    messageDelayTime: ").append(toIndentedString(messageDelayTime)).append("\n");
     sb.append("    messageModel: ").append(toIndentedString(messageModel)).append("\n");
+    sb.append("    readEnable: ").append(toIndentedString(readEnable)).append("\n");
     sb.append("    retryMaxTimes: ").append(toIndentedString(retryMaxTimes)).append("\n");
     sb.append("    rocketmqVersion: ").append(toIndentedString(rocketmqVersion)).append("\n");
     sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");

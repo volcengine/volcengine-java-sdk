@@ -33,34 +33,34 @@ import javax.validation.Valid;
 
 
 public class ResendDLQMessageByIdResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ResendResult")
-  private List<ResendResultForResendDLQMessageByIdOutput> resendResult = null;
+  @SerializedName("ResendResults")
+  private List<ResendResultForResendDLQMessageByIdOutput> resendResults = null;
 
-  public ResendDLQMessageByIdResponse resendResult(List<ResendResultForResendDLQMessageByIdOutput> resendResult) {
-    this.resendResult = resendResult;
+  public ResendDLQMessageByIdResponse resendResults(List<ResendResultForResendDLQMessageByIdOutput> resendResults) {
+    this.resendResults = resendResults;
     return this;
   }
 
-  public ResendDLQMessageByIdResponse addResendResultItem(ResendResultForResendDLQMessageByIdOutput resendResultItem) {
-    if (this.resendResult == null) {
-      this.resendResult = new ArrayList<ResendResultForResendDLQMessageByIdOutput>();
+  public ResendDLQMessageByIdResponse addResendResultsItem(ResendResultForResendDLQMessageByIdOutput resendResultsItem) {
+    if (this.resendResults == null) {
+      this.resendResults = new ArrayList<ResendResultForResendDLQMessageByIdOutput>();
     }
-    this.resendResult.add(resendResultItem);
+    this.resendResults.add(resendResultsItem);
     return this;
   }
 
    /**
-   * Get resendResult
-   * @return resendResult
+   * Get resendResults
+   * @return resendResults
   **/
   @Valid
   @Schema(description = "")
-  public List<ResendResultForResendDLQMessageByIdOutput> getResendResult() {
-    return resendResult;
+  public List<ResendResultForResendDLQMessageByIdOutput> getResendResults() {
+    return resendResults;
   }
 
-  public void setResendResult(List<ResendResultForResendDLQMessageByIdOutput> resendResult) {
-    this.resendResult = resendResult;
+  public void setResendResults(List<ResendResultForResendDLQMessageByIdOutput> resendResults) {
+    this.resendResults = resendResults;
   }
 
 
@@ -73,12 +73,12 @@ public class ResendDLQMessageByIdResponse extends com.volcengine.model.AbstractR
       return false;
     }
     ResendDLQMessageByIdResponse resendDLQMessageByIdResponse = (ResendDLQMessageByIdResponse) o;
-    return Objects.equals(this.resendResult, resendDLQMessageByIdResponse.resendResult);
+    return Objects.equals(this.resendResults, resendDLQMessageByIdResponse.resendResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resendResult);
+    return Objects.hash(resendResults);
   }
 
 
@@ -87,7 +87,7 @@ public class ResendDLQMessageByIdResponse extends com.volcengine.model.AbstractR
     StringBuilder sb = new StringBuilder();
     sb.append("class ResendDLQMessageByIdResponse {\n");
     
-    sb.append("    resendResult: ").append(toIndentedString(resendResult)).append("\n");
+    sb.append("    resendResults: ").append(toIndentedString(resendResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }
