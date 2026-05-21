@@ -42,6 +42,9 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
   @SerializedName("Configuration")
   private Map<String, Object> _configuration = null;
 
+  @SerializedName("ConfigurationCaptureTime")
+  private String configurationCaptureTime = null;
+
   @SerializedName("IsDeleted")
   private Boolean isDeleted = null;
 
@@ -53,6 +56,9 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
 
   @SerializedName("Relationships")
   private List<RelationshipForGetAccountGroupDiscoveredResourceOutput> relationships = null;
+
+  @SerializedName("ResourceCreationTime")
+  private String resourceCreationTime = null;
 
   @SerializedName("ResourceId")
   private String resourceId = null;
@@ -111,6 +117,24 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
 
   public void setConfiguration(Map<String, Object> _configuration) {
     this._configuration = _configuration;
+  }
+
+  public GetAccountGroupDiscoveredResourceResponse configurationCaptureTime(String configurationCaptureTime) {
+    this.configurationCaptureTime = configurationCaptureTime;
+    return this;
+  }
+
+   /**
+   * Get configurationCaptureTime
+   * @return configurationCaptureTime
+  **/
+  @Schema(description = "")
+  public String getConfigurationCaptureTime() {
+    return configurationCaptureTime;
+  }
+
+  public void setConfigurationCaptureTime(String configurationCaptureTime) {
+    this.configurationCaptureTime = configurationCaptureTime;
   }
 
   public GetAccountGroupDiscoveredResourceResponse isDeleted(Boolean isDeleted) {
@@ -192,6 +216,24 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
 
   public void setRelationships(List<RelationshipForGetAccountGroupDiscoveredResourceOutput> relationships) {
     this.relationships = relationships;
+  }
+
+  public GetAccountGroupDiscoveredResourceResponse resourceCreationTime(String resourceCreationTime) {
+    this.resourceCreationTime = resourceCreationTime;
+    return this;
+  }
+
+   /**
+   * Get resourceCreationTime
+   * @return resourceCreationTime
+  **/
+  @Schema(description = "")
+  public String getResourceCreationTime() {
+    return resourceCreationTime;
+  }
+
+  public void setResourceCreationTime(String resourceCreationTime) {
+    this.resourceCreationTime = resourceCreationTime;
   }
 
   public GetAccountGroupDiscoveredResourceResponse resourceId(String resourceId) {
@@ -305,10 +347,12 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
     GetAccountGroupDiscoveredResourceResponse getAccountGroupDiscoveredResourceResponse = (GetAccountGroupDiscoveredResourceResponse) o;
     return Objects.equals(this.accountId, getAccountGroupDiscoveredResourceResponse.accountId) &&
         Objects.equals(this._configuration, getAccountGroupDiscoveredResourceResponse._configuration) &&
+        Objects.equals(this.configurationCaptureTime, getAccountGroupDiscoveredResourceResponse.configurationCaptureTime) &&
         Objects.equals(this.isDeleted, getAccountGroupDiscoveredResourceResponse.isDeleted) &&
         Objects.equals(this.projectName, getAccountGroupDiscoveredResourceResponse.projectName) &&
         Objects.equals(this.region, getAccountGroupDiscoveredResourceResponse.region) &&
         Objects.equals(this.relationships, getAccountGroupDiscoveredResourceResponse.relationships) &&
+        Objects.equals(this.resourceCreationTime, getAccountGroupDiscoveredResourceResponse.resourceCreationTime) &&
         Objects.equals(this.resourceId, getAccountGroupDiscoveredResourceResponse.resourceId) &&
         Objects.equals(this.resourceIdentifier, getAccountGroupDiscoveredResourceResponse.resourceIdentifier) &&
         Objects.equals(this.resourceName, getAccountGroupDiscoveredResourceResponse.resourceName) &&
@@ -318,7 +362,7 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, _configuration, isDeleted, projectName, region, relationships, resourceId, resourceIdentifier, resourceName, resourceType, tags);
+    return Objects.hash(accountId, _configuration, configurationCaptureTime, isDeleted, projectName, region, relationships, resourceCreationTime, resourceId, resourceIdentifier, resourceName, resourceType, tags);
   }
 
 
@@ -329,10 +373,12 @@ public class GetAccountGroupDiscoveredResourceResponse extends com.volcengine.mo
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configurationCaptureTime: ").append(toIndentedString(configurationCaptureTime)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    resourceCreationTime: ").append(toIndentedString(resourceCreationTime)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceIdentifier: ").append(toIndentedString(resourceIdentifier)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");

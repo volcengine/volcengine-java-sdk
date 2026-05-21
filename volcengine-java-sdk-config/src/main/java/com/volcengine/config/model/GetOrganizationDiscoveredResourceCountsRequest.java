@@ -32,13 +32,56 @@ import javax.validation.Valid;
 
 
 public class GetOrganizationDiscoveredResourceCountsRequest {
-  @SerializedName("ResourceStatus")
-  private String resourceStatus = null;
+  /**
+   * Gets or Sets resourceStatus
+   */
+  @JsonAdapter(ResourceStatusEnum.Adapter.class)
+  public enum ResourceStatusEnum {
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Held")
+    HELD("Held");
+
+    private String value;
+
+    ResourceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceStatusEnum fromValue(String input) {
+      for (ResourceStatusEnum b : ResourceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceStatus")
+  private ResourceStatusEnum resourceStatus = null;
 
   @SerializedName("ResourceTypes")
   private List<String> resourceTypes = null;
 
-  public GetOrganizationDiscoveredResourceCountsRequest resourceStatus(String resourceStatus) {
+  public GetOrganizationDiscoveredResourceCountsRequest resourceStatus(ResourceStatusEnum resourceStatus) {
     this.resourceStatus = resourceStatus;
     return this;
   }
@@ -48,11 +91,11 @@ public class GetOrganizationDiscoveredResourceCountsRequest {
    * @return resourceStatus
   **/
   @Schema(description = "")
-  public String getResourceStatus() {
+  public ResourceStatusEnum getResourceStatus() {
     return resourceStatus;
   }
 
-  public void setResourceStatus(String resourceStatus) {
+  public void setResourceStatus(ResourceStatusEnum resourceStatus) {
     this.resourceStatus = resourceStatus;
   }
 
