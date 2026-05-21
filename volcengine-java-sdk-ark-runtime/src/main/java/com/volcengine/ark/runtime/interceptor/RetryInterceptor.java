@@ -72,7 +72,7 @@ public class RetryInterceptor implements Interceptor {
 
     public int getRetryTimes(Request request) {
         String path = request.url().encodedPath();
-        if (path.startsWith(BATCH_PATH_PREFIX)) {
+        if (path.contains(BATCH_PATH_PREFIX)) {
             return MAX_RETRY_TIMES;
         }
         return retryTimes;

@@ -40,62 +40,62 @@ import java.util.Map;
 
 public interface ArkApi {
 
-    @POST("/api/v3/chat/completions")
+    @POST("chat/completions")
     Single<ChatCompletionResult> createChatCompletion(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/batch/chat/completions")
+    @POST("batch/chat/completions")
     Single<ChatCompletionResult> createBatchChatCompletion(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @Streaming
-    @POST("/api/v3/chat/completions")
+    @POST("chat/completions")
     Call<ResponseBody> createChatCompletionStream(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/bots/chat/completions")
+    @POST("bots/chat/completions")
     Single<BotChatCompletionResult> createBotChatCompletion(@Body BotChatCompletionRequest request, @Header(Const.REQUEST_BOT) String botId, @HeaderMap Map<String, String> customHeaders);
 
     @Streaming
-    @POST("/api/v3/bots/chat/completions")
+    @POST("bots/chat/completions")
     Call<ResponseBody> createBotChatCompletionStream(@Body BotChatCompletionRequest request, @Header(Const.REQUEST_BOT) String botId, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/context/create")
+    @POST("context/create")
     Single<CreateContextResult> createContext(@Body CreateContextRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/context/chat/completions")
+    @POST("context/chat/completions")
     Single<ChatCompletionResult> createContextChatCompletion(@Body ContextChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @Streaming
-    @POST("/api/v3/context/chat/completions")
+    @POST("context/chat/completions")
     Call<ResponseBody> createContextChatCompletionStream(@Body ContextChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/embeddings")
+    @POST("embeddings")
     Single<EmbeddingResult> createEmbeddings(@Body EmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/batch/embeddings")
+    @POST("batch/embeddings")
     Single<EmbeddingResult> createBatchEmbeddings(@Body EmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/embeddings/multimodal")
+    @POST("embeddings/multimodal")
     Single<MultimodalEmbeddingResult> createMultiModalEmbeddings(@Body MultimodalEmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/batch/embeddings/multimodal")
+    @POST("batch/embeddings/multimodal")
     Single<MultimodalEmbeddingResult> createBatchMultiModalEmbeddings(@Body MultimodalEmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/tokenization")
+    @POST("tokenization")
     Single<TokenizationResult> createTokenization(@Body TokenizationRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/images/generations")
+    @POST("images/generations")
     Single<ImagesResponse> generateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @Streaming
-    @POST("/api/v3/images/generations")
+    @POST("images/generations")
     Call<ResponseBody> streamGenerateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/contents/generations/tasks")
+    @POST("contents/generations/tasks")
     Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/contents/generations/tasks/{taskId}")
+    @GET("contents/generations/tasks/{taskId}")
     Single<GetContentGenerationTaskResponse> getContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/contents/generations/tasks")
+    @GET("contents/generations/tasks")
     Single<ListContentGenerationTasksResponse> listContentGenerationTasks(
             @Query("page_num") int pageNum,
             @Query("page_size") int pageSize,
@@ -106,23 +106,23 @@ public interface ArkApi {
             @HeaderMap Map<String, String> customHeaders
     );
 
-    @DELETE("/api/v3/contents/generations/tasks/{taskId}")
+    @DELETE("contents/generations/tasks/{taskId}")
     Single<DeleteContentGenerationTaskResponse> deleteContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 
-    @POST("/api/v3/responses")
+    @POST("responses")
     Single<ResponseObject> createResponse(@Body CreateResponsesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @Streaming
-    @POST("/api/v3/responses")
+    @POST("responses")
     Call<ResponseBody> streamResponse(@Body CreateResponsesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/responses/{responseId}")
+    @GET("responses/{responseId}")
     Single<ResponseObject> getResponse(@Path("responseId") String responsesId, @HeaderMap Map<String, String> customHeaders);
 
-    @DELETE("/api/v3/responses/{responseId}")
+    @DELETE("responses/{responseId}")
     Single<DeleteResponseResponse> deleteResponse(@Path("responseId") String responsesId, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/responses/{responseId}/input_items")
+    @GET("responses/{responseId}/input_items")
     Single<ListInputItemsResponse> listResponseInputItems(
             @Path("responseId") String responsesId,
             @Query("after") String after,
@@ -133,20 +133,20 @@ public interface ArkApi {
     );
 
     @Multipart
-    @POST("/api/v3/files")
+    @POST("files")
     Single<FileMeta> uploadFile(@Part MultipartBody.Part file,
                                 @Part("purpose") RequestBody purpose,
                                 @Part("expire_at") RequestBody expireAt,
                                 @Part("preprocess_configs[video][fps]") RequestBody fps,
                                 @HeaderMap Map<String, String> customHeaders);
 
-    @DELETE("/api/v3/files/{fileId}")
+    @DELETE("files/{fileId}")
     Single<DeleteFileResponse> deleteFile(@Path("fileId") String fileId, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/files/{fileId}")
+    @GET("files/{fileId}")
     Single<FileMeta> retrieveFile(@Path("fileId") String fileId, @HeaderMap Map<String, String> customHeaders);
 
-    @GET("/api/v3/files")
+    @GET("files")
     Single<ListFilesResponse> listFiles(@Query("limit") Integer limit,
                                         @Query("after") String after,
                                         @Query("purpose") String purpose,
