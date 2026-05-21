@@ -39,6 +39,9 @@ public class TransitRouterForDescribeTransitRoutersOutput {
   @SerializedName("Asn")
   private Long asn = null;
 
+  @SerializedName("BillingOwnerType")
+  private String billingOwnerType = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -115,6 +118,24 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   public void setAsn(Long asn) {
     this.asn = asn;
+  }
+
+  public TransitRouterForDescribeTransitRoutersOutput billingOwnerType(String billingOwnerType) {
+    this.billingOwnerType = billingOwnerType;
+    return this;
+  }
+
+   /**
+   * Get billingOwnerType
+   * @return billingOwnerType
+  **/
+  @Schema(description = "")
+  public String getBillingOwnerType() {
+    return billingOwnerType;
+  }
+
+  public void setBillingOwnerType(String billingOwnerType) {
+    this.billingOwnerType = billingOwnerType;
   }
 
   public TransitRouterForDescribeTransitRoutersOutput businessStatus(String businessStatus) {
@@ -390,6 +411,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
     TransitRouterForDescribeTransitRoutersOutput transitRouterForDescribeTransitRoutersOutput = (TransitRouterForDescribeTransitRoutersOutput) o;
     return Objects.equals(this.accountId, transitRouterForDescribeTransitRoutersOutput.accountId) &&
         Objects.equals(this.asn, transitRouterForDescribeTransitRoutersOutput.asn) &&
+        Objects.equals(this.billingOwnerType, transitRouterForDescribeTransitRoutersOutput.billingOwnerType) &&
         Objects.equals(this.businessStatus, transitRouterForDescribeTransitRoutersOutput.businessStatus) &&
         Objects.equals(this.creationTime, transitRouterForDescribeTransitRoutersOutput.creationTime) &&
         Objects.equals(this.deletedTime, transitRouterForDescribeTransitRoutersOutput.deletedTime) &&
@@ -408,7 +430,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, businessStatus, creationTime, deletedTime, description, grantSourceType, grantStatus, multicastEnabled, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
+    return Objects.hash(accountId, asn, billingOwnerType, businessStatus, creationTime, deletedTime, description, grantSourceType, grantStatus, multicastEnabled, overdueTime, projectName, status, tags, transitRouterId, transitRouterName, updateTime);
   }
 
 
@@ -419,6 +441,7 @@ public class TransitRouterForDescribeTransitRoutersOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
+    sb.append("    billingOwnerType: ").append(toIndentedString(billingOwnerType)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");

@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class EnableTransitRouterRouteTablePropagationRequest {
+  @SerializedName("PropagationGranularity")
+  private String propagationGranularity = null;
+
   @SerializedName("TransitRouterAttachmentId")
   private String transitRouterAttachmentId = null;
 
   @SerializedName("TransitRouterRouteTableId")
   private String transitRouterRouteTableId = null;
+
+  public EnableTransitRouterRouteTablePropagationRequest propagationGranularity(String propagationGranularity) {
+    this.propagationGranularity = propagationGranularity;
+    return this;
+  }
+
+   /**
+   * Get propagationGranularity
+   * @return propagationGranularity
+  **/
+  @Schema(description = "")
+  public String getPropagationGranularity() {
+    return propagationGranularity;
+  }
+
+  public void setPropagationGranularity(String propagationGranularity) {
+    this.propagationGranularity = propagationGranularity;
+  }
 
   public EnableTransitRouterRouteTablePropagationRequest transitRouterAttachmentId(String transitRouterAttachmentId) {
     this.transitRouterAttachmentId = transitRouterAttachmentId;
@@ -84,13 +105,14 @@ public class EnableTransitRouterRouteTablePropagationRequest {
       return false;
     }
     EnableTransitRouterRouteTablePropagationRequest enableTransitRouterRouteTablePropagationRequest = (EnableTransitRouterRouteTablePropagationRequest) o;
-    return Objects.equals(this.transitRouterAttachmentId, enableTransitRouterRouteTablePropagationRequest.transitRouterAttachmentId) &&
+    return Objects.equals(this.propagationGranularity, enableTransitRouterRouteTablePropagationRequest.propagationGranularity) &&
+        Objects.equals(this.transitRouterAttachmentId, enableTransitRouterRouteTablePropagationRequest.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterRouteTableId, enableTransitRouterRouteTablePropagationRequest.transitRouterRouteTableId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transitRouterAttachmentId, transitRouterRouteTableId);
+    return Objects.hash(propagationGranularity, transitRouterAttachmentId, transitRouterRouteTableId);
   }
 
 
@@ -99,6 +121,7 @@ public class EnableTransitRouterRouteTablePropagationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnableTransitRouterRouteTablePropagationRequest {\n");
     
+    sb.append("    propagationGranularity: ").append(toIndentedString(propagationGranularity)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");
     sb.append("}");
