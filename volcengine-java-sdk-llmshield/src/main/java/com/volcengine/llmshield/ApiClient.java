@@ -1,15 +1,16 @@
 package com.volcengine.llmshield;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.HttpHost;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
+import org.apache.hc.core5.util.Timeout;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -28,16 +29,27 @@ public class ApiClient {
     private CloseableHttpClient httpClient;
     // 请求级超时配置（毫秒），-1 表示未设置，使用底层 httpClient 的默认配置
     private int requestConnectTimeout = -1;
-    private int requestSocketTimeout = -1;
+    private int requestResponseTimeout = -1;
     private int requestConnectionRequestTimeout = -1;
+
+    private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
 
     private ApiClient(String url, String ak, String sk, String region, long timeout) {
         this.url = url;
         this.ak = ak;
         this.sk = sk;
         this.region = region;
+
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                .build();
+
+        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
         this.httpClient = HttpClientBuilder.create()
-                .setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS)
+                .setConnectionTimeToLive(connTtl, TimeUnit.MILLISECONDS)
+                .setDefaultRequestConfig(requestConfig)
                 .build();
     }
 
@@ -47,7 +59,16 @@ public class ApiClient {
         this.sk = sk;
         this.region = region;
 
-        HttpClientBuilder builder = HttpClientBuilder.create().setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS);
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                .build();
+
+        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        HttpClientBuilder builder = HttpClientBuilder.create()
+                .setConnectionTimeToLive(connTtl, TimeUnit.MILLISECONDS)
+                .setDefaultRequestConfig(requestConfig);
         if (proxy != null && !proxy.isEmpty()) {
             try {
                 URL purl = new URL(proxy);
@@ -57,7 +78,7 @@ public class ApiClient {
                 if (p_port < 0) {
                     p_port = purl.getDefaultPort();// 协议默认端口
                 }
-                HttpHost httpsProxy = new HttpHost(p_host, p_port, p_protocol);
+                HttpHost httpsProxy = new HttpHost(p_protocol, p_host, p_port);
                 builder.setProxy(httpsProxy);
             } catch (MalformedURLException e) {
                 throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
@@ -119,22 +140,22 @@ public class ApiClient {
      * 任意参数传 -1 表示该项使用底层 HttpClient 的默认值。
      *
      * @param connectTimeout            建立 TCP 连接的超时时间
-     * @param socketTimeout             两个数据包之间的最大等待时间（读超时）
+     * @param responseTimeout           等待响应的最大等待时间（读超时，替代 4.x 的 socketTimeout）
      * @param connectionRequestTimeout  从连接池获取连接的最大等待时间
      */
-    public void SetRequestTimeout(int connectTimeout, int socketTimeout, int connectionRequestTimeout) {
+    public void SetRequestTimeout(int connectTimeout, int responseTimeout, int connectionRequestTimeout) {
         this.requestConnectTimeout = connectTimeout;
-        this.requestSocketTimeout = socketTimeout;
+        this.requestResponseTimeout = responseTimeout;
         this.requestConnectionRequestTimeout = connectionRequestTimeout;
     }
 
     /**
-     * 仅设置请求级 socket 读超时（毫秒）。
+     * 仅设置请求级响应读超时（毫秒）。
      *
-     * @param socketTimeout 读超时时间
+     * @param responseTimeout 读超时时间
      */
-    public void SetRequestSocketTimeout(int socketTimeout) {
-        this.requestSocketTimeout = socketTimeout;
+    public void SetRequestResponseTimeout(int responseTimeout) {
+        this.requestResponseTimeout = responseTimeout;
     }
 
     /**
@@ -160,18 +181,18 @@ public class ApiClient {
      * 若三项均未设置，则不修改请求配置，沿用 httpClient 默认。
      */
     private void applyRequestConfig(HttpPost httpPost) {
-        if (requestConnectTimeout < 0 && requestSocketTimeout < 0 && requestConnectionRequestTimeout < 0) {
+        if (requestConnectTimeout < 0 && requestResponseTimeout < 0 && requestConnectionRequestTimeout < 0) {
             return;
         }
         RequestConfig.Builder builder = RequestConfig.custom();
         if (requestConnectTimeout >= 0) {
-            builder.setConnectTimeout(requestConnectTimeout);
+            builder.setConnectTimeout(Timeout.ofMilliseconds(requestConnectTimeout));
         }
-        if (requestSocketTimeout >= 0) {
-            builder.setSocketTimeout(requestSocketTimeout);
+        if (requestResponseTimeout >= 0) {
+            builder.setResponseTimeout(Timeout.ofMilliseconds(requestResponseTimeout));
         }
         if (requestConnectionRequestTimeout >= 0) {
-            builder.setConnectionRequestTimeout(requestConnectionRequestTimeout);
+            builder.setConnectionRequestTimeout(Timeout.ofMilliseconds(requestConnectionRequestTimeout));
         }
         httpPost.setConfig(builder.build());
     }
@@ -221,9 +242,9 @@ public class ApiClient {
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
+        ClassicHttpResponse response = httpClient.execute(httpPost);
         try {
-            int statusCode = response.getStatusLine().getStatusCode();
+            int statusCode = response.getCode();
             if (statusCode != 200) {
 //                throw new IOException("bad response code: " + statusCode);
             }
@@ -271,9 +292,9 @@ public class ApiClient {
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
+        ClassicHttpResponse response = httpClient.execute(httpPost);
         try {
-            int statusCode = response.getStatusLine().getStatusCode();
+            int statusCode = response.getCode();
             if (statusCode != 200) {
 //                throw new IOException("bad response code: " + statusCode);
             }
@@ -313,8 +334,8 @@ public class ApiClient {
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Generate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
-        int statusCode = response.getStatusLine().getStatusCode();
+        ClassicHttpResponse response = httpClient.execute(httpPost);
+        int statusCode = response.getCode();
 
         if (statusCode != 200) {
             EntityUtils.consumeQuietly(response.getEntity());
