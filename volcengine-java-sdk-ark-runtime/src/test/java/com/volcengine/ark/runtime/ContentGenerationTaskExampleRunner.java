@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Minimal runner to execute the content generation example within Maven test scope.
- * It prints the newly added fields service_tier and execution_expires_after.
+ * It prints the newly added fields service_tier, execution_expires_after and priority.
  */
 public class ContentGenerationTaskExampleRunner {
 
@@ -47,6 +47,7 @@ public class ContentGenerationTaskExampleRunner {
                     .content(contents)
                     .serviceTier("default")
                     .executionExpiresAfter(3600L)
+                    .priority(0)
                     .build();
 
             CreateContentGenerationTaskResult createResult = service.createContentGenerationTask(createRequest);
@@ -60,6 +61,7 @@ public class ContentGenerationTaskExampleRunner {
             System.out.println(getResult);
             System.out.println("ServiceTier: " + getResult.getServiceTier());
             System.out.println("ExecutionExpiresAfter: " + getResult.getExecutionExpiresAfter());
+            System.out.println("Priority: " + getResult.getPriority());
 
             System.out.println("\n----- LIST Task Request -----");
             ListContentGenerationTasksRequest listRequest = ListContentGenerationTasksRequest.builder()
@@ -74,6 +76,7 @@ public class ContentGenerationTaskExampleRunner {
                 ListContentGenerationTasksResponse.Item item = listResponse.getItems().get(0);
                 System.out.println("List Item ServiceTier: " + item.getServiceTier());
                 System.out.println("List Item ExecutionExpiresAfter: " + item.getExecutionExpiresAfter());
+                System.out.println("List Item Priority: " + item.getPriority());
             }
 
             // ---- FLEX tier flow: create + GET + LIST ----
@@ -83,6 +86,7 @@ public class ContentGenerationTaskExampleRunner {
                     .content(contents)
                     .serviceTier("flex")
                     .executionExpiresAfter(3600L)
+                    .priority(0)
                     .build();
             CreateContentGenerationTaskResult createResultFlex = service.createContentGenerationTask(createFlex);
             System.out.println(createResultFlex);
@@ -95,6 +99,7 @@ public class ContentGenerationTaskExampleRunner {
             System.out.println(getFlexResult);
             System.out.println("Flex ServiceTier: " + getFlexResult.getServiceTier());
             System.out.println("Flex ExecutionExpiresAfter: " + getFlexResult.getExecutionExpiresAfter());
+            System.out.println("Flex Priority: " + getFlexResult.getPriority());
 
             System.out.println("\n----- LIST Task Request (flex) -----");
             ListContentGenerationTasksRequest listFlexReq = ListContentGenerationTasksRequest.builder()
@@ -108,6 +113,7 @@ public class ContentGenerationTaskExampleRunner {
                 ListContentGenerationTasksResponse.Item itemFlex = listFlexResp.getItems().get(0);
                 System.out.println("Flex List Item ServiceTier: " + itemFlex.getServiceTier());
                 System.out.println("Flex List Item ExecutionExpiresAfter: " + itemFlex.getExecutionExpiresAfter());
+                System.out.println("Flex List Item Priority: " + itemFlex.getPriority());
             }
 
         } catch (Exception e) {
