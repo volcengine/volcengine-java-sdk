@@ -42,5 +42,11 @@
             <!-- 可根据需要修改为最新稳定版本 -->
             <version>2.10.1</version>
         </dependency>
+        <dependency>
+            <!--httpclient5引入该组件-->
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+        </dependency>
     </dependencies>
 </project>
