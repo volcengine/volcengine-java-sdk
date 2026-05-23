@@ -31,10 +31,6 @@ public class ApiClient {
     private final String sk;
     private final String region;
     private CloseableHttpClient httpClient;
-    // 请求级超时配置（毫秒），-1 表示未设置，使用底层 httpClient 的默认配置
-    private int requestConnectTimeout = -1;
-    private int requestResponseTimeout = -1;
-    private int requestConnectionRequestTimeout = -1;
 
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
 
@@ -152,68 +148,6 @@ public class ApiClient {
     }
 
     /**
-     * 设置请求级超时（毫秒），客户端初始化后可调用以覆盖默认超时配置。
-     * 任意参数传 -1 表示该项使用底层 HttpClient 的默认值。
-     *
-     * @param connectTimeout            建立 TCP 连接的超时时间
-     * @param responseTimeout           等待响应的最大等待时间（读超时，替代 4.x 的 socketTimeout）
-     * @param connectionRequestTimeout  从连接池获取连接的最大等待时间
-     */
-    public void SetRequestTimeout(int connectTimeout, int responseTimeout, int connectionRequestTimeout) {
-        this.requestConnectTimeout = connectTimeout;
-        this.requestResponseTimeout = responseTimeout;
-        this.requestConnectionRequestTimeout = connectionRequestTimeout;
-    }
-
-    /**
-     * 仅设置请求级响应读超时（毫秒）。
-     *
-     * @param responseTimeout 读超时时间
-     */
-    public void SetRequestResponseTimeout(int responseTimeout) {
-        this.requestResponseTimeout = responseTimeout;
-    }
-
-    /**
-     * 仅设置请求级建立连接超时（毫秒）。
-     *
-     * @param connectTimeout 连接超时时间
-     */
-    public void SetRequestConnectTimeout(int connectTimeout) {
-        this.requestConnectTimeout = connectTimeout;
-    }
-
-    /**
-     * 仅设置请求级从连接池获取连接的超时（毫秒）。
-     *
-     * @param connectionRequestTimeout 从连接池获取连接超时时间
-     */
-    public void SetRequestConnectionRequestTimeout(int connectionRequestTimeout) {
-        this.requestConnectionRequestTimeout = connectionRequestTimeout;
-    }
-
-    /**
-     * 根据当前的请求级超时配置构建 RequestConfig，并应用到 HttpPost 上。
-     * 若三项均未设置，则不修改请求配置，沿用 httpClient 默认。
-     */
-    private void applyRequestConfig(HttpPost httpPost) {
-        if (requestConnectTimeout < 0 && requestResponseTimeout < 0 && requestConnectionRequestTimeout < 0) {
-            return;
-        }
-        RequestConfig.Builder builder = RequestConfig.custom();
-        if (requestConnectTimeout >= 0) {
-            builder.setConnectTimeout(Timeout.ofMilliseconds(requestConnectTimeout));
-        }
-        if (requestResponseTimeout >= 0) {
-            builder.setResponseTimeout(Timeout.ofMilliseconds(requestResponseTimeout));
-        }
-        if (requestConnectionRequestTimeout >= 0) {
-            builder.setConnectionRequestTimeout(Timeout.ofMilliseconds(requestConnectionRequestTimeout));
-        }
-        httpPost.setConfig(builder.build());
-    }
-
-    /**
      * 设置环境
      * @param IsDev 是否为dev环境
      */
@@ -255,7 +189,6 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
-        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
         ClassicHttpResponse response = httpClient.execute(httpPost);
@@ -305,7 +238,6 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
-        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
         ClassicHttpResponse response = httpClient.execute(httpPost);
@@ -347,7 +279,6 @@ public class ApiClient {
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
         httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
-        applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Generate" , ak , sk , region);
         ClassicHttpResponse response = httpClient.execute(httpPost);
