@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 // 客户端类
 
@@ -253,7 +254,7 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
@@ -303,7 +304,7 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
@@ -345,7 +346,7 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         applyRequestConfig(httpPost);
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Generate" , ak , sk , region);
