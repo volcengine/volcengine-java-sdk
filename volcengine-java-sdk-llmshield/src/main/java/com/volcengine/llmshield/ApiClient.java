@@ -2,21 +2,24 @@ package com.volcengine.llmshield;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
+import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 // 客户端类
 
@@ -47,8 +50,14 @@ public class ApiClient {
                 .build();
 
         long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        ConnectionConfig connectionConfig = ConnectionConfig.custom()
+                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .build();
+        PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+                .setDefaultConnectionConfig(connectionConfig)
+                .build();
         this.httpClient = HttpClientBuilder.create()
-                .setConnectionTimeToLive(connTtl, TimeUnit.MILLISECONDS)
+                .setConnectionManager(connectionManager)
                 .setDefaultRequestConfig(requestConfig)
                 .build();
     }
@@ -66,8 +75,18 @@ public class ApiClient {
                 .build();
 
         long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        ConnectionConfig connectionConfig = ConnectionConfig.custom()
+                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .build();
+        PoolingHttpClientConnectionManagerBuilder cmBuilder = PoolingHttpClientConnectionManagerBuilder.create()
+                .setDefaultConnectionConfig(connectionConfig);
+        if (connMax > 0) {
+            cmBuilder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
+        }
+        PoolingHttpClientConnectionManager connectionManager = cmBuilder.build();
+
         HttpClientBuilder builder = HttpClientBuilder.create()
-                .setConnectionTimeToLive(connTtl, TimeUnit.MILLISECONDS)
+                .setConnectionManager(connectionManager)
                 .setDefaultRequestConfig(requestConfig);
         if (proxy != null && !proxy.isEmpty()) {
             try {
@@ -83,10 +102,6 @@ public class ApiClient {
             } catch (MalformedURLException e) {
                 throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
             }
-        }
-
-        if (connMax > 0) {
-            builder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
         }
 
         this.httpClient = builder.build();
