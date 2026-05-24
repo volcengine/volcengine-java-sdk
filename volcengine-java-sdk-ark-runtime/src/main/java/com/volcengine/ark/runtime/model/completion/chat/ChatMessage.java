@@ -153,6 +153,11 @@ public class ChatMessage {
 			return this;
 		}
 
+        public ChatMessage.Builder content(Object content) {
+            this.content = content;
+            return this;
+        }
+
 		public ChatMessage.Builder multiContent(List<ChatCompletionContentPart> multiContent) {
 			this.content = multiContent;
 			return this;

@@ -696,6 +696,11 @@ public class ChatCompletionRequest {
             return this;
         }
 
+        public ChatCompletionRequest.Builder toolChoice(Object toolChoice) {
+            this.toolChoice = toolChoice;
+            return this;
+        }
+
         public ChatCompletionRequest.Builder toolChoice(ChatCompletionRequestToolChoice toolChoice) {
             this.toolChoice = toolChoice;
             return this;
