@@ -2,19 +2,15 @@ package com.volcengine.auth;
 
 import com.volcengine.ApiException;
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
-import java.time.Instant;
-import java.time.format.DateTimeParseException;
 import java.util.Map;
 
 /**
@@ -23,9 +19,12 @@ import java.util.Map;
  * <p>Follows the {@link Provider} CQS contract:
  * <ul>
  *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
- *   <li>{@link #refresh()} is the only method that mutates state. It re-reads
- *       the CLI config, resolves the profile's mode to a {@link Provider}
- *       instance, and publishes it.</li>
+ *   <li>{@link #refresh()} is the only method that mutates state. On the first
+ *       call it reads the CLI config, resolves the profile's mode to a
+ *       {@link Provider} delegate, and stores it. On subsequent calls it
+ *       forwards to the existing delegate's own {@code refresh()}, preserving
+ *       any long-lived in-memory state the delegate owns (e.g. SSO or
+ *       console-login token caches).</li>
  * </ul>
  *
  * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
@@ -58,12 +57,12 @@ public class CLIConfigCredentialProvider implements Provider {
 
     /**
      * A {@link Provider} that wraps an already-materialized credential value.
-     * Used for static AK/SK modes (ak / ststoken) and for SSO paths where the
-     * CLI config or the SSO portal has already returned a full credential.
+     * Used for static AK/SK modes (ak / ststoken).
      *
-     * <p>{@link #refresh()} is a no-op: the outer
-     * {@link CLIConfigCredentialProvider#refresh()} is the thing that re-reads
-     * the CLI config and publishes a new provider instance.
+     * <p>{@link #refresh()} is a no-op because static credentials never change.
+     * {@link CLIConfigCredentialProvider#isExpired()} delegates to this instance;
+     * when it returns {@code true} the outer provider's {@code refresh()} forwards
+     * to this same instance's {@code refresh()}, which is intentionally empty.
      */
     private static final class StaticCredentialProvider implements Provider {
         private final CredentialValue value;
@@ -102,7 +101,11 @@ public class CLIConfigCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        this.delegate = loadFromConfig();
+        if (delegate == null) {
+            delegate = loadFromConfig();
+        } else {
+            delegate.refresh();
+        }
     }
 
     @Override
@@ -215,7 +218,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 return loadSsoProvider(profileData, profile, configMap);
             }
             case "console-login": {
-                return loadConsoleLoginProvider(profileData, profile, configPath, gson);
+                return loadConsoleLoginProvider(profileData, profile, configPath);
             }
             default:
                 throw new ApiException(PROVIDER_NAME + ": unsupported mode: " + mode);
@@ -223,7 +226,7 @@ public class CLIConfigCredentialProvider implements Provider {
     }
 
     private Provider loadConsoleLoginProvider(Map<String, Object> profileData, String profile,
-                                              Path configFilePath, Gson gson) throws ApiException {
+                                              Path configFilePath) throws ApiException {
         String loginSession = getStringValue(profileData, "login-session");
         if (isNullOrEmpty(loginSession)) {
             throw new ApiException(PROVIDER_NAME + ": login-session not found in console-login profile '" + profile + "', please run 've login' first");
@@ -233,94 +236,59 @@ public class CLIConfigCredentialProvider implements Provider {
         Path cacheDir = !isNullOrEmpty(customCacheDir)
                 ? Paths.get(customCacheDir).toAbsolutePath().normalize()
                 : configFilePath.getParent().resolve("login").resolve("cache");
-        Path tokenCachePath = cacheDir.resolve(computeLoginCacheFileName(loginSession));
-        if (!Files.exists(tokenCachePath)) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache file not found: " + tokenCachePath + ", please run 've login' first");
-        }
 
-        String tokenContent;
-        try {
-            tokenContent = new String(Files.readAllBytes(tokenCachePath), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to read console-login token cache: " + tokenCachePath + " - " + e.getMessage());
-        }
-
-        LoginTokenCache tokenCache;
-        try {
-            tokenCache = gson.fromJson(tokenContent, LoginTokenCache.class);
-        } catch (Exception e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to parse console-login token cache: " + e.getMessage());
-        }
-        if (tokenCache == null) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache file is empty");
-        }
-
-        long expirationSeconds = consoleLoginExpiration(tokenCache, tokenCachePath);
-        if (System.currentTimeMillis() / 1000 + EXPIRE_BUFFER_SECONDS >= expirationSeconds) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache has expired or is about to expire: " + tokenCachePath + ", please run 've login' to refresh it");
-        }
-
-        ConsoleLoginStsCredentials creds = parseConsoleLoginAccessToken(tokenCache.getAccessToken(), tokenCachePath, gson);
-        return new StaticCredentialProvider(
-                new CredentialValue(creds.accessKeyId, creds.secretAccessKey, creds.sessionToken, PROVIDER_NAME),
-                expirationSeconds);
+        // ConsoleLoginRefreshProvider owns disk reads, refresh and the
+        // invalid_grant fallback. Triggering refresh() here surfaces missing-cache
+        // / parse / expired-without-RT errors at provider construction time so
+        // failures look the same as before.
+        Provider d = new ConsoleLoginRefreshProvider(loginSession, cacheDir);
+        d.refresh();
+        return d;
     }
 
     @SuppressWarnings("unchecked")
     private Provider loadSsoProvider(Map<String, Object> profileData, String profile,
                                      Map<String, Object> configMap) throws ApiException {
-        // Step 1: Check if profile has valid cached STS credentials
-        String cachedAk = getStringValue(profileData, "access-key");
-        String cachedSk = getStringValue(profileData, "secret-key");
-        String cachedToken = getStringValue(profileData, "session-token");
-        long stsExpiration = getLongValue(profileData, "sts-expiration");
-        if (!isNullOrEmpty(cachedAk) && !isNullOrEmpty(cachedSk) && stsExpiration > 0) {
-            long expSeconds = normalizeTimestamp(stsExpiration);
-            if (System.currentTimeMillis() / 1000 + EXPIRE_BUFFER_SECONDS < expSeconds) {
-                return new StaticCredentialProvider(
-                        new CredentialValue(cachedAk, cachedSk, cachedToken, PROVIDER_NAME),
-                        expSeconds);
-            }
-        }
-
-        // Step 2: Resolve sso-session
+        // Resolve sso-session
         String sessionName = getStringValue(profileData, "sso-session-name");
         if (isNullOrEmpty(sessionName)) {
-            throw new ApiException(PROVIDER_NAME + ": sso-session-name not found in profile '" + profile + "'");
+            throw new ApiException(PROVIDER_NAME + ": sso-session-name not found in profile '" + profile + "', please run 've sso login'");
         }
 
         Map<String, Object> ssoSessions = (Map<String, Object>) configMap.get("sso-session");
         if (ssoSessions == null) {
-            throw new ApiException(PROVIDER_NAME + ": 'sso-session' section not found in config");
+            throw new ApiException(PROVIDER_NAME + ": 'sso-session' section not found in config, please run 've sso login'");
         }
         Map<String, Object> sessionData = (Map<String, Object>) ssoSessions.get(sessionName);
         if (sessionData == null) {
-            throw new ApiException(PROVIDER_NAME + ": sso-session '" + sessionName + "' not found in config");
+            throw new ApiException(PROVIDER_NAME + ": sso-session '" + sessionName + "' not found in config, please run 've sso login'");
         }
 
         String startUrl = getStringValue(sessionData, "start-url");
         if (isNullOrEmpty(startUrl)) {
-            throw new ApiException(PROVIDER_NAME + ": start-url not found in sso-session '" + sessionName + "'");
+            throw new ApiException(PROVIDER_NAME + ": start-url not found in sso-session '" + sessionName + "', please run 've sso login'");
         }
         String region = getStringValue(sessionData, "region");
         if (isNullOrEmpty(region)) {
             region = "cn-beijing";
         }
 
-        // Step 3: Compute cache file path and load token cache
+        // Compute cache file path and load token cache
         String cacheFileName = computeTokenCacheFileName(startUrl, sessionName);
         Path configDir = resolveConfigPath().getParent();
         Path tokenCachePath = configDir.resolve("sso").resolve("cache").resolve(cacheFileName);
 
         if (!Files.exists(tokenCachePath)) {
-            throw new ApiException(PROVIDER_NAME + ": SSO token cache file not found: " + tokenCachePath);
+            throw new ApiException(PROVIDER_NAME + ": SSO token cache file not found: " + tokenCachePath
+                    + ", please run 've sso login'");
         }
 
         String tokenContent;
         try {
             tokenContent = new String(Files.readAllBytes(tokenCachePath), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to read SSO token cache: " + tokenCachePath + " - " + e.getMessage());
+            throw new ApiException(PROVIDER_NAME + ": failed to read SSO token cache: " + tokenCachePath
+                    + " - please run 've sso login'. Cause: " + e.getMessage());
         }
 
         Gson gson = new Gson();
@@ -328,25 +296,19 @@ public class CLIConfigCredentialProvider implements Provider {
         try {
             tokenCache = gson.fromJson(tokenContent, SsoTokenCache.class);
         } catch (Exception e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to parse SSO token cache: " + e.getMessage());
+            throw new ApiException(PROVIDER_NAME + ": failed to parse SSO token cache"
+                    + " - please run 've sso login'. Cause: " + e.getMessage());
         }
         if (tokenCache == null) {
-            throw new ApiException(PROVIDER_NAME + ": SSO token cache file is empty");
+            throw new ApiException(PROVIDER_NAME + ": SSO token cache file is empty, please run 've sso login'");
         }
 
         String accessToken = tokenCache.getAccessToken();
         if (isNullOrEmpty(accessToken)) {
-            throw new ApiException(PROVIDER_NAME + ": SSO token cache missing access_token");
+            throw new ApiException(PROVIDER_NAME + ": SSO token cache missing access_token, please run 've sso login'");
         }
 
-        // Step 4: Check if access token is expired
-        boolean expired = isTokenExpired(tokenCache.getExpiresAt());
-        if (expired) {
-            // Try refresh
-            accessToken = refreshAccessToken(tokenCache, tokenCachePath, region, gson);
-        }
-
-        // Step 5: Call Portal API for role credentials
+        // Resolve role identity from profile
         String accountId = getStringValue(profileData, "account-id");
         String roleName = getStringValue(profileData, "role-name");
         if (isNullOrEmpty(accountId)) {
@@ -356,101 +318,13 @@ public class CLIConfigCredentialProvider implements Provider {
             throw new ApiException(PROVIDER_NAME + ": role-name not found in SSO profile '" + profile + "'");
         }
 
-        SsoPortalClient portalClient = new SsoPortalClient(region);
-        SsoPortalClient.RoleCredentialsResult creds = portalClient.getRoleCredentials(accessToken, accountId, roleName);
-
-        long expirationSeconds = (creds.expiration > 0)
-                ? normalizeTimestamp(creds.expiration)
-                : System.currentTimeMillis() / 1000 + 3600;
-        return new StaticCredentialProvider(
-                new CredentialValue(creds.accessKeyId, creds.secretAccessKey, creds.sessionToken, PROVIDER_NAME),
-                expirationSeconds);
-    }
-
-    private String refreshAccessToken(SsoTokenCache tokenCache, Path tokenCachePath,
-                                      String region, Gson gson) throws ApiException {
-        String refreshToken = tokenCache.getRefreshToken();
-        if (isNullOrEmpty(refreshToken)) {
-            throw new ApiException(PROVIDER_NAME + ": SSO token cache missing refresh_token, please re-login with CLI");
-        }
-        // Check if refresh token (client_secret) has expired
-        long clientSecretExpiresAt = tokenCache.getClientSecretExpiresAt();
-        if (clientSecretExpiresAt > 0) {
-            long expSeconds = normalizeTimestamp(clientSecretExpiresAt);
-            if (System.currentTimeMillis() / 1000 >= expSeconds) {
-                throw new ApiException(PROVIDER_NAME + ": SSO refresh token has expired, please re-login with CLI");
-            }
-        }
-        String clientId = tokenCache.getClientId();
-        String clientSecret = tokenCache.getClientSecret();
-        if (isNullOrEmpty(clientId) || isNullOrEmpty(clientSecret)) {
-            throw new ApiException(PROVIDER_NAME + ": SSO token cache missing client_id or client_secret");
-        }
-
-        SsoPortalClient portalClient = new SsoPortalClient(region);
-        SsoPortalClient.OAuthTokenResponse resp = portalClient.refreshToken(clientId, clientSecret, refreshToken);
-
-        // Build the updated cache object without modifying tokenCache yet
-        String newAccessToken = resp.accessToken;
-        String newRefreshToken = isNullOrEmpty(resp.refreshToken) ? tokenCache.getRefreshToken() : resp.refreshToken;
-        String newExpiresAt = Instant.now().plusSeconds(resp.expiresIn).toString();
-
-        SsoTokenCache updatedCache = new SsoTokenCache();
-        updatedCache.setStartUrl(tokenCache.getStartUrl());
-        updatedCache.setSessionName(tokenCache.getSessionName());
-        updatedCache.setRegion(tokenCache.getRegion());
-        updatedCache.setClientId(tokenCache.getClientId());
-        updatedCache.setClientSecret(tokenCache.getClientSecret());
-        updatedCache.setClientIdIssuedAt(tokenCache.getClientIdIssuedAt());
-        updatedCache.setClientSecretExpiresAt(tokenCache.getClientSecretExpiresAt());
-        updatedCache.setAccessToken(newAccessToken);
-        updatedCache.setRefreshToken(newRefreshToken);
-        updatedCache.setExpiresAt(newExpiresAt);
-
-        // Write to disk first; only update in-memory tokenCache on success
-        try {
-            Path parent = tokenCachePath.getParent();
-            if (parent != null) {
-                Files.createDirectories(parent);
-            }
-            Path tempFile = Files.createTempFile(parent, ".tmp-", ".json");
-            try {
-                byte[] data = gson.toJson(updatedCache).getBytes(StandardCharsets.UTF_8);
-                try (OutputStream os = Files.newOutputStream(tempFile)) {
-                    os.write(data);
-                }
-                Files.move(tempFile, tokenCachePath,
-                        java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-                        java.nio.file.StandardCopyOption.ATOMIC_MOVE);
-            } catch (Exception e) {
-                try {
-                    Files.deleteIfExists(tempFile);
-                } catch (IOException ignored) {
-                }
-                throw e;
-            }
-        } catch (IOException e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to write SSO token cache: " + e.getMessage());
-        }
-
-        // Disk write succeeded — now update in-memory state
-        tokenCache.setAccessToken(newAccessToken);
-        tokenCache.setRefreshToken(newRefreshToken);
-        tokenCache.setExpiresAt(newExpiresAt);
-
-        return tokenCache.getAccessToken();
-    }
-
-    private static boolean isTokenExpired(String expiresAt) {
-        if (isNullOrEmpty(expiresAt)) {
-            return true;
-        }
-        try {
-            Instant exp = Instant.parse(expiresAt.trim());
-            return Instant.now().isAfter(exp);
-        } catch (DateTimeParseException e) {
-            return true;
-        }
+        // SsoRefreshProvider owns long-lived in-memory state and refresh logic.
+        // tokenCachePath is passed so the provider can reload disk on invalid_grant.
+        // Calling refresh() here surfaces missing-token / network errors at
+        // construction time so failures look the same as before.
+        Provider d = new SsoRefreshProvider(tokenCache, accountId, roleName, region, tokenCachePath);
+        d.refresh();
+        return d;
     }
 
     private static String computeTokenCacheFileName(String startUrl, String sessionName) throws ApiException {
@@ -467,20 +341,6 @@ public class CLIConfigCredentialProvider implements Provider {
             return hex.toString() + ".json";
         } catch (java.security.NoSuchAlgorithmException e) {
             throw new ApiException("CLIConfigCredentialProvider: SHA-1 algorithm not available");
-        }
-    }
-
-    private static String computeLoginCacheFileName(String loginSession) throws ApiException {
-        try {
-            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
-            byte[] hash = sha1.digest(loginSession.getBytes(StandardCharsets.UTF_8));
-            StringBuilder hex = new StringBuilder();
-            for (byte b : hash) {
-                hex.append(String.format("%02x", b));
-            }
-            return hex.toString() + ".json";
-        } catch (java.security.NoSuchAlgorithmException e) {
-            throw new ApiException(PROVIDER_NAME + ": SHA-1 algorithm not available");
         }
     }
 
@@ -510,77 +370,6 @@ public class CLIConfigCredentialProvider implements Provider {
             }
         }
         return sb.toString();
-    }
-
-    private static long getLongValue(Map<String, Object> map, String key) {
-        Object value = map.get(key);
-        if (value instanceof Number) {
-            return ((Number) value).longValue();
-        }
-        if (value instanceof String) {
-            try {
-                return Long.parseLong((String) value);
-            } catch (NumberFormatException e) {
-                return 0;
-            }
-        }
-        return 0;
-    }
-
-    /**
-     * Normalize a timestamp that may be in seconds, milliseconds, microseconds,
-     * or nanoseconds to seconds since epoch.
-     */
-    private static long normalizeTimestamp(long ts) {
-        if (ts >= 1_000_000_000_000_000_000L) {
-            return ts / 1_000_000_000L;        // nanoseconds
-        } else if (ts >= 1_000_000_000_000_000L) {
-            return ts / 1_000_000L;             // microseconds
-        } else if (ts >= 1_000_000_000_000L) {
-            return ts / 1_000L;                 // milliseconds
-        }
-        return ts;                              // seconds
-    }
-
-    private static long consoleLoginExpiration(LoginTokenCache tokenCache, Path tokenCachePath) throws ApiException {
-        if (tokenCache == null || isNullOrEmpty(tokenCache.getIssuedAt())) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing issued_at: " + tokenCachePath);
-        }
-        if (tokenCache.getExpiresIn() <= 0) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing valid expires_in: " + tokenCachePath);
-        }
-        try {
-            return Instant.parse(tokenCache.getIssuedAt().trim()).getEpochSecond() + tokenCache.getExpiresIn();
-        } catch (DateTimeParseException e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to parse console-login issued_at in " + tokenCachePath + ": " + e.getMessage());
-        }
-    }
-
-    private static ConsoleLoginStsCredentials parseConsoleLoginAccessToken(Object accessToken, Path tokenCachePath, Gson gson) throws ApiException {
-        if (accessToken == null) {
-            throw new ApiException(PROVIDER_NAME + ": console-login token cache missing access_token: " + tokenCachePath);
-        }
-
-        ConsoleLoginStsCredentials creds;
-        if (accessToken instanceof String) {
-            try {
-                creds = gson.fromJson((String) accessToken, ConsoleLoginStsCredentials.class);
-            } catch (Exception e) {
-                throw new ApiException(PROVIDER_NAME + ": failed to parse console-login access_token in " + tokenCachePath + ": " + e.getMessage());
-            }
-        } else {
-            try {
-                creds = gson.fromJson(gson.toJson(accessToken), ConsoleLoginStsCredentials.class);
-            } catch (Exception e) {
-                throw new ApiException(PROVIDER_NAME + ": failed to parse console-login access_token in " + tokenCachePath + ": " + e.getMessage());
-            }
-        }
-
-        if (creds == null || isNullOrEmpty(creds.accessKeyId)
-                || isNullOrEmpty(creds.secretAccessKey) || isNullOrEmpty(creds.sessionToken)) {
-            throw new ApiException(PROVIDER_NAME + ": console-login access_token missing STS credential fields: " + tokenCachePath);
-        }
-        return creds;
     }
 
     private Path resolveConfigPath() {
@@ -624,42 +413,4 @@ public class CLIConfigCredentialProvider implements Provider {
         return s == null || s.isEmpty();
     }
 
-    private static final class LoginTokenCache {
-        /**
-         * The CLI persists {@code access_token} as Go's {@code json.RawMessage},
-         * which preserves whatever was returned by the server verbatim. In
-         * practice this may be either a JSON-encoded string (quoted) or a
-         * nested JSON object containing the STS credentials. Kept as
-         * {@link Object} so Gson can deserialize either shape;
-         * {@link #parseConsoleLoginAccessToken} handles both forms to stay
-         * aligned with the CLI's own {@code readLoginCache} behavior.
-         */
-        @SerializedName("access_token")
-        private Object accessToken;
-        @SerializedName("issued_at")
-        private String issuedAt;
-        @SerializedName("expires_in")
-        private long expiresIn;
-
-        Object getAccessToken() {
-            return accessToken;
-        }
-
-        String getIssuedAt() {
-            return issuedAt;
-        }
-
-        long getExpiresIn() {
-            return expiresIn;
-        }
-    }
-
-    private static final class ConsoleLoginStsCredentials {
-        @SerializedName("access_key_id")
-        private String accessKeyId;
-        @SerializedName("secret_access_key")
-        private String secretAccessKey;
-        @SerializedName("session_token")
-        private String sessionToken;
-    }
 }

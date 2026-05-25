@@ -356,8 +356,8 @@ public class SampleCode {
   - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证（比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的 `X-Security-Token` header。
 - `OIDC`（委托给 `OidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
-- `SSO` （从 CLI sso 缓存读取 STS 凭证）
-- `console-login`（从 CLI console-login 缓存读取 STS 凭证）
+- `SSO`（从 CLI sso 缓存读取 STS 凭证；SDK 自动在内存中刷新 access token，永不写入缓存文件）
+- `console-login`（从 CLI console-login 缓存读取 STS 凭证；SDK 通过 OAuth `refresh_token` 在内存中自动刷新，永不写入缓存文件）
 
 > mode 不区分大小写。
 
@@ -380,6 +380,31 @@ public class SampleCode {
     }
 }
 ```
+
+#### 运行时刷新行为（sso / console-login）
+
+`sso` 与 `console-login` 模式下，SDK 自管理刷新，且**永不写入任何本地文件**：
+
+- **长生命周期内存状态**：`sso` 与 `console-login` 均在进程生命周期内维护单一
+  Provider 实例，跨多次凭证过期循环复用。内存中的 token 快照（SSO 的 access
+  token 和 refresh token；console-login 的 login cache）仅由 SDK 自身的刷新逻辑
+  更新。CLI 配置文件仅在初始化时读取一次，凭证过期后不再重新解析。
+- **只读磁盘**：`config.json`、`~/.volcengine/sso/cache/*.json` 与
+  `~/.volcengine/login/cache/*.json` 仅在 bootstrap 时读取一次；当 OAuth
+  服务端拒绝 refresh token 时，各模式会再读一次磁盘执行 fallback（见下文）。
+  SDK 永不写入。
+- **内存刷新**：缓存的 `access_token` 进入到期窗口（60 秒）后，SDK 用内存中
+  的 `refresh_token` 调 OAuth `/token` 端点续期，仅更新内存状态。SSO 模式还
+  会接着调 Portal `GetRoleCredentials` 拿 STS 三元组。
+- **invalid_grant fallback**（`sso` 与 `console-login` 均适用）：当 OAuth
+  服务端拒绝 refresh token 时，SDK 重新读取一次磁盘 cache。若磁盘上的
+  `refresh_token` 与内存不同（说明 `ve login` / `ve sso login` 在期间更新过），
+  则用磁盘 RT 再尝试一次刷新；否则报错并提示用户重跑 `ve login`
+  （console-login）或 `ve sso login`（SSO）。
+- **refresh_token 过期**：当内存与磁盘上的 refresh_token 都被服务端拒绝时，
+  SDK 抛出明确错误，提示用户重跑 `ve login`（console-login）或 `ve sso login`
+  （SSO）。
+- **并发**：每进程加锁，保证多个调用方共享单次 in-flight refresh。
 
 ### ECS Role 凭证 Provider
 

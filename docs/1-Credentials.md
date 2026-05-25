@@ -353,8 +353,8 @@ Supported profile `mode`:
   - Optional: `session-token` — when the source `access-key` / `secret-key` are themselves STS temporaries (e.g. issued by SSO/OIDC), this token is forwarded to the chained AssumeRole call as `X-Security-Token`.
 - `OIDC` (delegates to `OidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
-- `SSO` (reads STS credentials from the CLI sso cache)
-- `console-login` (reads STS credentials from the CLI console-login cache)
+- `SSO` (reads STS credentials from the CLI sso cache; SDK refreshes access token in-memory and never writes the cache file)
+- `console-login` (reads STS credentials from the CLI console-login cache; SDK refreshes via OAuth `refresh_token` in-memory and never writes the cache file)
 
 > Mode matching is case-insensitive.
 
@@ -377,6 +377,37 @@ public class SampleCode {
     }
 }
 ```
+
+#### Runtime Refresh Behavior (sso / console-login)
+
+For `sso` and `console-login` modes the SDK owns refresh in-memory and
+never writes any local file. Key invariants:
+
+- **Long-lived in-memory state**: both `sso` and `console-login` maintain a
+  single provider instance across expiry cycles. The in-memory token cache
+  (SSO access token and refresh token; console-login login cache) is kept
+  alive for the lifetime of the process and mutated only by the SDK's own
+  refresh path. The CLI config is re-read only on bootstrap, not on every
+  credential expiry.
+- **Read-only on disk**: `config.json`, `~/.volcengine/sso/cache/*.json` and
+  `~/.volcengine/login/cache/*.json` are read on bootstrap and once more
+  per mode if the OAuth server rejects the in-memory refresh token (the
+  invalid-grant fallback described below). They are never written by the SDK.
+- **In-memory refresh**: when the cached `access_token` is past its expiry
+  buffer (60 seconds), the SDK exchanges the cached `refresh_token` at the
+  OAuth `/token` endpoint and updates its in-memory state. SSO then calls
+  the Portal `GetRoleCredentials` API for the STS triple.
+- **Invalid-grant fallback** (both `sso` and `console-login`): when the OAuth
+  server rejects the refresh token, the SDK re-reads the cache file from disk
+  once. If the disk `refresh_token` differs from the in-memory one (i.e.
+  `ve login` / `ve sso login` rotated it under the SDK), the SDK retries with
+  the disk RT; otherwise it reports an actionable error pointing at
+  `ve login` (console-login) or `ve sso login` (SSO).
+- **Refresh-token expiry**: when the SDK exhausts both the in-memory and
+  disk refresh tokens, it raises a clear error instructing the user to run
+  `ve login` (console-login) or `ve sso login` (SSO).
+- **Concurrency**: a per-process lock serializes refreshes so concurrent
+  callers share a single in-flight refresh.
 
 ### ECS Role Credential Provider
 
