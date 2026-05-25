@@ -1,21 +1,26 @@
 package com.volcengine.llmshield;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.config.ConnectionConfig;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.HttpHost;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
+import org.apache.hc.core5.util.TimeValue;
+import org.apache.hc.core5.util.Timeout;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.nio.charset.StandardCharsets;
 
 // 客户端类
 
@@ -27,13 +32,30 @@ public class ApiClient {
     private final String region;
     private CloseableHttpClient httpClient;
 
+    private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
+
     private ApiClient(String url, String ak, String sk, String region, long timeout) {
         this.url = url;
         this.ak = ak;
         this.sk = sk;
         this.region = region;
+
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                .build();
+
+        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        ConnectionConfig connectionConfig = ConnectionConfig.custom()
+                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .build();
+        PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+                .setDefaultConnectionConfig(connectionConfig)
+                .build();
         this.httpClient = HttpClientBuilder.create()
-                .setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS)
+                .setConnectionManager(connectionManager)
+                .setDefaultRequestConfig(requestConfig)
                 .build();
     }
 
@@ -43,7 +65,26 @@ public class ApiClient {
         this.sk = sk;
         this.region = region;
 
-        HttpClientBuilder builder = HttpClientBuilder.create().setConnectionTimeToLive(timeout, TimeUnit.MILLISECONDS);
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                .build();
+
+        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        ConnectionConfig connectionConfig = ConnectionConfig.custom()
+                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .build();
+        PoolingHttpClientConnectionManagerBuilder cmBuilder = PoolingHttpClientConnectionManagerBuilder.create()
+                .setDefaultConnectionConfig(connectionConfig);
+        if (connMax > 0) {
+            cmBuilder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
+        }
+        PoolingHttpClientConnectionManager connectionManager = cmBuilder.build();
+
+        HttpClientBuilder builder = HttpClientBuilder.create()
+                .setConnectionManager(connectionManager)
+                .setDefaultRequestConfig(requestConfig);
         if (proxy != null && !proxy.isEmpty()) {
             try {
                 URL purl = new URL(proxy);
@@ -53,15 +94,11 @@ public class ApiClient {
                 if (p_port < 0) {
                     p_port = purl.getDefaultPort();// 协议默认端口
                 }
-                HttpHost httpsProxy = new HttpHost(p_host, p_port, p_protocol);
+                HttpHost httpsProxy = new HttpHost(p_protocol, p_host, p_port);
                 builder.setProxy(httpsProxy);
             } catch (MalformedURLException e) {
                 throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
             }
-        }
-
-        if (connMax > 0) {
-            builder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
         }
 
         this.httpClient = builder.build();
@@ -151,12 +188,12 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
+        ClassicHttpResponse response = httpClient.execute(httpPost);
         try {
-            int statusCode = response.getStatusLine().getStatusCode();
+            int statusCode = response.getCode();
             if (statusCode != 200) {
 //                throw new IOException("bad response code: " + statusCode);
             }
@@ -200,12 +237,12 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Moderate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
+        ClassicHttpResponse response = httpClient.execute(httpPost);
         try {
-            int statusCode = response.getStatusLine().getStatusCode();
+            int statusCode = response.getCode();
             if (statusCode != 200) {
 //                throw new IOException("bad response code: " + statusCode);
             }
@@ -241,11 +278,11 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        httpPost.setEntity(new StringEntity(requestBody, "UTF-8"));
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri , "Generate" , ak , sk , region);
-        HttpResponse response = httpClient.execute(httpPost);
-        int statusCode = response.getStatusLine().getStatusCode();
+        ClassicHttpResponse response = httpClient.execute(httpPost);
+        int statusCode = response.getCode();
 
         if (statusCode != 200) {
             EntityUtils.consumeQuietly(response.getEntity());
