@@ -101,11 +101,12 @@ public class CLIConfigCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        if (delegate == null) {
-            delegate = loadFromConfig();
-        } else {
-            delegate.refresh();
-        }
+        // Always re-read the CLI config and rebuild the delegate on refresh.
+        // This is what makes profile / mode / AK changes (made by the user or
+        // by `ve` cli) take effect at the next expiry boundary. The delegate's
+        // own invalid_grant fallback handles in-flight RT rotation, so losing
+        // the previous delegate's in-memory state on rebuild is safe.
+        this.delegate = loadFromConfig();
     }
 
     @Override
