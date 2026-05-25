@@ -383,16 +383,17 @@ public class SampleCode {
 For `sso` and `console-login` modes the SDK owns refresh in-memory and
 never writes any local file. Key invariants:
 
-- **Long-lived in-memory state**: both `sso` and `console-login` maintain a
-  single provider instance across expiry cycles. The in-memory token cache
-  (SSO access token and refresh token; console-login login cache) is kept
-  alive for the lifetime of the process and mutated only by the SDK's own
-  refresh path. The CLI config is re-read only on bootstrap, not on every
-  credential expiry.
+- **Config-responsive refresh**: on each credential expiry the SDK re-reads
+  `config.json` and rebuilds the credential delegate, so any profile, mode,
+  or AK change is picked up automatically at the next refresh boundary. Within
+  a single expiry cycle the delegate keeps an in-memory snapshot of the token
+  cache; that snapshot is discarded when the cycle ends and the delegate is
+  rebuilt.
 - **Read-only on disk**: `config.json`, `~/.volcengine/sso/cache/*.json` and
-  `~/.volcengine/login/cache/*.json` are read on bootstrap and once more
-  per mode if the OAuth server rejects the in-memory refresh token (the
-  invalid-grant fallback described below). They are never written by the SDK.
+  `~/.volcengine/login/cache/*.json` are read on each credential refresh and
+  once more per mode if the OAuth server rejects the in-memory refresh token
+  (the invalid-grant fallback described below). They are never written by the
+  SDK.
 - **In-memory refresh**: when the cached `access_token` is past its expiry
   buffer (60 seconds), the SDK exchanges the cached `refresh_token` at the
   OAuth `/token` endpoint and updates its in-memory state. SSO then calls

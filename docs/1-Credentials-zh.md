@@ -385,14 +385,13 @@ public class SampleCode {
 
 `sso` 与 `console-login` 模式下，SDK 自管理刷新，且**永不写入任何本地文件**：
 
-- **长生命周期内存状态**：`sso` 与 `console-login` 均在进程生命周期内维护单一
-  Provider 实例，跨多次凭证过期循环复用。内存中的 token 快照（SSO 的 access
-  token 和 refresh token；console-login 的 login cache）仅由 SDK 自身的刷新逻辑
-  更新。CLI 配置文件仅在初始化时读取一次，凭证过期后不再重新解析。
-- **只读磁盘**：`config.json`、`~/.volcengine/sso/cache/*.json` 与
-  `~/.volcengine/login/cache/*.json` 仅在 bootstrap 时读取一次；当 OAuth
-  服务端拒绝 refresh token 时，各模式会再读一次磁盘执行 fallback（见下文）。
-  SDK 永不写入。
+- **配置响应式刷新**：每次凭证过期时，SDK 重新读取 `config.json` 并重建凭证
+  代理，使 profile、mode 或 AK 的变更在下次刷新时自动生效。在单次过期周期内，
+  代理会在内存中维护 token cache 的快照；周期结束、代理重建后，该快照将被丢弃。
+- **只读磁盘**：每次凭证刷新时都会读取 `config.json`、
+  `~/.volcengine/sso/cache/*.json` 与 `~/.volcengine/login/cache/*.json`；当
+  OAuth 服务端拒绝 refresh token 时，各模式还会再读一次磁盘执行 fallback（见
+  下文）。SDK 永不写入。
 - **内存刷新**：缓存的 `access_token` 进入到期窗口（60 秒）后，SDK 用内存中
   的 `refresh_token` 调 OAuth `/token` 端点续期，仅更新内存状态。SSO 模式还
   会接着调 Portal `GetRoleCredentials` 拿 STS 三元组。

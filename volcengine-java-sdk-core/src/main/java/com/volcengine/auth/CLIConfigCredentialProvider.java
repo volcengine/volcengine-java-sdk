@@ -19,12 +19,12 @@ import java.util.Map;
  * <p>Follows the {@link Provider} CQS contract:
  * <ul>
  *   <li>{@link #isExpired()} / {@link #retrieve()} are pure reads.</li>
- *   <li>{@link #refresh()} is the only method that mutates state. On the first
- *       call it reads the CLI config, resolves the profile's mode to a
- *       {@link Provider} delegate, and stores it. On subsequent calls it
- *       forwards to the existing delegate's own {@code refresh()}, preserving
- *       any long-lived in-memory state the delegate owns (e.g. SSO or
- *       console-login token caches).</li>
+ *   <li>{@link #refresh()} is the only method that mutates state. Every call
+ *       re-reads the CLI config and rebuilds the delegate so profile, mode, and
+ *       AK changes are picked up at the next expiry boundary. The previous
+ *       delegate's in-memory state (e.g. SsoTokenCache snapshot) is discarded;
+ *       in-flight RT rotation is still protected by the delegate's own
+ *       invalid_grant disk-reload fallback.</li>
  * </ul>
  *
  * <p>Intended to be wrapped in a {@link CredentialProvider}, which serializes
@@ -59,10 +59,12 @@ public class CLIConfigCredentialProvider implements Provider {
      * A {@link Provider} that wraps an already-materialized credential value.
      * Used for static AK/SK modes (ak / ststoken).
      *
-     * <p>{@link #refresh()} is a no-op because static credentials never change.
-     * {@link CLIConfigCredentialProvider#isExpired()} delegates to this instance;
-     * when it returns {@code true} the outer provider's {@code refresh()} forwards
-     * to this same instance's {@code refresh()}, which is intentionally empty.
+     * <p>{@link #refresh()} is never called on this instance in practice: when
+     * {@link CLIConfigCredentialProvider#isExpired()} returns {@code true}, the
+     * outer {@link CLIConfigCredentialProvider#refresh()} always calls
+     * {@code loadFromConfig()} and replaces this instance with a freshly built
+     * delegate. The {@code refresh()} implementation here is therefore a no-op
+     * kept only to satisfy the {@link Provider} interface.
      */
     private static final class StaticCredentialProvider implements Provider {
         private final CredentialValue value;
