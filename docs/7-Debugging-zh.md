@@ -10,7 +10,7 @@
 
 > **默认**
 >
-> - `debug` - `false`（表示不开启 debug 模式）
+> - `debugging` - `false`（表示不开启 debug 模式）
 
 Java SDK 日志使用的是 SLF4J，需要依赖客户的配置文件，客户可以根据自己的需求，配置日志级别。
 

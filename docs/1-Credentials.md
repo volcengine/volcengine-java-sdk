@@ -199,7 +199,7 @@ public class SampleCode {
 
         // Optional fields
         stsAssumeRoleProvider.setHost("sts.volcengineapi.com");
-        stsAssumeRoleProvider.setRegion("cn-north-1");
+        stsAssumeRoleProvider.setRegion("cn-beijing");
         stsAssumeRoleProvider.setDurationSeconds(3600);
         stsAssumeRoleProvider.setExpireBufferSeconds(60);
         stsAssumeRoleProvider.setSchema("https");

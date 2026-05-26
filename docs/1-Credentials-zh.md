@@ -201,7 +201,7 @@ public class SampleCode {
 
         // 选填字段
         stsAssumeRoleProvider.setHost("sts.volcengineapi.com"); // STS服务地址，默认: sts.volcengineapi.com
-        stsAssumeRoleProvider.setRegion("cn-north-1"); // STS服务区域, 默认: cn-north-1
+        stsAssumeRoleProvider.setRegion("cn-beijing"); // STS服务区域, 默认: cn-beijing
         stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
         stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
         stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https

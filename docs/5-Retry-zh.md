@@ -10,7 +10,7 @@
 > - `minRetryDelayMs` - `300`
 > - `maxRetryDelayMs` - `300 * 1000`
 > - `retryCondition` - `com.volcengine.retryer.DefaultRetryCondition`
-> - `backoffStrategy` - `com.volcengine.retryer.ExponentialBackoffStrategy`
+> - `backoffStrategy` - `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
 > - `retryErrorCode` - `empty set`
 
 请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK 将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
@@ -138,9 +138,9 @@ public class SampleCode {
 2. 也可以复用内置退避策略 `ExponentialBackoffStrategy` 或 `ExponentialWithRandomJitterBackoffStrategy`：
 
     ```java
-    import com.volcengine.retryer.ExponentialWithDecayBackoffStrategy;
+    import com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy;
 
-    class CustomBackoffStrategy extends ExponentialWithDecayBackoffStrategy{
+    class CustomBackoffStrategy extends ExponentialWithRandomJitterBackoffStrategy{
         public long computeDelay(int retryCount){
             long base = super.computeDelay(retryCount); // 调用父类的实现
             long minRetryDelayMs = this.minRetryDelayMs;

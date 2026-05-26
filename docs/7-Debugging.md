@@ -10,7 +10,7 @@ To help with troubleshooting and debugging when handling requests, the SDK suppo
 
 > **Default**
 >
-> - `debug`: `false`
+> - `debugging`: `false`
 
 The Java SDK uses SLF4J for logging. Configure your own logging settings based on your needs.
 
