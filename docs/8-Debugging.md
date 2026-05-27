@@ -1,4 +1,4 @@
-[← Error Handling](6-ErrorHandling.md) | Debugging[(中文)](7-Debugging-zh.md) | [Overview →](0-Overview.md)
+[← Error Handling](7-ErrorHandling.md) | Debugging[(中文)](8-Debugging-zh.md) | [Overview →](0-Overview.md)
 
 ---
 
@@ -23,4 +23,4 @@ The Java SDK uses SLF4J for logging. Configure your own logging settings based o
 
 ---
 
-[← Error Handling](6-ErrorHandling.md) | Debugging[(中文)](7-Debugging-zh.md) | [Overview →](0-Overview.md)
+[← Error Handling](7-ErrorHandling.md) | Debugging[(中文)](8-Debugging-zh.md) | [Overview →](0-Overview.md)
