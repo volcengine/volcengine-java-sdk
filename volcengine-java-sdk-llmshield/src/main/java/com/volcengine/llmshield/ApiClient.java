@@ -57,10 +57,13 @@ public class ApiClient {
                 .build();
         PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
                 .setDefaultConnectionConfig(connectionConfig)
+                .setValidateAfterInactivity(TimeValue.ofSeconds(30))
                 .build();
         this.httpClient = HttpClientBuilder.create()
                 .setConnectionManager(connectionManager)
                 .setDefaultRequestConfig(requestConfig)
+                .evictIdleConnections(TimeValue.ofMinutes(1))
+                .evictExpiredConnections()
                 .build();
     }
 
@@ -81,7 +84,8 @@ public class ApiClient {
                 .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
                 .build();
         PoolingHttpClientConnectionManagerBuilder cmBuilder = PoolingHttpClientConnectionManagerBuilder.create()
-                .setDefaultConnectionConfig(connectionConfig);
+                .setDefaultConnectionConfig(connectionConfig)
+                .setValidateAfterInactivity(TimeValue.ofSeconds(30));
         if (connMax > 0) {
             cmBuilder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
         }
@@ -89,7 +93,9 @@ public class ApiClient {
 
         HttpClientBuilder builder = HttpClientBuilder.create()
                 .setConnectionManager(connectionManager)
-                .setDefaultRequestConfig(requestConfig);
+                .setDefaultRequestConfig(requestConfig)
+                .evictIdleConnections(TimeValue.ofMinutes(1))
+                .evictExpiredConnections();
         if (proxy != null && !proxy.isEmpty()) {
             try {
                 URL purl = new URL(proxy);
@@ -291,20 +297,23 @@ public class ApiClient {
         sign.DoSignRequest(httpPost, uri, "Generate", ak, sk, region);
 
         CloseableHttpResponse response = httpClient.execute(httpPost);
-        int statusCode = response.getCode();
+        try {
+            int statusCode = response.getCode();
 
-        if (statusCode != 200) {
-            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-            response.close();
-            throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
-        }
+            if (statusCode != 200) {
+                String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+                throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
+            }
 
-        // 注意：这里不使用 try-with-resources，因为 response 需要传递给调用者
-        // 调用者必须通过 GenerateStreamV2Response.close() 来释放资源
-        if (response.getEntity() == null) {
+            // 注意：response 需要传递给调用者，正常返回路径不关闭
+            // 调用者必须通过 GenerateStreamV2Response.close() 来释放资源
+            if (response.getEntity() == null) {
+                throw new IOException("Response entity is null");
+            }
+            return new GenerateStreamV2Response(response.getEntity().getContent(), response);
+        } catch (Exception e) {
             response.close();
-            throw new IOException("Response entity is null");
+            throw e;
         }
-        return new GenerateStreamV2Response(response.getEntity().getContent(), response);
     }
 }
