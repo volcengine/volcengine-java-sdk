@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.seccenter20240508.model.RangeForListAutoDefenseRulesOutput;
+import com.volcengine.seccenter20240508.model.UserAutoDefenseRuleForListAutoDefenseRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -46,6 +47,9 @@ public class DataForListAutoDefenseRulesOutput {
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("HarmLevel")
+  private String harmLevel = null;
+
   @SerializedName("Range")
   private RangeForListAutoDefenseRulesOutput range = null;
 
@@ -66,6 +70,9 @@ public class DataForListAutoDefenseRulesOutput {
 
   @SerializedName("UpdateUser")
   private String updateUser = null;
+
+  @SerializedName("UserAutoDefenseRule")
+  private UserAutoDefenseRuleForListAutoDefenseRulesOutput userAutoDefenseRule = null;
 
   public DataForListAutoDefenseRulesOutput action(String action) {
     this.action = action;
@@ -155,6 +162,24 @@ public class DataForListAutoDefenseRulesOutput {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public DataForListAutoDefenseRulesOutput harmLevel(String harmLevel) {
+    this.harmLevel = harmLevel;
+    return this;
+  }
+
+   /**
+   * Get harmLevel
+   * @return harmLevel
+  **/
+  @Schema(description = "")
+  public String getHarmLevel() {
+    return harmLevel;
+  }
+
+  public void setHarmLevel(String harmLevel) {
+    this.harmLevel = harmLevel;
   }
 
   public DataForListAutoDefenseRulesOutput range(RangeForListAutoDefenseRulesOutput range) {
@@ -284,6 +309,25 @@ public class DataForListAutoDefenseRulesOutput {
     this.updateUser = updateUser;
   }
 
+  public DataForListAutoDefenseRulesOutput userAutoDefenseRule(UserAutoDefenseRuleForListAutoDefenseRulesOutput userAutoDefenseRule) {
+    this.userAutoDefenseRule = userAutoDefenseRule;
+    return this;
+  }
+
+   /**
+   * Get userAutoDefenseRule
+   * @return userAutoDefenseRule
+  **/
+  @Valid
+  @Schema(description = "")
+  public UserAutoDefenseRuleForListAutoDefenseRulesOutput getUserAutoDefenseRule() {
+    return userAutoDefenseRule;
+  }
+
+  public void setUserAutoDefenseRule(UserAutoDefenseRuleForListAutoDefenseRulesOutput userAutoDefenseRule) {
+    this.userAutoDefenseRule = userAutoDefenseRule;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -299,18 +343,20 @@ public class DataForListAutoDefenseRulesOutput {
         Objects.equals(this.createUser, dataForListAutoDefenseRulesOutput.createUser) &&
         Objects.equals(this.dataType, dataForListAutoDefenseRulesOutput.dataType) &&
         Objects.equals(this.enable, dataForListAutoDefenseRulesOutput.enable) &&
+        Objects.equals(this.harmLevel, dataForListAutoDefenseRulesOutput.harmLevel) &&
         Objects.equals(this.range, dataForListAutoDefenseRulesOutput.range) &&
         Objects.equals(this.ruleDesc, dataForListAutoDefenseRulesOutput.ruleDesc) &&
         Objects.equals(this.ruleID, dataForListAutoDefenseRulesOutput.ruleID) &&
         Objects.equals(this.ruleType, dataForListAutoDefenseRulesOutput.ruleType) &&
         Objects.equals(this.type, dataForListAutoDefenseRulesOutput.type) &&
         Objects.equals(this.updateTime, dataForListAutoDefenseRulesOutput.updateTime) &&
-        Objects.equals(this.updateUser, dataForListAutoDefenseRulesOutput.updateUser);
+        Objects.equals(this.updateUser, dataForListAutoDefenseRulesOutput.updateUser) &&
+        Objects.equals(this.userAutoDefenseRule, dataForListAutoDefenseRulesOutput.userAutoDefenseRule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, createTime, createUser, dataType, enable, range, ruleDesc, ruleID, ruleType, type, updateTime, updateUser);
+    return Objects.hash(action, createTime, createUser, dataType, enable, harmLevel, range, ruleDesc, ruleID, ruleType, type, updateTime, updateUser, userAutoDefenseRule);
   }
 
 
@@ -324,6 +370,7 @@ public class DataForListAutoDefenseRulesOutput {
     sb.append("    createUser: ").append(toIndentedString(createUser)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    harmLevel: ").append(toIndentedString(harmLevel)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    ruleDesc: ").append(toIndentedString(ruleDesc)).append("\n");
     sb.append("    ruleID: ").append(toIndentedString(ruleID)).append("\n");
@@ -331,6 +378,7 @@ public class DataForListAutoDefenseRulesOutput {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    updateUser: ").append(toIndentedString(updateUser)).append("\n");
+    sb.append("    userAutoDefenseRule: ").append(toIndentedString(userAutoDefenseRule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

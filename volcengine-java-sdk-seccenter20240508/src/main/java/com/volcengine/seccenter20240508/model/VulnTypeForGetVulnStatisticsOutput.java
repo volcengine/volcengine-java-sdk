@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class VulnTypeForGetVulnStatisticsOutput {
+  @SerializedName("AIApp")
+  private Long aiApp = null;
+
   @SerializedName("App")
   private Long app = null;
 
@@ -50,6 +53,24 @@ public class VulnTypeForGetVulnStatisticsOutput {
 
   @SerializedName("Windows")
   private Long windows = null;
+
+  public VulnTypeForGetVulnStatisticsOutput aiApp(Long aiApp) {
+    this.aiApp = aiApp;
+    return this;
+  }
+
+   /**
+   * Get aiApp
+   * @return aiApp
+  **/
+  @Schema(description = "")
+  public Long getAiApp() {
+    return aiApp;
+  }
+
+  public void setAiApp(Long aiApp) {
+    this.aiApp = aiApp;
+  }
 
   public VulnTypeForGetVulnStatisticsOutput app(Long app) {
     this.app = app;
@@ -187,7 +208,8 @@ public class VulnTypeForGetVulnStatisticsOutput {
       return false;
     }
     VulnTypeForGetVulnStatisticsOutput vulnTypeForGetVulnStatisticsOutput = (VulnTypeForGetVulnStatisticsOutput) o;
-    return Objects.equals(this.app, vulnTypeForGetVulnStatisticsOutput.app) &&
+    return Objects.equals(this.aiApp, vulnTypeForGetVulnStatisticsOutput.aiApp) &&
+        Objects.equals(this.app, vulnTypeForGetVulnStatisticsOutput.app) &&
         Objects.equals(this.devLinux, vulnTypeForGetVulnStatisticsOutput.devLinux) &&
         Objects.equals(this.devPy, vulnTypeForGetVulnStatisticsOutput.devPy) &&
         Objects.equals(this.emg, vulnTypeForGetVulnStatisticsOutput.emg) &&
@@ -198,7 +220,7 @@ public class VulnTypeForGetVulnStatisticsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, devLinux, devPy, emg, linux, webcms, windows);
+    return Objects.hash(aiApp, app, devLinux, devPy, emg, linux, webcms, windows);
   }
 
 
@@ -207,6 +229,7 @@ public class VulnTypeForGetVulnStatisticsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VulnTypeForGetVulnStatisticsOutput {\n");
     
+    sb.append("    aiApp: ").append(toIndentedString(aiApp)).append("\n");
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    devLinux: ").append(toIndentedString(devLinux)).append("\n");
     sb.append("    devPy: ").append(toIndentedString(devPy)).append("\n");

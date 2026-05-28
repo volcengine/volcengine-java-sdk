@@ -83,14 +83,12 @@ public class DescribeFileMonitorOverviewResponse extends com.volcengine.model.Ab
     }
     DescribeFileMonitorOverviewResponse describeFileMonitorOverviewResponse = (DescribeFileMonitorOverviewResponse) o;
     return Objects.equals(this.monitorAgentCount, describeFileMonitorOverviewResponse.monitorAgentCount) &&
-        Objects.equals(this.monitorDirectoryCount, describeFileMonitorOverviewResponse.monitorDirectoryCount) &&
-        Objects.equals(this.monitorAgentCount, describeFileMonitorOverviewResponse.monitorAgentCount) &&
         Objects.equals(this.monitorDirectoryCount, describeFileMonitorOverviewResponse.monitorDirectoryCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(monitorAgentCount, monitorDirectoryCount, monitorAgentCount, monitorDirectoryCount);
+    return Objects.hash(monitorAgentCount, monitorDirectoryCount);
   }
 
 
@@ -99,8 +97,6 @@ public class DescribeFileMonitorOverviewResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeFileMonitorOverviewResponse {\n");
     
-    sb.append("    monitorAgentCount: ").append(toIndentedString(monitorAgentCount)).append("\n");
-    sb.append("    monitorDirectoryCount: ").append(toIndentedString(monitorDirectoryCount)).append("\n");
     sb.append("    monitorAgentCount: ").append(toIndentedString(monitorAgentCount)).append("\n");
     sb.append("    monitorDirectoryCount: ").append(toIndentedString(monitorDirectoryCount)).append("\n");
     sb.append("}");

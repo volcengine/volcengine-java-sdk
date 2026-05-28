@@ -21,55 +21,44 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PointInfoForDescribeLastWeekFileChangeTrendsOutput
+ * BatchUnBanIPItemRequest
  */
 
 
 
-public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class BatchUnBanIPItemRequest {
+  @SerializedName("IDs")
+  private List<String> ids = null;
 
-  @SerializedName("Value")
-  private Long value = null;
+  public BatchUnBanIPItemRequest ids(List<String> ids) {
+    this.ids = ids;
+    return this;
+  }
 
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput key(String key) {
-    this.key = key;
+  public BatchUnBanIPItemRequest addIdsItem(String idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<String>();
+    }
+    this.ids.add(idsItem);
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get ids
+   * @return ids
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public List<String> getIds() {
+    return ids;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput value(Long value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public Long getValue() {
-    return value;
-  }
-
-  public void setValue(Long value) {
-    this.value = value;
+  public void setIds(List<String> ids) {
+    this.ids = ids;
   }
 
 
@@ -81,24 +70,22 @@ public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PointInfoForDescribeLastWeekFileChangeTrendsOutput pointInfoForDescribeLastWeekFileChangeTrendsOutput = (PointInfoForDescribeLastWeekFileChangeTrendsOutput) o;
-    return Objects.equals(this.key, pointInfoForDescribeLastWeekFileChangeTrendsOutput.key) &&
-        Objects.equals(this.value, pointInfoForDescribeLastWeekFileChangeTrendsOutput.value);
+    BatchUnBanIPItemRequest batchUnBanIPItemRequest = (BatchUnBanIPItemRequest) o;
+    return Objects.equals(this.ids, batchUnBanIPItemRequest.ids);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(ids);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PointInfoForDescribeLastWeekFileChangeTrendsOutput {\n");
+    sb.append("class BatchUnBanIPItemRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

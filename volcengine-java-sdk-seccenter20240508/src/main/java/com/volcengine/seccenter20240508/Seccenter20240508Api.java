@@ -41,6 +41,8 @@ import com.volcengine.seccenter20240508.model.AddMonitorPolicyRequest;
 import com.volcengine.seccenter20240508.model.AddMonitorPolicyResponse;
 import com.volcengine.seccenter20240508.model.AddRaspConfigRequest;
 import com.volcengine.seccenter20240508.model.AddRaspConfigResponse;
+import com.volcengine.seccenter20240508.model.AddUserAutoDefenseRuleRequest;
+import com.volcengine.seccenter20240508.model.AddUserAutoDefenseRuleResponse;
 import com.volcengine.seccenter20240508.model.AddWhiteListRequest;
 import com.volcengine.seccenter20240508.model.AddWhiteListResponse;
 import com.volcengine.seccenter20240508.model.AllAssetScanRequest;
@@ -61,6 +63,8 @@ import com.volcengine.seccenter20240508.model.BatchDetectWeakPasswordRequest;
 import com.volcengine.seccenter20240508.model.BatchDetectWeakPasswordResponse;
 import com.volcengine.seccenter20240508.model.BatchInstallVarmorAppsRequest;
 import com.volcengine.seccenter20240508.model.BatchInstallVarmorAppsResponse;
+import com.volcengine.seccenter20240508.model.BatchUnBanIPItemRequest;
+import com.volcengine.seccenter20240508.model.BatchUnBanIPItemResponse;
 import com.volcengine.seccenter20240508.model.BatchUninstallVarmorAppsRequest;
 import com.volcengine.seccenter20240508.model.BatchUninstallVarmorAppsResponse;
 import com.volcengine.seccenter20240508.model.BatchUpgradeVarmorAppsRequest;
@@ -119,6 +123,8 @@ import com.volcengine.seccenter20240508.model.DeleteMultiLevelInstitutionRequest
 import com.volcengine.seccenter20240508.model.DeleteMultiLevelInstitutionResponse;
 import com.volcengine.seccenter20240508.model.DeleteRaspConfigRequest;
 import com.volcengine.seccenter20240508.model.DeleteRaspConfigResponse;
+import com.volcengine.seccenter20240508.model.DeleteUserAutoDefenseRuleRequest;
+import com.volcengine.seccenter20240508.model.DeleteUserAutoDefenseRuleResponse;
 import com.volcengine.seccenter20240508.model.DeleteWhiteListsRequest;
 import com.volcengine.seccenter20240508.model.DeleteWhiteListsResponse;
 import com.volcengine.seccenter20240508.model.DescribeFileChangeTrendTop5Request;
@@ -277,6 +283,8 @@ import com.volcengine.seccenter20240508.model.GetDevFingerprintStatisticsRequest
 import com.volcengine.seccenter20240508.model.GetDevFingerprintStatisticsResponse;
 import com.volcengine.seccenter20240508.model.GetDownloadStatusRequest;
 import com.volcengine.seccenter20240508.model.GetDownloadStatusResponse;
+import com.volcengine.seccenter20240508.model.GetFingerprintAIAppRequest;
+import com.volcengine.seccenter20240508.model.GetFingerprintAIAppResponse;
 import com.volcengine.seccenter20240508.model.GetFingerprintAppGroupRequest;
 import com.volcengine.seccenter20240508.model.GetFingerprintAppGroupResponse;
 import com.volcengine.seccenter20240508.model.GetFingerprintAppRequest;
@@ -423,6 +431,8 @@ import com.volcengine.seccenter20240508.model.GetTenantQuotaRequest;
 import com.volcengine.seccenter20240508.model.GetTenantQuotaResponse;
 import com.volcengine.seccenter20240508.model.GetUserBatchScanStatusRequest;
 import com.volcengine.seccenter20240508.model.GetUserBatchScanStatusResponse;
+import com.volcengine.seccenter20240508.model.GetVarmorAuthInfoRequest;
+import com.volcengine.seccenter20240508.model.GetVarmorAuthInfoResponse;
 import com.volcengine.seccenter20240508.model.GetVarmorConfigYAMLRequest;
 import com.volcengine.seccenter20240508.model.GetVarmorConfigYAMLResponse;
 import com.volcengine.seccenter20240508.model.GetVarmorPolicyRequest;
@@ -679,6 +689,8 @@ import com.volcengine.seccenter20240508.model.ModifyMultiLevelInstitutionRequest
 import com.volcengine.seccenter20240508.model.ModifyMultiLevelInstitutionResponse;
 import com.volcengine.seccenter20240508.model.ModifyTLSConfigRequest;
 import com.volcengine.seccenter20240508.model.ModifyTLSConfigResponse;
+import com.volcengine.seccenter20240508.model.ModifyUserAutoDefenseRuleRequest;
+import com.volcengine.seccenter20240508.model.ModifyUserAutoDefenseRuleResponse;
 import com.volcengine.seccenter20240508.model.ModifyWhiteListRequest;
 import com.volcengine.seccenter20240508.model.ModifyWhiteListResponse;
 import com.volcengine.seccenter20240508.model.MultiAssetScanRequest;
@@ -1652,6 +1664,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = addRaspConfigValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AddRaspConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addUserAutoDefenseRule
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addUserAutoDefenseRuleCall(AddUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AddUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addUserAutoDefenseRuleValidateBeforeCall(AddUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling addUserAutoDefenseRule(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = addUserAutoDefenseRuleCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AddUserAutoDefenseRuleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AddUserAutoDefenseRuleResponse addUserAutoDefenseRule(AddUserAutoDefenseRuleRequest body) throws ApiException {
+        ApiResponse<AddUserAutoDefenseRuleResponse> resp = addUserAutoDefenseRuleWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AddUserAutoDefenseRuleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AddUserAutoDefenseRuleResponse> addUserAutoDefenseRuleWithHttpInfo( @NotNull AddUserAutoDefenseRuleRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = addUserAutoDefenseRuleValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AddUserAutoDefenseRuleResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addUserAutoDefenseRuleAsync(AddUserAutoDefenseRuleRequest body, final ApiCallback<AddUserAutoDefenseRuleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addUserAutoDefenseRuleValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AddUserAutoDefenseRuleResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2892,6 +3028,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = batchInstallVarmorAppsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BatchInstallVarmorAppsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for batchUnBanIPItem
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call batchUnBanIPItemCall(BatchUnBanIPItemRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/BatchUnBanIPItem/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call batchUnBanIPItemValidateBeforeCall(BatchUnBanIPItemRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling batchUnBanIPItem(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = batchUnBanIPItemCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return BatchUnBanIPItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BatchUnBanIPItemResponse batchUnBanIPItem(BatchUnBanIPItemRequest body) throws ApiException {
+        ApiResponse<BatchUnBanIPItemResponse> resp = batchUnBanIPItemWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;BatchUnBanIPItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BatchUnBanIPItemResponse> batchUnBanIPItemWithHttpInfo( @NotNull BatchUnBanIPItemRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = batchUnBanIPItemValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<BatchUnBanIPItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call batchUnBanIPItemAsync(BatchUnBanIPItemRequest body, final ApiCallback<BatchUnBanIPItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = batchUnBanIPItemValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BatchUnBanIPItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6488,6 +6748,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = deleteRaspConfigValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteRaspConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteUserAutoDefenseRule
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteUserAutoDefenseRuleCall(DeleteUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteUserAutoDefenseRuleValidateBeforeCall(DeleteUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteUserAutoDefenseRule(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteUserAutoDefenseRuleCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteUserAutoDefenseRuleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteUserAutoDefenseRuleResponse deleteUserAutoDefenseRule(DeleteUserAutoDefenseRuleRequest body) throws ApiException {
+        ApiResponse<DeleteUserAutoDefenseRuleResponse> resp = deleteUserAutoDefenseRuleWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteUserAutoDefenseRuleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteUserAutoDefenseRuleResponse> deleteUserAutoDefenseRuleWithHttpInfo( @NotNull DeleteUserAutoDefenseRuleRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteUserAutoDefenseRuleValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteUserAutoDefenseRuleResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteUserAutoDefenseRuleAsync(DeleteUserAutoDefenseRuleRequest body, final ApiCallback<DeleteUserAutoDefenseRuleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteUserAutoDefenseRuleValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteUserAutoDefenseRuleResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -16288,6 +16672,130 @@ public class Seccenter20240508Api {
         return call;
     }
     /**
+     * Build call for getFingerprintAIApp
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFingerprintAIAppCall(GetFingerprintAIAppRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetFingerprintAIApp/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFingerprintAIAppValidateBeforeCall(GetFingerprintAIAppRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getFingerprintAIApp(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getFingerprintAIAppCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetFingerprintAIAppResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetFingerprintAIAppResponse getFingerprintAIApp(GetFingerprintAIAppRequest body) throws ApiException {
+        ApiResponse<GetFingerprintAIAppResponse> resp = getFingerprintAIAppWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetFingerprintAIAppResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetFingerprintAIAppResponse> getFingerprintAIAppWithHttpInfo( @NotNull GetFingerprintAIAppRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getFingerprintAIAppValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetFingerprintAIAppResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getFingerprintAIAppAsync(GetFingerprintAIAppRequest body, final ApiCallback<GetFingerprintAIAppResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFingerprintAIAppValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetFingerprintAIAppResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getFingerprintApp
      * @param body  (required)
      * @param progressListener Progress listener
@@ -25336,6 +25844,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = getUserBatchScanStatusValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetUserBatchScanStatusResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getVarmorAuthInfo
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getVarmorAuthInfoCall(GetVarmorAuthInfoRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetVarmorAuthInfo/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getVarmorAuthInfoValidateBeforeCall(GetVarmorAuthInfoRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getVarmorAuthInfo(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getVarmorAuthInfoCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetVarmorAuthInfoResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetVarmorAuthInfoResponse getVarmorAuthInfo(GetVarmorAuthInfoRequest body) throws ApiException {
+        ApiResponse<GetVarmorAuthInfoResponse> resp = getVarmorAuthInfoWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetVarmorAuthInfoResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetVarmorAuthInfoResponse> getVarmorAuthInfoWithHttpInfo( @NotNull GetVarmorAuthInfoRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getVarmorAuthInfoValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetVarmorAuthInfoResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getVarmorAuthInfoAsync(GetVarmorAuthInfoRequest body, final ApiCallback<GetVarmorAuthInfoResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getVarmorAuthInfoValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetVarmorAuthInfoResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -41208,6 +41840,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = modifyTLSConfigValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyTLSConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyUserAutoDefenseRule
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyUserAutoDefenseRuleCall(ModifyUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyUserAutoDefenseRuleValidateBeforeCall(ModifyUserAutoDefenseRuleRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyUserAutoDefenseRule(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyUserAutoDefenseRuleCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyUserAutoDefenseRuleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyUserAutoDefenseRuleResponse modifyUserAutoDefenseRule(ModifyUserAutoDefenseRuleRequest body) throws ApiException {
+        ApiResponse<ModifyUserAutoDefenseRuleResponse> resp = modifyUserAutoDefenseRuleWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyUserAutoDefenseRuleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyUserAutoDefenseRuleResponse> modifyUserAutoDefenseRuleWithHttpInfo( @NotNull ModifyUserAutoDefenseRuleRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyUserAutoDefenseRuleValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyUserAutoDefenseRuleResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyUserAutoDefenseRuleAsync(ModifyUserAutoDefenseRuleRequest body, final ApiCallback<ModifyUserAutoDefenseRuleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyUserAutoDefenseRuleValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyUserAutoDefenseRuleResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

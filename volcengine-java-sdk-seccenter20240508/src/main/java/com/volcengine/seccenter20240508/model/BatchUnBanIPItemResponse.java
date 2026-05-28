@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PointInfoForDescribeLastWeekFileChangeTrendsOutput
+ * BatchUnBanIPItemResponse
  */
 
 
 
-public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class BatchUnBanIPItemResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("reason")
+  private String reason = null;
 
-  @SerializedName("Value")
-  private Long value = null;
+  @SerializedName("success")
+  private Boolean success = null;
 
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput key(String key) {
-    this.key = key;
+  public BatchUnBanIPItemResponse reason(String reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get reason
+   * @return reason
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getReason() {
+    return reason;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setReason(String reason) {
+    this.reason = reason;
   }
 
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput value(Long value) {
-    this.value = value;
+  public BatchUnBanIPItemResponse success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
-  public Long getValue() {
-    return value;
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setValue(Long value) {
-    this.value = value;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -81,24 +81,24 @@ public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PointInfoForDescribeLastWeekFileChangeTrendsOutput pointInfoForDescribeLastWeekFileChangeTrendsOutput = (PointInfoForDescribeLastWeekFileChangeTrendsOutput) o;
-    return Objects.equals(this.key, pointInfoForDescribeLastWeekFileChangeTrendsOutput.key) &&
-        Objects.equals(this.value, pointInfoForDescribeLastWeekFileChangeTrendsOutput.value);
+    BatchUnBanIPItemResponse batchUnBanIPItemResponse = (BatchUnBanIPItemResponse) o;
+    return Objects.equals(this.reason, batchUnBanIPItemResponse.reason) &&
+        Objects.equals(this.success, batchUnBanIPItemResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(reason, success);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PointInfoForDescribeLastWeekFileChangeTrendsOutput {\n");
+    sb.append("class BatchUnBanIPItemResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }

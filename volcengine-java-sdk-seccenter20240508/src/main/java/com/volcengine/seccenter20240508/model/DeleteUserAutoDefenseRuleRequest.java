@@ -24,52 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PointInfoForDescribeLastWeekFileChangeTrendsOutput
+ * DeleteUserAutoDefenseRuleRequest
  */
 
 
 
-public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class DeleteUserAutoDefenseRuleRequest {
+  @SerializedName("RuleID")
+  private String ruleID = null;
 
-  @SerializedName("Value")
-  private Long value = null;
-
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput key(String key) {
-    this.key = key;
+  public DeleteUserAutoDefenseRuleRequest ruleID(String ruleID) {
+    this.ruleID = ruleID;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get ruleID
+   * @return ruleID
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getRuleID() {
+    return ruleID;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput value(Long value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public Long getValue() {
-    return value;
-  }
-
-  public void setValue(Long value) {
-    this.value = value;
+  public void setRuleID(String ruleID) {
+    this.ruleID = ruleID;
   }
 
 
@@ -81,24 +61,22 @@ public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PointInfoForDescribeLastWeekFileChangeTrendsOutput pointInfoForDescribeLastWeekFileChangeTrendsOutput = (PointInfoForDescribeLastWeekFileChangeTrendsOutput) o;
-    return Objects.equals(this.key, pointInfoForDescribeLastWeekFileChangeTrendsOutput.key) &&
-        Objects.equals(this.value, pointInfoForDescribeLastWeekFileChangeTrendsOutput.value);
+    DeleteUserAutoDefenseRuleRequest deleteUserAutoDefenseRuleRequest = (DeleteUserAutoDefenseRuleRequest) o;
+    return Objects.equals(this.ruleID, deleteUserAutoDefenseRuleRequest.ruleID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(ruleID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PointInfoForDescribeLastWeekFileChangeTrendsOutput {\n");
+    sb.append("class DeleteUserAutoDefenseRuleRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    ruleID: ").append(toIndentedString(ruleID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

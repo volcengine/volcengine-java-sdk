@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PointInfoForDescribeLastWeekFileChangeTrendsOutput
+ * ModifyUserAutoDefenseRuleResponse
  */
 
 
 
-public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class ModifyUserAutoDefenseRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RuleID")
+  private String ruleID = null;
 
-  @SerializedName("Value")
-  private Long value = null;
+  @SerializedName("Success")
+  private Boolean success = null;
 
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput key(String key) {
-    this.key = key;
+  public ModifyUserAutoDefenseRuleResponse ruleID(String ruleID) {
+    this.ruleID = ruleID;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get ruleID
+   * @return ruleID
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getRuleID() {
+    return ruleID;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setRuleID(String ruleID) {
+    this.ruleID = ruleID;
   }
 
-  public PointInfoForDescribeLastWeekFileChangeTrendsOutput value(Long value) {
-    this.value = value;
+  public ModifyUserAutoDefenseRuleResponse success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
-  public Long getValue() {
-    return value;
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setValue(Long value) {
-    this.value = value;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -81,24 +81,24 @@ public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PointInfoForDescribeLastWeekFileChangeTrendsOutput pointInfoForDescribeLastWeekFileChangeTrendsOutput = (PointInfoForDescribeLastWeekFileChangeTrendsOutput) o;
-    return Objects.equals(this.key, pointInfoForDescribeLastWeekFileChangeTrendsOutput.key) &&
-        Objects.equals(this.value, pointInfoForDescribeLastWeekFileChangeTrendsOutput.value);
+    ModifyUserAutoDefenseRuleResponse modifyUserAutoDefenseRuleResponse = (ModifyUserAutoDefenseRuleResponse) o;
+    return Objects.equals(this.ruleID, modifyUserAutoDefenseRuleResponse.ruleID) &&
+        Objects.equals(this.success, modifyUserAutoDefenseRuleResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(ruleID, success);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PointInfoForDescribeLastWeekFileChangeTrendsOutput {\n");
+    sb.append("class ModifyUserAutoDefenseRuleResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    ruleID: ").append(toIndentedString(ruleID)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
