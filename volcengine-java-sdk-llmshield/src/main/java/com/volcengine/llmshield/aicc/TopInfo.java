@@ -39,6 +39,15 @@ final class TopInfo {
     @SerializedName("url_rewrite")
     String urlRewrite = "";
 
+    @SerializedName("aicc_saas_trn")
+    String aiccSaasTrn = "";
+
+    @SerializedName("target_uid")
+    String targetUid = "";
+
+    @SerializedName("sts_token")
+    String stsToken = "";
+
     static TopInfo deserialize(Reader reader) {
         return new Gson().fromJson(reader, TopInfo.class);
     }

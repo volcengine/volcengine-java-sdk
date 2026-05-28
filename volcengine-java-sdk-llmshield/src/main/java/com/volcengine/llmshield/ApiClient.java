@@ -278,6 +278,14 @@ public class ApiClient {
         if (this.aiccClient == null) {
             throw new Exception("AICC客户端初始化失败");
         }
+
+        // 同步执行一次远程证明，确保sessionKey初始化完成
+        try {
+            this.aiccClient.attestServer();
+        } catch (Exception e) {
+            System.err.println("AICC远程证明失败: " + e.getMessage());
+            throw e;
+        }
     }
 
     /**
@@ -382,32 +390,34 @@ public class ApiClient {
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
 
-        ResponseKey encReqKey = null;
-        if (this.aiccClient != null) {
-            EncryptResult encryptResult = EncryptWithResponse(requestBody.getBytes(StandardCharsets.UTF_8));
-            requestBody = encryptResult.ciphertext;
-            encReqKey = encryptResult.responseKey;
-        }
-
+        // 先设置明文body用于签名（签名必须基于明文，与Python版本对齐）
         httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
 
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri, "Moderate", ak, sk, region);
 
+        // 签名完成后，再加密body（AICC模式下发送加密body）
+        ResponseKey encReqKey = null;
+        if (this.aiccClient != null) {
+            EncryptResult encryptResult = EncryptWithResponse(requestBody.getBytes(StandardCharsets.UTF_8));
+            requestBody = encryptResult.ciphertext;
+            encReqKey = encryptResult.responseKey;
+            httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+        }
+
         try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
             int statusCode = response.getCode();
             byte[] responseBodyBytes = EntityUtils.toByteArray(response.getEntity());
 
-            if (statusCode != 200) {
-                String responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
-                throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
-            }
-
-            String responseBody;
+            // 先解密响应体（AICC模式下响应体是加密的，包括错误响应）
             if (encReqKey != null) {
                 responseBodyBytes = DecryptResponse(encReqKey, responseBodyBytes);
             }
-            responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
+            String responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
+
+            if (statusCode != 200) {
+                throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
+            }
 
             return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
         }
