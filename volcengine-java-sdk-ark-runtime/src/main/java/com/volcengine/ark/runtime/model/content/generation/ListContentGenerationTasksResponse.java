@@ -85,6 +85,9 @@ public class ListContentGenerationTasksResponse {
         @JsonProperty("execution_expires_after")
         private java.lang.Long executionExpiresAfter;
 
+        @JsonProperty("priority")
+        private java.lang.Integer priority;
+
         @JsonProperty("generate_audio")
         private Boolean generateAudio;
 
@@ -229,6 +232,10 @@ public class ListContentGenerationTasksResponse {
         public java.lang.Long getExecutionExpiresAfter() { return executionExpiresAfter; }
 
         public void setExecutionExpiresAfter(java.lang.Long executionExpiresAfter) { this.executionExpiresAfter = executionExpiresAfter; }
+
+        public java.lang.Integer getPriority() { return priority; }
+
+        public void setPriority(java.lang.Integer priority) { this.priority = priority; }
 
         public Boolean getGenerateAudio() {
             return generateAudio;
@@ -409,9 +416,10 @@ public class ListContentGenerationTasksResponse {
                     ", createdAt=" + createdAt +
                     ", updatedAt=" + updatedAt +
 					", seed=" + seed +
-					", revisedPrompt=" + revisedPrompt +
+                    ", revisedPrompt=" + revisedPrompt +
                     ", serviceTier='" + serviceTier + '\'' +
                     ", executionExpiresAfter=" + executionExpiresAfter +
+                    ", priority=" + priority +
                     ", generateAudio=" + generateAudio +
                     ", ratio='" + ratio + '\'' +
                     ", duration=" + duration +
