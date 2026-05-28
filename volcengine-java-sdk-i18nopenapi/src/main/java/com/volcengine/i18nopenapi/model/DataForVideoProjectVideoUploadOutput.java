@@ -19,38 +19,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectVideoUploadOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectVideoUploadResponse
+ * DataForVideoProjectVideoUploadOutput
  */
 
 
 
-public class VideoProjectVideoUploadResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectVideoUploadOutput data = null;
+public class DataForVideoProjectVideoUploadOutput {
+  @SerializedName("batchId")
+  private String batchId = null;
 
-  public VideoProjectVideoUploadResponse data(DataForVideoProjectVideoUploadOutput data) {
-    this.data = data;
+  public DataForVideoProjectVideoUploadOutput batchId(String batchId) {
+    this.batchId = batchId;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get batchId
+   * @return batchId
   **/
-  @Valid
   @Schema(description = "")
-  public DataForVideoProjectVideoUploadOutput getData() {
-    return data;
+  public String getBatchId() {
+    return batchId;
   }
 
-  public void setData(DataForVideoProjectVideoUploadOutput data) {
-    this.data = data;
+  public void setBatchId(String batchId) {
+    this.batchId = batchId;
   }
 
 
@@ -62,22 +60,22 @@ public class VideoProjectVideoUploadResponse extends com.volcengine.model.Abstra
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectVideoUploadResponse videoProjectVideoUploadResponse = (VideoProjectVideoUploadResponse) o;
-    return Objects.equals(this.data, videoProjectVideoUploadResponse.data);
+    DataForVideoProjectVideoUploadOutput dataForVideoProjectVideoUploadOutput = (DataForVideoProjectVideoUploadOutput) o;
+    return Objects.equals(this.batchId, dataForVideoProjectVideoUploadOutput.batchId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(batchId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectVideoUploadResponse {\n");
+    sb.append("class DataForVideoProjectVideoUploadOutput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
