@@ -8,6 +8,10 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 // 忽略JSON中不识别的字段
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseMetadata {
+    // ObjectMapper 是线程安全的，作为静态单例复用
+    private static final ObjectMapper MAPPER = new ObjectMapper()
+            .enable(SerializationFeature.INDENT_OUTPUT);
+
     @JsonProperty("RequestId")
     private String requestId;
 
@@ -76,9 +80,7 @@ public class ResponseMetadata {
     @Override
     public String toString() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            return mapper.writeValueAsString(this);
+            return MAPPER.writeValueAsString(this);
         } catch (Exception e) {
             return super.toString();
         }
