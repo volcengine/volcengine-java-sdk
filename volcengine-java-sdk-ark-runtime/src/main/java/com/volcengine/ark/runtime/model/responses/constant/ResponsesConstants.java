@@ -192,6 +192,11 @@ public class ResponsesConstants {
     public static final String RESPONSE_DOBAO_APP_FEATURE_TYPE_ENABLED = "enabled";
     public static final String RESPONSE_DOBAO_APP_FEATURE_TYPE_DISABLED = "disabled";
 
+    // ServiceTier.Enum
+    public static final String SERVICE_TIER_AUTO = "auto";
+    public static final String SERVICE_TIER_DEFAULT = "default";
+    public static final String SERVICE_TIER_FAST = "fast";
+
     private ResponsesConstants() {
         // Prevent instantiation
     }
