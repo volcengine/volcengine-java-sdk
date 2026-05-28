@@ -339,6 +339,5 @@
         <module>volcengine-java-sdk-arkclaw</module>
         <module>volcengine-java-sdk-las20240430</module>
         <module>volcengine-java-sdk-vod20260101</module>
-        <module>volcengine-java-sdk-resourcecenter20230601</module>
     </modules>
 </project>
