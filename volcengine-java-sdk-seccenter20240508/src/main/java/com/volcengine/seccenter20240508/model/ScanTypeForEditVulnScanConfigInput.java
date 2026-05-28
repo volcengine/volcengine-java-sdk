@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ScanTypeForEditVulnScanConfigInput {
+  @SerializedName("AIApp")
+  private Boolean aiApp = null;
+
   @SerializedName("App")
   private Boolean app = null;
 
@@ -50,6 +53,24 @@ public class ScanTypeForEditVulnScanConfigInput {
 
   @SerializedName("Windows")
   private Boolean windows = null;
+
+  public ScanTypeForEditVulnScanConfigInput aiApp(Boolean aiApp) {
+    this.aiApp = aiApp;
+    return this;
+  }
+
+   /**
+   * Get aiApp
+   * @return aiApp
+  **/
+  @Schema(description = "")
+  public Boolean isAiApp() {
+    return aiApp;
+  }
+
+  public void setAiApp(Boolean aiApp) {
+    this.aiApp = aiApp;
+  }
 
   public ScanTypeForEditVulnScanConfigInput app(Boolean app) {
     this.app = app;
@@ -187,7 +208,8 @@ public class ScanTypeForEditVulnScanConfigInput {
       return false;
     }
     ScanTypeForEditVulnScanConfigInput scanTypeForEditVulnScanConfigInput = (ScanTypeForEditVulnScanConfigInput) o;
-    return Objects.equals(this.app, scanTypeForEditVulnScanConfigInput.app) &&
+    return Objects.equals(this.aiApp, scanTypeForEditVulnScanConfigInput.aiApp) &&
+        Objects.equals(this.app, scanTypeForEditVulnScanConfigInput.app) &&
         Objects.equals(this.devLinux, scanTypeForEditVulnScanConfigInput.devLinux) &&
         Objects.equals(this.devPy, scanTypeForEditVulnScanConfigInput.devPy) &&
         Objects.equals(this.emg, scanTypeForEditVulnScanConfigInput.emg) &&
@@ -198,7 +220,7 @@ public class ScanTypeForEditVulnScanConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, devLinux, devPy, emg, linux, webcms, windows);
+    return Objects.hash(aiApp, app, devLinux, devPy, emg, linux, webcms, windows);
   }
 
 
@@ -207,6 +229,7 @@ public class ScanTypeForEditVulnScanConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScanTypeForEditVulnScanConfigInput {\n");
     
+    sb.append("    aiApp: ").append(toIndentedString(aiApp)).append("\n");
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    devLinux: ").append(toIndentedString(devLinux)).append("\n");
     sb.append("    devPy: ").append(toIndentedString(devPy)).append("\n");

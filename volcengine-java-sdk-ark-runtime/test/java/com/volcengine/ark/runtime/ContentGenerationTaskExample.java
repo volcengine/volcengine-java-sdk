@@ -52,6 +52,7 @@ public class ContentGenerationTaskExample {
                 .content(contents)
                 .serviceTier("default")
                 .executionExpiresAfter(3600L)
+                .priority(0)
                 // .callbackUrl("YOUR CALLBACK URL")
                 .build();
 
@@ -69,6 +70,7 @@ public class ContentGenerationTaskExample {
         System.out.println(getResult);
         System.out.println("ServiceTier: " + getResult.getServiceTier());
         System.out.println("ExecutionExpiresAfter: " + getResult.getExecutionExpiresAfter());
+        System.out.println("Priority: " + getResult.getPriority());
 
         System.out.println("\n----- LIST Task Request -----");
 
@@ -89,6 +91,7 @@ public class ContentGenerationTaskExample {
             ListContentGenerationTasksResponse.Item item = listResponse.getItems().get(0);
             System.out.println("List Item ServiceTier: " + item.getServiceTier());
             System.out.println("List Item ExecutionExpiresAfter: " + item.getExecutionExpiresAfter());
+            System.out.println("List Item Priority: " + item.getPriority());
         }
 
         System.out.println("\n----- DELETE Task Request -----");

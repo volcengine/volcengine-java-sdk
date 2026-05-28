@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectGetVideoUploadStatusOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,34 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoProjectGetVideoUploadStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("videoUploadTasks")
-  private List<VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput> videoUploadTasks = null;
+  @SerializedName("data")
+  private DataForVideoProjectGetVideoUploadStatusOutput data = null;
 
-  public VideoProjectGetVideoUploadStatusResponse videoUploadTasks(List<VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput> videoUploadTasks) {
-    this.videoUploadTasks = videoUploadTasks;
-    return this;
-  }
-
-  public VideoProjectGetVideoUploadStatusResponse addVideoUploadTasksItem(VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput videoUploadTasksItem) {
-    if (this.videoUploadTasks == null) {
-      this.videoUploadTasks = new ArrayList<VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput>();
-    }
-    this.videoUploadTasks.add(videoUploadTasksItem);
+  public VideoProjectGetVideoUploadStatusResponse data(DataForVideoProjectGetVideoUploadStatusOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get videoUploadTasks
-   * @return videoUploadTasks
+   * Get data
+   * @return data
   **/
   @Valid
   @Schema(description = "")
-  public List<VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput> getVideoUploadTasks() {
-    return videoUploadTasks;
+  public DataForVideoProjectGetVideoUploadStatusOutput getData() {
+    return data;
   }
 
-  public void setVideoUploadTasks(List<VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput> videoUploadTasks) {
-    this.videoUploadTasks = videoUploadTasks;
+  public void setData(DataForVideoProjectGetVideoUploadStatusOutput data) {
+    this.data = data;
   }
 
 
@@ -73,12 +63,12 @@ public class VideoProjectGetVideoUploadStatusResponse extends com.volcengine.mod
       return false;
     }
     VideoProjectGetVideoUploadStatusResponse videoProjectGetVideoUploadStatusResponse = (VideoProjectGetVideoUploadStatusResponse) o;
-    return Objects.equals(this.videoUploadTasks, videoProjectGetVideoUploadStatusResponse.videoUploadTasks);
+    return Objects.equals(this.data, videoProjectGetVideoUploadStatusResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(videoUploadTasks);
+    return Objects.hash(data);
   }
 
 
@@ -87,7 +77,7 @@ public class VideoProjectGetVideoUploadStatusResponse extends com.volcengine.mod
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectGetVideoUploadStatusResponse {\n");
     
-    sb.append("    videoUploadTasks: ").append(toIndentedString(videoUploadTasks)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

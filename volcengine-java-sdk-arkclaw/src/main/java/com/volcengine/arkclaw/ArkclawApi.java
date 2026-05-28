@@ -35,6 +35,8 @@ import com.volcengine.arkclaw.model.CreateClawOmniInstanceCommandJobRequest;
 import com.volcengine.arkclaw.model.CreateClawOmniInstanceCommandJobResponse;
 import com.volcengine.arkclaw.model.CreateClawOmniInstanceRequest;
 import com.volcengine.arkclaw.model.CreateClawOmniInstanceResponse;
+import com.volcengine.arkclaw.model.CreatePrivateClawOmniSpaceTemplateRequest;
+import com.volcengine.arkclaw.model.CreatePrivateClawOmniSpaceTemplateResponse;
 import com.volcengine.arkclaw.model.DeleteClawOmniInstanceRequest;
 import com.volcengine.arkclaw.model.DeleteClawOmniInstanceResponse;
 import com.volcengine.arkclaw.model.ExecuteClawOmniInstanceCommandRequest;
@@ -45,6 +47,10 @@ import com.volcengine.arkclaw.model.GetClawOmniInstanceCommandJobRequest;
 import com.volcengine.arkclaw.model.GetClawOmniInstanceCommandJobResponse;
 import com.volcengine.arkclaw.model.GetClawOmniInstanceRequest;
 import com.volcengine.arkclaw.model.GetClawOmniInstanceResponse;
+import com.volcengine.arkclaw.model.GetClawOmniInstanceSkillsRequest;
+import com.volcengine.arkclaw.model.GetClawOmniInstanceSkillsResponse;
+import com.volcengine.arkclaw.model.GetClawOmniSpaceTemplateRequest;
+import com.volcengine.arkclaw.model.GetClawOmniSpaceTemplateResponse;
 import com.volcengine.arkclaw.model.ListClawOmniChannelsRequest;
 import com.volcengine.arkclaw.model.ListClawOmniChannelsResponse;
 import com.volcengine.arkclaw.model.ListClawOmniInstanceCommandJobsRequest;
@@ -57,6 +63,8 @@ import com.volcengine.arkclaw.model.ListClawOmniInstancesRequest;
 import com.volcengine.arkclaw.model.ListClawOmniInstancesResponse;
 import com.volcengine.arkclaw.model.ListClawOmniSpaceEnabledModelsRequest;
 import com.volcengine.arkclaw.model.ListClawOmniSpaceEnabledModelsResponse;
+import com.volcengine.arkclaw.model.ListClawOmniSpaceTemplatesRequest;
+import com.volcengine.arkclaw.model.ListClawOmniSpaceTemplatesResponse;
 import com.volcengine.arkclaw.model.PauseClawOmniInstanceRequest;
 import com.volcengine.arkclaw.model.PauseClawOmniInstanceResponse;
 import com.volcengine.arkclaw.model.RejectClawOmniInstanceDevicePairingRequest;
@@ -73,6 +81,8 @@ import com.volcengine.arkclaw.model.UpdateClawOmniInstanceModelRequest;
 import com.volcengine.arkclaw.model.UpdateClawOmniInstanceModelResponse;
 import com.volcengine.arkclaw.model.UpdateClawOmniInstanceRequest;
 import com.volcengine.arkclaw.model.UpdateClawOmniInstanceResponse;
+import com.volcengine.arkclaw.model.UpdatePrivateClawOmniSpaceTemplateRequest;
+import com.volcengine.arkclaw.model.UpdatePrivateClawOmniSpaceTemplateResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -592,6 +602,130 @@ public class ArkclawApi {
 
         com.squareup.okhttp.Call call = createClawOmniInstanceCommandJobValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateClawOmniInstanceCommandJobResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createPrivateClawOmniSpaceTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createPrivateClawOmniSpaceTemplateCall(CreatePrivateClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreatePrivateClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createPrivateClawOmniSpaceTemplateValidateBeforeCall(CreatePrivateClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createPrivateClawOmniSpaceTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createPrivateClawOmniSpaceTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreatePrivateClawOmniSpaceTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreatePrivateClawOmniSpaceTemplateResponse createPrivateClawOmniSpaceTemplate(CreatePrivateClawOmniSpaceTemplateRequest body) throws ApiException {
+        ApiResponse<CreatePrivateClawOmniSpaceTemplateResponse> resp = createPrivateClawOmniSpaceTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreatePrivateClawOmniSpaceTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreatePrivateClawOmniSpaceTemplateResponse> createPrivateClawOmniSpaceTemplateWithHttpInfo( @NotNull CreatePrivateClawOmniSpaceTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createPrivateClawOmniSpaceTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreatePrivateClawOmniSpaceTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createPrivateClawOmniSpaceTemplateAsync(CreatePrivateClawOmniSpaceTemplateRequest body, final ApiCallback<CreatePrivateClawOmniSpaceTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createPrivateClawOmniSpaceTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreatePrivateClawOmniSpaceTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1212,6 +1346,254 @@ public class ArkclawApi {
 
         com.squareup.okhttp.Call call = getClawOmniInstanceCommandJobLogValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetClawOmniInstanceCommandJobLogResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getClawOmniInstanceSkills
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getClawOmniInstanceSkillsCall(GetClawOmniInstanceSkillsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetClawOmniInstanceSkills/2026-03-01/arkclaw/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getClawOmniInstanceSkillsValidateBeforeCall(GetClawOmniInstanceSkillsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getClawOmniInstanceSkills(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getClawOmniInstanceSkillsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetClawOmniInstanceSkillsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetClawOmniInstanceSkillsResponse getClawOmniInstanceSkills(GetClawOmniInstanceSkillsRequest body) throws ApiException {
+        ApiResponse<GetClawOmniInstanceSkillsResponse> resp = getClawOmniInstanceSkillsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetClawOmniInstanceSkillsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetClawOmniInstanceSkillsResponse> getClawOmniInstanceSkillsWithHttpInfo( @NotNull GetClawOmniInstanceSkillsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getClawOmniInstanceSkillsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetClawOmniInstanceSkillsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getClawOmniInstanceSkillsAsync(GetClawOmniInstanceSkillsRequest body, final ApiCallback<GetClawOmniInstanceSkillsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getClawOmniInstanceSkillsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetClawOmniInstanceSkillsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getClawOmniSpaceTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getClawOmniSpaceTemplateCall(GetClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getClawOmniSpaceTemplateValidateBeforeCall(GetClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getClawOmniSpaceTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getClawOmniSpaceTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetClawOmniSpaceTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetClawOmniSpaceTemplateResponse getClawOmniSpaceTemplate(GetClawOmniSpaceTemplateRequest body) throws ApiException {
+        ApiResponse<GetClawOmniSpaceTemplateResponse> resp = getClawOmniSpaceTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetClawOmniSpaceTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetClawOmniSpaceTemplateResponse> getClawOmniSpaceTemplateWithHttpInfo( @NotNull GetClawOmniSpaceTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getClawOmniSpaceTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetClawOmniSpaceTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getClawOmniSpaceTemplateAsync(GetClawOmniSpaceTemplateRequest body, final ApiCallback<GetClawOmniSpaceTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getClawOmniSpaceTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetClawOmniSpaceTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1956,6 +2338,130 @@ public class ArkclawApi {
 
         com.squareup.okhttp.Call call = listClawOmniSpaceEnabledModelsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListClawOmniSpaceEnabledModelsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listClawOmniSpaceTemplates
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listClawOmniSpaceTemplatesCall(ListClawOmniSpaceTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListClawOmniSpaceTemplates/2026-03-01/arkclaw/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listClawOmniSpaceTemplatesValidateBeforeCall(ListClawOmniSpaceTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listClawOmniSpaceTemplates(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listClawOmniSpaceTemplatesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListClawOmniSpaceTemplatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListClawOmniSpaceTemplatesResponse listClawOmniSpaceTemplates(ListClawOmniSpaceTemplatesRequest body) throws ApiException {
+        ApiResponse<ListClawOmniSpaceTemplatesResponse> resp = listClawOmniSpaceTemplatesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListClawOmniSpaceTemplatesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListClawOmniSpaceTemplatesResponse> listClawOmniSpaceTemplatesWithHttpInfo( @NotNull ListClawOmniSpaceTemplatesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listClawOmniSpaceTemplatesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListClawOmniSpaceTemplatesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listClawOmniSpaceTemplatesAsync(ListClawOmniSpaceTemplatesRequest body, final ApiCallback<ListClawOmniSpaceTemplatesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listClawOmniSpaceTemplatesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListClawOmniSpaceTemplatesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2948,6 +3454,130 @@ public class ArkclawApi {
 
         com.squareup.okhttp.Call call = updateClawOmniInstanceModelValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateClawOmniInstanceModelResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updatePrivateClawOmniSpaceTemplate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updatePrivateClawOmniSpaceTemplateCall(UpdatePrivateClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdatePrivateClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updatePrivateClawOmniSpaceTemplateValidateBeforeCall(UpdatePrivateClawOmniSpaceTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updatePrivateClawOmniSpaceTemplate(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updatePrivateClawOmniSpaceTemplateCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdatePrivateClawOmniSpaceTemplateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdatePrivateClawOmniSpaceTemplateResponse updatePrivateClawOmniSpaceTemplate(UpdatePrivateClawOmniSpaceTemplateRequest body) throws ApiException {
+        ApiResponse<UpdatePrivateClawOmniSpaceTemplateResponse> resp = updatePrivateClawOmniSpaceTemplateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdatePrivateClawOmniSpaceTemplateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdatePrivateClawOmniSpaceTemplateResponse> updatePrivateClawOmniSpaceTemplateWithHttpInfo( @NotNull UpdatePrivateClawOmniSpaceTemplateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updatePrivateClawOmniSpaceTemplateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdatePrivateClawOmniSpaceTemplateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updatePrivateClawOmniSpaceTemplateAsync(UpdatePrivateClawOmniSpaceTemplateRequest body, final ApiCallback<UpdatePrivateClawOmniSpaceTemplateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updatePrivateClawOmniSpaceTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdatePrivateClawOmniSpaceTemplateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

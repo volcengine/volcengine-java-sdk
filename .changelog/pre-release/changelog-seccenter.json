@@ -1,0 +1,5 @@
+{
+  "description": "SECCENTER: 新增 AddUserAutoDefenseRule, BatchUnBanIPItem, DeleteUserAutoDefenseRule, GetFingerprintAIApp, GetVarmorAuthInfo, ModifyUserAutoDefenseRule；修改 GetRegularClean, GetTenantQuota, DetectVuln, EditVulnScanConfig, GetFingerprintStatistics, GetVulnScanConfig, DescribeFileMonitorOverview, DescribeLastWeekFileChangeTrends, GetTLSInfo, UpdateRegularClean, GetVulnStatistics, ListAutoDefenseRules, SetBruteForceBanConfig",
+  "modules": "service/seccenter",
+  "type": "breaking-change"
+}

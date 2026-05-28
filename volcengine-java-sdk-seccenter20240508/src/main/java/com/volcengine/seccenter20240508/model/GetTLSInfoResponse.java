@@ -61,9 +61,6 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ProjectID")
   private String projectID = null;
 
-  @SerializedName("ProjectId")
-  private String projectId = null;
-
   @SerializedName("QuotaTotal")
   private Long quotaTotal = null;
 
@@ -237,24 +234,6 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     this.projectID = projectID;
   }
 
-  public GetTLSInfoResponse projectId(String projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @Schema(description = "")
-  public String getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
-  }
-
   public GetTLSInfoResponse quotaTotal(Long quotaTotal) {
     this.quotaTotal = quotaTotal;
     return this;
@@ -419,7 +398,6 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.portChangeTopicConfig, getTLSInfoResponse.portChangeTopicConfig) &&
         Objects.equals(this.processStartTopicConfig, getTLSInfoResponse.processStartTopicConfig) &&
         Objects.equals(this.projectID, getTLSInfoResponse.projectID) &&
-        Objects.equals(this.projectId, getTLSInfoResponse.projectId) &&
         Objects.equals(this.quotaTotal, getTLSInfoResponse.quotaTotal) &&
         Objects.equals(this.quotaUsed, getTLSInfoResponse.quotaUsed) &&
         Objects.equals(this.storageDays, getTLSInfoResponse.storageDays) &&
@@ -432,7 +410,7 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmTopicConfig, authorized, bashAuditTopicConfig, loginTopicConfig, open, portChangeTopicConfig, processStartTopicConfig, projectID, projectId, quotaTotal, quotaUsed, storageDays, threshold, topicId, varmorTopicConfig, vulnTopicConfig, vulnTopicId);
+    return Objects.hash(alarmTopicConfig, authorized, bashAuditTopicConfig, loginTopicConfig, open, portChangeTopicConfig, processStartTopicConfig, projectID, quotaTotal, quotaUsed, storageDays, threshold, topicId, varmorTopicConfig, vulnTopicConfig, vulnTopicId);
   }
 
 
@@ -449,7 +427,6 @@ public class GetTLSInfoResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    portChangeTopicConfig: ").append(toIndentedString(portChangeTopicConfig)).append("\n");
     sb.append("    processStartTopicConfig: ").append(toIndentedString(processStartTopicConfig)).append("\n");
     sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    quotaTotal: ").append(toIndentedString(quotaTotal)).append("\n");
     sb.append("    quotaUsed: ").append(toIndentedString(quotaUsed)).append("\n");
     sb.append("    storageDays: ").append(toIndentedString(storageDays)).append("\n");
