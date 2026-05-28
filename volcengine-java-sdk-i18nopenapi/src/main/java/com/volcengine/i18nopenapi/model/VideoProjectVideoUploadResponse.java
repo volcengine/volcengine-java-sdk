@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectVideoUploadOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,25 +31,26 @@ import javax.validation.Valid;
 
 
 public class VideoProjectVideoUploadResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("batchId")
-  private String batchId = null;
+  @SerializedName("data")
+  private DataForVideoProjectVideoUploadOutput data = null;
 
-  public VideoProjectVideoUploadResponse batchId(String batchId) {
-    this.batchId = batchId;
+  public VideoProjectVideoUploadResponse data(DataForVideoProjectVideoUploadOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get batchId
-   * @return batchId
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public String getBatchId() {
-    return batchId;
+  public DataForVideoProjectVideoUploadOutput getData() {
+    return data;
   }
 
-  public void setBatchId(String batchId) {
-    this.batchId = batchId;
+  public void setData(DataForVideoProjectVideoUploadOutput data) {
+    this.data = data;
   }
 
 
@@ -61,12 +63,12 @@ public class VideoProjectVideoUploadResponse extends com.volcengine.model.Abstra
       return false;
     }
     VideoProjectVideoUploadResponse videoProjectVideoUploadResponse = (VideoProjectVideoUploadResponse) o;
-    return Objects.equals(this.batchId, videoProjectVideoUploadResponse.batchId);
+    return Objects.equals(this.data, videoProjectVideoUploadResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId);
+    return Objects.hash(data);
   }
 
 
@@ -75,7 +77,7 @@ public class VideoProjectVideoUploadResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectVideoUploadResponse {\n");
     
-    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

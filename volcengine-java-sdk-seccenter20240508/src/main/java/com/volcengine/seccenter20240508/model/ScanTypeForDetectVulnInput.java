@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ScanTypeForDetectVulnInput {
+  @SerializedName("AIApp")
+  private Boolean aiApp = null;
+
   @SerializedName("App")
   private Boolean app = null;
 
@@ -50,6 +53,24 @@ public class ScanTypeForDetectVulnInput {
 
   @SerializedName("Windows")
   private Boolean windows = null;
+
+  public ScanTypeForDetectVulnInput aiApp(Boolean aiApp) {
+    this.aiApp = aiApp;
+    return this;
+  }
+
+   /**
+   * Get aiApp
+   * @return aiApp
+  **/
+  @Schema(description = "")
+  public Boolean isAiApp() {
+    return aiApp;
+  }
+
+  public void setAiApp(Boolean aiApp) {
+    this.aiApp = aiApp;
+  }
 
   public ScanTypeForDetectVulnInput app(Boolean app) {
     this.app = app;
@@ -187,7 +208,8 @@ public class ScanTypeForDetectVulnInput {
       return false;
     }
     ScanTypeForDetectVulnInput scanTypeForDetectVulnInput = (ScanTypeForDetectVulnInput) o;
-    return Objects.equals(this.app, scanTypeForDetectVulnInput.app) &&
+    return Objects.equals(this.aiApp, scanTypeForDetectVulnInput.aiApp) &&
+        Objects.equals(this.app, scanTypeForDetectVulnInput.app) &&
         Objects.equals(this.devLinux, scanTypeForDetectVulnInput.devLinux) &&
         Objects.equals(this.devPy, scanTypeForDetectVulnInput.devPy) &&
         Objects.equals(this.emg, scanTypeForDetectVulnInput.emg) &&
@@ -198,7 +220,7 @@ public class ScanTypeForDetectVulnInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, devLinux, devPy, emg, linux, webcms, windows);
+    return Objects.hash(aiApp, app, devLinux, devPy, emg, linux, webcms, windows);
   }
 
 
@@ -207,6 +229,7 @@ public class ScanTypeForDetectVulnInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScanTypeForDetectVulnInput {\n");
     
+    sb.append("    aiApp: ").append(toIndentedString(aiApp)).append("\n");
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    devLinux: ").append(toIndentedString(devLinux)).append("\n");
     sb.append("    devPy: ").append(toIndentedString(devPy)).append("\n");

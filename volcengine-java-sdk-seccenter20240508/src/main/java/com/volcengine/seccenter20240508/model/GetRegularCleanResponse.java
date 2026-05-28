@@ -33,6 +33,9 @@ public class GetRegularCleanResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("CleanDays")
   private Long cleanDays = null;
 
+  @SerializedName("CleanHours")
+  private Long cleanHours = null;
+
   @SerializedName("Switch")
   private Boolean _switch = null;
 
@@ -52,6 +55,24 @@ public class GetRegularCleanResponse extends com.volcengine.model.AbstractRespon
 
   public void setCleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
+  }
+
+  public GetRegularCleanResponse cleanHours(Long cleanHours) {
+    this.cleanHours = cleanHours;
+    return this;
+  }
+
+   /**
+   * Get cleanHours
+   * @return cleanHours
+  **/
+  @Schema(description = "")
+  public Long getCleanHours() {
+    return cleanHours;
+  }
+
+  public void setCleanHours(Long cleanHours) {
+    this.cleanHours = cleanHours;
   }
 
   public GetRegularCleanResponse _switch(Boolean _switch) {
@@ -83,12 +104,13 @@ public class GetRegularCleanResponse extends com.volcengine.model.AbstractRespon
     }
     GetRegularCleanResponse getRegularCleanResponse = (GetRegularCleanResponse) o;
     return Objects.equals(this.cleanDays, getRegularCleanResponse.cleanDays) &&
+        Objects.equals(this.cleanHours, getRegularCleanResponse.cleanHours) &&
         Objects.equals(this._switch, getRegularCleanResponse._switch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanDays, _switch);
+    return Objects.hash(cleanDays, cleanHours, _switch);
   }
 
 
@@ -98,6 +120,7 @@ public class GetRegularCleanResponse extends com.volcengine.model.AbstractRespon
     sb.append("class GetRegularCleanResponse {\n");
     
     sb.append("    cleanDays: ").append(toIndentedString(cleanDays)).append("\n");
+    sb.append("    cleanHours: ").append(toIndentedString(cleanHours)).append("\n");
     sb.append("    _switch: ").append(toIndentedString(_switch)).append("\n");
     sb.append("}");
     return sb.toString();

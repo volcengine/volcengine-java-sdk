@@ -33,6 +33,9 @@ public class UpdateRegularCleanRequest {
   @SerializedName("CleanDays")
   private Long cleanDays = null;
 
+  @SerializedName("CleanHours")
+  private Long cleanHours = null;
+
   @SerializedName("Switch")
   private Boolean _switch = null;
 
@@ -52,6 +55,24 @@ public class UpdateRegularCleanRequest {
 
   public void setCleanDays(Long cleanDays) {
     this.cleanDays = cleanDays;
+  }
+
+  public UpdateRegularCleanRequest cleanHours(Long cleanHours) {
+    this.cleanHours = cleanHours;
+    return this;
+  }
+
+   /**
+   * Get cleanHours
+   * @return cleanHours
+  **/
+  @Schema(description = "")
+  public Long getCleanHours() {
+    return cleanHours;
+  }
+
+  public void setCleanHours(Long cleanHours) {
+    this.cleanHours = cleanHours;
   }
 
   public UpdateRegularCleanRequest _switch(Boolean _switch) {
@@ -83,12 +104,13 @@ public class UpdateRegularCleanRequest {
     }
     UpdateRegularCleanRequest updateRegularCleanRequest = (UpdateRegularCleanRequest) o;
     return Objects.equals(this.cleanDays, updateRegularCleanRequest.cleanDays) &&
+        Objects.equals(this.cleanHours, updateRegularCleanRequest.cleanHours) &&
         Objects.equals(this._switch, updateRegularCleanRequest._switch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanDays, _switch);
+    return Objects.hash(cleanDays, cleanHours, _switch);
   }
 
 
@@ -98,6 +120,7 @@ public class UpdateRegularCleanRequest {
     sb.append("class UpdateRegularCleanRequest {\n");
     
     sb.append("    cleanDays: ").append(toIndentedString(cleanDays)).append("\n");
+    sb.append("    cleanHours: ").append(toIndentedString(cleanHours)).append("\n");
     sb.append("    _switch: ").append(toIndentedString(_switch)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -237,6 +237,9 @@ public class ListForListSplitBillDetailOutput {
   @SerializedName("SavingPlanDeductionDiscountAmount")
   private String savingPlanDeductionDiscountAmount = null;
 
+  @SerializedName("SavingPlanDeductionDiscountTotalAmount")
+  private String savingPlanDeductionDiscountTotalAmount = null;
+
   @SerializedName("SavingPlanDeductionSpID")
   private String savingPlanDeductionSpID = null;
 
@@ -1572,6 +1575,24 @@ public class ListForListSplitBillDetailOutput {
     this.savingPlanDeductionDiscountAmount = savingPlanDeductionDiscountAmount;
   }
 
+  public ListForListSplitBillDetailOutput savingPlanDeductionDiscountTotalAmount(String savingPlanDeductionDiscountTotalAmount) {
+    this.savingPlanDeductionDiscountTotalAmount = savingPlanDeductionDiscountTotalAmount;
+    return this;
+  }
+
+   /**
+   * Get savingPlanDeductionDiscountTotalAmount
+   * @return savingPlanDeductionDiscountTotalAmount
+  **/
+  @Schema(description = "")
+  public String getSavingPlanDeductionDiscountTotalAmount() {
+    return savingPlanDeductionDiscountTotalAmount;
+  }
+
+  public void setSavingPlanDeductionDiscountTotalAmount(String savingPlanDeductionDiscountTotalAmount) {
+    this.savingPlanDeductionDiscountTotalAmount = savingPlanDeductionDiscountTotalAmount;
+  }
+
   public ListForListSplitBillDetailOutput savingPlanDeductionSpID(String savingPlanDeductionSpID) {
     this.savingPlanDeductionSpID = savingPlanDeductionSpID;
     return this;
@@ -2209,6 +2230,7 @@ public class ListForListSplitBillDetailOutput {
         Objects.equals(this.resourceID, listForListSplitBillDetailOutput.resourceID) &&
         Objects.equals(this.roundAmount, listForListSplitBillDetailOutput.roundAmount) &&
         Objects.equals(this.savingPlanDeductionDiscountAmount, listForListSplitBillDetailOutput.savingPlanDeductionDiscountAmount) &&
+        Objects.equals(this.savingPlanDeductionDiscountTotalAmount, listForListSplitBillDetailOutput.savingPlanDeductionDiscountTotalAmount) &&
         Objects.equals(this.savingPlanDeductionSpID, listForListSplitBillDetailOutput.savingPlanDeductionSpID) &&
         Objects.equals(this.savingPlanOriginalAmount, listForListSplitBillDetailOutput.savingPlanOriginalAmount) &&
         Objects.equals(this.sellerCustomerName, listForListSplitBillDetailOutput.sellerCustomerName) &&
@@ -2244,7 +2266,7 @@ public class ListForListSplitBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, costUnit, count, countryRegion, couponDeductionAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseDate, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, costUnit, count, countryRegion, couponDeductionAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseDate, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionDiscountTotalAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2322,6 +2344,7 @@ public class ListForListSplitBillDetailOutput {
     sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("    roundAmount: ").append(toIndentedString(roundAmount)).append("\n");
     sb.append("    savingPlanDeductionDiscountAmount: ").append(toIndentedString(savingPlanDeductionDiscountAmount)).append("\n");
+    sb.append("    savingPlanDeductionDiscountTotalAmount: ").append(toIndentedString(savingPlanDeductionDiscountTotalAmount)).append("\n");
     sb.append("    savingPlanDeductionSpID: ").append(toIndentedString(savingPlanDeductionSpID)).append("\n");
     sb.append("    savingPlanOriginalAmount: ").append(toIndentedString(savingPlanOriginalAmount)).append("\n");
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");

@@ -30,10 +30,10 @@ import javax.validation.Valid;
 
 
 public class PointInfoForDescribeLastWeekFileChangeTrendsOutput {
-  @SerializedName("key")
+  @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("value")
+  @SerializedName("Value")
   private Long value = null;
 
   public PointInfoForDescribeLastWeekFileChangeTrendsOutput key(String key) {
