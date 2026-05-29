@@ -31,13 +31,6 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
 
-      - name: Debug GPG
-        run: |
-          echo "GPG version:"
-          gpg --version | head -n 1
-          echo "Secret keys in keyring:"
-          gpg --list-secret-keys --keyid-format=long || echo "No secret keys found"
-
       - name: Extract Version
         id: version
         run: |
