@@ -161,7 +161,7 @@
                         <version>0.8.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <publishingServerId>sonatype-nexus-staging</publishingServerId>
+                            <publishingServerId>central</publishingServerId>
                             <tokenAuth>true</tokenAuth>
                             <autoPublish>true</autoPublish>
                         </configuration>
