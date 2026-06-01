@@ -420,17 +420,57 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     @Override
     public FileMeta uploadFile(UploadFileRequest request) {
-        MultipartBody.Part fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
+        MultipartBody.Part fileBody = null;
+        if (request.getFile() != null) {
+            fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
+        }
         RequestBody purpose = RequestBody.create(MultipartBodyUtils.TYPE, request.getPurpose());
         RequestBody expireAt = null;
         if (request.getExpireAt() != null) {
             expireAt = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt()));
         }
         RequestBody fps = null;
-        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null && request.getPreprocessConfigs().getVideo().getFps() != null) {
-            fps = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getPreprocessConfigs().getVideo().getFps()));
+        RequestBody videoModel = null;
+        RequestBody maxVideoTokens = null;
+        RequestBody minFrameTokens = null;
+        RequestBody maxFrameTokens = null;
+        RequestBody minFrames = null;
+        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null) {
+            Video video = request.getPreprocessConfigs().getVideo();
+            if (video.getFps() != null) {
+                fps = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getFps()));
+            }
+            if (video.getModel() != null) {
+                videoModel = RequestBody.create(MultipartBodyUtils.TYPE, video.getModel());
+            }
+            if (video.getMaxVideoTokens() != null) {
+                maxVideoTokens = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMaxVideoTokens()));
+            }
+            if (video.getMinFrameTokens() != null) {
+                minFrameTokens = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMinFrameTokens()));
+            }
+            if (video.getMaxFrameTokens() != null) {
+                maxFrameTokens = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMaxFrameTokens()));
+            }
+            if (video.getMinFrames() != null) {
+                minFrames = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMinFrames()));
+            }
         }
-        return execute(api.uploadFile(fileBody, purpose, expireAt, fps, new HashMap<>()));
+        RequestBody url = null;
+        if (request.getUrl() != null) {
+            url = RequestBody.create(MultipartBodyUtils.TYPE, request.getUrl());
+        }
+        RequestBody tosBucket = null;
+        RequestBody tosPrefix = null;
+        if (request.getTos() != null) {
+            if (request.getTos().getBucket() != null) {
+                tosBucket = RequestBody.create(MultipartBodyUtils.TYPE, request.getTos().getBucket());
+            }
+            if (request.getTos().getPrefix() != null) {
+                tosPrefix = RequestBody.create(MultipartBodyUtils.TYPE, request.getTos().getPrefix());
+            }
+        }
+        return execute(api.uploadFile(fileBody, purpose, expireAt, fps, videoModel, maxVideoTokens, minFrameTokens, maxFrameTokens, minFrames, url, tosBucket, tosPrefix, new HashMap<>()));
     }
 
     @Override
