@@ -73,13 +73,6 @@ public class FileMeta {
     private String mimeType;
 
     /**
-     * The download URL of the file.
-     * 文件的下载链接。
-     */
-    @JsonProperty(value = "download_url")
-    private String downloadUrl;
-
-    /**
      * Additional details about the status of the file. If the file is in the error state, this will include a message describing the error.
      * 关于文件状态的额外详细信息。如果文件处于错误状态，这将包括描述错误的消息。
      */
@@ -112,7 +105,6 @@ public class FileMeta {
                 ", purpose='" + purpose + '\'' +
                 ", mimeType='" + mimeType + '\'' +
                 ", status='" + status + '\'' +
-                ", downloadUrl='" + downloadUrl + '\'' +
                 ", error=" + error +
                 ", preprocessConfigs=" + preprocessConfigs +
                 ", tos=" + tos +
@@ -207,14 +199,6 @@ public class FileMeta {
         this.mimeType = mimeType;
     }
 
-    public String getDownloadUrl() {
-        return downloadUrl;
-    }
-
-    public void setDownloadUrl(String downloadUrl) {
-        this.downloadUrl = downloadUrl;
-    }
-
     public TosStorage getTos() {
         return tos;
     }
@@ -233,7 +217,6 @@ public class FileMeta {
         private String purpose;
         private String mimeType;
         private String status;
-        private String downloadUrl;
         private ArkErrorDetails error;
         private PreprocessConfigs preprocessConfigs;
         private TosStorage tos;
@@ -290,11 +273,6 @@ public class FileMeta {
             return this;
         }
 
-        public FileBuilder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
-        }
-
         public FileBuilder error(ArkErrorDetails error) {
             this.error = error;
             return this;
@@ -321,7 +299,6 @@ public class FileMeta {
             fileMeta.setPurpose(purpose);
             fileMeta.setMimeType(mimeType);
             fileMeta.setStatus(status);
-            fileMeta.setDownloadUrl(downloadUrl);
             fileMeta.setError(error);
             fileMeta.setPreprocessConfigs(preprocessConfigs);
             fileMeta.setTos(tos);
