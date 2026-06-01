@@ -64,7 +64,7 @@ public class ZoneForListPrivateZonesOutput {
   private String updatedAt = null;
 
   @SerializedName("ZID")
-  private Integer ZID = null;
+  private Long ZID = null;
 
   @SerializedName("ZoneName")
   private String zoneName = null;
@@ -266,7 +266,7 @@ public class ZoneForListPrivateZonesOutput {
     this.updatedAt = updatedAt;
   }
 
-  public ZoneForListPrivateZonesOutput ZID(Integer ZID) {
+  public ZoneForListPrivateZonesOutput ZID(Long ZID) {
     this.ZID = ZID;
     return this;
   }
@@ -276,11 +276,11 @@ public class ZoneForListPrivateZonesOutput {
    * @return ZID
   **/
   @Schema(description = "")
-  public Integer getZID() {
+  public Long getZID() {
     return ZID;
   }
 
-  public void setZID(Integer ZID) {
+  public void setZID(Long ZID) {
     this.ZID = ZID;
   }
 
