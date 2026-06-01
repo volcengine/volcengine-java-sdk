@@ -246,8 +246,10 @@ public class ApiClient {
      */
     public void SetAiccInit() throws Exception {
         AiccModuleConfResult conf = _fetchAiccModuleConf();
-        System.out.printf("AiccList %s, %s, %s, %s, %s%n",
+        /**
+        * System.out.printf("AiccList %s, %s, %s, %s, %s%n",
                 conf.getPccUrl(), conf.getAccID(), conf.getServerID(), conf.getServerName(), conf.getTrnInfo());
+        */
 
         int aiccRftick = 1800;
         String aiccSeraddr = this.url;
