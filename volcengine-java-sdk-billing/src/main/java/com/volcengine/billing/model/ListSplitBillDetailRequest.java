@@ -71,6 +71,9 @@ public class ListSplitBillDetailRequest {
   @SerializedName("Product")
   private List<String> product = null;
 
+  @SerializedName("Project")
+  private List<String> project = null;
+
   @SerializedName("SplitDimension")
   private String splitDimension = null;
 
@@ -353,6 +356,32 @@ public class ListSplitBillDetailRequest {
     this.product = product;
   }
 
+  public ListSplitBillDetailRequest project(List<String> project) {
+    this.project = project;
+    return this;
+  }
+
+  public ListSplitBillDetailRequest addProjectItem(String projectItem) {
+    if (this.project == null) {
+      this.project = new ArrayList<String>();
+    }
+    this.project.add(projectItem);
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public List<String> getProject() {
+    return project;
+  }
+
+  public void setProject(List<String> project) {
+    this.project = project;
+  }
+
   public ListSplitBillDetailRequest splitDimension(String splitDimension) {
     this.splitDimension = splitDimension;
     return this;
@@ -412,13 +441,14 @@ public class ListSplitBillDetailRequest {
         Objects.equals(this.ownerID, listSplitBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listSplitBillDetailRequest.payerID) &&
         Objects.equals(this.product, listSplitBillDetailRequest.product) &&
+        Objects.equals(this.project, listSplitBillDetailRequest.project) &&
         Objects.equals(this.splitDimension, listSplitBillDetailRequest.splitDimension) &&
         Objects.equals(this.splitItemID, listSplitBillDetailRequest.splitItemID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, splitDimension, splitItemID);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, splitDimension, splitItemID);
   }
 
 
@@ -440,6 +470,7 @@ public class ListSplitBillDetailRequest {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    splitDimension: ").append(toIndentedString(splitDimension)).append("\n");
     sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
     sb.append("}");
