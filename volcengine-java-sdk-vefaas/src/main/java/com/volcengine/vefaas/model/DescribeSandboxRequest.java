@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.MetadataForDescribeSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 public class DescribeSandboxRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
+
+  @SerializedName("Metadata")
+  private MetadataForDescribeSandboxInput metadata = null;
 
   @SerializedName("SandboxId")
   private String sandboxId = null;
@@ -53,6 +57,25 @@ public class DescribeSandboxRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public DescribeSandboxRequest metadata(MetadataForDescribeSandboxInput metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public MetadataForDescribeSandboxInput getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(MetadataForDescribeSandboxInput metadata) {
+    this.metadata = metadata;
   }
 
   public DescribeSandboxRequest sandboxId(String sandboxId) {
@@ -85,12 +108,13 @@ public class DescribeSandboxRequest {
     }
     DescribeSandboxRequest describeSandboxRequest = (DescribeSandboxRequest) o;
     return Objects.equals(this.functionId, describeSandboxRequest.functionId) &&
+        Objects.equals(this.metadata, describeSandboxRequest.metadata) &&
         Objects.equals(this.sandboxId, describeSandboxRequest.sandboxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, sandboxId);
+    return Objects.hash(functionId, metadata, sandboxId);
   }
 
 
@@ -100,6 +124,7 @@ public class DescribeSandboxRequest {
     sb.append("class DescribeSandboxRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("}");
     return sb.toString();
