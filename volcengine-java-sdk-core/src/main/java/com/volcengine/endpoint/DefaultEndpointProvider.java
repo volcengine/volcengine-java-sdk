@@ -796,6 +796,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- mock_provider ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("mock_provider", new ServiceEndpointInfo(
+                "mock_provider",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
