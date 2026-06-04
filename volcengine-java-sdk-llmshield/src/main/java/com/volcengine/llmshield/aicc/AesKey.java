@@ -219,13 +219,8 @@ final class AesKey {
             }
             int outputLen;
             if (mac.remaining() > 0) {
-                outputLen =
-                        cipher.doFinal(
-                                mac.array(),
-                                mac.arrayOffset() + mac.position(),
-                                mac.remaining(),
-                                output,
-                                0);
+                byte[] macBytes = Utils.unwrapBytesBuffer(mac.duplicate());
+                outputLen = cipher.doFinal(macBytes, 0, macBytes.length, output, 0);
             } else {
                 outputLen = cipher.doFinal(output, 0);
             }
