@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.ConvertsubtitleForVideoProjectSerialTaskCreateInput;
+import com.volcengine.i18nopenapi.model.EffectSubtitleForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.PureVideoForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.SubtitleForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.VideoForVideoProjectSerialTaskCreateInput;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class SerialInfoForVideoProjectSerialTaskCreateInput {
+  @SerializedName("effectSubtitle")
+  private EffectSubtitleForVideoProjectSerialTaskCreateInput effectSubtitle = null;
+
   @SerializedName("episode")
   private Integer episode = null;
 
@@ -50,6 +54,25 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
 
   @SerializedName("video")
   private VideoForVideoProjectSerialTaskCreateInput video = null;
+
+  public SerialInfoForVideoProjectSerialTaskCreateInput effectSubtitle(EffectSubtitleForVideoProjectSerialTaskCreateInput effectSubtitle) {
+    this.effectSubtitle = effectSubtitle;
+    return this;
+  }
+
+   /**
+   * Get effectSubtitle
+   * @return effectSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public EffectSubtitleForVideoProjectSerialTaskCreateInput getEffectSubtitle() {
+    return effectSubtitle;
+  }
+
+  public void setEffectSubtitle(EffectSubtitleForVideoProjectSerialTaskCreateInput effectSubtitle) {
+    this.effectSubtitle = effectSubtitle;
+  }
 
   public SerialInfoForVideoProjectSerialTaskCreateInput episode(Integer episode) {
     this.episode = episode;
@@ -163,7 +186,8 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
       return false;
     }
     SerialInfoForVideoProjectSerialTaskCreateInput serialInfoForVideoProjectSerialTaskCreateInput = (SerialInfoForVideoProjectSerialTaskCreateInput) o;
-    return Objects.equals(this.episode, serialInfoForVideoProjectSerialTaskCreateInput.episode) &&
+    return Objects.equals(this.effectSubtitle, serialInfoForVideoProjectSerialTaskCreateInput.effectSubtitle) &&
+        Objects.equals(this.episode, serialInfoForVideoProjectSerialTaskCreateInput.episode) &&
         Objects.equals(this.pureVideo, serialInfoForVideoProjectSerialTaskCreateInput.pureVideo) &&
         Objects.equals(this.subtitle, serialInfoForVideoProjectSerialTaskCreateInput.subtitle) &&
         Objects.equals(this.subtitles, serialInfoForVideoProjectSerialTaskCreateInput.subtitles) &&
@@ -172,7 +196,7 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(episode, pureVideo, subtitle, subtitles, video);
+    return Objects.hash(effectSubtitle, episode, pureVideo, subtitle, subtitles, video);
   }
 
 
@@ -181,6 +205,7 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SerialInfoForVideoProjectSerialTaskCreateInput {\n");
     
+    sb.append("    effectSubtitle: ").append(toIndentedString(effectSubtitle)).append("\n");
     sb.append("    episode: ").append(toIndentedString(episode)).append("\n");
     sb.append("    pureVideo: ").append(toIndentedString(pureVideo)).append("\n");
     sb.append("    subtitle: ").append(toIndentedString(subtitle)).append("\n");

@@ -24,6 +24,7 @@ import com.volcengine.vefaas.model.ImageInfoForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceNasMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.MetadataListForDescribeSandboxOutput;
+import com.volcengine.vefaas.model.SidecarForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSandboxResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AssignStatus")
+  private String assignStatus = null;
+
   @SerializedName("AvailabilityZone")
   private String availabilityZone = null;
 
@@ -97,8 +101,29 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("SessionId")
   private String sessionId = null;
 
+  @SerializedName("Sidecars")
+  private List<SidecarForDescribeSandboxOutput> sidecars = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  public DescribeSandboxResponse assignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+    return this;
+  }
+
+   /**
+   * Get assignStatus
+   * @return assignStatus
+  **/
+  @Schema(description = "")
+  public String getAssignStatus() {
+    return assignStatus;
+  }
+
+  public void setAssignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+  }
 
   public DescribeSandboxResponse availabilityZone(String availabilityZone) {
     this.availabilityZone = availabilityZone;
@@ -481,6 +506,33 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.sessionId = sessionId;
   }
 
+  public DescribeSandboxResponse sidecars(List<SidecarForDescribeSandboxOutput> sidecars) {
+    this.sidecars = sidecars;
+    return this;
+  }
+
+  public DescribeSandboxResponse addSidecarsItem(SidecarForDescribeSandboxOutput sidecarsItem) {
+    if (this.sidecars == null) {
+      this.sidecars = new ArrayList<SidecarForDescribeSandboxOutput>();
+    }
+    this.sidecars.add(sidecarsItem);
+    return this;
+  }
+
+   /**
+   * Get sidecars
+   * @return sidecars
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SidecarForDescribeSandboxOutput> getSidecars() {
+    return sidecars;
+  }
+
+  public void setSidecars(List<SidecarForDescribeSandboxOutput> sidecars) {
+    this.sidecars = sidecars;
+  }
+
   public DescribeSandboxResponse status(String status) {
     this.status = status;
     return this;
@@ -509,7 +561,8 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     DescribeSandboxResponse describeSandboxResponse = (DescribeSandboxResponse) o;
-    return Objects.equals(this.availabilityZone, describeSandboxResponse.availabilityZone) &&
+    return Objects.equals(this.assignStatus, describeSandboxResponse.assignStatus) &&
+        Objects.equals(this.availabilityZone, describeSandboxResponse.availabilityZone) &&
         Objects.equals(this.cpuMilli, describeSandboxResponse.cpuMilli) &&
         Objects.equals(this.createdAt, describeSandboxResponse.createdAt) &&
         Objects.equals(this.envs, describeSandboxResponse.envs) &&
@@ -529,12 +582,13 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
         Objects.equals(this.revisionNumber, describeSandboxResponse.revisionNumber) &&
         Objects.equals(this.sessionId, describeSandboxResponse.sessionId) &&
+        Objects.equals(this.sidecars, describeSandboxResponse.sidecars) &&
         Objects.equals(this.status, describeSandboxResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, sessionId, status);
+    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, sessionId, sidecars, status);
   }
 
 
@@ -543,6 +597,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSandboxResponse {\n");
     
+    sb.append("    assignStatus: ").append(toIndentedString(assignStatus)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -563,6 +618,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

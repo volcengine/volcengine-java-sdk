@@ -53,6 +53,9 @@ public class TosMountPointForCreateSandboxInput {
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
 
+  @SerializedName("PreMount")
+  private Boolean preMount = null;
+
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
 
@@ -184,6 +187,24 @@ public class TosMountPointForCreateSandboxInput {
     this.localMountPath = localMountPath;
   }
 
+  public TosMountPointForCreateSandboxInput preMount(Boolean preMount) {
+    this.preMount = preMount;
+    return this;
+  }
+
+   /**
+   * Get preMount
+   * @return preMount
+  **/
+  @Schema(description = "")
+  public Boolean isPreMount() {
+    return preMount;
+  }
+
+  public void setPreMount(Boolean preMount) {
+    this.preMount = preMount;
+  }
+
   public TosMountPointForCreateSandboxInput readOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
@@ -219,12 +240,13 @@ public class TosMountPointForCreateSandboxInput {
         Objects.equals(this.encryptionConfig, tosMountPointForCreateSandboxInput.encryptionConfig) &&
         Objects.equals(this.endpoint, tosMountPointForCreateSandboxInput.endpoint) &&
         Objects.equals(this.localMountPath, tosMountPointForCreateSandboxInput.localMountPath) &&
+        Objects.equals(this.preMount, tosMountPointForCreateSandboxInput.preMount) &&
         Objects.equals(this.readOnly, tosMountPointForCreateSandboxInput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, bucketName, bucketPath, credentials, encryptionConfig, endpoint, localMountPath, readOnly);
+    return Objects.hash(authMode, bucketName, bucketPath, credentials, encryptionConfig, endpoint, localMountPath, preMount, readOnly);
   }
 
 
@@ -240,6 +262,7 @@ public class TosMountPointForCreateSandboxInput {
     sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
+    sb.append("    preMount: ").append(toIndentedString(preMount)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");
     return sb.toString();

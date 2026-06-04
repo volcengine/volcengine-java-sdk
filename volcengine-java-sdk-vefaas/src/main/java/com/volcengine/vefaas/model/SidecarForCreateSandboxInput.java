@@ -52,6 +52,9 @@ public class SidecarForCreateSandboxInput {
   @SerializedName("Image")
   private String image = null;
 
+  @SerializedName("IsInitContainer")
+  private Boolean isInitContainer = null;
+
   @SerializedName("MemoryMB")
   private Integer memoryMB = null;
 
@@ -192,6 +195,24 @@ public class SidecarForCreateSandboxInput {
     this.image = image;
   }
 
+  public SidecarForCreateSandboxInput isInitContainer(Boolean isInitContainer) {
+    this.isInitContainer = isInitContainer;
+    return this;
+  }
+
+   /**
+   * Get isInitContainer
+   * @return isInitContainer
+  **/
+  @Schema(description = "")
+  public Boolean isIsInitContainer() {
+    return isInitContainer;
+  }
+
+  public void setIsInitContainer(Boolean isInitContainer) {
+    this.isInitContainer = isInitContainer;
+  }
+
   public SidecarForCreateSandboxInput memoryMB(Integer memoryMB) {
     this.memoryMB = memoryMB;
     return this;
@@ -244,13 +265,14 @@ public class SidecarForCreateSandboxInput {
         Objects.equals(this.emptyDirVolume, sidecarForCreateSandboxInput.emptyDirVolume) &&
         Objects.equals(this.envs, sidecarForCreateSandboxInput.envs) &&
         Objects.equals(this.image, sidecarForCreateSandboxInput.image) &&
+        Objects.equals(this.isInitContainer, sidecarForCreateSandboxInput.isInitContainer) &&
         Objects.equals(this.memoryMB, sidecarForCreateSandboxInput.memoryMB) &&
         Objects.equals(this.name, sidecarForCreateSandboxInput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, command, cpuMilli, emptyDirVolume, envs, image, memoryMB, name);
+    return Objects.hash(args, command, cpuMilli, emptyDirVolume, envs, image, isInitContainer, memoryMB, name);
   }
 
 
@@ -265,6 +287,7 @@ public class SidecarForCreateSandboxInput {
     sb.append("    emptyDirVolume: ").append(toIndentedString(emptyDirVolume)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    isInitContainer: ").append(toIndentedString(isInitContainer)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
