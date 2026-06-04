@@ -61,7 +61,7 @@ final class EncryptedMessage {
         @Override
         public JsonElement serialize(
                 ByteBuffer src, Type typeOfSrc, JsonSerializationContext context) {
-            ByteBuffer bytes = Base64.getEncoder().encode(src);
+            ByteBuffer bytes = Base64.getEncoder().encode(src.duplicate());
             return new JsonPrimitive(Utils.bytesToString(bytes));
         }
     }
