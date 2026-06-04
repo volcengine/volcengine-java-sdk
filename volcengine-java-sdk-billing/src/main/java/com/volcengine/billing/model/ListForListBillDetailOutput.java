@@ -186,6 +186,15 @@ public class ListForListBillDetailOutput {
   @SerializedName("PayerUserName")
   private String payerUserName = null;
 
+  @SerializedName("PickupVoucherCountUnit")
+  private String pickupVoucherCountUnit = null;
+
+  @SerializedName("PickupVoucherDeductCount")
+  private String pickupVoucherDeductCount = null;
+
+  @SerializedName("PickupVoucherID")
+  private String pickupVoucherID = null;
+
   @SerializedName("PosttaxAmount")
   private String posttaxAmount = null;
 
@@ -1263,6 +1272,60 @@ public class ListForListBillDetailOutput {
     this.payerUserName = payerUserName;
   }
 
+  public ListForListBillDetailOutput pickupVoucherCountUnit(String pickupVoucherCountUnit) {
+    this.pickupVoucherCountUnit = pickupVoucherCountUnit;
+    return this;
+  }
+
+   /**
+   * Get pickupVoucherCountUnit
+   * @return pickupVoucherCountUnit
+  **/
+  @Schema(description = "")
+  public String getPickupVoucherCountUnit() {
+    return pickupVoucherCountUnit;
+  }
+
+  public void setPickupVoucherCountUnit(String pickupVoucherCountUnit) {
+    this.pickupVoucherCountUnit = pickupVoucherCountUnit;
+  }
+
+  public ListForListBillDetailOutput pickupVoucherDeductCount(String pickupVoucherDeductCount) {
+    this.pickupVoucherDeductCount = pickupVoucherDeductCount;
+    return this;
+  }
+
+   /**
+   * Get pickupVoucherDeductCount
+   * @return pickupVoucherDeductCount
+  **/
+  @Schema(description = "")
+  public String getPickupVoucherDeductCount() {
+    return pickupVoucherDeductCount;
+  }
+
+  public void setPickupVoucherDeductCount(String pickupVoucherDeductCount) {
+    this.pickupVoucherDeductCount = pickupVoucherDeductCount;
+  }
+
+  public ListForListBillDetailOutput pickupVoucherID(String pickupVoucherID) {
+    this.pickupVoucherID = pickupVoucherID;
+    return this;
+  }
+
+   /**
+   * Get pickupVoucherID
+   * @return pickupVoucherID
+  **/
+  @Schema(description = "")
+  public String getPickupVoucherID() {
+    return pickupVoucherID;
+  }
+
+  public void setPickupVoucherID(String pickupVoucherID) {
+    this.pickupVoucherID = pickupVoucherID;
+  }
+
   public ListForListBillDetailOutput posttaxAmount(String posttaxAmount) {
     this.posttaxAmount = posttaxAmount;
     return this;
@@ -2171,6 +2234,9 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.payerCustomerName, listForListBillDetailOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListBillDetailOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListBillDetailOutput.payerUserName) &&
+        Objects.equals(this.pickupVoucherCountUnit, listForListBillDetailOutput.pickupVoucherCountUnit) &&
+        Objects.equals(this.pickupVoucherDeductCount, listForListBillDetailOutput.pickupVoucherDeductCount) &&
+        Objects.equals(this.pickupVoucherID, listForListBillDetailOutput.pickupVoucherID) &&
         Objects.equals(this.posttaxAmount, listForListBillDetailOutput.posttaxAmount) &&
         Objects.equals(this.preTaxPayableAmount, listForListBillDetailOutput.preTaxPayableAmount) &&
         Objects.equals(this.preferentialBillAmount, listForListBillDetailOutput.preferentialBillAmount) &&
@@ -2222,7 +2288,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceFactor, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionDiscountTotalAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pickupVoucherCountUnit, pickupVoucherDeductCount, pickupVoucherID, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceFactor, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionDiscountTotalAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2283,6 +2349,9 @@ public class ListForListBillDetailOutput {
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
+    sb.append("    pickupVoucherCountUnit: ").append(toIndentedString(pickupVoucherCountUnit)).append("\n");
+    sb.append("    pickupVoucherDeductCount: ").append(toIndentedString(pickupVoucherDeductCount)).append("\n");
+    sb.append("    pickupVoucherID: ").append(toIndentedString(pickupVoucherID)).append("\n");
     sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
     sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");

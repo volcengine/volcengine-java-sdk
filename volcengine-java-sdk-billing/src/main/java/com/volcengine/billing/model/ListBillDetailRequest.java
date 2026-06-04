@@ -74,6 +74,9 @@ public class ListBillDetailRequest {
   @SerializedName("Product")
   private List<String> product = null;
 
+  @SerializedName("Project")
+  private List<String> project = null;
+
   public ListBillDetailRequest billCategory(List<String> billCategory) {
     this.billCategory = billCategory;
     return this;
@@ -368,6 +371,32 @@ public class ListBillDetailRequest {
     this.product = product;
   }
 
+  public ListBillDetailRequest project(List<String> project) {
+    this.project = project;
+    return this;
+  }
+
+  public ListBillDetailRequest addProjectItem(String projectItem) {
+    if (this.project == null) {
+      this.project = new ArrayList<String>();
+    }
+    this.project.add(projectItem);
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public List<String> getProject() {
+    return project;
+  }
+
+  public void setProject(List<String> project) {
+    this.project = project;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -391,12 +420,13 @@ public class ListBillDetailRequest {
         Objects.equals(this.offset, listBillDetailRequest.offset) &&
         Objects.equals(this.ownerID, listBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listBillDetailRequest.payerID) &&
-        Objects.equals(this.product, listBillDetailRequest.product);
+        Objects.equals(this.product, listBillDetailRequest.product) &&
+        Objects.equals(this.project, listBillDetailRequest.project);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project);
   }
 
 
@@ -419,6 +449,7 @@ public class ListBillDetailRequest {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }
