@@ -87,7 +87,7 @@ public class DataForDescribeControlPolicyOutput {
   private Integer effectStatus = null;
 
   @SerializedName("EndTime")
-  private Integer endTime = null;
+  private Long endTime = null;
 
   @SerializedName("HitCnt")
   private Long hitCnt = null;
@@ -494,7 +494,7 @@ public class DataForDescribeControlPolicyOutput {
     this.effectStatus = effectStatus;
   }
 
-  public DataForDescribeControlPolicyOutput endTime(Integer endTime) {
+  public DataForDescribeControlPolicyOutput endTime(Long endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -504,11 +504,11 @@ public class DataForDescribeControlPolicyOutput {
    * @return endTime
   **/
   @Schema(description = "")
-  public Integer getEndTime() {
+  public Long getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(Integer endTime) {
+  public void setEndTime(Long endTime) {
     this.endTime = endTime;
   }
 
