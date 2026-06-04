@@ -1,21 +1,21 @@
-[← Retry](5-Retry.md) | Error Handling[(中文)](6-ErrorHandling-zh.md) | [Debugging →](7-Debugging.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)
 
 ---
 
-## Error Handling
+## 异常处理
 
-When calling APIs, different types of errors may be returned. You can adopt targeted handling strategies based on the specific error type and error code. For example, network errors can be retried, while business logic errors should be addressed by adjusting parameters or fixing business logic based on the error message. This improves system robustness and user experience.
+在调用接口时，可能会返回不同类型的错误。客户可根据具体的错误类型和错误码，采取有针对性的处理策略。例如，对于网络异常可选择重试，对于业务逻辑错误则应根据错误信息进行参数调整或业务逻辑修正，从而提升系统的健壮性和用户体验。
 
-### Error Classification
+### 错误分类
 
-| Error Type | Description | Exception Type | Notes |
+| 错误类型 | 错误描述 | 返回错误类型 | 说明 |
 |---|---|---|---|
-| 1. Client Error | Request did not reach the server; parameter validation failed | `ApiException` | See code example below |
-| 2. Network/Timeout Error | DNS resolution error or request timeout | `SocketTimeoutException`, `UnknownHostException`, `UnknownServiceException`, `SocketException` | See code example below |
-| 3. Server Error | Request reached the server; business logic error returned | `ApiException` | A `requestId` is available for troubleshooting; see code example below |
-| 4. Other Errors | Any other errors not covered above | `Exception` | See code example below |
+| 1. 客户端错误 | 请求未到达服务端，对参数作验证 | `ApiException` | 详情参见代码示例 |
+| 2. 网络/超时错误 | DNS 解析错误或请求超时 | `SocketTimeoutException`、`UnknownHostException`、`UnknownServiceException`、`SocketException` | 详情参见代码示例 |
+| 3. 服务端错误 | 请求成功到达服务器，返回业务逻辑错误 | `ApiException` | 可以获取到 `requestId` 进行问题排查，详情参见代码示例 |
+| 4. 其它错误 | 未包含在前 3 类中的其它错误处理 | `Exception` | 详情参见代码示例 |
 
-### Code Example
+### 代码示例
 
 ```java
 import com.volcengine.ApiClient;
@@ -42,7 +42,7 @@ public class SampleCode {
                 .setRegion(region)
             ;
         }catch (Exception e) {
-            System.out.println("1. Client error: " + e.getMessage());
+            System.out.println("1. 客户端错误: " + e.getMessage());
         }
 
         EcsApi api = new EcsApi(apiClient);
@@ -57,7 +57,7 @@ public class SampleCode {
             Throwable cause = e.getCause();
             if(cause == null){
                 if (e.getCode() == 0 &&  !StringUtils.isEmpty(e.getMessage())) {
-                    System.out.println("1. Client error: " + e.getMessage());
+                    System.out.println("1. 客户端错误: " + e.getMessage());
                 }
             }else {
                 if (cause instanceof SocketTimeoutException ||
@@ -65,19 +65,19 @@ public class SampleCode {
                     cause instanceof UnknownServiceException ||
                     cause instanceof SocketException
                 ) {
-                    System.out.println("2. Network/timeout error: " + cause.getMessage());
+                    System.out.println("2. 网络/超时错误: " + cause.getMessage());
                 }else {
-                    System.out.println("4. Other error: " + cause.getMessage());
+                    System.out.println("4. 其它错误: " + cause.getMessage());
                 }
             }
 
             if (e.getResponseMetadata() != null && e.getResponseMetadata().getError()!= null) {
                 Error error = e.getResponseMetadata().getError();
-                System.out.println("3. Server error: code: " + error.getCode() + ", message: " + error.getMessage() + ", requestId: " + e.getResponseMetadata().getRequestId());
+                System.out.println("3. 服务端错误: code: " + error.getCode() + ", message: " + error.getMessage() + ", requestId: " + e.getResponseMetadata().getRequestId());
             }
 
         } catch (Exception e){
-            System.out.println("4. Other error: " + e.getMessage());
+            System.out.println("4. 其它错误: " + e.getMessage());
         }
 
     }
@@ -87,4 +87,4 @@ public class SampleCode {
 
 ---
 
-[← Retry](5-Retry.md) | Error Handling[(中文)](6-ErrorHandling-zh.md) | [Debugging →](7-Debugging.md)
+[← 重试机制](6-Retry-zh.md) | 异常处理[(English)](7-ErrorHandling.md) | [Debug 机制 →](8-Debugging-zh.md)

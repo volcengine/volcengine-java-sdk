@@ -1,4 +1,4 @@
-[← Timeout](4-Timeout.md) | Retry[(中文)](5-Retry-zh.md) | [Error Handling →](6-ErrorHandling.md)
+[← Timeout](5-Timeout.md) | Retry[(中文)](6-Retry-zh.md) | [Error Handling →](7-ErrorHandling.md)
 
 ---
 
@@ -10,7 +10,7 @@
 > - `minRetryDelayMs`: `300`
 > - `maxRetryDelayMs`: `300 * 1000`
 > - `retryCondition`: `com.volcengine.retryer.DefaultRetryCondition`
-> - `backoffStrategy`: `com.volcengine.retryer.ExponentialBackoffStrategy`
+> - `backoffStrategy`: `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
 > - `retryErrorCode`: empty set
 
 The SDK retries on network errors and throttling. Business logic errors are not retried.
@@ -132,9 +132,9 @@ Users can customize their own backoff strategy based on their needs.
 2. You can also reuse a built-in backoff strategy such as `ExponentialBackoffStrategy` or `ExponentialWithRandomJitterBackoffStrategy`:
 
     ```java
-    import com.volcengine.retryer.ExponentialWithDecayBackoffStrategy;
+    import com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy;
 
-    class CustomBackoffStrategy extends ExponentialWithDecayBackoffStrategy{
+    class CustomBackoffStrategy extends ExponentialWithRandomJitterBackoffStrategy{
         public long computeDelay(int retryCount){
             long base = super.computeDelay(retryCount); // Call the parent implementation
             long minRetryDelayMs = this.minRetryDelayMs;
@@ -147,4 +147,4 @@ Users can customize their own backoff strategy based on their needs.
 
 ---
 
-[← Timeout](4-Timeout.md) | Retry[(中文)](5-Retry-zh.md) | [Error Handling →](6-ErrorHandling.md)
+[← Timeout](5-Timeout.md) | Retry[(中文)](6-Retry-zh.md) | [Error Handling →](7-ErrorHandling.md)
