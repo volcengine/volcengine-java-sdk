@@ -57,7 +57,7 @@ public class Server implements AutoCloseable {
                                 try {
                                     this.updateTksKeyId();
                                     this.importTksKey();
-                                } catch (IOException e) {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             },
