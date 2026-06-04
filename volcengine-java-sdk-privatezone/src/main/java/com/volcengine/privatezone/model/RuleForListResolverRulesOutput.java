@@ -44,7 +44,7 @@ public class RuleForListResolverRulesOutput {
   private List<ForwardIPForListResolverRulesOutput> forwardIPs = null;
 
   @SerializedName("ID")
-  private Integer ID = null;
+  private Long ID = null;
 
   @SerializedName("LastOperator")
   private String lastOperator = null;
@@ -130,7 +130,7 @@ public class RuleForListResolverRulesOutput {
     this.forwardIPs = forwardIPs;
   }
 
-  public RuleForListResolverRulesOutput ID(Integer ID) {
+  public RuleForListResolverRulesOutput ID(Long ID) {
     this.ID = ID;
     return this;
   }
@@ -140,11 +140,11 @@ public class RuleForListResolverRulesOutput {
    * @return ID
   **/
   @Schema(description = "")
-  public Integer getID() {
+  public Long getID() {
     return ID;
   }
 
-  public void setID(Integer ID) {
+  public void setID(Long ID) {
     this.ID = ID;
   }
 

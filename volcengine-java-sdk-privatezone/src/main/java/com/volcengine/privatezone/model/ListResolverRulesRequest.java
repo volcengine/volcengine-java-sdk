@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class ListResolverRulesRequest {
   @SerializedName("EndpointID")
-  private Integer endpointID = null;
+  private Long endpointID = null;
 
   @SerializedName("EndpointTrn")
   private String endpointTrn = null;
@@ -57,7 +57,7 @@ public class ListResolverRulesRequest {
   @SerializedName("ZoneName")
   private String zoneName = null;
 
-  public ListResolverRulesRequest endpointID(Integer endpointID) {
+  public ListResolverRulesRequest endpointID(Long endpointID) {
     this.endpointID = endpointID;
     return this;
   }
@@ -67,11 +67,11 @@ public class ListResolverRulesRequest {
    * @return endpointID
   **/
   @Schema(description = "")
-  public Integer getEndpointID() {
+  public Long getEndpointID() {
     return endpointID;
   }
 
-  public void setEndpointID(Integer endpointID) {
+  public void setEndpointID(Long endpointID) {
     this.endpointID = endpointID;
   }
 

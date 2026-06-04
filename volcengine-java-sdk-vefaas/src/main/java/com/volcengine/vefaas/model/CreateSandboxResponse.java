@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AssignStatus")
+  private String assignStatus = null;
+
   @SerializedName("SandboxId")
   private String sandboxId = null;
+
+  public CreateSandboxResponse assignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+    return this;
+  }
+
+   /**
+   * Get assignStatus
+   * @return assignStatus
+  **/
+  @Schema(description = "")
+  public String getAssignStatus() {
+    return assignStatus;
+  }
+
+  public void setAssignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+  }
 
   public CreateSandboxResponse sandboxId(String sandboxId) {
     this.sandboxId = sandboxId;
@@ -61,12 +82,13 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     CreateSandboxResponse createSandboxResponse = (CreateSandboxResponse) o;
-    return Objects.equals(this.sandboxId, createSandboxResponse.sandboxId);
+    return Objects.equals(this.assignStatus, createSandboxResponse.assignStatus) &&
+        Objects.equals(this.sandboxId, createSandboxResponse.sandboxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sandboxId);
+    return Objects.hash(assignStatus, sandboxId);
   }
 
 
@@ -75,6 +97,7 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSandboxResponse {\n");
     
+    sb.append("    assignStatus: ").append(toIndentedString(assignStatus)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("}");
     return sb.toString();

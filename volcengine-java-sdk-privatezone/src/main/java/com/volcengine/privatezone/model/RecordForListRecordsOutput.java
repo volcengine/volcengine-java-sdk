@@ -67,7 +67,7 @@ public class RecordForListRecordsOutput {
   private Integer weight = null;
 
   @SerializedName("ZID")
-  private Integer ZID = null;
+  private Long ZID = null;
 
   public RecordForListRecordsOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -285,7 +285,7 @@ public class RecordForListRecordsOutput {
     this.weight = weight;
   }
 
-  public RecordForListRecordsOutput ZID(Integer ZID) {
+  public RecordForListRecordsOutput ZID(Long ZID) {
     this.ZID = ZID;
     return this;
   }
@@ -295,11 +295,11 @@ public class RecordForListRecordsOutput {
    * @return ZID
   **/
   @Schema(description = "")
-  public Integer getZID() {
+  public Long getZID() {
     return ZID;
   }
 
-  public void setZID(Integer ZID) {
+  public void setZID(Long ZID) {
     this.ZID = ZID;
   }
 

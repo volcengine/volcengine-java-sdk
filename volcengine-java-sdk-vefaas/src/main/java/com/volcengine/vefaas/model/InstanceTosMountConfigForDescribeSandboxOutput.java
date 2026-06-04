@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.CredentialsForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.TosMountPointForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,11 +34,57 @@ import javax.validation.Valid;
 
 
 public class InstanceTosMountConfigForDescribeSandboxOutput {
+  @SerializedName("AuthMode")
+  private String authMode = null;
+
+  @SerializedName("Credentials")
+  private CredentialsForDescribeSandboxOutput credentials = null;
+
   @SerializedName("Enable")
   private Boolean enable = null;
 
+  @SerializedName("Mode")
+  private String mode = null;
+
   @SerializedName("TosMountPoints")
   private List<TosMountPointForDescribeSandboxOutput> tosMountPoints = null;
+
+  public InstanceTosMountConfigForDescribeSandboxOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
+
+  public InstanceTosMountConfigForDescribeSandboxOutput credentials(CredentialsForDescribeSandboxOutput credentials) {
+    this.credentials = credentials;
+    return this;
+  }
+
+   /**
+   * Get credentials
+   * @return credentials
+  **/
+  @Valid
+  @Schema(description = "")
+  public CredentialsForDescribeSandboxOutput getCredentials() {
+    return credentials;
+  }
+
+  public void setCredentials(CredentialsForDescribeSandboxOutput credentials) {
+    this.credentials = credentials;
+  }
 
   public InstanceTosMountConfigForDescribeSandboxOutput enable(Boolean enable) {
     this.enable = enable;
@@ -55,6 +102,24 @@ public class InstanceTosMountConfigForDescribeSandboxOutput {
 
   public void setEnable(Boolean enable) {
     this.enable = enable;
+  }
+
+  public InstanceTosMountConfigForDescribeSandboxOutput mode(String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
   }
 
   public InstanceTosMountConfigForDescribeSandboxOutput tosMountPoints(List<TosMountPointForDescribeSandboxOutput> tosMountPoints) {
@@ -94,13 +159,16 @@ public class InstanceTosMountConfigForDescribeSandboxOutput {
       return false;
     }
     InstanceTosMountConfigForDescribeSandboxOutput instanceTosMountConfigForDescribeSandboxOutput = (InstanceTosMountConfigForDescribeSandboxOutput) o;
-    return Objects.equals(this.enable, instanceTosMountConfigForDescribeSandboxOutput.enable) &&
+    return Objects.equals(this.authMode, instanceTosMountConfigForDescribeSandboxOutput.authMode) &&
+        Objects.equals(this.credentials, instanceTosMountConfigForDescribeSandboxOutput.credentials) &&
+        Objects.equals(this.enable, instanceTosMountConfigForDescribeSandboxOutput.enable) &&
+        Objects.equals(this.mode, instanceTosMountConfigForDescribeSandboxOutput.mode) &&
         Objects.equals(this.tosMountPoints, instanceTosMountConfigForDescribeSandboxOutput.tosMountPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, tosMountPoints);
+    return Objects.hash(authMode, credentials, enable, mode, tosMountPoints);
   }
 
 
@@ -109,7 +177,10 @@ public class InstanceTosMountConfigForDescribeSandboxOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceTosMountConfigForDescribeSandboxOutput {\n");
     
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
+    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    tosMountPoints: ").append(toIndentedString(tosMountPoints)).append("\n");
     sb.append("}");
     return sb.toString();
