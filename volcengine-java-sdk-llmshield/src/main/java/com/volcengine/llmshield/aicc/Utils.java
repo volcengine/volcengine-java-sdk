@@ -16,8 +16,7 @@ enum Utils {
 
     static byte[] responseBytes(HttpURLConnection connection) throws IOException {
         ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
-        try {
-            InputStream inputStream = connection.getInputStream();
+        try (InputStream inputStream = connection.getInputStream()) {
             int len;
             byte[] buffer = new byte[1024];
             while ((len = inputStream.read(buffer)) != -1) {
