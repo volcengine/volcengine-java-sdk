@@ -345,6 +345,5 @@
         <module>volcengine-java-sdk-arkclaw</module>
         <module>volcengine-java-sdk-las20240430</module>
         <module>volcengine-java-sdk-vod20260101</module>
-        <module>volcengine-java-sdk-mockprovider20250101</module>
     </modules>
 </project>
