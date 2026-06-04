@@ -40,6 +40,9 @@ public class CreatePrivateZoneRequest {
   @SerializedName("LineMode")
   private Integer lineMode = null;
 
+  @SerializedName("NodataFallback")
+  private Boolean nodataFallback = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -95,6 +98,24 @@ public class CreatePrivateZoneRequest {
 
   public void setLineMode(Integer lineMode) {
     this.lineMode = lineMode;
+  }
+
+  public CreatePrivateZoneRequest nodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
+    return this;
+  }
+
+   /**
+   * Get nodataFallback
+   * @return nodataFallback
+  **/
+  @Schema(description = "")
+  public Boolean isNodataFallback() {
+    return nodataFallback;
+  }
+
+  public void setNodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
   }
 
   public CreatePrivateZoneRequest projectName(String projectName) {
@@ -262,6 +283,7 @@ public class CreatePrivateZoneRequest {
     CreatePrivateZoneRequest createPrivateZoneRequest = (CreatePrivateZoneRequest) o;
     return Objects.equals(this.clientToken, createPrivateZoneRequest.clientToken) &&
         Objects.equals(this.lineMode, createPrivateZoneRequest.lineMode) &&
+        Objects.equals(this.nodataFallback, createPrivateZoneRequest.nodataFallback) &&
         Objects.equals(this.projectName, createPrivateZoneRequest.projectName) &&
         Objects.equals(this.recursionMode, createPrivateZoneRequest.recursionMode) &&
         Objects.equals(this.remark, createPrivateZoneRequest.remark) &&
@@ -273,7 +295,7 @@ public class CreatePrivateZoneRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, lineMode, projectName, recursionMode, remark, tags, vpcTrns, vpcs, zoneName);
+    return Objects.hash(clientToken, lineMode, nodataFallback, projectName, recursionMode, remark, tags, vpcTrns, vpcs, zoneName);
   }
 
 
@@ -284,6 +306,7 @@ public class CreatePrivateZoneRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    lineMode: ").append(toIndentedString(lineMode)).append("\n");
+    sb.append("    nodataFallback: ").append(toIndentedString(nodataFallback)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recursionMode: ").append(toIndentedString(recursionMode)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");

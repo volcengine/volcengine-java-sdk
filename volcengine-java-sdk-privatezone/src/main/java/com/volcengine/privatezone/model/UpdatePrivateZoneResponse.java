@@ -41,6 +41,9 @@ public class UpdatePrivateZoneResponse extends com.volcengine.model.AbstractResp
   @SerializedName("LineMode")
   private Integer lineMode = null;
 
+  @SerializedName("NodataFallback")
+  private Boolean nodataFallback = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -117,6 +120,24 @@ public class UpdatePrivateZoneResponse extends com.volcengine.model.AbstractResp
 
   public void setLineMode(Integer lineMode) {
     this.lineMode = lineMode;
+  }
+
+  public UpdatePrivateZoneResponse nodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
+    return this;
+  }
+
+   /**
+   * Get nodataFallback
+   * @return nodataFallback
+  **/
+  @Schema(description = "")
+  public Boolean isNodataFallback() {
+    return nodataFallback;
+  }
+
+  public void setNodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
   }
 
   public UpdatePrivateZoneResponse projectName(String projectName) {
@@ -284,6 +305,7 @@ public class UpdatePrivateZoneResponse extends com.volcengine.model.AbstractResp
     return Objects.equals(this.createdAt, updatePrivateZoneResponse.createdAt) &&
         Objects.equals(this.lastOperator, updatePrivateZoneResponse.lastOperator) &&
         Objects.equals(this.lineMode, updatePrivateZoneResponse.lineMode) &&
+        Objects.equals(this.nodataFallback, updatePrivateZoneResponse.nodataFallback) &&
         Objects.equals(this.projectName, updatePrivateZoneResponse.projectName) &&
         Objects.equals(this.recordCount, updatePrivateZoneResponse.recordCount) &&
         Objects.equals(this.recursionMode, updatePrivateZoneResponse.recursionMode) &&
@@ -296,7 +318,7 @@ public class UpdatePrivateZoneResponse extends com.volcengine.model.AbstractResp
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, lastOperator, lineMode, projectName, recordCount, recursionMode, region, remark, updatedAt, ZID, zoneName);
+    return Objects.hash(createdAt, lastOperator, lineMode, nodataFallback, projectName, recordCount, recursionMode, region, remark, updatedAt, ZID, zoneName);
   }
 
 
@@ -308,6 +330,7 @@ public class UpdatePrivateZoneResponse extends com.volcengine.model.AbstractResp
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    lastOperator: ").append(toIndentedString(lastOperator)).append("\n");
     sb.append("    lineMode: ").append(toIndentedString(lineMode)).append("\n");
+    sb.append("    nodataFallback: ").append(toIndentedString(nodataFallback)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recordCount: ").append(toIndentedString(recordCount)).append("\n");
     sb.append("    recursionMode: ").append(toIndentedString(recursionMode)).append("\n");
