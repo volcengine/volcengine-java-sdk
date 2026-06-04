@@ -2,7 +2,6 @@ package com.volcengine.ark.runtime.model.files;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.volcengine.ark.runtime.model.responses.request.CreateResponsesRequest;
 
 import java.io.File;
 
@@ -19,6 +18,20 @@ public class UploadFileRequest {
     @JsonProperty(value = "preprocess_configs")
     private PreprocessConfigs preprocessConfigs;
 
+    /**
+     * URL provides an alternative file source (http/https or tos:// scheme).
+     * Mutually exclusive with the binary file field.
+     */
+    @JsonProperty(value = "url")
+    private String url;
+
+    /**
+     * TOS specifies the user-owned TOS bucket destination.
+     * Required when url is provided; optional with binary file upload.
+     */
+    @JsonProperty(value = "tos")
+    private TosStorage tos;
+
     @Override
     public String toString() {
         return "UploadFileRequest{" +
@@ -26,6 +39,8 @@ public class UploadFileRequest {
                 ", purpose='" + purpose + '\'' +
                 ", expireAt=" + expireAt +
                 ", preprocessConfigs=" + preprocessConfigs +
+                ", url='" + url + '\'' +
+                ", tos=" + tos +
                 '}';
     }
 
@@ -61,6 +76,22 @@ public class UploadFileRequest {
         this.preprocessConfigs = preprocessConfigs;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public TosStorage getTos() {
+        return tos;
+    }
+
+    public void setTos(TosStorage tos) {
+        this.tos = tos;
+    }
+
     public static UploadFileRequestBuilder builder() {
         return new UploadFileRequestBuilder();
     }
@@ -70,6 +101,8 @@ public class UploadFileRequest {
         private String purpose;
         private Integer expireAt;
         private PreprocessConfigs preprocessConfigs;
+        private String url;
+        private TosStorage tos;
 
         private UploadFileRequestBuilder() {
         }
@@ -98,12 +131,24 @@ public class UploadFileRequest {
             return this;
         }
 
+        public UploadFileRequestBuilder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+        public UploadFileRequestBuilder tos(TosStorage tos) {
+            this.tos = tos;
+            return this;
+        }
+
         public UploadFileRequest build() {
             UploadFileRequest uploadFileRequest = new UploadFileRequest();
             uploadFileRequest.setFile(file);
             uploadFileRequest.setPurpose(purpose);
             uploadFileRequest.setExpireAt(expireAt);
             uploadFileRequest.setPreprocessConfigs(preprocessConfigs);
+            uploadFileRequest.setUrl(url);
+            uploadFileRequest.setTos(tos);
             return uploadFileRequest;
         }
     }

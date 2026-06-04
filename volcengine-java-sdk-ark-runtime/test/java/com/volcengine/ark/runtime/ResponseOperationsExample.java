@@ -1,11 +1,12 @@
 package com.volcengine.ark.runtime;
 
 import com.volcengine.ark.runtime.model.files.FileMeta;
+import com.volcengine.ark.runtime.model.files.TosStorage;
 import com.volcengine.ark.runtime.model.files.UploadFileRequest;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesThinking;
 import com.volcengine.ark.runtime.model.responses.constant.ResponsesConstants;
-import com.volcengine.ark.runtime.model.responses.content.InputContentItemImage;
 import com.volcengine.ark.runtime.model.responses.content.InputContentItemText;
+import com.volcengine.ark.runtime.model.responses.content.InputContentItemVideo;
 import com.volcengine.ark.runtime.model.responses.item.ItemEasyMessage;
 import com.volcengine.ark.runtime.model.responses.item.MessageContent;
 import com.volcengine.ark.runtime.model.responses.request.*;
@@ -16,7 +17,6 @@ import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
 
-import java.io.File;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ResponseOperationsExample {
 
-    private static final String modelName = "doubao-seed-1-6-250615";
+    private static final String modelName = "doubao-seed-2-0-lite-260428";
 
     public static void main(String[] args) {
         String apiKey = System.getenv("ARK_API_KEY");
@@ -40,13 +40,38 @@ public class ResponseOperationsExample {
         ArkService service = ArkService.builder().dispatcher(dispatcher).timeout(Duration.ofHours(1)).connectionPool(connectionPool).apiKey(apiKey).build();
 
         System.out.println("===== CreateResponse Example=====");
-        // upload a image for responses
-        FileMeta fileMeta = service.uploadFile(
-                UploadFileRequest.builder().
-                        file(new File("/path/to/file.jpeg")). // replace with your image file path
-                        purpose("user_data").
-                        build());
+        // Upload a video via URL, storing to user's own TOS bucket.
+        // Set YOUR_TOS_BUCKET and YOUR_TOS_PREFIX env vars to your own TOS bucket and prefix.
+        String tosBucket = System.getenv("YOUR_TOS_BUCKET");
+        String tosPrefix = System.getenv("YOUR_TOS_PREFIX");
+
+        UploadFileRequest.UploadFileRequestBuilder uploadBuilder = UploadFileRequest.builder()
+                .url("https://ark-project.tos-cn-beijing.volces.com/videos/aigen.mp4")
+                .purpose("user_data");
+        if (tosBucket != null && tosPrefix != null) {
+            uploadBuilder.tos(TosStorage.builder().bucket(tosBucket).prefix(tosPrefix).build());
+        }
+        FileMeta fileMeta = service.uploadFile(uploadBuilder.build());
         System.out.println("Uploaded file: " + fileMeta.getId());
+        if (fileMeta.getTos() != null) {
+            System.out.println("Stored to TOS: bucket=" + fileMeta.getTos().getBucket() + ", objectKey=" + fileMeta.getTos().getObjectKey());
+        }
+
+        // wait for file processing to complete
+        while ("processing".equals(fileMeta.getStatus())) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                break;
+            }
+            fileMeta = service.retrieveFile(fileMeta.getId());
+            System.out.println("File status: " + fileMeta.getStatus());
+        }
+        if (!"active".equals(fileMeta.getStatus())) {
+            System.out.println("File processing failed: " + fileMeta.getStatus());
+            service.shutdownExecutor();
+            return;
+        }
 
         // create a response first
         CreateResponsesRequest request = CreateResponsesRequest.builder()
@@ -55,8 +80,8 @@ public class ResponseOperationsExample {
                 .input(ResponsesInput.builder().addListItem(
                         ItemEasyMessage.builder().role(ResponsesConstants.MESSAGE_ROLE_USER).content(
                                 MessageContent.builder()
-                                        .addListItem(InputContentItemImage.builder().fileId(fileMeta.getId()).build())
-                                        .addListItem(InputContentItemText.builder().text("这是哪里？").build())
+                                        .addListItem(InputContentItemVideo.builder().fileId(fileMeta.getId()).build())
+                                        .addListItem(InputContentItemText.builder().text("描述一下这个视频的内容").build())
                                         .build()
                         ).build()
                 ).build())

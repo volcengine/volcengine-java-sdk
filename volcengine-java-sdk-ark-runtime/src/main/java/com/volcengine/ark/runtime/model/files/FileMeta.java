@@ -66,6 +66,13 @@ public class FileMeta {
     private String status;
 
     /**
+     * The MIME type of the file.
+     * 文件的 MIME 类型。
+     */
+    @JsonProperty(value = "mime_type")
+    private String mimeType;
+
+    /**
      * Additional details about the status of the file. If the file is in the error state, this will include a message describing the error.
      * 关于文件状态的额外详细信息。如果文件处于错误状态，这将包括描述错误的消息。
      */
@@ -74,6 +81,13 @@ public class FileMeta {
 
     @JsonProperty(value = "preprocess_configs")
     private PreprocessConfigs preprocessConfigs;
+
+    /**
+     * TOS storage info. Only set when the file is persisted in a user-owned TOS bucket.
+     * TOS 存储信息。仅当文件存储在用户自有的 TOS bucket 时返回。
+     */
+    @JsonProperty(value = "tos")
+    private TosStorage tos;
 
     public FileMeta() {
     }
@@ -89,9 +103,11 @@ public class FileMeta {
                 ", expireTime='" + expireTime + '\'' +
                 ", filename='" + filename + '\'' +
                 ", purpose='" + purpose + '\'' +
+                ", mimeType='" + mimeType + '\'' +
                 ", status='" + status + '\'' +
                 ", error=" + error +
                 ", preprocessConfigs=" + preprocessConfigs +
+                ", tos=" + tos +
                 '}';
     }
 
@@ -175,6 +191,22 @@ public class FileMeta {
         this.preprocessConfigs = preprocessConfigs;
     }
 
+    public String getMimeType() {
+        return mimeType;
+    }
+
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
+    }
+
+    public TosStorage getTos() {
+        return tos;
+    }
+
+    public void setTos(TosStorage tos) {
+        this.tos = tos;
+    }
+
     public static final class FileBuilder {
         private String id;
         private String object;
@@ -183,9 +215,11 @@ public class FileMeta {
         private String expireTime;
         private String filename;
         private String purpose;
+        private String mimeType;
         private String status;
         private ArkErrorDetails error;
         private PreprocessConfigs preprocessConfigs;
+        private TosStorage tos;
 
         private FileBuilder() {
         }
@@ -229,6 +263,11 @@ public class FileMeta {
             return this;
         }
 
+        public FileBuilder mimeType(String mimeType) {
+            this.mimeType = mimeType;
+            return this;
+        }
+
         public FileBuilder status(String status) {
             this.status = status;
             return this;
@@ -244,6 +283,11 @@ public class FileMeta {
             return this;
         }
 
+        public FileBuilder tos(TosStorage tos) {
+            this.tos = tos;
+            return this;
+        }
+
         public FileMeta build() {
             FileMeta fileMeta = new FileMeta();
             fileMeta.setId(id);
@@ -253,9 +297,11 @@ public class FileMeta {
             fileMeta.setExpireTime(expireTime);
             fileMeta.setFilename(filename);
             fileMeta.setPurpose(purpose);
+            fileMeta.setMimeType(mimeType);
             fileMeta.setStatus(status);
             fileMeta.setError(error);
             fileMeta.setPreprocessConfigs(preprocessConfigs);
+            fileMeta.setTos(tos);
             return fileMeta;
         }
     }

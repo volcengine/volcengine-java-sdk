@@ -420,17 +420,56 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     @Override
     public FileMeta uploadFile(UploadFileRequest request) {
-        MultipartBody.Part fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
-        RequestBody purpose = RequestBody.create(MultipartBodyUtils.TYPE, request.getPurpose());
-        RequestBody expireAt = null;
+        if (request.getFile() != null && request.getUrl() != null) {
+            throw new IllegalArgumentException("file and url are mutually exclusive, only one can be provided");
+        }
+        if (request.getFile() == null && request.getUrl() == null) {
+            throw new IllegalArgumentException("either file or url must be provided");
+        }
+
+        MultipartBody.Part fileBody = null;
+        if (request.getFile() != null) {
+            fileBody = MultipartBodyUtils.getPart(request.getFile(), "file");
+        }
+
+        Map<String, RequestBody> params = new HashMap<>();
+        params.put("purpose", RequestBody.create(MultipartBodyUtils.TYPE, request.getPurpose()));
         if (request.getExpireAt() != null) {
-            expireAt = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt()));
+            params.put("expire_at", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getExpireAt())));
         }
-        RequestBody fps = null;
-        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null && request.getPreprocessConfigs().getVideo().getFps() != null) {
-            fps = RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(request.getPreprocessConfigs().getVideo().getFps()));
+        if (request.getPreprocessConfigs() != null && request.getPreprocessConfigs().getVideo() != null) {
+            Video video = request.getPreprocessConfigs().getVideo();
+            if (video.getFps() != null) {
+                params.put("preprocess_configs[video][fps]", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getFps())));
+            }
+            if (video.getModel() != null) {
+                params.put("preprocess_configs[video][model]", RequestBody.create(MultipartBodyUtils.TYPE, video.getModel()));
+            }
+            if (video.getMaxVideoTokens() != null) {
+                params.put("preprocess_configs[video][max_video_tokens]", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMaxVideoTokens())));
+            }
+            if (video.getMinFrameTokens() != null) {
+                params.put("preprocess_configs[video][min_frame_tokens]", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMinFrameTokens())));
+            }
+            if (video.getMaxFrameTokens() != null) {
+                params.put("preprocess_configs[video][max_frame_tokens]", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMaxFrameTokens())));
+            }
+            if (video.getMinFrames() != null) {
+                params.put("preprocess_configs[video][min_frames]", RequestBody.create(MultipartBodyUtils.TYPE, String.valueOf(video.getMinFrames())));
+            }
         }
-        return execute(api.uploadFile(fileBody, purpose, expireAt, fps, new HashMap<>()));
+        if (request.getUrl() != null) {
+            params.put("url", RequestBody.create(MultipartBodyUtils.TYPE, request.getUrl()));
+        }
+        if (request.getTos() != null) {
+            if (request.getTos().getBucket() != null) {
+                params.put("tos[bucket]", RequestBody.create(MultipartBodyUtils.TYPE, request.getTos().getBucket()));
+            }
+            if (request.getTos().getPrefix() != null) {
+                params.put("tos[prefix]", RequestBody.create(MultipartBodyUtils.TYPE, request.getTos().getPrefix()));
+            }
+        }
+        return execute(api.uploadFile(fileBody, params, new HashMap<>()));
     }
 
     @Override
