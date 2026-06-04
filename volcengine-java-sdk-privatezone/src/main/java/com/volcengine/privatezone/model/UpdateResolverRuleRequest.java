@@ -52,6 +52,9 @@ public class UpdateResolverRuleRequest {
   @SerializedName("Vpcs")
   private List<VpcForUpdateResolverRuleInput> vpcs = null;
 
+  @SerializedName("ZoneName")
+  private String zoneName = null;
+
   public UpdateResolverRuleRequest forwardIPs(List<ForwardIPForUpdateResolverRuleInput> forwardIPs) {
     this.forwardIPs = forwardIPs;
     return this;
@@ -179,6 +182,24 @@ public class UpdateResolverRuleRequest {
     this.vpcs = vpcs;
   }
 
+  public UpdateResolverRuleRequest zoneName(String zoneName) {
+    this.zoneName = zoneName;
+    return this;
+  }
+
+   /**
+   * Get zoneName
+   * @return zoneName
+  **/
+  @Schema(description = "")
+  public String getZoneName() {
+    return zoneName;
+  }
+
+  public void setZoneName(String zoneName) {
+    this.zoneName = zoneName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -194,12 +215,13 @@ public class UpdateResolverRuleRequest {
         Objects.equals(this.name, updateResolverRuleRequest.name) &&
         Objects.equals(this.ruleID, updateResolverRuleRequest.ruleID) &&
         Objects.equals(this.ruleTrn, updateResolverRuleRequest.ruleTrn) &&
-        Objects.equals(this.vpcs, updateResolverRuleRequest.vpcs);
+        Objects.equals(this.vpcs, updateResolverRuleRequest.vpcs) &&
+        Objects.equals(this.zoneName, updateResolverRuleRequest.zoneName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forwardIPs, line, name, ruleID, ruleTrn, vpcs);
+    return Objects.hash(forwardIPs, line, name, ruleID, ruleTrn, vpcs, zoneName);
   }
 
 
@@ -214,6 +236,7 @@ public class UpdateResolverRuleRequest {
     sb.append("    ruleID: ").append(toIndentedString(ruleID)).append("\n");
     sb.append("    ruleTrn: ").append(toIndentedString(ruleTrn)).append("\n");
     sb.append("    vpcs: ").append(toIndentedString(vpcs)).append("\n");
+    sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -74,6 +74,9 @@ public class ListAmortizedCostBillDetailRequest {
   @SerializedName("Product")
   private List<String> product = null;
 
+  @SerializedName("Project")
+  private List<String> project = null;
+
   public ListAmortizedCostBillDetailRequest amortizedDay(String amortizedDay) {
     this.amortizedDay = amortizedDay;
     return this;
@@ -376,6 +379,32 @@ public class ListAmortizedCostBillDetailRequest {
     this.product = product;
   }
 
+  public ListAmortizedCostBillDetailRequest project(List<String> project) {
+    this.project = project;
+    return this;
+  }
+
+  public ListAmortizedCostBillDetailRequest addProjectItem(String projectItem) {
+    if (this.project == null) {
+      this.project = new ArrayList<String>();
+    }
+    this.project.add(projectItem);
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public List<String> getProject() {
+    return project;
+  }
+
+  public void setProject(List<String> project) {
+    this.project = project;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -399,12 +428,13 @@ public class ListAmortizedCostBillDetailRequest {
         Objects.equals(this.offset, listAmortizedCostBillDetailRequest.offset) &&
         Objects.equals(this.ownerID, listAmortizedCostBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listAmortizedCostBillDetailRequest.payerID) &&
-        Objects.equals(this.product, listAmortizedCostBillDetailRequest.product);
+        Objects.equals(this.product, listAmortizedCostBillDetailRequest.product) &&
+        Objects.equals(this.project, listAmortizedCostBillDetailRequest.project);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedDay, amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product);
+    return Objects.hash(amortizedDay, amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project);
   }
 
 
@@ -427,6 +457,7 @@ public class ListAmortizedCostBillDetailRequest {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }

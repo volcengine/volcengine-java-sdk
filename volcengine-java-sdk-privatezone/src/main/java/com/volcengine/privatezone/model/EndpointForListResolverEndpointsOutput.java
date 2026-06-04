@@ -40,8 +40,11 @@ public class EndpointForListResolverEndpointsOutput {
   @SerializedName("Direction")
   private String direction = null;
 
+  @SerializedName("EndpointType")
+  private String endpointType = null;
+
   @SerializedName("ID")
-  private Integer ID = null;
+  private Long ID = null;
 
   @SerializedName("IpConfigs")
   private List<IpConfigForListResolverEndpointsOutput> ipConfigs = null;
@@ -106,7 +109,25 @@ public class EndpointForListResolverEndpointsOutput {
     this.direction = direction;
   }
 
-  public EndpointForListResolverEndpointsOutput ID(Integer ID) {
+  public EndpointForListResolverEndpointsOutput endpointType(String endpointType) {
+    this.endpointType = endpointType;
+    return this;
+  }
+
+   /**
+   * Get endpointType
+   * @return endpointType
+  **/
+  @Schema(description = "")
+  public String getEndpointType() {
+    return endpointType;
+  }
+
+  public void setEndpointType(String endpointType) {
+    this.endpointType = endpointType;
+  }
+
+  public EndpointForListResolverEndpointsOutput ID(Long ID) {
     this.ID = ID;
     return this;
   }
@@ -116,11 +137,11 @@ public class EndpointForListResolverEndpointsOutput {
    * @return ID
   **/
   @Schema(description = "")
-  public Integer getID() {
+  public Long getID() {
     return ID;
   }
 
-  public void setID(Integer ID) {
+  public void setID(Long ID) {
     this.ID = ID;
   }
 
@@ -316,6 +337,7 @@ public class EndpointForListResolverEndpointsOutput {
     EndpointForListResolverEndpointsOutput endpointForListResolverEndpointsOutput = (EndpointForListResolverEndpointsOutput) o;
     return Objects.equals(this.createdAt, endpointForListResolverEndpointsOutput.createdAt) &&
         Objects.equals(this.direction, endpointForListResolverEndpointsOutput.direction) &&
+        Objects.equals(this.endpointType, endpointForListResolverEndpointsOutput.endpointType) &&
         Objects.equals(this.ID, endpointForListResolverEndpointsOutput.ID) &&
         Objects.equals(this.ipConfigs, endpointForListResolverEndpointsOutput.ipConfigs) &&
         Objects.equals(this.name, endpointForListResolverEndpointsOutput.name) &&
@@ -330,7 +352,7 @@ public class EndpointForListResolverEndpointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, direction, ID, ipConfigs, name, projectName, securityGroupID, status, tags, updatedAt, vpcID, vpcRegion);
+    return Objects.hash(createdAt, direction, endpointType, ID, ipConfigs, name, projectName, securityGroupID, status, tags, updatedAt, vpcID, vpcRegion);
   }
 
 
@@ -341,6 +363,7 @@ public class EndpointForListResolverEndpointsOutput {
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    ipConfigs: ").append(toIndentedString(ipConfigs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

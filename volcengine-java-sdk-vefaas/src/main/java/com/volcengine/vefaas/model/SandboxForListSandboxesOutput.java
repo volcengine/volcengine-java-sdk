@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.EBSVolumeForListSandboxesOutput;
+import com.volcengine.vefaas.model.SidecarForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class SandboxForListSandboxesOutput {
+  @SerializedName("AssignStatus")
+  private String assignStatus = null;
+
   @SerializedName("AvailabilityZone")
   private String availabilityZone = null;
 
@@ -41,6 +47,9 @@ public class SandboxForListSandboxesOutput {
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
+
+  @SerializedName("EBSVolumes")
+  private List<EBSVolumeForListSandboxesOutput> ebSVolumes = null;
 
   @SerializedName("ErrorCode")
   private String errorCode = null;
@@ -69,6 +78,9 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
 
+  @SerializedName("PausedAt")
+  private String pausedAt = null;
+
   @SerializedName("Pending")
   private Boolean pending = null;
 
@@ -78,8 +90,29 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("SessionId")
   private String sessionId = null;
 
+  @SerializedName("Sidecars")
+  private List<SidecarForListSandboxesOutput> sidecars = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  public SandboxForListSandboxesOutput assignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+    return this;
+  }
+
+   /**
+   * Get assignStatus
+   * @return assignStatus
+  **/
+  @Schema(description = "")
+  public String getAssignStatus() {
+    return assignStatus;
+  }
+
+  public void setAssignStatus(String assignStatus) {
+    this.assignStatus = assignStatus;
+  }
 
   public SandboxForListSandboxesOutput availabilityZone(String availabilityZone) {
     this.availabilityZone = availabilityZone;
@@ -133,6 +166,33 @@ public class SandboxForListSandboxesOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public SandboxForListSandboxesOutput ebSVolumes(List<EBSVolumeForListSandboxesOutput> ebSVolumes) {
+    this.ebSVolumes = ebSVolumes;
+    return this;
+  }
+
+  public SandboxForListSandboxesOutput addEbSVolumesItem(EBSVolumeForListSandboxesOutput ebSVolumesItem) {
+    if (this.ebSVolumes == null) {
+      this.ebSVolumes = new ArrayList<EBSVolumeForListSandboxesOutput>();
+    }
+    this.ebSVolumes.add(ebSVolumesItem);
+    return this;
+  }
+
+   /**
+   * Get ebSVolumes
+   * @return ebSVolumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EBSVolumeForListSandboxesOutput> getEbSVolumes() {
+    return ebSVolumes;
+  }
+
+  public void setEbSVolumes(List<EBSVolumeForListSandboxesOutput> ebSVolumes) {
+    this.ebSVolumes = ebSVolumes;
   }
 
   public SandboxForListSandboxesOutput errorCode(String errorCode) {
@@ -305,6 +365,24 @@ public class SandboxForListSandboxesOutput {
     this.metadata = metadata;
   }
 
+  public SandboxForListSandboxesOutput pausedAt(String pausedAt) {
+    this.pausedAt = pausedAt;
+    return this;
+  }
+
+   /**
+   * Get pausedAt
+   * @return pausedAt
+  **/
+  @Schema(description = "")
+  public String getPausedAt() {
+    return pausedAt;
+  }
+
+  public void setPausedAt(String pausedAt) {
+    this.pausedAt = pausedAt;
+  }
+
   public SandboxForListSandboxesOutput pending(Boolean pending) {
     this.pending = pending;
     return this;
@@ -359,6 +437,33 @@ public class SandboxForListSandboxesOutput {
     this.sessionId = sessionId;
   }
 
+  public SandboxForListSandboxesOutput sidecars(List<SidecarForListSandboxesOutput> sidecars) {
+    this.sidecars = sidecars;
+    return this;
+  }
+
+  public SandboxForListSandboxesOutput addSidecarsItem(SidecarForListSandboxesOutput sidecarsItem) {
+    if (this.sidecars == null) {
+      this.sidecars = new ArrayList<SidecarForListSandboxesOutput>();
+    }
+    this.sidecars.add(sidecarsItem);
+    return this;
+  }
+
+   /**
+   * Get sidecars
+   * @return sidecars
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SidecarForListSandboxesOutput> getSidecars() {
+    return sidecars;
+  }
+
+  public void setSidecars(List<SidecarForListSandboxesOutput> sidecars) {
+    this.sidecars = sidecars;
+  }
+
   public SandboxForListSandboxesOutput status(String status) {
     this.status = status;
     return this;
@@ -387,9 +492,11 @@ public class SandboxForListSandboxesOutput {
       return false;
     }
     SandboxForListSandboxesOutput sandboxForListSandboxesOutput = (SandboxForListSandboxesOutput) o;
-    return Objects.equals(this.availabilityZone, sandboxForListSandboxesOutput.availabilityZone) &&
+    return Objects.equals(this.assignStatus, sandboxForListSandboxesOutput.assignStatus) &&
+        Objects.equals(this.availabilityZone, sandboxForListSandboxesOutput.availabilityZone) &&
         Objects.equals(this.cpuMilli, sandboxForListSandboxesOutput.cpuMilli) &&
         Objects.equals(this.createdAt, sandboxForListSandboxesOutput.createdAt) &&
+        Objects.equals(this.ebSVolumes, sandboxForListSandboxesOutput.ebSVolumes) &&
         Objects.equals(this.errorCode, sandboxForListSandboxesOutput.errorCode) &&
         Objects.equals(this.errorMessage, sandboxForListSandboxesOutput.errorMessage) &&
         Objects.equals(this.expireAt, sandboxForListSandboxesOutput.expireAt) &&
@@ -399,15 +506,17 @@ public class SandboxForListSandboxesOutput {
         Objects.equals(this.instanceType, sandboxForListSandboxesOutput.instanceType) &&
         Objects.equals(this.memoryMB, sandboxForListSandboxesOutput.memoryMB) &&
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
+        Objects.equals(this.pausedAt, sandboxForListSandboxesOutput.pausedAt) &&
         Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
         Objects.equals(this.sessionId, sandboxForListSandboxesOutput.sessionId) &&
+        Objects.equals(this.sidecars, sandboxForListSandboxesOutput.sidecars) &&
         Objects.equals(this.status, sandboxForListSandboxesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, cpuMilli, createdAt, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pending, revisionNumber, sessionId, status);
+    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, ebSVolumes, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pausedAt, pending, revisionNumber, sessionId, sidecars, status);
   }
 
 
@@ -416,9 +525,11 @@ public class SandboxForListSandboxesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SandboxForListSandboxesOutput {\n");
     
+    sb.append("    assignStatus: ").append(toIndentedString(assignStatus)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    ebSVolumes: ").append(toIndentedString(ebSVolumes)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
@@ -428,9 +539,11 @@ public class SandboxForListSandboxesOutput {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    pausedAt: ").append(toIndentedString(pausedAt)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
