@@ -32,10 +32,10 @@ enum Utils {
 
     static JsonObject responseJson(HttpURLConnection connection) throws IOException {
         JsonObject results;
-        try {
-            Reader reader =
-                    new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
+        try (Reader reader =
+                new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)) {
             results = JsonParser.parseReader(reader).getAsJsonObject();
+        }
         } catch (IOException e) {
             printResponseError(connection);
             throw e;
