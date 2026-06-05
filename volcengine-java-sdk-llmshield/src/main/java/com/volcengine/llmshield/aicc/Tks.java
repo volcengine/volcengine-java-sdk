@@ -1,4 +1,4 @@
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 import at.favre.lib.hkdf.HKDF;
 

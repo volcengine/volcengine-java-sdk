@@ -1,4 +1,4 @@
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 import java.io.IOException;
 import java.nio.file.Paths;

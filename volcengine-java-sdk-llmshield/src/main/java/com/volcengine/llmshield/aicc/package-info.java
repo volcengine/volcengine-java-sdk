@@ -1,4 +1,4 @@
 @NullMarked
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 import org.jspecify.annotations.NullMarked;

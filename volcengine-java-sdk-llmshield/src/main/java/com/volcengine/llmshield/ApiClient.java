@@ -1,9 +1,9 @@
 package com.volcengine.llmshield;
 
-import com.bytedance.jeddak_secure_channel.Client;
-import com.bytedance.jeddak_secure_channel.ClientConfig;
-import com.bytedance.jeddak_secure_channel.EncryptResult;
-import com.bytedance.jeddak_secure_channel.ResponseKey;
+import com.volcengine.llmshield.aicc.Client;
+import com.volcengine.llmshield.aicc.ClientConfig;
+import com.volcengine.llmshield.aicc.EncryptResult;
+import com.volcengine.llmshield.aicc.ResponseKey;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -31,6 +31,10 @@ import java.util.Map;
 
 // 客户端类
 public class ApiClient {
+    // 客户端初始化选项 Key
+    public static final String OPTION_ENABLE_AICC = "EnableAicc";
+    public static final String OPTION_LOG_LEVEL = "LogLevel";
+
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
 
@@ -136,6 +140,7 @@ public class ApiClient {
         return new ApiClient(url, ak, sk, region, timeout);
     }
 
+
     /**
      * 创建新的客户端实例
      *
@@ -151,6 +156,45 @@ public class ApiClient {
      */
     public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
         return new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
+    }
+
+    /**
+     * 创建新的客户端实例（带 JSON 配置，支持代理和连接数）
+     *
+     * @param url        API 请求的基础 URL
+     * @param ak         访问密钥
+     * @param sk         密钥
+     * @param region     区域
+     * @param timeout    连接超时时间（毫秒）
+     * @param proxy      代理地址（如 http://127.0.0.1:8080，无代理则传 null）
+     * @param connMax    最大连接数
+     * @param jsonConfig JSON 配置字符串，支持 EnableAicc 字段（true 时自动初始化 AICC）和 LogLevel 字段（设置日志级别，默认 ERROR）
+     * @return 客户端实例
+     * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
+     */
+    public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy, int connMax, String jsonConfig) throws Exception {
+        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
+        initAiccIfNeeded(client, jsonConfig);
+        return client;
+    }
+
+    /**
+     * 根据 JSON 配置判断是否需要初始化 AICC
+     *
+     * @param client     ApiClient 实例
+     * @param jsonConfig JSON 配置字符串，支持 EnableAicc 和 LogLevel 字段
+     * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
+     */
+    private static void initAiccIfNeeded(ApiClient client, String jsonConfig) throws Exception {
+        if (jsonConfig == null || jsonConfig.isEmpty()) {
+            return;
+        }
+        Map<String, Object> config = OBJECT_MAPPER.readValue(jsonConfig, Map.class);
+        if (Boolean.TRUE.equals(config.get(OPTION_ENABLE_AICC))) {
+            String logLevel = (String) config.getOrDefault(OPTION_LOG_LEVEL, "ERROR");
+            System.setProperty("LOG_LEVEL", logLevel);
+            client.SetAiccInit();
+        }
     }
 
     /**

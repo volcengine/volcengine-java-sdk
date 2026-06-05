@@ -1,4 +1,4 @@
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;

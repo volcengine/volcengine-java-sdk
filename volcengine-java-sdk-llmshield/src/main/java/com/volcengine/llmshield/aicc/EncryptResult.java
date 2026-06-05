@@ -1,4 +1,4 @@
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 public final class EncryptResult {
     public final String ciphertext;

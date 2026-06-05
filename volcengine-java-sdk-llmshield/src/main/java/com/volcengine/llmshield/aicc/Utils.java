@@ -1,4 +1,4 @@
-package com.bytedance.jeddak_secure_channel;
+package com.volcengine.llmshield.aicc;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -34,7 +34,6 @@ enum Utils {
         try (Reader reader =
                 new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)) {
             results = JsonParser.parseReader(reader).getAsJsonObject();
-        }
         } catch (IOException e) {
             printResponseError(connection);
             throw e;
