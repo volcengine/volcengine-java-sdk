@@ -6,6 +6,7 @@ on:
     branches: [master]
     paths:
       - '.changelog/v*.md'
+  workflow_dispatch:
 
 jobs:
   release:
@@ -15,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           fetch-depth: 0
 
       - name: Setup JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9
         with:
           java-version: '8'
           distribution: 'temurin'
@@ -35,7 +36,7 @@ jobs:
         run: |
           VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Build and Test
         run: mvn clean verify -B
@@ -50,7 +51,7 @@ jobs:
       - name: Read Changelog
         id: changelog
         run: |
-          CHANGELOG_FILE=".changelog/${{ steps.version.outputs.tag }}.md"
+          CHANGELOG_FILE=".changelog/v${{ steps.version.outputs.version }}.md"
           if [ -f "$CHANGELOG_FILE" ]; then
             delimiter="$(openssl rand -hex 8)"
             echo "content<<$delimiter" >> $GITHUB_OUTPUT
@@ -62,7 +63,7 @@ jobs:
           fi
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: Release ${{ steps.version.outputs.tag }}

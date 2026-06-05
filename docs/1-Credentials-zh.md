@@ -201,7 +201,7 @@ public class SampleCode {
 
         // 选填字段
         stsAssumeRoleProvider.setHost("sts.volcengineapi.com"); // STS服务地址，默认: sts.volcengineapi.com
-        stsAssumeRoleProvider.setRegion("cn-north-1"); // STS服务区域, 默认: cn-north-1
+        stsAssumeRoleProvider.setRegion("cn-beijing"); // STS服务区域, 默认: cn-beijing
         stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
         stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
         stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
@@ -356,7 +356,8 @@ public class SampleCode {
   - 可选：`session-token` —— 当源 `access-key` / `secret-key` 本身是 STS 临时凭证（比如 SSO/OIDC 下发的），这个 token 会带到链式 AssumeRole 请求的 `X-Security-Token` header。
 - `OIDC`（委托给 `OidcCredentialProvider`）
 - `EcsRole`（委托给 `EcsRoleCredentialProvider`）
-- `SSO`
+- `SSO`（从 CLI sso 缓存读取 STS 凭证；SDK 自动在内存中刷新 access token，永不写入缓存文件）
+- `console-login`（从 CLI console-login 缓存读取 STS 凭证；SDK 通过 OAuth `refresh_token` 在内存中自动刷新，永不写入缓存文件）
 
 > mode 不区分大小写。
 
@@ -379,6 +380,30 @@ public class SampleCode {
     }
 }
 ```
+
+#### 运行时刷新行为（sso / console-login）
+
+`sso` 与 `console-login` 模式下，SDK 自管理刷新，且**永不写入任何本地文件**：
+
+- **配置响应式刷新**：每次凭证过期时，SDK 重新读取 `config.json` 并重建凭证
+  代理，使 profile、mode 或 AK 的变更在下次刷新时自动生效。在单次过期周期内，
+  代理会在内存中维护 token cache 的快照；周期结束、代理重建后，该快照将被丢弃。
+- **只读磁盘**：每次凭证刷新时都会读取 `config.json`、
+  `~/.volcengine/sso/cache/*.json` 与 `~/.volcengine/login/cache/*.json`；当
+  OAuth 服务端拒绝 refresh token 时，各模式还会再读一次磁盘执行 fallback（见
+  下文）。SDK 永不写入。
+- **内存刷新**：缓存的 `access_token` 进入到期窗口（60 秒）后，SDK 用内存中
+  的 `refresh_token` 调 OAuth `/token` 端点续期，仅更新内存状态。SSO 模式还
+  会接着调 Portal `GetRoleCredentials` 拿 STS 三元组。
+- **invalid_grant fallback**（`sso` 与 `console-login` 均适用）：当 OAuth
+  服务端拒绝 refresh token 时，SDK 重新读取一次磁盘 cache。若磁盘上的
+  `refresh_token` 与内存不同（说明 `ve login` / `ve sso login` 在期间更新过），
+  则用磁盘 RT 再尝试一次刷新；否则报错并提示用户重跑 `ve login`
+  （console-login）或 `ve sso login`（SSO）。
+- **refresh_token 过期**：当内存与磁盘上的 refresh_token 都被服务端拒绝时，
+  SDK 抛出明确错误，提示用户重跑 `ve login`（console-login）或 `ve sso login`
+  （SSO）。
+- **并发**：每进程加锁，保证多个调用方共享单次 in-flight refresh。
 
 ### ECS Role 凭证 Provider
 

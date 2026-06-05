@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.EBSVolumeForCreateSandboxInput;
 import com.volcengine.vefaas.model.EmptyDirVolumeForCreateSandboxInput;
 import com.volcengine.vefaas.model.EnvForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceImageInfoForCreateSandboxInput;
@@ -45,6 +46,9 @@ public class CreateSandboxRequest {
 
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
+
+  @SerializedName("EBSVolumes")
+  private List<EBSVolumeForCreateSandboxInput> ebSVolumes = null;
 
   @SerializedName("EmptyDirVolume")
   private List<EmptyDirVolumeForCreateSandboxInput> emptyDirVolume = null;
@@ -75,6 +79,9 @@ public class CreateSandboxRequest {
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
+
+  @SerializedName("RoleChainTrn")
+  private List<String> roleChainTrn = null;
 
   @SerializedName("SessionId")
   private String sessionId = null;
@@ -122,6 +129,33 @@ public class CreateSandboxRequest {
 
   public void setCpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
+  }
+
+  public CreateSandboxRequest ebSVolumes(List<EBSVolumeForCreateSandboxInput> ebSVolumes) {
+    this.ebSVolumes = ebSVolumes;
+    return this;
+  }
+
+  public CreateSandboxRequest addEbSVolumesItem(EBSVolumeForCreateSandboxInput ebSVolumesItem) {
+    if (this.ebSVolumes == null) {
+      this.ebSVolumes = new ArrayList<EBSVolumeForCreateSandboxInput>();
+    }
+    this.ebSVolumes.add(ebSVolumesItem);
+    return this;
+  }
+
+   /**
+   * Get ebSVolumes
+   * @return ebSVolumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EBSVolumeForCreateSandboxInput> getEbSVolumes() {
+    return ebSVolumes;
+  }
+
+  public void setEbSVolumes(List<EBSVolumeForCreateSandboxInput> ebSVolumes) {
+    this.ebSVolumes = ebSVolumes;
   }
 
   public CreateSandboxRequest emptyDirVolume(List<EmptyDirVolumeForCreateSandboxInput> emptyDirVolume) {
@@ -334,6 +368,32 @@ public class CreateSandboxRequest {
     this.requestTimeout = requestTimeout;
   }
 
+  public CreateSandboxRequest roleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+    return this;
+  }
+
+  public CreateSandboxRequest addRoleChainTrnItem(String roleChainTrnItem) {
+    if (this.roleChainTrn == null) {
+      this.roleChainTrn = new ArrayList<String>();
+    }
+    this.roleChainTrn.add(roleChainTrnItem);
+    return this;
+  }
+
+   /**
+   * Get roleChainTrn
+   * @return roleChainTrn
+  **/
+  @Schema(description = "")
+  public List<String> getRoleChainTrn() {
+    return roleChainTrn;
+  }
+
+  public void setRoleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+  }
+
   public CreateSandboxRequest sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
@@ -427,6 +487,7 @@ public class CreateSandboxRequest {
     CreateSandboxRequest createSandboxRequest = (CreateSandboxRequest) o;
     return Objects.equals(this.async, createSandboxRequest.async) &&
         Objects.equals(this.cpuMilli, createSandboxRequest.cpuMilli) &&
+        Objects.equals(this.ebSVolumes, createSandboxRequest.ebSVolumes) &&
         Objects.equals(this.emptyDirVolume, createSandboxRequest.emptyDirVolume) &&
         Objects.equals(this.envs, createSandboxRequest.envs) &&
         Objects.equals(this.functionId, createSandboxRequest.functionId) &&
@@ -437,6 +498,7 @@ public class CreateSandboxRequest {
         Objects.equals(this.memoryMB, createSandboxRequest.memoryMB) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
         Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
+        Objects.equals(this.roleChainTrn, createSandboxRequest.roleChainTrn) &&
         Objects.equals(this.sessionId, createSandboxRequest.sessionId) &&
         Objects.equals(this.sidecars, createSandboxRequest.sidecars) &&
         Objects.equals(this.timeout, createSandboxRequest.timeout) &&
@@ -445,7 +507,7 @@ public class CreateSandboxRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, cpuMilli, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, sessionId, sidecars, timeout, timeoutUnit);
+    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, sessionId, sidecars, timeout, timeoutUnit);
   }
 
 
@@ -456,6 +518,7 @@ public class CreateSandboxRequest {
     
     sb.append("    async: ").append(toIndentedString(async)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
+    sb.append("    ebSVolumes: ").append(toIndentedString(ebSVolumes)).append("\n");
     sb.append("    emptyDirVolume: ").append(toIndentedString(emptyDirVolume)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
@@ -466,6 +529,7 @@ public class CreateSandboxRequest {
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

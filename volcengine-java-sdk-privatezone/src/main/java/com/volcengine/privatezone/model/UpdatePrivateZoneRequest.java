@@ -30,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class UpdatePrivateZoneRequest {
+  @SerializedName("LineMode")
+  private Integer lineMode = null;
+
   @SerializedName("LoadBalance")
   private Boolean loadBalance = null;
+
+  @SerializedName("NodataFallback")
+  private Boolean nodataFallback = null;
 
   @SerializedName("RecursionMode")
   private Boolean recursionMode = null;
@@ -41,6 +47,24 @@ public class UpdatePrivateZoneRequest {
 
   @SerializedName("ZID")
   private Long ZID = null;
+
+  public UpdatePrivateZoneRequest lineMode(Integer lineMode) {
+    this.lineMode = lineMode;
+    return this;
+  }
+
+   /**
+   * Get lineMode
+   * @return lineMode
+  **/
+  @Schema(description = "")
+  public Integer getLineMode() {
+    return lineMode;
+  }
+
+  public void setLineMode(Integer lineMode) {
+    this.lineMode = lineMode;
+  }
 
   public UpdatePrivateZoneRequest loadBalance(Boolean loadBalance) {
     this.loadBalance = loadBalance;
@@ -58,6 +82,24 @@ public class UpdatePrivateZoneRequest {
 
   public void setLoadBalance(Boolean loadBalance) {
     this.loadBalance = loadBalance;
+  }
+
+  public UpdatePrivateZoneRequest nodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
+    return this;
+  }
+
+   /**
+   * Get nodataFallback
+   * @return nodataFallback
+  **/
+  @Schema(description = "")
+  public Boolean isNodataFallback() {
+    return nodataFallback;
+  }
+
+  public void setNodataFallback(Boolean nodataFallback) {
+    this.nodataFallback = nodataFallback;
   }
 
   public UpdatePrivateZoneRequest recursionMode(Boolean recursionMode) {
@@ -125,7 +167,9 @@ public class UpdatePrivateZoneRequest {
       return false;
     }
     UpdatePrivateZoneRequest updatePrivateZoneRequest = (UpdatePrivateZoneRequest) o;
-    return Objects.equals(this.loadBalance, updatePrivateZoneRequest.loadBalance) &&
+    return Objects.equals(this.lineMode, updatePrivateZoneRequest.lineMode) &&
+        Objects.equals(this.loadBalance, updatePrivateZoneRequest.loadBalance) &&
+        Objects.equals(this.nodataFallback, updatePrivateZoneRequest.nodataFallback) &&
         Objects.equals(this.recursionMode, updatePrivateZoneRequest.recursionMode) &&
         Objects.equals(this.remark, updatePrivateZoneRequest.remark) &&
         Objects.equals(this.ZID, updatePrivateZoneRequest.ZID);
@@ -133,7 +177,7 @@ public class UpdatePrivateZoneRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalance, recursionMode, remark, ZID);
+    return Objects.hash(lineMode, loadBalance, nodataFallback, recursionMode, remark, ZID);
   }
 
 
@@ -142,7 +186,9 @@ public class UpdatePrivateZoneRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePrivateZoneRequest {\n");
     
+    sb.append("    lineMode: ").append(toIndentedString(lineMode)).append("\n");
     sb.append("    loadBalance: ").append(toIndentedString(loadBalance)).append("\n");
+    sb.append("    nodataFallback: ").append(toIndentedString(nodataFallback)).append("\n");
     sb.append("    recursionMode: ").append(toIndentedString(recursionMode)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    ZID: ").append(toIndentedString(ZID)).append("\n");

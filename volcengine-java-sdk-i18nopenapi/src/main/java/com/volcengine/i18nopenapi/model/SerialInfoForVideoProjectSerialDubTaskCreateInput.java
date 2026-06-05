@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.ConvertsubtitleForVideoProjectSerialDubTaskCreateInput;
+import com.volcengine.i18nopenapi.model.EffectSubtitleForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.PureVideoForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.SubtitleForVideoProjectSerialDubTaskCreateInput;
 import com.volcengine.i18nopenapi.model.VideoForVideoProjectSerialDubTaskCreateInput;
@@ -36,6 +38,12 @@ import javax.validation.Valid;
 
 
 public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
+  @SerializedName("effectSubtitle")
+  private EffectSubtitleForVideoProjectSerialDubTaskCreateInput effectSubtitle = null;
+
+  @SerializedName("effectSubtitles")
+  private List<ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput> effectSubtitles = null;
+
   @SerializedName("episode")
   private Integer episode = null;
 
@@ -50,6 +58,52 @@ public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
 
   @SerializedName("video")
   private VideoForVideoProjectSerialDubTaskCreateInput video = null;
+
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput effectSubtitle(EffectSubtitleForVideoProjectSerialDubTaskCreateInput effectSubtitle) {
+    this.effectSubtitle = effectSubtitle;
+    return this;
+  }
+
+   /**
+   * Get effectSubtitle
+   * @return effectSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public EffectSubtitleForVideoProjectSerialDubTaskCreateInput getEffectSubtitle() {
+    return effectSubtitle;
+  }
+
+  public void setEffectSubtitle(EffectSubtitleForVideoProjectSerialDubTaskCreateInput effectSubtitle) {
+    this.effectSubtitle = effectSubtitle;
+  }
+
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput effectSubtitles(List<ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput> effectSubtitles) {
+    this.effectSubtitles = effectSubtitles;
+    return this;
+  }
+
+  public SerialInfoForVideoProjectSerialDubTaskCreateInput addEffectSubtitlesItem(ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput effectSubtitlesItem) {
+    if (this.effectSubtitles == null) {
+      this.effectSubtitles = new ArrayList<ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput>();
+    }
+    this.effectSubtitles.add(effectSubtitlesItem);
+    return this;
+  }
+
+   /**
+   * Get effectSubtitles
+   * @return effectSubtitles
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput> getEffectSubtitles() {
+    return effectSubtitles;
+  }
+
+  public void setEffectSubtitles(List<ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput> effectSubtitles) {
+    this.effectSubtitles = effectSubtitles;
+  }
 
   public SerialInfoForVideoProjectSerialDubTaskCreateInput episode(Integer episode) {
     this.episode = episode;
@@ -163,7 +217,9 @@ public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
       return false;
     }
     SerialInfoForVideoProjectSerialDubTaskCreateInput serialInfoForVideoProjectSerialDubTaskCreateInput = (SerialInfoForVideoProjectSerialDubTaskCreateInput) o;
-    return Objects.equals(this.episode, serialInfoForVideoProjectSerialDubTaskCreateInput.episode) &&
+    return Objects.equals(this.effectSubtitle, serialInfoForVideoProjectSerialDubTaskCreateInput.effectSubtitle) &&
+        Objects.equals(this.effectSubtitles, serialInfoForVideoProjectSerialDubTaskCreateInput.effectSubtitles) &&
+        Objects.equals(this.episode, serialInfoForVideoProjectSerialDubTaskCreateInput.episode) &&
         Objects.equals(this.pureVideo, serialInfoForVideoProjectSerialDubTaskCreateInput.pureVideo) &&
         Objects.equals(this.subtitle, serialInfoForVideoProjectSerialDubTaskCreateInput.subtitle) &&
         Objects.equals(this.subtitles, serialInfoForVideoProjectSerialDubTaskCreateInput.subtitles) &&
@@ -172,7 +228,7 @@ public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(episode, pureVideo, subtitle, subtitles, video);
+    return Objects.hash(effectSubtitle, effectSubtitles, episode, pureVideo, subtitle, subtitles, video);
   }
 
 
@@ -181,6 +237,8 @@ public class SerialInfoForVideoProjectSerialDubTaskCreateInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SerialInfoForVideoProjectSerialDubTaskCreateInput {\n");
     
+    sb.append("    effectSubtitle: ").append(toIndentedString(effectSubtitle)).append("\n");
+    sb.append("    effectSubtitles: ").append(toIndentedString(effectSubtitles)).append("\n");
     sb.append("    episode: ").append(toIndentedString(episode)).append("\n");
     sb.append("    pureVideo: ").append(toIndentedString(pureVideo)).append("\n");
     sb.append("    subtitle: ").append(toIndentedString(subtitle)).append("\n");
