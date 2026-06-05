@@ -64,8 +64,14 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("NotifyGroupPolicyId")
   private String notifyGroupPolicyId = null;
 
+  @SerializedName("NotifyGroupPolicySource")
+  private String notifyGroupPolicySource = null;
+
   @SerializedName("NotifyPolicyId")
   private String notifyPolicyId = null;
+
+  @SerializedName("NotifyPolicySource")
+  private String notifyPolicySource = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -274,6 +280,24 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
     this.notifyGroupPolicyId = notifyGroupPolicyId;
   }
 
+  public GetAlertingRuleResponse notifyGroupPolicySource(String notifyGroupPolicySource) {
+    this.notifyGroupPolicySource = notifyGroupPolicySource;
+    return this;
+  }
+
+   /**
+   * Get notifyGroupPolicySource
+   * @return notifyGroupPolicySource
+  **/
+  @Schema(description = "")
+  public String getNotifyGroupPolicySource() {
+    return notifyGroupPolicySource;
+  }
+
+  public void setNotifyGroupPolicySource(String notifyGroupPolicySource) {
+    this.notifyGroupPolicySource = notifyGroupPolicySource;
+  }
+
   public GetAlertingRuleResponse notifyPolicyId(String notifyPolicyId) {
     this.notifyPolicyId = notifyPolicyId;
     return this;
@@ -290,6 +314,24 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
 
   public void setNotifyPolicyId(String notifyPolicyId) {
     this.notifyPolicyId = notifyPolicyId;
+  }
+
+  public GetAlertingRuleResponse notifyPolicySource(String notifyPolicySource) {
+    this.notifyPolicySource = notifyPolicySource;
+    return this;
+  }
+
+   /**
+   * Get notifyPolicySource
+   * @return notifyPolicySource
+  **/
+  @Schema(description = "")
+  public String getNotifyPolicySource() {
+    return notifyPolicySource;
+  }
+
+  public void setNotifyPolicySource(String notifyPolicySource) {
+    this.notifyPolicySource = notifyPolicySource;
   }
 
   public GetAlertingRuleResponse projectName(String projectName) {
@@ -429,7 +471,9 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.levels, getAlertingRuleResponse.levels) &&
         Objects.equals(this.name, getAlertingRuleResponse.name) &&
         Objects.equals(this.notifyGroupPolicyId, getAlertingRuleResponse.notifyGroupPolicyId) &&
+        Objects.equals(this.notifyGroupPolicySource, getAlertingRuleResponse.notifyGroupPolicySource) &&
         Objects.equals(this.notifyPolicyId, getAlertingRuleResponse.notifyPolicyId) &&
+        Objects.equals(this.notifyPolicySource, getAlertingRuleResponse.notifyPolicySource) &&
         Objects.equals(this.projectName, getAlertingRuleResponse.projectName) &&
         Objects.equals(this.query, getAlertingRuleResponse.query) &&
         Objects.equals(this.status, getAlertingRuleResponse.status) &&
@@ -440,7 +484,7 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, projectName, query, status, tags, type, updateTime);
+    return Objects.hash(annotations, createTime, description, groupId, id, labels, levels, name, notifyGroupPolicyId, notifyGroupPolicySource, notifyPolicyId, notifyPolicySource, projectName, query, status, tags, type, updateTime);
   }
 
 
@@ -458,7 +502,9 @@ public class GetAlertingRuleResponse extends com.volcengine.model.AbstractRespon
     sb.append("    levels: ").append(toIndentedString(levels)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyGroupPolicyId: ").append(toIndentedString(notifyGroupPolicyId)).append("\n");
+    sb.append("    notifyGroupPolicySource: ").append(toIndentedString(notifyGroupPolicySource)).append("\n");
     sb.append("    notifyPolicyId: ").append(toIndentedString(notifyPolicyId)).append("\n");
+    sb.append("    notifyPolicySource: ").append(toIndentedString(notifyPolicySource)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

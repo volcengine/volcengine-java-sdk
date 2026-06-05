@@ -37,6 +37,9 @@ public class UpdateWorkspaceRequest {
   @SerializedName("BearerToken")
   private String bearerToken = null;
 
+  @SerializedName("ChargeType")
+  private String chargeType = null;
+
   @SerializedName("DeleteProtectionEnabled")
   private Boolean deleteProtectionEnabled = null;
 
@@ -107,6 +110,24 @@ public class UpdateWorkspaceRequest {
 
   public void setBearerToken(String bearerToken) {
     this.bearerToken = bearerToken;
+  }
+
+  public UpdateWorkspaceRequest chargeType(String chargeType) {
+    this.chargeType = chargeType;
+    return this;
+  }
+
+   /**
+   * Get chargeType
+   * @return chargeType
+  **/
+  @Schema(description = "")
+  public String getChargeType() {
+    return chargeType;
+  }
+
+  public void setChargeType(String chargeType) {
+    this.chargeType = chargeType;
   }
 
   public UpdateWorkspaceRequest deleteProtectionEnabled(Boolean deleteProtectionEnabled) {
@@ -339,6 +360,7 @@ public class UpdateWorkspaceRequest {
     UpdateWorkspaceRequest updateWorkspaceRequest = (UpdateWorkspaceRequest) o;
     return Objects.equals(this.authType, updateWorkspaceRequest.authType) &&
         Objects.equals(this.bearerToken, updateWorkspaceRequest.bearerToken) &&
+        Objects.equals(this.chargeType, updateWorkspaceRequest.chargeType) &&
         Objects.equals(this.deleteProtectionEnabled, updateWorkspaceRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, updateWorkspaceRequest.description) &&
         Objects.equals(this.id, updateWorkspaceRequest.id) &&
@@ -355,7 +377,7 @@ public class UpdateWorkspaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, bearerToken, deleteProtectionEnabled, description, id, instanceTypeId, name, password, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, username);
+    return Objects.hash(authType, bearerToken, chargeType, deleteProtectionEnabled, description, id, instanceTypeId, name, password, publicAccessEnabled, publicQueryBandwidth, publicWriteBandwidth, quota, searchLatencyOffset, username);
   }
 
 
@@ -366,6 +388,7 @@ public class UpdateWorkspaceRequest {
     
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    bearerToken: ").append(toIndentedString(bearerToken)).append("\n");
+    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
