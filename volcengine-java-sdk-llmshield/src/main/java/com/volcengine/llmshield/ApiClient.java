@@ -34,6 +34,9 @@ public class ApiClient {
     // 客户端初始化选项 Key
     public static final String OPTION_ENABLE_AICC = "EnableAicc";
     public static final String OPTION_LOG_LEVEL = "LogLevel";
+    public static final String OPTION_PROXY_ADDR = "ProxyAddr";
+    public static final String OPTION_CONN_MAX = "ConnMax";
+    public static final String OPTION_TIMEOUT = "Timeout";
 
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
@@ -159,42 +162,89 @@ public class ApiClient {
     }
 
     /**
-     * 创建新的客户端实例（带 JSON 配置，支持代理和连接数）
+     * 创建新的客户端实例（带 JSON 配置，支持代理、连接数、超时、AICC 等配置）
+     * <p>
+     * 参考 Go SDK NewWithOptions 实现，jsonConfig 支持以下字段：
+     * <ul>
+     *   <li>EnableAicc (Boolean): 是否启用 AICC 加密能力</li>
+     *   <li>LogLevel (String): AICC 日志级别，默认为 "ERROR"</li>
+     *   <li>ProxyAddr (String): 代理地址，如 "http://proxy.example.com:8080"</li>
+     *   <li>ConnMax (Integer): 最大连接数，设置后会同时设置 MaxConnTotal 和 MaxConnPerRoute</li>
+     *   <li>Timeout (Long): HTTP 客户端超时时间（毫秒），默认为 0（不超时）</li>
+     * </ul>
      *
      * @param url        API 请求的基础 URL
      * @param ak         访问密钥
      * @param sk         密钥
      * @param region     区域
-     * @param timeout    连接超时时间（毫秒）
-     * @param proxy      代理地址（如 http://127.0.0.1:8080，无代理则传 null）
-     * @param connMax    最大连接数
-     * @param jsonConfig JSON 配置字符串，支持 EnableAicc 字段（true 时自动初始化 AICC）和 LogLevel 字段（设置日志级别，默认 ERROR）
+     * @param jsonConfig JSON 配置字符串，支持 EnableAicc、LogLevel、ProxyAddr、ConnMax、Timeout 字段
      * @return 客户端实例
      * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
      */
-    public static ApiClient New(String url, String ak, String sk, String region, long timeout, String proxy, int connMax, String jsonConfig) throws Exception {
-        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
-        initAiccIfNeeded(client, jsonConfig);
-        return client;
-    }
+    public static ApiClient New(String url, String ak, String sk, String region, String jsonConfig) throws Exception {
+        // 解析 jsonConfig，所有配置项从 jsonConfig 读取
+        Map<String, Object> config = null;
+        if (jsonConfig != null && !jsonConfig.isEmpty()) {
+            config = OBJECT_MAPPER.readValue(jsonConfig, Map.class);
+        }
 
-    /**
-     * 根据 JSON 配置判断是否需要初始化 AICC
-     *
-     * @param client     ApiClient 实例
-     * @param jsonConfig JSON 配置字符串，支持 EnableAicc 和 LogLevel 字段
-     * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
-     */
-    private static void initAiccIfNeeded(ApiClient client, String jsonConfig) throws Exception {
-        if (jsonConfig == null || jsonConfig.isEmpty()) {
-            return;
+        // 1. 配置代理
+        String proxy = null;
+        if (config != null && config.containsKey(OPTION_PROXY_ADDR)) {
+            Object proxyAddr = config.get(OPTION_PROXY_ADDR);
+            if (proxyAddr instanceof String && !((String) proxyAddr).isEmpty()) {
+                proxy = (String) proxyAddr;
+            }
         }
-        Map<String, Object> config = OBJECT_MAPPER.readValue(jsonConfig, Map.class);
-        if (Boolean.TRUE.equals(config.get(OPTION_ENABLE_AICC))) {
-            String logLevel = (String) config.getOrDefault(OPTION_LOG_LEVEL, "ERROR");
+
+        // 2. 配置最大连接数
+        int connMax = 0;
+        if (config != null && config.containsKey(OPTION_CONN_MAX)) {
+            Object connMaxVal = config.get(OPTION_CONN_MAX);
+            if (connMaxVal instanceof Number) {
+                int val = ((Number) connMaxVal).intValue();
+                if (val > 0) {
+                    connMax = val;
+                }
+            }
+        }
+
+        // 3. 配置超时时间，默认为 0（不超时），与 Go SDK 对齐
+        long timeout = 0;
+        if (config != null && config.containsKey(OPTION_TIMEOUT)) {
+            Object timeoutVal = config.get(OPTION_TIMEOUT);
+            if (timeoutVal instanceof Number) {
+                timeout = ((Number) timeoutVal).longValue();
+            }
+        }
+
+        // 创建客户端实例
+        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
+
+        // 4. 配置 AICC
+        if (config != null && Boolean.TRUE.equals(config.get(OPTION_ENABLE_AICC))) {
+            String logLevel = "ERROR";
+            if (config.containsKey(OPTION_LOG_LEVEL)) {
+                Object ll = config.get(OPTION_LOG_LEVEL);
+                if (ll instanceof String && !((String) ll).isEmpty()) {
+                    logLevel = (String) ll;
+                }
+            }
             System.setProperty("LOG_LEVEL", logLevel);
-            client.SetAiccInit();
+            try {
+                client.SetAiccInit();
+            } catch (Exception e) {
+                // AICC 初始化失败，关闭已创建的 httpClient 资源，避免泄漏
+                try {
+                    client.Close();
+                } catch (IOException closeEx) {
+                    // 忽略关闭异常，优先抛出原始的 AICC 初始化异常
+                }
+                throw new Exception("AICC模块初始化失败: " + e.getMessage(), e);
+            }
         }
+
+        return client;
     }
 
     /**
@@ -330,6 +380,9 @@ public class ApiClient {
             this.aiccClient.attestServer();
         } catch (Exception e) {
             System.err.println("AICC远程证明失败: " + e.getMessage());
+            // 远程证明失败，关闭已创建的 aiccClient 资源
+            this.aiccClient.close();
+            this.aiccClient = null;
             throw e;
         }
     }
