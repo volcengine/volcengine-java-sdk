@@ -37,6 +37,9 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupPointName")
   private String backupPointName = null;
 
+  @SerializedName("BackupProgress")
+  private Integer backupProgress = null;
+
   /**
    * Gets or Sets backupStrategy
    */
@@ -244,6 +247,24 @@ public class BackupForDescribeBackupsOutput {
     this.backupPointName = backupPointName;
   }
 
+  public BackupForDescribeBackupsOutput backupProgress(Integer backupProgress) {
+    this.backupProgress = backupProgress;
+    return this;
+  }
+
+   /**
+   * Get backupProgress
+   * @return backupProgress
+  **/
+  @Schema(description = "")
+  public Integer getBackupProgress() {
+    return backupProgress;
+  }
+
+  public void setBackupProgress(Integer backupProgress) {
+    this.backupProgress = backupProgress;
+  }
+
   public BackupForDescribeBackupsOutput backupStrategy(BackupStrategyEnum backupStrategy) {
     this.backupStrategy = backupStrategy;
     return this;
@@ -437,6 +458,7 @@ public class BackupForDescribeBackupsOutput {
     BackupForDescribeBackupsOutput backupForDescribeBackupsOutput = (BackupForDescribeBackupsOutput) o;
     return Objects.equals(this.backupPointId, backupForDescribeBackupsOutput.backupPointId) &&
         Objects.equals(this.backupPointName, backupForDescribeBackupsOutput.backupPointName) &&
+        Objects.equals(this.backupProgress, backupForDescribeBackupsOutput.backupProgress) &&
         Objects.equals(this.backupStrategy, backupForDescribeBackupsOutput.backupStrategy) &&
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.endTime, backupForDescribeBackupsOutput.endTime) &&
@@ -451,7 +473,7 @@ public class BackupForDescribeBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupPointId, backupPointName, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, startTime, status, TTL);
+    return Objects.hash(backupPointId, backupPointName, backupProgress, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, startTime, status, TTL);
   }
 
 
@@ -462,6 +484,7 @@ public class BackupForDescribeBackupsOutput {
     
     sb.append("    backupPointId: ").append(toIndentedString(backupPointId)).append("\n");
     sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
+    sb.append("    backupProgress: ").append(toIndentedString(backupProgress)).append("\n");
     sb.append("    backupStrategy: ").append(toIndentedString(backupStrategy)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");

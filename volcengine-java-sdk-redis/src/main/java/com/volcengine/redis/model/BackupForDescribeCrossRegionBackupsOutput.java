@@ -37,6 +37,9 @@ public class BackupForDescribeCrossRegionBackupsOutput {
   @SerializedName("BackupPointName")
   private String backupPointName = null;
 
+  @SerializedName("BackupProgress")
+  private Integer backupProgress = null;
+
   /**
    * Gets or Sets backupStrategy
    */
@@ -248,6 +251,24 @@ public class BackupForDescribeCrossRegionBackupsOutput {
 
   public void setBackupPointName(String backupPointName) {
     this.backupPointName = backupPointName;
+  }
+
+  public BackupForDescribeCrossRegionBackupsOutput backupProgress(Integer backupProgress) {
+    this.backupProgress = backupProgress;
+    return this;
+  }
+
+   /**
+   * Get backupProgress
+   * @return backupProgress
+  **/
+  @Schema(description = "")
+  public Integer getBackupProgress() {
+    return backupProgress;
+  }
+
+  public void setBackupProgress(Integer backupProgress) {
+    this.backupProgress = backupProgress;
   }
 
   public BackupForDescribeCrossRegionBackupsOutput backupStrategy(BackupStrategyEnum backupStrategy) {
@@ -479,6 +500,7 @@ public class BackupForDescribeCrossRegionBackupsOutput {
     BackupForDescribeCrossRegionBackupsOutput backupForDescribeCrossRegionBackupsOutput = (BackupForDescribeCrossRegionBackupsOutput) o;
     return Objects.equals(this.backupPointId, backupForDescribeCrossRegionBackupsOutput.backupPointId) &&
         Objects.equals(this.backupPointName, backupForDescribeCrossRegionBackupsOutput.backupPointName) &&
+        Objects.equals(this.backupProgress, backupForDescribeCrossRegionBackupsOutput.backupProgress) &&
         Objects.equals(this.backupStrategy, backupForDescribeCrossRegionBackupsOutput.backupStrategy) &&
         Objects.equals(this.backupType, backupForDescribeCrossRegionBackupsOutput.backupType) &&
         Objects.equals(this.endTime, backupForDescribeCrossRegionBackupsOutput.endTime) &&
@@ -495,7 +517,7 @@ public class BackupForDescribeCrossRegionBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupPointId, backupPointName, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, sourceRegion, startTime, status, TTL, targetRegion);
+    return Objects.hash(backupPointId, backupPointName, backupProgress, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, sourceRegion, startTime, status, TTL, targetRegion);
   }
 
 
@@ -506,6 +528,7 @@ public class BackupForDescribeCrossRegionBackupsOutput {
     
     sb.append("    backupPointId: ").append(toIndentedString(backupPointId)).append("\n");
     sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
+    sb.append("    backupProgress: ").append(toIndentedString(backupProgress)).append("\n");
     sb.append("    backupStrategy: ").append(toIndentedString(backupStrategy)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
