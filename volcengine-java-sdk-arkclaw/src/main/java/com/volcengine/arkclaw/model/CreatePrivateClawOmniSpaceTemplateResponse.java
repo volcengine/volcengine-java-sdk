@@ -33,6 +33,12 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ImageBuildStatus")
+  private String imageBuildStatus = null;
+
+  @SerializedName("VersionId")
+  private String versionId = null;
+
   public CreatePrivateClawOmniSpaceTemplateResponse id(String id) {
     this.id = id;
     return this;
@@ -51,6 +57,42 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
     this.id = id;
   }
 
+  public CreatePrivateClawOmniSpaceTemplateResponse imageBuildStatus(String imageBuildStatus) {
+    this.imageBuildStatus = imageBuildStatus;
+    return this;
+  }
+
+   /**
+   * Get imageBuildStatus
+   * @return imageBuildStatus
+  **/
+  @Schema(description = "")
+  public String getImageBuildStatus() {
+    return imageBuildStatus;
+  }
+
+  public void setImageBuildStatus(String imageBuildStatus) {
+    this.imageBuildStatus = imageBuildStatus;
+  }
+
+  public CreatePrivateClawOmniSpaceTemplateResponse versionId(String versionId) {
+    this.versionId = versionId;
+    return this;
+  }
+
+   /**
+   * Get versionId
+   * @return versionId
+  **/
+  @Schema(description = "")
+  public String getVersionId() {
+    return versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +103,14 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
       return false;
     }
     CreatePrivateClawOmniSpaceTemplateResponse createPrivateClawOmniSpaceTemplateResponse = (CreatePrivateClawOmniSpaceTemplateResponse) o;
-    return Objects.equals(this.id, createPrivateClawOmniSpaceTemplateResponse.id);
+    return Objects.equals(this.id, createPrivateClawOmniSpaceTemplateResponse.id) &&
+        Objects.equals(this.imageBuildStatus, createPrivateClawOmniSpaceTemplateResponse.imageBuildStatus) &&
+        Objects.equals(this.versionId, createPrivateClawOmniSpaceTemplateResponse.versionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, imageBuildStatus, versionId);
   }
 
 
@@ -76,6 +120,8 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
     sb.append("class CreatePrivateClawOmniSpaceTemplateResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    imageBuildStatus: ").append(toIndentedString(imageBuildStatus)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
