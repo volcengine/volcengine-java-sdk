@@ -16,8 +16,8 @@ public class ContextManagementEdit {
     @JsonProperty("exclude_tools")
     private List<String> excludeTools;
 
-    @JsonProperty("clear_tool_input")
-    private Boolean clearToolInput;
+    @JsonProperty("clear_tool_inputs")
+    private Boolean clearToolInputs;
 
     @JsonProperty("trigger")
     private ContextManagementTurnStrategy trigger;
@@ -46,12 +46,12 @@ public class ContextManagementEdit {
         this.excludeTools = excludeTools;
     }
 
-    public Boolean getClearToolInput() {
-        return clearToolInput;
+    public Boolean getClearToolInputs() {
+        return clearToolInputs;
     }
 
-    public void setClearToolInput(Boolean clearToolInput) {
-        this.clearToolInput = clearToolInput;
+    public void setClearToolInputs(Boolean clearToolInputs) {
+        this.clearToolInputs = clearToolInputs;
     }
 
     public ContextManagementTurnStrategy getTrigger() {
@@ -68,7 +68,7 @@ public class ContextManagementEdit {
                 "type='" + type + '\'' +
                 ", keep=" + keep +
                 ", excludeTools=" + excludeTools +
-                ", clearToolInput=" + clearToolInput +
+                ", clearToolInputs=" + clearToolInputs +
                 ", trigger=" + trigger +
                 '}';
     }
@@ -81,7 +81,7 @@ public class ContextManagementEdit {
         private String type;
         private Object keep;
         private List<String> excludeTools;
-        private Boolean clearToolInput;
+        private Boolean clearToolInputs;
         private ContextManagementTurnStrategy trigger;
 
         public Builder type(String type) {
@@ -99,8 +99,8 @@ public class ContextManagementEdit {
             return this;
         }
 
-        public Builder clearToolInput(Boolean clearToolInput) {
-            this.clearToolInput = clearToolInput;
+        public Builder clearToolInputs(Boolean clearToolInputs) {
+            this.clearToolInputs = clearToolInputs;
             return this;
         }
 
@@ -114,7 +114,7 @@ public class ContextManagementEdit {
             edit.setType(type);
             edit.setKeep(keep);
             edit.setExcludeTools(excludeTools);
-            edit.setClearToolInput(clearToolInput);
+            edit.setClearToolInputs(clearToolInputs);
             edit.setTrigger(trigger);
             return edit;
         }
