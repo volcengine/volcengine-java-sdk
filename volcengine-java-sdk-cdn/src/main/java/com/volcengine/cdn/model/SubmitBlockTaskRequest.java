@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class SubmitBlockTaskRequest {
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("UrlList")
+  private List<String> urlList = null;
 
   @SerializedName("Urls")
   private String urls = null;
@@ -54,6 +59,32 @@ public class SubmitBlockTaskRequest {
     this.type = type;
   }
 
+  public SubmitBlockTaskRequest urlList(List<String> urlList) {
+    this.urlList = urlList;
+    return this;
+  }
+
+  public SubmitBlockTaskRequest addUrlListItem(String urlListItem) {
+    if (this.urlList == null) {
+      this.urlList = new ArrayList<String>();
+    }
+    this.urlList.add(urlListItem);
+    return this;
+  }
+
+   /**
+   * Get urlList
+   * @return urlList
+  **/
+  @Schema(description = "")
+  public List<String> getUrlList() {
+    return urlList;
+  }
+
+  public void setUrlList(List<String> urlList) {
+    this.urlList = urlList;
+  }
+
   public SubmitBlockTaskRequest urls(String urls) {
     this.urls = urls;
     return this;
@@ -63,8 +94,7 @@ public class SubmitBlockTaskRequest {
    * Get urls
    * @return urls
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUrls() {
     return urls;
   }
@@ -84,12 +114,13 @@ public class SubmitBlockTaskRequest {
     }
     SubmitBlockTaskRequest submitBlockTaskRequest = (SubmitBlockTaskRequest) o;
     return Objects.equals(this.type, submitBlockTaskRequest.type) &&
+        Objects.equals(this.urlList, submitBlockTaskRequest.urlList) &&
         Objects.equals(this.urls, submitBlockTaskRequest.urls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, urls);
+    return Objects.hash(type, urlList, urls);
   }
 
 
@@ -99,6 +130,7 @@ public class SubmitBlockTaskRequest {
     sb.append("class SubmitBlockTaskRequest {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    urlList: ").append(toIndentedString(urlList)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("}");
     return sb.toString();
