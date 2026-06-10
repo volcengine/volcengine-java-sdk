@@ -162,8 +162,7 @@ public class CreateInstanceOneStepRequest {
    * Get region
    * @return region
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getRegion() {
     return region;
   }

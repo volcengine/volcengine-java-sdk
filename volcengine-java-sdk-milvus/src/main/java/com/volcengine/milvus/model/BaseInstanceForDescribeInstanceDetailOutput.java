@@ -33,12 +33,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
-  @SerializedName("DeployClusterId")
-  private String deployClusterId = null;
-
-  @SerializedName("Id")
-  private Integer id = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -47,9 +41,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
 
   @SerializedName("InstanceVersion")
   private String instanceVersion = null;
-
-  @SerializedName("Namespace")
-  private String namespace = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -62,12 +53,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
 
   @SerializedName("SubAccountId")
   private String subAccountId = null;
-
-  @SerializedName("TaskId")
-  private String taskId = null;
-
-  @SerializedName("Version")
-  private Integer version = null;
 
   public BaseInstanceForDescribeInstanceDetailOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -85,42 +70,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
-  }
-
-  public BaseInstanceForDescribeInstanceDetailOutput deployClusterId(String deployClusterId) {
-    this.deployClusterId = deployClusterId;
-    return this;
-  }
-
-   /**
-   * Get deployClusterId
-   * @return deployClusterId
-  **/
-  @Schema(description = "")
-  public String getDeployClusterId() {
-    return deployClusterId;
-  }
-
-  public void setDeployClusterId(String deployClusterId) {
-    this.deployClusterId = deployClusterId;
-  }
-
-  public BaseInstanceForDescribeInstanceDetailOutput id(Integer id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
   }
 
   public BaseInstanceForDescribeInstanceDetailOutput instanceId(String instanceId) {
@@ -175,24 +124,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
 
   public void setInstanceVersion(String instanceVersion) {
     this.instanceVersion = instanceVersion;
-  }
-
-  public BaseInstanceForDescribeInstanceDetailOutput namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-   /**
-   * Get namespace
-   * @return namespace
-  **/
-  @Schema(description = "")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
   }
 
   public BaseInstanceForDescribeInstanceDetailOutput projectName(String projectName) {
@@ -267,42 +198,6 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
     this.subAccountId = subAccountId;
   }
 
-  public BaseInstanceForDescribeInstanceDetailOutput taskId(String taskId) {
-    this.taskId = taskId;
-    return this;
-  }
-
-   /**
-   * Get taskId
-   * @return taskId
-  **/
-  @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public BaseInstanceForDescribeInstanceDetailOutput version(Integer version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @Schema(description = "")
-  public Integer getVersion() {
-    return version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,23 +209,18 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
     }
     BaseInstanceForDescribeInstanceDetailOutput baseInstanceForDescribeInstanceDetailOutput = (BaseInstanceForDescribeInstanceDetailOutput) o;
     return Objects.equals(this.accountId, baseInstanceForDescribeInstanceDetailOutput.accountId) &&
-        Objects.equals(this.deployClusterId, baseInstanceForDescribeInstanceDetailOutput.deployClusterId) &&
-        Objects.equals(this.id, baseInstanceForDescribeInstanceDetailOutput.id) &&
         Objects.equals(this.instanceId, baseInstanceForDescribeInstanceDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, baseInstanceForDescribeInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceVersion, baseInstanceForDescribeInstanceDetailOutput.instanceVersion) &&
-        Objects.equals(this.namespace, baseInstanceForDescribeInstanceDetailOutput.namespace) &&
         Objects.equals(this.projectName, baseInstanceForDescribeInstanceDetailOutput.projectName) &&
         Objects.equals(this.region, baseInstanceForDescribeInstanceDetailOutput.region) &&
         Objects.equals(this.status, baseInstanceForDescribeInstanceDetailOutput.status) &&
-        Objects.equals(this.subAccountId, baseInstanceForDescribeInstanceDetailOutput.subAccountId) &&
-        Objects.equals(this.taskId, baseInstanceForDescribeInstanceDetailOutput.taskId) &&
-        Objects.equals(this.version, baseInstanceForDescribeInstanceDetailOutput.version);
+        Objects.equals(this.subAccountId, baseInstanceForDescribeInstanceDetailOutput.subAccountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, deployClusterId, id, instanceId, instanceName, instanceVersion, namespace, projectName, region, status, subAccountId, taskId, version);
+    return Objects.hash(accountId, instanceId, instanceName, instanceVersion, projectName, region, status, subAccountId);
   }
 
 
@@ -340,18 +230,13 @@ public class BaseInstanceForDescribeInstanceDetailOutput {
     sb.append("class BaseInstanceForDescribeInstanceDetailOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    deployClusterId: ").append(toIndentedString(deployClusterId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceVersion: ").append(toIndentedString(instanceVersion)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subAccountId: ").append(toIndentedString(subAccountId)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

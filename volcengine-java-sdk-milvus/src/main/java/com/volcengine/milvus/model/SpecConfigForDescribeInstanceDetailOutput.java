@@ -33,6 +33,9 @@ public class SpecConfigForDescribeInstanceDetailOutput {
   @SerializedName("CpuNum")
   private Integer cpuNum = null;
 
+  @SerializedName("DisplayName")
+  private String displayName = null;
+
   @SerializedName("MemSize")
   private Integer memSize = null;
 
@@ -44,6 +47,12 @@ public class SpecConfigForDescribeInstanceDetailOutput {
 
   @SerializedName("NodeType")
   private String nodeType = null;
+
+  @SerializedName("ResourceSpecName")
+  private String resourceSpecName = null;
+
+  @SerializedName("SpecType")
+  private String specType = null;
 
   public SpecConfigForDescribeInstanceDetailOutput cpuNum(Integer cpuNum) {
     this.cpuNum = cpuNum;
@@ -61,6 +70,24 @@ public class SpecConfigForDescribeInstanceDetailOutput {
 
   public void setCpuNum(Integer cpuNum) {
     this.cpuNum = cpuNum;
+  }
+
+  public SpecConfigForDescribeInstanceDetailOutput displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @Schema(description = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public SpecConfigForDescribeInstanceDetailOutput memSize(Integer memSize) {
@@ -135,6 +162,42 @@ public class SpecConfigForDescribeInstanceDetailOutput {
     this.nodeType = nodeType;
   }
 
+  public SpecConfigForDescribeInstanceDetailOutput resourceSpecName(String resourceSpecName) {
+    this.resourceSpecName = resourceSpecName;
+    return this;
+  }
+
+   /**
+   * Get resourceSpecName
+   * @return resourceSpecName
+  **/
+  @Schema(description = "")
+  public String getResourceSpecName() {
+    return resourceSpecName;
+  }
+
+  public void setResourceSpecName(String resourceSpecName) {
+    this.resourceSpecName = resourceSpecName;
+  }
+
+  public SpecConfigForDescribeInstanceDetailOutput specType(String specType) {
+    this.specType = specType;
+    return this;
+  }
+
+   /**
+   * Get specType
+   * @return specType
+  **/
+  @Schema(description = "")
+  public String getSpecType() {
+    return specType;
+  }
+
+  public void setSpecType(String specType) {
+    this.specType = specType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,15 +209,18 @@ public class SpecConfigForDescribeInstanceDetailOutput {
     }
     SpecConfigForDescribeInstanceDetailOutput specConfigForDescribeInstanceDetailOutput = (SpecConfigForDescribeInstanceDetailOutput) o;
     return Objects.equals(this.cpuNum, specConfigForDescribeInstanceDetailOutput.cpuNum) &&
+        Objects.equals(this.displayName, specConfigForDescribeInstanceDetailOutput.displayName) &&
         Objects.equals(this.memSize, specConfigForDescribeInstanceDetailOutput.memSize) &&
         Objects.equals(this.nodeCUType, specConfigForDescribeInstanceDetailOutput.nodeCUType) &&
         Objects.equals(this.nodeNum, specConfigForDescribeInstanceDetailOutput.nodeNum) &&
-        Objects.equals(this.nodeType, specConfigForDescribeInstanceDetailOutput.nodeType);
+        Objects.equals(this.nodeType, specConfigForDescribeInstanceDetailOutput.nodeType) &&
+        Objects.equals(this.resourceSpecName, specConfigForDescribeInstanceDetailOutput.resourceSpecName) &&
+        Objects.equals(this.specType, specConfigForDescribeInstanceDetailOutput.specType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuNum, memSize, nodeCUType, nodeNum, nodeType);
+    return Objects.hash(cpuNum, displayName, memSize, nodeCUType, nodeNum, nodeType, resourceSpecName, specType);
   }
 
 
@@ -164,10 +230,13 @@ public class SpecConfigForDescribeInstanceDetailOutput {
     sb.append("class SpecConfigForDescribeInstanceDetailOutput {\n");
     
     sb.append("    cpuNum: ").append(toIndentedString(cpuNum)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    memSize: ").append(toIndentedString(memSize)).append("\n");
     sb.append("    nodeCUType: ").append(toIndentedString(nodeCUType)).append("\n");
     sb.append("    nodeNum: ").append(toIndentedString(nodeNum)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    resourceSpecName: ").append(toIndentedString(resourceSpecName)).append("\n");
+    sb.append("    specType: ").append(toIndentedString(specType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

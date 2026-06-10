@@ -45,6 +45,9 @@ public class ComponentSpecListForScaleInstanceInput {
   @SerializedName("NodeType")
   private String nodeType = null;
 
+  @SerializedName("ResourceSpecName")
+  private String resourceSpecName = null;
+
   public ComponentSpecListForScaleInstanceInput cpuNum(Integer cpuNum) {
     this.cpuNum = cpuNum;
     return this;
@@ -135,6 +138,24 @@ public class ComponentSpecListForScaleInstanceInput {
     this.nodeType = nodeType;
   }
 
+  public ComponentSpecListForScaleInstanceInput resourceSpecName(String resourceSpecName) {
+    this.resourceSpecName = resourceSpecName;
+    return this;
+  }
+
+   /**
+   * Get resourceSpecName
+   * @return resourceSpecName
+  **/
+  @Schema(description = "")
+  public String getResourceSpecName() {
+    return resourceSpecName;
+  }
+
+  public void setResourceSpecName(String resourceSpecName) {
+    this.resourceSpecName = resourceSpecName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class ComponentSpecListForScaleInstanceInput {
         Objects.equals(this.memSize, componentSpecListForScaleInstanceInput.memSize) &&
         Objects.equals(this.nodeCUType, componentSpecListForScaleInstanceInput.nodeCUType) &&
         Objects.equals(this.nodeNum, componentSpecListForScaleInstanceInput.nodeNum) &&
-        Objects.equals(this.nodeType, componentSpecListForScaleInstanceInput.nodeType);
+        Objects.equals(this.nodeType, componentSpecListForScaleInstanceInput.nodeType) &&
+        Objects.equals(this.resourceSpecName, componentSpecListForScaleInstanceInput.resourceSpecName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuNum, memSize, nodeCUType, nodeNum, nodeType);
+    return Objects.hash(cpuNum, memSize, nodeCUType, nodeNum, nodeType, resourceSpecName);
   }
 
 
@@ -168,6 +190,7 @@ public class ComponentSpecListForScaleInstanceInput {
     sb.append("    nodeCUType: ").append(toIndentedString(nodeCUType)).append("\n");
     sb.append("    nodeNum: ").append(toIndentedString(nodeNum)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    resourceSpecName: ").append(toIndentedString(resourceSpecName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
