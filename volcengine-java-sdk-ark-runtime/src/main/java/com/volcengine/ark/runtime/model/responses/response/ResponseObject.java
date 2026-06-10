@@ -1,6 +1,7 @@
 package com.volcengine.ark.runtime.model.responses.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.volcengine.ark.runtime.model.responses.common.ContextManagementResponse;
 import com.volcengine.ark.runtime.model.responses.common.Error;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
 import com.volcengine.ark.runtime.model.responses.common.Session;
@@ -91,6 +92,9 @@ public class ResponseObject {
 
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
+
+    @JsonProperty("context_management")
+    private ContextManagementResponse contextManagement;
 
     @JsonProperty("session")
     private Session session;
@@ -301,6 +305,14 @@ public class ResponseObject {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public ContextManagementResponse getContextManagement() {
+        return contextManagement;
+    }
+
+    public void setContextManagement(ContextManagementResponse contextManagement) {
+        this.contextManagement = contextManagement;
+    }
+
     public Session getSession() {
         return session;
     }
@@ -353,6 +365,7 @@ public class ResponseObject {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", contextManagement=" + contextManagement +
                 ", session=" + session +
                 ", promptCacheKey='" + promptCacheKey + '\'' +
                 ", safetyIdentifier='" + safetyIdentifier + '\'' +
