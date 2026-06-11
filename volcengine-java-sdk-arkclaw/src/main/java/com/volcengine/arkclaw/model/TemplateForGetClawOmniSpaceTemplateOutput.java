@@ -51,8 +51,23 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ImageBuildError")
+  private String imageBuildError = null;
+
+  @SerializedName("ImageBuildStatus")
+  private String imageBuildStatus = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
+
+  @SerializedName("ImageUrl")
+  private String imageUrl = null;
+
+  @SerializedName("Input")
+  private String input = null;
+
+  @SerializedName("IsImaged")
+  private Boolean isImaged = null;
 
   @SerializedName("MemoryMb")
   private Integer memoryMb = null;
@@ -66,6 +81,9 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Reasoning")
+  private String reasoning = null;
+
   @SerializedName("SkillConfig")
   private String skillConfig = null;
 
@@ -75,8 +93,8 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
   @SerializedName("TemplateCurrentVersionId")
   private String templateCurrentVersionId = null;
 
-  @SerializedName("TemplateLabel")
-  private String templateLabel = null;
+  @SerializedName("TemplatePendingVersionId")
+  private String templatePendingVersionId = null;
 
   @SerializedName("TemplateVersionId")
   private String templateVersionId = null;
@@ -213,6 +231,42 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
     this.id = id;
   }
 
+  public TemplateForGetClawOmniSpaceTemplateOutput imageBuildError(String imageBuildError) {
+    this.imageBuildError = imageBuildError;
+    return this;
+  }
+
+   /**
+   * Get imageBuildError
+   * @return imageBuildError
+  **/
+  @Schema(description = "")
+  public String getImageBuildError() {
+    return imageBuildError;
+  }
+
+  public void setImageBuildError(String imageBuildError) {
+    this.imageBuildError = imageBuildError;
+  }
+
+  public TemplateForGetClawOmniSpaceTemplateOutput imageBuildStatus(String imageBuildStatus) {
+    this.imageBuildStatus = imageBuildStatus;
+    return this;
+  }
+
+   /**
+   * Get imageBuildStatus
+   * @return imageBuildStatus
+  **/
+  @Schema(description = "")
+  public String getImageBuildStatus() {
+    return imageBuildStatus;
+  }
+
+  public void setImageBuildStatus(String imageBuildStatus) {
+    this.imageBuildStatus = imageBuildStatus;
+  }
+
   public TemplateForGetClawOmniSpaceTemplateOutput imageId(String imageId) {
     this.imageId = imageId;
     return this;
@@ -229,6 +283,60 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
 
   public void setImageId(String imageId) {
     this.imageId = imageId;
+  }
+
+  public TemplateForGetClawOmniSpaceTemplateOutput imageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+    return this;
+  }
+
+   /**
+   * Get imageUrl
+   * @return imageUrl
+  **/
+  @Schema(description = "")
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+  public TemplateForGetClawOmniSpaceTemplateOutput input(String input) {
+    this.input = input;
+    return this;
+  }
+
+   /**
+   * Get input
+   * @return input
+  **/
+  @Schema(description = "")
+  public String getInput() {
+    return input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
+  }
+
+  public TemplateForGetClawOmniSpaceTemplateOutput isImaged(Boolean isImaged) {
+    this.isImaged = isImaged;
+    return this;
+  }
+
+   /**
+   * Get isImaged
+   * @return isImaged
+  **/
+  @Schema(description = "")
+  public Boolean isIsImaged() {
+    return isImaged;
+  }
+
+  public void setIsImaged(Boolean isImaged) {
+    this.isImaged = isImaged;
   }
 
   public TemplateForGetClawOmniSpaceTemplateOutput memoryMb(Integer memoryMb) {
@@ -303,6 +411,24 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
     this.projectName = projectName;
   }
 
+  public TemplateForGetClawOmniSpaceTemplateOutput reasoning(String reasoning) {
+    this.reasoning = reasoning;
+    return this;
+  }
+
+   /**
+   * Get reasoning
+   * @return reasoning
+  **/
+  @Schema(description = "")
+  public String getReasoning() {
+    return reasoning;
+  }
+
+  public void setReasoning(String reasoning) {
+    this.reasoning = reasoning;
+  }
+
   public TemplateForGetClawOmniSpaceTemplateOutput skillConfig(String skillConfig) {
     this.skillConfig = skillConfig;
     return this;
@@ -357,22 +483,22 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
     this.templateCurrentVersionId = templateCurrentVersionId;
   }
 
-  public TemplateForGetClawOmniSpaceTemplateOutput templateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
+  public TemplateForGetClawOmniSpaceTemplateOutput templatePendingVersionId(String templatePendingVersionId) {
+    this.templatePendingVersionId = templatePendingVersionId;
     return this;
   }
 
    /**
-   * Get templateLabel
-   * @return templateLabel
+   * Get templatePendingVersionId
+   * @return templatePendingVersionId
   **/
   @Schema(description = "")
-  public String getTemplateLabel() {
-    return templateLabel;
+  public String getTemplatePendingVersionId() {
+    return templatePendingVersionId;
   }
 
-  public void setTemplateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
+  public void setTemplatePendingVersionId(String templatePendingVersionId) {
+    this.templatePendingVersionId = templatePendingVersionId;
   }
 
   public TemplateForGetClawOmniSpaceTemplateOutput templateVersionId(String templateVersionId) {
@@ -446,15 +572,21 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
         Objects.equals(this.defaultModelSource, templateForGetClawOmniSpaceTemplateOutput.defaultModelSource) &&
         Objects.equals(this.description, templateForGetClawOmniSpaceTemplateOutput.description) &&
         Objects.equals(this.id, templateForGetClawOmniSpaceTemplateOutput.id) &&
+        Objects.equals(this.imageBuildError, templateForGetClawOmniSpaceTemplateOutput.imageBuildError) &&
+        Objects.equals(this.imageBuildStatus, templateForGetClawOmniSpaceTemplateOutput.imageBuildStatus) &&
         Objects.equals(this.imageId, templateForGetClawOmniSpaceTemplateOutput.imageId) &&
+        Objects.equals(this.imageUrl, templateForGetClawOmniSpaceTemplateOutput.imageUrl) &&
+        Objects.equals(this.input, templateForGetClawOmniSpaceTemplateOutput.input) &&
+        Objects.equals(this.isImaged, templateForGetClawOmniSpaceTemplateOutput.isImaged) &&
         Objects.equals(this.memoryMb, templateForGetClawOmniSpaceTemplateOutput.memoryMb) &&
         Objects.equals(this.name, templateForGetClawOmniSpaceTemplateOutput.name) &&
         Objects.equals(this.pluginConfig, templateForGetClawOmniSpaceTemplateOutput.pluginConfig) &&
         Objects.equals(this.projectName, templateForGetClawOmniSpaceTemplateOutput.projectName) &&
+        Objects.equals(this.reasoning, templateForGetClawOmniSpaceTemplateOutput.reasoning) &&
         Objects.equals(this.skillConfig, templateForGetClawOmniSpaceTemplateOutput.skillConfig) &&
         Objects.equals(this.soul, templateForGetClawOmniSpaceTemplateOutput.soul) &&
         Objects.equals(this.templateCurrentVersionId, templateForGetClawOmniSpaceTemplateOutput.templateCurrentVersionId) &&
-        Objects.equals(this.templateLabel, templateForGetClawOmniSpaceTemplateOutput.templateLabel) &&
+        Objects.equals(this.templatePendingVersionId, templateForGetClawOmniSpaceTemplateOutput.templatePendingVersionId) &&
         Objects.equals(this.templateVersionId, templateForGetClawOmniSpaceTemplateOutput.templateVersionId) &&
         Objects.equals(this.type, templateForGetClawOmniSpaceTemplateOutput.type) &&
         Objects.equals(this.version, templateForGetClawOmniSpaceTemplateOutput.version);
@@ -462,7 +594,7 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, agentMd, cpuMilli, defaultModelName, defaultModelSource, description, id, imageId, memoryMb, name, pluginConfig, projectName, skillConfig, soul, templateCurrentVersionId, templateLabel, templateVersionId, type, version);
+    return Objects.hash(accountId, agentMd, cpuMilli, defaultModelName, defaultModelSource, description, id, imageBuildError, imageBuildStatus, imageId, imageUrl, input, isImaged, memoryMb, name, pluginConfig, projectName, reasoning, skillConfig, soul, templateCurrentVersionId, templatePendingVersionId, templateVersionId, type, version);
   }
 
 
@@ -478,15 +610,21 @@ public class TemplateForGetClawOmniSpaceTemplateOutput {
     sb.append("    defaultModelSource: ").append(toIndentedString(defaultModelSource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    imageBuildError: ").append(toIndentedString(imageBuildError)).append("\n");
+    sb.append("    imageBuildStatus: ").append(toIndentedString(imageBuildStatus)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    input: ").append(toIndentedString(input)).append("\n");
+    sb.append("    isImaged: ").append(toIndentedString(isImaged)).append("\n");
     sb.append("    memoryMb: ").append(toIndentedString(memoryMb)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pluginConfig: ").append(toIndentedString(pluginConfig)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
     sb.append("    skillConfig: ").append(toIndentedString(skillConfig)).append("\n");
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
     sb.append("    templateCurrentVersionId: ").append(toIndentedString(templateCurrentVersionId)).append("\n");
-    sb.append("    templateLabel: ").append(toIndentedString(templateLabel)).append("\n");
+    sb.append("    templatePendingVersionId: ").append(toIndentedString(templatePendingVersionId)).append("\n");
     sb.append("    templateVersionId: ").append(toIndentedString(templateVersionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

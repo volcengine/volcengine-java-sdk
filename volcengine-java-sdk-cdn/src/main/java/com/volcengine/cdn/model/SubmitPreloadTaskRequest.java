@@ -45,6 +45,9 @@ public class SubmitPreloadTaskRequest {
   @SerializedName("RequestHeaderInstances")
   private List<RequestHeaderInstanceForSubmitPreloadTaskInput> requestHeaderInstances = null;
 
+  @SerializedName("UrlList")
+  private List<String> urlList = null;
+
   @SerializedName("Urls")
   private String urls = null;
 
@@ -129,6 +132,32 @@ public class SubmitPreloadTaskRequest {
     this.requestHeaderInstances = requestHeaderInstances;
   }
 
+  public SubmitPreloadTaskRequest urlList(List<String> urlList) {
+    this.urlList = urlList;
+    return this;
+  }
+
+  public SubmitPreloadTaskRequest addUrlListItem(String urlListItem) {
+    if (this.urlList == null) {
+      this.urlList = new ArrayList<String>();
+    }
+    this.urlList.add(urlListItem);
+    return this;
+  }
+
+   /**
+   * Get urlList
+   * @return urlList
+  **/
+  @Schema(description = "")
+  public List<String> getUrlList() {
+    return urlList;
+  }
+
+  public void setUrlList(List<String> urlList) {
+    this.urlList = urlList;
+  }
+
   public SubmitPreloadTaskRequest urls(String urls) {
     this.urls = urls;
     return this;
@@ -138,8 +167,7 @@ public class SubmitPreloadTaskRequest {
    * Get urls
    * @return urls
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUrls() {
     return urls;
   }
@@ -162,12 +190,13 @@ public class SubmitPreloadTaskRequest {
         Objects.equals(this.concurrentLimit, submitPreloadTaskRequest.concurrentLimit) &&
         Objects.equals(this.layer, submitPreloadTaskRequest.layer) &&
         Objects.equals(this.requestHeaderInstances, submitPreloadTaskRequest.requestHeaderInstances) &&
+        Objects.equals(this.urlList, submitPreloadTaskRequest.urlList) &&
         Objects.equals(this.urls, submitPreloadTaskRequest.urls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(area, concurrentLimit, layer, requestHeaderInstances, urls);
+    return Objects.hash(area, concurrentLimit, layer, requestHeaderInstances, urlList, urls);
   }
 
 
@@ -180,6 +209,7 @@ public class SubmitPreloadTaskRequest {
     sb.append("    concurrentLimit: ").append(toIndentedString(concurrentLimit)).append("\n");
     sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
     sb.append("    requestHeaderInstances: ").append(toIndentedString(requestHeaderInstances)).append("\n");
+    sb.append("    urlList: ").append(toIndentedString(urlList)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vmp.model.ExclusiveResourceConfigForListWorkspacesOutput;
 import com.volcengine.vmp.model.TagForListWorkspacesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,6 +40,12 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("AccountName")
   private String accountName = null;
 
+  @SerializedName("ChargeType")
+  private String chargeType = null;
+
+  @SerializedName("ChargeTypeSwitched")
+  private Boolean chargeTypeSwitched = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -47,6 +54,9 @@ public class ItemForListWorkspacesOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ExclusiveResourceConfig")
+  private ExclusiveResourceConfigForListWorkspacesOutput exclusiveResourceConfig = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -62,6 +72,9 @@ public class ItemForListWorkspacesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("PrometheusFederateEndpoint")
+  private String prometheusFederateEndpoint = null;
 
   @SerializedName("PrometheusPushEndpoint")
   private String prometheusPushEndpoint = null;
@@ -135,6 +148,42 @@ public class ItemForListWorkspacesOutput {
     this.accountName = accountName;
   }
 
+  public ItemForListWorkspacesOutput chargeType(String chargeType) {
+    this.chargeType = chargeType;
+    return this;
+  }
+
+   /**
+   * Get chargeType
+   * @return chargeType
+  **/
+  @Schema(description = "")
+  public String getChargeType() {
+    return chargeType;
+  }
+
+  public void setChargeType(String chargeType) {
+    this.chargeType = chargeType;
+  }
+
+  public ItemForListWorkspacesOutput chargeTypeSwitched(Boolean chargeTypeSwitched) {
+    this.chargeTypeSwitched = chargeTypeSwitched;
+    return this;
+  }
+
+   /**
+   * Get chargeTypeSwitched
+   * @return chargeTypeSwitched
+  **/
+  @Schema(description = "")
+  public Boolean isChargeTypeSwitched() {
+    return chargeTypeSwitched;
+  }
+
+  public void setChargeTypeSwitched(Boolean chargeTypeSwitched) {
+    this.chargeTypeSwitched = chargeTypeSwitched;
+  }
+
   public ItemForListWorkspacesOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -187,6 +236,25 @@ public class ItemForListWorkspacesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ItemForListWorkspacesOutput exclusiveResourceConfig(ExclusiveResourceConfigForListWorkspacesOutput exclusiveResourceConfig) {
+    this.exclusiveResourceConfig = exclusiveResourceConfig;
+    return this;
+  }
+
+   /**
+   * Get exclusiveResourceConfig
+   * @return exclusiveResourceConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExclusiveResourceConfigForListWorkspacesOutput getExclusiveResourceConfig() {
+    return exclusiveResourceConfig;
+  }
+
+  public void setExclusiveResourceConfig(ExclusiveResourceConfigForListWorkspacesOutput exclusiveResourceConfig) {
+    this.exclusiveResourceConfig = exclusiveResourceConfig;
   }
 
   public ItemForListWorkspacesOutput id(String id) {
@@ -277,6 +345,24 @@ public class ItemForListWorkspacesOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public ItemForListWorkspacesOutput prometheusFederateEndpoint(String prometheusFederateEndpoint) {
+    this.prometheusFederateEndpoint = prometheusFederateEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusFederateEndpoint
+   * @return prometheusFederateEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusFederateEndpoint() {
+    return prometheusFederateEndpoint;
+  }
+
+  public void setPrometheusFederateEndpoint(String prometheusFederateEndpoint) {
+    this.prometheusFederateEndpoint = prometheusFederateEndpoint;
   }
 
   public ItemForListWorkspacesOutput prometheusPushEndpoint(String prometheusPushEndpoint) {
@@ -516,14 +602,18 @@ public class ItemForListWorkspacesOutput {
     ItemForListWorkspacesOutput itemForListWorkspacesOutput = (ItemForListWorkspacesOutput) o;
     return Objects.equals(this.accountId, itemForListWorkspacesOutput.accountId) &&
         Objects.equals(this.accountName, itemForListWorkspacesOutput.accountName) &&
+        Objects.equals(this.chargeType, itemForListWorkspacesOutput.chargeType) &&
+        Objects.equals(this.chargeTypeSwitched, itemForListWorkspacesOutput.chargeTypeSwitched) &&
         Objects.equals(this.createTime, itemForListWorkspacesOutput.createTime) &&
         Objects.equals(this.deleteProtectionEnabled, itemForListWorkspacesOutput.deleteProtectionEnabled) &&
         Objects.equals(this.description, itemForListWorkspacesOutput.description) &&
+        Objects.equals(this.exclusiveResourceConfig, itemForListWorkspacesOutput.exclusiveResourceConfig) &&
         Objects.equals(this.id, itemForListWorkspacesOutput.id) &&
         Objects.equals(this.instanceTypeId, itemForListWorkspacesOutput.instanceTypeId) &&
         Objects.equals(this.name, itemForListWorkspacesOutput.name) &&
         Objects.equals(this.overdueReclaimTime, itemForListWorkspacesOutput.overdueReclaimTime) &&
         Objects.equals(this.projectName, itemForListWorkspacesOutput.projectName) &&
+        Objects.equals(this.prometheusFederateEndpoint, itemForListWorkspacesOutput.prometheusFederateEndpoint) &&
         Objects.equals(this.prometheusPushEndpoint, itemForListWorkspacesOutput.prometheusPushEndpoint) &&
         Objects.equals(this.prometheusPushIntranetEndpoint, itemForListWorkspacesOutput.prometheusPushIntranetEndpoint) &&
         Objects.equals(this.prometheusQueryEndpoint, itemForListWorkspacesOutput.prometheusQueryEndpoint) &&
@@ -540,7 +630,7 @@ public class ItemForListWorkspacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, accountName, createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, region, searchLatencyOffset, status, tags, username);
+    return Objects.hash(accountId, accountName, chargeType, chargeTypeSwitched, createTime, deleteProtectionEnabled, description, exclusiveResourceConfig, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusFederateEndpoint, prometheusPushEndpoint, prometheusPushIntranetEndpoint, prometheusQueryEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteEndpoint, prometheusWriteIntranetEndpoint, publicAccessEnabled, region, searchLatencyOffset, status, tags, username);
   }
 
 
@@ -551,14 +641,18 @@ public class ItemForListWorkspacesOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    chargeTypeSwitched: ").append(toIndentedString(chargeTypeSwitched)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    exclusiveResourceConfig: ").append(toIndentedString(exclusiveResourceConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    prometheusFederateEndpoint: ").append(toIndentedString(prometheusFederateEndpoint)).append("\n");
     sb.append("    prometheusPushEndpoint: ").append(toIndentedString(prometheusPushEndpoint)).append("\n");
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
     sb.append("    prometheusQueryEndpoint: ").append(toIndentedString(prometheusQueryEndpoint)).append("\n");

@@ -38,6 +38,52 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
   @SerializedName("ArchType")
   private String archType = null;
 
+  /**
+   * Gets or Sets blueGreenRole
+   */
+  @JsonAdapter(BlueGreenRoleEnum.Adapter.class)
+  public enum BlueGreenRoleEnum {
+    @SerializedName("Blue")
+    BLUE("Blue"),
+    @SerializedName("Green")
+    GREEN("Green");
+
+    private String value;
+
+    BlueGreenRoleEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BlueGreenRoleEnum fromValue(String input) {
+      for (BlueGreenRoleEnum b : BlueGreenRoleEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BlueGreenRoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BlueGreenRoleEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BlueGreenRoleEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BlueGreenRoleEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BlueGreenRole")
+  private BlueGreenRoleEnum blueGreenRole = null;
+
   @SerializedName("ChargeType")
   private String chargeType = null;
 
@@ -117,6 +163,24 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
 
   public void setArchType(String archType) {
     this.archType = archType;
+  }
+
+  public InstanceInfoForDescribeCrossRegionBackupsOutput blueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
+    return this;
+  }
+
+   /**
+   * Get blueGreenRole
+   * @return blueGreenRole
+  **/
+  @Schema(description = "")
+  public BlueGreenRoleEnum getBlueGreenRole() {
+    return blueGreenRole;
+  }
+
+  public void setBlueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+    this.blueGreenRole = blueGreenRole;
   }
 
   public InstanceInfoForDescribeCrossRegionBackupsOutput chargeType(String chargeType) {
@@ -409,6 +473,7 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
     InstanceInfoForDescribeCrossRegionBackupsOutput instanceInfoForDescribeCrossRegionBackupsOutput = (InstanceInfoForDescribeCrossRegionBackupsOutput) o;
     return Objects.equals(this.accountId, instanceInfoForDescribeCrossRegionBackupsOutput.accountId) &&
         Objects.equals(this.archType, instanceInfoForDescribeCrossRegionBackupsOutput.archType) &&
+        Objects.equals(this.blueGreenRole, instanceInfoForDescribeCrossRegionBackupsOutput.blueGreenRole) &&
         Objects.equals(this.chargeType, instanceInfoForDescribeCrossRegionBackupsOutput.chargeType) &&
         Objects.equals(this.deletionProtection, instanceInfoForDescribeCrossRegionBackupsOutput.deletionProtection) &&
         Objects.equals(this.engineVersion, instanceInfoForDescribeCrossRegionBackupsOutput.engineVersion) &&
@@ -428,7 +493,7 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, archType, chargeType, deletionProtection, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardNumber, totalCapacity, vpcId, zoneIds);
+    return Objects.hash(accountId, archType, blueGreenRole, chargeType, deletionProtection, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardNumber, totalCapacity, vpcId, zoneIds);
   }
 
 
@@ -439,6 +504,7 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    archType: ").append(toIndentedString(archType)).append("\n");
+    sb.append("    blueGreenRole: ").append(toIndentedString(blueGreenRole)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.cdn.model.ResourceTagForListResourceTagsOutput;
+import com.volcengine.cdn.model.SystemTagForListResourceTagsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 public class ListResourceTagsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ResourceTags")
   private List<ResourceTagForListResourceTagsOutput> resourceTags = null;
+
+  @SerializedName("SystemTags")
+  private List<SystemTagForListResourceTagsOutput> systemTags = null;
 
   public ListResourceTagsResponse resourceTags(List<ResourceTagForListResourceTagsOutput> resourceTags) {
     this.resourceTags = resourceTags;
@@ -63,6 +67,33 @@ public class ListResourceTagsResponse extends com.volcengine.model.AbstractRespo
     this.resourceTags = resourceTags;
   }
 
+  public ListResourceTagsResponse systemTags(List<SystemTagForListResourceTagsOutput> systemTags) {
+    this.systemTags = systemTags;
+    return this;
+  }
+
+  public ListResourceTagsResponse addSystemTagsItem(SystemTagForListResourceTagsOutput systemTagsItem) {
+    if (this.systemTags == null) {
+      this.systemTags = new ArrayList<SystemTagForListResourceTagsOutput>();
+    }
+    this.systemTags.add(systemTagsItem);
+    return this;
+  }
+
+   /**
+   * Get systemTags
+   * @return systemTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SystemTagForListResourceTagsOutput> getSystemTags() {
+    return systemTags;
+  }
+
+  public void setSystemTags(List<SystemTagForListResourceTagsOutput> systemTags) {
+    this.systemTags = systemTags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +104,13 @@ public class ListResourceTagsResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     ListResourceTagsResponse listResourceTagsResponse = (ListResourceTagsResponse) o;
-    return Objects.equals(this.resourceTags, listResourceTagsResponse.resourceTags);
+    return Objects.equals(this.resourceTags, listResourceTagsResponse.resourceTags) &&
+        Objects.equals(this.systemTags, listResourceTagsResponse.systemTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceTags);
+    return Objects.hash(resourceTags, systemTags);
   }
 
 
@@ -88,6 +120,7 @@ public class ListResourceTagsResponse extends com.volcengine.model.AbstractRespo
     sb.append("class ListResourceTagsResponse {\n");
     
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
+    sb.append("    systemTags: ").append(toIndentedString(systemTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

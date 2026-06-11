@@ -78,6 +78,9 @@ public class FlowLogForDescribeFlowLogsOutput {
   @SerializedName("Tags")
   private List<TagForDescribeFlowLogsOutput> tags = null;
 
+  @SerializedName("TrafficPath")
+  private List<Integer> trafficPath = null;
+
   /**
    * Gets or Sets trafficType
    */
@@ -128,6 +131,9 @@ public class FlowLogForDescribeFlowLogsOutput {
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
+
+  @SerializedName("Version")
+  private Integer version = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -411,6 +417,32 @@ public class FlowLogForDescribeFlowLogsOutput {
     this.tags = tags;
   }
 
+  public FlowLogForDescribeFlowLogsOutput trafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+    return this;
+  }
+
+  public FlowLogForDescribeFlowLogsOutput addTrafficPathItem(Integer trafficPathItem) {
+    if (this.trafficPath == null) {
+      this.trafficPath = new ArrayList<Integer>();
+    }
+    this.trafficPath.add(trafficPathItem);
+    return this;
+  }
+
+   /**
+   * Get trafficPath
+   * @return trafficPath
+  **/
+  @Schema(description = "")
+  public List<Integer> getTrafficPath() {
+    return trafficPath;
+  }
+
+  public void setTrafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+  }
+
   public FlowLogForDescribeFlowLogsOutput trafficType(TrafficTypeEnum trafficType) {
     this.trafficType = trafficType;
     return this;
@@ -445,6 +477,24 @@ public class FlowLogForDescribeFlowLogsOutput {
 
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public FlowLogForDescribeFlowLogsOutput version(Integer version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @Schema(description = "")
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
   }
 
   public FlowLogForDescribeFlowLogsOutput vpcId(String vpcId) {
@@ -490,14 +540,16 @@ public class FlowLogForDescribeFlowLogsOutput {
         Objects.equals(this.resourceType, flowLogForDescribeFlowLogsOutput.resourceType) &&
         Objects.equals(this.status, flowLogForDescribeFlowLogsOutput.status) &&
         Objects.equals(this.tags, flowLogForDescribeFlowLogsOutput.tags) &&
+        Objects.equals(this.trafficPath, flowLogForDescribeFlowLogsOutput.trafficPath) &&
         Objects.equals(this.trafficType, flowLogForDescribeFlowLogsOutput.trafficType) &&
         Objects.equals(this.updatedAt, flowLogForDescribeFlowLogsOutput.updatedAt) &&
+        Objects.equals(this.version, flowLogForDescribeFlowLogsOutput.version) &&
         Objects.equals(this.vpcId, flowLogForDescribeFlowLogsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, aggregationInterval, businessStatus, createdAt, description, flowLogId, flowLogName, lockReason, logProjectId, logTopicId, projectName, resourceId, resourceType, status, tags, trafficType, updatedAt, vpcId);
+    return Objects.hash(accountId, aggregationInterval, businessStatus, createdAt, description, flowLogId, flowLogName, lockReason, logProjectId, logTopicId, projectName, resourceId, resourceType, status, tags, trafficPath, trafficType, updatedAt, version, vpcId);
   }
 
 
@@ -521,8 +573,10 @@ public class FlowLogForDescribeFlowLogsOutput {
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    trafficPath: ").append(toIndentedString(trafficPath)).append("\n");
     sb.append("    trafficType: ").append(toIndentedString(trafficType)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

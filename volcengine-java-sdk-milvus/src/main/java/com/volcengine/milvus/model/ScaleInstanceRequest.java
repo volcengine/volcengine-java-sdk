@@ -81,8 +81,7 @@ public class ScaleInstanceRequest {
    * Get haEnabled
    * @return haEnabled
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isHaEnabled() {
     return haEnabled;
   }
@@ -119,8 +118,7 @@ public class ScaleInstanceRequest {
    * Get oneStep
    * @return oneStep
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isOneStep() {
     return oneStep;
   }

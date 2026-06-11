@@ -32,32 +32,11 @@ import javax.validation.Valid;
 
 
 public class NetworkConfigForDescribeInstancesOutput {
-  @SerializedName("InnerEndpointEnabled")
-  private Boolean innerEndpointEnabled = null;
-
   @SerializedName("SubnetInfo")
   private SubnetInfoForDescribeInstancesOutput subnetInfo = null;
 
   @SerializedName("VpcInfo")
   private VpcInfoForDescribeInstancesOutput vpcInfo = null;
-
-  public NetworkConfigForDescribeInstancesOutput innerEndpointEnabled(Boolean innerEndpointEnabled) {
-    this.innerEndpointEnabled = innerEndpointEnabled;
-    return this;
-  }
-
-   /**
-   * Get innerEndpointEnabled
-   * @return innerEndpointEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isInnerEndpointEnabled() {
-    return innerEndpointEnabled;
-  }
-
-  public void setInnerEndpointEnabled(Boolean innerEndpointEnabled) {
-    this.innerEndpointEnabled = innerEndpointEnabled;
-  }
 
   public NetworkConfigForDescribeInstancesOutput subnetInfo(SubnetInfoForDescribeInstancesOutput subnetInfo) {
     this.subnetInfo = subnetInfo;
@@ -107,14 +86,13 @@ public class NetworkConfigForDescribeInstancesOutput {
       return false;
     }
     NetworkConfigForDescribeInstancesOutput networkConfigForDescribeInstancesOutput = (NetworkConfigForDescribeInstancesOutput) o;
-    return Objects.equals(this.innerEndpointEnabled, networkConfigForDescribeInstancesOutput.innerEndpointEnabled) &&
-        Objects.equals(this.subnetInfo, networkConfigForDescribeInstancesOutput.subnetInfo) &&
+    return Objects.equals(this.subnetInfo, networkConfigForDescribeInstancesOutput.subnetInfo) &&
         Objects.equals(this.vpcInfo, networkConfigForDescribeInstancesOutput.vpcInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(innerEndpointEnabled, subnetInfo, vpcInfo);
+    return Objects.hash(subnetInfo, vpcInfo);
   }
 
 
@@ -123,7 +101,6 @@ public class NetworkConfigForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkConfigForDescribeInstancesOutput {\n");
     
-    sb.append("    innerEndpointEnabled: ").append(toIndentedString(innerEndpointEnabled)).append("\n");
     sb.append("    subnetInfo: ").append(toIndentedString(subnetInfo)).append("\n");
     sb.append("    vpcInfo: ").append(toIndentedString(vpcInfo)).append("\n");
     sb.append("}");

@@ -31,16 +31,16 @@ import javax.validation.Valid;
 
 public class ComponentSpecListForCreateInstanceOneStepInput {
   @SerializedName("CpuNum")
-  private Float cpuNum = null;
+  private Integer cpuNum = null;
 
   @SerializedName("MemSize")
-  private Float memSize = null;
+  private Integer memSize = null;
 
   @SerializedName("NodeCUType")
   private String nodeCUType = null;
 
   @SerializedName("NodeNum")
-  private Float nodeNum = null;
+  private Integer nodeNum = null;
 
   @SerializedName("NodeType")
   private String nodeType = null;
@@ -48,7 +48,7 @@ public class ComponentSpecListForCreateInstanceOneStepInput {
   @SerializedName("ResourceSpecName")
   private String resourceSpecName = null;
 
-  public ComponentSpecListForCreateInstanceOneStepInput cpuNum(Float cpuNum) {
+  public ComponentSpecListForCreateInstanceOneStepInput cpuNum(Integer cpuNum) {
     this.cpuNum = cpuNum;
     return this;
   }
@@ -58,15 +58,15 @@ public class ComponentSpecListForCreateInstanceOneStepInput {
    * @return cpuNum
   **/
   @Schema(description = "")
-  public Float getCpuNum() {
+  public Integer getCpuNum() {
     return cpuNum;
   }
 
-  public void setCpuNum(Float cpuNum) {
+  public void setCpuNum(Integer cpuNum) {
     this.cpuNum = cpuNum;
   }
 
-  public ComponentSpecListForCreateInstanceOneStepInput memSize(Float memSize) {
+  public ComponentSpecListForCreateInstanceOneStepInput memSize(Integer memSize) {
     this.memSize = memSize;
     return this;
   }
@@ -76,11 +76,11 @@ public class ComponentSpecListForCreateInstanceOneStepInput {
    * @return memSize
   **/
   @Schema(description = "")
-  public Float getMemSize() {
+  public Integer getMemSize() {
     return memSize;
   }
 
-  public void setMemSize(Float memSize) {
+  public void setMemSize(Integer memSize) {
     this.memSize = memSize;
   }
 
@@ -102,7 +102,7 @@ public class ComponentSpecListForCreateInstanceOneStepInput {
     this.nodeCUType = nodeCUType;
   }
 
-  public ComponentSpecListForCreateInstanceOneStepInput nodeNum(Float nodeNum) {
+  public ComponentSpecListForCreateInstanceOneStepInput nodeNum(Integer nodeNum) {
     this.nodeNum = nodeNum;
     return this;
   }
@@ -112,11 +112,11 @@ public class ComponentSpecListForCreateInstanceOneStepInput {
    * @return nodeNum
   **/
   @Schema(description = "")
-  public Float getNodeNum() {
+  public Integer getNodeNum() {
     return nodeNum;
   }
 
-  public void setNodeNum(Float nodeNum) {
+  public void setNodeNum(Integer nodeNum) {
     this.nodeNum = nodeNum;
   }
 

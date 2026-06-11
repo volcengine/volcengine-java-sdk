@@ -39,6 +39,9 @@ public class CreateWorkspaceRequest {
   @SerializedName("BearerToken")
   private String bearerToken = null;
 
+  @SerializedName("ChargeType")
+  private String chargeType = null;
+
   @SerializedName("DeleteProtectionEnabled")
   private Boolean deleteProtectionEnabled = null;
 
@@ -100,6 +103,24 @@ public class CreateWorkspaceRequest {
 
   public void setBearerToken(String bearerToken) {
     this.bearerToken = bearerToken;
+  }
+
+  public CreateWorkspaceRequest chargeType(String chargeType) {
+    this.chargeType = chargeType;
+    return this;
+  }
+
+   /**
+   * Get chargeType
+   * @return chargeType
+  **/
+  @Schema(description = "")
+  public String getChargeType() {
+    return chargeType;
+  }
+
+  public void setChargeType(String chargeType) {
+    this.chargeType = chargeType;
   }
 
   public CreateWorkspaceRequest deleteProtectionEnabled(Boolean deleteProtectionEnabled) {
@@ -287,6 +308,7 @@ public class CreateWorkspaceRequest {
     CreateWorkspaceRequest createWorkspaceRequest = (CreateWorkspaceRequest) o;
     return Objects.equals(this.authType, createWorkspaceRequest.authType) &&
         Objects.equals(this.bearerToken, createWorkspaceRequest.bearerToken) &&
+        Objects.equals(this.chargeType, createWorkspaceRequest.chargeType) &&
         Objects.equals(this.deleteProtectionEnabled, createWorkspaceRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, createWorkspaceRequest.description) &&
         Objects.equals(this.instanceTypeId, createWorkspaceRequest.instanceTypeId) &&
@@ -300,7 +322,7 @@ public class CreateWorkspaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, bearerToken, deleteProtectionEnabled, description, instanceTypeId, name, password, projectName, publicAccessEnabled, tags, username);
+    return Objects.hash(authType, bearerToken, chargeType, deleteProtectionEnabled, description, instanceTypeId, name, password, projectName, publicAccessEnabled, tags, username);
   }
 
 
@@ -311,6 +333,7 @@ public class CreateWorkspaceRequest {
     
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    bearerToken: ").append(toIndentedString(bearerToken)).append("\n");
+    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");

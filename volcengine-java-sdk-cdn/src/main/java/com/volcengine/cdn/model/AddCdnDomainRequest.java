@@ -56,6 +56,7 @@ import com.volcengine.cdn.model.RequestHeaderForAddCdnDomainInput;
 import com.volcengine.cdn.model.ResourceTagForAddCdnDomainInput;
 import com.volcengine.cdn.model.ResponseHeaderForAddCdnDomainInput;
 import com.volcengine.cdn.model.RewriteHLSForAddCdnDomainInput;
+import com.volcengine.cdn.model.RuleEngineForAddCdnDomainInput;
 import com.volcengine.cdn.model.SignedUrlAuthForAddCdnDomainInput;
 import com.volcengine.cdn.model.TimeoutForAddCdnDomainInput;
 import com.volcengine.cdn.model.UaAccessRuleForAddCdnDomainInput;
@@ -205,6 +206,9 @@ public class AddCdnDomainRequest {
 
   @SerializedName("RewriteHLS")
   private RewriteHLSForAddCdnDomainInput rewriteHLS = null;
+
+  @SerializedName("RuleEngine")
+  private RuleEngineForAddCdnDomainInput ruleEngine = null;
 
   @SerializedName("ServiceRegion")
   private String serviceRegion = null;
@@ -1129,6 +1133,25 @@ public class AddCdnDomainRequest {
     this.rewriteHLS = rewriteHLS;
   }
 
+  public AddCdnDomainRequest ruleEngine(RuleEngineForAddCdnDomainInput ruleEngine) {
+    this.ruleEngine = ruleEngine;
+    return this;
+  }
+
+   /**
+   * Get ruleEngine
+   * @return ruleEngine
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuleEngineForAddCdnDomainInput getRuleEngine() {
+    return ruleEngine;
+  }
+
+  public void setRuleEngine(RuleEngineForAddCdnDomainInput ruleEngine) {
+    this.ruleEngine = ruleEngine;
+  }
+
   public AddCdnDomainRequest serviceRegion(String serviceRegion) {
     this.serviceRegion = serviceRegion;
     return this;
@@ -1315,6 +1338,7 @@ public class AddCdnDomainRequest {
         Objects.equals(this.resourceTags, addCdnDomainRequest.resourceTags) &&
         Objects.equals(this.responseHeader, addCdnDomainRequest.responseHeader) &&
         Objects.equals(this.rewriteHLS, addCdnDomainRequest.rewriteHLS) &&
+        Objects.equals(this.ruleEngine, addCdnDomainRequest.ruleEngine) &&
         Objects.equals(this.serviceRegion, addCdnDomainRequest.serviceRegion) &&
         Objects.equals(this.serviceType, addCdnDomainRequest.serviceType) &&
         Objects.equals(this.signedUrlAuth, addCdnDomainRequest.signedUrlAuth) &&
@@ -1326,7 +1350,7 @@ public class AddCdnDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, resourceTags, responseHeader, rewriteHLS, serviceRegion, serviceType, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
+    return Objects.hash(areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, resourceTags, responseHeader, rewriteHLS, ruleEngine, serviceRegion, serviceType, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
   }
 
 
@@ -1379,6 +1403,7 @@ public class AddCdnDomainRequest {
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    responseHeader: ").append(toIndentedString(responseHeader)).append("\n");
     sb.append("    rewriteHLS: ").append(toIndentedString(rewriteHLS)).append("\n");
+    sb.append("    ruleEngine: ").append(toIndentedString(ruleEngine)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    signedUrlAuth: ").append(toIndentedString(signedUrlAuth)).append("\n");

@@ -33,6 +33,9 @@ public class FeatureConfigForListCdnDomainsOutput {
   @SerializedName("OriginV2")
   private Boolean originV2 = null;
 
+  @SerializedName("RuleEngine")
+  private Boolean ruleEngine = null;
+
   public FeatureConfigForListCdnDomainsOutput originV2(Boolean originV2) {
     this.originV2 = originV2;
     return this;
@@ -51,6 +54,24 @@ public class FeatureConfigForListCdnDomainsOutput {
     this.originV2 = originV2;
   }
 
+  public FeatureConfigForListCdnDomainsOutput ruleEngine(Boolean ruleEngine) {
+    this.ruleEngine = ruleEngine;
+    return this;
+  }
+
+   /**
+   * Get ruleEngine
+   * @return ruleEngine
+  **/
+  @Schema(description = "")
+  public Boolean isRuleEngine() {
+    return ruleEngine;
+  }
+
+  public void setRuleEngine(Boolean ruleEngine) {
+    this.ruleEngine = ruleEngine;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class FeatureConfigForListCdnDomainsOutput {
       return false;
     }
     FeatureConfigForListCdnDomainsOutput featureConfigForListCdnDomainsOutput = (FeatureConfigForListCdnDomainsOutput) o;
-    return Objects.equals(this.originV2, featureConfigForListCdnDomainsOutput.originV2);
+    return Objects.equals(this.originV2, featureConfigForListCdnDomainsOutput.originV2) &&
+        Objects.equals(this.ruleEngine, featureConfigForListCdnDomainsOutput.ruleEngine);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(originV2);
+    return Objects.hash(originV2, ruleEngine);
   }
 
 
@@ -76,6 +98,7 @@ public class FeatureConfigForListCdnDomainsOutput {
     sb.append("class FeatureConfigForListCdnDomainsOutput {\n");
     
     sb.append("    originV2: ").append(toIndentedString(originV2)).append("\n");
+    sb.append("    ruleEngine: ").append(toIndentedString(ruleEngine)).append("\n");
     sb.append("}");
     return sb.toString();
   }

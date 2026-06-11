@@ -66,6 +66,9 @@ public class CreateFlowLogRequest {
   @SerializedName("Tags")
   private List<TagForCreateFlowLogInput> tags = null;
 
+  @SerializedName("TrafficPath")
+  private List<Integer> trafficPath = null;
+
   @SerializedName("TrafficType")
   private String trafficType = null;
 
@@ -282,6 +285,32 @@ public class CreateFlowLogRequest {
     this.tags = tags;
   }
 
+  public CreateFlowLogRequest trafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+    return this;
+  }
+
+  public CreateFlowLogRequest addTrafficPathItem(Integer trafficPathItem) {
+    if (this.trafficPath == null) {
+      this.trafficPath = new ArrayList<Integer>();
+    }
+    this.trafficPath.add(trafficPathItem);
+    return this;
+  }
+
+   /**
+   * Get trafficPath
+   * @return trafficPath
+  **/
+  @Schema(description = "")
+  public List<Integer> getTrafficPath() {
+    return trafficPath;
+  }
+
+  public void setTrafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+  }
+
   public CreateFlowLogRequest trafficType(String trafficType) {
     this.trafficType = trafficType;
     return this;
@@ -322,12 +351,13 @@ public class CreateFlowLogRequest {
         Objects.equals(this.resourceId, createFlowLogRequest.resourceId) &&
         Objects.equals(this.resourceType, createFlowLogRequest.resourceType) &&
         Objects.equals(this.tags, createFlowLogRequest.tags) &&
+        Objects.equals(this.trafficPath, createFlowLogRequest.trafficPath) &&
         Objects.equals(this.trafficType, createFlowLogRequest.trafficType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationInterval, clientToken, description, enableIndex, flowLogName, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficType);
+    return Objects.hash(aggregationInterval, clientToken, description, enableIndex, flowLogName, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficPath, trafficType);
   }
 
 
@@ -347,6 +377,7 @@ public class CreateFlowLogRequest {
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    trafficPath: ").append(toIndentedString(trafficPath)).append("\n");
     sb.append("    trafficType: ").append(toIndentedString(trafficType)).append("\n");
     sb.append("}");
     return sb.toString();

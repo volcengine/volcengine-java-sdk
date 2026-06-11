@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>2.0.11</version>
+    <version>2.0.12</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -345,5 +345,6 @@
         <module>volcengine-java-sdk-arkclaw</module>
         <module>volcengine-java-sdk-las20240430</module>
         <module>volcengine-java-sdk-vod20260101</module>
+        <module>volcengine-java-sdk-cloudmonitor20251201</module>
     </modules>
 </project>
