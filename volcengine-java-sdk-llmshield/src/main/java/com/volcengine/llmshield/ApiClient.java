@@ -1,5 +1,9 @@
 package com.volcengine.llmshield;
 
+import com.volcengine.llmshield.aicc.Client;
+import com.volcengine.llmshield.aicc.ClientConfig;
+import com.volcengine.llmshield.aicc.EncryptResult;
+import com.volcengine.llmshield.aicc.ResponseKey;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -10,7 +14,6 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
-import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
@@ -23,9 +26,18 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 // 客户端类
 public class ApiClient {
+    // 客户端初始化选项 Key
+    public static final String OPTION_ENABLE_AICC = "EnableAicc";
+    public static final String OPTION_LOG_LEVEL = "LogLevel";
+    public static final String OPTION_PROXY_ADDR = "ProxyAddr";
+    public static final String OPTION_CONN_MAX = "ConnMax";
+    public static final String OPTION_TIMEOUT = "Timeout";
+
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
 
@@ -38,6 +50,8 @@ public class ApiClient {
     private final String sk;
     private final String region;
     private final CloseableHttpClient httpClient;
+
+    private Client aiccClient;
 
     private ApiClient(String url, String ak, String sk, String region, long timeout) {
         this.url = url;
@@ -129,6 +143,7 @@ public class ApiClient {
         return new ApiClient(url, ak, sk, region, timeout);
     }
 
+
     /**
      * 创建新的客户端实例
      *
@@ -147,11 +162,100 @@ public class ApiClient {
     }
 
     /**
+     * 创建新的客户端实例（带 JSON 配置，支持代理、连接数、超时、AICC 等配置）
+     * <p>
+     * 参考 Go SDK NewWithOptions 实现，jsonConfig 支持以下字段：
+     * <ul>
+     *   <li>EnableAicc (Boolean): 是否启用 AICC 加密能力</li>
+     *   <li>LogLevel (String): AICC 日志级别，默认为 "ERROR"</li>
+     *   <li>ProxyAddr (String): 代理地址，如 "http://proxy.example.com:8080"</li>
+     *   <li>ConnMax (Integer): 最大连接数，设置后会同时设置 MaxConnTotal 和 MaxConnPerRoute</li>
+     *   <li>Timeout (Long): HTTP 客户端超时时间（毫秒），默认为 0（不超时）</li>
+     * </ul>
+     *
+     * @param url        API 请求的基础 URL
+     * @param ak         访问密钥
+     * @param sk         密钥
+     * @param region     区域
+     * @param jsonConfig JSON 配置字符串，支持 EnableAicc、LogLevel、ProxyAddr、ConnMax、Timeout 字段
+     * @return 客户端实例
+     * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
+     */
+    public static ApiClient New(String url, String ak, String sk, String region, String jsonConfig) throws Exception {
+        // 解析 jsonConfig，所有配置项从 jsonConfig 读取
+        Map<String, Object> config = null;
+        if (jsonConfig != null && !jsonConfig.isEmpty()) {
+            config = OBJECT_MAPPER.readValue(jsonConfig, Map.class);
+        }
+
+        // 1. 配置代理
+        String proxy = null;
+        if (config != null && config.containsKey(OPTION_PROXY_ADDR)) {
+            Object proxyAddr = config.get(OPTION_PROXY_ADDR);
+            if (proxyAddr instanceof String && !((String) proxyAddr).isEmpty()) {
+                proxy = (String) proxyAddr;
+            }
+        }
+
+        // 2. 配置最大连接数
+        int connMax = 0;
+        if (config != null && config.containsKey(OPTION_CONN_MAX)) {
+            Object connMaxVal = config.get(OPTION_CONN_MAX);
+            if (connMaxVal instanceof Number) {
+                int val = ((Number) connMaxVal).intValue();
+                if (val > 0) {
+                    connMax = val;
+                }
+            }
+        }
+
+        // 3. 配置超时时间，默认为 0（不超时），与 Go SDK 对齐
+        long timeout = 0;
+        if (config != null && config.containsKey(OPTION_TIMEOUT)) {
+            Object timeoutVal = config.get(OPTION_TIMEOUT);
+            if (timeoutVal instanceof Number) {
+                timeout = ((Number) timeoutVal).longValue();
+            }
+        }
+
+        // 创建客户端实例
+        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
+
+        // 4. 配置 AICC
+        if (config != null && Boolean.TRUE.equals(config.get(OPTION_ENABLE_AICC))) {
+            String logLevel = "ERROR";
+            if (config.containsKey(OPTION_LOG_LEVEL)) {
+                Object ll = config.get(OPTION_LOG_LEVEL);
+                if (ll instanceof String && !((String) ll).isEmpty()) {
+                    logLevel = (String) ll;
+                }
+            }
+            System.setProperty("LOG_LEVEL", logLevel);
+            try {
+                client.SetAiccInit();
+            } catch (Exception e) {
+                // AICC 初始化失败，关闭已创建的 httpClient 资源，避免泄漏
+                try {
+                    client.Close();
+                } catch (IOException closeEx) {
+                    // 忽略关闭异常，优先抛出原始的 AICC 初始化异常
+                }
+                throw new Exception("AICC模块初始化失败: " + e.getMessage(), e);
+            }
+        }
+
+        return client;
+    }
+
+    /**
      * 关闭客户端，释放连接池资源
      *
      * @throws IOException 如果关闭时发生 IO 异常
      */
     public void Close() throws IOException {
+        if (this.aiccClient != null) {
+            this.aiccClient.close();
+        }
         if (this.httpClient != null) {
             this.httpClient.close();
         }
@@ -176,6 +280,195 @@ public class ApiClient {
     }
 
     /**
+     * 请求 AiccModuleConf 接口，获取 AICC 配置信息
+     *
+     * @return AICC 模块配置结果
+     * @throws Exception 网络请求或解析响应时发生错误
+     */
+    private AiccModuleConfResult _fetchAiccModuleConf() throws Exception {
+        String path = "/ctrl/aicc_module_conf";
+        String action = "AiccModuleConf";
+        String version = "2025-08-31";
+
+        AiccModuleConfRequest request = new AiccModuleConfRequest(100);
+        String requestBody = OBJECT_MAPPER.writeValueAsString(request);
+
+        URIBuilder uriBuilder = new URIBuilder(url + path);
+        uriBuilder.addParameter("Action", action);
+        uriBuilder.addParameter("Version", version);
+        URI uri = uriBuilder.build();
+
+        HttpPost httpPost = new HttpPost(uri);
+        httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
+        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+
+        Sign sign = new Sign();
+        sign.DoSignRequest(httpPost, uri, action, ak, sk, region);
+
+        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+            int statusCode = response.getCode();
+            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            if (statusCode != 200) {
+                throw new IOException("AiccModuleConf 请求失败，状态码: " + statusCode + ", 响应: " + responseBody);
+            }
+
+            AiccModuleConfResponse confResponse = OBJECT_MAPPER.readValue(responseBody, AiccModuleConfResponse.class);
+            AiccModuleConfResult result = confResponse.getResult();
+            if (result == null) {
+                throw new Exception("AiccModuleConf 响应缺少 Result 字段: " + responseBody);
+            }
+
+            if (result.getPccUrl() == null || result.getPccUrl().isEmpty()
+                    || result.getAccID() == null || result.getAccID().isEmpty()
+                    || result.getServerID() == null || result.getServerID().isEmpty()
+                    || result.getServerName() == null || result.getServerName().isEmpty()
+                    || result.getTrnInfo() == null || result.getTrnInfo().isEmpty()) {
+                throw new Exception("AiccModuleConf 响应缺少必要字段: " + result);
+            }
+
+            return result;
+        }
+    }
+
+    /**
+     * 初始化 AICC Client
+     *
+     * 说明：AICC 属于可选能力，为避免引入额外依赖导致 SDK 纯审核场景不可用，
+     * 这里采用懒加载方式初始化；外部需要使用 AICC 能力时，请显式调用本方法。
+     *
+     * @throws Exception 初始化过程中发生错误
+     */
+    public void SetAiccInit() throws Exception {
+        AiccModuleConfResult conf = _fetchAiccModuleConf();
+        /**
+        * System.out.printf("AiccList %s, %s, %s, %s, %s%n",
+                conf.getPccUrl(), conf.getAccID(), conf.getServerID(), conf.getServerName(), conf.getTrnInfo());
+        */
+
+        int aiccRftick = 1800;
+        String aiccSeraddr = this.url;
+
+        // 构造 byte_top_info JSON 字符串
+        Map<String, String> topInfoMap = new HashMap<>();
+        topInfoMap.put("url", conf.getPccUrl());
+        topInfoMap.put("url_rewrite", aiccSeraddr);
+        topInfoMap.put("ak", this.ak);
+        topInfoMap.put("sk", this.sk);
+        topInfoMap.put("target_uid", conf.getAccID());
+        topInfoMap.put("aicc_saas_trn", "trn:iam::" + conf.getAccID() + ":role/" + conf.getTrnInfo());
+        topInfoMap.put("service", "pcc");
+        String byteTopInfo = OBJECT_MAPPER.writeValueAsString(topInfoMap);
+
+        // 构造 aiccConf JSON 字符串
+        Map<String, Object> aiccConfMap = new HashMap<>();
+        aiccConfMap.put("ra_url", aiccSeraddr);
+        aiccConfMap.put("attest_interval", (float) aiccRftick);
+        aiccConfMap.put("ra_uid", conf.getAccID());
+        aiccConfMap.put("ra_policy_id", conf.getServerID());
+        aiccConfMap.put("ra_service_name", conf.getServerName());
+        aiccConfMap.put("bytedance_top_info", byteTopInfo);
+        String aiccConfJson = OBJECT_MAPPER.writeValueAsString(aiccConfMap);
+
+        ClientConfig aiccConf = ClientConfig.fromJson(aiccConfJson);
+        this.aiccClient = new Client(aiccConf);
+        if (this.aiccClient == null) {
+            throw new Exception("AICC客户端初始化失败");
+        }
+
+        // 同步执行一次远程证明，确保sessionKey初始化完成
+        try {
+            this.aiccClient.attestServer();
+        } catch (Exception e) {
+            System.err.println("AICC远程证明失败: " + e.getMessage());
+            // 远程证明失败，关闭已创建的 aiccClient 资源
+            this.aiccClient.close();
+            this.aiccClient = null;
+            throw e;
+        }
+    }
+
+    /**
+     * 检查 AICC Client 是否已初始化
+     *
+     * @return 已初始化的 AICC Client
+     * @throws RuntimeException 如果 AICC Client 未初始化
+     */
+    private Client _requireAiccClient() {
+        if (this.aiccClient == null) {
+            throw new RuntimeException("AICC Client 未初始化，请先调用 ApiClient.SetAiccInit()");
+        }
+        return this.aiccClient;
+    }
+
+    /**
+     * 使用 AICC Client 加密请求数据，返回信封加密字符串
+     *
+     * @param plaintext 待加密的明文
+     * @return 加密后的密文字符串
+     */
+    public String Encrypt(String plaintext) {
+        return _requireAiccClient().encrypt(plaintext);
+    }
+
+    /**
+     * 使用 AICC Client 加密请求数据，返回信封加密字符串
+     *
+     * @param plaintext 待加密的明文字节数组
+     * @return 加密后的密文字符串
+     */
+    public String Encrypt(byte[] plaintext) {
+        return _requireAiccClient().encrypt(plaintext);
+    }
+
+    /**
+     * 使用 AICC Client 加密请求数据，并返回用于解密响应的 ResponseKey
+     *
+     * @param plaintext 待加密的明文
+     * @return 加密结果，包含密文和用于解密响应的 ResponseKey
+     */
+    public EncryptResult EncryptWithResponse(String plaintext) {
+        return _requireAiccClient().encryptWithResponse(plaintext);
+    }
+
+    /**
+     * 使用 AICC Client 加密请求数据，并返回用于解密响应的 ResponseKey
+     *
+     * @param plaintext 待加密的明文字节数组
+     * @return 加密结果，包含密文和用于解密响应的 ResponseKey
+     */
+    public EncryptResult EncryptWithResponse(byte[] plaintext) {
+        return _requireAiccClient().encryptWithResponse(plaintext);
+    }
+
+    /**
+     * 使用 EncryptWithResponse 返回的 responseKey 解密服务端响应
+     *
+     * @param responseKey 用于解密的密钥
+     * @param response    加密的响应字符串
+     * @return 解密后的明文字节数组
+     */
+    public byte[] DecryptResponse(ResponseKey responseKey, String response) {
+        if (responseKey == null) {
+            throw new IllegalArgumentException("responseKey 不能为空");
+        }
+        return responseKey.decryptBytes(response).array();
+    }
+
+    /**
+     * 使用 EncryptWithResponse 返回的 responseKey 解密服务端响应
+     *
+     * @param responseKey 用于解密的密钥
+     * @param response    加密的响应字节数组
+     * @return 解密后的明文字节数组
+     */
+    public byte[] DecryptResponse(ResponseKey responseKey, byte[] response) {
+        if (responseKey == null) {
+            throw new IllegalArgumentException("responseKey 不能为空");
+        }
+        return DecryptResponse(responseKey, new String(response, StandardCharsets.UTF_8));
+    }
+
+    /**
      * 多模态、多轮对话审核
      *
      * @param request 审核请求对象
@@ -195,17 +488,36 @@ public class ApiClient {
         URI uri = uriBuilder.build();
         HttpPost httpPost = new HttpPost(uri);
         httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
+
+        // 先设置明文body用于签名（签名必须基于明文，与Python版本对齐）
         httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
 
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri, "Moderate", ak, sk, region);
 
+        // 签名完成后，再加密body（AICC模式下发送加密body）
+        ResponseKey encReqKey = null;
+        if (this.aiccClient != null) {
+            EncryptResult encryptResult = EncryptWithResponse(requestBody.getBytes(StandardCharsets.UTF_8));
+            requestBody = encryptResult.ciphertext;
+            encReqKey = encryptResult.responseKey;
+            httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+        }
+
         try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
             int statusCode = response.getCode();
-            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            byte[] responseBodyBytes = EntityUtils.toByteArray(response.getEntity());
+
+            // 先解密响应体（AICC模式下响应体是加密的，包括错误响应）
+            if (encReqKey != null) {
+                responseBodyBytes = DecryptResponse(encReqKey, responseBodyBytes);
+            }
+            String responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
+
             if (statusCode != 200) {
                 throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
             }
+
             return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
         }
     }
