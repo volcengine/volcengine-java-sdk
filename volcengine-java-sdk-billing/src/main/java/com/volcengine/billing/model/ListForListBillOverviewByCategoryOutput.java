@@ -87,6 +87,9 @@ public class ListForListBillOverviewByCategoryOutput {
   @SerializedName("PayerUserName")
   private String payerUserName = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
   @SerializedName("PosttaxAmount")
   private String posttaxAmount = null;
 
@@ -490,6 +493,24 @@ public class ListForListBillOverviewByCategoryOutput {
 
   public void setPayerUserName(String payerUserName) {
     this.payerUserName = payerUserName;
+  }
+
+  public ListForListBillOverviewByCategoryOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
   }
 
   public ListForListBillOverviewByCategoryOutput posttaxAmount(String posttaxAmount) {
@@ -899,6 +920,7 @@ public class ListForListBillOverviewByCategoryOutput {
         Objects.equals(this.payerCustomerName, listForListBillOverviewByCategoryOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListBillOverviewByCategoryOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListBillOverviewByCategoryOutput.payerUserName) &&
+        Objects.equals(this.pointDeductAmount, listForListBillOverviewByCategoryOutput.pointDeductAmount) &&
         Objects.equals(this.posttaxAmount, listForListBillOverviewByCategoryOutput.posttaxAmount) &&
         Objects.equals(this.preTaxPayableAmount, listForListBillOverviewByCategoryOutput.preTaxPayableAmount) &&
         Objects.equals(this.pretaxAmount, listForListBillOverviewByCategoryOutput.pretaxAmount) &&
@@ -924,7 +946,7 @@ public class ListForListBillOverviewByCategoryOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, businessMode, countryArea, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, pretaxAmount, pretaxRealValue, realValue, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, subjectNo, tax, unpaidAmount);
+    return Objects.hash(billCategoryParent, billPeriod, businessMode, countryArea, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, pretaxAmount, pretaxRealValue, realValue, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, subjectNo, tax, unpaidAmount);
   }
 
 
@@ -952,6 +974,7 @@ public class ListForListBillOverviewByCategoryOutput {
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
     sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
     sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    pretaxAmount: ").append(toIndentedString(pretaxAmount)).append("\n");

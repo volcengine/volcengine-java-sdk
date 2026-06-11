@@ -87,6 +87,9 @@ public class ListForListBillOverviewByProdOutput {
   @SerializedName("PayerUserName")
   private String payerUserName = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
   @SerializedName("PosttaxAmount")
   private String posttaxAmount = null;
 
@@ -499,6 +502,24 @@ public class ListForListBillOverviewByProdOutput {
 
   public void setPayerUserName(String payerUserName) {
     this.payerUserName = payerUserName;
+  }
+
+  public ListForListBillOverviewByProdOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
   }
 
   public ListForListBillOverviewByProdOutput posttaxAmount(String posttaxAmount) {
@@ -962,6 +983,7 @@ public class ListForListBillOverviewByProdOutput {
         Objects.equals(this.payerCustomerName, listForListBillOverviewByProdOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListBillOverviewByProdOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListBillOverviewByProdOutput.payerUserName) &&
+        Objects.equals(this.pointDeductAmount, listForListBillOverviewByProdOutput.pointDeductAmount) &&
         Objects.equals(this.posttaxAmount, listForListBillOverviewByProdOutput.posttaxAmount) &&
         Objects.equals(this.preTaxPayableAmount, listForListBillOverviewByProdOutput.preTaxPayableAmount) &&
         Objects.equals(this.preferentialBillAmount, listForListBillOverviewByProdOutput.preferentialBillAmount) &&
@@ -990,7 +1012,7 @@ public class ListForListBillOverviewByProdOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, billingMode, businessMode, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, product, productZh, realValue, roundBillAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, tax, unpaidAmount);
+    return Objects.hash(billCategoryParent, billPeriod, billingMode, businessMode, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, product, productZh, realValue, roundBillAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, tax, unpaidAmount);
   }
 
 
@@ -1018,6 +1040,7 @@ public class ListForListBillOverviewByProdOutput {
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
     sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
     sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");

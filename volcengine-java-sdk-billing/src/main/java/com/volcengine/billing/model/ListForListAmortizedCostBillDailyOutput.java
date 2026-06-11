@@ -108,6 +108,9 @@ public class ListForListAmortizedCostBillDailyOutput {
   @SerializedName("DailyAmortizedPayableAmount")
   private String dailyAmortizedPayableAmount = null;
 
+  @SerializedName("DailyAmortizedPointDeductAmount")
+  private String dailyAmortizedPointDeductAmount = null;
+
   @SerializedName("DailyAmortizedPosttaxAmount")
   private String dailyAmortizedPosttaxAmount = null;
 
@@ -210,6 +213,9 @@ public class ListForListAmortizedCostBillDailyOutput {
   @SerializedName("NowAmortizedPayableAmount")
   private String nowAmortizedPayableAmount = null;
 
+  @SerializedName("NowAmortizedPointDeductAmount")
+  private String nowAmortizedPointDeductAmount = null;
+
   @SerializedName("NowAmortizedPosttaxAmount")
   private String nowAmortizedPosttaxAmount = null;
 
@@ -287,6 +293,9 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @SerializedName("PayerUserName")
   private String payerUserName = null;
+
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
 
   @SerializedName("PosttaxAmount")
   private String posttaxAmount = null;
@@ -868,6 +877,24 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   public void setDailyAmortizedPayableAmount(String dailyAmortizedPayableAmount) {
     this.dailyAmortizedPayableAmount = dailyAmortizedPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillDailyOutput dailyAmortizedPointDeductAmount(String dailyAmortizedPointDeductAmount) {
+    this.dailyAmortizedPointDeductAmount = dailyAmortizedPointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedPointDeductAmount
+   * @return dailyAmortizedPointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedPointDeductAmount() {
+    return dailyAmortizedPointDeductAmount;
+  }
+
+  public void setDailyAmortizedPointDeductAmount(String dailyAmortizedPointDeductAmount) {
+    this.dailyAmortizedPointDeductAmount = dailyAmortizedPointDeductAmount;
   }
 
   public ListForListAmortizedCostBillDailyOutput dailyAmortizedPosttaxAmount(String dailyAmortizedPosttaxAmount) {
@@ -1482,6 +1509,24 @@ public class ListForListAmortizedCostBillDailyOutput {
     this.nowAmortizedPayableAmount = nowAmortizedPayableAmount;
   }
 
+  public ListForListAmortizedCostBillDailyOutput nowAmortizedPointDeductAmount(String nowAmortizedPointDeductAmount) {
+    this.nowAmortizedPointDeductAmount = nowAmortizedPointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedPointDeductAmount
+   * @return nowAmortizedPointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedPointDeductAmount() {
+    return nowAmortizedPointDeductAmount;
+  }
+
+  public void setNowAmortizedPointDeductAmount(String nowAmortizedPointDeductAmount) {
+    this.nowAmortizedPointDeductAmount = nowAmortizedPointDeductAmount;
+  }
+
   public ListForListAmortizedCostBillDailyOutput nowAmortizedPosttaxAmount(String nowAmortizedPosttaxAmount) {
     this.nowAmortizedPosttaxAmount = nowAmortizedPosttaxAmount;
     return this;
@@ -1948,6 +1993,24 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   public void setPayerUserName(String payerUserName) {
     this.payerUserName = payerUserName;
+  }
+
+  public ListForListAmortizedCostBillDailyOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
   }
 
   public ListForListAmortizedCostBillDailyOutput posttaxAmount(String posttaxAmount) {
@@ -2670,6 +2733,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.dailyAmortizedOriginalBillAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedOriginalBillAmount) &&
         Objects.equals(this.dailyAmortizedPaidAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedPaidAmount) &&
         Objects.equals(this.dailyAmortizedPayableAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedPayableAmount) &&
+        Objects.equals(this.dailyAmortizedPointDeductAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedPointDeductAmount) &&
         Objects.equals(this.dailyAmortizedPosttaxAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedPosttaxAmount) &&
         Objects.equals(this.dailyAmortizedPreTaxPayableAmount, listForListAmortizedCostBillDailyOutput.dailyAmortizedPreTaxPayableAmount) &&
         Objects.equals(this.dailyAmortizedPreTaxRealValue, listForListAmortizedCostBillDailyOutput.dailyAmortizedPreTaxRealValue) &&
@@ -2704,6 +2768,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.nowAmortizedOriginalBillAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedOriginalBillAmount) &&
         Objects.equals(this.nowAmortizedPaidAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedPaidAmount) &&
         Objects.equals(this.nowAmortizedPayableAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedPayableAmount) &&
+        Objects.equals(this.nowAmortizedPointDeductAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedPointDeductAmount) &&
         Objects.equals(this.nowAmortizedPosttaxAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedPosttaxAmount) &&
         Objects.equals(this.nowAmortizedPreTaxPayableAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedPreTaxPayableAmount) &&
         Objects.equals(this.nowAmortizedPreTaxRealValue, listForListAmortizedCostBillDailyOutput.nowAmortizedPreTaxRealValue) &&
@@ -2730,6 +2795,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.payerCustomerName, listForListAmortizedCostBillDailyOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListAmortizedCostBillDailyOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListAmortizedCostBillDailyOutput.payerUserName) &&
+        Objects.equals(this.pointDeductAmount, listForListAmortizedCostBillDailyOutput.pointDeductAmount) &&
         Objects.equals(this.posttaxAmount, listForListAmortizedCostBillDailyOutput.posttaxAmount) &&
         Objects.equals(this.preTaxPayableAmount, listForListAmortizedCostBillDailyOutput.preTaxPayableAmount) &&
         Objects.equals(this.preTaxRealValue, listForListAmortizedCostBillDailyOutput.preTaxRealValue) &&
@@ -2772,7 +2838,7 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, resourceID, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPointDeductAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPointDeductAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, resourceID, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2807,6 +2873,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    dailyAmortizedOriginalBillAmount: ").append(toIndentedString(dailyAmortizedOriginalBillAmount)).append("\n");
     sb.append("    dailyAmortizedPaidAmount: ").append(toIndentedString(dailyAmortizedPaidAmount)).append("\n");
     sb.append("    dailyAmortizedPayableAmount: ").append(toIndentedString(dailyAmortizedPayableAmount)).append("\n");
+    sb.append("    dailyAmortizedPointDeductAmount: ").append(toIndentedString(dailyAmortizedPointDeductAmount)).append("\n");
     sb.append("    dailyAmortizedPosttaxAmount: ").append(toIndentedString(dailyAmortizedPosttaxAmount)).append("\n");
     sb.append("    dailyAmortizedPreTaxPayableAmount: ").append(toIndentedString(dailyAmortizedPreTaxPayableAmount)).append("\n");
     sb.append("    dailyAmortizedPreTaxRealValue: ").append(toIndentedString(dailyAmortizedPreTaxRealValue)).append("\n");
@@ -2841,6 +2908,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    nowAmortizedOriginalBillAmount: ").append(toIndentedString(nowAmortizedOriginalBillAmount)).append("\n");
     sb.append("    nowAmortizedPaidAmount: ").append(toIndentedString(nowAmortizedPaidAmount)).append("\n");
     sb.append("    nowAmortizedPayableAmount: ").append(toIndentedString(nowAmortizedPayableAmount)).append("\n");
+    sb.append("    nowAmortizedPointDeductAmount: ").append(toIndentedString(nowAmortizedPointDeductAmount)).append("\n");
     sb.append("    nowAmortizedPosttaxAmount: ").append(toIndentedString(nowAmortizedPosttaxAmount)).append("\n");
     sb.append("    nowAmortizedPreTaxPayableAmount: ").append(toIndentedString(nowAmortizedPreTaxPayableAmount)).append("\n");
     sb.append("    nowAmortizedPreTaxRealValue: ").append(toIndentedString(nowAmortizedPreTaxRealValue)).append("\n");
@@ -2867,6 +2935,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
     sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
     sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    preTaxRealValue: ").append(toIndentedString(preTaxRealValue)).append("\n");
