@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class GetPreSignedEdgeURLRequest {
+  @SerializedName("APIBodyHash")
+  private String apIBodyHash = null;
+
   @SerializedName("APIPath")
   private String apIPath = null;
 
@@ -46,14 +49,29 @@ public class GetPreSignedEdgeURLRequest {
   @SerializedName("ProductId")
   private String productId = null;
 
-  @SerializedName("SingleUse")
-  private Boolean singleUse = null;
-
   @SerializedName("TTL")
   private Integer TTL = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
+
+  public GetPreSignedEdgeURLRequest apIBodyHash(String apIBodyHash) {
+    this.apIBodyHash = apIBodyHash;
+    return this;
+  }
+
+   /**
+   * Get apIBodyHash
+   * @return apIBodyHash
+  **/
+  @Schema(description = "")
+  public String getApIBodyHash() {
+    return apIBodyHash;
+  }
+
+  public void setApIBodyHash(String apIBodyHash) {
+    this.apIBodyHash = apIBodyHash;
+  }
 
   public GetPreSignedEdgeURLRequest apIPath(String apIPath) {
     this.apIPath = apIPath;
@@ -149,24 +167,6 @@ public class GetPreSignedEdgeURLRequest {
     this.productId = productId;
   }
 
-  public GetPreSignedEdgeURLRequest singleUse(Boolean singleUse) {
-    this.singleUse = singleUse;
-    return this;
-  }
-
-   /**
-   * Get singleUse
-   * @return singleUse
-  **/
-  @Schema(description = "")
-  public Boolean isSingleUse() {
-    return singleUse;
-  }
-
-  public void setSingleUse(Boolean singleUse) {
-    this.singleUse = singleUse;
-  }
-
   public GetPreSignedEdgeURLRequest TTL(Integer TTL) {
     this.TTL = TTL;
     return this;
@@ -213,19 +213,19 @@ public class GetPreSignedEdgeURLRequest {
       return false;
     }
     GetPreSignedEdgeURLRequest getPreSignedEdgeURLRequest = (GetPreSignedEdgeURLRequest) o;
-    return Objects.equals(this.apIPath, getPreSignedEdgeURLRequest.apIPath) &&
+    return Objects.equals(this.apIBodyHash, getPreSignedEdgeURLRequest.apIBodyHash) &&
+        Objects.equals(this.apIPath, getPreSignedEdgeURLRequest.apIPath) &&
         Objects.equals(this.apIPayload, getPreSignedEdgeURLRequest.apIPayload) &&
         Objects.equals(this.apIType, getPreSignedEdgeURLRequest.apIType) &&
         Objects.equals(this.podId, getPreSignedEdgeURLRequest.podId) &&
         Objects.equals(this.productId, getPreSignedEdgeURLRequest.productId) &&
-        Objects.equals(this.singleUse, getPreSignedEdgeURLRequest.singleUse) &&
         Objects.equals(this.TTL, getPreSignedEdgeURLRequest.TTL) &&
         Objects.equals(this.timeout, getPreSignedEdgeURLRequest.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apIPath, apIPayload, apIType, podId, productId, singleUse, TTL, timeout);
+    return Objects.hash(apIBodyHash, apIPath, apIPayload, apIType, podId, productId, TTL, timeout);
   }
 
 
@@ -234,12 +234,12 @@ public class GetPreSignedEdgeURLRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPreSignedEdgeURLRequest {\n");
     
+    sb.append("    apIBodyHash: ").append(toIndentedString(apIBodyHash)).append("\n");
     sb.append("    apIPath: ").append(toIndentedString(apIPath)).append("\n");
     sb.append("    apIPayload: ").append(toIndentedString(apIPayload)).append("\n");
     sb.append("    apIType: ").append(toIndentedString(apIType)).append("\n");
     sb.append("    podId: ").append(toIndentedString(podId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
-    sb.append("    singleUse: ").append(toIndentedString(singleUse)).append("\n");
     sb.append("    TTL: ").append(toIndentedString(TTL)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("}");

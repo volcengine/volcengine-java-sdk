@@ -89,6 +89,9 @@ public class DetailHostResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("VolcRegion")
   private String volcRegion = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public DetailHostResponse accountId(String accountId) {
     this.accountId = accountId;
     return this;
@@ -439,6 +442,24 @@ public class DetailHostResponse extends com.volcengine.model.AbstractResponse {
     this.volcRegion = volcRegion;
   }
 
+  public DetailHostResponse zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -467,12 +488,13 @@ public class DetailHostResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.resourceSetId, detailHostResponse.resourceSetId) &&
         Objects.equals(this.serverTypeCode, detailHostResponse.serverTypeCode) &&
         Objects.equals(this.status, detailHostResponse.status) &&
-        Objects.equals(this.volcRegion, detailHostResponse.volcRegion);
+        Objects.equals(this.volcRegion, detailHostResponse.volcRegion) &&
+        Objects.equals(this.zoneId, detailHostResponse.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, podIdList, podNumAvailable, podNumOnHost, productId, region, resourceSetId, serverTypeCode, status, volcRegion);
+    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, podIdList, podNumAvailable, podNumOnHost, productId, region, resourceSetId, serverTypeCode, status, volcRegion, zoneId);
   }
 
 
@@ -500,6 +522,7 @@ public class DetailHostResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    serverTypeCode: ").append(toIndentedString(serverTypeCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    volcRegion: ").append(toIndentedString(volcRegion)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

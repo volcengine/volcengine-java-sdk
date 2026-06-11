@@ -47,6 +47,9 @@ public class ListPodRequest {
   @SerializedName("DcList")
   private List<String> dcList = null;
 
+  @SerializedName("FilterAI")
+  private Boolean filterAI = null;
+
   @SerializedName("HostId")
   private String hostId = null;
 
@@ -187,6 +190,24 @@ public class ListPodRequest {
 
   public void setDcList(List<String> dcList) {
     this.dcList = dcList;
+  }
+
+  public ListPodRequest filterAI(Boolean filterAI) {
+    this.filterAI = filterAI;
+    return this;
+  }
+
+   /**
+   * Get filterAI
+   * @return filterAI
+  **/
+  @Schema(description = "")
+  public Boolean isFilterAI() {
+    return filterAI;
+  }
+
+  public void setFilterAI(Boolean filterAI) {
+    this.filterAI = filterAI;
   }
 
   public ListPodRequest hostId(String hostId) {
@@ -461,6 +482,7 @@ public class ListPodRequest {
         Objects.equals(this.configurationCodeList, listPodRequest.configurationCodeList) &&
         Objects.equals(this.dnSId, listPodRequest.dnSId) &&
         Objects.equals(this.dcList, listPodRequest.dcList) &&
+        Objects.equals(this.filterAI, listPodRequest.filterAI) &&
         Objects.equals(this.hostId, listPodRequest.hostId) &&
         Objects.equals(this.maxResults, listPodRequest.maxResults) &&
         Objects.equals(this.nextToken, listPodRequest.nextToken) &&
@@ -477,7 +499,7 @@ public class ListPodRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(archiveStatus, authorityStatus, configurationCodeList, dnSId, dcList, hostId, maxResults, nextToken, onlineList, podIdList, podName, productId, regionList, serverTypeCode, streamStatusList, tagIdList, zoneId);
+    return Objects.hash(archiveStatus, authorityStatus, configurationCodeList, dnSId, dcList, filterAI, hostId, maxResults, nextToken, onlineList, podIdList, podName, productId, regionList, serverTypeCode, streamStatusList, tagIdList, zoneId);
   }
 
 
@@ -491,6 +513,7 @@ public class ListPodRequest {
     sb.append("    configurationCodeList: ").append(toIndentedString(configurationCodeList)).append("\n");
     sb.append("    dnSId: ").append(toIndentedString(dnSId)).append("\n");
     sb.append("    dcList: ").append(toIndentedString(dcList)).append("\n");
+    sb.append("    filterAI: ").append(toIndentedString(filterAI)).append("\n");
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
