@@ -95,6 +95,9 @@ public class RowForListHostOutput {
   @SerializedName("VolcRegion")
   private String volcRegion = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public RowForListHostOutput accountId(String accountId) {
     this.accountId = accountId;
     return this;
@@ -481,6 +484,24 @@ public class RowForListHostOutput {
     this.volcRegion = volcRegion;
   }
 
+  public RowForListHostOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -511,12 +532,13 @@ public class RowForListHostOutput {
         Objects.equals(this.resourceSetId, rowForListHostOutput.resourceSetId) &&
         Objects.equals(this.serverTypeCode, rowForListHostOutput.serverTypeCode) &&
         Objects.equals(this.status, rowForListHostOutput.status) &&
-        Objects.equals(this.volcRegion, rowForListHostOutput.volcRegion);
+        Objects.equals(this.volcRegion, rowForListHostOutput.volcRegion) &&
+        Objects.equals(this.zoneId, rowForListHostOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, lastRebootTime, podIdList, podNumAvailable, podNumOnHost, productId, region, renewType, resourceSetId, serverTypeCode, status, volcRegion);
+    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, lastRebootTime, podIdList, podNumAvailable, podNumOnHost, productId, region, renewType, resourceSetId, serverTypeCode, status, volcRegion, zoneId);
   }
 
 
@@ -546,6 +568,7 @@ public class RowForListHostOutput {
     sb.append("    serverTypeCode: ").append(toIndentedString(serverTypeCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    volcRegion: ").append(toIndentedString(volcRegion)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
