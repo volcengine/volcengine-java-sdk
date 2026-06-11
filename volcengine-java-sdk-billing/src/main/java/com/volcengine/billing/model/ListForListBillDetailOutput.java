@@ -195,6 +195,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("PickupVoucherID")
   private String pickupVoucherID = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
   @SerializedName("PosttaxAmount")
   private String posttaxAmount = null;
 
@@ -233,6 +236,9 @@ public class ListForListBillDetailOutput {
 
   @SerializedName("ProjectDisplayName")
   private String projectDisplayName = null;
+
+  @SerializedName("ProjectRemark")
+  private String projectRemark = null;
 
   @SerializedName("RealValue")
   private String realValue = null;
@@ -308,6 +314,9 @@ public class ListForListBillDetailOutput {
 
   @SerializedName("Tag")
   private String tag = null;
+
+  @SerializedName("TagRemark")
+  private String tagRemark = null;
 
   @SerializedName("Tax")
   private String tax = null;
@@ -1326,6 +1335,24 @@ public class ListForListBillDetailOutput {
     this.pickupVoucherID = pickupVoucherID;
   }
 
+  public ListForListBillDetailOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+  }
+
   public ListForListBillDetailOutput posttaxAmount(String posttaxAmount) {
     this.posttaxAmount = posttaxAmount;
     return this;
@@ -1558,6 +1585,24 @@ public class ListForListBillDetailOutput {
 
   public void setProjectDisplayName(String projectDisplayName) {
     this.projectDisplayName = projectDisplayName;
+  }
+
+  public ListForListBillDetailOutput projectRemark(String projectRemark) {
+    this.projectRemark = projectRemark;
+    return this;
+  }
+
+   /**
+   * Get projectRemark
+   * @return projectRemark
+  **/
+  @Schema(description = "")
+  public String getProjectRemark() {
+    return projectRemark;
+  }
+
+  public void setProjectRemark(String projectRemark) {
+    this.projectRemark = projectRemark;
   }
 
   public ListForListBillDetailOutput realValue(String realValue) {
@@ -2010,6 +2055,24 @@ public class ListForListBillDetailOutput {
     this.tag = tag;
   }
 
+  public ListForListBillDetailOutput tagRemark(String tagRemark) {
+    this.tagRemark = tagRemark;
+    return this;
+  }
+
+   /**
+   * Get tagRemark
+   * @return tagRemark
+  **/
+  @Schema(description = "")
+  public String getTagRemark() {
+    return tagRemark;
+  }
+
+  public void setTagRemark(String tagRemark) {
+    this.tagRemark = tagRemark;
+  }
+
   public ListForListBillDetailOutput tax(String tax) {
     this.tax = tax;
     return this;
@@ -2237,6 +2300,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.pickupVoucherCountUnit, listForListBillDetailOutput.pickupVoucherCountUnit) &&
         Objects.equals(this.pickupVoucherDeductCount, listForListBillDetailOutput.pickupVoucherDeductCount) &&
         Objects.equals(this.pickupVoucherID, listForListBillDetailOutput.pickupVoucherID) &&
+        Objects.equals(this.pointDeductAmount, listForListBillDetailOutput.pointDeductAmount) &&
         Objects.equals(this.posttaxAmount, listForListBillDetailOutput.posttaxAmount) &&
         Objects.equals(this.preTaxPayableAmount, listForListBillDetailOutput.preTaxPayableAmount) &&
         Objects.equals(this.preferentialBillAmount, listForListBillDetailOutput.preferentialBillAmount) &&
@@ -2250,6 +2314,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.productZh, listForListBillDetailOutput.productZh) &&
         Objects.equals(this.project, listForListBillDetailOutput.project) &&
         Objects.equals(this.projectDisplayName, listForListBillDetailOutput.projectDisplayName) &&
+        Objects.equals(this.projectRemark, listForListBillDetailOutput.projectRemark) &&
         Objects.equals(this.realValue, listForListBillDetailOutput.realValue) &&
         Objects.equals(this.region, listForListBillDetailOutput.region) &&
         Objects.equals(this.regionCode, listForListBillDetailOutput.regionCode) &&
@@ -2275,6 +2340,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.solutionZh, listForListBillDetailOutput.solutionZh) &&
         Objects.equals(this.subjectName, listForListBillDetailOutput.subjectName) &&
         Objects.equals(this.tag, listForListBillDetailOutput.tag) &&
+        Objects.equals(this.tagRemark, listForListBillDetailOutput.tagRemark) &&
         Objects.equals(this.tax, listForListBillDetailOutput.tax) &&
         Objects.equals(this.taxRate, listForListBillDetailOutput.taxRate) &&
         Objects.equals(this.tradeTime, listForListBillDetailOutput.tradeTime) &&
@@ -2288,7 +2354,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pickupVoucherCountUnit, pickupVoucherDeductCount, pickupVoucherID, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceFactor, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionDiscountTotalAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pickupVoucherCountUnit, pickupVoucherDeductCount, pickupVoucherID, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceFactor, priceInterval, priceUnit, product, productZh, project, projectDisplayName, projectRemark, realValue, region, regionCode, reservationInstance, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionDiscountTotalAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tagRemark, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2352,6 +2418,7 @@ public class ListForListBillDetailOutput {
     sb.append("    pickupVoucherCountUnit: ").append(toIndentedString(pickupVoucherCountUnit)).append("\n");
     sb.append("    pickupVoucherDeductCount: ").append(toIndentedString(pickupVoucherDeductCount)).append("\n");
     sb.append("    pickupVoucherID: ").append(toIndentedString(pickupVoucherID)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
     sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
     sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");
@@ -2365,6 +2432,7 @@ public class ListForListBillDetailOutput {
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    projectDisplayName: ").append(toIndentedString(projectDisplayName)).append("\n");
+    sb.append("    projectRemark: ").append(toIndentedString(projectRemark)).append("\n");
     sb.append("    realValue: ").append(toIndentedString(realValue)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
@@ -2390,6 +2458,7 @@ public class ListForListBillDetailOutput {
     sb.append("    solutionZh: ").append(toIndentedString(solutionZh)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    tagRemark: ").append(toIndentedString(tagRemark)).append("\n");
     sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("    tradeTime: ").append(toIndentedString(tradeTime)).append("\n");
