@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cdn.model.RequestHeaderInstanceForDescribeContentTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DataForDescribeContentTasksOutput {
+  @SerializedName("CacheShared")
+  private Boolean cacheShared = null;
+
   @SerializedName("CreateTime")
   private Long createTime = null;
 
@@ -48,8 +54,14 @@ public class DataForDescribeContentTasksOutput {
   @SerializedName("Remark")
   private String remark = null;
 
+  @SerializedName("RequestHeaderInstances")
+  private List<RequestHeaderInstanceForDescribeContentTasksOutput> requestHeaderInstances = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("StatusCode")
+  private Long statusCode = null;
 
   @SerializedName("TaskID")
   private String taskID = null;
@@ -59,6 +71,24 @@ public class DataForDescribeContentTasksOutput {
 
   @SerializedName("Url")
   private String url = null;
+
+  public DataForDescribeContentTasksOutput cacheShared(Boolean cacheShared) {
+    this.cacheShared = cacheShared;
+    return this;
+  }
+
+   /**
+   * Get cacheShared
+   * @return cacheShared
+  **/
+  @Schema(description = "")
+  public Boolean isCacheShared() {
+    return cacheShared;
+  }
+
+  public void setCacheShared(Boolean cacheShared) {
+    this.cacheShared = cacheShared;
+  }
 
   public DataForDescribeContentTasksOutput createTime(Long createTime) {
     this.createTime = createTime;
@@ -168,6 +198,33 @@ public class DataForDescribeContentTasksOutput {
     this.remark = remark;
   }
 
+  public DataForDescribeContentTasksOutput requestHeaderInstances(List<RequestHeaderInstanceForDescribeContentTasksOutput> requestHeaderInstances) {
+    this.requestHeaderInstances = requestHeaderInstances;
+    return this;
+  }
+
+  public DataForDescribeContentTasksOutput addRequestHeaderInstancesItem(RequestHeaderInstanceForDescribeContentTasksOutput requestHeaderInstancesItem) {
+    if (this.requestHeaderInstances == null) {
+      this.requestHeaderInstances = new ArrayList<RequestHeaderInstanceForDescribeContentTasksOutput>();
+    }
+    this.requestHeaderInstances.add(requestHeaderInstancesItem);
+    return this;
+  }
+
+   /**
+   * Get requestHeaderInstances
+   * @return requestHeaderInstances
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RequestHeaderInstanceForDescribeContentTasksOutput> getRequestHeaderInstances() {
+    return requestHeaderInstances;
+  }
+
+  public void setRequestHeaderInstances(List<RequestHeaderInstanceForDescribeContentTasksOutput> requestHeaderInstances) {
+    this.requestHeaderInstances = requestHeaderInstances;
+  }
+
   public DataForDescribeContentTasksOutput status(String status) {
     this.status = status;
     return this;
@@ -184,6 +241,24 @@ public class DataForDescribeContentTasksOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DataForDescribeContentTasksOutput statusCode(Long statusCode) {
+    this.statusCode = statusCode;
+    return this;
+  }
+
+   /**
+   * Get statusCode
+   * @return statusCode
+  **/
+  @Schema(description = "")
+  public Long getStatusCode() {
+    return statusCode;
+  }
+
+  public void setStatusCode(Long statusCode) {
+    this.statusCode = statusCode;
   }
 
   public DataForDescribeContentTasksOutput taskID(String taskID) {
@@ -250,13 +325,16 @@ public class DataForDescribeContentTasksOutput {
       return false;
     }
     DataForDescribeContentTasksOutput dataForDescribeContentTasksOutput = (DataForDescribeContentTasksOutput) o;
-    return Objects.equals(this.createTime, dataForDescribeContentTasksOutput.createTime) &&
+    return Objects.equals(this.cacheShared, dataForDescribeContentTasksOutput.cacheShared) &&
+        Objects.equals(this.createTime, dataForDescribeContentTasksOutput.createTime) &&
         Objects.equals(this.delete, dataForDescribeContentTasksOutput.delete) &&
         Objects.equals(this.layer, dataForDescribeContentTasksOutput.layer) &&
         Objects.equals(this.process, dataForDescribeContentTasksOutput.process) &&
         Objects.equals(this.refreshPrefix, dataForDescribeContentTasksOutput.refreshPrefix) &&
         Objects.equals(this.remark, dataForDescribeContentTasksOutput.remark) &&
+        Objects.equals(this.requestHeaderInstances, dataForDescribeContentTasksOutput.requestHeaderInstances) &&
         Objects.equals(this.status, dataForDescribeContentTasksOutput.status) &&
+        Objects.equals(this.statusCode, dataForDescribeContentTasksOutput.statusCode) &&
         Objects.equals(this.taskID, dataForDescribeContentTasksOutput.taskID) &&
         Objects.equals(this.taskType, dataForDescribeContentTasksOutput.taskType) &&
         Objects.equals(this.url, dataForDescribeContentTasksOutput.url);
@@ -264,7 +342,7 @@ public class DataForDescribeContentTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, delete, layer, process, refreshPrefix, remark, status, taskID, taskType, url);
+    return Objects.hash(cacheShared, createTime, delete, layer, process, refreshPrefix, remark, requestHeaderInstances, status, statusCode, taskID, taskType, url);
   }
 
 
@@ -273,13 +351,16 @@ public class DataForDescribeContentTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForDescribeContentTasksOutput {\n");
     
+    sb.append("    cacheShared: ").append(toIndentedString(cacheShared)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    delete: ").append(toIndentedString(delete)).append("\n");
     sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
     sb.append("    process: ").append(toIndentedString(process)).append("\n");
     sb.append("    refreshPrefix: ").append(toIndentedString(refreshPrefix)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
+    sb.append("    requestHeaderInstances: ").append(toIndentedString(requestHeaderInstances)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

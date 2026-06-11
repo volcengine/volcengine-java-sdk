@@ -45,6 +45,9 @@ public class UpdateClawOmniInstanceRequest {
   @SerializedName("TokenLimitPerWeek")
   private String tokenLimitPerWeek = null;
 
+  @SerializedName("TokenQuota")
+  private String tokenQuota = null;
+
   public UpdateClawOmniInstanceRequest fieldMask(String fieldMask) {
     this.fieldMask = fieldMask;
     return this;
@@ -136,6 +139,24 @@ public class UpdateClawOmniInstanceRequest {
     this.tokenLimitPerWeek = tokenLimitPerWeek;
   }
 
+  public UpdateClawOmniInstanceRequest tokenQuota(String tokenQuota) {
+    this.tokenQuota = tokenQuota;
+    return this;
+  }
+
+   /**
+   * Get tokenQuota
+   * @return tokenQuota
+  **/
+  @Schema(description = "")
+  public String getTokenQuota() {
+    return tokenQuota;
+  }
+
+  public void setTokenQuota(String tokenQuota) {
+    this.tokenQuota = tokenQuota;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class UpdateClawOmniInstanceRequest {
         Objects.equals(this.id, updateClawOmniInstanceRequest.id) &&
         Objects.equals(this.tokenLimitPerDay, updateClawOmniInstanceRequest.tokenLimitPerDay) &&
         Objects.equals(this.tokenLimitPerMin, updateClawOmniInstanceRequest.tokenLimitPerMin) &&
-        Objects.equals(this.tokenLimitPerWeek, updateClawOmniInstanceRequest.tokenLimitPerWeek);
+        Objects.equals(this.tokenLimitPerWeek, updateClawOmniInstanceRequest.tokenLimitPerWeek) &&
+        Objects.equals(this.tokenQuota, updateClawOmniInstanceRequest.tokenQuota);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldMask, id, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek);
+    return Objects.hash(fieldMask, id, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek, tokenQuota);
   }
 
 
@@ -169,6 +191,7 @@ public class UpdateClawOmniInstanceRequest {
     sb.append("    tokenLimitPerDay: ").append(toIndentedString(tokenLimitPerDay)).append("\n");
     sb.append("    tokenLimitPerMin: ").append(toIndentedString(tokenLimitPerMin)).append("\n");
     sb.append("    tokenLimitPerWeek: ").append(toIndentedString(tokenLimitPerWeek)).append("\n");
+    sb.append("    tokenQuota: ").append(toIndentedString(tokenQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,6 +39,9 @@ public class BatchDeployCertRequest {
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("TargetConfig")
+  private String targetConfig = null;
+
   public BatchDeployCertRequest certId(String certId) {
     this.certId = certId;
     return this;
@@ -95,6 +98,24 @@ public class BatchDeployCertRequest {
     this.domain = domain;
   }
 
+  public BatchDeployCertRequest targetConfig(String targetConfig) {
+    this.targetConfig = targetConfig;
+    return this;
+  }
+
+   /**
+   * Get targetConfig
+   * @return targetConfig
+  **/
+  @Schema(description = "")
+  public String getTargetConfig() {
+    return targetConfig;
+  }
+
+  public void setTargetConfig(String targetConfig) {
+    this.targetConfig = targetConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class BatchDeployCertRequest {
     BatchDeployCertRequest batchDeployCertRequest = (BatchDeployCertRequest) o;
     return Objects.equals(this.certId, batchDeployCertRequest.certId) &&
         Objects.equals(this.certId2, batchDeployCertRequest.certId2) &&
-        Objects.equals(this.domain, batchDeployCertRequest.domain);
+        Objects.equals(this.domain, batchDeployCertRequest.domain) &&
+        Objects.equals(this.targetConfig, batchDeployCertRequest.targetConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certId2, domain);
+    return Objects.hash(certId, certId2, domain, targetConfig);
   }
 
 
@@ -124,6 +146,7 @@ public class BatchDeployCertRequest {
     sb.append("    certId: ").append(toIndentedString(certId)).append("\n");
     sb.append("    certId2: ").append(toIndentedString(certId2)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    targetConfig: ").append(toIndentedString(targetConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

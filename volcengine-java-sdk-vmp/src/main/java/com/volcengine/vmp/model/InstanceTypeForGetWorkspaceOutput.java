@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vmp.model.CalculatePriceParamForGetWorkspaceOutput;
+import com.volcengine.vmp.model.CalculateVolumePriceParamForGetWorkspaceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,14 +43,23 @@ public class InstanceTypeForGetWorkspaceOutput {
   @SerializedName("CalculatePriceParams")
   private List<CalculatePriceParamForGetWorkspaceOutput> calculatePriceParams = null;
 
+  @SerializedName("CalculateVolumePriceParams")
+  private List<CalculateVolumePriceParamForGetWorkspaceOutput> calculateVolumePriceParams = null;
+
   @SerializedName("DownsamplingPeriods")
   private List<String> downsamplingPeriods = null;
+
+  @SerializedName("FederatePerSecond")
+  private Integer federatePerSecond = null;
 
   @SerializedName("Id")
   private String id = null;
 
   @SerializedName("IngestSamplesPerSecond")
   private Integer ingestSamplesPerSecond = null;
+
+  @SerializedName("MaxFederateSeries")
+  private Integer maxFederateSeries = null;
 
   @SerializedName("QueryConcurrency")
   private Integer queryConcurrency = null;
@@ -132,6 +142,33 @@ public class InstanceTypeForGetWorkspaceOutput {
     this.calculatePriceParams = calculatePriceParams;
   }
 
+  public InstanceTypeForGetWorkspaceOutput calculateVolumePriceParams(List<CalculateVolumePriceParamForGetWorkspaceOutput> calculateVolumePriceParams) {
+    this.calculateVolumePriceParams = calculateVolumePriceParams;
+    return this;
+  }
+
+  public InstanceTypeForGetWorkspaceOutput addCalculateVolumePriceParamsItem(CalculateVolumePriceParamForGetWorkspaceOutput calculateVolumePriceParamsItem) {
+    if (this.calculateVolumePriceParams == null) {
+      this.calculateVolumePriceParams = new ArrayList<CalculateVolumePriceParamForGetWorkspaceOutput>();
+    }
+    this.calculateVolumePriceParams.add(calculateVolumePriceParamsItem);
+    return this;
+  }
+
+   /**
+   * Get calculateVolumePriceParams
+   * @return calculateVolumePriceParams
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CalculateVolumePriceParamForGetWorkspaceOutput> getCalculateVolumePriceParams() {
+    return calculateVolumePriceParams;
+  }
+
+  public void setCalculateVolumePriceParams(List<CalculateVolumePriceParamForGetWorkspaceOutput> calculateVolumePriceParams) {
+    this.calculateVolumePriceParams = calculateVolumePriceParams;
+  }
+
   public InstanceTypeForGetWorkspaceOutput downsamplingPeriods(List<String> downsamplingPeriods) {
     this.downsamplingPeriods = downsamplingPeriods;
     return this;
@@ -156,6 +193,24 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   public void setDownsamplingPeriods(List<String> downsamplingPeriods) {
     this.downsamplingPeriods = downsamplingPeriods;
+  }
+
+  public InstanceTypeForGetWorkspaceOutput federatePerSecond(Integer federatePerSecond) {
+    this.federatePerSecond = federatePerSecond;
+    return this;
+  }
+
+   /**
+   * Get federatePerSecond
+   * @return federatePerSecond
+  **/
+  @Schema(description = "")
+  public Integer getFederatePerSecond() {
+    return federatePerSecond;
+  }
+
+  public void setFederatePerSecond(Integer federatePerSecond) {
+    this.federatePerSecond = federatePerSecond;
   }
 
   public InstanceTypeForGetWorkspaceOutput id(String id) {
@@ -192,6 +247,24 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   public void setIngestSamplesPerSecond(Integer ingestSamplesPerSecond) {
     this.ingestSamplesPerSecond = ingestSamplesPerSecond;
+  }
+
+  public InstanceTypeForGetWorkspaceOutput maxFederateSeries(Integer maxFederateSeries) {
+    this.maxFederateSeries = maxFederateSeries;
+    return this;
+  }
+
+   /**
+   * Get maxFederateSeries
+   * @return maxFederateSeries
+  **/
+  @Schema(description = "")
+  public Integer getMaxFederateSeries() {
+    return maxFederateSeries;
+  }
+
+  public void setMaxFederateSeries(Integer maxFederateSeries) {
+    this.maxFederateSeries = maxFederateSeries;
   }
 
   public InstanceTypeForGetWorkspaceOutput queryConcurrency(Integer queryConcurrency) {
@@ -315,9 +388,12 @@ public class InstanceTypeForGetWorkspaceOutput {
     return Objects.equals(this.activeSeries, instanceTypeForGetWorkspaceOutput.activeSeries) &&
         Objects.equals(this.availabilityZoneReplicas, instanceTypeForGetWorkspaceOutput.availabilityZoneReplicas) &&
         Objects.equals(this.calculatePriceParams, instanceTypeForGetWorkspaceOutput.calculatePriceParams) &&
+        Objects.equals(this.calculateVolumePriceParams, instanceTypeForGetWorkspaceOutput.calculateVolumePriceParams) &&
         Objects.equals(this.downsamplingPeriods, instanceTypeForGetWorkspaceOutput.downsamplingPeriods) &&
+        Objects.equals(this.federatePerSecond, instanceTypeForGetWorkspaceOutput.federatePerSecond) &&
         Objects.equals(this.id, instanceTypeForGetWorkspaceOutput.id) &&
         Objects.equals(this.ingestSamplesPerSecond, instanceTypeForGetWorkspaceOutput.ingestSamplesPerSecond) &&
+        Objects.equals(this.maxFederateSeries, instanceTypeForGetWorkspaceOutput.maxFederateSeries) &&
         Objects.equals(this.queryConcurrency, instanceTypeForGetWorkspaceOutput.queryConcurrency) &&
         Objects.equals(this.queryPerSecond, instanceTypeForGetWorkspaceOutput.queryPerSecond) &&
         Objects.equals(this.replicasPerZone, instanceTypeForGetWorkspaceOutput.replicasPerZone) &&
@@ -328,7 +404,7 @@ public class InstanceTypeForGetWorkspaceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeSeries, availabilityZoneReplicas, calculatePriceParams, downsamplingPeriods, id, ingestSamplesPerSecond, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
+    return Objects.hash(activeSeries, availabilityZoneReplicas, calculatePriceParams, calculateVolumePriceParams, downsamplingPeriods, federatePerSecond, id, ingestSamplesPerSecond, maxFederateSeries, queryConcurrency, queryPerSecond, replicasPerZone, retentionPeriod, scanSamplesPerSecond, scanSeriesPerSecond);
   }
 
 
@@ -340,9 +416,12 @@ public class InstanceTypeForGetWorkspaceOutput {
     sb.append("    activeSeries: ").append(toIndentedString(activeSeries)).append("\n");
     sb.append("    availabilityZoneReplicas: ").append(toIndentedString(availabilityZoneReplicas)).append("\n");
     sb.append("    calculatePriceParams: ").append(toIndentedString(calculatePriceParams)).append("\n");
+    sb.append("    calculateVolumePriceParams: ").append(toIndentedString(calculateVolumePriceParams)).append("\n");
     sb.append("    downsamplingPeriods: ").append(toIndentedString(downsamplingPeriods)).append("\n");
+    sb.append("    federatePerSecond: ").append(toIndentedString(federatePerSecond)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ingestSamplesPerSecond: ").append(toIndentedString(ingestSamplesPerSecond)).append("\n");
+    sb.append("    maxFederateSeries: ").append(toIndentedString(maxFederateSeries)).append("\n");
     sb.append("    queryConcurrency: ").append(toIndentedString(queryConcurrency)).append("\n");
     sb.append("    queryPerSecond: ").append(toIndentedString(queryPerSecond)).append("\n");
     sb.append("    replicasPerZone: ").append(toIndentedString(replicasPerZone)).append("\n");

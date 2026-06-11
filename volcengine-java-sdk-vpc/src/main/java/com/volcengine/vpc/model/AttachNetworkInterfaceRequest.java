@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class AttachNetworkInterfaceRequest {
+  @SerializedName("DeleteOnTermination")
+  private Boolean deleteOnTermination = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  public AttachNetworkInterfaceRequest deleteOnTermination(Boolean deleteOnTermination) {
+    this.deleteOnTermination = deleteOnTermination;
+    return this;
+  }
+
+   /**
+   * Get deleteOnTermination
+   * @return deleteOnTermination
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteOnTermination() {
+    return deleteOnTermination;
+  }
+
+  public void setDeleteOnTermination(Boolean deleteOnTermination) {
+    this.deleteOnTermination = deleteOnTermination;
+  }
 
   public AttachNetworkInterfaceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -84,13 +105,14 @@ public class AttachNetworkInterfaceRequest {
       return false;
     }
     AttachNetworkInterfaceRequest attachNetworkInterfaceRequest = (AttachNetworkInterfaceRequest) o;
-    return Objects.equals(this.instanceId, attachNetworkInterfaceRequest.instanceId) &&
+    return Objects.equals(this.deleteOnTermination, attachNetworkInterfaceRequest.deleteOnTermination) &&
+        Objects.equals(this.instanceId, attachNetworkInterfaceRequest.instanceId) &&
         Objects.equals(this.networkInterfaceId, attachNetworkInterfaceRequest.networkInterfaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, networkInterfaceId);
+    return Objects.hash(deleteOnTermination, instanceId, networkInterfaceId);
   }
 
 
@@ -99,6 +121,7 @@ public class AttachNetworkInterfaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachNetworkInterfaceRequest {\n");
     
+    sb.append("    deleteOnTermination: ").append(toIndentedString(deleteOnTermination)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("}");

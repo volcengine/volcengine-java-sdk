@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -59,6 +61,9 @@ public class DescribeContentTasksRequest {
 
   @SerializedName("Url")
   private String url = null;
+
+  @SerializedName("UrlList")
+  private List<String> urlList = null;
 
   public DescribeContentTasksRequest domainName(String domainName) {
     this.domainName = domainName;
@@ -241,6 +246,32 @@ public class DescribeContentTasksRequest {
     this.url = url;
   }
 
+  public DescribeContentTasksRequest urlList(List<String> urlList) {
+    this.urlList = urlList;
+    return this;
+  }
+
+  public DescribeContentTasksRequest addUrlListItem(String urlListItem) {
+    if (this.urlList == null) {
+      this.urlList = new ArrayList<String>();
+    }
+    this.urlList.add(urlListItem);
+    return this;
+  }
+
+   /**
+   * Get urlList
+   * @return urlList
+  **/
+  @Schema(description = "")
+  public List<String> getUrlList() {
+    return urlList;
+  }
+
+  public void setUrlList(List<String> urlList) {
+    this.urlList = urlList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -260,12 +291,13 @@ public class DescribeContentTasksRequest {
         Objects.equals(this.status, describeContentTasksRequest.status) &&
         Objects.equals(this.taskID, describeContentTasksRequest.taskID) &&
         Objects.equals(this.taskType, describeContentTasksRequest.taskType) &&
-        Objects.equals(this.url, describeContentTasksRequest.url);
+        Objects.equals(this.url, describeContentTasksRequest.url) &&
+        Objects.equals(this.urlList, describeContentTasksRequest.urlList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainName, endTime, pageNum, pageSize, remark, startTime, status, taskID, taskType, url);
+    return Objects.hash(domainName, endTime, pageNum, pageSize, remark, startTime, status, taskID, taskType, url, urlList);
   }
 
 
@@ -284,6 +316,7 @@ public class DescribeContentTasksRequest {
     sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    urlList: ").append(toIndentedString(urlList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

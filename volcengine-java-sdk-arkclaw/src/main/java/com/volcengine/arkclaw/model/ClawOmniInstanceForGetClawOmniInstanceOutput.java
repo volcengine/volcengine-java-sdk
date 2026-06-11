@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class ClawOmniInstanceForGetClawOmniInstanceOutput {
+  @SerializedName("AgentMd")
+  private String agentMd = null;
+
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
 
@@ -90,6 +93,24 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
+
+  public ClawOmniInstanceForGetClawOmniInstanceOutput agentMd(String agentMd) {
+    this.agentMd = agentMd;
+    return this;
+  }
+
+   /**
+   * Get agentMd
+   * @return agentMd
+  **/
+  @Schema(description = "")
+  public String getAgentMd() {
+    return agentMd;
+  }
+
+  public void setAgentMd(String agentMd) {
+    this.agentMd = agentMd;
+  }
 
   public ClawOmniInstanceForGetClawOmniInstanceOutput cpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
@@ -453,7 +474,8 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
       return false;
     }
     ClawOmniInstanceForGetClawOmniInstanceOutput clawOmniInstanceForGetClawOmniInstanceOutput = (ClawOmniInstanceForGetClawOmniInstanceOutput) o;
-    return Objects.equals(this.cpuMilli, clawOmniInstanceForGetClawOmniInstanceOutput.cpuMilli) &&
+    return Objects.equals(this.agentMd, clawOmniInstanceForGetClawOmniInstanceOutput.agentMd) &&
+        Objects.equals(this.cpuMilli, clawOmniInstanceForGetClawOmniInstanceOutput.cpuMilli) &&
         Objects.equals(this.createdAt, clawOmniInstanceForGetClawOmniInstanceOutput.createdAt) &&
         Objects.equals(this.description, clawOmniInstanceForGetClawOmniInstanceOutput.description) &&
         Objects.equals(this.endpoint, clawOmniInstanceForGetClawOmniInstanceOutput.endpoint) &&
@@ -476,7 +498,7 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
+    return Objects.hash(agentMd, cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
   }
 
 
@@ -485,6 +507,7 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClawOmniInstanceForGetClawOmniInstanceOutput {\n");
     
+    sb.append("    agentMd: ").append(toIndentedString(agentMd)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -55,6 +55,9 @@ public class ListCertInfoRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("SearchCertName")
+  private String searchCertName = null;
+
   @SerializedName("SortRule")
   private SortRuleForListCertInfoInput sortRule = null;
 
@@ -208,6 +211,24 @@ public class ListCertInfoRequest {
     this.pageSize = pageSize;
   }
 
+  public ListCertInfoRequest searchCertName(String searchCertName) {
+    this.searchCertName = searchCertName;
+    return this;
+  }
+
+   /**
+   * Get searchCertName
+   * @return searchCertName
+  **/
+  @Schema(description = "")
+  public String getSearchCertName() {
+    return searchCertName;
+  }
+
+  public void setSearchCertName(String searchCertName) {
+    this.searchCertName = searchCertName;
+  }
+
   public ListCertInfoRequest sortRule(SortRuleForListCertInfoInput sortRule) {
     this.sortRule = sortRule;
     return this;
@@ -282,6 +303,7 @@ public class ListCertInfoRequest {
         Objects.equals(this.name, listCertInfoRequest.name) &&
         Objects.equals(this.pageNum, listCertInfoRequest.pageNum) &&
         Objects.equals(this.pageSize, listCertInfoRequest.pageSize) &&
+        Objects.equals(this.searchCertName, listCertInfoRequest.searchCertName) &&
         Objects.equals(this.sortRule, listCertInfoRequest.sortRule) &&
         Objects.equals(this.source, listCertInfoRequest.source) &&
         Objects.equals(this.status, listCertInfoRequest.status);
@@ -289,7 +311,7 @@ public class ListCertInfoRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certType, configuredDomain, encryType, fuzzyMatch, name, pageNum, pageSize, sortRule, source, status);
+    return Objects.hash(certId, certType, configuredDomain, encryType, fuzzyMatch, name, pageNum, pageSize, searchCertName, sortRule, source, status);
   }
 
 
@@ -306,6 +328,7 @@ public class ListCertInfoRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    searchCertName: ").append(toIndentedString(searchCertName)).append("\n");
     sb.append("    sortRule: ").append(toIndentedString(sortRule)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -66,9 +66,6 @@ public class UpdatePrivateClawOmniSpaceTemplateRequest {
   @SerializedName("Soul")
   private String soul = null;
 
-  @SerializedName("TemplateLabel")
-  private String templateLabel = null;
-
   public UpdatePrivateClawOmniSpaceTemplateRequest agentMd(String agentMd) {
     this.agentMd = agentMd;
     return this;
@@ -286,24 +283,6 @@ public class UpdatePrivateClawOmniSpaceTemplateRequest {
     this.soul = soul;
   }
 
-  public UpdatePrivateClawOmniSpaceTemplateRequest templateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
-    return this;
-  }
-
-   /**
-   * Get templateLabel
-   * @return templateLabel
-  **/
-  @Schema(description = "")
-  public String getTemplateLabel() {
-    return templateLabel;
-  }
-
-  public void setTemplateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -325,13 +304,12 @@ public class UpdatePrivateClawOmniSpaceTemplateRequest {
         Objects.equals(this.name, updatePrivateClawOmniSpaceTemplateRequest.name) &&
         Objects.equals(this.pluginConfig, updatePrivateClawOmniSpaceTemplateRequest.pluginConfig) &&
         Objects.equals(this.skillConfig, updatePrivateClawOmniSpaceTemplateRequest.skillConfig) &&
-        Objects.equals(this.soul, updatePrivateClawOmniSpaceTemplateRequest.soul) &&
-        Objects.equals(this.templateLabel, updatePrivateClawOmniSpaceTemplateRequest.templateLabel);
+        Objects.equals(this.soul, updatePrivateClawOmniSpaceTemplateRequest.soul);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentMd, cpuMilli, defaultModelName, defaultModelSource, description, id, imageId, memoryMb, name, pluginConfig, skillConfig, soul, templateLabel);
+    return Objects.hash(agentMd, cpuMilli, defaultModelName, defaultModelSource, description, id, imageId, memoryMb, name, pluginConfig, skillConfig, soul);
   }
 
 
@@ -352,7 +330,6 @@ public class UpdatePrivateClawOmniSpaceTemplateRequest {
     sb.append("    pluginConfig: ").append(toIndentedString(pluginConfig)).append("\n");
     sb.append("    skillConfig: ").append(toIndentedString(skillConfig)).append("\n");
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
-    sb.append("    templateLabel: ").append(toIndentedString(templateLabel)).append("\n");
     sb.append("}");
     return sb.toString();
   }

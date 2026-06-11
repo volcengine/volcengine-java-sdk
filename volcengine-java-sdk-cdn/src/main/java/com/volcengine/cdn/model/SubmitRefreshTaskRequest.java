@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cdn.model.RequestHeaderInstanceForSubmitRefreshTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,17 +33,44 @@ import javax.validation.Valid;
 
 
 public class SubmitRefreshTaskRequest {
+  @SerializedName("CacheShared")
+  private Boolean cacheShared = null;
+
   @SerializedName("Delete")
   private Boolean delete = null;
 
   @SerializedName("Prefix")
   private Boolean prefix = null;
 
+  @SerializedName("RequestHeaderInstances")
+  private List<RequestHeaderInstanceForSubmitRefreshTaskInput> requestHeaderInstances = null;
+
   @SerializedName("Type")
   private String type = null;
 
+  @SerializedName("UrlList")
+  private List<String> urlList = null;
+
   @SerializedName("Urls")
   private String urls = null;
+
+  public SubmitRefreshTaskRequest cacheShared(Boolean cacheShared) {
+    this.cacheShared = cacheShared;
+    return this;
+  }
+
+   /**
+   * Get cacheShared
+   * @return cacheShared
+  **/
+  @Schema(description = "")
+  public Boolean isCacheShared() {
+    return cacheShared;
+  }
+
+  public void setCacheShared(Boolean cacheShared) {
+    this.cacheShared = cacheShared;
+  }
 
   public SubmitRefreshTaskRequest delete(Boolean delete) {
     this.delete = delete;
@@ -78,6 +108,33 @@ public class SubmitRefreshTaskRequest {
     this.prefix = prefix;
   }
 
+  public SubmitRefreshTaskRequest requestHeaderInstances(List<RequestHeaderInstanceForSubmitRefreshTaskInput> requestHeaderInstances) {
+    this.requestHeaderInstances = requestHeaderInstances;
+    return this;
+  }
+
+  public SubmitRefreshTaskRequest addRequestHeaderInstancesItem(RequestHeaderInstanceForSubmitRefreshTaskInput requestHeaderInstancesItem) {
+    if (this.requestHeaderInstances == null) {
+      this.requestHeaderInstances = new ArrayList<RequestHeaderInstanceForSubmitRefreshTaskInput>();
+    }
+    this.requestHeaderInstances.add(requestHeaderInstancesItem);
+    return this;
+  }
+
+   /**
+   * Get requestHeaderInstances
+   * @return requestHeaderInstances
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RequestHeaderInstanceForSubmitRefreshTaskInput> getRequestHeaderInstances() {
+    return requestHeaderInstances;
+  }
+
+  public void setRequestHeaderInstances(List<RequestHeaderInstanceForSubmitRefreshTaskInput> requestHeaderInstances) {
+    this.requestHeaderInstances = requestHeaderInstances;
+  }
+
   public SubmitRefreshTaskRequest type(String type) {
     this.type = type;
     return this;
@@ -96,6 +153,32 @@ public class SubmitRefreshTaskRequest {
     this.type = type;
   }
 
+  public SubmitRefreshTaskRequest urlList(List<String> urlList) {
+    this.urlList = urlList;
+    return this;
+  }
+
+  public SubmitRefreshTaskRequest addUrlListItem(String urlListItem) {
+    if (this.urlList == null) {
+      this.urlList = new ArrayList<String>();
+    }
+    this.urlList.add(urlListItem);
+    return this;
+  }
+
+   /**
+   * Get urlList
+   * @return urlList
+  **/
+  @Schema(description = "")
+  public List<String> getUrlList() {
+    return urlList;
+  }
+
+  public void setUrlList(List<String> urlList) {
+    this.urlList = urlList;
+  }
+
   public SubmitRefreshTaskRequest urls(String urls) {
     this.urls = urls;
     return this;
@@ -105,8 +188,7 @@ public class SubmitRefreshTaskRequest {
    * Get urls
    * @return urls
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUrls() {
     return urls;
   }
@@ -125,15 +207,18 @@ public class SubmitRefreshTaskRequest {
       return false;
     }
     SubmitRefreshTaskRequest submitRefreshTaskRequest = (SubmitRefreshTaskRequest) o;
-    return Objects.equals(this.delete, submitRefreshTaskRequest.delete) &&
+    return Objects.equals(this.cacheShared, submitRefreshTaskRequest.cacheShared) &&
+        Objects.equals(this.delete, submitRefreshTaskRequest.delete) &&
         Objects.equals(this.prefix, submitRefreshTaskRequest.prefix) &&
+        Objects.equals(this.requestHeaderInstances, submitRefreshTaskRequest.requestHeaderInstances) &&
         Objects.equals(this.type, submitRefreshTaskRequest.type) &&
+        Objects.equals(this.urlList, submitRefreshTaskRequest.urlList) &&
         Objects.equals(this.urls, submitRefreshTaskRequest.urls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delete, prefix, type, urls);
+    return Objects.hash(cacheShared, delete, prefix, requestHeaderInstances, type, urlList, urls);
   }
 
 
@@ -142,9 +227,12 @@ public class SubmitRefreshTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitRefreshTaskRequest {\n");
     
+    sb.append("    cacheShared: ").append(toIndentedString(cacheShared)).append("\n");
     sb.append("    delete: ").append(toIndentedString(delete)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    requestHeaderInstances: ").append(toIndentedString(requestHeaderInstances)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    urlList: ").append(toIndentedString(urlList)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("}");
     return sb.toString();

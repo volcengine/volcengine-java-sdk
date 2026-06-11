@@ -33,6 +33,9 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
   @SerializedName("AgentMd")
   private String agentMd = null;
 
+  @SerializedName("ApplicationVersionId")
+  private String applicationVersionId = null;
+
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
 
@@ -48,6 +51,9 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
   @SerializedName("ImageId")
   private String imageId = null;
 
+  @SerializedName("Input")
+  private String input = null;
+
   @SerializedName("MemoryMb")
   private Integer memoryMb = null;
 
@@ -60,14 +66,14 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Reasoning")
+  private String reasoning = null;
+
   @SerializedName("SkillConfig")
   private String skillConfig = null;
 
   @SerializedName("Soul")
   private String soul = null;
-
-  @SerializedName("TemplateLabel")
-  private String templateLabel = null;
 
   public CreatePrivateClawOmniSpaceTemplateRequest agentMd(String agentMd) {
     this.agentMd = agentMd;
@@ -85,6 +91,25 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
 
   public void setAgentMd(String agentMd) {
     this.agentMd = agentMd;
+  }
+
+  public CreatePrivateClawOmniSpaceTemplateRequest applicationVersionId(String applicationVersionId) {
+    this.applicationVersionId = applicationVersionId;
+    return this;
+  }
+
+   /**
+   * Get applicationVersionId
+   * @return applicationVersionId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getApplicationVersionId() {
+    return applicationVersionId;
+  }
+
+  public void setApplicationVersionId(String applicationVersionId) {
+    this.applicationVersionId = applicationVersionId;
   }
 
   public CreatePrivateClawOmniSpaceTemplateRequest cpuMilli(Integer cpuMilli) {
@@ -169,14 +194,31 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
    * Get imageId
    * @return imageId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getImageId() {
     return imageId;
   }
 
   public void setImageId(String imageId) {
     this.imageId = imageId;
+  }
+
+  public CreatePrivateClawOmniSpaceTemplateRequest input(String input) {
+    this.input = input;
+    return this;
+  }
+
+   /**
+   * Get input
+   * @return input
+  **/
+  @Schema(description = "")
+  public String getInput() {
+    return input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
   }
 
   public CreatePrivateClawOmniSpaceTemplateRequest memoryMb(Integer memoryMb) {
@@ -253,6 +295,24 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
     this.projectName = projectName;
   }
 
+  public CreatePrivateClawOmniSpaceTemplateRequest reasoning(String reasoning) {
+    this.reasoning = reasoning;
+    return this;
+  }
+
+   /**
+   * Get reasoning
+   * @return reasoning
+  **/
+  @Schema(description = "")
+  public String getReasoning() {
+    return reasoning;
+  }
+
+  public void setReasoning(String reasoning) {
+    this.reasoning = reasoning;
+  }
+
   public CreatePrivateClawOmniSpaceTemplateRequest skillConfig(String skillConfig) {
     this.skillConfig = skillConfig;
     return this;
@@ -290,24 +350,6 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
     this.soul = soul;
   }
 
-  public CreatePrivateClawOmniSpaceTemplateRequest templateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
-    return this;
-  }
-
-   /**
-   * Get templateLabel
-   * @return templateLabel
-  **/
-  @Schema(description = "")
-  public String getTemplateLabel() {
-    return templateLabel;
-  }
-
-  public void setTemplateLabel(String templateLabel) {
-    this.templateLabel = templateLabel;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -319,23 +361,25 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
     }
     CreatePrivateClawOmniSpaceTemplateRequest createPrivateClawOmniSpaceTemplateRequest = (CreatePrivateClawOmniSpaceTemplateRequest) o;
     return Objects.equals(this.agentMd, createPrivateClawOmniSpaceTemplateRequest.agentMd) &&
+        Objects.equals(this.applicationVersionId, createPrivateClawOmniSpaceTemplateRequest.applicationVersionId) &&
         Objects.equals(this.cpuMilli, createPrivateClawOmniSpaceTemplateRequest.cpuMilli) &&
         Objects.equals(this.defaultModelName, createPrivateClawOmniSpaceTemplateRequest.defaultModelName) &&
         Objects.equals(this.defaultModelSource, createPrivateClawOmniSpaceTemplateRequest.defaultModelSource) &&
         Objects.equals(this.description, createPrivateClawOmniSpaceTemplateRequest.description) &&
         Objects.equals(this.imageId, createPrivateClawOmniSpaceTemplateRequest.imageId) &&
+        Objects.equals(this.input, createPrivateClawOmniSpaceTemplateRequest.input) &&
         Objects.equals(this.memoryMb, createPrivateClawOmniSpaceTemplateRequest.memoryMb) &&
         Objects.equals(this.name, createPrivateClawOmniSpaceTemplateRequest.name) &&
         Objects.equals(this.pluginConfig, createPrivateClawOmniSpaceTemplateRequest.pluginConfig) &&
         Objects.equals(this.projectName, createPrivateClawOmniSpaceTemplateRequest.projectName) &&
+        Objects.equals(this.reasoning, createPrivateClawOmniSpaceTemplateRequest.reasoning) &&
         Objects.equals(this.skillConfig, createPrivateClawOmniSpaceTemplateRequest.skillConfig) &&
-        Objects.equals(this.soul, createPrivateClawOmniSpaceTemplateRequest.soul) &&
-        Objects.equals(this.templateLabel, createPrivateClawOmniSpaceTemplateRequest.templateLabel);
+        Objects.equals(this.soul, createPrivateClawOmniSpaceTemplateRequest.soul);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentMd, cpuMilli, defaultModelName, defaultModelSource, description, imageId, memoryMb, name, pluginConfig, projectName, skillConfig, soul, templateLabel);
+    return Objects.hash(agentMd, applicationVersionId, cpuMilli, defaultModelName, defaultModelSource, description, imageId, input, memoryMb, name, pluginConfig, projectName, reasoning, skillConfig, soul);
   }
 
 
@@ -345,18 +389,20 @@ public class CreatePrivateClawOmniSpaceTemplateRequest {
     sb.append("class CreatePrivateClawOmniSpaceTemplateRequest {\n");
     
     sb.append("    agentMd: ").append(toIndentedString(agentMd)).append("\n");
+    sb.append("    applicationVersionId: ").append(toIndentedString(applicationVersionId)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    defaultModelName: ").append(toIndentedString(defaultModelName)).append("\n");
     sb.append("    defaultModelSource: ").append(toIndentedString(defaultModelSource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    input: ").append(toIndentedString(input)).append("\n");
     sb.append("    memoryMb: ").append(toIndentedString(memoryMb)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pluginConfig: ").append(toIndentedString(pluginConfig)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
     sb.append("    skillConfig: ").append(toIndentedString(skillConfig)).append("\n");
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
-    sb.append("    templateLabel: ").append(toIndentedString(templateLabel)).append("\n");
     sb.append("}");
     return sb.toString();
   }
