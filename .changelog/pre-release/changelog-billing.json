@@ -1,5 +1,5 @@
 {
-  "description": "BILLING: 新增 CreateDropShippingOrder, GetDropShippingOrder, PreCheckDropShippingOrder",
+  "description": "BILLING: 修改 ListOrderProductDetails, ListOrders, ListAmortizedCostBillDaily, ListAmortizedCostBillDetail, ListAmortizedCostBillMonthly, ListBill, ListBillOverviewByCategory, ListBillOverviewByProd, ListSplitBillDetail, GetOrder, ListBillDetail",
   "modules": "service/billing",
   "type": "feature"
 }

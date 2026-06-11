@@ -40,6 +40,12 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
   @SerializedName("CouponAmount")
   private String couponAmount = null;
 
+  @SerializedName("DeductionCount")
+  private String deductionCount = null;
+
+  @SerializedName("DeductionCountUnit")
+  private String deductionCountUnit = null;
+
   @SerializedName("DiscountAmount")
   private String discountAmount = null;
 
@@ -72,6 +78,9 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   @SerializedName("Period")
   private String period = null;
+
+  @SerializedName("PickupVoucherID")
+  private String pickupVoucherID = null;
 
   @SerializedName("Product")
   private String product = null;
@@ -134,6 +143,42 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   public void setCouponAmount(String couponAmount) {
     this.couponAmount = couponAmount;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput deductionCount(String deductionCount) {
+    this.deductionCount = deductionCount;
+    return this;
+  }
+
+   /**
+   * Get deductionCount
+   * @return deductionCount
+  **/
+  @Schema(description = "")
+  public String getDeductionCount() {
+    return deductionCount;
+  }
+
+  public void setDeductionCount(String deductionCount) {
+    this.deductionCount = deductionCount;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput deductionCountUnit(String deductionCountUnit) {
+    this.deductionCountUnit = deductionCountUnit;
+    return this;
+  }
+
+   /**
+   * Get deductionCountUnit
+   * @return deductionCountUnit
+  **/
+  @Schema(description = "")
+  public String getDeductionCountUnit() {
+    return deductionCountUnit;
+  }
+
+  public void setDeductionCountUnit(String deductionCountUnit) {
+    this.deductionCountUnit = deductionCountUnit;
   }
 
   public OrderProductInfoForListOrderProductDetailsOutput discountAmount(String discountAmount) {
@@ -335,6 +380,24 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     this.period = period;
   }
 
+  public OrderProductInfoForListOrderProductDetailsOutput pickupVoucherID(String pickupVoucherID) {
+    this.pickupVoucherID = pickupVoucherID;
+    return this;
+  }
+
+   /**
+   * Get pickupVoucherID
+   * @return pickupVoucherID
+  **/
+  @Schema(description = "")
+  public String getPickupVoucherID() {
+    return pickupVoucherID;
+  }
+
+  public void setPickupVoucherID(String pickupVoucherID) {
+    this.pickupVoucherID = pickupVoucherID;
+  }
+
   public OrderProductInfoForListOrderProductDetailsOutput product(String product) {
     this.product = product;
     return this;
@@ -402,6 +465,8 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     return Objects.equals(this.beginTime, orderProductInfoForListOrderProductDetailsOutput.beginTime) &&
         Objects.equals(this.configurationCode, orderProductInfoForListOrderProductDetailsOutput.configurationCode) &&
         Objects.equals(this.couponAmount, orderProductInfoForListOrderProductDetailsOutput.couponAmount) &&
+        Objects.equals(this.deductionCount, orderProductInfoForListOrderProductDetailsOutput.deductionCount) &&
+        Objects.equals(this.deductionCountUnit, orderProductInfoForListOrderProductDetailsOutput.deductionCountUnit) &&
         Objects.equals(this.discountAmount, orderProductInfoForListOrderProductDetailsOutput.discountAmount) &&
         Objects.equals(this.endTime, orderProductInfoForListOrderProductDetailsOutput.endTime) &&
         Objects.equals(this.instanceID, orderProductInfoForListOrderProductDetailsOutput.instanceID) &&
@@ -413,6 +478,7 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
         Objects.equals(this.payerID, orderProductInfoForListOrderProductDetailsOutput.payerID) &&
         Objects.equals(this.paymentMethod, orderProductInfoForListOrderProductDetailsOutput.paymentMethod) &&
         Objects.equals(this.period, orderProductInfoForListOrderProductDetailsOutput.period) &&
+        Objects.equals(this.pickupVoucherID, orderProductInfoForListOrderProductDetailsOutput.pickupVoucherID) &&
         Objects.equals(this.product, orderProductInfoForListOrderProductDetailsOutput.product) &&
         Objects.equals(this.status, orderProductInfoForListOrderProductDetailsOutput.status) &&
         Objects.equals(this.times, orderProductInfoForListOrderProductDetailsOutput.times);
@@ -420,7 +486,7 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, configurationCode, couponAmount, discountAmount, endTime, instanceID, orderFailRefundInfo, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, paymentMethod, period, product, status, times);
+    return Objects.hash(beginTime, configurationCode, couponAmount, deductionCount, deductionCountUnit, discountAmount, endTime, instanceID, orderFailRefundInfo, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, paymentMethod, period, pickupVoucherID, product, status, times);
   }
 
 
@@ -432,6 +498,8 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
+    sb.append("    deductionCount: ").append(toIndentedString(deductionCount)).append("\n");
+    sb.append("    deductionCountUnit: ").append(toIndentedString(deductionCountUnit)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
@@ -443,6 +511,7 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    pickupVoucherID: ").append(toIndentedString(pickupVoucherID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    times: ").append(toIndentedString(times)).append("\n");
