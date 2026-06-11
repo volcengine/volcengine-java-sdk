@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cdn.model.CertInfoListForAddCdnDomainInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,8 +33,38 @@ import javax.validation.Valid;
 
 
 public class OriginCertCheckForAddCdnDomainInput {
+  @SerializedName("CertInfoList")
+  private List<CertInfoListForAddCdnDomainInput> certInfoList = null;
+
   @SerializedName("Switch")
   private Boolean _switch = null;
+
+  public OriginCertCheckForAddCdnDomainInput certInfoList(List<CertInfoListForAddCdnDomainInput> certInfoList) {
+    this.certInfoList = certInfoList;
+    return this;
+  }
+
+  public OriginCertCheckForAddCdnDomainInput addCertInfoListItem(CertInfoListForAddCdnDomainInput certInfoListItem) {
+    if (this.certInfoList == null) {
+      this.certInfoList = new ArrayList<CertInfoListForAddCdnDomainInput>();
+    }
+    this.certInfoList.add(certInfoListItem);
+    return this;
+  }
+
+   /**
+   * Get certInfoList
+   * @return certInfoList
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CertInfoListForAddCdnDomainInput> getCertInfoList() {
+    return certInfoList;
+  }
+
+  public void setCertInfoList(List<CertInfoListForAddCdnDomainInput> certInfoList) {
+    this.certInfoList = certInfoList;
+  }
 
   public OriginCertCheckForAddCdnDomainInput _switch(Boolean _switch) {
     this._switch = _switch;
@@ -61,12 +94,13 @@ public class OriginCertCheckForAddCdnDomainInput {
       return false;
     }
     OriginCertCheckForAddCdnDomainInput originCertCheckForAddCdnDomainInput = (OriginCertCheckForAddCdnDomainInput) o;
-    return Objects.equals(this._switch, originCertCheckForAddCdnDomainInput._switch);
+    return Objects.equals(this.certInfoList, originCertCheckForAddCdnDomainInput.certInfoList) &&
+        Objects.equals(this._switch, originCertCheckForAddCdnDomainInput._switch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_switch);
+    return Objects.hash(certInfoList, _switch);
   }
 
 
@@ -75,6 +109,7 @@ public class OriginCertCheckForAddCdnDomainInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class OriginCertCheckForAddCdnDomainInput {\n");
     
+    sb.append("    certInfoList: ").append(toIndentedString(certInfoList)).append("\n");
     sb.append("    _switch: ").append(toIndentedString(_switch)).append("\n");
     sb.append("}");
     return sb.toString();

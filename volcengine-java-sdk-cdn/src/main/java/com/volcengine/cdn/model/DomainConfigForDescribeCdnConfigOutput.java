@@ -56,6 +56,7 @@ import com.volcengine.cdn.model.RequestBlockRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RequestHeaderForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.ResponseHeaderForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RewriteHLSForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.RuleEngineForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.SignedUrlAuthForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.TimeoutForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.UaAccessRuleForDescribeCdnConfigOutput;
@@ -217,6 +218,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @SerializedName("RewriteHLS")
   private RewriteHLSForDescribeCdnConfigOutput rewriteHLS = null;
+
+  @SerializedName("RuleEngine")
+  private RuleEngineForDescribeCdnConfigOutput ruleEngine = null;
 
   @SerializedName("ServiceRegion")
   private String serviceRegion = null;
@@ -1210,6 +1214,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
     this.rewriteHLS = rewriteHLS;
   }
 
+  public DomainConfigForDescribeCdnConfigOutput ruleEngine(RuleEngineForDescribeCdnConfigOutput ruleEngine) {
+    this.ruleEngine = ruleEngine;
+    return this;
+  }
+
+   /**
+   * Get ruleEngine
+   * @return ruleEngine
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuleEngineForDescribeCdnConfigOutput getRuleEngine() {
+    return ruleEngine;
+  }
+
+  public void setRuleEngine(RuleEngineForDescribeCdnConfigOutput ruleEngine) {
+    this.ruleEngine = ruleEngine;
+  }
+
   public DomainConfigForDescribeCdnConfigOutput serviceRegion(String serviceRegion) {
     this.serviceRegion = serviceRegion;
     return this;
@@ -1435,6 +1458,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.requestHeader, domainConfigForDescribeCdnConfigOutput.requestHeader) &&
         Objects.equals(this.responseHeader, domainConfigForDescribeCdnConfigOutput.responseHeader) &&
         Objects.equals(this.rewriteHLS, domainConfigForDescribeCdnConfigOutput.rewriteHLS) &&
+        Objects.equals(this.ruleEngine, domainConfigForDescribeCdnConfigOutput.ruleEngine) &&
         Objects.equals(this.serviceRegion, domainConfigForDescribeCdnConfigOutput.serviceRegion) &&
         Objects.equals(this.serviceType, domainConfigForDescribeCdnConfigOutput.serviceType) &&
         Objects.equals(this.signedUrlAuth, domainConfigForDescribeCdnConfigOutput.signedUrlAuth) &&
@@ -1448,7 +1472,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
+    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, ruleEngine, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
   }
 
 
@@ -1505,6 +1529,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    requestHeader: ").append(toIndentedString(requestHeader)).append("\n");
     sb.append("    responseHeader: ").append(toIndentedString(responseHeader)).append("\n");
     sb.append("    rewriteHLS: ").append(toIndentedString(rewriteHLS)).append("\n");
+    sb.append("    ruleEngine: ").append(toIndentedString(ruleEngine)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    signedUrlAuth: ").append(toIndentedString(signedUrlAuth)).append("\n");

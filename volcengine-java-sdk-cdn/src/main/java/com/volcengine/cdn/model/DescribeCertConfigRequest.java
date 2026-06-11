@@ -45,6 +45,9 @@ public class DescribeCertConfigRequest {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("TargetConfig")
+  private String targetConfig = null;
+
   public DescribeCertConfigRequest certId(String certId) {
     this.certId = certId;
     return this;
@@ -136,6 +139,24 @@ public class DescribeCertConfigRequest {
     this.status = status;
   }
 
+  public DescribeCertConfigRequest targetConfig(String targetConfig) {
+    this.targetConfig = targetConfig;
+    return this;
+  }
+
+   /**
+   * Get targetConfig
+   * @return targetConfig
+  **/
+  @Schema(description = "")
+  public String getTargetConfig() {
+    return targetConfig;
+  }
+
+  public void setTargetConfig(String targetConfig) {
+    this.targetConfig = targetConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class DescribeCertConfigRequest {
         Objects.equals(this.certId2, describeCertConfigRequest.certId2) &&
         Objects.equals(this.certType, describeCertConfigRequest.certType) &&
         Objects.equals(this.encryType, describeCertConfigRequest.encryType) &&
-        Objects.equals(this.status, describeCertConfigRequest.status);
+        Objects.equals(this.status, describeCertConfigRequest.status) &&
+        Objects.equals(this.targetConfig, describeCertConfigRequest.targetConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certId2, certType, encryType, status);
+    return Objects.hash(certId, certId2, certType, encryType, status, targetConfig);
   }
 
 
@@ -169,6 +191,7 @@ public class DescribeCertConfigRequest {
     sb.append("    certType: ").append(toIndentedString(certType)).append("\n");
     sb.append("    encryType: ").append(toIndentedString(encryType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    targetConfig: ").append(toIndentedString(targetConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }
