@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class PlannedEventForDescribePlannedEventsOutput {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("ActionName")
   private String actionName = null;
 
@@ -115,6 +118,24 @@ public class PlannedEventForDescribePlannedEventsOutput {
 
   @SerializedName("Type")
   private String type = null;
+
+  public PlannedEventForDescribePlannedEventsOutput action(String action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @Schema(description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
 
   public PlannedEventForDescribePlannedEventsOutput actionName(String actionName) {
     this.actionName = actionName;
@@ -324,7 +345,8 @@ public class PlannedEventForDescribePlannedEventsOutput {
       return false;
     }
     PlannedEventForDescribePlannedEventsOutput plannedEventForDescribePlannedEventsOutput = (PlannedEventForDescribePlannedEventsOutput) o;
-    return Objects.equals(this.actionName, plannedEventForDescribePlannedEventsOutput.actionName) &&
+    return Objects.equals(this.action, plannedEventForDescribePlannedEventsOutput.action) &&
+        Objects.equals(this.actionName, plannedEventForDescribePlannedEventsOutput.actionName) &&
         Objects.equals(this.canCancel, plannedEventForDescribePlannedEventsOutput.canCancel) &&
         Objects.equals(this.canModifyTime, plannedEventForDescribePlannedEventsOutput.canModifyTime) &&
         Objects.equals(this.eventId, plannedEventForDescribePlannedEventsOutput.eventId) &&
@@ -339,7 +361,7 @@ public class PlannedEventForDescribePlannedEventsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionName, canCancel, canModifyTime, eventId, instanceId, instanceName, maxEndTime, planEndTime, planStartTime, status, type);
+    return Objects.hash(action, actionName, canCancel, canModifyTime, eventId, instanceId, instanceName, maxEndTime, planEndTime, planStartTime, status, type);
   }
 
 
@@ -348,6 +370,7 @@ public class PlannedEventForDescribePlannedEventsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PlannedEventForDescribePlannedEventsOutput {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionName: ").append(toIndentedString(actionName)).append("\n");
     sb.append("    canCancel: ").append(toIndentedString(canCancel)).append("\n");
     sb.append("    canModifyTime: ").append(toIndentedString(canModifyTime)).append("\n");

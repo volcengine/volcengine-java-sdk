@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class HotKeyForDescribeHotKeysOutput {
+  @SerializedName("ActionType")
+  private String actionType = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -50,6 +53,24 @@ public class HotKeyForDescribeHotKeysOutput {
 
   @SerializedName("ShardId")
   private String shardId = null;
+
+  public HotKeyForDescribeHotKeysOutput actionType(String actionType) {
+    this.actionType = actionType;
+    return this;
+  }
+
+   /**
+   * Get actionType
+   * @return actionType
+  **/
+  @Schema(description = "")
+  public String getActionType() {
+    return actionType;
+  }
+
+  public void setActionType(String actionType) {
+    this.actionType = actionType;
+  }
 
   public HotKeyForDescribeHotKeysOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -187,7 +208,8 @@ public class HotKeyForDescribeHotKeysOutput {
       return false;
     }
     HotKeyForDescribeHotKeysOutput hotKeyForDescribeHotKeysOutput = (HotKeyForDescribeHotKeysOutput) o;
-    return Objects.equals(this.createTime, hotKeyForDescribeHotKeysOutput.createTime) &&
+    return Objects.equals(this.actionType, hotKeyForDescribeHotKeysOutput.actionType) &&
+        Objects.equals(this.createTime, hotKeyForDescribeHotKeysOutput.createTime) &&
         Objects.equals(this.dbName, hotKeyForDescribeHotKeysOutput.dbName) &&
         Objects.equals(this.keyInfo, hotKeyForDescribeHotKeysOutput.keyInfo) &&
         Objects.equals(this.keyType, hotKeyForDescribeHotKeysOutput.keyType) &&
@@ -198,7 +220,7 @@ public class HotKeyForDescribeHotKeysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbName, keyInfo, keyType, nodeId, queryCount, shardId);
+    return Objects.hash(actionType, createTime, dbName, keyInfo, keyType, nodeId, queryCount, shardId);
   }
 
 
@@ -207,6 +229,7 @@ public class HotKeyForDescribeHotKeysOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class HotKeyForDescribeHotKeysOutput {\n");
     
+    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    keyInfo: ").append(toIndentedString(keyInfo)).append("\n");

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,26 +30,235 @@ import javax.validation.Valid;
 
 
 public class SwitchoverBlueGreenDeploymentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("BlueGreenDeployment")
-  private BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput blueGreenDeployment = null;
+  @SerializedName("CreateTime")
+  private String createTime = null;
 
-  public SwitchoverBlueGreenDeploymentResponse blueGreenDeployment(BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput blueGreenDeployment) {
-    this.blueGreenDeployment = blueGreenDeployment;
+  @SerializedName("DataSyncProgress")
+  private Double dataSyncProgress = null;
+
+  @SerializedName("EndTime")
+  private String endTime = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
+  @SerializedName("SourceEngineVersion")
+  private String sourceEngineVersion = null;
+
+  @SerializedName("SourceInstanceId")
+  private String sourceInstanceId = null;
+
+  @SerializedName("SourceInstanceName")
+  private String sourceInstanceName = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  @SerializedName("TargetEngineVersion")
+  private String targetEngineVersion = null;
+
+  @SerializedName("TargetInstanceId")
+  private String targetInstanceId = null;
+
+  @SerializedName("TargetInstanceName")
+  private String targetInstanceName = null;
+
+  public SwitchoverBlueGreenDeploymentResponse createTime(String createTime) {
+    this.createTime = createTime;
     return this;
   }
 
    /**
-   * Get blueGreenDeployment
-   * @return blueGreenDeployment
+   * Get createTime
+   * @return createTime
   **/
-  @Valid
   @Schema(description = "")
-  public BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput getBlueGreenDeployment() {
-    return blueGreenDeployment;
+  public String getCreateTime() {
+    return createTime;
   }
 
-  public void setBlueGreenDeployment(BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput blueGreenDeployment) {
-    this.blueGreenDeployment = blueGreenDeployment;
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse dataSyncProgress(Double dataSyncProgress) {
+    this.dataSyncProgress = dataSyncProgress;
+    return this;
+  }
+
+   /**
+   * Get dataSyncProgress
+   * @return dataSyncProgress
+  **/
+  @Schema(description = "")
+  public Double getDataSyncProgress() {
+    return dataSyncProgress;
+  }
+
+  public void setDataSyncProgress(Double dataSyncProgress) {
+    this.dataSyncProgress = dataSyncProgress;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse endTime(String endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Get endTime
+   * @return endTime
+  **/
+  @Schema(description = "")
+  public String getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse sourceEngineVersion(String sourceEngineVersion) {
+    this.sourceEngineVersion = sourceEngineVersion;
+    return this;
+  }
+
+   /**
+   * Get sourceEngineVersion
+   * @return sourceEngineVersion
+  **/
+  @Schema(description = "")
+  public String getSourceEngineVersion() {
+    return sourceEngineVersion;
+  }
+
+  public void setSourceEngineVersion(String sourceEngineVersion) {
+    this.sourceEngineVersion = sourceEngineVersion;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse sourceInstanceId(String sourceInstanceId) {
+    this.sourceInstanceId = sourceInstanceId;
+    return this;
+  }
+
+   /**
+   * Get sourceInstanceId
+   * @return sourceInstanceId
+  **/
+  @Schema(description = "")
+  public String getSourceInstanceId() {
+    return sourceInstanceId;
+  }
+
+  public void setSourceInstanceId(String sourceInstanceId) {
+    this.sourceInstanceId = sourceInstanceId;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse sourceInstanceName(String sourceInstanceName) {
+    this.sourceInstanceName = sourceInstanceName;
+    return this;
+  }
+
+   /**
+   * Get sourceInstanceName
+   * @return sourceInstanceName
+  **/
+  @Schema(description = "")
+  public String getSourceInstanceName() {
+    return sourceInstanceName;
+  }
+
+  public void setSourceInstanceName(String sourceInstanceName) {
+    this.sourceInstanceName = sourceInstanceName;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse targetEngineVersion(String targetEngineVersion) {
+    this.targetEngineVersion = targetEngineVersion;
+    return this;
+  }
+
+   /**
+   * Get targetEngineVersion
+   * @return targetEngineVersion
+  **/
+  @Schema(description = "")
+  public String getTargetEngineVersion() {
+    return targetEngineVersion;
+  }
+
+  public void setTargetEngineVersion(String targetEngineVersion) {
+    this.targetEngineVersion = targetEngineVersion;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse targetInstanceId(String targetInstanceId) {
+    this.targetInstanceId = targetInstanceId;
+    return this;
+  }
+
+   /**
+   * Get targetInstanceId
+   * @return targetInstanceId
+  **/
+  @Schema(description = "")
+  public String getTargetInstanceId() {
+    return targetInstanceId;
+  }
+
+  public void setTargetInstanceId(String targetInstanceId) {
+    this.targetInstanceId = targetInstanceId;
+  }
+
+  public SwitchoverBlueGreenDeploymentResponse targetInstanceName(String targetInstanceName) {
+    this.targetInstanceName = targetInstanceName;
+    return this;
+  }
+
+   /**
+   * Get targetInstanceName
+   * @return targetInstanceName
+  **/
+  @Schema(description = "")
+  public String getTargetInstanceName() {
+    return targetInstanceName;
+  }
+
+  public void setTargetInstanceName(String targetInstanceName) {
+    this.targetInstanceName = targetInstanceName;
   }
 
 
@@ -63,12 +271,22 @@ public class SwitchoverBlueGreenDeploymentResponse extends com.volcengine.model.
       return false;
     }
     SwitchoverBlueGreenDeploymentResponse switchoverBlueGreenDeploymentResponse = (SwitchoverBlueGreenDeploymentResponse) o;
-    return Objects.equals(this.blueGreenDeployment, switchoverBlueGreenDeploymentResponse.blueGreenDeployment);
+    return Objects.equals(this.createTime, switchoverBlueGreenDeploymentResponse.createTime) &&
+        Objects.equals(this.dataSyncProgress, switchoverBlueGreenDeploymentResponse.dataSyncProgress) &&
+        Objects.equals(this.endTime, switchoverBlueGreenDeploymentResponse.endTime) &&
+        Objects.equals(this.name, switchoverBlueGreenDeploymentResponse.name) &&
+        Objects.equals(this.sourceEngineVersion, switchoverBlueGreenDeploymentResponse.sourceEngineVersion) &&
+        Objects.equals(this.sourceInstanceId, switchoverBlueGreenDeploymentResponse.sourceInstanceId) &&
+        Objects.equals(this.sourceInstanceName, switchoverBlueGreenDeploymentResponse.sourceInstanceName) &&
+        Objects.equals(this.status, switchoverBlueGreenDeploymentResponse.status) &&
+        Objects.equals(this.targetEngineVersion, switchoverBlueGreenDeploymentResponse.targetEngineVersion) &&
+        Objects.equals(this.targetInstanceId, switchoverBlueGreenDeploymentResponse.targetInstanceId) &&
+        Objects.equals(this.targetInstanceName, switchoverBlueGreenDeploymentResponse.targetInstanceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueGreenDeployment);
+    return Objects.hash(createTime, dataSyncProgress, endTime, name, sourceEngineVersion, sourceInstanceId, sourceInstanceName, status, targetEngineVersion, targetInstanceId, targetInstanceName);
   }
 
 
@@ -77,7 +295,17 @@ public class SwitchoverBlueGreenDeploymentResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class SwitchoverBlueGreenDeploymentResponse {\n");
     
-    sb.append("    blueGreenDeployment: ").append(toIndentedString(blueGreenDeployment)).append("\n");
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dataSyncProgress: ").append(toIndentedString(dataSyncProgress)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sourceEngineVersion: ").append(toIndentedString(sourceEngineVersion)).append("\n");
+    sb.append("    sourceInstanceId: ").append(toIndentedString(sourceInstanceId)).append("\n");
+    sb.append("    sourceInstanceName: ").append(toIndentedString(sourceInstanceName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    targetEngineVersion: ").append(toIndentedString(targetEngineVersion)).append("\n");
+    sb.append("    targetInstanceId: ").append(toIndentedString(targetInstanceId)).append("\n");
+    sb.append("    targetInstanceName: ").append(toIndentedString(targetInstanceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
