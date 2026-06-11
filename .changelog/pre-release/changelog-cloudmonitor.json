@@ -1,5 +1,5 @@
 {
-  "description": "CLOUDMONITOR: 新增 ListAlert；修改 GetMetricData, ListObjectGroups, ListRules, ListRulesByIds",
+  "description": "CLOUDMONITOR: 新增 ListNotificationPolicies, UpdateContact, CreateContact, ListAggregationPolicies, ListContactGroups, DeleteContacts, ListNotificationTemplates, UpdateDutySchedule, CreateContactGroup, CreateWebhook, DeleteAggregationPolicies, DeleteDutySchedules, ListContacts, ListSilencePolicies, CreateAggregationPolicy, CreateDutySchedule, DeleteContactGroups, UpdateNotificationTemplate, DeleteNotificationTemplates, DeleteSilencePolicies, SetAsDefaultAggregationPolicy, DisableSilencePolicies, UnsetAsDefaultNotificationPolicy, CreateNotificationPolicy, CreateSilencePolicy, DeleteNotificationPolicies, UpdateContactGroup, UpdateSilencePolicy, CreateNotificationTemplate, UnsetAsDefaultAggregationPolicy, UpdateAggregationPolicy, UpdateWebhook, DeleteWebhooks, EnableSilencePolicies, SetAsDefaultNotificationPolicy, ListDutySchedules, ListWebhooks, UpdateNotificationPolicy",
   "modules": "service/cloudmonitor",
-  "type": "breaking-change"
+  "type": "feature"
 }
