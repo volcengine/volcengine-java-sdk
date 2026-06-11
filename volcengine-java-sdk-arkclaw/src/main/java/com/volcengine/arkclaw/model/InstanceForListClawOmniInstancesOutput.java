@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class InstanceForListClawOmniInstancesOutput {
+  @SerializedName("AgentMd")
+  private String agentMd = null;
+
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
 
@@ -90,6 +93,24 @@ public class InstanceForListClawOmniInstancesOutput {
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
+
+  public InstanceForListClawOmniInstancesOutput agentMd(String agentMd) {
+    this.agentMd = agentMd;
+    return this;
+  }
+
+   /**
+   * Get agentMd
+   * @return agentMd
+  **/
+  @Schema(description = "")
+  public String getAgentMd() {
+    return agentMd;
+  }
+
+  public void setAgentMd(String agentMd) {
+    this.agentMd = agentMd;
+  }
 
   public InstanceForListClawOmniInstancesOutput cpuMilli(Integer cpuMilli) {
     this.cpuMilli = cpuMilli;
@@ -453,7 +474,8 @@ public class InstanceForListClawOmniInstancesOutput {
       return false;
     }
     InstanceForListClawOmniInstancesOutput instanceForListClawOmniInstancesOutput = (InstanceForListClawOmniInstancesOutput) o;
-    return Objects.equals(this.cpuMilli, instanceForListClawOmniInstancesOutput.cpuMilli) &&
+    return Objects.equals(this.agentMd, instanceForListClawOmniInstancesOutput.agentMd) &&
+        Objects.equals(this.cpuMilli, instanceForListClawOmniInstancesOutput.cpuMilli) &&
         Objects.equals(this.createdAt, instanceForListClawOmniInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForListClawOmniInstancesOutput.description) &&
         Objects.equals(this.endpoint, instanceForListClawOmniInstancesOutput.endpoint) &&
@@ -476,7 +498,7 @@ public class InstanceForListClawOmniInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
+    return Objects.hash(agentMd, cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
   }
 
 
@@ -485,6 +507,7 @@ public class InstanceForListClawOmniInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForListClawOmniInstancesOutput {\n");
     
+    sb.append("    agentMd: ").append(toIndentedString(agentMd)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

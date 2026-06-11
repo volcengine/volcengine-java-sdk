@@ -24,22 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreatePrivateClawOmniSpaceTemplateResponse
+ * InstallClawOmniInstanceSkillRequest
  */
 
 
 
-public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.model.AbstractResponse {
+public class InstallClawOmniInstanceSkillRequest {
   @SerializedName("Id")
   private String id = null;
 
-  @SerializedName("ImageBuildStatus")
-  private String imageBuildStatus = null;
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
-  @SerializedName("VersionId")
-  private String versionId = null;
+  @SerializedName("Skill")
+  private String skill = null;
 
-  public CreatePrivateClawOmniSpaceTemplateResponse id(String id) {
+  public InstallClawOmniInstanceSkillRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -48,7 +48,8 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
    * Get id
    * @return id
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getId() {
     return id;
   }
@@ -57,40 +58,41 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
     this.id = id;
   }
 
-  public CreatePrivateClawOmniSpaceTemplateResponse imageBuildStatus(String imageBuildStatus) {
-    this.imageBuildStatus = imageBuildStatus;
+  public InstallClawOmniInstanceSkillRequest projectName(String projectName) {
+    this.projectName = projectName;
     return this;
   }
 
    /**
-   * Get imageBuildStatus
-   * @return imageBuildStatus
+   * Get projectName
+   * @return projectName
   **/
   @Schema(description = "")
-  public String getImageBuildStatus() {
-    return imageBuildStatus;
+  public String getProjectName() {
+    return projectName;
   }
 
-  public void setImageBuildStatus(String imageBuildStatus) {
-    this.imageBuildStatus = imageBuildStatus;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
-  public CreatePrivateClawOmniSpaceTemplateResponse versionId(String versionId) {
-    this.versionId = versionId;
+  public InstallClawOmniInstanceSkillRequest skill(String skill) {
+    this.skill = skill;
     return this;
   }
 
    /**
-   * Get versionId
-   * @return versionId
+   * Get skill
+   * @return skill
   **/
-  @Schema(description = "")
-  public String getVersionId() {
-    return versionId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSkill() {
+    return skill;
   }
 
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
+  public void setSkill(String skill) {
+    this.skill = skill;
   }
 
 
@@ -102,26 +104,26 @@ public class CreatePrivateClawOmniSpaceTemplateResponse extends com.volcengine.m
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePrivateClawOmniSpaceTemplateResponse createPrivateClawOmniSpaceTemplateResponse = (CreatePrivateClawOmniSpaceTemplateResponse) o;
-    return Objects.equals(this.id, createPrivateClawOmniSpaceTemplateResponse.id) &&
-        Objects.equals(this.imageBuildStatus, createPrivateClawOmniSpaceTemplateResponse.imageBuildStatus) &&
-        Objects.equals(this.versionId, createPrivateClawOmniSpaceTemplateResponse.versionId);
+    InstallClawOmniInstanceSkillRequest installClawOmniInstanceSkillRequest = (InstallClawOmniInstanceSkillRequest) o;
+    return Objects.equals(this.id, installClawOmniInstanceSkillRequest.id) &&
+        Objects.equals(this.projectName, installClawOmniInstanceSkillRequest.projectName) &&
+        Objects.equals(this.skill, installClawOmniInstanceSkillRequest.skill);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, imageBuildStatus, versionId);
+    return Objects.hash(id, projectName, skill);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePrivateClawOmniSpaceTemplateResponse {\n");
+    sb.append("class InstallClawOmniInstanceSkillRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    imageBuildStatus: ").append(toIndentedString(imageBuildStatus)).append("\n");
-    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    skill: ").append(toIndentedString(skill)).append("\n");
     sb.append("}");
     return sb.toString();
   }
