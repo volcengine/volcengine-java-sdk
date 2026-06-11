@@ -32,32 +32,11 @@ import javax.validation.Valid;
 
 
 public class NetworkConfigForCreateInstanceOneStepInput {
-  @SerializedName("InnerEndpointEnabled")
-  private Boolean innerEndpointEnabled = null;
-
   @SerializedName("SubnetInfo")
   private SubnetInfoForCreateInstanceOneStepInput subnetInfo = null;
 
   @SerializedName("VpcInfo")
   private VpcInfoForCreateInstanceOneStepInput vpcInfo = null;
-
-  public NetworkConfigForCreateInstanceOneStepInput innerEndpointEnabled(Boolean innerEndpointEnabled) {
-    this.innerEndpointEnabled = innerEndpointEnabled;
-    return this;
-  }
-
-   /**
-   * Get innerEndpointEnabled
-   * @return innerEndpointEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isInnerEndpointEnabled() {
-    return innerEndpointEnabled;
-  }
-
-  public void setInnerEndpointEnabled(Boolean innerEndpointEnabled) {
-    this.innerEndpointEnabled = innerEndpointEnabled;
-  }
 
   public NetworkConfigForCreateInstanceOneStepInput subnetInfo(SubnetInfoForCreateInstanceOneStepInput subnetInfo) {
     this.subnetInfo = subnetInfo;
@@ -107,14 +86,13 @@ public class NetworkConfigForCreateInstanceOneStepInput {
       return false;
     }
     NetworkConfigForCreateInstanceOneStepInput networkConfigForCreateInstanceOneStepInput = (NetworkConfigForCreateInstanceOneStepInput) o;
-    return Objects.equals(this.innerEndpointEnabled, networkConfigForCreateInstanceOneStepInput.innerEndpointEnabled) &&
-        Objects.equals(this.subnetInfo, networkConfigForCreateInstanceOneStepInput.subnetInfo) &&
+    return Objects.equals(this.subnetInfo, networkConfigForCreateInstanceOneStepInput.subnetInfo) &&
         Objects.equals(this.vpcInfo, networkConfigForCreateInstanceOneStepInput.vpcInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(innerEndpointEnabled, subnetInfo, vpcInfo);
+    return Objects.hash(subnetInfo, vpcInfo);
   }
 
 
@@ -123,7 +101,6 @@ public class NetworkConfigForCreateInstanceOneStepInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkConfigForCreateInstanceOneStepInput {\n");
     
-    sb.append("    innerEndpointEnabled: ").append(toIndentedString(innerEndpointEnabled)).append("\n");
     sb.append("    subnetInfo: ").append(toIndentedString(subnetInfo)).append("\n");
     sb.append("    vpcInfo: ").append(toIndentedString(vpcInfo)).append("\n");
     sb.append("}");

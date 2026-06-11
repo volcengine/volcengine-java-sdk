@@ -36,8 +36,51 @@ public class ZoneForDescribeZonesOutput {
   @SerializedName("ZoneName")
   private String zoneName = null;
 
-  @SerializedName("ZoneStatus")
-  private String zoneStatus = null;
+  /**
+   * Gets or Sets zoneStatus
+   */
+  @JsonAdapter(ZoneStatusEnum.Adapter.class)
+  public enum ZoneStatusEnum {
+    @SerializedName("AVAILABLE")
+    AVAILABLE("AVAILABLE"),
+    @SerializedName("SOLD_OUT")
+    SOLD_OUT("SOLD_OUT");
+
+    private String value;
+
+    ZoneStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ZoneStatusEnum fromValue(String input) {
+      for (ZoneStatusEnum b : ZoneStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ZoneStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ZoneStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ZoneStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ZoneStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ZoneStatus")
+  private ZoneStatusEnum zoneStatus = null;
 
   public ZoneForDescribeZonesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
@@ -75,7 +118,7 @@ public class ZoneForDescribeZonesOutput {
     this.zoneName = zoneName;
   }
 
-  public ZoneForDescribeZonesOutput zoneStatus(String zoneStatus) {
+  public ZoneForDescribeZonesOutput zoneStatus(ZoneStatusEnum zoneStatus) {
     this.zoneStatus = zoneStatus;
     return this;
   }
@@ -85,11 +128,11 @@ public class ZoneForDescribeZonesOutput {
    * @return zoneStatus
   **/
   @Schema(description = "")
-  public String getZoneStatus() {
+  public ZoneStatusEnum getZoneStatus() {
     return zoneStatus;
   }
 
-  public void setZoneStatus(String zoneStatus) {
+  public void setZoneStatus(ZoneStatusEnum zoneStatus) {
     this.zoneStatus = zoneStatus;
   }
 

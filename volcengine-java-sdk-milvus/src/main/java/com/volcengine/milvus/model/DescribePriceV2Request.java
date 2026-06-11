@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.milvus.model.ComponentSpecListForScaleInstanceInput;
+import com.volcengine.milvus.model.ChargeConfigForDescribePriceV2Input;
+import com.volcengine.milvus.model.ComponentSpecListForDescribePriceV2Input;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,32 +28,48 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ScaleInstanceRequest
+ * DescribePriceV2Request
  */
 
 
 
-public class ScaleInstanceRequest {
-  @SerializedName("ComponentSpecList")
-  private List<ComponentSpecListForScaleInstanceInput> componentSpecList = null;
+public class DescribePriceV2Request {
+  @SerializedName("ChargeConfig")
+  private ChargeConfigForDescribePriceV2Input chargeConfig = null;
 
-  @SerializedName("HaEnabled")
-  private Boolean haEnabled = null;
+  @SerializedName("ComponentSpecList")
+  private List<ComponentSpecListForDescribePriceV2Input> componentSpecList = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("OneStep")
-  private Boolean oneStep = null;
+  public DescribePriceV2Request chargeConfig(ChargeConfigForDescribePriceV2Input chargeConfig) {
+    this.chargeConfig = chargeConfig;
+    return this;
+  }
 
-  public ScaleInstanceRequest componentSpecList(List<ComponentSpecListForScaleInstanceInput> componentSpecList) {
+   /**
+   * Get chargeConfig
+   * @return chargeConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ChargeConfigForDescribePriceV2Input getChargeConfig() {
+    return chargeConfig;
+  }
+
+  public void setChargeConfig(ChargeConfigForDescribePriceV2Input chargeConfig) {
+    this.chargeConfig = chargeConfig;
+  }
+
+  public DescribePriceV2Request componentSpecList(List<ComponentSpecListForDescribePriceV2Input> componentSpecList) {
     this.componentSpecList = componentSpecList;
     return this;
   }
 
-  public ScaleInstanceRequest addComponentSpecListItem(ComponentSpecListForScaleInstanceInput componentSpecListItem) {
+  public DescribePriceV2Request addComponentSpecListItem(ComponentSpecListForDescribePriceV2Input componentSpecListItem) {
     if (this.componentSpecList == null) {
-      this.componentSpecList = new ArrayList<ComponentSpecListForScaleInstanceInput>();
+      this.componentSpecList = new ArrayList<ComponentSpecListForDescribePriceV2Input>();
     }
     this.componentSpecList.add(componentSpecListItem);
     return this;
@@ -64,33 +81,15 @@ public class ScaleInstanceRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<ComponentSpecListForScaleInstanceInput> getComponentSpecList() {
+  public List<ComponentSpecListForDescribePriceV2Input> getComponentSpecList() {
     return componentSpecList;
   }
 
-  public void setComponentSpecList(List<ComponentSpecListForScaleInstanceInput> componentSpecList) {
+  public void setComponentSpecList(List<ComponentSpecListForDescribePriceV2Input> componentSpecList) {
     this.componentSpecList = componentSpecList;
   }
 
-  public ScaleInstanceRequest haEnabled(Boolean haEnabled) {
-    this.haEnabled = haEnabled;
-    return this;
-  }
-
-   /**
-   * Get haEnabled
-   * @return haEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isHaEnabled() {
-    return haEnabled;
-  }
-
-  public void setHaEnabled(Boolean haEnabled) {
-    this.haEnabled = haEnabled;
-  }
-
-  public ScaleInstanceRequest instanceId(String instanceId) {
+  public DescribePriceV2Request instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -99,32 +98,13 @@ public class ScaleInstanceRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
-  }
-
-  public ScaleInstanceRequest oneStep(Boolean oneStep) {
-    this.oneStep = oneStep;
-    return this;
-  }
-
-   /**
-   * Get oneStep
-   * @return oneStep
-  **/
-  @Schema(description = "")
-  public Boolean isOneStep() {
-    return oneStep;
-  }
-
-  public void setOneStep(Boolean oneStep) {
-    this.oneStep = oneStep;
   }
 
 
@@ -136,28 +116,26 @@ public class ScaleInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScaleInstanceRequest scaleInstanceRequest = (ScaleInstanceRequest) o;
-    return Objects.equals(this.componentSpecList, scaleInstanceRequest.componentSpecList) &&
-        Objects.equals(this.haEnabled, scaleInstanceRequest.haEnabled) &&
-        Objects.equals(this.instanceId, scaleInstanceRequest.instanceId) &&
-        Objects.equals(this.oneStep, scaleInstanceRequest.oneStep);
+    DescribePriceV2Request describePriceV2Request = (DescribePriceV2Request) o;
+    return Objects.equals(this.chargeConfig, describePriceV2Request.chargeConfig) &&
+        Objects.equals(this.componentSpecList, describePriceV2Request.componentSpecList) &&
+        Objects.equals(this.instanceId, describePriceV2Request.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentSpecList, haEnabled, instanceId, oneStep);
+    return Objects.hash(chargeConfig, componentSpecList, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScaleInstanceRequest {\n");
+    sb.append("class DescribePriceV2Request {\n");
     
+    sb.append("    chargeConfig: ").append(toIndentedString(chargeConfig)).append("\n");
     sb.append("    componentSpecList: ").append(toIndentedString(componentSpecList)).append("\n");
-    sb.append("    haEnabled: ").append(toIndentedString(haEnabled)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    oneStep: ").append(toIndentedString(oneStep)).append("\n");
     sb.append("}");
     return sb.toString();
   }
