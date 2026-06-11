@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +46,9 @@ public class ModifyFlowLogAttributeRequest {
 
   @SerializedName("FlowLogName")
   private String flowLogName = null;
+
+  @SerializedName("TrafficPath")
+  private List<Integer> trafficPath = null;
 
   public ModifyFlowLogAttributeRequest aggregationInterval(Integer aggregationInterval) {
     this.aggregationInterval = aggregationInterval;
@@ -136,6 +141,32 @@ public class ModifyFlowLogAttributeRequest {
     this.flowLogName = flowLogName;
   }
 
+  public ModifyFlowLogAttributeRequest trafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+    return this;
+  }
+
+  public ModifyFlowLogAttributeRequest addTrafficPathItem(Integer trafficPathItem) {
+    if (this.trafficPath == null) {
+      this.trafficPath = new ArrayList<Integer>();
+    }
+    this.trafficPath.add(trafficPathItem);
+    return this;
+  }
+
+   /**
+   * Get trafficPath
+   * @return trafficPath
+  **/
+  @Schema(description = "")
+  public List<Integer> getTrafficPath() {
+    return trafficPath;
+  }
+
+  public void setTrafficPath(List<Integer> trafficPath) {
+    this.trafficPath = trafficPath;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +181,13 @@ public class ModifyFlowLogAttributeRequest {
         Objects.equals(this.clientToken, modifyFlowLogAttributeRequest.clientToken) &&
         Objects.equals(this.description, modifyFlowLogAttributeRequest.description) &&
         Objects.equals(this.flowLogId, modifyFlowLogAttributeRequest.flowLogId) &&
-        Objects.equals(this.flowLogName, modifyFlowLogAttributeRequest.flowLogName);
+        Objects.equals(this.flowLogName, modifyFlowLogAttributeRequest.flowLogName) &&
+        Objects.equals(this.trafficPath, modifyFlowLogAttributeRequest.trafficPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationInterval, clientToken, description, flowLogId, flowLogName);
+    return Objects.hash(aggregationInterval, clientToken, description, flowLogId, flowLogName, trafficPath);
   }
 
 
@@ -169,6 +201,7 @@ public class ModifyFlowLogAttributeRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    flowLogId: ").append(toIndentedString(flowLogId)).append("\n");
     sb.append("    flowLogName: ").append(toIndentedString(flowLogName)).append("\n");
+    sb.append("    trafficPath: ").append(toIndentedString(trafficPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }
