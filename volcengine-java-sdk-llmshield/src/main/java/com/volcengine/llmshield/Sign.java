@@ -11,11 +11,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.*;
-import java.net.URLEncoder;
 
 /**
  * Copyright (year) Beijing Volcano Engine Technology Ltd.
@@ -100,14 +98,15 @@ public class Sign {
         String host = uri.getHost();
 
         byte[] body = EntityUtils.toByteArray(httpPost.getEntity());
-        LocalDateTime date = LocalDateTime.now(ZoneId.of("GMT"));
+        Calendar date = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 
         if (body == null) {
             body = new byte[0];
         }
         String xContentSha256 = hashSHA256(body);
-        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
-        String xDate = sdf.format(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String xDate = sdf.format(date.getTime());
         String shortXDate = xDate.substring(0, 8);
         String contentType = DEFAULT_CONTENT_TYPE ;
 

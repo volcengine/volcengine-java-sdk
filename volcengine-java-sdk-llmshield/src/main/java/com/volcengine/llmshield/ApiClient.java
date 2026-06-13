@@ -14,6 +14,7 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.impl.DefaultHttpRequestRetryStrategy;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
@@ -28,6 +29,12 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 // 客户端类
 public class ApiClient {
@@ -45,10 +52,23 @@ public class ApiClient {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+    // 单线程超时调度器，全局共享，资源消耗极小（1个守护线程，wait状态几乎不占CPU）
+    // 用于硬超时控制，调度精度通常在 1-5ms，满足 10ms 误差要求
+    private static final ScheduledExecutorService TIMEOUT_SCHEDULER =
+            new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread t = new Thread(r, "api-client-timeout-scheduler");
+                    t.setDaemon(true);
+                    return t;
+                }
+            });
+
     private final String url;
     private final String ak;
     private final String sk;
     private final String region;
+    private final long timeout;
     private final CloseableHttpClient httpClient;
 
     private Client aiccClient;
@@ -58,6 +78,7 @@ public class ApiClient {
         this.ak = ak;
         this.sk = sk;
         this.region = region;
+        this.timeout = timeout;
 
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectTimeout(Timeout.ofMilliseconds(timeout))
@@ -68,14 +89,18 @@ public class ApiClient {
         long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
         ConnectionConfig connectionConfig = ConnectionConfig.custom()
                 .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .setSocketTimeout(Timeout.ofMilliseconds(timeout))
                 .build();
         PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
                 .setDefaultConnectionConfig(connectionConfig)
                 .setValidateAfterInactivity(TimeValue.ofSeconds(30))
                 .build();
+        // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
+        // 即使是连接阶段失败也不重试，由上层业务决定是否重试
         this.httpClient = HttpClientBuilder.create()
                 .setConnectionManager(connectionManager)
                 .setDefaultRequestConfig(requestConfig)
+                .setRetryStrategy(new DefaultHttpRequestRetryStrategy(0, TimeValue.ZERO_MILLISECONDS))
                 .evictIdleConnections(TimeValue.ofMinutes(1))
                 .evictExpiredConnections()
                 .build();
@@ -86,6 +111,7 @@ public class ApiClient {
         this.ak = ak;
         this.sk = sk;
         this.region = region;
+        this.timeout = timeout;
 
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectTimeout(Timeout.ofMilliseconds(timeout))
@@ -96,6 +122,7 @@ public class ApiClient {
         long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
         ConnectionConfig connectionConfig = ConnectionConfig.custom()
                 .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
+                .setSocketTimeout(Timeout.ofMilliseconds(timeout))
                 .build();
         PoolingHttpClientConnectionManagerBuilder cmBuilder = PoolingHttpClientConnectionManagerBuilder.create()
                 .setDefaultConnectionConfig(connectionConfig)
@@ -126,7 +153,11 @@ public class ApiClient {
             }
         }
 
-        this.httpClient = builder.build();
+        // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
+        // 即使是连接阶段失败也不重试，由上层业务决定是否重试
+        this.httpClient = builder
+                .setRetryStrategy(new DefaultHttpRequestRetryStrategy(0, TimeValue.ZERO_MILLISECONDS))
+                .build();
     }
 
     /**
@@ -277,6 +308,93 @@ public class ApiClient {
      */
     public String GetServiceCode() {
         return Sign.getServiceCode();
+    }
+
+    /**
+     * 响应处理接口，允许抛出受检异常（Java 7 兼容，不使用 lambda）
+     */
+    private interface ResponseHandler<T> {
+        T apply(CloseableHttpResponse response) throws Exception;
+    }
+
+    /**
+     * 带硬超时控制的 HTTP 请求执行方法
+     * <p>
+     * 实现原理：
+     * 1. 使用单线程 ScheduledExecutorService 调度超时任务（调度精度 1-5ms）
+     * 2. 超时后调用 httpPost.abort() 中止请求，确保连接释放
+     * 3. 使用 AtomicBoolean 保证状态竞态安全（正常完成 vs 超时触发）
+     * 4. 底层 Apache 超时配置作为第一道防线，硬超时作为最后防线
+     *
+     * @param httpPost HTTP POST 请求对象
+     * @param handler  响应处理器
+     * @param <T>      返回值类型
+     * @return 处理后的响应结果
+     * @throws Exception 如果请求超时或发生其他错误
+     */
+    private <T> T executeWithHardTimeout(HttpPost httpPost, ResponseHandler<T> handler) throws Exception {
+        // 未设置超时，直接执行
+        if (this.timeout <= 0) {
+            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+                return handler.apply(response);
+            }
+        }
+
+        final AtomicBoolean completed = new AtomicBoolean(false);
+        final long timeoutMs = this.timeout;
+
+        // 调度超时任务：提前3ms调度以抵消ScheduledExecutorService的调度延迟（通常1-3ms）
+        // 确保实际中止时间在 timeoutMs ± 2ms 范围内，满足10ms精度要求
+        long scheduleDelay = Math.max(1, timeoutMs - 3);
+        final HttpPost finalHttpPost = httpPost;
+        java.util.concurrent.ScheduledFuture<?> timeoutFuture = TIMEOUT_SCHEDULER.schedule(new Runnable() {
+            @Override
+            public void run() {
+                if (completed.compareAndSet(false, true)) {
+                    finalHttpPost.abort();
+                }
+            }
+        }, scheduleDelay, TimeUnit.MILLISECONDS);
+
+        try {
+            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+                T result = handler.apply(response);
+                // 正常完成，取消超时任务
+                if (completed.compareAndSet(false, true)) {
+                    timeoutFuture.cancel(false);
+                }
+                return result;
+            }
+        } catch (Exception e) {
+            // 异常路径也需要标记完成并取消超时任务
+            if (completed.compareAndSet(false, true)) {
+                timeoutFuture.cancel(false);
+            }
+            // 如果是 abort 导致的异常，包装成 TimeoutException
+            if (isAbortException(e)) {
+                throw new TimeoutException("Request timed out after " + timeoutMs + "ms");
+            }
+            throw e;
+        }
+    }
+
+    /**
+     * 判断异常是否由请求 abort 导致
+     */
+    private boolean isAbortException(Exception e) {
+        String msg = e.getMessage();
+        if (msg != null && msg.contains("Request aborted")) {
+            return true;
+        }
+        if (e instanceof org.apache.hc.core5.http.ConnectionClosedException) {
+            return true;
+        }
+        Throwable cause = e.getCause();
+        if (cause != null) {
+            String causeMsg = cause.getMessage();
+            return causeMsg != null && causeMsg.contains("Request aborted");
+        }
+        return false;
     }
 
     /**
@@ -504,22 +622,26 @@ public class ApiClient {
             httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
         }
 
-        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-            int statusCode = response.getCode();
-            byte[] responseBodyBytes = EntityUtils.toByteArray(response.getEntity());
+        final ResponseKey finalEncReqKey = encReqKey;
+        return executeWithHardTimeout(httpPost, new ResponseHandler<ModerateV2Response>() {
+            @Override
+            public ModerateV2Response apply(CloseableHttpResponse response) throws Exception {
+                int statusCode = response.getCode();
+                byte[] responseBodyBytes = EntityUtils.toByteArray(response.getEntity());
 
-            // 先解密响应体（AICC模式下响应体是加密的，包括错误响应）
-            if (encReqKey != null) {
-                responseBodyBytes = DecryptResponse(encReqKey, responseBodyBytes);
+                // 先解密响应体（AICC模式下响应体是加密的，包括错误响应）
+                if (finalEncReqKey != null) {
+                    responseBodyBytes = DecryptResponse(finalEncReqKey, responseBodyBytes);
+                }
+                String responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
+
+                if (statusCode != 200) {
+                    throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
+                }
+
+                return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
             }
-            String responseBody = new String(responseBodyBytes, StandardCharsets.UTF_8);
-
-            if (statusCode != 200) {
-                throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
-            }
-
-            return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
-        }
+        });
     }
 
     /**
@@ -563,17 +685,21 @@ public class ApiClient {
         Sign sign = new Sign();
         sign.DoSignRequest(httpPost, uri, "Moderate", ak, sk, region);
 
-        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-            int statusCode = response.getCode();
-            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-            if (statusCode != 200) {
-                throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
+        final ModerateV2StreamSession finalSession = session;
+        return executeWithHardTimeout(httpPost, new ResponseHandler<ModerateV2Response>() {
+            @Override
+            public ModerateV2Response apply(CloseableHttpResponse response) throws Exception {
+                int statusCode = response.getCode();
+                String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+                if (statusCode != 200) {
+                    throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
+                }
+                ModerateV2Response moderateResponse = OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
+                finalSession.setDefaultOut(moderateResponse);
+                finalSession.setStreamSendLen(0);
+                return moderateResponse;
             }
-            ModerateV2Response moderateResponse = OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
-            session.setDefaultOut(moderateResponse);
-            session.setStreamSendLen(0);
-            return moderateResponse;
-        }
+        });
     }
 
     /**
