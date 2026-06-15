@@ -33,6 +33,9 @@ public class OrderFailRefundInfoForListOrderProductDetailsOutput {
   @SerializedName("CouponAmount")
   private String couponAmount = null;
 
+  @SerializedName("DeductionCount")
+  private String deductionCount = null;
+
   @SerializedName("DiscountAmount")
   private String discountAmount = null;
 
@@ -61,6 +64,24 @@ public class OrderFailRefundInfoForListOrderProductDetailsOutput {
 
   public void setCouponAmount(String couponAmount) {
     this.couponAmount = couponAmount;
+  }
+
+  public OrderFailRefundInfoForListOrderProductDetailsOutput deductionCount(String deductionCount) {
+    this.deductionCount = deductionCount;
+    return this;
+  }
+
+   /**
+   * Get deductionCount
+   * @return deductionCount
+  **/
+  @Schema(description = "")
+  public String getDeductionCount() {
+    return deductionCount;
+  }
+
+  public void setDeductionCount(String deductionCount) {
+    this.deductionCount = deductionCount;
   }
 
   public OrderFailRefundInfoForListOrderProductDetailsOutput discountAmount(String discountAmount) {
@@ -146,6 +167,7 @@ public class OrderFailRefundInfoForListOrderProductDetailsOutput {
     }
     OrderFailRefundInfoForListOrderProductDetailsOutput orderFailRefundInfoForListOrderProductDetailsOutput = (OrderFailRefundInfoForListOrderProductDetailsOutput) o;
     return Objects.equals(this.couponAmount, orderFailRefundInfoForListOrderProductDetailsOutput.couponAmount) &&
+        Objects.equals(this.deductionCount, orderFailRefundInfoForListOrderProductDetailsOutput.deductionCount) &&
         Objects.equals(this.discountAmount, orderFailRefundInfoForListOrderProductDetailsOutput.discountAmount) &&
         Objects.equals(this.originalAmount, orderFailRefundInfoForListOrderProductDetailsOutput.originalAmount) &&
         Objects.equals(this.paidAmount, orderFailRefundInfoForListOrderProductDetailsOutput.paidAmount) &&
@@ -154,7 +176,7 @@ public class OrderFailRefundInfoForListOrderProductDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(couponAmount, discountAmount, originalAmount, paidAmount, payableAmount);
+    return Objects.hash(couponAmount, deductionCount, discountAmount, originalAmount, paidAmount, payableAmount);
   }
 
 
@@ -164,6 +186,7 @@ public class OrderFailRefundInfoForListOrderProductDetailsOutput {
     sb.append("class OrderFailRefundInfoForListOrderProductDetailsOutput {\n");
     
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
+    sb.append("    deductionCount: ").append(toIndentedString(deductionCount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
     sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
