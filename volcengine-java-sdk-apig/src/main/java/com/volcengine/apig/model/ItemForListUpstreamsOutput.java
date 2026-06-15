@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.BackendTargetListForListUpstreamsOutput;
 import com.volcengine.apig.model.CircuitBreakingSettingsForListUpstreamsOutput;
 import com.volcengine.apig.model.ConnectionPoolSettingsForListUpstreamsOutput;
 import com.volcengine.apig.model.LoadBalancerSettingsForListUpstreamsOutput;
@@ -39,9 +38,6 @@ import javax.validation.Valid;
 
 
 public class ItemForListUpstreamsOutput {
-  @SerializedName("BackendTargetList")
-  private List<BackendTargetListForListUpstreamsOutput> backendTargetList = null;
-
   @SerializedName("CircuitBreakingSettings")
   private CircuitBreakingSettingsForListUpstreamsOutput circuitBreakingSettings = null;
 
@@ -83,33 +79,6 @@ public class ItemForListUpstreamsOutput {
 
   @SerializedName("VersionDetails")
   private List<VersionDetailForListUpstreamsOutput> versionDetails = null;
-
-  public ItemForListUpstreamsOutput backendTargetList(List<BackendTargetListForListUpstreamsOutput> backendTargetList) {
-    this.backendTargetList = backendTargetList;
-    return this;
-  }
-
-  public ItemForListUpstreamsOutput addBackendTargetListItem(BackendTargetListForListUpstreamsOutput backendTargetListItem) {
-    if (this.backendTargetList == null) {
-      this.backendTargetList = new ArrayList<BackendTargetListForListUpstreamsOutput>();
-    }
-    this.backendTargetList.add(backendTargetListItem);
-    return this;
-  }
-
-   /**
-   * Get backendTargetList
-   * @return backendTargetList
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<BackendTargetListForListUpstreamsOutput> getBackendTargetList() {
-    return backendTargetList;
-  }
-
-  public void setBackendTargetList(List<BackendTargetListForListUpstreamsOutput> backendTargetList) {
-    this.backendTargetList = backendTargetList;
-  }
 
   public ItemForListUpstreamsOutput circuitBreakingSettings(CircuitBreakingSettingsForListUpstreamsOutput circuitBreakingSettings) {
     this.circuitBreakingSettings = circuitBreakingSettings;
@@ -387,8 +356,7 @@ public class ItemForListUpstreamsOutput {
       return false;
     }
     ItemForListUpstreamsOutput itemForListUpstreamsOutput = (ItemForListUpstreamsOutput) o;
-    return Objects.equals(this.backendTargetList, itemForListUpstreamsOutput.backendTargetList) &&
-        Objects.equals(this.circuitBreakingSettings, itemForListUpstreamsOutput.circuitBreakingSettings) &&
+    return Objects.equals(this.circuitBreakingSettings, itemForListUpstreamsOutput.circuitBreakingSettings) &&
         Objects.equals(this.comments, itemForListUpstreamsOutput.comments) &&
         Objects.equals(this.connectionPoolSettings, itemForListUpstreamsOutput.connectionPoolSettings) &&
         Objects.equals(this.createTime, itemForListUpstreamsOutput.createTime) &&
@@ -406,7 +374,7 @@ public class ItemForListUpstreamsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, connectionPoolSettings, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
+    return Objects.hash(circuitBreakingSettings, comments, connectionPoolSettings, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
   }
 
 
@@ -415,7 +383,6 @@ public class ItemForListUpstreamsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListUpstreamsOutput {\n");
     
-    sb.append("    backendTargetList: ").append(toIndentedString(backendTargetList)).append("\n");
     sb.append("    circuitBreakingSettings: ").append(toIndentedString(circuitBreakingSettings)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    connectionPoolSettings: ").append(toIndentedString(connectionPoolSettings)).append("\n");

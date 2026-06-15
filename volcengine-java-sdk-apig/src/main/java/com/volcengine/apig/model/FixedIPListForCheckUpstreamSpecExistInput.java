@@ -24,40 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BackendTargetListForListUpstreamsOutput
+ * FixedIPListForCheckUpstreamSpecExistInput
  */
 
 
 
-public class BackendTargetListForListUpstreamsOutput {
-  @SerializedName("HealthStatus")
-  private String healthStatus = null;
-
+public class FixedIPListForCheckUpstreamSpecExistInput {
   @SerializedName("IP")
   private String IP = null;
 
   @SerializedName("Port")
   private Integer port = null;
 
-  public BackendTargetListForListUpstreamsOutput healthStatus(String healthStatus) {
-    this.healthStatus = healthStatus;
-    return this;
-  }
-
-   /**
-   * Get healthStatus
-   * @return healthStatus
-  **/
-  @Schema(description = "")
-  public String getHealthStatus() {
-    return healthStatus;
-  }
-
-  public void setHealthStatus(String healthStatus) {
-    this.healthStatus = healthStatus;
-  }
-
-  public BackendTargetListForListUpstreamsOutput IP(String IP) {
+  public FixedIPListForCheckUpstreamSpecExistInput IP(String IP) {
     this.IP = IP;
     return this;
   }
@@ -75,7 +54,7 @@ public class BackendTargetListForListUpstreamsOutput {
     this.IP = IP;
   }
 
-  public BackendTargetListForListUpstreamsOutput port(Integer port) {
+  public FixedIPListForCheckUpstreamSpecExistInput port(Integer port) {
     this.port = port;
     return this;
   }
@@ -102,24 +81,22 @@ public class BackendTargetListForListUpstreamsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BackendTargetListForListUpstreamsOutput backendTargetListForListUpstreamsOutput = (BackendTargetListForListUpstreamsOutput) o;
-    return Objects.equals(this.healthStatus, backendTargetListForListUpstreamsOutput.healthStatus) &&
-        Objects.equals(this.IP, backendTargetListForListUpstreamsOutput.IP) &&
-        Objects.equals(this.port, backendTargetListForListUpstreamsOutput.port);
+    FixedIPListForCheckUpstreamSpecExistInput fixedIPListForCheckUpstreamSpecExistInput = (FixedIPListForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.IP, fixedIPListForCheckUpstreamSpecExistInput.IP) &&
+        Objects.equals(this.port, fixedIPListForCheckUpstreamSpecExistInput.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(healthStatus, IP, port);
+    return Objects.hash(IP, port);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BackendTargetListForListUpstreamsOutput {\n");
+    sb.append("class FixedIPListForCheckUpstreamSpecExistInput {\n");
     
-    sb.append("    healthStatus: ").append(toIndentedString(healthStatus)).append("\n");
     sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("}");

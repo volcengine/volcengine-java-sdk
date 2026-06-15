@@ -24,6 +24,8 @@ import com.volcengine.apig.model.CustomHeaderParamsForCreateUpstreamInput;
 import com.volcengine.apig.model.CustomModelServiceForCreateUpstreamInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class AIProviderForCreateUpstreamInput {
+  @SerializedName("ApiProtocol")
+  private String apiProtocol = null;
+
   @SerializedName("BaseUrl")
   private String baseUrl = null;
 
@@ -45,11 +50,35 @@ public class AIProviderForCreateUpstreamInput {
   @SerializedName("CustomModelService")
   private CustomModelServiceForCreateUpstreamInput customModelService = null;
 
+  @SerializedName("MaxRetries")
+  private Long maxRetries = null;
+
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Token")
   private String token = null;
+
+  @SerializedName("TokenPool")
+  private List<String> tokenPool = null;
+
+  public AIProviderForCreateUpstreamInput apiProtocol(String apiProtocol) {
+    this.apiProtocol = apiProtocol;
+    return this;
+  }
+
+   /**
+   * Get apiProtocol
+   * @return apiProtocol
+  **/
+  @Schema(description = "")
+  public String getApiProtocol() {
+    return apiProtocol;
+  }
+
+  public void setApiProtocol(String apiProtocol) {
+    this.apiProtocol = apiProtocol;
+  }
 
   public AIProviderForCreateUpstreamInput baseUrl(String baseUrl) {
     this.baseUrl = baseUrl;
@@ -126,6 +155,24 @@ public class AIProviderForCreateUpstreamInput {
     this.customModelService = customModelService;
   }
 
+  public AIProviderForCreateUpstreamInput maxRetries(Long maxRetries) {
+    this.maxRetries = maxRetries;
+    return this;
+  }
+
+   /**
+   * Get maxRetries
+   * @return maxRetries
+  **/
+  @Schema(description = "")
+  public Long getMaxRetries() {
+    return maxRetries;
+  }
+
+  public void setMaxRetries(Long maxRetries) {
+    this.maxRetries = maxRetries;
+  }
+
   public AIProviderForCreateUpstreamInput name(String name) {
     this.name = name;
     return this;
@@ -162,6 +209,32 @@ public class AIProviderForCreateUpstreamInput {
     this.token = token;
   }
 
+  public AIProviderForCreateUpstreamInput tokenPool(List<String> tokenPool) {
+    this.tokenPool = tokenPool;
+    return this;
+  }
+
+  public AIProviderForCreateUpstreamInput addTokenPoolItem(String tokenPoolItem) {
+    if (this.tokenPool == null) {
+      this.tokenPool = new ArrayList<String>();
+    }
+    this.tokenPool.add(tokenPoolItem);
+    return this;
+  }
+
+   /**
+   * Get tokenPool
+   * @return tokenPool
+  **/
+  @Schema(description = "")
+  public List<String> getTokenPool() {
+    return tokenPool;
+  }
+
+  public void setTokenPool(List<String> tokenPool) {
+    this.tokenPool = tokenPool;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,17 +245,20 @@ public class AIProviderForCreateUpstreamInput {
       return false;
     }
     AIProviderForCreateUpstreamInput aiProviderForCreateUpstreamInput = (AIProviderForCreateUpstreamInput) o;
-    return Objects.equals(this.baseUrl, aiProviderForCreateUpstreamInput.baseUrl) &&
+    return Objects.equals(this.apiProtocol, aiProviderForCreateUpstreamInput.apiProtocol) &&
+        Objects.equals(this.baseUrl, aiProviderForCreateUpstreamInput.baseUrl) &&
         Objects.equals(this.customBodyParams, aiProviderForCreateUpstreamInput.customBodyParams) &&
         Objects.equals(this.customHeaderParams, aiProviderForCreateUpstreamInput.customHeaderParams) &&
         Objects.equals(this.customModelService, aiProviderForCreateUpstreamInput.customModelService) &&
+        Objects.equals(this.maxRetries, aiProviderForCreateUpstreamInput.maxRetries) &&
         Objects.equals(this.name, aiProviderForCreateUpstreamInput.name) &&
-        Objects.equals(this.token, aiProviderForCreateUpstreamInput.token);
+        Objects.equals(this.token, aiProviderForCreateUpstreamInput.token) &&
+        Objects.equals(this.tokenPool, aiProviderForCreateUpstreamInput.tokenPool);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseUrl, customBodyParams, customHeaderParams, customModelService, name, token);
+    return Objects.hash(apiProtocol, baseUrl, customBodyParams, customHeaderParams, customModelService, maxRetries, name, token, tokenPool);
   }
 
 
@@ -191,12 +267,15 @@ public class AIProviderForCreateUpstreamInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AIProviderForCreateUpstreamInput {\n");
     
+    sb.append("    apiProtocol: ").append(toIndentedString(apiProtocol)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    customBodyParams: ").append(toIndentedString(customBodyParams)).append("\n");
     sb.append("    customHeaderParams: ").append(toIndentedString(customHeaderParams)).append("\n");
     sb.append("    customModelService: ").append(toIndentedString(customModelService)).append("\n");
+    sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    tokenPool: ").append(toIndentedString(tokenPool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

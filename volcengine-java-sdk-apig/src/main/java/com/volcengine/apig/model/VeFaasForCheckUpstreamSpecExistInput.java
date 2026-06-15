@@ -24,31 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * Oauth2CredentialForCreateConsumerCredentialInput
+ * VeFaasForCheckUpstreamSpecExistInput
  */
 
 
 
-public class Oauth2CredentialForCreateConsumerCredentialInput {
-  @SerializedName("ClientId")
-  private String clientId = null;
+public class VeFaasForCheckUpstreamSpecExistInput {
+  @SerializedName("FunctionId")
+  private String functionId = null;
 
-  public Oauth2CredentialForCreateConsumerCredentialInput clientId(String clientId) {
-    this.clientId = clientId;
+  public VeFaasForCheckUpstreamSpecExistInput functionId(String functionId) {
+    this.functionId = functionId;
     return this;
   }
 
    /**
-   * Get clientId
-   * @return clientId
+   * Get functionId
+   * @return functionId
   **/
   @Schema(description = "")
-  public String getClientId() {
-    return clientId;
+  public String getFunctionId() {
+    return functionId;
   }
 
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
+  public void setFunctionId(String functionId) {
+    this.functionId = functionId;
   }
 
 
@@ -60,22 +60,22 @@ public class Oauth2CredentialForCreateConsumerCredentialInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Oauth2CredentialForCreateConsumerCredentialInput oauth2CredentialForCreateConsumerCredentialInput = (Oauth2CredentialForCreateConsumerCredentialInput) o;
-    return Objects.equals(this.clientId, oauth2CredentialForCreateConsumerCredentialInput.clientId);
+    VeFaasForCheckUpstreamSpecExistInput veFaasForCheckUpstreamSpecExistInput = (VeFaasForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.functionId, veFaasForCheckUpstreamSpecExistInput.functionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId);
+    return Objects.hash(functionId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Oauth2CredentialForCreateConsumerCredentialInput {\n");
+    sb.append("class VeFaasForCheckUpstreamSpecExistInput {\n");
     
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

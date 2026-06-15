@@ -41,6 +41,9 @@ public class ServiceNetworkSpecForUpdateGatewayServiceInput {
   @SerializedName("PrivateNetworkIP")
   private List<String> privateNetworkIP = null;
 
+  @SerializedName("PublicNetworkIP")
+  private List<String> publicNetworkIP = null;
+
   public ServiceNetworkSpecForUpdateGatewayServiceInput enablePrivateNetwork(Boolean enablePrivateNetwork) {
     this.enablePrivateNetwork = enablePrivateNetwork;
     return this;
@@ -103,6 +106,32 @@ public class ServiceNetworkSpecForUpdateGatewayServiceInput {
     this.privateNetworkIP = privateNetworkIP;
   }
 
+  public ServiceNetworkSpecForUpdateGatewayServiceInput publicNetworkIP(List<String> publicNetworkIP) {
+    this.publicNetworkIP = publicNetworkIP;
+    return this;
+  }
+
+  public ServiceNetworkSpecForUpdateGatewayServiceInput addPublicNetworkIPItem(String publicNetworkIPItem) {
+    if (this.publicNetworkIP == null) {
+      this.publicNetworkIP = new ArrayList<String>();
+    }
+    this.publicNetworkIP.add(publicNetworkIPItem);
+    return this;
+  }
+
+   /**
+   * Get publicNetworkIP
+   * @return publicNetworkIP
+  **/
+  @Schema(description = "")
+  public List<String> getPublicNetworkIP() {
+    return publicNetworkIP;
+  }
+
+  public void setPublicNetworkIP(List<String> publicNetworkIP) {
+    this.publicNetworkIP = publicNetworkIP;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,12 +144,13 @@ public class ServiceNetworkSpecForUpdateGatewayServiceInput {
     ServiceNetworkSpecForUpdateGatewayServiceInput serviceNetworkSpecForUpdateGatewayServiceInput = (ServiceNetworkSpecForUpdateGatewayServiceInput) o;
     return Objects.equals(this.enablePrivateNetwork, serviceNetworkSpecForUpdateGatewayServiceInput.enablePrivateNetwork) &&
         Objects.equals(this.enablePublicNetwork, serviceNetworkSpecForUpdateGatewayServiceInput.enablePublicNetwork) &&
-        Objects.equals(this.privateNetworkIP, serviceNetworkSpecForUpdateGatewayServiceInput.privateNetworkIP);
+        Objects.equals(this.privateNetworkIP, serviceNetworkSpecForUpdateGatewayServiceInput.privateNetworkIP) &&
+        Objects.equals(this.publicNetworkIP, serviceNetworkSpecForUpdateGatewayServiceInput.publicNetworkIP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePrivateNetwork, enablePublicNetwork, privateNetworkIP);
+    return Objects.hash(enablePrivateNetwork, enablePublicNetwork, privateNetworkIP, publicNetworkIP);
   }
 
 
@@ -132,6 +162,7 @@ public class ServiceNetworkSpecForUpdateGatewayServiceInput {
     sb.append("    enablePrivateNetwork: ").append(toIndentedString(enablePrivateNetwork)).append("\n");
     sb.append("    enablePublicNetwork: ").append(toIndentedString(enablePublicNetwork)).append("\n");
     sb.append("    privateNetworkIP: ").append(toIndentedString(privateNetworkIP)).append("\n");
+    sb.append("    publicNetworkIP: ").append(toIndentedString(publicNetworkIP)).append("\n");
     sb.append("}");
     return sb.toString();
   }
