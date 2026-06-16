@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
+  @SerializedName("ApplyParamTemplateInfo")
+  private ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput applyParamTemplateInfo = null;
+
   @SerializedName("CustomNodeIds")
   private List<String> customNodeIds = null;
 
@@ -52,6 +56,25 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput applyParamTemplateInfo(ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput applyParamTemplateInfo) {
+    this.applyParamTemplateInfo = applyParamTemplateInfo;
+    return this;
+  }
+
+   /**
+   * Get applyParamTemplateInfo
+   * @return applyParamTemplateInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput getApplyParamTemplateInfo() {
+    return applyParamTemplateInfo;
+  }
+
+  public void setApplyParamTemplateInfo(ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput applyParamTemplateInfo) {
+    this.applyParamTemplateInfo = applyParamTemplateInfo;
+  }
 
   public ParameterChangeLogForDescribeDBInstanceParametersLogOutput customNodeIds(List<String> customNodeIds) {
     this.customNodeIds = customNodeIds;
@@ -197,7 +220,8 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
       return false;
     }
     ParameterChangeLogForDescribeDBInstanceParametersLogOutput parameterChangeLogForDescribeDBInstanceParametersLogOutput = (ParameterChangeLogForDescribeDBInstanceParametersLogOutput) o;
-    return Objects.equals(this.customNodeIds, parameterChangeLogForDescribeDBInstanceParametersLogOutput.customNodeIds) &&
+    return Objects.equals(this.applyParamTemplateInfo, parameterChangeLogForDescribeDBInstanceParametersLogOutput.applyParamTemplateInfo) &&
+        Objects.equals(this.customNodeIds, parameterChangeLogForDescribeDBInstanceParametersLogOutput.customNodeIds) &&
         Objects.equals(this.modifyTime, parameterChangeLogForDescribeDBInstanceParametersLogOutput.modifyTime) &&
         Objects.equals(this.newParameterValue, parameterChangeLogForDescribeDBInstanceParametersLogOutput.newParameterValue) &&
         Objects.equals(this.oldParameterValue, parameterChangeLogForDescribeDBInstanceParametersLogOutput.oldParameterValue) &&
@@ -208,7 +232,7 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customNodeIds, modifyTime, newParameterValue, oldParameterValue, paramApplyScope, parameterName, status);
+    return Objects.hash(applyParamTemplateInfo, customNodeIds, modifyTime, newParameterValue, oldParameterValue, paramApplyScope, parameterName, status);
   }
 
 
@@ -217,6 +241,7 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {\n");
     
+    sb.append("    applyParamTemplateInfo: ").append(toIndentedString(applyParamTemplateInfo)).append("\n");
     sb.append("    customNodeIds: ").append(toIndentedString(customNodeIds)).append("\n");
     sb.append("    modifyTime: ").append(toIndentedString(modifyTime)).append("\n");
     sb.append("    newParameterValue: ").append(toIndentedString(newParameterValue)).append("\n");

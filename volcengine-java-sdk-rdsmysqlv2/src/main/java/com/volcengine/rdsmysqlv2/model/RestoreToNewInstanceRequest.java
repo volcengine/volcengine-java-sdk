@@ -43,6 +43,9 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("AutoStorageScalingConfig")
   private AutoStorageScalingConfigForRestoreToNewInstanceInput autoStorageScalingConfig = null;
 
+  @SerializedName("AutoUpgradeMinorVersion")
+  private String autoUpgradeMinorVersion = null;
+
   @SerializedName("BackupId")
   private String backupId = null;
 
@@ -140,6 +143,24 @@ public class RestoreToNewInstanceRequest {
 
   public void setAutoStorageScalingConfig(AutoStorageScalingConfigForRestoreToNewInstanceInput autoStorageScalingConfig) {
     this.autoStorageScalingConfig = autoStorageScalingConfig;
+  }
+
+  public RestoreToNewInstanceRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get autoUpgradeMinorVersion
+   * @return autoUpgradeMinorVersion
+  **/
+  @Schema(description = "")
+  public String getAutoUpgradeMinorVersion() {
+    return autoUpgradeMinorVersion;
+  }
+
+  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
   }
 
   public RestoreToNewInstanceRequest backupId(String backupId) {
@@ -502,6 +523,7 @@ public class RestoreToNewInstanceRequest {
     RestoreToNewInstanceRequest restoreToNewInstanceRequest = (RestoreToNewInstanceRequest) o;
     return Objects.equals(this.allowListIds, restoreToNewInstanceRequest.allowListIds) &&
         Objects.equals(this.autoStorageScalingConfig, restoreToNewInstanceRequest.autoStorageScalingConfig) &&
+        Objects.equals(this.autoUpgradeMinorVersion, restoreToNewInstanceRequest.autoUpgradeMinorVersion) &&
         Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
         Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbParamGroupId, restoreToNewInstanceRequest.dbParamGroupId) &&
@@ -524,7 +546,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, enableExternalReplication, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, autoUpgradeMinorVersion, backupId, chargeInfo, dbParamGroupId, deletionProtection, enableExternalReplication, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -535,6 +557,7 @@ public class RestoreToNewInstanceRequest {
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
+    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");

@@ -70,7 +70,8 @@ public class ModifyDBProxyRequest {
    * Get enableDBProxy
    * @return enableDBProxy
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isEnableDBProxy() {
     return enableDBProxy;
   }
