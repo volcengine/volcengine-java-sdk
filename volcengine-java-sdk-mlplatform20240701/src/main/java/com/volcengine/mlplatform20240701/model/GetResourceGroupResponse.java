@@ -40,6 +40,9 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("AutoRenewPeriod")
   private Integer autoRenewPeriod = null;
 
+  @SerializedName("ByteKDSprofileEnabled")
+  private Boolean byteKDSprofileEnabled = null;
+
   @SerializedName("ChargeType")
   private String chargeType = null;
 
@@ -110,6 +113,24 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
 
   public void setAutoRenewPeriod(Integer autoRenewPeriod) {
     this.autoRenewPeriod = autoRenewPeriod;
+  }
+
+  public GetResourceGroupResponse byteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+    return this;
+  }
+
+   /**
+   * Get byteKDSprofileEnabled
+   * @return byteKDSprofileEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isByteKDSprofileEnabled() {
+    return byteKDSprofileEnabled;
+  }
+
+  public void setByteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
   }
 
   public GetResourceGroupResponse chargeType(String chargeType) {
@@ -460,6 +481,7 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
     }
     GetResourceGroupResponse getResourceGroupResponse = (GetResourceGroupResponse) o;
     return Objects.equals(this.autoRenewPeriod, getResourceGroupResponse.autoRenewPeriod) &&
+        Objects.equals(this.byteKDSprofileEnabled, getResourceGroupResponse.byteKDSprofileEnabled) &&
         Objects.equals(this.chargeType, getResourceGroupResponse.chargeType) &&
         Objects.equals(this.description, getResourceGroupResponse.description) &&
         Objects.equals(this.expireTime, getResourceGroupResponse.expireTime) &&
@@ -482,7 +504,7 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenewPeriod, chargeType, description, expireTime, id, mgpuEnabled, name, periodUnit, projectName, remainAutoRenewTimes, renewType, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
+    return Objects.hash(autoRenewPeriod, byteKDSprofileEnabled, chargeType, description, expireTime, id, mgpuEnabled, name, periodUnit, projectName, remainAutoRenewTimes, renewType, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
   }
 
 
@@ -492,6 +514,7 @@ public class GetResourceGroupResponse extends com.volcengine.model.AbstractRespo
     sb.append("class GetResourceGroupResponse {\n");
     
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
+    sb.append("    byteKDSprofileEnabled: ").append(toIndentedString(byteKDSprofileEnabled)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");

@@ -54,6 +54,9 @@ public class UpdateDeploymentRequest {
   @SerializedName("Roles")
   private List<RoleForUpdateDeploymentInput> roles = null;
 
+  @SerializedName("UseServerlessResource")
+  private Boolean useServerlessResource = null;
+
   public UpdateDeploymentRequest acceptServiceTraffic(Boolean acceptServiceTraffic) {
     this.acceptServiceTraffic = acceptServiceTraffic;
     return this;
@@ -190,6 +193,24 @@ public class UpdateDeploymentRequest {
     this.roles = roles;
   }
 
+  public UpdateDeploymentRequest useServerlessResource(Boolean useServerlessResource) {
+    this.useServerlessResource = useServerlessResource;
+    return this;
+  }
+
+   /**
+   * Get useServerlessResource
+   * @return useServerlessResource
+  **/
+  @Schema(description = "")
+  public Boolean isUseServerlessResource() {
+    return useServerlessResource;
+  }
+
+  public void setUseServerlessResource(Boolean useServerlessResource) {
+    this.useServerlessResource = useServerlessResource;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -206,12 +227,13 @@ public class UpdateDeploymentRequest {
         Objects.equals(this.dryRun, updateDeploymentRequest.dryRun) &&
         Objects.equals(this.id, updateDeploymentRequest.id) &&
         Objects.equals(this.resourceQueueId, updateDeploymentRequest.resourceQueueId) &&
-        Objects.equals(this.roles, updateDeploymentRequest.roles);
+        Objects.equals(this.roles, updateDeploymentRequest.roles) &&
+        Objects.equals(this.useServerlessResource, updateDeploymentRequest.useServerlessResource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptServiceTraffic, deploymentName, description, dryRun, id, resourceQueueId, roles);
+    return Objects.hash(acceptServiceTraffic, deploymentName, description, dryRun, id, resourceQueueId, roles, useServerlessResource);
   }
 
 
@@ -227,6 +249,7 @@ public class UpdateDeploymentRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    useServerlessResource: ").append(toIndentedString(useServerlessResource)).append("\n");
     sb.append("}");
     return sb.toString();
   }

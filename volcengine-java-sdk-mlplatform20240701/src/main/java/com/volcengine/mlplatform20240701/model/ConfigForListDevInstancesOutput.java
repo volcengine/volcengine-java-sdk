@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForListDevInstancesOutput;
+import com.volcengine.mlplatform20240701.model.EfsAPForListDevInstancesOutput;
+import com.volcengine.mlplatform20240701.model.EfsForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.NasAPForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.NasForListDevInstancesOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForListDevInstancesOutput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForListDevInstancesOutput {
   @SerializedName("Cfs")
   private CfsForListDevInstancesOutput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForListDevInstancesOutput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForListDevInstancesOutput efsAP = null;
 
   @SerializedName("Nas")
   private NasForListDevInstancesOutput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForListDevInstancesOutput {
 
   public void setCfs(CfsForListDevInstancesOutput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForListDevInstancesOutput efs(EfsForListDevInstancesOutput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForListDevInstancesOutput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForListDevInstancesOutput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForListDevInstancesOutput efsAP(EfsAPForListDevInstancesOutput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForListDevInstancesOutput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForListDevInstancesOutput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForListDevInstancesOutput nas(NasForListDevInstancesOutput nas) {
@@ -225,6 +271,8 @@ public class ConfigForListDevInstancesOutput {
     }
     ConfigForListDevInstancesOutput configForListDevInstancesOutput = (ConfigForListDevInstancesOutput) o;
     return Objects.equals(this.cfs, configForListDevInstancesOutput.cfs) &&
+        Objects.equals(this.efs, configForListDevInstancesOutput.efs) &&
+        Objects.equals(this.efsAP, configForListDevInstancesOutput.efsAP) &&
         Objects.equals(this.nas, configForListDevInstancesOutput.nas) &&
         Objects.equals(this.nasAP, configForListDevInstancesOutput.nasAP) &&
         Objects.equals(this.sfcs, configForListDevInstancesOutput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForListDevInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForListDevInstancesOutput {
     sb.append("class ConfigForListDevInstancesOutput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
