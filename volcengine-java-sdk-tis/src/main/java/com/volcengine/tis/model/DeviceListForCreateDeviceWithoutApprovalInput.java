@@ -33,6 +33,9 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
   @SerializedName("DeviceName")
   private String deviceName = null;
 
+  @SerializedName("DeviceSecret")
+  private String deviceSecret = null;
+
   @SerializedName("NickName")
   private String nickName = null;
 
@@ -52,6 +55,24 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
 
   public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
+  }
+
+  public DeviceListForCreateDeviceWithoutApprovalInput deviceSecret(String deviceSecret) {
+    this.deviceSecret = deviceSecret;
+    return this;
+  }
+
+   /**
+   * Get deviceSecret
+   * @return deviceSecret
+  **/
+  @Schema(description = "")
+  public String getDeviceSecret() {
+    return deviceSecret;
+  }
+
+  public void setDeviceSecret(String deviceSecret) {
+    this.deviceSecret = deviceSecret;
   }
 
   public DeviceListForCreateDeviceWithoutApprovalInput nickName(String nickName) {
@@ -83,12 +104,13 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
     }
     DeviceListForCreateDeviceWithoutApprovalInput deviceListForCreateDeviceWithoutApprovalInput = (DeviceListForCreateDeviceWithoutApprovalInput) o;
     return Objects.equals(this.deviceName, deviceListForCreateDeviceWithoutApprovalInput.deviceName) &&
+        Objects.equals(this.deviceSecret, deviceListForCreateDeviceWithoutApprovalInput.deviceSecret) &&
         Objects.equals(this.nickName, deviceListForCreateDeviceWithoutApprovalInput.nickName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deviceName, nickName);
+    return Objects.hash(deviceName, deviceSecret, nickName);
   }
 
 
@@ -98,6 +120,7 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
     sb.append("class DeviceListForCreateDeviceWithoutApprovalInput {\n");
     
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
+    sb.append("    deviceSecret: ").append(toIndentedString(deviceSecret)).append("\n");
     sb.append("    nickName: ").append(toIndentedString(nickName)).append("\n");
     sb.append("}");
     return sb.toString();
