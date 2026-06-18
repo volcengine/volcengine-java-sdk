@@ -1,6 +1,6 @@
 package com.volcengine.llmshield;
 
-import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import okhttp3.Response;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import java.io.InputStream;
 // 生成响应类
 public class GenerateStreamV2Response implements Closeable {
     private final InputStream reader;
-    private final CloseableHttpResponse response;
+    private final Response response;
 
-    public GenerateStreamV2Response(InputStream reader, CloseableHttpResponse response) {
+    public GenerateStreamV2Response(InputStream reader, Response response) {
         this.reader = reader;
         this.response = response;
     }

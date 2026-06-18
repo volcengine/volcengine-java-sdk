@@ -1,10 +1,12 @@
 package com.volcengine.llmshield;
 
-import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.core5.http.io.entity.EntityUtils;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okio.Buffer;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -81,23 +83,24 @@ public class Sign {
     }
 
     /**
-     * 核心加签方法：为 HttpPost 请求添加火山引擎 API 签名
+     * 核心加签方法：为 OkHttp Request 请求添加火山引擎 API 签名
      *
-     * @param httpPost 待加签的 HttpPost 请求（需提前设置请求体，若有）
+     * @param request  待加签的 Request 请求（需提前设置请求体，若有）
      * @param uri      请求的 URI（包含 host、path、query 参数，如 https://iam.volcengineapi.com/?Limit=1）
      * @param action   请求方法
      * @param ak       访问密钥 AK
      * @param sk       密钥 SK
      * @param region   地域（如 cn-beijing，需与 API 所属地域一致）
+     * @return 加签后的新 Request 对象（OkHttp Request 不可变）
      * @throws Exception 加签过程中异常（如加密算法异常、请求体读取异常）
      */
-    public void DoSignRequest(HttpPost httpPost, URI uri, String action, String ak, String sk,
+    public Request DoSignRequest(Request request, URI uri, String action, String ak, String sk,
                               String region) throws Exception{
-        String method = httpPost.getMethod();
+        String method = request.method();
         String path = uri.getPath();
         String host = uri.getHost();
 
-        byte[] body = EntityUtils.toByteArray(httpPost.getEntity());
+        byte[] body = readRequestBody(request.body());
         Calendar date = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 
         if (body == null) {
@@ -134,17 +137,32 @@ public class Sign {
         byte[] hmacBytes = hmacSHA256(signKey, signString);
         String signature = bytesToHex(hmacBytes);
 
-        // 设置请求头
-        httpPost.setHeader("X-Top-Service", SERVICE);
-        httpPost.setHeader("X-Top-Region", region);
-        httpPost.setHeader("Host", host);
-        httpPost.setHeader("X-Date", xDate);
-        httpPost.setHeader("X-Content-Sha256", xContentSha256);
-        httpPost.setHeader("Content-Type", contentType);
-        httpPost.setHeader("Authorization",
-                "HMAC-SHA256 Credential=" + ak + "/" + credentialScope +
-                        ", SignedHeaders=" + signHeader +
-                        ", Signature=" + signature);
+        // OkHttp Request 不可变，通过 newBuilder 创建新实例并设置请求头
+        return request.newBuilder()
+                .header("X-Top-Service", SERVICE)
+                .header("X-Top-Region", region)
+                .header("Host", host)
+                .header("X-Date", xDate)
+                .header("X-Content-Sha256", xContentSha256)
+                .header("Content-Type", contentType)
+                .header("Authorization",
+                        "HMAC-SHA256 Credential=" + ak + "/" + credentialScope +
+                                ", SignedHeaders=" + signHeader +
+                                ", Signature=" + signature)
+                .build();
+    }
+
+    /**
+     * 读取 OkHttp RequestBody 的字节内容
+     * 注意：RequestBody 是一次性流，读取后需要重新构建 Request
+     */
+    private byte[] readRequestBody(RequestBody body) throws IOException {
+        if (body == null) {
+            return new byte[0];
+        }
+        Buffer buffer = new Buffer();
+        body.writeTo(buffer);
+        return buffer.readByteArray();
     }
 
     private String signStringEncoder(String source) {

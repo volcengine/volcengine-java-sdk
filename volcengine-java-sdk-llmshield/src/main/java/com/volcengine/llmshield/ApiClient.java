@@ -6,35 +6,17 @@ import com.volcengine.llmshield.aicc.EncryptResult;
 import com.volcengine.llmshield.aicc.ResponseKey;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.client5.http.config.ConnectionConfig;
-import org.apache.hc.client5.http.config.RequestConfig;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
-import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
-import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
-import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
-import org.apache.hc.client5.http.impl.DefaultHttpRequestRetryStrategy;
-import org.apache.hc.core5.http.HttpHost;
-import org.apache.hc.core5.http.io.entity.EntityUtils;
-import org.apache.hc.core5.http.io.entity.StringEntity;
-import org.apache.hc.core5.net.URIBuilder;
-import org.apache.hc.core5.util.TimeValue;
-import org.apache.hc.core5.util.Timeout;
+import okhttp3.*;
+import okio.Buffer;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
+import java.io.InputStream;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 // 客户端类
 public class ApiClient {
@@ -47,29 +29,21 @@ public class ApiClient {
 
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
+    // 使用 null 作为 RequestBody 的 MediaType，避免 OkHttp 自动追加 charset=utf-8
+    // Content-Type header 由我们手动设置，确保与签名时一致
+    private static final MediaType JSON_MEDIA_TYPE = null;
 
     // ObjectMapper 是线程安全的，作为静态单例复用
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-    // 单线程超时调度器，全局共享，资源消耗极小（1个守护线程，wait状态几乎不占CPU）
-    // 用于硬超时控制，调度精度通常在 1-5ms，满足 10ms 误差要求
-    private static final ScheduledExecutorService TIMEOUT_SCHEDULER =
-            new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
-                @Override
-                public Thread newThread(Runnable r) {
-                    Thread t = new Thread(r, "api-client-timeout-scheduler");
-                    t.setDaemon(true);
-                    return t;
-                }
-            });
 
     private final String url;
     private final String ak;
     private final String sk;
     private final String region;
     private final long timeout;
-    private final CloseableHttpClient httpClient;
+    private final OkHttpClient httpClient;
+    private final OkHttpClient streamingHttpClient;  // 流式请求专用，无 callTimeout
 
     private Client aiccClient;
 
@@ -80,30 +54,82 @@ public class ApiClient {
         this.region = region;
         this.timeout = timeout;
 
-        RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
-                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
-                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
-                .build();
+        this.httpClient = buildHttpClient(timeout, null, 0);
+        this.streamingHttpClient = buildStreamingHttpClient(timeout, null, 0);
+    }
 
+    /**
+     * 构建 OkHttp 客户端（带 callTimeout 端到端超时）
+     */
+    private OkHttpClient buildHttpClient(long timeout, String proxy, int connMax) {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+        // 超时配置（OkHttp 3.x 原生支持 callTimeout 端到端超时）
+        if (timeout > 0) {
+            builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .readTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .callTimeout(timeout, TimeUnit.MILLISECONDS);
+        }
+
+        // 连接池配置
         long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
-        ConnectionConfig connectionConfig = ConnectionConfig.custom()
-                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
-                .setSocketTimeout(Timeout.ofMilliseconds(timeout))
-                .build();
-        PoolingHttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
-                .setDefaultConnectionConfig(connectionConfig)
-                .setValidateAfterInactivity(TimeValue.ofSeconds(30))
-                .build();
+        int maxIdleConns = (connMax > 0) ? connMax : 5;
+        builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+
         // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
-        // 即使是连接阶段失败也不重试，由上层业务决定是否重试
-        this.httpClient = HttpClientBuilder.create()
-                .setConnectionManager(connectionManager)
-                .setDefaultRequestConfig(requestConfig)
-                .setRetryStrategy(new DefaultHttpRequestRetryStrategy(0, TimeValue.ZERO_MILLISECONDS))
-                .evictIdleConnections(TimeValue.ofMinutes(1))
-                .evictExpiredConnections()
-                .build();
+        builder.retryOnConnectionFailure(false);
+
+        // 代理配置
+        if (proxy != null && !proxy.isEmpty()) {
+            try {
+                URL purl = new URL(proxy);
+                int port = purl.getPort() < 0 ? purl.getDefaultPort() : purl.getPort();
+                builder.proxy(new Proxy(Proxy.Type.HTTP,
+                        new InetSocketAddress(purl.getHost(), port)));
+            } catch (MalformedURLException e) {
+                throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
+            }
+        }
+
+        return builder.build();
+    }
+
+    /**
+     * 构建流式请求专用 OkHttp 客户端（无 callTimeout，避免长连接被中断）
+     */
+    private OkHttpClient buildStreamingHttpClient(long timeout, String proxy, int connMax) {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+        // 流式请求不设置 callTimeout，只设置各阶段超时
+        if (timeout > 0) {
+            builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .readTimeout(timeout, TimeUnit.MILLISECONDS);
+            // callTimeout 设为 0 表示禁用端到端超时
+            builder.callTimeout(0, TimeUnit.MILLISECONDS);
+        }
+
+        // 连接池配置（复用主客户端的连接池配置）
+        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+        int maxIdleConns = (connMax > 0) ? connMax : 5;
+        builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+
+        builder.retryOnConnectionFailure(false);
+
+        // 代理配置
+        if (proxy != null && !proxy.isEmpty()) {
+            try {
+                URL purl = new URL(proxy);
+                int port = purl.getPort() < 0 ? purl.getDefaultPort() : purl.getPort();
+                builder.proxy(new Proxy(Proxy.Type.HTTP,
+                        new InetSocketAddress(purl.getHost(), port)));
+            } catch (MalformedURLException e) {
+                throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
+            }
+        }
+
+        return builder.build();
     }
 
     private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
@@ -113,51 +139,8 @@ public class ApiClient {
         this.region = region;
         this.timeout = timeout;
 
-        RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(Timeout.ofMilliseconds(timeout))
-                .setResponseTimeout(Timeout.ofMilliseconds(timeout))
-                .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
-                .build();
-
-        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
-        ConnectionConfig connectionConfig = ConnectionConfig.custom()
-                .setTimeToLive(TimeValue.ofMilliseconds(connTtl))
-                .setSocketTimeout(Timeout.ofMilliseconds(timeout))
-                .build();
-        PoolingHttpClientConnectionManagerBuilder cmBuilder = PoolingHttpClientConnectionManagerBuilder.create()
-                .setDefaultConnectionConfig(connectionConfig)
-                .setValidateAfterInactivity(TimeValue.ofSeconds(30));
-        if (connMax > 0) {
-            cmBuilder.setMaxConnTotal(connMax).setMaxConnPerRoute(connMax);
-        }
-        PoolingHttpClientConnectionManager connectionManager = cmBuilder.build();
-
-        HttpClientBuilder builder = HttpClientBuilder.create()
-                .setConnectionManager(connectionManager)
-                .setDefaultRequestConfig(requestConfig)
-                .evictIdleConnections(TimeValue.ofMinutes(1))
-                .evictExpiredConnections();
-        if (proxy != null && !proxy.isEmpty()) {
-            try {
-                URL purl = new URL(proxy);
-                String p_protocol = purl.getProtocol();
-                String p_host = purl.getHost();
-                int p_port = purl.getPort();
-                if (p_port < 0) {
-                    p_port = purl.getDefaultPort();
-                }
-                HttpHost httpsProxy = new HttpHost(p_protocol, p_host, p_port);
-                builder.setProxy(httpsProxy);
-            } catch (MalformedURLException e) {
-                throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
-            }
-        }
-
-        // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
-        // 即使是连接阶段失败也不重试，由上层业务决定是否重试
-        this.httpClient = builder
-                .setRetryStrategy(new DefaultHttpRequestRetryStrategy(0, TimeValue.ZERO_MILLISECONDS))
-                .build();
+        this.httpClient = buildHttpClient(timeout, proxy, connMax);
+        this.streamingHttpClient = buildStreamingHttpClient(timeout, proxy, connMax);
     }
 
     /**
@@ -288,7 +271,12 @@ public class ApiClient {
             this.aiccClient.close();
         }
         if (this.httpClient != null) {
-            this.httpClient.close();
+            this.httpClient.connectionPool().evictAll();
+            this.httpClient.dispatcher().executorService().shutdown();
+        }
+        if (this.streamingHttpClient != null) {
+            this.streamingHttpClient.connectionPool().evictAll();
+            this.streamingHttpClient.dispatcher().executorService().shutdown();
         }
     }
 
@@ -314,87 +302,31 @@ public class ApiClient {
      * 响应处理接口，允许抛出受检异常（Java 7 兼容，不使用 lambda）
      */
     private interface ResponseHandler<T> {
-        T apply(CloseableHttpResponse response) throws Exception;
+        T apply(Response response) throws Exception;
     }
 
     /**
-     * 带硬超时控制的 HTTP 请求执行方法
-     * <p>
-     * 实现原理：
-     * 1. 使用单线程 ScheduledExecutorService 调度超时任务（调度精度 1-5ms）
-     * 2. 超时后调用 httpPost.abort() 中止请求，确保连接释放
-     * 3. 使用 AtomicBoolean 保证状态竞态安全（正常完成 vs 超时触发）
-     * 4. 底层 Apache 超时配置作为第一道防线，硬超时作为最后防线
+     * 执行 HTTP 请求（使用 OkHttp 3.x 原生 callTimeout 实现端到端超时）
      *
-     * @param httpPost HTTP POST 请求对象
-     * @param handler  响应处理器
-     * @param <T>      返回值类型
+     * @param request OkHttp Request 对象
+     * @param handler 响应处理器
+     * @param <T>     返回值类型
      * @return 处理后的响应结果
      * @throws Exception 如果请求超时或发生其他错误
      */
-    private <T> T executeWithHardTimeout(HttpPost httpPost, ResponseHandler<T> handler) throws Exception {
-        // 未设置超时，直接执行
-        if (this.timeout <= 0) {
-            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-                return handler.apply(response);
-            }
-        }
-
-        final AtomicBoolean completed = new AtomicBoolean(false);
-        final long timeoutMs = this.timeout;
-
-        // 调度超时任务：提前3ms调度以抵消ScheduledExecutorService的调度延迟（通常1-3ms）
-        // 确保实际中止时间在 timeoutMs ± 2ms 范围内，满足10ms精度要求
-        long scheduleDelay = Math.max(1, timeoutMs - 3);
-        final HttpPost finalHttpPost = httpPost;
-        java.util.concurrent.ScheduledFuture<?> timeoutFuture = TIMEOUT_SCHEDULER.schedule(new Runnable() {
-            @Override
-            public void run() {
-                if (completed.compareAndSet(false, true)) {
-                    finalHttpPost.abort();
-                }
-            }
-        }, scheduleDelay, TimeUnit.MILLISECONDS);
-
-        try {
-            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-                T result = handler.apply(response);
-                // 正常完成，取消超时任务
-                if (completed.compareAndSet(false, true)) {
-                    timeoutFuture.cancel(false);
-                }
-                return result;
-            }
-        } catch (Exception e) {
-            // 异常路径也需要标记完成并取消超时任务
-            if (completed.compareAndSet(false, true)) {
-                timeoutFuture.cancel(false);
-            }
-            // 如果是 abort 导致的异常，包装成 TimeoutException
-            if (isAbortException(e)) {
-                throw new TimeoutException("Request timed out after " + timeoutMs + "ms");
-            }
-            throw e;
+    private <T> T execute(Request request, ResponseHandler<T> handler) throws Exception {
+        try (Response response = httpClient.newCall(request).execute()) {
+            return handler.apply(response);
+        } catch (SocketTimeoutException e) {
+            throw new TimeoutException("Request timed out after " + timeout + "ms");
         }
     }
 
     /**
-     * 判断异常是否由请求 abort 导致
+     * 构建带查询参数的 URL
      */
-    private boolean isAbortException(Exception e) {
-        String msg = e.getMessage();
-        if (msg != null && msg.contains("Request aborted")) {
-            return true;
-        }
-        if (e instanceof org.apache.hc.core5.http.ConnectionClosedException) {
-            return true;
-        }
-        Throwable cause = e.getCause();
-        if (cause != null) {
-            String causeMsg = cause.getMessage();
-            return causeMsg != null && causeMsg.contains("Request aborted");
-        }
-        return false;
+    private String buildUrl(String path, String action, String version) {
+        return url + path + "?Action=" + action + "&Version=" + version;
     }
 
     /**
@@ -411,21 +343,22 @@ public class ApiClient {
         AiccModuleConfRequest request = new AiccModuleConfRequest(100);
         String requestBody = OBJECT_MAPPER.writeValueAsString(request);
 
-        URIBuilder uriBuilder = new URIBuilder(url + path);
-        uriBuilder.addParameter("Action", action);
-        uriBuilder.addParameter("Version", version);
-        URI uri = uriBuilder.build();
+        String fullUrl = buildUrl(path, action, version);
+        URI uri = URI.create(fullUrl);
 
-        HttpPost httpPost = new HttpPost(uri);
-        httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
-        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, requestBody);
+        Request httpRequest = new Request.Builder()
+                .url(fullUrl)
+                .post(body)
+                .addHeader("Content-Type", CONTENT_TYPE_HEADER)
+                .build();
 
         Sign sign = new Sign();
-        sign.DoSignRequest(httpPost, uri, action, ak, sk, region);
+        Request signedRequest = sign.DoSignRequest(httpRequest, uri, action, ak, sk, region);
 
-        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
-            int statusCode = response.getCode();
-            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+        try (Response response = httpClient.newCall(signedRequest).execute()) {
+            int statusCode = response.code();
+            String responseBody = response.body().string();
             if (statusCode != 200) {
                 throw new IOException("AiccModuleConf 请求失败，状态码: " + statusCode + ", 响应: " + responseBody);
             }
@@ -600,18 +533,19 @@ public class ApiClient {
 
         String requestBody = OBJECT_MAPPER.writeValueAsString(request);
 
-        URIBuilder uriBuilder = new URIBuilder(url + "/v2/moderate");
-        uriBuilder.addParameter("Action", "Moderate");
-        uriBuilder.addParameter("Version", "2025-08-31");
-        URI uri = uriBuilder.build();
-        HttpPost httpPost = new HttpPost(uri);
-        httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
+        String fullUrl = buildUrl("/v2/moderate", "Moderate", "2025-08-31");
+        URI uri = URI.create(fullUrl);
 
-        // 先设置明文body用于签名（签名必须基于明文，与Python版本对齐）
-        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+        // 先构建明文 Request 用于签名（签名必须基于明文，与Python版本对齐）
+        RequestBody plainBody = RequestBody.create(JSON_MEDIA_TYPE, requestBody);
+        Request plainRequest = new Request.Builder()
+                .url(fullUrl)
+                .post(plainBody)
+                .addHeader("Content-Type", CONTENT_TYPE_HEADER)
+                .build();
 
         Sign sign = new Sign();
-        sign.DoSignRequest(httpPost, uri, "Moderate", ak, sk, region);
+        Request signedRequest = sign.DoSignRequest(plainRequest, uri, "Moderate", ak, sk, region);
 
         // 签名完成后，再加密body（AICC模式下发送加密body）
         ResponseKey encReqKey = null;
@@ -619,15 +553,19 @@ public class ApiClient {
             EncryptResult encryptResult = EncryptWithResponse(requestBody.getBytes(StandardCharsets.UTF_8));
             requestBody = encryptResult.ciphertext;
             encReqKey = encryptResult.responseKey;
-            httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+            // 加密后重新构建 Request，保留签名头
+            RequestBody encryptedBody = RequestBody.create(JSON_MEDIA_TYPE, requestBody);
+            signedRequest = signedRequest.newBuilder()
+                    .post(encryptedBody)
+                    .build();
         }
 
         final ResponseKey finalEncReqKey = encReqKey;
-        return executeWithHardTimeout(httpPost, new ResponseHandler<ModerateV2Response>() {
+        return execute(signedRequest, new ResponseHandler<ModerateV2Response>() {
             @Override
-            public ModerateV2Response apply(CloseableHttpResponse response) throws Exception {
-                int statusCode = response.getCode();
-                byte[] responseBodyBytes = EntityUtils.toByteArray(response.getEntity());
+            public ModerateV2Response apply(Response response) throws Exception {
+                int statusCode = response.code();
+                byte[] responseBodyBytes = response.body().bytes();
 
                 // 先解密响应体（AICC模式下响应体是加密的，包括错误响应）
                 if (finalEncReqKey != null) {
@@ -674,23 +612,25 @@ public class ApiClient {
 
         String requestBody = OBJECT_MAPPER.writeValueAsString(session.getRequest());
 
-        URIBuilder uriBuilder = new URIBuilder(url + "/v2/moderate");
-        uriBuilder.addParameter("Action", "Moderate");
-        uriBuilder.addParameter("Version", "2025-08-31");
-        URI uri = uriBuilder.build();
-        HttpPost httpPost = new HttpPost(uri);
-        httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
-        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+        String fullUrl = buildUrl("/v2/moderate", "Moderate", "2025-08-31");
+        URI uri = URI.create(fullUrl);
+
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, requestBody);
+        Request httpRequest = new Request.Builder()
+                .url(fullUrl)
+                .post(body)
+                .addHeader("Content-Type", CONTENT_TYPE_HEADER)
+                .build();
 
         Sign sign = new Sign();
-        sign.DoSignRequest(httpPost, uri, "Moderate", ak, sk, region);
+        Request signedRequest = sign.DoSignRequest(httpRequest, uri, "Moderate", ak, sk, region);
 
         final ModerateV2StreamSession finalSession = session;
-        return executeWithHardTimeout(httpPost, new ResponseHandler<ModerateV2Response>() {
+        return execute(signedRequest, new ResponseHandler<ModerateV2Response>() {
             @Override
-            public ModerateV2Response apply(CloseableHttpResponse response) throws Exception {
-                int statusCode = response.getCode();
-                String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            public ModerateV2Response apply(Response response) throws Exception {
+                int statusCode = response.code();
+                String responseBody = response.body().string();
                 if (statusCode != 200) {
                     throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
                 }
@@ -723,32 +663,36 @@ public class ApiClient {
         }
 
         String requestBody = OBJECT_MAPPER.writeValueAsString(request);
-        URIBuilder uriBuilder = new URIBuilder(url + "/v2/generate");
-        uriBuilder.addParameter("Action", "Generate");
-        uriBuilder.addParameter("Version", "2025-08-31");
-        URI uri = uriBuilder.build();
-        HttpPost httpPost = new HttpPost(uri);
-        httpPost.setHeader("Content-Type", CONTENT_TYPE_HEADER);
-        httpPost.setEntity(new StringEntity(requestBody, StandardCharsets.UTF_8));
+
+        String fullUrl = buildUrl("/v2/generate", "Generate", "2025-08-31");
+        URI uri = URI.create(fullUrl);
+
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, requestBody);
+        Request httpRequest = new Request.Builder()
+                .url(fullUrl)
+                .post(body)
+                .addHeader("Content-Type", CONTENT_TYPE_HEADER)
+                .build();
 
         Sign sign = new Sign();
-        sign.DoSignRequest(httpPost, uri, "Generate", ak, sk, region);
+        Request signedRequest = sign.DoSignRequest(httpRequest, uri, "Generate", ak, sk, region);
 
-        CloseableHttpResponse response = httpClient.execute(httpPost);
+        // 流式请求使用无 callTimeout 的专用客户端，避免长连接被中断
+        Response response = streamingHttpClient.newCall(signedRequest).execute();
         try {
-            int statusCode = response.getCode();
+            int statusCode = response.code();
 
             if (statusCode != 200) {
-                String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+                String responseBody = response.body().string();
                 throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
             }
 
             // 注意：response 需要传递给调用者，正常返回路径不关闭
             // 调用者必须通过 GenerateStreamV2Response.close() 来释放资源
-            if (response.getEntity() == null) {
-                throw new IOException("Response entity is null");
+            if (response.body() == null) {
+                throw new IOException("Response body is null");
             }
-            return new GenerateStreamV2Response(response.getEntity().getContent(), response);
+            return new GenerateStreamV2Response(response.body().byteStream(), response);
         } catch (Exception e) {
             response.close();
             throw e;
