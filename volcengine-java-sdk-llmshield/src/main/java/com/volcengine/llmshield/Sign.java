@@ -1,5 +1,6 @@
 package com.volcengine.llmshield;
 
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okio.Buffer;
@@ -137,8 +138,16 @@ public class Sign {
         byte[] hmacBytes = hmacSHA256(signKey, signString);
         String signature = bytesToHex(hmacBytes);
 
-        // OkHttp Request 不可变，通过 newBuilder 创建新实例并设置请求头
+        // OkHttp Request 不可变，通过 newBuilder 创建新实例并设置请求头。
+        // 注意：部分一次性/不可重复写出的 RequestBody（例如基于 InputStream）在签名阶段被读取后，
+        // 可能导致真正发送时 body 为空或抛错。因此这里用已读取的 bytes 重建一个可重复发送的 RequestBody。
+        RequestBody newBody = request.body();
+        if (!"GET".equalsIgnoreCase(method) && !"HEAD".equalsIgnoreCase(method)) {
+            MediaType mediaType = request.body() != null ? request.body().contentType() : MediaType.parse(DEFAULT_CONTENT_TYPE);
+            newBody = RequestBody.create(mediaType, body);
+        }
         return request.newBuilder()
+                .method(method, ("GET".equalsIgnoreCase(method) || "HEAD".equalsIgnoreCase(method)) ? null : newBody)
                 .header("X-Top-Service", SERVICE)
                 .header("X-Top-Region", region)
                 .header("Host", host)

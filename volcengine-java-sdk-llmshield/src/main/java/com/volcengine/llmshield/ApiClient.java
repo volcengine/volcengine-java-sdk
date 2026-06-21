@@ -111,9 +111,12 @@ public class ApiClient {
         }
 
         // 连接池配置（复用主客户端的连接池配置）
-        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
-        int maxIdleConns = (connMax > 0) ? connMax : 5;
-        builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+        // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
+        if (timeout > 0) {
+            long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+            int maxIdleConns = (connMax > 0) ? connMax : 5;
+            builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+        }
 
         builder.retryOnConnectionFailure(false);
 
@@ -317,10 +320,13 @@ public class ApiClient {
     private <T> T execute(Request request, ResponseHandler<T> handler) throws Exception {
         try (Response response = httpClient.newCall(request).execute()) {
             return handler.apply(response);
-        } catch (SocketTimeoutException e) {
-            throw new TimeoutException("Request timed out after " + timeout + "ms");
+        } catch (java.io.InterruptedIOException e) {
+            TimeoutException te = new TimeoutException("Request timed out after " + timeout + "ms");
+            te.initCause(e);
+            throw te;
         }
     }
+
 
     /**
      * 构建带查询参数的 URL
