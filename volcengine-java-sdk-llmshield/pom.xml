@@ -5,13 +5,27 @@
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk</artifactId>
         <version>2.0.13</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <artifactId>volcengine-java-sdk-llmshield</artifactId>
     <name>volcengine-java-sdk-llmshield</name>
     <description>The Java SDK for Volcengine llmshield</description>
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <jackson.version>2.12.7.1</jackson.version>
+        <okhttp3-version>3.14.9</okhttp3-version>
+        <bouncycastle-version>1.78.1</bouncycastle-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -28,12 +42,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.15.4</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>3.14.9</version>
+            <version>${okhttp3-version}</version>
         </dependency>
         <!-- 其他依赖 -->
         <dependency>
@@ -41,6 +55,18 @@
             <artifactId>gson</artifactId>
             <!-- 可根据需要修改为最新稳定版本 -->
             <version>2.10.1</version>
+        </dependency>
+        <!-- BouncyCastle 加密库 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle-version}</version>
+        </dependency>
+        <!-- Apache Commons Codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
         </dependency>
     </dependencies>
 </project>
