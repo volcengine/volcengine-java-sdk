@@ -9,16 +9,14 @@ import java.io.StringReader;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
-import org.jspecify.annotations.Nullable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -27,8 +25,8 @@ import com.google.gson.JsonObject;
 public class Server implements AutoCloseable {
     public final ServerConfig config;
 
-    private final @Nullable ScheduledExecutorService refreshExecutor;
-    private final @Nullable ScheduledFuture<?> refreshFuture;
+    private final ScheduledExecutorService refreshExecutor;
+    private final ScheduledFuture<?> refreshFuture;
 
     private final List<ServerSessionKey> sessionKeys;
 
@@ -36,7 +34,7 @@ public class Server implements AutoCloseable {
         this(config, null);
     }
 
-    public Server(ServerConfig config, @Nullable ScheduledExecutorService refreshExecutor) {
+    public Server(ServerConfig config, ScheduledExecutorService refreshExecutor) {
         this.config = config;
 
         this.sessionKeys = new ArrayList<>();
@@ -53,12 +51,15 @@ public class Server implements AutoCloseable {
 
             refreshFuture =
                     executor.scheduleAtFixedRate(
-                            () -> {
+                            new Runnable() {
+                                @Override
+                                public void run() {
                                 try {
-                                    this.updateTksKeyId();
-                                    this.importTksKey();
+                                    Server.this.updateTksKeyId();
+                                    Server.this.importTksKey();
                                 } catch (Exception e) {
                                     e.printStackTrace();
+                                }
                                 }
                             },
                             0,
@@ -94,7 +95,7 @@ public class Server implements AutoCloseable {
 
         ByteBuffer keyPem =
                 Tks.exportKey(config.tksAppId, config.tksRingId, config.tksKeyId, topInfo, epsInfo);
-        Instant notAfter = Instant.now().plus(Duration.ofDays(1));
+        Date notAfter = new Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1));
         importKey(Utils.bytesToString(keyPem), notAfter);
     }
 
@@ -141,10 +142,15 @@ public class Server implements AutoCloseable {
         importKey(keyPem, null);
     }
 
-    public void importKey(String keyPem, @Nullable Instant notAfter) {
+    public void importKey(String keyPem, Date notAfter) {
         ServerSessionKey newKey = ServerSessionKey.load(keyPem, notAfter);
         synchronized (sessionKeys) {
-            sessionKeys.removeIf(existing -> !existing.isValid());
+            Iterator<ServerSessionKey> iterator = sessionKeys.iterator();
+            while (iterator.hasNext()) {
+                if (!iterator.next().isValid()) {
+                    iterator.remove();
+                }
+            }
             for (ServerSessionKey existing : sessionKeys) {
                 if (existing.equals(newKey)) {
                     return;

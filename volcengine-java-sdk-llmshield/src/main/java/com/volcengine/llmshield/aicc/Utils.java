@@ -9,7 +9,8 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
-import java.util.Base64;
+
+import org.apache.commons.codec.binary.Base64;
 
 enum Utils {
     ;
@@ -76,14 +77,14 @@ enum Utils {
                 pem.replace("-----BEGIN " + header + "-----", "")
                         .replace("-----END " + header + "-----", "")
                         .replaceAll("\\s+", "");
-        return Base64.getDecoder().decode(contents);
+        return decodeBase64(contents);
     }
 
     static byte[] pkcs1ToPkcs8(byte[] pkcs1) {
         // https://stackoverflow.com/a/76766993
         byte[] result = new byte[pkcs1.length + 26];
         System.arraycopy(
-                Base64.getDecoder().decode("MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKY="),
+                decodeBase64("MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKY="),
                 0,
                 result,
                 0,
@@ -95,7 +96,7 @@ enum Utils {
     }
 
     static String keyToPem(Key key, String header) {
-        String contents = Base64.getEncoder().encodeToString(key.getEncoded());
+        String contents = encodeBase64(key.getEncoded());
         StringBuilder sb = new StringBuilder();
         sb.append("-----BEGIN ").append(header).append("-----\n");
         for (int i = 0; i < contents.length(); i += 64) {
@@ -111,5 +112,60 @@ enum Utils {
                 bytes.arrayOffset() + bytes.position(),
                 bytes.remaining(),
                 StandardCharsets.UTF_8);
+    }
+
+    static byte[] decodeBase64(String value) {
+        validateBase64(value, false);
+        return Base64.decodeBase64(value);
+    }
+
+    static byte[] decodeUrlBase64(String value) {
+        validateBase64(value, true);
+        return Base64.decodeBase64(value);
+    }
+
+    static String encodeBase64(byte[] value) {
+        if (value == null) {
+            throw new NullPointerException("Base64 input is null");
+        }
+        return Base64.encodeBase64String(value);
+    }
+
+    private static void validateBase64(String value, boolean urlSafe) {
+        if (value == null) {
+            throw new NullPointerException("Base64 input is null");
+        }
+        int paddingStart = value.indexOf('=');
+        int contentEnd = paddingStart >= 0 ? paddingStart : value.length();
+        if (paddingStart >= 0) {
+            if (value.length() % 4 != 0) {
+                throw new IllegalArgumentException("Invalid Base64 padding");
+            }
+            int paddingLen = value.length() - paddingStart;
+            if (paddingLen > 2) {
+                throw new IllegalArgumentException("Invalid Base64 padding");
+            }
+            if ((paddingLen == 1 && contentEnd % 4 != 3)
+                    || (paddingLen == 2 && contentEnd % 4 != 2)) {
+                throw new IllegalArgumentException("Invalid Base64 padding");
+            }
+            for (int i = paddingStart; i < value.length(); i++) {
+                if (value.charAt(i) != '=') {
+                    throw new IllegalArgumentException("Invalid Base64 padding");
+                }
+            }
+        }
+        if (value.length() % 4 == 1) {
+            throw new IllegalArgumentException("Invalid Base64 length");
+        }
+        for (int i = 0; i < contentEnd; i++) {
+            char c = value.charAt(i);
+            boolean alphaNumeric =
+                    (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+            boolean symbol = urlSafe ? (c == '-' || c == '_') : (c == '+' || c == '/');
+            if (!alphaNumeric && !symbol) {
+                throw new IllegalArgumentException("Invalid Base64 character");
+            }
+        }
     }
 }

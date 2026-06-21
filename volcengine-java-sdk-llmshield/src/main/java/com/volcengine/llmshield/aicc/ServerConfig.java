@@ -3,36 +3,34 @@ package com.volcengine.llmshield.aicc;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class ServerConfig {
     @SerializedName("tks_url")
-    public @Nullable String tksUrl = null;
+    public String tksUrl = null;
 
     @SerializedName("tks_app_id")
-    public @Nullable String tksAppId = null;
+    public String tksAppId = null;
 
     @SerializedName("tks_ring_id")
-    public @Nullable String tksRingId = null;
+    public String tksRingId = null;
 
     @SerializedName("tks_key_id")
-    public @Nullable String tksKeyId = null;
+    public String tksKeyId = null;
 
     @SerializedName("pcc_login_url")
-    public @Nullable String pccLoginUrl = null;
+    public String pccLoginUrl = null;
 
     @SerializedName("pcc_app_id")
-    public @Nullable String pccAppId = null;
+    public String pccAppId = null;
 
     @SerializedName("pcc_password")
-    public @Nullable String pccPassword = null;
+    public String pccPassword = null;
 
     @SerializedName("service_id")
-    public @Nullable String serviceId = null;
+    public String serviceId = null;
 
     @SerializedName("bytedance_pcc_info")
     public String bytedancePccInfo = "";
@@ -47,10 +45,8 @@ public class ServerConfig {
     public String bytedanceTopInfo = "";
 
     @SerializedName("refresh_interval")
-    public @Nullable Float refreshInterval = null;
+    public Float refreshInterval = null;
 
-    // We have introduced package-wide @NullMarked annotation, so all arguments are assumed non-null
-    // unless otherwise marked.
     public static ServerConfig fromJson(String json) {
         // Closing StringReader is no-op.
         return fromJson(new StringReader(json));
