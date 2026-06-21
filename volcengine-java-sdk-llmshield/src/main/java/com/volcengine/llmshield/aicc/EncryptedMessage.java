@@ -3,12 +3,9 @@ package com.volcengine.llmshield.aicc;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
-import java.util.Base64;
 
 final class EncryptedMessage {
     private static final Gson gson =
@@ -23,16 +20,16 @@ final class EncryptedMessage {
     final ByteBuffer mac;
 
     @SerializedName("key")
-    final @Nullable ByteBuffer key;
+    final ByteBuffer key;
 
     @SerializedName("ciphertext")
-    final @Nullable ByteBuffer ciphertext;
+    final ByteBuffer ciphertext;
 
     EncryptedMessage(
             ByteBuffer nonce,
             ByteBuffer mac,
-            @Nullable ByteBuffer key,
-            @Nullable ByteBuffer ciphertext) {
+            ByteBuffer key,
+            ByteBuffer ciphertext) {
         this.nonce = nonce;
         this.mac = mac;
         this.key = key;
@@ -53,7 +50,7 @@ final class EncryptedMessage {
         public ByteBuffer deserialize(
                 JsonElement json, Type typeOfT, JsonDeserializationContext context)
                 throws JsonParseException {
-            return ByteBuffer.wrap(Base64.getDecoder().decode(json.getAsString()));
+            return ByteBuffer.wrap(Utils.decodeBase64(json.getAsString()));
         }
 
         // Serializes ByteBuffer as Base64 string. Pure method: the original ByteBuffer is not
@@ -61,8 +58,7 @@ final class EncryptedMessage {
         @Override
         public JsonElement serialize(
                 ByteBuffer src, Type typeOfSrc, JsonSerializationContext context) {
-            ByteBuffer bytes = Base64.getEncoder().encode(src.duplicate());
-            return new JsonPrimitive(Utils.bytesToString(bytes));
+            return new JsonPrimitive(Utils.encodeBase64(Utils.unwrapBytesBuffer(src.duplicate())));
         }
     }
 }

@@ -4,22 +4,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource;
 
 final class ClientSessionKey {
     private final RSAPublicKey serverPublicKey;
@@ -67,26 +61,14 @@ final class ClientSessionKey {
     }
 
     private EncryptResult toEncryptResult(AesKey symmetricKey, AesKey.EncryptResult result) {
-        // The protocol demands we use RSA with OAEP padding and SHA-256 hash.
-        OAEPParameterSpec params =
-                new OAEPParameterSpec(
-                        "SHA-256",
-                        "MGF1",
-                        new MGF1ParameterSpec("SHA-256"),
-                        PSource.PSpecified.DEFAULT);
         byte[] encryptedKey;
         try {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPPadding");
-            cipher.init(Cipher.ENCRYPT_MODE, serverPublicKey, params);
+            // Keep RSA-OAEP-SHA256 unchanged; CryptoCompat only selects a Java 7 capable provider.
+            Cipher cipher =
+                    CryptoCompat.newRsaOaepSha256Cipher(Cipher.ENCRYPT_MODE, serverPublicKey);
             encryptedKey = cipher.doFinal(symmetricKey.getEncoded());
 
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            // The algorithms are supposed to be supported, so these exceptions should not happen.
-            throw new UnsupportedOperationException(e);
-        } catch (InvalidKeyException
-                | InvalidAlgorithmParameterException
-                | IllegalBlockSizeException
-                | BadPaddingException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException e) {
             // These exceptions imply program bug.
             throw new RuntimeException(e);
         }

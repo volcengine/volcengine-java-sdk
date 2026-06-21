@@ -1,15 +1,10 @@
 package com.volcengine.llmshield.aicc;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.*;
 import java.nio.ByteBuffer;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.*;
-import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 final class AesKey {
@@ -59,23 +54,9 @@ final class AesKey {
 
     private Encryptor getEncryptor() {
         byte[] nonce = nonceSource.getNonce();
-        // There are 8 bits in a byte.
-        GCMParameterSpec params = new GCMParameterSpec(MAC_LEN * 8, nonce);
-
-        try {
-            // The protocol demands we use AES-GCM-256.
-            Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-            cipher.init(Cipher.ENCRYPT_MODE, key, params);
-
-            return new Encryptor(nonce, cipher);
-
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            // The algorithms are supposed to be supported, so these exceptions should not happen.
-            throw new UnsupportedOperationException(e);
-        } catch (InvalidKeyException | InvalidAlgorithmParameterException e) {
-            // These exceptions imply program bug.
-            throw new RuntimeException(e);
-        }
+        // CryptoCompat keeps AES-GCM-256 unchanged while handling Java 7 provider gaps.
+        Cipher cipher = CryptoCompat.newAesGcmCipher(Cipher.ENCRYPT_MODE, key, nonce);
+        return new Encryptor(nonce, cipher);
     }
 
     EncryptResult encrypt(ByteBuffer plaintext) {
@@ -157,21 +138,8 @@ final class AesKey {
     }
 
     private Cipher getDecryptor(byte[] nonce) {
-        // There are 8 bits in a byte.
-        GCMParameterSpec params = new GCMParameterSpec(MAC_LEN * 8, nonce);
-        try {
-            // The protocol demands we use AES-GCM-256.
-            Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-            cipher.init(Cipher.DECRYPT_MODE, key, params);
-            return cipher;
-
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            // The algorithms are supposed to be supported, so these exceptions should not happen.
-            throw new UnsupportedOperationException(e);
-        } catch (InvalidKeyException | InvalidAlgorithmParameterException e) {
-            // These exceptions imply program bug.
-            throw new RuntimeException(e);
-        }
+        // CryptoCompat keeps AES-GCM-256 unchanged while handling Java 7 provider gaps.
+        return CryptoCompat.newAesGcmCipher(Cipher.DECRYPT_MODE, key, nonce);
     }
 
     /// @exception IllegalArgumentException If nonce, mac, or ciphertext are not correct.
@@ -249,11 +217,11 @@ final class AesKey {
     static final class EncryptResult {
         final ByteBuffer nonce;
 
-        final @Nullable ByteBuffer ciphertext;
+        final ByteBuffer ciphertext;
 
         final ByteBuffer mac;
 
-        EncryptResult(ByteBuffer nonce, @Nullable ByteBuffer ciphertext, ByteBuffer mac) {
+        EncryptResult(ByteBuffer nonce, ByteBuffer ciphertext, ByteBuffer mac) {
             this.nonce = nonce;
             this.ciphertext = ciphertext;
             this.mac = mac;

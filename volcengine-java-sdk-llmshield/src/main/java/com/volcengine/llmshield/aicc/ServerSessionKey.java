@@ -1,40 +1,33 @@
 package com.volcengine.llmshield.aicc;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
-import java.time.Instant;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.crypto.*;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource;
 
 final class ServerSessionKey {
     private final RSAPrivateKey privateKey;
 
     /// If null, then always valid.
-    private final @Nullable Instant notAfter;
+    private final Date notAfter;
 
-    private ServerSessionKey(RSAPrivateKey privateKey, @Nullable Instant notAfter) {
+    private ServerSessionKey(RSAPrivateKey privateKey, Date notAfter) {
         this.privateKey = privateKey;
-        this.notAfter = notAfter;
+        this.notAfter = notAfter == null ? null : new Date(notAfter.getTime());
     }
 
-    static ServerSessionKey load(String keyPem, @Nullable Instant notAfter) {
+    static ServerSessionKey load(String keyPem, Date notAfter) {
         KeySpec keySpec =
                 new PKCS8EncodedKeySpec(
                         Utils.pkcs1ToPkcs8(Utils.pemToDer(keyPem, "RSA PRIVATE KEY")));
@@ -55,7 +48,8 @@ final class ServerSessionKey {
     }
 
     boolean isValid() {
-        return notAfter == null || !Instant.now().isAfter(notAfter);
+        Date expiresAt = notAfter == null ? null : new Date(notAfter.getTime());
+        return expiresAt == null || !new Date().after(expiresAt);
     }
 
     DecryptResult decryptWithResponse(EncryptedMessage message) {
@@ -87,27 +81,16 @@ final class ServerSessionKey {
         if (message.key == null) {
             throw new IllegalArgumentException();
         }
-        OAEPParameterSpec params =
-                new OAEPParameterSpec(
-                        "SHA-256",
-                        "MGF1",
-                        new MGF1ParameterSpec("SHA-256"),
-                        PSource.PSpecified.DEFAULT);
         ByteBuffer result = ByteBuffer.allocate(512);
         try {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPPadding");
-            cipher.init(Cipher.DECRYPT_MODE, privateKey, params);
+            // Keep RSA-OAEP-SHA256 unchanged; CryptoCompat only selects a Java 7 capable provider.
+            Cipher cipher = CryptoCompat.newRsaOaepSha256Cipher(Cipher.DECRYPT_MODE, privateKey);
             cipher.doFinal(message.key, result);
 
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            // The algorithms are supposed to be supported, so these exceptions should not happen.
-            throw new UnsupportedOperationException(e);
         } catch (IllegalBlockSizeException | BadPaddingException e) {
             // Invalid message.
             throw new IllegalArgumentException(e);
-        } catch (InvalidKeyException
-                | InvalidAlgorithmParameterException
-                | ShortBufferException e) {
+        } catch (ShortBufferException e) {
             // These exceptions imply program bug.
             throw new RuntimeException(e);
         }

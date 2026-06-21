@@ -1,7 +1,5 @@
 package com.volcengine.llmshield.aicc;
 
-import org.jspecify.annotations.Nullable;
-
 import java.nio.ByteBuffer;
 
 public final class DecryptResult {
@@ -9,7 +7,7 @@ public final class DecryptResult {
 
     private final ByteBuffer plaintext;
 
-    private @Nullable String plaintextString = null;
+    private String plaintextString = null;
 
     DecryptResult(ByteBuffer plaintext, ResponseKey responseKey) {
         this.plaintext = plaintext;

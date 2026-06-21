@@ -1,7 +1,5 @@
 package com.volcengine.llmshield.aicc;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -16,16 +14,16 @@ import java.util.concurrent.TimeUnit;
 public class Client implements AutoCloseable {
     public final ClientConfig config;
 
-    private final @Nullable ScheduledExecutorService attestExecutor;
-    private final @Nullable ScheduledFuture<?> attestFuture;
+    private final ScheduledExecutorService attestExecutor;
+    private final ScheduledFuture<?> attestFuture;
 
-    private @Nullable ClientSessionKey sessionKey = null;
+    private ClientSessionKey sessionKey = null;
 
     public Client(ClientConfig config) {
         this(config, null);
     }
 
-    public Client(ClientConfig config, @Nullable ScheduledExecutorService attestExecutor) {
+    public Client(ClientConfig config, ScheduledExecutorService attestExecutor) {
         this.config = config;
 
         if (config.attestInterval != null) {
@@ -40,11 +38,14 @@ public class Client implements AutoCloseable {
 
             attestFuture =
                     executor.scheduleAtFixedRate(
-                            () -> {
+                            new Runnable() {
+                                @Override
+                                public void run() {
                                 try {
-                                    this.attestServer();
+                                    Client.this.attestServer();
                                 } catch (IOException e) {
                                     e.printStackTrace();
+                                }
                                 }
                             },
                             0,
@@ -73,7 +74,7 @@ public class Client implements AutoCloseable {
         attestServer(null);
     }
 
-    public void attestServer(@Nullable String token) throws IOException {
+    public void attestServer(String token) throws IOException {
         if (config.pubKeyPath != null) {
             String publicPem = new String(Files.readAllBytes(Paths.get(config.pubKeyPath)));
             System.err.println("read pub key success, pub_key=" + publicPem);
