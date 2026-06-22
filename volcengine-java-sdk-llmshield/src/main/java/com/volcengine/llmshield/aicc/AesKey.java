@@ -217,10 +217,15 @@ final class AesKey {
     static final class EncryptResult {
         final ByteBuffer nonce;
 
+        // May be null when ciphertext is streamed directly to an output sink.
         final ByteBuffer ciphertext;
 
         final ByteBuffer mac;
 
+        /**
+         * @param ciphertext may be null when the encrypted payload is written to an output stream
+         *     and only the authentication tag is returned here
+         */
         EncryptResult(ByteBuffer nonce, ByteBuffer ciphertext, ByteBuffer mac) {
             this.nonce = nonce;
             this.ciphertext = ciphertext;
