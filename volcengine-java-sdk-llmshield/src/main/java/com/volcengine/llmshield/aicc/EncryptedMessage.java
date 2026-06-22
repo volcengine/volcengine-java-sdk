@@ -20,10 +20,10 @@ final class EncryptedMessage {
     final ByteBuffer mac;
 
     @SerializedName("key")
-    final ByteBuffer key;
+    final ByteBuffer key; // Nullable: may be absent in some AICC messages
 
     @SerializedName("ciphertext")
-    final ByteBuffer ciphertext;
+    final ByteBuffer ciphertext; // Nullable: may be absent in some AICC messages
 
     EncryptedMessage(
             ByteBuffer nonce,
