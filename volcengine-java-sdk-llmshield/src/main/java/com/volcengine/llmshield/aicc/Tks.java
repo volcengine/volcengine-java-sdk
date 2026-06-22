@@ -62,9 +62,17 @@ enum Tks {
     private static final class AttestedSession {
         final AesKey symmetricKey;
         final String clientPublicKey;
+        // May be null when attestation evidence is not required or no challenge is returned.
         final JsonObject clientChallenge;
+        // May be null when attestation evidence is not required or no challenge is returned.
         final String clientEvidence;
 
+        /**
+         * @param clientChallenge may be null when remote attestation challenge is not requested
+         *     or not returned
+         * @param clientEvidence may be null when remote attestation evidence is not requested or
+         *     not returned
+         */
         AttestedSession(
                 AesKey symmetricKey,
                 String clientPublicKey,
