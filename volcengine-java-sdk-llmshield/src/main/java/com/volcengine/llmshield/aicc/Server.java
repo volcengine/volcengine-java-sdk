@@ -25,7 +25,9 @@ import com.google.gson.JsonObject;
 public class Server implements AutoCloseable {
     public final ServerConfig config;
 
+    // Non-null only when refresh is enabled and this Server owns the executor.
     private final ScheduledExecutorService refreshExecutor;
+    // Non-null only when refresh is enabled.
     private final ScheduledFuture<?> refreshFuture;
 
     private final List<ServerSessionKey> sessionKeys;
@@ -34,6 +36,11 @@ public class Server implements AutoCloseable {
         this(config, null);
     }
 
+    /**
+     * @param refreshExecutor optional external executor for periodic refresh; may be null. If
+     *     null and refresh is enabled, Server creates and owns an executor. If non-null, Server
+     *     uses it but does not shut it down in {@link #close()}.
+     */
     public Server(ServerConfig config, ScheduledExecutorService refreshExecutor) {
         this.config = config;
 
