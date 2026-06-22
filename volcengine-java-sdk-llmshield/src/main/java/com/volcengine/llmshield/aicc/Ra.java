@@ -14,6 +14,10 @@ import java.util.TreeMap;
 enum Ra {
     ;
 
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
     static ClientSessionKey attestServer(String token, ClientConfig config)
             throws IOException {
         String serverPublicKey;
@@ -26,6 +30,10 @@ enum Ra {
         return ClientSessionKey.load(serverPublicKey);
     }
 
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
     static String attestLocal(String token, ClientConfig config) throws IOException {
         URL url = URI.create(config.raUrl).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -52,6 +60,10 @@ enum Ra {
         }
     }
 
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
     static String attestTopTca(String token, ClientConfig config) throws IOException {
         TopInfo topInfo = config.parseTopInfo();
 
