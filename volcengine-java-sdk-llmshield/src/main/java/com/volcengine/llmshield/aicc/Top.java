@@ -10,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.ParsePosition;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,14 +18,28 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeFormatterBuilder;
+import org.threeten.bp.format.DateTimeParseException;
 
 enum Top {
     ;
 
     private static final Gson GSON = new Gson();
+    private static final DateTimeFormatter ISO_OFFSET_DATE_TIME_FORMATTER =
+            new DateTimeFormatterBuilder()
+                    .parseCaseInsensitive()
+                    .append(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                    .toFormatter(Locale.ROOT);
+    private static final Pattern BASIC_OFFSET_SUFFIX =
+            Pattern.compile("([+-])(\\d{2})(\\d{2})?(\\d{2})?$");
     private static volatile StsCredentials cachedStsCredentials;
     private static volatile long cachedStsExpireTime;
 
@@ -394,178 +407,35 @@ enum Top {
     }
 
     private static long parseIsoOffsetTime(String value) throws ParseException {
-        ParsedIsoOffsetTime parsed = normalizeIsoOffsetTime(value);
-        String pattern = parsed.hasSeconds ? "yyyy-MM-dd'T'HH:mm:ss" : "yyyy-MM-dd'T'HH:mm";
-        SimpleDateFormat formatter = new SimpleDateFormat(pattern, Locale.ROOT);
-        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-        formatter.setLenient(false);
-        ParsePosition position = new ParsePosition(0);
-        Date date = formatter.parse(parsed.localDateTime, position);
-        if (date != null && position.getIndex() == parsed.localDateTime.length()) {
-            return date.getTime() - parsed.offsetTotalSeconds * 1000L;
+        String normalizedValue = normalizeIsoOffsetTime(value);
+        try {
+            return OffsetDateTime.parse(normalizedValue, ISO_OFFSET_DATE_TIME_FORMATTER)
+                    .toInstant()
+                    .toEpochMilli();
+        } catch (DateTimeParseException e) {
+            int errorIndex = e.getErrorIndex();
+            throw new ParseException("Unparseable date: " + value, errorIndex >= 0 ? errorIndex : 0);
         }
-        int errorIndex = position.getErrorIndex() >= 0 ? position.getErrorIndex() : position.getIndex();
-        throw new ParseException("Unparseable date: " + value, errorIndex);
     }
 
-    private static ParsedIsoOffsetTime normalizeIsoOffsetTime(String value) throws ParseException {
-        int timeSeparator = indexOfTimeSeparator(value);
-        if (timeSeparator < 0) {
-            throw new ParseException("Unparseable date: " + value, 0);
+    private static String normalizeIsoOffsetTime(String value) {
+        Matcher matcher = BASIC_OFFSET_SUFFIX.matcher(value);
+        if (!matcher.find()) {
+            return value;
         }
-        String date = value.substring(0, timeSeparator);
-        String timeAndOffset = value.substring(timeSeparator + 1);
-        int offsetStart = findOffsetStart(timeAndOffset);
-        if (offsetStart < 0) {
-            throw new ParseException("Unparseable date: " + value, timeSeparator + 1);
-        }
-        String time = timeAndOffset.substring(0, offsetStart);
-        String offset = timeAndOffset.substring(offsetStart);
-        int dot = time.indexOf('.');
-        boolean hasSeconds = hasSeconds(time);
-        if (dot >= 0) {
-            if (!hasSeconds) {
-                throw new ParseException("Unparseable date: " + value, timeSeparator + 1 + dot);
-            }
-            validateFraction(value, timeSeparator + 1 + dot, time.substring(dot + 1));
-            time = time.substring(0, dot);
-        }
-        ParsedOffset parsedOffset = normalizeOffset(value, timeSeparator + 1 + offsetStart, offset);
-        return new ParsedIsoOffsetTime(
-                date + 'T' + time, hasSeconds, parsedOffset.totalSeconds);
-    }
-
-    private static int indexOfTimeSeparator(String value) {
-        int upper = value.indexOf('T');
-        int lower = value.indexOf('t');
-        if (upper < 0) {
-            return lower;
-        }
-        if (lower < 0) {
-            return upper;
-        }
-        return Math.min(upper, lower);
-    }
-
-    private static int findOffsetStart(String value) {
-        for (int i = 0; i < value.length(); i++) {
-            char c = value.charAt(i);
-            if (c == 'Z' || c == 'z' || c == '+' || c == '-') {
-                return i;
+        String sign = matcher.group(1);
+        String hours = matcher.group(2);
+        String minutes = matcher.group(3);
+        String seconds = matcher.group(4);
+        StringBuilder normalizedOffset = new StringBuilder().append(sign).append(hours);
+        if (minutes == null) {
+            normalizedOffset.append(":00");
+        } else {
+            normalizedOffset.append(':').append(minutes);
+            if (seconds != null) {
+                normalizedOffset.append(':').append(seconds);
             }
         }
-        return -1;
-    }
-
-    private static void validateFraction(String original, int dotIndex, String fraction)
-            throws ParseException {
-        if (fraction.length() > 9) {
-            throw new ParseException("Unparseable date: " + original, dotIndex);
-        }
-        for (int i = 0; i < fraction.length(); i++) {
-            char c = fraction.charAt(i);
-            if (c < '0' || c > '9') {
-                throw new ParseException("Unparseable date: " + original, dotIndex + 1 + i);
-            }
-        }
-    }
-
-    private static boolean hasSeconds(String time) {
-        int firstColon = time.indexOf(':');
-        return firstColon >= 0 && time.indexOf(':', firstColon + 1) >= 0;
-    }
-
-    private static ParsedOffset normalizeOffset(String original, int offsetIndex, String offset)
-            throws ParseException {
-        if ("Z".equals(offset) || "z".equals(offset)) {
-            return new ParsedOffset(0);
-        }
-        if (offset.length() == 6
-                && isSign(offset.charAt(0))
-                && isTwoDigits(offset, 1)
-                && offset.charAt(3) == ':'
-                && isTwoDigits(offset, 4)) {
-            int totalSeconds =
-                    offsetTotalSeconds(
-                            original,
-                            offsetIndex,
-                            offset.charAt(0),
-                            offset.substring(1, 3),
-                            offset.substring(4, 6),
-                            "00");
-            validateOffsetRange(original, offsetIndex, totalSeconds);
-            return new ParsedOffset(totalSeconds);
-        }
-        if (offset.length() == 9
-                && isSign(offset.charAt(0))
-                && isTwoDigits(offset, 1)
-                && offset.charAt(3) == ':'
-                && isTwoDigits(offset, 4)
-                && offset.charAt(6) == ':'
-                && isTwoDigits(offset, 7)) {
-            int totalSeconds =
-                    offsetTotalSeconds(
-                            original,
-                            offsetIndex,
-                            offset.charAt(0),
-                            offset.substring(1, 3),
-                            offset.substring(4, 6),
-                            offset.substring(7, 9));
-            validateOffsetRange(original, offsetIndex, totalSeconds);
-            return new ParsedOffset(totalSeconds);
-        }
-        throw new ParseException("Unparseable date: " + original, offsetIndex);
-    }
-
-    private static int offsetTotalSeconds(
-            String original, int offsetIndex, char sign, String hours, String minutes, String seconds)
-            throws ParseException {
-        int hourValue = Integer.parseInt(hours);
-        int minuteValue = Integer.parseInt(minutes);
-        int secondValue = Integer.parseInt(seconds);
-        if (minuteValue > 59 || secondValue > 59) {
-            throw new ParseException("Unparseable date: " + original, offsetIndex);
-        }
-        int totalSeconds = hourValue * 3600 + minuteValue * 60 + secondValue;
-        return sign == '-' ? -totalSeconds : totalSeconds;
-    }
-
-    private static void validateOffsetRange(String original, int offsetIndex, int totalSeconds)
-            throws ParseException {
-        if (Math.abs(totalSeconds) > 18 * 3600) {
-            throw new ParseException("Unparseable date: " + original, offsetIndex);
-        }
-    }
-
-    private static boolean isSign(char c) {
-        return c == '+' || c == '-';
-    }
-
-    private static boolean isTwoDigits(String value, int offset) {
-        return offset + 1 < value.length()
-                && value.charAt(offset) >= '0'
-                && value.charAt(offset) <= '9'
-                && value.charAt(offset + 1) >= '0'
-                && value.charAt(offset + 1) <= '9';
-    }
-
-    private static final class ParsedIsoOffsetTime {
-        final String localDateTime;
-        final boolean hasSeconds;
-        final int offsetTotalSeconds;
-
-        ParsedIsoOffsetTime(String localDateTime, boolean hasSeconds, int offsetTotalSeconds) {
-            this.localDateTime = localDateTime;
-            this.hasSeconds = hasSeconds;
-            this.offsetTotalSeconds = offsetTotalSeconds;
-        }
-    }
-
-    private static final class ParsedOffset {
-        final int totalSeconds;
-
-        ParsedOffset(int totalSeconds) {
-            this.totalSeconds = totalSeconds;
-        }
+        return value.substring(0, matcher.start()) + normalizedOffset;
     }
 }

@@ -56,6 +56,10 @@
             <!-- 可根据需要修改为最新稳定版本 -->
             <version>2.10.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.threeten</groupId>
+            <artifactId>threetenbp</artifactId>
+        </dependency>
         <!-- BouncyCastle 加密库 -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
