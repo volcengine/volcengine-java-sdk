@@ -67,6 +67,7 @@ enum Top {
     static JsonObject requestTop(
             TopInfo topInfo, String action, Map<String, String> extraHeaders, byte[] body)
             throws IOException {
+        extraHeaders = (extraHeaders == null) ? new HashMap<>() : extraHeaders;
         // 如果配置了aicc_saas_trn，先通过STS获取临时凭证
         if (topInfo.aiccSaasTrn != null && !topInfo.aiccSaasTrn.isEmpty()) {
             try {
@@ -75,9 +76,6 @@ enum Top {
                     topInfo.ak = stsCred.accessKeyId;
                     topInfo.sk = stsCred.secretAccessKey;
                     topInfo.stsToken = stsCred.sessionToken;
-                    if (extraHeaders == null) {
-                        extraHeaders = new HashMap<>();
-                    }
                     extraHeaders.put("X-Security-Token", stsCred.sessionToken);
                     extraHeaders.put("sts_token", stsCred.sessionToken);
                     if (topInfo.targetUid != null && !topInfo.targetUid.isEmpty()) {
@@ -126,10 +124,8 @@ enum Top {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 connection.setRequestProperty(entry.getKey(), entry.getValue());
             }
-            if (extraHeaders != null) {
-                for (Map.Entry<String, String> entry : extraHeaders.entrySet()) {
-                    connection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
+            for (Map.Entry<String, String> entry : extraHeaders.entrySet()) {
+                connection.setRequestProperty(entry.getKey(), entry.getValue());
             }
 
             connection.setDoOutput(true);
