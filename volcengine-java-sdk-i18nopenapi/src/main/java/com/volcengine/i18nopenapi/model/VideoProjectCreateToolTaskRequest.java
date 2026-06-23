@@ -41,9 +41,6 @@ public class VideoProjectCreateToolTaskRequest {
   @SerializedName("toolParamsJson")
   private String toolParamsJson = null;
 
-  @SerializedName("userId")
-  private String userId = null;
-
   @SerializedName("videoIDs")
   private List<String> videoIDs = null;
 
@@ -102,24 +99,6 @@ public class VideoProjectCreateToolTaskRequest {
     this.toolParamsJson = toolParamsJson;
   }
 
-  public VideoProjectCreateToolTaskRequest userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @Schema(description = "")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
   public VideoProjectCreateToolTaskRequest videoIDs(List<String> videoIDs) {
     this.videoIDs = videoIDs;
     return this;
@@ -159,13 +138,12 @@ public class VideoProjectCreateToolTaskRequest {
     return Objects.equals(this.projectId, videoProjectCreateToolTaskRequest.projectId) &&
         Objects.equals(this.taskType, videoProjectCreateToolTaskRequest.taskType) &&
         Objects.equals(this.toolParamsJson, videoProjectCreateToolTaskRequest.toolParamsJson) &&
-        Objects.equals(this.userId, videoProjectCreateToolTaskRequest.userId) &&
         Objects.equals(this.videoIDs, videoProjectCreateToolTaskRequest.videoIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, taskType, toolParamsJson, userId, videoIDs);
+    return Objects.hash(projectId, taskType, toolParamsJson, videoIDs);
   }
 
 
@@ -177,7 +155,6 @@ public class VideoProjectCreateToolTaskRequest {
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    toolParamsJson: ").append(toIndentedString(toolParamsJson)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    videoIDs: ").append(toIndentedString(videoIDs)).append("\n");
     sb.append("}");
     return sb.toString();
