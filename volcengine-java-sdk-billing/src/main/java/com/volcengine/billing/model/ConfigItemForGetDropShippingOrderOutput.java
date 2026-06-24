@@ -27,12 +27,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConfigItemsForGetDropShippingOrderOutput
+ * ConfigItemForGetDropShippingOrderOutput
  */
 
 
 
-public class ConfigItemsForGetDropShippingOrderOutput {
+public class ConfigItemForGetDropShippingOrderOutput {
   @SerializedName("ChargeItems")
   private List<ChargeItemForGetDropShippingOrderOutput> chargeItems = null;
 
@@ -45,12 +45,12 @@ public class ConfigItemsForGetDropShippingOrderOutput {
   @SerializedName("Product")
   private String product = null;
 
-  public ConfigItemsForGetDropShippingOrderOutput chargeItems(List<ChargeItemForGetDropShippingOrderOutput> chargeItems) {
+  public ConfigItemForGetDropShippingOrderOutput chargeItems(List<ChargeItemForGetDropShippingOrderOutput> chargeItems) {
     this.chargeItems = chargeItems;
     return this;
   }
 
-  public ConfigItemsForGetDropShippingOrderOutput addChargeItemsItem(ChargeItemForGetDropShippingOrderOutput chargeItemsItem) {
+  public ConfigItemForGetDropShippingOrderOutput addChargeItemsItem(ChargeItemForGetDropShippingOrderOutput chargeItemsItem) {
     if (this.chargeItems == null) {
       this.chargeItems = new ArrayList<ChargeItemForGetDropShippingOrderOutput>();
     }
@@ -72,7 +72,7 @@ public class ConfigItemsForGetDropShippingOrderOutput {
     this.chargeItems = chargeItems;
   }
 
-  public ConfigItemsForGetDropShippingOrderOutput configurationCode(String configurationCode) {
+  public ConfigItemForGetDropShippingOrderOutput configurationCode(String configurationCode) {
     this.configurationCode = configurationCode;
     return this;
   }
@@ -90,7 +90,7 @@ public class ConfigItemsForGetDropShippingOrderOutput {
     this.configurationCode = configurationCode;
   }
 
-  public ConfigItemsForGetDropShippingOrderOutput duration(Integer duration) {
+  public ConfigItemForGetDropShippingOrderOutput duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -108,7 +108,7 @@ public class ConfigItemsForGetDropShippingOrderOutput {
     this.duration = duration;
   }
 
-  public ConfigItemsForGetDropShippingOrderOutput product(String product) {
+  public ConfigItemForGetDropShippingOrderOutput product(String product) {
     this.product = product;
     return this;
   }
@@ -135,11 +135,11 @@ public class ConfigItemsForGetDropShippingOrderOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConfigItemsForGetDropShippingOrderOutput configItemsForGetDropShippingOrderOutput = (ConfigItemsForGetDropShippingOrderOutput) o;
-    return Objects.equals(this.chargeItems, configItemsForGetDropShippingOrderOutput.chargeItems) &&
-        Objects.equals(this.configurationCode, configItemsForGetDropShippingOrderOutput.configurationCode) &&
-        Objects.equals(this.duration, configItemsForGetDropShippingOrderOutput.duration) &&
-        Objects.equals(this.product, configItemsForGetDropShippingOrderOutput.product);
+    ConfigItemForGetDropShippingOrderOutput configItemForGetDropShippingOrderOutput = (ConfigItemForGetDropShippingOrderOutput) o;
+    return Objects.equals(this.chargeItems, configItemForGetDropShippingOrderOutput.chargeItems) &&
+        Objects.equals(this.configurationCode, configItemForGetDropShippingOrderOutput.configurationCode) &&
+        Objects.equals(this.duration, configItemForGetDropShippingOrderOutput.duration) &&
+        Objects.equals(this.product, configItemForGetDropShippingOrderOutput.product);
   }
 
   @Override
@@ -151,7 +151,7 @@ public class ConfigItemsForGetDropShippingOrderOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConfigItemsForGetDropShippingOrderOutput {\n");
+    sb.append("class ConfigItemForGetDropShippingOrderOutput {\n");
     
     sb.append("    chargeItems: ").append(toIndentedString(chargeItems)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
