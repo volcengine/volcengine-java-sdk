@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SuppressionVideoInfoForVideoProjectTaskDetailOutput
+ * OutputVideoInfoForVideoProjectGetToolTaskOutput
  */
 
 
 
-public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+public class OutputVideoInfoForVideoProjectGetToolTaskOutput {
   @SerializedName("posterUrl")
   private String posterUrl = null;
 
@@ -44,12 +44,6 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 
   @SerializedName("sourceVideoUrl")
   private String sourceVideoUrl = null;
-
-  @SerializedName("targetAudioDownloadUrl")
-  private String targetAudioDownloadUrl = null;
-
-  @SerializedName("targetAudioUrl")
-  private String targetAudioUrl = null;
 
   @SerializedName("targetDownloadUrl")
   private String targetDownloadUrl = null;
@@ -66,7 +60,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
   @SerializedName("targetVideoUrl")
   private String targetVideoUrl = null;
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput posterUrl(String posterUrl) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput posterUrl(String posterUrl) {
     this.posterUrl = posterUrl;
     return this;
   }
@@ -84,7 +78,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.posterUrl = posterUrl;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput sourceLastTime(String sourceLastTime) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput sourceLastTime(String sourceLastTime) {
     this.sourceLastTime = sourceLastTime;
     return this;
   }
@@ -102,7 +96,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.sourceLastTime = sourceLastTime;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput sourceName(String sourceName) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput sourceName(String sourceName) {
     this.sourceName = sourceName;
     return this;
   }
@@ -120,7 +114,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.sourceName = sourceName;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput sourceVid(String sourceVid) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput sourceVid(String sourceVid) {
     this.sourceVid = sourceVid;
     return this;
   }
@@ -138,7 +132,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.sourceVid = sourceVid;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput sourceVideoUrl(String sourceVideoUrl) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput sourceVideoUrl(String sourceVideoUrl) {
     this.sourceVideoUrl = sourceVideoUrl;
     return this;
   }
@@ -156,43 +150,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.sourceVideoUrl = sourceVideoUrl;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetAudioDownloadUrl(String targetAudioDownloadUrl) {
-    this.targetAudioDownloadUrl = targetAudioDownloadUrl;
-    return this;
-  }
-
-   /**
-   * Get targetAudioDownloadUrl
-   * @return targetAudioDownloadUrl
-  **/
-  @Schema(description = "")
-  public String getTargetAudioDownloadUrl() {
-    return targetAudioDownloadUrl;
-  }
-
-  public void setTargetAudioDownloadUrl(String targetAudioDownloadUrl) {
-    this.targetAudioDownloadUrl = targetAudioDownloadUrl;
-  }
-
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetAudioUrl(String targetAudioUrl) {
-    this.targetAudioUrl = targetAudioUrl;
-    return this;
-  }
-
-   /**
-   * Get targetAudioUrl
-   * @return targetAudioUrl
-  **/
-  @Schema(description = "")
-  public String getTargetAudioUrl() {
-    return targetAudioUrl;
-  }
-
-  public void setTargetAudioUrl(String targetAudioUrl) {
-    this.targetAudioUrl = targetAudioUrl;
-  }
-
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetDownloadUrl(String targetDownloadUrl) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput targetDownloadUrl(String targetDownloadUrl) {
     this.targetDownloadUrl = targetDownloadUrl;
     return this;
   }
@@ -210,7 +168,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.targetDownloadUrl = targetDownloadUrl;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetLastTime(String targetLastTime) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput targetLastTime(String targetLastTime) {
     this.targetLastTime = targetLastTime;
     return this;
   }
@@ -228,7 +186,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.targetLastTime = targetLastTime;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetName(String targetName) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput targetName(String targetName) {
     this.targetName = targetName;
     return this;
   }
@@ -246,7 +204,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.targetName = targetName;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetVid(String targetVid) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput targetVid(String targetVid) {
     this.targetVid = targetVid;
     return this;
   }
@@ -264,7 +222,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     this.targetVid = targetVid;
   }
 
-  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetVideoUrl(String targetVideoUrl) {
+  public OutputVideoInfoForVideoProjectGetToolTaskOutput targetVideoUrl(String targetVideoUrl) {
     this.targetVideoUrl = targetVideoUrl;
     return this;
   }
@@ -291,39 +249,35 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SuppressionVideoInfoForVideoProjectTaskDetailOutput suppressionVideoInfoForVideoProjectTaskDetailOutput = (SuppressionVideoInfoForVideoProjectTaskDetailOutput) o;
-    return Objects.equals(this.posterUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.posterUrl) &&
-        Objects.equals(this.sourceLastTime, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceLastTime) &&
-        Objects.equals(this.sourceName, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceName) &&
-        Objects.equals(this.sourceVid, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceVid) &&
-        Objects.equals(this.sourceVideoUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceVideoUrl) &&
-        Objects.equals(this.targetAudioDownloadUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetAudioDownloadUrl) &&
-        Objects.equals(this.targetAudioUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetAudioUrl) &&
-        Objects.equals(this.targetDownloadUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetDownloadUrl) &&
-        Objects.equals(this.targetLastTime, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetLastTime) &&
-        Objects.equals(this.targetName, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetName) &&
-        Objects.equals(this.targetVid, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetVid) &&
-        Objects.equals(this.targetVideoUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetVideoUrl);
+    OutputVideoInfoForVideoProjectGetToolTaskOutput outputVideoInfoForVideoProjectGetToolTaskOutput = (OutputVideoInfoForVideoProjectGetToolTaskOutput) o;
+    return Objects.equals(this.posterUrl, outputVideoInfoForVideoProjectGetToolTaskOutput.posterUrl) &&
+        Objects.equals(this.sourceLastTime, outputVideoInfoForVideoProjectGetToolTaskOutput.sourceLastTime) &&
+        Objects.equals(this.sourceName, outputVideoInfoForVideoProjectGetToolTaskOutput.sourceName) &&
+        Objects.equals(this.sourceVid, outputVideoInfoForVideoProjectGetToolTaskOutput.sourceVid) &&
+        Objects.equals(this.sourceVideoUrl, outputVideoInfoForVideoProjectGetToolTaskOutput.sourceVideoUrl) &&
+        Objects.equals(this.targetDownloadUrl, outputVideoInfoForVideoProjectGetToolTaskOutput.targetDownloadUrl) &&
+        Objects.equals(this.targetLastTime, outputVideoInfoForVideoProjectGetToolTaskOutput.targetLastTime) &&
+        Objects.equals(this.targetName, outputVideoInfoForVideoProjectGetToolTaskOutput.targetName) &&
+        Objects.equals(this.targetVid, outputVideoInfoForVideoProjectGetToolTaskOutput.targetVid) &&
+        Objects.equals(this.targetVideoUrl, outputVideoInfoForVideoProjectGetToolTaskOutput.targetVideoUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetAudioDownloadUrl, targetAudioUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
+    return Objects.hash(posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SuppressionVideoInfoForVideoProjectTaskDetailOutput {\n");
+    sb.append("class OutputVideoInfoForVideoProjectGetToolTaskOutput {\n");
     
     sb.append("    posterUrl: ").append(toIndentedString(posterUrl)).append("\n");
     sb.append("    sourceLastTime: ").append(toIndentedString(sourceLastTime)).append("\n");
     sb.append("    sourceName: ").append(toIndentedString(sourceName)).append("\n");
     sb.append("    sourceVid: ").append(toIndentedString(sourceVid)).append("\n");
     sb.append("    sourceVideoUrl: ").append(toIndentedString(sourceVideoUrl)).append("\n");
-    sb.append("    targetAudioDownloadUrl: ").append(toIndentedString(targetAudioDownloadUrl)).append("\n");
-    sb.append("    targetAudioUrl: ").append(toIndentedString(targetAudioUrl)).append("\n");
     sb.append("    targetDownloadUrl: ").append(toIndentedString(targetDownloadUrl)).append("\n");
     sb.append("    targetLastTime: ").append(toIndentedString(targetLastTime)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

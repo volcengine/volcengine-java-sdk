@@ -19,59 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectListToolProjectResourcesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetToolTaskRequest
+ * VideoProjectListToolProjectResourcesResponse
  */
 
 
 
-public class VideoProjectGetToolTaskRequest {
-  @SerializedName("projectId")
-  private String projectId = null;
+public class VideoProjectListToolProjectResourcesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private DataForVideoProjectListToolProjectResourcesOutput data = null;
 
-  @SerializedName("taskId")
-  private String taskId = null;
-
-  public VideoProjectGetToolTaskRequest projectId(String projectId) {
-    this.projectId = projectId;
+  public VideoProjectListToolProjectResourcesResponse data(DataForVideoProjectListToolProjectResourcesOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get data
+   * @return data
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getProjectId() {
-    return projectId;
+  @Valid
+  @Schema(description = "")
+  public DataForVideoProjectListToolProjectResourcesOutput getData() {
+    return data;
   }
 
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
-  }
-
-  public VideoProjectGetToolTaskRequest taskId(String taskId) {
-    this.taskId = taskId;
-    return this;
-  }
-
-   /**
-   * Get taskId
-   * @return taskId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setData(DataForVideoProjectListToolProjectResourcesOutput data) {
+    this.data = data;
   }
 
 
@@ -83,24 +62,22 @@ public class VideoProjectGetToolTaskRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetToolTaskRequest videoProjectGetToolTaskRequest = (VideoProjectGetToolTaskRequest) o;
-    return Objects.equals(this.projectId, videoProjectGetToolTaskRequest.projectId) &&
-        Objects.equals(this.taskId, videoProjectGetToolTaskRequest.taskId);
+    VideoProjectListToolProjectResourcesResponse videoProjectListToolProjectResourcesResponse = (VideoProjectListToolProjectResourcesResponse) o;
+    return Objects.equals(this.data, videoProjectListToolProjectResourcesResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, taskId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetToolTaskRequest {\n");
+    sb.append("class VideoProjectListToolProjectResourcesResponse {\n");
     
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

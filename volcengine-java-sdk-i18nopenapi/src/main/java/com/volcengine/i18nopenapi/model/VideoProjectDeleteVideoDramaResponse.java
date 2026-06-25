@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetToolTaskRequest
+ * VideoProjectDeleteVideoDramaResponse
  */
 
 
 
-public class VideoProjectGetToolTaskRequest {
-  @SerializedName("projectId")
-  private String projectId = null;
+public class VideoProjectDeleteVideoDramaResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("message")
+  private String message = null;
 
-  @SerializedName("taskId")
-  private String taskId = null;
-
-  public VideoProjectGetToolTaskRequest projectId(String projectId) {
-    this.projectId = projectId;
+  public VideoProjectDeleteVideoDramaResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get message
+   * @return message
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getProjectId() {
-    return projectId;
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
   }
 
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
-  }
-
-  public VideoProjectGetToolTaskRequest taskId(String taskId) {
-    this.taskId = taskId;
-    return this;
-  }
-
-   /**
-   * Get taskId
-   * @return taskId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -83,24 +60,22 @@ public class VideoProjectGetToolTaskRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetToolTaskRequest videoProjectGetToolTaskRequest = (VideoProjectGetToolTaskRequest) o;
-    return Objects.equals(this.projectId, videoProjectGetToolTaskRequest.projectId) &&
-        Objects.equals(this.taskId, videoProjectGetToolTaskRequest.taskId);
+    VideoProjectDeleteVideoDramaResponse videoProjectDeleteVideoDramaResponse = (VideoProjectDeleteVideoDramaResponse) o;
+    return Objects.equals(this.message, videoProjectDeleteVideoDramaResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, taskId);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetToolTaskRequest {\n");
+    sb.append("class VideoProjectDeleteVideoDramaResponse {\n");
     
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetToolTaskRequest
+ * CreatorForVideoProjectListVideoDramaOutput
  */
 
 
 
-public class VideoProjectGetToolTaskRequest {
-  @SerializedName("projectId")
-  private String projectId = null;
+public class CreatorForVideoProjectListVideoDramaOutput {
+  @SerializedName("avatar")
+  private String avatar = null;
 
-  @SerializedName("taskId")
-  private String taskId = null;
+  @SerializedName("username")
+  private String username = null;
 
-  public VideoProjectGetToolTaskRequest projectId(String projectId) {
-    this.projectId = projectId;
+  public CreatorForVideoProjectListVideoDramaOutput avatar(String avatar) {
+    this.avatar = avatar;
     return this;
   }
 
    /**
-   * Get projectId
-   * @return projectId
+   * Get avatar
+   * @return avatar
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getProjectId() {
-    return projectId;
+  @Schema(description = "")
+  public String getAvatar() {
+    return avatar;
   }
 
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
   }
 
-  public VideoProjectGetToolTaskRequest taskId(String taskId) {
-    this.taskId = taskId;
+  public CreatorForVideoProjectListVideoDramaOutput username(String username) {
+    this.username = username;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get username
+   * @return username
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
+  @Schema(description = "")
+  public String getUsername() {
+    return username;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
 
@@ -83,24 +81,24 @@ public class VideoProjectGetToolTaskRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetToolTaskRequest videoProjectGetToolTaskRequest = (VideoProjectGetToolTaskRequest) o;
-    return Objects.equals(this.projectId, videoProjectGetToolTaskRequest.projectId) &&
-        Objects.equals(this.taskId, videoProjectGetToolTaskRequest.taskId);
+    CreatorForVideoProjectListVideoDramaOutput creatorForVideoProjectListVideoDramaOutput = (CreatorForVideoProjectListVideoDramaOutput) o;
+    return Objects.equals(this.avatar, creatorForVideoProjectListVideoDramaOutput.avatar) &&
+        Objects.equals(this.username, creatorForVideoProjectListVideoDramaOutput.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, taskId);
+    return Objects.hash(avatar, username);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetToolTaskRequest {\n");
+    sb.append("class CreatorForVideoProjectListVideoDramaOutput {\n");
     
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
