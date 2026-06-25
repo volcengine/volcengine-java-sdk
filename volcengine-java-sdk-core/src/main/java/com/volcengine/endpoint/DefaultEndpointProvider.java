@@ -804,6 +804,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- partner ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("partner", new ServiceEndpointInfo(
+                "partner",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
