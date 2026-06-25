@@ -12273,7 +12273,7 @@ public class RdsMysqlV2Api {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyBackupName/2022-01-01/rds_mysql/get/text_plain/";
+        String localVarPath = "/ModifyBackupName/2022-01-01/rds_mysql/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

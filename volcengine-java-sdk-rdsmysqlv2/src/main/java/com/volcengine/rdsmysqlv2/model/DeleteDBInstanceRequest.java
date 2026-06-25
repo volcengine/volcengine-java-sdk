@@ -39,6 +39,9 @@ public class DeleteDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("KeepCrossBackupEnableAfterReleased")
+  private Boolean keepCrossBackupEnableAfterReleased = null;
+
   public DeleteDBInstanceRequest dataKeepDays(Integer dataKeepDays) {
     this.dataKeepDays = dataKeepDays;
     return this;
@@ -94,6 +97,24 @@ public class DeleteDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
+  public DeleteDBInstanceRequest keepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+    return this;
+  }
+
+   /**
+   * Get keepCrossBackupEnableAfterReleased
+   * @return keepCrossBackupEnableAfterReleased
+  **/
+  @Schema(description = "")
+  public Boolean isKeepCrossBackupEnableAfterReleased() {
+    return keepCrossBackupEnableAfterReleased;
+  }
+
+  public void setKeepCrossBackupEnableAfterReleased(Boolean keepCrossBackupEnableAfterReleased) {
+    this.keepCrossBackupEnableAfterReleased = keepCrossBackupEnableAfterReleased;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class DeleteDBInstanceRequest {
     DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
     return Objects.equals(this.dataKeepDays, deleteDBInstanceRequest.dataKeepDays) &&
         Objects.equals(this.dataKeepPolicy, deleteDBInstanceRequest.dataKeepPolicy) &&
-        Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+        Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId) &&
+        Objects.equals(this.keepCrossBackupEnableAfterReleased, deleteDBInstanceRequest.keepCrossBackupEnableAfterReleased);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataKeepDays, dataKeepPolicy, instanceId);
+    return Objects.hash(dataKeepDays, dataKeepPolicy, instanceId, keepCrossBackupEnableAfterReleased);
   }
 
 
@@ -123,6 +145,7 @@ public class DeleteDBInstanceRequest {
     sb.append("    dataKeepDays: ").append(toIndentedString(dataKeepDays)).append("\n");
     sb.append("    dataKeepPolicy: ").append(toIndentedString(dataKeepPolicy)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    keepCrossBackupEnableAfterReleased: ").append(toIndentedString(keepCrossBackupEnableAfterReleased)).append("\n");
     sb.append("}");
     return sb.toString();
   }

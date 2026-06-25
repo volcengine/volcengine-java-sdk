@@ -37,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class ItemForListResourceGroupsOutput {
+  @SerializedName("ByteKDSprofileEnabled")
+  private Boolean byteKDSprofileEnabled = null;
+
   @SerializedName("ChargeType")
   private String chargeType = null;
 
@@ -81,6 +84,24 @@ public class ItemForListResourceGroupsOutput {
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
+
+  public ItemForListResourceGroupsOutput byteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+    return this;
+  }
+
+   /**
+   * Get byteKDSprofileEnabled
+   * @return byteKDSprofileEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isByteKDSprofileEnabled() {
+    return byteKDSprofileEnabled;
+  }
+
+  public void setByteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+  }
 
   public ItemForListResourceGroupsOutput chargeType(String chargeType) {
     this.chargeType = chargeType;
@@ -375,7 +396,8 @@ public class ItemForListResourceGroupsOutput {
       return false;
     }
     ItemForListResourceGroupsOutput itemForListResourceGroupsOutput = (ItemForListResourceGroupsOutput) o;
-    return Objects.equals(this.chargeType, itemForListResourceGroupsOutput.chargeType) &&
+    return Objects.equals(this.byteKDSprofileEnabled, itemForListResourceGroupsOutput.byteKDSprofileEnabled) &&
+        Objects.equals(this.chargeType, itemForListResourceGroupsOutput.chargeType) &&
         Objects.equals(this.description, itemForListResourceGroupsOutput.description) &&
         Objects.equals(this.expireTime, itemForListResourceGroupsOutput.expireTime) &&
         Objects.equals(this.id, itemForListResourceGroupsOutput.id) &&
@@ -394,7 +416,7 @@ public class ItemForListResourceGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, description, expireTime, id, name, periodUnit, projectName, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
+    return Objects.hash(byteKDSprofileEnabled, chargeType, description, expireTime, id, name, periodUnit, projectName, resourceAllocated, resourceCapability, status, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode, zoneIds);
   }
 
 
@@ -403,6 +425,7 @@ public class ItemForListResourceGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListResourceGroupsOutput {\n");
     
+    sb.append("    byteKDSprofileEnabled: ").append(toIndentedString(byteKDSprofileEnabled)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");

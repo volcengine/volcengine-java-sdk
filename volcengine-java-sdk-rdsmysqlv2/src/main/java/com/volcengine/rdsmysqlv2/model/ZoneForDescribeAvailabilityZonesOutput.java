@@ -39,6 +39,9 @@ public class ZoneForDescribeAvailabilityZonesOutput {
   @SerializedName("ZoneName")
   private String zoneName = null;
 
+  @SerializedName("status")
+  private String status = null;
+
   public ZoneForDescribeAvailabilityZonesOutput description(String description) {
     this.description = description;
     return this;
@@ -93,6 +96,24 @@ public class ZoneForDescribeAvailabilityZonesOutput {
     this.zoneName = zoneName;
   }
 
+  public ZoneForDescribeAvailabilityZonesOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class ZoneForDescribeAvailabilityZonesOutput {
     ZoneForDescribeAvailabilityZonesOutput zoneForDescribeAvailabilityZonesOutput = (ZoneForDescribeAvailabilityZonesOutput) o;
     return Objects.equals(this.description, zoneForDescribeAvailabilityZonesOutput.description) &&
         Objects.equals(this.zoneId, zoneForDescribeAvailabilityZonesOutput.zoneId) &&
-        Objects.equals(this.zoneName, zoneForDescribeAvailabilityZonesOutput.zoneName);
+        Objects.equals(this.zoneName, zoneForDescribeAvailabilityZonesOutput.zoneName) &&
+        Objects.equals(this.status, zoneForDescribeAvailabilityZonesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, zoneId, zoneName);
+    return Objects.hash(description, zoneId, zoneName, status);
   }
 
 
@@ -122,6 +144,7 @@ public class ZoneForDescribeAvailabilityZonesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

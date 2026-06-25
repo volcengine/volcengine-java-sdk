@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.EfsAPForCreateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.EfsForCreateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasAPForCreateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateDevInstanceInput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForCreateDevInstanceInput {
   @SerializedName("Cfs")
   private CfsForCreateDevInstanceInput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForCreateDevInstanceInput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForCreateDevInstanceInput efsAP = null;
 
   @SerializedName("Nas")
   private NasForCreateDevInstanceInput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForCreateDevInstanceInput {
 
   public void setCfs(CfsForCreateDevInstanceInput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForCreateDevInstanceInput efs(EfsForCreateDevInstanceInput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForCreateDevInstanceInput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForCreateDevInstanceInput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForCreateDevInstanceInput efsAP(EfsAPForCreateDevInstanceInput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForCreateDevInstanceInput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForCreateDevInstanceInput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForCreateDevInstanceInput nas(NasForCreateDevInstanceInput nas) {
@@ -225,6 +271,8 @@ public class ConfigForCreateDevInstanceInput {
     }
     ConfigForCreateDevInstanceInput configForCreateDevInstanceInput = (ConfigForCreateDevInstanceInput) o;
     return Objects.equals(this.cfs, configForCreateDevInstanceInput.cfs) &&
+        Objects.equals(this.efs, configForCreateDevInstanceInput.efs) &&
+        Objects.equals(this.efsAP, configForCreateDevInstanceInput.efsAP) &&
         Objects.equals(this.nas, configForCreateDevInstanceInput.nas) &&
         Objects.equals(this.nasAP, configForCreateDevInstanceInput.nasAP) &&
         Objects.equals(this.sfcs, configForCreateDevInstanceInput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForCreateDevInstanceInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForCreateDevInstanceInput {
     sb.append("class ConfigForCreateDevInstanceInput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");

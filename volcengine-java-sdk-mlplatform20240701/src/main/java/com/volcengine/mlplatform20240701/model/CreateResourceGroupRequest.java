@@ -39,6 +39,9 @@ public class CreateResourceGroupRequest {
   @SerializedName("AutoRenewPeriod")
   private Integer autoRenewPeriod = null;
 
+  @SerializedName("ByteKDSprofileEnabled")
+  private Boolean byteKDSprofileEnabled = null;
+
   /**
    * Gets or Sets chargeType
    */
@@ -201,6 +204,24 @@ public class CreateResourceGroupRequest {
 
   public void setAutoRenewPeriod(Integer autoRenewPeriod) {
     this.autoRenewPeriod = autoRenewPeriod;
+  }
+
+  public CreateResourceGroupRequest byteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+    return this;
+  }
+
+   /**
+   * Get byteKDSprofileEnabled
+   * @return byteKDSprofileEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isByteKDSprofileEnabled() {
+    return byteKDSprofileEnabled;
+  }
+
+  public void setByteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
   }
 
   public CreateResourceGroupRequest chargeType(ChargeTypeEnum chargeType) {
@@ -455,6 +476,7 @@ public class CreateResourceGroupRequest {
     CreateResourceGroupRequest createResourceGroupRequest = (CreateResourceGroupRequest) o;
     return Objects.equals(this.autoRenew, createResourceGroupRequest.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, createResourceGroupRequest.autoRenewPeriod) &&
+        Objects.equals(this.byteKDSprofileEnabled, createResourceGroupRequest.byteKDSprofileEnabled) &&
         Objects.equals(this.chargeType, createResourceGroupRequest.chargeType) &&
         Objects.equals(this.description, createResourceGroupRequest.description) &&
         Objects.equals(this.dryRun, createResourceGroupRequest.dryRun) &&
@@ -472,7 +494,7 @@ public class CreateResourceGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, chargeType, description, dryRun, mgpuEnabled, name, period, periodUnit, projectName, resourceConfig, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(autoRenew, autoRenewPeriod, byteKDSprofileEnabled, chargeType, description, dryRun, mgpuEnabled, name, period, periodUnit, projectName, resourceConfig, storageConfig, vrdmaEnabled, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -483,6 +505,7 @@ public class CreateResourceGroupRequest {
     
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
+    sb.append("    byteKDSprofileEnabled: ").append(toIndentedString(byteKDSprofileEnabled)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");

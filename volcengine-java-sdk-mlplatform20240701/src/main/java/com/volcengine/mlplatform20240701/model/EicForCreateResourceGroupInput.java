@@ -30,8 +30,35 @@ import javax.validation.Valid;
 
 
 public class EicForCreateResourceGroupInput {
+  @SerializedName("CacheType")
+  private String cacheType = null;
+
   @SerializedName("EicId")
   private String eicId = null;
+
+  @SerializedName("EnableRDMA")
+  private Boolean enableRDMA = null;
+
+  @SerializedName("EnableShmIpc")
+  private Boolean enableShmIpc = null;
+
+  public EicForCreateResourceGroupInput cacheType(String cacheType) {
+    this.cacheType = cacheType;
+    return this;
+  }
+
+   /**
+   * Get cacheType
+   * @return cacheType
+  **/
+  @Schema(description = "")
+  public String getCacheType() {
+    return cacheType;
+  }
+
+  public void setCacheType(String cacheType) {
+    this.cacheType = cacheType;
+  }
 
   public EicForCreateResourceGroupInput eicId(String eicId) {
     this.eicId = eicId;
@@ -51,6 +78,42 @@ public class EicForCreateResourceGroupInput {
     this.eicId = eicId;
   }
 
+  public EicForCreateResourceGroupInput enableRDMA(Boolean enableRDMA) {
+    this.enableRDMA = enableRDMA;
+    return this;
+  }
+
+   /**
+   * Get enableRDMA
+   * @return enableRDMA
+  **/
+  @Schema(description = "")
+  public Boolean isEnableRDMA() {
+    return enableRDMA;
+  }
+
+  public void setEnableRDMA(Boolean enableRDMA) {
+    this.enableRDMA = enableRDMA;
+  }
+
+  public EicForCreateResourceGroupInput enableShmIpc(Boolean enableShmIpc) {
+    this.enableShmIpc = enableShmIpc;
+    return this;
+  }
+
+   /**
+   * Get enableShmIpc
+   * @return enableShmIpc
+  **/
+  @Schema(description = "")
+  public Boolean isEnableShmIpc() {
+    return enableShmIpc;
+  }
+
+  public void setEnableShmIpc(Boolean enableShmIpc) {
+    this.enableShmIpc = enableShmIpc;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +124,15 @@ public class EicForCreateResourceGroupInput {
       return false;
     }
     EicForCreateResourceGroupInput eicForCreateResourceGroupInput = (EicForCreateResourceGroupInput) o;
-    return Objects.equals(this.eicId, eicForCreateResourceGroupInput.eicId);
+    return Objects.equals(this.cacheType, eicForCreateResourceGroupInput.cacheType) &&
+        Objects.equals(this.eicId, eicForCreateResourceGroupInput.eicId) &&
+        Objects.equals(this.enableRDMA, eicForCreateResourceGroupInput.enableRDMA) &&
+        Objects.equals(this.enableShmIpc, eicForCreateResourceGroupInput.enableShmIpc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eicId);
+    return Objects.hash(cacheType, eicId, enableRDMA, enableShmIpc);
   }
 
 
@@ -75,7 +141,10 @@ public class EicForCreateResourceGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EicForCreateResourceGroupInput {\n");
     
+    sb.append("    cacheType: ").append(toIndentedString(cacheType)).append("\n");
     sb.append("    eicId: ").append(toIndentedString(eicId)).append("\n");
+    sb.append("    enableRDMA: ").append(toIndentedString(enableRDMA)).append("\n");
+    sb.append("    enableShmIpc: ").append(toIndentedString(enableShmIpc)).append("\n");
     sb.append("}");
     return sb.toString();
   }
