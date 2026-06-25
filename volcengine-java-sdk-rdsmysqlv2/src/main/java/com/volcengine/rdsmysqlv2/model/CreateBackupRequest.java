@@ -39,6 +39,9 @@ public class CreateBackupRequest {
   @SerializedName("BackupMethod")
   private String backupMethod = null;
 
+  @SerializedName("BackupName")
+  private String backupName = null;
+
   @SerializedName("BackupType")
   private String backupType = null;
 
@@ -90,6 +93,24 @@ public class CreateBackupRequest {
     this.backupMethod = backupMethod;
   }
 
+  public CreateBackupRequest backupName(String backupName) {
+    this.backupName = backupName;
+    return this;
+  }
+
+   /**
+   * Get backupName
+   * @return backupName
+  **/
+  @Schema(description = "")
+  public String getBackupName() {
+    return backupName;
+  }
+
+  public void setBackupName(String backupName) {
+    this.backupName = backupName;
+  }
+
   public CreateBackupRequest backupType(String backupType) {
     this.backupType = backupType;
     return this;
@@ -139,13 +160,14 @@ public class CreateBackupRequest {
     CreateBackupRequest createBackupRequest = (CreateBackupRequest) o;
     return Objects.equals(this.backupMeta, createBackupRequest.backupMeta) &&
         Objects.equals(this.backupMethod, createBackupRequest.backupMethod) &&
+        Objects.equals(this.backupName, createBackupRequest.backupName) &&
         Objects.equals(this.backupType, createBackupRequest.backupType) &&
         Objects.equals(this.instanceId, createBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupMeta, backupMethod, backupType, instanceId);
+    return Objects.hash(backupMeta, backupMethod, backupName, backupType, instanceId);
   }
 
 
@@ -156,6 +178,7 @@ public class CreateBackupRequest {
     
     sb.append("    backupMeta: ").append(toIndentedString(backupMeta)).append("\n");
     sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

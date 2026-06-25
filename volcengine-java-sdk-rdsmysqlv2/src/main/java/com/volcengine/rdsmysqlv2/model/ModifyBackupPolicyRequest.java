@@ -104,6 +104,9 @@ public class ModifyBackupPolicyRequest {
   @SerializedName("LockDDLTime")
   private Integer lockDDLTime = null;
 
+  @SerializedName("LockDDLTimeSecond")
+  private Integer lockDDLTimeSecond = null;
+
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
 
@@ -559,6 +562,24 @@ public class ModifyBackupPolicyRequest {
     this.lockDDLTime = lockDDLTime;
   }
 
+  public ModifyBackupPolicyRequest lockDDLTimeSecond(Integer lockDDLTimeSecond) {
+    this.lockDDLTimeSecond = lockDDLTimeSecond;
+    return this;
+  }
+
+   /**
+   * Get lockDDLTimeSecond
+   * @return lockDDLTimeSecond
+  **/
+  @Schema(description = "")
+  public Integer getLockDDLTimeSecond() {
+    return lockDDLTimeSecond;
+  }
+
+  public void setLockDDLTimeSecond(Integer lockDDLTimeSecond) {
+    this.lockDDLTimeSecond = lockDDLTimeSecond;
+  }
+
   public ModifyBackupPolicyRequest logBackupRetentionDay(Integer logBackupRetentionDay) {
     this.logBackupRetentionDay = logBackupRetentionDay;
     return this;
@@ -629,13 +650,14 @@ public class ModifyBackupPolicyRequest {
         Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId) &&
         Objects.equals(this.keepCrossBackupEnableAfterReleased, modifyBackupPolicyRequest.keepCrossBackupEnableAfterReleased) &&
         Objects.equals(this.lockDDLTime, modifyBackupPolicyRequest.lockDDLTime) &&
+        Objects.equals(this.lockDDLTimeSecond, modifyBackupPolicyRequest.lockDDLTimeSecond) &&
         Objects.equals(this.logBackupRetentionDay, modifyBackupPolicyRequest.logBackupRetentionDay) &&
         Objects.equals(this.retentionPolicySynced, modifyBackupPolicyRequest.retentionPolicySynced);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, keepCrossBackupEnableAfterReleased, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, highFrequencySnapshotBackupEnable, highFrequencySnapshotBackupSecondPeriod, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, keepCrossBackupEnableAfterReleased, lockDDLTime, lockDDLTimeSecond, logBackupRetentionDay, retentionPolicySynced);
   }
 
 
@@ -668,6 +690,7 @@ public class ModifyBackupPolicyRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keepCrossBackupEnableAfterReleased: ").append(toIndentedString(keepCrossBackupEnableAfterReleased)).append("\n");
     sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
+    sb.append("    lockDDLTimeSecond: ").append(toIndentedString(lockDDLTimeSecond)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("    retentionPolicySynced: ").append(toIndentedString(retentionPolicySynced)).append("\n");
     sb.append("}");

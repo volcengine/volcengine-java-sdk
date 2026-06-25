@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailabilityZonesRequest
+ * KeywordRouteStrategyForModifyDBEndpointInput
  */
 
 
 
-public class DescribeAvailabilityZonesRequest {
-  @SerializedName("SpecFamily")
-  private String specFamily = null;
+public class KeywordRouteStrategyForModifyDBEndpointInput {
+  @SerializedName("NodeType")
+  private String nodeType = null;
 
-  @SerializedName("StorageType")
-  private String storageType = null;
+  @SerializedName("SQLKeyword")
+  private String sqLKeyword = null;
 
-  public DescribeAvailabilityZonesRequest specFamily(String specFamily) {
-    this.specFamily = specFamily;
+  public KeywordRouteStrategyForModifyDBEndpointInput nodeType(String nodeType) {
+    this.nodeType = nodeType;
     return this;
   }
 
    /**
-   * Get specFamily
-   * @return specFamily
+   * Get nodeType
+   * @return nodeType
   **/
   @Schema(description = "")
-  public String getSpecFamily() {
-    return specFamily;
+  public String getNodeType() {
+    return nodeType;
   }
 
-  public void setSpecFamily(String specFamily) {
-    this.specFamily = specFamily;
+  public void setNodeType(String nodeType) {
+    this.nodeType = nodeType;
   }
 
-  public DescribeAvailabilityZonesRequest storageType(String storageType) {
-    this.storageType = storageType;
+  public KeywordRouteStrategyForModifyDBEndpointInput sqLKeyword(String sqLKeyword) {
+    this.sqLKeyword = sqLKeyword;
     return this;
   }
 
    /**
-   * Get storageType
-   * @return storageType
+   * Get sqLKeyword
+   * @return sqLKeyword
   **/
   @Schema(description = "")
-  public String getStorageType() {
-    return storageType;
+  public String getSqLKeyword() {
+    return sqLKeyword;
   }
 
-  public void setStorageType(String storageType) {
-    this.storageType = storageType;
+  public void setSqLKeyword(String sqLKeyword) {
+    this.sqLKeyword = sqLKeyword;
   }
 
 
@@ -81,24 +81,24 @@ public class DescribeAvailabilityZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailabilityZonesRequest describeAvailabilityZonesRequest = (DescribeAvailabilityZonesRequest) o;
-    return Objects.equals(this.specFamily, describeAvailabilityZonesRequest.specFamily) &&
-        Objects.equals(this.storageType, describeAvailabilityZonesRequest.storageType);
+    KeywordRouteStrategyForModifyDBEndpointInput keywordRouteStrategyForModifyDBEndpointInput = (KeywordRouteStrategyForModifyDBEndpointInput) o;
+    return Objects.equals(this.nodeType, keywordRouteStrategyForModifyDBEndpointInput.nodeType) &&
+        Objects.equals(this.sqLKeyword, keywordRouteStrategyForModifyDBEndpointInput.sqLKeyword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(specFamily, storageType);
+    return Objects.hash(nodeType, sqLKeyword);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailabilityZonesRequest {\n");
+    sb.append("class KeywordRouteStrategyForModifyDBEndpointInput {\n");
     
-    sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
-    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    sqLKeyword: ").append(toIndentedString(sqLKeyword)).append("\n");
     sb.append("}");
     return sb.toString();
   }

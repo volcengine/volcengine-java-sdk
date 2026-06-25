@@ -33,6 +33,9 @@ public class SaveAsParameterTemplateRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TemplateDesc")
   private String templateDesc = null;
 
@@ -56,6 +59,24 @@ public class SaveAsParameterTemplateRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public SaveAsParameterTemplateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public SaveAsParameterTemplateRequest templateDesc(String templateDesc) {
@@ -106,13 +127,14 @@ public class SaveAsParameterTemplateRequest {
     }
     SaveAsParameterTemplateRequest saveAsParameterTemplateRequest = (SaveAsParameterTemplateRequest) o;
     return Objects.equals(this.instanceId, saveAsParameterTemplateRequest.instanceId) &&
+        Objects.equals(this.projectName, saveAsParameterTemplateRequest.projectName) &&
         Objects.equals(this.templateDesc, saveAsParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateName, saveAsParameterTemplateRequest.templateName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, templateDesc, templateName);
+    return Objects.hash(instanceId, projectName, templateDesc, templateName);
   }
 
 
@@ -122,6 +144,7 @@ public class SaveAsParameterTemplateRequest {
     sb.append("class SaveAsParameterTemplateRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("}");
