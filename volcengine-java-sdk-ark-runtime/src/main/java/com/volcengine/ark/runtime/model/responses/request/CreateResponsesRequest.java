@@ -1,6 +1,7 @@
 package com.volcengine.ark.runtime.model.responses.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.volcengine.ark.runtime.model.responses.common.ContextManagement;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesCaching;
 import com.volcengine.ark.runtime.model.responses.common.ResponsesReasoning;
 import com.volcengine.ark.runtime.model.responses.common.Session;
@@ -71,6 +72,9 @@ public class CreateResponsesRequest {
 
     @JsonProperty("max_tool_calls")
     private Long maxToolCalls;
+
+    @JsonProperty("context_management")
+    private ContextManagement contextManagement;
 
     @JsonProperty("session")
     private Session session;
@@ -241,6 +245,14 @@ public class CreateResponsesRequest {
         this.maxToolCalls = maxToolCalls;
     }
 
+    public ContextManagement getContextManagement() {
+        return contextManagement;
+    }
+
+    public void setContextManagement(ContextManagement contextManagement) {
+        this.contextManagement = contextManagement;
+    }
+
     public Session getSession() {
         return session;
     }
@@ -288,6 +300,7 @@ public class CreateResponsesRequest {
                 ", toolChoice=" + toolChoice +
                 ", parallelToolCalls=" + parallelToolCalls +
                 ", maxToolCalls=" + maxToolCalls +
+                ", contextManagement=" + contextManagement +
                 ", session=" + session +
                 ", promptCacheKey='" + promptCacheKey + '\'' +
                 ", safetyIdentifier='" + safetyIdentifier + '\'' +
@@ -319,6 +332,7 @@ public class CreateResponsesRequest {
         private ResponsesToolChoice toolChoice;
         private Boolean parallelToolCalls;
         private Long maxToolCalls;
+        private ContextManagement contextManagement;
         private Session session;
         private String promptCacheKey;
         private String safetyIdentifier;
@@ -423,6 +437,11 @@ public class CreateResponsesRequest {
             return this;
         }
 
+        public Builder contextManagement(ContextManagement contextManagement) {
+            this.contextManagement = contextManagement;
+            return this;
+        }
+
         public Builder session(Session session) {
             this.session = session;
             return this;
@@ -460,6 +479,7 @@ public class CreateResponsesRequest {
             responsesRequest.setToolChoice(toolChoice);
             responsesRequest.setParallelToolCalls(parallelToolCalls);
             responsesRequest.setMaxToolCalls(maxToolCalls);
+            responsesRequest.setContextManagement(contextManagement);
             responsesRequest.setSession(session);
             responsesRequest.setPromptCacheKey(promptCacheKey);
             responsesRequest.setSafetyIdentifier(safetyIdentifier);
