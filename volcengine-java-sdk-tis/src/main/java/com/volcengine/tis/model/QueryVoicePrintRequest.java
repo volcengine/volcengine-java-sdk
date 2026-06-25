@@ -24,22 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeviceListForCreateDeviceWithoutApprovalInput
+ * QueryVoicePrintRequest
  */
 
 
 
-public class DeviceListForCreateDeviceWithoutApprovalInput {
+public class QueryVoicePrintRequest {
   @SerializedName("DeviceName")
   private String deviceName = null;
 
-  @SerializedName("DeviceSecret")
-  private String deviceSecret = null;
+  @SerializedName("ProductKey")
+  private String productKey = null;
 
-  @SerializedName("NickName")
-  private String nickName = null;
+  @SerializedName("VoicePrintId")
+  private String voicePrintId = null;
 
-  public DeviceListForCreateDeviceWithoutApprovalInput deviceName(String deviceName) {
+  public QueryVoicePrintRequest deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
   }
@@ -48,7 +48,8 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
    * Get deviceName
    * @return deviceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDeviceName() {
     return deviceName;
   }
@@ -57,40 +58,41 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
     this.deviceName = deviceName;
   }
 
-  public DeviceListForCreateDeviceWithoutApprovalInput deviceSecret(String deviceSecret) {
-    this.deviceSecret = deviceSecret;
+  public QueryVoicePrintRequest productKey(String productKey) {
+    this.productKey = productKey;
     return this;
   }
 
    /**
-   * Get deviceSecret
-   * @return deviceSecret
+   * Get productKey
+   * @return productKey
   **/
-  @Schema(description = "")
-  public String getDeviceSecret() {
-    return deviceSecret;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getProductKey() {
+    return productKey;
   }
 
-  public void setDeviceSecret(String deviceSecret) {
-    this.deviceSecret = deviceSecret;
+  public void setProductKey(String productKey) {
+    this.productKey = productKey;
   }
 
-  public DeviceListForCreateDeviceWithoutApprovalInput nickName(String nickName) {
-    this.nickName = nickName;
+  public QueryVoicePrintRequest voicePrintId(String voicePrintId) {
+    this.voicePrintId = voicePrintId;
     return this;
   }
 
    /**
-   * Get nickName
-   * @return nickName
+   * Get voicePrintId
+   * @return voicePrintId
   **/
   @Schema(description = "")
-  public String getNickName() {
-    return nickName;
+  public String getVoicePrintId() {
+    return voicePrintId;
   }
 
-  public void setNickName(String nickName) {
-    this.nickName = nickName;
+  public void setVoicePrintId(String voicePrintId) {
+    this.voicePrintId = voicePrintId;
   }
 
 
@@ -102,26 +104,26 @@ public class DeviceListForCreateDeviceWithoutApprovalInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeviceListForCreateDeviceWithoutApprovalInput deviceListForCreateDeviceWithoutApprovalInput = (DeviceListForCreateDeviceWithoutApprovalInput) o;
-    return Objects.equals(this.deviceName, deviceListForCreateDeviceWithoutApprovalInput.deviceName) &&
-        Objects.equals(this.deviceSecret, deviceListForCreateDeviceWithoutApprovalInput.deviceSecret) &&
-        Objects.equals(this.nickName, deviceListForCreateDeviceWithoutApprovalInput.nickName);
+    QueryVoicePrintRequest queryVoicePrintRequest = (QueryVoicePrintRequest) o;
+    return Objects.equals(this.deviceName, queryVoicePrintRequest.deviceName) &&
+        Objects.equals(this.productKey, queryVoicePrintRequest.productKey) &&
+        Objects.equals(this.voicePrintId, queryVoicePrintRequest.voicePrintId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deviceName, deviceSecret, nickName);
+    return Objects.hash(deviceName, productKey, voicePrintId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeviceListForCreateDeviceWithoutApprovalInput {\n");
+    sb.append("class QueryVoicePrintRequest {\n");
     
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
-    sb.append("    deviceSecret: ").append(toIndentedString(deviceSecret)).append("\n");
-    sb.append("    nickName: ").append(toIndentedString(nickName)).append("\n");
+    sb.append("    productKey: ").append(toIndentedString(productKey)).append("\n");
+    sb.append("    voicePrintId: ").append(toIndentedString(voicePrintId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
