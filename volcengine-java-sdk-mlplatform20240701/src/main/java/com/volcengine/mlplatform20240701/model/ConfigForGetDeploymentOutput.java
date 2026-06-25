@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForGetDeploymentOutput;
+import com.volcengine.mlplatform20240701.model.EfsAPForGetDeploymentOutput;
+import com.volcengine.mlplatform20240701.model.EfsForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.NasAPForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.NasForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForGetDeploymentOutput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForGetDeploymentOutput {
   @SerializedName("Cfs")
   private CfsForGetDeploymentOutput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForGetDeploymentOutput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForGetDeploymentOutput efsAP = null;
 
   @SerializedName("Nas")
   private NasForGetDeploymentOutput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForGetDeploymentOutput {
 
   public void setCfs(CfsForGetDeploymentOutput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForGetDeploymentOutput efs(EfsForGetDeploymentOutput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForGetDeploymentOutput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForGetDeploymentOutput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForGetDeploymentOutput efsAP(EfsAPForGetDeploymentOutput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForGetDeploymentOutput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForGetDeploymentOutput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForGetDeploymentOutput nas(NasForGetDeploymentOutput nas) {
@@ -225,6 +271,8 @@ public class ConfigForGetDeploymentOutput {
     }
     ConfigForGetDeploymentOutput configForGetDeploymentOutput = (ConfigForGetDeploymentOutput) o;
     return Objects.equals(this.cfs, configForGetDeploymentOutput.cfs) &&
+        Objects.equals(this.efs, configForGetDeploymentOutput.efs) &&
+        Objects.equals(this.efsAP, configForGetDeploymentOutput.efsAP) &&
         Objects.equals(this.nas, configForGetDeploymentOutput.nas) &&
         Objects.equals(this.nasAP, configForGetDeploymentOutput.nasAP) &&
         Objects.equals(this.sfcs, configForGetDeploymentOutput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForGetDeploymentOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForGetDeploymentOutput {
     sb.append("class ConfigForGetDeploymentOutput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");

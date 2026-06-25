@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.ComputeResourceForGetResourceQueueOutput;
+import com.volcengine.mlplatform20240701.model.FlavorOngoingForGetResourceQueueOutput;
+import com.volcengine.mlplatform20240701.model.FlavorOutgoingForGetResourceQueueOutput;
 import com.volcengine.mlplatform20240701.model.QuotaAllocatedForGetResourceQueueOutput;
 import com.volcengine.mlplatform20240701.model.QuotaCapabilityForGetResourceQueueOutput;
 import com.volcengine.mlplatform20240701.model.RulesForGetResourceQueueOutput;
@@ -50,8 +52,17 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("FlavorOngoing")
+  private List<FlavorOngoingForGetResourceQueueOutput> flavorOngoing = null;
+
+  @SerializedName("FlavorOutgoing")
+  private List<FlavorOutgoingForGetResourceQueueOutput> flavorOutgoing = null;
+
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("IsOverQuota")
+  private Boolean isOverQuota = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -155,6 +166,60 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
     this.description = description;
   }
 
+  public GetResourceQueueResponse flavorOngoing(List<FlavorOngoingForGetResourceQueueOutput> flavorOngoing) {
+    this.flavorOngoing = flavorOngoing;
+    return this;
+  }
+
+  public GetResourceQueueResponse addFlavorOngoingItem(FlavorOngoingForGetResourceQueueOutput flavorOngoingItem) {
+    if (this.flavorOngoing == null) {
+      this.flavorOngoing = new ArrayList<FlavorOngoingForGetResourceQueueOutput>();
+    }
+    this.flavorOngoing.add(flavorOngoingItem);
+    return this;
+  }
+
+   /**
+   * Get flavorOngoing
+   * @return flavorOngoing
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FlavorOngoingForGetResourceQueueOutput> getFlavorOngoing() {
+    return flavorOngoing;
+  }
+
+  public void setFlavorOngoing(List<FlavorOngoingForGetResourceQueueOutput> flavorOngoing) {
+    this.flavorOngoing = flavorOngoing;
+  }
+
+  public GetResourceQueueResponse flavorOutgoing(List<FlavorOutgoingForGetResourceQueueOutput> flavorOutgoing) {
+    this.flavorOutgoing = flavorOutgoing;
+    return this;
+  }
+
+  public GetResourceQueueResponse addFlavorOutgoingItem(FlavorOutgoingForGetResourceQueueOutput flavorOutgoingItem) {
+    if (this.flavorOutgoing == null) {
+      this.flavorOutgoing = new ArrayList<FlavorOutgoingForGetResourceQueueOutput>();
+    }
+    this.flavorOutgoing.add(flavorOutgoingItem);
+    return this;
+  }
+
+   /**
+   * Get flavorOutgoing
+   * @return flavorOutgoing
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FlavorOutgoingForGetResourceQueueOutput> getFlavorOutgoing() {
+    return flavorOutgoing;
+  }
+
+  public void setFlavorOutgoing(List<FlavorOutgoingForGetResourceQueueOutput> flavorOutgoing) {
+    this.flavorOutgoing = flavorOutgoing;
+  }
+
   public GetResourceQueueResponse id(String id) {
     this.id = id;
     return this;
@@ -171,6 +236,24 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public GetResourceQueueResponse isOverQuota(Boolean isOverQuota) {
+    this.isOverQuota = isOverQuota;
+    return this;
+  }
+
+   /**
+   * Get isOverQuota
+   * @return isOverQuota
+  **/
+  @Schema(description = "")
+  public Boolean isIsOverQuota() {
+    return isOverQuota;
+  }
+
+  public void setIsOverQuota(Boolean isOverQuota) {
+    this.isOverQuota = isOverQuota;
   }
 
   public GetResourceQueueResponse name(String name) {
@@ -452,7 +535,10 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
     return Objects.equals(this.chargeType, getResourceQueueResponse.chargeType) &&
         Objects.equals(this.computeResources, getResourceQueueResponse.computeResources) &&
         Objects.equals(this.description, getResourceQueueResponse.description) &&
+        Objects.equals(this.flavorOngoing, getResourceQueueResponse.flavorOngoing) &&
+        Objects.equals(this.flavorOutgoing, getResourceQueueResponse.flavorOutgoing) &&
         Objects.equals(this.id, getResourceQueueResponse.id) &&
+        Objects.equals(this.isOverQuota, getResourceQueueResponse.isOverQuota) &&
         Objects.equals(this.name, getResourceQueueResponse.name) &&
         Objects.equals(this.projectName, getResourceQueueResponse.projectName) &&
         Objects.equals(this.quotaAllocated, getResourceQueueResponse.quotaAllocated) &&
@@ -470,7 +556,7 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, computeResources, description, id, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
+    return Objects.hash(chargeType, computeResources, description, flavorOngoing, flavorOutgoing, id, isOverQuota, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
   }
 
 
@@ -482,7 +568,10 @@ public class GetResourceQueueResponse extends com.volcengine.model.AbstractRespo
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    computeResources: ").append(toIndentedString(computeResources)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    flavorOngoing: ").append(toIndentedString(flavorOngoing)).append("\n");
+    sb.append("    flavorOutgoing: ").append(toIndentedString(flavorOutgoing)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isOverQuota: ").append(toIndentedString(isOverQuota)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quotaAllocated: ").append(toIndentedString(quotaAllocated)).append("\n");

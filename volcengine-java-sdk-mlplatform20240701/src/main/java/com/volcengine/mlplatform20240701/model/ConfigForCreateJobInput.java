@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForCreateJobInput;
+import com.volcengine.mlplatform20240701.model.EfsAPForCreateJobInput;
+import com.volcengine.mlplatform20240701.model.EfsForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.NasAPForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateJobInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateJobInput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForCreateJobInput {
   @SerializedName("Cfs")
   private CfsForCreateJobInput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForCreateJobInput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForCreateJobInput efsAP = null;
 
   @SerializedName("Nas")
   private NasForCreateJobInput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForCreateJobInput {
 
   public void setCfs(CfsForCreateJobInput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForCreateJobInput efs(EfsForCreateJobInput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForCreateJobInput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForCreateJobInput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForCreateJobInput efsAP(EfsAPForCreateJobInput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForCreateJobInput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForCreateJobInput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForCreateJobInput nas(NasForCreateJobInput nas) {
@@ -225,6 +271,8 @@ public class ConfigForCreateJobInput {
     }
     ConfigForCreateJobInput configForCreateJobInput = (ConfigForCreateJobInput) o;
     return Objects.equals(this.cfs, configForCreateJobInput.cfs) &&
+        Objects.equals(this.efs, configForCreateJobInput.efs) &&
+        Objects.equals(this.efsAP, configForCreateJobInput.efsAP) &&
         Objects.equals(this.nas, configForCreateJobInput.nas) &&
         Objects.equals(this.nasAP, configForCreateJobInput.nasAP) &&
         Objects.equals(this.sfcs, configForCreateJobInput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForCreateJobInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForCreateJobInput {
     sb.append("class ConfigForCreateJobInput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");
