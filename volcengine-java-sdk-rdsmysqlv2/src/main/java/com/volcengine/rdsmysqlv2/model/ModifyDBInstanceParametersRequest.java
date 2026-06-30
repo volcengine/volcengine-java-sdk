@@ -45,6 +45,9 @@ public class ModifyDBInstanceParametersRequest {
   @SerializedName("Parameters")
   private List<ParameterForModifyDBInstanceParametersInput> parameters = null;
 
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
   public ModifyDBInstanceParametersRequest customNodeIds(List<String> customNodeIds) {
     this.customNodeIds = customNodeIds;
     return this;
@@ -135,6 +138,24 @@ public class ModifyDBInstanceParametersRequest {
     this.parameters = parameters;
   }
 
+  public ModifyDBInstanceParametersRequest templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +169,13 @@ public class ModifyDBInstanceParametersRequest {
     return Objects.equals(this.customNodeIds, modifyDBInstanceParametersRequest.customNodeIds) &&
         Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
         Objects.equals(this.paramApplyScope, modifyDBInstanceParametersRequest.paramApplyScope) &&
-        Objects.equals(this.parameters, modifyDBInstanceParametersRequest.parameters);
+        Objects.equals(this.parameters, modifyDBInstanceParametersRequest.parameters) &&
+        Objects.equals(this.templateId, modifyDBInstanceParametersRequest.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customNodeIds, instanceId, paramApplyScope, parameters);
+    return Objects.hash(customNodeIds, instanceId, paramApplyScope, parameters, templateId);
   }
 
 
@@ -166,6 +188,7 @@ public class ModifyDBInstanceParametersRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    paramApplyScope: ").append(toIndentedString(paramApplyScope)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

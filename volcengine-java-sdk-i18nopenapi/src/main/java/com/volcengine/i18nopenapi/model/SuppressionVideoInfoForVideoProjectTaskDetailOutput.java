@@ -45,6 +45,12 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
   @SerializedName("sourceVideoUrl")
   private String sourceVideoUrl = null;
 
+  @SerializedName("targetAudioDownloadUrl")
+  private String targetAudioDownloadUrl = null;
+
+  @SerializedName("targetAudioUrl")
+  private String targetAudioUrl = null;
+
   @SerializedName("targetDownloadUrl")
   private String targetDownloadUrl = null;
 
@@ -148,6 +154,42 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 
   public void setSourceVideoUrl(String sourceVideoUrl) {
     this.sourceVideoUrl = sourceVideoUrl;
+  }
+
+  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetAudioDownloadUrl(String targetAudioDownloadUrl) {
+    this.targetAudioDownloadUrl = targetAudioDownloadUrl;
+    return this;
+  }
+
+   /**
+   * Get targetAudioDownloadUrl
+   * @return targetAudioDownloadUrl
+  **/
+  @Schema(description = "")
+  public String getTargetAudioDownloadUrl() {
+    return targetAudioDownloadUrl;
+  }
+
+  public void setTargetAudioDownloadUrl(String targetAudioDownloadUrl) {
+    this.targetAudioDownloadUrl = targetAudioDownloadUrl;
+  }
+
+  public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetAudioUrl(String targetAudioUrl) {
+    this.targetAudioUrl = targetAudioUrl;
+    return this;
+  }
+
+   /**
+   * Get targetAudioUrl
+   * @return targetAudioUrl
+  **/
+  @Schema(description = "")
+  public String getTargetAudioUrl() {
+    return targetAudioUrl;
+  }
+
+  public void setTargetAudioUrl(String targetAudioUrl) {
+    this.targetAudioUrl = targetAudioUrl;
   }
 
   public SuppressionVideoInfoForVideoProjectTaskDetailOutput targetDownloadUrl(String targetDownloadUrl) {
@@ -255,6 +297,8 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
         Objects.equals(this.sourceName, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceName) &&
         Objects.equals(this.sourceVid, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceVid) &&
         Objects.equals(this.sourceVideoUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceVideoUrl) &&
+        Objects.equals(this.targetAudioDownloadUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetAudioDownloadUrl) &&
+        Objects.equals(this.targetAudioUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetAudioUrl) &&
         Objects.equals(this.targetDownloadUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetDownloadUrl) &&
         Objects.equals(this.targetLastTime, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetLastTime) &&
         Objects.equals(this.targetName, suppressionVideoInfoForVideoProjectTaskDetailOutput.targetName) &&
@@ -264,7 +308,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
+    return Objects.hash(posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetAudioDownloadUrl, targetAudioUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
   }
 
 
@@ -278,6 +322,8 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     sb.append("    sourceName: ").append(toIndentedString(sourceName)).append("\n");
     sb.append("    sourceVid: ").append(toIndentedString(sourceVid)).append("\n");
     sb.append("    sourceVideoUrl: ").append(toIndentedString(sourceVideoUrl)).append("\n");
+    sb.append("    targetAudioDownloadUrl: ").append(toIndentedString(targetAudioDownloadUrl)).append("\n");
+    sb.append("    targetAudioUrl: ").append(toIndentedString(targetAudioUrl)).append("\n");
     sb.append("    targetDownloadUrl: ").append(toIndentedString(targetDownloadUrl)).append("\n");
     sb.append("    targetLastTime: ").append(toIndentedString(targetLastTime)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

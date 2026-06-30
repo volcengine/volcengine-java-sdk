@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.billing.model.ConfigItemsForGetDropShippingOrderOutput;
+import com.volcengine.billing.model.ConfigItemForGetDropShippingOrderOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,7 +40,7 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
   private String bizNo = null;
 
   @SerializedName("ConfigItems")
-  private ConfigItemsForGetDropShippingOrderOutput configItems = null;
+  private List<ConfigItemForGetDropShippingOrderOutput> configItems = null;
 
   @SerializedName("DropShippingOrderFailReason")
   private String dropShippingOrderFailReason = null;
@@ -94,8 +96,16 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
     this.bizNo = bizNo;
   }
 
-  public GetDropShippingOrderResponse configItems(ConfigItemsForGetDropShippingOrderOutput configItems) {
+  public GetDropShippingOrderResponse configItems(List<ConfigItemForGetDropShippingOrderOutput> configItems) {
     this.configItems = configItems;
+    return this;
+  }
+
+  public GetDropShippingOrderResponse addConfigItemsItem(ConfigItemForGetDropShippingOrderOutput configItemsItem) {
+    if (this.configItems == null) {
+      this.configItems = new ArrayList<ConfigItemForGetDropShippingOrderOutput>();
+    }
+    this.configItems.add(configItemsItem);
     return this;
   }
 
@@ -105,11 +115,11 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
   **/
   @Valid
   @Schema(description = "")
-  public ConfigItemsForGetDropShippingOrderOutput getConfigItems() {
+  public List<ConfigItemForGetDropShippingOrderOutput> getConfigItems() {
     return configItems;
   }
 
-  public void setConfigItems(ConfigItemsForGetDropShippingOrderOutput configItems) {
+  public void setConfigItems(List<ConfigItemForGetDropShippingOrderOutput> configItems) {
     this.configItems = configItems;
   }
 

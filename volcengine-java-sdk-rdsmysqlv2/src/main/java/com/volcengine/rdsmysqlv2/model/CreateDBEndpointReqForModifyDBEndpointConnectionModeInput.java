@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.CustomRouteStrategyForModifyDBEndpointConnectionModeInput;
 import com.volcengine.rdsmysqlv2.model.ReadOnlyNodeWeightForModifyDBEndpointConnectionModeInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -38,6 +39,9 @@ public class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
 
   @SerializedName("ConnectionPoolType")
   private String connectionPoolType = null;
+
+  @SerializedName("CustomRouteStrategy")
+  private CustomRouteStrategyForModifyDBEndpointConnectionModeInput customRouteStrategy = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -121,6 +125,25 @@ public class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
 
   public void setConnectionPoolType(String connectionPoolType) {
     this.connectionPoolType = connectionPoolType;
+  }
+
+  public CreateDBEndpointReqForModifyDBEndpointConnectionModeInput customRouteStrategy(CustomRouteStrategyForModifyDBEndpointConnectionModeInput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
+    return this;
+  }
+
+   /**
+   * Get customRouteStrategy
+   * @return customRouteStrategy
+  **/
+  @Valid
+  @Schema(description = "")
+  public CustomRouteStrategyForModifyDBEndpointConnectionModeInput getCustomRouteStrategy() {
+    return customRouteStrategy;
+  }
+
+  public void setCustomRouteStrategy(CustomRouteStrategyForModifyDBEndpointConnectionModeInput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
   }
 
   public CreateDBEndpointReqForModifyDBEndpointConnectionModeInput description(String description) {
@@ -432,6 +455,7 @@ public class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
     CreateDBEndpointReqForModifyDBEndpointConnectionModeInput createDBEndpointReqForModifyDBEndpointConnectionModeInput = (CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) o;
     return Objects.equals(this.autoAddNewNodes, createDBEndpointReqForModifyDBEndpointConnectionModeInput.autoAddNewNodes) &&
         Objects.equals(this.connectionPoolType, createDBEndpointReqForModifyDBEndpointConnectionModeInput.connectionPoolType) &&
+        Objects.equals(this.customRouteStrategy, createDBEndpointReqForModifyDBEndpointConnectionModeInput.customRouteStrategy) &&
         Objects.equals(this.description, createDBEndpointReqForModifyDBEndpointConnectionModeInput.description) &&
         Objects.equals(this.endpointName, createDBEndpointReqForModifyDBEndpointConnectionModeInput.endpointName) &&
         Objects.equals(this.endpointType, createDBEndpointReqForModifyDBEndpointConnectionModeInput.endpointType) &&
@@ -452,7 +476,7 @@ public class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, connectionPoolType, description, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectionPoolType, customRouteStrategy, description, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -463,6 +487,7 @@ public class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
     
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
+    sb.append("    customRouteStrategy: ").append(toIndentedString(customRouteStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");

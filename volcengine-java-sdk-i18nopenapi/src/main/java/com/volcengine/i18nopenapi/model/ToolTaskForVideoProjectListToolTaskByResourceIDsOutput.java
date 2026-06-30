@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.ToolResourceForVideoProjectListToolTaskByResourceIDsOutput;
+import com.volcengine.i18nopenapi.model.ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -40,14 +43,14 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
   @SerializedName("outputVid")
   private String outputVid = null;
 
-  @SerializedName("projectID")
-  private String projectID = null;
+  @SerializedName("projectId")
+  private String projectId = null;
 
-  @SerializedName("resourceID")
-  private String resourceID = null;
+  @SerializedName("resourceId")
+  private String resourceId = null;
 
-  @SerializedName("taskID")
-  private String taskID = null;
+  @SerializedName("taskId")
+  private String taskId = null;
 
   @SerializedName("taskParams")
   private String taskParams = null;
@@ -64,11 +67,14 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
   @SerializedName("toolResource")
   private ToolResourceForVideoProjectListToolTaskByResourceIDsOutput toolResource = null;
 
+  @SerializedName("toolTaskResults")
+  private List<ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput> toolTaskResults = null;
+
   @SerializedName("updateTime")
   private String updateTime = null;
 
-  @SerializedName("userID")
-  private String userID = null;
+  @SerializedName("userId")
+  private String userId = null;
 
   public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -124,58 +130,58 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
     this.outputVid = outputVid;
   }
 
-  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput projectID(String projectID) {
-    this.projectID = projectID;
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get projectID
-   * @return projectID
+   * Get projectId
+   * @return projectId
   **/
   @Schema(description = "")
-  public String getProjectID() {
-    return projectID;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
-  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput resourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get resourceID
-   * @return resourceID
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public String getResourceID() {
-    return resourceID;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setResourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
   }
 
-  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput taskID(String taskID) {
-    this.taskID = taskID;
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public String getTaskID() {
-    return taskID;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setTaskID(String taskID) {
-    this.taskID = taskID;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
   public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput taskParams(String taskParams) {
@@ -269,6 +275,33 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
     this.toolResource = toolResource;
   }
 
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput toolTaskResults(List<ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput> toolTaskResults) {
+    this.toolTaskResults = toolTaskResults;
+    return this;
+  }
+
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput addToolTaskResultsItem(ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput toolTaskResultsItem) {
+    if (this.toolTaskResults == null) {
+      this.toolTaskResults = new ArrayList<ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput>();
+    }
+    this.toolTaskResults.add(toolTaskResultsItem);
+    return this;
+  }
+
+   /**
+   * Get toolTaskResults
+   * @return toolTaskResults
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput> getToolTaskResults() {
+    return toolTaskResults;
+  }
+
+  public void setToolTaskResults(List<ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput> toolTaskResults) {
+    this.toolTaskResults = toolTaskResults;
+  }
+
   public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -287,22 +320,22 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
     this.updateTime = updateTime;
   }
 
-  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput userID(String userID) {
-    this.userID = userID;
+  public ToolTaskForVideoProjectListToolTaskByResourceIDsOutput userId(String userId) {
+    this.userId = userId;
     return this;
   }
 
    /**
-   * Get userID
-   * @return userID
+   * Get userId
+   * @return userId
   **/
   @Schema(description = "")
-  public String getUserID() {
-    return userID;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setUserID(String userID) {
-    this.userID = userID;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
 
@@ -318,21 +351,22 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
     return Objects.equals(this.createTime, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.createTime) &&
         Objects.equals(this.inputVid, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.inputVid) &&
         Objects.equals(this.outputVid, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.outputVid) &&
-        Objects.equals(this.projectID, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.projectID) &&
-        Objects.equals(this.resourceID, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.resourceID) &&
-        Objects.equals(this.taskID, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskID) &&
+        Objects.equals(this.projectId, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.projectId) &&
+        Objects.equals(this.resourceId, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.resourceId) &&
+        Objects.equals(this.taskId, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskId) &&
         Objects.equals(this.taskParams, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskParams) &&
         Objects.equals(this.taskResult, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskResult) &&
         Objects.equals(this.taskStatus, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskStatus) &&
         Objects.equals(this.taskType, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.taskType) &&
         Objects.equals(this.toolResource, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.toolResource) &&
+        Objects.equals(this.toolTaskResults, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.toolTaskResults) &&
         Objects.equals(this.updateTime, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.updateTime) &&
-        Objects.equals(this.userID, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.userID);
+        Objects.equals(this.userId, toolTaskForVideoProjectListToolTaskByResourceIDsOutput.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, inputVid, outputVid, projectID, resourceID, taskID, taskParams, taskResult, taskStatus, taskType, toolResource, updateTime, userID);
+    return Objects.hash(createTime, inputVid, outputVid, projectId, resourceId, taskId, taskParams, taskResult, taskStatus, taskType, toolResource, toolTaskResults, updateTime, userId);
   }
 
 
@@ -344,16 +378,17 @@ public class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    inputVid: ").append(toIndentedString(inputVid)).append("\n");
     sb.append("    outputVid: ").append(toIndentedString(outputVid)).append("\n");
-    sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
-    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    taskParams: ").append(toIndentedString(taskParams)).append("\n");
     sb.append("    taskResult: ").append(toIndentedString(taskResult)).append("\n");
     sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    toolResource: ").append(toIndentedString(toolResource)).append("\n");
+    sb.append("    toolTaskResults: ").append(toIndentedString(toolTaskResults)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
-    sb.append("    userID: ").append(toIndentedString(userID)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

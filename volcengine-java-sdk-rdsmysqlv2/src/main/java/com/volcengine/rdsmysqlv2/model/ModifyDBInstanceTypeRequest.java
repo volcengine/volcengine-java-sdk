@@ -39,6 +39,12 @@ public class ModifyDBInstanceTypeRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForModifyDBInstanceTypeInput> nodeInfo = null;
 
+  @SerializedName("SpecifiedSwitchEndTime")
+  private String specifiedSwitchEndTime = null;
+
+  @SerializedName("SpecifiedSwitchStartTime")
+  private String specifiedSwitchStartTime = null;
+
   @SerializedName("SwitchType")
   private String switchType = null;
 
@@ -91,6 +97,42 @@ public class ModifyDBInstanceTypeRequest {
     this.nodeInfo = nodeInfo;
   }
 
+  public ModifyDBInstanceTypeRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchEndTime
+   * @return specifiedSwitchEndTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchEndTime() {
+    return specifiedSwitchEndTime;
+  }
+
+  public void setSpecifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+  }
+
+  public ModifyDBInstanceTypeRequest specifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchStartTime
+   * @return specifiedSwitchStartTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchStartTime() {
+    return specifiedSwitchStartTime;
+  }
+
+  public void setSpecifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+  }
+
   public ModifyDBInstanceTypeRequest switchType(String switchType) {
     this.switchType = switchType;
     return this;
@@ -140,13 +182,15 @@ public class ModifyDBInstanceTypeRequest {
     ModifyDBInstanceTypeRequest modifyDBInstanceTypeRequest = (ModifyDBInstanceTypeRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceTypeRequest.instanceId) &&
         Objects.equals(this.nodeInfo, modifyDBInstanceTypeRequest.nodeInfo) &&
+        Objects.equals(this.specifiedSwitchEndTime, modifyDBInstanceTypeRequest.specifiedSwitchEndTime) &&
+        Objects.equals(this.specifiedSwitchStartTime, modifyDBInstanceTypeRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.switchType, modifyDBInstanceTypeRequest.switchType) &&
         Objects.equals(this.typeConvertPath, modifyDBInstanceTypeRequest.typeConvertPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeInfo, switchType, typeConvertPath);
+    return Objects.hash(instanceId, nodeInfo, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType, typeConvertPath);
   }
 
 
@@ -157,6 +201,8 @@ public class ModifyDBInstanceTypeRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
+    sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("    typeConvertPath: ").append(toIndentedString(typeConvertPath)).append("\n");
     sb.append("}");

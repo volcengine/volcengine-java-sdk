@@ -30,11 +30,38 @@ import javax.validation.Valid;
 
 
 public class EicForListResourceGroupsOutput {
+  @SerializedName("CacheType")
+  private String cacheType = null;
+
   @SerializedName("EicId")
   private String eicId = null;
 
   @SerializedName("EicStatus")
   private String eicStatus = null;
+
+  @SerializedName("EnableRDMA")
+  private Boolean enableRDMA = null;
+
+  @SerializedName("EnableShmIpc")
+  private Boolean enableShmIpc = null;
+
+  public EicForListResourceGroupsOutput cacheType(String cacheType) {
+    this.cacheType = cacheType;
+    return this;
+  }
+
+   /**
+   * Get cacheType
+   * @return cacheType
+  **/
+  @Schema(description = "")
+  public String getCacheType() {
+    return cacheType;
+  }
+
+  public void setCacheType(String cacheType) {
+    this.cacheType = cacheType;
+  }
 
   public EicForListResourceGroupsOutput eicId(String eicId) {
     this.eicId = eicId;
@@ -72,6 +99,42 @@ public class EicForListResourceGroupsOutput {
     this.eicStatus = eicStatus;
   }
 
+  public EicForListResourceGroupsOutput enableRDMA(Boolean enableRDMA) {
+    this.enableRDMA = enableRDMA;
+    return this;
+  }
+
+   /**
+   * Get enableRDMA
+   * @return enableRDMA
+  **/
+  @Schema(description = "")
+  public Boolean isEnableRDMA() {
+    return enableRDMA;
+  }
+
+  public void setEnableRDMA(Boolean enableRDMA) {
+    this.enableRDMA = enableRDMA;
+  }
+
+  public EicForListResourceGroupsOutput enableShmIpc(Boolean enableShmIpc) {
+    this.enableShmIpc = enableShmIpc;
+    return this;
+  }
+
+   /**
+   * Get enableShmIpc
+   * @return enableShmIpc
+  **/
+  @Schema(description = "")
+  public Boolean isEnableShmIpc() {
+    return enableShmIpc;
+  }
+
+  public void setEnableShmIpc(Boolean enableShmIpc) {
+    this.enableShmIpc = enableShmIpc;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +145,16 @@ public class EicForListResourceGroupsOutput {
       return false;
     }
     EicForListResourceGroupsOutput eicForListResourceGroupsOutput = (EicForListResourceGroupsOutput) o;
-    return Objects.equals(this.eicId, eicForListResourceGroupsOutput.eicId) &&
-        Objects.equals(this.eicStatus, eicForListResourceGroupsOutput.eicStatus);
+    return Objects.equals(this.cacheType, eicForListResourceGroupsOutput.cacheType) &&
+        Objects.equals(this.eicId, eicForListResourceGroupsOutput.eicId) &&
+        Objects.equals(this.eicStatus, eicForListResourceGroupsOutput.eicStatus) &&
+        Objects.equals(this.enableRDMA, eicForListResourceGroupsOutput.enableRDMA) &&
+        Objects.equals(this.enableShmIpc, eicForListResourceGroupsOutput.enableShmIpc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eicId, eicStatus);
+    return Objects.hash(cacheType, eicId, eicStatus, enableRDMA, enableShmIpc);
   }
 
 
@@ -97,8 +163,11 @@ public class EicForListResourceGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EicForListResourceGroupsOutput {\n");
     
+    sb.append("    cacheType: ").append(toIndentedString(cacheType)).append("\n");
     sb.append("    eicId: ").append(toIndentedString(eicId)).append("\n");
     sb.append("    eicStatus: ").append(toIndentedString(eicStatus)).append("\n");
+    sb.append("    enableRDMA: ").append(toIndentedString(enableRDMA)).append("\n");
+    sb.append("    enableShmIpc: ").append(toIndentedString(enableShmIpc)).append("\n");
     sb.append("}");
     return sb.toString();
   }

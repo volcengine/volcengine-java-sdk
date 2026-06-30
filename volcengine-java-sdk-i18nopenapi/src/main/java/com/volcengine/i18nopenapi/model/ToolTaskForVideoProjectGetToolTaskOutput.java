@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.ToolResourceForVideoProjectGetToolTaskOutput;
+import com.volcengine.i18nopenapi.model.ToolTaskResultForVideoProjectGetToolTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -40,14 +43,14 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
   @SerializedName("outputVid")
   private String outputVid = null;
 
-  @SerializedName("projectID")
-  private String projectID = null;
+  @SerializedName("projectId")
+  private String projectId = null;
 
-  @SerializedName("resourceID")
-  private String resourceID = null;
+  @SerializedName("resourceId")
+  private String resourceId = null;
 
-  @SerializedName("taskID")
-  private String taskID = null;
+  @SerializedName("taskId")
+  private String taskId = null;
 
   @SerializedName("taskParams")
   private String taskParams = null;
@@ -64,11 +67,14 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
   @SerializedName("toolResource")
   private ToolResourceForVideoProjectGetToolTaskOutput toolResource = null;
 
+  @SerializedName("toolTaskResults")
+  private List<ToolTaskResultForVideoProjectGetToolTaskOutput> toolTaskResults = null;
+
   @SerializedName("updateTime")
   private String updateTime = null;
 
-  @SerializedName("userID")
-  private String userID = null;
+  @SerializedName("userId")
+  private String userId = null;
 
   public ToolTaskForVideoProjectGetToolTaskOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -124,58 +130,58 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
     this.outputVid = outputVid;
   }
 
-  public ToolTaskForVideoProjectGetToolTaskOutput projectID(String projectID) {
-    this.projectID = projectID;
+  public ToolTaskForVideoProjectGetToolTaskOutput projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get projectID
-   * @return projectID
+   * Get projectId
+   * @return projectId
   **/
   @Schema(description = "")
-  public String getProjectID() {
-    return projectID;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
-  public ToolTaskForVideoProjectGetToolTaskOutput resourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public ToolTaskForVideoProjectGetToolTaskOutput resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get resourceID
-   * @return resourceID
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public String getResourceID() {
-    return resourceID;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setResourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
   }
 
-  public ToolTaskForVideoProjectGetToolTaskOutput taskID(String taskID) {
-    this.taskID = taskID;
+  public ToolTaskForVideoProjectGetToolTaskOutput taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public String getTaskID() {
-    return taskID;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setTaskID(String taskID) {
-    this.taskID = taskID;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
   public ToolTaskForVideoProjectGetToolTaskOutput taskParams(String taskParams) {
@@ -269,6 +275,33 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
     this.toolResource = toolResource;
   }
 
+  public ToolTaskForVideoProjectGetToolTaskOutput toolTaskResults(List<ToolTaskResultForVideoProjectGetToolTaskOutput> toolTaskResults) {
+    this.toolTaskResults = toolTaskResults;
+    return this;
+  }
+
+  public ToolTaskForVideoProjectGetToolTaskOutput addToolTaskResultsItem(ToolTaskResultForVideoProjectGetToolTaskOutput toolTaskResultsItem) {
+    if (this.toolTaskResults == null) {
+      this.toolTaskResults = new ArrayList<ToolTaskResultForVideoProjectGetToolTaskOutput>();
+    }
+    this.toolTaskResults.add(toolTaskResultsItem);
+    return this;
+  }
+
+   /**
+   * Get toolTaskResults
+   * @return toolTaskResults
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ToolTaskResultForVideoProjectGetToolTaskOutput> getToolTaskResults() {
+    return toolTaskResults;
+  }
+
+  public void setToolTaskResults(List<ToolTaskResultForVideoProjectGetToolTaskOutput> toolTaskResults) {
+    this.toolTaskResults = toolTaskResults;
+  }
+
   public ToolTaskForVideoProjectGetToolTaskOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -287,22 +320,22 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
     this.updateTime = updateTime;
   }
 
-  public ToolTaskForVideoProjectGetToolTaskOutput userID(String userID) {
-    this.userID = userID;
+  public ToolTaskForVideoProjectGetToolTaskOutput userId(String userId) {
+    this.userId = userId;
     return this;
   }
 
    /**
-   * Get userID
-   * @return userID
+   * Get userId
+   * @return userId
   **/
   @Schema(description = "")
-  public String getUserID() {
-    return userID;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setUserID(String userID) {
-    this.userID = userID;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
 
@@ -318,21 +351,22 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
     return Objects.equals(this.createTime, toolTaskForVideoProjectGetToolTaskOutput.createTime) &&
         Objects.equals(this.inputVid, toolTaskForVideoProjectGetToolTaskOutput.inputVid) &&
         Objects.equals(this.outputVid, toolTaskForVideoProjectGetToolTaskOutput.outputVid) &&
-        Objects.equals(this.projectID, toolTaskForVideoProjectGetToolTaskOutput.projectID) &&
-        Objects.equals(this.resourceID, toolTaskForVideoProjectGetToolTaskOutput.resourceID) &&
-        Objects.equals(this.taskID, toolTaskForVideoProjectGetToolTaskOutput.taskID) &&
+        Objects.equals(this.projectId, toolTaskForVideoProjectGetToolTaskOutput.projectId) &&
+        Objects.equals(this.resourceId, toolTaskForVideoProjectGetToolTaskOutput.resourceId) &&
+        Objects.equals(this.taskId, toolTaskForVideoProjectGetToolTaskOutput.taskId) &&
         Objects.equals(this.taskParams, toolTaskForVideoProjectGetToolTaskOutput.taskParams) &&
         Objects.equals(this.taskResult, toolTaskForVideoProjectGetToolTaskOutput.taskResult) &&
         Objects.equals(this.taskStatus, toolTaskForVideoProjectGetToolTaskOutput.taskStatus) &&
         Objects.equals(this.taskType, toolTaskForVideoProjectGetToolTaskOutput.taskType) &&
         Objects.equals(this.toolResource, toolTaskForVideoProjectGetToolTaskOutput.toolResource) &&
+        Objects.equals(this.toolTaskResults, toolTaskForVideoProjectGetToolTaskOutput.toolTaskResults) &&
         Objects.equals(this.updateTime, toolTaskForVideoProjectGetToolTaskOutput.updateTime) &&
-        Objects.equals(this.userID, toolTaskForVideoProjectGetToolTaskOutput.userID);
+        Objects.equals(this.userId, toolTaskForVideoProjectGetToolTaskOutput.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, inputVid, outputVid, projectID, resourceID, taskID, taskParams, taskResult, taskStatus, taskType, toolResource, updateTime, userID);
+    return Objects.hash(createTime, inputVid, outputVid, projectId, resourceId, taskId, taskParams, taskResult, taskStatus, taskType, toolResource, toolTaskResults, updateTime, userId);
   }
 
 
@@ -344,16 +378,17 @@ public class ToolTaskForVideoProjectGetToolTaskOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    inputVid: ").append(toIndentedString(inputVid)).append("\n");
     sb.append("    outputVid: ").append(toIndentedString(outputVid)).append("\n");
-    sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
-    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    taskParams: ").append(toIndentedString(taskParams)).append("\n");
     sb.append("    taskResult: ").append(toIndentedString(taskResult)).append("\n");
     sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    toolResource: ").append(toIndentedString(toolResource)).append("\n");
+    sb.append("    toolTaskResults: ").append(toIndentedString(toolTaskResults)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
-    sb.append("    userID: ").append(toIndentedString(userID)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

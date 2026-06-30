@@ -759,6 +759,12 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-partner</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-dramart</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>

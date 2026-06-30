@@ -43,6 +43,9 @@ public class RestoreToCrossRegionInstanceRequest {
   @SerializedName("AutoStorageScalingConfig")
   private AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput autoStorageScalingConfig = null;
 
+  @SerializedName("AutoUpgradeMinorVersion")
+  private String autoUpgradeMinorVersion = null;
+
   @SerializedName("BackupId")
   private String backupId = null;
 
@@ -143,6 +146,24 @@ public class RestoreToCrossRegionInstanceRequest {
 
   public void setAutoStorageScalingConfig(AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput autoStorageScalingConfig) {
     this.autoStorageScalingConfig = autoStorageScalingConfig;
+  }
+
+  public RestoreToCrossRegionInstanceRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get autoUpgradeMinorVersion
+   * @return autoUpgradeMinorVersion
+  **/
+  @Schema(description = "")
+  public String getAutoUpgradeMinorVersion() {
+    return autoUpgradeMinorVersion;
+  }
+
+  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
   }
 
   public RestoreToCrossRegionInstanceRequest backupId(String backupId) {
@@ -525,6 +546,7 @@ public class RestoreToCrossRegionInstanceRequest {
     RestoreToCrossRegionInstanceRequest restoreToCrossRegionInstanceRequest = (RestoreToCrossRegionInstanceRequest) o;
     return Objects.equals(this.allowListIds, restoreToCrossRegionInstanceRequest.allowListIds) &&
         Objects.equals(this.autoStorageScalingConfig, restoreToCrossRegionInstanceRequest.autoStorageScalingConfig) &&
+        Objects.equals(this.autoUpgradeMinorVersion, restoreToCrossRegionInstanceRequest.autoUpgradeMinorVersion) &&
         Objects.equals(this.backupId, restoreToCrossRegionInstanceRequest.backupId) &&
         Objects.equals(this.chargeInfo, restoreToCrossRegionInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbParamGroupId, restoreToCrossRegionInstanceRequest.dbParamGroupId) &&
@@ -548,7 +570,7 @@ public class RestoreToCrossRegionInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, dstRegionId, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcRegionId, srcRegionInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, autoUpgradeMinorVersion, backupId, chargeInfo, dbParamGroupId, deletionProtection, dstRegionId, instanceName, instanceTags, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, restoreTime, srcRegionId, srcRegionInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -559,6 +581,7 @@ public class RestoreToCrossRegionInstanceRequest {
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
+    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");

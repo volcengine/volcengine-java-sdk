@@ -804,6 +804,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- partner ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("partner", new ServiceEndpointInfo(
+                "partner",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
         // --------------------------- dramart ---------------------------
         DEFAULT_ENDPOINT_MAP.put("dramart", new ServiceEndpointInfo(
                 "dramart",

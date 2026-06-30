@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateDrDBInstanceRequest {
+  @SerializedName("AutoUpgradeMinorVersion")
+  private String autoUpgradeMinorVersion = null;
+
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
@@ -66,6 +69,24 @@ public class CreateDrDBInstanceRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateDrDBInstanceRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get autoUpgradeMinorVersion
+   * @return autoUpgradeMinorVersion
+  **/
+  @Schema(description = "")
+  public String getAutoUpgradeMinorVersion() {
+    return autoUpgradeMinorVersion;
+  }
+
+  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+  }
 
   public CreateDrDBInstanceRequest deletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
@@ -290,7 +311,8 @@ public class CreateDrDBInstanceRequest {
       return false;
     }
     CreateDrDBInstanceRequest createDrDBInstanceRequest = (CreateDrDBInstanceRequest) o;
-    return Objects.equals(this.deletionProtection, createDrDBInstanceRequest.deletionProtection) &&
+    return Objects.equals(this.autoUpgradeMinorVersion, createDrDBInstanceRequest.autoUpgradeMinorVersion) &&
+        Objects.equals(this.deletionProtection, createDrDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.instanceName, createDrDBInstanceRequest.instanceName) &&
         Objects.equals(this.masterInstanceId, createDrDBInstanceRequest.masterInstanceId) &&
         Objects.equals(this.masterRegion, createDrDBInstanceRequest.masterRegion) &&
@@ -305,7 +327,7 @@ public class CreateDrDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(autoUpgradeMinorVersion, deletionProtection, instanceName, masterInstanceId, masterRegion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -314,6 +336,7 @@ public class CreateDrDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDrDBInstanceRequest {\n");
     
+    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");

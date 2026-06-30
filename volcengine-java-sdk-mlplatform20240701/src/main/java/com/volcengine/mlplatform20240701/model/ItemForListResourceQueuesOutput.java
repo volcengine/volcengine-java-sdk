@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.ComputeResourceForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.FlavorOngoingForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.FlavorOutgoingForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.QuotaAllocatedForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.QuotaCapabilityForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.RulesForListResourceQueuesOutput;
@@ -93,8 +95,17 @@ public class ItemForListResourceQueuesOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("FlavorOngoing")
+  private List<FlavorOngoingForListResourceQueuesOutput> flavorOngoing = null;
+
+  @SerializedName("FlavorOutgoing")
+  private List<FlavorOutgoingForListResourceQueuesOutput> flavorOutgoing = null;
+
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("IsOverQuota")
+  private Boolean isOverQuota = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -198,6 +209,60 @@ public class ItemForListResourceQueuesOutput {
     this.description = description;
   }
 
+  public ItemForListResourceQueuesOutput flavorOngoing(List<FlavorOngoingForListResourceQueuesOutput> flavorOngoing) {
+    this.flavorOngoing = flavorOngoing;
+    return this;
+  }
+
+  public ItemForListResourceQueuesOutput addFlavorOngoingItem(FlavorOngoingForListResourceQueuesOutput flavorOngoingItem) {
+    if (this.flavorOngoing == null) {
+      this.flavorOngoing = new ArrayList<FlavorOngoingForListResourceQueuesOutput>();
+    }
+    this.flavorOngoing.add(flavorOngoingItem);
+    return this;
+  }
+
+   /**
+   * Get flavorOngoing
+   * @return flavorOngoing
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FlavorOngoingForListResourceQueuesOutput> getFlavorOngoing() {
+    return flavorOngoing;
+  }
+
+  public void setFlavorOngoing(List<FlavorOngoingForListResourceQueuesOutput> flavorOngoing) {
+    this.flavorOngoing = flavorOngoing;
+  }
+
+  public ItemForListResourceQueuesOutput flavorOutgoing(List<FlavorOutgoingForListResourceQueuesOutput> flavorOutgoing) {
+    this.flavorOutgoing = flavorOutgoing;
+    return this;
+  }
+
+  public ItemForListResourceQueuesOutput addFlavorOutgoingItem(FlavorOutgoingForListResourceQueuesOutput flavorOutgoingItem) {
+    if (this.flavorOutgoing == null) {
+      this.flavorOutgoing = new ArrayList<FlavorOutgoingForListResourceQueuesOutput>();
+    }
+    this.flavorOutgoing.add(flavorOutgoingItem);
+    return this;
+  }
+
+   /**
+   * Get flavorOutgoing
+   * @return flavorOutgoing
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FlavorOutgoingForListResourceQueuesOutput> getFlavorOutgoing() {
+    return flavorOutgoing;
+  }
+
+  public void setFlavorOutgoing(List<FlavorOutgoingForListResourceQueuesOutput> flavorOutgoing) {
+    this.flavorOutgoing = flavorOutgoing;
+  }
+
   public ItemForListResourceQueuesOutput id(String id) {
     this.id = id;
     return this;
@@ -214,6 +279,24 @@ public class ItemForListResourceQueuesOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ItemForListResourceQueuesOutput isOverQuota(Boolean isOverQuota) {
+    this.isOverQuota = isOverQuota;
+    return this;
+  }
+
+   /**
+   * Get isOverQuota
+   * @return isOverQuota
+  **/
+  @Schema(description = "")
+  public Boolean isIsOverQuota() {
+    return isOverQuota;
+  }
+
+  public void setIsOverQuota(Boolean isOverQuota) {
+    this.isOverQuota = isOverQuota;
   }
 
   public ItemForListResourceQueuesOutput name(String name) {
@@ -495,7 +578,10 @@ public class ItemForListResourceQueuesOutput {
     return Objects.equals(this.chargeType, itemForListResourceQueuesOutput.chargeType) &&
         Objects.equals(this.computeResources, itemForListResourceQueuesOutput.computeResources) &&
         Objects.equals(this.description, itemForListResourceQueuesOutput.description) &&
+        Objects.equals(this.flavorOngoing, itemForListResourceQueuesOutput.flavorOngoing) &&
+        Objects.equals(this.flavorOutgoing, itemForListResourceQueuesOutput.flavorOutgoing) &&
         Objects.equals(this.id, itemForListResourceQueuesOutput.id) &&
+        Objects.equals(this.isOverQuota, itemForListResourceQueuesOutput.isOverQuota) &&
         Objects.equals(this.name, itemForListResourceQueuesOutput.name) &&
         Objects.equals(this.projectName, itemForListResourceQueuesOutput.projectName) &&
         Objects.equals(this.quotaAllocated, itemForListResourceQueuesOutput.quotaAllocated) &&
@@ -513,7 +599,7 @@ public class ItemForListResourceQueuesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, computeResources, description, id, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
+    return Objects.hash(chargeType, computeResources, description, flavorOngoing, flavorOutgoing, id, isOverQuota, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
   }
 
 
@@ -525,7 +611,10 @@ public class ItemForListResourceQueuesOutput {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    computeResources: ").append(toIndentedString(computeResources)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    flavorOngoing: ").append(toIndentedString(flavorOngoing)).append("\n");
+    sb.append("    flavorOutgoing: ").append(toIndentedString(flavorOutgoing)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isOverQuota: ").append(toIndentedString(isOverQuota)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quotaAllocated: ").append(toIndentedString(quotaAllocated)).append("\n");
