@@ -33,8 +33,14 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthType")
+  private String bandwidthType = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
 
   @SerializedName("TransitRouterAttachmentId")
   private String transitRouterAttachmentId = null;
@@ -63,6 +69,24 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
     this.bandwidth = bandwidth;
   }
 
+  public ModifyTransitRouterPeerAttachmentAttributesRequest bandwidthType(String bandwidthType) {
+    this.bandwidthType = bandwidthType;
+    return this;
+  }
+
+   /**
+   * Get bandwidthType
+   * @return bandwidthType
+  **/
+  @Schema(description = "")
+  public String getBandwidthType() {
+    return bandwidthType;
+  }
+
+  public void setBandwidthType(String bandwidthType) {
+    this.bandwidthType = bandwidthType;
+  }
+
   public ModifyTransitRouterPeerAttachmentAttributesRequest description(String description) {
     this.description = description;
     return this;
@@ -79,6 +103,24 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyTransitRouterPeerAttachmentAttributesRequest lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
   }
 
   public ModifyTransitRouterPeerAttachmentAttributesRequest transitRouterAttachmentId(String transitRouterAttachmentId) {
@@ -147,7 +189,9 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
     }
     ModifyTransitRouterPeerAttachmentAttributesRequest modifyTransitRouterPeerAttachmentAttributesRequest = (ModifyTransitRouterPeerAttachmentAttributesRequest) o;
     return Objects.equals(this.bandwidth, modifyTransitRouterPeerAttachmentAttributesRequest.bandwidth) &&
+        Objects.equals(this.bandwidthType, modifyTransitRouterPeerAttachmentAttributesRequest.bandwidthType) &&
         Objects.equals(this.description, modifyTransitRouterPeerAttachmentAttributesRequest.description) &&
+        Objects.equals(this.lineOperator, modifyTransitRouterPeerAttachmentAttributesRequest.lineOperator) &&
         Objects.equals(this.transitRouterAttachmentId, modifyTransitRouterPeerAttachmentAttributesRequest.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterAttachmentName, modifyTransitRouterPeerAttachmentAttributesRequest.transitRouterAttachmentName) &&
         Objects.equals(this.transitRouterBandwidthPackageId, modifyTransitRouterPeerAttachmentAttributesRequest.transitRouterBandwidthPackageId);
@@ -155,7 +199,7 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, description, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId);
+    return Objects.hash(bandwidth, bandwidthType, description, lineOperator, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId);
   }
 
 
@@ -165,7 +209,9 @@ public class ModifyTransitRouterPeerAttachmentAttributesRequest {
     sb.append("class ModifyTransitRouterPeerAttachmentAttributesRequest {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthType: ").append(toIndentedString(bandwidthType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
     sb.append("    transitRouterBandwidthPackageId: ").append(toIndentedString(transitRouterBandwidthPackageId)).append("\n");

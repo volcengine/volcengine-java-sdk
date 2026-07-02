@@ -39,6 +39,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthType")
+  private String bandwidthType = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -47,6 +50,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   @SerializedName("Ipv6Enabled")
   private Boolean ipv6Enabled = null;
+
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
 
   @SerializedName("PeerTransitRouterId")
   private String peerTransitRouterId = null;
@@ -129,6 +135,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     this.bandwidth = bandwidth;
   }
 
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput bandwidthType(String bandwidthType) {
+    this.bandwidthType = bandwidthType;
+    return this;
+  }
+
+   /**
+   * Get bandwidthType
+   * @return bandwidthType
+  **/
+  @Schema(description = "")
+  public String getBandwidthType() {
+    return bandwidthType;
+  }
+
+  public void setBandwidthType(String bandwidthType) {
+    this.bandwidthType = bandwidthType;
+  }
+
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
@@ -181,6 +205,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   public void setIpv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput peerTransitRouterId(String peerTransitRouterId) {
@@ -474,9 +516,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput = (TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) o;
     return Objects.equals(this.autoPublishRouteEnabled, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.autoPublishRouteEnabled) &&
         Objects.equals(this.bandwidth, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.bandwidth) &&
+        Objects.equals(this.bandwidthType, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.bandwidthType) &&
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.creationTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.description) &&
         Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.ipv6Enabled) &&
+        Objects.equals(this.lineOperator, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.lineOperator) &&
         Objects.equals(this.peerTransitRouterId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterId) &&
         Objects.equals(this.peerTransitRouterOwnerId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterOwnerId) &&
         Objects.equals(this.peerTransitRouterRegionId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.peerTransitRouterRegionId) &&
@@ -496,7 +540,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, ipv6Enabled, peerTransitRouterId, peerTransitRouterOwnerId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterBandwidthPackageOwnerId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
+    return Objects.hash(autoPublishRouteEnabled, bandwidth, bandwidthType, creationTime, description, ipv6Enabled, lineOperator, peerTransitRouterId, peerTransitRouterOwnerId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterBandwidthPackageOwnerId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -507,9 +551,11 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthType: ").append(toIndentedString(bandwidthType)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    peerTransitRouterId: ").append(toIndentedString(peerTransitRouterId)).append("\n");
     sb.append("    peerTransitRouterOwnerId: ").append(toIndentedString(peerTransitRouterOwnerId)).append("\n");
     sb.append("    peerTransitRouterRegionId: ").append(toIndentedString(peerTransitRouterRegionId)).append("\n");

@@ -44,6 +44,9 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
 
+  @SerializedName("DestinationPrefixListId")
+  private String destinationPrefixListId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -64,6 +67,9 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
 
   @SerializedName("TransitRouterRouteEntryNextHopType")
   private String transitRouterRouteEntryNextHopType = null;
+
+  @SerializedName("TransitRouterRouteEntryNextHopVpnTunnelId")
+  private String transitRouterRouteEntryNextHopVpnTunnelId = null;
 
   @SerializedName("TransitRouterRouteEntryType")
   private String transitRouterRouteEntryType = null;
@@ -149,6 +155,24 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
 
   public void setDestinationCidrBlock(String destinationCidrBlock) {
     this.destinationCidrBlock = destinationCidrBlock;
+  }
+
+  public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput destinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
+    return this;
+  }
+
+   /**
+   * Get destinationPrefixListId
+   * @return destinationPrefixListId
+  **/
+  @Schema(description = "")
+  public String getDestinationPrefixListId() {
+    return destinationPrefixListId;
+  }
+
+  public void setDestinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
   }
 
   public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput status(String status) {
@@ -277,6 +301,24 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
     this.transitRouterRouteEntryNextHopType = transitRouterRouteEntryNextHopType;
   }
 
+  public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput transitRouterRouteEntryNextHopVpnTunnelId(String transitRouterRouteEntryNextHopVpnTunnelId) {
+    this.transitRouterRouteEntryNextHopVpnTunnelId = transitRouterRouteEntryNextHopVpnTunnelId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteEntryNextHopVpnTunnelId
+   * @return transitRouterRouteEntryNextHopVpnTunnelId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteEntryNextHopVpnTunnelId() {
+    return transitRouterRouteEntryNextHopVpnTunnelId;
+  }
+
+  public void setTransitRouterRouteEntryNextHopVpnTunnelId(String transitRouterRouteEntryNextHopVpnTunnelId) {
+    this.transitRouterRouteEntryNextHopVpnTunnelId = transitRouterRouteEntryNextHopVpnTunnelId;
+  }
+
   public TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput transitRouterRouteEntryType(String transitRouterRouteEntryType) {
     this.transitRouterRouteEntryType = transitRouterRouteEntryType;
     return this;
@@ -327,6 +369,7 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
         Objects.equals(this.creationTime, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.creationTime) &&
         Objects.equals(this.description, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.description) &&
         Objects.equals(this.destinationCidrBlock, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.destinationCidrBlock) &&
+        Objects.equals(this.destinationPrefixListId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.destinationPrefixListId) &&
         Objects.equals(this.status, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.status) &&
         Objects.equals(this.transitRouterRouteEntryId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryId) &&
         Objects.equals(this.transitRouterRouteEntryName, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryName) &&
@@ -334,13 +377,14 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
         Objects.equals(this.transitRouterRouteEntryNextHopResourceId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopResourceId) &&
         Objects.equals(this.transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopResourceType) &&
         Objects.equals(this.transitRouterRouteEntryNextHopType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopType) &&
+        Objects.equals(this.transitRouterRouteEntryNextHopVpnTunnelId, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryNextHopVpnTunnelId) &&
         Objects.equals(this.transitRouterRouteEntryType, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.transitRouterRouteEntryType) &&
         Objects.equals(this.updateTime, transitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asPath, creationTime, description, destinationCidrBlock, status, transitRouterRouteEntryId, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopResourceId, transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryNextHopType, transitRouterRouteEntryType, updateTime);
+    return Objects.hash(asPath, creationTime, description, destinationCidrBlock, destinationPrefixListId, status, transitRouterRouteEntryId, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopResourceId, transitRouterRouteEntryNextHopResourceType, transitRouterRouteEntryNextHopType, transitRouterRouteEntryNextHopVpnTunnelId, transitRouterRouteEntryType, updateTime);
   }
 
 
@@ -353,6 +397,7 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
+    sb.append("    destinationPrefixListId: ").append(toIndentedString(destinationPrefixListId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transitRouterRouteEntryId: ").append(toIndentedString(transitRouterRouteEntryId)).append("\n");
     sb.append("    transitRouterRouteEntryName: ").append(toIndentedString(transitRouterRouteEntryName)).append("\n");
@@ -360,6 +405,7 @@ public class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
     sb.append("    transitRouterRouteEntryNextHopResourceId: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceId)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopResourceType: ").append(toIndentedString(transitRouterRouteEntryNextHopResourceType)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopType: ").append(toIndentedString(transitRouterRouteEntryNextHopType)).append("\n");
+    sb.append("    transitRouterRouteEntryNextHopVpnTunnelId: ").append(toIndentedString(transitRouterRouteEntryNextHopVpnTunnelId)).append("\n");
     sb.append("    transitRouterRouteEntryType: ").append(toIndentedString(transitRouterRouteEntryType)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

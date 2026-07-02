@@ -56,6 +56,9 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
   @SerializedName("IpPrefixes")
   private List<String> ipPrefixes = null;
 
+  @SerializedName("PrefixListId")
+  private String prefixListId = null;
+
   @SerializedName("Priority")
   private Integer priority = null;
 
@@ -244,6 +247,24 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
     this.ipPrefixes = ipPrefixes;
   }
 
+  public ModifyTransitRouterRoutePolicyEntryAttributesRequest prefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+    return this;
+  }
+
+   /**
+   * Get prefixListId
+   * @return prefixListId
+  **/
+  @Schema(description = "")
+  public String getPrefixListId() {
+    return prefixListId;
+  }
+
+  public void setPrefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+  }
+
   public ModifyTransitRouterRoutePolicyEntryAttributesRequest priority(Integer priority) {
     this.priority = priority;
     return this;
@@ -251,9 +272,11 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
 
    /**
    * Get priority
+   * minimum: 1
+   * maximum: 10000
    * @return priority
   **/
-  @Schema(description = "")
+ @Min(1) @Max(10000)  @Schema(description = "")
   public Integer getPriority() {
     return priority;
   }
@@ -351,6 +374,7 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
         Objects.equals(this.destinationResourceTypes, modifyTransitRouterRoutePolicyEntryAttributesRequest.destinationResourceTypes) &&
         Objects.equals(this.ipPrefixMatchMode, modifyTransitRouterRoutePolicyEntryAttributesRequest.ipPrefixMatchMode) &&
         Objects.equals(this.ipPrefixes, modifyTransitRouterRoutePolicyEntryAttributesRequest.ipPrefixes) &&
+        Objects.equals(this.prefixListId, modifyTransitRouterRoutePolicyEntryAttributesRequest.prefixListId) &&
         Objects.equals(this.priority, modifyTransitRouterRoutePolicyEntryAttributesRequest.priority) &&
         Objects.equals(this.sourceResourceIds, modifyTransitRouterRoutePolicyEntryAttributesRequest.sourceResourceIds) &&
         Objects.equals(this.sourceResourceTypes, modifyTransitRouterRoutePolicyEntryAttributesRequest.sourceResourceTypes) &&
@@ -359,7 +383,7 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionResult, applyAsPathValues, asPathOperateMode, description, destinationResourceIds, destinationResourceTypes, ipPrefixMatchMode, ipPrefixes, priority, sourceResourceIds, sourceResourceTypes, transitRouterRoutePolicyEntryId);
+    return Objects.hash(actionResult, applyAsPathValues, asPathOperateMode, description, destinationResourceIds, destinationResourceTypes, ipPrefixMatchMode, ipPrefixes, prefixListId, priority, sourceResourceIds, sourceResourceTypes, transitRouterRoutePolicyEntryId);
   }
 
 
@@ -376,6 +400,7 @@ public class ModifyTransitRouterRoutePolicyEntryAttributesRequest {
     sb.append("    destinationResourceTypes: ").append(toIndentedString(destinationResourceTypes)).append("\n");
     sb.append("    ipPrefixMatchMode: ").append(toIndentedString(ipPrefixMatchMode)).append("\n");
     sb.append("    ipPrefixes: ").append(toIndentedString(ipPrefixes)).append("\n");
+    sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    sourceResourceIds: ").append(toIndentedString(sourceResourceIds)).append("\n");
     sb.append("    sourceResourceTypes: ").append(toIndentedString(sourceResourceTypes)).append("\n");

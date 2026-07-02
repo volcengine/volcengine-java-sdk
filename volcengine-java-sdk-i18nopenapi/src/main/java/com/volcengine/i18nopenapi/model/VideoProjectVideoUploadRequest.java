@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.UploadVideoInfoForVideoProjectVideoUploadInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class VideoProjectVideoUploadRequest {
   @SerializedName("projectId")
   private String projectId = null;
+
+  @SerializedName("uploadVideoInfos")
+  private List<UploadVideoInfoForVideoProjectVideoUploadInput> uploadVideoInfos = null;
 
   @SerializedName("videoURLs")
   private List<String> videoURLs = null;
@@ -58,6 +62,33 @@ public class VideoProjectVideoUploadRequest {
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public VideoProjectVideoUploadRequest uploadVideoInfos(List<UploadVideoInfoForVideoProjectVideoUploadInput> uploadVideoInfos) {
+    this.uploadVideoInfos = uploadVideoInfos;
+    return this;
+  }
+
+  public VideoProjectVideoUploadRequest addUploadVideoInfosItem(UploadVideoInfoForVideoProjectVideoUploadInput uploadVideoInfosItem) {
+    if (this.uploadVideoInfos == null) {
+      this.uploadVideoInfos = new ArrayList<UploadVideoInfoForVideoProjectVideoUploadInput>();
+    }
+    this.uploadVideoInfos.add(uploadVideoInfosItem);
+    return this;
+  }
+
+   /**
+   * Get uploadVideoInfos
+   * @return uploadVideoInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<UploadVideoInfoForVideoProjectVideoUploadInput> getUploadVideoInfos() {
+    return uploadVideoInfos;
+  }
+
+  public void setUploadVideoInfos(List<UploadVideoInfoForVideoProjectVideoUploadInput> uploadVideoInfos) {
+    this.uploadVideoInfos = uploadVideoInfos;
   }
 
   public VideoProjectVideoUploadRequest videoURLs(List<String> videoURLs) {
@@ -116,13 +147,14 @@ public class VideoProjectVideoUploadRequest {
     }
     VideoProjectVideoUploadRequest videoProjectVideoUploadRequest = (VideoProjectVideoUploadRequest) o;
     return Objects.equals(this.projectId, videoProjectVideoUploadRequest.projectId) &&
+        Objects.equals(this.uploadVideoInfos, videoProjectVideoUploadRequest.uploadVideoInfos) &&
         Objects.equals(this.videoURLs, videoProjectVideoUploadRequest.videoURLs) &&
         Objects.equals(this.videoUploadType, videoProjectVideoUploadRequest.videoUploadType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, videoURLs, videoUploadType);
+    return Objects.hash(projectId, uploadVideoInfos, videoURLs, videoUploadType);
   }
 
 
@@ -132,6 +164,7 @@ public class VideoProjectVideoUploadRequest {
     sb.append("class VideoProjectVideoUploadRequest {\n");
     
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    uploadVideoInfos: ").append(toIndentedString(uploadVideoInfos)).append("\n");
     sb.append("    videoURLs: ").append(toIndentedString(videoURLs)).append("\n");
     sb.append("    videoUploadType: ").append(toIndentedString(videoUploadType)).append("\n");
     sb.append("}");
