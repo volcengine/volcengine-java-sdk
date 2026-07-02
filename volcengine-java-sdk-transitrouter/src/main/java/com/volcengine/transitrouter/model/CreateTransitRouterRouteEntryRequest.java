@@ -36,6 +36,9 @@ public class CreateTransitRouterRouteEntryRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
 
+  @SerializedName("DestinationPrefixListId")
+  private String destinationPrefixListId = null;
+
   @SerializedName("TransitRouterRouteEntryName")
   private String transitRouterRouteEntryName = null;
 
@@ -75,14 +78,31 @@ public class CreateTransitRouterRouteEntryRequest {
    * Get destinationCidrBlock
    * @return destinationCidrBlock
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getDestinationCidrBlock() {
     return destinationCidrBlock;
   }
 
   public void setDestinationCidrBlock(String destinationCidrBlock) {
     this.destinationCidrBlock = destinationCidrBlock;
+  }
+
+  public CreateTransitRouterRouteEntryRequest destinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
+    return this;
+  }
+
+   /**
+   * Get destinationPrefixListId
+   * @return destinationPrefixListId
+  **/
+  @Schema(description = "")
+  public String getDestinationPrefixListId() {
+    return destinationPrefixListId;
+  }
+
+  public void setDestinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
   }
 
   public CreateTransitRouterRouteEntryRequest transitRouterRouteEntryName(String transitRouterRouteEntryName) {
@@ -171,6 +191,7 @@ public class CreateTransitRouterRouteEntryRequest {
     CreateTransitRouterRouteEntryRequest createTransitRouterRouteEntryRequest = (CreateTransitRouterRouteEntryRequest) o;
     return Objects.equals(this.description, createTransitRouterRouteEntryRequest.description) &&
         Objects.equals(this.destinationCidrBlock, createTransitRouterRouteEntryRequest.destinationCidrBlock) &&
+        Objects.equals(this.destinationPrefixListId, createTransitRouterRouteEntryRequest.destinationPrefixListId) &&
         Objects.equals(this.transitRouterRouteEntryName, createTransitRouterRouteEntryRequest.transitRouterRouteEntryName) &&
         Objects.equals(this.transitRouterRouteEntryNextHopId, createTransitRouterRouteEntryRequest.transitRouterRouteEntryNextHopId) &&
         Objects.equals(this.transitRouterRouteEntryNextHopType, createTransitRouterRouteEntryRequest.transitRouterRouteEntryNextHopType) &&
@@ -179,7 +200,7 @@ public class CreateTransitRouterRouteEntryRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrBlock, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopType, transitRouterRouteTableId);
+    return Objects.hash(description, destinationCidrBlock, destinationPrefixListId, transitRouterRouteEntryName, transitRouterRouteEntryNextHopId, transitRouterRouteEntryNextHopType, transitRouterRouteTableId);
   }
 
 
@@ -190,6 +211,7 @@ public class CreateTransitRouterRouteEntryRequest {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
+    sb.append("    destinationPrefixListId: ").append(toIndentedString(destinationPrefixListId)).append("\n");
     sb.append("    transitRouterRouteEntryName: ").append(toIndentedString(transitRouterRouteEntryName)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopId: ").append(toIndentedString(transitRouterRouteEntryNextHopId)).append("\n");
     sb.append("    transitRouterRouteEntryNextHopType: ").append(toIndentedString(transitRouterRouteEntryNextHopType)).append("\n");

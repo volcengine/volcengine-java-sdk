@@ -1,0 +1,5 @@
+{
+  "description": "TRANSITROUTER: 新增 AcceptSharedTransitRouter, CreateTransitRouterGrantRule, DeleteTransitRouterGrantRule, DescribeTransitRouterGrantRules, ModifyTransitRouterGrantRuleAttributes, RejectSharedTransitRouter；修改 DescribeTransitRouterRoutePolicyEntries, ModifyTransitRouterRoutePolicyEntryAttributes, CreateTransitRouterPeerAttachment, CreateTransitRouterVpnAttachment, DescribeTransitRouterPeerAttachments, CreateTransitRouterRoutePolicyEntry, DescribeTransitRouterRouteEntries, CreateTransitRouterRouteEntry, ModifyTransitRouterPeerAttachmentAttributes",
+  "modules": "service/transitrouter",
+  "type": "breaking-change"
+}
