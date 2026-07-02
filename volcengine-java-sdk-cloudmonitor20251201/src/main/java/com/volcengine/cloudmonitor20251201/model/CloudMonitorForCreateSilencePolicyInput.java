@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.cloudmonitor20251201.model.MetaConditionForCreateSilencePolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,9 +33,6 @@ import javax.validation.Valid;
 public class CloudMonitorForCreateSilencePolicyInput {
   @SerializedName("MetaCondition")
   private MetaConditionForCreateSilencePolicyInput metaCondition = null;
-
-  @SerializedName("MetricNames")
-  private List<String> metricNames = null;
 
   @SerializedName("Namespace")
   private String namespace = null;
@@ -62,32 +57,6 @@ public class CloudMonitorForCreateSilencePolicyInput {
 
   public void setMetaCondition(MetaConditionForCreateSilencePolicyInput metaCondition) {
     this.metaCondition = metaCondition;
-  }
-
-  public CloudMonitorForCreateSilencePolicyInput metricNames(List<String> metricNames) {
-    this.metricNames = metricNames;
-    return this;
-  }
-
-  public CloudMonitorForCreateSilencePolicyInput addMetricNamesItem(String metricNamesItem) {
-    if (this.metricNames == null) {
-      this.metricNames = new ArrayList<String>();
-    }
-    this.metricNames.add(metricNamesItem);
-    return this;
-  }
-
-   /**
-   * Get metricNames
-   * @return metricNames
-  **/
-  @Schema(description = "")
-  public List<String> getMetricNames() {
-    return metricNames;
-  }
-
-  public void setMetricNames(List<String> metricNames) {
-    this.metricNames = metricNames;
   }
 
   public CloudMonitorForCreateSilencePolicyInput namespace(String namespace) {
@@ -137,14 +106,13 @@ public class CloudMonitorForCreateSilencePolicyInput {
     }
     CloudMonitorForCreateSilencePolicyInput cloudMonitorForCreateSilencePolicyInput = (CloudMonitorForCreateSilencePolicyInput) o;
     return Objects.equals(this.metaCondition, cloudMonitorForCreateSilencePolicyInput.metaCondition) &&
-        Objects.equals(this.metricNames, cloudMonitorForCreateSilencePolicyInput.metricNames) &&
         Objects.equals(this.namespace, cloudMonitorForCreateSilencePolicyInput.namespace) &&
         Objects.equals(this.ruleID, cloudMonitorForCreateSilencePolicyInput.ruleID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metaCondition, metricNames, namespace, ruleID);
+    return Objects.hash(metaCondition, namespace, ruleID);
   }
 
 
@@ -154,7 +122,6 @@ public class CloudMonitorForCreateSilencePolicyInput {
     sb.append("class CloudMonitorForCreateSilencePolicyInput {\n");
     
     sb.append("    metaCondition: ").append(toIndentedString(metaCondition)).append("\n");
-    sb.append("    metricNames: ").append(toIndentedString(metricNames)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    ruleID: ").append(toIndentedString(ruleID)).append("\n");
     sb.append("}");
