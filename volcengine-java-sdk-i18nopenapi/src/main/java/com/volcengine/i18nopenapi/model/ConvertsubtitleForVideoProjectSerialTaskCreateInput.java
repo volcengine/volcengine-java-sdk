@@ -39,6 +39,9 @@ public class ConvertsubtitleForVideoProjectSerialTaskCreateInput {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("subtitleId")
+  private String subtitleId = null;
+
   @SerializedName("subtitleLang")
   private Integer subtitleLang = null;
 
@@ -100,6 +103,24 @@ public class ConvertsubtitleForVideoProjectSerialTaskCreateInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ConvertsubtitleForVideoProjectSerialTaskCreateInput subtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+    return this;
+  }
+
+   /**
+   * Get subtitleId
+   * @return subtitleId
+  **/
+  @Schema(description = "")
+  public String getSubtitleId() {
+    return subtitleId;
+  }
+
+  public void setSubtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
   }
 
   public ConvertsubtitleForVideoProjectSerialTaskCreateInput subtitleLang(Integer subtitleLang) {
@@ -169,6 +190,7 @@ public class ConvertsubtitleForVideoProjectSerialTaskCreateInput {
     return Objects.equals(this.arrangement, convertsubtitleForVideoProjectSerialTaskCreateInput.arrangement) &&
         Objects.equals(this.fileType, convertsubtitleForVideoProjectSerialTaskCreateInput.fileType) &&
         Objects.equals(this.name, convertsubtitleForVideoProjectSerialTaskCreateInput.name) &&
+        Objects.equals(this.subtitleId, convertsubtitleForVideoProjectSerialTaskCreateInput.subtitleId) &&
         Objects.equals(this.subtitleLang, convertsubtitleForVideoProjectSerialTaskCreateInput.subtitleLang) &&
         Objects.equals(this.targetLang, convertsubtitleForVideoProjectSerialTaskCreateInput.targetLang) &&
         Objects.equals(this.uri, convertsubtitleForVideoProjectSerialTaskCreateInput.uri);
@@ -176,7 +198,7 @@ public class ConvertsubtitleForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arrangement, fileType, name, subtitleLang, targetLang, uri);
+    return Objects.hash(arrangement, fileType, name, subtitleId, subtitleLang, targetLang, uri);
   }
 
 
@@ -188,6 +210,7 @@ public class ConvertsubtitleForVideoProjectSerialTaskCreateInput {
     sb.append("    arrangement: ").append(toIndentedString(arrangement)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
     sb.append("    subtitleLang: ").append(toIndentedString(subtitleLang)).append("\n");
     sb.append("    targetLang: ").append(toIndentedString(targetLang)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
