@@ -39,6 +39,9 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("subtitleId")
+  private String subtitleId = null;
+
   @SerializedName("subtitleLang")
   private Integer subtitleLang = null;
 
@@ -99,6 +102,24 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
     this.name = name;
   }
 
+  public SubtitleForVideoProjectSerialTaskCreateInput subtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+    return this;
+  }
+
+   /**
+   * Get subtitleId
+   * @return subtitleId
+  **/
+  @Schema(description = "")
+  public String getSubtitleId() {
+    return subtitleId;
+  }
+
+  public void setSubtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+  }
+
   public SubtitleForVideoProjectSerialTaskCreateInput subtitleLang(Integer subtitleLang) {
     this.subtitleLang = subtitleLang;
     return this;
@@ -148,13 +169,14 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
     return Objects.equals(this.arrangement, subtitleForVideoProjectSerialTaskCreateInput.arrangement) &&
         Objects.equals(this.fileType, subtitleForVideoProjectSerialTaskCreateInput.fileType) &&
         Objects.equals(this.name, subtitleForVideoProjectSerialTaskCreateInput.name) &&
+        Objects.equals(this.subtitleId, subtitleForVideoProjectSerialTaskCreateInput.subtitleId) &&
         Objects.equals(this.subtitleLang, subtitleForVideoProjectSerialTaskCreateInput.subtitleLang) &&
         Objects.equals(this.uri, subtitleForVideoProjectSerialTaskCreateInput.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arrangement, fileType, name, subtitleLang, uri);
+    return Objects.hash(arrangement, fileType, name, subtitleId, subtitleLang, uri);
   }
 
 
@@ -166,6 +188,7 @@ public class SubtitleForVideoProjectSerialTaskCreateInput {
     sb.append("    arrangement: ").append(toIndentedString(arrangement)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
     sb.append("    subtitleLang: ").append(toIndentedString(subtitleLang)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
