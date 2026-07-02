@@ -66,7 +66,7 @@ SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试�
         <dependency>
             <groupId>com.volcengine</groupId>
             <artifactId>volcengine-java-sdk-bom</artifactId>
-            <version>2.0.14</version>
+            <version>2.0.16</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -82,12 +82,12 @@ SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试�
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-vpc</artifactId>
-        <version>2.0.14</version>
+        <version>2.0.16</version>
     </dependency>
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-ecs</artifactId>
-        <version>2.0.14</version>
+        <version>2.0.16</version>
     </dependency>
 </dependencies>
 ```
