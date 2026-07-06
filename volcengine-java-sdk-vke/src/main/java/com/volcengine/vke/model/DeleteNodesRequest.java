@@ -209,8 +209,7 @@ public class DeleteNodesRequest {
    * Get nodePoolId
    * @return nodePoolId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getNodePoolId() {
     return nodePoolId;
   }

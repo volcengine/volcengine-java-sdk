@@ -47,6 +47,9 @@ public class ItemForListScalingPoliciesOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("Name")
+  private String name = null;
+
   @SerializedName("NodePoolId")
   private String nodePoolId = null;
 
@@ -195,6 +198,24 @@ public class ItemForListScalingPoliciesOutput {
     this.id = id;
   }
 
+  public ItemForListScalingPoliciesOutput name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public ItemForListScalingPoliciesOutput nodePoolId(String nodePoolId) {
     this.nodePoolId = nodePoolId;
     return this;
@@ -302,6 +323,7 @@ public class ItemForListScalingPoliciesOutput {
         Objects.equals(this.createClientToken, itemForListScalingPoliciesOutput.createClientToken) &&
         Objects.equals(this.enabled, itemForListScalingPoliciesOutput.enabled) &&
         Objects.equals(this.id, itemForListScalingPoliciesOutput.id) &&
+        Objects.equals(this.name, itemForListScalingPoliciesOutput.name) &&
         Objects.equals(this.nodePoolId, itemForListScalingPoliciesOutput.nodePoolId) &&
         Objects.equals(this.scheduledInstancePolicy, itemForListScalingPoliciesOutput.scheduledInstancePolicy) &&
         Objects.equals(this.scheduledPolicy, itemForListScalingPoliciesOutput.scheduledPolicy) &&
@@ -311,7 +333,7 @@ public class ItemForListScalingPoliciesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjustmentValue, clusterId, createClientToken, enabled, id, nodePoolId, scheduledInstancePolicy, scheduledPolicy, type, updateClientToken);
+    return Objects.hash(adjustmentValue, clusterId, createClientToken, enabled, id, name, nodePoolId, scheduledInstancePolicy, scheduledPolicy, type, updateClientToken);
   }
 
 
@@ -325,6 +347,7 @@ public class ItemForListScalingPoliciesOutput {
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
     sb.append("    scheduledInstancePolicy: ").append(toIndentedString(scheduledInstancePolicy)).append("\n");
     sb.append("    scheduledPolicy: ").append(toIndentedString(scheduledPolicy)).append("\n");

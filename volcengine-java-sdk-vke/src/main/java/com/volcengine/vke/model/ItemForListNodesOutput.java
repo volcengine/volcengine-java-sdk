@@ -37,6 +37,9 @@ public class ItemForListNodesOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
 
+  @SerializedName("AffinityGroupId")
+  private String affinityGroupId = null;
+
   @SerializedName("ClusterId")
   private String clusterId = null;
 
@@ -48,6 +51,9 @@ public class ItemForListNodesOutput {
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("GpuDriverVersion")
+  private String gpuDriverVersion = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -67,6 +73,9 @@ public class ItemForListNodesOutput {
   @SerializedName("KubernetesConfig")
   private KubernetesConfigForListNodesOutput kubernetesConfig = null;
 
+  @SerializedName("MetadataName")
+  private String metadataName = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -76,8 +85,53 @@ public class ItemForListNodesOutput {
   @SerializedName("PreScript")
   private String preScript = null;
 
-  @SerializedName("Roles")
-  private List<String> roles = null;
+  /**
+   * Gets or Sets roles
+   */
+  @JsonAdapter(RolesEnum.Adapter.class)
+  public enum RolesEnum {
+    @SerializedName("Master")
+    MASTER("Master"),
+    @SerializedName("Etcd")
+    ETCD("Etcd"),
+    @SerializedName("Worker")
+    WORKER("Worker");
+
+    private String value;
+
+    RolesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RolesEnum fromValue(String input) {
+      for (RolesEnum b : RolesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RolesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RolesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RolesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RolesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Roles")
+  private List<RolesEnum> roles = null;
 
   @SerializedName("Status")
   private StatusForListNodesOutput status = null;
@@ -104,6 +158,24 @@ public class ItemForListNodesOutput {
 
   public void setAdditionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
+  }
+
+  public ItemForListNodesOutput affinityGroupId(String affinityGroupId) {
+    this.affinityGroupId = affinityGroupId;
+    return this;
+  }
+
+   /**
+   * Get affinityGroupId
+   * @return affinityGroupId
+  **/
+  @Schema(description = "")
+  public String getAffinityGroupId() {
+    return affinityGroupId;
+  }
+
+  public void setAffinityGroupId(String affinityGroupId) {
+    this.affinityGroupId = affinityGroupId;
   }
 
   public ItemForListNodesOutput clusterId(String clusterId) {
@@ -176,6 +248,24 @@ public class ItemForListNodesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public ItemForListNodesOutput gpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
+    return this;
+  }
+
+   /**
+   * Get gpuDriverVersion
+   * @return gpuDriverVersion
+  **/
+  @Schema(description = "")
+  public String getGpuDriverVersion() {
+    return gpuDriverVersion;
+  }
+
+  public void setGpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
   }
 
   public ItemForListNodesOutput id(String id) {
@@ -287,6 +377,24 @@ public class ItemForListNodesOutput {
     this.kubernetesConfig = kubernetesConfig;
   }
 
+  public ItemForListNodesOutput metadataName(String metadataName) {
+    this.metadataName = metadataName;
+    return this;
+  }
+
+   /**
+   * Get metadataName
+   * @return metadataName
+  **/
+  @Schema(description = "")
+  public String getMetadataName() {
+    return metadataName;
+  }
+
+  public void setMetadataName(String metadataName) {
+    this.metadataName = metadataName;
+  }
+
   public ItemForListNodesOutput name(String name) {
     this.name = name;
     return this;
@@ -341,14 +449,14 @@ public class ItemForListNodesOutput {
     this.preScript = preScript;
   }
 
-  public ItemForListNodesOutput roles(List<String> roles) {
+  public ItemForListNodesOutput roles(List<RolesEnum> roles) {
     this.roles = roles;
     return this;
   }
 
-  public ItemForListNodesOutput addRolesItem(String rolesItem) {
+  public ItemForListNodesOutput addRolesItem(RolesEnum rolesItem) {
     if (this.roles == null) {
-      this.roles = new ArrayList<String>();
+      this.roles = new ArrayList<RolesEnum>();
     }
     this.roles.add(rolesItem);
     return this;
@@ -359,11 +467,11 @@ public class ItemForListNodesOutput {
    * @return roles
   **/
   @Schema(description = "")
-  public List<String> getRoles() {
+  public List<RolesEnum> getRoles() {
     return roles;
   }
 
-  public void setRoles(List<String> roles) {
+  public void setRoles(List<RolesEnum> roles) {
     this.roles = roles;
   }
 
@@ -433,16 +541,19 @@ public class ItemForListNodesOutput {
     }
     ItemForListNodesOutput itemForListNodesOutput = (ItemForListNodesOutput) o;
     return Objects.equals(this.additionalContainerStorageEnabled, itemForListNodesOutput.additionalContainerStorageEnabled) &&
+        Objects.equals(this.affinityGroupId, itemForListNodesOutput.affinityGroupId) &&
         Objects.equals(this.clusterId, itemForListNodesOutput.clusterId) &&
         Objects.equals(this.containerStoragePath, itemForListNodesOutput.containerStoragePath) &&
         Objects.equals(this.createClientToken, itemForListNodesOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListNodesOutput.createTime) &&
+        Objects.equals(this.gpuDriverVersion, itemForListNodesOutput.gpuDriverVersion) &&
         Objects.equals(this.id, itemForListNodesOutput.id) &&
         Objects.equals(this.imageId, itemForListNodesOutput.imageId) &&
         Objects.equals(this.initializeScript, itemForListNodesOutput.initializeScript) &&
         Objects.equals(this.instanceId, itemForListNodesOutput.instanceId) &&
         Objects.equals(this.isVirtual, itemForListNodesOutput.isVirtual) &&
         Objects.equals(this.kubernetesConfig, itemForListNodesOutput.kubernetesConfig) &&
+        Objects.equals(this.metadataName, itemForListNodesOutput.metadataName) &&
         Objects.equals(this.name, itemForListNodesOutput.name) &&
         Objects.equals(this.nodePoolId, itemForListNodesOutput.nodePoolId) &&
         Objects.equals(this.preScript, itemForListNodesOutput.preScript) &&
@@ -454,7 +565,7 @@ public class ItemForListNodesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, preScript, roles, status, updateTime, zoneId);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupId, clusterId, containerStoragePath, createClientToken, createTime, gpuDriverVersion, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, metadataName, name, nodePoolId, preScript, roles, status, updateTime, zoneId);
   }
 
 
@@ -464,16 +575,19 @@ public class ItemForListNodesOutput {
     sb.append("class ItemForListNodesOutput {\n");
     
     sb.append("    additionalContainerStorageEnabled: ").append(toIndentedString(additionalContainerStorageEnabled)).append("\n");
+    sb.append("    affinityGroupId: ").append(toIndentedString(affinityGroupId)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    isVirtual: ").append(toIndentedString(isVirtual)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
+    sb.append("    metadataName: ").append(toIndentedString(metadataName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
     sb.append("    preScript: ").append(toIndentedString(preScript)).append("\n");

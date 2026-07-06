@@ -45,6 +45,9 @@ public class CreateNodesRequest {
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
 
+  @SerializedName("GpuDriverVersion")
+  private String gpuDriverVersion = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -140,6 +143,24 @@ public class CreateNodesRequest {
 
   public void setContainerStoragePath(String containerStoragePath) {
     this.containerStoragePath = containerStoragePath;
+  }
+
+  public CreateNodesRequest gpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
+    return this;
+  }
+
+   /**
+   * Get gpuDriverVersion
+   * @return gpuDriverVersion
+  **/
+  @Schema(description = "")
+  public String getGpuDriverVersion() {
+    return gpuDriverVersion;
+  }
+
+  public void setGpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
   }
 
   public CreateNodesRequest imageId(String imageId) {
@@ -309,6 +330,7 @@ public class CreateNodesRequest {
         Objects.equals(this.clientToken, createNodesRequest.clientToken) &&
         Objects.equals(this.clusterId, createNodesRequest.clusterId) &&
         Objects.equals(this.containerStoragePath, createNodesRequest.containerStoragePath) &&
+        Objects.equals(this.gpuDriverVersion, createNodesRequest.gpuDriverVersion) &&
         Objects.equals(this.imageId, createNodesRequest.imageId) &&
         Objects.equals(this.initializeScript, createNodesRequest.initializeScript) &&
         Objects.equals(this.instanceIds, createNodesRequest.instanceIds) &&
@@ -321,7 +343,7 @@ public class CreateNodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, gpuDriverVersion, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
   }
 
 
@@ -334,6 +356,7 @@ public class CreateNodesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
+    sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
