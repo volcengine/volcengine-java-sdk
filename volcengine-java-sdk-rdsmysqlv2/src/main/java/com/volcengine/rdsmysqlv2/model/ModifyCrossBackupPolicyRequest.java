@@ -33,6 +33,9 @@ public class ModifyCrossBackupPolicyRequest {
   @SerializedName("BackupEnabled")
   private Boolean backupEnabled = null;
 
+  @SerializedName("CrossBackupAllRetention")
+  private Boolean crossBackupAllRetention = null;
+
   @SerializedName("CrossBackupRegion")
   private String crossBackupRegion = null;
 
@@ -61,6 +64,24 @@ public class ModifyCrossBackupPolicyRequest {
 
   public void setBackupEnabled(Boolean backupEnabled) {
     this.backupEnabled = backupEnabled;
+  }
+
+  public ModifyCrossBackupPolicyRequest crossBackupAllRetention(Boolean crossBackupAllRetention) {
+    this.crossBackupAllRetention = crossBackupAllRetention;
+    return this;
+  }
+
+   /**
+   * Get crossBackupAllRetention
+   * @return crossBackupAllRetention
+  **/
+  @Schema(description = "")
+  public Boolean isCrossBackupAllRetention() {
+    return crossBackupAllRetention;
+  }
+
+  public void setCrossBackupAllRetention(Boolean crossBackupAllRetention) {
+    this.crossBackupAllRetention = crossBackupAllRetention;
   }
 
   public ModifyCrossBackupPolicyRequest crossBackupRegion(String crossBackupRegion) {
@@ -147,6 +168,7 @@ public class ModifyCrossBackupPolicyRequest {
     }
     ModifyCrossBackupPolicyRequest modifyCrossBackupPolicyRequest = (ModifyCrossBackupPolicyRequest) o;
     return Objects.equals(this.backupEnabled, modifyCrossBackupPolicyRequest.backupEnabled) &&
+        Objects.equals(this.crossBackupAllRetention, modifyCrossBackupPolicyRequest.crossBackupAllRetention) &&
         Objects.equals(this.crossBackupRegion, modifyCrossBackupPolicyRequest.crossBackupRegion) &&
         Objects.equals(this.instanceId, modifyCrossBackupPolicyRequest.instanceId) &&
         Objects.equals(this.logBackupEnabled, modifyCrossBackupPolicyRequest.logBackupEnabled) &&
@@ -155,7 +177,7 @@ public class ModifyCrossBackupPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEnabled, crossBackupRegion, instanceId, logBackupEnabled, retention);
+    return Objects.hash(backupEnabled, crossBackupAllRetention, crossBackupRegion, instanceId, logBackupEnabled, retention);
   }
 
 
@@ -165,6 +187,7 @@ public class ModifyCrossBackupPolicyRequest {
     sb.append("class ModifyCrossBackupPolicyRequest {\n");
     
     sb.append("    backupEnabled: ").append(toIndentedString(backupEnabled)).append("\n");
+    sb.append("    crossBackupAllRetention: ").append(toIndentedString(crossBackupAllRetention)).append("\n");
     sb.append("    crossBackupRegion: ").append(toIndentedString(crossBackupRegion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    logBackupEnabled: ").append(toIndentedString(logBackupEnabled)).append("\n");

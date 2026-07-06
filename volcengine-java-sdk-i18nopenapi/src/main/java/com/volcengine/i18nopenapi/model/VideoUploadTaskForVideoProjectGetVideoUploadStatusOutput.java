@@ -39,6 +39,9 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
   @SerializedName("status")
   private Integer status = null;
 
+  @SerializedName("subtitleId")
+  private String subtitleId = null;
+
   @SerializedName("videoId")
   private String videoId = null;
 
@@ -99,6 +102,24 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     this.status = status;
   }
 
+  public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput subtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+    return this;
+  }
+
+   /**
+   * Get subtitleId
+   * @return subtitleId
+  **/
+  @Schema(description = "")
+  public String getSubtitleId() {
+    return subtitleId;
+  }
+
+  public void setSubtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+  }
+
   public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput videoId(String videoId) {
     this.videoId = videoId;
     return this;
@@ -148,13 +169,14 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     return Objects.equals(this.batchId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.batchId) &&
         Objects.equals(this.projectId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.projectId) &&
         Objects.equals(this.status, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.status) &&
+        Objects.equals(this.subtitleId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.subtitleId) &&
         Objects.equals(this.videoId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.videoId) &&
         Objects.equals(this.videoUrl, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.videoUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId, projectId, status, videoId, videoUrl);
+    return Objects.hash(batchId, projectId, status, subtitleId, videoId, videoUrl);
   }
 
 
@@ -166,6 +188,7 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
     sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
     sb.append("    videoUrl: ").append(toIndentedString(videoUrl)).append("\n");
     sb.append("}");

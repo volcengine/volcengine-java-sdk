@@ -36,6 +36,9 @@ public class UpgradeDBInstanceEngineMinorVersionRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ObservationHours")
+  private Integer observationHours = null;
+
   @SerializedName("SpecifiedSwitchEndTime")
   private String specifiedSwitchEndTime = null;
 
@@ -83,6 +86,24 @@ public class UpgradeDBInstanceEngineMinorVersionRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public UpgradeDBInstanceEngineMinorVersionRequest observationHours(Integer observationHours) {
+    this.observationHours = observationHours;
+    return this;
+  }
+
+   /**
+   * Get observationHours
+   * @return observationHours
+  **/
+  @Schema(description = "")
+  public Integer getObservationHours() {
+    return observationHours;
+  }
+
+  public void setObservationHours(Integer observationHours) {
+    this.observationHours = observationHours;
   }
 
   public UpgradeDBInstanceEngineMinorVersionRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
@@ -170,6 +191,7 @@ public class UpgradeDBInstanceEngineMinorVersionRequest {
     UpgradeDBInstanceEngineMinorVersionRequest upgradeDBInstanceEngineMinorVersionRequest = (UpgradeDBInstanceEngineMinorVersionRequest) o;
     return Objects.equals(this.estimateOnly, upgradeDBInstanceEngineMinorVersionRequest.estimateOnly) &&
         Objects.equals(this.instanceId, upgradeDBInstanceEngineMinorVersionRequest.instanceId) &&
+        Objects.equals(this.observationHours, upgradeDBInstanceEngineMinorVersionRequest.observationHours) &&
         Objects.equals(this.specifiedSwitchEndTime, upgradeDBInstanceEngineMinorVersionRequest.specifiedSwitchEndTime) &&
         Objects.equals(this.specifiedSwitchStartTime, upgradeDBInstanceEngineMinorVersionRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.switchType, upgradeDBInstanceEngineMinorVersionRequest.switchType) &&
@@ -178,7 +200,7 @@ public class UpgradeDBInstanceEngineMinorVersionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(estimateOnly, instanceId, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType, targetMinorVersion);
+    return Objects.hash(estimateOnly, instanceId, observationHours, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType, targetMinorVersion);
   }
 
 
@@ -189,6 +211,7 @@ public class UpgradeDBInstanceEngineMinorVersionRequest {
     
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    observationHours: ").append(toIndentedString(observationHours)).append("\n");
     sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
     sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");

@@ -804,6 +804,30 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- partner ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("partner", new ServiceEndpointInfo(
+                "partner",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- dramart ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("dramart", new ServiceEndpointInfo(
+                "dramart",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- agentsphere ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("agentsphere", new ServiceEndpointInfo(
+                "agentsphere",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

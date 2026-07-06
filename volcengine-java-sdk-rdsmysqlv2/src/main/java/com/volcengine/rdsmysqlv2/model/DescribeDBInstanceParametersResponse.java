@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput;
 import com.volcengine.rdsmysqlv2.model.ParameterForDescribeDBInstanceParametersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstanceParametersResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ApplyParamTemplateInfo")
+  private ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput applyParamTemplateInfo = null;
+
   @SerializedName("DBEngine")
   private String dbEngine = null;
 
@@ -47,6 +51,25 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
 
   @SerializedName("Parameters")
   private List<ParameterForDescribeDBInstanceParametersOutput> parameters = null;
+
+  public DescribeDBInstanceParametersResponse applyParamTemplateInfo(ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput applyParamTemplateInfo) {
+    this.applyParamTemplateInfo = applyParamTemplateInfo;
+    return this;
+  }
+
+   /**
+   * Get applyParamTemplateInfo
+   * @return applyParamTemplateInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput getApplyParamTemplateInfo() {
+    return applyParamTemplateInfo;
+  }
+
+  public void setApplyParamTemplateInfo(ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput applyParamTemplateInfo) {
+    this.applyParamTemplateInfo = applyParamTemplateInfo;
+  }
 
   public DescribeDBInstanceParametersResponse dbEngine(String dbEngine) {
     this.dbEngine = dbEngine;
@@ -157,7 +180,8 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
       return false;
     }
     DescribeDBInstanceParametersResponse describeDBInstanceParametersResponse = (DescribeDBInstanceParametersResponse) o;
-    return Objects.equals(this.dbEngine, describeDBInstanceParametersResponse.dbEngine) &&
+    return Objects.equals(this.applyParamTemplateInfo, describeDBInstanceParametersResponse.applyParamTemplateInfo) &&
+        Objects.equals(this.dbEngine, describeDBInstanceParametersResponse.dbEngine) &&
         Objects.equals(this.dbEngineVersion, describeDBInstanceParametersResponse.dbEngineVersion) &&
         Objects.equals(this.instanceId, describeDBInstanceParametersResponse.instanceId) &&
         Objects.equals(this.parameterCount, describeDBInstanceParametersResponse.parameterCount) &&
@@ -166,7 +190,7 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbEngine, dbEngineVersion, instanceId, parameterCount, parameters);
+    return Objects.hash(applyParamTemplateInfo, dbEngine, dbEngineVersion, instanceId, parameterCount, parameters);
   }
 
 
@@ -175,6 +199,7 @@ public class DescribeDBInstanceParametersResponse extends com.volcengine.model.A
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstanceParametersResponse {\n");
     
+    sb.append("    applyParamTemplateInfo: ").append(toIndentedString(applyParamTemplateInfo)).append("\n");
     sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

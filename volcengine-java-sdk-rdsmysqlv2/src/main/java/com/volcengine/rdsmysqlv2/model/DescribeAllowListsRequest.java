@@ -42,6 +42,9 @@ public class DescribeAllowListsRequest {
   @SerializedName("QueryDefault")
   private Boolean queryDefault = null;
 
+  @SerializedName("QueryInstance")
+  private Boolean queryInstance = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
 
@@ -120,6 +123,24 @@ public class DescribeAllowListsRequest {
     this.queryDefault = queryDefault;
   }
 
+  public DescribeAllowListsRequest queryInstance(Boolean queryInstance) {
+    this.queryInstance = queryInstance;
+    return this;
+  }
+
+   /**
+   * Get queryInstance
+   * @return queryInstance
+  **/
+  @Schema(description = "")
+  public Boolean isQueryInstance() {
+    return queryInstance;
+  }
+
+  public void setQueryInstance(Boolean queryInstance) {
+    this.queryInstance = queryInstance;
+  }
+
   public DescribeAllowListsRequest regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -170,13 +191,14 @@ public class DescribeAllowListsRequest {
         Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
         Objects.equals(this.projectName, describeAllowListsRequest.projectName) &&
         Objects.equals(this.queryDefault, describeAllowListsRequest.queryDefault) &&
+        Objects.equals(this.queryInstance, describeAllowListsRequest.queryInstance) &&
         Objects.equals(this.regionId, describeAllowListsRequest.regionId) &&
         Objects.equals(this.withIpList, describeAllowListsRequest.withIpList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, instanceId, projectName, queryDefault, regionId, withIpList);
+    return Objects.hash(ipAddress, instanceId, projectName, queryDefault, queryInstance, regionId, withIpList);
   }
 
 
@@ -189,6 +211,7 @@ public class DescribeAllowListsRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    queryDefault: ").append(toIndentedString(queryDefault)).append("\n");
+    sb.append("    queryInstance: ").append(toIndentedString(queryInstance)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    withIpList: ").append(toIndentedString(withIpList)).append("\n");
     sb.append("}");

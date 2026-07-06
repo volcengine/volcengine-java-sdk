@@ -48,7 +48,9 @@ public class DiagnoseConfigForGetJobOutput {
     @SerializedName("PythonDetection")
     PYTHONDETECTION("PythonDetection"),
     @SerializedName("LogDetection")
-    LOGDETECTION("LogDetection");
+    LOGDETECTION("LogDetection"),
+    @SerializedName("VecclHangDetection")
+    VECCLHANGDETECTION("VecclHangDetection");
 
     private String value;
 

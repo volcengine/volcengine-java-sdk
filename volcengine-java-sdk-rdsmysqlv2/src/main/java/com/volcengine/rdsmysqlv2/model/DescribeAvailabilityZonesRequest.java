@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class DescribeAvailabilityZonesRequest {
+  @SerializedName("SpecFamily")
+  private String specFamily = null;
+
+  @SerializedName("StorageType")
+  private String storageType = null;
+
+  public DescribeAvailabilityZonesRequest specFamily(String specFamily) {
+    this.specFamily = specFamily;
+    return this;
+  }
+
+   /**
+   * Get specFamily
+   * @return specFamily
+  **/
+  @Schema(description = "")
+  public String getSpecFamily() {
+    return specFamily;
+  }
+
+  public void setSpecFamily(String specFamily) {
+    this.specFamily = specFamily;
+  }
+
+  public DescribeAvailabilityZonesRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class DescribeAvailabilityZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeAvailabilityZonesRequest describeAvailabilityZonesRequest = (DescribeAvailabilityZonesRequest) o;
+    return Objects.equals(this.specFamily, describeAvailabilityZonesRequest.specFamily) &&
+        Objects.equals(this.storageType, describeAvailabilityZonesRequest.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(specFamily, storageType);
   }
 
 
@@ -46,6 +97,8 @@ public class DescribeAvailabilityZonesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAvailabilityZonesRequest {\n");
     
+    sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

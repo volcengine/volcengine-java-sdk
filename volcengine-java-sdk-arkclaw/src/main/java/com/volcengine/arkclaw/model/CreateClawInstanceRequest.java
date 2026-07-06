@@ -75,6 +75,9 @@ public class CreateClawInstanceRequest {
   @SerializedName("Spec")
   private String spec = null;
 
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
   @SerializedName("UserPoolUserUid")
   private String userPoolUserUid = null;
 
@@ -351,6 +354,24 @@ public class CreateClawInstanceRequest {
     this.spec = spec;
   }
 
+  public CreateClawInstanceRequest templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
   public CreateClawInstanceRequest userPoolUserUid(String userPoolUserUid) {
     this.userPoolUserUid = userPoolUserUid;
     return this;
@@ -394,12 +415,13 @@ public class CreateClawInstanceRequest {
         Objects.equals(this.soul, createClawInstanceRequest.soul) &&
         Objects.equals(this.spaceId, createClawInstanceRequest.spaceId) &&
         Objects.equals(this.spec, createClawInstanceRequest.spec) &&
+        Objects.equals(this.templateId, createClawInstanceRequest.templateId) &&
         Objects.equals(this.userPoolUserUid, createClawInstanceRequest.userPoolUserUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, billingType, clientToken, description, dryRun, modelApiKey, modelBaseUrl, modelName, modelSource, name, period, projectName, soul, spaceId, spec, userPoolUserUid);
+    return Objects.hash(autoRenew, billingType, clientToken, description, dryRun, modelApiKey, modelBaseUrl, modelName, modelSource, name, period, projectName, soul, spaceId, spec, templateId, userPoolUserUid);
   }
 
 
@@ -423,6 +445,7 @@ public class CreateClawInstanceRequest {
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    userPoolUserUid: ").append(toIndentedString(userPoolUserUid)).append("\n");
     sb.append("}");
     return sb.toString();

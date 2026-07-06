@@ -4,8 +4,7 @@
     <parent>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk</artifactId>
-        <version>2.0.13</version>
-        <relativePath>../pom.xml</relativePath>
+        <version>2.0.17</version>
     </parent>
     <build>
         <plugins>
@@ -26,6 +25,10 @@
         <jackson.version>2.12.7.1</jackson.version>
         <okhttp3-version>3.14.9</okhttp3-version>
         <bouncycastle-version>1.78.1</bouncycastle-version>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>

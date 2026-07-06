@@ -41,20 +41,14 @@ public class CreateDBInstanceRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;
 
-  @SerializedName("AutoRenew")
-  private String autoRenew = null;
-
   @SerializedName("AutoStorageScalingConfig")
   private AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfig = null;
 
+  @SerializedName("AutoUpgradeMinorVersion")
+  private String autoUpgradeMinorVersion = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;
-
-  @SerializedName("ChargeType")
-  private String chargeType = null;
-
-  @SerializedName("DBEngine")
-  private String dbEngine = null;
 
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
@@ -77,9 +71,6 @@ public class CreateDBInstanceRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceSpecName")
-  private String instanceSpecName = null;
-
   @SerializedName("InstanceTags")
   private List<InstanceTagForCreateDBInstanceInput> instanceTags = null;
 
@@ -95,14 +86,8 @@ public class CreateDBInstanceRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDBInstanceInput> nodeInfo = null;
 
-  @SerializedName("ParameterTemplateId")
-  private String parameterTemplateId = null;
-
   @SerializedName("Port")
   private Integer port = null;
-
-  @SerializedName("PrepaidPeriod")
-  private String prepaidPeriod = null;
 
   @SerializedName("PrivateIpAddress")
   private String privateIpAddress = null;
@@ -128,17 +113,8 @@ public class CreateDBInstanceRequest {
   @SerializedName("SuperAccountPassword")
   private String superAccountPassword = null;
 
-  @SerializedName("UsedTime")
-  private String usedTime = null;
-
-  @SerializedName("VpcID")
-  private String vpcID = null;
-
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  @SerializedName("Zone")
-  private String zone = null;
 
   public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
     this.allowListIds = allowListIds;
@@ -166,24 +142,6 @@ public class CreateDBInstanceRequest {
     this.allowListIds = allowListIds;
   }
 
-  public CreateDBInstanceRequest autoRenew(String autoRenew) {
-    this.autoRenew = autoRenew;
-    return this;
-  }
-
-   /**
-   * Get autoRenew
-   * @return autoRenew
-  **/
-  @Schema(description = "")
-  public String getAutoRenew() {
-    return autoRenew;
-  }
-
-  public void setAutoRenew(String autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
   public CreateDBInstanceRequest autoStorageScalingConfig(AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfig) {
     this.autoStorageScalingConfig = autoStorageScalingConfig;
     return this;
@@ -203,6 +161,24 @@ public class CreateDBInstanceRequest {
     this.autoStorageScalingConfig = autoStorageScalingConfig;
   }
 
+  public CreateDBInstanceRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get autoUpgradeMinorVersion
+   * @return autoUpgradeMinorVersion
+  **/
+  @Schema(description = "")
+  public String getAutoUpgradeMinorVersion() {
+    return autoUpgradeMinorVersion;
+  }
+
+  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+  }
+
   public CreateDBInstanceRequest chargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
     return this;
@@ -220,42 +196,6 @@ public class CreateDBInstanceRequest {
 
   public void setChargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
-  }
-
-  public CreateDBInstanceRequest chargeType(String chargeType) {
-    this.chargeType = chargeType;
-    return this;
-  }
-
-   /**
-   * Get chargeType
-   * @return chargeType
-  **/
-  @Schema(description = "")
-  public String getChargeType() {
-    return chargeType;
-  }
-
-  public void setChargeType(String chargeType) {
-    this.chargeType = chargeType;
-  }
-
-  public CreateDBInstanceRequest dbEngine(String dbEngine) {
-    this.dbEngine = dbEngine;
-    return this;
-  }
-
-   /**
-   * Get dbEngine
-   * @return dbEngine
-  **/
-  @Schema(description = "")
-  public String getDbEngine() {
-    return dbEngine;
-  }
-
-  public void setDbEngine(String dbEngine) {
-    this.dbEngine = dbEngine;
   }
 
   public CreateDBInstanceRequest dbEngineVersion(String dbEngineVersion) {
@@ -385,24 +325,6 @@ public class CreateDBInstanceRequest {
     this.instanceName = instanceName;
   }
 
-  public CreateDBInstanceRequest instanceSpecName(String instanceSpecName) {
-    this.instanceSpecName = instanceSpecName;
-    return this;
-  }
-
-   /**
-   * Get instanceSpecName
-   * @return instanceSpecName
-  **/
-  @Schema(description = "")
-  public String getInstanceSpecName() {
-    return instanceSpecName;
-  }
-
-  public void setInstanceSpecName(String instanceSpecName) {
-    this.instanceSpecName = instanceSpecName;
-  }
-
   public CreateDBInstanceRequest instanceTags(List<InstanceTagForCreateDBInstanceInput> instanceTags) {
     this.instanceTags = instanceTags;
     return this;
@@ -512,24 +434,6 @@ public class CreateDBInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
-  public CreateDBInstanceRequest parameterTemplateId(String parameterTemplateId) {
-    this.parameterTemplateId = parameterTemplateId;
-    return this;
-  }
-
-   /**
-   * Get parameterTemplateId
-   * @return parameterTemplateId
-  **/
-  @Schema(description = "")
-  public String getParameterTemplateId() {
-    return parameterTemplateId;
-  }
-
-  public void setParameterTemplateId(String parameterTemplateId) {
-    this.parameterTemplateId = parameterTemplateId;
-  }
-
   public CreateDBInstanceRequest port(Integer port) {
     this.port = port;
     return this;
@@ -546,24 +450,6 @@ public class CreateDBInstanceRequest {
 
   public void setPort(Integer port) {
     this.port = port;
-  }
-
-  public CreateDBInstanceRequest prepaidPeriod(String prepaidPeriod) {
-    this.prepaidPeriod = prepaidPeriod;
-    return this;
-  }
-
-   /**
-   * Get prepaidPeriod
-   * @return prepaidPeriod
-  **/
-  @Schema(description = "")
-  public String getPrepaidPeriod() {
-    return prepaidPeriod;
-  }
-
-  public void setPrepaidPeriod(String prepaidPeriod) {
-    this.prepaidPeriod = prepaidPeriod;
   }
 
   public CreateDBInstanceRequest privateIpAddress(String privateIpAddress) {
@@ -714,42 +600,6 @@ public class CreateDBInstanceRequest {
     this.superAccountPassword = superAccountPassword;
   }
 
-  public CreateDBInstanceRequest usedTime(String usedTime) {
-    this.usedTime = usedTime;
-    return this;
-  }
-
-   /**
-   * Get usedTime
-   * @return usedTime
-  **/
-  @Schema(description = "")
-  public String getUsedTime() {
-    return usedTime;
-  }
-
-  public void setUsedTime(String usedTime) {
-    this.usedTime = usedTime;
-  }
-
-  public CreateDBInstanceRequest vpcID(String vpcID) {
-    this.vpcID = vpcID;
-    return this;
-  }
-
-   /**
-   * Get vpcID
-   * @return vpcID
-  **/
-  @Schema(description = "")
-  public String getVpcID() {
-    return vpcID;
-  }
-
-  public void setVpcID(String vpcID) {
-    this.vpcID = vpcID;
-  }
-
   public CreateDBInstanceRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -769,24 +619,6 @@ public class CreateDBInstanceRequest {
     this.vpcId = vpcId;
   }
 
-  public CreateDBInstanceRequest zone(String zone) {
-    this.zone = zone;
-    return this;
-  }
-
-   /**
-   * Get zone
-   * @return zone
-  **/
-  @Schema(description = "")
-  public String getZone() {
-    return zone;
-  }
-
-  public void setZone(String zone) {
-    this.zone = zone;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -798,11 +630,9 @@ public class CreateDBInstanceRequest {
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
     return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
-        Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
         Objects.equals(this.autoStorageScalingConfig, createDBInstanceRequest.autoStorageScalingConfig) &&
+        Objects.equals(this.autoUpgradeMinorVersion, createDBInstanceRequest.autoUpgradeMinorVersion) &&
         Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
-        Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
-        Objects.equals(this.dbEngine, createDBInstanceRequest.dbEngine) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbParamGroupId, createDBInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
@@ -810,15 +640,12 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.enableExternalReplication, createDBInstanceRequest.enableExternalReplication) &&
         Objects.equals(this.engineType, createDBInstanceRequest.engineType) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
-        Objects.equals(this.instanceSpecName, createDBInstanceRequest.instanceSpecName) &&
         Objects.equals(this.instanceTags, createDBInstanceRequest.instanceTags) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
         Objects.equals(this.maintenanceWindow, createDBInstanceRequest.maintenanceWindow) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
-        Objects.equals(this.parameterTemplateId, createDBInstanceRequest.parameterTemplateId) &&
         Objects.equals(this.port, createDBInstanceRequest.port) &&
-        Objects.equals(this.prepaidPeriod, createDBInstanceRequest.prepaidPeriod) &&
         Objects.equals(this.privateIpAddress, createDBInstanceRequest.privateIpAddress) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.proxyNodeCustom, createDBInstanceRequest.proxyNodeCustom) &&
@@ -827,15 +654,12 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
-        Objects.equals(this.usedTime, createDBInstanceRequest.usedTime) &&
-        Objects.equals(this.vpcID, createDBInstanceRequest.vpcID) &&
-        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
-        Objects.equals(this.zone, createDBInstanceRequest.zone);
+        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoRenew, autoStorageScalingConfig, chargeInfo, chargeType, dbEngine, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, enableExternalReplication, engineType, instanceName, instanceSpecName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, parameterTemplateId, port, prepaidPeriod, privateIpAddress, projectName, proxyNodeCustom, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, usedTime, vpcID, vpcId, zone);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, autoUpgradeMinorVersion, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, enableExternalReplication, engineType, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, privateIpAddress, projectName, proxyNodeCustom, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -845,11 +669,9 @@ public class CreateDBInstanceRequest {
     sb.append("class CreateDBInstanceRequest {\n");
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
-    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
+    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
-    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
@@ -857,15 +679,12 @@ public class CreateDBInstanceRequest {
     sb.append("    enableExternalReplication: ").append(toIndentedString(enableExternalReplication)).append("\n");
     sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
-    sb.append("    instanceSpecName: ").append(toIndentedString(instanceSpecName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
-    sb.append("    parameterTemplateId: ").append(toIndentedString(parameterTemplateId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
-    sb.append("    prepaidPeriod: ").append(toIndentedString(prepaidPeriod)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
@@ -874,10 +693,7 @@ public class CreateDBInstanceRequest {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
-    sb.append("    usedTime: ").append(toIndentedString(usedTime)).append("\n");
-    sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

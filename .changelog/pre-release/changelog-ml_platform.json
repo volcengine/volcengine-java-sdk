@@ -1,0 +1,5 @@
+{
+  "description": "ML_PLATFORM: 新增 ListTeleOpTaskRobotModels, StopTeleOpTask, SubmitTeleOpTask, UpdateTeleOpTask, CreateTeleOpTask, CreateVepfsFilesetPermission, GetTeleOpTask, StartTeleOpTask, StartVRTeleOpTask, DeleteTeleOpTask, DeleteVepfsUserPermission, ListTeleOpTasks；修改 GetJob, CreateDevInstance, UpdateJob, UpdateResourceGroup, CreateJob, CreateResourceGroup, CreateResourceQueue, ListDevInstances, ListResourceGroups, StopJob, UpdateDevInstance, GetDeployment, GetDevInstance, GetResourceGroup, CreateDeployment, GetResourceQueue, ListResourceQueues, UpdateDeployment, UpdateResourceQueue",
+  "modules": "service/ml_platform",
+  "type": "breaking-change"
+}

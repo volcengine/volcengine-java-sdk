@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForUpdateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.EfsAPForUpdateDevInstanceInput;
+import com.volcengine.mlplatform20240701.model.EfsForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasAPForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.NasForUpdateDevInstanceInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateDevInstanceInput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForUpdateDevInstanceInput {
   @SerializedName("Cfs")
   private CfsForUpdateDevInstanceInput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForUpdateDevInstanceInput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForUpdateDevInstanceInput efsAP = null;
 
   @SerializedName("Nas")
   private NasForUpdateDevInstanceInput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForUpdateDevInstanceInput {
 
   public void setCfs(CfsForUpdateDevInstanceInput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForUpdateDevInstanceInput efs(EfsForUpdateDevInstanceInput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForUpdateDevInstanceInput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForUpdateDevInstanceInput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForUpdateDevInstanceInput efsAP(EfsAPForUpdateDevInstanceInput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForUpdateDevInstanceInput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForUpdateDevInstanceInput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForUpdateDevInstanceInput nas(NasForUpdateDevInstanceInput nas) {
@@ -225,6 +271,8 @@ public class ConfigForUpdateDevInstanceInput {
     }
     ConfigForUpdateDevInstanceInput configForUpdateDevInstanceInput = (ConfigForUpdateDevInstanceInput) o;
     return Objects.equals(this.cfs, configForUpdateDevInstanceInput.cfs) &&
+        Objects.equals(this.efs, configForUpdateDevInstanceInput.efs) &&
+        Objects.equals(this.efsAP, configForUpdateDevInstanceInput.efsAP) &&
         Objects.equals(this.nas, configForUpdateDevInstanceInput.nas) &&
         Objects.equals(this.nasAP, configForUpdateDevInstanceInput.nasAP) &&
         Objects.equals(this.sfcs, configForUpdateDevInstanceInput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForUpdateDevInstanceInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForUpdateDevInstanceInput {
     sb.append("class ConfigForUpdateDevInstanceInput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");

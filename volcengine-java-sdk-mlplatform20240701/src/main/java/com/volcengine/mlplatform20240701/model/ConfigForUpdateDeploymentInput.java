@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.EfsAPForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.EfsForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasAPForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateDeploymentInput;
@@ -40,6 +42,12 @@ import javax.validation.Valid;
 public class ConfigForUpdateDeploymentInput {
   @SerializedName("Cfs")
   private CfsForUpdateDeploymentInput cfs = null;
+
+  @SerializedName("Efs")
+  private EfsForUpdateDeploymentInput efs = null;
+
+  @SerializedName("EfsAP")
+  private EfsAPForUpdateDeploymentInput efsAP = null;
 
   @SerializedName("Nas")
   private NasForUpdateDeploymentInput nas = null;
@@ -79,6 +87,44 @@ public class ConfigForUpdateDeploymentInput {
 
   public void setCfs(CfsForUpdateDeploymentInput cfs) {
     this.cfs = cfs;
+  }
+
+  public ConfigForUpdateDeploymentInput efs(EfsForUpdateDeploymentInput efs) {
+    this.efs = efs;
+    return this;
+  }
+
+   /**
+   * Get efs
+   * @return efs
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsForUpdateDeploymentInput getEfs() {
+    return efs;
+  }
+
+  public void setEfs(EfsForUpdateDeploymentInput efs) {
+    this.efs = efs;
+  }
+
+  public ConfigForUpdateDeploymentInput efsAP(EfsAPForUpdateDeploymentInput efsAP) {
+    this.efsAP = efsAP;
+    return this;
+  }
+
+   /**
+   * Get efsAP
+   * @return efsAP
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsAPForUpdateDeploymentInput getEfsAP() {
+    return efsAP;
+  }
+
+  public void setEfsAP(EfsAPForUpdateDeploymentInput efsAP) {
+    this.efsAP = efsAP;
   }
 
   public ConfigForUpdateDeploymentInput nas(NasForUpdateDeploymentInput nas) {
@@ -225,6 +271,8 @@ public class ConfigForUpdateDeploymentInput {
     }
     ConfigForUpdateDeploymentInput configForUpdateDeploymentInput = (ConfigForUpdateDeploymentInput) o;
     return Objects.equals(this.cfs, configForUpdateDeploymentInput.cfs) &&
+        Objects.equals(this.efs, configForUpdateDeploymentInput.efs) &&
+        Objects.equals(this.efsAP, configForUpdateDeploymentInput.efsAP) &&
         Objects.equals(this.nas, configForUpdateDeploymentInput.nas) &&
         Objects.equals(this.nasAP, configForUpdateDeploymentInput.nasAP) &&
         Objects.equals(this.sfcs, configForUpdateDeploymentInput.sfcs) &&
@@ -236,7 +284,7 @@ public class ConfigForUpdateDeploymentInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfs, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
+    return Objects.hash(cfs, efs, efsAP, nas, nasAP, sfcs, tos, tosAP, vepfs, vepfsAP);
   }
 
 
@@ -246,6 +294,8 @@ public class ConfigForUpdateDeploymentInput {
     sb.append("class ConfigForUpdateDeploymentInput {\n");
     
     sb.append("    cfs: ").append(toIndentedString(cfs)).append("\n");
+    sb.append("    efs: ").append(toIndentedString(efs)).append("\n");
+    sb.append("    efsAP: ").append(toIndentedString(efsAP)).append("\n");
     sb.append("    nas: ").append(toIndentedString(nas)).append("\n");
     sb.append("    nasAP: ").append(toIndentedString(nasAP)).append("\n");
     sb.append("    sfcs: ").append(toIndentedString(sfcs)).append("\n");

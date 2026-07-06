@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.CustomRouteStrategyForModifyDBEndpointInput;
 import com.volcengine.rdsmysqlv2.model.ReadOnlyNodeWeightForModifyDBEndpointInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +42,9 @@ public class ModifyDBEndpointRequest {
 
   @SerializedName("ConnectionPoolType")
   private String connectionPoolType = null;
+
+  @SerializedName("CustomRouteStrategy")
+  private CustomRouteStrategyForModifyDBEndpointInput customRouteStrategy = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -145,6 +149,25 @@ public class ModifyDBEndpointRequest {
 
   public void setConnectionPoolType(String connectionPoolType) {
     this.connectionPoolType = connectionPoolType;
+  }
+
+  public ModifyDBEndpointRequest customRouteStrategy(CustomRouteStrategyForModifyDBEndpointInput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
+    return this;
+  }
+
+   /**
+   * Get customRouteStrategy
+   * @return customRouteStrategy
+  **/
+  @Valid
+  @Schema(description = "")
+  public CustomRouteStrategyForModifyDBEndpointInput getCustomRouteStrategy() {
+    return customRouteStrategy;
+  }
+
+  public void setCustomRouteStrategy(CustomRouteStrategyForModifyDBEndpointInput customRouteStrategy) {
+    this.customRouteStrategy = customRouteStrategy;
   }
 
   public ModifyDBEndpointRequest description(String description) {
@@ -477,6 +500,7 @@ public class ModifyDBEndpointRequest {
     return Objects.equals(this.autoAddNewNodes, modifyDBEndpointRequest.autoAddNewNodes) &&
         Objects.equals(this.connectAllSlaveNodes, modifyDBEndpointRequest.connectAllSlaveNodes) &&
         Objects.equals(this.connectionPoolType, modifyDBEndpointRequest.connectionPoolType) &&
+        Objects.equals(this.customRouteStrategy, modifyDBEndpointRequest.customRouteStrategy) &&
         Objects.equals(this.description, modifyDBEndpointRequest.description) &&
         Objects.equals(this.enableConnectionPersistent, modifyDBEndpointRequest.enableConnectionPersistent) &&
         Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
@@ -498,7 +522,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, connectAllSlaveNodes, connectionPoolType, description, enableConnectionPersistent, endpointId, endpointName, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectAllSlaveNodes, connectionPoolType, customRouteStrategy, description, enableConnectionPersistent, endpointId, endpointName, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -510,6 +534,7 @@ public class ModifyDBEndpointRequest {
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
     sb.append("    connectAllSlaveNodes: ").append(toIndentedString(connectAllSlaveNodes)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
+    sb.append("    customRouteStrategy: ").append(toIndentedString(customRouteStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableConnectionPersistent: ").append(toIndentedString(enableConnectionPersistent)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");

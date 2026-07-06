@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class UpdateResourceGroupRequest {
+  @SerializedName("ByteKDSprofileEnabled")
+  private Boolean byteKDSprofileEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -53,6 +56,24 @@ public class UpdateResourceGroupRequest {
 
   @SerializedName("WorkloadNetworkMode")
   private String workloadNetworkMode = null;
+
+  public UpdateResourceGroupRequest byteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+    return this;
+  }
+
+   /**
+   * Get byteKDSprofileEnabled
+   * @return byteKDSprofileEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isByteKDSprofileEnabled() {
+    return byteKDSprofileEnabled;
+  }
+
+  public void setByteKDSprofileEnabled(Boolean byteKDSprofileEnabled) {
+    this.byteKDSprofileEnabled = byteKDSprofileEnabled;
+  }
 
   public UpdateResourceGroupRequest description(String description) {
     this.description = description;
@@ -194,7 +215,8 @@ public class UpdateResourceGroupRequest {
       return false;
     }
     UpdateResourceGroupRequest updateResourceGroupRequest = (UpdateResourceGroupRequest) o;
-    return Objects.equals(this.description, updateResourceGroupRequest.description) &&
+    return Objects.equals(this.byteKDSprofileEnabled, updateResourceGroupRequest.byteKDSprofileEnabled) &&
+        Objects.equals(this.description, updateResourceGroupRequest.description) &&
         Objects.equals(this.id, updateResourceGroupRequest.id) &&
         Objects.equals(this.name, updateResourceGroupRequest.name) &&
         Objects.equals(this.resourceConfig, updateResourceGroupRequest.resourceConfig) &&
@@ -205,7 +227,7 @@ public class UpdateResourceGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name, resourceConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
+    return Objects.hash(byteKDSprofileEnabled, description, id, name, resourceConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -214,6 +236,7 @@ public class UpdateResourceGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateResourceGroupRequest {\n");
     
+    sb.append("    byteKDSprofileEnabled: ").append(toIndentedString(byteKDSprofileEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

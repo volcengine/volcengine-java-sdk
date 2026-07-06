@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class CreateDBBlueGreenInstanceRequest {
+  @SerializedName("AutoUpgradeMinorVersion")
+  private String autoUpgradeMinorVersion = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBBlueGreenInstanceInput chargeInfo = null;
 
@@ -76,6 +79,24 @@ public class CreateDBBlueGreenInstanceRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public CreateDBBlueGreenInstanceRequest autoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get autoUpgradeMinorVersion
+   * @return autoUpgradeMinorVersion
+  **/
+  @Schema(description = "")
+  public String getAutoUpgradeMinorVersion() {
+    return autoUpgradeMinorVersion;
+  }
+
+  public void setAutoUpgradeMinorVersion(String autoUpgradeMinorVersion) {
+    this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+  }
 
   public CreateDBBlueGreenInstanceRequest chargeInfo(ChargeInfoForCreateDBBlueGreenInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
@@ -354,7 +375,8 @@ public class CreateDBBlueGreenInstanceRequest {
       return false;
     }
     CreateDBBlueGreenInstanceRequest createDBBlueGreenInstanceRequest = (CreateDBBlueGreenInstanceRequest) o;
-    return Objects.equals(this.chargeInfo, createDBBlueGreenInstanceRequest.chargeInfo) &&
+    return Objects.equals(this.autoUpgradeMinorVersion, createDBBlueGreenInstanceRequest.autoUpgradeMinorVersion) &&
+        Objects.equals(this.chargeInfo, createDBBlueGreenInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBBlueGreenInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbParamGroupId, createDBBlueGreenInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.deletionProtection, createDBBlueGreenInstanceRequest.deletionProtection) &&
@@ -372,7 +394,7 @@ public class CreateDBBlueGreenInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeInfo, dbEngineVersion, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceType, minorVersion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId);
+    return Objects.hash(autoUpgradeMinorVersion, chargeInfo, dbEngineVersion, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceType, minorVersion, nodeInfo, privateIpAddress, proxyNodeCustom, storageSpace, storageType, subnetId);
   }
 
 
@@ -381,6 +403,7 @@ public class CreateDBBlueGreenInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBBlueGreenInstanceRequest {\n");
     
+    sb.append("    autoUpgradeMinorVersion: ").append(toIndentedString(autoUpgradeMinorVersion)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
