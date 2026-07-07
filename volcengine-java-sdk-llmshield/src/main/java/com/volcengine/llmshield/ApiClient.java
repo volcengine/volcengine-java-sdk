@@ -29,8 +29,11 @@ public class ApiClient {
 
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
-    // 使用 null 作为 RequestBody 的 MediaType，避免 OkHttp 自动追加 charset=utf-8
-    // Content-Type header 由我们手动设置，确保与签名时一致
+    // 故意使用 null 作为 RequestBody 的 MediaType：
+    // 1) Volcengine 签名（Sign.DoSignRequest）依赖请求头 Content-Type 与实际字节序列化一致；
+    // 2) 若传入形如 "application/json" 的 MediaType，OkHttp 会在某些重载里追加 "; charset=utf-8"，
+    //    导致最终 Content-Type 与签名时的头不一致，从而被服务端拒签；
+    // 3) 因此这里保持 null，然后由下方 `.addHeader("Content-Type", CONTENT_TYPE_HEADER)` 手动设置。
     private static final MediaType JSON_MEDIA_TYPE = null;
 
     // ObjectMapper 是线程安全的，作为静态单例复用
@@ -54,76 +57,51 @@ public class ApiClient {
         this.region = region;
         this.timeout = timeout;
 
-        this.httpClient = buildHttpClient(timeout, null, 0);
-        this.streamingHttpClient = buildStreamingHttpClient(timeout, null, 0);
+        this.httpClient = buildHttpClient(timeout, null, 0, true);
+        this.streamingHttpClient = buildHttpClient(timeout, null, 0, false);
     }
 
     /**
-     * 构建 OkHttp 客户端（带 callTimeout 端到端超时）
+     * 构建 OkHttp 客户端。
+     *
+     * @param timeout          各阶段超时（毫秒），0 表示不超时
+     * @param proxy            代理地址（如 http://127.0.0.1:8080，无代理传 null）
+     * @param connMax          最大空闲连接数（<=0 时使用默认值 5）
+     * @param withCallTimeout  是否启用 callTimeout / readTimeout / writeTimeout：
+     *                         - true：普通请求，所有阶段超时统一为 timeout
+     *                         - false：流式请求，read/write/callTimeout 均置 0，
+     *                                  避免服务端两个 chunk 之间的思考空档（SSE / TTFT + token 生成间隔）
+     *                                  被读超时中断
      */
-    private OkHttpClient buildHttpClient(long timeout, String proxy, int connMax) {
+    private OkHttpClient buildHttpClient(long timeout, String proxy, int connMax, boolean withCallTimeout) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-        // 超时配置（OkHttp 3.x 原生支持 callTimeout 端到端超时）
         if (timeout < 0) {
             throw new IllegalArgumentException("Timeout must be >= 0");
         }
-        // timeout=0 表示不超时，与 jsonConfig 默认语义保持一致
-        builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
-               .writeTimeout(timeout, TimeUnit.MILLISECONDS)
-               .readTimeout(timeout, TimeUnit.MILLISECONDS)
-               .callTimeout(timeout, TimeUnit.MILLISECONDS);
+        // 建连超时始终受 timeout 约束；对流式接口而言，建连快慢本身不受 chunk 间隔影响。
+        builder.connectTimeout(timeout, TimeUnit.MILLISECONDS);
+        if (withCallTimeout) {
+            // 普通请求：写、读、端到端超时全部统一到 timeout
+            builder.writeTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .readTimeout(timeout, TimeUnit.MILLISECONDS)
+                   .callTimeout(timeout, TimeUnit.MILLISECONDS);
+        } else {
+            // 流式请求：仅保留 connectTimeout，其余置 0（无限），避免长流被中断
+            builder.writeTimeout(0, TimeUnit.MILLISECONDS)
+                   .readTimeout(0, TimeUnit.MILLISECONDS)
+                   .callTimeout(0, TimeUnit.MILLISECONDS);
+        }
 
         // 连接池配置
-        // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
+        // timeout<=0 表示"不超时"，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
         if (timeout > 0) {
             long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
             int maxIdleConns = (connMax > 0) ? connMax : 5;
             builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
         }
 
-        // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
-        builder.retryOnConnectionFailure(false);
-
-        // 代理配置
-        if (proxy != null && !proxy.isEmpty()) {
-            try {
-                URL purl = new URL(proxy);
-                int port = purl.getPort() < 0 ? purl.getDefaultPort() : purl.getPort();
-                builder.proxy(new Proxy(Proxy.Type.HTTP,
-                        new InetSocketAddress(purl.getHost(), port)));
-            } catch (MalformedURLException e) {
-                throw new IllegalArgumentException("Invalid Proxy Info：" + proxy, e);
-            }
-        }
-
-        return builder.build();
-    }
-
-    /**
-     * 构建流式请求专用 OkHttp 客户端（无 callTimeout，避免长连接被中断）
-     */
-    private OkHttpClient buildStreamingHttpClient(long timeout, String proxy, int connMax) {
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-
-        // 流式请求不设置 callTimeout，只设置各阶段超时
-        if (timeout < 0) {
-            throw new IllegalArgumentException("Timeout must be >= 0");
-        }
-        // timeout=0 表示不超时；callTimeout 固定为 0，避免长连接被端到端超时中断
-        builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
-               .writeTimeout(timeout, TimeUnit.MILLISECONDS)
-               .readTimeout(timeout, TimeUnit.MILLISECONDS)
-               .callTimeout(0, TimeUnit.MILLISECONDS);
-
-        // 连接池配置（复用主客户端的连接池配置）
-        // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
-        if (timeout > 0) {
-            long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
-            int maxIdleConns = (connMax > 0) ? connMax : 5;
-            builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
-        }
-
+        // 禁用所有重试：POST 是非幂等请求，任何重试都可能导致重复提交
         builder.retryOnConnectionFailure(false);
 
         // 代理配置
@@ -148,8 +126,8 @@ public class ApiClient {
         this.region = region;
         this.timeout = timeout;
 
-        this.httpClient = buildHttpClient(timeout, proxy, connMax);
-        this.streamingHttpClient = buildStreamingHttpClient(timeout, proxy, connMax);
+        this.httpClient = buildHttpClient(timeout, proxy, connMax, true);
+        this.streamingHttpClient = buildHttpClient(timeout, proxy, connMax, false);
     }
 
     /**
@@ -695,18 +673,19 @@ public class ApiClient {
         Response response = streamingHttpClient.newCall(signedRequest).execute();
         try {
             int statusCode = response.code();
+            ResponseBody rb = response.body();
 
             if (statusCode != 200) {
-                String responseBody = response.body().string();
+                String responseBody = rb == null ? "" : rb.string();
                 throw new IOException("HTTP request failed with status code: " + statusCode + ", response: " + responseBody);
             }
 
             // 注意：response 需要传递给调用者，正常返回路径不关闭
             // 调用者必须通过 GenerateStreamV2Response.close() 来释放资源
-            if (response.body() == null) {
+            if (rb == null) {
                 throw new IOException("Response body is null");
             }
-            return new GenerateStreamV2Response(response.body().byteStream(), response);
+            return new GenerateStreamV2Response(rb.byteStream(), response);
         } catch (Exception e) {
             response.close();
             throw e;

@@ -1,7 +1,5 @@
 package com.volcengine.llmshield;
 
-import okhttp3.Response;
-
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,9 +7,10 @@ import java.io.InputStream;
 // 生成响应类
 public class GenerateStreamV2Response implements Closeable {
     private final InputStream reader;
-    private final Response response;
+    // 使用 Closeable 抽象上层依赖，便于未来切换底层 HTTP client（OkHttp / JDK HttpClient 等）时上层 API 兼容不破。
+    private final Closeable response;
 
-    public GenerateStreamV2Response(InputStream reader, Response response) {
+    public GenerateStreamV2Response(InputStream reader, Closeable response) {
         this.reader = reader;
         this.response = response;
     }
@@ -30,15 +29,14 @@ public class GenerateStreamV2Response implements Closeable {
      */
     @Override
     public void close() throws IOException {
-        if (reader != null) {
-            try {
+        try {
+            if (reader != null) {
                 reader.close();
-            } catch (IOException e) {
-                // 忽略流关闭异常，继续关闭 response
             }
-        }
-        if (response != null) {
-            response.close();
+        } finally {
+            if (response != null) {
+                response.close();
+            }
         }
     }
 }
