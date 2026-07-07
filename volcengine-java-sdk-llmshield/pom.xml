@@ -6,37 +6,31 @@
         <artifactId>volcengine-java-sdk</artifactId>
         <version>2.0.17</version>
     </parent>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
     <artifactId>volcengine-java-sdk-llmshield</artifactId>
     <name>volcengine-java-sdk-llmshield</name>
     <description>The Java SDK for Volcengine llmshield</description>
     <properties>
-        <jackson.version>2.12.7.1</jackson.version>
+        <jackson.version>2.15.4</jackson.version>
         <okhttp3-version>4.12.0</okhttp3-version>
-        <bouncycastle-version>1.78.1</bouncycastle-version>
+        <bouncycastle-version>1.84</bouncycastle-version>
+        <gson.version>2.14.0</gson.version>
+        <commons-codec.version>1.22.0</commons-codec.version>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>org.jspecify</groupId>
-            <artifactId>jspecify</artifactId>
-            <version>1.0.0</version>
-        </dependency>
         <dependency>
             <groupId>at.favre.lib</groupId>
             <artifactId>hkdf</artifactId>
@@ -56,8 +50,7 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <!-- 可根据需要修改为最新稳定版本 -->
-            <version>2.10.1</version>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.threeten</groupId>
@@ -73,7 +66,7 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.15</version>
+            <version>${commons-codec.version}</version>
         </dependency>
     </dependencies>
 </project>
