@@ -65,12 +65,14 @@ public class ApiClient {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         // 超时配置（OkHttp 3.x 原生支持 callTimeout 端到端超时）
-        if (timeout > 0) {
-            builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .writeTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .readTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .callTimeout(timeout, TimeUnit.MILLISECONDS);
+        if (timeout < 0) {
+            throw new IllegalArgumentException("Timeout must be >= 0");
         }
+        // timeout=0 表示不超时，与 jsonConfig 默认语义保持一致
+        builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
+               .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+               .readTimeout(timeout, TimeUnit.MILLISECONDS)
+               .callTimeout(timeout, TimeUnit.MILLISECONDS);
 
         // 连接池配置
         // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
@@ -105,13 +107,14 @@ public class ApiClient {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         // 流式请求不设置 callTimeout，只设置各阶段超时
-        if (timeout > 0) {
-            builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .writeTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .readTimeout(timeout, TimeUnit.MILLISECONDS);
-            // callTimeout 设为 0 表示禁用端到端超时
-            builder.callTimeout(0, TimeUnit.MILLISECONDS);
+        if (timeout < 0) {
+            throw new IllegalArgumentException("Timeout must be >= 0");
         }
+        // timeout=0 表示不超时；callTimeout 固定为 0，避免长连接被端到端超时中断
+        builder.connectTimeout(timeout, TimeUnit.MILLISECONDS)
+               .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+               .readTimeout(timeout, TimeUnit.MILLISECONDS)
+               .callTimeout(0, TimeUnit.MILLISECONDS);
 
         // 连接池配置（复用主客户端的连接池配置）
         // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
@@ -324,7 +327,9 @@ public class ApiClient {
         try (Response response = httpClient.newCall(request).execute()) {
             return handler.apply(response);
         } catch (java.io.InterruptedIOException e) {
-            TimeoutException te = new TimeoutException("Request timed out after " + timeout + "ms");
+            TimeoutException te = new TimeoutException(timeout > 0
+                    ? "Request timed out after " + timeout + "ms"
+                    : "Request was interrupted");
             te.initCause(e);
             throw te;
         }
