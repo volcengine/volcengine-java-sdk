@@ -73,9 +73,12 @@ public class ApiClient {
         }
 
         // 连接池配置
-        long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
-        int maxIdleConns = (connMax > 0) ? connMax : 5;
-        builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+        // timeout<=0 表示“不超时”，此时不应推导出 0/负数 keepAliveDuration，避免 ConnectionPool 构造器抛异常。
+        if (timeout > 0) {
+            long connTtl = Math.min(timeout * 50, FIVE_MINUTES_MS);
+            int maxIdleConns = (connMax > 0) ? connMax : 5;
+            builder.connectionPool(new ConnectionPool(maxIdleConns, connTtl, TimeUnit.MILLISECONDS));
+        }
 
         // 禁用所有重试：POST是非幂等请求，任何重试都可能导致重复提交
         builder.retryOnConnectionFailure(false);
