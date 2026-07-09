@@ -4,29 +4,42 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.HashMap;
+import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeFormatterBuilder;
+import org.threeten.bp.format.DateTimeParseException;
 
 enum Top {
     ;
 
     private static final Gson GSON = new Gson();
+    private static final DateTimeFormatter ISO_OFFSET_DATE_TIME_FORMATTER =
+            new DateTimeFormatterBuilder()
+                    .parseCaseInsensitive()
+                    .append(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                    .toFormatter(Locale.ROOT);
+    private static final Pattern BASIC_OFFSET_SUFFIX =
+            Pattern.compile("([+-])(\\d{2})(\\d{2})?(\\d{2})?$");
     private static volatile StsCredentials cachedStsCredentials;
     private static volatile long cachedStsExpireTime;
 
@@ -52,8 +65,9 @@ enum Top {
     }
 
     static JsonObject requestTop(
-            TopInfo topInfo, String action, @Nullable Map<String, String> extraHeaders, byte[] body)
+            TopInfo topInfo, String action, Map<String, String> extraHeaders, byte[] body)
             throws IOException {
+        extraHeaders = (extraHeaders == null) ? new HashMap<>() : extraHeaders;
         // 如果配置了aicc_saas_trn，先通过STS获取临时凭证
         if (topInfo.aiccSaasTrn != null && !topInfo.aiccSaasTrn.isEmpty()) {
             try {
@@ -62,9 +76,6 @@ enum Top {
                     topInfo.ak = stsCred.accessKeyId;
                     topInfo.sk = stsCred.secretAccessKey;
                     topInfo.stsToken = stsCred.sessionToken;
-                    if (extraHeaders == null) {
-                        extraHeaders = new HashMap<>();
-                    }
                     extraHeaders.put("X-Security-Token", stsCred.sessionToken);
                     extraHeaders.put("sts_token", stsCred.sessionToken);
                     if (topInfo.targetUid != null && !topInfo.targetUid.isEmpty()) {
@@ -113,10 +124,8 @@ enum Top {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 connection.setRequestProperty(entry.getKey(), entry.getValue());
             }
-            if (extraHeaders != null) {
-                for (Map.Entry<String, String> entry : extraHeaders.entrySet()) {
-                    connection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
+            for (Map.Entry<String, String> entry : extraHeaders.entrySet()) {
+                connection.setRequestProperty(entry.getKey(), entry.getValue());
             }
 
             connection.setDoOutput(true);
@@ -136,9 +145,6 @@ enum Top {
         if (cachedStsCredentials != null && cachedStsExpireTime > now + 300) {
             return cachedStsCredentials;
         }
-
-        // 解析过期时间字符串为时间戳
-        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
         String action = "AssumeRole";
         String version = "2018-01-01";
@@ -195,8 +201,7 @@ enum Top {
             }
 
             cachedStsCredentials = stsResponse.result.credentials;
-            cachedStsExpireTime = java.time.OffsetDateTime.parse(stsResponse.result.credentials.expiredTime, formatter)
-                    .toEpochSecond();
+            cachedStsExpireTime = parseIsoOffsetTime(stsResponse.result.credentials.expiredTime) / 1000;
             return cachedStsCredentials;
         } finally {
             conn.disconnect();
@@ -218,9 +223,9 @@ enum Top {
      * 构造STS请求的签名头
      */
     private static Map<String, String> buildStsHeaders(String ak, String sk, String region, String service, URL url, byte[] body) {
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-        String nowDateTime = now.format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"));
-        String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        Date now = new Date();
+        String nowDateTime = formatUtc(now, "yyyyMMdd'T'HHmmss'Z'");
+        String nowDate = formatUtc(now, "yyyyMMdd");
 
         String contentSha256 = sha256(body);
 
@@ -275,9 +280,9 @@ enum Top {
     }
 
     private static Map<String, String> buildTopHeaders(TopInfo topInfo, URL url, byte[] body) {
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-        String nowDateTime = now.format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"));
-        String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        Date now = new Date();
+        String nowDateTime = formatUtc(now, "yyyyMMdd'T'HHmmss'Z'");
+        String nowDate = formatUtc(now, "yyyyMMdd");
 
         String contentSha256 = sha256(body);
 
@@ -389,5 +394,44 @@ enum Top {
         } catch (NoSuchAlgorithmException | InvalidKeyException e) {
             throw new UnsupportedOperationException(e);
         }
+    }
+
+    private static String formatUtc(Date date, String pattern) {
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern, Locale.ROOT);
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formatter.format(date);
+    }
+
+    private static long parseIsoOffsetTime(String value) throws ParseException {
+        String normalizedValue = normalizeIsoOffsetTime(value);
+        try {
+            return OffsetDateTime.parse(normalizedValue, ISO_OFFSET_DATE_TIME_FORMATTER)
+                    .toInstant()
+                    .toEpochMilli();
+        } catch (DateTimeParseException e) {
+            int errorIndex = e.getErrorIndex();
+            throw new ParseException("Unparseable date: " + value, errorIndex >= 0 ? errorIndex : 0);
+        }
+    }
+
+    private static String normalizeIsoOffsetTime(String value) {
+        Matcher matcher = BASIC_OFFSET_SUFFIX.matcher(value);
+        if (!matcher.find()) {
+            return value;
+        }
+        String sign = matcher.group(1);
+        String hours = matcher.group(2);
+        String minutes = matcher.group(3);
+        String seconds = matcher.group(4);
+        StringBuilder normalizedOffset = new StringBuilder().append(sign).append(hours);
+        if (minutes == null) {
+            normalizedOffset.append(":00");
+        } else {
+            normalizedOffset.append(':').append(minutes);
+            if (seconds != null) {
+                normalizedOffset.append(':').append(seconds);
+            }
+        }
+        return value.substring(0, matcher.start()) + normalizedOffset;
     }
 }

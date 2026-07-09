@@ -4,8 +4,6 @@ import at.favre.lib.hkdf.HKDF;
 
 import com.google.gson.JsonObject;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +11,6 @@ import java.security.*;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.*;
-import java.util.Base64;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -36,7 +33,7 @@ enum Tks {
         session.addToRequest(request);
         JsonObject response = requestTks(topInfo, "ExportTksKey", appId, request);
 
-        byte[] encryptedKey = Base64.getDecoder().decode(response.get("Key").getAsString());
+        byte[] encryptedKey = Utils.decodeBase64(response.get("Key").getAsString());
         return session.decrypt(encryptedKey);
     }
 
@@ -65,14 +62,22 @@ enum Tks {
     private static final class AttestedSession {
         final AesKey symmetricKey;
         final String clientPublicKey;
-        final @Nullable JsonObject clientChallenge;
-        final @Nullable String clientEvidence;
+        // May be null when attestation evidence is not required or no challenge is returned.
+        final JsonObject clientChallenge;
+        // May be null when attestation evidence is not required or no challenge is returned.
+        final String clientEvidence;
 
+        /**
+         * @param clientChallenge may be null when remote attestation challenge is not requested
+         *     or not returned
+         * @param clientEvidence may be null when remote attestation evidence is not requested or
+         *     not returned
+         */
         AttestedSession(
                 AesKey symmetricKey,
                 String clientPublicKey,
-                @Nullable JsonObject clientChallenge,
-                @Nullable String clientEvidence) {
+                JsonObject clientChallenge,
+                String clientEvidence) {
             this.symmetricKey = symmetricKey;
             this.clientPublicKey = clientPublicKey;
             this.clientChallenge = clientChallenge;
@@ -93,7 +98,7 @@ enum Tks {
                 clientChallenge = response.getAsJsonObject("Challenge");
                 byte[] rawEvidence =
                         Eps.getEvidence(clientChallenge.get("NonceDown").getAsString(), epsInfo);
-                clientEvidence = Base64.getEncoder().encodeToString(rawEvidence);
+                clientEvidence = Utils.encodeBase64(rawEvidence);
             } else {
                 clientChallenge = null;
                 clientEvidence = null;
@@ -103,8 +108,7 @@ enum Tks {
 
             return new AttestedSession(
                     AesKey.from(sharedKey),
-                    Base64.getEncoder()
-                            .encodeToString(clientPublicKey.getBytes(StandardCharsets.US_ASCII)),
+                    Utils.encodeBase64(clientPublicKey.getBytes(StandardCharsets.US_ASCII)),
                     clientChallenge,
                     clientEvidence);
         }
@@ -112,7 +116,7 @@ enum Tks {
         private static ECPublicKey serverKeyFromDhParam(String serverDhParam) {
             String serverKeyPem =
                     new String(
-                            Base64.getDecoder().decode(serverDhParam), StandardCharsets.US_ASCII);
+                            Utils.decodeBase64(serverDhParam), StandardCharsets.US_ASCII);
             KeySpec serverKeySpec =
                     new X509EncodedKeySpec(Utils.pemToDer(serverKeyPem, "PUBLIC KEY"));
 
