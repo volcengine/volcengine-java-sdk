@@ -828,6 +828,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- na ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("na", new ServiceEndpointInfo(
+                "na",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
         // --------------------------- clawsentry ---------------------------
         DEFAULT_ENDPOINT_MAP.put("clawsentry", new ServiceEndpointInfo(
                 "clawsentry",
