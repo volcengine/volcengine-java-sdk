@@ -24,31 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BaseForCreateClawInput
+ * PersonalClawForCreateClawInput
  */
 
 
 
-public class BaseForCreateClawInput {
-  @SerializedName("InstanceID")
-  private String instanceID = null;
+public class PersonalClawForCreateClawInput {
+  @SerializedName("Token")
+  private String token = null;
 
-  public BaseForCreateClawInput instanceID(String instanceID) {
-    this.instanceID = instanceID;
+  public PersonalClawForCreateClawInput token(String token) {
+    this.token = token;
     return this;
   }
 
    /**
-   * Get instanceID
-   * @return instanceID
+   * Get token
+   * @return token
   **/
- @Size(min=1)  @Schema(description = "")
-  public String getInstanceID() {
-    return instanceID;
+ @Size(min=1,max=100)  @Schema(description = "")
+  public String getToken() {
+    return token;
   }
 
-  public void setInstanceID(String instanceID) {
-    this.instanceID = instanceID;
+  public void setToken(String token) {
+    this.token = token;
   }
 
 
@@ -60,22 +60,22 @@ public class BaseForCreateClawInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseForCreateClawInput baseForCreateClawInput = (BaseForCreateClawInput) o;
-    return Objects.equals(this.instanceID, baseForCreateClawInput.instanceID);
+    PersonalClawForCreateClawInput personalClawForCreateClawInput = (PersonalClawForCreateClawInput) o;
+    return Objects.equals(this.token, personalClawForCreateClawInput.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceID);
+    return Objects.hash(token);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseForCreateClawInput {\n");
+    sb.append("class PersonalClawForCreateClawInput {\n");
     
-    sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }
