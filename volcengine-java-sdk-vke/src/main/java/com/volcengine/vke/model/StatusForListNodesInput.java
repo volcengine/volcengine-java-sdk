@@ -52,7 +52,9 @@ public class StatusForListNodesInput {
     @SerializedName("Unknown")
     UNKNOWN("Unknown"),
     @SerializedName("Progressing")
-    PROGRESSING("Progressing");
+    PROGRESSING("Progressing"),
+    @SerializedName("ClusterVersionUpgrading")
+    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading");
 
     private String value;
 
@@ -104,13 +106,7 @@ public class StatusForListNodesInput {
     @SerializedName("Updating")
     UPDATING("Updating"),
     @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Starting")
-    STARTING("Starting"),
-    @SerializedName("Stopping")
-    STOPPING("Stopping"),
-    @SerializedName("Stopped")
-    STOPPED("Stopped");
+    FAILED("Failed");
 
     private String value;
 

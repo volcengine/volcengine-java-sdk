@@ -41,11 +41,23 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
   @SerializedName("Args")
   private String args = null;
 
+  @SerializedName("Cluster")
+  private String cluster = null;
+
   @SerializedName("CompleteRestUrl")
   private String completeRestUrl = null;
 
   @SerializedName("Conf")
   private String conf = null;
+
+  @SerializedName("Core")
+  private Integer core = null;
+
+  @SerializedName("CurQueue")
+  private String curQueue = null;
+
+  @SerializedName("CurrentEmitEventTimeLag")
+  private Integer currentEmitEventTimeLag = null;
 
   @SerializedName("Dependency")
   private DependencyForGetApplicationInstanceOutput dependency = null;
@@ -55,6 +67,9 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("DeploymentId")
   private String deploymentId = null;
+
+  @SerializedName("Duration")
+  private Integer duration = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
@@ -68,6 +83,9 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
   @SerializedName("Jar")
   private String jar = null;
 
+  @SerializedName("JobEngineKey")
+  private String jobEngineKey = null;
+
   @SerializedName("JobId")
   private String jobId = null;
 
@@ -80,8 +98,20 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
   @SerializedName("MainClass")
   private String mainClass = null;
 
+  @SerializedName("Memory")
+  private Long memory = null;
+
   @SerializedName("ProjectId")
   private String projectId = null;
+
+  @SerializedName("ResourcePreemptionPolicy")
+  private String resourcePreemptionPolicy = null;
+
+  @SerializedName("ResourceVersion")
+  private String resourceVersion = null;
+
+  @SerializedName("RestUrl")
+  private String restUrl = null;
 
   @SerializedName("SqlText")
   private String sqlText = null;
@@ -94,6 +124,9 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("UserId")
   private String userId = null;
+
+  @SerializedName("VersionId")
+  private Long versionId = null;
 
   public GetApplicationInstanceResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -149,6 +182,24 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     this.args = args;
   }
 
+  public GetApplicationInstanceResponse cluster(String cluster) {
+    this.cluster = cluster;
+    return this;
+  }
+
+   /**
+   * Get cluster
+   * @return cluster
+  **/
+  @Schema(description = "")
+  public String getCluster() {
+    return cluster;
+  }
+
+  public void setCluster(String cluster) {
+    this.cluster = cluster;
+  }
+
   public GetApplicationInstanceResponse completeRestUrl(String completeRestUrl) {
     this.completeRestUrl = completeRestUrl;
     return this;
@@ -183,6 +234,60 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
 
   public void setConf(String conf) {
     this.conf = conf;
+  }
+
+  public GetApplicationInstanceResponse core(Integer core) {
+    this.core = core;
+    return this;
+  }
+
+   /**
+   * Get core
+   * @return core
+  **/
+  @Schema(description = "")
+  public Integer getCore() {
+    return core;
+  }
+
+  public void setCore(Integer core) {
+    this.core = core;
+  }
+
+  public GetApplicationInstanceResponse curQueue(String curQueue) {
+    this.curQueue = curQueue;
+    return this;
+  }
+
+   /**
+   * Get curQueue
+   * @return curQueue
+  **/
+  @Schema(description = "")
+  public String getCurQueue() {
+    return curQueue;
+  }
+
+  public void setCurQueue(String curQueue) {
+    this.curQueue = curQueue;
+  }
+
+  public GetApplicationInstanceResponse currentEmitEventTimeLag(Integer currentEmitEventTimeLag) {
+    this.currentEmitEventTimeLag = currentEmitEventTimeLag;
+    return this;
+  }
+
+   /**
+   * Get currentEmitEventTimeLag
+   * @return currentEmitEventTimeLag
+  **/
+  @Schema(description = "")
+  public Integer getCurrentEmitEventTimeLag() {
+    return currentEmitEventTimeLag;
+  }
+
+  public void setCurrentEmitEventTimeLag(Integer currentEmitEventTimeLag) {
+    this.currentEmitEventTimeLag = currentEmitEventTimeLag;
   }
 
   public GetApplicationInstanceResponse dependency(DependencyForGetApplicationInstanceOutput dependency) {
@@ -239,6 +344,24 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
 
   public void setDeploymentId(String deploymentId) {
     this.deploymentId = deploymentId;
+  }
+
+  public GetApplicationInstanceResponse duration(Integer duration) {
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Get duration
+   * @return duration
+  **/
+  @Schema(description = "")
+  public Integer getDuration() {
+    return duration;
+  }
+
+  public void setDuration(Integer duration) {
+    this.duration = duration;
   }
 
   public GetApplicationInstanceResponse endTime(String endTime) {
@@ -313,6 +436,24 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     this.jar = jar;
   }
 
+  public GetApplicationInstanceResponse jobEngineKey(String jobEngineKey) {
+    this.jobEngineKey = jobEngineKey;
+    return this;
+  }
+
+   /**
+   * Get jobEngineKey
+   * @return jobEngineKey
+  **/
+  @Schema(description = "")
+  public String getJobEngineKey() {
+    return jobEngineKey;
+  }
+
+  public void setJobEngineKey(String jobEngineKey) {
+    this.jobEngineKey = jobEngineKey;
+  }
+
   public GetApplicationInstanceResponse jobId(String jobId) {
     this.jobId = jobId;
     return this;
@@ -385,6 +526,24 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     this.mainClass = mainClass;
   }
 
+  public GetApplicationInstanceResponse memory(Long memory) {
+    this.memory = memory;
+    return this;
+  }
+
+   /**
+   * Get memory
+   * @return memory
+  **/
+  @Schema(description = "")
+  public Long getMemory() {
+    return memory;
+  }
+
+  public void setMemory(Long memory) {
+    this.memory = memory;
+  }
+
   public GetApplicationInstanceResponse projectId(String projectId) {
     this.projectId = projectId;
     return this;
@@ -401,6 +560,60 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public GetApplicationInstanceResponse resourcePreemptionPolicy(String resourcePreemptionPolicy) {
+    this.resourcePreemptionPolicy = resourcePreemptionPolicy;
+    return this;
+  }
+
+   /**
+   * Get resourcePreemptionPolicy
+   * @return resourcePreemptionPolicy
+  **/
+  @Schema(description = "")
+  public String getResourcePreemptionPolicy() {
+    return resourcePreemptionPolicy;
+  }
+
+  public void setResourcePreemptionPolicy(String resourcePreemptionPolicy) {
+    this.resourcePreemptionPolicy = resourcePreemptionPolicy;
+  }
+
+  public GetApplicationInstanceResponse resourceVersion(String resourceVersion) {
+    this.resourceVersion = resourceVersion;
+    return this;
+  }
+
+   /**
+   * Get resourceVersion
+   * @return resourceVersion
+  **/
+  @Schema(description = "")
+  public String getResourceVersion() {
+    return resourceVersion;
+  }
+
+  public void setResourceVersion(String resourceVersion) {
+    this.resourceVersion = resourceVersion;
+  }
+
+  public GetApplicationInstanceResponse restUrl(String restUrl) {
+    this.restUrl = restUrl;
+    return this;
+  }
+
+   /**
+   * Get restUrl
+   * @return restUrl
+  **/
+  @Schema(description = "")
+  public String getRestUrl() {
+    return restUrl;
+  }
+
+  public void setRestUrl(String restUrl) {
+    this.restUrl = restUrl;
   }
 
   public GetApplicationInstanceResponse sqlText(String sqlText) {
@@ -475,6 +688,24 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     this.userId = userId;
   }
 
+  public GetApplicationInstanceResponse versionId(Long versionId) {
+    this.versionId = versionId;
+    return this;
+  }
+
+   /**
+   * Get versionId
+   * @return versionId
+  **/
+  @Schema(description = "")
+  public Long getVersionId() {
+    return versionId;
+  }
+
+  public void setVersionId(Long versionId) {
+    this.versionId = versionId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -488,29 +719,40 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     return Objects.equals(this.accountId, getApplicationInstanceResponse.accountId) &&
         Objects.equals(this.applicationId, getApplicationInstanceResponse.applicationId) &&
         Objects.equals(this.args, getApplicationInstanceResponse.args) &&
+        Objects.equals(this.cluster, getApplicationInstanceResponse.cluster) &&
         Objects.equals(this.completeRestUrl, getApplicationInstanceResponse.completeRestUrl) &&
         Objects.equals(this.conf, getApplicationInstanceResponse.conf) &&
+        Objects.equals(this.core, getApplicationInstanceResponse.core) &&
+        Objects.equals(this.curQueue, getApplicationInstanceResponse.curQueue) &&
+        Objects.equals(this.currentEmitEventTimeLag, getApplicationInstanceResponse.currentEmitEventTimeLag) &&
         Objects.equals(this.dependency, getApplicationInstanceResponse.dependency) &&
         Objects.equals(this.deployRequest, getApplicationInstanceResponse.deployRequest) &&
         Objects.equals(this.deploymentId, getApplicationInstanceResponse.deploymentId) &&
+        Objects.equals(this.duration, getApplicationInstanceResponse.duration) &&
         Objects.equals(this.endTime, getApplicationInstanceResponse.endTime) &&
         Objects.equals(this.engineVersion, getApplicationInstanceResponse.engineVersion) &&
         Objects.equals(this.id, getApplicationInstanceResponse.id) &&
         Objects.equals(this.jar, getApplicationInstanceResponse.jar) &&
+        Objects.equals(this.jobEngineKey, getApplicationInstanceResponse.jobEngineKey) &&
         Objects.equals(this.jobId, getApplicationInstanceResponse.jobId) &&
         Objects.equals(this.jobName, getApplicationInstanceResponse.jobName) &&
         Objects.equals(this.jobType, getApplicationInstanceResponse.jobType) &&
         Objects.equals(this.mainClass, getApplicationInstanceResponse.mainClass) &&
+        Objects.equals(this.memory, getApplicationInstanceResponse.memory) &&
         Objects.equals(this.projectId, getApplicationInstanceResponse.projectId) &&
+        Objects.equals(this.resourcePreemptionPolicy, getApplicationInstanceResponse.resourcePreemptionPolicy) &&
+        Objects.equals(this.resourceVersion, getApplicationInstanceResponse.resourceVersion) &&
+        Objects.equals(this.restUrl, getApplicationInstanceResponse.restUrl) &&
         Objects.equals(this.sqlText, getApplicationInstanceResponse.sqlText) &&
         Objects.equals(this.startTime, getApplicationInstanceResponse.startTime) &&
         Objects.equals(this.state, getApplicationInstanceResponse.state) &&
-        Objects.equals(this.userId, getApplicationInstanceResponse.userId);
+        Objects.equals(this.userId, getApplicationInstanceResponse.userId) &&
+        Objects.equals(this.versionId, getApplicationInstanceResponse.versionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, applicationId, args, completeRestUrl, conf, dependency, deployRequest, deploymentId, endTime, engineVersion, id, jar, jobId, jobName, jobType, mainClass, projectId, sqlText, startTime, state, userId);
+    return Objects.hash(accountId, applicationId, args, cluster, completeRestUrl, conf, core, curQueue, currentEmitEventTimeLag, dependency, deployRequest, deploymentId, duration, endTime, engineVersion, id, jar, jobEngineKey, jobId, jobName, jobType, mainClass, memory, projectId, resourcePreemptionPolicy, resourceVersion, restUrl, sqlText, startTime, state, userId, versionId);
   }
 
 
@@ -522,24 +764,35 @@ public class GetApplicationInstanceResponse extends com.volcengine.model.Abstrac
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
+    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    completeRestUrl: ").append(toIndentedString(completeRestUrl)).append("\n");
     sb.append("    conf: ").append(toIndentedString(conf)).append("\n");
+    sb.append("    core: ").append(toIndentedString(core)).append("\n");
+    sb.append("    curQueue: ").append(toIndentedString(curQueue)).append("\n");
+    sb.append("    currentEmitEventTimeLag: ").append(toIndentedString(currentEmitEventTimeLag)).append("\n");
     sb.append("    dependency: ").append(toIndentedString(dependency)).append("\n");
     sb.append("    deployRequest: ").append(toIndentedString(deployRequest)).append("\n");
     sb.append("    deploymentId: ").append(toIndentedString(deploymentId)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    jar: ").append(toIndentedString(jar)).append("\n");
+    sb.append("    jobEngineKey: ").append(toIndentedString(jobEngineKey)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobName: ").append(toIndentedString(jobName)).append("\n");
     sb.append("    jobType: ").append(toIndentedString(jobType)).append("\n");
     sb.append("    mainClass: ").append(toIndentedString(mainClass)).append("\n");
+    sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    resourcePreemptionPolicy: ").append(toIndentedString(resourcePreemptionPolicy)).append("\n");
+    sb.append("    resourceVersion: ").append(toIndentedString(resourceVersion)).append("\n");
+    sb.append("    restUrl: ").append(toIndentedString(restUrl)).append("\n");
     sb.append("    sqlText: ").append(toIndentedString(sqlText)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

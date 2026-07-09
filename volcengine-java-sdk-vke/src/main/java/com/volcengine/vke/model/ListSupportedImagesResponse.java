@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.IntersectionItemForListSupportedImagesOutput;
 import com.volcengine.vke.model.ItemForListSupportedImagesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,8 +34,38 @@ import javax.validation.Valid;
 
 
 public class ListSupportedImagesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("IntersectionItems")
+  private List<IntersectionItemForListSupportedImagesOutput> intersectionItems = null;
+
   @SerializedName("Items")
   private List<ItemForListSupportedImagesOutput> items = null;
+
+  public ListSupportedImagesResponse intersectionItems(List<IntersectionItemForListSupportedImagesOutput> intersectionItems) {
+    this.intersectionItems = intersectionItems;
+    return this;
+  }
+
+  public ListSupportedImagesResponse addIntersectionItemsItem(IntersectionItemForListSupportedImagesOutput intersectionItemsItem) {
+    if (this.intersectionItems == null) {
+      this.intersectionItems = new ArrayList<IntersectionItemForListSupportedImagesOutput>();
+    }
+    this.intersectionItems.add(intersectionItemsItem);
+    return this;
+  }
+
+   /**
+   * Get intersectionItems
+   * @return intersectionItems
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IntersectionItemForListSupportedImagesOutput> getIntersectionItems() {
+    return intersectionItems;
+  }
+
+  public void setIntersectionItems(List<IntersectionItemForListSupportedImagesOutput> intersectionItems) {
+    this.intersectionItems = intersectionItems;
+  }
 
   public ListSupportedImagesResponse items(List<ItemForListSupportedImagesOutput> items) {
     this.items = items;
@@ -73,12 +104,13 @@ public class ListSupportedImagesResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     ListSupportedImagesResponse listSupportedImagesResponse = (ListSupportedImagesResponse) o;
-    return Objects.equals(this.items, listSupportedImagesResponse.items);
+    return Objects.equals(this.intersectionItems, listSupportedImagesResponse.intersectionItems) &&
+        Objects.equals(this.items, listSupportedImagesResponse.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(intersectionItems, items);
   }
 
 
@@ -87,6 +119,7 @@ public class ListSupportedImagesResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSupportedImagesResponse {\n");
     
+    sb.append("    intersectionItems: ").append(toIndentedString(intersectionItems)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

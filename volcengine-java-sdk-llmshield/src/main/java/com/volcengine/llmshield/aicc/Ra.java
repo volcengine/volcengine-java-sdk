@@ -2,22 +2,23 @@ package com.volcengine.llmshield.aicc;
 
 import com.google.gson.*;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.util.Base64;
 import java.util.Map;
 import java.util.TreeMap;
 
 enum Ra {
     ;
 
-    static ClientSessionKey attestServer(@Nullable String token, ClientConfig config)
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
+    static ClientSessionKey attestServer(String token, ClientConfig config)
             throws IOException {
         String serverPublicKey;
         if (config.raType.equals(ClientConfig.RA_TYPE_LOCAL)) {
@@ -29,7 +30,11 @@ enum Ra {
         return ClientSessionKey.load(serverPublicKey);
     }
 
-    static String attestLocal(@Nullable String token, ClientConfig config) throws IOException {
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
+    static String attestLocal(String token, ClientConfig config) throws IOException {
         URL url = URI.create(config.raUrl).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -55,7 +60,11 @@ enum Ra {
         }
     }
 
-    static String attestTopTca(@Nullable String token, ClientConfig config) throws IOException {
+    /**
+     * @param token optional attestation token; may be null. When null, the request is sent
+     *     without the Token header.
+     */
+    static String attestTopTca(String token, ClientConfig config) throws IOException {
         TopInfo topInfo = config.parseTopInfo();
 
         JsonObject request = buildRaRequest(config);
@@ -118,7 +127,7 @@ enum Ra {
             // If token is not of 'X.Y.Z' format, it is a bad token.
             String rawToken = raInfo.get("token").getAsString().split("\\.")[1];
             String tokenData =
-                    new String(Base64.getUrlDecoder().decode(rawToken), StandardCharsets.UTF_8);
+                    new String(Utils.decodeUrlBase64(rawToken), StandardCharsets.UTF_8);
 //            System.err.println("RA token data: " + tokenData);
 
             JsonObject tokenObject = JsonParser.parseString(tokenData).getAsJsonObject();

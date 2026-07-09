@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clawsentry.model.BaseForCreateClawInput;
+import com.volcengine.clawsentry.model.PersonalClawForCreateClawInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,11 +37,125 @@ public class CreateClawRequest {
   @SerializedName("Base")
   private BaseForCreateClawInput base = null;
 
+  /**
+   * Gets or Sets clawType
+   */
+  @JsonAdapter(ClawTypeEnum.Adapter.class)
+  public enum ClawTypeEnum {
+    @SerializedName("arkclaw")
+    ARKCLAW("arkclaw"),
+    @SerializedName("openclaw")
+    OPENCLAW("openclaw"),
+    @SerializedName("hermes")
+    HERMES("hermes"),
+    @SerializedName("hibot")
+    HIBOT("hibot"),
+    @SerializedName("doubao")
+    DOUBAO("doubao"),
+    @SerializedName("opencode")
+    OPENCODE("opencode"),
+    @SerializedName("codex")
+    CODEX("codex"),
+    @SerializedName("coco")
+    COCO("coco"),
+    @SerializedName("trae")
+    TRAE("trae");
+
+    private String value;
+
+    ClawTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ClawTypeEnum fromValue(String input) {
+      for (ClawTypeEnum b : ClawTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ClawTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ClawTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ClawTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ClawTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ClawType")
+  private ClawTypeEnum clawType = null;
+
   @SerializedName("ExternalClawID")
   private String externalClawID = null;
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("PersonalClaw")
+  private PersonalClawForCreateClawInput personalClaw = null;
+
+  /**
+   * Gets or Sets source
+   */
+  @JsonAdapter(SourceEnum.Adapter.class)
+  public enum SourceEnum {
+    @SerializedName("arkclaw")
+    ARKCLAW("arkclaw"),
+    @SerializedName("third_party")
+    THIRD_PARTY("third_party"),
+    @SerializedName("hibot")
+    HIBOT("hibot");
+
+    private String value;
+
+    SourceEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SourceEnum fromValue(String input) {
+      for (SourceEnum b : SourceEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SourceEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SourceEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Source")
+  private SourceEnum source = null;
+
+  @SerializedName("Tags")
+  private List<String> tags = null;
 
   public CreateClawRequest base(BaseForCreateClawInput base) {
     this.base = base;
@@ -57,6 +174,24 @@ public class CreateClawRequest {
 
   public void setBase(BaseForCreateClawInput base) {
     this.base = base;
+  }
+
+  public CreateClawRequest clawType(ClawTypeEnum clawType) {
+    this.clawType = clawType;
+    return this;
+  }
+
+   /**
+   * Get clawType
+   * @return clawType
+  **/
+  @Schema(description = "")
+  public ClawTypeEnum getClawType() {
+    return clawType;
+  }
+
+  public void setClawType(ClawTypeEnum clawType) {
+    this.clawType = clawType;
   }
 
   public CreateClawRequest externalClawID(String externalClawID) {
@@ -96,6 +231,69 @@ public class CreateClawRequest {
     this.name = name;
   }
 
+  public CreateClawRequest personalClaw(PersonalClawForCreateClawInput personalClaw) {
+    this.personalClaw = personalClaw;
+    return this;
+  }
+
+   /**
+   * Get personalClaw
+   * @return personalClaw
+  **/
+  @Valid
+  @Schema(description = "")
+  public PersonalClawForCreateClawInput getPersonalClaw() {
+    return personalClaw;
+  }
+
+  public void setPersonalClaw(PersonalClawForCreateClawInput personalClaw) {
+    this.personalClaw = personalClaw;
+  }
+
+  public CreateClawRequest source(SourceEnum source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public SourceEnum getSource() {
+    return source;
+  }
+
+  public void setSource(SourceEnum source) {
+    this.source = source;
+  }
+
+  public CreateClawRequest tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateClawRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Schema(description = "")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,13 +305,17 @@ public class CreateClawRequest {
     }
     CreateClawRequest createClawRequest = (CreateClawRequest) o;
     return Objects.equals(this.base, createClawRequest.base) &&
+        Objects.equals(this.clawType, createClawRequest.clawType) &&
         Objects.equals(this.externalClawID, createClawRequest.externalClawID) &&
-        Objects.equals(this.name, createClawRequest.name);
+        Objects.equals(this.name, createClawRequest.name) &&
+        Objects.equals(this.personalClaw, createClawRequest.personalClaw) &&
+        Objects.equals(this.source, createClawRequest.source) &&
+        Objects.equals(this.tags, createClawRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(base, externalClawID, name);
+    return Objects.hash(base, clawType, externalClawID, name, personalClaw, source, tags);
   }
 
 
@@ -123,8 +325,12 @@ public class CreateClawRequest {
     sb.append("class CreateClawRequest {\n");
     
     sb.append("    base: ").append(toIndentedString(base)).append("\n");
+    sb.append("    clawType: ").append(toIndentedString(clawType)).append("\n");
     sb.append("    externalClawID: ").append(toIndentedString(externalClawID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    personalClaw: ").append(toIndentedString(personalClaw)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

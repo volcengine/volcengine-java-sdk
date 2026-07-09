@@ -42,8 +42,14 @@ public class CreateClawResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ConfVersion")
   private String confVersion = null;
 
+  @SerializedName("GatewayEndpoint")
+  private String gatewayEndpoint = null;
+
   @SerializedName("LumenEndpoint")
   private String lumenEndpoint = null;
+
+  @SerializedName("Scheme")
+  private String scheme = null;
 
   public CreateClawResponse centerEndpoint(String centerEndpoint) {
     this.centerEndpoint = centerEndpoint;
@@ -117,6 +123,24 @@ public class CreateClawResponse extends com.volcengine.model.AbstractResponse {
     this.confVersion = confVersion;
   }
 
+  public CreateClawResponse gatewayEndpoint(String gatewayEndpoint) {
+    this.gatewayEndpoint = gatewayEndpoint;
+    return this;
+  }
+
+   /**
+   * Get gatewayEndpoint
+   * @return gatewayEndpoint
+  **/
+  @Schema(description = "")
+  public String getGatewayEndpoint() {
+    return gatewayEndpoint;
+  }
+
+  public void setGatewayEndpoint(String gatewayEndpoint) {
+    this.gatewayEndpoint = gatewayEndpoint;
+  }
+
   public CreateClawResponse lumenEndpoint(String lumenEndpoint) {
     this.lumenEndpoint = lumenEndpoint;
     return this;
@@ -135,6 +159,24 @@ public class CreateClawResponse extends com.volcengine.model.AbstractResponse {
     this.lumenEndpoint = lumenEndpoint;
   }
 
+  public CreateClawResponse scheme(String scheme) {
+    this.scheme = scheme;
+    return this;
+  }
+
+   /**
+   * Get scheme
+   * @return scheme
+  **/
+  @Schema(description = "")
+  public String getScheme() {
+    return scheme;
+  }
+
+  public void setScheme(String scheme) {
+    this.scheme = scheme;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +191,14 @@ public class CreateClawResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.clawApiKey, createClawResponse.clawApiKey) &&
         Objects.equals(this.clawID, createClawResponse.clawID) &&
         Objects.equals(this.confVersion, createClawResponse.confVersion) &&
-        Objects.equals(this.lumenEndpoint, createClawResponse.lumenEndpoint);
+        Objects.equals(this.gatewayEndpoint, createClawResponse.gatewayEndpoint) &&
+        Objects.equals(this.lumenEndpoint, createClawResponse.lumenEndpoint) &&
+        Objects.equals(this.scheme, createClawResponse.scheme);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(centerEndpoint, clawApiKey, clawID, confVersion, lumenEndpoint);
+    return Objects.hash(centerEndpoint, clawApiKey, clawID, confVersion, gatewayEndpoint, lumenEndpoint, scheme);
   }
 
 
@@ -167,7 +211,9 @@ public class CreateClawResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    clawApiKey: ").append(toIndentedString(clawApiKey)).append("\n");
     sb.append("    clawID: ").append(toIndentedString(clawID)).append("\n");
     sb.append("    confVersion: ").append(toIndentedString(confVersion)).append("\n");
+    sb.append("    gatewayEndpoint: ").append(toIndentedString(gatewayEndpoint)).append("\n");
     sb.append("    lumenEndpoint: ").append(toIndentedString(lumenEndpoint)).append("\n");
+    sb.append("    scheme: ").append(toIndentedString(scheme)).append("\n");
     sb.append("}");
     return sb.toString();
   }

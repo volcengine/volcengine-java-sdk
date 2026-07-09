@@ -25,6 +25,8 @@ import com.volcengine.vke.model.InterveneCordonForListRemedyConfigsOutput;
 import com.volcengine.vke.model.InterveneDrainForListRemedyConfigsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +44,9 @@ public class ConfigForListRemedyConfigsOutput {
 
   @SerializedName("Drain")
   private DrainForListRemedyConfigsOutput drain = null;
+
+  @SerializedName("IaasEvents")
+  private List<String> iaasEvents = null;
 
   @SerializedName("InterveneCordon")
   private InterveneCordonForListRemedyConfigsOutput interveneCordon = null;
@@ -105,6 +110,32 @@ public class ConfigForListRemedyConfigsOutput {
     this.drain = drain;
   }
 
+  public ConfigForListRemedyConfigsOutput iaasEvents(List<String> iaasEvents) {
+    this.iaasEvents = iaasEvents;
+    return this;
+  }
+
+  public ConfigForListRemedyConfigsOutput addIaasEventsItem(String iaasEventsItem) {
+    if (this.iaasEvents == null) {
+      this.iaasEvents = new ArrayList<String>();
+    }
+    this.iaasEvents.add(iaasEventsItem);
+    return this;
+  }
+
+   /**
+   * Get iaasEvents
+   * @return iaasEvents
+  **/
+  @Schema(description = "")
+  public List<String> getIaasEvents() {
+    return iaasEvents;
+  }
+
+  public void setIaasEvents(List<String> iaasEvents) {
+    this.iaasEvents = iaasEvents;
+  }
+
   public ConfigForListRemedyConfigsOutput interveneCordon(InterveneCordonForListRemedyConfigsOutput interveneCordon) {
     this.interveneCordon = interveneCordon;
     return this;
@@ -156,13 +187,14 @@ public class ConfigForListRemedyConfigsOutput {
     return Objects.equals(this.action, configForListRemedyConfigsOutput.action) &&
         Objects.equals(this.autoRestoreSchedule, configForListRemedyConfigsOutput.autoRestoreSchedule) &&
         Objects.equals(this.drain, configForListRemedyConfigsOutput.drain) &&
+        Objects.equals(this.iaasEvents, configForListRemedyConfigsOutput.iaasEvents) &&
         Objects.equals(this.interveneCordon, configForListRemedyConfigsOutput.interveneCordon) &&
         Objects.equals(this.interveneDrain, configForListRemedyConfigsOutput.interveneDrain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, autoRestoreSchedule, drain, interveneCordon, interveneDrain);
+    return Objects.hash(action, autoRestoreSchedule, drain, iaasEvents, interveneCordon, interveneDrain);
   }
 
 
@@ -174,6 +206,7 @@ public class ConfigForListRemedyConfigsOutput {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    autoRestoreSchedule: ").append(toIndentedString(autoRestoreSchedule)).append("\n");
     sb.append("    drain: ").append(toIndentedString(drain)).append("\n");
+    sb.append("    iaasEvents: ").append(toIndentedString(iaasEvents)).append("\n");
     sb.append("    interveneCordon: ").append(toIndentedString(interveneCordon)).append("\n");
     sb.append("    interveneDrain: ").append(toIndentedString(interveneDrain)).append("\n");
     sb.append("}");

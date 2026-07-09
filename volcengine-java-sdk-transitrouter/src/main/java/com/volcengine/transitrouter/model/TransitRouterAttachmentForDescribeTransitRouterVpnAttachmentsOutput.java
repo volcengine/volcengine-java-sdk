@@ -48,6 +48,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
   @SerializedName("Ipv6Enabled")
   private Boolean ipv6Enabled = null;
 
+  @SerializedName("SecondaryZoneId")
+  private String secondaryZoneId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -160,6 +163,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
 
   public void setIpv6Enabled(Boolean ipv6Enabled) {
     this.ipv6Enabled = ipv6Enabled;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput secondaryZoneId(String secondaryZoneId) {
+    this.secondaryZoneId = secondaryZoneId;
+    return this;
+  }
+
+   /**
+   * Get secondaryZoneId
+   * @return secondaryZoneId
+  **/
+  @Schema(description = "")
+  public String getSecondaryZoneId() {
+    return secondaryZoneId;
+  }
+
+  public void setSecondaryZoneId(String secondaryZoneId) {
+    this.secondaryZoneId = secondaryZoneId;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput status(String status) {
@@ -330,6 +351,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.description) &&
         Objects.equals(this.healthCheckRevokeRouteEnabled, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.healthCheckRevokeRouteEnabled) &&
         Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.ipv6Enabled) &&
+        Objects.equals(this.secondaryZoneId, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.secondaryZoneId) &&
         Objects.equals(this.status, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.status) &&
         Objects.equals(this.tags, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.tags) &&
         Objects.equals(this.transitRouterAttachmentId, transitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.transitRouterAttachmentId) &&
@@ -342,7 +364,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, creationTime, description, healthCheckRevokeRouteEnabled, ipv6Enabled, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpnConnectionId, zoneId);
+    return Objects.hash(autoPublishRouteEnabled, creationTime, description, healthCheckRevokeRouteEnabled, ipv6Enabled, secondaryZoneId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterId, updateTime, vpnConnectionId, zoneId);
   }
 
 
@@ -356,6 +378,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheckRevokeRouteEnabled: ").append(toIndentedString(healthCheckRevokeRouteEnabled)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
+    sb.append("    secondaryZoneId: ").append(toIndentedString(secondaryZoneId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");

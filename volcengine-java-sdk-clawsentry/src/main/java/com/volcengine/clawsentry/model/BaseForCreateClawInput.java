@@ -42,7 +42,7 @@ public class BaseForCreateClawInput {
    * Get instanceID
    * @return instanceID
   **/
-  @Schema(description = "")
+ @Size(min=1)  @Schema(description = "")
   public String getInstanceID() {
     return instanceID;
   }

@@ -3,8 +3,6 @@ package com.volcengine.llmshield.aicc;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
-import org.jspecify.annotations.Nullable;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,13 +36,11 @@ public class ClientConfig {
     public String bytedanceTopInfo = "";
 
     @SerializedName("attest_interval")
-    public @Nullable Float attestInterval = null;
+    public Float attestInterval = null;
 
     @SerializedName("pub_key_path")
-    public @Nullable String pubKeyPath = null;
+    public String pubKeyPath = null;
 
-    // We have introduced package-wide @NullMarked annotation, so all arguments are assumed non-null
-    // unless otherwise marked.
     public static ClientConfig fromJson(String json) {
         // Closing StringReader is no-op.
         return fromJson(new StringReader(json));
