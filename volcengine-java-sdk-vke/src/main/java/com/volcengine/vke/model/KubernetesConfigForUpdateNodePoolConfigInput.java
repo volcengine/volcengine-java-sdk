@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ContainerdConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.KubeletConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.LabelForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.RuntimeForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.TaintForUpdateNodePoolConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -59,6 +60,9 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("NameUseHostname")
   private Boolean nameUseHostname = null;
+
+  @SerializedName("Runtime")
+  private RuntimeForUpdateNodePoolConfigInput runtime = null;
 
   @SerializedName("Taints")
   private List<TaintForUpdateNodePoolConfigInput> taints = null;
@@ -218,6 +222,25 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     this.nameUseHostname = nameUseHostname;
   }
 
+  public KubernetesConfigForUpdateNodePoolConfigInput runtime(RuntimeForUpdateNodePoolConfigInput runtime) {
+    this.runtime = runtime;
+    return this;
+  }
+
+   /**
+   * Get runtime
+   * @return runtime
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuntimeForUpdateNodePoolConfigInput getRuntime() {
+    return runtime;
+  }
+
+  public void setRuntime(RuntimeForUpdateNodePoolConfigInput runtime) {
+    this.runtime = runtime;
+  }
+
   public KubernetesConfigForUpdateNodePoolConfigInput taints(List<TaintForUpdateNodePoolConfigInput> taints) {
     this.taints = taints;
     return this;
@@ -263,12 +286,13 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.namePrefix, kubernetesConfigForUpdateNodePoolConfigInput.namePrefix) &&
         Objects.equals(this.nameSuffix, kubernetesConfigForUpdateNodePoolConfigInput.nameSuffix) &&
         Objects.equals(this.nameUseHostname, kubernetesConfigForUpdateNodePoolConfigInput.nameUseHostname) &&
+        Objects.equals(this.runtime, kubernetesConfigForUpdateNodePoolConfigInput.runtime) &&
         Objects.equals(this.taints, kubernetesConfigForUpdateNodePoolConfigInput.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
+    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, runtime, taints);
   }
 
 
@@ -285,6 +309,7 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
     sb.append("    nameUseHostname: ").append(toIndentedString(nameUseHostname)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();

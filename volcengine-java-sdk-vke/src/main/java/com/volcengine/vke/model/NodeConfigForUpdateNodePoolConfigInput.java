@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.AffinityGroupConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.DataVolumeForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.InstancesDistributionForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.PublicAccessConfigForUpdateNodePoolConfigInput;
@@ -41,6 +42,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
 
+  @SerializedName("AffinityGroupConfig")
+  private AffinityGroupConfigForUpdateNodePoolConfigInput affinityGroupConfig = null;
+
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
@@ -49,6 +53,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("DataVolumes")
   private List<DataVolumeForUpdateNodePoolConfigInput> dataVolumes = null;
+
+  @SerializedName("GpuDriverVersion")
+  private String gpuDriverVersion = null;
 
   @SerializedName("Hostname")
   private String hostname = null;
@@ -168,6 +175,25 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
   }
 
+  public NodeConfigForUpdateNodePoolConfigInput affinityGroupConfig(AffinityGroupConfigForUpdateNodePoolConfigInput affinityGroupConfig) {
+    this.affinityGroupConfig = affinityGroupConfig;
+    return this;
+  }
+
+   /**
+   * Get affinityGroupConfig
+   * @return affinityGroupConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AffinityGroupConfigForUpdateNodePoolConfigInput getAffinityGroupConfig() {
+    return affinityGroupConfig;
+  }
+
+  public void setAffinityGroupConfig(AffinityGroupConfigForUpdateNodePoolConfigInput affinityGroupConfig) {
+    this.affinityGroupConfig = affinityGroupConfig;
+  }
+
   public NodeConfigForUpdateNodePoolConfigInput autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
     return this;
@@ -229,6 +255,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setDataVolumes(List<DataVolumeForUpdateNodePoolConfigInput> dataVolumes) {
     this.dataVolumes = dataVolumes;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput gpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
+    return this;
+  }
+
+   /**
+   * Get gpuDriverVersion
+   * @return gpuDriverVersion
+  **/
+  @Schema(description = "")
+  public String getGpuDriverVersion() {
+    return gpuDriverVersion;
+  }
+
+  public void setGpuDriverVersion(String gpuDriverVersion) {
+    this.gpuDriverVersion = gpuDriverVersion;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput hostname(String hostname) {
@@ -621,9 +665,11 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     }
     NodeConfigForUpdateNodePoolConfigInput nodeConfigForUpdateNodePoolConfigInput = (NodeConfigForUpdateNodePoolConfigInput) o;
     return Objects.equals(this.additionalContainerStorageEnabled, nodeConfigForUpdateNodePoolConfigInput.additionalContainerStorageEnabled) &&
+        Objects.equals(this.affinityGroupConfig, nodeConfigForUpdateNodePoolConfigInput.affinityGroupConfig) &&
         Objects.equals(this.autoRenew, nodeConfigForUpdateNodePoolConfigInput.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, nodeConfigForUpdateNodePoolConfigInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForUpdateNodePoolConfigInput.dataVolumes) &&
+        Objects.equals(this.gpuDriverVersion, nodeConfigForUpdateNodePoolConfigInput.gpuDriverVersion) &&
         Objects.equals(this.hostname, nodeConfigForUpdateNodePoolConfigInput.hostname) &&
         Objects.equals(this.hpcClusterIds, nodeConfigForUpdateNodePoolConfigInput.hpcClusterIds) &&
         Objects.equals(this.imageId, nodeConfigForUpdateNodePoolConfigInput.imageId) &&
@@ -647,7 +693,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, dataVolumes, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -657,9 +703,11 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("class NodeConfigForUpdateNodePoolConfigInput {\n");
     
     sb.append("    additionalContainerStorageEnabled: ").append(toIndentedString(additionalContainerStorageEnabled)).append("\n");
+    sb.append("    affinityGroupConfig: ").append(toIndentedString(affinityGroupConfig)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");

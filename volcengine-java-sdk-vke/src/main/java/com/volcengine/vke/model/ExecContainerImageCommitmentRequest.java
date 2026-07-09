@@ -35,6 +35,9 @@ public class ExecContainerImageCommitmentRequest {
   @SerializedName("AuthConfig")
   private AuthConfigForExecContainerImageCommitmentInput authConfig = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ContainerName")
   private String containerName = null;
 
@@ -64,6 +67,24 @@ public class ExecContainerImageCommitmentRequest {
 
   public void setAuthConfig(AuthConfigForExecContainerImageCommitmentInput authConfig) {
     this.authConfig = authConfig;
+  }
+
+  public ExecContainerImageCommitmentRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ExecContainerImageCommitmentRequest containerName(String containerName) {
@@ -152,6 +173,7 @@ public class ExecContainerImageCommitmentRequest {
     }
     ExecContainerImageCommitmentRequest execContainerImageCommitmentRequest = (ExecContainerImageCommitmentRequest) o;
     return Objects.equals(this.authConfig, execContainerImageCommitmentRequest.authConfig) &&
+        Objects.equals(this.clientToken, execContainerImageCommitmentRequest.clientToken) &&
         Objects.equals(this.containerName, execContainerImageCommitmentRequest.containerName) &&
         Objects.equals(this.imageSpec, execContainerImageCommitmentRequest.imageSpec) &&
         Objects.equals(this.instanceId, execContainerImageCommitmentRequest.instanceId) &&
@@ -160,7 +182,7 @@ public class ExecContainerImageCommitmentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authConfig, containerName, imageSpec, instanceId, pause);
+    return Objects.hash(authConfig, clientToken, containerName, imageSpec, instanceId, pause);
   }
 
 
@@ -170,6 +192,7 @@ public class ExecContainerImageCommitmentRequest {
     sb.append("class ExecContainerImageCommitmentRequest {\n");
     
     sb.append("    authConfig: ").append(toIndentedString(authConfig)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
     sb.append("    imageSpec: ").append(toIndentedString(imageSpec)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

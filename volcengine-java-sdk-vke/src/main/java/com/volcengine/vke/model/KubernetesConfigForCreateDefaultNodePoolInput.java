@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ContainerdConfigForCreateDefaultNodePoolInput;
 import com.volcengine.vke.model.KubeletConfigForCreateDefaultNodePoolInput;
 import com.volcengine.vke.model.LabelForCreateDefaultNodePoolInput;
+import com.volcengine.vke.model.RuntimeForCreateDefaultNodePoolInput;
 import com.volcengine.vke.model.TaintForCreateDefaultNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -59,6 +60,9 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
 
   @SerializedName("NameUseHostname")
   private Boolean nameUseHostname = null;
+
+  @SerializedName("Runtime")
+  private RuntimeForCreateDefaultNodePoolInput runtime = null;
 
   @SerializedName("Taints")
   private List<TaintForCreateDefaultNodePoolInput> taints = null;
@@ -218,6 +222,25 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
     this.nameUseHostname = nameUseHostname;
   }
 
+  public KubernetesConfigForCreateDefaultNodePoolInput runtime(RuntimeForCreateDefaultNodePoolInput runtime) {
+    this.runtime = runtime;
+    return this;
+  }
+
+   /**
+   * Get runtime
+   * @return runtime
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuntimeForCreateDefaultNodePoolInput getRuntime() {
+    return runtime;
+  }
+
+  public void setRuntime(RuntimeForCreateDefaultNodePoolInput runtime) {
+    this.runtime = runtime;
+  }
+
   public KubernetesConfigForCreateDefaultNodePoolInput taints(List<TaintForCreateDefaultNodePoolInput> taints) {
     this.taints = taints;
     return this;
@@ -263,12 +286,13 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
         Objects.equals(this.namePrefix, kubernetesConfigForCreateDefaultNodePoolInput.namePrefix) &&
         Objects.equals(this.nameSuffix, kubernetesConfigForCreateDefaultNodePoolInput.nameSuffix) &&
         Objects.equals(this.nameUseHostname, kubernetesConfigForCreateDefaultNodePoolInput.nameUseHostname) &&
+        Objects.equals(this.runtime, kubernetesConfigForCreateDefaultNodePoolInput.runtime) &&
         Objects.equals(this.taints, kubernetesConfigForCreateDefaultNodePoolInput.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
+    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, runtime, taints);
   }
 
 
@@ -285,6 +309,7 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
     sb.append("    nameUseHostname: ").append(toIndentedString(nameUseHostname)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();

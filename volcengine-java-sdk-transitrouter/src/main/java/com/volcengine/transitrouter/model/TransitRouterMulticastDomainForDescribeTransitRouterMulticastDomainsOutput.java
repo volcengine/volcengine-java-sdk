@@ -27,12 +27,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput
+ * TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput
  */
 
 
 
-public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+public class TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -54,7 +54,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput creationTime(String creationTime) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
   }
@@ -72,7 +72,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.creationTime = creationTime;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput description(String description) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -90,7 +90,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.description = description;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput status(String status) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -108,12 +108,12 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.status = status;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput tags(List<TagForDescribeTransitRouterMulticastDomainsOutput> tags) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput tags(List<TagForDescribeTransitRouterMulticastDomainsOutput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput addTagsItem(TagForDescribeTransitRouterMulticastDomainsOutput tagsItem) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput addTagsItem(TagForDescribeTransitRouterMulticastDomainsOutput tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<TagForDescribeTransitRouterMulticastDomainsOutput>();
     }
@@ -135,7 +135,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.tags = tags;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainId(String transitRouterMulticastDomainId) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainId(String transitRouterMulticastDomainId) {
     this.transitRouterMulticastDomainId = transitRouterMulticastDomainId;
     return this;
   }
@@ -153,7 +153,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.transitRouterMulticastDomainId = transitRouterMulticastDomainId;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainName(String transitRouterMulticastDomainName) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainName(String transitRouterMulticastDomainName) {
     this.transitRouterMulticastDomainName = transitRouterMulticastDomainName;
     return this;
   }
@@ -171,7 +171,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     this.transitRouterMulticastDomainName = transitRouterMulticastDomainName;
   }
 
-  public TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput updateTime(String updateTime) {
+  public TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -198,14 +198,14 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput = (TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) o;
-    return Objects.equals(this.creationTime, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.creationTime) &&
-        Objects.equals(this.description, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.description) &&
-        Objects.equals(this.status, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.status) &&
-        Objects.equals(this.tags, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.tags) &&
-        Objects.equals(this.transitRouterMulticastDomainId, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.transitRouterMulticastDomainId) &&
-        Objects.equals(this.transitRouterMulticastDomainName, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.transitRouterMulticastDomainName) &&
-        Objects.equals(this.updateTime, transitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput.updateTime);
+    TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput = (TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) o;
+    return Objects.equals(this.creationTime, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.creationTime) &&
+        Objects.equals(this.description, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.description) &&
+        Objects.equals(this.status, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.status) &&
+        Objects.equals(this.tags, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.tags) &&
+        Objects.equals(this.transitRouterMulticastDomainId, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.transitRouterMulticastDomainId) &&
+        Objects.equals(this.transitRouterMulticastDomainName, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.transitRouterMulticastDomainName) &&
+        Objects.equals(this.updateTime, transitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput.updateTime);
   }
 
   @Override
@@ -217,7 +217,7 @@ public class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomai
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {\n");
+    sb.append("class TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {\n");
     
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

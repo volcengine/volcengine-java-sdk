@@ -36,6 +36,9 @@ public class CreatePathAnalysisRequest {
   @SerializedName("PathName")
   private String pathName = null;
 
+  @SerializedName("PrivateIP")
+  private String privateIP = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -98,6 +101,24 @@ public class CreatePathAnalysisRequest {
 
   public void setPathName(String pathName) {
     this.pathName = pathName;
+  }
+
+  public CreatePathAnalysisRequest privateIP(String privateIP) {
+    this.privateIP = privateIP;
+    return this;
+  }
+
+   /**
+   * Get privateIP
+   * @return privateIP
+  **/
+  @Schema(description = "")
+  public String getPrivateIP() {
+    return privateIP;
+  }
+
+  public void setPrivateIP(String privateIP) {
+    this.privateIP = privateIP;
   }
 
   public CreatePathAnalysisRequest protocol(String protocol) {
@@ -279,6 +300,7 @@ public class CreatePathAnalysisRequest {
     CreatePathAnalysisRequest createPathAnalysisRequest = (CreatePathAnalysisRequest) o;
     return Objects.equals(this.description, createPathAnalysisRequest.description) &&
         Objects.equals(this.pathName, createPathAnalysisRequest.pathName) &&
+        Objects.equals(this.privateIP, createPathAnalysisRequest.privateIP) &&
         Objects.equals(this.protocol, createPathAnalysisRequest.protocol) &&
         Objects.equals(this.save, createPathAnalysisRequest.save) &&
         Objects.equals(this.sourceIP, createPathAnalysisRequest.sourceIP) &&
@@ -292,7 +314,7 @@ public class CreatePathAnalysisRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, pathName, protocol, save, sourceIP, sourceId, sourceType, targetIP, targetId, targetPort, targetType);
+    return Objects.hash(description, pathName, privateIP, protocol, save, sourceIP, sourceId, sourceType, targetIP, targetId, targetPort, targetType);
   }
 
 
@@ -303,6 +325,7 @@ public class CreatePathAnalysisRequest {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    pathName: ").append(toIndentedString(pathName)).append("\n");
+    sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    save: ").append(toIndentedString(save)).append("\n");
     sb.append("    sourceIP: ").append(toIndentedString(sourceIP)).append("\n");
