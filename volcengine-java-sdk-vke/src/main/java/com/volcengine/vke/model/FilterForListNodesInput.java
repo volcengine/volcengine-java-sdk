@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class FilterForListNodesInput {
+  @SerializedName("AffinityGroupIds")
+  private List<String> affinityGroupIds = null;
+
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;
 
@@ -45,6 +48,9 @@ public class FilterForListNodesInput {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
+  @SerializedName("MetadataName")
+  private String metadataName = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -56,6 +62,32 @@ public class FilterForListNodesInput {
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
+
+  public FilterForListNodesInput affinityGroupIds(List<String> affinityGroupIds) {
+    this.affinityGroupIds = affinityGroupIds;
+    return this;
+  }
+
+  public FilterForListNodesInput addAffinityGroupIdsItem(String affinityGroupIdsItem) {
+    if (this.affinityGroupIds == null) {
+      this.affinityGroupIds = new ArrayList<String>();
+    }
+    this.affinityGroupIds.add(affinityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get affinityGroupIds
+   * @return affinityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getAffinityGroupIds() {
+    return affinityGroupIds;
+  }
+
+  public void setAffinityGroupIds(List<String> affinityGroupIds) {
+    this.affinityGroupIds = affinityGroupIds;
+  }
 
   public FilterForListNodesInput clusterIds(List<String> clusterIds) {
     this.clusterIds = clusterIds;
@@ -151,6 +183,24 @@ public class FilterForListNodesInput {
 
   public void setInstanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
+  }
+
+  public FilterForListNodesInput metadataName(String metadataName) {
+    this.metadataName = metadataName;
+    return this;
+  }
+
+   /**
+   * Get metadataName
+   * @return metadataName
+  **/
+  @Schema(description = "")
+  public String getMetadataName() {
+    return metadataName;
+  }
+
+  public void setMetadataName(String metadataName) {
+    this.metadataName = metadataName;
   }
 
   public FilterForListNodesInput name(String name) {
@@ -260,10 +310,12 @@ public class FilterForListNodesInput {
       return false;
     }
     FilterForListNodesInput filterForListNodesInput = (FilterForListNodesInput) o;
-    return Objects.equals(this.clusterIds, filterForListNodesInput.clusterIds) &&
+    return Objects.equals(this.affinityGroupIds, filterForListNodesInput.affinityGroupIds) &&
+        Objects.equals(this.clusterIds, filterForListNodesInput.clusterIds) &&
         Objects.equals(this.createClientToken, filterForListNodesInput.createClientToken) &&
         Objects.equals(this.ids, filterForListNodesInput.ids) &&
         Objects.equals(this.instanceIds, filterForListNodesInput.instanceIds) &&
+        Objects.equals(this.metadataName, filterForListNodesInput.metadataName) &&
         Objects.equals(this.name, filterForListNodesInput.name) &&
         Objects.equals(this.nodePoolIds, filterForListNodesInput.nodePoolIds) &&
         Objects.equals(this.statuses, filterForListNodesInput.statuses) &&
@@ -272,7 +324,7 @@ public class FilterForListNodesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterIds, createClientToken, ids, instanceIds, name, nodePoolIds, statuses, zoneIds);
+    return Objects.hash(affinityGroupIds, clusterIds, createClientToken, ids, instanceIds, metadataName, name, nodePoolIds, statuses, zoneIds);
   }
 
 
@@ -281,10 +333,12 @@ public class FilterForListNodesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListNodesInput {\n");
     
+    sb.append("    affinityGroupIds: ").append(toIndentedString(affinityGroupIds)).append("\n");
     sb.append("    clusterIds: ").append(toIndentedString(clusterIds)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    metadataName: ").append(toIndentedString(metadataName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolIds: ").append(toIndentedString(nodePoolIds)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");

@@ -24,31 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExecContainerImageCommitmentResponse
+ * DeleteSnapshotResponse
  */
 
 
 
-public class ExecContainerImageCommitmentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TaskId")
-  private String taskId = null;
+public class DeleteSnapshotResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
 
-  public ExecContainerImageCommitmentResponse taskId(String taskId) {
-    this.taskId = taskId;
+  public DeleteSnapshotResponse snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get snapshotId
+   * @return snapshotId
   **/
   @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
+  public String getSnapshotId() {
+    return snapshotId;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
   }
 
 
@@ -60,22 +60,22 @@ public class ExecContainerImageCommitmentResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecContainerImageCommitmentResponse execContainerImageCommitmentResponse = (ExecContainerImageCommitmentResponse) o;
-    return Objects.equals(this.taskId, execContainerImageCommitmentResponse.taskId);
+    DeleteSnapshotResponse deleteSnapshotResponse = (DeleteSnapshotResponse) o;
+    return Objects.equals(this.snapshotId, deleteSnapshotResponse.snapshotId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(snapshotId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExecContainerImageCommitmentResponse {\n");
+    sb.append("class DeleteSnapshotResponse {\n");
     
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

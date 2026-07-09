@@ -36,8 +36,57 @@ public class StatusForListNodesOutput {
   @SerializedName("Conditions")
   private List<ConditionForListNodesOutput> conditions = null;
 
-  @SerializedName("Phase")
-  private String phase = null;
+  /**
+   * Gets or Sets phase
+   */
+  @JsonAdapter(PhaseEnum.Adapter.class)
+  public enum PhaseEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Failed")
+    FAILED("Failed");
+
+    private String value;
+
+    PhaseEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PhaseEnum fromValue(String input) {
+      for (PhaseEnum b : PhaseEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PhaseEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PhaseEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Phase")
+  private PhaseEnum phase = null;
 
   public StatusForListNodesOutput conditions(List<ConditionForListNodesOutput> conditions) {
     this.conditions = conditions;
@@ -66,7 +115,7 @@ public class StatusForListNodesOutput {
     this.conditions = conditions;
   }
 
-  public StatusForListNodesOutput phase(String phase) {
+  public StatusForListNodesOutput phase(PhaseEnum phase) {
     this.phase = phase;
     return this;
   }
@@ -76,11 +125,11 @@ public class StatusForListNodesOutput {
    * @return phase
   **/
   @Schema(description = "")
-  public String getPhase() {
+  public PhaseEnum getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(PhaseEnum phase) {
     this.phase = phase;
   }
 

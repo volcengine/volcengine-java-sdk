@@ -30,6 +30,60 @@ import javax.validation.Valid;
 
 
 public class DataVolumeForListNodePoolsOutput {
+  @SerializedName("ExtraPerformanceIops")
+  private Integer extraPerformanceIops = null;
+
+  @SerializedName("ExtraPerformanceThroughputMb")
+  private Integer extraPerformanceThroughputMb = null;
+
+  /**
+   * Gets or Sets extraPerformanceTypeId
+   */
+  @JsonAdapter(ExtraPerformanceTypeIdEnum.Adapter.class)
+  public enum ExtraPerformanceTypeIdEnum {
+    @SerializedName("Balance")
+    BALANCE("Balance"),
+    @SerializedName("IOPS")
+    IOPS("IOPS"),
+    @SerializedName("Throughput")
+    THROUGHPUT("Throughput");
+
+    private String value;
+
+    ExtraPerformanceTypeIdEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ExtraPerformanceTypeIdEnum fromValue(String input) {
+      for (ExtraPerformanceTypeIdEnum b : ExtraPerformanceTypeIdEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ExtraPerformanceTypeIdEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ExtraPerformanceTypeIdEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ExtraPerformanceTypeIdEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ExtraPerformanceTypeIdEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ExtraPerformanceTypeId")
+  private ExtraPerformanceTypeIdEnum extraPerformanceTypeId = null;
+
   /**
    * Gets or Sets fileSystem
    */
@@ -152,6 +206,60 @@ public class DataVolumeForListNodePoolsOutput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public DataVolumeForListNodePoolsOutput extraPerformanceIops(Integer extraPerformanceIops) {
+    this.extraPerformanceIops = extraPerformanceIops;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIops
+   * @return extraPerformanceIops
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIops() {
+    return extraPerformanceIops;
+  }
+
+  public void setExtraPerformanceIops(Integer extraPerformanceIops) {
+    this.extraPerformanceIops = extraPerformanceIops;
+  }
+
+  public DataVolumeForListNodePoolsOutput extraPerformanceThroughputMb(Integer extraPerformanceThroughputMb) {
+    this.extraPerformanceThroughputMb = extraPerformanceThroughputMb;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMb
+   * @return extraPerformanceThroughputMb
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMb() {
+    return extraPerformanceThroughputMb;
+  }
+
+  public void setExtraPerformanceThroughputMb(Integer extraPerformanceThroughputMb) {
+    this.extraPerformanceThroughputMb = extraPerformanceThroughputMb;
+  }
+
+  public DataVolumeForListNodePoolsOutput extraPerformanceTypeId(ExtraPerformanceTypeIdEnum extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public ExtraPerformanceTypeIdEnum getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(ExtraPerformanceTypeIdEnum extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+  }
 
   public DataVolumeForListNodePoolsOutput fileSystem(FileSystemEnum fileSystem) {
     this.fileSystem = fileSystem;
@@ -289,7 +397,10 @@ public class DataVolumeForListNodePoolsOutput {
       return false;
     }
     DataVolumeForListNodePoolsOutput dataVolumeForListNodePoolsOutput = (DataVolumeForListNodePoolsOutput) o;
-    return Objects.equals(this.fileSystem, dataVolumeForListNodePoolsOutput.fileSystem) &&
+    return Objects.equals(this.extraPerformanceIops, dataVolumeForListNodePoolsOutput.extraPerformanceIops) &&
+        Objects.equals(this.extraPerformanceThroughputMb, dataVolumeForListNodePoolsOutput.extraPerformanceThroughputMb) &&
+        Objects.equals(this.extraPerformanceTypeId, dataVolumeForListNodePoolsOutput.extraPerformanceTypeId) &&
+        Objects.equals(this.fileSystem, dataVolumeForListNodePoolsOutput.fileSystem) &&
         Objects.equals(this.mountPoint, dataVolumeForListNodePoolsOutput.mountPoint) &&
         Objects.equals(this.placementGroupId, dataVolumeForListNodePoolsOutput.placementGroupId) &&
         Objects.equals(this.size, dataVolumeForListNodePoolsOutput.size) &&
@@ -300,7 +411,7 @@ public class DataVolumeForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
+    return Objects.hash(extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
   }
 
 
@@ -309,6 +420,9 @@ public class DataVolumeForListNodePoolsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForListNodePoolsOutput {\n");
     
+    sb.append("    extraPerformanceIops: ").append(toIndentedString(extraPerformanceIops)).append("\n");
+    sb.append("    extraPerformanceThroughputMb: ").append(toIndentedString(extraPerformanceThroughputMb)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");

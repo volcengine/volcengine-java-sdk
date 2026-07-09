@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExecContainerImageCommitmentResponse
+ * IntersectionItemForListSupportedImagesOutput
  */
 
 
 
-public class ExecContainerImageCommitmentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TaskId")
-  private String taskId = null;
+public class IntersectionItemForListSupportedImagesOutput {
+  @SerializedName("ImageId")
+  private String imageId = null;
 
-  public ExecContainerImageCommitmentResponse taskId(String taskId) {
-    this.taskId = taskId;
+  @SerializedName("ImageName")
+  private String imageName = null;
+
+  public IntersectionItemForListSupportedImagesOutput imageId(String imageId) {
+    this.imageId = imageId;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get imageId
+   * @return imageId
   **/
   @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
+  public String getImageId() {
+    return imageId;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
+  }
+
+  public IntersectionItemForListSupportedImagesOutput imageName(String imageName) {
+    this.imageName = imageName;
+    return this;
+  }
+
+   /**
+   * Get imageName
+   * @return imageName
+  **/
+  @Schema(description = "")
+  public String getImageName() {
+    return imageName;
+  }
+
+  public void setImageName(String imageName) {
+    this.imageName = imageName;
   }
 
 
@@ -60,22 +81,24 @@ public class ExecContainerImageCommitmentResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecContainerImageCommitmentResponse execContainerImageCommitmentResponse = (ExecContainerImageCommitmentResponse) o;
-    return Objects.equals(this.taskId, execContainerImageCommitmentResponse.taskId);
+    IntersectionItemForListSupportedImagesOutput intersectionItemForListSupportedImagesOutput = (IntersectionItemForListSupportedImagesOutput) o;
+    return Objects.equals(this.imageId, intersectionItemForListSupportedImagesOutput.imageId) &&
+        Objects.equals(this.imageName, intersectionItemForListSupportedImagesOutput.imageName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(imageId, imageName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExecContainerImageCommitmentResponse {\n");
+    sb.append("class IntersectionItemForListSupportedImagesOutput {\n");
     
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

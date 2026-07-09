@@ -24,37 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConditionForListNodesOutput
+ * RuntimeForListNodePoolsOutput
  */
 
 
 
-public class ConditionForListNodesOutput {
+public class RuntimeForListNodePoolsOutput {
   /**
    * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("Ok")
-    OK("Ok"),
-    @SerializedName("Unschedulable")
-    UNSCHEDULABLE("Unschedulable"),
-    @SerializedName("NotReady")
-    NOTREADY("NotReady"),
-    @SerializedName("InitializeFailed")
-    INITIALIZEFAILED("InitializeFailed"),
-    @SerializedName("ResourceCleanupFailed")
-    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
-    @SerializedName("Security")
-    SECURITY("Security"),
-    @SerializedName("Balance")
-    BALANCE("Balance"),
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
-    @SerializedName("Progressing")
-    PROGRESSING("Progressing"),
-    @SerializedName("ClusterVersionUpgrading")
-    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading");
+    @SerializedName("containerd")
+    CONTAINERD("containerd");
 
     private String value;
 
@@ -92,7 +74,10 @@ public class ConditionForListNodesOutput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
-  public ConditionForListNodesOutput type(TypeEnum type) {
+  @SerializedName("Version")
+  private String version = null;
+
+  public RuntimeForListNodePoolsOutput type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -110,6 +95,24 @@ public class ConditionForListNodesOutput {
     this.type = type;
   }
 
+  public RuntimeForListNodePoolsOutput version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @Schema(description = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -119,22 +122,24 @@ public class ConditionForListNodesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConditionForListNodesOutput conditionForListNodesOutput = (ConditionForListNodesOutput) o;
-    return Objects.equals(this.type, conditionForListNodesOutput.type);
+    RuntimeForListNodePoolsOutput runtimeForListNodePoolsOutput = (RuntimeForListNodePoolsOutput) o;
+    return Objects.equals(this.type, runtimeForListNodePoolsOutput.type) &&
+        Objects.equals(this.version, runtimeForListNodePoolsOutput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(type, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConditionForListNodesOutput {\n");
+    sb.append("class RuntimeForListNodePoolsOutput {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

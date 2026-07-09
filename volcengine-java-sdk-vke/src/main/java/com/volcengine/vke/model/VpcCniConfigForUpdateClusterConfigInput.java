@@ -35,6 +35,9 @@ public class VpcCniConfigForUpdateClusterConfigInput {
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
 
+  @SerializedName("VciSubnetIds")
+  private List<String> vciSubnetIds = null;
+
   public VpcCniConfigForUpdateClusterConfigInput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
     return this;
@@ -61,6 +64,32 @@ public class VpcCniConfigForUpdateClusterConfigInput {
     this.subnetIds = subnetIds;
   }
 
+  public VpcCniConfigForUpdateClusterConfigInput vciSubnetIds(List<String> vciSubnetIds) {
+    this.vciSubnetIds = vciSubnetIds;
+    return this;
+  }
+
+  public VpcCniConfigForUpdateClusterConfigInput addVciSubnetIdsItem(String vciSubnetIdsItem) {
+    if (this.vciSubnetIds == null) {
+      this.vciSubnetIds = new ArrayList<String>();
+    }
+    this.vciSubnetIds.add(vciSubnetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get vciSubnetIds
+   * @return vciSubnetIds
+  **/
+  @Schema(description = "")
+  public List<String> getVciSubnetIds() {
+    return vciSubnetIds;
+  }
+
+  public void setVciSubnetIds(List<String> vciSubnetIds) {
+    this.vciSubnetIds = vciSubnetIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +100,13 @@ public class VpcCniConfigForUpdateClusterConfigInput {
       return false;
     }
     VpcCniConfigForUpdateClusterConfigInput vpcCniConfigForUpdateClusterConfigInput = (VpcCniConfigForUpdateClusterConfigInput) o;
-    return Objects.equals(this.subnetIds, vpcCniConfigForUpdateClusterConfigInput.subnetIds);
+    return Objects.equals(this.subnetIds, vpcCniConfigForUpdateClusterConfigInput.subnetIds) &&
+        Objects.equals(this.vciSubnetIds, vpcCniConfigForUpdateClusterConfigInput.vciSubnetIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds);
+    return Objects.hash(subnetIds, vciSubnetIds);
   }
 
 
@@ -86,6 +116,7 @@ public class VpcCniConfigForUpdateClusterConfigInput {
     sb.append("class VpcCniConfigForUpdateClusterConfigInput {\n");
     
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    vciSubnetIds: ").append(toIndentedString(vciSubnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

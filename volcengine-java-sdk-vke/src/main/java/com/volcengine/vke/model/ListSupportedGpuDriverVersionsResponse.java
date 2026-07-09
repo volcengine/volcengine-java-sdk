@@ -21,34 +21,44 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExecContainerImageCommitmentResponse
+ * ListSupportedGpuDriverVersionsResponse
  */
 
 
 
-public class ExecContainerImageCommitmentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TaskId")
-  private String taskId = null;
+public class ListSupportedGpuDriverVersionsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("GpuDriverVersions")
+  private List<String> gpuDriverVersions = null;
 
-  public ExecContainerImageCommitmentResponse taskId(String taskId) {
-    this.taskId = taskId;
+  public ListSupportedGpuDriverVersionsResponse gpuDriverVersions(List<String> gpuDriverVersions) {
+    this.gpuDriverVersions = gpuDriverVersions;
+    return this;
+  }
+
+  public ListSupportedGpuDriverVersionsResponse addGpuDriverVersionsItem(String gpuDriverVersionsItem) {
+    if (this.gpuDriverVersions == null) {
+      this.gpuDriverVersions = new ArrayList<String>();
+    }
+    this.gpuDriverVersions.add(gpuDriverVersionsItem);
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get gpuDriverVersions
+   * @return gpuDriverVersions
   **/
   @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
+  public List<String> getGpuDriverVersions() {
+    return gpuDriverVersions;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setGpuDriverVersions(List<String> gpuDriverVersions) {
+    this.gpuDriverVersions = gpuDriverVersions;
   }
 
 
@@ -60,22 +70,22 @@ public class ExecContainerImageCommitmentResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecContainerImageCommitmentResponse execContainerImageCommitmentResponse = (ExecContainerImageCommitmentResponse) o;
-    return Objects.equals(this.taskId, execContainerImageCommitmentResponse.taskId);
+    ListSupportedGpuDriverVersionsResponse listSupportedGpuDriverVersionsResponse = (ListSupportedGpuDriverVersionsResponse) o;
+    return Objects.equals(this.gpuDriverVersions, listSupportedGpuDriverVersionsResponse.gpuDriverVersions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(gpuDriverVersions);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExecContainerImageCommitmentResponse {\n");
+    sb.append("class ListSupportedGpuDriverVersionsResponse {\n");
     
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    gpuDriverVersions: ").append(toIndentedString(gpuDriverVersions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

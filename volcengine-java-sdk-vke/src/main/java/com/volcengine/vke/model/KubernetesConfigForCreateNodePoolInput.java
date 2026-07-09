@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ContainerdConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.KubeletConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.LabelForCreateNodePoolInput;
+import com.volcengine.vke.model.RuntimeForCreateNodePoolInput;
 import com.volcengine.vke.model.TaintForCreateNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -59,6 +60,9 @@ public class KubernetesConfigForCreateNodePoolInput {
 
   @SerializedName("NameUseHostname")
   private Boolean nameUseHostname = null;
+
+  @SerializedName("Runtime")
+  private RuntimeForCreateNodePoolInput runtime = null;
 
   @SerializedName("Taints")
   private List<TaintForCreateNodePoolInput> taints = null;
@@ -218,6 +222,25 @@ public class KubernetesConfigForCreateNodePoolInput {
     this.nameUseHostname = nameUseHostname;
   }
 
+  public KubernetesConfigForCreateNodePoolInput runtime(RuntimeForCreateNodePoolInput runtime) {
+    this.runtime = runtime;
+    return this;
+  }
+
+   /**
+   * Get runtime
+   * @return runtime
+  **/
+  @Valid
+  @Schema(description = "")
+  public RuntimeForCreateNodePoolInput getRuntime() {
+    return runtime;
+  }
+
+  public void setRuntime(RuntimeForCreateNodePoolInput runtime) {
+    this.runtime = runtime;
+  }
+
   public KubernetesConfigForCreateNodePoolInput taints(List<TaintForCreateNodePoolInput> taints) {
     this.taints = taints;
     return this;
@@ -263,12 +286,13 @@ public class KubernetesConfigForCreateNodePoolInput {
         Objects.equals(this.namePrefix, kubernetesConfigForCreateNodePoolInput.namePrefix) &&
         Objects.equals(this.nameSuffix, kubernetesConfigForCreateNodePoolInput.nameSuffix) &&
         Objects.equals(this.nameUseHostname, kubernetesConfigForCreateNodePoolInput.nameUseHostname) &&
+        Objects.equals(this.runtime, kubernetesConfigForCreateNodePoolInput.runtime) &&
         Objects.equals(this.taints, kubernetesConfigForCreateNodePoolInput.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, taints);
+    return Objects.hash(autoSyncDisabled, containerdConfig, cordon, kubeletConfig, labels, namePrefix, nameSuffix, nameUseHostname, runtime, taints);
   }
 
 
@@ -285,6 +309,7 @@ public class KubernetesConfigForCreateNodePoolInput {
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
     sb.append("    nameUseHostname: ").append(toIndentedString(nameUseHostname)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();

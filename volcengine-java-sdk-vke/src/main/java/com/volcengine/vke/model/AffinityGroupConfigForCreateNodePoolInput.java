@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExecContainerImageCommitmentResponse
+ * AffinityGroupConfigForCreateNodePoolInput
  */
 
 
 
-public class ExecContainerImageCommitmentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TaskId")
-  private String taskId = null;
+public class AffinityGroupConfigForCreateNodePoolInput {
+  @SerializedName("Enabled")
+  private Boolean enabled = null;
 
-  public ExecContainerImageCommitmentResponse taskId(String taskId) {
-    this.taskId = taskId;
+  @SerializedName("Size")
+  private Integer size = null;
+
+  public AffinityGroupConfigForCreateNodePoolInput enabled(Boolean enabled) {
+    this.enabled = enabled;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get enabled
+   * @return enabled
   **/
   @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
+  public Boolean isEnabled() {
+    return enabled;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public AffinityGroupConfigForCreateNodePoolInput size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Get size
+   * @return size
+  **/
+  @Schema(description = "")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
 
@@ -60,22 +81,24 @@ public class ExecContainerImageCommitmentResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecContainerImageCommitmentResponse execContainerImageCommitmentResponse = (ExecContainerImageCommitmentResponse) o;
-    return Objects.equals(this.taskId, execContainerImageCommitmentResponse.taskId);
+    AffinityGroupConfigForCreateNodePoolInput affinityGroupConfigForCreateNodePoolInput = (AffinityGroupConfigForCreateNodePoolInput) o;
+    return Objects.equals(this.enabled, affinityGroupConfigForCreateNodePoolInput.enabled) &&
+        Objects.equals(this.size, affinityGroupConfigForCreateNodePoolInput.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(enabled, size);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExecContainerImageCommitmentResponse {\n");
+    sb.append("class AffinityGroupConfigForCreateNodePoolInput {\n");
     
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

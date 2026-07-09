@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExecContainerImageCommitmentResponse
+ * TagForCreateSnapshotInput
  */
 
 
 
-public class ExecContainerImageCommitmentResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TaskId")
-  private String taskId = null;
+public class TagForCreateSnapshotInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public ExecContainerImageCommitmentResponse taskId(String taskId) {
-    this.taskId = taskId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForCreateSnapshotInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
+  public String getKey() {
+    return key;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForCreateSnapshotInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +81,24 @@ public class ExecContainerImageCommitmentResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecContainerImageCommitmentResponse execContainerImageCommitmentResponse = (ExecContainerImageCommitmentResponse) o;
-    return Objects.equals(this.taskId, execContainerImageCommitmentResponse.taskId);
+    TagForCreateSnapshotInput tagForCreateSnapshotInput = (TagForCreateSnapshotInput) o;
+    return Objects.equals(this.key, tagForCreateSnapshotInput.key) &&
+        Objects.equals(this.value, tagForCreateSnapshotInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExecContainerImageCommitmentResponse {\n");
+    sb.append("class TagForCreateSnapshotInput {\n");
     
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -35,6 +35,12 @@ public class ListSupportedImagesRequest {
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
+  @SerializedName("Intersection")
+  private Boolean intersection = null;
+
+  @SerializedName("KubernetesVersion")
+  private String kubernetesVersion = null;
+
   public ListSupportedImagesRequest instanceTypeIds(List<String> instanceTypeIds) {
     this.instanceTypeIds = instanceTypeIds;
     return this;
@@ -61,6 +67,42 @@ public class ListSupportedImagesRequest {
     this.instanceTypeIds = instanceTypeIds;
   }
 
+  public ListSupportedImagesRequest intersection(Boolean intersection) {
+    this.intersection = intersection;
+    return this;
+  }
+
+   /**
+   * Get intersection
+   * @return intersection
+  **/
+  @Schema(description = "")
+  public Boolean isIntersection() {
+    return intersection;
+  }
+
+  public void setIntersection(Boolean intersection) {
+    this.intersection = intersection;
+  }
+
+  public ListSupportedImagesRequest kubernetesVersion(String kubernetesVersion) {
+    this.kubernetesVersion = kubernetesVersion;
+    return this;
+  }
+
+   /**
+   * Get kubernetesVersion
+   * @return kubernetesVersion
+  **/
+  @Schema(description = "")
+  public String getKubernetesVersion() {
+    return kubernetesVersion;
+  }
+
+  public void setKubernetesVersion(String kubernetesVersion) {
+    this.kubernetesVersion = kubernetesVersion;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +113,14 @@ public class ListSupportedImagesRequest {
       return false;
     }
     ListSupportedImagesRequest listSupportedImagesRequest = (ListSupportedImagesRequest) o;
-    return Objects.equals(this.instanceTypeIds, listSupportedImagesRequest.instanceTypeIds);
+    return Objects.equals(this.instanceTypeIds, listSupportedImagesRequest.instanceTypeIds) &&
+        Objects.equals(this.intersection, listSupportedImagesRequest.intersection) &&
+        Objects.equals(this.kubernetesVersion, listSupportedImagesRequest.kubernetesVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypeIds);
+    return Objects.hash(instanceTypeIds, intersection, kubernetesVersion);
   }
 
 
@@ -86,6 +130,8 @@ public class ListSupportedImagesRequest {
     sb.append("class ListSupportedImagesRequest {\n");
     
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
+    sb.append("    intersection: ").append(toIndentedString(intersection)).append("\n");
+    sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
