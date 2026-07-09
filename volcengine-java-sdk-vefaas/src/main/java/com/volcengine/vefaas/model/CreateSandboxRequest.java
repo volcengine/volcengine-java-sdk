@@ -89,6 +89,9 @@ public class CreateSandboxRequest {
   @SerializedName("Sidecars")
   private List<SidecarForCreateSandboxInput> sidecars = null;
 
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
+
   @SerializedName("Timeout")
   private Integer timeout = null;
 
@@ -439,6 +442,24 @@ public class CreateSandboxRequest {
     this.sidecars = sidecars;
   }
 
+  public CreateSandboxRequest snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+  }
+
   public CreateSandboxRequest timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
@@ -501,13 +522,14 @@ public class CreateSandboxRequest {
         Objects.equals(this.roleChainTrn, createSandboxRequest.roleChainTrn) &&
         Objects.equals(this.sessionId, createSandboxRequest.sessionId) &&
         Objects.equals(this.sidecars, createSandboxRequest.sidecars) &&
+        Objects.equals(this.snapshotId, createSandboxRequest.snapshotId) &&
         Objects.equals(this.timeout, createSandboxRequest.timeout) &&
         Objects.equals(this.timeoutUnit, createSandboxRequest.timeoutUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, sessionId, sidecars, timeout, timeoutUnit);
+    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
   }
 
 
@@ -532,6 +554,7 @@ public class CreateSandboxRequest {
     sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    timeoutUnit: ").append(toIndentedString(timeoutUnit)).append("\n");
     sb.append("}");
