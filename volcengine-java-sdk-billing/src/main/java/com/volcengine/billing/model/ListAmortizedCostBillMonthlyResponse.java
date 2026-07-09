@@ -45,6 +45,9 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
   @SerializedName("Total")
   private Integer total = null;
 
+  @SerializedName("Warning")
+  private String warning = null;
+
   public ListAmortizedCostBillMonthlyResponse limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -126,6 +129,24 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
     this.total = total;
   }
 
+  public ListAmortizedCostBillMonthlyResponse warning(String warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @Schema(description = "")
+  public String getWarning() {
+    return warning;
+  }
+
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,12 +160,13 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
     return Objects.equals(this.limit, listAmortizedCostBillMonthlyResponse.limit) &&
         Objects.equals(this.list, listAmortizedCostBillMonthlyResponse.list) &&
         Objects.equals(this.offset, listAmortizedCostBillMonthlyResponse.offset) &&
-        Objects.equals(this.total, listAmortizedCostBillMonthlyResponse.total);
+        Objects.equals(this.total, listAmortizedCostBillMonthlyResponse.total) &&
+        Objects.equals(this.warning, listAmortizedCostBillMonthlyResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total);
+    return Objects.hash(limit, list, offset, total, warning);
   }
 
 
@@ -157,6 +179,7 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

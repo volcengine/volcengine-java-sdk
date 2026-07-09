@@ -45,6 +45,9 @@ public class ListSplitBillDetailResponse extends com.volcengine.model.AbstractRe
   @SerializedName("Total")
   private Integer total = null;
 
+  @SerializedName("Warning")
+  private String warning = null;
+
   public ListSplitBillDetailResponse limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -126,6 +129,24 @@ public class ListSplitBillDetailResponse extends com.volcengine.model.AbstractRe
     this.total = total;
   }
 
+  public ListSplitBillDetailResponse warning(String warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @Schema(description = "")
+  public String getWarning() {
+    return warning;
+  }
+
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,12 +160,13 @@ public class ListSplitBillDetailResponse extends com.volcengine.model.AbstractRe
     return Objects.equals(this.limit, listSplitBillDetailResponse.limit) &&
         Objects.equals(this.list, listSplitBillDetailResponse.list) &&
         Objects.equals(this.offset, listSplitBillDetailResponse.offset) &&
-        Objects.equals(this.total, listSplitBillDetailResponse.total);
+        Objects.equals(this.total, listSplitBillDetailResponse.total) &&
+        Objects.equals(this.warning, listSplitBillDetailResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total);
+    return Objects.hash(limit, list, offset, total, warning);
   }
 
 
@@ -157,6 +179,7 @@ public class ListSplitBillDetailResponse extends com.volcengine.model.AbstractRe
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }
