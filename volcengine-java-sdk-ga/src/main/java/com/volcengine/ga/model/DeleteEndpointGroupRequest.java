@@ -30,11 +30,33 @@ import javax.validation.Valid;
 
 
 public class DeleteEndpointGroupRequest {
+  @SerializedName("AcceleratorId")
+  private String acceleratorId = null;
+
   @SerializedName("EndpointGroupId")
   private String endpointGroupId = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
+
+  public DeleteEndpointGroupRequest acceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+    return this;
+  }
+
+   /**
+   * Get acceleratorId
+   * @return acceleratorId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAcceleratorId() {
+    return acceleratorId;
+  }
+
+  public void setAcceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+  }
 
   public DeleteEndpointGroupRequest endpointGroupId(String endpointGroupId) {
     this.endpointGroupId = endpointGroupId;
@@ -84,13 +106,14 @@ public class DeleteEndpointGroupRequest {
       return false;
     }
     DeleteEndpointGroupRequest deleteEndpointGroupRequest = (DeleteEndpointGroupRequest) o;
-    return Objects.equals(this.endpointGroupId, deleteEndpointGroupRequest.endpointGroupId) &&
+    return Objects.equals(this.acceleratorId, deleteEndpointGroupRequest.acceleratorId) &&
+        Objects.equals(this.endpointGroupId, deleteEndpointGroupRequest.endpointGroupId) &&
         Objects.equals(this.listenerId, deleteEndpointGroupRequest.listenerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointGroupId, listenerId);
+    return Objects.hash(acceleratorId, endpointGroupId, listenerId);
   }
 
 
@@ -99,6 +122,7 @@ public class DeleteEndpointGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteEndpointGroupRequest {\n");
     
+    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    endpointGroupId: ").append(toIndentedString(endpointGroupId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("}");

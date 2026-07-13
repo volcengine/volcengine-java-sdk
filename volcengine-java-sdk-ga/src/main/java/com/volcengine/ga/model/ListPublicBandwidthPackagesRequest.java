@@ -20,11 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ga.model.ResourceTagFilterForListPublicBandwidthPackagesInput;
-import com.volcengine.ga.model.TagForListPublicBandwidthPackagesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -57,9 +54,6 @@ public class ListPublicBandwidthPackagesRequest {
 
   @SerializedName("State")
   private String state = null;
-
-  @SerializedName("Tags")
-  private List<TagForListPublicBandwidthPackagesInput> tags = null;
 
   public ListPublicBandwidthPackagesRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -206,33 +200,6 @@ public class ListPublicBandwidthPackagesRequest {
     this.state = state;
   }
 
-  public ListPublicBandwidthPackagesRequest tags(List<TagForListPublicBandwidthPackagesInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ListPublicBandwidthPackagesRequest addTagsItem(TagForListPublicBandwidthPackagesInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForListPublicBandwidthPackagesInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForListPublicBandwidthPackagesInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForListPublicBandwidthPackagesInput> tags) {
-    this.tags = tags;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,13 +217,12 @@ public class ListPublicBandwidthPackagesRequest {
         Objects.equals(this.pageSize, listPublicBandwidthPackagesRequest.pageSize) &&
         Objects.equals(this.projectName, listPublicBandwidthPackagesRequest.projectName) &&
         Objects.equals(this.resourceTagFilter, listPublicBandwidthPackagesRequest.resourceTagFilter) &&
-        Objects.equals(this.state, listPublicBandwidthPackagesRequest.state) &&
-        Objects.equals(this.tags, listPublicBandwidthPackagesRequest.tags);
+        Objects.equals(this.state, listPublicBandwidthPackagesRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, bandwidthPackageId, bandwidthType, pageNum, pageSize, projectName, resourceTagFilter, state, tags);
+    return Objects.hash(acceleratorId, bandwidthPackageId, bandwidthType, pageNum, pageSize, projectName, resourceTagFilter, state);
   }
 
 
@@ -273,7 +239,6 @@ public class ListPublicBandwidthPackagesRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceTagFilter: ").append(toIndentedString(resourceTagFilter)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

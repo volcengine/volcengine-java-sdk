@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ga.model.ResourceTagsForDescribeAcceleratorOutput;
+import com.volcengine.ga.model.IPSetForDescribeAcceleratorOutput;
+import com.volcengine.ga.model.ResourceTagForDescribeAcceleratorOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,14 +34,23 @@ import javax.validation.Valid;
 
 
 public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccelerateType")
+  private String accelerateType = null;
+
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
   @SerializedName("AccountID")
   private String accountID = null;
 
+  @SerializedName("Bandwidth")
+  private Long bandwidth = null;
+
   @SerializedName("BandwidthPackageIds")
   private List<String> bandwidthPackageIds = null;
+
+  @SerializedName("BeginTime")
+  private Long beginTime = null;
 
   @SerializedName("BillingSpec")
   private String billingSpec = null;
@@ -57,8 +67,14 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
   @SerializedName("ChargeType")
   private String chargeType = null;
 
+  @SerializedName("ConnectionNum")
+  private Long connectionNum = null;
+
   @SerializedName("CreateTime")
   private Integer createTime = null;
+
+  @SerializedName("CreateTimeStr")
+  private String createTimeStr = null;
 
   @SerializedName("CrossDomainBandwidthIds")
   private List<String> crossDomainBandwidthIds = null;
@@ -69,8 +85,14 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
   @SerializedName("FullPortSwitch")
   private Boolean fullPortSwitch = null;
 
+  @SerializedName("IPSets")
+  private List<IPSetForDescribeAcceleratorOutput> ipSets = null;
+
   @SerializedName("ListenerCount")
   private Integer listenerCount = null;
+
+  @SerializedName("ListenerIds")
+  private List<String> listenerIds = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -81,14 +103,38 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
   @SerializedName("RegionCount")
   private Integer regionCount = null;
 
+  @SerializedName("RegionNum")
+  private Long regionNum = null;
+
   @SerializedName("RenewType")
   private Integer renewType = null;
 
   @SerializedName("ResourceTags")
-  private ResourceTagsForDescribeAcceleratorOutput resourceTags = null;
+  private List<ResourceTagForDescribeAcceleratorOutput> resourceTags = null;
 
   @SerializedName("State")
   private String state = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public DescribeAcceleratorResponse accelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+    return this;
+  }
+
+   /**
+   * Get accelerateType
+   * @return accelerateType
+  **/
+  @Schema(description = "")
+  public String getAccelerateType() {
+    return accelerateType;
+  }
+
+  public void setAccelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+  }
 
   public DescribeAcceleratorResponse acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -126,6 +172,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.accountID = accountID;
   }
 
+  public DescribeAcceleratorResponse bandwidth(Long bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Long getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Long bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
   public DescribeAcceleratorResponse bandwidthPackageIds(List<String> bandwidthPackageIds) {
     this.bandwidthPackageIds = bandwidthPackageIds;
     return this;
@@ -150,6 +214,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
 
   public void setBandwidthPackageIds(List<String> bandwidthPackageIds) {
     this.bandwidthPackageIds = bandwidthPackageIds;
+  }
+
+  public DescribeAcceleratorResponse beginTime(Long beginTime) {
+    this.beginTime = beginTime;
+    return this;
+  }
+
+   /**
+   * Get beginTime
+   * @return beginTime
+  **/
+  @Schema(description = "")
+  public Long getBeginTime() {
+    return beginTime;
+  }
+
+  public void setBeginTime(Long beginTime) {
+    this.beginTime = beginTime;
   }
 
   public DescribeAcceleratorResponse billingSpec(String billingSpec) {
@@ -242,6 +324,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.chargeType = chargeType;
   }
 
+  public DescribeAcceleratorResponse connectionNum(Long connectionNum) {
+    this.connectionNum = connectionNum;
+    return this;
+  }
+
+   /**
+   * Get connectionNum
+   * @return connectionNum
+  **/
+  @Schema(description = "")
+  public Long getConnectionNum() {
+    return connectionNum;
+  }
+
+  public void setConnectionNum(Long connectionNum) {
+    this.connectionNum = connectionNum;
+  }
+
   public DescribeAcceleratorResponse createTime(Integer createTime) {
     this.createTime = createTime;
     return this;
@@ -258,6 +358,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
 
   public void setCreateTime(Integer createTime) {
     this.createTime = createTime;
+  }
+
+  public DescribeAcceleratorResponse createTimeStr(String createTimeStr) {
+    this.createTimeStr = createTimeStr;
+    return this;
+  }
+
+   /**
+   * Get createTimeStr
+   * @return createTimeStr
+  **/
+  @Schema(description = "")
+  public String getCreateTimeStr() {
+    return createTimeStr;
+  }
+
+  public void setCreateTimeStr(String createTimeStr) {
+    this.createTimeStr = createTimeStr;
   }
 
   public DescribeAcceleratorResponse crossDomainBandwidthIds(List<String> crossDomainBandwidthIds) {
@@ -322,6 +440,33 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.fullPortSwitch = fullPortSwitch;
   }
 
+  public DescribeAcceleratorResponse ipSets(List<IPSetForDescribeAcceleratorOutput> ipSets) {
+    this.ipSets = ipSets;
+    return this;
+  }
+
+  public DescribeAcceleratorResponse addIpSetsItem(IPSetForDescribeAcceleratorOutput ipSetsItem) {
+    if (this.ipSets == null) {
+      this.ipSets = new ArrayList<IPSetForDescribeAcceleratorOutput>();
+    }
+    this.ipSets.add(ipSetsItem);
+    return this;
+  }
+
+   /**
+   * Get ipSets
+   * @return ipSets
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IPSetForDescribeAcceleratorOutput> getIpSets() {
+    return ipSets;
+  }
+
+  public void setIpSets(List<IPSetForDescribeAcceleratorOutput> ipSets) {
+    this.ipSets = ipSets;
+  }
+
   public DescribeAcceleratorResponse listenerCount(Integer listenerCount) {
     this.listenerCount = listenerCount;
     return this;
@@ -338,6 +483,32 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
 
   public void setListenerCount(Integer listenerCount) {
     this.listenerCount = listenerCount;
+  }
+
+  public DescribeAcceleratorResponse listenerIds(List<String> listenerIds) {
+    this.listenerIds = listenerIds;
+    return this;
+  }
+
+  public DescribeAcceleratorResponse addListenerIdsItem(String listenerIdsItem) {
+    if (this.listenerIds == null) {
+      this.listenerIds = new ArrayList<String>();
+    }
+    this.listenerIds.add(listenerIdsItem);
+    return this;
+  }
+
+   /**
+   * Get listenerIds
+   * @return listenerIds
+  **/
+  @Schema(description = "")
+  public List<String> getListenerIds() {
+    return listenerIds;
+  }
+
+  public void setListenerIds(List<String> listenerIds) {
+    this.listenerIds = listenerIds;
   }
 
   public DescribeAcceleratorResponse name(String name) {
@@ -394,6 +565,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.regionCount = regionCount;
   }
 
+  public DescribeAcceleratorResponse regionNum(Long regionNum) {
+    this.regionNum = regionNum;
+    return this;
+  }
+
+   /**
+   * Get regionNum
+   * @return regionNum
+  **/
+  @Schema(description = "")
+  public Long getRegionNum() {
+    return regionNum;
+  }
+
+  public void setRegionNum(Long regionNum) {
+    this.regionNum = regionNum;
+  }
+
   public DescribeAcceleratorResponse renewType(Integer renewType) {
     this.renewType = renewType;
     return this;
@@ -412,8 +601,16 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.renewType = renewType;
   }
 
-  public DescribeAcceleratorResponse resourceTags(ResourceTagsForDescribeAcceleratorOutput resourceTags) {
+  public DescribeAcceleratorResponse resourceTags(List<ResourceTagForDescribeAcceleratorOutput> resourceTags) {
     this.resourceTags = resourceTags;
+    return this;
+  }
+
+  public DescribeAcceleratorResponse addResourceTagsItem(ResourceTagForDescribeAcceleratorOutput resourceTagsItem) {
+    if (this.resourceTags == null) {
+      this.resourceTags = new ArrayList<ResourceTagForDescribeAcceleratorOutput>();
+    }
+    this.resourceTags.add(resourceTagsItem);
     return this;
   }
 
@@ -423,11 +620,11 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
   **/
   @Valid
   @Schema(description = "")
-  public ResourceTagsForDescribeAcceleratorOutput getResourceTags() {
+  public List<ResourceTagForDescribeAcceleratorOutput> getResourceTags() {
     return resourceTags;
   }
 
-  public void setResourceTags(ResourceTagsForDescribeAcceleratorOutput resourceTags) {
+  public void setResourceTags(List<ResourceTagForDescribeAcceleratorOutput> resourceTags) {
     this.resourceTags = resourceTags;
   }
 
@@ -449,6 +646,24 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     this.state = state;
   }
 
+  public DescribeAcceleratorResponse type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -459,30 +674,39 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     DescribeAcceleratorResponse describeAcceleratorResponse = (DescribeAcceleratorResponse) o;
-    return Objects.equals(this.acceleratorId, describeAcceleratorResponse.acceleratorId) &&
+    return Objects.equals(this.accelerateType, describeAcceleratorResponse.accelerateType) &&
+        Objects.equals(this.acceleratorId, describeAcceleratorResponse.acceleratorId) &&
         Objects.equals(this.accountID, describeAcceleratorResponse.accountID) &&
+        Objects.equals(this.bandwidth, describeAcceleratorResponse.bandwidth) &&
         Objects.equals(this.bandwidthPackageIds, describeAcceleratorResponse.bandwidthPackageIds) &&
+        Objects.equals(this.beginTime, describeAcceleratorResponse.beginTime) &&
         Objects.equals(this.billingSpec, describeAcceleratorResponse.billingSpec) &&
         Objects.equals(this.billingSpecEffectiveTime, describeAcceleratorResponse.billingSpecEffectiveTime) &&
         Objects.equals(this.billingType, describeAcceleratorResponse.billingType) &&
         Objects.equals(this.CNAME, describeAcceleratorResponse.CNAME) &&
         Objects.equals(this.chargeType, describeAcceleratorResponse.chargeType) &&
+        Objects.equals(this.connectionNum, describeAcceleratorResponse.connectionNum) &&
         Objects.equals(this.createTime, describeAcceleratorResponse.createTime) &&
+        Objects.equals(this.createTimeStr, describeAcceleratorResponse.createTimeStr) &&
         Objects.equals(this.crossDomainBandwidthIds, describeAcceleratorResponse.crossDomainBandwidthIds) &&
         Objects.equals(this.expiredTime, describeAcceleratorResponse.expiredTime) &&
         Objects.equals(this.fullPortSwitch, describeAcceleratorResponse.fullPortSwitch) &&
+        Objects.equals(this.ipSets, describeAcceleratorResponse.ipSets) &&
         Objects.equals(this.listenerCount, describeAcceleratorResponse.listenerCount) &&
+        Objects.equals(this.listenerIds, describeAcceleratorResponse.listenerIds) &&
         Objects.equals(this.name, describeAcceleratorResponse.name) &&
         Objects.equals(this.projectName, describeAcceleratorResponse.projectName) &&
         Objects.equals(this.regionCount, describeAcceleratorResponse.regionCount) &&
+        Objects.equals(this.regionNum, describeAcceleratorResponse.regionNum) &&
         Objects.equals(this.renewType, describeAcceleratorResponse.renewType) &&
         Objects.equals(this.resourceTags, describeAcceleratorResponse.resourceTags) &&
-        Objects.equals(this.state, describeAcceleratorResponse.state);
+        Objects.equals(this.state, describeAcceleratorResponse.state) &&
+        Objects.equals(this.type, describeAcceleratorResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, accountID, bandwidthPackageIds, billingSpec, billingSpecEffectiveTime, billingType, CNAME, chargeType, createTime, crossDomainBandwidthIds, expiredTime, fullPortSwitch, listenerCount, name, projectName, regionCount, renewType, resourceTags, state);
+    return Objects.hash(accelerateType, acceleratorId, accountID, bandwidth, bandwidthPackageIds, beginTime, billingSpec, billingSpecEffectiveTime, billingType, CNAME, chargeType, connectionNum, createTime, createTimeStr, crossDomainBandwidthIds, expiredTime, fullPortSwitch, ipSets, listenerCount, listenerIds, name, projectName, regionCount, regionNum, renewType, resourceTags, state, type);
   }
 
 
@@ -491,25 +715,34 @@ public class DescribeAcceleratorResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAcceleratorResponse {\n");
     
+    sb.append("    accelerateType: ").append(toIndentedString(accelerateType)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    bandwidthPackageIds: ").append(toIndentedString(bandwidthPackageIds)).append("\n");
+    sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
     sb.append("    billingSpec: ").append(toIndentedString(billingSpec)).append("\n");
     sb.append("    billingSpecEffectiveTime: ").append(toIndentedString(billingSpecEffectiveTime)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    CNAME: ").append(toIndentedString(CNAME)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    connectionNum: ").append(toIndentedString(connectionNum)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    createTimeStr: ").append(toIndentedString(createTimeStr)).append("\n");
     sb.append("    crossDomainBandwidthIds: ").append(toIndentedString(crossDomainBandwidthIds)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    fullPortSwitch: ").append(toIndentedString(fullPortSwitch)).append("\n");
+    sb.append("    ipSets: ").append(toIndentedString(ipSets)).append("\n");
     sb.append("    listenerCount: ").append(toIndentedString(listenerCount)).append("\n");
+    sb.append("    listenerIds: ").append(toIndentedString(listenerIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionCount: ").append(toIndentedString(regionCount)).append("\n");
+    sb.append("    regionNum: ").append(toIndentedString(regionNum)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,8 +30,30 @@ import javax.validation.Valid;
 
 
 public class DeleteBasicEndpointRequest {
+  @SerializedName("AcceleratorId")
+  private String acceleratorId = null;
+
   @SerializedName("EndpointId")
   private String endpointId = null;
+
+  public DeleteBasicEndpointRequest acceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+    return this;
+  }
+
+   /**
+   * Get acceleratorId
+   * @return acceleratorId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAcceleratorId() {
+    return acceleratorId;
+  }
+
+  public void setAcceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+  }
 
   public DeleteBasicEndpointRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
@@ -62,12 +84,13 @@ public class DeleteBasicEndpointRequest {
       return false;
     }
     DeleteBasicEndpointRequest deleteBasicEndpointRequest = (DeleteBasicEndpointRequest) o;
-    return Objects.equals(this.endpointId, deleteBasicEndpointRequest.endpointId);
+    return Objects.equals(this.acceleratorId, deleteBasicEndpointRequest.acceleratorId) &&
+        Objects.equals(this.endpointId, deleteBasicEndpointRequest.endpointId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId);
+    return Objects.hash(acceleratorId, endpointId);
   }
 
 
@@ -76,6 +99,7 @@ public class DeleteBasicEndpointRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteBasicEndpointRequest {\n");
     
+    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("}");
     return sb.toString();

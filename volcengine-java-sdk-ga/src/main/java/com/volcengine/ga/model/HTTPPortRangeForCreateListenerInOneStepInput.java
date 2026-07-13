@@ -21,65 +21,55 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListAcceleratorsInput
+ * HTTPPortRangeForCreateListenerInOneStepInput
  */
 
 
 
-public class TagForListAcceleratorsInput {
-  @SerializedName("Key")
-  private String key = null;
+public class HTTPPortRangeForCreateListenerInOneStepInput {
+  @SerializedName("FromPort")
+  private Integer fromPort = null;
 
-  @SerializedName("Values")
-  private List<String> values = null;
+  @SerializedName("ToPort")
+  private Integer toPort = null;
 
-  public TagForListAcceleratorsInput key(String key) {
-    this.key = key;
+  public HTTPPortRangeForCreateListenerInOneStepInput fromPort(Integer fromPort) {
+    this.fromPort = fromPort;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get fromPort
+   * @return fromPort
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public Integer getFromPort() {
+    return fromPort;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setFromPort(Integer fromPort) {
+    this.fromPort = fromPort;
   }
 
-  public TagForListAcceleratorsInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagForListAcceleratorsInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
-    this.values.add(valuesItem);
+  public HTTPPortRangeForCreateListenerInOneStepInput toPort(Integer toPort) {
+    this.toPort = toPort;
     return this;
   }
 
    /**
-   * Get values
-   * @return values
+   * Get toPort
+   * @return toPort
   **/
   @Schema(description = "")
-  public List<String> getValues() {
-    return values;
+  public Integer getToPort() {
+    return toPort;
   }
 
-  public void setValues(List<String> values) {
-    this.values = values;
+  public void setToPort(Integer toPort) {
+    this.toPort = toPort;
   }
 
 
@@ -91,24 +81,24 @@ public class TagForListAcceleratorsInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListAcceleratorsInput tagForListAcceleratorsInput = (TagForListAcceleratorsInput) o;
-    return Objects.equals(this.key, tagForListAcceleratorsInput.key) &&
-        Objects.equals(this.values, tagForListAcceleratorsInput.values);
+    HTTPPortRangeForCreateListenerInOneStepInput htTPPortRangeForCreateListenerInOneStepInput = (HTTPPortRangeForCreateListenerInOneStepInput) o;
+    return Objects.equals(this.fromPort, htTPPortRangeForCreateListenerInOneStepInput.fromPort) &&
+        Objects.equals(this.toPort, htTPPortRangeForCreateListenerInOneStepInput.toPort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(fromPort, toPort);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListAcceleratorsInput {\n");
+    sb.append("class HTTPPortRangeForCreateListenerInOneStepInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    fromPort: ").append(toIndentedString(fromPort)).append("\n");
+    sb.append("    toPort: ").append(toIndentedString(toPort)).append("\n");
     sb.append("}");
     return sb.toString();
   }

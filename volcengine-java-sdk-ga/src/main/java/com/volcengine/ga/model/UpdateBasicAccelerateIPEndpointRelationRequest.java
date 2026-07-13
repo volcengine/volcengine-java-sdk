@@ -33,10 +33,13 @@ import javax.validation.Valid;
 
 
 public class UpdateBasicAccelerateIPEndpointRelationRequest {
-  @SerializedName("accelerateIPId")
+  @SerializedName("AccelerateIPId")
   private String accelerateIPId = null;
 
-  @SerializedName("endpoints")
+  @SerializedName("AcceleratorId")
+  private String acceleratorId = null;
+
+  @SerializedName("Endpoints")
   private List<EndpointForUpdateBasicAccelerateIPEndpointRelationInput> endpoints = null;
 
   public UpdateBasicAccelerateIPEndpointRelationRequest accelerateIPId(String accelerateIPId) {
@@ -56,6 +59,25 @@ public class UpdateBasicAccelerateIPEndpointRelationRequest {
 
   public void setAccelerateIPId(String accelerateIPId) {
     this.accelerateIPId = accelerateIPId;
+  }
+
+  public UpdateBasicAccelerateIPEndpointRelationRequest acceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+    return this;
+  }
+
+   /**
+   * Get acceleratorId
+   * @return acceleratorId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAcceleratorId() {
+    return acceleratorId;
+  }
+
+  public void setAcceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
   }
 
   public UpdateBasicAccelerateIPEndpointRelationRequest endpoints(List<EndpointForUpdateBasicAccelerateIPEndpointRelationInput> endpoints) {
@@ -96,12 +118,13 @@ public class UpdateBasicAccelerateIPEndpointRelationRequest {
     }
     UpdateBasicAccelerateIPEndpointRelationRequest updateBasicAccelerateIPEndpointRelationRequest = (UpdateBasicAccelerateIPEndpointRelationRequest) o;
     return Objects.equals(this.accelerateIPId, updateBasicAccelerateIPEndpointRelationRequest.accelerateIPId) &&
+        Objects.equals(this.acceleratorId, updateBasicAccelerateIPEndpointRelationRequest.acceleratorId) &&
         Objects.equals(this.endpoints, updateBasicAccelerateIPEndpointRelationRequest.endpoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateIPId, endpoints);
+    return Objects.hash(accelerateIPId, acceleratorId, endpoints);
   }
 
 
@@ -111,6 +134,7 @@ public class UpdateBasicAccelerateIPEndpointRelationRequest {
     sb.append("class UpdateBasicAccelerateIPEndpointRelationRequest {\n");
     
     sb.append("    accelerateIPId: ").append(toIndentedString(accelerateIPId)).append("\n");
+    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("}");
     return sb.toString();

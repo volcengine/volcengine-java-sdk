@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateAcceleratorRequest {
+  @SerializedName("AccelerateType")
+  private String accelerateType = null;
+
   @SerializedName("BillingPeriod")
   private Integer billingPeriod = null;
 
@@ -48,6 +51,9 @@ public class CreateAcceleratorRequest {
   @SerializedName("Duration")
   private Integer duration = null;
 
+  @SerializedName("FullPortSwitch")
+  private Boolean fullPortSwitch = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -59,6 +65,24 @@ public class CreateAcceleratorRequest {
 
   @SerializedName("ResourceTags")
   private List<ResourceTagForCreateAcceleratorInput> resourceTags = null;
+
+  public CreateAcceleratorRequest accelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+    return this;
+  }
+
+   /**
+   * Get accelerateType
+   * @return accelerateType
+  **/
+  @Schema(description = "")
+  public String getAccelerateType() {
+    return accelerateType;
+  }
+
+  public void setAccelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+  }
 
   public CreateAcceleratorRequest billingPeriod(Integer billingPeriod) {
     this.billingPeriod = billingPeriod;
@@ -152,6 +176,24 @@ public class CreateAcceleratorRequest {
     this.duration = duration;
   }
 
+  public CreateAcceleratorRequest fullPortSwitch(Boolean fullPortSwitch) {
+    this.fullPortSwitch = fullPortSwitch;
+    return this;
+  }
+
+   /**
+   * Get fullPortSwitch
+   * @return fullPortSwitch
+  **/
+  @Schema(description = "")
+  public Boolean isFullPortSwitch() {
+    return fullPortSwitch;
+  }
+
+  public void setFullPortSwitch(Boolean fullPortSwitch) {
+    this.fullPortSwitch = fullPortSwitch;
+  }
+
   public CreateAcceleratorRequest name(String name) {
     this.name = name;
     return this;
@@ -243,11 +285,13 @@ public class CreateAcceleratorRequest {
       return false;
     }
     CreateAcceleratorRequest createAcceleratorRequest = (CreateAcceleratorRequest) o;
-    return Objects.equals(this.billingPeriod, createAcceleratorRequest.billingPeriod) &&
+    return Objects.equals(this.accelerateType, createAcceleratorRequest.accelerateType) &&
+        Objects.equals(this.billingPeriod, createAcceleratorRequest.billingPeriod) &&
         Objects.equals(this.billingSpec, createAcceleratorRequest.billingSpec) &&
         Objects.equals(this.billingType, createAcceleratorRequest.billingType) &&
         Objects.equals(this.chargeType, createAcceleratorRequest.chargeType) &&
         Objects.equals(this.duration, createAcceleratorRequest.duration) &&
+        Objects.equals(this.fullPortSwitch, createAcceleratorRequest.fullPortSwitch) &&
         Objects.equals(this.name, createAcceleratorRequest.name) &&
         Objects.equals(this.projectName, createAcceleratorRequest.projectName) &&
         Objects.equals(this.renewType, createAcceleratorRequest.renewType) &&
@@ -256,7 +300,7 @@ public class CreateAcceleratorRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingPeriod, billingSpec, billingType, chargeType, duration, name, projectName, renewType, resourceTags);
+    return Objects.hash(accelerateType, billingPeriod, billingSpec, billingType, chargeType, duration, fullPortSwitch, name, projectName, renewType, resourceTags);
   }
 
 
@@ -265,11 +309,13 @@ public class CreateAcceleratorRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAcceleratorRequest {\n");
     
+    sb.append("    accelerateType: ").append(toIndentedString(accelerateType)).append("\n");
     sb.append("    billingPeriod: ").append(toIndentedString(billingPeriod)).append("\n");
     sb.append("    billingSpec: ").append(toIndentedString(billingSpec)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    fullPortSwitch: ").append(toIndentedString(fullPortSwitch)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");

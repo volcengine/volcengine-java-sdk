@@ -37,6 +37,12 @@ public class DescribeBasicAcceleratorResponse extends com.volcengine.model.Abstr
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
+  @SerializedName("AccountID")
+  private String accountID = null;
+
+  @SerializedName("AccountName")
+  private String accountName = null;
+
   @SerializedName("BandwidthPackageIds")
   private List<String> bandwidthPackageIds = null;
 
@@ -101,6 +107,42 @@ public class DescribeBasicAcceleratorResponse extends com.volcengine.model.Abstr
 
   public void setAcceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
+  }
+
+  public DescribeBasicAcceleratorResponse accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
+  }
+
+  public DescribeBasicAcceleratorResponse accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+   /**
+   * Get accountName
+   * @return accountName
+  **/
+  @Schema(description = "")
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
   }
 
   public DescribeBasicAcceleratorResponse bandwidthPackageIds(List<String> bandwidthPackageIds) {
@@ -436,6 +478,8 @@ public class DescribeBasicAcceleratorResponse extends com.volcengine.model.Abstr
     }
     DescribeBasicAcceleratorResponse describeBasicAcceleratorResponse = (DescribeBasicAcceleratorResponse) o;
     return Objects.equals(this.acceleratorId, describeBasicAcceleratorResponse.acceleratorId) &&
+        Objects.equals(this.accountID, describeBasicAcceleratorResponse.accountID) &&
+        Objects.equals(this.accountName, describeBasicAcceleratorResponse.accountName) &&
         Objects.equals(this.bandwidthPackageIds, describeBasicAcceleratorResponse.bandwidthPackageIds) &&
         Objects.equals(this.bandwidthPackageVolume, describeBasicAcceleratorResponse.bandwidthPackageVolume) &&
         Objects.equals(this.beginTime, describeBasicAcceleratorResponse.beginTime) &&
@@ -456,7 +500,7 @@ public class DescribeBasicAcceleratorResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, bandwidthPackageIds, bandwidthPackageVolume, beginTime, billingType, chargeType, createTime, createTimeStr, crossDomainBandwidthIds, endPointGroups, expiredTime, ipSets, mode, name, projectName, renewType, state);
+    return Objects.hash(acceleratorId, accountID, accountName, bandwidthPackageIds, bandwidthPackageVolume, beginTime, billingType, chargeType, createTime, createTimeStr, crossDomainBandwidthIds, endPointGroups, expiredTime, ipSets, mode, name, projectName, renewType, state);
   }
 
 
@@ -466,6 +510,8 @@ public class DescribeBasicAcceleratorResponse extends com.volcengine.model.Abstr
     sb.append("class DescribeBasicAcceleratorResponse {\n");
     
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    bandwidthPackageIds: ").append(toIndentedString(bandwidthPackageIds)).append("\n");
     sb.append("    bandwidthPackageVolume: ").append(toIndentedString(bandwidthPackageVolume)).append("\n");
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");

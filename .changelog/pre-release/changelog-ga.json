@@ -1,0 +1,5 @@
+{
+  "description": "GA: 修改 DescribeBasicIPSet, ListBasicAccelerators, CreateBasicAccelerator, DescribeAccelerator, DescribeTopStatistics, CreateAccelerator, DeleteAccelerator, ListIPSets, TerminateAccelerator, DeleteBasicIPSet, CreateListenerInOneStep, DeleteBasicEndpoint, DeleteBasicAccelerateIPEndpointRelation, DeleteEndpointGroup, UpdateListener, RenewBasicAccelerator, DeleteBasicAccelerateIP, DeleteListener, CreateBasicIPSet, ListBasicIPSets, DescribeBasicAccelerator, DescribeIPSet, CreateIPSets, DeleteIPSet, DescribeBasicEndpointGroup, UpdateBasicAccelerateIPEndpointRelation, ListAccelerators, ListPublicBandwidthPackages, DeleteBasicEndpointGroup",
+  "modules": "service/ga",
+  "type": "breaking-change"
+}

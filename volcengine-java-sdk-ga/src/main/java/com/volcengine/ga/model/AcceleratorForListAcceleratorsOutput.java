@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ga.model.IPSetForListAcceleratorsOutput;
 import com.volcengine.ga.model.ResourceTagForListAcceleratorsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,14 +34,23 @@ import javax.validation.Valid;
 
 
 public class AcceleratorForListAcceleratorsOutput {
+  @SerializedName("AccelerateType")
+  private String accelerateType = null;
+
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
   @SerializedName("AccountID")
   private String accountID = null;
 
+  @SerializedName("Bandwidth")
+  private Long bandwidth = null;
+
   @SerializedName("BandwidthPackageIds")
   private List<String> bandwidthPackageIds = null;
+
+  @SerializedName("BeginTime")
+  private Long beginTime = null;
 
   @SerializedName("BillingSpec")
   private String billingSpec = null;
@@ -57,6 +67,9 @@ public class AcceleratorForListAcceleratorsOutput {
   @SerializedName("ChargeType")
   private String chargeType = null;
 
+  @SerializedName("ConnectionNum")
+  private Long connectionNum = null;
+
   @SerializedName("CreateTime")
   private Integer createTime = null;
 
@@ -72,8 +85,14 @@ public class AcceleratorForListAcceleratorsOutput {
   @SerializedName("FullPortSwitch")
   private Boolean fullPortSwitch = null;
 
+  @SerializedName("IPSets")
+  private List<IPSetForListAcceleratorsOutput> ipSets = null;
+
   @SerializedName("ListenerCount")
   private Integer listenerCount = null;
+
+  @SerializedName("ListenerIds")
+  private List<String> listenerIds = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -92,6 +111,24 @@ public class AcceleratorForListAcceleratorsOutput {
 
   @SerializedName("State")
   private String state = null;
+
+  public AcceleratorForListAcceleratorsOutput accelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+    return this;
+  }
+
+   /**
+   * Get accelerateType
+   * @return accelerateType
+  **/
+  @Schema(description = "")
+  public String getAccelerateType() {
+    return accelerateType;
+  }
+
+  public void setAccelerateType(String accelerateType) {
+    this.accelerateType = accelerateType;
+  }
 
   public AcceleratorForListAcceleratorsOutput acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -129,6 +166,24 @@ public class AcceleratorForListAcceleratorsOutput {
     this.accountID = accountID;
   }
 
+  public AcceleratorForListAcceleratorsOutput bandwidth(Long bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Long getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Long bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
   public AcceleratorForListAcceleratorsOutput bandwidthPackageIds(List<String> bandwidthPackageIds) {
     this.bandwidthPackageIds = bandwidthPackageIds;
     return this;
@@ -153,6 +208,24 @@ public class AcceleratorForListAcceleratorsOutput {
 
   public void setBandwidthPackageIds(List<String> bandwidthPackageIds) {
     this.bandwidthPackageIds = bandwidthPackageIds;
+  }
+
+  public AcceleratorForListAcceleratorsOutput beginTime(Long beginTime) {
+    this.beginTime = beginTime;
+    return this;
+  }
+
+   /**
+   * Get beginTime
+   * @return beginTime
+  **/
+  @Schema(description = "")
+  public Long getBeginTime() {
+    return beginTime;
+  }
+
+  public void setBeginTime(Long beginTime) {
+    this.beginTime = beginTime;
   }
 
   public AcceleratorForListAcceleratorsOutput billingSpec(String billingSpec) {
@@ -243,6 +316,24 @@ public class AcceleratorForListAcceleratorsOutput {
 
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public AcceleratorForListAcceleratorsOutput connectionNum(Long connectionNum) {
+    this.connectionNum = connectionNum;
+    return this;
+  }
+
+   /**
+   * Get connectionNum
+   * @return connectionNum
+  **/
+  @Schema(description = "")
+  public Long getConnectionNum() {
+    return connectionNum;
+  }
+
+  public void setConnectionNum(Long connectionNum) {
+    this.connectionNum = connectionNum;
   }
 
   public AcceleratorForListAcceleratorsOutput createTime(Integer createTime) {
@@ -343,6 +434,33 @@ public class AcceleratorForListAcceleratorsOutput {
     this.fullPortSwitch = fullPortSwitch;
   }
 
+  public AcceleratorForListAcceleratorsOutput ipSets(List<IPSetForListAcceleratorsOutput> ipSets) {
+    this.ipSets = ipSets;
+    return this;
+  }
+
+  public AcceleratorForListAcceleratorsOutput addIpSetsItem(IPSetForListAcceleratorsOutput ipSetsItem) {
+    if (this.ipSets == null) {
+      this.ipSets = new ArrayList<IPSetForListAcceleratorsOutput>();
+    }
+    this.ipSets.add(ipSetsItem);
+    return this;
+  }
+
+   /**
+   * Get ipSets
+   * @return ipSets
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IPSetForListAcceleratorsOutput> getIpSets() {
+    return ipSets;
+  }
+
+  public void setIpSets(List<IPSetForListAcceleratorsOutput> ipSets) {
+    this.ipSets = ipSets;
+  }
+
   public AcceleratorForListAcceleratorsOutput listenerCount(Integer listenerCount) {
     this.listenerCount = listenerCount;
     return this;
@@ -359,6 +477,32 @@ public class AcceleratorForListAcceleratorsOutput {
 
   public void setListenerCount(Integer listenerCount) {
     this.listenerCount = listenerCount;
+  }
+
+  public AcceleratorForListAcceleratorsOutput listenerIds(List<String> listenerIds) {
+    this.listenerIds = listenerIds;
+    return this;
+  }
+
+  public AcceleratorForListAcceleratorsOutput addListenerIdsItem(String listenerIdsItem) {
+    if (this.listenerIds == null) {
+      this.listenerIds = new ArrayList<String>();
+    }
+    this.listenerIds.add(listenerIdsItem);
+    return this;
+  }
+
+   /**
+   * Get listenerIds
+   * @return listenerIds
+  **/
+  @Schema(description = "")
+  public List<String> getListenerIds() {
+    return listenerIds;
+  }
+
+  public void setListenerIds(List<String> listenerIds) {
+    this.listenerIds = listenerIds;
   }
 
   public AcceleratorForListAcceleratorsOutput name(String name) {
@@ -488,20 +632,26 @@ public class AcceleratorForListAcceleratorsOutput {
       return false;
     }
     AcceleratorForListAcceleratorsOutput acceleratorForListAcceleratorsOutput = (AcceleratorForListAcceleratorsOutput) o;
-    return Objects.equals(this.acceleratorId, acceleratorForListAcceleratorsOutput.acceleratorId) &&
+    return Objects.equals(this.accelerateType, acceleratorForListAcceleratorsOutput.accelerateType) &&
+        Objects.equals(this.acceleratorId, acceleratorForListAcceleratorsOutput.acceleratorId) &&
         Objects.equals(this.accountID, acceleratorForListAcceleratorsOutput.accountID) &&
+        Objects.equals(this.bandwidth, acceleratorForListAcceleratorsOutput.bandwidth) &&
         Objects.equals(this.bandwidthPackageIds, acceleratorForListAcceleratorsOutput.bandwidthPackageIds) &&
+        Objects.equals(this.beginTime, acceleratorForListAcceleratorsOutput.beginTime) &&
         Objects.equals(this.billingSpec, acceleratorForListAcceleratorsOutput.billingSpec) &&
         Objects.equals(this.billingSpecEffectiveTime, acceleratorForListAcceleratorsOutput.billingSpecEffectiveTime) &&
         Objects.equals(this.billingType, acceleratorForListAcceleratorsOutput.billingType) &&
         Objects.equals(this.CNAME, acceleratorForListAcceleratorsOutput.CNAME) &&
         Objects.equals(this.chargeType, acceleratorForListAcceleratorsOutput.chargeType) &&
+        Objects.equals(this.connectionNum, acceleratorForListAcceleratorsOutput.connectionNum) &&
         Objects.equals(this.createTime, acceleratorForListAcceleratorsOutput.createTime) &&
         Objects.equals(this.createTimeStr, acceleratorForListAcceleratorsOutput.createTimeStr) &&
         Objects.equals(this.crossDomainBandwidthIds, acceleratorForListAcceleratorsOutput.crossDomainBandwidthIds) &&
         Objects.equals(this.expiredTime, acceleratorForListAcceleratorsOutput.expiredTime) &&
         Objects.equals(this.fullPortSwitch, acceleratorForListAcceleratorsOutput.fullPortSwitch) &&
+        Objects.equals(this.ipSets, acceleratorForListAcceleratorsOutput.ipSets) &&
         Objects.equals(this.listenerCount, acceleratorForListAcceleratorsOutput.listenerCount) &&
+        Objects.equals(this.listenerIds, acceleratorForListAcceleratorsOutput.listenerIds) &&
         Objects.equals(this.name, acceleratorForListAcceleratorsOutput.name) &&
         Objects.equals(this.projectName, acceleratorForListAcceleratorsOutput.projectName) &&
         Objects.equals(this.regionCount, acceleratorForListAcceleratorsOutput.regionCount) &&
@@ -512,7 +662,7 @@ public class AcceleratorForListAcceleratorsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, accountID, bandwidthPackageIds, billingSpec, billingSpecEffectiveTime, billingType, CNAME, chargeType, createTime, createTimeStr, crossDomainBandwidthIds, expiredTime, fullPortSwitch, listenerCount, name, projectName, regionCount, renewType, resourceTags, state);
+    return Objects.hash(accelerateType, acceleratorId, accountID, bandwidth, bandwidthPackageIds, beginTime, billingSpec, billingSpecEffectiveTime, billingType, CNAME, chargeType, connectionNum, createTime, createTimeStr, crossDomainBandwidthIds, expiredTime, fullPortSwitch, ipSets, listenerCount, listenerIds, name, projectName, regionCount, renewType, resourceTags, state);
   }
 
 
@@ -521,20 +671,26 @@ public class AcceleratorForListAcceleratorsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AcceleratorForListAcceleratorsOutput {\n");
     
+    sb.append("    accelerateType: ").append(toIndentedString(accelerateType)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    bandwidthPackageIds: ").append(toIndentedString(bandwidthPackageIds)).append("\n");
+    sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
     sb.append("    billingSpec: ").append(toIndentedString(billingSpec)).append("\n");
     sb.append("    billingSpecEffectiveTime: ").append(toIndentedString(billingSpecEffectiveTime)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    CNAME: ").append(toIndentedString(CNAME)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    connectionNum: ").append(toIndentedString(connectionNum)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    createTimeStr: ").append(toIndentedString(createTimeStr)).append("\n");
     sb.append("    crossDomainBandwidthIds: ").append(toIndentedString(crossDomainBandwidthIds)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    fullPortSwitch: ").append(toIndentedString(fullPortSwitch)).append("\n");
+    sb.append("    ipSets: ").append(toIndentedString(ipSets)).append("\n");
     sb.append("    listenerCount: ").append(toIndentedString(listenerCount)).append("\n");
+    sb.append("    listenerIds: ").append(toIndentedString(listenerIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionCount: ").append(toIndentedString(regionCount)).append("\n");

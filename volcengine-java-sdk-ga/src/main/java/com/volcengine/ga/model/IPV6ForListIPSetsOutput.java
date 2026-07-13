@@ -24,52 +24,73 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceTagsForDescribeAcceleratorOutput
+ * IPV6ForListIPSetsOutput
  */
 
 
 
-public class ResourceTagsForDescribeAcceleratorOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class IPV6ForListIPSetsOutput {
+  @SerializedName("Addr")
+  private String addr = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("ISP")
+  private String ISP = null;
 
-  public ResourceTagsForDescribeAcceleratorOutput key(String key) {
-    this.key = key;
+  @SerializedName("ISPName")
+  private String isPName = null;
+
+  public IPV6ForListIPSetsOutput addr(String addr) {
+    this.addr = addr;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get addr
+   * @return addr
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getAddr() {
+    return addr;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setAddr(String addr) {
+    this.addr = addr;
   }
 
-  public ResourceTagsForDescribeAcceleratorOutput value(String value) {
-    this.value = value;
+  public IPV6ForListIPSetsOutput ISP(String ISP) {
+    this.ISP = ISP;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get ISP
+   * @return ISP
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public String getISP() {
+    return ISP;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setISP(String ISP) {
+    this.ISP = ISP;
+  }
+
+  public IPV6ForListIPSetsOutput isPName(String isPName) {
+    this.isPName = isPName;
+    return this;
+  }
+
+   /**
+   * Get isPName
+   * @return isPName
+  **/
+  @Schema(description = "")
+  public String getIsPName() {
+    return isPName;
+  }
+
+  public void setIsPName(String isPName) {
+    this.isPName = isPName;
   }
 
 
@@ -81,24 +102,26 @@ public class ResourceTagsForDescribeAcceleratorOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceTagsForDescribeAcceleratorOutput resourceTagsForDescribeAcceleratorOutput = (ResourceTagsForDescribeAcceleratorOutput) o;
-    return Objects.equals(this.key, resourceTagsForDescribeAcceleratorOutput.key) &&
-        Objects.equals(this.value, resourceTagsForDescribeAcceleratorOutput.value);
+    IPV6ForListIPSetsOutput ipV6ForListIPSetsOutput = (IPV6ForListIPSetsOutput) o;
+    return Objects.equals(this.addr, ipV6ForListIPSetsOutput.addr) &&
+        Objects.equals(this.ISP, ipV6ForListIPSetsOutput.ISP) &&
+        Objects.equals(this.isPName, ipV6ForListIPSetsOutput.isPName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(addr, ISP, isPName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceTagsForDescribeAcceleratorOutput {\n");
+    sb.append("class IPV6ForListIPSetsOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    isPName: ").append(toIndentedString(isPName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

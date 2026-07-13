@@ -20,11 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ga.model.ResourceTagFilterForListBasicAcceleratorsInput;
-import com.volcengine.ga.model.TagForListBasicAcceleratorsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -63,9 +60,6 @@ public class ListBasicAcceleratorsRequest {
 
   @SerializedName("State")
   private String state = null;
-
-  @SerializedName("Tags")
-  private List<TagForListBasicAcceleratorsInput> tags = null;
 
   @SerializedName("WithBandwidthPackage")
   private Boolean withBandwidthPackage = null;
@@ -255,33 +249,6 @@ public class ListBasicAcceleratorsRequest {
     this.state = state;
   }
 
-  public ListBasicAcceleratorsRequest tags(List<TagForListBasicAcceleratorsInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ListBasicAcceleratorsRequest addTagsItem(TagForListBasicAcceleratorsInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForListBasicAcceleratorsInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForListBasicAcceleratorsInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForListBasicAcceleratorsInput> tags) {
-    this.tags = tags;
-  }
-
   public ListBasicAcceleratorsRequest withBandwidthPackage(Boolean withBandwidthPackage) {
     this.withBandwidthPackage = withBandwidthPackage;
     return this;
@@ -320,13 +287,12 @@ public class ListBasicAcceleratorsRequest {
         Objects.equals(this.projectName, listBasicAcceleratorsRequest.projectName) &&
         Objects.equals(this.resourceTagFilter, listBasicAcceleratorsRequest.resourceTagFilter) &&
         Objects.equals(this.state, listBasicAcceleratorsRequest.state) &&
-        Objects.equals(this.tags, listBasicAcceleratorsRequest.tags) &&
         Objects.equals(this.withBandwidthPackage, listBasicAcceleratorsRequest.withBandwidthPackage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, chargeType, endPointGroupRegion, ipSetRegion, name, pageNum, pageSize, projectName, resourceTagFilter, state, tags, withBandwidthPackage);
+    return Objects.hash(acceleratorId, chargeType, endPointGroupRegion, ipSetRegion, name, pageNum, pageSize, projectName, resourceTagFilter, state, withBandwidthPackage);
   }
 
 
@@ -345,7 +311,6 @@ public class ListBasicAcceleratorsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceTagFilter: ").append(toIndentedString(resourceTagFilter)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    withBandwidthPackage: ").append(toIndentedString(withBandwidthPackage)).append("\n");
     sb.append("}");
     return sb.toString();
