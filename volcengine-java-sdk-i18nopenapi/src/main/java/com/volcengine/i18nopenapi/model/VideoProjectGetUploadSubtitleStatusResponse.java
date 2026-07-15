@@ -20,11 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.DataForVideoProjectGetUploadSubtitleStatusOutput;
-import com.volcengine.i18nopenapi.model.UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,32 +31,8 @@ import javax.validation.Valid;
 
 
 public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("batchId")
-  private String batchId = null;
-
   @SerializedName("data")
   private DataForVideoProjectGetUploadSubtitleStatusOutput data = null;
-
-  @SerializedName("uploadSubtitleInfos")
-  private List<UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput> uploadSubtitleInfos = null;
-
-  public VideoProjectGetUploadSubtitleStatusResponse batchId(String batchId) {
-    this.batchId = batchId;
-    return this;
-  }
-
-   /**
-   * Get batchId
-   * @return batchId
-  **/
-  @Schema(description = "")
-  public String getBatchId() {
-    return batchId;
-  }
-
-  public void setBatchId(String batchId) {
-    this.batchId = batchId;
-  }
 
   public VideoProjectGetUploadSubtitleStatusResponse data(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
     this.data = data;
@@ -80,33 +53,6 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     this.data = data;
   }
 
-  public VideoProjectGetUploadSubtitleStatusResponse uploadSubtitleInfos(List<UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput> uploadSubtitleInfos) {
-    this.uploadSubtitleInfos = uploadSubtitleInfos;
-    return this;
-  }
-
-  public VideoProjectGetUploadSubtitleStatusResponse addUploadSubtitleInfosItem(UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput uploadSubtitleInfosItem) {
-    if (this.uploadSubtitleInfos == null) {
-      this.uploadSubtitleInfos = new ArrayList<UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput>();
-    }
-    this.uploadSubtitleInfos.add(uploadSubtitleInfosItem);
-    return this;
-  }
-
-   /**
-   * Get uploadSubtitleInfos
-   * @return uploadSubtitleInfos
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput> getUploadSubtitleInfos() {
-    return uploadSubtitleInfos;
-  }
-
-  public void setUploadSubtitleInfos(List<UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput> uploadSubtitleInfos) {
-    this.uploadSubtitleInfos = uploadSubtitleInfos;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,14 +63,12 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
       return false;
     }
     VideoProjectGetUploadSubtitleStatusResponse videoProjectGetUploadSubtitleStatusResponse = (VideoProjectGetUploadSubtitleStatusResponse) o;
-    return Objects.equals(this.batchId, videoProjectGetUploadSubtitleStatusResponse.batchId) &&
-        Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data) &&
-        Objects.equals(this.uploadSubtitleInfos, videoProjectGetUploadSubtitleStatusResponse.uploadSubtitleInfos);
+    return Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId, data, uploadSubtitleInfos);
+    return Objects.hash(data);
   }
 
 
@@ -133,9 +77,7 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectGetUploadSubtitleStatusResponse {\n");
     
-    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    uploadSubtitleInfos: ").append(toIndentedString(uploadSubtitleInfos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
