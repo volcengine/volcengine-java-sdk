@@ -66,8 +66,6 @@ public class PermissionGroupForDescribePermissionGroupsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Creating")
     CREATING("Creating"),
     @SerializedName("Available")
