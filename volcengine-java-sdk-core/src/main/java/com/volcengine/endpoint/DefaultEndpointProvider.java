@@ -844,6 +844,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- cpaas ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cpaas", new ServiceEndpointInfo(
+                "cpaas",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
