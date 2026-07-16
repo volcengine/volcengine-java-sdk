@@ -52,7 +52,7 @@ public class CreateBasicAcceleratorRequest {
   private String chargeType = null;
 
   @SerializedName("Duration")
-  private String duration = null;
+  private Integer duration = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -180,7 +180,7 @@ public class CreateBasicAcceleratorRequest {
     this.chargeType = chargeType;
   }
 
-  public CreateBasicAcceleratorRequest duration(String duration) {
+  public CreateBasicAcceleratorRequest duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -190,11 +190,11 @@ public class CreateBasicAcceleratorRequest {
    * @return duration
   **/
   @Schema(description = "")
-  public String getDuration() {
+  public Integer getDuration() {
     return duration;
   }
 
-  public void setDuration(String duration) {
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 

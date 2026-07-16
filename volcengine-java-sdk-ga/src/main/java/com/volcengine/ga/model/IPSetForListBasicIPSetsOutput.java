@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class IPSetForListBasicIPSetsOutput {
+  @SerializedName("AccelerateIPs")
+  private List<String> accelerateIPs = null;
+
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
@@ -54,8 +57,31 @@ public class IPSetForListBasicIPSetsOutput {
   @SerializedName("State")
   private String state = null;
 
-  @SerializedName("accelerateIPs")
-  private List<String> accelerateIPs = null;
+  public IPSetForListBasicIPSetsOutput accelerateIPs(List<String> accelerateIPs) {
+    this.accelerateIPs = accelerateIPs;
+    return this;
+  }
+
+  public IPSetForListBasicIPSetsOutput addAccelerateIPsItem(String accelerateIPsItem) {
+    if (this.accelerateIPs == null) {
+      this.accelerateIPs = new ArrayList<String>();
+    }
+    this.accelerateIPs.add(accelerateIPsItem);
+    return this;
+  }
+
+   /**
+   * Get accelerateIPs
+   * @return accelerateIPs
+  **/
+  @Schema(description = "")
+  public List<String> getAccelerateIPs() {
+    return accelerateIPs;
+  }
+
+  public void setAccelerateIPs(List<String> accelerateIPs) {
+    this.accelerateIPs = accelerateIPs;
+  }
 
   public IPSetForListBasicIPSetsOutput acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -192,32 +218,6 @@ public class IPSetForListBasicIPSetsOutput {
     this.state = state;
   }
 
-  public IPSetForListBasicIPSetsOutput accelerateIPs(List<String> accelerateIPs) {
-    this.accelerateIPs = accelerateIPs;
-    return this;
-  }
-
-  public IPSetForListBasicIPSetsOutput addAccelerateIPsItem(String accelerateIPsItem) {
-    if (this.accelerateIPs == null) {
-      this.accelerateIPs = new ArrayList<String>();
-    }
-    this.accelerateIPs.add(accelerateIPsItem);
-    return this;
-  }
-
-   /**
-   * Get accelerateIPs
-   * @return accelerateIPs
-  **/
-  @Schema(description = "")
-  public List<String> getAccelerateIPs() {
-    return accelerateIPs;
-  }
-
-  public void setAccelerateIPs(List<String> accelerateIPs) {
-    this.accelerateIPs = accelerateIPs;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -228,19 +228,19 @@ public class IPSetForListBasicIPSetsOutput {
       return false;
     }
     IPSetForListBasicIPSetsOutput ipSetForListBasicIPSetsOutput = (IPSetForListBasicIPSetsOutput) o;
-    return Objects.equals(this.acceleratorId, ipSetForListBasicIPSetsOutput.acceleratorId) &&
+    return Objects.equals(this.accelerateIPs, ipSetForListBasicIPSetsOutput.accelerateIPs) &&
+        Objects.equals(this.acceleratorId, ipSetForListBasicIPSetsOutput.acceleratorId) &&
         Objects.equals(this.edgeNodes, ipSetForListBasicIPSetsOutput.edgeNodes) &&
         Objects.equals(this.existBoundIP, ipSetForListBasicIPSetsOutput.existBoundIP) &&
         Objects.equals(this.ipSetId, ipSetForListBasicIPSetsOutput.ipSetId) &&
         Objects.equals(this.ipVersion, ipSetForListBasicIPSetsOutput.ipVersion) &&
         Objects.equals(this.region, ipSetForListBasicIPSetsOutput.region) &&
-        Objects.equals(this.state, ipSetForListBasicIPSetsOutput.state) &&
-        Objects.equals(this.accelerateIPs, ipSetForListBasicIPSetsOutput.accelerateIPs);
+        Objects.equals(this.state, ipSetForListBasicIPSetsOutput.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, edgeNodes, existBoundIP, ipSetId, ipVersion, region, state, accelerateIPs);
+    return Objects.hash(accelerateIPs, acceleratorId, edgeNodes, existBoundIP, ipSetId, ipVersion, region, state);
   }
 
 
@@ -249,6 +249,7 @@ public class IPSetForListBasicIPSetsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class IPSetForListBasicIPSetsOutput {\n");
     
+    sb.append("    accelerateIPs: ").append(toIndentedString(accelerateIPs)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    edgeNodes: ").append(toIndentedString(edgeNodes)).append("\n");
     sb.append("    existBoundIP: ").append(toIndentedString(existBoundIP)).append("\n");
@@ -256,7 +257,6 @@ public class IPSetForListBasicIPSetsOutput {
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    accelerateIPs: ").append(toIndentedString(accelerateIPs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

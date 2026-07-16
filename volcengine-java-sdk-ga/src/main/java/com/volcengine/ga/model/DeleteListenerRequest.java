@@ -30,8 +30,30 @@ import javax.validation.Valid;
 
 
 public class DeleteListenerRequest {
+  @SerializedName("AcceleratorId")
+  private String acceleratorId = null;
+
   @SerializedName("ListenerId")
   private String listenerId = null;
+
+  public DeleteListenerRequest acceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+    return this;
+  }
+
+   /**
+   * Get acceleratorId
+   * @return acceleratorId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAcceleratorId() {
+    return acceleratorId;
+  }
+
+  public void setAcceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+  }
 
   public DeleteListenerRequest listenerId(String listenerId) {
     this.listenerId = listenerId;
@@ -62,12 +84,13 @@ public class DeleteListenerRequest {
       return false;
     }
     DeleteListenerRequest deleteListenerRequest = (DeleteListenerRequest) o;
-    return Objects.equals(this.listenerId, deleteListenerRequest.listenerId);
+    return Objects.equals(this.acceleratorId, deleteListenerRequest.acceleratorId) &&
+        Objects.equals(this.listenerId, deleteListenerRequest.listenerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerId);
+    return Objects.hash(acceleratorId, listenerId);
   }
 
 
@@ -76,6 +99,7 @@ public class DeleteListenerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteListenerRequest {\n");
     
+    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -20,10 +20,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ga.model.BackupEndpointGroupForCreateListenerInOneStepInput;
+import com.volcengine.ga.model.EndPointGroupStrategyForCreateListenerInOneStepInput;
 import com.volcengine.ga.model.EndpointGroupForCreateListenerInOneStepInput;
 import com.volcengine.ga.model.FixedSourceReturnForCreateListenerInOneStepInput;
 import com.volcengine.ga.model.IPAccessForCreateListenerInOneStepInput;
 import com.volcengine.ga.model.PortRangeForCreateListenerInOneStepInput;
+import com.volcengine.ga.model.ProtocolPortRangesForCreateListenerInOneStepInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,8 +51,14 @@ public class CreateListenerInOneStepRequest {
   @SerializedName("DisablePreConnect")
   private Boolean disablePreConnect = null;
 
+  @SerializedName("DomainName")
+  private String domainName = null;
+
   @SerializedName("EnableAffinity")
   private Boolean enableAffinity = null;
+
+  @SerializedName("EndPointGroupStrategy")
+  private EndPointGroupStrategyForCreateListenerInOneStepInput endPointGroupStrategy = null;
 
   @SerializedName("EndpointGroups")
   private List<EndpointGroupForCreateListenerInOneStepInput> endpointGroups = null;
@@ -61,6 +69,9 @@ public class CreateListenerInOneStepRequest {
   @SerializedName("IPAccess")
   private IPAccessForCreateListenerInOneStepInput ipAccess = null;
 
+  @SerializedName("ListenerDomainName")
+  private String listenerDomainName = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -69,6 +80,15 @@ public class CreateListenerInOneStepRequest {
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProtocolPortRanges")
+  private ProtocolPortRangesForCreateListenerInOneStepInput protocolPortRanges = null;
+
+  @SerializedName("RouteRetry")
+  private Boolean routeRetry = null;
+
+  @SerializedName("RouteRetryMax")
+  private Long routeRetryMax = null;
 
   public CreateListenerInOneStepRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -152,6 +172,24 @@ public class CreateListenerInOneStepRequest {
     this.disablePreConnect = disablePreConnect;
   }
 
+  public CreateListenerInOneStepRequest domainName(String domainName) {
+    this.domainName = domainName;
+    return this;
+  }
+
+   /**
+   * Get domainName
+   * @return domainName
+  **/
+  @Schema(description = "")
+  public String getDomainName() {
+    return domainName;
+  }
+
+  public void setDomainName(String domainName) {
+    this.domainName = domainName;
+  }
+
   public CreateListenerInOneStepRequest enableAffinity(Boolean enableAffinity) {
     this.enableAffinity = enableAffinity;
     return this;
@@ -169,6 +207,25 @@ public class CreateListenerInOneStepRequest {
 
   public void setEnableAffinity(Boolean enableAffinity) {
     this.enableAffinity = enableAffinity;
+  }
+
+  public CreateListenerInOneStepRequest endPointGroupStrategy(EndPointGroupStrategyForCreateListenerInOneStepInput endPointGroupStrategy) {
+    this.endPointGroupStrategy = endPointGroupStrategy;
+    return this;
+  }
+
+   /**
+   * Get endPointGroupStrategy
+   * @return endPointGroupStrategy
+  **/
+  @Valid
+  @Schema(description = "")
+  public EndPointGroupStrategyForCreateListenerInOneStepInput getEndPointGroupStrategy() {
+    return endPointGroupStrategy;
+  }
+
+  public void setEndPointGroupStrategy(EndPointGroupStrategyForCreateListenerInOneStepInput endPointGroupStrategy) {
+    this.endPointGroupStrategy = endPointGroupStrategy;
   }
 
   public CreateListenerInOneStepRequest endpointGroups(List<EndpointGroupForCreateListenerInOneStepInput> endpointGroups) {
@@ -236,6 +293,24 @@ public class CreateListenerInOneStepRequest {
     this.ipAccess = ipAccess;
   }
 
+  public CreateListenerInOneStepRequest listenerDomainName(String listenerDomainName) {
+    this.listenerDomainName = listenerDomainName;
+    return this;
+  }
+
+   /**
+   * Get listenerDomainName
+   * @return listenerDomainName
+  **/
+  @Schema(description = "")
+  public String getListenerDomainName() {
+    return listenerDomainName;
+  }
+
+  public void setListenerDomainName(String listenerDomainName) {
+    this.listenerDomainName = listenerDomainName;
+  }
+
   public CreateListenerInOneStepRequest name(String name) {
     this.name = name;
     return this;
@@ -300,6 +375,61 @@ public class CreateListenerInOneStepRequest {
     this.protocol = protocol;
   }
 
+  public CreateListenerInOneStepRequest protocolPortRanges(ProtocolPortRangesForCreateListenerInOneStepInput protocolPortRanges) {
+    this.protocolPortRanges = protocolPortRanges;
+    return this;
+  }
+
+   /**
+   * Get protocolPortRanges
+   * @return protocolPortRanges
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProtocolPortRangesForCreateListenerInOneStepInput getProtocolPortRanges() {
+    return protocolPortRanges;
+  }
+
+  public void setProtocolPortRanges(ProtocolPortRangesForCreateListenerInOneStepInput protocolPortRanges) {
+    this.protocolPortRanges = protocolPortRanges;
+  }
+
+  public CreateListenerInOneStepRequest routeRetry(Boolean routeRetry) {
+    this.routeRetry = routeRetry;
+    return this;
+  }
+
+   /**
+   * Get routeRetry
+   * @return routeRetry
+  **/
+  @Schema(description = "")
+  public Boolean isRouteRetry() {
+    return routeRetry;
+  }
+
+  public void setRouteRetry(Boolean routeRetry) {
+    this.routeRetry = routeRetry;
+  }
+
+  public CreateListenerInOneStepRequest routeRetryMax(Long routeRetryMax) {
+    this.routeRetryMax = routeRetryMax;
+    return this;
+  }
+
+   /**
+   * Get routeRetryMax
+   * @return routeRetryMax
+  **/
+  @Schema(description = "")
+  public Long getRouteRetryMax() {
+    return routeRetryMax;
+  }
+
+  public void setRouteRetryMax(Long routeRetryMax) {
+    this.routeRetryMax = routeRetryMax;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,18 +444,24 @@ public class CreateListenerInOneStepRequest {
         Objects.equals(this.backupEndpointGroups, createListenerInOneStepRequest.backupEndpointGroups) &&
         Objects.equals(this.disableIsolateTCPNullConn, createListenerInOneStepRequest.disableIsolateTCPNullConn) &&
         Objects.equals(this.disablePreConnect, createListenerInOneStepRequest.disablePreConnect) &&
+        Objects.equals(this.domainName, createListenerInOneStepRequest.domainName) &&
         Objects.equals(this.enableAffinity, createListenerInOneStepRequest.enableAffinity) &&
+        Objects.equals(this.endPointGroupStrategy, createListenerInOneStepRequest.endPointGroupStrategy) &&
         Objects.equals(this.endpointGroups, createListenerInOneStepRequest.endpointGroups) &&
         Objects.equals(this.fixedSourceReturn, createListenerInOneStepRequest.fixedSourceReturn) &&
         Objects.equals(this.ipAccess, createListenerInOneStepRequest.ipAccess) &&
+        Objects.equals(this.listenerDomainName, createListenerInOneStepRequest.listenerDomainName) &&
         Objects.equals(this.name, createListenerInOneStepRequest.name) &&
         Objects.equals(this.portRanges, createListenerInOneStepRequest.portRanges) &&
-        Objects.equals(this.protocol, createListenerInOneStepRequest.protocol);
+        Objects.equals(this.protocol, createListenerInOneStepRequest.protocol) &&
+        Objects.equals(this.protocolPortRanges, createListenerInOneStepRequest.protocolPortRanges) &&
+        Objects.equals(this.routeRetry, createListenerInOneStepRequest.routeRetry) &&
+        Objects.equals(this.routeRetryMax, createListenerInOneStepRequest.routeRetryMax);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, backupEndpointGroups, disableIsolateTCPNullConn, disablePreConnect, enableAffinity, endpointGroups, fixedSourceReturn, ipAccess, name, portRanges, protocol);
+    return Objects.hash(acceleratorId, backupEndpointGroups, disableIsolateTCPNullConn, disablePreConnect, domainName, enableAffinity, endPointGroupStrategy, endpointGroups, fixedSourceReturn, ipAccess, listenerDomainName, name, portRanges, protocol, protocolPortRanges, routeRetry, routeRetryMax);
   }
 
 
@@ -338,13 +474,19 @@ public class CreateListenerInOneStepRequest {
     sb.append("    backupEndpointGroups: ").append(toIndentedString(backupEndpointGroups)).append("\n");
     sb.append("    disableIsolateTCPNullConn: ").append(toIndentedString(disableIsolateTCPNullConn)).append("\n");
     sb.append("    disablePreConnect: ").append(toIndentedString(disablePreConnect)).append("\n");
+    sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    enableAffinity: ").append(toIndentedString(enableAffinity)).append("\n");
+    sb.append("    endPointGroupStrategy: ").append(toIndentedString(endPointGroupStrategy)).append("\n");
     sb.append("    endpointGroups: ").append(toIndentedString(endpointGroups)).append("\n");
     sb.append("    fixedSourceReturn: ").append(toIndentedString(fixedSourceReturn)).append("\n");
     sb.append("    ipAccess: ").append(toIndentedString(ipAccess)).append("\n");
+    sb.append("    listenerDomainName: ").append(toIndentedString(listenerDomainName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    portRanges: ").append(toIndentedString(portRanges)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    protocolPortRanges: ").append(toIndentedString(protocolPortRanges)).append("\n");
+    sb.append("    routeRetry: ").append(toIndentedString(routeRetry)).append("\n");
+    sb.append("    routeRetryMax: ").append(toIndentedString(routeRetryMax)).append("\n");
     sb.append("}");
     return sb.toString();
   }

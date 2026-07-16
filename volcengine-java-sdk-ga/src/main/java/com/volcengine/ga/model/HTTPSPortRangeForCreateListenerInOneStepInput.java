@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteBasicEndpointRequest
+ * HTTPSPortRangeForCreateListenerInOneStepInput
  */
 
 
 
-public class DeleteBasicEndpointRequest {
-  @SerializedName("AcceleratorId")
-  private String acceleratorId = null;
+public class HTTPSPortRangeForCreateListenerInOneStepInput {
+  @SerializedName("FromPort")
+  private Integer fromPort = null;
 
-  @SerializedName("EndpointId")
-  private String endpointId = null;
+  @SerializedName("ToPort")
+  private Integer toPort = null;
 
-  public DeleteBasicEndpointRequest acceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public HTTPSPortRangeForCreateListenerInOneStepInput fromPort(Integer fromPort) {
+    this.fromPort = fromPort;
     return this;
   }
 
    /**
-   * Get acceleratorId
-   * @return acceleratorId
+   * Get fromPort
+   * @return fromPort
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAcceleratorId() {
-    return acceleratorId;
+  @Schema(description = "")
+  public Integer getFromPort() {
+    return fromPort;
   }
 
-  public void setAcceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public void setFromPort(Integer fromPort) {
+    this.fromPort = fromPort;
   }
 
-  public DeleteBasicEndpointRequest endpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public HTTPSPortRangeForCreateListenerInOneStepInput toPort(Integer toPort) {
+    this.toPort = toPort;
     return this;
   }
 
    /**
-   * Get endpointId
-   * @return endpointId
+   * Get toPort
+   * @return toPort
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getEndpointId() {
-    return endpointId;
+  @Schema(description = "")
+  public Integer getToPort() {
+    return toPort;
   }
 
-  public void setEndpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public void setToPort(Integer toPort) {
+    this.toPort = toPort;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteBasicEndpointRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteBasicEndpointRequest deleteBasicEndpointRequest = (DeleteBasicEndpointRequest) o;
-    return Objects.equals(this.acceleratorId, deleteBasicEndpointRequest.acceleratorId) &&
-        Objects.equals(this.endpointId, deleteBasicEndpointRequest.endpointId);
+    HTTPSPortRangeForCreateListenerInOneStepInput htTPSPortRangeForCreateListenerInOneStepInput = (HTTPSPortRangeForCreateListenerInOneStepInput) o;
+    return Objects.equals(this.fromPort, htTPSPortRangeForCreateListenerInOneStepInput.fromPort) &&
+        Objects.equals(this.toPort, htTPSPortRangeForCreateListenerInOneStepInput.toPort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, endpointId);
+    return Objects.hash(fromPort, toPort);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteBasicEndpointRequest {\n");
+    sb.append("class HTTPSPortRangeForCreateListenerInOneStepInput {\n");
     
-    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    fromPort: ").append(toIndentedString(fromPort)).append("\n");
+    sb.append("    toPort: ").append(toIndentedString(toPort)).append("\n");
     sb.append("}");
     return sb.toString();
   }

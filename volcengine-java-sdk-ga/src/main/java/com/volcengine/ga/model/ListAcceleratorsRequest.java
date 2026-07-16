@@ -20,11 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ga.model.ResourceTagFilterForListAcceleratorsInput;
-import com.volcengine.ga.model.TagForListAcceleratorsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -43,6 +40,9 @@ public class ListAcceleratorsRequest {
   @SerializedName("ChargeType")
   private String chargeType = null;
 
+  @SerializedName("Name")
+  private String name = null;
+
   @SerializedName("PageNum")
   private Integer pageNum = null;
 
@@ -57,9 +57,6 @@ public class ListAcceleratorsRequest {
 
   @SerializedName("State")
   private String state = null;
-
-  @SerializedName("Tags")
-  private List<TagForListAcceleratorsInput> tags = null;
 
   public ListAcceleratorsRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -113,6 +110,24 @@ public class ListAcceleratorsRequest {
 
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public ListAcceleratorsRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ListAcceleratorsRequest pageNum(Integer pageNum) {
@@ -206,33 +221,6 @@ public class ListAcceleratorsRequest {
     this.state = state;
   }
 
-  public ListAcceleratorsRequest tags(List<TagForListAcceleratorsInput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ListAcceleratorsRequest addTagsItem(TagForListAcceleratorsInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForListAcceleratorsInput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForListAcceleratorsInput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForListAcceleratorsInput> tags) {
-    this.tags = tags;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -246,17 +234,17 @@ public class ListAcceleratorsRequest {
     return Objects.equals(this.acceleratorId, listAcceleratorsRequest.acceleratorId) &&
         Objects.equals(this.billingSpec, listAcceleratorsRequest.billingSpec) &&
         Objects.equals(this.chargeType, listAcceleratorsRequest.chargeType) &&
+        Objects.equals(this.name, listAcceleratorsRequest.name) &&
         Objects.equals(this.pageNum, listAcceleratorsRequest.pageNum) &&
         Objects.equals(this.pageSize, listAcceleratorsRequest.pageSize) &&
         Objects.equals(this.projectName, listAcceleratorsRequest.projectName) &&
         Objects.equals(this.resourceTagFilter, listAcceleratorsRequest.resourceTagFilter) &&
-        Objects.equals(this.state, listAcceleratorsRequest.state) &&
-        Objects.equals(this.tags, listAcceleratorsRequest.tags);
+        Objects.equals(this.state, listAcceleratorsRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, billingSpec, chargeType, pageNum, pageSize, projectName, resourceTagFilter, state, tags);
+    return Objects.hash(acceleratorId, billingSpec, chargeType, name, pageNum, pageSize, projectName, resourceTagFilter, state);
   }
 
 
@@ -268,12 +256,12 @@ public class ListAcceleratorsRequest {
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    billingSpec: ").append(toIndentedString(billingSpec)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceTagFilter: ").append(toIndentedString(resourceTagFilter)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

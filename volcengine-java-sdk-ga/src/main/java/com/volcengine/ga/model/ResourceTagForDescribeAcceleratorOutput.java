@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteBasicEndpointRequest
+ * ResourceTagForDescribeAcceleratorOutput
  */
 
 
 
-public class DeleteBasicEndpointRequest {
-  @SerializedName("AcceleratorId")
-  private String acceleratorId = null;
+public class ResourceTagForDescribeAcceleratorOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("EndpointId")
-  private String endpointId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DeleteBasicEndpointRequest acceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public ResourceTagForDescribeAcceleratorOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get acceleratorId
-   * @return acceleratorId
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAcceleratorId() {
-    return acceleratorId;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setAcceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteBasicEndpointRequest endpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public ResourceTagForDescribeAcceleratorOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get endpointId
-   * @return endpointId
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getEndpointId() {
-    return endpointId;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setEndpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteBasicEndpointRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteBasicEndpointRequest deleteBasicEndpointRequest = (DeleteBasicEndpointRequest) o;
-    return Objects.equals(this.acceleratorId, deleteBasicEndpointRequest.acceleratorId) &&
-        Objects.equals(this.endpointId, deleteBasicEndpointRequest.endpointId);
+    ResourceTagForDescribeAcceleratorOutput resourceTagForDescribeAcceleratorOutput = (ResourceTagForDescribeAcceleratorOutput) o;
+    return Objects.equals(this.key, resourceTagForDescribeAcceleratorOutput.key) &&
+        Objects.equals(this.value, resourceTagForDescribeAcceleratorOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, endpointId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteBasicEndpointRequest {\n");
+    sb.append("class ResourceTagForDescribeAcceleratorOutput {\n");
     
-    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

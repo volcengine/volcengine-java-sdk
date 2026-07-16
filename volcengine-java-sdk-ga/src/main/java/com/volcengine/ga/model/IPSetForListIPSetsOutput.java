@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ga.model.IPAddressListForListIPSetsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,11 +37,58 @@ public class IPSetForListIPSetsOutput {
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
+  @SerializedName("IPAddressList")
+  private IPAddressListForListIPSetsOutput ipAddressList = null;
+
   @SerializedName("IPSetId")
   private String ipSetId = null;
 
   @SerializedName("IPVersion")
   private String ipVersion = null;
+
+  /**
+   * Gets or Sets ispType
+   */
+  @JsonAdapter(IspTypeEnum.Adapter.class)
+  public enum IspTypeEnum {
+    @SerializedName("Advanced")
+    ADVANCED("Advanced");
+
+    private String value;
+
+    IspTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IspTypeEnum fromValue(String input) {
+      for (IspTypeEnum b : IspTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IspTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IspTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IspTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IspTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IspType")
+  private IspTypeEnum ispType = null;
 
   @SerializedName("State")
   private String state = null;
@@ -81,6 +129,25 @@ public class IPSetForListIPSetsOutput {
     this.acceleratorId = acceleratorId;
   }
 
+  public IPSetForListIPSetsOutput ipAddressList(IPAddressListForListIPSetsOutput ipAddressList) {
+    this.ipAddressList = ipAddressList;
+    return this;
+  }
+
+   /**
+   * Get ipAddressList
+   * @return ipAddressList
+  **/
+  @Valid
+  @Schema(description = "")
+  public IPAddressListForListIPSetsOutput getIpAddressList() {
+    return ipAddressList;
+  }
+
+  public void setIpAddressList(IPAddressListForListIPSetsOutput ipAddressList) {
+    this.ipAddressList = ipAddressList;
+  }
+
   public IPSetForListIPSetsOutput ipSetId(String ipSetId) {
     this.ipSetId = ipSetId;
     return this;
@@ -117,6 +184,24 @@ public class IPSetForListIPSetsOutput {
     this.ipVersion = ipVersion;
   }
 
+  public IPSetForListIPSetsOutput ispType(IspTypeEnum ispType) {
+    this.ispType = ispType;
+    return this;
+  }
+
+   /**
+   * Get ispType
+   * @return ispType
+  **/
+  @Schema(description = "")
+  public IspTypeEnum getIspType() {
+    return ispType;
+  }
+
+  public void setIspType(IspTypeEnum ispType) {
+    this.ispType = ispType;
+  }
+
   public IPSetForListIPSetsOutput state(String state) {
     this.state = state;
     return this;
@@ -147,14 +232,16 @@ public class IPSetForListIPSetsOutput {
     IPSetForListIPSetsOutput ipSetForListIPSetsOutput = (IPSetForListIPSetsOutput) o;
     return Objects.equals(this.accelerateRegion, ipSetForListIPSetsOutput.accelerateRegion) &&
         Objects.equals(this.acceleratorId, ipSetForListIPSetsOutput.acceleratorId) &&
+        Objects.equals(this.ipAddressList, ipSetForListIPSetsOutput.ipAddressList) &&
         Objects.equals(this.ipSetId, ipSetForListIPSetsOutput.ipSetId) &&
         Objects.equals(this.ipVersion, ipSetForListIPSetsOutput.ipVersion) &&
+        Objects.equals(this.ispType, ipSetForListIPSetsOutput.ispType) &&
         Objects.equals(this.state, ipSetForListIPSetsOutput.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateRegion, acceleratorId, ipSetId, ipVersion, state);
+    return Objects.hash(accelerateRegion, acceleratorId, ipAddressList, ipSetId, ipVersion, ispType, state);
   }
 
 
@@ -165,8 +252,10 @@ public class IPSetForListIPSetsOutput {
     
     sb.append("    accelerateRegion: ").append(toIndentedString(accelerateRegion)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
+    sb.append("    ipAddressList: ").append(toIndentedString(ipAddressList)).append("\n");
     sb.append("    ipSetId: ").append(toIndentedString(ipSetId)).append("\n");
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
+    sb.append("    ispType: ").append(toIndentedString(ispType)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

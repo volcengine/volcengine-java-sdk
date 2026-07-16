@@ -30,67 +30,25 @@ import javax.validation.Valid;
 
 
 public class EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
-  @SerializedName("endpointAddress")
-  private String endpointAddress = null;
+  @SerializedName("EndpointId")
+  private String endpointId = null;
 
-  @SerializedName("endpointID")
-  private String endpointID = null;
-
-  @SerializedName("type")
-  private String type = null;
-
-  public EndpointForUpdateBasicAccelerateIPEndpointRelationInput endpointAddress(String endpointAddress) {
-    this.endpointAddress = endpointAddress;
+  public EndpointForUpdateBasicAccelerateIPEndpointRelationInput endpointId(String endpointId) {
+    this.endpointId = endpointId;
     return this;
   }
 
    /**
-   * Get endpointAddress
-   * @return endpointAddress
+   * Get endpointId
+   * @return endpointId
   **/
   @Schema(description = "")
-  public String getEndpointAddress() {
-    return endpointAddress;
+  public String getEndpointId() {
+    return endpointId;
   }
 
-  public void setEndpointAddress(String endpointAddress) {
-    this.endpointAddress = endpointAddress;
-  }
-
-  public EndpointForUpdateBasicAccelerateIPEndpointRelationInput endpointID(String endpointID) {
-    this.endpointID = endpointID;
-    return this;
-  }
-
-   /**
-   * Get endpointID
-   * @return endpointID
-  **/
-  @Schema(description = "")
-  public String getEndpointID() {
-    return endpointID;
-  }
-
-  public void setEndpointID(String endpointID) {
-    this.endpointID = endpointID;
-  }
-
-  public EndpointForUpdateBasicAccelerateIPEndpointRelationInput type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+  public void setEndpointId(String endpointId) {
+    this.endpointId = endpointId;
   }
 
 
@@ -103,14 +61,12 @@ public class EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
       return false;
     }
     EndpointForUpdateBasicAccelerateIPEndpointRelationInput endpointForUpdateBasicAccelerateIPEndpointRelationInput = (EndpointForUpdateBasicAccelerateIPEndpointRelationInput) o;
-    return Objects.equals(this.endpointAddress, endpointForUpdateBasicAccelerateIPEndpointRelationInput.endpointAddress) &&
-        Objects.equals(this.endpointID, endpointForUpdateBasicAccelerateIPEndpointRelationInput.endpointID) &&
-        Objects.equals(this.type, endpointForUpdateBasicAccelerateIPEndpointRelationInput.type);
+    return Objects.equals(this.endpointId, endpointForUpdateBasicAccelerateIPEndpointRelationInput.endpointId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointAddress, endpointID, type);
+    return Objects.hash(endpointId);
   }
 
 
@@ -119,9 +75,7 @@ public class EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EndpointForUpdateBasicAccelerateIPEndpointRelationInput {\n");
     
-    sb.append("    endpointAddress: ").append(toIndentedString(endpointAddress)).append("\n");
-    sb.append("    endpointID: ").append(toIndentedString(endpointID)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

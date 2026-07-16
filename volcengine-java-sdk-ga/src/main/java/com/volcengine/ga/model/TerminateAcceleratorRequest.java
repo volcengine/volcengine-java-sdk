@@ -33,6 +33,9 @@ public class TerminateAcceleratorRequest {
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
+  @SerializedName("DeleteIPSets")
+  private Boolean deleteIPSets = null;
+
   public TerminateAcceleratorRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
     return this;
@@ -52,6 +55,24 @@ public class TerminateAcceleratorRequest {
     this.acceleratorId = acceleratorId;
   }
 
+  public TerminateAcceleratorRequest deleteIPSets(Boolean deleteIPSets) {
+    this.deleteIPSets = deleteIPSets;
+    return this;
+  }
+
+   /**
+   * Get deleteIPSets
+   * @return deleteIPSets
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteIPSets() {
+    return deleteIPSets;
+  }
+
+  public void setDeleteIPSets(Boolean deleteIPSets) {
+    this.deleteIPSets = deleteIPSets;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class TerminateAcceleratorRequest {
       return false;
     }
     TerminateAcceleratorRequest terminateAcceleratorRequest = (TerminateAcceleratorRequest) o;
-    return Objects.equals(this.acceleratorId, terminateAcceleratorRequest.acceleratorId);
+    return Objects.equals(this.acceleratorId, terminateAcceleratorRequest.acceleratorId) &&
+        Objects.equals(this.deleteIPSets, terminateAcceleratorRequest.deleteIPSets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId);
+    return Objects.hash(acceleratorId, deleteIPSets);
   }
 
 
@@ -77,6 +99,7 @@ public class TerminateAcceleratorRequest {
     sb.append("class TerminateAcceleratorRequest {\n");
     
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
+    sb.append("    deleteIPSets: ").append(toIndentedString(deleteIPSets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

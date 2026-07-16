@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ga.model.DeleteIPSetForDeleteIPSetInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class DeleteIPSetRequest {
   private String acceleratorId = null;
 
   @SerializedName("DeleteIPSets")
-  private List<String> deleteIPSets = null;
+  private List<DeleteIPSetForDeleteIPSetInput> deleteIPSets = null;
 
   @SerializedName("IPSetId")
   private String ipSetId = null;
@@ -63,14 +64,14 @@ public class DeleteIPSetRequest {
     this.acceleratorId = acceleratorId;
   }
 
-  public DeleteIPSetRequest deleteIPSets(List<String> deleteIPSets) {
+  public DeleteIPSetRequest deleteIPSets(List<DeleteIPSetForDeleteIPSetInput> deleteIPSets) {
     this.deleteIPSets = deleteIPSets;
     return this;
   }
 
-  public DeleteIPSetRequest addDeleteIPSetsItem(String deleteIPSetsItem) {
+  public DeleteIPSetRequest addDeleteIPSetsItem(DeleteIPSetForDeleteIPSetInput deleteIPSetsItem) {
     if (this.deleteIPSets == null) {
-      this.deleteIPSets = new ArrayList<String>();
+      this.deleteIPSets = new ArrayList<DeleteIPSetForDeleteIPSetInput>();
     }
     this.deleteIPSets.add(deleteIPSetsItem);
     return this;
@@ -80,12 +81,13 @@ public class DeleteIPSetRequest {
    * Get deleteIPSets
    * @return deleteIPSets
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getDeleteIPSets() {
+  public List<DeleteIPSetForDeleteIPSetInput> getDeleteIPSets() {
     return deleteIPSets;
   }
 
-  public void setDeleteIPSets(List<String> deleteIPSets) {
+  public void setDeleteIPSets(List<DeleteIPSetForDeleteIPSetInput> deleteIPSets) {
     this.deleteIPSets = deleteIPSets;
   }
 
@@ -98,8 +100,7 @@ public class DeleteIPSetRequest {
    * Get ipSetId
    * @return ipSetId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getIpSetId() {
     return ipSetId;
   }
@@ -117,8 +118,7 @@ public class DeleteIPSetRequest {
    * Get ipVersion
    * @return ipVersion
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getIpVersion() {
     return ipVersion;
   }

@@ -19,18 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ga.model.IPAddressListForDescribeIPSetOutput;
+import com.volcengine.ga.model.IPAddressListForDescribeAcceleratorOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeIPSetResponse
+ * IPSetForDescribeAcceleratorOutput
  */
 
 
 
-public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse {
+public class IPSetForDescribeAcceleratorOutput {
   @SerializedName("AccelerateRegion")
   private String accelerateRegion = null;
 
@@ -38,7 +38,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
   private String acceleratorId = null;
 
   @SerializedName("IPAddressList")
-  private IPAddressListForDescribeIPSetOutput ipAddressList = null;
+  private IPAddressListForDescribeAcceleratorOutput ipAddressList = null;
 
   @SerializedName("IPSetId")
   private String ipSetId = null;
@@ -46,13 +46,54 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("IPVersion")
   private String ipVersion = null;
 
-  @SerializedName("IspType")
-  private String ispType = null;
+  /**
+   * Gets or Sets ispType
+   */
+  @JsonAdapter(IspTypeEnum.Adapter.class)
+  public enum IspTypeEnum {
+    @SerializedName("Advanced")
+    ADVANCED("Advanced");
+
+    private String value;
+
+    IspTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IspTypeEnum fromValue(String input) {
+      for (IspTypeEnum b : IspTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IspTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IspTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IspTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IspTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IspType")
+  private IspTypeEnum ispType = null;
 
   @SerializedName("State")
   private String state = null;
 
-  public DescribeIPSetResponse accelerateRegion(String accelerateRegion) {
+  public IPSetForDescribeAcceleratorOutput accelerateRegion(String accelerateRegion) {
     this.accelerateRegion = accelerateRegion;
     return this;
   }
@@ -70,7 +111,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.accelerateRegion = accelerateRegion;
   }
 
-  public DescribeIPSetResponse acceleratorId(String acceleratorId) {
+  public IPSetForDescribeAcceleratorOutput acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
     return this;
   }
@@ -88,7 +129,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.acceleratorId = acceleratorId;
   }
 
-  public DescribeIPSetResponse ipAddressList(IPAddressListForDescribeIPSetOutput ipAddressList) {
+  public IPSetForDescribeAcceleratorOutput ipAddressList(IPAddressListForDescribeAcceleratorOutput ipAddressList) {
     this.ipAddressList = ipAddressList;
     return this;
   }
@@ -99,15 +140,15 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
   **/
   @Valid
   @Schema(description = "")
-  public IPAddressListForDescribeIPSetOutput getIpAddressList() {
+  public IPAddressListForDescribeAcceleratorOutput getIpAddressList() {
     return ipAddressList;
   }
 
-  public void setIpAddressList(IPAddressListForDescribeIPSetOutput ipAddressList) {
+  public void setIpAddressList(IPAddressListForDescribeAcceleratorOutput ipAddressList) {
     this.ipAddressList = ipAddressList;
   }
 
-  public DescribeIPSetResponse ipSetId(String ipSetId) {
+  public IPSetForDescribeAcceleratorOutput ipSetId(String ipSetId) {
     this.ipSetId = ipSetId;
     return this;
   }
@@ -125,7 +166,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.ipSetId = ipSetId;
   }
 
-  public DescribeIPSetResponse ipVersion(String ipVersion) {
+  public IPSetForDescribeAcceleratorOutput ipVersion(String ipVersion) {
     this.ipVersion = ipVersion;
     return this;
   }
@@ -143,7 +184,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.ipVersion = ipVersion;
   }
 
-  public DescribeIPSetResponse ispType(String ispType) {
+  public IPSetForDescribeAcceleratorOutput ispType(IspTypeEnum ispType) {
     this.ispType = ispType;
     return this;
   }
@@ -153,15 +194,15 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
    * @return ispType
   **/
   @Schema(description = "")
-  public String getIspType() {
+  public IspTypeEnum getIspType() {
     return ispType;
   }
 
-  public void setIspType(String ispType) {
+  public void setIspType(IspTypeEnum ispType) {
     this.ispType = ispType;
   }
 
-  public DescribeIPSetResponse state(String state) {
+  public IPSetForDescribeAcceleratorOutput state(String state) {
     this.state = state;
     return this;
   }
@@ -188,14 +229,14 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeIPSetResponse describeIPSetResponse = (DescribeIPSetResponse) o;
-    return Objects.equals(this.accelerateRegion, describeIPSetResponse.accelerateRegion) &&
-        Objects.equals(this.acceleratorId, describeIPSetResponse.acceleratorId) &&
-        Objects.equals(this.ipAddressList, describeIPSetResponse.ipAddressList) &&
-        Objects.equals(this.ipSetId, describeIPSetResponse.ipSetId) &&
-        Objects.equals(this.ipVersion, describeIPSetResponse.ipVersion) &&
-        Objects.equals(this.ispType, describeIPSetResponse.ispType) &&
-        Objects.equals(this.state, describeIPSetResponse.state);
+    IPSetForDescribeAcceleratorOutput ipSetForDescribeAcceleratorOutput = (IPSetForDescribeAcceleratorOutput) o;
+    return Objects.equals(this.accelerateRegion, ipSetForDescribeAcceleratorOutput.accelerateRegion) &&
+        Objects.equals(this.acceleratorId, ipSetForDescribeAcceleratorOutput.acceleratorId) &&
+        Objects.equals(this.ipAddressList, ipSetForDescribeAcceleratorOutput.ipAddressList) &&
+        Objects.equals(this.ipSetId, ipSetForDescribeAcceleratorOutput.ipSetId) &&
+        Objects.equals(this.ipVersion, ipSetForDescribeAcceleratorOutput.ipVersion) &&
+        Objects.equals(this.ispType, ipSetForDescribeAcceleratorOutput.ispType) &&
+        Objects.equals(this.state, ipSetForDescribeAcceleratorOutput.state);
   }
 
   @Override
@@ -207,7 +248,7 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeIPSetResponse {\n");
+    sb.append("class IPSetForDescribeAcceleratorOutput {\n");
     
     sb.append("    accelerateRegion: ").append(toIndentedString(accelerateRegion)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");

@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteBasicEndpointRequest
+ * WeightConfForCreateListenerInOneStepInput
  */
 
 
 
-public class DeleteBasicEndpointRequest {
-  @SerializedName("AcceleratorId")
-  private String acceleratorId = null;
+public class WeightConfForCreateListenerInOneStepInput {
+  @SerializedName("EndPointGroupIdx")
+  private Long endPointGroupIdx = null;
 
-  @SerializedName("EndpointId")
-  private String endpointId = null;
+  @SerializedName("Weight")
+  private Long weight = null;
 
-  public DeleteBasicEndpointRequest acceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public WeightConfForCreateListenerInOneStepInput endPointGroupIdx(Long endPointGroupIdx) {
+    this.endPointGroupIdx = endPointGroupIdx;
     return this;
   }
 
    /**
-   * Get acceleratorId
-   * @return acceleratorId
+   * Get endPointGroupIdx
+   * @return endPointGroupIdx
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAcceleratorId() {
-    return acceleratorId;
+  @Schema(description = "")
+  public Long getEndPointGroupIdx() {
+    return endPointGroupIdx;
   }
 
-  public void setAcceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
+  public void setEndPointGroupIdx(Long endPointGroupIdx) {
+    this.endPointGroupIdx = endPointGroupIdx;
   }
 
-  public DeleteBasicEndpointRequest endpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public WeightConfForCreateListenerInOneStepInput weight(Long weight) {
+    this.weight = weight;
     return this;
   }
 
    /**
-   * Get endpointId
-   * @return endpointId
+   * Get weight
+   * @return weight
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getEndpointId() {
-    return endpointId;
+  @Schema(description = "")
+  public Long getWeight() {
+    return weight;
   }
 
-  public void setEndpointId(String endpointId) {
-    this.endpointId = endpointId;
+  public void setWeight(Long weight) {
+    this.weight = weight;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteBasicEndpointRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteBasicEndpointRequest deleteBasicEndpointRequest = (DeleteBasicEndpointRequest) o;
-    return Objects.equals(this.acceleratorId, deleteBasicEndpointRequest.acceleratorId) &&
-        Objects.equals(this.endpointId, deleteBasicEndpointRequest.endpointId);
+    WeightConfForCreateListenerInOneStepInput weightConfForCreateListenerInOneStepInput = (WeightConfForCreateListenerInOneStepInput) o;
+    return Objects.equals(this.endPointGroupIdx, weightConfForCreateListenerInOneStepInput.endPointGroupIdx) &&
+        Objects.equals(this.weight, weightConfForCreateListenerInOneStepInput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, endpointId);
+    return Objects.hash(endPointGroupIdx, weight);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteBasicEndpointRequest {\n");
+    sb.append("class WeightConfForCreateListenerInOneStepInput {\n");
     
-    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    endPointGroupIdx: ").append(toIndentedString(endPointGroupIdx)).append("\n");
+    sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

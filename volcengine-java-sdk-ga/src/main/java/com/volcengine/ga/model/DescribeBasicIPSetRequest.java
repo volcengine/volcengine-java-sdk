@@ -30,11 +30,11 @@ import javax.validation.Valid;
 
 
 public class DescribeBasicIPSetRequest {
-  @SerializedName("acceleratorId")
+  @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
-  @SerializedName("ipsetId")
-  private String ipsetId = null;
+  @SerializedName("IPSetId")
+  private String ipSetId = null;
 
   public DescribeBasicIPSetRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
@@ -55,23 +55,23 @@ public class DescribeBasicIPSetRequest {
     this.acceleratorId = acceleratorId;
   }
 
-  public DescribeBasicIPSetRequest ipsetId(String ipsetId) {
-    this.ipsetId = ipsetId;
+  public DescribeBasicIPSetRequest ipSetId(String ipSetId) {
+    this.ipSetId = ipSetId;
     return this;
   }
 
    /**
-   * Get ipsetId
-   * @return ipsetId
+   * Get ipSetId
+   * @return ipSetId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getIpsetId() {
-    return ipsetId;
+  public String getIpSetId() {
+    return ipSetId;
   }
 
-  public void setIpsetId(String ipsetId) {
-    this.ipsetId = ipsetId;
+  public void setIpSetId(String ipSetId) {
+    this.ipSetId = ipSetId;
   }
 
 
@@ -85,12 +85,12 @@ public class DescribeBasicIPSetRequest {
     }
     DescribeBasicIPSetRequest describeBasicIPSetRequest = (DescribeBasicIPSetRequest) o;
     return Objects.equals(this.acceleratorId, describeBasicIPSetRequest.acceleratorId) &&
-        Objects.equals(this.ipsetId, describeBasicIPSetRequest.ipsetId);
+        Objects.equals(this.ipSetId, describeBasicIPSetRequest.ipSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, ipsetId);
+    return Objects.hash(acceleratorId, ipSetId);
   }
 
 
@@ -100,7 +100,7 @@ public class DescribeBasicIPSetRequest {
     sb.append("class DescribeBasicIPSetRequest {\n");
     
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    ipsetId: ").append(toIndentedString(ipsetId)).append("\n");
+    sb.append("    ipSetId: ").append(toIndentedString(ipSetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
