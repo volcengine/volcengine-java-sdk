@@ -1,5 +1,5 @@
 {
-  "description": "ACEP: 新增 AddAdbKey, BindAdbKeyPods, DeleteAdbKey, ListAdbKey, ListAdbKeyPodBindings, UnbindAdbKeyPods, UpdateAdbKey",
+  "description": "ACEP: 新增 ResetPodPhoneTemplate",
   "modules": "service/ACEP",
   "type": "feature"
 }
