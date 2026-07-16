@@ -30,14 +30,14 @@ import javax.validation.Valid;
 
 
 public class DeleteBasicAccelerateIPRequest {
-  @SerializedName("accelerateIPId")
+  @SerializedName("AccelerateIPId")
   private String accelerateIPId = null;
 
-  @SerializedName("acceleratorId")
+  @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
-  @SerializedName("ipsetId")
-  private String ipsetId = null;
+  @SerializedName("IPSetId")
+  private String ipSetId = null;
 
   public DeleteBasicAccelerateIPRequest accelerateIPId(String accelerateIPId) {
     this.accelerateIPId = accelerateIPId;
@@ -77,23 +77,23 @@ public class DeleteBasicAccelerateIPRequest {
     this.acceleratorId = acceleratorId;
   }
 
-  public DeleteBasicAccelerateIPRequest ipsetId(String ipsetId) {
-    this.ipsetId = ipsetId;
+  public DeleteBasicAccelerateIPRequest ipSetId(String ipSetId) {
+    this.ipSetId = ipSetId;
     return this;
   }
 
    /**
-   * Get ipsetId
-   * @return ipsetId
+   * Get ipSetId
+   * @return ipSetId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getIpsetId() {
-    return ipsetId;
+  public String getIpSetId() {
+    return ipSetId;
   }
 
-  public void setIpsetId(String ipsetId) {
-    this.ipsetId = ipsetId;
+  public void setIpSetId(String ipSetId) {
+    this.ipSetId = ipSetId;
   }
 
 
@@ -108,12 +108,12 @@ public class DeleteBasicAccelerateIPRequest {
     DeleteBasicAccelerateIPRequest deleteBasicAccelerateIPRequest = (DeleteBasicAccelerateIPRequest) o;
     return Objects.equals(this.accelerateIPId, deleteBasicAccelerateIPRequest.accelerateIPId) &&
         Objects.equals(this.acceleratorId, deleteBasicAccelerateIPRequest.acceleratorId) &&
-        Objects.equals(this.ipsetId, deleteBasicAccelerateIPRequest.ipsetId);
+        Objects.equals(this.ipSetId, deleteBasicAccelerateIPRequest.ipSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateIPId, acceleratorId, ipsetId);
+    return Objects.hash(accelerateIPId, acceleratorId, ipSetId);
   }
 
 
@@ -124,7 +124,7 @@ public class DeleteBasicAccelerateIPRequest {
     
     sb.append("    accelerateIPId: ").append(toIndentedString(accelerateIPId)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    ipsetId: ").append(toIndentedString(ipsetId)).append("\n");
+    sb.append("    ipSetId: ").append(toIndentedString(ipSetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

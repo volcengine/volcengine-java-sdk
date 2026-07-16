@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.TagKVForListSplitBillDetailInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,6 +80,12 @@ public class ListSplitBillDetailRequest {
 
   @SerializedName("SplitItemID")
   private String splitItemID = null;
+
+  @SerializedName("TagKV")
+  private List<TagKVForListSplitBillDetailInput> tagKV = null;
+
+  @SerializedName("TagKVFilterMode")
+  private Integer tagKVFilterMode = null;
 
   public ListSplitBillDetailRequest billCategory(List<String> billCategory) {
     this.billCategory = billCategory;
@@ -418,6 +425,51 @@ public class ListSplitBillDetailRequest {
     this.splitItemID = splitItemID;
   }
 
+  public ListSplitBillDetailRequest tagKV(List<TagKVForListSplitBillDetailInput> tagKV) {
+    this.tagKV = tagKV;
+    return this;
+  }
+
+  public ListSplitBillDetailRequest addTagKVItem(TagKVForListSplitBillDetailInput tagKVItem) {
+    if (this.tagKV == null) {
+      this.tagKV = new ArrayList<TagKVForListSplitBillDetailInput>();
+    }
+    this.tagKV.add(tagKVItem);
+    return this;
+  }
+
+   /**
+   * Get tagKV
+   * @return tagKV
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagKVForListSplitBillDetailInput> getTagKV() {
+    return tagKV;
+  }
+
+  public void setTagKV(List<TagKVForListSplitBillDetailInput> tagKV) {
+    this.tagKV = tagKV;
+  }
+
+  public ListSplitBillDetailRequest tagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+    return this;
+  }
+
+   /**
+   * Get tagKVFilterMode
+   * @return tagKVFilterMode
+  **/
+  @Schema(description = "")
+  public Integer getTagKVFilterMode() {
+    return tagKVFilterMode;
+  }
+
+  public void setTagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -443,12 +495,14 @@ public class ListSplitBillDetailRequest {
         Objects.equals(this.product, listSplitBillDetailRequest.product) &&
         Objects.equals(this.project, listSplitBillDetailRequest.project) &&
         Objects.equals(this.splitDimension, listSplitBillDetailRequest.splitDimension) &&
-        Objects.equals(this.splitItemID, listSplitBillDetailRequest.splitItemID);
+        Objects.equals(this.splitItemID, listSplitBillDetailRequest.splitItemID) &&
+        Objects.equals(this.tagKV, listSplitBillDetailRequest.tagKV) &&
+        Objects.equals(this.tagKVFilterMode, listSplitBillDetailRequest.tagKVFilterMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, splitDimension, splitItemID);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, splitDimension, splitItemID, tagKV, tagKVFilterMode);
   }
 
 
@@ -473,6 +527,8 @@ public class ListSplitBillDetailRequest {
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    splitDimension: ").append(toIndentedString(splitDimension)).append("\n");
     sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
+    sb.append("    tagKV: ").append(toIndentedString(tagKV)).append("\n");
+    sb.append("    tagKVFilterMode: ").append(toIndentedString(tagKVFilterMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

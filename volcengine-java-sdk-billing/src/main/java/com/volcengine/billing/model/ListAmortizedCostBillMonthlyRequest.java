@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.TagKVForListAmortizedCostBillMonthlyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,6 +71,12 @@ public class ListAmortizedCostBillMonthlyRequest {
 
   @SerializedName("Product")
   private List<String> product = null;
+
+  @SerializedName("TagKV")
+  private List<TagKVForListAmortizedCostBillMonthlyInput> tagKV = null;
+
+  @SerializedName("TagKVFilterMode")
+  private Integer tagKVFilterMode = null;
 
   public ListAmortizedCostBillMonthlyRequest amortizedMonth(String amortizedMonth) {
     this.amortizedMonth = amortizedMonth;
@@ -355,6 +362,51 @@ public class ListAmortizedCostBillMonthlyRequest {
     this.product = product;
   }
 
+  public ListAmortizedCostBillMonthlyRequest tagKV(List<TagKVForListAmortizedCostBillMonthlyInput> tagKV) {
+    this.tagKV = tagKV;
+    return this;
+  }
+
+  public ListAmortizedCostBillMonthlyRequest addTagKVItem(TagKVForListAmortizedCostBillMonthlyInput tagKVItem) {
+    if (this.tagKV == null) {
+      this.tagKV = new ArrayList<TagKVForListAmortizedCostBillMonthlyInput>();
+    }
+    this.tagKV.add(tagKVItem);
+    return this;
+  }
+
+   /**
+   * Get tagKV
+   * @return tagKV
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagKVForListAmortizedCostBillMonthlyInput> getTagKV() {
+    return tagKV;
+  }
+
+  public void setTagKV(List<TagKVForListAmortizedCostBillMonthlyInput> tagKV) {
+    this.tagKV = tagKV;
+  }
+
+  public ListAmortizedCostBillMonthlyRequest tagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+    return this;
+  }
+
+   /**
+   * Get tagKVFilterMode
+   * @return tagKVFilterMode
+  **/
+  @Schema(description = "")
+  public Integer getTagKVFilterMode() {
+    return tagKVFilterMode;
+  }
+
+  public void setTagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -377,12 +429,14 @@ public class ListAmortizedCostBillMonthlyRequest {
         Objects.equals(this.offset, listAmortizedCostBillMonthlyRequest.offset) &&
         Objects.equals(this.ownerID, listAmortizedCostBillMonthlyRequest.ownerID) &&
         Objects.equals(this.payerID, listAmortizedCostBillMonthlyRequest.payerID) &&
-        Objects.equals(this.product, listAmortizedCostBillMonthlyRequest.product);
+        Objects.equals(this.product, listAmortizedCostBillMonthlyRequest.product) &&
+        Objects.equals(this.tagKV, listAmortizedCostBillMonthlyRequest.tagKV) &&
+        Objects.equals(this.tagKVFilterMode, listAmortizedCostBillMonthlyRequest.tagKVFilterMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product);
+    return Objects.hash(amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, tagKV, tagKVFilterMode);
   }
 
 
@@ -404,6 +458,8 @@ public class ListAmortizedCostBillMonthlyRequest {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    tagKV: ").append(toIndentedString(tagKV)).append("\n");
+    sb.append("    tagKVFilterMode: ").append(toIndentedString(tagKVFilterMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

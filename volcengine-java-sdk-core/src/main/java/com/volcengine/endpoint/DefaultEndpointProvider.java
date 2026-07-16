@@ -844,6 +844,30 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- ga ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("ga", new ServiceEndpointInfo(
+                "ga",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- cpaas ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cpaas", new ServiceEndpointInfo(
+                "cpaas",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- efs ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("efs", new ServiceEndpointInfo(
+                "efs",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

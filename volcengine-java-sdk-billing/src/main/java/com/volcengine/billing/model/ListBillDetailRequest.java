@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.TagKVForListBillDetailInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,6 +77,12 @@ public class ListBillDetailRequest {
 
   @SerializedName("Project")
   private List<String> project = null;
+
+  @SerializedName("TagKV")
+  private List<TagKVForListBillDetailInput> tagKV = null;
+
+  @SerializedName("TagKVFilterMode")
+  private Integer tagKVFilterMode = null;
 
   public ListBillDetailRequest billCategory(List<String> billCategory) {
     this.billCategory = billCategory;
@@ -397,6 +404,51 @@ public class ListBillDetailRequest {
     this.project = project;
   }
 
+  public ListBillDetailRequest tagKV(List<TagKVForListBillDetailInput> tagKV) {
+    this.tagKV = tagKV;
+    return this;
+  }
+
+  public ListBillDetailRequest addTagKVItem(TagKVForListBillDetailInput tagKVItem) {
+    if (this.tagKV == null) {
+      this.tagKV = new ArrayList<TagKVForListBillDetailInput>();
+    }
+    this.tagKV.add(tagKVItem);
+    return this;
+  }
+
+   /**
+   * Get tagKV
+   * @return tagKV
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagKVForListBillDetailInput> getTagKV() {
+    return tagKV;
+  }
+
+  public void setTagKV(List<TagKVForListBillDetailInput> tagKV) {
+    this.tagKV = tagKV;
+  }
+
+  public ListBillDetailRequest tagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+    return this;
+  }
+
+   /**
+   * Get tagKVFilterMode
+   * @return tagKVFilterMode
+  **/
+  @Schema(description = "")
+  public Integer getTagKVFilterMode() {
+    return tagKVFilterMode;
+  }
+
+  public void setTagKVFilterMode(Integer tagKVFilterMode) {
+    this.tagKVFilterMode = tagKVFilterMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -421,12 +473,14 @@ public class ListBillDetailRequest {
         Objects.equals(this.ownerID, listBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listBillDetailRequest.payerID) &&
         Objects.equals(this.product, listBillDetailRequest.product) &&
-        Objects.equals(this.project, listBillDetailRequest.project);
+        Objects.equals(this.project, listBillDetailRequest.project) &&
+        Objects.equals(this.tagKV, listBillDetailRequest.tagKV) &&
+        Objects.equals(this.tagKVFilterMode, listBillDetailRequest.tagKVFilterMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, tagKV, tagKVFilterMode);
   }
 
 
@@ -450,6 +504,8 @@ public class ListBillDetailRequest {
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    tagKV: ").append(toIndentedString(tagKV)).append("\n");
+    sb.append("    tagKVFilterMode: ").append(toIndentedString(tagKVFilterMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

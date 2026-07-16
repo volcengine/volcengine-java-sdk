@@ -33,17 +33,11 @@ public class IPSetForCreateIPSetsInput {
   @SerializedName("AccelerateRegion")
   private String accelerateRegion = null;
 
-  @SerializedName("AcceleratorId")
-  private String acceleratorId = null;
-
-  @SerializedName("IPSetId")
-  private String ipSetId = null;
-
   @SerializedName("IPVersion")
   private String ipVersion = null;
 
-  @SerializedName("State")
-  private String state = null;
+  @SerializedName("IspType")
+  private String ispType = null;
 
   public IPSetForCreateIPSetsInput accelerateRegion(String accelerateRegion) {
     this.accelerateRegion = accelerateRegion;
@@ -61,42 +55,6 @@ public class IPSetForCreateIPSetsInput {
 
   public void setAccelerateRegion(String accelerateRegion) {
     this.accelerateRegion = accelerateRegion;
-  }
-
-  public IPSetForCreateIPSetsInput acceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
-    return this;
-  }
-
-   /**
-   * Get acceleratorId
-   * @return acceleratorId
-  **/
-  @Schema(description = "")
-  public String getAcceleratorId() {
-    return acceleratorId;
-  }
-
-  public void setAcceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
-  }
-
-  public IPSetForCreateIPSetsInput ipSetId(String ipSetId) {
-    this.ipSetId = ipSetId;
-    return this;
-  }
-
-   /**
-   * Get ipSetId
-   * @return ipSetId
-  **/
-  @Schema(description = "")
-  public String getIpSetId() {
-    return ipSetId;
-  }
-
-  public void setIpSetId(String ipSetId) {
-    this.ipSetId = ipSetId;
   }
 
   public IPSetForCreateIPSetsInput ipVersion(String ipVersion) {
@@ -117,22 +75,22 @@ public class IPSetForCreateIPSetsInput {
     this.ipVersion = ipVersion;
   }
 
-  public IPSetForCreateIPSetsInput state(String state) {
-    this.state = state;
+  public IPSetForCreateIPSetsInput ispType(String ispType) {
+    this.ispType = ispType;
     return this;
   }
 
    /**
-   * Get state
-   * @return state
+   * Get ispType
+   * @return ispType
   **/
   @Schema(description = "")
-  public String getState() {
-    return state;
+  public String getIspType() {
+    return ispType;
   }
 
-  public void setState(String state) {
-    this.state = state;
+  public void setIspType(String ispType) {
+    this.ispType = ispType;
   }
 
 
@@ -146,15 +104,13 @@ public class IPSetForCreateIPSetsInput {
     }
     IPSetForCreateIPSetsInput ipSetForCreateIPSetsInput = (IPSetForCreateIPSetsInput) o;
     return Objects.equals(this.accelerateRegion, ipSetForCreateIPSetsInput.accelerateRegion) &&
-        Objects.equals(this.acceleratorId, ipSetForCreateIPSetsInput.acceleratorId) &&
-        Objects.equals(this.ipSetId, ipSetForCreateIPSetsInput.ipSetId) &&
         Objects.equals(this.ipVersion, ipSetForCreateIPSetsInput.ipVersion) &&
-        Objects.equals(this.state, ipSetForCreateIPSetsInput.state);
+        Objects.equals(this.ispType, ipSetForCreateIPSetsInput.ispType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateRegion, acceleratorId, ipSetId, ipVersion, state);
+    return Objects.hash(accelerateRegion, ipVersion, ispType);
   }
 
 
@@ -164,10 +120,8 @@ public class IPSetForCreateIPSetsInput {
     sb.append("class IPSetForCreateIPSetsInput {\n");
     
     sb.append("    accelerateRegion: ").append(toIndentedString(accelerateRegion)).append("\n");
-    sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
-    sb.append("    ipSetId: ").append(toIndentedString(ipSetId)).append("\n");
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    ispType: ").append(toIndentedString(ispType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

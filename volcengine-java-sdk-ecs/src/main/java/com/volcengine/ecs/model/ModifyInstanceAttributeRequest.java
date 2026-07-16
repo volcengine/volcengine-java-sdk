@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.CpuOptionsForModifyInstanceAttributeInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 public class ModifyInstanceAttributeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
+
+  @SerializedName("CpuOptions")
+  private CpuOptionsForModifyInstanceAttributeInput cpuOptions = null;
 
   @SerializedName("DeletionProtection")
   private Boolean deletionProtection = null;
@@ -73,6 +77,25 @@ public class ModifyInstanceAttributeRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public ModifyInstanceAttributeRequest cpuOptions(CpuOptionsForModifyInstanceAttributeInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+    return this;
+  }
+
+   /**
+   * Get cpuOptions
+   * @return cpuOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public CpuOptionsForModifyInstanceAttributeInput getCpuOptions() {
+    return cpuOptions;
+  }
+
+  public void setCpuOptions(CpuOptionsForModifyInstanceAttributeInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
   }
 
   public ModifyInstanceAttributeRequest deletionProtection(Boolean deletionProtection) {
@@ -231,6 +254,7 @@ public class ModifyInstanceAttributeRequest {
     }
     ModifyInstanceAttributeRequest modifyInstanceAttributeRequest = (ModifyInstanceAttributeRequest) o;
     return Objects.equals(this.clientToken, modifyInstanceAttributeRequest.clientToken) &&
+        Objects.equals(this.cpuOptions, modifyInstanceAttributeRequest.cpuOptions) &&
         Objects.equals(this.deletionProtection, modifyInstanceAttributeRequest.deletionProtection) &&
         Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
         Objects.equals(this.enableJumboFrame, modifyInstanceAttributeRequest.enableJumboFrame) &&
@@ -243,7 +267,7 @@ public class ModifyInstanceAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deletionProtection, description, enableJumboFrame, hostname, instanceId, instanceName, password, userData);
+    return Objects.hash(clientToken, cpuOptions, deletionProtection, description, enableJumboFrame, hostname, instanceId, instanceName, password, userData);
   }
 
 
@@ -253,6 +277,7 @@ public class ModifyInstanceAttributeRequest {
     sb.append("class ModifyInstanceAttributeRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableJumboFrame: ").append(toIndentedString(enableJumboFrame)).append("\n");

@@ -35,8 +35,6 @@ public class ChargeConfigForDescribeFileSystemsOutput {
    */
   @JsonAdapter(ChargeStatusEnum.Adapter.class)
   public enum ChargeStatusEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("WaitingPaid")
     WAITINGPAID("WaitingPaid"),
     @SerializedName("Pending")

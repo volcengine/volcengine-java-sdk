@@ -32,8 +32,8 @@ import javax.validation.Valid;
 
 
 public class CreateBasicIPSetRequest {
-  @SerializedName("AccelerateRegion")
-  private String accelerateRegion = null;
+  @SerializedName("AccelerateNode")
+  private List<String> accelerateNode = null;
 
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
@@ -41,62 +41,8 @@ public class CreateBasicIPSetRequest {
   @SerializedName("IPVersion")
   private String ipVersion = null;
 
-  @SerializedName("accelerateNode")
-  private List<String> accelerateNode = null;
-
-  public CreateBasicIPSetRequest accelerateRegion(String accelerateRegion) {
-    this.accelerateRegion = accelerateRegion;
-    return this;
-  }
-
-   /**
-   * Get accelerateRegion
-   * @return accelerateRegion
-  **/
-  @Schema(description = "")
-  public String getAccelerateRegion() {
-    return accelerateRegion;
-  }
-
-  public void setAccelerateRegion(String accelerateRegion) {
-    this.accelerateRegion = accelerateRegion;
-  }
-
-  public CreateBasicIPSetRequest acceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
-    return this;
-  }
-
-   /**
-   * Get acceleratorId
-   * @return acceleratorId
-  **/
-  @Schema(description = "")
-  public String getAcceleratorId() {
-    return acceleratorId;
-  }
-
-  public void setAcceleratorId(String acceleratorId) {
-    this.acceleratorId = acceleratorId;
-  }
-
-  public CreateBasicIPSetRequest ipVersion(String ipVersion) {
-    this.ipVersion = ipVersion;
-    return this;
-  }
-
-   /**
-   * Get ipVersion
-   * @return ipVersion
-  **/
-  @Schema(description = "")
-  public String getIpVersion() {
-    return ipVersion;
-  }
-
-  public void setIpVersion(String ipVersion) {
-    this.ipVersion = ipVersion;
-  }
+  @SerializedName("Region")
+  private String region = null;
 
   public CreateBasicIPSetRequest accelerateNode(List<String> accelerateNode) {
     this.accelerateNode = accelerateNode;
@@ -124,6 +70,62 @@ public class CreateBasicIPSetRequest {
     this.accelerateNode = accelerateNode;
   }
 
+  public CreateBasicIPSetRequest acceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+    return this;
+  }
+
+   /**
+   * Get acceleratorId
+   * @return acceleratorId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAcceleratorId() {
+    return acceleratorId;
+  }
+
+  public void setAcceleratorId(String acceleratorId) {
+    this.acceleratorId = acceleratorId;
+  }
+
+  public CreateBasicIPSetRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+  }
+
+  public CreateBasicIPSetRequest region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Get region
+   * @return region
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -134,15 +136,15 @@ public class CreateBasicIPSetRequest {
       return false;
     }
     CreateBasicIPSetRequest createBasicIPSetRequest = (CreateBasicIPSetRequest) o;
-    return Objects.equals(this.accelerateRegion, createBasicIPSetRequest.accelerateRegion) &&
+    return Objects.equals(this.accelerateNode, createBasicIPSetRequest.accelerateNode) &&
         Objects.equals(this.acceleratorId, createBasicIPSetRequest.acceleratorId) &&
         Objects.equals(this.ipVersion, createBasicIPSetRequest.ipVersion) &&
-        Objects.equals(this.accelerateNode, createBasicIPSetRequest.accelerateNode);
+        Objects.equals(this.region, createBasicIPSetRequest.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateRegion, acceleratorId, ipVersion, accelerateNode);
+    return Objects.hash(accelerateNode, acceleratorId, ipVersion, region);
   }
 
 
@@ -151,10 +153,10 @@ public class CreateBasicIPSetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBasicIPSetRequest {\n");
     
-    sb.append("    accelerateRegion: ").append(toIndentedString(accelerateRegion)).append("\n");
+    sb.append("    accelerateNode: ").append(toIndentedString(accelerateNode)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
-    sb.append("    accelerateNode: ").append(toIndentedString(accelerateNode)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("}");
     return sb.toString();
   }

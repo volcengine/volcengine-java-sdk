@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ga.model.IPAddressListForDescribeIPSetOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,11 +37,17 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
+  @SerializedName("IPAddressList")
+  private IPAddressListForDescribeIPSetOutput ipAddressList = null;
+
   @SerializedName("IPSetId")
   private String ipSetId = null;
 
   @SerializedName("IPVersion")
   private String ipVersion = null;
+
+  @SerializedName("IspType")
+  private String ispType = null;
 
   @SerializedName("State")
   private String state = null;
@@ -81,6 +88,25 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.acceleratorId = acceleratorId;
   }
 
+  public DescribeIPSetResponse ipAddressList(IPAddressListForDescribeIPSetOutput ipAddressList) {
+    this.ipAddressList = ipAddressList;
+    return this;
+  }
+
+   /**
+   * Get ipAddressList
+   * @return ipAddressList
+  **/
+  @Valid
+  @Schema(description = "")
+  public IPAddressListForDescribeIPSetOutput getIpAddressList() {
+    return ipAddressList;
+  }
+
+  public void setIpAddressList(IPAddressListForDescribeIPSetOutput ipAddressList) {
+    this.ipAddressList = ipAddressList;
+  }
+
   public DescribeIPSetResponse ipSetId(String ipSetId) {
     this.ipSetId = ipSetId;
     return this;
@@ -117,6 +143,24 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     this.ipVersion = ipVersion;
   }
 
+  public DescribeIPSetResponse ispType(String ispType) {
+    this.ispType = ispType;
+    return this;
+  }
+
+   /**
+   * Get ispType
+   * @return ispType
+  **/
+  @Schema(description = "")
+  public String getIspType() {
+    return ispType;
+  }
+
+  public void setIspType(String ispType) {
+    this.ispType = ispType;
+  }
+
   public DescribeIPSetResponse state(String state) {
     this.state = state;
     return this;
@@ -147,14 +191,16 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     DescribeIPSetResponse describeIPSetResponse = (DescribeIPSetResponse) o;
     return Objects.equals(this.accelerateRegion, describeIPSetResponse.accelerateRegion) &&
         Objects.equals(this.acceleratorId, describeIPSetResponse.acceleratorId) &&
+        Objects.equals(this.ipAddressList, describeIPSetResponse.ipAddressList) &&
         Objects.equals(this.ipSetId, describeIPSetResponse.ipSetId) &&
         Objects.equals(this.ipVersion, describeIPSetResponse.ipVersion) &&
+        Objects.equals(this.ispType, describeIPSetResponse.ispType) &&
         Objects.equals(this.state, describeIPSetResponse.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accelerateRegion, acceleratorId, ipSetId, ipVersion, state);
+    return Objects.hash(accelerateRegion, acceleratorId, ipAddressList, ipSetId, ipVersion, ispType, state);
   }
 
 
@@ -165,8 +211,10 @@ public class DescribeIPSetResponse extends com.volcengine.model.AbstractResponse
     
     sb.append("    accelerateRegion: ").append(toIndentedString(accelerateRegion)).append("\n");
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
+    sb.append("    ipAddressList: ").append(toIndentedString(ipAddressList)).append("\n");
     sb.append("    ipSetId: ").append(toIndentedString(ipSetId)).append("\n");
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
+    sb.append("    ispType: ").append(toIndentedString(ispType)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

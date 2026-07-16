@@ -47,8 +47,6 @@ public class DescribePermissionRulesRequest {
    */
   @JsonAdapter(RwModeEnum.Adapter.class)
   public enum RwModeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("RW")
     RW("RW"),
     @SerializedName("RO")
@@ -95,8 +93,6 @@ public class DescribePermissionRulesRequest {
    */
   @JsonAdapter(UserModeEnum.Adapter.class)
   public enum UserModeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Root_squash")
     ROOT_SQUASH("Root_squash"),
     @SerializedName("No_root_squash")

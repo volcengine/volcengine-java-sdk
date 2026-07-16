@@ -45,6 +45,9 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
   @SerializedName("Total")
   private Integer total = null;
 
+  @SerializedName("Warning")
+  private String warning = null;
+
   public ListAmortizedCostBillDetailResponse limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -126,6 +129,24 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
     this.total = total;
   }
 
+  public ListAmortizedCostBillDetailResponse warning(String warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @Schema(description = "")
+  public String getWarning() {
+    return warning;
+  }
+
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,12 +160,13 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
     return Objects.equals(this.limit, listAmortizedCostBillDetailResponse.limit) &&
         Objects.equals(this.list, listAmortizedCostBillDetailResponse.list) &&
         Objects.equals(this.offset, listAmortizedCostBillDetailResponse.offset) &&
-        Objects.equals(this.total, listAmortizedCostBillDetailResponse.total);
+        Objects.equals(this.total, listAmortizedCostBillDetailResponse.total) &&
+        Objects.equals(this.warning, listAmortizedCostBillDetailResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total);
+    return Objects.hash(limit, list, offset, total, warning);
   }
 
 
@@ -157,6 +179,7 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

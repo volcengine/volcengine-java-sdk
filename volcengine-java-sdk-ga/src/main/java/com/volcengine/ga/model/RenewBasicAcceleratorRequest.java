@@ -36,6 +36,9 @@ public class RenewBasicAcceleratorRequest {
   @SerializedName("Duration")
   private Integer duration = null;
 
+  @SerializedName("RenewType")
+  private Integer renewType = null;
+
   public RenewBasicAcceleratorRequest acceleratorId(String acceleratorId) {
     this.acceleratorId = acceleratorId;
     return this;
@@ -74,6 +77,24 @@ public class RenewBasicAcceleratorRequest {
     this.duration = duration;
   }
 
+  public RenewBasicAcceleratorRequest renewType(Integer renewType) {
+    this.renewType = renewType;
+    return this;
+  }
+
+   /**
+   * Get renewType
+   * @return renewType
+  **/
+  @Schema(description = "")
+  public Integer getRenewType() {
+    return renewType;
+  }
+
+  public void setRenewType(Integer renewType) {
+    this.renewType = renewType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class RenewBasicAcceleratorRequest {
     }
     RenewBasicAcceleratorRequest renewBasicAcceleratorRequest = (RenewBasicAcceleratorRequest) o;
     return Objects.equals(this.acceleratorId, renewBasicAcceleratorRequest.acceleratorId) &&
-        Objects.equals(this.duration, renewBasicAcceleratorRequest.duration);
+        Objects.equals(this.duration, renewBasicAcceleratorRequest.duration) &&
+        Objects.equals(this.renewType, renewBasicAcceleratorRequest.renewType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceleratorId, duration);
+    return Objects.hash(acceleratorId, duration, renewType);
   }
 
 
@@ -101,6 +123,7 @@ public class RenewBasicAcceleratorRequest {
     
     sb.append("    acceleratorId: ").append(toIndentedString(acceleratorId)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
