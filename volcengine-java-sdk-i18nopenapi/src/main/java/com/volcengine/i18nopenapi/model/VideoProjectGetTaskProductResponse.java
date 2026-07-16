@@ -19,22 +19,22 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectGetUploadSubtitleStatusOutput;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectGetTaskProductOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetUploadSubtitleStatusResponse
+ * VideoProjectGetTaskProductResponse
  */
 
 
 
-public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.model.AbstractResponse {
+public class VideoProjectGetTaskProductResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("data")
-  private DataForVideoProjectGetUploadSubtitleStatusOutput data = null;
+  private DataForVideoProjectGetTaskProductOutput data = null;
 
-  public VideoProjectGetUploadSubtitleStatusResponse data(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
+  public VideoProjectGetTaskProductResponse data(DataForVideoProjectGetTaskProductOutput data) {
     this.data = data;
     return this;
   }
@@ -45,11 +45,11 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
   **/
   @Valid
   @Schema(description = "")
-  public DataForVideoProjectGetUploadSubtitleStatusOutput getData() {
+  public DataForVideoProjectGetTaskProductOutput getData() {
     return data;
   }
 
-  public void setData(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
+  public void setData(DataForVideoProjectGetTaskProductOutput data) {
     this.data = data;
   }
 
@@ -62,8 +62,8 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetUploadSubtitleStatusResponse videoProjectGetUploadSubtitleStatusResponse = (VideoProjectGetUploadSubtitleStatusResponse) o;
-    return Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data);
+    VideoProjectGetTaskProductResponse videoProjectGetTaskProductResponse = (VideoProjectGetTaskProductResponse) o;
+    return Objects.equals(this.data, videoProjectGetTaskProductResponse.data);
   }
 
   @Override
@@ -75,7 +75,7 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetUploadSubtitleStatusResponse {\n");
+    sb.append("class VideoProjectGetTaskProductResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

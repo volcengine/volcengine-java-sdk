@@ -19,38 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectGetUploadSubtitleStatusOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetUploadSubtitleStatusResponse
+ * VideoProjectSubmitTermValidationRequest
  */
 
 
 
-public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectGetUploadSubtitleStatusOutput data = null;
+public class VideoProjectSubmitTermValidationRequest {
+  @SerializedName("projectId")
+  private String projectId = null;
 
-  public VideoProjectGetUploadSubtitleStatusResponse data(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  public VideoProjectSubmitTermValidationRequest projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get projectId
+   * @return projectId
   **/
-  @Valid
-  @Schema(description = "")
-  public DataForVideoProjectGetUploadSubtitleStatusOutput getData() {
-    return data;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setData(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -62,22 +61,22 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetUploadSubtitleStatusResponse videoProjectGetUploadSubtitleStatusResponse = (VideoProjectGetUploadSubtitleStatusResponse) o;
-    return Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data);
+    VideoProjectSubmitTermValidationRequest videoProjectSubmitTermValidationRequest = (VideoProjectSubmitTermValidationRequest) o;
+    return Objects.equals(this.projectId, videoProjectSubmitTermValidationRequest.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(projectId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetUploadSubtitleStatusResponse {\n");
+    sb.append("class VideoProjectSubmitTermValidationRequest {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

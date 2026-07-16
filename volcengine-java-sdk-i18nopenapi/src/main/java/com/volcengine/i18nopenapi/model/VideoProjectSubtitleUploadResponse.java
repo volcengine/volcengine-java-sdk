@@ -31,29 +31,8 @@ import javax.validation.Valid;
 
 
 public class VideoProjectSubtitleUploadResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("batchId")
-  private String batchId = null;
-
   @SerializedName("data")
   private DataForVideoProjectSubtitleUploadOutput data = null;
-
-  public VideoProjectSubtitleUploadResponse batchId(String batchId) {
-    this.batchId = batchId;
-    return this;
-  }
-
-   /**
-   * Get batchId
-   * @return batchId
-  **/
-  @Schema(description = "")
-  public String getBatchId() {
-    return batchId;
-  }
-
-  public void setBatchId(String batchId) {
-    this.batchId = batchId;
-  }
 
   public VideoProjectSubtitleUploadResponse data(DataForVideoProjectSubtitleUploadOutput data) {
     this.data = data;
@@ -84,13 +63,12 @@ public class VideoProjectSubtitleUploadResponse extends com.volcengine.model.Abs
       return false;
     }
     VideoProjectSubtitleUploadResponse videoProjectSubtitleUploadResponse = (VideoProjectSubtitleUploadResponse) o;
-    return Objects.equals(this.batchId, videoProjectSubtitleUploadResponse.batchId) &&
-        Objects.equals(this.data, videoProjectSubtitleUploadResponse.data);
+    return Objects.equals(this.data, videoProjectSubtitleUploadResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId, data);
+    return Objects.hash(data);
   }
 
 
@@ -99,7 +77,6 @@ public class VideoProjectSubtitleUploadResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectSubtitleUploadResponse {\n");
     
-    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,38 +19,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectGetUploadSubtitleStatusOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetUploadSubtitleStatusResponse
+ * SubtitleExportConfigForVideoProjectGetTaskProductInput
  */
 
 
 
-public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectGetUploadSubtitleStatusOutput data = null;
+public class SubtitleExportConfigForVideoProjectGetTaskProductInput {
+  @SerializedName("subtitleFileType")
+  private Integer subtitleFileType = null;
 
-  public VideoProjectGetUploadSubtitleStatusResponse data(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  public SubtitleExportConfigForVideoProjectGetTaskProductInput subtitleFileType(Integer subtitleFileType) {
+    this.subtitleFileType = subtitleFileType;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get subtitleFileType
+   * @return subtitleFileType
   **/
-  @Valid
   @Schema(description = "")
-  public DataForVideoProjectGetUploadSubtitleStatusOutput getData() {
-    return data;
+  public Integer getSubtitleFileType() {
+    return subtitleFileType;
   }
 
-  public void setData(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  public void setSubtitleFileType(Integer subtitleFileType) {
+    this.subtitleFileType = subtitleFileType;
   }
 
 
@@ -62,22 +60,22 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetUploadSubtitleStatusResponse videoProjectGetUploadSubtitleStatusResponse = (VideoProjectGetUploadSubtitleStatusResponse) o;
-    return Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data);
+    SubtitleExportConfigForVideoProjectGetTaskProductInput subtitleExportConfigForVideoProjectGetTaskProductInput = (SubtitleExportConfigForVideoProjectGetTaskProductInput) o;
+    return Objects.equals(this.subtitleFileType, subtitleExportConfigForVideoProjectGetTaskProductInput.subtitleFileType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(subtitleFileType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetUploadSubtitleStatusResponse {\n");
+    sb.append("class SubtitleExportConfigForVideoProjectGetTaskProductInput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    subtitleFileType: ").append(toIndentedString(subtitleFileType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

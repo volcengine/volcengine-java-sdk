@@ -19,38 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectGetUploadSubtitleStatusOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoProjectGetUploadSubtitleStatusResponse
+ * FinishedAudioForVideoProjectGetTaskProductOutput
  */
 
 
 
-public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectGetUploadSubtitleStatusOutput data = null;
+public class FinishedAudioForVideoProjectGetTaskProductOutput {
+  @SerializedName("name")
+  private String name = null;
 
-  public VideoProjectGetUploadSubtitleStatusResponse data(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  @SerializedName("url")
+  private String url = null;
+
+  public FinishedAudioForVideoProjectGetTaskProductOutput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get name
+   * @return name
   **/
-  @Valid
   @Schema(description = "")
-  public DataForVideoProjectGetUploadSubtitleStatusOutput getData() {
-    return data;
+  public String getName() {
+    return name;
   }
 
-  public void setData(DataForVideoProjectGetUploadSubtitleStatusOutput data) {
-    this.data = data;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FinishedAudioForVideoProjectGetTaskProductOutput url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @Schema(description = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -62,22 +81,24 @@ public class VideoProjectGetUploadSubtitleStatusResponse extends com.volcengine.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectGetUploadSubtitleStatusResponse videoProjectGetUploadSubtitleStatusResponse = (VideoProjectGetUploadSubtitleStatusResponse) o;
-    return Objects.equals(this.data, videoProjectGetUploadSubtitleStatusResponse.data);
+    FinishedAudioForVideoProjectGetTaskProductOutput finishedAudioForVideoProjectGetTaskProductOutput = (FinishedAudioForVideoProjectGetTaskProductOutput) o;
+    return Objects.equals(this.name, finishedAudioForVideoProjectGetTaskProductOutput.name) &&
+        Objects.equals(this.url, finishedAudioForVideoProjectGetTaskProductOutput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(name, url);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoProjectGetUploadSubtitleStatusResponse {\n");
+    sb.append("class FinishedAudioForVideoProjectGetTaskProductOutput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
