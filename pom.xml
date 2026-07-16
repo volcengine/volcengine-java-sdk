@@ -349,5 +349,6 @@
         <module>volcengine-java-sdk-partner</module>
         <module>volcengine-java-sdk-dramart</module>
         <module>volcengine-java-sdk-agentsphere</module>
+        <module>volcengine-java-sdk-cpaas</module>
     </modules>
 </project>
