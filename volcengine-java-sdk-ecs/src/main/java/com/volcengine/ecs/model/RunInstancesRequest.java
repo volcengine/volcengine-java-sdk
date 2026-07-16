@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.CpuOptionsForRunInstancesInput;
 import com.volcengine.ecs.model.EipAddressForRunInstancesInput;
 import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
 import com.volcengine.ecs.model.NetworkOptionsForRunInstancesInput;
@@ -56,6 +57,9 @@ public class RunInstancesRequest {
   @SerializedName("CpuMaxFrequency")
   private Float cpuMaxFrequency = null;
 
+  @SerializedName("CpuOptions")
+  private CpuOptionsForRunInstancesInput cpuOptions = null;
+
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
 
@@ -76,6 +80,9 @@ public class RunInstancesRequest {
 
   @SerializedName("EipAddress")
   private EipAddressForRunInstancesInput eipAddress = null;
+
+  @SerializedName("EnablePrimaryInterfaceHighBandwidthType")
+  private Boolean enablePrimaryInterfaceHighBandwidthType = null;
 
   @SerializedName("HostName")
   private String hostName = null;
@@ -275,6 +282,25 @@ public class RunInstancesRequest {
     this.cpuMaxFrequency = cpuMaxFrequency;
   }
 
+  public RunInstancesRequest cpuOptions(CpuOptionsForRunInstancesInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+    return this;
+  }
+
+   /**
+   * Get cpuOptions
+   * @return cpuOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public CpuOptionsForRunInstancesInput getCpuOptions() {
+    return cpuOptions;
+  }
+
+  public void setCpuOptions(CpuOptionsForRunInstancesInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+  }
+
   public RunInstancesRequest creditSpecification(String creditSpecification) {
     this.creditSpecification = creditSpecification;
     return this;
@@ -400,6 +426,24 @@ public class RunInstancesRequest {
 
   public void setEipAddress(EipAddressForRunInstancesInput eipAddress) {
     this.eipAddress = eipAddress;
+  }
+
+  public RunInstancesRequest enablePrimaryInterfaceHighBandwidthType(Boolean enablePrimaryInterfaceHighBandwidthType) {
+    this.enablePrimaryInterfaceHighBandwidthType = enablePrimaryInterfaceHighBandwidthType;
+    return this;
+  }
+
+   /**
+   * Get enablePrimaryInterfaceHighBandwidthType
+   * @return enablePrimaryInterfaceHighBandwidthType
+  **/
+  @Schema(description = "")
+  public Boolean isEnablePrimaryInterfaceHighBandwidthType() {
+    return enablePrimaryInterfaceHighBandwidthType;
+  }
+
+  public void setEnablePrimaryInterfaceHighBandwidthType(Boolean enablePrimaryInterfaceHighBandwidthType) {
+    this.enablePrimaryInterfaceHighBandwidthType = enablePrimaryInterfaceHighBandwidthType;
   }
 
   public RunInstancesRequest hostName(String hostName) {
@@ -990,6 +1034,7 @@ public class RunInstancesRequest {
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
         Objects.equals(this.cpuMaxFrequency, runInstancesRequest.cpuMaxFrequency) &&
+        Objects.equals(this.cpuOptions, runInstancesRequest.cpuOptions) &&
         Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
         Objects.equals(this.deletionProtection, runInstancesRequest.deletionProtection) &&
         Objects.equals(this.deploymentSetGroupNumber, runInstancesRequest.deploymentSetGroupNumber) &&
@@ -997,6 +1042,7 @@ public class RunInstancesRequest {
         Objects.equals(this.description, runInstancesRequest.description) &&
         Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
         Objects.equals(this.eipAddress, runInstancesRequest.eipAddress) &&
+        Objects.equals(this.enablePrimaryInterfaceHighBandwidthType, runInstancesRequest.enablePrimaryInterfaceHighBandwidthType) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
         Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
@@ -1031,7 +1077,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, networkOptions, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, cpuOptions, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, enablePrimaryInterfaceHighBandwidthType, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, networkOptions, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -1046,6 +1092,7 @@ public class RunInstancesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    cpuMaxFrequency: ").append(toIndentedString(cpuMaxFrequency)).append("\n");
+    sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
@@ -1053,6 +1100,7 @@ public class RunInstancesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
+    sb.append("    enablePrimaryInterfaceHighBandwidthType: ").append(toIndentedString(enablePrimaryInterfaceHighBandwidthType)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");

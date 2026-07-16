@@ -1,0 +1,5 @@
+{
+  "description": "ECS: 修改 ModifyInstanceAttribute, RunInstances, DescribeImages, DescribeInstances",
+  "modules": "service/ecs",
+  "type": "feature"
+}

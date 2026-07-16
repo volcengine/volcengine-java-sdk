@@ -24,58 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CpuOptionsForDescribeInstancesOutput
+ * CpuOptionsForModifyInstanceAttributeInput
  */
 
 
 
-public class CpuOptionsForDescribeInstancesOutput {
-  @SerializedName("CoreCount")
-  private Integer coreCount = null;
-
-  @SerializedName("ThreadsPerCore")
-  private Integer threadsPerCore = null;
-
+public class CpuOptionsForModifyInstanceAttributeInput {
   @SerializedName("TopologyType")
   private String topologyType = null;
 
-  public CpuOptionsForDescribeInstancesOutput coreCount(Integer coreCount) {
-    this.coreCount = coreCount;
-    return this;
-  }
-
-   /**
-   * Get coreCount
-   * @return coreCount
-  **/
-  @Schema(description = "")
-  public Integer getCoreCount() {
-    return coreCount;
-  }
-
-  public void setCoreCount(Integer coreCount) {
-    this.coreCount = coreCount;
-  }
-
-  public CpuOptionsForDescribeInstancesOutput threadsPerCore(Integer threadsPerCore) {
-    this.threadsPerCore = threadsPerCore;
-    return this;
-  }
-
-   /**
-   * Get threadsPerCore
-   * @return threadsPerCore
-  **/
-  @Schema(description = "")
-  public Integer getThreadsPerCore() {
-    return threadsPerCore;
-  }
-
-  public void setThreadsPerCore(Integer threadsPerCore) {
-    this.threadsPerCore = threadsPerCore;
-  }
-
-  public CpuOptionsForDescribeInstancesOutput topologyType(String topologyType) {
+  public CpuOptionsForModifyInstanceAttributeInput topologyType(String topologyType) {
     this.topologyType = topologyType;
     return this;
   }
@@ -102,25 +60,21 @@ public class CpuOptionsForDescribeInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CpuOptionsForDescribeInstancesOutput cpuOptionsForDescribeInstancesOutput = (CpuOptionsForDescribeInstancesOutput) o;
-    return Objects.equals(this.coreCount, cpuOptionsForDescribeInstancesOutput.coreCount) &&
-        Objects.equals(this.threadsPerCore, cpuOptionsForDescribeInstancesOutput.threadsPerCore) &&
-        Objects.equals(this.topologyType, cpuOptionsForDescribeInstancesOutput.topologyType);
+    CpuOptionsForModifyInstanceAttributeInput cpuOptionsForModifyInstanceAttributeInput = (CpuOptionsForModifyInstanceAttributeInput) o;
+    return Objects.equals(this.topologyType, cpuOptionsForModifyInstanceAttributeInput.topologyType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(coreCount, threadsPerCore, topologyType);
+    return Objects.hash(topologyType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CpuOptionsForDescribeInstancesOutput {\n");
+    sb.append("class CpuOptionsForModifyInstanceAttributeInput {\n");
     
-    sb.append("    coreCount: ").append(toIndentedString(coreCount)).append("\n");
-    sb.append("    threadsPerCore: ").append(toIndentedString(threadsPerCore)).append("\n");
     sb.append("    topologyType: ").append(toIndentedString(topologyType)).append("\n");
     sb.append("}");
     return sb.toString();
