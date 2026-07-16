@@ -36,6 +36,9 @@ public class CpuOptionsForDescribeInstancesOutput {
   @SerializedName("ThreadsPerCore")
   private Integer threadsPerCore = null;
 
+  @SerializedName("TopologyType")
+  private String topologyType = null;
+
   public CpuOptionsForDescribeInstancesOutput coreCount(Integer coreCount) {
     this.coreCount = coreCount;
     return this;
@@ -72,6 +75,24 @@ public class CpuOptionsForDescribeInstancesOutput {
     this.threadsPerCore = threadsPerCore;
   }
 
+  public CpuOptionsForDescribeInstancesOutput topologyType(String topologyType) {
+    this.topologyType = topologyType;
+    return this;
+  }
+
+   /**
+   * Get topologyType
+   * @return topologyType
+  **/
+  @Schema(description = "")
+  public String getTopologyType() {
+    return topologyType;
+  }
+
+  public void setTopologyType(String topologyType) {
+    this.topologyType = topologyType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class CpuOptionsForDescribeInstancesOutput {
     }
     CpuOptionsForDescribeInstancesOutput cpuOptionsForDescribeInstancesOutput = (CpuOptionsForDescribeInstancesOutput) o;
     return Objects.equals(this.coreCount, cpuOptionsForDescribeInstancesOutput.coreCount) &&
-        Objects.equals(this.threadsPerCore, cpuOptionsForDescribeInstancesOutput.threadsPerCore);
+        Objects.equals(this.threadsPerCore, cpuOptionsForDescribeInstancesOutput.threadsPerCore) &&
+        Objects.equals(this.topologyType, cpuOptionsForDescribeInstancesOutput.topologyType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(coreCount, threadsPerCore);
+    return Objects.hash(coreCount, threadsPerCore, topologyType);
   }
 
 
@@ -99,6 +121,7 @@ public class CpuOptionsForDescribeInstancesOutput {
     
     sb.append("    coreCount: ").append(toIndentedString(coreCount)).append("\n");
     sb.append("    threadsPerCore: ").append(toIndentedString(threadsPerCore)).append("\n");
+    sb.append("    topologyType: ").append(toIndentedString(topologyType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

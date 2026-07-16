@@ -1,5 +1,5 @@
 {
-  "description": "DRAMART: 新增 BatchCreateUser, ListEnterpriseQuota, ListPointConsumptionDetails, ListProjects, ManageEnterpriseQuota, RedirectToDramart, AggregatePointConsumption",
+  "description": "DRAMART: 新增 ListMember, ListTeam, RegisterEnterprise, UpdateAccount, BatchDeleteUser, ListAccount",
   "modules": "service/dramart",
   "type": "feature"
 }

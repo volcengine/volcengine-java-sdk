@@ -30,10 +30,10 @@ import javax.validation.Valid;
 
 
 public class DeleteBasicEndpointGroupRequest {
-  @SerializedName("acceleratorId")
+  @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
-  @SerializedName("endpointGroupId")
+  @SerializedName("EndpointGroupId")
   private String endpointGroupId = null;
 
   public DeleteBasicEndpointGroupRequest acceleratorId(String acceleratorId) {

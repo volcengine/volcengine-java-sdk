@@ -21,65 +21,76 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForListAcceleratorsInput
+ * IPV6ForListIPSetsOutput
  */
 
 
 
-public class TagForListAcceleratorsInput {
-  @SerializedName("Key")
-  private String key = null;
+public class IPV6ForListIPSetsOutput {
+  @SerializedName("Addr")
+  private String addr = null;
 
-  @SerializedName("Values")
-  private List<String> values = null;
+  @SerializedName("ISP")
+  private String ISP = null;
 
-  public TagForListAcceleratorsInput key(String key) {
-    this.key = key;
+  @SerializedName("ISPName")
+  private String isPName = null;
+
+  public IPV6ForListIPSetsOutput addr(String addr) {
+    this.addr = addr;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get addr
+   * @return addr
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getAddr() {
+    return addr;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setAddr(String addr) {
+    this.addr = addr;
   }
 
-  public TagForListAcceleratorsInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagForListAcceleratorsInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
-    this.values.add(valuesItem);
+  public IPV6ForListIPSetsOutput ISP(String ISP) {
+    this.ISP = ISP;
     return this;
   }
 
    /**
-   * Get values
-   * @return values
+   * Get ISP
+   * @return ISP
   **/
   @Schema(description = "")
-  public List<String> getValues() {
-    return values;
+  public String getISP() {
+    return ISP;
   }
 
-  public void setValues(List<String> values) {
-    this.values = values;
+  public void setISP(String ISP) {
+    this.ISP = ISP;
+  }
+
+  public IPV6ForListIPSetsOutput isPName(String isPName) {
+    this.isPName = isPName;
+    return this;
+  }
+
+   /**
+   * Get isPName
+   * @return isPName
+  **/
+  @Schema(description = "")
+  public String getIsPName() {
+    return isPName;
+  }
+
+  public void setIsPName(String isPName) {
+    this.isPName = isPName;
   }
 
 
@@ -91,24 +102,26 @@ public class TagForListAcceleratorsInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForListAcceleratorsInput tagForListAcceleratorsInput = (TagForListAcceleratorsInput) o;
-    return Objects.equals(this.key, tagForListAcceleratorsInput.key) &&
-        Objects.equals(this.values, tagForListAcceleratorsInput.values);
+    IPV6ForListIPSetsOutput ipV6ForListIPSetsOutput = (IPV6ForListIPSetsOutput) o;
+    return Objects.equals(this.addr, ipV6ForListIPSetsOutput.addr) &&
+        Objects.equals(this.ISP, ipV6ForListIPSetsOutput.ISP) &&
+        Objects.equals(this.isPName, ipV6ForListIPSetsOutput.isPName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(addr, ISP, isPName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForListAcceleratorsInput {\n");
+    sb.append("class IPV6ForListIPSetsOutput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    isPName: ").append(toIndentedString(isPName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

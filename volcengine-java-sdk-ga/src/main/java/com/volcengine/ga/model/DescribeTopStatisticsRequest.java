@@ -35,6 +35,9 @@ public class DescribeTopStatisticsRequest {
   @SerializedName("EndTime")
   private String endTime = null;
 
+  @SerializedName("InputId")
+  private List<String> inputId = null;
+
   @SerializedName("InputIdType")
   private String inputIdType = null;
 
@@ -43,9 +46,6 @@ public class DescribeTopStatisticsRequest {
 
   @SerializedName("StartTime")
   private String startTime = null;
-
-  @SerializedName("inputId")
-  private List<String> inputId = null;
 
   public DescribeTopStatisticsRequest endTime(String endTime) {
     this.endTime = endTime;
@@ -64,6 +64,32 @@ public class DescribeTopStatisticsRequest {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public DescribeTopStatisticsRequest inputId(List<String> inputId) {
+    this.inputId = inputId;
+    return this;
+  }
+
+  public DescribeTopStatisticsRequest addInputIdItem(String inputIdItem) {
+    if (this.inputId == null) {
+      this.inputId = new ArrayList<String>();
+    }
+    this.inputId.add(inputIdItem);
+    return this;
+  }
+
+   /**
+   * Get inputId
+   * @return inputId
+  **/
+  @Schema(description = "")
+  public List<String> getInputId() {
+    return inputId;
+  }
+
+  public void setInputId(List<String> inputId) {
+    this.inputId = inputId;
   }
 
   public DescribeTopStatisticsRequest inputIdType(String inputIdType) {
@@ -122,32 +148,6 @@ public class DescribeTopStatisticsRequest {
     this.startTime = startTime;
   }
 
-  public DescribeTopStatisticsRequest inputId(List<String> inputId) {
-    this.inputId = inputId;
-    return this;
-  }
-
-  public DescribeTopStatisticsRequest addInputIdItem(String inputIdItem) {
-    if (this.inputId == null) {
-      this.inputId = new ArrayList<String>();
-    }
-    this.inputId.add(inputIdItem);
-    return this;
-  }
-
-   /**
-   * Get inputId
-   * @return inputId
-  **/
-  @Schema(description = "")
-  public List<String> getInputId() {
-    return inputId;
-  }
-
-  public void setInputId(List<String> inputId) {
-    this.inputId = inputId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,15 +159,15 @@ public class DescribeTopStatisticsRequest {
     }
     DescribeTopStatisticsRequest describeTopStatisticsRequest = (DescribeTopStatisticsRequest) o;
     return Objects.equals(this.endTime, describeTopStatisticsRequest.endTime) &&
+        Objects.equals(this.inputId, describeTopStatisticsRequest.inputId) &&
         Objects.equals(this.inputIdType, describeTopStatisticsRequest.inputIdType) &&
         Objects.equals(this.sortMetric, describeTopStatisticsRequest.sortMetric) &&
-        Objects.equals(this.startTime, describeTopStatisticsRequest.startTime) &&
-        Objects.equals(this.inputId, describeTopStatisticsRequest.inputId);
+        Objects.equals(this.startTime, describeTopStatisticsRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, inputIdType, sortMetric, startTime, inputId);
+    return Objects.hash(endTime, inputId, inputIdType, sortMetric, startTime);
   }
 
 
@@ -177,10 +177,10 @@ public class DescribeTopStatisticsRequest {
     sb.append("class DescribeTopStatisticsRequest {\n");
     
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    inputId: ").append(toIndentedString(inputId)).append("\n");
     sb.append("    inputIdType: ").append(toIndentedString(inputIdType)).append("\n");
     sb.append("    sortMetric: ").append(toIndentedString(sortMetric)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
-    sb.append("    inputId: ").append(toIndentedString(inputId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,10 +30,10 @@ import javax.validation.Valid;
 
 
 public class DescribeBasicEndpointGroupRequest {
-  @SerializedName("acceleratorId")
+  @SerializedName("AcceleratorId")
   private String acceleratorId = null;
 
-  @SerializedName("endpointGroupId")
+  @SerializedName("EndpointGroupId")
   private String endpointGroupId = null;
 
   public DescribeBasicEndpointGroupRequest acceleratorId(String acceleratorId) {

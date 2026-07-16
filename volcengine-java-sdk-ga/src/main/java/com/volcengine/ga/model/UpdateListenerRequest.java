@@ -74,7 +74,8 @@ public class UpdateListenerRequest {
    * Get acceleratorId
    * @return acceleratorId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAcceleratorId() {
     return acceleratorId;
   }

@@ -35,8 +35,6 @@ public class UpdateFileSystemRequest {
    */
   @JsonAdapter(BandwidthModeEnum.Adapter.class)
   public enum BandwidthModeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Baseline")
     BASELINE("Baseline"),
     @SerializedName("Provisioned")

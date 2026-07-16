@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class RenewInstanceRequest {
+  @SerializedName("AutoUseCoupon")
+  private Boolean autoUseCoupon = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -50,6 +53,24 @@ public class RenewInstanceRequest {
 
   @SerializedName("UnitedExpireDay")
   private String unitedExpireDay = null;
+
+  public RenewInstanceRequest autoUseCoupon(Boolean autoUseCoupon) {
+    this.autoUseCoupon = autoUseCoupon;
+    return this;
+  }
+
+   /**
+   * Get autoUseCoupon
+   * @return autoUseCoupon
+  **/
+  @Schema(description = "")
+  public Boolean isAutoUseCoupon() {
+    return autoUseCoupon;
+  }
+
+  public void setAutoUseCoupon(Boolean autoUseCoupon) {
+    this.autoUseCoupon = autoUseCoupon;
+  }
 
   public RenewInstanceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -190,7 +211,8 @@ public class RenewInstanceRequest {
       return false;
     }
     RenewInstanceRequest renewInstanceRequest = (RenewInstanceRequest) o;
-    return Objects.equals(this.clientToken, renewInstanceRequest.clientToken) &&
+    return Objects.equals(this.autoUseCoupon, renewInstanceRequest.autoUseCoupon) &&
+        Objects.equals(this.clientToken, renewInstanceRequest.clientToken) &&
         Objects.equals(this.instanceID, renewInstanceRequest.instanceID) &&
         Objects.equals(this.product, renewInstanceRequest.product) &&
         Objects.equals(this.renewRelatedInstance, renewInstanceRequest.renewRelatedInstance) &&
@@ -201,7 +223,7 @@ public class RenewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceID, product, renewRelatedInstance, renewalDuration, renewalDurationUnit, unitedExpireDay);
+    return Objects.hash(autoUseCoupon, clientToken, instanceID, product, renewRelatedInstance, renewalDuration, renewalDurationUnit, unitedExpireDay);
   }
 
 
@@ -210,6 +232,7 @@ public class RenewInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RenewInstanceRequest {\n");
     
+    sb.append("    autoUseCoupon: ").append(toIndentedString(autoUseCoupon)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");

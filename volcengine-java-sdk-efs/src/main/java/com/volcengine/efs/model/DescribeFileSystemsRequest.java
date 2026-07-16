@@ -38,8 +38,6 @@ public class DescribeFileSystemsRequest {
    */
   @JsonAdapter(BandwidthModeEnum.Adapter.class)
   public enum BandwidthModeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Baseline")
     BASELINE("Baseline"),
     @SerializedName("Provisioned")
@@ -138,8 +136,6 @@ public class DescribeFileSystemsRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Basic")
     BASIC("Basic"),
     @SerializedName("Premium")
@@ -240,8 +236,6 @@ public class DescribeFileSystemsRequest {
    */
   @JsonAdapter(PerformanceDensityEnum.Adapter.class)
   public enum PerformanceDensityEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Basic_50")
     BASIC_50("Basic_50"),
     @SerializedName("Premium_125")
@@ -385,8 +379,6 @@ public class DescribeFileSystemsRequest {
    */
   @JsonAdapter(StatusesEnum.Adapter.class)
   public enum StatusesEnum {
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
     @SerializedName("Creating")
     CREATING("Creating"),
     @SerializedName("CreateError")

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,6 +35,9 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
   @SerializedName("batchId")
   private String batchId = null;
 
+  @SerializedName("bindSubtitleIDs")
+  private List<String> bindSubtitleIDs = null;
+
   @SerializedName("projectId")
   private String projectId = null;
 
@@ -44,6 +49,9 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
 
   @SerializedName("videoId")
   private String videoId = null;
+
+  @SerializedName("videoName")
+  private String videoName = null;
 
   @SerializedName("videoUrl")
   private String videoUrl = null;
@@ -64,6 +72,32 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
 
   public void setBatchId(String batchId) {
     this.batchId = batchId;
+  }
+
+  public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput bindSubtitleIDs(List<String> bindSubtitleIDs) {
+    this.bindSubtitleIDs = bindSubtitleIDs;
+    return this;
+  }
+
+  public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput addBindSubtitleIDsItem(String bindSubtitleIDsItem) {
+    if (this.bindSubtitleIDs == null) {
+      this.bindSubtitleIDs = new ArrayList<String>();
+    }
+    this.bindSubtitleIDs.add(bindSubtitleIDsItem);
+    return this;
+  }
+
+   /**
+   * Get bindSubtitleIDs
+   * @return bindSubtitleIDs
+  **/
+  @Schema(description = "")
+  public List<String> getBindSubtitleIDs() {
+    return bindSubtitleIDs;
+  }
+
+  public void setBindSubtitleIDs(List<String> bindSubtitleIDs) {
+    this.bindSubtitleIDs = bindSubtitleIDs;
   }
 
   public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput projectId(String projectId) {
@@ -138,6 +172,24 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     this.videoId = videoId;
   }
 
+  public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput videoName(String videoName) {
+    this.videoName = videoName;
+    return this;
+  }
+
+   /**
+   * Get videoName
+   * @return videoName
+  **/
+  @Schema(description = "")
+  public String getVideoName() {
+    return videoName;
+  }
+
+  public void setVideoName(String videoName) {
+    this.videoName = videoName;
+  }
+
   public VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput videoUrl(String videoUrl) {
     this.videoUrl = videoUrl;
     return this;
@@ -167,16 +219,18 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     }
     VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput videoUploadTaskForVideoProjectGetVideoUploadStatusOutput = (VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) o;
     return Objects.equals(this.batchId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.batchId) &&
+        Objects.equals(this.bindSubtitleIDs, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.bindSubtitleIDs) &&
         Objects.equals(this.projectId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.projectId) &&
         Objects.equals(this.status, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.status) &&
         Objects.equals(this.subtitleId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.subtitleId) &&
         Objects.equals(this.videoId, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.videoId) &&
+        Objects.equals(this.videoName, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.videoName) &&
         Objects.equals(this.videoUrl, videoUploadTaskForVideoProjectGetVideoUploadStatusOutput.videoUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId, projectId, status, subtitleId, videoId, videoUrl);
+    return Objects.hash(batchId, bindSubtitleIDs, projectId, status, subtitleId, videoId, videoName, videoUrl);
   }
 
 
@@ -186,10 +240,12 @@ public class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
     sb.append("class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {\n");
     
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
+    sb.append("    bindSubtitleIDs: ").append(toIndentedString(bindSubtitleIDs)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
     sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
+    sb.append("    videoName: ").append(toIndentedString(videoName)).append("\n");
     sb.append("    videoUrl: ").append(toIndentedString(videoUrl)).append("\n");
     sb.append("}");
     return sb.toString();
