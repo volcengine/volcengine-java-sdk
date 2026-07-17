@@ -63,6 +63,9 @@ public class ItemDocForPullPostOutput {
   @SerializedName("MediaName")
   private String mediaName = null;
 
+  @SerializedName("MediaUid")
+  private String mediaUid = null;
+
   @SerializedName("Ocr")
   private String ocr = null;
 
@@ -271,6 +274,24 @@ public class ItemDocForPullPostOutput {
 
   public void setMediaName(String mediaName) {
     this.mediaName = mediaName;
+  }
+
+  public ItemDocForPullPostOutput mediaUid(String mediaUid) {
+    this.mediaUid = mediaUid;
+    return this;
+  }
+
+   /**
+   * Get mediaUid
+   * @return mediaUid
+  **/
+  @Schema(description = "")
+  public String getMediaUid() {
+    return mediaUid;
+  }
+
+  public void setMediaUid(String mediaUid) {
+    this.mediaUid = mediaUid;
   }
 
   public ItemDocForPullPostOutput ocr(String ocr) {
@@ -490,6 +511,7 @@ public class ItemDocForPullPostOutput {
         Objects.equals(this.isFollow, itemDocForPullPostOutput.isFollow) &&
         Objects.equals(this.mainDomain, itemDocForPullPostOutput.mainDomain) &&
         Objects.equals(this.mediaName, itemDocForPullPostOutput.mediaName) &&
+        Objects.equals(this.mediaUid, itemDocForPullPostOutput.mediaUid) &&
         Objects.equals(this.ocr, itemDocForPullPostOutput.ocr) &&
         Objects.equals(this.ocrHigh, itemDocForPullPostOutput.ocrHigh) &&
         Objects.equals(this.postID, itemDocForPullPostOutput.postID) &&
@@ -504,7 +526,7 @@ public class ItemDocForPullPostOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asr, content, coverUrl, dedupID, docStatus, emotion, fansCount, isFollow, mainDomain, mediaName, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, locations);
+    return Objects.hash(asr, content, coverUrl, dedupID, docStatus, emotion, fansCount, isFollow, mainDomain, mediaName, mediaUid, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, locations);
   }
 
 
@@ -523,6 +545,7 @@ public class ItemDocForPullPostOutput {
     sb.append("    isFollow: ").append(toIndentedString(isFollow)).append("\n");
     sb.append("    mainDomain: ").append(toIndentedString(mainDomain)).append("\n");
     sb.append("    mediaName: ").append(toIndentedString(mediaName)).append("\n");
+    sb.append("    mediaUid: ").append(toIndentedString(mediaUid)).append("\n");
     sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
     sb.append("    ocrHigh: ").append(toIndentedString(ocrHigh)).append("\n");
     sb.append("    postID: ").append(toIndentedString(postID)).append("\n");
