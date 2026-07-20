@@ -54,6 +54,9 @@ public class GetMetricDataRequest {
   @SerializedName("StartTime")
   private Integer startTime = null;
 
+  @SerializedName("StatisticsMethods")
+  private List<String> statisticsMethods = null;
+
   @SerializedName("SubNamespace")
   private String subNamespace = null;
 
@@ -202,6 +205,32 @@ public class GetMetricDataRequest {
     this.startTime = startTime;
   }
 
+  public GetMetricDataRequest statisticsMethods(List<String> statisticsMethods) {
+    this.statisticsMethods = statisticsMethods;
+    return this;
+  }
+
+  public GetMetricDataRequest addStatisticsMethodsItem(String statisticsMethodsItem) {
+    if (this.statisticsMethods == null) {
+      this.statisticsMethods = new ArrayList<String>();
+    }
+    this.statisticsMethods.add(statisticsMethodsItem);
+    return this;
+  }
+
+   /**
+   * Get statisticsMethods
+   * @return statisticsMethods
+  **/
+  @Schema(description = "")
+  public List<String> getStatisticsMethods() {
+    return statisticsMethods;
+  }
+
+  public void setStatisticsMethods(List<String> statisticsMethods) {
+    this.statisticsMethods = statisticsMethods;
+  }
+
   public GetMetricDataRequest subNamespace(String subNamespace) {
     this.subNamespace = subNamespace;
     return this;
@@ -238,12 +267,13 @@ public class GetMetricDataRequest {
         Objects.equals(this.namespace, getMetricDataRequest.namespace) &&
         Objects.equals(this.period, getMetricDataRequest.period) &&
         Objects.equals(this.startTime, getMetricDataRequest.startTime) &&
+        Objects.equals(this.statisticsMethods, getMetricDataRequest.statisticsMethods) &&
         Objects.equals(this.subNamespace, getMetricDataRequest.subNamespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, groupBy, instances, metricName, namespace, period, startTime, subNamespace);
+    return Objects.hash(endTime, groupBy, instances, metricName, namespace, period, startTime, statisticsMethods, subNamespace);
   }
 
 
@@ -259,6 +289,7 @@ public class GetMetricDataRequest {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    statisticsMethods: ").append(toIndentedString(statisticsMethods)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("}");
     return sb.toString();
