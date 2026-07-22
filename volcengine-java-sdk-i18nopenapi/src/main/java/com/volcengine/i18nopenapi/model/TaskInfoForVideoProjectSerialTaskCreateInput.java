@@ -77,6 +77,12 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
   @SerializedName("llmVideoUnderstandingType")
   private Integer llmVideoUnderstandingType = null;
 
+  @SerializedName("maxTargetSubtitleLines")
+  private Integer maxTargetSubtitleLines = null;
+
+  @SerializedName("needTermValidation")
+  private Boolean needTermValidation = null;
+
   @SerializedName("needTranslateCover")
   private Boolean needTranslateCover = null;
 
@@ -381,6 +387,42 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   public void setLlmVideoUnderstandingType(Integer llmVideoUnderstandingType) {
     this.llmVideoUnderstandingType = llmVideoUnderstandingType;
+  }
+
+  public TaskInfoForVideoProjectSerialTaskCreateInput maxTargetSubtitleLines(Integer maxTargetSubtitleLines) {
+    this.maxTargetSubtitleLines = maxTargetSubtitleLines;
+    return this;
+  }
+
+   /**
+   * Get maxTargetSubtitleLines
+   * @return maxTargetSubtitleLines
+  **/
+  @Schema(description = "")
+  public Integer getMaxTargetSubtitleLines() {
+    return maxTargetSubtitleLines;
+  }
+
+  public void setMaxTargetSubtitleLines(Integer maxTargetSubtitleLines) {
+    this.maxTargetSubtitleLines = maxTargetSubtitleLines;
+  }
+
+  public TaskInfoForVideoProjectSerialTaskCreateInput needTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
+    return this;
+  }
+
+   /**
+   * Get needTermValidation
+   * @return needTermValidation
+  **/
+  @Schema(description = "")
+  public Boolean isNeedTermValidation() {
+    return needTermValidation;
+  }
+
+  public void setNeedTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
   }
 
   public TaskInfoForVideoProjectSerialTaskCreateInput needTranslateCover(Boolean needTranslateCover) {
@@ -750,6 +792,8 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
         Objects.equals(this.dubVoiceMode, taskInfoForVideoProjectSerialTaskCreateInput.dubVoiceMode) &&
         Objects.equals(this.isDub, taskInfoForVideoProjectSerialTaskCreateInput.isDub) &&
         Objects.equals(this.llmVideoUnderstandingType, taskInfoForVideoProjectSerialTaskCreateInput.llmVideoUnderstandingType) &&
+        Objects.equals(this.maxTargetSubtitleLines, taskInfoForVideoProjectSerialTaskCreateInput.maxTargetSubtitleLines) &&
+        Objects.equals(this.needTermValidation, taskInfoForVideoProjectSerialTaskCreateInput.needTermValidation) &&
         Objects.equals(this.needTranslateCover, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateCover) &&
         Objects.equals(this.needTranslateDesc, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateDesc) &&
         Objects.equals(this.needTranslateTitle, taskInfoForVideoProjectSerialTaskCreateInput.needTranslateTitle) &&
@@ -772,7 +816,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, createdAt, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, maxTargetSubtitleLines, needTermValidation, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, procedures, referenceDoc, serialNumber, sourceLang, sourceLocale, state, suppressionParams, targetLangs, targetLocale, targetStyleMap, taskId, taskName, useMT);
   }
 
 
@@ -795,6 +839,8 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     sb.append("    dubVoiceMode: ").append(toIndentedString(dubVoiceMode)).append("\n");
     sb.append("    isDub: ").append(toIndentedString(isDub)).append("\n");
     sb.append("    llmVideoUnderstandingType: ").append(toIndentedString(llmVideoUnderstandingType)).append("\n");
+    sb.append("    maxTargetSubtitleLines: ").append(toIndentedString(maxTargetSubtitleLines)).append("\n");
+    sb.append("    needTermValidation: ").append(toIndentedString(needTermValidation)).append("\n");
     sb.append("    needTranslateCover: ").append(toIndentedString(needTranslateCover)).append("\n");
     sb.append("    needTranslateDesc: ").append(toIndentedString(needTranslateDesc)).append("\n");
     sb.append("    needTranslateTitle: ").append(toIndentedString(needTranslateTitle)).append("\n");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,10 +33,21 @@ import javax.validation.Valid;
 
 public class VideoEditorDeleteSubtitleRequest {
   @SerializedName("segmentIds")
-  private String segmentIds = null;
+  private List<String> segmentIds = null;
 
-  public VideoEditorDeleteSubtitleRequest segmentIds(String segmentIds) {
+  @SerializedName("subtaskId")
+  private String subtaskId = null;
+
+  public VideoEditorDeleteSubtitleRequest segmentIds(List<String> segmentIds) {
     this.segmentIds = segmentIds;
+    return this;
+  }
+
+  public VideoEditorDeleteSubtitleRequest addSegmentIdsItem(String segmentIdsItem) {
+    if (this.segmentIds == null) {
+      this.segmentIds = new ArrayList<String>();
+    }
+    this.segmentIds.add(segmentIdsItem);
     return this;
   }
 
@@ -42,14 +55,32 @@ public class VideoEditorDeleteSubtitleRequest {
    * Get segmentIds
    * @return segmentIds
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSegmentIds() {
+  @Schema(description = "")
+  public List<String> getSegmentIds() {
     return segmentIds;
   }
 
-  public void setSegmentIds(String segmentIds) {
+  public void setSegmentIds(List<String> segmentIds) {
     this.segmentIds = segmentIds;
+  }
+
+  public VideoEditorDeleteSubtitleRequest subtaskId(String subtaskId) {
+    this.subtaskId = subtaskId;
+    return this;
+  }
+
+   /**
+   * Get subtaskId
+   * @return subtaskId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSubtaskId() {
+    return subtaskId;
+  }
+
+  public void setSubtaskId(String subtaskId) {
+    this.subtaskId = subtaskId;
   }
 
 
@@ -62,12 +93,13 @@ public class VideoEditorDeleteSubtitleRequest {
       return false;
     }
     VideoEditorDeleteSubtitleRequest videoEditorDeleteSubtitleRequest = (VideoEditorDeleteSubtitleRequest) o;
-    return Objects.equals(this.segmentIds, videoEditorDeleteSubtitleRequest.segmentIds);
+    return Objects.equals(this.segmentIds, videoEditorDeleteSubtitleRequest.segmentIds) &&
+        Objects.equals(this.subtaskId, videoEditorDeleteSubtitleRequest.subtaskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(segmentIds);
+    return Objects.hash(segmentIds, subtaskId);
   }
 
 
@@ -77,6 +109,7 @@ public class VideoEditorDeleteSubtitleRequest {
     sb.append("class VideoEditorDeleteSubtitleRequest {\n");
     
     sb.append("    segmentIds: ").append(toIndentedString(segmentIds)).append("\n");
+    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

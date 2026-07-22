@@ -19,37 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.DataForVideoProjectSubtitleDeleteOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoEditorGetEmotionTagsRequest
+ * VideoProjectSubtitleDeleteResponse
  */
 
 
 
-public class VideoEditorGetEmotionTagsRequest {
-  @SerializedName("subtaskId")
-  private String subtaskId = null;
+public class VideoProjectSubtitleDeleteResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("data")
+  private DataForVideoProjectSubtitleDeleteOutput data = null;
 
-  public VideoEditorGetEmotionTagsRequest subtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public VideoProjectSubtitleDeleteResponse data(DataForVideoProjectSubtitleDeleteOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get subtaskId
-   * @return subtaskId
+   * Get data
+   * @return data
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getSubtaskId() {
-    return subtaskId;
+  @Valid
+  @Schema(description = "")
+  public DataForVideoProjectSubtitleDeleteOutput getData() {
+    return data;
   }
 
-  public void setSubtaskId(String subtaskId) {
-    this.subtaskId = subtaskId;
+  public void setData(DataForVideoProjectSubtitleDeleteOutput data) {
+    this.data = data;
   }
 
 
@@ -61,22 +62,22 @@ public class VideoEditorGetEmotionTagsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoEditorGetEmotionTagsRequest videoEditorGetEmotionTagsRequest = (VideoEditorGetEmotionTagsRequest) o;
-    return Objects.equals(this.subtaskId, videoEditorGetEmotionTagsRequest.subtaskId);
+    VideoProjectSubtitleDeleteResponse videoProjectSubtitleDeleteResponse = (VideoProjectSubtitleDeleteResponse) o;
+    return Objects.equals(this.data, videoProjectSubtitleDeleteResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtaskId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoEditorGetEmotionTagsRequest {\n");
+    sb.append("class VideoProjectSubtitleDeleteResponse {\n");
     
-    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
