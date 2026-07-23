@@ -69,7 +69,9 @@ public class ScalarIndexForListVikingdbIndexOutput {
     @SerializedName("date_time")
     DATE_TIME("date_time"),
     @SerializedName("geo_point")
-    GEO_POINT("geo_point");
+    GEO_POINT("geo_point"),
+    @SerializedName("list<geo_point>")
+    LIST_GEO_POINT_("list<geo_point>");
 
     private String value;
 

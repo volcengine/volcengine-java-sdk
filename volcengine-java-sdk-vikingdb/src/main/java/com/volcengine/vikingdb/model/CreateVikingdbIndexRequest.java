@@ -39,6 +39,9 @@ public class CreateVikingdbIndexRequest {
   @SerializedName("CpuQuota")
   private Integer cpuQuota = null;
 
+  @SerializedName("DelProtection")
+  private Boolean delProtection = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -141,6 +144,24 @@ public class CreateVikingdbIndexRequest {
 
   public void setCpuQuota(Integer cpuQuota) {
     this.cpuQuota = cpuQuota;
+  }
+
+  public CreateVikingdbIndexRequest delProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
+    return this;
+  }
+
+   /**
+   * Get delProtection
+   * @return delProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDelProtection() {
+    return delProtection;
+  }
+
+  public void setDelProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
   }
 
   public CreateVikingdbIndexRequest description(String description) {
@@ -309,6 +330,7 @@ public class CreateVikingdbIndexRequest {
     CreateVikingdbIndexRequest createVikingdbIndexRequest = (CreateVikingdbIndexRequest) o;
     return Objects.equals(this.collectionName, createVikingdbIndexRequest.collectionName) &&
         Objects.equals(this.cpuQuota, createVikingdbIndexRequest.cpuQuota) &&
+        Objects.equals(this.delProtection, createVikingdbIndexRequest.delProtection) &&
         Objects.equals(this.description, createVikingdbIndexRequest.description) &&
         Objects.equals(this.indexName, createVikingdbIndexRequest.indexName) &&
         Objects.equals(this.projectName, createVikingdbIndexRequest.projectName) &&
@@ -321,7 +343,7 @@ public class CreateVikingdbIndexRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, cpuQuota, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy, vectorIndex);
+    return Objects.hash(collectionName, cpuQuota, delProtection, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy, vectorIndex);
   }
 
 
@@ -332,6 +354,7 @@ public class CreateVikingdbIndexRequest {
     
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    cpuQuota: ").append(toIndentedString(cpuQuota)).append("\n");
+    sb.append("    delProtection: ").append(toIndentedString(delProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    indexName: ").append(toIndentedString(indexName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

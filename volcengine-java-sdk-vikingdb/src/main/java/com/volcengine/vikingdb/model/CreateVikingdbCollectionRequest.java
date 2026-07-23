@@ -39,6 +39,9 @@ public class CreateVikingdbCollectionRequest {
   @SerializedName("CollectionName")
   private String collectionName = null;
 
+  @SerializedName("DelProtection")
+  private Boolean delProtection = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -74,6 +77,24 @@ public class CreateVikingdbCollectionRequest {
 
   public void setCollectionName(String collectionName) {
     this.collectionName = collectionName;
+  }
+
+  public CreateVikingdbCollectionRequest delProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
+    return this;
+  }
+
+   /**
+   * Get delProtection
+   * @return delProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDelProtection() {
+    return delProtection;
+  }
+
+  public void setDelProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
   }
 
   public CreateVikingdbCollectionRequest description(String description) {
@@ -223,6 +244,7 @@ public class CreateVikingdbCollectionRequest {
     }
     CreateVikingdbCollectionRequest createVikingdbCollectionRequest = (CreateVikingdbCollectionRequest) o;
     return Objects.equals(this.collectionName, createVikingdbCollectionRequest.collectionName) &&
+        Objects.equals(this.delProtection, createVikingdbCollectionRequest.delProtection) &&
         Objects.equals(this.description, createVikingdbCollectionRequest.description) &&
         Objects.equals(this.fields, createVikingdbCollectionRequest.fields) &&
         Objects.equals(this.fullText, createVikingdbCollectionRequest.fullText) &&
@@ -233,7 +255,7 @@ public class CreateVikingdbCollectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, fields, fullText, projectName, tags, vectorize);
+    return Objects.hash(collectionName, delProtection, description, fields, fullText, projectName, tags, vectorize);
   }
 
 
@@ -243,6 +265,7 @@ public class CreateVikingdbCollectionRequest {
     sb.append("class CreateVikingdbCollectionRequest {\n");
     
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    delProtection: ").append(toIndentedString(delProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    fullText: ").append(toIndentedString(fullText)).append("\n");

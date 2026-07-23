@@ -14,6 +14,14 @@ package com.volcengine.vikingdb.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.vikingdb.model.ResultForMemoryCollectionDeleteOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +31,28 @@ import javax.validation.Valid;
 
 
 public class MemoryCollectionDeleteResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Result")
+  private ResultForMemoryCollectionDeleteOutput result = null;
+
+  public MemoryCollectionDeleteResponse result(ResultForMemoryCollectionDeleteOutput result) {
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultForMemoryCollectionDeleteOutput getResult() {
+    return result;
+  }
+
+  public void setResult(ResultForMemoryCollectionDeleteOutput result) {
+    this.result = result;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +62,13 @@ public class MemoryCollectionDeleteResponse extends com.volcengine.model.Abstrac
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    MemoryCollectionDeleteResponse memoryCollectionDeleteResponse = (MemoryCollectionDeleteResponse) o;
+    return Objects.equals(this.result, memoryCollectionDeleteResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(result);
   }
 
 
@@ -46,6 +77,7 @@ public class MemoryCollectionDeleteResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class MemoryCollectionDeleteResponse {\n");
     
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }
