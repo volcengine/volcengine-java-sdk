@@ -868,6 +868,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- cloudcontrol ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cloudcontrol", new ServiceEndpointInfo(
+                "cloudcontrol",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
