@@ -1,5 +1,0 @@
-{
-  "description": "IAM: 新增 UpdateApiKey, CreateApiKey, DeleteApiKey, ListApiKeys",
-  "modules": "service/iam",
-  "type": "feature"
-}

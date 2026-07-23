@@ -35,6 +35,9 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("Asr")
   private String asr = null;
 
+  @SerializedName("ConcernedDepartments")
+  private List<String> concernedDepartments = null;
+
   @SerializedName("Content")
   private String content = null;
 
@@ -93,6 +96,32 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
 
   public void setAsr(String asr) {
     this.asr = asr;
+  }
+
+  public ExpertInvokeAPIResponse concernedDepartments(List<String> concernedDepartments) {
+    this.concernedDepartments = concernedDepartments;
+    return this;
+  }
+
+  public ExpertInvokeAPIResponse addConcernedDepartmentsItem(String concernedDepartmentsItem) {
+    if (this.concernedDepartments == null) {
+      this.concernedDepartments = new ArrayList<String>();
+    }
+    this.concernedDepartments.add(concernedDepartmentsItem);
+    return this;
+  }
+
+   /**
+   * Get concernedDepartments
+   * @return concernedDepartments
+  **/
+  @Schema(description = "")
+  public List<String> getConcernedDepartments() {
+    return concernedDepartments;
+  }
+
+  public void setConcernedDepartments(List<String> concernedDepartments) {
+    this.concernedDepartments = concernedDepartments;
   }
 
   public ExpertInvokeAPIResponse content(String content) {
@@ -366,6 +395,7 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
     }
     ExpertInvokeAPIResponse expertInvokeAPIResponse = (ExpertInvokeAPIResponse) o;
     return Objects.equals(this.asr, expertInvokeAPIResponse.asr) &&
+        Objects.equals(this.concernedDepartments, expertInvokeAPIResponse.concernedDepartments) &&
         Objects.equals(this.content, expertInvokeAPIResponse.content) &&
         Objects.equals(this.domainLevel, expertInvokeAPIResponse.domainLevel) &&
         Objects.equals(this.fansCnt, expertInvokeAPIResponse.fansCnt) &&
@@ -384,7 +414,7 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(asr, content, domainLevel, fansCnt, hasRisk, ocr, originId, related, relatedReason, riskLevel, riskReason, riskTags, suggestion, summary, title);
+    return Objects.hash(asr, concernedDepartments, content, domainLevel, fansCnt, hasRisk, ocr, originId, related, relatedReason, riskLevel, riskReason, riskTags, suggestion, summary, title);
   }
 
 
@@ -394,6 +424,7 @@ public class ExpertInvokeAPIResponse extends com.volcengine.model.AbstractRespon
     sb.append("class ExpertInvokeAPIResponse {\n");
     
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
+    sb.append("    concernedDepartments: ").append(toIndentedString(concernedDepartments)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    domainLevel: ").append(toIndentedString(domainLevel)).append("\n");
     sb.append("    fansCnt: ").append(toIndentedString(fansCnt)).append("\n");

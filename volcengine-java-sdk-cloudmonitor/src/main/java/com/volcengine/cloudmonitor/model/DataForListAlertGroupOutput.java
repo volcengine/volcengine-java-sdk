@@ -72,6 +72,9 @@ public class DataForListAlertGroupOutput {
   @SerializedName("RuleName")
   private String ruleName = null;
 
+  @SerializedName("RuleTriggerCondition")
+  private String ruleTriggerCondition = null;
+
   @SerializedName("StartAt")
   private String startAt = null;
 
@@ -330,6 +333,24 @@ public class DataForListAlertGroupOutput {
     this.ruleName = ruleName;
   }
 
+  public DataForListAlertGroupOutput ruleTriggerCondition(String ruleTriggerCondition) {
+    this.ruleTriggerCondition = ruleTriggerCondition;
+    return this;
+  }
+
+   /**
+   * Get ruleTriggerCondition
+   * @return ruleTriggerCondition
+  **/
+  @Schema(description = "")
+  public String getRuleTriggerCondition() {
+    return ruleTriggerCondition;
+  }
+
+  public void setRuleTriggerCondition(String ruleTriggerCondition) {
+    this.ruleTriggerCondition = ruleTriggerCondition;
+  }
+
   public DataForListAlertGroupOutput startAt(String startAt) {
     this.startAt = startAt;
     return this;
@@ -390,13 +411,14 @@ public class DataForListAlertGroupOutput {
         Objects.equals(this.resourceType, dataForListAlertGroupOutput.resourceType) &&
         Objects.equals(this.ruleId, dataForListAlertGroupOutput.ruleId) &&
         Objects.equals(this.ruleName, dataForListAlertGroupOutput.ruleName) &&
+        Objects.equals(this.ruleTriggerCondition, dataForListAlertGroupOutput.ruleTriggerCondition) &&
         Objects.equals(this.startAt, dataForListAlertGroupOutput.startAt) &&
         Objects.equals(this.subNamespace, dataForListAlertGroupOutput.subNamespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertState, alertType, dimension, duration, endAt, id, level, namespace, region, resourceId, resourceName, resourceType, ruleId, ruleName, startAt, subNamespace);
+    return Objects.hash(alertState, alertType, dimension, duration, endAt, id, level, namespace, region, resourceId, resourceName, resourceType, ruleId, ruleName, ruleTriggerCondition, startAt, subNamespace);
   }
 
 
@@ -419,6 +441,7 @@ public class DataForListAlertGroupOutput {
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    ruleTriggerCondition: ").append(toIndentedString(ruleTriggerCondition)).append("\n");
     sb.append("    startAt: ").append(toIndentedString(startAt)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("}");

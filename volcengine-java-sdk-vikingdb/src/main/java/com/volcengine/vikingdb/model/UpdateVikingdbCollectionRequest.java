@@ -36,6 +36,9 @@ public class UpdateVikingdbCollectionRequest {
   @SerializedName("CollectionName")
   private String collectionName = null;
 
+  @SerializedName("DelProtection")
+  private Boolean delProtection = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -64,6 +67,24 @@ public class UpdateVikingdbCollectionRequest {
 
   public void setCollectionName(String collectionName) {
     this.collectionName = collectionName;
+  }
+
+  public UpdateVikingdbCollectionRequest delProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
+    return this;
+  }
+
+   /**
+   * Get delProtection
+   * @return delProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDelProtection() {
+    return delProtection;
+  }
+
+  public void setDelProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
   }
 
   public UpdateVikingdbCollectionRequest description(String description) {
@@ -158,6 +179,7 @@ public class UpdateVikingdbCollectionRequest {
     }
     UpdateVikingdbCollectionRequest updateVikingdbCollectionRequest = (UpdateVikingdbCollectionRequest) o;
     return Objects.equals(this.collectionName, updateVikingdbCollectionRequest.collectionName) &&
+        Objects.equals(this.delProtection, updateVikingdbCollectionRequest.delProtection) &&
         Objects.equals(this.description, updateVikingdbCollectionRequest.description) &&
         Objects.equals(this.fields, updateVikingdbCollectionRequest.fields) &&
         Objects.equals(this.projectName, updateVikingdbCollectionRequest.projectName) &&
@@ -166,7 +188,7 @@ public class UpdateVikingdbCollectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, fields, projectName, resourceId);
+    return Objects.hash(collectionName, delProtection, description, fields, projectName, resourceId);
   }
 
 
@@ -176,6 +198,7 @@ public class UpdateVikingdbCollectionRequest {
     sb.append("class UpdateVikingdbCollectionRequest {\n");
     
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    delProtection: ").append(toIndentedString(delProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

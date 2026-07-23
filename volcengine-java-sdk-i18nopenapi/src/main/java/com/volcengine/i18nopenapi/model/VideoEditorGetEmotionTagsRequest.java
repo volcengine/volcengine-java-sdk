@@ -31,9 +31,9 @@ import javax.validation.Valid;
 
 public class VideoEditorGetEmotionTagsRequest {
   @SerializedName("subtaskId")
-  private Integer subtaskId = null;
+  private String subtaskId = null;
 
-  public VideoEditorGetEmotionTagsRequest subtaskId(Integer subtaskId) {
+  public VideoEditorGetEmotionTagsRequest subtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
     return this;
   }
@@ -44,11 +44,11 @@ public class VideoEditorGetEmotionTagsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubtaskId() {
+  public String getSubtaskId() {
     return subtaskId;
   }
 
-  public void setSubtaskId(Integer subtaskId) {
+  public void setSubtaskId(String subtaskId) {
     this.subtaskId = subtaskId;
   }
 

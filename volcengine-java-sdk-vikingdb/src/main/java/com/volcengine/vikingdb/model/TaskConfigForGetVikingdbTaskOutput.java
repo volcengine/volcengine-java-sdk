@@ -108,9 +108,6 @@ public class TaskConfigForGetVikingdbTaskOutput {
   @SerializedName("UpdateFields")
   private Object updateFields = null;
 
-  @SerializedName("UsePublic")
-  private Boolean usePublic = null;
-
   public TaskConfigForGetVikingdbTaskOutput collectionName(String collectionName) {
     this.collectionName = collectionName;
     return this;
@@ -325,24 +322,6 @@ public class TaskConfigForGetVikingdbTaskOutput {
     this.updateFields = updateFields;
   }
 
-  public TaskConfigForGetVikingdbTaskOutput usePublic(Boolean usePublic) {
-    this.usePublic = usePublic;
-    return this;
-  }
-
-   /**
-   * Get usePublic
-   * @return usePublic
-  **/
-  @Schema(description = "")
-  public Boolean isUsePublic() {
-    return usePublic;
-  }
-
-  public void setUsePublic(Boolean usePublic) {
-    this.usePublic = usePublic;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -363,13 +342,12 @@ public class TaskConfigForGetVikingdbTaskOutput {
         Objects.equals(this.projectName, taskConfigForGetVikingdbTaskOutput.projectName) &&
         Objects.equals(this.resourceId, taskConfigForGetVikingdbTaskOutput.resourceId) &&
         Objects.equals(this.tosPath, taskConfigForGetVikingdbTaskOutput.tosPath) &&
-        Objects.equals(this.updateFields, taskConfigForGetVikingdbTaskOutput.updateFields) &&
-        Objects.equals(this.usePublic, taskConfigForGetVikingdbTaskOutput.usePublic);
+        Objects.equals(this.updateFields, taskConfigForGetVikingdbTaskOutput.updateFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, exportAll, fileType, filterConds, ignoreError, needConfirm, outputFields, projectName, resourceId, tosPath, updateFields, usePublic);
+    return Objects.hash(collectionName, exportAll, fileType, filterConds, ignoreError, needConfirm, outputFields, projectName, resourceId, tosPath, updateFields);
   }
 
 
@@ -389,7 +367,6 @@ public class TaskConfigForGetVikingdbTaskOutput {
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    tosPath: ").append(toIndentedString(tosPath)).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
-    sb.append("    usePublic: ").append(toIndentedString(usePublic)).append("\n");
     sb.append("}");
     return sb.toString();
   }

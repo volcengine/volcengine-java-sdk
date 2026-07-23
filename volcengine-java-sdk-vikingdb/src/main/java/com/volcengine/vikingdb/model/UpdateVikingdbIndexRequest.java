@@ -38,6 +38,9 @@ public class UpdateVikingdbIndexRequest {
   @SerializedName("CpuQuota")
   private Integer cpuQuota = null;
 
+  @SerializedName("DelProtection")
+  private Boolean delProtection = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -137,6 +140,24 @@ public class UpdateVikingdbIndexRequest {
 
   public void setCpuQuota(Integer cpuQuota) {
     this.cpuQuota = cpuQuota;
+  }
+
+  public UpdateVikingdbIndexRequest delProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
+    return this;
+  }
+
+   /**
+   * Get delProtection
+   * @return delProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDelProtection() {
+    return delProtection;
+  }
+
+  public void setDelProtection(Boolean delProtection) {
+    this.delProtection = delProtection;
   }
 
   public UpdateVikingdbIndexRequest description(String description) {
@@ -286,6 +307,7 @@ public class UpdateVikingdbIndexRequest {
     UpdateVikingdbIndexRequest updateVikingdbIndexRequest = (UpdateVikingdbIndexRequest) o;
     return Objects.equals(this.collectionName, updateVikingdbIndexRequest.collectionName) &&
         Objects.equals(this.cpuQuota, updateVikingdbIndexRequest.cpuQuota) &&
+        Objects.equals(this.delProtection, updateVikingdbIndexRequest.delProtection) &&
         Objects.equals(this.description, updateVikingdbIndexRequest.description) &&
         Objects.equals(this.indexName, updateVikingdbIndexRequest.indexName) &&
         Objects.equals(this.projectName, updateVikingdbIndexRequest.projectName) &&
@@ -297,7 +319,7 @@ public class UpdateVikingdbIndexRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, cpuQuota, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy);
+    return Objects.hash(collectionName, cpuQuota, delProtection, description, indexName, projectName, resourceId, scalarIndex, shardCount, shardPolicy);
   }
 
 
@@ -308,6 +330,7 @@ public class UpdateVikingdbIndexRequest {
     
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    cpuQuota: ").append(toIndentedString(cpuQuota)).append("\n");
+    sb.append("    delProtection: ").append(toIndentedString(delProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    indexName: ").append(toIndentedString(indexName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

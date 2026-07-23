@@ -43,6 +43,9 @@ public class MetricDataResultForGetMetricDataOutput {
   @SerializedName("Legend")
   private String legend = null;
 
+  @SerializedName("StatisticsMethods")
+  private String statisticsMethods = null;
+
   public MetricDataResultForGetMetricDataOutput dataPoints(List<DataPointForGetMetricDataOutput> dataPoints) {
     this.dataPoints = dataPoints;
     return this;
@@ -115,6 +118,24 @@ public class MetricDataResultForGetMetricDataOutput {
     this.legend = legend;
   }
 
+  public MetricDataResultForGetMetricDataOutput statisticsMethods(String statisticsMethods) {
+    this.statisticsMethods = statisticsMethods;
+    return this;
+  }
+
+   /**
+   * Get statisticsMethods
+   * @return statisticsMethods
+  **/
+  @Schema(description = "")
+  public String getStatisticsMethods() {
+    return statisticsMethods;
+  }
+
+  public void setStatisticsMethods(String statisticsMethods) {
+    this.statisticsMethods = statisticsMethods;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class MetricDataResultForGetMetricDataOutput {
     MetricDataResultForGetMetricDataOutput metricDataResultForGetMetricDataOutput = (MetricDataResultForGetMetricDataOutput) o;
     return Objects.equals(this.dataPoints, metricDataResultForGetMetricDataOutput.dataPoints) &&
         Objects.equals(this.dimensions, metricDataResultForGetMetricDataOutput.dimensions) &&
-        Objects.equals(this.legend, metricDataResultForGetMetricDataOutput.legend);
+        Objects.equals(this.legend, metricDataResultForGetMetricDataOutput.legend) &&
+        Objects.equals(this.statisticsMethods, metricDataResultForGetMetricDataOutput.statisticsMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataPoints, dimensions, legend);
+    return Objects.hash(dataPoints, dimensions, legend, statisticsMethods);
   }
 
 
@@ -144,6 +166,7 @@ public class MetricDataResultForGetMetricDataOutput {
     sb.append("    dataPoints: ").append(toIndentedString(dataPoints)).append("\n");
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("    legend: ").append(toIndentedString(legend)).append("\n");
+    sb.append("    statisticsMethods: ").append(toIndentedString(statisticsMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }
