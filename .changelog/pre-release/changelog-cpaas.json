@@ -1,5 +1,0 @@
-{
-  "description": "CPAAS: 新增 SendBatchMessage, SendMessage, CreateTemplateV2, GetTemplateV2, ListTemplateV2",
-  "modules": "service/cpaas",
-  "type": "feature"
-}
