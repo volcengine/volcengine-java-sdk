@@ -33,6 +33,9 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
+
   @SerializedName("BillingType")
   private Integer billingType = null;
 
@@ -116,6 +119,24 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
     this.bandwidth = bandwidth;
   }
 
+  public PublicAccessNetworkConfigForCreateClusterInput bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+  }
+
   public PublicAccessNetworkConfigForCreateClusterInput billingType(Integer billingType) {
     this.billingType = billingType;
     return this;
@@ -163,13 +184,14 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
     }
     PublicAccessNetworkConfigForCreateClusterInput publicAccessNetworkConfigForCreateClusterInput = (PublicAccessNetworkConfigForCreateClusterInput) o;
     return Objects.equals(this.bandwidth, publicAccessNetworkConfigForCreateClusterInput.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, publicAccessNetworkConfigForCreateClusterInput.bandwidthPackageId) &&
         Objects.equals(this.billingType, publicAccessNetworkConfigForCreateClusterInput.billingType) &&
         Objects.equals(this.isp, publicAccessNetworkConfigForCreateClusterInput.isp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, isp);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, isp);
   }
 
 
@@ -179,6 +201,7 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
     sb.append("class PublicAccessNetworkConfigForCreateClusterInput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("}");

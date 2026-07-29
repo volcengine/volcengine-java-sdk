@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class DataVolumeForUpdateNodePoolConfigInput {
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("ExtraPerformanceIops")
   private Integer extraPerformanceIops = null;
 
@@ -206,6 +209,24 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public DataVolumeForUpdateNodePoolConfigInput burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+  }
 
   public DataVolumeForUpdateNodePoolConfigInput extraPerformanceIops(Integer extraPerformanceIops) {
     this.extraPerformanceIops = extraPerformanceIops;
@@ -397,7 +418,8 @@ public class DataVolumeForUpdateNodePoolConfigInput {
       return false;
     }
     DataVolumeForUpdateNodePoolConfigInput dataVolumeForUpdateNodePoolConfigInput = (DataVolumeForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.extraPerformanceIops, dataVolumeForUpdateNodePoolConfigInput.extraPerformanceIops) &&
+    return Objects.equals(this.burstEnabled, dataVolumeForUpdateNodePoolConfigInput.burstEnabled) &&
+        Objects.equals(this.extraPerformanceIops, dataVolumeForUpdateNodePoolConfigInput.extraPerformanceIops) &&
         Objects.equals(this.extraPerformanceThroughputMb, dataVolumeForUpdateNodePoolConfigInput.extraPerformanceThroughputMb) &&
         Objects.equals(this.extraPerformanceTypeId, dataVolumeForUpdateNodePoolConfigInput.extraPerformanceTypeId) &&
         Objects.equals(this.fileSystem, dataVolumeForUpdateNodePoolConfigInput.fileSystem) &&
@@ -411,7 +433,7 @@ public class DataVolumeForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
+    return Objects.hash(burstEnabled, extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
   }
 
 
@@ -420,6 +442,7 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForUpdateNodePoolConfigInput {\n");
     
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    extraPerformanceIops: ").append(toIndentedString(extraPerformanceIops)).append("\n");
     sb.append("    extraPerformanceThroughputMb: ").append(toIndentedString(extraPerformanceThroughputMb)).append("\n");
     sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");

@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class SystemVolumeForUpdateNodePoolConfigInput {
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("PlacementGroupId")
   private String placementGroupId = null;
 
@@ -100,6 +103,24 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public SystemVolumeForUpdateNodePoolConfigInput burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+  }
 
   public SystemVolumeForUpdateNodePoolConfigInput placementGroupId(String placementGroupId) {
     this.placementGroupId = placementGroupId;
@@ -183,7 +204,8 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
       return false;
     }
     SystemVolumeForUpdateNodePoolConfigInput systemVolumeForUpdateNodePoolConfigInput = (SystemVolumeForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.placementGroupId, systemVolumeForUpdateNodePoolConfigInput.placementGroupId) &&
+    return Objects.equals(this.burstEnabled, systemVolumeForUpdateNodePoolConfigInput.burstEnabled) &&
+        Objects.equals(this.placementGroupId, systemVolumeForUpdateNodePoolConfigInput.placementGroupId) &&
         Objects.equals(this.size, systemVolumeForUpdateNodePoolConfigInput.size) &&
         Objects.equals(this.subgroupNumber, systemVolumeForUpdateNodePoolConfigInput.subgroupNumber) &&
         Objects.equals(this.type, systemVolumeForUpdateNodePoolConfigInput.type);
@@ -191,7 +213,7 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(placementGroupId, size, subgroupNumber, type);
+    return Objects.hash(burstEnabled, placementGroupId, size, subgroupNumber, type);
   }
 
 
@@ -200,6 +222,7 @@ public class SystemVolumeForUpdateNodePoolConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemVolumeForUpdateNodePoolConfigInput {\n");
     
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");

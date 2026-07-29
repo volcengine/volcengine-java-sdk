@@ -50,6 +50,8 @@ public class ComponentConfigForListClustersOutput {
     ETCD("Etcd"),
     @SerializedName("ClusterAutoscaler")
     CLUSTERAUTOSCALER("ClusterAutoscaler"),
+    @SerializedName("KubeInsights")
+    KUBEINSIGHTS("KubeInsights"),
     @SerializedName("KubeBrain")
     KUBEBRAIN("KubeBrain"),
     @SerializedName("GodelScheduler")

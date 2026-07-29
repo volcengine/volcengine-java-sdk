@@ -36,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class KubeletConfigForListNodePoolsOutput {
+  @SerializedName("CpuCfsQuota")
+  private Boolean cpuCfsQuota = null;
+
   /**
    * Gets or Sets cpuManagerPolicy
    */
@@ -207,6 +210,24 @@ public class KubeletConfigForListNodePoolsOutput {
     }
   }  @SerializedName("TopologyManagerScope")
   private TopologyManagerScopeEnum topologyManagerScope = null;
+
+  public KubeletConfigForListNodePoolsOutput cpuCfsQuota(Boolean cpuCfsQuota) {
+    this.cpuCfsQuota = cpuCfsQuota;
+    return this;
+  }
+
+   /**
+   * Get cpuCfsQuota
+   * @return cpuCfsQuota
+  **/
+  @Schema(description = "")
+  public Boolean isCpuCfsQuota() {
+    return cpuCfsQuota;
+  }
+
+  public void setCpuCfsQuota(Boolean cpuCfsQuota) {
+    this.cpuCfsQuota = cpuCfsQuota;
+  }
 
   public KubeletConfigForListNodePoolsOutput cpuManagerPolicy(CpuManagerPolicyEnum cpuManagerPolicy) {
     this.cpuManagerPolicy = cpuManagerPolicy;
@@ -480,7 +501,8 @@ public class KubeletConfigForListNodePoolsOutput {
       return false;
     }
     KubeletConfigForListNodePoolsOutput kubeletConfigForListNodePoolsOutput = (KubeletConfigForListNodePoolsOutput) o;
-    return Objects.equals(this.cpuManagerPolicy, kubeletConfigForListNodePoolsOutput.cpuManagerPolicy) &&
+    return Objects.equals(this.cpuCfsQuota, kubeletConfigForListNodePoolsOutput.cpuCfsQuota) &&
+        Objects.equals(this.cpuManagerPolicy, kubeletConfigForListNodePoolsOutput.cpuManagerPolicy) &&
         Objects.equals(this.evictionHard, kubeletConfigForListNodePoolsOutput.evictionHard) &&
         Objects.equals(this.featureGates, kubeletConfigForListNodePoolsOutput.featureGates) &&
         Objects.equals(this.kubeApiBurst, kubeletConfigForListNodePoolsOutput.kubeApiBurst) &&
@@ -497,7 +519,7 @@ public class KubeletConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuManagerPolicy, evictionHard, featureGates, kubeApiBurst, kubeApiQps, kubeReserved, maxPods, registryBurst, registryPullQps, serializeImagePulls, systemReserved, topologyManagerPolicy, topologyManagerScope);
+    return Objects.hash(cpuCfsQuota, cpuManagerPolicy, evictionHard, featureGates, kubeApiBurst, kubeApiQps, kubeReserved, maxPods, registryBurst, registryPullQps, serializeImagePulls, systemReserved, topologyManagerPolicy, topologyManagerScope);
   }
 
 
@@ -506,6 +528,7 @@ public class KubeletConfigForListNodePoolsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class KubeletConfigForListNodePoolsOutput {\n");
     
+    sb.append("    cpuCfsQuota: ").append(toIndentedString(cpuCfsQuota)).append("\n");
     sb.append("    cpuManagerPolicy: ").append(toIndentedString(cpuManagerPolicy)).append("\n");
     sb.append("    evictionHard: ").append(toIndentedString(evictionHard)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");

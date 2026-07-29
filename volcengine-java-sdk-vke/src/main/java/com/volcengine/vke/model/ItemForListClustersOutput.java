@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForListClustersOutput;
 import com.volcengine.vke.model.ConnectorConfigForListClustersOutput;
 import com.volcengine.vke.model.IrsaConfigForListClustersOutput;
+import com.volcengine.vke.model.KubernetesConfigForListClustersOutput;
 import com.volcengine.vke.model.LoggingConfigForListClustersOutput;
+import com.volcengine.vke.model.MaintenanceWindowConfigForListClustersOutput;
 import com.volcengine.vke.model.MonitoringConfigForListClustersOutput;
 import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
 import com.volcengine.vke.model.PodsConfigForListClustersOutput;
@@ -67,11 +69,17 @@ public class ItemForListClustersOutput {
   @SerializedName("IrsaConfig")
   private IrsaConfigForListClustersOutput irsaConfig = null;
 
+  @SerializedName("KubernetesConfig")
+  private KubernetesConfigForListClustersOutput kubernetesConfig = null;
+
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
 
   @SerializedName("LoggingConfig")
   private LoggingConfigForListClustersOutput loggingConfig = null;
+
+  @SerializedName("MaintenanceWindowConfig")
+  private MaintenanceWindowConfigForListClustersOutput maintenanceWindowConfig = null;
 
   @SerializedName("Message")
   private String message = null;
@@ -306,6 +314,25 @@ public class ItemForListClustersOutput {
     this.irsaConfig = irsaConfig;
   }
 
+  public ItemForListClustersOutput kubernetesConfig(KubernetesConfigForListClustersOutput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+    return this;
+  }
+
+   /**
+   * Get kubernetesConfig
+   * @return kubernetesConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public KubernetesConfigForListClustersOutput getKubernetesConfig() {
+    return kubernetesConfig;
+  }
+
+  public void setKubernetesConfig(KubernetesConfigForListClustersOutput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+  }
+
   public ItemForListClustersOutput kubernetesVersion(String kubernetesVersion) {
     this.kubernetesVersion = kubernetesVersion;
     return this;
@@ -341,6 +368,25 @@ public class ItemForListClustersOutput {
 
   public void setLoggingConfig(LoggingConfigForListClustersOutput loggingConfig) {
     this.loggingConfig = loggingConfig;
+  }
+
+  public ItemForListClustersOutput maintenanceWindowConfig(MaintenanceWindowConfigForListClustersOutput maintenanceWindowConfig) {
+    this.maintenanceWindowConfig = maintenanceWindowConfig;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindowConfig
+   * @return maintenanceWindowConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowConfigForListClustersOutput getMaintenanceWindowConfig() {
+    return maintenanceWindowConfig;
+  }
+
+  public void setMaintenanceWindowConfig(MaintenanceWindowConfigForListClustersOutput maintenanceWindowConfig) {
+    this.maintenanceWindowConfig = maintenanceWindowConfig;
   }
 
   public ItemForListClustersOutput message(String message) {
@@ -610,8 +656,10 @@ public class ItemForListClustersOutput {
         Objects.equals(this.description, itemForListClustersOutput.description) &&
         Objects.equals(this.id, itemForListClustersOutput.id) &&
         Objects.equals(this.irsaConfig, itemForListClustersOutput.irsaConfig) &&
+        Objects.equals(this.kubernetesConfig, itemForListClustersOutput.kubernetesConfig) &&
         Objects.equals(this.kubernetesVersion, itemForListClustersOutput.kubernetesVersion) &&
         Objects.equals(this.loggingConfig, itemForListClustersOutput.loggingConfig) &&
+        Objects.equals(this.maintenanceWindowConfig, itemForListClustersOutput.maintenanceWindowConfig) &&
         Objects.equals(this.message, itemForListClustersOutput.message) &&
         Objects.equals(this.monitoringConfig, itemForListClustersOutput.monitoringConfig) &&
         Objects.equals(this.name, itemForListClustersOutput.name) &&
@@ -629,7 +677,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, irsaConfig, kubernetesVersion, loggingConfig, message, monitoringConfig, name, nodeStatistics, podsConfig, projectName, registerMonitoringConfig, servicesConfig, status, tags, type, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, irsaConfig, kubernetesConfig, kubernetesVersion, loggingConfig, maintenanceWindowConfig, message, monitoringConfig, name, nodeStatistics, podsConfig, projectName, registerMonitoringConfig, servicesConfig, status, tags, type, updateClientToken, updateTime);
   }
 
 
@@ -646,8 +694,10 @@ public class ItemForListClustersOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    irsaConfig: ").append(toIndentedString(irsaConfig)).append("\n");
+    sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
+    sb.append("    maintenanceWindowConfig: ").append(toIndentedString(maintenanceWindowConfig)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
