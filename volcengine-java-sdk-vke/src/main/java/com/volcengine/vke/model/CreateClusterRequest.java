@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForCreateClusterInput;
+import com.volcengine.vke.model.KubernetesConfigForCreateClusterInput;
 import com.volcengine.vke.model.LoggingConfigForCreateClusterInput;
+import com.volcengine.vke.model.MonitoringConfigForCreateClusterInput;
 import com.volcengine.vke.model.PodsConfigForCreateClusterInput;
 import com.volcengine.vke.model.ServicesConfigForCreateClusterInput;
 import com.volcengine.vke.model.TagForCreateClusterInput;
@@ -49,11 +51,17 @@ public class CreateClusterRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("KubernetesConfig")
+  private KubernetesConfigForCreateClusterInput kubernetesConfig = null;
+
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
 
   @SerializedName("LoggingConfig")
   private LoggingConfigForCreateClusterInput loggingConfig = null;
+
+  @SerializedName("MonitoringConfig")
+  private MonitoringConfigForCreateClusterInput monitoringConfig = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -143,6 +151,25 @@ public class CreateClusterRequest {
     this.description = description;
   }
 
+  public CreateClusterRequest kubernetesConfig(KubernetesConfigForCreateClusterInput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+    return this;
+  }
+
+   /**
+   * Get kubernetesConfig
+   * @return kubernetesConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public KubernetesConfigForCreateClusterInput getKubernetesConfig() {
+    return kubernetesConfig;
+  }
+
+  public void setKubernetesConfig(KubernetesConfigForCreateClusterInput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+  }
+
   public CreateClusterRequest kubernetesVersion(String kubernetesVersion) {
     this.kubernetesVersion = kubernetesVersion;
     return this;
@@ -178,6 +205,25 @@ public class CreateClusterRequest {
 
   public void setLoggingConfig(LoggingConfigForCreateClusterInput loggingConfig) {
     this.loggingConfig = loggingConfig;
+  }
+
+  public CreateClusterRequest monitoringConfig(MonitoringConfigForCreateClusterInput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
+    return this;
+  }
+
+   /**
+   * Get monitoringConfig
+   * @return monitoringConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MonitoringConfigForCreateClusterInput getMonitoringConfig() {
+    return monitoringConfig;
+  }
+
+  public void setMonitoringConfig(MonitoringConfigForCreateClusterInput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
   }
 
   public CreateClusterRequest name(String name) {
@@ -296,8 +342,10 @@ public class CreateClusterRequest {
         Objects.equals(this.clusterConfig, createClusterRequest.clusterConfig) &&
         Objects.equals(this.deleteProtectionEnabled, createClusterRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, createClusterRequest.description) &&
+        Objects.equals(this.kubernetesConfig, createClusterRequest.kubernetesConfig) &&
         Objects.equals(this.kubernetesVersion, createClusterRequest.kubernetesVersion) &&
         Objects.equals(this.loggingConfig, createClusterRequest.loggingConfig) &&
+        Objects.equals(this.monitoringConfig, createClusterRequest.monitoringConfig) &&
         Objects.equals(this.name, createClusterRequest.name) &&
         Objects.equals(this.podsConfig, createClusterRequest.podsConfig) &&
         Objects.equals(this.projectName, createClusterRequest.projectName) &&
@@ -307,7 +355,7 @@ public class CreateClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, loggingConfig, name, podsConfig, projectName, servicesConfig, tags);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesConfig, kubernetesVersion, loggingConfig, monitoringConfig, name, podsConfig, projectName, servicesConfig, tags);
   }
 
 
@@ -320,8 +368,10 @@ public class CreateClusterRequest {
     sb.append("    clusterConfig: ").append(toIndentedString(clusterConfig)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
+    sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

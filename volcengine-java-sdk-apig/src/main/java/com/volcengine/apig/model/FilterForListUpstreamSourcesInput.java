@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class FilterForListUpstreamSourcesInput {
+  @SerializedName("ClusterId")
+  private String clusterId = null;
+
   @SerializedName("SourceType")
   private String sourceType = null;
 
@@ -38,6 +41,24 @@ public class FilterForListUpstreamSourcesInput {
 
   @SerializedName("name")
   private String name = null;
+
+  public FilterForListUpstreamSourcesInput clusterId(String clusterId) {
+    this.clusterId = clusterId;
+    return this;
+  }
+
+   /**
+   * Get clusterId
+   * @return clusterId
+  **/
+  @Schema(description = "")
+  public String getClusterId() {
+    return clusterId;
+  }
+
+  public void setClusterId(String clusterId) {
+    this.clusterId = clusterId;
+  }
 
   public FilterForListUpstreamSourcesInput sourceType(String sourceType) {
     this.sourceType = sourceType;
@@ -103,14 +124,15 @@ public class FilterForListUpstreamSourcesInput {
       return false;
     }
     FilterForListUpstreamSourcesInput filterForListUpstreamSourcesInput = (FilterForListUpstreamSourcesInput) o;
-    return Objects.equals(this.sourceType, filterForListUpstreamSourcesInput.sourceType) &&
+    return Objects.equals(this.clusterId, filterForListUpstreamSourcesInput.clusterId) &&
+        Objects.equals(this.sourceType, filterForListUpstreamSourcesInput.sourceType) &&
         Objects.equals(this.status, filterForListUpstreamSourcesInput.status) &&
         Objects.equals(this.name, filterForListUpstreamSourcesInput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, status, name);
+    return Objects.hash(clusterId, sourceType, status, name);
   }
 
 
@@ -119,6 +141,7 @@ public class FilterForListUpstreamSourcesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListUpstreamSourcesInput {\n");
     
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

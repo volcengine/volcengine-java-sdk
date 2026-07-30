@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class SystemVolumeForCreateNodePoolInput {
+  @SerializedName("BurstEnabled")
+  private Boolean burstEnabled = null;
+
   @SerializedName("PlacementGroupId")
   private String placementGroupId = null;
 
@@ -100,6 +103,24 @@ public class SystemVolumeForCreateNodePoolInput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public SystemVolumeForCreateNodePoolInput burstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+    return this;
+  }
+
+   /**
+   * Get burstEnabled
+   * @return burstEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isBurstEnabled() {
+    return burstEnabled;
+  }
+
+  public void setBurstEnabled(Boolean burstEnabled) {
+    this.burstEnabled = burstEnabled;
+  }
 
   public SystemVolumeForCreateNodePoolInput placementGroupId(String placementGroupId) {
     this.placementGroupId = placementGroupId;
@@ -183,7 +204,8 @@ public class SystemVolumeForCreateNodePoolInput {
       return false;
     }
     SystemVolumeForCreateNodePoolInput systemVolumeForCreateNodePoolInput = (SystemVolumeForCreateNodePoolInput) o;
-    return Objects.equals(this.placementGroupId, systemVolumeForCreateNodePoolInput.placementGroupId) &&
+    return Objects.equals(this.burstEnabled, systemVolumeForCreateNodePoolInput.burstEnabled) &&
+        Objects.equals(this.placementGroupId, systemVolumeForCreateNodePoolInput.placementGroupId) &&
         Objects.equals(this.size, systemVolumeForCreateNodePoolInput.size) &&
         Objects.equals(this.subgroupNumber, systemVolumeForCreateNodePoolInput.subgroupNumber) &&
         Objects.equals(this.type, systemVolumeForCreateNodePoolInput.type);
@@ -191,7 +213,7 @@ public class SystemVolumeForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(placementGroupId, size, subgroupNumber, type);
+    return Objects.hash(burstEnabled, placementGroupId, size, subgroupNumber, type);
   }
 
 
@@ -200,6 +222,7 @@ public class SystemVolumeForCreateNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemVolumeForCreateNodePoolInput {\n");
     
+    sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
     sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");

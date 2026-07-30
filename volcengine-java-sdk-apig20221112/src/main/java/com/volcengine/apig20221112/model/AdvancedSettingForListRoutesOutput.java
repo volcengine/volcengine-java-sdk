@@ -24,6 +24,7 @@ import com.volcengine.apig20221112.model.HeaderOperationForListRoutesOutput;
 import com.volcengine.apig20221112.model.MirrorPolicyForListRoutesOutput;
 import com.volcengine.apig20221112.model.RetryPolicySettingForListRoutesOutput;
 import com.volcengine.apig20221112.model.TimeoutSettingForListRoutesOutput;
+import com.volcengine.apig20221112.model.TokenExtractorForListRoutesOutput;
 import com.volcengine.apig20221112.model.URLRewriteSettingForListRoutesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -52,6 +53,9 @@ public class AdvancedSettingForListRoutesOutput {
 
   @SerializedName("TimeoutSetting")
   private TimeoutSettingForListRoutesOutput timeoutSetting = null;
+
+  @SerializedName("TokenExtractors")
+  private List<TokenExtractorForListRoutesOutput> tokenExtractors = null;
 
   @SerializedName("URLRewriteSetting")
   private URLRewriteSettingForListRoutesOutput urLRewriteSetting = null;
@@ -167,6 +171,33 @@ public class AdvancedSettingForListRoutesOutput {
     this.timeoutSetting = timeoutSetting;
   }
 
+  public AdvancedSettingForListRoutesOutput tokenExtractors(List<TokenExtractorForListRoutesOutput> tokenExtractors) {
+    this.tokenExtractors = tokenExtractors;
+    return this;
+  }
+
+  public AdvancedSettingForListRoutesOutput addTokenExtractorsItem(TokenExtractorForListRoutesOutput tokenExtractorsItem) {
+    if (this.tokenExtractors == null) {
+      this.tokenExtractors = new ArrayList<TokenExtractorForListRoutesOutput>();
+    }
+    this.tokenExtractors.add(tokenExtractorsItem);
+    return this;
+  }
+
+   /**
+   * Get tokenExtractors
+   * @return tokenExtractors
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TokenExtractorForListRoutesOutput> getTokenExtractors() {
+    return tokenExtractors;
+  }
+
+  public void setTokenExtractors(List<TokenExtractorForListRoutesOutput> tokenExtractors) {
+    this.tokenExtractors = tokenExtractors;
+  }
+
   public AdvancedSettingForListRoutesOutput urLRewriteSetting(URLRewriteSettingForListRoutesOutput urLRewriteSetting) {
     this.urLRewriteSetting = urLRewriteSetting;
     return this;
@@ -201,12 +232,13 @@ public class AdvancedSettingForListRoutesOutput {
         Objects.equals(this.mirrorPolicies, advancedSettingForListRoutesOutput.mirrorPolicies) &&
         Objects.equals(this.retryPolicySetting, advancedSettingForListRoutesOutput.retryPolicySetting) &&
         Objects.equals(this.timeoutSetting, advancedSettingForListRoutesOutput.timeoutSetting) &&
+        Objects.equals(this.tokenExtractors, advancedSettingForListRoutesOutput.tokenExtractors) &&
         Objects.equals(this.urLRewriteSetting, advancedSettingForListRoutesOutput.urLRewriteSetting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(corsPolicySetting, headerOperations, mirrorPolicies, retryPolicySetting, timeoutSetting, urLRewriteSetting);
+    return Objects.hash(corsPolicySetting, headerOperations, mirrorPolicies, retryPolicySetting, timeoutSetting, tokenExtractors, urLRewriteSetting);
   }
 
 
@@ -220,6 +252,7 @@ public class AdvancedSettingForListRoutesOutput {
     sb.append("    mirrorPolicies: ").append(toIndentedString(mirrorPolicies)).append("\n");
     sb.append("    retryPolicySetting: ").append(toIndentedString(retryPolicySetting)).append("\n");
     sb.append("    timeoutSetting: ").append(toIndentedString(timeoutSetting)).append("\n");
+    sb.append("    tokenExtractors: ").append(toIndentedString(tokenExtractors)).append("\n");
     sb.append("    urLRewriteSetting: ").append(toIndentedString(urLRewriteSetting)).append("\n");
     sb.append("}");
     return sb.toString();

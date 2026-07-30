@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.AIProviderForUpdateUpstreamInput;
 import com.volcengine.apig.model.DomainForUpdateUpstreamInput;
 import com.volcengine.apig.model.EcsListForUpdateUpstreamInput;
+import com.volcengine.apig.model.FixedIPListForUpdateUpstreamInput;
 import com.volcengine.apig.model.K8SServiceForUpdateUpstreamInput;
 import com.volcengine.apig.model.NacosServiceForUpdateUpstreamInput;
 import com.volcengine.apig.model.VeFaasForUpdateUpstreamInput;
@@ -46,6 +47,9 @@ public class UpstreamSpecForUpdateUpstreamInput {
 
   @SerializedName("EcsList")
   private List<EcsListForUpdateUpstreamInput> ecsList = null;
+
+  @SerializedName("FixedIPList")
+  private List<FixedIPListForUpdateUpstreamInput> fixedIPList = null;
 
   @SerializedName("K8SService")
   private K8SServiceForUpdateUpstreamInput k8SService = null;
@@ -121,6 +125,33 @@ public class UpstreamSpecForUpdateUpstreamInput {
     this.ecsList = ecsList;
   }
 
+  public UpstreamSpecForUpdateUpstreamInput fixedIPList(List<FixedIPListForUpdateUpstreamInput> fixedIPList) {
+    this.fixedIPList = fixedIPList;
+    return this;
+  }
+
+  public UpstreamSpecForUpdateUpstreamInput addFixedIPListItem(FixedIPListForUpdateUpstreamInput fixedIPListItem) {
+    if (this.fixedIPList == null) {
+      this.fixedIPList = new ArrayList<FixedIPListForUpdateUpstreamInput>();
+    }
+    this.fixedIPList.add(fixedIPListItem);
+    return this;
+  }
+
+   /**
+   * Get fixedIPList
+   * @return fixedIPList
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FixedIPListForUpdateUpstreamInput> getFixedIPList() {
+    return fixedIPList;
+  }
+
+  public void setFixedIPList(List<FixedIPListForUpdateUpstreamInput> fixedIPList) {
+    this.fixedIPList = fixedIPList;
+  }
+
   public UpstreamSpecForUpdateUpstreamInput k8SService(K8SServiceForUpdateUpstreamInput k8SService) {
     this.k8SService = k8SService;
     return this;
@@ -191,6 +222,7 @@ public class UpstreamSpecForUpdateUpstreamInput {
     return Objects.equals(this.aiProvider, upstreamSpecForUpdateUpstreamInput.aiProvider) &&
         Objects.equals(this.domain, upstreamSpecForUpdateUpstreamInput.domain) &&
         Objects.equals(this.ecsList, upstreamSpecForUpdateUpstreamInput.ecsList) &&
+        Objects.equals(this.fixedIPList, upstreamSpecForUpdateUpstreamInput.fixedIPList) &&
         Objects.equals(this.k8SService, upstreamSpecForUpdateUpstreamInput.k8SService) &&
         Objects.equals(this.nacosService, upstreamSpecForUpdateUpstreamInput.nacosService) &&
         Objects.equals(this.veFaas, upstreamSpecForUpdateUpstreamInput.veFaas);
@@ -198,7 +230,7 @@ public class UpstreamSpecForUpdateUpstreamInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiProvider, domain, ecsList, k8SService, nacosService, veFaas);
+    return Objects.hash(aiProvider, domain, ecsList, fixedIPList, k8SService, nacosService, veFaas);
   }
 
 
@@ -210,6 +242,7 @@ public class UpstreamSpecForUpdateUpstreamInput {
     sb.append("    aiProvider: ").append(toIndentedString(aiProvider)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    ecsList: ").append(toIndentedString(ecsList)).append("\n");
+    sb.append("    fixedIPList: ").append(toIndentedString(fixedIPList)).append("\n");
     sb.append("    k8SService: ").append(toIndentedString(k8SService)).append("\n");
     sb.append("    nacosService: ").append(toIndentedString(nacosService)).append("\n");
     sb.append("    veFaas: ").append(toIndentedString(veFaas)).append("\n");

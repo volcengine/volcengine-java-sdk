@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * Oauth2CredentialForListConsumerCredentialsOutput
+ * VeFaasForCheckUpstreamSpecExistInput
  */
 
 
 
-public class Oauth2CredentialForListConsumerCredentialsOutput {
-  @SerializedName("ClientId")
-  private String clientId = null;
+public class VeFaasForCheckUpstreamSpecExistInput {
+  @SerializedName("FunctionId")
+  private String functionId = null;
 
-  @SerializedName("Enable")
-  private Boolean enable = null;
-
-  public Oauth2CredentialForListConsumerCredentialsOutput clientId(String clientId) {
-    this.clientId = clientId;
+  public VeFaasForCheckUpstreamSpecExistInput functionId(String functionId) {
+    this.functionId = functionId;
     return this;
   }
 
    /**
-   * Get clientId
-   * @return clientId
+   * Get functionId
+   * @return functionId
   **/
   @Schema(description = "")
-  public String getClientId() {
-    return clientId;
+  public String getFunctionId() {
+    return functionId;
   }
 
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-  public Oauth2CredentialForListConsumerCredentialsOutput enable(Boolean enable) {
-    this.enable = enable;
-    return this;
-  }
-
-   /**
-   * Get enable
-   * @return enable
-  **/
-  @Schema(description = "")
-  public Boolean isEnable() {
-    return enable;
-  }
-
-  public void setEnable(Boolean enable) {
-    this.enable = enable;
+  public void setFunctionId(String functionId) {
+    this.functionId = functionId;
   }
 
 
@@ -81,24 +60,22 @@ public class Oauth2CredentialForListConsumerCredentialsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Oauth2CredentialForListConsumerCredentialsOutput oauth2CredentialForListConsumerCredentialsOutput = (Oauth2CredentialForListConsumerCredentialsOutput) o;
-    return Objects.equals(this.clientId, oauth2CredentialForListConsumerCredentialsOutput.clientId) &&
-        Objects.equals(this.enable, oauth2CredentialForListConsumerCredentialsOutput.enable);
+    VeFaasForCheckUpstreamSpecExistInput veFaasForCheckUpstreamSpecExistInput = (VeFaasForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.functionId, veFaasForCheckUpstreamSpecExistInput.functionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, enable);
+    return Objects.hash(functionId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Oauth2CredentialForListConsumerCredentialsOutput {\n");
+    sb.append("class VeFaasForCheckUpstreamSpecExistInput {\n");
     
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,6 +39,54 @@ public class ClusterConfigForCreateClusterInput {
   @SerializedName("ApiServerPublicAccessEnabled")
   private Boolean apiServerPublicAccessEnabled = null;
 
+  /**
+   * Gets or Sets ipFamily
+   */
+  @JsonAdapter(IpFamilyEnum.Adapter.class)
+  public enum IpFamilyEnum {
+    @SerializedName("Ipv4")
+    IPV4("Ipv4"),
+    @SerializedName("Ipv6")
+    IPV6("Ipv6"),
+    @SerializedName("DualStack")
+    DUALSTACK("DualStack");
+
+    private String value;
+
+    IpFamilyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IpFamilyEnum fromValue(String input) {
+      for (IpFamilyEnum b : IpFamilyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IpFamilyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IpFamilyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IpFamilyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IpFamilyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("IpFamily")
+  private IpFamilyEnum ipFamily = null;
+
   @SerializedName("ResourcePublicAccessDefaultEnabled")
   private Boolean resourcePublicAccessDefaultEnabled = null;
 
@@ -80,6 +128,24 @@ public class ClusterConfigForCreateClusterInput {
 
   public void setApiServerPublicAccessEnabled(Boolean apiServerPublicAccessEnabled) {
     this.apiServerPublicAccessEnabled = apiServerPublicAccessEnabled;
+  }
+
+  public ClusterConfigForCreateClusterInput ipFamily(IpFamilyEnum ipFamily) {
+    this.ipFamily = ipFamily;
+    return this;
+  }
+
+   /**
+   * Get ipFamily
+   * @return ipFamily
+  **/
+  @Schema(description = "")
+  public IpFamilyEnum getIpFamily() {
+    return ipFamily;
+  }
+
+  public void setIpFamily(IpFamilyEnum ipFamily) {
+    this.ipFamily = ipFamily;
   }
 
   public ClusterConfigForCreateClusterInput resourcePublicAccessDefaultEnabled(Boolean resourcePublicAccessDefaultEnabled) {
@@ -138,13 +204,14 @@ public class ClusterConfigForCreateClusterInput {
     ClusterConfigForCreateClusterInput clusterConfigForCreateClusterInput = (ClusterConfigForCreateClusterInput) o;
     return Objects.equals(this.apiServerPublicAccessConfig, clusterConfigForCreateClusterInput.apiServerPublicAccessConfig) &&
         Objects.equals(this.apiServerPublicAccessEnabled, clusterConfigForCreateClusterInput.apiServerPublicAccessEnabled) &&
+        Objects.equals(this.ipFamily, clusterConfigForCreateClusterInput.ipFamily) &&
         Objects.equals(this.resourcePublicAccessDefaultEnabled, clusterConfigForCreateClusterInput.resourcePublicAccessDefaultEnabled) &&
         Objects.equals(this.subnetIds, clusterConfigForCreateClusterInput.subnetIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiServerPublicAccessConfig, apiServerPublicAccessEnabled, resourcePublicAccessDefaultEnabled, subnetIds);
+    return Objects.hash(apiServerPublicAccessConfig, apiServerPublicAccessEnabled, ipFamily, resourcePublicAccessDefaultEnabled, subnetIds);
   }
 
 
@@ -155,6 +222,7 @@ public class ClusterConfigForCreateClusterInput {
     
     sb.append("    apiServerPublicAccessConfig: ").append(toIndentedString(apiServerPublicAccessConfig)).append("\n");
     sb.append("    apiServerPublicAccessEnabled: ").append(toIndentedString(apiServerPublicAccessEnabled)).append("\n");
+    sb.append("    ipFamily: ").append(toIndentedString(ipFamily)).append("\n");
     sb.append("    resourcePublicAccessDefaultEnabled: ").append(toIndentedString(resourcePublicAccessDefaultEnabled)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("}");

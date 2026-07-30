@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class FilterForListGatewayServicesInput {
+  @SerializedName("GatewayType")
+  private String gatewayType = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -38,6 +41,24 @@ public class FilterForListGatewayServicesInput {
 
   @SerializedName("Status")
   private String status = null;
+
+  public FilterForListGatewayServicesInput gatewayType(String gatewayType) {
+    this.gatewayType = gatewayType;
+    return this;
+  }
+
+   /**
+   * Get gatewayType
+   * @return gatewayType
+  **/
+  @Schema(description = "")
+  public String getGatewayType() {
+    return gatewayType;
+  }
+
+  public void setGatewayType(String gatewayType) {
+    this.gatewayType = gatewayType;
+  }
 
   public FilterForListGatewayServicesInput name(String name) {
     this.name = name;
@@ -103,14 +124,15 @@ public class FilterForListGatewayServicesInput {
       return false;
     }
     FilterForListGatewayServicesInput filterForListGatewayServicesInput = (FilterForListGatewayServicesInput) o;
-    return Objects.equals(this.name, filterForListGatewayServicesInput.name) &&
+    return Objects.equals(this.gatewayType, filterForListGatewayServicesInput.gatewayType) &&
+        Objects.equals(this.name, filterForListGatewayServicesInput.name) &&
         Objects.equals(this.serviceType, filterForListGatewayServicesInput.serviceType) &&
         Objects.equals(this.status, filterForListGatewayServicesInput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, serviceType, status);
+    return Objects.hash(gatewayType, name, serviceType, status);
   }
 
 
@@ -119,6 +141,7 @@ public class FilterForListGatewayServicesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListGatewayServicesInput {\n");
     
+    sb.append("    gatewayType: ").append(toIndentedString(gatewayType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

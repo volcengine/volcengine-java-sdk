@@ -39,6 +39,9 @@ public class ReleaseRequest {
   @SerializedName("MaxInstance")
   private Integer maxInstance = null;
 
+  @SerializedName("MinInstance")
+  private Integer minInstance = null;
+
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
 
@@ -101,6 +104,24 @@ public class ReleaseRequest {
 
   public void setMaxInstance(Integer maxInstance) {
     this.maxInstance = maxInstance;
+  }
+
+  public ReleaseRequest minInstance(Integer minInstance) {
+    this.minInstance = minInstance;
+    return this;
+  }
+
+   /**
+   * Get minInstance
+   * @return minInstance
+  **/
+  @Schema(description = "")
+  public Integer getMinInstance() {
+    return minInstance;
+  }
+
+  public void setMinInstance(Integer minInstance) {
+    this.minInstance = minInstance;
   }
 
   public ReleaseRequest revisionNumber(Integer revisionNumber) {
@@ -171,6 +192,7 @@ public class ReleaseRequest {
     return Objects.equals(this.description, releaseRequest.description) &&
         Objects.equals(this.functionId, releaseRequest.functionId) &&
         Objects.equals(this.maxInstance, releaseRequest.maxInstance) &&
+        Objects.equals(this.minInstance, releaseRequest.minInstance) &&
         Objects.equals(this.revisionNumber, releaseRequest.revisionNumber) &&
         Objects.equals(this.rollingStep, releaseRequest.rollingStep) &&
         Objects.equals(this.targetTrafficWeight, releaseRequest.targetTrafficWeight);
@@ -178,7 +200,7 @@ public class ReleaseRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, functionId, maxInstance, revisionNumber, rollingStep, targetTrafficWeight);
+    return Objects.hash(description, functionId, maxInstance, minInstance, revisionNumber, rollingStep, targetTrafficWeight);
   }
 
 
@@ -190,6 +212,7 @@ public class ReleaseRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    maxInstance: ").append(toIndentedString(maxInstance)).append("\n");
+    sb.append("    minInstance: ").append(toIndentedString(minInstance)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    rollingStep: ").append(toIndentedString(rollingStep)).append("\n");
     sb.append("    targetTrafficWeight: ").append(toIndentedString(targetTrafficWeight)).append("\n");
