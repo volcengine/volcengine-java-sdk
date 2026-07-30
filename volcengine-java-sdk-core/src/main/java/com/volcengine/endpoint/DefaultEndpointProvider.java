@@ -884,6 +884,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- apig ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("apig", new ServiceEndpointInfo(
+                "apig",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

@@ -33,6 +33,9 @@ public class AIProviderSettingsForUpdateRouteInput {
   @SerializedName("Model")
   private String model = null;
 
+  @SerializedName("PrefixPath")
+  private String prefixPath = null;
+
   @SerializedName("TargetPath")
   private String targetPath = null;
 
@@ -52,6 +55,24 @@ public class AIProviderSettingsForUpdateRouteInput {
 
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public AIProviderSettingsForUpdateRouteInput prefixPath(String prefixPath) {
+    this.prefixPath = prefixPath;
+    return this;
+  }
+
+   /**
+   * Get prefixPath
+   * @return prefixPath
+  **/
+  @Schema(description = "")
+  public String getPrefixPath() {
+    return prefixPath;
+  }
+
+  public void setPrefixPath(String prefixPath) {
+    this.prefixPath = prefixPath;
   }
 
   public AIProviderSettingsForUpdateRouteInput targetPath(String targetPath) {
@@ -83,12 +104,13 @@ public class AIProviderSettingsForUpdateRouteInput {
     }
     AIProviderSettingsForUpdateRouteInput aiProviderSettingsForUpdateRouteInput = (AIProviderSettingsForUpdateRouteInput) o;
     return Objects.equals(this.model, aiProviderSettingsForUpdateRouteInput.model) &&
+        Objects.equals(this.prefixPath, aiProviderSettingsForUpdateRouteInput.prefixPath) &&
         Objects.equals(this.targetPath, aiProviderSettingsForUpdateRouteInput.targetPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, targetPath);
+    return Objects.hash(model, prefixPath, targetPath);
   }
 
 
@@ -98,6 +120,7 @@ public class AIProviderSettingsForUpdateRouteInput {
     sb.append("class AIProviderSettingsForUpdateRouteInput {\n");
     
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    prefixPath: ").append(toIndentedString(prefixPath)).append("\n");
     sb.append("    targetPath: ").append(toIndentedString(targetPath)).append("\n");
     sb.append("}");
     return sb.toString();

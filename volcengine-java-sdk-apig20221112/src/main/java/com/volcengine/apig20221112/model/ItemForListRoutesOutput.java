@@ -24,6 +24,8 @@ import com.volcengine.apig20221112.model.CustomDomainForListRoutesOutput;
 import com.volcengine.apig20221112.model.DomainForListRoutesOutput;
 import com.volcengine.apig20221112.model.FallbackSettingForListRoutesOutput;
 import com.volcengine.apig20221112.model.MatchRuleForListRoutesOutput;
+import com.volcengine.apig20221112.model.MockSettingForListRoutesOutput;
+import com.volcengine.apig20221112.model.RedirectSettingForListRoutesOutput;
 import com.volcengine.apig20221112.model.UpstreamListForListRoutesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -62,6 +64,9 @@ public class ItemForListRoutesOutput {
   @SerializedName("MatchRule")
   private MatchRuleForListRoutesOutput matchRule = null;
 
+  @SerializedName("MockSetting")
+  private MockSettingForListRoutesOutput mockSetting = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -70,6 +75,12 @@ public class ItemForListRoutesOutput {
 
   @SerializedName("Reason")
   private String reason = null;
+
+  @SerializedName("RedirectSetting")
+  private RedirectSettingForListRoutesOutput redirectSetting = null;
+
+  @SerializedName("Scene")
+  private String scene = null;
 
   @SerializedName("ServiceId")
   private String serviceId = null;
@@ -251,6 +262,25 @@ public class ItemForListRoutesOutput {
     this.matchRule = matchRule;
   }
 
+  public ItemForListRoutesOutput mockSetting(MockSettingForListRoutesOutput mockSetting) {
+    this.mockSetting = mockSetting;
+    return this;
+  }
+
+   /**
+   * Get mockSetting
+   * @return mockSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public MockSettingForListRoutesOutput getMockSetting() {
+    return mockSetting;
+  }
+
+  public void setMockSetting(MockSettingForListRoutesOutput mockSetting) {
+    this.mockSetting = mockSetting;
+  }
+
   public ItemForListRoutesOutput name(String name) {
     this.name = name;
     return this;
@@ -303,6 +333,43 @@ public class ItemForListRoutesOutput {
 
   public void setReason(String reason) {
     this.reason = reason;
+  }
+
+  public ItemForListRoutesOutput redirectSetting(RedirectSettingForListRoutesOutput redirectSetting) {
+    this.redirectSetting = redirectSetting;
+    return this;
+  }
+
+   /**
+   * Get redirectSetting
+   * @return redirectSetting
+  **/
+  @Valid
+  @Schema(description = "")
+  public RedirectSettingForListRoutesOutput getRedirectSetting() {
+    return redirectSetting;
+  }
+
+  public void setRedirectSetting(RedirectSettingForListRoutesOutput redirectSetting) {
+    this.redirectSetting = redirectSetting;
+  }
+
+  public ItemForListRoutesOutput scene(String scene) {
+    this.scene = scene;
+    return this;
+  }
+
+   /**
+   * Get scene
+   * @return scene
+  **/
+  @Schema(description = "")
+  public String getScene() {
+    return scene;
+  }
+
+  public void setScene(String scene) {
+    this.scene = scene;
   }
 
   public ItemForListRoutesOutput serviceId(String serviceId) {
@@ -422,9 +489,12 @@ public class ItemForListRoutesOutput {
         Objects.equals(this.fallbackSetting, itemForListRoutesOutput.fallbackSetting) &&
         Objects.equals(this.id, itemForListRoutesOutput.id) &&
         Objects.equals(this.matchRule, itemForListRoutesOutput.matchRule) &&
+        Objects.equals(this.mockSetting, itemForListRoutesOutput.mockSetting) &&
         Objects.equals(this.name, itemForListRoutesOutput.name) &&
         Objects.equals(this.priority, itemForListRoutesOutput.priority) &&
         Objects.equals(this.reason, itemForListRoutesOutput.reason) &&
+        Objects.equals(this.redirectSetting, itemForListRoutesOutput.redirectSetting) &&
+        Objects.equals(this.scene, itemForListRoutesOutput.scene) &&
         Objects.equals(this.serviceId, itemForListRoutesOutput.serviceId) &&
         Objects.equals(this.serviceName, itemForListRoutesOutput.serviceName) &&
         Objects.equals(this.status, itemForListRoutesOutput.status) &&
@@ -434,7 +504,7 @@ public class ItemForListRoutesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advancedSetting, createTime, customDomains, domains, enable, fallbackSetting, id, matchRule, name, priority, reason, serviceId, serviceName, status, updateTime, upstreamList);
+    return Objects.hash(advancedSetting, createTime, customDomains, domains, enable, fallbackSetting, id, matchRule, mockSetting, name, priority, reason, redirectSetting, scene, serviceId, serviceName, status, updateTime, upstreamList);
   }
 
 
@@ -451,9 +521,12 @@ public class ItemForListRoutesOutput {
     sb.append("    fallbackSetting: ").append(toIndentedString(fallbackSetting)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchRule: ").append(toIndentedString(matchRule)).append("\n");
+    sb.append("    mockSetting: ").append(toIndentedString(mockSetting)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    redirectSetting: ").append(toIndentedString(redirectSetting)).append("\n");
+    sb.append("    scene: ").append(toIndentedString(scene)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -1,0 +1,5 @@
+{
+  "description": "APIG: 新增 CreatePlugin, DeletePlugin, GetPlugin, UpdatePlugin；修改 CreateRoute, GetRoute, ListRoutes, UpdateRoute",
+  "modules": "service/apig",
+  "type": "feature"
+}
