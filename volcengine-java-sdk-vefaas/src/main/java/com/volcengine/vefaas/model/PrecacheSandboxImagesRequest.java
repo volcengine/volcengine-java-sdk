@@ -35,6 +35,9 @@ public class PrecacheSandboxImagesRequest {
   @SerializedName("ImageUrls")
   private List<String> imageUrls = null;
 
+  @SerializedName("RegistryId")
+  private String registryId = null;
+
   public PrecacheSandboxImagesRequest imageUrls(List<String> imageUrls) {
     this.imageUrls = imageUrls;
     return this;
@@ -61,6 +64,24 @@ public class PrecacheSandboxImagesRequest {
     this.imageUrls = imageUrls;
   }
 
+  public PrecacheSandboxImagesRequest registryId(String registryId) {
+    this.registryId = registryId;
+    return this;
+  }
+
+   /**
+   * Get registryId
+   * @return registryId
+  **/
+  @Schema(description = "")
+  public String getRegistryId() {
+    return registryId;
+  }
+
+  public void setRegistryId(String registryId) {
+    this.registryId = registryId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +92,13 @@ public class PrecacheSandboxImagesRequest {
       return false;
     }
     PrecacheSandboxImagesRequest precacheSandboxImagesRequest = (PrecacheSandboxImagesRequest) o;
-    return Objects.equals(this.imageUrls, precacheSandboxImagesRequest.imageUrls);
+    return Objects.equals(this.imageUrls, precacheSandboxImagesRequest.imageUrls) &&
+        Objects.equals(this.registryId, precacheSandboxImagesRequest.registryId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageUrls);
+    return Objects.hash(imageUrls, registryId);
   }
 
 
@@ -86,6 +108,7 @@ public class PrecacheSandboxImagesRequest {
     sb.append("class PrecacheSandboxImagesRequest {\n");
     
     sb.append("    imageUrls: ").append(toIndentedString(imageUrls)).append("\n");
+    sb.append("    registryId: ").append(toIndentedString(registryId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
