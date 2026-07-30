@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.apig.model.HmacAuthCredentialForCheckConsumerCredentialExistInput;
 import com.volcengine.apig.model.KeyAuthCredentialForCheckConsumerCredentialExistInput;
-import com.volcengine.apig.model.Oauth2CredentialForCheckConsumerCredentialExistInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -44,9 +43,6 @@ public class CheckConsumerCredentialExistRequest {
 
   @SerializedName("KeyAuthCredential")
   private KeyAuthCredentialForCheckConsumerCredentialExistInput keyAuthCredential = null;
-
-  @SerializedName("Oauth2Credential")
-  private Oauth2CredentialForCheckConsumerCredentialExistInput oauth2Credential = null;
 
   public CheckConsumerCredentialExistRequest credentialType(String credentialType) {
     this.credentialType = credentialType;
@@ -124,25 +120,6 @@ public class CheckConsumerCredentialExistRequest {
     this.keyAuthCredential = keyAuthCredential;
   }
 
-  public CheckConsumerCredentialExistRequest oauth2Credential(Oauth2CredentialForCheckConsumerCredentialExistInput oauth2Credential) {
-    this.oauth2Credential = oauth2Credential;
-    return this;
-  }
-
-   /**
-   * Get oauth2Credential
-   * @return oauth2Credential
-  **/
-  @Valid
-  @Schema(description = "")
-  public Oauth2CredentialForCheckConsumerCredentialExistInput getOauth2Credential() {
-    return oauth2Credential;
-  }
-
-  public void setOauth2Credential(Oauth2CredentialForCheckConsumerCredentialExistInput oauth2Credential) {
-    this.oauth2Credential = oauth2Credential;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,13 +133,12 @@ public class CheckConsumerCredentialExistRequest {
     return Objects.equals(this.credentialType, checkConsumerCredentialExistRequest.credentialType) &&
         Objects.equals(this.gatewayId, checkConsumerCredentialExistRequest.gatewayId) &&
         Objects.equals(this.hmacAuthCredential, checkConsumerCredentialExistRequest.hmacAuthCredential) &&
-        Objects.equals(this.keyAuthCredential, checkConsumerCredentialExistRequest.keyAuthCredential) &&
-        Objects.equals(this.oauth2Credential, checkConsumerCredentialExistRequest.oauth2Credential);
+        Objects.equals(this.keyAuthCredential, checkConsumerCredentialExistRequest.keyAuthCredential);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialType, gatewayId, hmacAuthCredential, keyAuthCredential, oauth2Credential);
+    return Objects.hash(credentialType, gatewayId, hmacAuthCredential, keyAuthCredential);
   }
 
 
@@ -175,7 +151,6 @@ public class CheckConsumerCredentialExistRequest {
     sb.append("    gatewayId: ").append(toIndentedString(gatewayId)).append("\n");
     sb.append("    hmacAuthCredential: ").append(toIndentedString(hmacAuthCredential)).append("\n");
     sb.append("    keyAuthCredential: ").append(toIndentedString(keyAuthCredential)).append("\n");
-    sb.append("    oauth2Credential: ").append(toIndentedString(oauth2Credential)).append("\n");
     sb.append("}");
     return sb.toString();
   }

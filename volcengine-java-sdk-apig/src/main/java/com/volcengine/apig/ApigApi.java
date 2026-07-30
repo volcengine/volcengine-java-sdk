@@ -43,6 +43,8 @@ import com.volcengine.apig.model.CheckGatewayServiceExistRequest;
 import com.volcengine.apig.model.CheckGatewayServiceExistResponse;
 import com.volcengine.apig.model.CheckUpstreamExistRequest;
 import com.volcengine.apig.model.CheckUpstreamExistResponse;
+import com.volcengine.apig.model.CheckUpstreamSpecExistRequest;
+import com.volcengine.apig.model.CheckUpstreamSpecExistResponse;
 import com.volcengine.apig.model.CheckUpstreamVersionExistRequest;
 import com.volcengine.apig.model.CheckUpstreamVersionExistResponse;
 import com.volcengine.apig.model.CreateConsumerCredentialRequest;
@@ -87,6 +89,8 @@ import com.volcengine.apig.model.GetConsumerRequest;
 import com.volcengine.apig.model.GetConsumerResponse;
 import com.volcengine.apig.model.GetCustomDomainRequest;
 import com.volcengine.apig.model.GetCustomDomainResponse;
+import com.volcengine.apig.model.GetGatewayParametersRequest;
+import com.volcengine.apig.model.GetGatewayParametersResponse;
 import com.volcengine.apig.model.GetGatewayRequest;
 import com.volcengine.apig.model.GetGatewayResponse;
 import com.volcengine.apig.model.GetGatewayServiceRequest;
@@ -123,6 +127,8 @@ import com.volcengine.apig.model.UpdateCustomDomainRequest;
 import com.volcengine.apig.model.UpdateCustomDomainResponse;
 import com.volcengine.apig.model.UpdateGatewayCustomLogRequest;
 import com.volcengine.apig.model.UpdateGatewayCustomLogResponse;
+import com.volcengine.apig.model.UpdateGatewayDownstreamConnectionBufferLimitsRequest;
+import com.volcengine.apig.model.UpdateGatewayDownstreamConnectionBufferLimitsResponse;
 import com.volcengine.apig.model.UpdateGatewayLogRequest;
 import com.volcengine.apig.model.UpdateGatewayLogResponse;
 import com.volcengine.apig.model.UpdateGatewayRequest;
@@ -1156,6 +1162,130 @@ public class ApigApi {
 
         com.squareup.okhttp.Call call = checkUpstreamExistValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CheckUpstreamExistResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for checkUpstreamSpecExist
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call checkUpstreamSpecExistCall(CheckUpstreamSpecExistRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CheckUpstreamSpecExist/2021-03-03/apig/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call checkUpstreamSpecExistValidateBeforeCall(CheckUpstreamSpecExistRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling checkUpstreamSpecExist(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = checkUpstreamSpecExistCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CheckUpstreamSpecExistResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CheckUpstreamSpecExistResponse checkUpstreamSpecExist(CheckUpstreamSpecExistRequest body) throws ApiException {
+        ApiResponse<CheckUpstreamSpecExistResponse> resp = checkUpstreamSpecExistWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CheckUpstreamSpecExistResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CheckUpstreamSpecExistResponse> checkUpstreamSpecExistWithHttpInfo( @NotNull CheckUpstreamSpecExistRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = checkUpstreamSpecExistValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CheckUpstreamSpecExistResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call checkUpstreamSpecExistAsync(CheckUpstreamSpecExistRequest body, final ApiCallback<CheckUpstreamSpecExistResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = checkUpstreamSpecExistValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckUpstreamSpecExistResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4012,6 +4142,130 @@ public class ApigApi {
         return call;
     }
     /**
+     * Build call for getGatewayParameters
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getGatewayParametersCall(GetGatewayParametersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetGatewayParameters/2021-03-03/apig/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getGatewayParametersValidateBeforeCall(GetGatewayParametersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getGatewayParameters(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getGatewayParametersCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetGatewayParametersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetGatewayParametersResponse getGatewayParameters(GetGatewayParametersRequest body) throws ApiException {
+        ApiResponse<GetGatewayParametersResponse> resp = getGatewayParametersWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetGatewayParametersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetGatewayParametersResponse> getGatewayParametersWithHttpInfo( @NotNull GetGatewayParametersRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getGatewayParametersValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetGatewayParametersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getGatewayParametersAsync(GetGatewayParametersRequest body, final ApiCallback<GetGatewayParametersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getGatewayParametersValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetGatewayParametersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getGatewayService
      * @param body  (required)
      * @param progressListener Progress listener
@@ -6240,6 +6494,130 @@ public class ApigApi {
 
         com.squareup.okhttp.Call call = updateGatewayCustomLogValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateGatewayCustomLogResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateGatewayDownstreamConnectionBufferLimits
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateGatewayDownstreamConnectionBufferLimitsCall(UpdateGatewayDownstreamConnectionBufferLimitsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateGatewayDownstreamConnectionBufferLimits/2021-03-03/apig/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateGatewayDownstreamConnectionBufferLimitsValidateBeforeCall(UpdateGatewayDownstreamConnectionBufferLimitsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateGatewayDownstreamConnectionBufferLimits(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateGatewayDownstreamConnectionBufferLimitsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateGatewayDownstreamConnectionBufferLimitsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateGatewayDownstreamConnectionBufferLimitsResponse updateGatewayDownstreamConnectionBufferLimits(UpdateGatewayDownstreamConnectionBufferLimitsRequest body) throws ApiException {
+        ApiResponse<UpdateGatewayDownstreamConnectionBufferLimitsResponse> resp = updateGatewayDownstreamConnectionBufferLimitsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateGatewayDownstreamConnectionBufferLimitsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateGatewayDownstreamConnectionBufferLimitsResponse> updateGatewayDownstreamConnectionBufferLimitsWithHttpInfo( @NotNull UpdateGatewayDownstreamConnectionBufferLimitsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateGatewayDownstreamConnectionBufferLimitsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateGatewayDownstreamConnectionBufferLimitsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateGatewayDownstreamConnectionBufferLimitsAsync(UpdateGatewayDownstreamConnectionBufferLimitsRequest body, final ApiCallback<UpdateGatewayDownstreamConnectionBufferLimitsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateGatewayDownstreamConnectionBufferLimitsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateGatewayDownstreamConnectionBufferLimitsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

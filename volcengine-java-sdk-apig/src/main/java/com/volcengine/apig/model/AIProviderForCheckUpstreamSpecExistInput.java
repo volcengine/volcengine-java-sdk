@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.CustomBodyParamsForGetUpstreamOutput;
-import com.volcengine.apig.model.CustomHeaderParamsForGetUpstreamOutput;
-import com.volcengine.apig.model.CustomModelServiceForGetUpstreamOutput;
+import com.volcengine.apig.model.CustomBodyParamsForCheckUpstreamSpecExistInput;
+import com.volcengine.apig.model.CustomHeaderParamsForCheckUpstreamSpecExistInput;
+import com.volcengine.apig.model.CustomModelServiceForCheckUpstreamSpecExistInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,12 +29,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AIProviderForGetUpstreamOutput
+ * AIProviderForCheckUpstreamSpecExistInput
  */
 
 
 
-public class AIProviderForGetUpstreamOutput {
+public class AIProviderForCheckUpstreamSpecExistInput {
   @SerializedName("ApiProtocol")
   private String apiProtocol = null;
 
@@ -42,13 +42,13 @@ public class AIProviderForGetUpstreamOutput {
   private String baseUrl = null;
 
   @SerializedName("CustomBodyParams")
-  private CustomBodyParamsForGetUpstreamOutput customBodyParams = null;
+  private CustomBodyParamsForCheckUpstreamSpecExistInput customBodyParams = null;
 
   @SerializedName("CustomHeaderParams")
-  private CustomHeaderParamsForGetUpstreamOutput customHeaderParams = null;
+  private CustomHeaderParamsForCheckUpstreamSpecExistInput customHeaderParams = null;
 
   @SerializedName("CustomModelService")
-  private CustomModelServiceForGetUpstreamOutput customModelService = null;
+  private CustomModelServiceForCheckUpstreamSpecExistInput customModelService = null;
 
   @SerializedName("MaxRetries")
   private Long maxRetries = null;
@@ -62,7 +62,7 @@ public class AIProviderForGetUpstreamOutput {
   @SerializedName("TokenPool")
   private List<String> tokenPool = null;
 
-  public AIProviderForGetUpstreamOutput apiProtocol(String apiProtocol) {
+  public AIProviderForCheckUpstreamSpecExistInput apiProtocol(String apiProtocol) {
     this.apiProtocol = apiProtocol;
     return this;
   }
@@ -80,7 +80,7 @@ public class AIProviderForGetUpstreamOutput {
     this.apiProtocol = apiProtocol;
   }
 
-  public AIProviderForGetUpstreamOutput baseUrl(String baseUrl) {
+  public AIProviderForCheckUpstreamSpecExistInput baseUrl(String baseUrl) {
     this.baseUrl = baseUrl;
     return this;
   }
@@ -98,7 +98,7 @@ public class AIProviderForGetUpstreamOutput {
     this.baseUrl = baseUrl;
   }
 
-  public AIProviderForGetUpstreamOutput customBodyParams(CustomBodyParamsForGetUpstreamOutput customBodyParams) {
+  public AIProviderForCheckUpstreamSpecExistInput customBodyParams(CustomBodyParamsForCheckUpstreamSpecExistInput customBodyParams) {
     this.customBodyParams = customBodyParams;
     return this;
   }
@@ -109,15 +109,15 @@ public class AIProviderForGetUpstreamOutput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomBodyParamsForGetUpstreamOutput getCustomBodyParams() {
+  public CustomBodyParamsForCheckUpstreamSpecExistInput getCustomBodyParams() {
     return customBodyParams;
   }
 
-  public void setCustomBodyParams(CustomBodyParamsForGetUpstreamOutput customBodyParams) {
+  public void setCustomBodyParams(CustomBodyParamsForCheckUpstreamSpecExistInput customBodyParams) {
     this.customBodyParams = customBodyParams;
   }
 
-  public AIProviderForGetUpstreamOutput customHeaderParams(CustomHeaderParamsForGetUpstreamOutput customHeaderParams) {
+  public AIProviderForCheckUpstreamSpecExistInput customHeaderParams(CustomHeaderParamsForCheckUpstreamSpecExistInput customHeaderParams) {
     this.customHeaderParams = customHeaderParams;
     return this;
   }
@@ -128,15 +128,15 @@ public class AIProviderForGetUpstreamOutput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomHeaderParamsForGetUpstreamOutput getCustomHeaderParams() {
+  public CustomHeaderParamsForCheckUpstreamSpecExistInput getCustomHeaderParams() {
     return customHeaderParams;
   }
 
-  public void setCustomHeaderParams(CustomHeaderParamsForGetUpstreamOutput customHeaderParams) {
+  public void setCustomHeaderParams(CustomHeaderParamsForCheckUpstreamSpecExistInput customHeaderParams) {
     this.customHeaderParams = customHeaderParams;
   }
 
-  public AIProviderForGetUpstreamOutput customModelService(CustomModelServiceForGetUpstreamOutput customModelService) {
+  public AIProviderForCheckUpstreamSpecExistInput customModelService(CustomModelServiceForCheckUpstreamSpecExistInput customModelService) {
     this.customModelService = customModelService;
     return this;
   }
@@ -147,15 +147,15 @@ public class AIProviderForGetUpstreamOutput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomModelServiceForGetUpstreamOutput getCustomModelService() {
+  public CustomModelServiceForCheckUpstreamSpecExistInput getCustomModelService() {
     return customModelService;
   }
 
-  public void setCustomModelService(CustomModelServiceForGetUpstreamOutput customModelService) {
+  public void setCustomModelService(CustomModelServiceForCheckUpstreamSpecExistInput customModelService) {
     this.customModelService = customModelService;
   }
 
-  public AIProviderForGetUpstreamOutput maxRetries(Long maxRetries) {
+  public AIProviderForCheckUpstreamSpecExistInput maxRetries(Long maxRetries) {
     this.maxRetries = maxRetries;
     return this;
   }
@@ -173,7 +173,7 @@ public class AIProviderForGetUpstreamOutput {
     this.maxRetries = maxRetries;
   }
 
-  public AIProviderForGetUpstreamOutput name(String name) {
+  public AIProviderForCheckUpstreamSpecExistInput name(String name) {
     this.name = name;
     return this;
   }
@@ -191,7 +191,7 @@ public class AIProviderForGetUpstreamOutput {
     this.name = name;
   }
 
-  public AIProviderForGetUpstreamOutput token(String token) {
+  public AIProviderForCheckUpstreamSpecExistInput token(String token) {
     this.token = token;
     return this;
   }
@@ -209,12 +209,12 @@ public class AIProviderForGetUpstreamOutput {
     this.token = token;
   }
 
-  public AIProviderForGetUpstreamOutput tokenPool(List<String> tokenPool) {
+  public AIProviderForCheckUpstreamSpecExistInput tokenPool(List<String> tokenPool) {
     this.tokenPool = tokenPool;
     return this;
   }
 
-  public AIProviderForGetUpstreamOutput addTokenPoolItem(String tokenPoolItem) {
+  public AIProviderForCheckUpstreamSpecExistInput addTokenPoolItem(String tokenPoolItem) {
     if (this.tokenPool == null) {
       this.tokenPool = new ArrayList<String>();
     }
@@ -244,16 +244,16 @@ public class AIProviderForGetUpstreamOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AIProviderForGetUpstreamOutput aiProviderForGetUpstreamOutput = (AIProviderForGetUpstreamOutput) o;
-    return Objects.equals(this.apiProtocol, aiProviderForGetUpstreamOutput.apiProtocol) &&
-        Objects.equals(this.baseUrl, aiProviderForGetUpstreamOutput.baseUrl) &&
-        Objects.equals(this.customBodyParams, aiProviderForGetUpstreamOutput.customBodyParams) &&
-        Objects.equals(this.customHeaderParams, aiProviderForGetUpstreamOutput.customHeaderParams) &&
-        Objects.equals(this.customModelService, aiProviderForGetUpstreamOutput.customModelService) &&
-        Objects.equals(this.maxRetries, aiProviderForGetUpstreamOutput.maxRetries) &&
-        Objects.equals(this.name, aiProviderForGetUpstreamOutput.name) &&
-        Objects.equals(this.token, aiProviderForGetUpstreamOutput.token) &&
-        Objects.equals(this.tokenPool, aiProviderForGetUpstreamOutput.tokenPool);
+    AIProviderForCheckUpstreamSpecExistInput aiProviderForCheckUpstreamSpecExistInput = (AIProviderForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.apiProtocol, aiProviderForCheckUpstreamSpecExistInput.apiProtocol) &&
+        Objects.equals(this.baseUrl, aiProviderForCheckUpstreamSpecExistInput.baseUrl) &&
+        Objects.equals(this.customBodyParams, aiProviderForCheckUpstreamSpecExistInput.customBodyParams) &&
+        Objects.equals(this.customHeaderParams, aiProviderForCheckUpstreamSpecExistInput.customHeaderParams) &&
+        Objects.equals(this.customModelService, aiProviderForCheckUpstreamSpecExistInput.customModelService) &&
+        Objects.equals(this.maxRetries, aiProviderForCheckUpstreamSpecExistInput.maxRetries) &&
+        Objects.equals(this.name, aiProviderForCheckUpstreamSpecExistInput.name) &&
+        Objects.equals(this.token, aiProviderForCheckUpstreamSpecExistInput.token) &&
+        Objects.equals(this.tokenPool, aiProviderForCheckUpstreamSpecExistInput.tokenPool);
   }
 
   @Override
@@ -265,7 +265,7 @@ public class AIProviderForGetUpstreamOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AIProviderForGetUpstreamOutput {\n");
+    sb.append("class AIProviderForCheckUpstreamSpecExistInput {\n");
     
     sb.append("    apiProtocol: ").append(toIndentedString(apiProtocol)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");

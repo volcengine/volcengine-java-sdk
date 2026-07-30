@@ -19,57 +19,48 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.apig.model.DomainListForCheckUpstreamSpecExistInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * Oauth2CredentialForListConsumerCredentialsOutput
+ * DomainForCheckUpstreamSpecExistInput
  */
 
 
 
-public class Oauth2CredentialForListConsumerCredentialsOutput {
-  @SerializedName("ClientId")
-  private String clientId = null;
+public class DomainForCheckUpstreamSpecExistInput {
+  @SerializedName("DomainList")
+  private List<DomainListForCheckUpstreamSpecExistInput> domainList = null;
 
-  @SerializedName("Enable")
-  private Boolean enable = null;
+  public DomainForCheckUpstreamSpecExistInput domainList(List<DomainListForCheckUpstreamSpecExistInput> domainList) {
+    this.domainList = domainList;
+    return this;
+  }
 
-  public Oauth2CredentialForListConsumerCredentialsOutput clientId(String clientId) {
-    this.clientId = clientId;
+  public DomainForCheckUpstreamSpecExistInput addDomainListItem(DomainListForCheckUpstreamSpecExistInput domainListItem) {
+    if (this.domainList == null) {
+      this.domainList = new ArrayList<DomainListForCheckUpstreamSpecExistInput>();
+    }
+    this.domainList.add(domainListItem);
     return this;
   }
 
    /**
-   * Get clientId
-   * @return clientId
+   * Get domainList
+   * @return domainList
   **/
+  @Valid
   @Schema(description = "")
-  public String getClientId() {
-    return clientId;
+  public List<DomainListForCheckUpstreamSpecExistInput> getDomainList() {
+    return domainList;
   }
 
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-  public Oauth2CredentialForListConsumerCredentialsOutput enable(Boolean enable) {
-    this.enable = enable;
-    return this;
-  }
-
-   /**
-   * Get enable
-   * @return enable
-  **/
-  @Schema(description = "")
-  public Boolean isEnable() {
-    return enable;
-  }
-
-  public void setEnable(Boolean enable) {
-    this.enable = enable;
+  public void setDomainList(List<DomainListForCheckUpstreamSpecExistInput> domainList) {
+    this.domainList = domainList;
   }
 
 
@@ -81,24 +72,22 @@ public class Oauth2CredentialForListConsumerCredentialsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Oauth2CredentialForListConsumerCredentialsOutput oauth2CredentialForListConsumerCredentialsOutput = (Oauth2CredentialForListConsumerCredentialsOutput) o;
-    return Objects.equals(this.clientId, oauth2CredentialForListConsumerCredentialsOutput.clientId) &&
-        Objects.equals(this.enable, oauth2CredentialForListConsumerCredentialsOutput.enable);
+    DomainForCheckUpstreamSpecExistInput domainForCheckUpstreamSpecExistInput = (DomainForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.domainList, domainForCheckUpstreamSpecExistInput.domainList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, enable);
+    return Objects.hash(domainList);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Oauth2CredentialForListConsumerCredentialsOutput {\n");
+    sb.append("class DomainForCheckUpstreamSpecExistInput {\n");
     
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    domainList: ").append(toIndentedString(domainList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

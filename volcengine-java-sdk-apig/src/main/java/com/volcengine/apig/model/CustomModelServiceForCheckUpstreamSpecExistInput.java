@@ -24,58 +24,58 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BackendTargetListForGetUpstreamOutput
+ * CustomModelServiceForCheckUpstreamSpecExistInput
  */
 
 
 
-public class BackendTargetListForGetUpstreamOutput {
-  @SerializedName("HealthStatus")
-  private String healthStatus = null;
+public class CustomModelServiceForCheckUpstreamSpecExistInput {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("IP")
-  private String IP = null;
+  @SerializedName("Namespace")
+  private String namespace = null;
 
   @SerializedName("Port")
   private Integer port = null;
 
-  public BackendTargetListForGetUpstreamOutput healthStatus(String healthStatus) {
-    this.healthStatus = healthStatus;
+  public CustomModelServiceForCheckUpstreamSpecExistInput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get healthStatus
-   * @return healthStatus
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getHealthStatus() {
-    return healthStatus;
+  public String getName() {
+    return name;
   }
 
-  public void setHealthStatus(String healthStatus) {
-    this.healthStatus = healthStatus;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public BackendTargetListForGetUpstreamOutput IP(String IP) {
-    this.IP = IP;
+  public CustomModelServiceForCheckUpstreamSpecExistInput namespace(String namespace) {
+    this.namespace = namespace;
     return this;
   }
 
    /**
-   * Get IP
-   * @return IP
+   * Get namespace
+   * @return namespace
   **/
   @Schema(description = "")
-  public String getIP() {
-    return IP;
+  public String getNamespace() {
+    return namespace;
   }
 
-  public void setIP(String IP) {
-    this.IP = IP;
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
   }
 
-  public BackendTargetListForGetUpstreamOutput port(Integer port) {
+  public CustomModelServiceForCheckUpstreamSpecExistInput port(Integer port) {
     this.port = port;
     return this;
   }
@@ -102,25 +102,25 @@ public class BackendTargetListForGetUpstreamOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BackendTargetListForGetUpstreamOutput backendTargetListForGetUpstreamOutput = (BackendTargetListForGetUpstreamOutput) o;
-    return Objects.equals(this.healthStatus, backendTargetListForGetUpstreamOutput.healthStatus) &&
-        Objects.equals(this.IP, backendTargetListForGetUpstreamOutput.IP) &&
-        Objects.equals(this.port, backendTargetListForGetUpstreamOutput.port);
+    CustomModelServiceForCheckUpstreamSpecExistInput customModelServiceForCheckUpstreamSpecExistInput = (CustomModelServiceForCheckUpstreamSpecExistInput) o;
+    return Objects.equals(this.name, customModelServiceForCheckUpstreamSpecExistInput.name) &&
+        Objects.equals(this.namespace, customModelServiceForCheckUpstreamSpecExistInput.namespace) &&
+        Objects.equals(this.port, customModelServiceForCheckUpstreamSpecExistInput.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(healthStatus, IP, port);
+    return Objects.hash(name, namespace, port);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BackendTargetListForGetUpstreamOutput {\n");
+    sb.append("class CustomModelServiceForCheckUpstreamSpecExistInput {\n");
     
-    sb.append("    healthStatus: ").append(toIndentedString(healthStatus)).append("\n");
-    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("}");
     return sb.toString();

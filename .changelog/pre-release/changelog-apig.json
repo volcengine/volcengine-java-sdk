@@ -1,5 +1,5 @@
 {
-  "description": "APIG: 新增 CreatePlugin, DeletePlugin, GetPlugin, UpdatePlugin；修改 CreateRoute, GetRoute, ListRoutes, UpdateRoute",
+  "description": "APIG: 新增 CreatePlugin, DeletePlugin, GetPlugin, UpdatePlugin, CheckUpstreamSpecExist, GetGatewayParameters, UpdateGatewayDownstreamConnectionBufferLimits；修改 CreateRoute, GetRoute, ListRoutes, UpdateRoute, CreateConsumerCredential, ListConsumerCredentials, UpdateUpstream, UpdateGatewayService, CheckConsumerCredentialExist, GetUpstream, ListUpstreams, CreateGatewayService, CreateUpstream, ListGatewayServices, ListUpstreamSources",
   "modules": "service/apig",
-  "type": "feature"
+  "type": "breaking-change"
 }

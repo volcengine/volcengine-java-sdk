@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * Oauth2CredentialForCheckConsumerCredentialExistInput
+ * FixedIPListForGetUpstreamOutput
  */
 
 
 
-public class Oauth2CredentialForCheckConsumerCredentialExistInput {
-  @SerializedName("ClientId")
-  private String clientId = null;
+public class FixedIPListForGetUpstreamOutput {
+  @SerializedName("IP")
+  private String IP = null;
 
-  public Oauth2CredentialForCheckConsumerCredentialExistInput clientId(String clientId) {
-    this.clientId = clientId;
+  @SerializedName("Port")
+  private Integer port = null;
+
+  public FixedIPListForGetUpstreamOutput IP(String IP) {
+    this.IP = IP;
     return this;
   }
 
    /**
-   * Get clientId
-   * @return clientId
+   * Get IP
+   * @return IP
   **/
   @Schema(description = "")
-  public String getClientId() {
-    return clientId;
+  public String getIP() {
+    return IP;
   }
 
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
+  public void setIP(String IP) {
+    this.IP = IP;
+  }
+
+  public FixedIPListForGetUpstreamOutput port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
   }
 
 
@@ -60,22 +81,24 @@ public class Oauth2CredentialForCheckConsumerCredentialExistInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Oauth2CredentialForCheckConsumerCredentialExistInput oauth2CredentialForCheckConsumerCredentialExistInput = (Oauth2CredentialForCheckConsumerCredentialExistInput) o;
-    return Objects.equals(this.clientId, oauth2CredentialForCheckConsumerCredentialExistInput.clientId);
+    FixedIPListForGetUpstreamOutput fixedIPListForGetUpstreamOutput = (FixedIPListForGetUpstreamOutput) o;
+    return Objects.equals(this.IP, fixedIPListForGetUpstreamOutput.IP) &&
+        Objects.equals(this.port, fixedIPListForGetUpstreamOutput.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId);
+    return Objects.hash(IP, port);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Oauth2CredentialForCheckConsumerCredentialExistInput {\n");
+    sb.append("class FixedIPListForGetUpstreamOutput {\n");
     
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    IP: ").append(toIndentedString(IP)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("}");
     return sb.toString();
   }

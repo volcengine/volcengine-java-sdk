@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.apig.model.BackendTargetListForGetUpstreamOutput;
 import com.volcengine.apig.model.CircuitBreakingSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.ConnectionPoolSettingsForGetUpstreamOutput;
 import com.volcengine.apig.model.LoadBalancerSettingsForGetUpstreamOutput;
@@ -39,9 +38,6 @@ import javax.validation.Valid;
 
 
 public class UpstreamForGetUpstreamOutput {
-  @SerializedName("BackendTargetList")
-  private List<BackendTargetListForGetUpstreamOutput> backendTargetList = null;
-
   @SerializedName("CircuitBreakingSettings")
   private CircuitBreakingSettingsForGetUpstreamOutput circuitBreakingSettings = null;
 
@@ -83,33 +79,6 @@ public class UpstreamForGetUpstreamOutput {
 
   @SerializedName("VersionDetails")
   private List<VersionDetailForGetUpstreamOutput> versionDetails = null;
-
-  public UpstreamForGetUpstreamOutput backendTargetList(List<BackendTargetListForGetUpstreamOutput> backendTargetList) {
-    this.backendTargetList = backendTargetList;
-    return this;
-  }
-
-  public UpstreamForGetUpstreamOutput addBackendTargetListItem(BackendTargetListForGetUpstreamOutput backendTargetListItem) {
-    if (this.backendTargetList == null) {
-      this.backendTargetList = new ArrayList<BackendTargetListForGetUpstreamOutput>();
-    }
-    this.backendTargetList.add(backendTargetListItem);
-    return this;
-  }
-
-   /**
-   * Get backendTargetList
-   * @return backendTargetList
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<BackendTargetListForGetUpstreamOutput> getBackendTargetList() {
-    return backendTargetList;
-  }
-
-  public void setBackendTargetList(List<BackendTargetListForGetUpstreamOutput> backendTargetList) {
-    this.backendTargetList = backendTargetList;
-  }
 
   public UpstreamForGetUpstreamOutput circuitBreakingSettings(CircuitBreakingSettingsForGetUpstreamOutput circuitBreakingSettings) {
     this.circuitBreakingSettings = circuitBreakingSettings;
@@ -387,8 +356,7 @@ public class UpstreamForGetUpstreamOutput {
       return false;
     }
     UpstreamForGetUpstreamOutput upstreamForGetUpstreamOutput = (UpstreamForGetUpstreamOutput) o;
-    return Objects.equals(this.backendTargetList, upstreamForGetUpstreamOutput.backendTargetList) &&
-        Objects.equals(this.circuitBreakingSettings, upstreamForGetUpstreamOutput.circuitBreakingSettings) &&
+    return Objects.equals(this.circuitBreakingSettings, upstreamForGetUpstreamOutput.circuitBreakingSettings) &&
         Objects.equals(this.comments, upstreamForGetUpstreamOutput.comments) &&
         Objects.equals(this.connectionPoolSettings, upstreamForGetUpstreamOutput.connectionPoolSettings) &&
         Objects.equals(this.createTime, upstreamForGetUpstreamOutput.createTime) &&
@@ -406,7 +374,7 @@ public class UpstreamForGetUpstreamOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendTargetList, circuitBreakingSettings, comments, connectionPoolSettings, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
+    return Objects.hash(circuitBreakingSettings, comments, connectionPoolSettings, createTime, gatewayId, id, loadBalancerSettings, name, protocol, sourceType, tlsSettings, updateTime, upstreamSpec, versionDetails);
   }
 
 
@@ -415,7 +383,6 @@ public class UpstreamForGetUpstreamOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpstreamForGetUpstreamOutput {\n");
     
-    sb.append("    backendTargetList: ").append(toIndentedString(backendTargetList)).append("\n");
     sb.append("    circuitBreakingSettings: ").append(toIndentedString(circuitBreakingSettings)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    connectionPoolSettings: ").append(toIndentedString(connectionPoolSettings)).append("\n");
