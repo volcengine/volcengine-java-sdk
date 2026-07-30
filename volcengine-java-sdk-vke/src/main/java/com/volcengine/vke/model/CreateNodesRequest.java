@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.GpuDriverConfigForCreateNodesInput;
 import com.volcengine.vke.model.KubernetesConfigForCreateNodesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -44,6 +45,9 @@ public class CreateNodesRequest {
 
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
+
+  @SerializedName("GpuDriverConfig")
+  private GpuDriverConfigForCreateNodesInput gpuDriverConfig = null;
 
   @SerializedName("GpuDriverVersion")
   private String gpuDriverVersion = null;
@@ -143,6 +147,25 @@ public class CreateNodesRequest {
 
   public void setContainerStoragePath(String containerStoragePath) {
     this.containerStoragePath = containerStoragePath;
+  }
+
+  public CreateNodesRequest gpuDriverConfig(GpuDriverConfigForCreateNodesInput gpuDriverConfig) {
+    this.gpuDriverConfig = gpuDriverConfig;
+    return this;
+  }
+
+   /**
+   * Get gpuDriverConfig
+   * @return gpuDriverConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public GpuDriverConfigForCreateNodesInput getGpuDriverConfig() {
+    return gpuDriverConfig;
+  }
+
+  public void setGpuDriverConfig(GpuDriverConfigForCreateNodesInput gpuDriverConfig) {
+    this.gpuDriverConfig = gpuDriverConfig;
   }
 
   public CreateNodesRequest gpuDriverVersion(String gpuDriverVersion) {
@@ -330,6 +353,7 @@ public class CreateNodesRequest {
         Objects.equals(this.clientToken, createNodesRequest.clientToken) &&
         Objects.equals(this.clusterId, createNodesRequest.clusterId) &&
         Objects.equals(this.containerStoragePath, createNodesRequest.containerStoragePath) &&
+        Objects.equals(this.gpuDriverConfig, createNodesRequest.gpuDriverConfig) &&
         Objects.equals(this.gpuDriverVersion, createNodesRequest.gpuDriverVersion) &&
         Objects.equals(this.imageId, createNodesRequest.imageId) &&
         Objects.equals(this.initializeScript, createNodesRequest.initializeScript) &&
@@ -343,7 +367,7 @@ public class CreateNodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, gpuDriverVersion, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, gpuDriverConfig, gpuDriverVersion, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
   }
 
 
@@ -356,6 +380,7 @@ public class CreateNodesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
+    sb.append("    gpuDriverConfig: ").append(toIndentedString(gpuDriverConfig)).append("\n");
     sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");

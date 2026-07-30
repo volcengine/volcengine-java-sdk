@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "CreateNodes",
+    "ListNodePools",
+    "UpdateClusterConfig",
+    "UpdateNodePoolConfig",
+    "CreateCluster",
+    "ListClusters",
+    "CreateDefaultNodePool",
+    "CreateNodePool"
+  ],
+  "description": "VKE: 修改 CreateNodes, ListNodePools, UpdateClusterConfig, UpdateNodePoolConfig, CreateCluster, ListClusters, CreateDefaultNodePool, CreateNodePool",
+  "modules": "service/vke",
+  "type": "breaking-change"
+}

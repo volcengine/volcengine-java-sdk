@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AffinityGroupConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.DataVolumeForCreateNodePoolInput;
+import com.volcengine.vke.model.GpuDriverConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.InstancesDistributionForCreateNodePoolInput;
 import com.volcengine.vke.model.PublicAccessConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.SecurityForCreateNodePoolInput;
@@ -59,6 +60,9 @@ public class NodeConfigForCreateNodePoolInput {
 
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
+
+  @SerializedName("GpuDriverConfig")
+  private GpuDriverConfigForCreateNodePoolInput gpuDriverConfig = null;
 
   @SerializedName("GpuDriverVersion")
   private String gpuDriverVersion = null;
@@ -343,6 +347,25 @@ public class NodeConfigForCreateNodePoolInput {
 
   public void setDeploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
+  }
+
+  public NodeConfigForCreateNodePoolInput gpuDriverConfig(GpuDriverConfigForCreateNodePoolInput gpuDriverConfig) {
+    this.gpuDriverConfig = gpuDriverConfig;
+    return this;
+  }
+
+   /**
+   * Get gpuDriverConfig
+   * @return gpuDriverConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public GpuDriverConfigForCreateNodePoolInput getGpuDriverConfig() {
+    return gpuDriverConfig;
+  }
+
+  public void setGpuDriverConfig(GpuDriverConfigForCreateNodePoolInput gpuDriverConfig) {
+    this.gpuDriverConfig = gpuDriverConfig;
   }
 
   public NodeConfigForCreateNodePoolInput gpuDriverVersion(String gpuDriverVersion) {
@@ -777,6 +800,7 @@ public class NodeConfigForCreateNodePoolInput {
         Objects.equals(this.dataVolumes, nodeConfigForCreateNodePoolInput.dataVolumes) &&
         Objects.equals(this.deploymentSetGroupNumber, nodeConfigForCreateNodePoolInput.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, nodeConfigForCreateNodePoolInput.deploymentSetId) &&
+        Objects.equals(this.gpuDriverConfig, nodeConfigForCreateNodePoolInput.gpuDriverConfig) &&
         Objects.equals(this.gpuDriverVersion, nodeConfigForCreateNodePoolInput.gpuDriverVersion) &&
         Objects.equals(this.hostname, nodeConfigForCreateNodePoolInput.hostname) &&
         Objects.equals(this.hpcClusterIds, nodeConfigForCreateNodePoolInput.hpcClusterIds) &&
@@ -802,7 +826,7 @@ public class NodeConfigForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotStrategy, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, gpuDriverConfig, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotStrategy, subnetIds, systemVolume, tags);
   }
 
 
@@ -818,6 +842,7 @@ public class NodeConfigForCreateNodePoolInput {
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    gpuDriverConfig: ").append(toIndentedString(gpuDriverConfig)).append("\n");
     sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");

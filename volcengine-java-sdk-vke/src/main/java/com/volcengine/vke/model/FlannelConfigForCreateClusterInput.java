@@ -38,6 +38,9 @@ public class FlannelConfigForCreateClusterInput {
   @SerializedName("PodCidrs")
   private List<String> podCidrs = null;
 
+  @SerializedName("SubnetIds")
+  private List<String> subnetIds = null;
+
   public FlannelConfigForCreateClusterInput maxPodsPerNode(Integer maxPodsPerNode) {
     this.maxPodsPerNode = maxPodsPerNode;
     return this;
@@ -82,6 +85,32 @@ public class FlannelConfigForCreateClusterInput {
     this.podCidrs = podCidrs;
   }
 
+  public FlannelConfigForCreateClusterInput subnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+    return this;
+  }
+
+  public FlannelConfigForCreateClusterInput addSubnetIdsItem(String subnetIdsItem) {
+    if (this.subnetIds == null) {
+      this.subnetIds = new ArrayList<String>();
+    }
+    this.subnetIds.add(subnetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get subnetIds
+   * @return subnetIds
+  **/
+  @Schema(description = "")
+  public List<String> getSubnetIds() {
+    return subnetIds;
+  }
+
+  public void setSubnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +122,13 @@ public class FlannelConfigForCreateClusterInput {
     }
     FlannelConfigForCreateClusterInput flannelConfigForCreateClusterInput = (FlannelConfigForCreateClusterInput) o;
     return Objects.equals(this.maxPodsPerNode, flannelConfigForCreateClusterInput.maxPodsPerNode) &&
-        Objects.equals(this.podCidrs, flannelConfigForCreateClusterInput.podCidrs);
+        Objects.equals(this.podCidrs, flannelConfigForCreateClusterInput.podCidrs) &&
+        Objects.equals(this.subnetIds, flannelConfigForCreateClusterInput.subnetIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxPodsPerNode, podCidrs);
+    return Objects.hash(maxPodsPerNode, podCidrs, subnetIds);
   }
 
 
@@ -109,6 +139,7 @@ public class FlannelConfigForCreateClusterInput {
     
     sb.append("    maxPodsPerNode: ").append(toIndentedString(maxPodsPerNode)).append("\n");
     sb.append("    podCidrs: ").append(toIndentedString(podCidrs)).append("\n");
+    sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
