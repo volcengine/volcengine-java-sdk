@@ -351,5 +351,6 @@
         <module>volcengine-java-sdk-agentsphere</module>
         <module>volcengine-java-sdk-cpaas</module>
         <module>volcengine-java-sdk-cloudcontrol</module>
+        <module>volcengine-java-sdk-volcsms</module>
     </modules>
 </project>
