@@ -83,6 +83,9 @@ public class CreateSandboxRequest {
   @SerializedName("RoleChainTrn")
   private List<String> roleChainTrn = null;
 
+  @SerializedName("RoleTrn")
+  private String roleTrn = null;
+
   @SerializedName("SessionId")
   private String sessionId = null;
 
@@ -397,6 +400,24 @@ public class CreateSandboxRequest {
     this.roleChainTrn = roleChainTrn;
   }
 
+  public CreateSandboxRequest roleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
+    return this;
+  }
+
+   /**
+   * Get roleTrn
+   * @return roleTrn
+  **/
+  @Schema(description = "")
+  public String getRoleTrn() {
+    return roleTrn;
+  }
+
+  public void setRoleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
+  }
+
   public CreateSandboxRequest sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
@@ -520,6 +541,7 @@ public class CreateSandboxRequest {
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
         Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
         Objects.equals(this.roleChainTrn, createSandboxRequest.roleChainTrn) &&
+        Objects.equals(this.roleTrn, createSandboxRequest.roleTrn) &&
         Objects.equals(this.sessionId, createSandboxRequest.sessionId) &&
         Objects.equals(this.sidecars, createSandboxRequest.sidecars) &&
         Objects.equals(this.snapshotId, createSandboxRequest.snapshotId) &&
@@ -529,7 +551,7 @@ public class CreateSandboxRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
+    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, roleTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
   }
 
 
@@ -552,6 +574,7 @@ public class CreateSandboxRequest {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
+    sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
