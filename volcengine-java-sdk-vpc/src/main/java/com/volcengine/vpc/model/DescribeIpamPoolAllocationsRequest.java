@@ -47,6 +47,12 @@ public class DescribeIpamPoolAllocationsRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   public DescribeIpamPoolAllocationsRequest cidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
     return this;
@@ -146,6 +152,42 @@ public class DescribeIpamPoolAllocationsRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeIpamPoolAllocationsRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeIpamPoolAllocationsRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +202,14 @@ public class DescribeIpamPoolAllocationsRequest {
         Objects.equals(this.ipamPoolAllocationIds, describeIpamPoolAllocationsRequest.ipamPoolAllocationIds) &&
         Objects.equals(this.ipamPoolId, describeIpamPoolAllocationsRequest.ipamPoolId) &&
         Objects.equals(this.maxResults, describeIpamPoolAllocationsRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeIpamPoolAllocationsRequest.nextToken);
+        Objects.equals(this.nextToken, describeIpamPoolAllocationsRequest.nextToken) &&
+        Objects.equals(this.pageNumber, describeIpamPoolAllocationsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeIpamPoolAllocationsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, ipamPoolAllocationIds, ipamPoolId, maxResults, nextToken);
+    return Objects.hash(cidrBlock, ipamPoolAllocationIds, ipamPoolId, maxResults, nextToken, pageNumber, pageSize);
   }
 
 
@@ -179,6 +223,8 @@ public class DescribeIpamPoolAllocationsRequest {
     sb.append("    ipamPoolId: ").append(toIndentedString(ipamPoolId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

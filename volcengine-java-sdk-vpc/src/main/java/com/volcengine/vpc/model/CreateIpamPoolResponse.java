@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateIpamPoolResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("IpamPoolId")
   private String ipamPoolId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateIpamPoolResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateIpamPoolResponse ipamPoolId(String ipamPoolId) {
     this.ipamPoolId = ipamPoolId;
@@ -82,13 +103,14 @@ public class CreateIpamPoolResponse extends com.volcengine.model.AbstractRespons
       return false;
     }
     CreateIpamPoolResponse createIpamPoolResponse = (CreateIpamPoolResponse) o;
-    return Objects.equals(this.ipamPoolId, createIpamPoolResponse.ipamPoolId) &&
+    return Objects.equals(this.asyncTaskId, createIpamPoolResponse.asyncTaskId) &&
+        Objects.equals(this.ipamPoolId, createIpamPoolResponse.ipamPoolId) &&
         Objects.equals(this.requestId, createIpamPoolResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamPoolId, requestId);
+    return Objects.hash(asyncTaskId, ipamPoolId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateIpamPoolResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIpamPoolResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    ipamPoolId: ").append(toIndentedString(ipamPoolId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

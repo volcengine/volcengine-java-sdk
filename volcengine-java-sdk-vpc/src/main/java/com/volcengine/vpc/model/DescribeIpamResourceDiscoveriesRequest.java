@@ -39,6 +39,9 @@ public class DescribeIpamResourceDiscoveriesRequest {
   @SerializedName("IpamResourceDiscoveryName")
   private String ipamResourceDiscoveryName = null;
 
+  @SerializedName("IpamResourceDiscoveryOwnerId")
+  private String ipamResourceDiscoveryOwnerId = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -96,6 +99,24 @@ public class DescribeIpamResourceDiscoveriesRequest {
 
   public void setIpamResourceDiscoveryName(String ipamResourceDiscoveryName) {
     this.ipamResourceDiscoveryName = ipamResourceDiscoveryName;
+  }
+
+  public DescribeIpamResourceDiscoveriesRequest ipamResourceDiscoveryOwnerId(String ipamResourceDiscoveryOwnerId) {
+    this.ipamResourceDiscoveryOwnerId = ipamResourceDiscoveryOwnerId;
+    return this;
+  }
+
+   /**
+   * Get ipamResourceDiscoveryOwnerId
+   * @return ipamResourceDiscoveryOwnerId
+  **/
+  @Schema(description = "")
+  public String getIpamResourceDiscoveryOwnerId() {
+    return ipamResourceDiscoveryOwnerId;
+  }
+
+  public void setIpamResourceDiscoveryOwnerId(String ipamResourceDiscoveryOwnerId) {
+    this.ipamResourceDiscoveryOwnerId = ipamResourceDiscoveryOwnerId;
   }
 
   public DescribeIpamResourceDiscoveriesRequest maxResults(Integer maxResults) {
@@ -209,6 +230,7 @@ public class DescribeIpamResourceDiscoveriesRequest {
     DescribeIpamResourceDiscoveriesRequest describeIpamResourceDiscoveriesRequest = (DescribeIpamResourceDiscoveriesRequest) o;
     return Objects.equals(this.ipamResourceDiscoveryIds, describeIpamResourceDiscoveriesRequest.ipamResourceDiscoveryIds) &&
         Objects.equals(this.ipamResourceDiscoveryName, describeIpamResourceDiscoveriesRequest.ipamResourceDiscoveryName) &&
+        Objects.equals(this.ipamResourceDiscoveryOwnerId, describeIpamResourceDiscoveriesRequest.ipamResourceDiscoveryOwnerId) &&
         Objects.equals(this.maxResults, describeIpamResourceDiscoveriesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeIpamResourceDiscoveriesRequest.nextToken) &&
         Objects.equals(this.projectName, describeIpamResourceDiscoveriesRequest.projectName) &&
@@ -218,7 +240,7 @@ public class DescribeIpamResourceDiscoveriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamResourceDiscoveryIds, ipamResourceDiscoveryName, maxResults, nextToken, projectName, tagFilters, type);
+    return Objects.hash(ipamResourceDiscoveryIds, ipamResourceDiscoveryName, ipamResourceDiscoveryOwnerId, maxResults, nextToken, projectName, tagFilters, type);
   }
 
 
@@ -229,6 +251,7 @@ public class DescribeIpamResourceDiscoveriesRequest {
     
     sb.append("    ipamResourceDiscoveryIds: ").append(toIndentedString(ipamResourceDiscoveryIds)).append("\n");
     sb.append("    ipamResourceDiscoveryName: ").append(toIndentedString(ipamResourceDiscoveryName)).append("\n");
+    sb.append("    ipamResourceDiscoveryOwnerId: ").append(toIndentedString(ipamResourceDiscoveryOwnerId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

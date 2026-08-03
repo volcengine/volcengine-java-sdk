@@ -57,6 +57,9 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
   @SerializedName("ISP")
   private String ISP = null;
 
+  @SerializedName("IndependentLimited")
+  private Boolean independentLimited = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -83,6 +86,9 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  @SerializedName("ReservationBandwidth")
+  private Integer reservationBandwidth = null;
 
   @SerializedName("ServiceManaged")
   private Boolean serviceManaged = null;
@@ -241,6 +247,24 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
 
   public void setISP(String ISP) {
     this.ISP = ISP;
+  }
+
+  public DescribeIpv6AddressBandwidthAttributesResponse independentLimited(Boolean independentLimited) {
+    this.independentLimited = independentLimited;
+    return this;
+  }
+
+   /**
+   * Get independentLimited
+   * @return independentLimited
+  **/
+  @Schema(description = "")
+  public Boolean isIndependentLimited() {
+    return independentLimited;
+  }
+
+  public void setIndependentLimited(Boolean independentLimited) {
+    this.independentLimited = independentLimited;
   }
 
   public DescribeIpv6AddressBandwidthAttributesResponse instanceId(String instanceId) {
@@ -405,6 +429,24 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
     this.requestId = requestId;
   }
 
+  public DescribeIpv6AddressBandwidthAttributesResponse reservationBandwidth(Integer reservationBandwidth) {
+    this.reservationBandwidth = reservationBandwidth;
+    return this;
+  }
+
+   /**
+   * Get reservationBandwidth
+   * @return reservationBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getReservationBandwidth() {
+    return reservationBandwidth;
+  }
+
+  public void setReservationBandwidth(Integer reservationBandwidth) {
+    this.reservationBandwidth = reservationBandwidth;
+  }
+
   public DescribeIpv6AddressBandwidthAttributesResponse serviceManaged(Boolean serviceManaged) {
     this.serviceManaged = serviceManaged;
     return this;
@@ -522,6 +564,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
         Objects.equals(this.creationTime, describeIpv6AddressBandwidthAttributesResponse.creationTime) &&
         Objects.equals(this.deleteTime, describeIpv6AddressBandwidthAttributesResponse.deleteTime) &&
         Objects.equals(this.ISP, describeIpv6AddressBandwidthAttributesResponse.ISP) &&
+        Objects.equals(this.independentLimited, describeIpv6AddressBandwidthAttributesResponse.independentLimited) &&
         Objects.equals(this.instanceId, describeIpv6AddressBandwidthAttributesResponse.instanceId) &&
         Objects.equals(this.instanceType, describeIpv6AddressBandwidthAttributesResponse.instanceType) &&
         Objects.equals(this.ipv6Address, describeIpv6AddressBandwidthAttributesResponse.ipv6Address) &&
@@ -531,6 +574,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
         Objects.equals(this.overdueTime, describeIpv6AddressBandwidthAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeIpv6AddressBandwidthAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeIpv6AddressBandwidthAttributesResponse.requestId) &&
+        Objects.equals(this.reservationBandwidth, describeIpv6AddressBandwidthAttributesResponse.reservationBandwidth) &&
         Objects.equals(this.serviceManaged, describeIpv6AddressBandwidthAttributesResponse.serviceManaged) &&
         Objects.equals(this.specificEgress, describeIpv6AddressBandwidthAttributesResponse.specificEgress) &&
         Objects.equals(this.status, describeIpv6AddressBandwidthAttributesResponse.status) &&
@@ -540,7 +584,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deleteTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, requestId, serviceManaged, specificEgress, status, tags, updateTime);
+    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deleteTime, ISP, independentLimited, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, requestId, reservationBandwidth, serviceManaged, specificEgress, status, tags, updateTime);
   }
 
 
@@ -557,6 +601,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deleteTime: ").append(toIndentedString(deleteTime)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    independentLimited: ").append(toIndentedString(independentLimited)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
@@ -566,6 +611,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    reservationBandwidth: ").append(toIndentedString(reservationBandwidth)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    specificEgress: ").append(toIndentedString(specificEgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
