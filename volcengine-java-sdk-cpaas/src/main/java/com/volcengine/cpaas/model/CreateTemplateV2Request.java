@@ -36,8 +36,8 @@ public class CreateTemplateV2Request {
   @SerializedName("BusinessType")
   private String businessType = null;
 
-  @SerializedName("EnableShortUrl")
-  private String enableShortUrl = null;
+  @SerializedName("EnabledShortUrl")
+  private String enabledShortUrl = null;
 
   @SerializedName("Language")
   private String language = null;
@@ -47,9 +47,6 @@ public class CreateTemplateV2Request {
 
   @SerializedName("SendAudit")
   private String sendAudit = null;
-
-  @SerializedName("Signature")
-  private String signature = null;
 
   @SerializedName("SubAccountId")
   private String subAccountId = null;
@@ -78,22 +75,22 @@ public class CreateTemplateV2Request {
     this.businessType = businessType;
   }
 
-  public CreateTemplateV2Request enableShortUrl(String enableShortUrl) {
-    this.enableShortUrl = enableShortUrl;
+  public CreateTemplateV2Request enabledShortUrl(String enabledShortUrl) {
+    this.enabledShortUrl = enabledShortUrl;
     return this;
   }
 
    /**
-   * Get enableShortUrl
-   * @return enableShortUrl
+   * Get enabledShortUrl
+   * @return enabledShortUrl
   **/
   @Schema(description = "")
-  public String getEnableShortUrl() {
-    return enableShortUrl;
+  public String getEnabledShortUrl() {
+    return enabledShortUrl;
   }
 
-  public void setEnableShortUrl(String enableShortUrl) {
-    this.enableShortUrl = enableShortUrl;
+  public void setEnabledShortUrl(String enabledShortUrl) {
+    this.enabledShortUrl = enabledShortUrl;
   }
 
   public CreateTemplateV2Request language(String language) {
@@ -149,24 +146,6 @@ public class CreateTemplateV2Request {
 
   public void setSendAudit(String sendAudit) {
     this.sendAudit = sendAudit;
-  }
-
-  public CreateTemplateV2Request signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-   /**
-   * Get signature
-   * @return signature
-  **/
-  @Schema(description = "")
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
   }
 
   public CreateTemplateV2Request subAccountId(String subAccountId) {
@@ -243,11 +222,10 @@ public class CreateTemplateV2Request {
     }
     CreateTemplateV2Request createTemplateV2Request = (CreateTemplateV2Request) o;
     return Objects.equals(this.businessType, createTemplateV2Request.businessType) &&
-        Objects.equals(this.enableShortUrl, createTemplateV2Request.enableShortUrl) &&
+        Objects.equals(this.enabledShortUrl, createTemplateV2Request.enabledShortUrl) &&
         Objects.equals(this.language, createTemplateV2Request.language) &&
         Objects.equals(this.sceneTemplateName, createTemplateV2Request.sceneTemplateName) &&
         Objects.equals(this.sendAudit, createTemplateV2Request.sendAudit) &&
-        Objects.equals(this.signature, createTemplateV2Request.signature) &&
         Objects.equals(this.subAccountId, createTemplateV2Request.subAccountId) &&
         Objects.equals(this.templateList, createTemplateV2Request.templateList) &&
         Objects.equals(this.wabaId, createTemplateV2Request.wabaId);
@@ -255,7 +233,7 @@ public class CreateTemplateV2Request {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessType, enableShortUrl, language, sceneTemplateName, sendAudit, signature, subAccountId, templateList, wabaId);
+    return Objects.hash(businessType, enabledShortUrl, language, sceneTemplateName, sendAudit, subAccountId, templateList, wabaId);
   }
 
 
@@ -265,11 +243,10 @@ public class CreateTemplateV2Request {
     sb.append("class CreateTemplateV2Request {\n");
     
     sb.append("    businessType: ").append(toIndentedString(businessType)).append("\n");
-    sb.append("    enableShortUrl: ").append(toIndentedString(enableShortUrl)).append("\n");
+    sb.append("    enabledShortUrl: ").append(toIndentedString(enabledShortUrl)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    sceneTemplateName: ").append(toIndentedString(sceneTemplateName)).append("\n");
     sb.append("    sendAudit: ").append(toIndentedString(sendAudit)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    subAccountId: ").append(toIndentedString(subAccountId)).append("\n");
     sb.append("    templateList: ").append(toIndentedString(templateList)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");

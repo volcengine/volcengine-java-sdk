@@ -30,8 +30,59 @@ import javax.validation.Valid;
 
 
 public class PriorityForSendBatchMessageInput {
-  @SerializedName("ChannelType")
-  private String channelType = null;
+  /**
+   * Gets or Sets channelType
+   */
+  @JsonAdapter(ChannelTypeEnum.Adapter.class)
+  public enum ChannelTypeEnum {
+    @SerializedName("WhatsApp")
+    WHATSAPP("WhatsApp"),
+    @SerializedName("SMS")
+    SMS("SMS"),
+    @SerializedName("VMS")
+    VMS("VMS"),
+    @SerializedName("AIM")
+    AIM("AIM"),
+    @SerializedName("VOLC_SMS")
+    VOLC_SMS("VOLC_SMS"),
+    @SerializedName("VOLC_RCS")
+    VOLC_RCS("VOLC_RCS");
+
+    private String value;
+
+    ChannelTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChannelTypeEnum fromValue(String input) {
+      for (ChannelTypeEnum b : ChannelTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChannelTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChannelTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChannelTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChannelTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChannelType")
+  private ChannelTypeEnum channelType = null;
 
   @SerializedName("Failback")
   private String failback = null;
@@ -51,7 +102,7 @@ public class PriorityForSendBatchMessageInput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
-  public PriorityForSendBatchMessageInput channelType(String channelType) {
+  public PriorityForSendBatchMessageInput channelType(ChannelTypeEnum channelType) {
     this.channelType = channelType;
     return this;
   }
@@ -61,11 +112,11 @@ public class PriorityForSendBatchMessageInput {
    * @return channelType
   **/
   @Schema(description = "")
-  public String getChannelType() {
+  public ChannelTypeEnum getChannelType() {
     return channelType;
   }
 
-  public void setChannelType(String channelType) {
+  public void setChannelType(ChannelTypeEnum channelType) {
     this.channelType = channelType;
   }
 
