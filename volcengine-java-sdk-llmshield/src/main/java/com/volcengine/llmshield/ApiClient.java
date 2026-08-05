@@ -292,6 +292,24 @@ public class ApiClient {
         T apply(Response response) throws Exception;
     }
 
+    private long elapsedMillis(long startNs) {
+        return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+    }
+
+    private long resolveRemainingTimeoutMs(long totalStartNs) throws TimeoutException {
+        long effectiveTimeoutMs = timeout;
+        if (effectiveTimeoutMs <= 0) {
+            return effectiveTimeoutMs;
+        }
+
+        long elapsedMs = elapsedMillis(totalStartNs);
+        long remainingMs = effectiveTimeoutMs - elapsedMs;
+        if (remainingMs <= 0) {
+            throw new TimeoutException("Request timed out before HTTP dispatch after " + elapsedMs + "ms");
+        }
+        return remainingMs;
+    }
+
     /**
      * 执行 HTTP 请求（使用 OkHttp 3.x 原生 callTimeout 实现端到端超时）
      *
@@ -302,12 +320,33 @@ public class ApiClient {
      * @throws Exception 如果请求超时或发生其他错误
      */
     private <T> T execute(Request request, ResponseHandler<T> handler) throws Exception {
-        try (Response response = httpClient.newCall(request).execute()) {
+        return execute(request, handler, System.nanoTime());
+    }
+
+    /**
+     * 执行 HTTP 请求（使用 OkHttp 3.x 原生 callTimeout 实现端到端超时）
+     *
+     * @param request      OkHttp Request 对象
+     * @param handler      响应处理器
+     * @param totalStartNs 整体调用起始时间，用于扣减 HTTP 发起前已消耗的预算
+     * @param <T>          返回值类型
+     * @return 处理后的响应结果
+     * @throws Exception 如果请求超时或发生其他错误
+     */
+    private <T> T execute(Request request, ResponseHandler<T> handler, long totalStartNs) throws Exception {
+        long remainingTimeoutMs = resolveRemainingTimeoutMs(totalStartNs);
+        Call call = httpClient.newCall(request);
+        if (remainingTimeoutMs > 0) {
+            call.timeout().timeout(remainingTimeoutMs, TimeUnit.MILLISECONDS);
+        }
+
+        try (Response response = call.execute()) {
             return handler.apply(response);
         } catch (java.io.InterruptedIOException e) {
+            long elapsedMs = elapsedMillis(totalStartNs);
             TimeoutException te = new TimeoutException(timeout > 0
-                    ? "Request timed out after " + timeout + "ms"
-                    : "Request was interrupted");
+                    ? "Request timed out after " + elapsedMs + "ms"
+                    : "Request was interrupted after " + elapsedMs + "ms");
             te.initCause(e);
             throw te;
         }
@@ -519,6 +558,7 @@ public class ApiClient {
      * @throws Exception 网络请求或解析响应时发生错误
      */
     public ModerateV2Response Moderate(ModerateV2Request request) throws Exception {
+        long totalStartNs = System.nanoTime();
         if (request == null) {
             request = new ModerateV2Request();
         }
@@ -571,7 +611,7 @@ public class ApiClient {
 
                 return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
             }
-        });
+        }, totalStartNs);
     }
 
     /**
