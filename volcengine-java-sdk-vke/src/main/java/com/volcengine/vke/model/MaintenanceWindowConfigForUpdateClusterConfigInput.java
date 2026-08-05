@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.TaskConfigForListClustersOutput;
+import com.volcengine.vke.model.TaskConfigForUpdateClusterConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MaintenanceWindowConfigForListClustersOutput
+ * MaintenanceWindowConfigForUpdateClusterConfigInput
  */
 
 
 
-public class MaintenanceWindowConfigForListClustersOutput {
+public class MaintenanceWindowConfigForUpdateClusterConfigInput {
   @SerializedName("Duration")
   private Integer duration = null;
 
@@ -46,7 +46,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
   private String startTime = null;
 
   @SerializedName("TaskConfigs")
-  private List<TaskConfigForListClustersOutput> taskConfigs = null;
+  private List<TaskConfigForUpdateClusterConfigInput> taskConfigs = null;
 
   /**
    * Gets or Sets weeklyCycle
@@ -104,7 +104,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
   }  @SerializedName("WeeklyCycle")
   private List<WeeklyCycleEnum> weeklyCycle = null;
 
-  public MaintenanceWindowConfigForListClustersOutput duration(Integer duration) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -122,7 +122,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
     this.duration = duration;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput exemptEndDate(String exemptEndDate) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput exemptEndDate(String exemptEndDate) {
     this.exemptEndDate = exemptEndDate;
     return this;
   }
@@ -140,7 +140,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
     this.exemptEndDate = exemptEndDate;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput exemptStartDate(String exemptStartDate) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput exemptStartDate(String exemptStartDate) {
     this.exemptStartDate = exemptStartDate;
     return this;
   }
@@ -158,7 +158,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
     this.exemptStartDate = exemptStartDate;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput startTime(String startTime) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput startTime(String startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -176,14 +176,14 @@ public class MaintenanceWindowConfigForListClustersOutput {
     this.startTime = startTime;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput taskConfigs(List<TaskConfigForListClustersOutput> taskConfigs) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput taskConfigs(List<TaskConfigForUpdateClusterConfigInput> taskConfigs) {
     this.taskConfigs = taskConfigs;
     return this;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput addTaskConfigsItem(TaskConfigForListClustersOutput taskConfigsItem) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput addTaskConfigsItem(TaskConfigForUpdateClusterConfigInput taskConfigsItem) {
     if (this.taskConfigs == null) {
-      this.taskConfigs = new ArrayList<TaskConfigForListClustersOutput>();
+      this.taskConfigs = new ArrayList<TaskConfigForUpdateClusterConfigInput>();
     }
     this.taskConfigs.add(taskConfigsItem);
     return this;
@@ -195,20 +195,20 @@ public class MaintenanceWindowConfigForListClustersOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<TaskConfigForListClustersOutput> getTaskConfigs() {
+  public List<TaskConfigForUpdateClusterConfigInput> getTaskConfigs() {
     return taskConfigs;
   }
 
-  public void setTaskConfigs(List<TaskConfigForListClustersOutput> taskConfigs) {
+  public void setTaskConfigs(List<TaskConfigForUpdateClusterConfigInput> taskConfigs) {
     this.taskConfigs = taskConfigs;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput weeklyCycle(List<WeeklyCycleEnum> weeklyCycle) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput weeklyCycle(List<WeeklyCycleEnum> weeklyCycle) {
     this.weeklyCycle = weeklyCycle;
     return this;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput addWeeklyCycleItem(WeeklyCycleEnum weeklyCycleItem) {
+  public MaintenanceWindowConfigForUpdateClusterConfigInput addWeeklyCycleItem(WeeklyCycleEnum weeklyCycleItem) {
     if (this.weeklyCycle == null) {
       this.weeklyCycle = new ArrayList<WeeklyCycleEnum>();
     }
@@ -238,13 +238,13 @@ public class MaintenanceWindowConfigForListClustersOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MaintenanceWindowConfigForListClustersOutput maintenanceWindowConfigForListClustersOutput = (MaintenanceWindowConfigForListClustersOutput) o;
-    return Objects.equals(this.duration, maintenanceWindowConfigForListClustersOutput.duration) &&
-        Objects.equals(this.exemptEndDate, maintenanceWindowConfigForListClustersOutput.exemptEndDate) &&
-        Objects.equals(this.exemptStartDate, maintenanceWindowConfigForListClustersOutput.exemptStartDate) &&
-        Objects.equals(this.startTime, maintenanceWindowConfigForListClustersOutput.startTime) &&
-        Objects.equals(this.taskConfigs, maintenanceWindowConfigForListClustersOutput.taskConfigs) &&
-        Objects.equals(this.weeklyCycle, maintenanceWindowConfigForListClustersOutput.weeklyCycle);
+    MaintenanceWindowConfigForUpdateClusterConfigInput maintenanceWindowConfigForUpdateClusterConfigInput = (MaintenanceWindowConfigForUpdateClusterConfigInput) o;
+    return Objects.equals(this.duration, maintenanceWindowConfigForUpdateClusterConfigInput.duration) &&
+        Objects.equals(this.exemptEndDate, maintenanceWindowConfigForUpdateClusterConfigInput.exemptEndDate) &&
+        Objects.equals(this.exemptStartDate, maintenanceWindowConfigForUpdateClusterConfigInput.exemptStartDate) &&
+        Objects.equals(this.startTime, maintenanceWindowConfigForUpdateClusterConfigInput.startTime) &&
+        Objects.equals(this.taskConfigs, maintenanceWindowConfigForUpdateClusterConfigInput.taskConfigs) &&
+        Objects.equals(this.weeklyCycle, maintenanceWindowConfigForUpdateClusterConfigInput.weeklyCycle);
   }
 
   @Override
@@ -256,7 +256,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MaintenanceWindowConfigForListClustersOutput {\n");
+    sb.append("class MaintenanceWindowConfigForUpdateClusterConfigInput {\n");
     
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    exemptEndDate: ").append(toIndentedString(exemptEndDate)).append("\n");
