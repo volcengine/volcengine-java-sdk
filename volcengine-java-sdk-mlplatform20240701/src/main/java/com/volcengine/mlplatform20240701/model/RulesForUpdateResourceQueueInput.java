@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.AutoCompactGPUResourceRuleForUpdateResourceQueueInput;
+import com.volcengine.mlplatform20240701.model.CommandHookRuleForUpdateResourceQueueInput;
 import com.volcengine.mlplatform20240701.model.DevCpuLowUsageRuleForUpdateResourceQueueInput;
 import com.volcengine.mlplatform20240701.model.GeneralIdleRuleForUpdateResourceQueueInput;
 import com.volcengine.mlplatform20240701.model.GpuUtilizationRuleForUpdateResourceQueueInput;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 public class RulesForUpdateResourceQueueInput {
   @SerializedName("AutoCompactGPUResourceRule")
   private AutoCompactGPUResourceRuleForUpdateResourceQueueInput autoCompactGPUResourceRule = null;
+
+  @SerializedName("CommandHookRule")
+  private CommandHookRuleForUpdateResourceQueueInput commandHookRule = null;
 
   @SerializedName("DevCpuLowUsageRule")
   private DevCpuLowUsageRuleForUpdateResourceQueueInput devCpuLowUsageRule = null;
@@ -63,6 +67,25 @@ public class RulesForUpdateResourceQueueInput {
 
   public void setAutoCompactGPUResourceRule(AutoCompactGPUResourceRuleForUpdateResourceQueueInput autoCompactGPUResourceRule) {
     this.autoCompactGPUResourceRule = autoCompactGPUResourceRule;
+  }
+
+  public RulesForUpdateResourceQueueInput commandHookRule(CommandHookRuleForUpdateResourceQueueInput commandHookRule) {
+    this.commandHookRule = commandHookRule;
+    return this;
+  }
+
+   /**
+   * Get commandHookRule
+   * @return commandHookRule
+  **/
+  @Valid
+  @Schema(description = "")
+  public CommandHookRuleForUpdateResourceQueueInput getCommandHookRule() {
+    return commandHookRule;
+  }
+
+  public void setCommandHookRule(CommandHookRuleForUpdateResourceQueueInput commandHookRule) {
+    this.commandHookRule = commandHookRule;
   }
 
   public RulesForUpdateResourceQueueInput devCpuLowUsageRule(DevCpuLowUsageRuleForUpdateResourceQueueInput devCpuLowUsageRule) {
@@ -133,6 +156,7 @@ public class RulesForUpdateResourceQueueInput {
     }
     RulesForUpdateResourceQueueInput rulesForUpdateResourceQueueInput = (RulesForUpdateResourceQueueInput) o;
     return Objects.equals(this.autoCompactGPUResourceRule, rulesForUpdateResourceQueueInput.autoCompactGPUResourceRule) &&
+        Objects.equals(this.commandHookRule, rulesForUpdateResourceQueueInput.commandHookRule) &&
         Objects.equals(this.devCpuLowUsageRule, rulesForUpdateResourceQueueInput.devCpuLowUsageRule) &&
         Objects.equals(this.generalIdleRule, rulesForUpdateResourceQueueInput.generalIdleRule) &&
         Objects.equals(this.gpuUtilizationRule, rulesForUpdateResourceQueueInput.gpuUtilizationRule);
@@ -140,7 +164,7 @@ public class RulesForUpdateResourceQueueInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCompactGPUResourceRule, devCpuLowUsageRule, generalIdleRule, gpuUtilizationRule);
+    return Objects.hash(autoCompactGPUResourceRule, commandHookRule, devCpuLowUsageRule, generalIdleRule, gpuUtilizationRule);
   }
 
 
@@ -150,6 +174,7 @@ public class RulesForUpdateResourceQueueInput {
     sb.append("class RulesForUpdateResourceQueueInput {\n");
     
     sb.append("    autoCompactGPUResourceRule: ").append(toIndentedString(autoCompactGPUResourceRule)).append("\n");
+    sb.append("    commandHookRule: ").append(toIndentedString(commandHookRule)).append("\n");
     sb.append("    devCpuLowUsageRule: ").append(toIndentedString(devCpuLowUsageRule)).append("\n");
     sb.append("    generalIdleRule: ").append(toIndentedString(generalIdleRule)).append("\n");
     sb.append("    gpuUtilizationRule: ").append(toIndentedString(gpuUtilizationRule)).append("\n");

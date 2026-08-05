@@ -58,6 +58,9 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InitialId")
   private String initialId = null;
 
+  @SerializedName("LatestRetriedId")
+  private String latestRetriedId = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -206,6 +209,24 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
 
   public void setInitialId(String initialId) {
     this.initialId = initialId;
+  }
+
+  public GetJobResponse latestRetriedId(String latestRetriedId) {
+    this.latestRetriedId = latestRetriedId;
+    return this;
+  }
+
+   /**
+   * Get latestRetriedId
+   * @return latestRetriedId
+  **/
+  @Schema(description = "")
+  public String getLatestRetriedId() {
+    return latestRetriedId;
+  }
+
+  public void setLatestRetriedId(String latestRetriedId) {
+    this.latestRetriedId = latestRetriedId;
   }
 
   public GetJobResponse name(String name) {
@@ -429,6 +450,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.diagnoseConfig, getJobResponse.diagnoseConfig) &&
         Objects.equals(this.id, getJobResponse.id) &&
         Objects.equals(this.initialId, getJobResponse.initialId) &&
+        Objects.equals(this.latestRetriedId, getJobResponse.latestRetriedId) &&
         Objects.equals(this.name, getJobResponse.name) &&
         Objects.equals(this.observableConfig, getJobResponse.observableConfig) &&
         Objects.equals(this.privateNetworkConfig, getJobResponse.privateNetworkConfig) &&
@@ -444,7 +466,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, name, observableConfig, privateNetworkConfig, projectName, resourceConfig, retryConfig, runtimeConfig, status, stopReason, storageConfig, updateTime);
+    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, latestRetriedId, name, observableConfig, privateNetworkConfig, projectName, resourceConfig, retryConfig, runtimeConfig, status, stopReason, storageConfig, updateTime);
   }
 
 
@@ -459,6 +481,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    diagnoseConfig: ").append(toIndentedString(diagnoseConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initialId: ").append(toIndentedString(initialId)).append("\n");
+    sb.append("    latestRetriedId: ").append(toIndentedString(latestRetriedId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    observableConfig: ").append(toIndentedString(observableConfig)).append("\n");
     sb.append("    privateNetworkConfig: ").append(toIndentedString(privateNetworkConfig)).append("\n");

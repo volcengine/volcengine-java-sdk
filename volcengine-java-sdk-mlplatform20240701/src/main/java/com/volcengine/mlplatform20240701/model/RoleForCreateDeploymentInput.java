@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.AutoscalerForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.CredentialForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EnvForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.ImageForCreateDeploymentInput;
@@ -44,6 +45,9 @@ import javax.validation.Valid;
 
 
 public class RoleForCreateDeploymentInput {
+  @SerializedName("Autoscaler")
+  private AutoscalerForCreateDeploymentInput autoscaler = null;
+
   @SerializedName("Command")
   private String command = null;
 
@@ -100,6 +104,25 @@ public class RoleForCreateDeploymentInput {
 
   @SerializedName("Storages")
   private List<StorageForCreateDeploymentInput> storages = null;
+
+  public RoleForCreateDeploymentInput autoscaler(AutoscalerForCreateDeploymentInput autoscaler) {
+    this.autoscaler = autoscaler;
+    return this;
+  }
+
+   /**
+   * Get autoscaler
+   * @return autoscaler
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoscalerForCreateDeploymentInput getAutoscaler() {
+    return autoscaler;
+  }
+
+  public void setAutoscaler(AutoscalerForCreateDeploymentInput autoscaler) {
+    this.autoscaler = autoscaler;
+  }
 
   public RoleForCreateDeploymentInput command(String command) {
     this.command = command;
@@ -497,7 +520,8 @@ public class RoleForCreateDeploymentInput {
       return false;
     }
     RoleForCreateDeploymentInput roleForCreateDeploymentInput = (RoleForCreateDeploymentInput) o;
-    return Objects.equals(this.command, roleForCreateDeploymentInput.command) &&
+    return Objects.equals(this.autoscaler, roleForCreateDeploymentInput.autoscaler) &&
+        Objects.equals(this.command, roleForCreateDeploymentInput.command) &&
         Objects.equals(this.credential, roleForCreateDeploymentInput.credential) &&
         Objects.equals(this.envs, roleForCreateDeploymentInput.envs) &&
         Objects.equals(this.expose, roleForCreateDeploymentInput.expose) &&
@@ -520,7 +544,7 @@ public class RoleForCreateDeploymentInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, credential, envs, expose, gracefulShutdownPeriod, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, storages);
+    return Objects.hash(autoscaler, command, credential, envs, expose, gracefulShutdownPeriod, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, storages);
   }
 
 
@@ -529,6 +553,7 @@ public class RoleForCreateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleForCreateDeploymentInput {\n");
     
+    sb.append("    autoscaler: ").append(toIndentedString(autoscaler)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
