@@ -36,6 +36,9 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
   private List<DataForListUsersOutput> data = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -70,6 +73,24 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
 
   public void setData(List<DataForListUsersOutput> data) {
     this.data = data;
+  }
+
+  public ListUsersResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListUsersResponse pageNumber(Integer pageNumber) {
@@ -137,6 +158,7 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
     }
     ListUsersResponse listUsersResponse = (ListUsersResponse) o;
     return Objects.equals(this.data, listUsersResponse.data) &&
+        Objects.equals(this.nextToken, listUsersResponse.nextToken) &&
         Objects.equals(this.pageNumber, listUsersResponse.pageNumber) &&
         Objects.equals(this.pageSize, listUsersResponse.pageSize) &&
         Objects.equals(this.totalCount, listUsersResponse.totalCount);
@@ -144,7 +166,7 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, pageNumber, pageSize, totalCount);
+    return Objects.hash(data, nextToken, pageNumber, pageSize, totalCount);
   }
 
 
@@ -154,6 +176,7 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class ListUsersResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");

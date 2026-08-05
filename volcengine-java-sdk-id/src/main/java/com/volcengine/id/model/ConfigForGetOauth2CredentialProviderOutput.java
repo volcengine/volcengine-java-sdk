@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.CustomParametersForGetOauth2CredentialProviderOutput;
 import com.volcengine.id.model.Oauth2DiscoveryForGetOauth2CredentialProviderOutput;
+import com.volcengine.id.model.SecretStorageForGetOauth2CredentialProviderOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -106,6 +107,9 @@ public class ConfigForGetOauth2CredentialProviderOutput {
 
   @SerializedName("Scopes")
   private List<String> scopes = null;
+
+  @SerializedName("SecretStorage")
+  private SecretStorageForGetOauth2CredentialProviderOutput secretStorage = null;
 
   public ConfigForGetOauth2CredentialProviderOutput clientId(String clientId) {
     this.clientId = clientId;
@@ -297,6 +301,25 @@ public class ConfigForGetOauth2CredentialProviderOutput {
     this.scopes = scopes;
   }
 
+  public ConfigForGetOauth2CredentialProviderOutput secretStorage(SecretStorageForGetOauth2CredentialProviderOutput secretStorage) {
+    this.secretStorage = secretStorage;
+    return this;
+  }
+
+   /**
+   * Get secretStorage
+   * @return secretStorage
+  **/
+  @Valid
+  @Schema(description = "")
+  public SecretStorageForGetOauth2CredentialProviderOutput getSecretStorage() {
+    return secretStorage;
+  }
+
+  public void setSecretStorage(SecretStorageForGetOauth2CredentialProviderOutput secretStorage) {
+    this.secretStorage = secretStorage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -316,12 +339,13 @@ public class ConfigForGetOauth2CredentialProviderOutput {
         Objects.equals(this.metadata, configForGetOauth2CredentialProviderOutput.metadata) &&
         Objects.equals(this.oauth2Discovery, configForGetOauth2CredentialProviderOutput.oauth2Discovery) &&
         Objects.equals(this.redirectUrl, configForGetOauth2CredentialProviderOutput.redirectUrl) &&
-        Objects.equals(this.scopes, configForGetOauth2CredentialProviderOutput.scopes);
+        Objects.equals(this.scopes, configForGetOauth2CredentialProviderOutput.scopes) &&
+        Objects.equals(this.secretStorage, configForGetOauth2CredentialProviderOutput.secretStorage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, customParameters, flow, forceAuthentication, maxExpires, metadata, oauth2Discovery, redirectUrl, scopes);
+    return Objects.hash(clientId, clientSecret, customParameters, flow, forceAuthentication, maxExpires, metadata, oauth2Discovery, redirectUrl, scopes, secretStorage);
   }
 
 
@@ -340,6 +364,7 @@ public class ConfigForGetOauth2CredentialProviderOutput {
     sb.append("    oauth2Discovery: ").append(toIndentedString(oauth2Discovery)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("    secretStorage: ").append(toIndentedString(secretStorage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

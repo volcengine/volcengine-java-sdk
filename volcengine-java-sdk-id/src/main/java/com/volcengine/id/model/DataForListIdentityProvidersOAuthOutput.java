@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ClaimsPropagationConfigForListIdentityProvidersOAuthOutput;
+import com.volcengine.id.model.EipRecordForListIdentityProvidersOAuthOutput;
 import com.volcengine.id.model.ProviderOptionsForListIdentityProvidersOAuthOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -45,6 +46,9 @@ public class DataForListIdentityProvidersOAuthOutput {
 
   @SerializedName("ClientSecret")
   private String clientSecret = null;
+
+  @SerializedName("EipRecord")
+  private EipRecordForListIdentityProvidersOAuthOutput eipRecord = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -147,6 +151,25 @@ public class DataForListIdentityProvidersOAuthOutput {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+  public DataForListIdentityProvidersOAuthOutput eipRecord(EipRecordForListIdentityProvidersOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForListIdentityProvidersOAuthOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForListIdentityProvidersOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
   }
 
   public DataForListIdentityProvidersOAuthOutput enabled(Boolean enabled) {
@@ -352,6 +375,7 @@ public class DataForListIdentityProvidersOAuthOutput {
         Objects.equals(this.claimsPropagationConfig, dataForListIdentityProvidersOAuthOutput.claimsPropagationConfig) &&
         Objects.equals(this.clientId, dataForListIdentityProvidersOAuthOutput.clientId) &&
         Objects.equals(this.clientSecret, dataForListIdentityProvidersOAuthOutput.clientSecret) &&
+        Objects.equals(this.eipRecord, dataForListIdentityProvidersOAuthOutput.eipRecord) &&
         Objects.equals(this.enabled, dataForListIdentityProvidersOAuthOutput.enabled) &&
         Objects.equals(this.idAttribute, dataForListIdentityProvidersOAuthOutput.idAttribute) &&
         Objects.equals(this.name, dataForListIdentityProvidersOAuthOutput.name) &&
@@ -366,7 +390,7 @@ public class DataForListIdentityProvidersOAuthOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
+    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, eipRecord, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
   }
 
 
@@ -379,6 +403,7 @@ public class DataForListIdentityProvidersOAuthOutput {
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    idAttribute: ").append(toIndentedString(idAttribute)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

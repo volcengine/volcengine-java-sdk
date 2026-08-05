@@ -30,14 +30,41 @@ import javax.validation.Valid;
 
 
 public class ErrorsStructuredForCreateUsersOutput {
+  @SerializedName("DuplicatedUserUid")
+  private String duplicatedUserUid = null;
+
   @SerializedName("Error")
   private String error = null;
+
+  @SerializedName("ErrorType")
+  private String errorType = null;
+
+  @SerializedName("ExternalProviderUserIdentifier")
+  private String externalProviderUserIdentifier = null;
 
   @SerializedName("Field")
   private String field = null;
 
   @SerializedName("Index")
   private Integer index = null;
+
+  public ErrorsStructuredForCreateUsersOutput duplicatedUserUid(String duplicatedUserUid) {
+    this.duplicatedUserUid = duplicatedUserUid;
+    return this;
+  }
+
+   /**
+   * Get duplicatedUserUid
+   * @return duplicatedUserUid
+  **/
+  @Schema(description = "")
+  public String getDuplicatedUserUid() {
+    return duplicatedUserUid;
+  }
+
+  public void setDuplicatedUserUid(String duplicatedUserUid) {
+    this.duplicatedUserUid = duplicatedUserUid;
+  }
 
   public ErrorsStructuredForCreateUsersOutput error(String error) {
     this.error = error;
@@ -55,6 +82,42 @@ public class ErrorsStructuredForCreateUsersOutput {
 
   public void setError(String error) {
     this.error = error;
+  }
+
+  public ErrorsStructuredForCreateUsersOutput errorType(String errorType) {
+    this.errorType = errorType;
+    return this;
+  }
+
+   /**
+   * Get errorType
+   * @return errorType
+  **/
+  @Schema(description = "")
+  public String getErrorType() {
+    return errorType;
+  }
+
+  public void setErrorType(String errorType) {
+    this.errorType = errorType;
+  }
+
+  public ErrorsStructuredForCreateUsersOutput externalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
+    return this;
+  }
+
+   /**
+   * Get externalProviderUserIdentifier
+   * @return externalProviderUserIdentifier
+  **/
+  @Schema(description = "")
+  public String getExternalProviderUserIdentifier() {
+    return externalProviderUserIdentifier;
+  }
+
+  public void setExternalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
   }
 
   public ErrorsStructuredForCreateUsersOutput field(String field) {
@@ -103,14 +166,17 @@ public class ErrorsStructuredForCreateUsersOutput {
       return false;
     }
     ErrorsStructuredForCreateUsersOutput errorsStructuredForCreateUsersOutput = (ErrorsStructuredForCreateUsersOutput) o;
-    return Objects.equals(this.error, errorsStructuredForCreateUsersOutput.error) &&
+    return Objects.equals(this.duplicatedUserUid, errorsStructuredForCreateUsersOutput.duplicatedUserUid) &&
+        Objects.equals(this.error, errorsStructuredForCreateUsersOutput.error) &&
+        Objects.equals(this.errorType, errorsStructuredForCreateUsersOutput.errorType) &&
+        Objects.equals(this.externalProviderUserIdentifier, errorsStructuredForCreateUsersOutput.externalProviderUserIdentifier) &&
         Objects.equals(this.field, errorsStructuredForCreateUsersOutput.field) &&
         Objects.equals(this.index, errorsStructuredForCreateUsersOutput.index);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, field, index);
+    return Objects.hash(duplicatedUserUid, error, errorType, externalProviderUserIdentifier, field, index);
   }
 
 
@@ -119,7 +185,10 @@ public class ErrorsStructuredForCreateUsersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorsStructuredForCreateUsersOutput {\n");
     
+    sb.append("    duplicatedUserUid: ").append(toIndentedString(duplicatedUserUid)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
+    sb.append("    externalProviderUserIdentifier: ").append(toIndentedString(externalProviderUserIdentifier)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("}");

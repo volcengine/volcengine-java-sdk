@@ -33,6 +33,12 @@ public class FilterForListIdentityProvidersInput {
   @SerializedName("ConnectionType")
   private String connectionType = null;
 
+  @SerializedName("EipId")
+  private String eipId = null;
+
+  @SerializedName("ExcludeConnectionType")
+  private String excludeConnectionType = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -52,6 +58,42 @@ public class FilterForListIdentityProvidersInput {
 
   public void setConnectionType(String connectionType) {
     this.connectionType = connectionType;
+  }
+
+  public FilterForListIdentityProvidersInput eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
+  }
+
+  public FilterForListIdentityProvidersInput excludeConnectionType(String excludeConnectionType) {
+    this.excludeConnectionType = excludeConnectionType;
+    return this;
+  }
+
+   /**
+   * Get excludeConnectionType
+   * @return excludeConnectionType
+  **/
+  @Schema(description = "")
+  public String getExcludeConnectionType() {
+    return excludeConnectionType;
+  }
+
+  public void setExcludeConnectionType(String excludeConnectionType) {
+    this.excludeConnectionType = excludeConnectionType;
   }
 
   public FilterForListIdentityProvidersInput name(String name) {
@@ -83,12 +125,14 @@ public class FilterForListIdentityProvidersInput {
     }
     FilterForListIdentityProvidersInput filterForListIdentityProvidersInput = (FilterForListIdentityProvidersInput) o;
     return Objects.equals(this.connectionType, filterForListIdentityProvidersInput.connectionType) &&
+        Objects.equals(this.eipId, filterForListIdentityProvidersInput.eipId) &&
+        Objects.equals(this.excludeConnectionType, filterForListIdentityProvidersInput.excludeConnectionType) &&
         Objects.equals(this.name, filterForListIdentityProvidersInput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionType, name);
+    return Objects.hash(connectionType, eipId, excludeConnectionType, name);
   }
 
 
@@ -98,6 +142,8 @@ public class FilterForListIdentityProvidersInput {
     sb.append("class FilterForListIdentityProvidersInput {\n");
     
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    excludeConnectionType: ").append(toIndentedString(excludeConnectionType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

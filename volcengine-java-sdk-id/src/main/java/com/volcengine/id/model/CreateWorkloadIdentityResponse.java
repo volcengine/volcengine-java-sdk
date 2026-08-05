@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.MetaDataForCreateWorkloadIdentityOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public class CreateWorkloadIdentityResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("MetaData")
+  private List<MetaDataForCreateWorkloadIdentityOutput> metaData = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -137,6 +141,33 @@ public class CreateWorkloadIdentityResponse extends com.volcengine.model.Abstrac
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateWorkloadIdentityResponse metaData(List<MetaDataForCreateWorkloadIdentityOutput> metaData) {
+    this.metaData = metaData;
+    return this;
+  }
+
+  public CreateWorkloadIdentityResponse addMetaDataItem(MetaDataForCreateWorkloadIdentityOutput metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new ArrayList<MetaDataForCreateWorkloadIdentityOutput>();
+    }
+    this.metaData.add(metaDataItem);
+    return this;
+  }
+
+   /**
+   * Get metaData
+   * @return metaData
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MetaDataForCreateWorkloadIdentityOutput> getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(List<MetaDataForCreateWorkloadIdentityOutput> metaData) {
+    this.metaData = metaData;
   }
 
   public CreateWorkloadIdentityResponse name(String name) {
@@ -243,6 +274,7 @@ public class CreateWorkloadIdentityResponse extends com.volcengine.model.Abstrac
         Objects.equals(this.category, createWorkloadIdentityResponse.category) &&
         Objects.equals(this.createdAt, createWorkloadIdentityResponse.createdAt) &&
         Objects.equals(this.description, createWorkloadIdentityResponse.description) &&
+        Objects.equals(this.metaData, createWorkloadIdentityResponse.metaData) &&
         Objects.equals(this.name, createWorkloadIdentityResponse.name) &&
         Objects.equals(this.source, createWorkloadIdentityResponse.source) &&
         Objects.equals(this.trn, createWorkloadIdentityResponse.trn) &&
@@ -252,7 +284,7 @@ public class CreateWorkloadIdentityResponse extends com.volcengine.model.Abstrac
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedResourceOauth2ReturnUrls, category, createdAt, description, name, source, trn, updatedAt, workloadPoolName);
+    return Objects.hash(allowedResourceOauth2ReturnUrls, category, createdAt, description, metaData, name, source, trn, updatedAt, workloadPoolName);
   }
 
 
@@ -265,6 +297,7 @@ public class CreateWorkloadIdentityResponse extends com.volcengine.model.Abstrac
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");

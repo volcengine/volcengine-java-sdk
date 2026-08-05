@@ -34,7 +34,7 @@ public class DeletePolicyResponse extends com.volcengine.model.AbstractResponse 
   private String message = null;
 
   @SerializedName("Success")
-  private Integer success = null;
+  private Boolean success = null;
 
   public DeletePolicyResponse message(String message) {
     this.message = message;
@@ -54,7 +54,7 @@ public class DeletePolicyResponse extends com.volcengine.model.AbstractResponse 
     this.message = message;
   }
 
-  public DeletePolicyResponse success(Integer success) {
+  public DeletePolicyResponse success(Boolean success) {
     this.success = success;
     return this;
   }
@@ -64,11 +64,11 @@ public class DeletePolicyResponse extends com.volcengine.model.AbstractResponse 
    * @return success
   **/
   @Schema(description = "")
-  public Integer getSuccess() {
+  public Boolean isSuccess() {
     return success;
   }
 
-  public void setSuccess(Integer success) {
+  public void setSuccess(Boolean success) {
     this.success = success;
   }
 

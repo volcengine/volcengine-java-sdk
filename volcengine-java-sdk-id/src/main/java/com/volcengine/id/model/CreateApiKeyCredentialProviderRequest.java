@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ApiKeyMetadataForCreateApiKeyCredentialProviderInput;
+import com.volcengine.id.model.SecretStorageForCreateApiKeyCredentialProviderInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +45,15 @@ public class CreateApiKeyCredentialProviderRequest {
 
   @SerializedName("PoolName")
   private String poolName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("SecretStorage")
+  private SecretStorageForCreateApiKeyCredentialProviderInput secretStorage = null;
+
+  @SerializedName("Source")
+  private String source = null;
 
   public CreateApiKeyCredentialProviderRequest apiKey(String apiKey) {
     this.apiKey = apiKey;
@@ -128,6 +138,61 @@ public class CreateApiKeyCredentialProviderRequest {
     this.poolName = poolName;
   }
 
+  public CreateApiKeyCredentialProviderRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateApiKeyCredentialProviderRequest secretStorage(SecretStorageForCreateApiKeyCredentialProviderInput secretStorage) {
+    this.secretStorage = secretStorage;
+    return this;
+  }
+
+   /**
+   * Get secretStorage
+   * @return secretStorage
+  **/
+  @Valid
+  @Schema(description = "")
+  public SecretStorageForCreateApiKeyCredentialProviderInput getSecretStorage() {
+    return secretStorage;
+  }
+
+  public void setSecretStorage(SecretStorageForCreateApiKeyCredentialProviderInput secretStorage) {
+    this.secretStorage = secretStorage;
+  }
+
+  public CreateApiKeyCredentialProviderRequest source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,12 +206,15 @@ public class CreateApiKeyCredentialProviderRequest {
     return Objects.equals(this.apiKey, createApiKeyCredentialProviderRequest.apiKey) &&
         Objects.equals(this.apiKeyMetadata, createApiKeyCredentialProviderRequest.apiKeyMetadata) &&
         Objects.equals(this.name, createApiKeyCredentialProviderRequest.name) &&
-        Objects.equals(this.poolName, createApiKeyCredentialProviderRequest.poolName);
+        Objects.equals(this.poolName, createApiKeyCredentialProviderRequest.poolName) &&
+        Objects.equals(this.projectName, createApiKeyCredentialProviderRequest.projectName) &&
+        Objects.equals(this.secretStorage, createApiKeyCredentialProviderRequest.secretStorage) &&
+        Objects.equals(this.source, createApiKeyCredentialProviderRequest.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiKeyMetadata, name, poolName);
+    return Objects.hash(apiKey, apiKeyMetadata, name, poolName, projectName, secretStorage, source);
   }
 
 
@@ -159,6 +227,9 @@ public class CreateApiKeyCredentialProviderRequest {
     sb.append("    apiKeyMetadata: ").append(toIndentedString(apiKeyMetadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    secretStorage: ").append(toIndentedString(secretStorage)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }

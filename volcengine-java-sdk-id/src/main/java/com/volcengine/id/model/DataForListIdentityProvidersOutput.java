@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForListIdentityProvidersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +33,17 @@ import javax.validation.Valid;
 
 
 public class DataForListIdentityProvidersOutput {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForListIdentityProvidersOutput> attributeMappings = null;
+
   @SerializedName("ConnectionType")
   private String connectionType = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("Enabled")
+  private Boolean enabled = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -47,6 +56,33 @@ public class DataForListIdentityProvidersOutput {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public DataForListIdentityProvidersOutput attributeMappings(List<AttributeMappingForListIdentityProvidersOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public DataForListIdentityProvidersOutput addAttributeMappingsItem(AttributeMappingForListIdentityProvidersOutput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForListIdentityProvidersOutput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForListIdentityProvidersOutput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForListIdentityProvidersOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public DataForListIdentityProvidersOutput connectionType(String connectionType) {
     this.connectionType = connectionType;
@@ -82,6 +118,24 @@ public class DataForListIdentityProvidersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public DataForListIdentityProvidersOutput enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Get enabled
+   * @return enabled
+  **/
+  @Schema(description = "")
+  public Boolean isEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public DataForListIdentityProvidersOutput name(String name) {
@@ -166,8 +220,10 @@ public class DataForListIdentityProvidersOutput {
       return false;
     }
     DataForListIdentityProvidersOutput dataForListIdentityProvidersOutput = (DataForListIdentityProvidersOutput) o;
-    return Objects.equals(this.connectionType, dataForListIdentityProvidersOutput.connectionType) &&
+    return Objects.equals(this.attributeMappings, dataForListIdentityProvidersOutput.attributeMappings) &&
+        Objects.equals(this.connectionType, dataForListIdentityProvidersOutput.connectionType) &&
         Objects.equals(this.createTime, dataForListIdentityProvidersOutput.createTime) &&
+        Objects.equals(this.enabled, dataForListIdentityProvidersOutput.enabled) &&
         Objects.equals(this.name, dataForListIdentityProvidersOutput.name) &&
         Objects.equals(this.provider, dataForListIdentityProvidersOutput.provider) &&
         Objects.equals(this.uid, dataForListIdentityProvidersOutput.uid) &&
@@ -176,7 +232,7 @@ public class DataForListIdentityProvidersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionType, createTime, name, provider, uid, updateTime);
+    return Objects.hash(attributeMappings, connectionType, createTime, enabled, name, provider, uid, updateTime);
   }
 
 
@@ -185,8 +241,10 @@ public class DataForListIdentityProvidersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForListIdentityProvidersOutput {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");

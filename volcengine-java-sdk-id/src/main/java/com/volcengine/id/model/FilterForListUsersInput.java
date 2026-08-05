@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributeFilterForListUsersInput;
+import com.volcengine.id.model.UniversalSearchForListUsersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,17 +37,53 @@ public class FilterForListUsersInput {
   @SerializedName("Connection")
   private String connection = null;
 
+  @SerializedName("CustomAttributeFilter")
+  private CustomAttributeFilterForListUsersInput customAttributeFilter = null;
+
+  @SerializedName("DepartmentUid")
+  private String departmentUid = null;
+
+  @SerializedName("DepartmentUidRecursive")
+  private Boolean departmentUidRecursive = null;
+
   @SerializedName("Email")
   private String email = null;
+
+  @SerializedName("EmailIsDuplicated")
+  private Boolean emailIsDuplicated = null;
+
+  @SerializedName("EmailIsNullOrEmpty")
+  private Boolean emailIsNullOrEmpty = null;
+
+  @SerializedName("EmailPhoneNameIsNullOrEmpty")
+  private Boolean emailPhoneNameIsNullOrEmpty = null;
+
+  @SerializedName("ExternalProviderUserIdentifiersOr")
+  private List<String> externalProviderUserIdentifiersOr = null;
 
   @SerializedName("FamilyName")
   private String familyName = null;
 
+  @SerializedName("FamilyNameIsNullOrEmpty")
+  private Boolean familyNameIsNullOrEmpty = null;
+
   @SerializedName("Gender")
   private String gender = null;
 
+  @SerializedName("GenderIsNullOrEmpty")
+  private Boolean genderIsNullOrEmpty = null;
+
   @SerializedName("GivenName")
   private String givenName = null;
+
+  @SerializedName("GivenNameIsNullOrEmpty")
+  private Boolean givenNameIsNullOrEmpty = null;
+
+  @SerializedName("GroupUid")
+  private String groupUid = null;
+
+  @SerializedName("GroupUidsOr")
+  private List<String> groupUidsOr = null;
 
   @SerializedName("LatestBrowser")
   private String latestBrowser = null;
@@ -57,20 +97,53 @@ public class FilterForListUsersInput {
   @SerializedName("MiddleName")
   private String middleName = null;
 
+  @SerializedName("MiddleNameIsNullOrEmpty")
+  private Boolean middleNameIsNullOrEmpty = null;
+
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("NameIsNullOrEmpty")
+  private Boolean nameIsNullOrEmpty = null;
 
   @SerializedName("Nickname")
   private String nickname = null;
 
+  @SerializedName("NicknameIsNullOrEmpty")
+  private Boolean nicknameIsNullOrEmpty = null;
+
+  @SerializedName("NotInAnyDepartment")
+  private Boolean notInAnyDepartment = null;
+
+  @SerializedName("NotInAnyGroup")
+  private Boolean notInAnyGroup = null;
+
   @SerializedName("PhoneNumber")
   private String phoneNumber = null;
+
+  @SerializedName("PhoneNumberIsDuplicated")
+  private Boolean phoneNumberIsDuplicated = null;
+
+  @SerializedName("PhoneNumberIsNullOrEmpty")
+  private Boolean phoneNumberIsNullOrEmpty = null;
 
   @SerializedName("PreferredUsername")
   private String preferredUsername = null;
 
+  @SerializedName("PreferredUsernameIsNullOrEmpty")
+  private Boolean preferredUsernameIsNullOrEmpty = null;
+
+  @SerializedName("UniversalSearch")
+  private List<UniversalSearchForListUsersInput> universalSearch = null;
+
+  @SerializedName("UserUidsOr")
+  private List<String> userUidsOr = null;
+
   @SerializedName("Website")
   private String website = null;
+
+  @SerializedName("WebsiteIsNullOrEmpty")
+  private Boolean websiteIsNullOrEmpty = null;
 
   public FilterForListUsersInput connection(String connection) {
     this.connection = connection;
@@ -88,6 +161,61 @@ public class FilterForListUsersInput {
 
   public void setConnection(String connection) {
     this.connection = connection;
+  }
+
+  public FilterForListUsersInput customAttributeFilter(CustomAttributeFilterForListUsersInput customAttributeFilter) {
+    this.customAttributeFilter = customAttributeFilter;
+    return this;
+  }
+
+   /**
+   * Get customAttributeFilter
+   * @return customAttributeFilter
+  **/
+  @Valid
+  @Schema(description = "")
+  public CustomAttributeFilterForListUsersInput getCustomAttributeFilter() {
+    return customAttributeFilter;
+  }
+
+  public void setCustomAttributeFilter(CustomAttributeFilterForListUsersInput customAttributeFilter) {
+    this.customAttributeFilter = customAttributeFilter;
+  }
+
+  public FilterForListUsersInput departmentUid(String departmentUid) {
+    this.departmentUid = departmentUid;
+    return this;
+  }
+
+   /**
+   * Get departmentUid
+   * @return departmentUid
+  **/
+  @Schema(description = "")
+  public String getDepartmentUid() {
+    return departmentUid;
+  }
+
+  public void setDepartmentUid(String departmentUid) {
+    this.departmentUid = departmentUid;
+  }
+
+  public FilterForListUsersInput departmentUidRecursive(Boolean departmentUidRecursive) {
+    this.departmentUidRecursive = departmentUidRecursive;
+    return this;
+  }
+
+   /**
+   * Get departmentUidRecursive
+   * @return departmentUidRecursive
+  **/
+  @Schema(description = "")
+  public Boolean isDepartmentUidRecursive() {
+    return departmentUidRecursive;
+  }
+
+  public void setDepartmentUidRecursive(Boolean departmentUidRecursive) {
+    this.departmentUidRecursive = departmentUidRecursive;
   }
 
   public FilterForListUsersInput email(String email) {
@@ -108,6 +236,86 @@ public class FilterForListUsersInput {
     this.email = email;
   }
 
+  public FilterForListUsersInput emailIsDuplicated(Boolean emailIsDuplicated) {
+    this.emailIsDuplicated = emailIsDuplicated;
+    return this;
+  }
+
+   /**
+   * Get emailIsDuplicated
+   * @return emailIsDuplicated
+  **/
+  @Schema(description = "")
+  public Boolean isEmailIsDuplicated() {
+    return emailIsDuplicated;
+  }
+
+  public void setEmailIsDuplicated(Boolean emailIsDuplicated) {
+    this.emailIsDuplicated = emailIsDuplicated;
+  }
+
+  public FilterForListUsersInput emailIsNullOrEmpty(Boolean emailIsNullOrEmpty) {
+    this.emailIsNullOrEmpty = emailIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get emailIsNullOrEmpty
+   * @return emailIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isEmailIsNullOrEmpty() {
+    return emailIsNullOrEmpty;
+  }
+
+  public void setEmailIsNullOrEmpty(Boolean emailIsNullOrEmpty) {
+    this.emailIsNullOrEmpty = emailIsNullOrEmpty;
+  }
+
+  public FilterForListUsersInput emailPhoneNameIsNullOrEmpty(Boolean emailPhoneNameIsNullOrEmpty) {
+    this.emailPhoneNameIsNullOrEmpty = emailPhoneNameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get emailPhoneNameIsNullOrEmpty
+   * @return emailPhoneNameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isEmailPhoneNameIsNullOrEmpty() {
+    return emailPhoneNameIsNullOrEmpty;
+  }
+
+  public void setEmailPhoneNameIsNullOrEmpty(Boolean emailPhoneNameIsNullOrEmpty) {
+    this.emailPhoneNameIsNullOrEmpty = emailPhoneNameIsNullOrEmpty;
+  }
+
+  public FilterForListUsersInput externalProviderUserIdentifiersOr(List<String> externalProviderUserIdentifiersOr) {
+    this.externalProviderUserIdentifiersOr = externalProviderUserIdentifiersOr;
+    return this;
+  }
+
+  public FilterForListUsersInput addExternalProviderUserIdentifiersOrItem(String externalProviderUserIdentifiersOrItem) {
+    if (this.externalProviderUserIdentifiersOr == null) {
+      this.externalProviderUserIdentifiersOr = new ArrayList<String>();
+    }
+    this.externalProviderUserIdentifiersOr.add(externalProviderUserIdentifiersOrItem);
+    return this;
+  }
+
+   /**
+   * Get externalProviderUserIdentifiersOr
+   * @return externalProviderUserIdentifiersOr
+  **/
+  @Schema(description = "")
+  public List<String> getExternalProviderUserIdentifiersOr() {
+    return externalProviderUserIdentifiersOr;
+  }
+
+  public void setExternalProviderUserIdentifiersOr(List<String> externalProviderUserIdentifiersOr) {
+    this.externalProviderUserIdentifiersOr = externalProviderUserIdentifiersOr;
+  }
+
   public FilterForListUsersInput familyName(String familyName) {
     this.familyName = familyName;
     return this;
@@ -124,6 +332,24 @@ public class FilterForListUsersInput {
 
   public void setFamilyName(String familyName) {
     this.familyName = familyName;
+  }
+
+  public FilterForListUsersInput familyNameIsNullOrEmpty(Boolean familyNameIsNullOrEmpty) {
+    this.familyNameIsNullOrEmpty = familyNameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get familyNameIsNullOrEmpty
+   * @return familyNameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isFamilyNameIsNullOrEmpty() {
+    return familyNameIsNullOrEmpty;
+  }
+
+  public void setFamilyNameIsNullOrEmpty(Boolean familyNameIsNullOrEmpty) {
+    this.familyNameIsNullOrEmpty = familyNameIsNullOrEmpty;
   }
 
   public FilterForListUsersInput gender(String gender) {
@@ -144,6 +370,24 @@ public class FilterForListUsersInput {
     this.gender = gender;
   }
 
+  public FilterForListUsersInput genderIsNullOrEmpty(Boolean genderIsNullOrEmpty) {
+    this.genderIsNullOrEmpty = genderIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get genderIsNullOrEmpty
+   * @return genderIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isGenderIsNullOrEmpty() {
+    return genderIsNullOrEmpty;
+  }
+
+  public void setGenderIsNullOrEmpty(Boolean genderIsNullOrEmpty) {
+    this.genderIsNullOrEmpty = genderIsNullOrEmpty;
+  }
+
   public FilterForListUsersInput givenName(String givenName) {
     this.givenName = givenName;
     return this;
@@ -160,6 +404,68 @@ public class FilterForListUsersInput {
 
   public void setGivenName(String givenName) {
     this.givenName = givenName;
+  }
+
+  public FilterForListUsersInput givenNameIsNullOrEmpty(Boolean givenNameIsNullOrEmpty) {
+    this.givenNameIsNullOrEmpty = givenNameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get givenNameIsNullOrEmpty
+   * @return givenNameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isGivenNameIsNullOrEmpty() {
+    return givenNameIsNullOrEmpty;
+  }
+
+  public void setGivenNameIsNullOrEmpty(Boolean givenNameIsNullOrEmpty) {
+    this.givenNameIsNullOrEmpty = givenNameIsNullOrEmpty;
+  }
+
+  public FilterForListUsersInput groupUid(String groupUid) {
+    this.groupUid = groupUid;
+    return this;
+  }
+
+   /**
+   * Get groupUid
+   * @return groupUid
+  **/
+  @Schema(description = "")
+  public String getGroupUid() {
+    return groupUid;
+  }
+
+  public void setGroupUid(String groupUid) {
+    this.groupUid = groupUid;
+  }
+
+  public FilterForListUsersInput groupUidsOr(List<String> groupUidsOr) {
+    this.groupUidsOr = groupUidsOr;
+    return this;
+  }
+
+  public FilterForListUsersInput addGroupUidsOrItem(String groupUidsOrItem) {
+    if (this.groupUidsOr == null) {
+      this.groupUidsOr = new ArrayList<String>();
+    }
+    this.groupUidsOr.add(groupUidsOrItem);
+    return this;
+  }
+
+   /**
+   * Get groupUidsOr
+   * @return groupUidsOr
+  **/
+  @Schema(description = "")
+  public List<String> getGroupUidsOr() {
+    return groupUidsOr;
+  }
+
+  public void setGroupUidsOr(List<String> groupUidsOr) {
+    this.groupUidsOr = groupUidsOr;
   }
 
   public FilterForListUsersInput latestBrowser(String latestBrowser) {
@@ -234,6 +540,24 @@ public class FilterForListUsersInput {
     this.middleName = middleName;
   }
 
+  public FilterForListUsersInput middleNameIsNullOrEmpty(Boolean middleNameIsNullOrEmpty) {
+    this.middleNameIsNullOrEmpty = middleNameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get middleNameIsNullOrEmpty
+   * @return middleNameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isMiddleNameIsNullOrEmpty() {
+    return middleNameIsNullOrEmpty;
+  }
+
+  public void setMiddleNameIsNullOrEmpty(Boolean middleNameIsNullOrEmpty) {
+    this.middleNameIsNullOrEmpty = middleNameIsNullOrEmpty;
+  }
+
   public FilterForListUsersInput name(String name) {
     this.name = name;
     return this;
@@ -250,6 +574,24 @@ public class FilterForListUsersInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public FilterForListUsersInput nameIsNullOrEmpty(Boolean nameIsNullOrEmpty) {
+    this.nameIsNullOrEmpty = nameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get nameIsNullOrEmpty
+   * @return nameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isNameIsNullOrEmpty() {
+    return nameIsNullOrEmpty;
+  }
+
+  public void setNameIsNullOrEmpty(Boolean nameIsNullOrEmpty) {
+    this.nameIsNullOrEmpty = nameIsNullOrEmpty;
   }
 
   public FilterForListUsersInput nickname(String nickname) {
@@ -270,6 +612,60 @@ public class FilterForListUsersInput {
     this.nickname = nickname;
   }
 
+  public FilterForListUsersInput nicknameIsNullOrEmpty(Boolean nicknameIsNullOrEmpty) {
+    this.nicknameIsNullOrEmpty = nicknameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get nicknameIsNullOrEmpty
+   * @return nicknameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isNicknameIsNullOrEmpty() {
+    return nicknameIsNullOrEmpty;
+  }
+
+  public void setNicknameIsNullOrEmpty(Boolean nicknameIsNullOrEmpty) {
+    this.nicknameIsNullOrEmpty = nicknameIsNullOrEmpty;
+  }
+
+  public FilterForListUsersInput notInAnyDepartment(Boolean notInAnyDepartment) {
+    this.notInAnyDepartment = notInAnyDepartment;
+    return this;
+  }
+
+   /**
+   * Get notInAnyDepartment
+   * @return notInAnyDepartment
+  **/
+  @Schema(description = "")
+  public Boolean isNotInAnyDepartment() {
+    return notInAnyDepartment;
+  }
+
+  public void setNotInAnyDepartment(Boolean notInAnyDepartment) {
+    this.notInAnyDepartment = notInAnyDepartment;
+  }
+
+  public FilterForListUsersInput notInAnyGroup(Boolean notInAnyGroup) {
+    this.notInAnyGroup = notInAnyGroup;
+    return this;
+  }
+
+   /**
+   * Get notInAnyGroup
+   * @return notInAnyGroup
+  **/
+  @Schema(description = "")
+  public Boolean isNotInAnyGroup() {
+    return notInAnyGroup;
+  }
+
+  public void setNotInAnyGroup(Boolean notInAnyGroup) {
+    this.notInAnyGroup = notInAnyGroup;
+  }
+
   public FilterForListUsersInput phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
@@ -286,6 +682,42 @@ public class FilterForListUsersInput {
 
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+  public FilterForListUsersInput phoneNumberIsDuplicated(Boolean phoneNumberIsDuplicated) {
+    this.phoneNumberIsDuplicated = phoneNumberIsDuplicated;
+    return this;
+  }
+
+   /**
+   * Get phoneNumberIsDuplicated
+   * @return phoneNumberIsDuplicated
+  **/
+  @Schema(description = "")
+  public Boolean isPhoneNumberIsDuplicated() {
+    return phoneNumberIsDuplicated;
+  }
+
+  public void setPhoneNumberIsDuplicated(Boolean phoneNumberIsDuplicated) {
+    this.phoneNumberIsDuplicated = phoneNumberIsDuplicated;
+  }
+
+  public FilterForListUsersInput phoneNumberIsNullOrEmpty(Boolean phoneNumberIsNullOrEmpty) {
+    this.phoneNumberIsNullOrEmpty = phoneNumberIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get phoneNumberIsNullOrEmpty
+   * @return phoneNumberIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isPhoneNumberIsNullOrEmpty() {
+    return phoneNumberIsNullOrEmpty;
+  }
+
+  public void setPhoneNumberIsNullOrEmpty(Boolean phoneNumberIsNullOrEmpty) {
+    this.phoneNumberIsNullOrEmpty = phoneNumberIsNullOrEmpty;
   }
 
   public FilterForListUsersInput preferredUsername(String preferredUsername) {
@@ -306,6 +738,77 @@ public class FilterForListUsersInput {
     this.preferredUsername = preferredUsername;
   }
 
+  public FilterForListUsersInput preferredUsernameIsNullOrEmpty(Boolean preferredUsernameIsNullOrEmpty) {
+    this.preferredUsernameIsNullOrEmpty = preferredUsernameIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get preferredUsernameIsNullOrEmpty
+   * @return preferredUsernameIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isPreferredUsernameIsNullOrEmpty() {
+    return preferredUsernameIsNullOrEmpty;
+  }
+
+  public void setPreferredUsernameIsNullOrEmpty(Boolean preferredUsernameIsNullOrEmpty) {
+    this.preferredUsernameIsNullOrEmpty = preferredUsernameIsNullOrEmpty;
+  }
+
+  public FilterForListUsersInput universalSearch(List<UniversalSearchForListUsersInput> universalSearch) {
+    this.universalSearch = universalSearch;
+    return this;
+  }
+
+  public FilterForListUsersInput addUniversalSearchItem(UniversalSearchForListUsersInput universalSearchItem) {
+    if (this.universalSearch == null) {
+      this.universalSearch = new ArrayList<UniversalSearchForListUsersInput>();
+    }
+    this.universalSearch.add(universalSearchItem);
+    return this;
+  }
+
+   /**
+   * Get universalSearch
+   * @return universalSearch
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<UniversalSearchForListUsersInput> getUniversalSearch() {
+    return universalSearch;
+  }
+
+  public void setUniversalSearch(List<UniversalSearchForListUsersInput> universalSearch) {
+    this.universalSearch = universalSearch;
+  }
+
+  public FilterForListUsersInput userUidsOr(List<String> userUidsOr) {
+    this.userUidsOr = userUidsOr;
+    return this;
+  }
+
+  public FilterForListUsersInput addUserUidsOrItem(String userUidsOrItem) {
+    if (this.userUidsOr == null) {
+      this.userUidsOr = new ArrayList<String>();
+    }
+    this.userUidsOr.add(userUidsOrItem);
+    return this;
+  }
+
+   /**
+   * Get userUidsOr
+   * @return userUidsOr
+  **/
+  @Schema(description = "")
+  public List<String> getUserUidsOr() {
+    return userUidsOr;
+  }
+
+  public void setUserUidsOr(List<String> userUidsOr) {
+    this.userUidsOr = userUidsOr;
+  }
+
   public FilterForListUsersInput website(String website) {
     this.website = website;
     return this;
@@ -324,6 +827,24 @@ public class FilterForListUsersInput {
     this.website = website;
   }
 
+  public FilterForListUsersInput websiteIsNullOrEmpty(Boolean websiteIsNullOrEmpty) {
+    this.websiteIsNullOrEmpty = websiteIsNullOrEmpty;
+    return this;
+  }
+
+   /**
+   * Get websiteIsNullOrEmpty
+   * @return websiteIsNullOrEmpty
+  **/
+  @Schema(description = "")
+  public Boolean isWebsiteIsNullOrEmpty() {
+    return websiteIsNullOrEmpty;
+  }
+
+  public void setWebsiteIsNullOrEmpty(Boolean websiteIsNullOrEmpty) {
+    this.websiteIsNullOrEmpty = websiteIsNullOrEmpty;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -335,24 +856,47 @@ public class FilterForListUsersInput {
     }
     FilterForListUsersInput filterForListUsersInput = (FilterForListUsersInput) o;
     return Objects.equals(this.connection, filterForListUsersInput.connection) &&
+        Objects.equals(this.customAttributeFilter, filterForListUsersInput.customAttributeFilter) &&
+        Objects.equals(this.departmentUid, filterForListUsersInput.departmentUid) &&
+        Objects.equals(this.departmentUidRecursive, filterForListUsersInput.departmentUidRecursive) &&
         Objects.equals(this.email, filterForListUsersInput.email) &&
+        Objects.equals(this.emailIsDuplicated, filterForListUsersInput.emailIsDuplicated) &&
+        Objects.equals(this.emailIsNullOrEmpty, filterForListUsersInput.emailIsNullOrEmpty) &&
+        Objects.equals(this.emailPhoneNameIsNullOrEmpty, filterForListUsersInput.emailPhoneNameIsNullOrEmpty) &&
+        Objects.equals(this.externalProviderUserIdentifiersOr, filterForListUsersInput.externalProviderUserIdentifiersOr) &&
         Objects.equals(this.familyName, filterForListUsersInput.familyName) &&
+        Objects.equals(this.familyNameIsNullOrEmpty, filterForListUsersInput.familyNameIsNullOrEmpty) &&
         Objects.equals(this.gender, filterForListUsersInput.gender) &&
+        Objects.equals(this.genderIsNullOrEmpty, filterForListUsersInput.genderIsNullOrEmpty) &&
         Objects.equals(this.givenName, filterForListUsersInput.givenName) &&
+        Objects.equals(this.givenNameIsNullOrEmpty, filterForListUsersInput.givenNameIsNullOrEmpty) &&
+        Objects.equals(this.groupUid, filterForListUsersInput.groupUid) &&
+        Objects.equals(this.groupUidsOr, filterForListUsersInput.groupUidsOr) &&
         Objects.equals(this.latestBrowser, filterForListUsersInput.latestBrowser) &&
         Objects.equals(this.latestLoginMethod, filterForListUsersInput.latestLoginMethod) &&
         Objects.equals(this.locale, filterForListUsersInput.locale) &&
         Objects.equals(this.middleName, filterForListUsersInput.middleName) &&
+        Objects.equals(this.middleNameIsNullOrEmpty, filterForListUsersInput.middleNameIsNullOrEmpty) &&
         Objects.equals(this.name, filterForListUsersInput.name) &&
+        Objects.equals(this.nameIsNullOrEmpty, filterForListUsersInput.nameIsNullOrEmpty) &&
         Objects.equals(this.nickname, filterForListUsersInput.nickname) &&
+        Objects.equals(this.nicknameIsNullOrEmpty, filterForListUsersInput.nicknameIsNullOrEmpty) &&
+        Objects.equals(this.notInAnyDepartment, filterForListUsersInput.notInAnyDepartment) &&
+        Objects.equals(this.notInAnyGroup, filterForListUsersInput.notInAnyGroup) &&
         Objects.equals(this.phoneNumber, filterForListUsersInput.phoneNumber) &&
+        Objects.equals(this.phoneNumberIsDuplicated, filterForListUsersInput.phoneNumberIsDuplicated) &&
+        Objects.equals(this.phoneNumberIsNullOrEmpty, filterForListUsersInput.phoneNumberIsNullOrEmpty) &&
         Objects.equals(this.preferredUsername, filterForListUsersInput.preferredUsername) &&
-        Objects.equals(this.website, filterForListUsersInput.website);
+        Objects.equals(this.preferredUsernameIsNullOrEmpty, filterForListUsersInput.preferredUsernameIsNullOrEmpty) &&
+        Objects.equals(this.universalSearch, filterForListUsersInput.universalSearch) &&
+        Objects.equals(this.userUidsOr, filterForListUsersInput.userUidsOr) &&
+        Objects.equals(this.website, filterForListUsersInput.website) &&
+        Objects.equals(this.websiteIsNullOrEmpty, filterForListUsersInput.websiteIsNullOrEmpty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connection, email, familyName, gender, givenName, latestBrowser, latestLoginMethod, locale, middleName, name, nickname, phoneNumber, preferredUsername, website);
+    return Objects.hash(connection, customAttributeFilter, departmentUid, departmentUidRecursive, email, emailIsDuplicated, emailIsNullOrEmpty, emailPhoneNameIsNullOrEmpty, externalProviderUserIdentifiersOr, familyName, familyNameIsNullOrEmpty, gender, genderIsNullOrEmpty, givenName, givenNameIsNullOrEmpty, groupUid, groupUidsOr, latestBrowser, latestLoginMethod, locale, middleName, middleNameIsNullOrEmpty, name, nameIsNullOrEmpty, nickname, nicknameIsNullOrEmpty, notInAnyDepartment, notInAnyGroup, phoneNumber, phoneNumberIsDuplicated, phoneNumberIsNullOrEmpty, preferredUsername, preferredUsernameIsNullOrEmpty, universalSearch, userUidsOr, website, websiteIsNullOrEmpty);
   }
 
 
@@ -362,19 +906,42 @@ public class FilterForListUsersInput {
     sb.append("class FilterForListUsersInput {\n");
     
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
+    sb.append("    customAttributeFilter: ").append(toIndentedString(customAttributeFilter)).append("\n");
+    sb.append("    departmentUid: ").append(toIndentedString(departmentUid)).append("\n");
+    sb.append("    departmentUidRecursive: ").append(toIndentedString(departmentUidRecursive)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emailIsDuplicated: ").append(toIndentedString(emailIsDuplicated)).append("\n");
+    sb.append("    emailIsNullOrEmpty: ").append(toIndentedString(emailIsNullOrEmpty)).append("\n");
+    sb.append("    emailPhoneNameIsNullOrEmpty: ").append(toIndentedString(emailPhoneNameIsNullOrEmpty)).append("\n");
+    sb.append("    externalProviderUserIdentifiersOr: ").append(toIndentedString(externalProviderUserIdentifiersOr)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
+    sb.append("    familyNameIsNullOrEmpty: ").append(toIndentedString(familyNameIsNullOrEmpty)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
+    sb.append("    genderIsNullOrEmpty: ").append(toIndentedString(genderIsNullOrEmpty)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    givenNameIsNullOrEmpty: ").append(toIndentedString(givenNameIsNullOrEmpty)).append("\n");
+    sb.append("    groupUid: ").append(toIndentedString(groupUid)).append("\n");
+    sb.append("    groupUidsOr: ").append(toIndentedString(groupUidsOr)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
     sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
+    sb.append("    middleNameIsNullOrEmpty: ").append(toIndentedString(middleNameIsNullOrEmpty)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameIsNullOrEmpty: ").append(toIndentedString(nameIsNullOrEmpty)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    nicknameIsNullOrEmpty: ").append(toIndentedString(nicknameIsNullOrEmpty)).append("\n");
+    sb.append("    notInAnyDepartment: ").append(toIndentedString(notInAnyDepartment)).append("\n");
+    sb.append("    notInAnyGroup: ").append(toIndentedString(notInAnyGroup)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    phoneNumberIsDuplicated: ").append(toIndentedString(phoneNumberIsDuplicated)).append("\n");
+    sb.append("    phoneNumberIsNullOrEmpty: ").append(toIndentedString(phoneNumberIsNullOrEmpty)).append("\n");
     sb.append("    preferredUsername: ").append(toIndentedString(preferredUsername)).append("\n");
+    sb.append("    preferredUsernameIsNullOrEmpty: ").append(toIndentedString(preferredUsernameIsNullOrEmpty)).append("\n");
+    sb.append("    universalSearch: ").append(toIndentedString(universalSearch)).append("\n");
+    sb.append("    userUidsOr: ").append(toIndentedString(userUidsOr)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");
+    sb.append("    websiteIsNullOrEmpty: ").append(toIndentedString(websiteIsNullOrEmpty)).append("\n");
     sb.append("}");
     return sb.toString();
   }

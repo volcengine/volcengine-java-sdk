@@ -19,8 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForUpdateIdentityProviderOIDCInput;
 import com.volcengine.id.model.ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput;
 import com.volcengine.id.model.ProviderOptionsForUpdateIdentityProviderOIDCInput;
+import com.volcengine.id.model.ScimProvisioningForUpdateIdentityProviderOIDCInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class UpdateIdentityProviderOIDCRequest {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForUpdateIdentityProviderOIDCInput> attributeMappings = null;
+
   @SerializedName("ClaimsPropagationConfig")
   private ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput claimsPropagationConfig = null;
 
@@ -45,6 +50,9 @@ public class UpdateIdentityProviderOIDCRequest {
 
   @SerializedName("ConnectionUid")
   private String connectionUid = null;
+
+  @SerializedName("EipId")
+  private String eipId = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -61,6 +69,9 @@ public class UpdateIdentityProviderOIDCRequest {
   @SerializedName("ProviderOptions")
   private ProviderOptionsForUpdateIdentityProviderOIDCInput providerOptions = null;
 
+  @SerializedName("ScimProvisioning")
+  private ScimProvisioningForUpdateIdentityProviderOIDCInput scimProvisioning = null;
+
   @SerializedName("ScopesList")
   private List<String> scopesList = null;
 
@@ -69,6 +80,33 @@ public class UpdateIdentityProviderOIDCRequest {
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  public UpdateIdentityProviderOIDCRequest attributeMappings(List<AttributeMappingForUpdateIdentityProviderOIDCInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public UpdateIdentityProviderOIDCRequest addAttributeMappingsItem(AttributeMappingForUpdateIdentityProviderOIDCInput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForUpdateIdentityProviderOIDCInput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForUpdateIdentityProviderOIDCInput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForUpdateIdentityProviderOIDCInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public UpdateIdentityProviderOIDCRequest claimsPropagationConfig(ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput claimsPropagationConfig) {
     this.claimsPropagationConfig = claimsPropagationConfig;
@@ -143,6 +181,24 @@ public class UpdateIdentityProviderOIDCRequest {
 
   public void setConnectionUid(String connectionUid) {
     this.connectionUid = connectionUid;
+  }
+
+  public UpdateIdentityProviderOIDCRequest eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
   }
 
   public UpdateIdentityProviderOIDCRequest enabled(Boolean enabled) {
@@ -237,6 +293,25 @@ public class UpdateIdentityProviderOIDCRequest {
     this.providerOptions = providerOptions;
   }
 
+  public UpdateIdentityProviderOIDCRequest scimProvisioning(ScimProvisioningForUpdateIdentityProviderOIDCInput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+    return this;
+  }
+
+   /**
+   * Get scimProvisioning
+   * @return scimProvisioning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScimProvisioningForUpdateIdentityProviderOIDCInput getScimProvisioning() {
+    return scimProvisioning;
+  }
+
+  public void setScimProvisioning(ScimProvisioningForUpdateIdentityProviderOIDCInput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+  }
+
   public UpdateIdentityProviderOIDCRequest scopesList(List<String> scopesList) {
     this.scopesList = scopesList;
     return this;
@@ -311,15 +386,18 @@ public class UpdateIdentityProviderOIDCRequest {
       return false;
     }
     UpdateIdentityProviderOIDCRequest updateIdentityProviderOIDCRequest = (UpdateIdentityProviderOIDCRequest) o;
-    return Objects.equals(this.claimsPropagationConfig, updateIdentityProviderOIDCRequest.claimsPropagationConfig) &&
+    return Objects.equals(this.attributeMappings, updateIdentityProviderOIDCRequest.attributeMappings) &&
+        Objects.equals(this.claimsPropagationConfig, updateIdentityProviderOIDCRequest.claimsPropagationConfig) &&
         Objects.equals(this.clientId, updateIdentityProviderOIDCRequest.clientId) &&
         Objects.equals(this.clientSecret, updateIdentityProviderOIDCRequest.clientSecret) &&
         Objects.equals(this.connectionUid, updateIdentityProviderOIDCRequest.connectionUid) &&
+        Objects.equals(this.eipId, updateIdentityProviderOIDCRequest.eipId) &&
         Objects.equals(this.enabled, updateIdentityProviderOIDCRequest.enabled) &&
         Objects.equals(this.isIdTokenMapping, updateIdentityProviderOIDCRequest.isIdTokenMapping) &&
         Objects.equals(this.issuer, updateIdentityProviderOIDCRequest.issuer) &&
         Objects.equals(this.name, updateIdentityProviderOIDCRequest.name) &&
         Objects.equals(this.providerOptions, updateIdentityProviderOIDCRequest.providerOptions) &&
+        Objects.equals(this.scimProvisioning, updateIdentityProviderOIDCRequest.scimProvisioning) &&
         Objects.equals(this.scopesList, updateIdentityProviderOIDCRequest.scopesList) &&
         Objects.equals(this.usePkce, updateIdentityProviderOIDCRequest.usePkce) &&
         Objects.equals(this.userPoolUid, updateIdentityProviderOIDCRequest.userPoolUid);
@@ -327,7 +405,7 @@ public class UpdateIdentityProviderOIDCRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(claimsPropagationConfig, clientId, clientSecret, connectionUid, enabled, isIdTokenMapping, issuer, name, providerOptions, scopesList, usePkce, userPoolUid);
+    return Objects.hash(attributeMappings, claimsPropagationConfig, clientId, clientSecret, connectionUid, eipId, enabled, isIdTokenMapping, issuer, name, providerOptions, scimProvisioning, scopesList, usePkce, userPoolUid);
   }
 
 
@@ -336,15 +414,18 @@ public class UpdateIdentityProviderOIDCRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIdentityProviderOIDCRequest {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    connectionUid: ").append(toIndentedString(connectionUid)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    isIdTokenMapping: ").append(toIndentedString(isIdTokenMapping)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
+    sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
     sb.append("    scopesList: ").append(toIndentedString(scopesList)).append("\n");
     sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");

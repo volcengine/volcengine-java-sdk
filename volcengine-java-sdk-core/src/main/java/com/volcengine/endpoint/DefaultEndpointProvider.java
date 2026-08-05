@@ -900,6 +900,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- id ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("id", new ServiceEndpointInfo(
+                "id",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

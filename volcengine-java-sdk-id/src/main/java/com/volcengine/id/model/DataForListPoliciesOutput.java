@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.DefinitionForListPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 public class DataForListPoliciesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("Definition")
+  private DefinitionForListPoliciesOutput definition = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -47,6 +51,9 @@ public class DataForListPoliciesOutput {
 
   @SerializedName("PolicyName")
   private String policyName = null;
+
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -70,6 +77,25 @@ public class DataForListPoliciesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public DataForListPoliciesOutput definition(DefinitionForListPoliciesOutput definition) {
+    this.definition = definition;
+    return this;
+  }
+
+   /**
+   * Get definition
+   * @return definition
+  **/
+  @Valid
+  @Schema(description = "")
+  public DefinitionForListPoliciesOutput getDefinition() {
+    return definition;
+  }
+
+  public void setDefinition(DefinitionForListPoliciesOutput definition) {
+    this.definition = definition;
   }
 
   public DataForListPoliciesOutput description(String description) {
@@ -162,6 +188,24 @@ public class DataForListPoliciesOutput {
     this.policyName = policyName;
   }
 
+  public DataForListPoliciesOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DataForListPoliciesOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -209,18 +253,20 @@ public class DataForListPoliciesOutput {
     }
     DataForListPoliciesOutput dataForListPoliciesOutput = (DataForListPoliciesOutput) o;
     return Objects.equals(this.createTime, dataForListPoliciesOutput.createTime) &&
+        Objects.equals(this.definition, dataForListPoliciesOutput.definition) &&
         Objects.equals(this.description, dataForListPoliciesOutput.description) &&
         Objects.equals(this.namespaceId, dataForListPoliciesOutput.namespaceId) &&
         Objects.equals(this.policy, dataForListPoliciesOutput.policy) &&
         Objects.equals(this.policyId, dataForListPoliciesOutput.policyId) &&
         Objects.equals(this.policyName, dataForListPoliciesOutput.policyName) &&
+        Objects.equals(this.status, dataForListPoliciesOutput.status) &&
         Objects.equals(this.trn, dataForListPoliciesOutput.trn) &&
         Objects.equals(this.updateTime, dataForListPoliciesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, namespaceId, policy, policyId, policyName, trn, updateTime);
+    return Objects.hash(createTime, definition, description, namespaceId, policy, policyId, policyName, status, trn, updateTime);
   }
 
 
@@ -230,11 +276,13 @@ public class DataForListPoliciesOutput {
     sb.append("class DataForListPoliciesOutput {\n");
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceId: ").append(toIndentedString(namespaceId)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

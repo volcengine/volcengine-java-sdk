@@ -19,7 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForCreateIdentityProviderOAuthOutput;
 import com.volcengine.id.model.ClaimsPropagationConfigForCreateIdentityProviderOAuthOutput;
+import com.volcengine.id.model.EipRecordForCreateIdentityProviderOAuthOutput;
+import com.volcengine.id.model.ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput;
 import com.volcengine.id.model.ProviderOptionsForCreateIdentityProviderOAuthOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForCreateIdentityProviderOAuthOutput> attributeMappings = null;
+
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
 
@@ -46,8 +52,14 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
   @SerializedName("ClientSecret")
   private String clientSecret = null;
 
+  @SerializedName("EipRecord")
+  private EipRecordForCreateIdentityProviderOAuthOutput eipRecord = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("ExtraProviderConfiguration")
+  private ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput extraProviderConfiguration = null;
 
   @SerializedName("IdAttribute")
   private String idAttribute = null;
@@ -64,6 +76,9 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
   @SerializedName("ScopesList")
   private List<String> scopesList = null;
 
+  @SerializedName("SoleProviderConnection")
+  private Boolean soleProviderConnection = null;
+
   @SerializedName("TokenEndpoint")
   private String tokenEndpoint = null;
 
@@ -75,6 +90,33 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
 
   @SerializedName("UserEndpoint")
   private String userEndpoint = null;
+
+  public CreateIdentityProviderOAuthResponse attributeMappings(List<AttributeMappingForCreateIdentityProviderOAuthOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public CreateIdentityProviderOAuthResponse addAttributeMappingsItem(AttributeMappingForCreateIdentityProviderOAuthOutput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForCreateIdentityProviderOAuthOutput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForCreateIdentityProviderOAuthOutput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForCreateIdentityProviderOAuthOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public CreateIdentityProviderOAuthResponse authorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
@@ -149,6 +191,25 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
     this.clientSecret = clientSecret;
   }
 
+  public CreateIdentityProviderOAuthResponse eipRecord(EipRecordForCreateIdentityProviderOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForCreateIdentityProviderOAuthOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForCreateIdentityProviderOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
+  }
+
   public CreateIdentityProviderOAuthResponse enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -165,6 +226,25 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public CreateIdentityProviderOAuthResponse extraProviderConfiguration(ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
+    return this;
+  }
+
+   /**
+   * Get extraProviderConfiguration
+   * @return extraProviderConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput getExtraProviderConfiguration() {
+    return extraProviderConfiguration;
+  }
+
+  public void setExtraProviderConfiguration(ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
   }
 
   public CreateIdentityProviderOAuthResponse idAttribute(String idAttribute) {
@@ -266,6 +346,24 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
     this.scopesList = scopesList;
   }
 
+  public CreateIdentityProviderOAuthResponse soleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
+    return this;
+  }
+
+   /**
+   * Get soleProviderConnection
+   * @return soleProviderConnection
+  **/
+  @Schema(description = "")
+  public Boolean isSoleProviderConnection() {
+    return soleProviderConnection;
+  }
+
+  public void setSoleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
+  }
+
   public CreateIdentityProviderOAuthResponse tokenEndpoint(String tokenEndpoint) {
     this.tokenEndpoint = tokenEndpoint;
     return this;
@@ -348,16 +446,20 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
       return false;
     }
     CreateIdentityProviderOAuthResponse createIdentityProviderOAuthResponse = (CreateIdentityProviderOAuthResponse) o;
-    return Objects.equals(this.authorizationEndpoint, createIdentityProviderOAuthResponse.authorizationEndpoint) &&
+    return Objects.equals(this.attributeMappings, createIdentityProviderOAuthResponse.attributeMappings) &&
+        Objects.equals(this.authorizationEndpoint, createIdentityProviderOAuthResponse.authorizationEndpoint) &&
         Objects.equals(this.claimsPropagationConfig, createIdentityProviderOAuthResponse.claimsPropagationConfig) &&
         Objects.equals(this.clientId, createIdentityProviderOAuthResponse.clientId) &&
         Objects.equals(this.clientSecret, createIdentityProviderOAuthResponse.clientSecret) &&
+        Objects.equals(this.eipRecord, createIdentityProviderOAuthResponse.eipRecord) &&
         Objects.equals(this.enabled, createIdentityProviderOAuthResponse.enabled) &&
+        Objects.equals(this.extraProviderConfiguration, createIdentityProviderOAuthResponse.extraProviderConfiguration) &&
         Objects.equals(this.idAttribute, createIdentityProviderOAuthResponse.idAttribute) &&
         Objects.equals(this.name, createIdentityProviderOAuthResponse.name) &&
         Objects.equals(this.provider, createIdentityProviderOAuthResponse.provider) &&
         Objects.equals(this.providerOptions, createIdentityProviderOAuthResponse.providerOptions) &&
         Objects.equals(this.scopesList, createIdentityProviderOAuthResponse.scopesList) &&
+        Objects.equals(this.soleProviderConnection, createIdentityProviderOAuthResponse.soleProviderConnection) &&
         Objects.equals(this.tokenEndpoint, createIdentityProviderOAuthResponse.tokenEndpoint) &&
         Objects.equals(this.uid, createIdentityProviderOAuthResponse.uid) &&
         Objects.equals(this.usePkce, createIdentityProviderOAuthResponse.usePkce) &&
@@ -366,7 +468,7 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
+    return Objects.hash(attributeMappings, authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, eipRecord, enabled, extraProviderConfiguration, idAttribute, name, provider, providerOptions, scopesList, soleProviderConnection, tokenEndpoint, uid, usePkce, userEndpoint);
   }
 
 
@@ -375,16 +477,20 @@ public class CreateIdentityProviderOAuthResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIdentityProviderOAuthResponse {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    extraProviderConfiguration: ").append(toIndentedString(extraProviderConfiguration)).append("\n");
     sb.append("    idAttribute: ").append(toIndentedString(idAttribute)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
     sb.append("    scopesList: ").append(toIndentedString(scopesList)).append("\n");
+    sb.append("    soleProviderConnection: ").append(toIndentedString(soleProviderConnection)).append("\n");
     sb.append("    tokenEndpoint: ").append(toIndentedString(tokenEndpoint)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");

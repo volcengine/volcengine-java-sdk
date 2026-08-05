@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributeForCreateUserOutput;
+import com.volcengine.id.model.ExternalIdentityForCreateUserOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -39,11 +43,20 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("CustomAttributes")
+  private List<CustomAttributeForCreateUserOutput> customAttributes = null;
+
+  @SerializedName("DepartmentUids")
+  private List<String> departmentUids = null;
+
   @SerializedName("Email")
   private String email = null;
 
   @SerializedName("EmailVerified")
   private Boolean emailVerified = null;
+
+  @SerializedName("ExternalIdentities")
+  private List<ExternalIdentityForCreateUserOutput> externalIdentities = null;
 
   @SerializedName("FamilyName")
   private String familyName = null;
@@ -54,11 +67,23 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("GivenName")
   private String givenName = null;
 
+  @SerializedName("GroupUids")
+  private List<String> groupUids = null;
+
   @SerializedName("LatestBrowser")
   private String latestBrowser = null;
 
   @SerializedName("LatestLogin")
   private String latestLogin = null;
+
+  @SerializedName("LatestLoginConnectionName")
+  private String latestLoginConnectionName = null;
+
+  @SerializedName("LatestLoginConnectionProvider")
+  private String latestLoginConnectionProvider = null;
+
+  @SerializedName("LatestLoginConnectionType")
+  private String latestLoginConnectionType = null;
 
   @SerializedName("LatestLoginMethod")
   private String latestLoginMethod = null;
@@ -168,6 +193,59 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
     this.createTime = createTime;
   }
 
+  public CreateUserResponse customAttributes(List<CustomAttributeForCreateUserOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public CreateUserResponse addCustomAttributesItem(CustomAttributeForCreateUserOutput customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new ArrayList<CustomAttributeForCreateUserOutput>();
+    }
+    this.customAttributes.add(customAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributes
+   * @return customAttributes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributeForCreateUserOutput> getCustomAttributes() {
+    return customAttributes;
+  }
+
+  public void setCustomAttributes(List<CustomAttributeForCreateUserOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+  }
+
+  public CreateUserResponse departmentUids(List<String> departmentUids) {
+    this.departmentUids = departmentUids;
+    return this;
+  }
+
+  public CreateUserResponse addDepartmentUidsItem(String departmentUidsItem) {
+    if (this.departmentUids == null) {
+      this.departmentUids = new ArrayList<String>();
+    }
+    this.departmentUids.add(departmentUidsItem);
+    return this;
+  }
+
+   /**
+   * Get departmentUids
+   * @return departmentUids
+  **/
+  @Schema(description = "")
+  public List<String> getDepartmentUids() {
+    return departmentUids;
+  }
+
+  public void setDepartmentUids(List<String> departmentUids) {
+    this.departmentUids = departmentUids;
+  }
+
   public CreateUserResponse email(String email) {
     this.email = email;
     return this;
@@ -202,6 +280,33 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
 
   public void setEmailVerified(Boolean emailVerified) {
     this.emailVerified = emailVerified;
+  }
+
+  public CreateUserResponse externalIdentities(List<ExternalIdentityForCreateUserOutput> externalIdentities) {
+    this.externalIdentities = externalIdentities;
+    return this;
+  }
+
+  public CreateUserResponse addExternalIdentitiesItem(ExternalIdentityForCreateUserOutput externalIdentitiesItem) {
+    if (this.externalIdentities == null) {
+      this.externalIdentities = new ArrayList<ExternalIdentityForCreateUserOutput>();
+    }
+    this.externalIdentities.add(externalIdentitiesItem);
+    return this;
+  }
+
+   /**
+   * Get externalIdentities
+   * @return externalIdentities
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ExternalIdentityForCreateUserOutput> getExternalIdentities() {
+    return externalIdentities;
+  }
+
+  public void setExternalIdentities(List<ExternalIdentityForCreateUserOutput> externalIdentities) {
+    this.externalIdentities = externalIdentities;
   }
 
   public CreateUserResponse familyName(String familyName) {
@@ -258,6 +363,32 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
     this.givenName = givenName;
   }
 
+  public CreateUserResponse groupUids(List<String> groupUids) {
+    this.groupUids = groupUids;
+    return this;
+  }
+
+  public CreateUserResponse addGroupUidsItem(String groupUidsItem) {
+    if (this.groupUids == null) {
+      this.groupUids = new ArrayList<String>();
+    }
+    this.groupUids.add(groupUidsItem);
+    return this;
+  }
+
+   /**
+   * Get groupUids
+   * @return groupUids
+  **/
+  @Schema(description = "")
+  public List<String> getGroupUids() {
+    return groupUids;
+  }
+
+  public void setGroupUids(List<String> groupUids) {
+    this.groupUids = groupUids;
+  }
+
   public CreateUserResponse latestBrowser(String latestBrowser) {
     this.latestBrowser = latestBrowser;
     return this;
@@ -292,6 +423,60 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
 
   public void setLatestLogin(String latestLogin) {
     this.latestLogin = latestLogin;
+  }
+
+  public CreateUserResponse latestLoginConnectionName(String latestLoginConnectionName) {
+    this.latestLoginConnectionName = latestLoginConnectionName;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionName
+   * @return latestLoginConnectionName
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionName() {
+    return latestLoginConnectionName;
+  }
+
+  public void setLatestLoginConnectionName(String latestLoginConnectionName) {
+    this.latestLoginConnectionName = latestLoginConnectionName;
+  }
+
+  public CreateUserResponse latestLoginConnectionProvider(String latestLoginConnectionProvider) {
+    this.latestLoginConnectionProvider = latestLoginConnectionProvider;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionProvider
+   * @return latestLoginConnectionProvider
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionProvider() {
+    return latestLoginConnectionProvider;
+  }
+
+  public void setLatestLoginConnectionProvider(String latestLoginConnectionProvider) {
+    this.latestLoginConnectionProvider = latestLoginConnectionProvider;
+  }
+
+  public CreateUserResponse latestLoginConnectionType(String latestLoginConnectionType) {
+    this.latestLoginConnectionType = latestLoginConnectionType;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionType
+   * @return latestLoginConnectionType
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionType() {
+    return latestLoginConnectionType;
+  }
+
+  public void setLatestLoginConnectionType(String latestLoginConnectionType) {
+    this.latestLoginConnectionType = latestLoginConnectionType;
   }
 
   public CreateUserResponse latestLoginMethod(String latestLoginMethod) {
@@ -631,13 +816,20 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
     return Objects.equals(this.birthdate, createUserResponse.birthdate) &&
         Objects.equals(this.connection, createUserResponse.connection) &&
         Objects.equals(this.createTime, createUserResponse.createTime) &&
+        Objects.equals(this.customAttributes, createUserResponse.customAttributes) &&
+        Objects.equals(this.departmentUids, createUserResponse.departmentUids) &&
         Objects.equals(this.email, createUserResponse.email) &&
         Objects.equals(this.emailVerified, createUserResponse.emailVerified) &&
+        Objects.equals(this.externalIdentities, createUserResponse.externalIdentities) &&
         Objects.equals(this.familyName, createUserResponse.familyName) &&
         Objects.equals(this.gender, createUserResponse.gender) &&
         Objects.equals(this.givenName, createUserResponse.givenName) &&
+        Objects.equals(this.groupUids, createUserResponse.groupUids) &&
         Objects.equals(this.latestBrowser, createUserResponse.latestBrowser) &&
         Objects.equals(this.latestLogin, createUserResponse.latestLogin) &&
+        Objects.equals(this.latestLoginConnectionName, createUserResponse.latestLoginConnectionName) &&
+        Objects.equals(this.latestLoginConnectionProvider, createUserResponse.latestLoginConnectionProvider) &&
+        Objects.equals(this.latestLoginConnectionType, createUserResponse.latestLoginConnectionType) &&
         Objects.equals(this.latestLoginMethod, createUserResponse.latestLoginMethod) &&
         Objects.equals(this.locale, createUserResponse.locale) &&
         Objects.equals(this.middleName, createUserResponse.middleName) &&
@@ -660,7 +852,7 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
+    return Objects.hash(birthdate, connection, createTime, customAttributes, departmentUids, email, emailVerified, externalIdentities, familyName, gender, givenName, groupUids, latestBrowser, latestLogin, latestLoginConnectionName, latestLoginConnectionProvider, latestLoginConnectionType, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
   }
 
 
@@ -672,13 +864,20 @@ public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    departmentUids: ").append(toIndentedString(departmentUids)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+    sb.append("    externalIdentities: ").append(toIndentedString(externalIdentities)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    groupUids: ").append(toIndentedString(groupUids)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
     sb.append("    latestLogin: ").append(toIndentedString(latestLogin)).append("\n");
+    sb.append("    latestLoginConnectionName: ").append(toIndentedString(latestLoginConnectionName)).append("\n");
+    sb.append("    latestLoginConnectionProvider: ").append(toIndentedString(latestLoginConnectionProvider)).append("\n");
+    sb.append("    latestLoginConnectionType: ").append(toIndentedString(latestLoginConnectionType)).append("\n");
     sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");

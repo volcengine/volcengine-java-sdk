@@ -30,8 +30,32 @@ import javax.validation.Valid;
 
 
 public class UpdateSmsServiceRequest {
+  @SerializedName("CnUsageEnabled")
+  private Boolean cnUsageEnabled = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("LoginRowTemplateId")
+  private String loginRowTemplateId = null;
+
+  @SerializedName("PasswordResetCnTemplateId")
+  private String passwordResetCnTemplateId = null;
+
+  @SerializedName("PasswordResetRowTemplateId")
+  private String passwordResetRowTemplateId = null;
+
+  @SerializedName("RowUsageEnabled")
+  private Boolean rowUsageEnabled = null;
+
+  @SerializedName("SenderId")
+  private String senderId = null;
+
+  @SerializedName("SignUpCnTemplateId")
+  private String signUpCnTemplateId = null;
+
+  @SerializedName("SignUpRowTemplateId")
+  private String signUpRowTemplateId = null;
 
   @SerializedName("SignatureContent")
   private String signatureContent = null;
@@ -44,6 +68,24 @@ public class UpdateSmsServiceRequest {
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  public UpdateSmsServiceRequest cnUsageEnabled(Boolean cnUsageEnabled) {
+    this.cnUsageEnabled = cnUsageEnabled;
+    return this;
+  }
+
+   /**
+   * Get cnUsageEnabled
+   * @return cnUsageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isCnUsageEnabled() {
+    return cnUsageEnabled;
+  }
+
+  public void setCnUsageEnabled(Boolean cnUsageEnabled) {
+    this.cnUsageEnabled = cnUsageEnabled;
+  }
 
   public UpdateSmsServiceRequest enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -63,6 +105,132 @@ public class UpdateSmsServiceRequest {
     this.enabled = enabled;
   }
 
+  public UpdateSmsServiceRequest loginRowTemplateId(String loginRowTemplateId) {
+    this.loginRowTemplateId = loginRowTemplateId;
+    return this;
+  }
+
+   /**
+   * Get loginRowTemplateId
+   * @return loginRowTemplateId
+  **/
+ @Size(max=255)  @Schema(description = "")
+  public String getLoginRowTemplateId() {
+    return loginRowTemplateId;
+  }
+
+  public void setLoginRowTemplateId(String loginRowTemplateId) {
+    this.loginRowTemplateId = loginRowTemplateId;
+  }
+
+  public UpdateSmsServiceRequest passwordResetCnTemplateId(String passwordResetCnTemplateId) {
+    this.passwordResetCnTemplateId = passwordResetCnTemplateId;
+    return this;
+  }
+
+   /**
+   * Get passwordResetCnTemplateId
+   * @return passwordResetCnTemplateId
+  **/
+ @Size(max=255)  @Schema(description = "")
+  public String getPasswordResetCnTemplateId() {
+    return passwordResetCnTemplateId;
+  }
+
+  public void setPasswordResetCnTemplateId(String passwordResetCnTemplateId) {
+    this.passwordResetCnTemplateId = passwordResetCnTemplateId;
+  }
+
+  public UpdateSmsServiceRequest passwordResetRowTemplateId(String passwordResetRowTemplateId) {
+    this.passwordResetRowTemplateId = passwordResetRowTemplateId;
+    return this;
+  }
+
+   /**
+   * Get passwordResetRowTemplateId
+   * @return passwordResetRowTemplateId
+  **/
+ @Size(max=255)  @Schema(description = "")
+  public String getPasswordResetRowTemplateId() {
+    return passwordResetRowTemplateId;
+  }
+
+  public void setPasswordResetRowTemplateId(String passwordResetRowTemplateId) {
+    this.passwordResetRowTemplateId = passwordResetRowTemplateId;
+  }
+
+  public UpdateSmsServiceRequest rowUsageEnabled(Boolean rowUsageEnabled) {
+    this.rowUsageEnabled = rowUsageEnabled;
+    return this;
+  }
+
+   /**
+   * Get rowUsageEnabled
+   * @return rowUsageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isRowUsageEnabled() {
+    return rowUsageEnabled;
+  }
+
+  public void setRowUsageEnabled(Boolean rowUsageEnabled) {
+    this.rowUsageEnabled = rowUsageEnabled;
+  }
+
+  public UpdateSmsServiceRequest senderId(String senderId) {
+    this.senderId = senderId;
+    return this;
+  }
+
+   /**
+   * Get senderId
+   * @return senderId
+  **/
+ @Size(min=1,max=254)  @Schema(description = "")
+  public String getSenderId() {
+    return senderId;
+  }
+
+  public void setSenderId(String senderId) {
+    this.senderId = senderId;
+  }
+
+  public UpdateSmsServiceRequest signUpCnTemplateId(String signUpCnTemplateId) {
+    this.signUpCnTemplateId = signUpCnTemplateId;
+    return this;
+  }
+
+   /**
+   * Get signUpCnTemplateId
+   * @return signUpCnTemplateId
+  **/
+ @Size(max=255)  @Schema(description = "")
+  public String getSignUpCnTemplateId() {
+    return signUpCnTemplateId;
+  }
+
+  public void setSignUpCnTemplateId(String signUpCnTemplateId) {
+    this.signUpCnTemplateId = signUpCnTemplateId;
+  }
+
+  public UpdateSmsServiceRequest signUpRowTemplateId(String signUpRowTemplateId) {
+    this.signUpRowTemplateId = signUpRowTemplateId;
+    return this;
+  }
+
+   /**
+   * Get signUpRowTemplateId
+   * @return signUpRowTemplateId
+  **/
+ @Size(max=255)  @Schema(description = "")
+  public String getSignUpRowTemplateId() {
+    return signUpRowTemplateId;
+  }
+
+  public void setSignUpRowTemplateId(String signUpRowTemplateId) {
+    this.signUpRowTemplateId = signUpRowTemplateId;
+  }
+
   public UpdateSmsServiceRequest signatureContent(String signatureContent) {
     this.signatureContent = signatureContent;
     return this;
@@ -72,7 +240,7 @@ public class UpdateSmsServiceRequest {
    * Get signatureContent
    * @return signatureContent
   **/
- @Size(max=255)  @Schema(description = "")
+ @Size(min=1,max=254)  @Schema(description = "")
   public String getSignatureContent() {
     return signatureContent;
   }
@@ -90,7 +258,7 @@ public class UpdateSmsServiceRequest {
    * Get smsAccountId
    * @return smsAccountId
   **/
- @Size(max=255)  @Schema(description = "")
+ @Size(min=1,max=254)  @Schema(description = "")
   public String getSmsAccountId() {
     return smsAccountId;
   }
@@ -127,7 +295,7 @@ public class UpdateSmsServiceRequest {
    * @return userPoolUid
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1)  @Schema(required = true, description = "")
   public String getUserPoolUid() {
     return userPoolUid;
   }
@@ -146,7 +314,15 @@ public class UpdateSmsServiceRequest {
       return false;
     }
     UpdateSmsServiceRequest updateSmsServiceRequest = (UpdateSmsServiceRequest) o;
-    return Objects.equals(this.enabled, updateSmsServiceRequest.enabled) &&
+    return Objects.equals(this.cnUsageEnabled, updateSmsServiceRequest.cnUsageEnabled) &&
+        Objects.equals(this.enabled, updateSmsServiceRequest.enabled) &&
+        Objects.equals(this.loginRowTemplateId, updateSmsServiceRequest.loginRowTemplateId) &&
+        Objects.equals(this.passwordResetCnTemplateId, updateSmsServiceRequest.passwordResetCnTemplateId) &&
+        Objects.equals(this.passwordResetRowTemplateId, updateSmsServiceRequest.passwordResetRowTemplateId) &&
+        Objects.equals(this.rowUsageEnabled, updateSmsServiceRequest.rowUsageEnabled) &&
+        Objects.equals(this.senderId, updateSmsServiceRequest.senderId) &&
+        Objects.equals(this.signUpCnTemplateId, updateSmsServiceRequest.signUpCnTemplateId) &&
+        Objects.equals(this.signUpRowTemplateId, updateSmsServiceRequest.signUpRowTemplateId) &&
         Objects.equals(this.signatureContent, updateSmsServiceRequest.signatureContent) &&
         Objects.equals(this.smsAccountId, updateSmsServiceRequest.smsAccountId) &&
         Objects.equals(this.templateId, updateSmsServiceRequest.templateId) &&
@@ -155,7 +331,7 @@ public class UpdateSmsServiceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, signatureContent, smsAccountId, templateId, userPoolUid);
+    return Objects.hash(cnUsageEnabled, enabled, loginRowTemplateId, passwordResetCnTemplateId, passwordResetRowTemplateId, rowUsageEnabled, senderId, signUpCnTemplateId, signUpRowTemplateId, signatureContent, smsAccountId, templateId, userPoolUid);
   }
 
 
@@ -164,7 +340,15 @@ public class UpdateSmsServiceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSmsServiceRequest {\n");
     
+    sb.append("    cnUsageEnabled: ").append(toIndentedString(cnUsageEnabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    loginRowTemplateId: ").append(toIndentedString(loginRowTemplateId)).append("\n");
+    sb.append("    passwordResetCnTemplateId: ").append(toIndentedString(passwordResetCnTemplateId)).append("\n");
+    sb.append("    passwordResetRowTemplateId: ").append(toIndentedString(passwordResetRowTemplateId)).append("\n");
+    sb.append("    rowUsageEnabled: ").append(toIndentedString(rowUsageEnabled)).append("\n");
+    sb.append("    senderId: ").append(toIndentedString(senderId)).append("\n");
+    sb.append("    signUpCnTemplateId: ").append(toIndentedString(signUpCnTemplateId)).append("\n");
+    sb.append("    signUpRowTemplateId: ").append(toIndentedString(signUpRowTemplateId)).append("\n");
     sb.append("    signatureContent: ").append(toIndentedString(signatureContent)).append("\n");
     sb.append("    smsAccountId: ").append(toIndentedString(smsAccountId)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");

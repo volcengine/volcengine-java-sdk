@@ -61,6 +61,9 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
   @SerializedName("DevelopmentModeEnabled")
   private Boolean developmentModeEnabled = null;
 
+  @SerializedName("DismissLoginPageEnabled")
+  private Boolean dismissLoginPageEnabled = null;
+
   @SerializedName("IdToken")
   private IdTokenForCreateUserPoolClientOutput idToken = null;
 
@@ -75,6 +78,9 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
 
   @SerializedName("RefreshToken")
   private RefreshTokenForCreateUserPoolClientOutput refreshToken = null;
+
+  @SerializedName("SkipConsentEnabled")
+  private Boolean skipConsentEnabled = null;
 
   @SerializedName("Uid")
   private String uid = null;
@@ -276,6 +282,24 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
     this.developmentModeEnabled = developmentModeEnabled;
   }
 
+  public CreateUserPoolClientResponse dismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+    return this;
+  }
+
+   /**
+   * Get dismissLoginPageEnabled
+   * @return dismissLoginPageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDismissLoginPageEnabled() {
+    return dismissLoginPageEnabled;
+  }
+
+  public void setDismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+  }
+
   public CreateUserPoolClientResponse idToken(IdTokenForCreateUserPoolClientOutput idToken) {
     this.idToken = idToken;
     return this;
@@ -368,6 +392,24 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
     this.refreshToken = refreshToken;
   }
 
+  public CreateUserPoolClientResponse skipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+    return this;
+  }
+
+   /**
+   * Get skipConsentEnabled
+   * @return skipConsentEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSkipConsentEnabled() {
+    return skipConsentEnabled;
+  }
+
+  public void setSkipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+  }
+
   public CreateUserPoolClientResponse uid(String uid) {
     this.uid = uid;
     return this;
@@ -423,18 +465,20 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.createTime, createUserPoolClientResponse.createTime) &&
         Objects.equals(this.description, createUserPoolClientResponse.description) &&
         Objects.equals(this.developmentModeEnabled, createUserPoolClientResponse.developmentModeEnabled) &&
+        Objects.equals(this.dismissLoginPageEnabled, createUserPoolClientResponse.dismissLoginPageEnabled) &&
         Objects.equals(this.idToken, createUserPoolClientResponse.idToken) &&
         Objects.equals(this.loginPageUrl, createUserPoolClientResponse.loginPageUrl) &&
         Objects.equals(this.logoUri, createUserPoolClientResponse.logoUri) &&
         Objects.equals(this.name, createUserPoolClientResponse.name) &&
         Objects.equals(this.refreshToken, createUserPoolClientResponse.refreshToken) &&
+        Objects.equals(this.skipConsentEnabled, createUserPoolClientResponse.skipConsentEnabled) &&
         Objects.equals(this.uid, createUserPoolClientResponse.uid) &&
         Objects.equals(this.updateTime, createUserPoolClientResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, developmentModeEnabled, idToken, loginPageUrl, logoUri, name, refreshToken, uid, updateTime);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, developmentModeEnabled, dismissLoginPageEnabled, idToken, loginPageUrl, logoUri, name, refreshToken, skipConsentEnabled, uid, updateTime);
   }
 
 
@@ -452,11 +496,13 @@ public class CreateUserPoolClientResponse extends com.volcengine.model.AbstractR
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
+    sb.append("    dismissLoginPageEnabled: ").append(toIndentedString(dismissLoginPageEnabled)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    loginPageUrl: ").append(toIndentedString(loginPageUrl)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    skipConsentEnabled: ").append(toIndentedString(skipConsentEnabled)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

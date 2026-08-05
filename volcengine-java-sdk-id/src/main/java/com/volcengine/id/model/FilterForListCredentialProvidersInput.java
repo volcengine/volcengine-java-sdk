@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class FilterForListCredentialProvidersInput {
+  @SerializedName("BindingStatus")
+  private Boolean bindingStatus = null;
+
   /**
    * Gets or Sets flow
    */
@@ -82,6 +85,12 @@ public class FilterForListCredentialProvidersInput {
   @SerializedName("PoolName")
   private String poolName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Source")
+  private String source = null;
+
   /**
    * Gets or Sets type
    */
@@ -130,6 +139,24 @@ public class FilterForListCredentialProvidersInput {
 
   @SerializedName("Vendor")
   private Integer vendor = null;
+
+  public FilterForListCredentialProvidersInput bindingStatus(Boolean bindingStatus) {
+    this.bindingStatus = bindingStatus;
+    return this;
+  }
+
+   /**
+   * Get bindingStatus
+   * @return bindingStatus
+  **/
+  @Schema(description = "")
+  public Boolean isBindingStatus() {
+    return bindingStatus;
+  }
+
+  public void setBindingStatus(Boolean bindingStatus) {
+    this.bindingStatus = bindingStatus;
+  }
 
   public FilterForListCredentialProvidersInput flow(FlowEnum flow) {
     this.flow = flow;
@@ -185,6 +212,42 @@ public class FilterForListCredentialProvidersInput {
     this.poolName = poolName;
   }
 
+  public FilterForListCredentialProvidersInput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public FilterForListCredentialProvidersInput source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public FilterForListCredentialProvidersInput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -232,16 +295,19 @@ public class FilterForListCredentialProvidersInput {
       return false;
     }
     FilterForListCredentialProvidersInput filterForListCredentialProvidersInput = (FilterForListCredentialProvidersInput) o;
-    return Objects.equals(this.flow, filterForListCredentialProvidersInput.flow) &&
+    return Objects.equals(this.bindingStatus, filterForListCredentialProvidersInput.bindingStatus) &&
+        Objects.equals(this.flow, filterForListCredentialProvidersInput.flow) &&
         Objects.equals(this.name, filterForListCredentialProvidersInput.name) &&
         Objects.equals(this.poolName, filterForListCredentialProvidersInput.poolName) &&
+        Objects.equals(this.projectName, filterForListCredentialProvidersInput.projectName) &&
+        Objects.equals(this.source, filterForListCredentialProvidersInput.source) &&
         Objects.equals(this.type, filterForListCredentialProvidersInput.type) &&
         Objects.equals(this.vendor, filterForListCredentialProvidersInput.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flow, name, poolName, type, vendor);
+    return Objects.hash(bindingStatus, flow, name, poolName, projectName, source, type, vendor);
   }
 
 
@@ -250,9 +316,12 @@ public class FilterForListCredentialProvidersInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListCredentialProvidersInput {\n");
     
+    sb.append("    bindingStatus: ").append(toIndentedString(bindingStatus)).append("\n");
     sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");

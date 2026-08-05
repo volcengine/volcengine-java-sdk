@@ -61,6 +61,9 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
   @SerializedName("DevelopmentModeEnabled")
   private Boolean developmentModeEnabled = null;
 
+  @SerializedName("DismissLoginPageEnabled")
+  private Boolean dismissLoginPageEnabled = null;
+
   @SerializedName("IdToken")
   private IdTokenForGetUserPoolClientOutput idToken = null;
 
@@ -75,6 +78,9 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
 
   @SerializedName("RefreshToken")
   private RefreshTokenForGetUserPoolClientOutput refreshToken = null;
+
+  @SerializedName("SkipConsentEnabled")
+  private Boolean skipConsentEnabled = null;
 
   @SerializedName("Uid")
   private String uid = null;
@@ -276,6 +282,24 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
     this.developmentModeEnabled = developmentModeEnabled;
   }
 
+  public GetUserPoolClientResponse dismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+    return this;
+  }
+
+   /**
+   * Get dismissLoginPageEnabled
+   * @return dismissLoginPageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDismissLoginPageEnabled() {
+    return dismissLoginPageEnabled;
+  }
+
+  public void setDismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+  }
+
   public GetUserPoolClientResponse idToken(IdTokenForGetUserPoolClientOutput idToken) {
     this.idToken = idToken;
     return this;
@@ -368,6 +392,24 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
     this.refreshToken = refreshToken;
   }
 
+  public GetUserPoolClientResponse skipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+    return this;
+  }
+
+   /**
+   * Get skipConsentEnabled
+   * @return skipConsentEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSkipConsentEnabled() {
+    return skipConsentEnabled;
+  }
+
+  public void setSkipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+  }
+
   public GetUserPoolClientResponse uid(String uid) {
     this.uid = uid;
     return this;
@@ -423,18 +465,20 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
         Objects.equals(this.createTime, getUserPoolClientResponse.createTime) &&
         Objects.equals(this.description, getUserPoolClientResponse.description) &&
         Objects.equals(this.developmentModeEnabled, getUserPoolClientResponse.developmentModeEnabled) &&
+        Objects.equals(this.dismissLoginPageEnabled, getUserPoolClientResponse.dismissLoginPageEnabled) &&
         Objects.equals(this.idToken, getUserPoolClientResponse.idToken) &&
         Objects.equals(this.loginPageUrl, getUserPoolClientResponse.loginPageUrl) &&
         Objects.equals(this.logoUri, getUserPoolClientResponse.logoUri) &&
         Objects.equals(this.name, getUserPoolClientResponse.name) &&
         Objects.equals(this.refreshToken, getUserPoolClientResponse.refreshToken) &&
+        Objects.equals(this.skipConsentEnabled, getUserPoolClientResponse.skipConsentEnabled) &&
         Objects.equals(this.uid, getUserPoolClientResponse.uid) &&
         Objects.equals(this.updateTime, getUserPoolClientResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, developmentModeEnabled, idToken, loginPageUrl, logoUri, name, refreshToken, uid, updateTime);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientSecret, clientType, createTime, description, developmentModeEnabled, dismissLoginPageEnabled, idToken, loginPageUrl, logoUri, name, refreshToken, skipConsentEnabled, uid, updateTime);
   }
 
 
@@ -452,11 +496,13 @@ public class GetUserPoolClientResponse extends com.volcengine.model.AbstractResp
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
+    sb.append("    dismissLoginPageEnabled: ").append(toIndentedString(dismissLoginPageEnabled)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    loginPageUrl: ").append(toIndentedString(loginPageUrl)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    skipConsentEnabled: ").append(toIndentedString(skipConsentEnabled)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

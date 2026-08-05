@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ErrorsStructuredForCreateUsersOutput;
+import com.volcengine.id.model.SuccessfulUidsStructuredForCreateUsersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,9 @@ public class CreateUsersResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("SuccessfulUids")
   private List<String> successfulUids = null;
+
+  @SerializedName("SuccessfulUidsStructured")
+  private List<SuccessfulUidsStructuredForCreateUsersOutput> successfulUidsStructured = null;
 
   public CreateUsersResponse errors(List<String> errors) {
     this.errors = errors;
@@ -163,6 +167,33 @@ public class CreateUsersResponse extends com.volcengine.model.AbstractResponse {
     this.successfulUids = successfulUids;
   }
 
+  public CreateUsersResponse successfulUidsStructured(List<SuccessfulUidsStructuredForCreateUsersOutput> successfulUidsStructured) {
+    this.successfulUidsStructured = successfulUidsStructured;
+    return this;
+  }
+
+  public CreateUsersResponse addSuccessfulUidsStructuredItem(SuccessfulUidsStructuredForCreateUsersOutput successfulUidsStructuredItem) {
+    if (this.successfulUidsStructured == null) {
+      this.successfulUidsStructured = new ArrayList<SuccessfulUidsStructuredForCreateUsersOutput>();
+    }
+    this.successfulUidsStructured.add(successfulUidsStructuredItem);
+    return this;
+  }
+
+   /**
+   * Get successfulUidsStructured
+   * @return successfulUidsStructured
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SuccessfulUidsStructuredForCreateUsersOutput> getSuccessfulUidsStructured() {
+    return successfulUidsStructured;
+  }
+
+  public void setSuccessfulUidsStructured(List<SuccessfulUidsStructuredForCreateUsersOutput> successfulUidsStructured) {
+    this.successfulUidsStructured = successfulUidsStructured;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,12 +208,13 @@ public class CreateUsersResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.errorsStructured, createUsersResponse.errorsStructured) &&
         Objects.equals(this.failureCount, createUsersResponse.failureCount) &&
         Objects.equals(this.successCount, createUsersResponse.successCount) &&
-        Objects.equals(this.successfulUids, createUsersResponse.successfulUids);
+        Objects.equals(this.successfulUids, createUsersResponse.successfulUids) &&
+        Objects.equals(this.successfulUidsStructured, createUsersResponse.successfulUidsStructured);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, errorsStructured, failureCount, successCount, successfulUids);
+    return Objects.hash(errors, errorsStructured, failureCount, successCount, successfulUids, successfulUidsStructured);
   }
 
 
@@ -196,6 +228,7 @@ public class CreateUsersResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    failureCount: ").append(toIndentedString(failureCount)).append("\n");
     sb.append("    successCount: ").append(toIndentedString(successCount)).append("\n");
     sb.append("    successfulUids: ").append(toIndentedString(successfulUids)).append("\n");
+    sb.append("    successfulUidsStructured: ").append(toIndentedString(successfulUidsStructured)).append("\n");
     sb.append("}");
     return sb.toString();
   }
