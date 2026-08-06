@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VideoMetaForVideoResourceUploadOutput
+ * PaginationForVideoProjectTaskListOutput
  */
 
 
 
-public class VideoMetaForVideoResourceUploadOutput {
-  @SerializedName("uri")
-  private String uri = null;
+public class PaginationForVideoProjectTaskListOutput {
+  @SerializedName("limit")
+  private Integer limit = null;
 
-  public VideoMetaForVideoResourceUploadOutput uri(String uri) {
-    this.uri = uri;
+  @SerializedName("offset")
+  private Integer offset = null;
+
+  public PaginationForVideoProjectTaskListOutput limit(Integer limit) {
+    this.limit = limit;
     return this;
   }
 
    /**
-   * Get uri
-   * @return uri
+   * Get limit
+   * @return limit
   **/
   @Schema(description = "")
-  public String getUri() {
-    return uri;
+  public Integer getLimit() {
+    return limit;
   }
 
-  public void setUri(String uri) {
-    this.uri = uri;
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public PaginationForVideoProjectTaskListOutput offset(Integer offset) {
+    this.offset = offset;
+    return this;
+  }
+
+   /**
+   * Get offset
+   * @return offset
+  **/
+  @Schema(description = "")
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
   }
 
 
@@ -60,22 +81,24 @@ public class VideoMetaForVideoResourceUploadOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoMetaForVideoResourceUploadOutput videoMetaForVideoResourceUploadOutput = (VideoMetaForVideoResourceUploadOutput) o;
-    return Objects.equals(this.uri, videoMetaForVideoResourceUploadOutput.uri);
+    PaginationForVideoProjectTaskListOutput paginationForVideoProjectTaskListOutput = (PaginationForVideoProjectTaskListOutput) o;
+    return Objects.equals(this.limit, paginationForVideoProjectTaskListOutput.limit) &&
+        Objects.equals(this.offset, paginationForVideoProjectTaskListOutput.offset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri);
+    return Objects.hash(limit, offset);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VideoMetaForVideoResourceUploadOutput {\n");
+    sb.append("class PaginationForVideoProjectTaskListOutput {\n");
     
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("}");
     return sb.toString();
   }

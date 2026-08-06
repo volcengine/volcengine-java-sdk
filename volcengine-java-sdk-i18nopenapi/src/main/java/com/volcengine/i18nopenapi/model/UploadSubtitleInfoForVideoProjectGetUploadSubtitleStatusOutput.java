@@ -56,6 +56,9 @@ public class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
   @SerializedName("subtitleId")
   private String subtitleId = null;
 
+  @SerializedName("type")
+  private Integer type = null;
+
   @SerializedName("url")
   private String url = null;
 
@@ -211,6 +214,24 @@ public class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
     this.subtitleId = subtitleId;
   }
 
+  public UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput type(Integer type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public Integer getType() {
+    return type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
   public UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput url(String url) {
     this.url = url;
     return this;
@@ -247,12 +268,13 @@ public class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
         Objects.equals(this.projectId, uploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.projectId) &&
         Objects.equals(this.status, uploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.status) &&
         Objects.equals(this.subtitleId, uploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.subtitleId) &&
+        Objects.equals(this.type, uploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.type) &&
         Objects.equals(this.url, uploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindVid, errMsg, fileType, langs, name, projectId, status, subtitleId, url);
+    return Objects.hash(bindVid, errMsg, fileType, langs, name, projectId, status, subtitleId, type, url);
   }
 
 
@@ -269,6 +291,7 @@ public class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

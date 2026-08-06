@@ -39,7 +39,7 @@ public class VideoProjectCreateRequest {
   private String comment = null;
 
   @SerializedName("contributors")
-  private List<Integer> contributors = null;
+  private List<String> contributors = null;
 
   @SerializedName("name")
   private String name = null;
@@ -86,14 +86,14 @@ public class VideoProjectCreateRequest {
     this.comment = comment;
   }
 
-  public VideoProjectCreateRequest contributors(List<Integer> contributors) {
+  public VideoProjectCreateRequest contributors(List<String> contributors) {
     this.contributors = contributors;
     return this;
   }
 
-  public VideoProjectCreateRequest addContributorsItem(Integer contributorsItem) {
+  public VideoProjectCreateRequest addContributorsItem(String contributorsItem) {
     if (this.contributors == null) {
-      this.contributors = new ArrayList<Integer>();
+      this.contributors = new ArrayList<String>();
     }
     this.contributors.add(contributorsItem);
     return this;
@@ -104,11 +104,11 @@ public class VideoProjectCreateRequest {
    * @return contributors
   **/
   @Schema(description = "")
-  public List<Integer> getContributors() {
+  public List<String> getContributors() {
     return contributors;
   }
 
-  public void setContributors(List<Integer> contributors) {
+  public void setContributors(List<String> contributors) {
     this.contributors = contributors;
   }
 

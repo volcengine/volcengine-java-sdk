@@ -40,13 +40,13 @@ public class SourceForVideoEditorUpdateGlobalStyleInput {
   private Integer fontSize = null;
 
   @SerializedName("show")
-  private Float show = null;
+  private Boolean show = null;
 
   @SerializedName("x")
-  private Long x = null;
+  private Double x = null;
 
   @SerializedName("y")
-  private Long y = null;
+  private Double y = null;
 
   public SourceForVideoEditorUpdateGlobalStyleInput alignment(Integer alignment) {
     this.alignment = alignment;
@@ -106,7 +106,7 @@ public class SourceForVideoEditorUpdateGlobalStyleInput {
     this.fontSize = fontSize;
   }
 
-  public SourceForVideoEditorUpdateGlobalStyleInput show(Float show) {
+  public SourceForVideoEditorUpdateGlobalStyleInput show(Boolean show) {
     this.show = show;
     return this;
   }
@@ -116,51 +116,47 @@ public class SourceForVideoEditorUpdateGlobalStyleInput {
    * @return show
   **/
   @Schema(description = "")
-  public Float getShow() {
+  public Boolean isShow() {
     return show;
   }
 
-  public void setShow(Float show) {
+  public void setShow(Boolean show) {
     this.show = show;
   }
 
-  public SourceForVideoEditorUpdateGlobalStyleInput x(Long x) {
+  public SourceForVideoEditorUpdateGlobalStyleInput x(Double x) {
     this.x = x;
     return this;
   }
 
    /**
    * Get x
-   * minimum: -1
-   * maximum: 1
    * @return x
   **/
- @Min(-1) @Max(1)  @Schema(description = "")
-  public Long getX() {
+  @Schema(description = "")
+  public Double getX() {
     return x;
   }
 
-  public void setX(Long x) {
+  public void setX(Double x) {
     this.x = x;
   }
 
-  public SourceForVideoEditorUpdateGlobalStyleInput y(Long y) {
+  public SourceForVideoEditorUpdateGlobalStyleInput y(Double y) {
     this.y = y;
     return this;
   }
 
    /**
    * Get y
-   * minimum: -1
-   * maximum: 1
    * @return y
   **/
- @Min(-1) @Max(1)  @Schema(description = "")
-  public Long getY() {
+  @Schema(description = "")
+  public Double getY() {
     return y;
   }
 
-  public void setY(Long y) {
+  public void setY(Double y) {
     this.y = y;
   }
 

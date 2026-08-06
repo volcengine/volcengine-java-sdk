@@ -48,8 +48,7 @@ public class VideoProjectDeleteVideoDramaRequest {
    * Get deleteSourceVideo
    * @return deleteSourceVideo
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isDeleteSourceVideo() {
     return deleteSourceVideo;
   }

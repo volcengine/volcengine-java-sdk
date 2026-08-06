@@ -52,6 +52,9 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
   @SerializedName("isDub")
   private Boolean isDub = null;
 
+  @SerializedName("needTermValidation")
+  private Boolean needTermValidation = null;
+
   @SerializedName("projectId")
   private String projectId = null;
 
@@ -175,6 +178,24 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
 
   public void setIsDub(Boolean isDub) {
     this.isDub = isDub;
+  }
+
+  public VideoProjectAddTargetLangsToExistingDramaRequest needTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
+    return this;
+  }
+
+   /**
+   * Get needTermValidation
+   * @return needTermValidation
+  **/
+  @Schema(description = "")
+  public Boolean isNeedTermValidation() {
+    return needTermValidation;
+  }
+
+  public void setNeedTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
   }
 
   public VideoProjectAddTargetLangsToExistingDramaRequest projectId(String projectId) {
@@ -302,6 +323,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
         Objects.equals(this.dubVoiceMode, videoProjectAddTargetLangsToExistingDramaRequest.dubVoiceMode) &&
         Objects.equals(this.fromTaskType, videoProjectAddTargetLangsToExistingDramaRequest.fromTaskType) &&
         Objects.equals(this.isDub, videoProjectAddTargetLangsToExistingDramaRequest.isDub) &&
+        Objects.equals(this.needTermValidation, videoProjectAddTargetLangsToExistingDramaRequest.needTermValidation) &&
         Objects.equals(this.projectId, videoProjectAddTargetLangsToExistingDramaRequest.projectId) &&
         Objects.equals(this.targetLanguages, videoProjectAddTargetLangsToExistingDramaRequest.targetLanguages) &&
         Objects.equals(this.targetStyleMap, videoProjectAddTargetLangsToExistingDramaRequest.targetStyleMap) &&
@@ -311,7 +333,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bgmPolicy, deadline, dramaId, dubVoiceMode, fromTaskType, isDub, projectId, targetLanguages, targetStyleMap, videoIdentifiers, videoSpeedPolicy);
+    return Objects.hash(bgmPolicy, deadline, dramaId, dubVoiceMode, fromTaskType, isDub, needTermValidation, projectId, targetLanguages, targetStyleMap, videoIdentifiers, videoSpeedPolicy);
   }
 
 
@@ -326,6 +348,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
     sb.append("    dubVoiceMode: ").append(toIndentedString(dubVoiceMode)).append("\n");
     sb.append("    fromTaskType: ").append(toIndentedString(fromTaskType)).append("\n");
     sb.append("    isDub: ").append(toIndentedString(isDub)).append("\n");
+    sb.append("    needTermValidation: ").append(toIndentedString(needTermValidation)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    targetLanguages: ").append(toIndentedString(targetLanguages)).append("\n");
     sb.append("    targetStyleMap: ").append(toIndentedString(targetStyleMap)).append("\n");

@@ -1,0 +1,23 @@
+{
+  "actions": [
+    "VideoProjectCreate",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "TermBaseTermGroupImportTask",
+    "VideoProjectList",
+    "TermBaseTermGroups",
+    "VideoProjectDeleteVideoDrama",
+    "VideoProjectVideoDelete",
+    "VideoEditorAddSubtitle",
+    "VideoProjectSerialTaskCreate",
+    "VideoEditorUpdateGlobalStyle",
+    "VideoProjectSerialDubTaskCreate",
+    "VideoProjectTaskList",
+    "VideoProjectSubmitTermValidation",
+    "VideoProjectGetUploadSubtitleStatus",
+    "VideoProjectSubtitleDelete",
+    "VideoProjectTaskDetail"
+  ],
+  "description": "I18N_OPENAPI: 新增 VideoProjectSubmitTermValidation；删除 CreateVideoCreate, VideoEditorGenDubbing, VideoResourceUpload；修改 VideoProjectGetUploadSubtitleStatus, VideoEditorAddSubtitle, VideoProjectSubtitleDelete, VideoProjectSerialTaskCreate, VideoProjectSubmitTermValidation, VideoProjectAddTargetLangsToExistingDrama, VideoProjectDeleteVideoDrama, VideoEditorUpdateGlobalStyle, VideoProjectSerialDubTaskCreate, TermBaseTermGroupImportTask, VideoProjectVideoDelete, VideoProjectList, VideoProjectTaskDetail, VideoProjectTaskList, TermBaseTermGroups, VideoProjectCreate",
+  "modules": "service/i18n_openapi",
+  "type": "breaking-change"
+}

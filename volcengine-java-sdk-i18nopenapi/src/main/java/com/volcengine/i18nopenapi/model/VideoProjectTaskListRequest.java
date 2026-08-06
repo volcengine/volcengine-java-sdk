@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class VideoProjectTaskListRequest {
+  @SerializedName("dramaId")
+  private String dramaId = null;
+
   @SerializedName("endTime")
   private Integer endTime = null;
 
@@ -68,6 +71,24 @@ public class VideoProjectTaskListRequest {
 
   @SerializedName("taskTypes")
   private String taskTypes = null;
+
+  public VideoProjectTaskListRequest dramaId(String dramaId) {
+    this.dramaId = dramaId;
+    return this;
+  }
+
+   /**
+   * Get dramaId
+   * @return dramaId
+  **/
+  @Schema(description = "")
+  public String getDramaId() {
+    return dramaId;
+  }
+
+  public void setDramaId(String dramaId) {
+    this.dramaId = dramaId;
+  }
 
   public VideoProjectTaskListRequest endTime(Integer endTime) {
     this.endTime = endTime;
@@ -314,7 +335,8 @@ public class VideoProjectTaskListRequest {
       return false;
     }
     VideoProjectTaskListRequest videoProjectTaskListRequest = (VideoProjectTaskListRequest) o;
-    return Objects.equals(this.endTime, videoProjectTaskListRequest.endTime) &&
+    return Objects.equals(this.dramaId, videoProjectTaskListRequest.dramaId) &&
+        Objects.equals(this.endTime, videoProjectTaskListRequest.endTime) &&
         Objects.equals(this.limit, videoProjectTaskListRequest.limit) &&
         Objects.equals(this.offset, videoProjectTaskListRequest.offset) &&
         Objects.equals(this.projectId, videoProjectTaskListRequest.projectId) &&
@@ -331,7 +353,7 @@ public class VideoProjectTaskListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, limit, offset, projectId, sourceLanguages, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
+    return Objects.hash(dramaId, endTime, limit, offset, projectId, sourceLanguages, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
   }
 
 
@@ -340,6 +362,7 @@ public class VideoProjectTaskListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectTaskListRequest {\n");
     
+    sb.append("    dramaId: ").append(toIndentedString(dramaId)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
