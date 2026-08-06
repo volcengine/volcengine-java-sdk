@@ -685,7 +685,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
         DEFAULT_ENDPOINT_MAP.put("acep", new ServiceEndpointInfo(
                 "acep",
-                true,
+                false,
                 "",
                 ENDPOINT,
                 createRegionEndpointMap()
