@@ -104,6 +104,14 @@ public class MultimodalEmbeddingInput {
     public static class MultiModalEmbeddingContentPartVideoURL {
         String url;
         double fps;
+        /** Maximum number of video tokens. Valid range: [10240, 204800]. */
+        Integer maxVideoTokens;
+        /** Minimum number of tokens per frame. Valid range: [16, 128]. */
+        Integer minFrameTokens;
+        /** Maximum number of tokens per frame. Valid range: [128, 640]. */
+        Integer maxFrameTokens;
+        /** Minimum number of sampled frames. Valid range: [5, 16]. */
+        Integer minFrames;
 
         public MultiModalEmbeddingContentPartVideoURL(String url, double fps) {
             this.url = url;
@@ -130,11 +138,47 @@ public class MultimodalEmbeddingInput {
             this.fps = fps;
         }
 
+        public Integer getMaxVideoTokens() {
+            return maxVideoTokens;
+        }
+
+        public void setMaxVideoTokens(Integer maxVideoTokens) {
+            this.maxVideoTokens = maxVideoTokens;
+        }
+
+        public Integer getMinFrameTokens() {
+            return minFrameTokens;
+        }
+
+        public void setMinFrameTokens(Integer minFrameTokens) {
+            this.minFrameTokens = minFrameTokens;
+        }
+
+        public Integer getMaxFrameTokens() {
+            return maxFrameTokens;
+        }
+
+        public void setMaxFrameTokens(Integer maxFrameTokens) {
+            this.maxFrameTokens = maxFrameTokens;
+        }
+
+        public Integer getMinFrames() {
+            return minFrames;
+        }
+
+        public void setMinFrames(Integer minFrames) {
+            this.minFrames = minFrames;
+        }
+
         @Override
         public String toString() {
             return "MultiModalEmbeddingContentPartVideoURL{" +
                     "url='" + url + '\'' +
                     ", fps=" + fps +
+                    ", maxVideoTokens=" + maxVideoTokens +
+                    ", minFrameTokens=" + minFrameTokens +
+                    ", maxFrameTokens=" + maxFrameTokens +
+                    ", minFrames=" + minFrames +
                     '}';
         }
     }
