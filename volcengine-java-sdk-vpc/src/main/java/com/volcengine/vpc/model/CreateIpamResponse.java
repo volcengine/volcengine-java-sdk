@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateIpamResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("DefaultResourceDiscoveryId")
   private String defaultResourceDiscoveryId = null;
 
@@ -44,6 +47,24 @@ public class CreateIpamResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateIpamResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateIpamResponse defaultResourceDiscoveryId(String defaultResourceDiscoveryId) {
     this.defaultResourceDiscoveryId = defaultResourceDiscoveryId;
@@ -145,7 +166,8 @@ public class CreateIpamResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     CreateIpamResponse createIpamResponse = (CreateIpamResponse) o;
-    return Objects.equals(this.defaultResourceDiscoveryId, createIpamResponse.defaultResourceDiscoveryId) &&
+    return Objects.equals(this.asyncTaskId, createIpamResponse.asyncTaskId) &&
+        Objects.equals(this.defaultResourceDiscoveryId, createIpamResponse.defaultResourceDiscoveryId) &&
         Objects.equals(this.ipamId, createIpamResponse.ipamId) &&
         Objects.equals(this.privateDefaultScopeId, createIpamResponse.privateDefaultScopeId) &&
         Objects.equals(this.publicDefaultScopeId, createIpamResponse.publicDefaultScopeId) &&
@@ -154,7 +176,7 @@ public class CreateIpamResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultResourceDiscoveryId, ipamId, privateDefaultScopeId, publicDefaultScopeId, requestId);
+    return Objects.hash(asyncTaskId, defaultResourceDiscoveryId, ipamId, privateDefaultScopeId, publicDefaultScopeId, requestId);
   }
 
 
@@ -163,6 +185,7 @@ public class CreateIpamResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIpamResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    defaultResourceDiscoveryId: ").append(toIndentedString(defaultResourceDiscoveryId)).append("\n");
     sb.append("    ipamId: ").append(toIndentedString(ipamId)).append("\n");
     sb.append("    privateDefaultScopeId: ").append(toIndentedString(privateDefaultScopeId)).append("\n");

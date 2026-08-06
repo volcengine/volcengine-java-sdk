@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class AssociateVpcCidrBlockRequest {
+  @SerializedName("Ipv4IpamPoolId")
+  private String ipv4IpamPoolId = null;
+
   @SerializedName("Ipv6CidrBlock")
   private String ipv6CidrBlock = null;
 
@@ -44,6 +47,24 @@ public class AssociateVpcCidrBlockRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public AssociateVpcCidrBlockRequest ipv4IpamPoolId(String ipv4IpamPoolId) {
+    this.ipv4IpamPoolId = ipv4IpamPoolId;
+    return this;
+  }
+
+   /**
+   * Get ipv4IpamPoolId
+   * @return ipv4IpamPoolId
+  **/
+  @Schema(description = "")
+  public String getIpv4IpamPoolId() {
+    return ipv4IpamPoolId;
+  }
+
+  public void setIpv4IpamPoolId(String ipv4IpamPoolId) {
+    this.ipv4IpamPoolId = ipv4IpamPoolId;
+  }
 
   public AssociateVpcCidrBlockRequest ipv6CidrBlock(String ipv6CidrBlock) {
     this.ipv6CidrBlock = ipv6CidrBlock;
@@ -146,7 +167,8 @@ public class AssociateVpcCidrBlockRequest {
       return false;
     }
     AssociateVpcCidrBlockRequest associateVpcCidrBlockRequest = (AssociateVpcCidrBlockRequest) o;
-    return Objects.equals(this.ipv6CidrBlock, associateVpcCidrBlockRequest.ipv6CidrBlock) &&
+    return Objects.equals(this.ipv4IpamPoolId, associateVpcCidrBlockRequest.ipv4IpamPoolId) &&
+        Objects.equals(this.ipv6CidrBlock, associateVpcCidrBlockRequest.ipv6CidrBlock) &&
         Objects.equals(this.ipv6Isp, associateVpcCidrBlockRequest.ipv6Isp) &&
         Objects.equals(this.ipv6MaskLen, associateVpcCidrBlockRequest.ipv6MaskLen) &&
         Objects.equals(this.secondaryCidrBlock, associateVpcCidrBlockRequest.secondaryCidrBlock) &&
@@ -155,7 +177,7 @@ public class AssociateVpcCidrBlockRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6CidrBlock, ipv6Isp, ipv6MaskLen, secondaryCidrBlock, vpcId);
+    return Objects.hash(ipv4IpamPoolId, ipv6CidrBlock, ipv6Isp, ipv6MaskLen, secondaryCidrBlock, vpcId);
   }
 
 
@@ -164,6 +186,7 @@ public class AssociateVpcCidrBlockRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateVpcCidrBlockRequest {\n");
     
+    sb.append("    ipv4IpamPoolId: ").append(toIndentedString(ipv4IpamPoolId)).append("\n");
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    ipv6Isp: ").append(toIndentedString(ipv6Isp)).append("\n");
     sb.append("    ipv6MaskLen: ").append(toIndentedString(ipv6MaskLen)).append("\n");

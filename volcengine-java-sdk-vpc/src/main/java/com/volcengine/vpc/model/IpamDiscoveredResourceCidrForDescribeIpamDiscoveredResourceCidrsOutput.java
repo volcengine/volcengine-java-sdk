@@ -30,9 +30,6 @@ import javax.validation.Valid;
 
 
 public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
-  @SerializedName("CidrBlock")
-  private String cidrBlock = null;
-
   @SerializedName("DiscoveryTime")
   private String discoveryTime = null;
 
@@ -42,8 +39,17 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
   @SerializedName("IpamResourceDiscoveryId")
   private String ipamResourceDiscoveryId = null;
 
+  @SerializedName("ResourceCidr")
+  private String resourceCidr = null;
+
   @SerializedName("ResourceId")
   private String resourceId = null;
+
+  @SerializedName("ResourceName")
+  private String resourceName = null;
+
+  @SerializedName("ResourceOwnerId")
+  private String resourceOwnerId = null;
 
   @SerializedName("ResourceRegionId")
   private String resourceRegionId = null;
@@ -53,24 +59,6 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
 
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput cidrBlock(String cidrBlock) {
-    this.cidrBlock = cidrBlock;
-    return this;
-  }
-
-   /**
-   * Get cidrBlock
-   * @return cidrBlock
-  **/
-  @Schema(description = "")
-  public String getCidrBlock() {
-    return cidrBlock;
-  }
-
-  public void setCidrBlock(String cidrBlock) {
-    this.cidrBlock = cidrBlock;
-  }
 
   public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput discoveryTime(String discoveryTime) {
     this.discoveryTime = discoveryTime;
@@ -126,6 +114,24 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
     this.ipamResourceDiscoveryId = ipamResourceDiscoveryId;
   }
 
+  public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput resourceCidr(String resourceCidr) {
+    this.resourceCidr = resourceCidr;
+    return this;
+  }
+
+   /**
+   * Get resourceCidr
+   * @return resourceCidr
+  **/
+  @Schema(description = "")
+  public String getResourceCidr() {
+    return resourceCidr;
+  }
+
+  public void setResourceCidr(String resourceCidr) {
+    this.resourceCidr = resourceCidr;
+  }
+
   public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput resourceId(String resourceId) {
     this.resourceId = resourceId;
     return this;
@@ -142,6 +148,42 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
 
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
+  }
+
+  public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput resourceName(String resourceName) {
+    this.resourceName = resourceName;
+    return this;
+  }
+
+   /**
+   * Get resourceName
+   * @return resourceName
+  **/
+  @Schema(description = "")
+  public String getResourceName() {
+    return resourceName;
+  }
+
+  public void setResourceName(String resourceName) {
+    this.resourceName = resourceName;
+  }
+
+  public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput resourceOwnerId(String resourceOwnerId) {
+    this.resourceOwnerId = resourceOwnerId;
+    return this;
+  }
+
+   /**
+   * Get resourceOwnerId
+   * @return resourceOwnerId
+  **/
+  @Schema(description = "")
+  public String getResourceOwnerId() {
+    return resourceOwnerId;
+  }
+
+  public void setResourceOwnerId(String resourceOwnerId) {
+    this.resourceOwnerId = resourceOwnerId;
   }
 
   public IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput resourceRegionId(String resourceRegionId) {
@@ -208,11 +250,13 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
       return false;
     }
     IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput = (IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) o;
-    return Objects.equals(this.cidrBlock, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.cidrBlock) &&
-        Objects.equals(this.discoveryTime, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.discoveryTime) &&
+    return Objects.equals(this.discoveryTime, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.discoveryTime) &&
         Objects.equals(this.ipUsage, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.ipUsage) &&
         Objects.equals(this.ipamResourceDiscoveryId, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.ipamResourceDiscoveryId) &&
+        Objects.equals(this.resourceCidr, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceCidr) &&
         Objects.equals(this.resourceId, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceId) &&
+        Objects.equals(this.resourceName, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceName) &&
+        Objects.equals(this.resourceOwnerId, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceOwnerId) &&
         Objects.equals(this.resourceRegionId, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceRegionId) &&
         Objects.equals(this.resourceType, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.resourceType) &&
         Objects.equals(this.vpcId, ipamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput.vpcId);
@@ -220,7 +264,7 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, discoveryTime, ipUsage, ipamResourceDiscoveryId, resourceId, resourceRegionId, resourceType, vpcId);
+    return Objects.hash(discoveryTime, ipUsage, ipamResourceDiscoveryId, resourceCidr, resourceId, resourceName, resourceOwnerId, resourceRegionId, resourceType, vpcId);
   }
 
 
@@ -229,11 +273,13 @@ public class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOut
     StringBuilder sb = new StringBuilder();
     sb.append("class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {\n");
     
-    sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    discoveryTime: ").append(toIndentedString(discoveryTime)).append("\n");
     sb.append("    ipUsage: ").append(toIndentedString(ipUsage)).append("\n");
     sb.append("    ipamResourceDiscoveryId: ").append(toIndentedString(ipamResourceDiscoveryId)).append("\n");
+    sb.append("    resourceCidr: ").append(toIndentedString(resourceCidr)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
+    sb.append("    resourceOwnerId: ").append(toIndentedString(resourceOwnerId)).append("\n");
     sb.append("    resourceRegionId: ").append(toIndentedString(resourceRegionId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

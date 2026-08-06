@@ -39,6 +39,12 @@ public class DescribeIpamDiscoveredResourceCidrsRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("ResourceRegionId")
   private String resourceRegionId = null;
 
@@ -100,6 +106,42 @@ public class DescribeIpamDiscoveredResourceCidrsRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeIpamDiscoveredResourceCidrsRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeIpamDiscoveredResourceCidrsRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeIpamDiscoveredResourceCidrsRequest resourceRegionId(String resourceRegionId) {
     this.resourceRegionId = resourceRegionId;
     return this;
@@ -128,8 +170,7 @@ public class DescribeIpamDiscoveredResourceCidrsRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getResourceType() {
     return resourceType;
   }
@@ -151,13 +192,15 @@ public class DescribeIpamDiscoveredResourceCidrsRequest {
     return Objects.equals(this.ipamResourceDiscoveryId, describeIpamDiscoveredResourceCidrsRequest.ipamResourceDiscoveryId) &&
         Objects.equals(this.maxResults, describeIpamDiscoveredResourceCidrsRequest.maxResults) &&
         Objects.equals(this.nextToken, describeIpamDiscoveredResourceCidrsRequest.nextToken) &&
+        Objects.equals(this.pageNumber, describeIpamDiscoveredResourceCidrsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeIpamDiscoveredResourceCidrsRequest.pageSize) &&
         Objects.equals(this.resourceRegionId, describeIpamDiscoveredResourceCidrsRequest.resourceRegionId) &&
         Objects.equals(this.resourceType, describeIpamDiscoveredResourceCidrsRequest.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamResourceDiscoveryId, maxResults, nextToken, resourceRegionId, resourceType);
+    return Objects.hash(ipamResourceDiscoveryId, maxResults, nextToken, pageNumber, pageSize, resourceRegionId, resourceType);
   }
 
 
@@ -169,6 +212,8 @@ public class DescribeIpamDiscoveredResourceCidrsRequest {
     sb.append("    ipamResourceDiscoveryId: ").append(toIndentedString(ipamResourceDiscoveryId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    resourceRegionId: ").append(toIndentedString(resourceRegionId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");
