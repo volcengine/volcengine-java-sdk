@@ -47,6 +47,9 @@ public class ItemForListJobsOutput {
   @SerializedName("InitialId")
   private String initialId = null;
 
+  @SerializedName("LatestRetriedId")
+  private String latestRetriedId = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -153,6 +156,24 @@ public class ItemForListJobsOutput {
 
   public void setInitialId(String initialId) {
     this.initialId = initialId;
+  }
+
+  public ItemForListJobsOutput latestRetriedId(String latestRetriedId) {
+    this.latestRetriedId = latestRetriedId;
+    return this;
+  }
+
+   /**
+   * Get latestRetriedId
+   * @return latestRetriedId
+  **/
+  @Schema(description = "")
+  public String getLatestRetriedId() {
+    return latestRetriedId;
+  }
+
+  public void setLatestRetriedId(String latestRetriedId) {
+    this.latestRetriedId = latestRetriedId;
   }
 
   public ItemForListJobsOutput name(String name) {
@@ -280,6 +301,7 @@ public class ItemForListJobsOutput {
         Objects.equals(this.description, itemForListJobsOutput.description) &&
         Objects.equals(this.id, itemForListJobsOutput.id) &&
         Objects.equals(this.initialId, itemForListJobsOutput.initialId) &&
+        Objects.equals(this.latestRetriedId, itemForListJobsOutput.latestRetriedId) &&
         Objects.equals(this.name, itemForListJobsOutput.name) &&
         Objects.equals(this.projectName, itemForListJobsOutput.projectName) &&
         Objects.equals(this.resourceConfig, itemForListJobsOutput.resourceConfig) &&
@@ -290,7 +312,7 @@ public class ItemForListJobsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, id, initialId, name, projectName, resourceConfig, status, stopReason, updateTime);
+    return Objects.hash(createTime, createdBy, description, id, initialId, latestRetriedId, name, projectName, resourceConfig, status, stopReason, updateTime);
   }
 
 
@@ -304,6 +326,7 @@ public class ItemForListJobsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initialId: ").append(toIndentedString(initialId)).append("\n");
+    sb.append("    latestRetriedId: ").append(toIndentedString(latestRetriedId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");

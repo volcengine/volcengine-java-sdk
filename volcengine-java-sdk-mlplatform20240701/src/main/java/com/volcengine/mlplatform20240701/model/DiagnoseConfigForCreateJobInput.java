@@ -35,6 +35,9 @@ public class DiagnoseConfigForCreateJobInput {
   @SerializedName("DetectionIntervalSeconds")
   private Long detectionIntervalSeconds = null;
 
+  @SerializedName("EnableInformationCollectionOnHang")
+  private Boolean enableInformationCollectionOnHang = null;
+
   @SerializedName("FirstDetectionWaitSeconds")
   private Long firstDetectionWaitSeconds = null;
 
@@ -156,6 +159,24 @@ public class DiagnoseConfigForCreateJobInput {
     this.detectionIntervalSeconds = detectionIntervalSeconds;
   }
 
+  public DiagnoseConfigForCreateJobInput enableInformationCollectionOnHang(Boolean enableInformationCollectionOnHang) {
+    this.enableInformationCollectionOnHang = enableInformationCollectionOnHang;
+    return this;
+  }
+
+   /**
+   * Get enableInformationCollectionOnHang
+   * @return enableInformationCollectionOnHang
+  **/
+  @Schema(description = "")
+  public Boolean isEnableInformationCollectionOnHang() {
+    return enableInformationCollectionOnHang;
+  }
+
+  public void setEnableInformationCollectionOnHang(Boolean enableInformationCollectionOnHang) {
+    this.enableInformationCollectionOnHang = enableInformationCollectionOnHang;
+  }
+
   public DiagnoseConfigForCreateJobInput firstDetectionWaitSeconds(Long firstDetectionWaitSeconds) {
     this.firstDetectionWaitSeconds = firstDetectionWaitSeconds;
     return this;
@@ -229,6 +250,7 @@ public class DiagnoseConfigForCreateJobInput {
     }
     DiagnoseConfigForCreateJobInput diagnoseConfigForCreateJobInput = (DiagnoseConfigForCreateJobInput) o;
     return Objects.equals(this.detectionIntervalSeconds, diagnoseConfigForCreateJobInput.detectionIntervalSeconds) &&
+        Objects.equals(this.enableInformationCollectionOnHang, diagnoseConfigForCreateJobInput.enableInformationCollectionOnHang) &&
         Objects.equals(this.firstDetectionWaitSeconds, diagnoseConfigForCreateJobInput.firstDetectionWaitSeconds) &&
         Objects.equals(this.name, diagnoseConfigForCreateJobInput.name) &&
         Objects.equals(this.triggers, diagnoseConfigForCreateJobInput.triggers);
@@ -236,7 +258,7 @@ public class DiagnoseConfigForCreateJobInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(detectionIntervalSeconds, firstDetectionWaitSeconds, name, triggers);
+    return Objects.hash(detectionIntervalSeconds, enableInformationCollectionOnHang, firstDetectionWaitSeconds, name, triggers);
   }
 
 
@@ -246,6 +268,7 @@ public class DiagnoseConfigForCreateJobInput {
     sb.append("class DiagnoseConfigForCreateJobInput {\n");
     
     sb.append("    detectionIntervalSeconds: ").append(toIndentedString(detectionIntervalSeconds)).append("\n");
+    sb.append("    enableInformationCollectionOnHang: ").append(toIndentedString(enableInformationCollectionOnHang)).append("\n");
     sb.append("    firstDetectionWaitSeconds: ").append(toIndentedString(firstDetectionWaitSeconds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    triggers: ").append(toIndentedString(triggers)).append("\n");

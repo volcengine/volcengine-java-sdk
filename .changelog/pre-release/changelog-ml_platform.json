@@ -1,0 +1,18 @@
+{
+  "actions": [
+    "CreateResourceQueue",
+    "GetResourceQueue",
+    "UpdateJob",
+    "UpdateResourceQueue",
+    "CreateDeployment",
+    "CreateJob",
+    "ListJobs",
+    "ListResourceQueues",
+    "UpdateDeployment",
+    "GetDeployment",
+    "GetJob"
+  ],
+  "description": "ML_PLATFORM: 修改 ListJobs, ListResourceQueues, UpdateDeployment, GetResourceQueue, UpdateJob, UpdateResourceQueue, CreateDeployment, CreateJob, CreateResourceQueue, GetDeployment, GetJob",
+  "modules": "service/ml_platform",
+  "type": "feature"
+}
