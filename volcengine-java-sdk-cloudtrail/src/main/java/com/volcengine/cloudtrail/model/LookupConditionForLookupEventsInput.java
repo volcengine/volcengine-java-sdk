@@ -30,13 +30,78 @@ import javax.validation.Valid;
 
 
 public class LookupConditionForLookupEventsInput {
-  @SerializedName("LookupConditionKey")
-  private String lookupConditionKey = null;
+  /**
+   * Gets or Sets lookupConditionKey
+   */
+  @JsonAdapter(LookupConditionKeyEnum.Adapter.class)
+  public enum LookupConditionKeyEnum {
+    @SerializedName("EventID")
+    EVENTID("EventID"),
+    @SerializedName("RequestID")
+    REQUESTID("RequestID"),
+    @SerializedName("EventSource")
+    EVENTSOURCE("EventSource"),
+    @SerializedName("EventName")
+    EVENTNAME("EventName"),
+    @SerializedName("ApiVersion")
+    APIVERSION("ApiVersion"),
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly"),
+    @SerializedName("IdentityType")
+    IDENTITYTYPE("IdentityType"),
+    @SerializedName("IdentityName")
+    IDENTITYNAME("IdentityName"),
+    @SerializedName("AccessKeyID")
+    ACCESSKEYID("AccessKeyID"),
+    @SerializedName("Region")
+    REGION("Region"),
+    @SerializedName("ResourceType")
+    RESOURCETYPE("ResourceType"),
+    @SerializedName("ResourceID")
+    RESOURCEID("ResourceID"),
+    @SerializedName("ErrorCode")
+    ERRORCODE("ErrorCode");
+
+    private String value;
+
+    LookupConditionKeyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LookupConditionKeyEnum fromValue(String input) {
+      for (LookupConditionKeyEnum b : LookupConditionKeyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LookupConditionKeyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LookupConditionKeyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LookupConditionKeyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LookupConditionKeyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LookupConditionKey")
+  private LookupConditionKeyEnum lookupConditionKey = null;
 
   @SerializedName("LookupConditionValue")
   private String lookupConditionValue = null;
 
-  public LookupConditionForLookupEventsInput lookupConditionKey(String lookupConditionKey) {
+  public LookupConditionForLookupEventsInput lookupConditionKey(LookupConditionKeyEnum lookupConditionKey) {
     this.lookupConditionKey = lookupConditionKey;
     return this;
   }
@@ -46,11 +111,11 @@ public class LookupConditionForLookupEventsInput {
    * @return lookupConditionKey
   **/
   @Schema(description = "")
-  public String getLookupConditionKey() {
+  public LookupConditionKeyEnum getLookupConditionKey() {
     return lookupConditionKey;
   }
 
-  public void setLookupConditionKey(String lookupConditionKey) {
+  public void setLookupConditionKey(LookupConditionKeyEnum lookupConditionKey) {
     this.lookupConditionKey = lookupConditionKey;
   }
 
