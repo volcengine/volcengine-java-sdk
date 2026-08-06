@@ -33,11 +33,32 @@ import javax.validation.Valid;
 
 
 public class CreateUsersRequest {
+  @SerializedName("ExternalProviderConnectionUid")
+  private String externalProviderConnectionUid = null;
+
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
 
   @SerializedName("Users")
   private List<UserForCreateUsersInput> users = null;
+
+  public CreateUsersRequest externalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+    return this;
+  }
+
+   /**
+   * Get externalProviderConnectionUid
+   * @return externalProviderConnectionUid
+  **/
+  @Schema(description = "")
+  public String getExternalProviderConnectionUid() {
+    return externalProviderConnectionUid;
+  }
+
+  public void setExternalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+  }
 
   public CreateUsersRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
@@ -95,13 +116,14 @@ public class CreateUsersRequest {
       return false;
     }
     CreateUsersRequest createUsersRequest = (CreateUsersRequest) o;
-    return Objects.equals(this.userPoolUid, createUsersRequest.userPoolUid) &&
+    return Objects.equals(this.externalProviderConnectionUid, createUsersRequest.externalProviderConnectionUid) &&
+        Objects.equals(this.userPoolUid, createUsersRequest.userPoolUid) &&
         Objects.equals(this.users, createUsersRequest.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userPoolUid, users);
+    return Objects.hash(externalProviderConnectionUid, userPoolUid, users);
   }
 
 
@@ -110,6 +132,7 @@ public class CreateUsersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUsersRequest {\n");
     
+    sb.append("    externalProviderConnectionUid: ").append(toIndentedString(externalProviderConnectionUid)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");

@@ -39,6 +39,9 @@ public class Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -99,6 +102,24 @@ public class Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
     this.name = name;
   }
 
+  public Oauth2CredentialProviderForListOauth2CredentialProvidersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public Oauth2CredentialProviderForListOauth2CredentialProvidersOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -148,13 +169,14 @@ public class Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
     return Objects.equals(this.createdAt, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.createdAt) &&
         Objects.equals(this.credentialProviderTrn, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.credentialProviderTrn) &&
         Objects.equals(this.name, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.name) &&
+        Objects.equals(this.projectName, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.projectName) &&
         Objects.equals(this.updatedAt, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.updatedAt) &&
         Objects.equals(this.vendor, oauth2CredentialProviderForListOauth2CredentialProvidersOutput.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, credentialProviderTrn, name, updatedAt, vendor);
+    return Objects.hash(createdAt, credentialProviderTrn, name, projectName, updatedAt, vendor);
   }
 
 
@@ -166,6 +188,7 @@ public class Oauth2CredentialProviderForListOauth2CredentialProvidersOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");

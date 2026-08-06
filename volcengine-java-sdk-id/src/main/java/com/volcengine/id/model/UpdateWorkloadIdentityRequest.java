@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.MetaDataForUpdateWorkloadIdentityInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,12 @@ public class UpdateWorkloadIdentityRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("MetaData")
+  private List<MetaDataForUpdateWorkloadIdentityInput> metaData = null;
+
+  @SerializedName("MetaDataUpdateMode")
+  private String metaDataUpdateMode = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -88,6 +95,51 @@ public class UpdateWorkloadIdentityRequest {
     this.description = description;
   }
 
+  public UpdateWorkloadIdentityRequest metaData(List<MetaDataForUpdateWorkloadIdentityInput> metaData) {
+    this.metaData = metaData;
+    return this;
+  }
+
+  public UpdateWorkloadIdentityRequest addMetaDataItem(MetaDataForUpdateWorkloadIdentityInput metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new ArrayList<MetaDataForUpdateWorkloadIdentityInput>();
+    }
+    this.metaData.add(metaDataItem);
+    return this;
+  }
+
+   /**
+   * Get metaData
+   * @return metaData
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MetaDataForUpdateWorkloadIdentityInput> getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(List<MetaDataForUpdateWorkloadIdentityInput> metaData) {
+    this.metaData = metaData;
+  }
+
+  public UpdateWorkloadIdentityRequest metaDataUpdateMode(String metaDataUpdateMode) {
+    this.metaDataUpdateMode = metaDataUpdateMode;
+    return this;
+  }
+
+   /**
+   * Get metaDataUpdateMode
+   * @return metaDataUpdateMode
+  **/
+  @Schema(description = "")
+  public String getMetaDataUpdateMode() {
+    return metaDataUpdateMode;
+  }
+
+  public void setMetaDataUpdateMode(String metaDataUpdateMode) {
+    this.metaDataUpdateMode = metaDataUpdateMode;
+  }
+
   public UpdateWorkloadIdentityRequest name(String name) {
     this.name = name;
     return this;
@@ -137,13 +189,15 @@ public class UpdateWorkloadIdentityRequest {
     UpdateWorkloadIdentityRequest updateWorkloadIdentityRequest = (UpdateWorkloadIdentityRequest) o;
     return Objects.equals(this.allowedResourceOauth2ReturnUrls, updateWorkloadIdentityRequest.allowedResourceOauth2ReturnUrls) &&
         Objects.equals(this.description, updateWorkloadIdentityRequest.description) &&
+        Objects.equals(this.metaData, updateWorkloadIdentityRequest.metaData) &&
+        Objects.equals(this.metaDataUpdateMode, updateWorkloadIdentityRequest.metaDataUpdateMode) &&
         Objects.equals(this.name, updateWorkloadIdentityRequest.name) &&
         Objects.equals(this.workloadPoolName, updateWorkloadIdentityRequest.workloadPoolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedResourceOauth2ReturnUrls, description, name, workloadPoolName);
+    return Objects.hash(allowedResourceOauth2ReturnUrls, description, metaData, metaDataUpdateMode, name, workloadPoolName);
   }
 
 
@@ -154,6 +208,8 @@ public class UpdateWorkloadIdentityRequest {
     
     sb.append("    allowedResourceOauth2ReturnUrls: ").append(toIndentedString(allowedResourceOauth2ReturnUrls)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    metaDataUpdateMode: ").append(toIndentedString(metaDataUpdateMode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");
     sb.append("}");

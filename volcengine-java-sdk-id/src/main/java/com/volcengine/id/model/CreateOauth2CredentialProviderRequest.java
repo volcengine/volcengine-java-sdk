@@ -40,6 +40,12 @@ public class CreateOauth2CredentialProviderRequest {
   @SerializedName("PoolName")
   private String poolName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Source")
+  private String source = null;
+
   @SerializedName("Vendor")
   private Integer vendor = null;
 
@@ -99,6 +105,42 @@ public class CreateOauth2CredentialProviderRequest {
     this.poolName = poolName;
   }
 
+  public CreateOauth2CredentialProviderRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateOauth2CredentialProviderRequest source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public CreateOauth2CredentialProviderRequest vendor(Integer vendor) {
     this.vendor = vendor;
     return this;
@@ -132,12 +174,14 @@ public class CreateOauth2CredentialProviderRequest {
     return Objects.equals(this.config, createOauth2CredentialProviderRequest.config) &&
         Objects.equals(this.name, createOauth2CredentialProviderRequest.name) &&
         Objects.equals(this.poolName, createOauth2CredentialProviderRequest.poolName) &&
+        Objects.equals(this.projectName, createOauth2CredentialProviderRequest.projectName) &&
+        Objects.equals(this.source, createOauth2CredentialProviderRequest.source) &&
         Objects.equals(this.vendor, createOauth2CredentialProviderRequest.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, name, poolName, vendor);
+    return Objects.hash(config, name, poolName, projectName, source, vendor);
   }
 
 
@@ -149,6 +193,8 @@ public class CreateOauth2CredentialProviderRequest {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");
     return sb.toString();

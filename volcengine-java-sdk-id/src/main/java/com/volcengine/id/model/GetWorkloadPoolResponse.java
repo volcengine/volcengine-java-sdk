@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AllowAutoCreateIdentity")
+  private Boolean allowAutoCreateIdentity = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -57,14 +60,38 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("Trn")
   private String trn = null;
 
+  @SerializedName("TrustAnchors")
+  private List<String> trustAnchors = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
+
+  @SerializedName("Url")
+  private String url = null;
 
   @SerializedName("WorkloadPoolId")
   private String workloadPoolId = null;
 
   @SerializedName("WorkloadPoolName")
   private String workloadPoolName = null;
+
+  public GetWorkloadPoolResponse allowAutoCreateIdentity(Boolean allowAutoCreateIdentity) {
+    this.allowAutoCreateIdentity = allowAutoCreateIdentity;
+    return this;
+  }
+
+   /**
+   * Get allowAutoCreateIdentity
+   * @return allowAutoCreateIdentity
+  **/
+  @Schema(description = "")
+  public Boolean isAllowAutoCreateIdentity() {
+    return allowAutoCreateIdentity;
+  }
+
+  public void setAllowAutoCreateIdentity(Boolean allowAutoCreateIdentity) {
+    this.allowAutoCreateIdentity = allowAutoCreateIdentity;
+  }
 
   public GetWorkloadPoolResponse createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -219,6 +246,32 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     this.trn = trn;
   }
 
+  public GetWorkloadPoolResponse trustAnchors(List<String> trustAnchors) {
+    this.trustAnchors = trustAnchors;
+    return this;
+  }
+
+  public GetWorkloadPoolResponse addTrustAnchorsItem(String trustAnchorsItem) {
+    if (this.trustAnchors == null) {
+      this.trustAnchors = new ArrayList<String>();
+    }
+    this.trustAnchors.add(trustAnchorsItem);
+    return this;
+  }
+
+   /**
+   * Get trustAnchors
+   * @return trustAnchors
+  **/
+  @Schema(description = "")
+  public List<String> getTrustAnchors() {
+    return trustAnchors;
+  }
+
+  public void setTrustAnchors(List<String> trustAnchors) {
+    this.trustAnchors = trustAnchors;
+  }
+
   public GetWorkloadPoolResponse updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -235,6 +288,24 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
 
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public GetWorkloadPoolResponse url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @Schema(description = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   public GetWorkloadPoolResponse workloadPoolId(String workloadPoolId) {
@@ -283,7 +354,8 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     GetWorkloadPoolResponse getWorkloadPoolResponse = (GetWorkloadPoolResponse) o;
-    return Objects.equals(this.createdAt, getWorkloadPoolResponse.createdAt) &&
+    return Objects.equals(this.allowAutoCreateIdentity, getWorkloadPoolResponse.allowAutoCreateIdentity) &&
+        Objects.equals(this.createdAt, getWorkloadPoolResponse.createdAt) &&
         Objects.equals(this.description, getWorkloadPoolResponse.description) &&
         Objects.equals(this.discoveryUrl, getWorkloadPoolResponse.discoveryUrl) &&
         Objects.equals(this.projectName, getWorkloadPoolResponse.projectName) &&
@@ -291,14 +363,16 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.totalCredentials, getWorkloadPoolResponse.totalCredentials) &&
         Objects.equals(this.totalWorkloads, getWorkloadPoolResponse.totalWorkloads) &&
         Objects.equals(this.trn, getWorkloadPoolResponse.trn) &&
+        Objects.equals(this.trustAnchors, getWorkloadPoolResponse.trustAnchors) &&
         Objects.equals(this.updatedAt, getWorkloadPoolResponse.updatedAt) &&
+        Objects.equals(this.url, getWorkloadPoolResponse.url) &&
         Objects.equals(this.workloadPoolId, getWorkloadPoolResponse.workloadPoolId) &&
         Objects.equals(this.workloadPoolName, getWorkloadPoolResponse.workloadPoolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, discoveryUrl, projectName, tags, totalCredentials, totalWorkloads, trn, updatedAt, workloadPoolId, workloadPoolName);
+    return Objects.hash(allowAutoCreateIdentity, createdAt, description, discoveryUrl, projectName, tags, totalCredentials, totalWorkloads, trn, trustAnchors, updatedAt, url, workloadPoolId, workloadPoolName);
   }
 
 
@@ -307,6 +381,7 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class GetWorkloadPoolResponse {\n");
     
+    sb.append("    allowAutoCreateIdentity: ").append(toIndentedString(allowAutoCreateIdentity)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
@@ -315,7 +390,9 @@ public class GetWorkloadPoolResponse extends com.volcengine.model.AbstractRespon
     sb.append("    totalCredentials: ").append(toIndentedString(totalCredentials)).append("\n");
     sb.append("    totalWorkloads: ").append(toIndentedString(totalWorkloads)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
+    sb.append("    trustAnchors: ").append(toIndentedString(trustAnchors)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    workloadPoolId: ").append(toIndentedString(workloadPoolId)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");
     sb.append("}");

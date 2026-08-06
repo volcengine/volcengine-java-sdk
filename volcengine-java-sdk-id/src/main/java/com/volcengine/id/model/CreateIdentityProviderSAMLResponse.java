@@ -19,10 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForCreateIdentityProviderSAMLOutput;
 import com.volcengine.id.model.ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput;
+import com.volcengine.id.model.EipRecordForCreateIdentityProviderSAMLOutput;
 import com.volcengine.id.model.ProviderOptionsForCreateIdentityProviderSAMLOutput;
+import com.volcengine.id.model.ScimProvisioningForCreateIdentityProviderSAMLOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,11 +40,17 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
   @SerializedName("AttributeMapping")
   private String attributeMapping = null;
 
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForCreateIdentityProviderSAMLOutput> attributeMappings = null;
+
   @SerializedName("Certificate")
   private String certificate = null;
 
   @SerializedName("ClaimsPropagationConfig")
   private ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput claimsPropagationConfig = null;
+
+  @SerializedName("EipRecord")
+  private EipRecordForCreateIdentityProviderSAMLOutput eipRecord = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -65,6 +76,12 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
   @SerializedName("ProviderOptions")
   private ProviderOptionsForCreateIdentityProviderSAMLOutput providerOptions = null;
 
+  @SerializedName("ScimProvisioning")
+  private ScimProvisioningForCreateIdentityProviderSAMLOutput scimProvisioning = null;
+
+  @SerializedName("SpMetadata")
+  private String spMetadata = null;
+
   @SerializedName("Uid")
   private String uid = null;
 
@@ -84,6 +101,33 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
 
   public void setAttributeMapping(String attributeMapping) {
     this.attributeMapping = attributeMapping;
+  }
+
+  public CreateIdentityProviderSAMLResponse attributeMappings(List<AttributeMappingForCreateIdentityProviderSAMLOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public CreateIdentityProviderSAMLResponse addAttributeMappingsItem(AttributeMappingForCreateIdentityProviderSAMLOutput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForCreateIdentityProviderSAMLOutput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForCreateIdentityProviderSAMLOutput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForCreateIdentityProviderSAMLOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
   }
 
   public CreateIdentityProviderSAMLResponse certificate(String certificate) {
@@ -121,6 +165,25 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
 
   public void setClaimsPropagationConfig(ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput claimsPropagationConfig) {
     this.claimsPropagationConfig = claimsPropagationConfig;
+  }
+
+  public CreateIdentityProviderSAMLResponse eipRecord(EipRecordForCreateIdentityProviderSAMLOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForCreateIdentityProviderSAMLOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForCreateIdentityProviderSAMLOutput eipRecord) {
+    this.eipRecord = eipRecord;
   }
 
   public CreateIdentityProviderSAMLResponse enabled(Boolean enabled) {
@@ -268,6 +331,43 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
     this.providerOptions = providerOptions;
   }
 
+  public CreateIdentityProviderSAMLResponse scimProvisioning(ScimProvisioningForCreateIdentityProviderSAMLOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+    return this;
+  }
+
+   /**
+   * Get scimProvisioning
+   * @return scimProvisioning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScimProvisioningForCreateIdentityProviderSAMLOutput getScimProvisioning() {
+    return scimProvisioning;
+  }
+
+  public void setScimProvisioning(ScimProvisioningForCreateIdentityProviderSAMLOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+  }
+
+  public CreateIdentityProviderSAMLResponse spMetadata(String spMetadata) {
+    this.spMetadata = spMetadata;
+    return this;
+  }
+
+   /**
+   * Get spMetadata
+   * @return spMetadata
+  **/
+  @Schema(description = "")
+  public String getSpMetadata() {
+    return spMetadata;
+  }
+
+  public void setSpMetadata(String spMetadata) {
+    this.spMetadata = spMetadata;
+  }
+
   public CreateIdentityProviderSAMLResponse uid(String uid) {
     this.uid = uid;
     return this;
@@ -297,8 +397,10 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
     }
     CreateIdentityProviderSAMLResponse createIdentityProviderSAMLResponse = (CreateIdentityProviderSAMLResponse) o;
     return Objects.equals(this.attributeMapping, createIdentityProviderSAMLResponse.attributeMapping) &&
+        Objects.equals(this.attributeMappings, createIdentityProviderSAMLResponse.attributeMappings) &&
         Objects.equals(this.certificate, createIdentityProviderSAMLResponse.certificate) &&
         Objects.equals(this.claimsPropagationConfig, createIdentityProviderSAMLResponse.claimsPropagationConfig) &&
+        Objects.equals(this.eipRecord, createIdentityProviderSAMLResponse.eipRecord) &&
         Objects.equals(this.enabled, createIdentityProviderSAMLResponse.enabled) &&
         Objects.equals(this.enabledEncryption, createIdentityProviderSAMLResponse.enabledEncryption) &&
         Objects.equals(this.enabledSign, createIdentityProviderSAMLResponse.enabledSign) &&
@@ -307,12 +409,14 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
         Objects.equals(this.name, createIdentityProviderSAMLResponse.name) &&
         Objects.equals(this.provider, createIdentityProviderSAMLResponse.provider) &&
         Objects.equals(this.providerOptions, createIdentityProviderSAMLResponse.providerOptions) &&
+        Objects.equals(this.scimProvisioning, createIdentityProviderSAMLResponse.scimProvisioning) &&
+        Objects.equals(this.spMetadata, createIdentityProviderSAMLResponse.spMetadata) &&
         Objects.equals(this.uid, createIdentityProviderSAMLResponse.uid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, certificate, claimsPropagationConfig, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
+    return Objects.hash(attributeMapping, attributeMappings, certificate, claimsPropagationConfig, eipRecord, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, scimProvisioning, spMetadata, uid);
   }
 
 
@@ -322,8 +426,10 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
     sb.append("class CreateIdentityProviderSAMLResponse {\n");
     
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
     sb.append("    enabledSign: ").append(toIndentedString(enabledSign)).append("\n");
@@ -332,6 +438,8 @@ public class CreateIdentityProviderSAMLResponse extends com.volcengine.model.Abs
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
+    sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
+    sb.append("    spMetadata: ").append(toIndentedString(spMetadata)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("}");
     return sb.toString();

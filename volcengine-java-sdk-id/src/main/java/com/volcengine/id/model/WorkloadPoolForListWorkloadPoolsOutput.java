@@ -57,6 +57,9 @@ public class WorkloadPoolForListWorkloadPoolsOutput {
   @SerializedName("Trn")
   private String trn = null;
 
+  @SerializedName("TrustAnchors")
+  private List<String> trustAnchors = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -219,6 +222,32 @@ public class WorkloadPoolForListWorkloadPoolsOutput {
     this.trn = trn;
   }
 
+  public WorkloadPoolForListWorkloadPoolsOutput trustAnchors(List<String> trustAnchors) {
+    this.trustAnchors = trustAnchors;
+    return this;
+  }
+
+  public WorkloadPoolForListWorkloadPoolsOutput addTrustAnchorsItem(String trustAnchorsItem) {
+    if (this.trustAnchors == null) {
+      this.trustAnchors = new ArrayList<String>();
+    }
+    this.trustAnchors.add(trustAnchorsItem);
+    return this;
+  }
+
+   /**
+   * Get trustAnchors
+   * @return trustAnchors
+  **/
+  @Schema(description = "")
+  public List<String> getTrustAnchors() {
+    return trustAnchors;
+  }
+
+  public void setTrustAnchors(List<String> trustAnchors) {
+    this.trustAnchors = trustAnchors;
+  }
+
   public WorkloadPoolForListWorkloadPoolsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -291,6 +320,7 @@ public class WorkloadPoolForListWorkloadPoolsOutput {
         Objects.equals(this.totalCredentials, workloadPoolForListWorkloadPoolsOutput.totalCredentials) &&
         Objects.equals(this.totalWorkloads, workloadPoolForListWorkloadPoolsOutput.totalWorkloads) &&
         Objects.equals(this.trn, workloadPoolForListWorkloadPoolsOutput.trn) &&
+        Objects.equals(this.trustAnchors, workloadPoolForListWorkloadPoolsOutput.trustAnchors) &&
         Objects.equals(this.updatedAt, workloadPoolForListWorkloadPoolsOutput.updatedAt) &&
         Objects.equals(this.workloadPoolId, workloadPoolForListWorkloadPoolsOutput.workloadPoolId) &&
         Objects.equals(this.workloadPoolName, workloadPoolForListWorkloadPoolsOutput.workloadPoolName);
@@ -298,7 +328,7 @@ public class WorkloadPoolForListWorkloadPoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, discoveryUrl, projectName, tags, totalCredentials, totalWorkloads, trn, updatedAt, workloadPoolId, workloadPoolName);
+    return Objects.hash(createdAt, description, discoveryUrl, projectName, tags, totalCredentials, totalWorkloads, trn, trustAnchors, updatedAt, workloadPoolId, workloadPoolName);
   }
 
 
@@ -315,6 +345,7 @@ public class WorkloadPoolForListWorkloadPoolsOutput {
     sb.append("    totalCredentials: ").append(toIndentedString(totalCredentials)).append("\n");
     sb.append("    totalWorkloads: ").append(toIndentedString(totalWorkloads)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
+    sb.append("    trustAnchors: ").append(toIndentedString(trustAnchors)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    workloadPoolId: ").append(toIndentedString(workloadPoolId)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");

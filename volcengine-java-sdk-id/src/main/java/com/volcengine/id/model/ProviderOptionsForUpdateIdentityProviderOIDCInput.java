@@ -45,6 +45,9 @@ public class ProviderOptionsForUpdateIdentityProviderOIDCInput {
   @SerializedName("IsLinkingAllowed")
   private Boolean isLinkingAllowed = null;
 
+  @SerializedName("UserLinkingPromptEnabled")
+  private Boolean userLinkingPromptEnabled = null;
+
   public ProviderOptionsForUpdateIdentityProviderOIDCInput autoLinking(String autoLinking) {
     this.autoLinking = autoLinking;
     return this;
@@ -135,6 +138,24 @@ public class ProviderOptionsForUpdateIdentityProviderOIDCInput {
     this.isLinkingAllowed = isLinkingAllowed;
   }
 
+  public ProviderOptionsForUpdateIdentityProviderOIDCInput userLinkingPromptEnabled(Boolean userLinkingPromptEnabled) {
+    this.userLinkingPromptEnabled = userLinkingPromptEnabled;
+    return this;
+  }
+
+   /**
+   * Get userLinkingPromptEnabled
+   * @return userLinkingPromptEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isUserLinkingPromptEnabled() {
+    return userLinkingPromptEnabled;
+  }
+
+  public void setUserLinkingPromptEnabled(Boolean userLinkingPromptEnabled) {
+    this.userLinkingPromptEnabled = userLinkingPromptEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class ProviderOptionsForUpdateIdentityProviderOIDCInput {
         Objects.equals(this.isAutoCreation, providerOptionsForUpdateIdentityProviderOIDCInput.isAutoCreation) &&
         Objects.equals(this.isAutoUpdate, providerOptionsForUpdateIdentityProviderOIDCInput.isAutoUpdate) &&
         Objects.equals(this.isCreationAllowed, providerOptionsForUpdateIdentityProviderOIDCInput.isCreationAllowed) &&
-        Objects.equals(this.isLinkingAllowed, providerOptionsForUpdateIdentityProviderOIDCInput.isLinkingAllowed);
+        Objects.equals(this.isLinkingAllowed, providerOptionsForUpdateIdentityProviderOIDCInput.isLinkingAllowed) &&
+        Objects.equals(this.userLinkingPromptEnabled, providerOptionsForUpdateIdentityProviderOIDCInput.userLinkingPromptEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoLinking, isAutoCreation, isAutoUpdate, isCreationAllowed, isLinkingAllowed);
+    return Objects.hash(autoLinking, isAutoCreation, isAutoUpdate, isCreationAllowed, isLinkingAllowed, userLinkingPromptEnabled);
   }
 
 
@@ -168,6 +190,7 @@ public class ProviderOptionsForUpdateIdentityProviderOIDCInput {
     sb.append("    isAutoUpdate: ").append(toIndentedString(isAutoUpdate)).append("\n");
     sb.append("    isCreationAllowed: ").append(toIndentedString(isCreationAllowed)).append("\n");
     sb.append("    isLinkingAllowed: ").append(toIndentedString(isLinkingAllowed)).append("\n");
+    sb.append("    userLinkingPromptEnabled: ").append(toIndentedString(userLinkingPromptEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

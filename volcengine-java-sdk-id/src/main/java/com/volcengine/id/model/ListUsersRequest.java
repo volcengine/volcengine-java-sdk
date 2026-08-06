@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.FilterForListUsersInput;
+import com.volcengine.id.model.ResponseValueMaskForListUsersInput;
+import com.volcengine.id.model.ResponseValueNullForListUsersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -34,11 +36,23 @@ public class ListUsersRequest {
   @SerializedName("Filter")
   private FilterForListUsersInput filter = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ResponseValueMask")
+  private ResponseValueMaskForListUsersInput responseValueMask = null;
+
+  @SerializedName("ResponseValueNull")
+  private ResponseValueNullForListUsersInput responseValueNull = null;
 
   @SerializedName("SortDirection")
   private String sortDirection = null;
@@ -68,6 +82,43 @@ public class ListUsersRequest {
     this.filter = filter;
   }
 
+  public ListUsersRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public ListUsersRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
   public ListUsersRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -77,8 +128,7 @@ public class ListUsersRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -96,14 +146,51 @@ public class ListUsersRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public ListUsersRequest responseValueMask(ResponseValueMaskForListUsersInput responseValueMask) {
+    this.responseValueMask = responseValueMask;
+    return this;
+  }
+
+   /**
+   * Get responseValueMask
+   * @return responseValueMask
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseValueMaskForListUsersInput getResponseValueMask() {
+    return responseValueMask;
+  }
+
+  public void setResponseValueMask(ResponseValueMaskForListUsersInput responseValueMask) {
+    this.responseValueMask = responseValueMask;
+  }
+
+  public ListUsersRequest responseValueNull(ResponseValueNullForListUsersInput responseValueNull) {
+    this.responseValueNull = responseValueNull;
+    return this;
+  }
+
+   /**
+   * Get responseValueNull
+   * @return responseValueNull
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseValueNullForListUsersInput getResponseValueNull() {
+    return responseValueNull;
+  }
+
+  public void setResponseValueNull(ResponseValueNullForListUsersInput responseValueNull) {
+    this.responseValueNull = responseValueNull;
   }
 
   public ListUsersRequest sortDirection(String sortDirection) {
@@ -172,8 +259,12 @@ public class ListUsersRequest {
     }
     ListUsersRequest listUsersRequest = (ListUsersRequest) o;
     return Objects.equals(this.filter, listUsersRequest.filter) &&
+        Objects.equals(this.maxResults, listUsersRequest.maxResults) &&
+        Objects.equals(this.nextToken, listUsersRequest.nextToken) &&
         Objects.equals(this.pageNumber, listUsersRequest.pageNumber) &&
         Objects.equals(this.pageSize, listUsersRequest.pageSize) &&
+        Objects.equals(this.responseValueMask, listUsersRequest.responseValueMask) &&
+        Objects.equals(this.responseValueNull, listUsersRequest.responseValueNull) &&
         Objects.equals(this.sortDirection, listUsersRequest.sortDirection) &&
         Objects.equals(this.sortField, listUsersRequest.sortField) &&
         Objects.equals(this.userPoolUid, listUsersRequest.userPoolUid);
@@ -181,7 +272,7 @@ public class ListUsersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, sortDirection, sortField, userPoolUid);
+    return Objects.hash(filter, maxResults, nextToken, pageNumber, pageSize, responseValueMask, responseValueNull, sortDirection, sortField, userPoolUid);
   }
 
 
@@ -191,8 +282,12 @@ public class ListUsersRequest {
     sb.append("class ListUsersRequest {\n");
     
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    responseValueMask: ").append(toIndentedString(responseValueMask)).append("\n");
+    sb.append("    responseValueNull: ").append(toIndentedString(responseValueNull)).append("\n");
     sb.append("    sortDirection: ").append(toIndentedString(sortDirection)).append("\n");
     sb.append("    sortField: ").append(toIndentedString(sortField)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");

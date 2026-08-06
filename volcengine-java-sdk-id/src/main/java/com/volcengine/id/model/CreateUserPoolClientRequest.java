@@ -44,11 +44,20 @@ public class CreateUserPoolClientRequest {
   @SerializedName("DevelopmentModeEnabled")
   private Boolean developmentModeEnabled = null;
 
+  @SerializedName("DeviceFlowEnabled")
+  private Boolean deviceFlowEnabled = null;
+
+  @SerializedName("DismissLoginPageEnabled")
+  private Boolean dismissLoginPageEnabled = null;
+
   @SerializedName("LogoUri")
   private String logoUri = null;
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("SkipConsentEnabled")
+  private Boolean skipConsentEnabled = null;
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
@@ -134,6 +143,42 @@ public class CreateUserPoolClientRequest {
     this.developmentModeEnabled = developmentModeEnabled;
   }
 
+  public CreateUserPoolClientRequest deviceFlowEnabled(Boolean deviceFlowEnabled) {
+    this.deviceFlowEnabled = deviceFlowEnabled;
+    return this;
+  }
+
+   /**
+   * Get deviceFlowEnabled
+   * @return deviceFlowEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDeviceFlowEnabled() {
+    return deviceFlowEnabled;
+  }
+
+  public void setDeviceFlowEnabled(Boolean deviceFlowEnabled) {
+    this.deviceFlowEnabled = deviceFlowEnabled;
+  }
+
+  public CreateUserPoolClientRequest dismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+    return this;
+  }
+
+   /**
+   * Get dismissLoginPageEnabled
+   * @return dismissLoginPageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDismissLoginPageEnabled() {
+    return dismissLoginPageEnabled;
+  }
+
+  public void setDismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+  }
+
   public CreateUserPoolClientRequest logoUri(String logoUri) {
     this.logoUri = logoUri;
     return this;
@@ -171,6 +216,24 @@ public class CreateUserPoolClientRequest {
     this.name = name;
   }
 
+  public CreateUserPoolClientRequest skipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+    return this;
+  }
+
+   /**
+   * Get skipConsentEnabled
+   * @return skipConsentEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSkipConsentEnabled() {
+    return skipConsentEnabled;
+  }
+
+  public void setSkipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+  }
+
   public CreateUserPoolClientRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
     return this;
@@ -204,14 +267,17 @@ public class CreateUserPoolClientRequest {
         Objects.equals(this.clientType, createUserPoolClientRequest.clientType) &&
         Objects.equals(this.description, createUserPoolClientRequest.description) &&
         Objects.equals(this.developmentModeEnabled, createUserPoolClientRequest.developmentModeEnabled) &&
+        Objects.equals(this.deviceFlowEnabled, createUserPoolClientRequest.deviceFlowEnabled) &&
+        Objects.equals(this.dismissLoginPageEnabled, createUserPoolClientRequest.dismissLoginPageEnabled) &&
         Objects.equals(this.logoUri, createUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, createUserPoolClientRequest.name) &&
+        Objects.equals(this.skipConsentEnabled, createUserPoolClientRequest.skipConsentEnabled) &&
         Objects.equals(this.userPoolUid, createUserPoolClientRequest.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, clientType, description, developmentModeEnabled, logoUri, name, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, clientType, description, developmentModeEnabled, deviceFlowEnabled, dismissLoginPageEnabled, logoUri, name, skipConsentEnabled, userPoolUid);
   }
 
 
@@ -224,8 +290,11 @@ public class CreateUserPoolClientRequest {
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
+    sb.append("    deviceFlowEnabled: ").append(toIndentedString(deviceFlowEnabled)).append("\n");
+    sb.append("    dismissLoginPageEnabled: ").append(toIndentedString(dismissLoginPageEnabled)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    skipConsentEnabled: ").append(toIndentedString(skipConsentEnabled)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");
     return sb.toString();

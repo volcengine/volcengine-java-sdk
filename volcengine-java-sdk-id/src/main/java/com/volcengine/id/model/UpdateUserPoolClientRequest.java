@@ -55,6 +55,9 @@ public class UpdateUserPoolClientRequest {
   @SerializedName("DevelopmentModeEnabled")
   private Boolean developmentModeEnabled = null;
 
+  @SerializedName("DismissLoginPageEnabled")
+  private Boolean dismissLoginPageEnabled = null;
+
   @SerializedName("IdToken")
   private IdTokenForUpdateUserPoolClientInput idToken = null;
 
@@ -66,6 +69,9 @@ public class UpdateUserPoolClientRequest {
 
   @SerializedName("RefreshToken")
   private RefreshTokenForUpdateUserPoolClientInput refreshToken = null;
+
+  @SerializedName("SkipConsentEnabled")
+  private Boolean skipConsentEnabled = null;
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
@@ -229,6 +235,24 @@ public class UpdateUserPoolClientRequest {
     this.developmentModeEnabled = developmentModeEnabled;
   }
 
+  public UpdateUserPoolClientRequest dismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+    return this;
+  }
+
+   /**
+   * Get dismissLoginPageEnabled
+   * @return dismissLoginPageEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDismissLoginPageEnabled() {
+    return dismissLoginPageEnabled;
+  }
+
+  public void setDismissLoginPageEnabled(Boolean dismissLoginPageEnabled) {
+    this.dismissLoginPageEnabled = dismissLoginPageEnabled;
+  }
+
   public UpdateUserPoolClientRequest idToken(IdTokenForUpdateUserPoolClientInput idToken) {
     this.idToken = idToken;
     return this;
@@ -303,6 +327,24 @@ public class UpdateUserPoolClientRequest {
     this.refreshToken = refreshToken;
   }
 
+  public UpdateUserPoolClientRequest skipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+    return this;
+  }
+
+   /**
+   * Get skipConsentEnabled
+   * @return skipConsentEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSkipConsentEnabled() {
+    return skipConsentEnabled;
+  }
+
+  public void setSkipConsentEnabled(Boolean skipConsentEnabled) {
+    this.skipConsentEnabled = skipConsentEnabled;
+  }
+
   public UpdateUserPoolClientRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
     return this;
@@ -339,16 +381,18 @@ public class UpdateUserPoolClientRequest {
         Objects.equals(this.clientUid, updateUserPoolClientRequest.clientUid) &&
         Objects.equals(this.description, updateUserPoolClientRequest.description) &&
         Objects.equals(this.developmentModeEnabled, updateUserPoolClientRequest.developmentModeEnabled) &&
+        Objects.equals(this.dismissLoginPageEnabled, updateUserPoolClientRequest.dismissLoginPageEnabled) &&
         Objects.equals(this.idToken, updateUserPoolClientRequest.idToken) &&
         Objects.equals(this.logoUri, updateUserPoolClientRequest.logoUri) &&
         Objects.equals(this.name, updateUserPoolClientRequest.name) &&
         Objects.equals(this.refreshToken, updateUserPoolClientRequest.refreshToken) &&
+        Objects.equals(this.skipConsentEnabled, updateUserPoolClientRequest.skipConsentEnabled) &&
         Objects.equals(this.userPoolUid, updateUserPoolClientRequest.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, developmentModeEnabled, idToken, logoUri, name, refreshToken, userPoolUid);
+    return Objects.hash(allowedCallbackUrls, allowedCors, allowedLogoutUrls, allowedWebOrigins, clientUid, description, developmentModeEnabled, dismissLoginPageEnabled, idToken, logoUri, name, refreshToken, skipConsentEnabled, userPoolUid);
   }
 
 
@@ -364,10 +408,12 @@ public class UpdateUserPoolClientRequest {
     sb.append("    clientUid: ").append(toIndentedString(clientUid)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    developmentModeEnabled: ").append(toIndentedString(developmentModeEnabled)).append("\n");
+    sb.append("    dismissLoginPageEnabled: ").append(toIndentedString(dismissLoginPageEnabled)).append("\n");
     sb.append("    idToken: ").append(toIndentedString(idToken)).append("\n");
     sb.append("    logoUri: ").append(toIndentedString(logoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    skipConsentEnabled: ").append(toIndentedString(skipConsentEnabled)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");
     return sb.toString();

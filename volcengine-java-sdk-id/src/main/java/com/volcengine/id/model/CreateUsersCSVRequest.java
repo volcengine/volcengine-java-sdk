@@ -30,8 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateUsersCSVRequest {
+  @SerializedName("ExternalProviderConnectionUid")
+  private String externalProviderConnectionUid = null;
+
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  @SerializedName("UsersCsvB64")
+  private String usersCsvB64 = null;
+
+  public CreateUsersCSVRequest externalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+    return this;
+  }
+
+   /**
+   * Get externalProviderConnectionUid
+   * @return externalProviderConnectionUid
+  **/
+  @Schema(description = "")
+  public String getExternalProviderConnectionUid() {
+    return externalProviderConnectionUid;
+  }
+
+  public void setExternalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+  }
 
   public CreateUsersCSVRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
@@ -52,6 +76,24 @@ public class CreateUsersCSVRequest {
     this.userPoolUid = userPoolUid;
   }
 
+  public CreateUsersCSVRequest usersCsvB64(String usersCsvB64) {
+    this.usersCsvB64 = usersCsvB64;
+    return this;
+  }
+
+   /**
+   * Get usersCsvB64
+   * @return usersCsvB64
+  **/
+  @Schema(description = "")
+  public String getUsersCsvB64() {
+    return usersCsvB64;
+  }
+
+  public void setUsersCsvB64(String usersCsvB64) {
+    this.usersCsvB64 = usersCsvB64;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +104,14 @@ public class CreateUsersCSVRequest {
       return false;
     }
     CreateUsersCSVRequest createUsersCSVRequest = (CreateUsersCSVRequest) o;
-    return Objects.equals(this.userPoolUid, createUsersCSVRequest.userPoolUid);
+    return Objects.equals(this.externalProviderConnectionUid, createUsersCSVRequest.externalProviderConnectionUid) &&
+        Objects.equals(this.userPoolUid, createUsersCSVRequest.userPoolUid) &&
+        Objects.equals(this.usersCsvB64, createUsersCSVRequest.usersCsvB64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userPoolUid);
+    return Objects.hash(externalProviderConnectionUid, userPoolUid, usersCsvB64);
   }
 
 
@@ -76,7 +120,9 @@ public class CreateUsersCSVRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUsersCSVRequest {\n");
     
+    sb.append("    externalProviderConnectionUid: ").append(toIndentedString(externalProviderConnectionUid)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
+    sb.append("    usersCsvB64: ").append(toIndentedString(usersCsvB64)).append("\n");
     sb.append("}");
     return sb.toString();
   }

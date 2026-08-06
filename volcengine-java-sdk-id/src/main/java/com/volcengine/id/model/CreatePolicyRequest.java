@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.DefinitionForCreatePolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class CreatePolicyRequest {
+  @SerializedName("Definition")
+  private DefinitionForCreatePolicyInput definition = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -41,6 +45,28 @@ public class CreatePolicyRequest {
 
   @SerializedName("PolicyName")
   private String policyName = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  public CreatePolicyRequest definition(DefinitionForCreatePolicyInput definition) {
+    this.definition = definition;
+    return this;
+  }
+
+   /**
+   * Get definition
+   * @return definition
+  **/
+  @Valid
+  @Schema(description = "")
+  public DefinitionForCreatePolicyInput getDefinition() {
+    return definition;
+  }
+
+  public void setDefinition(DefinitionForCreatePolicyInput definition) {
+    this.definition = definition;
+  }
 
   public CreatePolicyRequest description(String description) {
     this.description = description;
@@ -114,6 +140,24 @@ public class CreatePolicyRequest {
     this.policyName = policyName;
   }
 
+  public CreatePolicyRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +168,17 @@ public class CreatePolicyRequest {
       return false;
     }
     CreatePolicyRequest createPolicyRequest = (CreatePolicyRequest) o;
-    return Objects.equals(this.description, createPolicyRequest.description) &&
+    return Objects.equals(this.definition, createPolicyRequest.definition) &&
+        Objects.equals(this.description, createPolicyRequest.description) &&
         Objects.equals(this.namespaceName, createPolicyRequest.namespaceName) &&
         Objects.equals(this.policy, createPolicyRequest.policy) &&
-        Objects.equals(this.policyName, createPolicyRequest.policyName);
+        Objects.equals(this.policyName, createPolicyRequest.policyName) &&
+        Objects.equals(this.status, createPolicyRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, namespaceName, policy, policyName);
+    return Objects.hash(definition, description, namespaceName, policy, policyName, status);
   }
 
 
@@ -141,10 +187,12 @@ public class CreatePolicyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePolicyRequest {\n");
     
+    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

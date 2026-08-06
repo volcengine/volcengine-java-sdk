@@ -39,6 +39,9 @@ public class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput 
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -96,6 +99,24 @@ public class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput 
     this.name = name;
   }
 
+  public ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -127,12 +148,13 @@ public class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput 
     return Objects.equals(this.createdAt, apiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.createdAt) &&
         Objects.equals(this.credentialProviderTrn, apiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.credentialProviderTrn) &&
         Objects.equals(this.name, apiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.name) &&
+        Objects.equals(this.projectName, apiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.projectName) &&
         Objects.equals(this.updatedAt, apiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, credentialProviderTrn, name, updatedAt);
+    return Objects.hash(createdAt, credentialProviderTrn, name, projectName, updatedAt);
   }
 
 
@@ -144,6 +166,7 @@ public class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput 
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

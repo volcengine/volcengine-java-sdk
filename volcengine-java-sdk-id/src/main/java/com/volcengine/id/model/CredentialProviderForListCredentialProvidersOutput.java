@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CredentialProviderForListCredentialProvidersOutput {
+  @SerializedName("BindingResourceNumber")
+  private Long bindingResourceNumber = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -88,6 +91,9 @@ public class CredentialProviderForListCredentialProvidersOutput {
   @SerializedName("PoolName")
   private String poolName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   /**
    * Gets or Sets type
    */
@@ -139,6 +145,24 @@ public class CredentialProviderForListCredentialProvidersOutput {
 
   @SerializedName("Vendor")
   private Integer vendor = null;
+
+  public CredentialProviderForListCredentialProvidersOutput bindingResourceNumber(Long bindingResourceNumber) {
+    this.bindingResourceNumber = bindingResourceNumber;
+    return this;
+  }
+
+   /**
+   * Get bindingResourceNumber
+   * @return bindingResourceNumber
+  **/
+  @Schema(description = "")
+  public Long getBindingResourceNumber() {
+    return bindingResourceNumber;
+  }
+
+  public void setBindingResourceNumber(Long bindingResourceNumber) {
+    this.bindingResourceNumber = bindingResourceNumber;
+  }
 
   public CredentialProviderForListCredentialProvidersOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -230,6 +254,24 @@ public class CredentialProviderForListCredentialProvidersOutput {
     this.poolName = poolName;
   }
 
+  public CredentialProviderForListCredentialProvidersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CredentialProviderForListCredentialProvidersOutput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -294,11 +336,13 @@ public class CredentialProviderForListCredentialProvidersOutput {
       return false;
     }
     CredentialProviderForListCredentialProvidersOutput credentialProviderForListCredentialProvidersOutput = (CredentialProviderForListCredentialProvidersOutput) o;
-    return Objects.equals(this.createdAt, credentialProviderForListCredentialProvidersOutput.createdAt) &&
+    return Objects.equals(this.bindingResourceNumber, credentialProviderForListCredentialProvidersOutput.bindingResourceNumber) &&
+        Objects.equals(this.createdAt, credentialProviderForListCredentialProvidersOutput.createdAt) &&
         Objects.equals(this.credentialProviderTrn, credentialProviderForListCredentialProvidersOutput.credentialProviderTrn) &&
         Objects.equals(this.flow, credentialProviderForListCredentialProvidersOutput.flow) &&
         Objects.equals(this.name, credentialProviderForListCredentialProvidersOutput.name) &&
         Objects.equals(this.poolName, credentialProviderForListCredentialProvidersOutput.poolName) &&
+        Objects.equals(this.projectName, credentialProviderForListCredentialProvidersOutput.projectName) &&
         Objects.equals(this.type, credentialProviderForListCredentialProvidersOutput.type) &&
         Objects.equals(this.updatedAt, credentialProviderForListCredentialProvidersOutput.updatedAt) &&
         Objects.equals(this.vendor, credentialProviderForListCredentialProvidersOutput.vendor);
@@ -306,7 +350,7 @@ public class CredentialProviderForListCredentialProvidersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, credentialProviderTrn, flow, name, poolName, type, updatedAt, vendor);
+    return Objects.hash(bindingResourceNumber, createdAt, credentialProviderTrn, flow, name, poolName, projectName, type, updatedAt, vendor);
   }
 
 
@@ -315,11 +359,13 @@ public class CredentialProviderForListCredentialProvidersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class CredentialProviderForListCredentialProvidersOutput {\n");
     
+    sb.append("    bindingResourceNumber: ").append(toIndentedString(bindingResourceNumber)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
     sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");

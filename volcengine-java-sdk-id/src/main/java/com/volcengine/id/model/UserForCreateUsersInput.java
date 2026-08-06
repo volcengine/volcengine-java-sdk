@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributesToUpsertForCreateUsersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,11 +36,17 @@ public class UserForCreateUsersInput {
   @SerializedName("Birthdate")
   private String birthdate = null;
 
+  @SerializedName("CustomAttributesToUpsert")
+  private List<CustomAttributesToUpsertForCreateUsersInput> customAttributesToUpsert = null;
+
   @SerializedName("Email")
   private String email = null;
 
   @SerializedName("EmailVerified")
   private Boolean emailVerified = null;
+
+  @SerializedName("ExternalProviderUserIdentifier")
+  private String externalProviderUserIdentifier = null;
 
   @SerializedName("FamilyName")
   private String familyName = null;
@@ -105,6 +114,33 @@ public class UserForCreateUsersInput {
     this.birthdate = birthdate;
   }
 
+  public UserForCreateUsersInput customAttributesToUpsert(List<CustomAttributesToUpsertForCreateUsersInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
+    return this;
+  }
+
+  public UserForCreateUsersInput addCustomAttributesToUpsertItem(CustomAttributesToUpsertForCreateUsersInput customAttributesToUpsertItem) {
+    if (this.customAttributesToUpsert == null) {
+      this.customAttributesToUpsert = new ArrayList<CustomAttributesToUpsertForCreateUsersInput>();
+    }
+    this.customAttributesToUpsert.add(customAttributesToUpsertItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributesToUpsert
+   * @return customAttributesToUpsert
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributesToUpsertForCreateUsersInput> getCustomAttributesToUpsert() {
+    return customAttributesToUpsert;
+  }
+
+  public void setCustomAttributesToUpsert(List<CustomAttributesToUpsertForCreateUsersInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
+  }
+
   public UserForCreateUsersInput email(String email) {
     this.email = email;
     return this;
@@ -139,6 +175,24 @@ public class UserForCreateUsersInput {
 
   public void setEmailVerified(Boolean emailVerified) {
     this.emailVerified = emailVerified;
+  }
+
+  public UserForCreateUsersInput externalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
+    return this;
+  }
+
+   /**
+   * Get externalProviderUserIdentifier
+   * @return externalProviderUserIdentifier
+  **/
+  @Schema(description = "")
+  public String getExternalProviderUserIdentifier() {
+    return externalProviderUserIdentifier;
+  }
+
+  public void setExternalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
   }
 
   public UserForCreateUsersInput familyName(String familyName) {
@@ -440,8 +494,10 @@ public class UserForCreateUsersInput {
     }
     UserForCreateUsersInput userForCreateUsersInput = (UserForCreateUsersInput) o;
     return Objects.equals(this.birthdate, userForCreateUsersInput.birthdate) &&
+        Objects.equals(this.customAttributesToUpsert, userForCreateUsersInput.customAttributesToUpsert) &&
         Objects.equals(this.email, userForCreateUsersInput.email) &&
         Objects.equals(this.emailVerified, userForCreateUsersInput.emailVerified) &&
+        Objects.equals(this.externalProviderUserIdentifier, userForCreateUsersInput.externalProviderUserIdentifier) &&
         Objects.equals(this.familyName, userForCreateUsersInput.familyName) &&
         Objects.equals(this.gender, userForCreateUsersInput.gender) &&
         Objects.equals(this.givenName, userForCreateUsersInput.givenName) &&
@@ -462,7 +518,7 @@ public class UserForCreateUsersInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, website, zoneinfo);
+    return Objects.hash(birthdate, customAttributesToUpsert, email, emailVerified, externalProviderUserIdentifier, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, website, zoneinfo);
   }
 
 
@@ -472,8 +528,10 @@ public class UserForCreateUsersInput {
     sb.append("class UserForCreateUsersInput {\n");
     
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
+    sb.append("    customAttributesToUpsert: ").append(toIndentedString(customAttributesToUpsert)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+    sb.append("    externalProviderUserIdentifier: ").append(toIndentedString(externalProviderUserIdentifier)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");

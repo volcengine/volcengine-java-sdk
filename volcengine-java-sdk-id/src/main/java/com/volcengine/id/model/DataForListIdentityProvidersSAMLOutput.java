@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ClaimsPropagationConfigForListIdentityProvidersSAMLOutput;
+import com.volcengine.id.model.EipRecordForListIdentityProvidersSAMLOutput;
 import com.volcengine.id.model.ProviderOptionsForListIdentityProvidersSAMLOutput;
+import com.volcengine.id.model.ScimProvisioningForListIdentityProvidersSAMLOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -40,6 +42,9 @@ public class DataForListIdentityProvidersSAMLOutput {
 
   @SerializedName("ClaimsPropagationConfig")
   private ClaimsPropagationConfigForListIdentityProvidersSAMLOutput claimsPropagationConfig = null;
+
+  @SerializedName("EipRecord")
+  private EipRecordForListIdentityProvidersSAMLOutput eipRecord = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -64,6 +69,12 @@ public class DataForListIdentityProvidersSAMLOutput {
 
   @SerializedName("ProviderOptions")
   private ProviderOptionsForListIdentityProvidersSAMLOutput providerOptions = null;
+
+  @SerializedName("ScimProvisioning")
+  private ScimProvisioningForListIdentityProvidersSAMLOutput scimProvisioning = null;
+
+  @SerializedName("SpMetadata")
+  private String spMetadata = null;
 
   @SerializedName("Uid")
   private String uid = null;
@@ -121,6 +132,25 @@ public class DataForListIdentityProvidersSAMLOutput {
 
   public void setClaimsPropagationConfig(ClaimsPropagationConfigForListIdentityProvidersSAMLOutput claimsPropagationConfig) {
     this.claimsPropagationConfig = claimsPropagationConfig;
+  }
+
+  public DataForListIdentityProvidersSAMLOutput eipRecord(EipRecordForListIdentityProvidersSAMLOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForListIdentityProvidersSAMLOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForListIdentityProvidersSAMLOutput eipRecord) {
+    this.eipRecord = eipRecord;
   }
 
   public DataForListIdentityProvidersSAMLOutput enabled(Boolean enabled) {
@@ -268,6 +298,43 @@ public class DataForListIdentityProvidersSAMLOutput {
     this.providerOptions = providerOptions;
   }
 
+  public DataForListIdentityProvidersSAMLOutput scimProvisioning(ScimProvisioningForListIdentityProvidersSAMLOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+    return this;
+  }
+
+   /**
+   * Get scimProvisioning
+   * @return scimProvisioning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScimProvisioningForListIdentityProvidersSAMLOutput getScimProvisioning() {
+    return scimProvisioning;
+  }
+
+  public void setScimProvisioning(ScimProvisioningForListIdentityProvidersSAMLOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+  }
+
+  public DataForListIdentityProvidersSAMLOutput spMetadata(String spMetadata) {
+    this.spMetadata = spMetadata;
+    return this;
+  }
+
+   /**
+   * Get spMetadata
+   * @return spMetadata
+  **/
+  @Schema(description = "")
+  public String getSpMetadata() {
+    return spMetadata;
+  }
+
+  public void setSpMetadata(String spMetadata) {
+    this.spMetadata = spMetadata;
+  }
+
   public DataForListIdentityProvidersSAMLOutput uid(String uid) {
     this.uid = uid;
     return this;
@@ -299,6 +366,7 @@ public class DataForListIdentityProvidersSAMLOutput {
     return Objects.equals(this.attributeMapping, dataForListIdentityProvidersSAMLOutput.attributeMapping) &&
         Objects.equals(this.certificate, dataForListIdentityProvidersSAMLOutput.certificate) &&
         Objects.equals(this.claimsPropagationConfig, dataForListIdentityProvidersSAMLOutput.claimsPropagationConfig) &&
+        Objects.equals(this.eipRecord, dataForListIdentityProvidersSAMLOutput.eipRecord) &&
         Objects.equals(this.enabled, dataForListIdentityProvidersSAMLOutput.enabled) &&
         Objects.equals(this.enabledEncryption, dataForListIdentityProvidersSAMLOutput.enabledEncryption) &&
         Objects.equals(this.enabledSign, dataForListIdentityProvidersSAMLOutput.enabledSign) &&
@@ -307,12 +375,14 @@ public class DataForListIdentityProvidersSAMLOutput {
         Objects.equals(this.name, dataForListIdentityProvidersSAMLOutput.name) &&
         Objects.equals(this.provider, dataForListIdentityProvidersSAMLOutput.provider) &&
         Objects.equals(this.providerOptions, dataForListIdentityProvidersSAMLOutput.providerOptions) &&
+        Objects.equals(this.scimProvisioning, dataForListIdentityProvidersSAMLOutput.scimProvisioning) &&
+        Objects.equals(this.spMetadata, dataForListIdentityProvidersSAMLOutput.spMetadata) &&
         Objects.equals(this.uid, dataForListIdentityProvidersSAMLOutput.uid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, certificate, claimsPropagationConfig, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, uid);
+    return Objects.hash(attributeMapping, certificate, claimsPropagationConfig, eipRecord, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, provider, providerOptions, scimProvisioning, spMetadata, uid);
   }
 
 
@@ -324,6 +394,7 @@ public class DataForListIdentityProvidersSAMLOutput {
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
     sb.append("    enabledSign: ").append(toIndentedString(enabledSign)).append("\n");
@@ -332,6 +403,8 @@ public class DataForListIdentityProvidersSAMLOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
+    sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
+    sb.append("    spMetadata: ").append(toIndentedString(spMetadata)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("}");
     return sb.toString();

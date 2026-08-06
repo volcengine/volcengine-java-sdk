@@ -19,10 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForUpdateIdentityProviderSAMLInput;
 import com.volcengine.id.model.ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput;
 import com.volcengine.id.model.ProviderOptionsForUpdateIdentityProviderSAMLInput;
+import com.volcengine.id.model.ScimProvisioningForUpdateIdentityProviderSAMLInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,11 +39,17 @@ public class UpdateIdentityProviderSAMLRequest {
   @SerializedName("AttributeMapping")
   private String attributeMapping = null;
 
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForUpdateIdentityProviderSAMLInput> attributeMappings = null;
+
   @SerializedName("ClaimsPropagationConfig")
   private ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput claimsPropagationConfig = null;
 
   @SerializedName("ConnectionUid")
   private String connectionUid = null;
+
+  @SerializedName("EipId")
+  private String eipId = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -62,6 +72,9 @@ public class UpdateIdentityProviderSAMLRequest {
   @SerializedName("ProviderOptions")
   private ProviderOptionsForUpdateIdentityProviderSAMLInput providerOptions = null;
 
+  @SerializedName("ScimProvisioning")
+  private ScimProvisioningForUpdateIdentityProviderSAMLInput scimProvisioning = null;
+
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
 
@@ -81,6 +94,33 @@ public class UpdateIdentityProviderSAMLRequest {
 
   public void setAttributeMapping(String attributeMapping) {
     this.attributeMapping = attributeMapping;
+  }
+
+  public UpdateIdentityProviderSAMLRequest attributeMappings(List<AttributeMappingForUpdateIdentityProviderSAMLInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public UpdateIdentityProviderSAMLRequest addAttributeMappingsItem(AttributeMappingForUpdateIdentityProviderSAMLInput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForUpdateIdentityProviderSAMLInput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForUpdateIdentityProviderSAMLInput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForUpdateIdentityProviderSAMLInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
   }
 
   public UpdateIdentityProviderSAMLRequest claimsPropagationConfig(ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput claimsPropagationConfig) {
@@ -119,6 +159,24 @@ public class UpdateIdentityProviderSAMLRequest {
 
   public void setConnectionUid(String connectionUid) {
     this.connectionUid = connectionUid;
+  }
+
+  public UpdateIdentityProviderSAMLRequest eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
   }
 
   public UpdateIdentityProviderSAMLRequest enabled(Boolean enabled) {
@@ -248,6 +306,25 @@ public class UpdateIdentityProviderSAMLRequest {
     this.providerOptions = providerOptions;
   }
 
+  public UpdateIdentityProviderSAMLRequest scimProvisioning(ScimProvisioningForUpdateIdentityProviderSAMLInput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+    return this;
+  }
+
+   /**
+   * Get scimProvisioning
+   * @return scimProvisioning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScimProvisioningForUpdateIdentityProviderSAMLInput getScimProvisioning() {
+    return scimProvisioning;
+  }
+
+  public void setScimProvisioning(ScimProvisioningForUpdateIdentityProviderSAMLInput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+  }
+
   public UpdateIdentityProviderSAMLRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
     return this;
@@ -278,8 +355,10 @@ public class UpdateIdentityProviderSAMLRequest {
     }
     UpdateIdentityProviderSAMLRequest updateIdentityProviderSAMLRequest = (UpdateIdentityProviderSAMLRequest) o;
     return Objects.equals(this.attributeMapping, updateIdentityProviderSAMLRequest.attributeMapping) &&
+        Objects.equals(this.attributeMappings, updateIdentityProviderSAMLRequest.attributeMappings) &&
         Objects.equals(this.claimsPropagationConfig, updateIdentityProviderSAMLRequest.claimsPropagationConfig) &&
         Objects.equals(this.connectionUid, updateIdentityProviderSAMLRequest.connectionUid) &&
+        Objects.equals(this.eipId, updateIdentityProviderSAMLRequest.eipId) &&
         Objects.equals(this.enabled, updateIdentityProviderSAMLRequest.enabled) &&
         Objects.equals(this.enabledEncryption, updateIdentityProviderSAMLRequest.enabledEncryption) &&
         Objects.equals(this.enabledSign, updateIdentityProviderSAMLRequest.enabledSign) &&
@@ -287,12 +366,13 @@ public class UpdateIdentityProviderSAMLRequest {
         Objects.equals(this.idpMetadata, updateIdentityProviderSAMLRequest.idpMetadata) &&
         Objects.equals(this.name, updateIdentityProviderSAMLRequest.name) &&
         Objects.equals(this.providerOptions, updateIdentityProviderSAMLRequest.providerOptions) &&
+        Objects.equals(this.scimProvisioning, updateIdentityProviderSAMLRequest.scimProvisioning) &&
         Objects.equals(this.userPoolUid, updateIdentityProviderSAMLRequest.userPoolUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeMapping, claimsPropagationConfig, connectionUid, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, providerOptions, userPoolUid);
+    return Objects.hash(attributeMapping, attributeMappings, claimsPropagationConfig, connectionUid, eipId, enabled, enabledEncryption, enabledSign, idAttribute, idpMetadata, name, providerOptions, scimProvisioning, userPoolUid);
   }
 
 
@@ -302,8 +382,10 @@ public class UpdateIdentityProviderSAMLRequest {
     sb.append("class UpdateIdentityProviderSAMLRequest {\n");
     
     sb.append("    attributeMapping: ").append(toIndentedString(attributeMapping)).append("\n");
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    connectionUid: ").append(toIndentedString(connectionUid)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    enabledEncryption: ").append(toIndentedString(enabledEncryption)).append("\n");
     sb.append("    enabledSign: ").append(toIndentedString(enabledSign)).append("\n");
@@ -311,6 +393,7 @@ public class UpdateIdentityProviderSAMLRequest {
     sb.append("    idpMetadata: ").append(toIndentedString(idpMetadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
+    sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("}");
     return sb.toString();

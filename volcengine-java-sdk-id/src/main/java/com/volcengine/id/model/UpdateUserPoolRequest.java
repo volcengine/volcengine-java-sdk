@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.BrandForUpdateUserPoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,11 +33,17 @@ import javax.validation.Valid;
 
 
 public class UpdateUserPoolRequest {
+  @SerializedName("AuthenticationMethodOrder")
+  private List<String> authenticationMethodOrder = null;
+
   @SerializedName("Brand")
   private BrandForUpdateUserPoolInput brand = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EmailAnonymousSignUpEnabled")
+  private Boolean emailAnonymousSignUpEnabled = null;
 
   @SerializedName("EmailPasswordlessSignInEnabled")
   private Boolean emailPasswordlessSignInEnabled = null;
@@ -49,6 +57,9 @@ public class UpdateUserPoolRequest {
   @SerializedName("SelfAccountRecoveryEnabled")
   private Boolean selfAccountRecoveryEnabled = null;
 
+  @SerializedName("SelfAccountRecoveryVerificationAttributes")
+  private List<String> selfAccountRecoveryVerificationAttributes = null;
+
   @SerializedName("SelfSignUpEnabled")
   private Boolean selfSignUpEnabled = null;
 
@@ -56,7 +67,7 @@ public class UpdateUserPoolRequest {
   private Boolean signUpAutoVerificationEnabled = null;
 
   @SerializedName("SmsAnonymousSignUpEnabled")
-  private String smsAnonymousSignUpEnabled = null;
+  private Boolean smsAnonymousSignUpEnabled = null;
 
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
@@ -66,6 +77,32 @@ public class UpdateUserPoolRequest {
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  public UpdateUserPoolRequest authenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+    return this;
+  }
+
+  public UpdateUserPoolRequest addAuthenticationMethodOrderItem(String authenticationMethodOrderItem) {
+    if (this.authenticationMethodOrder == null) {
+      this.authenticationMethodOrder = new ArrayList<String>();
+    }
+    this.authenticationMethodOrder.add(authenticationMethodOrderItem);
+    return this;
+  }
+
+   /**
+   * Get authenticationMethodOrder
+   * @return authenticationMethodOrder
+  **/
+  @Schema(description = "")
+  public List<String> getAuthenticationMethodOrder() {
+    return authenticationMethodOrder;
+  }
+
+  public void setAuthenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+  }
 
   public UpdateUserPoolRequest brand(BrandForUpdateUserPoolInput brand) {
     this.brand = brand;
@@ -102,6 +139,24 @@ public class UpdateUserPoolRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateUserPoolRequest emailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
+    return this;
+  }
+
+   /**
+   * Get emailAnonymousSignUpEnabled
+   * @return emailAnonymousSignUpEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isEmailAnonymousSignUpEnabled() {
+    return emailAnonymousSignUpEnabled;
+  }
+
+  public void setEmailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
   }
 
   public UpdateUserPoolRequest emailPasswordlessSignInEnabled(Boolean emailPasswordlessSignInEnabled) {
@@ -176,6 +231,32 @@ public class UpdateUserPoolRequest {
     this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
   }
 
+  public UpdateUserPoolRequest selfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
+    return this;
+  }
+
+  public UpdateUserPoolRequest addSelfAccountRecoveryVerificationAttributesItem(String selfAccountRecoveryVerificationAttributesItem) {
+    if (this.selfAccountRecoveryVerificationAttributes == null) {
+      this.selfAccountRecoveryVerificationAttributes = new ArrayList<String>();
+    }
+    this.selfAccountRecoveryVerificationAttributes.add(selfAccountRecoveryVerificationAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get selfAccountRecoveryVerificationAttributes
+   * @return selfAccountRecoveryVerificationAttributes
+  **/
+  @Schema(description = "")
+  public List<String> getSelfAccountRecoveryVerificationAttributes() {
+    return selfAccountRecoveryVerificationAttributes;
+  }
+
+  public void setSelfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
+  }
+
   public UpdateUserPoolRequest selfSignUpEnabled(Boolean selfSignUpEnabled) {
     this.selfSignUpEnabled = selfSignUpEnabled;
     return this;
@@ -212,7 +293,7 @@ public class UpdateUserPoolRequest {
     this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
-  public UpdateUserPoolRequest smsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+  public UpdateUserPoolRequest smsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
     this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
     return this;
   }
@@ -222,11 +303,11 @@ public class UpdateUserPoolRequest {
    * @return smsAnonymousSignUpEnabled
   **/
   @Schema(description = "")
-  public String getSmsAnonymousSignUpEnabled() {
+  public Boolean isSmsAnonymousSignUpEnabled() {
     return smsAnonymousSignUpEnabled;
   }
 
-  public void setSmsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+  public void setSmsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
     this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
   }
 
@@ -295,12 +376,15 @@ public class UpdateUserPoolRequest {
       return false;
     }
     UpdateUserPoolRequest updateUserPoolRequest = (UpdateUserPoolRequest) o;
-    return Objects.equals(this.brand, updateUserPoolRequest.brand) &&
+    return Objects.equals(this.authenticationMethodOrder, updateUserPoolRequest.authenticationMethodOrder) &&
+        Objects.equals(this.brand, updateUserPoolRequest.brand) &&
         Objects.equals(this.description, updateUserPoolRequest.description) &&
+        Objects.equals(this.emailAnonymousSignUpEnabled, updateUserPoolRequest.emailAnonymousSignUpEnabled) &&
         Objects.equals(this.emailPasswordlessSignInEnabled, updateUserPoolRequest.emailPasswordlessSignInEnabled) &&
         Objects.equals(this.name, updateUserPoolRequest.name) &&
         Objects.equals(this.passwordSignInEnabled, updateUserPoolRequest.passwordSignInEnabled) &&
         Objects.equals(this.selfAccountRecoveryEnabled, updateUserPoolRequest.selfAccountRecoveryEnabled) &&
+        Objects.equals(this.selfAccountRecoveryVerificationAttributes, updateUserPoolRequest.selfAccountRecoveryVerificationAttributes) &&
         Objects.equals(this.selfSignUpEnabled, updateUserPoolRequest.selfSignUpEnabled) &&
         Objects.equals(this.signUpAutoVerificationEnabled, updateUserPoolRequest.signUpAutoVerificationEnabled) &&
         Objects.equals(this.smsAnonymousSignUpEnabled, updateUserPoolRequest.smsAnonymousSignUpEnabled) &&
@@ -311,7 +395,7 @@ public class UpdateUserPoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, selfAccountRecoveryEnabled, selfSignUpEnabled, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, unconfirmedUserSignInEnabled, userPoolUid);
+    return Objects.hash(authenticationMethodOrder, brand, description, emailAnonymousSignUpEnabled, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, selfAccountRecoveryEnabled, selfAccountRecoveryVerificationAttributes, selfSignUpEnabled, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, unconfirmedUserSignInEnabled, userPoolUid);
   }
 
 
@@ -320,12 +404,15 @@ public class UpdateUserPoolRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateUserPoolRequest {\n");
     
+    sb.append("    authenticationMethodOrder: ").append(toIndentedString(authenticationMethodOrder)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    emailAnonymousSignUpEnabled: ").append(toIndentedString(emailAnonymousSignUpEnabled)).append("\n");
     sb.append("    emailPasswordlessSignInEnabled: ").append(toIndentedString(emailPasswordlessSignInEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordSignInEnabled: ").append(toIndentedString(passwordSignInEnabled)).append("\n");
     sb.append("    selfAccountRecoveryEnabled: ").append(toIndentedString(selfAccountRecoveryEnabled)).append("\n");
+    sb.append("    selfAccountRecoveryVerificationAttributes: ").append(toIndentedString(selfAccountRecoveryVerificationAttributes)).append("\n");
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");
     sb.append("    smsAnonymousSignUpEnabled: ").append(toIndentedString(smsAnonymousSignUpEnabled)).append("\n");
