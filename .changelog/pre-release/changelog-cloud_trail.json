@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "DescribeBackfillDeliveryTask",
+    "StopBackfillDeliveryTask",
+    "UpdateTrail",
+    "ListSearchTemplates",
+    "StopLogging",
+    "CreateTrail",
+    "DescribeTrails",
+    "GetEventSelectors",
+    "ListBackfillDeliveryTasks",
+    "StartLogging",
+    "DeleteTrail",
+    "LookupEvents"
+  ],
+  "description": "CLOUD_TRAIL: 新增 DescribeBackfillDeliveryTask, DescribeTrails, GetEventSelectors, ListBackfillDeliveryTasks, StartLogging, StopBackfillDeliveryTask, DeleteTrail, ListSearchTemplates, StopLogging, UpdateTrail, CreateTrail；修改 LookupEvents",
+  "modules": "service/cloud_trail",
+  "type": "breaking-change"
+}
