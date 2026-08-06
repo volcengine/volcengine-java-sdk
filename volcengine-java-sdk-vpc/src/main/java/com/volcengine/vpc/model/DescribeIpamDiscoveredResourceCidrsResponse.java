@@ -39,8 +39,17 @@ public class DescribeIpamDiscoveredResourceCidrsResponse extends com.volcengine.
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
 
   public DescribeIpamDiscoveredResourceCidrsResponse ipamDiscoveredResourceCidrs(List<IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput> ipamDiscoveredResourceCidrs) {
     this.ipamDiscoveredResourceCidrs = ipamDiscoveredResourceCidrs;
@@ -87,6 +96,42 @@ public class DescribeIpamDiscoveredResourceCidrsResponse extends com.volcengine.
     this.nextToken = nextToken;
   }
 
+  public DescribeIpamDiscoveredResourceCidrsResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeIpamDiscoveredResourceCidrsResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeIpamDiscoveredResourceCidrsResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -105,6 +150,24 @@ public class DescribeIpamDiscoveredResourceCidrsResponse extends com.volcengine.
     this.requestId = requestId;
   }
 
+  public DescribeIpamDiscoveredResourceCidrsResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,12 +180,15 @@ public class DescribeIpamDiscoveredResourceCidrsResponse extends com.volcengine.
     DescribeIpamDiscoveredResourceCidrsResponse describeIpamDiscoveredResourceCidrsResponse = (DescribeIpamDiscoveredResourceCidrsResponse) o;
     return Objects.equals(this.ipamDiscoveredResourceCidrs, describeIpamDiscoveredResourceCidrsResponse.ipamDiscoveredResourceCidrs) &&
         Objects.equals(this.nextToken, describeIpamDiscoveredResourceCidrsResponse.nextToken) &&
-        Objects.equals(this.requestId, describeIpamDiscoveredResourceCidrsResponse.requestId);
+        Objects.equals(this.pageNumber, describeIpamDiscoveredResourceCidrsResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeIpamDiscoveredResourceCidrsResponse.pageSize) &&
+        Objects.equals(this.requestId, describeIpamDiscoveredResourceCidrsResponse.requestId) &&
+        Objects.equals(this.totalCount, describeIpamDiscoveredResourceCidrsResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamDiscoveredResourceCidrs, nextToken, requestId);
+    return Objects.hash(ipamDiscoveredResourceCidrs, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -133,7 +199,10 @@ public class DescribeIpamDiscoveredResourceCidrsResponse extends com.volcengine.
     
     sb.append("    ipamDiscoveredResourceCidrs: ").append(toIndentedString(ipamDiscoveredResourceCidrs)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

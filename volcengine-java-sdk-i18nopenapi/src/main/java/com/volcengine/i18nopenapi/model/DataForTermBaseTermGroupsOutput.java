@@ -82,6 +82,9 @@ public class DataForTermBaseTermGroupsOutput {
   @SerializedName("termBaseId")
   private String termBaseId = null;
 
+  @SerializedName("termKey")
+  private String termKey = null;
+
   @SerializedName("termType")
   private Integer termType = null;
 
@@ -371,6 +374,24 @@ public class DataForTermBaseTermGroupsOutput {
     this.termBaseId = termBaseId;
   }
 
+  public DataForTermBaseTermGroupsOutput termKey(String termKey) {
+    this.termKey = termKey;
+    return this;
+  }
+
+   /**
+   * Get termKey
+   * @return termKey
+  **/
+  @Schema(description = "")
+  public String getTermKey() {
+    return termKey;
+  }
+
+  public void setTermKey(String termKey) {
+    this.termKey = termKey;
+  }
+
   public DataForTermBaseTermGroupsOutput termType(Integer termType) {
     this.termType = termType;
     return this;
@@ -432,13 +453,14 @@ public class DataForTermBaseTermGroupsOutput {
         Objects.equals(this.relatedTextProject, dataForTermBaseTermGroupsOutput.relatedTextProject) &&
         Objects.equals(this.tags, dataForTermBaseTermGroupsOutput.tags) &&
         Objects.equals(this.termBaseId, dataForTermBaseTermGroupsOutput.termBaseId) &&
+        Objects.equals(this.termKey, dataForTermBaseTermGroupsOutput.termKey) &&
         Objects.equals(this.termType, dataForTermBaseTermGroupsOutput.termType) &&
         Objects.equals(this.updatedAt, dataForTermBaseTermGroupsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyMode, caseSensitive, createdAt, creator, description, id, langItemMap, localismMatchType, matchedSourceLocale, matchedTargetLocale, operator, partOfSpeech, relatedTextProject, tags, termBaseId, termType, updatedAt);
+    return Objects.hash(applyMode, caseSensitive, createdAt, creator, description, id, langItemMap, localismMatchType, matchedSourceLocale, matchedTargetLocale, operator, partOfSpeech, relatedTextProject, tags, termBaseId, termKey, termType, updatedAt);
   }
 
 
@@ -462,6 +484,7 @@ public class DataForTermBaseTermGroupsOutput {
     sb.append("    relatedTextProject: ").append(toIndentedString(relatedTextProject)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
+    sb.append("    termKey: ").append(toIndentedString(termKey)).append("\n");
     sb.append("    termType: ").append(toIndentedString(termType)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ApiKeyMetadataForGetApiKeyCredentialProviderOutput;
+import com.volcengine.id.model.SecretStorageForGetApiKeyCredentialProviderOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,12 @@ public class GetApiKeyCredentialProviderResponse extends com.volcengine.model.Ab
 
   @SerializedName("PoolName")
   private String poolName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("SecretStorage")
+  private SecretStorageForGetApiKeyCredentialProviderOutput secretStorage = null;
 
   @SerializedName("SecretTrn")
   private String secretTrn = null;
@@ -153,6 +160,43 @@ public class GetApiKeyCredentialProviderResponse extends com.volcengine.model.Ab
     this.poolName = poolName;
   }
 
+  public GetApiKeyCredentialProviderResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public GetApiKeyCredentialProviderResponse secretStorage(SecretStorageForGetApiKeyCredentialProviderOutput secretStorage) {
+    this.secretStorage = secretStorage;
+    return this;
+  }
+
+   /**
+   * Get secretStorage
+   * @return secretStorage
+  **/
+  @Valid
+  @Schema(description = "")
+  public SecretStorageForGetApiKeyCredentialProviderOutput getSecretStorage() {
+    return secretStorage;
+  }
+
+  public void setSecretStorage(SecretStorageForGetApiKeyCredentialProviderOutput secretStorage) {
+    this.secretStorage = secretStorage;
+  }
+
   public GetApiKeyCredentialProviderResponse secretTrn(String secretTrn) {
     this.secretTrn = secretTrn;
     return this;
@@ -204,13 +248,15 @@ public class GetApiKeyCredentialProviderResponse extends com.volcengine.model.Ab
         Objects.equals(this.credentialProviderTrn, getApiKeyCredentialProviderResponse.credentialProviderTrn) &&
         Objects.equals(this.name, getApiKeyCredentialProviderResponse.name) &&
         Objects.equals(this.poolName, getApiKeyCredentialProviderResponse.poolName) &&
+        Objects.equals(this.projectName, getApiKeyCredentialProviderResponse.projectName) &&
+        Objects.equals(this.secretStorage, getApiKeyCredentialProviderResponse.secretStorage) &&
         Objects.equals(this.secretTrn, getApiKeyCredentialProviderResponse.secretTrn) &&
         Objects.equals(this.updatedAt, getApiKeyCredentialProviderResponse.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKeyMetadata, createdAt, credentialProviderTrn, name, poolName, secretTrn, updatedAt);
+    return Objects.hash(apiKeyMetadata, createdAt, credentialProviderTrn, name, poolName, projectName, secretStorage, secretTrn, updatedAt);
   }
 
 
@@ -224,6 +270,8 @@ public class GetApiKeyCredentialProviderResponse extends com.volcengine.model.Ab
     sb.append("    credentialProviderTrn: ").append(toIndentedString(credentialProviderTrn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    secretStorage: ").append(toIndentedString(secretStorage)).append("\n");
     sb.append("    secretTrn: ").append(toIndentedString(secretTrn)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

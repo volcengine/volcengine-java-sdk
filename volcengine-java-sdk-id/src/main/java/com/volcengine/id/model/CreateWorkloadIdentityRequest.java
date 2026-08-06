@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.MetaDataForCreateWorkloadIdentityInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class CreateWorkloadIdentityRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("MetaData")
+  private List<MetaDataForCreateWorkloadIdentityInput> metaData = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -109,6 +113,33 @@ public class CreateWorkloadIdentityRequest {
     this.description = description;
   }
 
+  public CreateWorkloadIdentityRequest metaData(List<MetaDataForCreateWorkloadIdentityInput> metaData) {
+    this.metaData = metaData;
+    return this;
+  }
+
+  public CreateWorkloadIdentityRequest addMetaDataItem(MetaDataForCreateWorkloadIdentityInput metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new ArrayList<MetaDataForCreateWorkloadIdentityInput>();
+    }
+    this.metaData.add(metaDataItem);
+    return this;
+  }
+
+   /**
+   * Get metaData
+   * @return metaData
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MetaDataForCreateWorkloadIdentityInput> getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(List<MetaDataForCreateWorkloadIdentityInput> metaData) {
+    this.metaData = metaData;
+  }
+
   public CreateWorkloadIdentityRequest name(String name) {
     this.name = name;
     return this;
@@ -159,13 +190,14 @@ public class CreateWorkloadIdentityRequest {
     return Objects.equals(this.allowedResourceOauth2ReturnUrls, createWorkloadIdentityRequest.allowedResourceOauth2ReturnUrls) &&
         Objects.equals(this.category, createWorkloadIdentityRequest.category) &&
         Objects.equals(this.description, createWorkloadIdentityRequest.description) &&
+        Objects.equals(this.metaData, createWorkloadIdentityRequest.metaData) &&
         Objects.equals(this.name, createWorkloadIdentityRequest.name) &&
         Objects.equals(this.workloadPoolName, createWorkloadIdentityRequest.workloadPoolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedResourceOauth2ReturnUrls, category, description, name, workloadPoolName);
+    return Objects.hash(allowedResourceOauth2ReturnUrls, category, description, metaData, name, workloadPoolName);
   }
 
 
@@ -177,6 +209,7 @@ public class CreateWorkloadIdentityRequest {
     sb.append("    allowedResourceOauth2ReturnUrls: ").append(toIndentedString(allowedResourceOauth2ReturnUrls)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    workloadPoolName: ").append(toIndentedString(workloadPoolName)).append("\n");
     sb.append("}");

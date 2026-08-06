@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.DefinitionForGrantPermissionInput;
 import com.volcengine.id.model.OperationForGrantPermissionInput;
 import com.volcengine.id.model.OriginalCallerForGrantPermissionInput;
 import com.volcengine.id.model.PrincipalForGrantPermissionInput;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class GrantPermissionRequest {
+  @SerializedName("Definition")
+  private DefinitionForGrantPermissionInput definition = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -59,6 +63,25 @@ public class GrantPermissionRequest {
 
   @SerializedName("Resource")
   private ResourceForGrantPermissionInput resource = null;
+
+  public GrantPermissionRequest definition(DefinitionForGrantPermissionInput definition) {
+    this.definition = definition;
+    return this;
+  }
+
+   /**
+   * Get definition
+   * @return definition
+  **/
+  @Valid
+  @Schema(description = "")
+  public DefinitionForGrantPermissionInput getDefinition() {
+    return definition;
+  }
+
+  public void setDefinition(DefinitionForGrantPermissionInput definition) {
+    this.definition = definition;
+  }
 
   public GrantPermissionRequest description(String description) {
     this.description = description;
@@ -226,7 +249,8 @@ public class GrantPermissionRequest {
       return false;
     }
     GrantPermissionRequest grantPermissionRequest = (GrantPermissionRequest) o;
-    return Objects.equals(this.description, grantPermissionRequest.description) &&
+    return Objects.equals(this.definition, grantPermissionRequest.definition) &&
+        Objects.equals(this.description, grantPermissionRequest.description) &&
         Objects.equals(this.effect, grantPermissionRequest.effect) &&
         Objects.equals(this.namespaceName, grantPermissionRequest.namespaceName) &&
         Objects.equals(this.operation, grantPermissionRequest.operation) &&
@@ -238,7 +262,7 @@ public class GrantPermissionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, effect, namespaceName, operation, originalCallers, policyName, principal, resource);
+    return Objects.hash(definition, description, effect, namespaceName, operation, originalCallers, policyName, principal, resource);
   }
 
 
@@ -247,6 +271,7 @@ public class GrantPermissionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GrantPermissionRequest {\n");
     
+    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");

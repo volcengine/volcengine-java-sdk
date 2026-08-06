@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateIpamInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,12 @@ public class CreateIpamRequest {
 
   @SerializedName("OperatingRegions")
   private List<String> operatingRegions = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateIpamInput> tags = null;
 
   public CreateIpamRequest description(String description) {
     this.description = description;
@@ -103,6 +110,51 @@ public class CreateIpamRequest {
     this.operatingRegions = operatingRegions;
   }
 
+  public CreateIpamRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateIpamRequest tags(List<TagForCreateIpamInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateIpamRequest addTagsItem(TagForCreateIpamInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateIpamInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateIpamInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateIpamInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,12 +167,14 @@ public class CreateIpamRequest {
     CreateIpamRequest createIpamRequest = (CreateIpamRequest) o;
     return Objects.equals(this.description, createIpamRequest.description) &&
         Objects.equals(this.ipamName, createIpamRequest.ipamName) &&
-        Objects.equals(this.operatingRegions, createIpamRequest.operatingRegions);
+        Objects.equals(this.operatingRegions, createIpamRequest.operatingRegions) &&
+        Objects.equals(this.projectName, createIpamRequest.projectName) &&
+        Objects.equals(this.tags, createIpamRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ipamName, operatingRegions);
+    return Objects.hash(description, ipamName, operatingRegions, projectName, tags);
   }
 
 
@@ -132,6 +186,8 @@ public class CreateIpamRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipamName: ").append(toIndentedString(ipamName)).append("\n");
     sb.append("    operatingRegions: ").append(toIndentedString(operatingRegions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

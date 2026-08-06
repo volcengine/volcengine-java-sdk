@@ -19,7 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForCreateIdentityProviderOAuthInput;
 import com.volcengine.id.model.ClaimsPropagationConfigForCreateIdentityProviderOAuthInput;
+import com.volcengine.id.model.ExtraProviderConfigurationForCreateIdentityProviderOAuthInput;
+import com.volcengine.id.model.PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput;
 import com.volcengine.id.model.ProviderOptionsForCreateIdentityProviderOAuthInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class CreateIdentityProviderOAuthRequest {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForCreateIdentityProviderOAuthInput> attributeMappings = null;
+
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
 
@@ -46,14 +52,23 @@ public class CreateIdentityProviderOAuthRequest {
   @SerializedName("ClientSecret")
   private String clientSecret = null;
 
+  @SerializedName("EipId")
+  private String eipId = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("ExtraProviderConfiguration")
+  private ExtraProviderConfigurationForCreateIdentityProviderOAuthInput extraProviderConfiguration = null;
 
   @SerializedName("IdAttribute")
   private String idAttribute = null;
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("PassvaultOauth2CredentialProviderOptions")
+  private PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput passvaultOauth2CredentialProviderOptions = null;
 
   @SerializedName("Provider")
   private String provider = null;
@@ -63,6 +78,9 @@ public class CreateIdentityProviderOAuthRequest {
 
   @SerializedName("ScopesList")
   private List<String> scopesList = null;
+
+  @SerializedName("SoleProviderConnection")
+  private Boolean soleProviderConnection = null;
 
   @SerializedName("TokenEndpoint")
   private String tokenEndpoint = null;
@@ -75,6 +93,33 @@ public class CreateIdentityProviderOAuthRequest {
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  public CreateIdentityProviderOAuthRequest attributeMappings(List<AttributeMappingForCreateIdentityProviderOAuthInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public CreateIdentityProviderOAuthRequest addAttributeMappingsItem(AttributeMappingForCreateIdentityProviderOAuthInput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForCreateIdentityProviderOAuthInput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForCreateIdentityProviderOAuthInput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForCreateIdentityProviderOAuthInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public CreateIdentityProviderOAuthRequest authorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
@@ -152,6 +197,24 @@ public class CreateIdentityProviderOAuthRequest {
     this.clientSecret = clientSecret;
   }
 
+  public CreateIdentityProviderOAuthRequest eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
+  }
+
   public CreateIdentityProviderOAuthRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -169,6 +232,25 @@ public class CreateIdentityProviderOAuthRequest {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public CreateIdentityProviderOAuthRequest extraProviderConfiguration(ExtraProviderConfigurationForCreateIdentityProviderOAuthInput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
+    return this;
+  }
+
+   /**
+   * Get extraProviderConfiguration
+   * @return extraProviderConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraProviderConfigurationForCreateIdentityProviderOAuthInput getExtraProviderConfiguration() {
+    return extraProviderConfiguration;
+  }
+
+  public void setExtraProviderConfiguration(ExtraProviderConfigurationForCreateIdentityProviderOAuthInput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
   }
 
   public CreateIdentityProviderOAuthRequest idAttribute(String idAttribute) {
@@ -207,6 +289,25 @@ public class CreateIdentityProviderOAuthRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateIdentityProviderOAuthRequest passvaultOauth2CredentialProviderOptions(PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput passvaultOauth2CredentialProviderOptions) {
+    this.passvaultOauth2CredentialProviderOptions = passvaultOauth2CredentialProviderOptions;
+    return this;
+  }
+
+   /**
+   * Get passvaultOauth2CredentialProviderOptions
+   * @return passvaultOauth2CredentialProviderOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput getPassvaultOauth2CredentialProviderOptions() {
+    return passvaultOauth2CredentialProviderOptions;
+  }
+
+  public void setPassvaultOauth2CredentialProviderOptions(PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOAuthInput passvaultOauth2CredentialProviderOptions) {
+    this.passvaultOauth2CredentialProviderOptions = passvaultOauth2CredentialProviderOptions;
   }
 
   public CreateIdentityProviderOAuthRequest provider(String provider) {
@@ -270,6 +371,24 @@ public class CreateIdentityProviderOAuthRequest {
 
   public void setScopesList(List<String> scopesList) {
     this.scopesList = scopesList;
+  }
+
+  public CreateIdentityProviderOAuthRequest soleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
+    return this;
+  }
+
+   /**
+   * Get soleProviderConnection
+   * @return soleProviderConnection
+  **/
+  @Schema(description = "")
+  public Boolean isSoleProviderConnection() {
+    return soleProviderConnection;
+  }
+
+  public void setSoleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
   }
 
   public CreateIdentityProviderOAuthRequest tokenEndpoint(String tokenEndpoint) {
@@ -358,16 +477,21 @@ public class CreateIdentityProviderOAuthRequest {
       return false;
     }
     CreateIdentityProviderOAuthRequest createIdentityProviderOAuthRequest = (CreateIdentityProviderOAuthRequest) o;
-    return Objects.equals(this.authorizationEndpoint, createIdentityProviderOAuthRequest.authorizationEndpoint) &&
+    return Objects.equals(this.attributeMappings, createIdentityProviderOAuthRequest.attributeMappings) &&
+        Objects.equals(this.authorizationEndpoint, createIdentityProviderOAuthRequest.authorizationEndpoint) &&
         Objects.equals(this.claimsPropagationConfig, createIdentityProviderOAuthRequest.claimsPropagationConfig) &&
         Objects.equals(this.clientId, createIdentityProviderOAuthRequest.clientId) &&
         Objects.equals(this.clientSecret, createIdentityProviderOAuthRequest.clientSecret) &&
+        Objects.equals(this.eipId, createIdentityProviderOAuthRequest.eipId) &&
         Objects.equals(this.enabled, createIdentityProviderOAuthRequest.enabled) &&
+        Objects.equals(this.extraProviderConfiguration, createIdentityProviderOAuthRequest.extraProviderConfiguration) &&
         Objects.equals(this.idAttribute, createIdentityProviderOAuthRequest.idAttribute) &&
         Objects.equals(this.name, createIdentityProviderOAuthRequest.name) &&
+        Objects.equals(this.passvaultOauth2CredentialProviderOptions, createIdentityProviderOAuthRequest.passvaultOauth2CredentialProviderOptions) &&
         Objects.equals(this.provider, createIdentityProviderOAuthRequest.provider) &&
         Objects.equals(this.providerOptions, createIdentityProviderOAuthRequest.providerOptions) &&
         Objects.equals(this.scopesList, createIdentityProviderOAuthRequest.scopesList) &&
+        Objects.equals(this.soleProviderConnection, createIdentityProviderOAuthRequest.soleProviderConnection) &&
         Objects.equals(this.tokenEndpoint, createIdentityProviderOAuthRequest.tokenEndpoint) &&
         Objects.equals(this.usePkce, createIdentityProviderOAuthRequest.usePkce) &&
         Objects.equals(this.userEndpoint, createIdentityProviderOAuthRequest.userEndpoint) &&
@@ -376,7 +500,7 @@ public class CreateIdentityProviderOAuthRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
+    return Objects.hash(attributeMappings, authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, eipId, enabled, extraProviderConfiguration, idAttribute, name, passvaultOauth2CredentialProviderOptions, provider, providerOptions, scopesList, soleProviderConnection, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
   }
 
 
@@ -385,16 +509,21 @@ public class CreateIdentityProviderOAuthRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIdentityProviderOAuthRequest {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    extraProviderConfiguration: ").append(toIndentedString(extraProviderConfiguration)).append("\n");
     sb.append("    idAttribute: ").append(toIndentedString(idAttribute)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passvaultOauth2CredentialProviderOptions: ").append(toIndentedString(passvaultOauth2CredentialProviderOptions)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
     sb.append("    scopesList: ").append(toIndentedString(scopesList)).append("\n");
+    sb.append("    soleProviderConnection: ").append(toIndentedString(soleProviderConnection)).append("\n");
     sb.append("    tokenEndpoint: ").append(toIndentedString(tokenEndpoint)).append("\n");
     sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");
     sb.append("    userEndpoint: ").append(toIndentedString(userEndpoint)).append("\n");

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForGetIdentityProviderOIDCOutput;
 import com.volcengine.id.model.ClaimsPropagationConfigForGetIdentityProviderOIDCOutput;
+import com.volcengine.id.model.EipRecordForGetIdentityProviderOIDCOutput;
 import com.volcengine.id.model.ProviderOptionsForGetIdentityProviderOIDCOutput;
+import com.volcengine.id.model.ScimProvisioningForGetIdentityProviderOIDCOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class GetIdentityProviderOIDCResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForGetIdentityProviderOIDCOutput> attributeMappings = null;
+
   @SerializedName("ClaimsPropagationConfig")
   private ClaimsPropagationConfigForGetIdentityProviderOIDCOutput claimsPropagationConfig = null;
 
@@ -42,6 +48,9 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
 
   @SerializedName("ClientSecret")
   private String clientSecret = null;
+
+  @SerializedName("EipRecord")
+  private EipRecordForGetIdentityProviderOIDCOutput eipRecord = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -61,6 +70,9 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
   @SerializedName("ProviderOptions")
   private ProviderOptionsForGetIdentityProviderOIDCOutput providerOptions = null;
 
+  @SerializedName("ScimProvisioning")
+  private ScimProvisioningForGetIdentityProviderOIDCOutput scimProvisioning = null;
+
   @SerializedName("ScopesList")
   private List<String> scopesList = null;
 
@@ -69,6 +81,33 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
 
   @SerializedName("UsePkce")
   private Boolean usePkce = null;
+
+  public GetIdentityProviderOIDCResponse attributeMappings(List<AttributeMappingForGetIdentityProviderOIDCOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public GetIdentityProviderOIDCResponse addAttributeMappingsItem(AttributeMappingForGetIdentityProviderOIDCOutput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForGetIdentityProviderOIDCOutput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForGetIdentityProviderOIDCOutput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForGetIdentityProviderOIDCOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public GetIdentityProviderOIDCResponse claimsPropagationConfig(ClaimsPropagationConfigForGetIdentityProviderOIDCOutput claimsPropagationConfig) {
     this.claimsPropagationConfig = claimsPropagationConfig;
@@ -123,6 +162,25 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+  public GetIdentityProviderOIDCResponse eipRecord(EipRecordForGetIdentityProviderOIDCOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForGetIdentityProviderOIDCOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForGetIdentityProviderOIDCOutput eipRecord) {
+    this.eipRecord = eipRecord;
   }
 
   public GetIdentityProviderOIDCResponse enabled(Boolean enabled) {
@@ -234,6 +292,25 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
     this.providerOptions = providerOptions;
   }
 
+  public GetIdentityProviderOIDCResponse scimProvisioning(ScimProvisioningForGetIdentityProviderOIDCOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+    return this;
+  }
+
+   /**
+   * Get scimProvisioning
+   * @return scimProvisioning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ScimProvisioningForGetIdentityProviderOIDCOutput getScimProvisioning() {
+    return scimProvisioning;
+  }
+
+  public void setScimProvisioning(ScimProvisioningForGetIdentityProviderOIDCOutput scimProvisioning) {
+    this.scimProvisioning = scimProvisioning;
+  }
+
   public GetIdentityProviderOIDCResponse scopesList(List<String> scopesList) {
     this.scopesList = scopesList;
     return this;
@@ -306,15 +383,18 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
       return false;
     }
     GetIdentityProviderOIDCResponse getIdentityProviderOIDCResponse = (GetIdentityProviderOIDCResponse) o;
-    return Objects.equals(this.claimsPropagationConfig, getIdentityProviderOIDCResponse.claimsPropagationConfig) &&
+    return Objects.equals(this.attributeMappings, getIdentityProviderOIDCResponse.attributeMappings) &&
+        Objects.equals(this.claimsPropagationConfig, getIdentityProviderOIDCResponse.claimsPropagationConfig) &&
         Objects.equals(this.clientId, getIdentityProviderOIDCResponse.clientId) &&
         Objects.equals(this.clientSecret, getIdentityProviderOIDCResponse.clientSecret) &&
+        Objects.equals(this.eipRecord, getIdentityProviderOIDCResponse.eipRecord) &&
         Objects.equals(this.enabled, getIdentityProviderOIDCResponse.enabled) &&
         Objects.equals(this.isIdTokenMapping, getIdentityProviderOIDCResponse.isIdTokenMapping) &&
         Objects.equals(this.issuer, getIdentityProviderOIDCResponse.issuer) &&
         Objects.equals(this.name, getIdentityProviderOIDCResponse.name) &&
         Objects.equals(this.provider, getIdentityProviderOIDCResponse.provider) &&
         Objects.equals(this.providerOptions, getIdentityProviderOIDCResponse.providerOptions) &&
+        Objects.equals(this.scimProvisioning, getIdentityProviderOIDCResponse.scimProvisioning) &&
         Objects.equals(this.scopesList, getIdentityProviderOIDCResponse.scopesList) &&
         Objects.equals(this.uid, getIdentityProviderOIDCResponse.uid) &&
         Objects.equals(this.usePkce, getIdentityProviderOIDCResponse.usePkce);
@@ -322,7 +402,7 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
 
   @Override
   public int hashCode() {
-    return Objects.hash(claimsPropagationConfig, clientId, clientSecret, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scopesList, uid, usePkce);
+    return Objects.hash(attributeMappings, claimsPropagationConfig, clientId, clientSecret, eipRecord, enabled, isIdTokenMapping, issuer, name, provider, providerOptions, scimProvisioning, scopesList, uid, usePkce);
   }
 
 
@@ -331,15 +411,18 @@ public class GetIdentityProviderOIDCResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class GetIdentityProviderOIDCResponse {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    isIdTokenMapping: ").append(toIndentedString(isIdTokenMapping)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
+    sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
     sb.append("    scopesList: ").append(toIndentedString(scopesList)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");

@@ -48,7 +48,7 @@ public class ModifyFlowLogAttributeRequest {
   private String flowLogName = null;
 
   @SerializedName("TrafficPath")
-  private List<Integer> trafficPath = null;
+  private List<String> trafficPath = null;
 
   public ModifyFlowLogAttributeRequest aggregationInterval(Integer aggregationInterval) {
     this.aggregationInterval = aggregationInterval;
@@ -141,14 +141,14 @@ public class ModifyFlowLogAttributeRequest {
     this.flowLogName = flowLogName;
   }
 
-  public ModifyFlowLogAttributeRequest trafficPath(List<Integer> trafficPath) {
+  public ModifyFlowLogAttributeRequest trafficPath(List<String> trafficPath) {
     this.trafficPath = trafficPath;
     return this;
   }
 
-  public ModifyFlowLogAttributeRequest addTrafficPathItem(Integer trafficPathItem) {
+  public ModifyFlowLogAttributeRequest addTrafficPathItem(String trafficPathItem) {
     if (this.trafficPath == null) {
-      this.trafficPath = new ArrayList<Integer>();
+      this.trafficPath = new ArrayList<String>();
     }
     this.trafficPath.add(trafficPathItem);
     return this;
@@ -159,11 +159,11 @@ public class ModifyFlowLogAttributeRequest {
    * @return trafficPath
   **/
   @Schema(description = "")
-  public List<Integer> getTrafficPath() {
+  public List<String> getTrafficPath() {
     return trafficPath;
   }
 
-  public void setTrafficPath(List<Integer> trafficPath) {
+  public void setTrafficPath(List<String> trafficPath) {
     this.trafficPath = trafficPath;
   }
 

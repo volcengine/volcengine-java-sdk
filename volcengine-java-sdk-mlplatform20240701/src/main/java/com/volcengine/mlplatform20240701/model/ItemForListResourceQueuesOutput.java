@@ -22,8 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.ComputeResourceForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.FlavorOngoingForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.FlavorOutgoingForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.GpuFragmentRateForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.IdleWholeGpuMachineForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.QuotaAllocatedForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.QuotaCapabilityForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.QuotaIdleForListResourceQueuesOutput;
+import com.volcengine.mlplatform20240701.model.ResourceWarningForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.RulesForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.SharedQuotaAllocatedForListResourceQueuesOutput;
 import com.volcengine.mlplatform20240701.model.StatusForListResourceQueuesOutput;
@@ -101,8 +105,14 @@ public class ItemForListResourceQueuesOutput {
   @SerializedName("FlavorOutgoing")
   private List<FlavorOutgoingForListResourceQueuesOutput> flavorOutgoing = null;
 
+  @SerializedName("GpuFragmentRates")
+  private List<GpuFragmentRateForListResourceQueuesOutput> gpuFragmentRates = null;
+
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("IdleWholeGpuMachines")
+  private List<IdleWholeGpuMachineForListResourceQueuesOutput> idleWholeGpuMachines = null;
 
   @SerializedName("IsOverQuota")
   private Boolean isOverQuota = null;
@@ -119,8 +129,14 @@ public class ItemForListResourceQueuesOutput {
   @SerializedName("QuotaCapability")
   private QuotaCapabilityForListResourceQueuesOutput quotaCapability = null;
 
+  @SerializedName("QuotaIdle")
+  private QuotaIdleForListResourceQueuesOutput quotaIdle = null;
+
   @SerializedName("ResourceGroupId")
   private String resourceGroupId = null;
+
+  @SerializedName("ResourceWarning")
+  private ResourceWarningForListResourceQueuesOutput resourceWarning = null;
 
   @SerializedName("Rules")
   private RulesForListResourceQueuesOutput rules = null;
@@ -263,6 +279,33 @@ public class ItemForListResourceQueuesOutput {
     this.flavorOutgoing = flavorOutgoing;
   }
 
+  public ItemForListResourceQueuesOutput gpuFragmentRates(List<GpuFragmentRateForListResourceQueuesOutput> gpuFragmentRates) {
+    this.gpuFragmentRates = gpuFragmentRates;
+    return this;
+  }
+
+  public ItemForListResourceQueuesOutput addGpuFragmentRatesItem(GpuFragmentRateForListResourceQueuesOutput gpuFragmentRatesItem) {
+    if (this.gpuFragmentRates == null) {
+      this.gpuFragmentRates = new ArrayList<GpuFragmentRateForListResourceQueuesOutput>();
+    }
+    this.gpuFragmentRates.add(gpuFragmentRatesItem);
+    return this;
+  }
+
+   /**
+   * Get gpuFragmentRates
+   * @return gpuFragmentRates
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<GpuFragmentRateForListResourceQueuesOutput> getGpuFragmentRates() {
+    return gpuFragmentRates;
+  }
+
+  public void setGpuFragmentRates(List<GpuFragmentRateForListResourceQueuesOutput> gpuFragmentRates) {
+    this.gpuFragmentRates = gpuFragmentRates;
+  }
+
   public ItemForListResourceQueuesOutput id(String id) {
     this.id = id;
     return this;
@@ -279,6 +322,33 @@ public class ItemForListResourceQueuesOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ItemForListResourceQueuesOutput idleWholeGpuMachines(List<IdleWholeGpuMachineForListResourceQueuesOutput> idleWholeGpuMachines) {
+    this.idleWholeGpuMachines = idleWholeGpuMachines;
+    return this;
+  }
+
+  public ItemForListResourceQueuesOutput addIdleWholeGpuMachinesItem(IdleWholeGpuMachineForListResourceQueuesOutput idleWholeGpuMachinesItem) {
+    if (this.idleWholeGpuMachines == null) {
+      this.idleWholeGpuMachines = new ArrayList<IdleWholeGpuMachineForListResourceQueuesOutput>();
+    }
+    this.idleWholeGpuMachines.add(idleWholeGpuMachinesItem);
+    return this;
+  }
+
+   /**
+   * Get idleWholeGpuMachines
+   * @return idleWholeGpuMachines
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<IdleWholeGpuMachineForListResourceQueuesOutput> getIdleWholeGpuMachines() {
+    return idleWholeGpuMachines;
+  }
+
+  public void setIdleWholeGpuMachines(List<IdleWholeGpuMachineForListResourceQueuesOutput> idleWholeGpuMachines) {
+    this.idleWholeGpuMachines = idleWholeGpuMachines;
   }
 
   public ItemForListResourceQueuesOutput isOverQuota(Boolean isOverQuota) {
@@ -373,6 +443,25 @@ public class ItemForListResourceQueuesOutput {
     this.quotaCapability = quotaCapability;
   }
 
+  public ItemForListResourceQueuesOutput quotaIdle(QuotaIdleForListResourceQueuesOutput quotaIdle) {
+    this.quotaIdle = quotaIdle;
+    return this;
+  }
+
+   /**
+   * Get quotaIdle
+   * @return quotaIdle
+  **/
+  @Valid
+  @Schema(description = "")
+  public QuotaIdleForListResourceQueuesOutput getQuotaIdle() {
+    return quotaIdle;
+  }
+
+  public void setQuotaIdle(QuotaIdleForListResourceQueuesOutput quotaIdle) {
+    this.quotaIdle = quotaIdle;
+  }
+
   public ItemForListResourceQueuesOutput resourceGroupId(String resourceGroupId) {
     this.resourceGroupId = resourceGroupId;
     return this;
@@ -389,6 +478,25 @@ public class ItemForListResourceQueuesOutput {
 
   public void setResourceGroupId(String resourceGroupId) {
     this.resourceGroupId = resourceGroupId;
+  }
+
+  public ItemForListResourceQueuesOutput resourceWarning(ResourceWarningForListResourceQueuesOutput resourceWarning) {
+    this.resourceWarning = resourceWarning;
+    return this;
+  }
+
+   /**
+   * Get resourceWarning
+   * @return resourceWarning
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResourceWarningForListResourceQueuesOutput getResourceWarning() {
+    return resourceWarning;
+  }
+
+  public void setResourceWarning(ResourceWarningForListResourceQueuesOutput resourceWarning) {
+    this.resourceWarning = resourceWarning;
   }
 
   public ItemForListResourceQueuesOutput rules(RulesForListResourceQueuesOutput rules) {
@@ -580,13 +688,17 @@ public class ItemForListResourceQueuesOutput {
         Objects.equals(this.description, itemForListResourceQueuesOutput.description) &&
         Objects.equals(this.flavorOngoing, itemForListResourceQueuesOutput.flavorOngoing) &&
         Objects.equals(this.flavorOutgoing, itemForListResourceQueuesOutput.flavorOutgoing) &&
+        Objects.equals(this.gpuFragmentRates, itemForListResourceQueuesOutput.gpuFragmentRates) &&
         Objects.equals(this.id, itemForListResourceQueuesOutput.id) &&
+        Objects.equals(this.idleWholeGpuMachines, itemForListResourceQueuesOutput.idleWholeGpuMachines) &&
         Objects.equals(this.isOverQuota, itemForListResourceQueuesOutput.isOverQuota) &&
         Objects.equals(this.name, itemForListResourceQueuesOutput.name) &&
         Objects.equals(this.projectName, itemForListResourceQueuesOutput.projectName) &&
         Objects.equals(this.quotaAllocated, itemForListResourceQueuesOutput.quotaAllocated) &&
         Objects.equals(this.quotaCapability, itemForListResourceQueuesOutput.quotaCapability) &&
+        Objects.equals(this.quotaIdle, itemForListResourceQueuesOutput.quotaIdle) &&
         Objects.equals(this.resourceGroupId, itemForListResourceQueuesOutput.resourceGroupId) &&
+        Objects.equals(this.resourceWarning, itemForListResourceQueuesOutput.resourceWarning) &&
         Objects.equals(this.rules, itemForListResourceQueuesOutput.rules) &&
         Objects.equals(this.shareable, itemForListResourceQueuesOutput.shareable) &&
         Objects.equals(this.sharedQuotaAllocated, itemForListResourceQueuesOutput.sharedQuotaAllocated) &&
@@ -599,7 +711,7 @@ public class ItemForListResourceQueuesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, computeResources, description, flavorOngoing, flavorOutgoing, id, isOverQuota, name, projectName, quotaAllocated, quotaCapability, resourceGroupId, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
+    return Objects.hash(chargeType, computeResources, description, flavorOngoing, flavorOutgoing, gpuFragmentRates, id, idleWholeGpuMachines, isOverQuota, name, projectName, quotaAllocated, quotaCapability, quotaIdle, resourceGroupId, resourceWarning, rules, shareable, sharedQuotaAllocated, status, systemQuotaAllocated, volumeResources, workloadInfos, zoneIds);
   }
 
 
@@ -613,13 +725,17 @@ public class ItemForListResourceQueuesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    flavorOngoing: ").append(toIndentedString(flavorOngoing)).append("\n");
     sb.append("    flavorOutgoing: ").append(toIndentedString(flavorOutgoing)).append("\n");
+    sb.append("    gpuFragmentRates: ").append(toIndentedString(gpuFragmentRates)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    idleWholeGpuMachines: ").append(toIndentedString(idleWholeGpuMachines)).append("\n");
     sb.append("    isOverQuota: ").append(toIndentedString(isOverQuota)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    quotaAllocated: ").append(toIndentedString(quotaAllocated)).append("\n");
     sb.append("    quotaCapability: ").append(toIndentedString(quotaCapability)).append("\n");
+    sb.append("    quotaIdle: ").append(toIndentedString(quotaIdle)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");
+    sb.append("    resourceWarning: ").append(toIndentedString(resourceWarning)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    shareable: ").append(toIndentedString(shareable)).append("\n");
     sb.append("    sharedQuotaAllocated: ").append(toIndentedString(sharedQuotaAllocated)).append("\n");

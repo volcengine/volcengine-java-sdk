@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ResponseValueMaskForGetUserInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,11 +31,33 @@ import javax.validation.Valid;
 
 
 public class GetUserRequest {
+  @SerializedName("ResponseValueMask")
+  private ResponseValueMaskForGetUserInput responseValueMask = null;
+
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
 
   @SerializedName("UserUid")
   private String userUid = null;
+
+  public GetUserRequest responseValueMask(ResponseValueMaskForGetUserInput responseValueMask) {
+    this.responseValueMask = responseValueMask;
+    return this;
+  }
+
+   /**
+   * Get responseValueMask
+   * @return responseValueMask
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseValueMaskForGetUserInput getResponseValueMask() {
+    return responseValueMask;
+  }
+
+  public void setResponseValueMask(ResponseValueMaskForGetUserInput responseValueMask) {
+    this.responseValueMask = responseValueMask;
+  }
 
   public GetUserRequest userPoolUid(String userPoolUid) {
     this.userPoolUid = userPoolUid;
@@ -84,13 +107,14 @@ public class GetUserRequest {
       return false;
     }
     GetUserRequest getUserRequest = (GetUserRequest) o;
-    return Objects.equals(this.userPoolUid, getUserRequest.userPoolUid) &&
+    return Objects.equals(this.responseValueMask, getUserRequest.responseValueMask) &&
+        Objects.equals(this.userPoolUid, getUserRequest.userPoolUid) &&
         Objects.equals(this.userUid, getUserRequest.userUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userPoolUid, userUid);
+    return Objects.hash(responseValueMask, userPoolUid, userUid);
   }
 
 
@@ -99,6 +123,7 @@ public class GetUserRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetUserRequest {\n");
     
+    sb.append("    responseValueMask: ").append(toIndentedString(responseValueMask)).append("\n");
     sb.append("    userPoolUid: ").append(toIndentedString(userPoolUid)).append("\n");
     sb.append("    userUid: ").append(toIndentedString(userUid)).append("\n");
     sb.append("}");

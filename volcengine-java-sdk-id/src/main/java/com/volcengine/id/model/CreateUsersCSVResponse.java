@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.ErrorsStructuredForCreateUsersCSVOutput;
+import com.volcengine.id.model.SuccessfulUidsStructuredForCreateUsersCSVOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,9 @@ public class CreateUsersCSVResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("SuccessfulUids")
   private List<String> successfulUids = null;
+
+  @SerializedName("SuccessfulUidsStructured")
+  private List<SuccessfulUidsStructuredForCreateUsersCSVOutput> successfulUidsStructured = null;
 
   public CreateUsersCSVResponse errors(List<String> errors) {
     this.errors = errors;
@@ -163,6 +167,33 @@ public class CreateUsersCSVResponse extends com.volcengine.model.AbstractRespons
     this.successfulUids = successfulUids;
   }
 
+  public CreateUsersCSVResponse successfulUidsStructured(List<SuccessfulUidsStructuredForCreateUsersCSVOutput> successfulUidsStructured) {
+    this.successfulUidsStructured = successfulUidsStructured;
+    return this;
+  }
+
+  public CreateUsersCSVResponse addSuccessfulUidsStructuredItem(SuccessfulUidsStructuredForCreateUsersCSVOutput successfulUidsStructuredItem) {
+    if (this.successfulUidsStructured == null) {
+      this.successfulUidsStructured = new ArrayList<SuccessfulUidsStructuredForCreateUsersCSVOutput>();
+    }
+    this.successfulUidsStructured.add(successfulUidsStructuredItem);
+    return this;
+  }
+
+   /**
+   * Get successfulUidsStructured
+   * @return successfulUidsStructured
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SuccessfulUidsStructuredForCreateUsersCSVOutput> getSuccessfulUidsStructured() {
+    return successfulUidsStructured;
+  }
+
+  public void setSuccessfulUidsStructured(List<SuccessfulUidsStructuredForCreateUsersCSVOutput> successfulUidsStructured) {
+    this.successfulUidsStructured = successfulUidsStructured;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,12 +208,13 @@ public class CreateUsersCSVResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.errorsStructured, createUsersCSVResponse.errorsStructured) &&
         Objects.equals(this.failureCount, createUsersCSVResponse.failureCount) &&
         Objects.equals(this.successCount, createUsersCSVResponse.successCount) &&
-        Objects.equals(this.successfulUids, createUsersCSVResponse.successfulUids);
+        Objects.equals(this.successfulUids, createUsersCSVResponse.successfulUids) &&
+        Objects.equals(this.successfulUidsStructured, createUsersCSVResponse.successfulUidsStructured);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, errorsStructured, failureCount, successCount, successfulUids);
+    return Objects.hash(errors, errorsStructured, failureCount, successCount, successfulUids, successfulUidsStructured);
   }
 
 
@@ -196,6 +228,7 @@ public class CreateUsersCSVResponse extends com.volcengine.model.AbstractRespons
     sb.append("    failureCount: ").append(toIndentedString(failureCount)).append("\n");
     sb.append("    successCount: ").append(toIndentedString(successCount)).append("\n");
     sb.append("    successfulUids: ").append(toIndentedString(successfulUids)).append("\n");
+    sb.append("    successfulUidsStructured: ").append(toIndentedString(successfulUidsStructured)).append("\n");
     sb.append("}");
     return sb.toString();
   }

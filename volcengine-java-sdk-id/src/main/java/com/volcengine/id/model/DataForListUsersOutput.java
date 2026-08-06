@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributeForListUsersOutput;
+import com.volcengine.id.model.ExternalIdentityForListUsersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -39,11 +43,20 @@ public class DataForListUsersOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("CustomAttributes")
+  private List<CustomAttributeForListUsersOutput> customAttributes = null;
+
+  @SerializedName("DepartmentUids")
+  private List<String> departmentUids = null;
+
   @SerializedName("Email")
   private String email = null;
 
   @SerializedName("EmailVerified")
   private Boolean emailVerified = null;
+
+  @SerializedName("ExternalIdentities")
+  private List<ExternalIdentityForListUsersOutput> externalIdentities = null;
 
   @SerializedName("FamilyName")
   private String familyName = null;
@@ -54,11 +67,23 @@ public class DataForListUsersOutput {
   @SerializedName("GivenName")
   private String givenName = null;
 
+  @SerializedName("GroupUids")
+  private List<String> groupUids = null;
+
   @SerializedName("LatestBrowser")
   private String latestBrowser = null;
 
   @SerializedName("LatestLogin")
   private String latestLogin = null;
+
+  @SerializedName("LatestLoginConnectionName")
+  private String latestLoginConnectionName = null;
+
+  @SerializedName("LatestLoginConnectionProvider")
+  private String latestLoginConnectionProvider = null;
+
+  @SerializedName("LatestLoginConnectionType")
+  private String latestLoginConnectionType = null;
 
   @SerializedName("LatestLoginMethod")
   private String latestLoginMethod = null;
@@ -168,6 +193,59 @@ public class DataForListUsersOutput {
     this.createTime = createTime;
   }
 
+  public DataForListUsersOutput customAttributes(List<CustomAttributeForListUsersOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public DataForListUsersOutput addCustomAttributesItem(CustomAttributeForListUsersOutput customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new ArrayList<CustomAttributeForListUsersOutput>();
+    }
+    this.customAttributes.add(customAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributes
+   * @return customAttributes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributeForListUsersOutput> getCustomAttributes() {
+    return customAttributes;
+  }
+
+  public void setCustomAttributes(List<CustomAttributeForListUsersOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+  }
+
+  public DataForListUsersOutput departmentUids(List<String> departmentUids) {
+    this.departmentUids = departmentUids;
+    return this;
+  }
+
+  public DataForListUsersOutput addDepartmentUidsItem(String departmentUidsItem) {
+    if (this.departmentUids == null) {
+      this.departmentUids = new ArrayList<String>();
+    }
+    this.departmentUids.add(departmentUidsItem);
+    return this;
+  }
+
+   /**
+   * Get departmentUids
+   * @return departmentUids
+  **/
+  @Schema(description = "")
+  public List<String> getDepartmentUids() {
+    return departmentUids;
+  }
+
+  public void setDepartmentUids(List<String> departmentUids) {
+    this.departmentUids = departmentUids;
+  }
+
   public DataForListUsersOutput email(String email) {
     this.email = email;
     return this;
@@ -202,6 +280,33 @@ public class DataForListUsersOutput {
 
   public void setEmailVerified(Boolean emailVerified) {
     this.emailVerified = emailVerified;
+  }
+
+  public DataForListUsersOutput externalIdentities(List<ExternalIdentityForListUsersOutput> externalIdentities) {
+    this.externalIdentities = externalIdentities;
+    return this;
+  }
+
+  public DataForListUsersOutput addExternalIdentitiesItem(ExternalIdentityForListUsersOutput externalIdentitiesItem) {
+    if (this.externalIdentities == null) {
+      this.externalIdentities = new ArrayList<ExternalIdentityForListUsersOutput>();
+    }
+    this.externalIdentities.add(externalIdentitiesItem);
+    return this;
+  }
+
+   /**
+   * Get externalIdentities
+   * @return externalIdentities
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ExternalIdentityForListUsersOutput> getExternalIdentities() {
+    return externalIdentities;
+  }
+
+  public void setExternalIdentities(List<ExternalIdentityForListUsersOutput> externalIdentities) {
+    this.externalIdentities = externalIdentities;
   }
 
   public DataForListUsersOutput familyName(String familyName) {
@@ -258,6 +363,32 @@ public class DataForListUsersOutput {
     this.givenName = givenName;
   }
 
+  public DataForListUsersOutput groupUids(List<String> groupUids) {
+    this.groupUids = groupUids;
+    return this;
+  }
+
+  public DataForListUsersOutput addGroupUidsItem(String groupUidsItem) {
+    if (this.groupUids == null) {
+      this.groupUids = new ArrayList<String>();
+    }
+    this.groupUids.add(groupUidsItem);
+    return this;
+  }
+
+   /**
+   * Get groupUids
+   * @return groupUids
+  **/
+  @Schema(description = "")
+  public List<String> getGroupUids() {
+    return groupUids;
+  }
+
+  public void setGroupUids(List<String> groupUids) {
+    this.groupUids = groupUids;
+  }
+
   public DataForListUsersOutput latestBrowser(String latestBrowser) {
     this.latestBrowser = latestBrowser;
     return this;
@@ -292,6 +423,60 @@ public class DataForListUsersOutput {
 
   public void setLatestLogin(String latestLogin) {
     this.latestLogin = latestLogin;
+  }
+
+  public DataForListUsersOutput latestLoginConnectionName(String latestLoginConnectionName) {
+    this.latestLoginConnectionName = latestLoginConnectionName;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionName
+   * @return latestLoginConnectionName
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionName() {
+    return latestLoginConnectionName;
+  }
+
+  public void setLatestLoginConnectionName(String latestLoginConnectionName) {
+    this.latestLoginConnectionName = latestLoginConnectionName;
+  }
+
+  public DataForListUsersOutput latestLoginConnectionProvider(String latestLoginConnectionProvider) {
+    this.latestLoginConnectionProvider = latestLoginConnectionProvider;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionProvider
+   * @return latestLoginConnectionProvider
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionProvider() {
+    return latestLoginConnectionProvider;
+  }
+
+  public void setLatestLoginConnectionProvider(String latestLoginConnectionProvider) {
+    this.latestLoginConnectionProvider = latestLoginConnectionProvider;
+  }
+
+  public DataForListUsersOutput latestLoginConnectionType(String latestLoginConnectionType) {
+    this.latestLoginConnectionType = latestLoginConnectionType;
+    return this;
+  }
+
+   /**
+   * Get latestLoginConnectionType
+   * @return latestLoginConnectionType
+  **/
+  @Schema(description = "")
+  public String getLatestLoginConnectionType() {
+    return latestLoginConnectionType;
+  }
+
+  public void setLatestLoginConnectionType(String latestLoginConnectionType) {
+    this.latestLoginConnectionType = latestLoginConnectionType;
   }
 
   public DataForListUsersOutput latestLoginMethod(String latestLoginMethod) {
@@ -631,13 +816,20 @@ public class DataForListUsersOutput {
     return Objects.equals(this.birthdate, dataForListUsersOutput.birthdate) &&
         Objects.equals(this.connection, dataForListUsersOutput.connection) &&
         Objects.equals(this.createTime, dataForListUsersOutput.createTime) &&
+        Objects.equals(this.customAttributes, dataForListUsersOutput.customAttributes) &&
+        Objects.equals(this.departmentUids, dataForListUsersOutput.departmentUids) &&
         Objects.equals(this.email, dataForListUsersOutput.email) &&
         Objects.equals(this.emailVerified, dataForListUsersOutput.emailVerified) &&
+        Objects.equals(this.externalIdentities, dataForListUsersOutput.externalIdentities) &&
         Objects.equals(this.familyName, dataForListUsersOutput.familyName) &&
         Objects.equals(this.gender, dataForListUsersOutput.gender) &&
         Objects.equals(this.givenName, dataForListUsersOutput.givenName) &&
+        Objects.equals(this.groupUids, dataForListUsersOutput.groupUids) &&
         Objects.equals(this.latestBrowser, dataForListUsersOutput.latestBrowser) &&
         Objects.equals(this.latestLogin, dataForListUsersOutput.latestLogin) &&
+        Objects.equals(this.latestLoginConnectionName, dataForListUsersOutput.latestLoginConnectionName) &&
+        Objects.equals(this.latestLoginConnectionProvider, dataForListUsersOutput.latestLoginConnectionProvider) &&
+        Objects.equals(this.latestLoginConnectionType, dataForListUsersOutput.latestLoginConnectionType) &&
         Objects.equals(this.latestLoginMethod, dataForListUsersOutput.latestLoginMethod) &&
         Objects.equals(this.locale, dataForListUsersOutput.locale) &&
         Objects.equals(this.middleName, dataForListUsersOutput.middleName) &&
@@ -660,7 +852,7 @@ public class DataForListUsersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, connection, createTime, email, emailVerified, familyName, gender, givenName, latestBrowser, latestLogin, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
+    return Objects.hash(birthdate, connection, createTime, customAttributes, departmentUids, email, emailVerified, externalIdentities, familyName, gender, givenName, groupUids, latestBrowser, latestLogin, latestLoginConnectionName, latestLoginConnectionProvider, latestLoginConnectionType, latestLoginMethod, locale, middleName, name, nickname, numLogins, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, sub, uid, updateTime, userMetadata, userState, website, zoneinfo);
   }
 
 
@@ -672,13 +864,20 @@ public class DataForListUsersOutput {
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    departmentUids: ").append(toIndentedString(departmentUids)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+    sb.append("    externalIdentities: ").append(toIndentedString(externalIdentities)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    groupUids: ").append(toIndentedString(groupUids)).append("\n");
     sb.append("    latestBrowser: ").append(toIndentedString(latestBrowser)).append("\n");
     sb.append("    latestLogin: ").append(toIndentedString(latestLogin)).append("\n");
+    sb.append("    latestLoginConnectionName: ").append(toIndentedString(latestLoginConnectionName)).append("\n");
+    sb.append("    latestLoginConnectionProvider: ").append(toIndentedString(latestLoginConnectionProvider)).append("\n");
+    sb.append("    latestLoginConnectionType: ").append(toIndentedString(latestLoginConnectionType)).append("\n");
     sb.append("    latestLoginMethod: ").append(toIndentedString(latestLoginMethod)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");

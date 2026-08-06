@@ -78,8 +78,69 @@ public class FlowLogForDescribeFlowLogsOutput {
   @SerializedName("Tags")
   private List<TagForDescribeFlowLogsOutput> tags = null;
 
-  @SerializedName("TrafficPath")
-  private List<Integer> trafficPath = null;
+  /**
+   * Gets or Sets trafficPath
+   */
+  @JsonAdapter(TrafficPathEnum.Adapter.class)
+  public enum TrafficPathEnum {
+    @SerializedName("All")
+    ALL("All"),
+    @SerializedName("NatGW")
+    NATGW("NatGW"),
+    @SerializedName("Ipv4GW")
+    IPV4GW("Ipv4GW"),
+    @SerializedName("Ipv6GW")
+    IPV6GW("Ipv6GW"),
+    @SerializedName("VpnGW")
+    VPNGW("VpnGW"),
+    @SerializedName("GWLBEndpoint")
+    GWLBENDPOINT("GWLBEndpoint"),
+    @SerializedName("TransitRouter")
+    TRANSITROUTER("TransitRouter"),
+    @SerializedName("CEN")
+    CEN("CEN"),
+    @SerializedName("IntraRegionVpcPeeringConnection")
+    INTRAREGIONVPCPEERINGCONNECTION("IntraRegionVpcPeeringConnection"),
+    @SerializedName("InterRegionVpcPeeringConnection")
+    INTERREGIONVPCPEERINGCONNECTION("InterRegionVpcPeeringConnection"),
+    @SerializedName("DirectExchangeGateway")
+    DIRECTEXCHANGEGATEWAY("DirectExchangeGateway");
+
+    private String value;
+
+    TrafficPathEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TrafficPathEnum fromValue(String input) {
+      for (TrafficPathEnum b : TrafficPathEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TrafficPathEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrafficPathEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TrafficPathEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TrafficPathEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TrafficPath")
+  private List<TrafficPathEnum> trafficPath = null;
 
   /**
    * Gets or Sets trafficType
@@ -417,14 +478,14 @@ public class FlowLogForDescribeFlowLogsOutput {
     this.tags = tags;
   }
 
-  public FlowLogForDescribeFlowLogsOutput trafficPath(List<Integer> trafficPath) {
+  public FlowLogForDescribeFlowLogsOutput trafficPath(List<TrafficPathEnum> trafficPath) {
     this.trafficPath = trafficPath;
     return this;
   }
 
-  public FlowLogForDescribeFlowLogsOutput addTrafficPathItem(Integer trafficPathItem) {
+  public FlowLogForDescribeFlowLogsOutput addTrafficPathItem(TrafficPathEnum trafficPathItem) {
     if (this.trafficPath == null) {
-      this.trafficPath = new ArrayList<Integer>();
+      this.trafficPath = new ArrayList<TrafficPathEnum>();
     }
     this.trafficPath.add(trafficPathItem);
     return this;
@@ -435,11 +496,11 @@ public class FlowLogForDescribeFlowLogsOutput {
    * @return trafficPath
   **/
   @Schema(description = "")
-  public List<Integer> getTrafficPath() {
+  public List<TrafficPathEnum> getTrafficPath() {
     return trafficPath;
   }
 
-  public void setTrafficPath(List<Integer> trafficPath) {
+  public void setTrafficPath(List<TrafficPathEnum> trafficPath) {
     this.trafficPath = trafficPath;
   }
 

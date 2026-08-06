@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.FilterForListUserPoolsInput;
+import com.volcengine.id.model.TagFilterForListUserPoolsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -48,6 +51,9 @@ public class ListUserPoolsRequest {
 
   @SerializedName("SortField")
   private String sortField = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForListUserPoolsInput> tagFilters = null;
 
   public ListUserPoolsRequest filter(FilterForListUserPoolsInput filter) {
     this.filter = filter;
@@ -160,6 +166,33 @@ public class ListUserPoolsRequest {
     this.sortField = sortField;
   }
 
+  public ListUserPoolsRequest tagFilters(List<TagFilterForListUserPoolsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListUserPoolsRequest addTagFiltersItem(TagFilterForListUserPoolsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListUserPoolsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListUserPoolsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListUserPoolsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -175,12 +208,13 @@ public class ListUserPoolsRequest {
         Objects.equals(this.pageSize, listUserPoolsRequest.pageSize) &&
         Objects.equals(this.projectName, listUserPoolsRequest.projectName) &&
         Objects.equals(this.sortDirection, listUserPoolsRequest.sortDirection) &&
-        Objects.equals(this.sortField, listUserPoolsRequest.sortField);
+        Objects.equals(this.sortField, listUserPoolsRequest.sortField) &&
+        Objects.equals(this.tagFilters, listUserPoolsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, projectName, sortDirection, sortField);
+    return Objects.hash(filter, pageNumber, pageSize, projectName, sortDirection, sortField, tagFilters);
   }
 
 
@@ -195,6 +229,7 @@ public class ListUserPoolsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sortDirection: ").append(toIndentedString(sortDirection)).append("\n");
     sb.append("    sortField: ").append(toIndentedString(sortField)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

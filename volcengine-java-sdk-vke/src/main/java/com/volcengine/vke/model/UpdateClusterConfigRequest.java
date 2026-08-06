@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.KubernetesConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.LoggingConfigForUpdateClusterConfigInput;
+import com.volcengine.vke.model.MaintenanceWindowConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.MonitoringConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.PodsConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.RegisterMonitoringConfigForUpdateClusterConfigInput;
@@ -59,6 +60,9 @@ public class UpdateClusterConfigRequest {
 
   @SerializedName("LoggingConfig")
   private LoggingConfigForUpdateClusterConfigInput loggingConfig = null;
+
+  @SerializedName("MaintenanceWindowConfig")
+  private MaintenanceWindowConfigForUpdateClusterConfigInput maintenanceWindowConfig = null;
 
   @SerializedName("MonitoringConfig")
   private MonitoringConfigForUpdateClusterConfigInput monitoringConfig = null;
@@ -223,6 +227,25 @@ public class UpdateClusterConfigRequest {
     this.loggingConfig = loggingConfig;
   }
 
+  public UpdateClusterConfigRequest maintenanceWindowConfig(MaintenanceWindowConfigForUpdateClusterConfigInput maintenanceWindowConfig) {
+    this.maintenanceWindowConfig = maintenanceWindowConfig;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindowConfig
+   * @return maintenanceWindowConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowConfigForUpdateClusterConfigInput getMaintenanceWindowConfig() {
+    return maintenanceWindowConfig;
+  }
+
+  public void setMaintenanceWindowConfig(MaintenanceWindowConfigForUpdateClusterConfigInput maintenanceWindowConfig) {
+    this.maintenanceWindowConfig = maintenanceWindowConfig;
+  }
+
   public UpdateClusterConfigRequest monitoringConfig(MonitoringConfigForUpdateClusterConfigInput monitoringConfig) {
     this.monitoringConfig = monitoringConfig;
     return this;
@@ -334,6 +357,7 @@ public class UpdateClusterConfigRequest {
         Objects.equals(this.irsaEnabled, updateClusterConfigRequest.irsaEnabled) &&
         Objects.equals(this.kubernetesConfig, updateClusterConfigRequest.kubernetesConfig) &&
         Objects.equals(this.loggingConfig, updateClusterConfigRequest.loggingConfig) &&
+        Objects.equals(this.maintenanceWindowConfig, updateClusterConfigRequest.maintenanceWindowConfig) &&
         Objects.equals(this.monitoringConfig, updateClusterConfigRequest.monitoringConfig) &&
         Objects.equals(this.name, updateClusterConfigRequest.name) &&
         Objects.equals(this.podsConfig, updateClusterConfigRequest.podsConfig) &&
@@ -343,7 +367,7 @@ public class UpdateClusterConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, irsaEnabled, kubernetesConfig, loggingConfig, monitoringConfig, name, podsConfig, registerMonitoringConfig, sourceRegion);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, irsaEnabled, kubernetesConfig, loggingConfig, maintenanceWindowConfig, monitoringConfig, name, podsConfig, registerMonitoringConfig, sourceRegion);
   }
 
 
@@ -360,6 +384,7 @@ public class UpdateClusterConfigRequest {
     sb.append("    irsaEnabled: ").append(toIndentedString(irsaEnabled)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
+    sb.append("    maintenanceWindowConfig: ").append(toIndentedString(maintenanceWindowConfig)).append("\n");
     sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");

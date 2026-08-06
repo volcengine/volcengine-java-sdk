@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributesToUpsertForUpdateUserInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,9 @@ import javax.validation.Valid;
 public class UpdateUserRequest {
   @SerializedName("Birthdate")
   private String birthdate = null;
+
+  @SerializedName("CustomAttributesToUpsert")
+  private List<CustomAttributesToUpsertForUpdateUserInput> customAttributesToUpsert = null;
 
   @SerializedName("Email")
   private String email = null;
@@ -112,6 +118,33 @@ public class UpdateUserRequest {
 
   public void setBirthdate(String birthdate) {
     this.birthdate = birthdate;
+  }
+
+  public UpdateUserRequest customAttributesToUpsert(List<CustomAttributesToUpsertForUpdateUserInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
+    return this;
+  }
+
+  public UpdateUserRequest addCustomAttributesToUpsertItem(CustomAttributesToUpsertForUpdateUserInput customAttributesToUpsertItem) {
+    if (this.customAttributesToUpsert == null) {
+      this.customAttributesToUpsert = new ArrayList<CustomAttributesToUpsertForUpdateUserInput>();
+    }
+    this.customAttributesToUpsert.add(customAttributesToUpsertItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributesToUpsert
+   * @return customAttributesToUpsert
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributesToUpsertForUpdateUserInput> getCustomAttributesToUpsert() {
+    return customAttributesToUpsert;
+  }
+
+  public void setCustomAttributesToUpsert(List<CustomAttributesToUpsertForUpdateUserInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
   }
 
   public UpdateUserRequest email(String email) {
@@ -505,6 +538,7 @@ public class UpdateUserRequest {
     }
     UpdateUserRequest updateUserRequest = (UpdateUserRequest) o;
     return Objects.equals(this.birthdate, updateUserRequest.birthdate) &&
+        Objects.equals(this.customAttributesToUpsert, updateUserRequest.customAttributesToUpsert) &&
         Objects.equals(this.email, updateUserRequest.email) &&
         Objects.equals(this.emailVerified, updateUserRequest.emailVerified) &&
         Objects.equals(this.familyName, updateUserRequest.familyName) &&
@@ -530,7 +564,7 @@ public class UpdateUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, userState, userUid, website, zoneinfo);
+    return Objects.hash(birthdate, customAttributesToUpsert, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, userState, userUid, website, zoneinfo);
   }
 
 
@@ -540,6 +574,7 @@ public class UpdateUserRequest {
     sb.append("class UpdateUserRequest {\n");
     
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
+    sb.append("    customAttributesToUpsert: ").append(toIndentedString(customAttributesToUpsert)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");

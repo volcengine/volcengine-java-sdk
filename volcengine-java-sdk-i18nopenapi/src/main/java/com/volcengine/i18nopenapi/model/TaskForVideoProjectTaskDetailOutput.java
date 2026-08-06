@@ -57,6 +57,9 @@ public class TaskForVideoProjectTaskDetailOutput {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("needTermValidation")
+  private Boolean needTermValidation = null;
+
   @SerializedName("projectId")
   private String projectId = null;
 
@@ -236,6 +239,24 @@ public class TaskForVideoProjectTaskDetailOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public TaskForVideoProjectTaskDetailOutput needTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
+    return this;
+  }
+
+   /**
+   * Get needTermValidation
+   * @return needTermValidation
+  **/
+  @Schema(description = "")
+  public Boolean isNeedTermValidation() {
+    return needTermValidation;
+  }
+
+  public void setNeedTermValidation(Boolean needTermValidation) {
+    this.needTermValidation = needTermValidation;
   }
 
   public TaskForVideoProjectTaskDetailOutput projectId(String projectId) {
@@ -480,6 +501,7 @@ public class TaskForVideoProjectTaskDetailOutput {
         Objects.equals(this.durationCount, taskForVideoProjectTaskDetailOutput.durationCount) &&
         Objects.equals(this.id, taskForVideoProjectTaskDetailOutput.id) &&
         Objects.equals(this.name, taskForVideoProjectTaskDetailOutput.name) &&
+        Objects.equals(this.needTermValidation, taskForVideoProjectTaskDetailOutput.needTermValidation) &&
         Objects.equals(this.projectId, taskForVideoProjectTaskDetailOutput.projectId) &&
         Objects.equals(this.projectName, taskForVideoProjectTaskDetailOutput.projectName) &&
         Objects.equals(this.sourceLanguage, taskForVideoProjectTaskDetailOutput.sourceLanguage) &&
@@ -496,7 +518,7 @@ public class TaskForVideoProjectTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, createdAt, creator, deadline, dramaTaskWorkflow, durationCount, id, name, projectId, projectName, sourceLanguage, sourceVideos, status, targetLanguages, taskType, translationTeam, updatedAt, updater, wordsCount, workflowType);
+    return Objects.hash(comment, createdAt, creator, deadline, dramaTaskWorkflow, durationCount, id, name, needTermValidation, projectId, projectName, sourceLanguage, sourceVideos, status, targetLanguages, taskType, translationTeam, updatedAt, updater, wordsCount, workflowType);
   }
 
 
@@ -513,6 +535,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     sb.append("    durationCount: ").append(toIndentedString(durationCount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    needTermValidation: ").append(toIndentedString(needTermValidation)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sourceLanguage: ").append(toIndentedString(sourceLanguage)).append("\n");

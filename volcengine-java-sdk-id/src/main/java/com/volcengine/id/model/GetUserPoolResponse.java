@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.id.model.BrandForGetUserPoolOutput;
+import com.volcengine.id.model.CustomAttributeForGetUserPoolOutput;
 import com.volcengine.id.model.TagForGetUserPoolOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,11 +35,20 @@ import javax.validation.Valid;
 
 
 public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AuthenticationMethodOrder")
+  private List<String> authenticationMethodOrder = null;
+
   @SerializedName("Brand")
   private BrandForGetUserPoolOutput brand = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("CustomAttributes")
+  private List<CustomAttributeForGetUserPoolOutput> customAttributes = null;
+
+  @SerializedName("CustomDomain")
+  private String customDomain = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -48,6 +58,9 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("EmailAnonymousSignUpEnabled")
+  private Boolean emailAnonymousSignUpEnabled = null;
 
   @SerializedName("EmailPasswordlessSignInEnabled")
   private Boolean emailPasswordlessSignInEnabled = null;
@@ -90,6 +103,9 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("SelfAccountRecoveryEnabled")
   private Boolean selfAccountRecoveryEnabled = null;
+
+  @SerializedName("SelfAccountRecoveryVerificationAttributes")
+  private List<String> selfAccountRecoveryVerificationAttributes = null;
 
   @SerializedName("SelfSignUpEnabled")
   private Boolean selfSignUpEnabled = null;
@@ -136,6 +152,32 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  public GetUserPoolResponse authenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+    return this;
+  }
+
+  public GetUserPoolResponse addAuthenticationMethodOrderItem(String authenticationMethodOrderItem) {
+    if (this.authenticationMethodOrder == null) {
+      this.authenticationMethodOrder = new ArrayList<String>();
+    }
+    this.authenticationMethodOrder.add(authenticationMethodOrderItem);
+    return this;
+  }
+
+   /**
+   * Get authenticationMethodOrder
+   * @return authenticationMethodOrder
+  **/
+  @Schema(description = "")
+  public List<String> getAuthenticationMethodOrder() {
+    return authenticationMethodOrder;
+  }
+
+  public void setAuthenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+  }
+
   public GetUserPoolResponse brand(BrandForGetUserPoolOutput brand) {
     this.brand = brand;
     return this;
@@ -171,6 +213,51 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public GetUserPoolResponse customAttributes(List<CustomAttributeForGetUserPoolOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public GetUserPoolResponse addCustomAttributesItem(CustomAttributeForGetUserPoolOutput customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new ArrayList<CustomAttributeForGetUserPoolOutput>();
+    }
+    this.customAttributes.add(customAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributes
+   * @return customAttributes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributeForGetUserPoolOutput> getCustomAttributes() {
+    return customAttributes;
+  }
+
+  public void setCustomAttributes(List<CustomAttributeForGetUserPoolOutput> customAttributes) {
+    this.customAttributes = customAttributes;
+  }
+
+  public GetUserPoolResponse customDomain(String customDomain) {
+    this.customDomain = customDomain;
+    return this;
+  }
+
+   /**
+   * Get customDomain
+   * @return customDomain
+  **/
+  @Schema(description = "")
+  public String getCustomDomain() {
+    return customDomain;
+  }
+
+  public void setCustomDomain(String customDomain) {
+    this.customDomain = customDomain;
   }
 
   public GetUserPoolResponse description(String description) {
@@ -225,6 +312,24 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public GetUserPoolResponse emailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
+    return this;
+  }
+
+   /**
+   * Get emailAnonymousSignUpEnabled
+   * @return emailAnonymousSignUpEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isEmailAnonymousSignUpEnabled() {
+    return emailAnonymousSignUpEnabled;
+  }
+
+  public void setEmailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
   }
 
   public GetUserPoolResponse emailPasswordlessSignInEnabled(Boolean emailPasswordlessSignInEnabled) {
@@ -485,6 +590,32 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   public void setSelfAccountRecoveryEnabled(Boolean selfAccountRecoveryEnabled) {
     this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
+  }
+
+  public GetUserPoolResponse selfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
+    return this;
+  }
+
+  public GetUserPoolResponse addSelfAccountRecoveryVerificationAttributesItem(String selfAccountRecoveryVerificationAttributesItem) {
+    if (this.selfAccountRecoveryVerificationAttributes == null) {
+      this.selfAccountRecoveryVerificationAttributes = new ArrayList<String>();
+    }
+    this.selfAccountRecoveryVerificationAttributes.add(selfAccountRecoveryVerificationAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get selfAccountRecoveryVerificationAttributes
+   * @return selfAccountRecoveryVerificationAttributes
+  **/
+  @Schema(description = "")
+  public List<String> getSelfAccountRecoveryVerificationAttributes() {
+    return selfAccountRecoveryVerificationAttributes;
+  }
+
+  public void setSelfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
   }
 
   public GetUserPoolResponse selfSignUpEnabled(Boolean selfSignUpEnabled) {
@@ -784,11 +915,15 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     GetUserPoolResponse getUserPoolResponse = (GetUserPoolResponse) o;
-    return Objects.equals(this.brand, getUserPoolResponse.brand) &&
+    return Objects.equals(this.authenticationMethodOrder, getUserPoolResponse.authenticationMethodOrder) &&
+        Objects.equals(this.brand, getUserPoolResponse.brand) &&
         Objects.equals(this.createTime, getUserPoolResponse.createTime) &&
+        Objects.equals(this.customAttributes, getUserPoolResponse.customAttributes) &&
+        Objects.equals(this.customDomain, getUserPoolResponse.customDomain) &&
         Objects.equals(this.description, getUserPoolResponse.description) &&
         Objects.equals(this.discoveryUrl, getUserPoolResponse.discoveryUrl) &&
         Objects.equals(this.domain, getUserPoolResponse.domain) &&
+        Objects.equals(this.emailAnonymousSignUpEnabled, getUserPoolResponse.emailAnonymousSignUpEnabled) &&
         Objects.equals(this.emailPasswordlessSignInEnabled, getUserPoolResponse.emailPasswordlessSignInEnabled) &&
         Objects.equals(this.enabled, getUserPoolResponse.enabled) &&
         Objects.equals(this.issuerUrl, getUserPoolResponse.issuerUrl) &&
@@ -803,6 +938,7 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.samlLoginCallbackUrl, getUserPoolResponse.samlLoginCallbackUrl) &&
         Objects.equals(this.samlSignUpCallbackUrl, getUserPoolResponse.samlSignUpCallbackUrl) &&
         Objects.equals(this.selfAccountRecoveryEnabled, getUserPoolResponse.selfAccountRecoveryEnabled) &&
+        Objects.equals(this.selfAccountRecoveryVerificationAttributes, getUserPoolResponse.selfAccountRecoveryVerificationAttributes) &&
         Objects.equals(this.selfSignUpEnabled, getUserPoolResponse.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, getUserPoolResponse.signInAttributes) &&
         Objects.equals(this.signUpAutoVerificationEnabled, getUserPoolResponse.signUpAutoVerificationEnabled) &&
@@ -822,7 +958,7 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, createTime, description, discoveryUrl, domain, emailPasswordlessSignInEnabled, enabled, issuerUrl, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, tokenUrl, totalClients, totalConnections, totalUsers, trn, uid, unconfirmedUserSignInEnabled, updateTime);
+    return Objects.hash(authenticationMethodOrder, brand, createTime, customAttributes, customDomain, description, discoveryUrl, domain, emailAnonymousSignUpEnabled, emailPasswordlessSignInEnabled, enabled, issuerUrl, name, oauthLoginCallbackUrl, oauthSignUpCallbackUrl, oidcLoginCallbackUrl, oidcSignUpCallbackUrl, passwordSignInEnabled, projectName, requiredSignUpAttributes, samlLoginCallbackUrl, samlSignUpCallbackUrl, selfAccountRecoveryEnabled, selfAccountRecoveryVerificationAttributes, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, tokenSigningKeyUrl, tokenUrl, totalClients, totalConnections, totalUsers, trn, uid, unconfirmedUserSignInEnabled, updateTime);
   }
 
 
@@ -831,11 +967,15 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetUserPoolResponse {\n");
     
+    sb.append("    authenticationMethodOrder: ").append(toIndentedString(authenticationMethodOrder)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    customDomain: ").append(toIndentedString(customDomain)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    discoveryUrl: ").append(toIndentedString(discoveryUrl)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    emailAnonymousSignUpEnabled: ").append(toIndentedString(emailAnonymousSignUpEnabled)).append("\n");
     sb.append("    emailPasswordlessSignInEnabled: ").append(toIndentedString(emailPasswordlessSignInEnabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    issuerUrl: ").append(toIndentedString(issuerUrl)).append("\n");
@@ -850,6 +990,7 @@ public class GetUserPoolResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    samlLoginCallbackUrl: ").append(toIndentedString(samlLoginCallbackUrl)).append("\n");
     sb.append("    samlSignUpCallbackUrl: ").append(toIndentedString(samlSignUpCallbackUrl)).append("\n");
     sb.append("    selfAccountRecoveryEnabled: ").append(toIndentedString(selfAccountRecoveryEnabled)).append("\n");
+    sb.append("    selfAccountRecoveryVerificationAttributes: ").append(toIndentedString(selfAccountRecoveryVerificationAttributes)).append("\n");
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
     sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");

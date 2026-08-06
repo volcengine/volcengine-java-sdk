@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForUpdateIdentityProviderOAuthInput;
 import com.volcengine.id.model.ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput;
+import com.volcengine.id.model.ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput;
 import com.volcengine.id.model.ProviderOptionsForUpdateIdentityProviderOAuthInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,6 +36,9 @@ import javax.validation.Valid;
 
 
 public class UpdateIdentityProviderOAuthRequest {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForUpdateIdentityProviderOAuthInput> attributeMappings = null;
+
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
 
@@ -49,8 +54,14 @@ public class UpdateIdentityProviderOAuthRequest {
   @SerializedName("ConnectionUid")
   private String connectionUid = null;
 
+  @SerializedName("EipId")
+  private String eipId = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("ExtraProviderConfiguration")
+  private ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput extraProviderConfiguration = null;
 
   @SerializedName("IdAttribute")
   private String idAttribute = null;
@@ -75,6 +86,33 @@ public class UpdateIdentityProviderOAuthRequest {
 
   @SerializedName("UserPoolUid")
   private String userPoolUid = null;
+
+  public UpdateIdentityProviderOAuthRequest attributeMappings(List<AttributeMappingForUpdateIdentityProviderOAuthInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public UpdateIdentityProviderOAuthRequest addAttributeMappingsItem(AttributeMappingForUpdateIdentityProviderOAuthInput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForUpdateIdentityProviderOAuthInput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForUpdateIdentityProviderOAuthInput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForUpdateIdentityProviderOAuthInput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public UpdateIdentityProviderOAuthRequest authorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
@@ -122,8 +160,7 @@ public class UpdateIdentityProviderOAuthRequest {
    * Get clientId
    * @return clientId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getClientId() {
     return clientId;
   }
@@ -169,6 +206,24 @@ public class UpdateIdentityProviderOAuthRequest {
     this.connectionUid = connectionUid;
   }
 
+  public UpdateIdentityProviderOAuthRequest eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
+  }
+
   public UpdateIdentityProviderOAuthRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -187,6 +242,25 @@ public class UpdateIdentityProviderOAuthRequest {
     this.enabled = enabled;
   }
 
+  public UpdateIdentityProviderOAuthRequest extraProviderConfiguration(ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
+    return this;
+  }
+
+   /**
+   * Get extraProviderConfiguration
+   * @return extraProviderConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput getExtraProviderConfiguration() {
+    return extraProviderConfiguration;
+  }
+
+  public void setExtraProviderConfiguration(ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
+  }
+
   public UpdateIdentityProviderOAuthRequest idAttribute(String idAttribute) {
     this.idAttribute = idAttribute;
     return this;
@@ -196,8 +270,7 @@ public class UpdateIdentityProviderOAuthRequest {
    * Get idAttribute
    * @return idAttribute
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getIdAttribute() {
     return idAttribute;
   }
@@ -296,8 +369,7 @@ public class UpdateIdentityProviderOAuthRequest {
    * Get usePkce
    * @return usePkce
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isUsePkce() {
     return usePkce;
   }
@@ -353,12 +425,15 @@ public class UpdateIdentityProviderOAuthRequest {
       return false;
     }
     UpdateIdentityProviderOAuthRequest updateIdentityProviderOAuthRequest = (UpdateIdentityProviderOAuthRequest) o;
-    return Objects.equals(this.authorizationEndpoint, updateIdentityProviderOAuthRequest.authorizationEndpoint) &&
+    return Objects.equals(this.attributeMappings, updateIdentityProviderOAuthRequest.attributeMappings) &&
+        Objects.equals(this.authorizationEndpoint, updateIdentityProviderOAuthRequest.authorizationEndpoint) &&
         Objects.equals(this.claimsPropagationConfig, updateIdentityProviderOAuthRequest.claimsPropagationConfig) &&
         Objects.equals(this.clientId, updateIdentityProviderOAuthRequest.clientId) &&
         Objects.equals(this.clientSecret, updateIdentityProviderOAuthRequest.clientSecret) &&
         Objects.equals(this.connectionUid, updateIdentityProviderOAuthRequest.connectionUid) &&
+        Objects.equals(this.eipId, updateIdentityProviderOAuthRequest.eipId) &&
         Objects.equals(this.enabled, updateIdentityProviderOAuthRequest.enabled) &&
+        Objects.equals(this.extraProviderConfiguration, updateIdentityProviderOAuthRequest.extraProviderConfiguration) &&
         Objects.equals(this.idAttribute, updateIdentityProviderOAuthRequest.idAttribute) &&
         Objects.equals(this.name, updateIdentityProviderOAuthRequest.name) &&
         Objects.equals(this.providerOptions, updateIdentityProviderOAuthRequest.providerOptions) &&
@@ -371,7 +446,7 @@ public class UpdateIdentityProviderOAuthRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, connectionUid, enabled, idAttribute, name, providerOptions, scopesList, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
+    return Objects.hash(attributeMappings, authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, connectionUid, eipId, enabled, extraProviderConfiguration, idAttribute, name, providerOptions, scopesList, tokenEndpoint, usePkce, userEndpoint, userPoolUid);
   }
 
 
@@ -380,12 +455,15 @@ public class UpdateIdentityProviderOAuthRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIdentityProviderOAuthRequest {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    connectionUid: ").append(toIndentedString(connectionUid)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    extraProviderConfiguration: ").append(toIndentedString(extraProviderConfiguration)).append("\n");
     sb.append("    idAttribute: ").append(toIndentedString(idAttribute)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");

@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateIpamScopeResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("IpamScopeId")
   private String ipamScopeId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public CreateIpamScopeResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public CreateIpamScopeResponse ipamScopeId(String ipamScopeId) {
     this.ipamScopeId = ipamScopeId;
@@ -82,13 +103,14 @@ public class CreateIpamScopeResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     CreateIpamScopeResponse createIpamScopeResponse = (CreateIpamScopeResponse) o;
-    return Objects.equals(this.ipamScopeId, createIpamScopeResponse.ipamScopeId) &&
+    return Objects.equals(this.asyncTaskId, createIpamScopeResponse.asyncTaskId) &&
+        Objects.equals(this.ipamScopeId, createIpamScopeResponse.ipamScopeId) &&
         Objects.equals(this.requestId, createIpamScopeResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamScopeId, requestId);
+    return Objects.hash(asyncTaskId, ipamScopeId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateIpamScopeResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIpamScopeResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    ipamScopeId: ").append(toIndentedString(ipamScopeId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

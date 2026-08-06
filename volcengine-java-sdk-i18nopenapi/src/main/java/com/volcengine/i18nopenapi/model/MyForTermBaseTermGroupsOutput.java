@@ -38,7 +38,7 @@ public class MyForTermBaseTermGroupsOutput {
   private Integer applyMode = null;
 
   @SerializedName("caseSensitive")
-  private Long caseSensitive = null;
+  private Boolean caseSensitive = null;
 
   @SerializedName("content")
   private String content = null;
@@ -112,7 +112,7 @@ public class MyForTermBaseTermGroupsOutput {
     this.applyMode = applyMode;
   }
 
-  public MyForTermBaseTermGroupsOutput caseSensitive(Long caseSensitive) {
+  public MyForTermBaseTermGroupsOutput caseSensitive(Boolean caseSensitive) {
     this.caseSensitive = caseSensitive;
     return this;
   }
@@ -122,11 +122,11 @@ public class MyForTermBaseTermGroupsOutput {
    * @return caseSensitive
   **/
   @Schema(description = "")
-  public Long getCaseSensitive() {
+  public Boolean isCaseSensitive() {
     return caseSensitive;
   }
 
-  public void setCaseSensitive(Long caseSensitive) {
+  public void setCaseSensitive(Boolean caseSensitive) {
     this.caseSensitive = caseSensitive;
   }
 

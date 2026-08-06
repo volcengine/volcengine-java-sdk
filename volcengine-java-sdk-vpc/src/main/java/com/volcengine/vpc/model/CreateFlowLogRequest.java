@@ -67,7 +67,7 @@ public class CreateFlowLogRequest {
   private List<TagForCreateFlowLogInput> tags = null;
 
   @SerializedName("TrafficPath")
-  private List<Integer> trafficPath = null;
+  private List<String> trafficPath = null;
 
   @SerializedName("TrafficType")
   private String trafficType = null;
@@ -285,14 +285,14 @@ public class CreateFlowLogRequest {
     this.tags = tags;
   }
 
-  public CreateFlowLogRequest trafficPath(List<Integer> trafficPath) {
+  public CreateFlowLogRequest trafficPath(List<String> trafficPath) {
     this.trafficPath = trafficPath;
     return this;
   }
 
-  public CreateFlowLogRequest addTrafficPathItem(Integer trafficPathItem) {
+  public CreateFlowLogRequest addTrafficPathItem(String trafficPathItem) {
     if (this.trafficPath == null) {
-      this.trafficPath = new ArrayList<Integer>();
+      this.trafficPath = new ArrayList<String>();
     }
     this.trafficPath.add(trafficPathItem);
     return this;
@@ -303,11 +303,11 @@ public class CreateFlowLogRequest {
    * @return trafficPath
   **/
   @Schema(description = "")
-  public List<Integer> getTrafficPath() {
+  public List<String> getTrafficPath() {
     return trafficPath;
   }
 
-  public void setTrafficPath(List<Integer> trafficPath) {
+  public void setTrafficPath(List<String> trafficPath) {
     this.trafficPath = trafficPath;
   }
 

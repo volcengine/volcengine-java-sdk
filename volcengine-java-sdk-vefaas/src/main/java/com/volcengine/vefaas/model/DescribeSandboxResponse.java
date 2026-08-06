@@ -98,6 +98,12 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
 
+  @SerializedName("RoleChainTrn")
+  private List<String> roleChainTrn = null;
+
+  @SerializedName("RoleTrn")
+  private String roleTrn = null;
+
   @SerializedName("SessionId")
   private String sessionId = null;
 
@@ -488,6 +494,50 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.revisionNumber = revisionNumber;
   }
 
+  public DescribeSandboxResponse roleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+    return this;
+  }
+
+  public DescribeSandboxResponse addRoleChainTrnItem(String roleChainTrnItem) {
+    if (this.roleChainTrn == null) {
+      this.roleChainTrn = new ArrayList<String>();
+    }
+    this.roleChainTrn.add(roleChainTrnItem);
+    return this;
+  }
+
+   /**
+   * Get roleChainTrn
+   * @return roleChainTrn
+  **/
+  @Schema(description = "")
+  public List<String> getRoleChainTrn() {
+    return roleChainTrn;
+  }
+
+  public void setRoleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+  }
+
+  public DescribeSandboxResponse roleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
+    return this;
+  }
+
+   /**
+   * Get roleTrn
+   * @return roleTrn
+  **/
+  @Schema(description = "")
+  public String getRoleTrn() {
+    return roleTrn;
+  }
+
+  public void setRoleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
+  }
+
   public DescribeSandboxResponse sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
@@ -581,6 +631,8 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.pending, describeSandboxResponse.pending) &&
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
         Objects.equals(this.revisionNumber, describeSandboxResponse.revisionNumber) &&
+        Objects.equals(this.roleChainTrn, describeSandboxResponse.roleChainTrn) &&
+        Objects.equals(this.roleTrn, describeSandboxResponse.roleTrn) &&
         Objects.equals(this.sessionId, describeSandboxResponse.sessionId) &&
         Objects.equals(this.sidecars, describeSandboxResponse.sidecars) &&
         Objects.equals(this.status, describeSandboxResponse.status);
@@ -588,7 +640,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, sessionId, sidecars, status);
+    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
   }
 
 
@@ -617,6 +669,8 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
+    sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.CustomAttributesToUpsertForCreateUserInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,11 +36,20 @@ public class CreateUserRequest {
   @SerializedName("Birthdate")
   private String birthdate = null;
 
+  @SerializedName("CustomAttributesToUpsert")
+  private List<CustomAttributesToUpsertForCreateUserInput> customAttributesToUpsert = null;
+
   @SerializedName("Email")
   private String email = null;
 
   @SerializedName("EmailVerified")
   private Boolean emailVerified = null;
+
+  @SerializedName("ExternalProviderConnectionUid")
+  private String externalProviderConnectionUid = null;
+
+  @SerializedName("ExternalProviderUserIdentifier")
+  private String externalProviderUserIdentifier = null;
 
   @SerializedName("FamilyName")
   private String familyName = null;
@@ -108,6 +120,33 @@ public class CreateUserRequest {
     this.birthdate = birthdate;
   }
 
+  public CreateUserRequest customAttributesToUpsert(List<CustomAttributesToUpsertForCreateUserInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
+    return this;
+  }
+
+  public CreateUserRequest addCustomAttributesToUpsertItem(CustomAttributesToUpsertForCreateUserInput customAttributesToUpsertItem) {
+    if (this.customAttributesToUpsert == null) {
+      this.customAttributesToUpsert = new ArrayList<CustomAttributesToUpsertForCreateUserInput>();
+    }
+    this.customAttributesToUpsert.add(customAttributesToUpsertItem);
+    return this;
+  }
+
+   /**
+   * Get customAttributesToUpsert
+   * @return customAttributesToUpsert
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CustomAttributesToUpsertForCreateUserInput> getCustomAttributesToUpsert() {
+    return customAttributesToUpsert;
+  }
+
+  public void setCustomAttributesToUpsert(List<CustomAttributesToUpsertForCreateUserInput> customAttributesToUpsert) {
+    this.customAttributesToUpsert = customAttributesToUpsert;
+  }
+
   public CreateUserRequest email(String email) {
     this.email = email;
     return this;
@@ -142,6 +181,42 @@ public class CreateUserRequest {
 
   public void setEmailVerified(Boolean emailVerified) {
     this.emailVerified = emailVerified;
+  }
+
+  public CreateUserRequest externalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+    return this;
+  }
+
+   /**
+   * Get externalProviderConnectionUid
+   * @return externalProviderConnectionUid
+  **/
+  @Schema(description = "")
+  public String getExternalProviderConnectionUid() {
+    return externalProviderConnectionUid;
+  }
+
+  public void setExternalProviderConnectionUid(String externalProviderConnectionUid) {
+    this.externalProviderConnectionUid = externalProviderConnectionUid;
+  }
+
+  public CreateUserRequest externalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
+    return this;
+  }
+
+   /**
+   * Get externalProviderUserIdentifier
+   * @return externalProviderUserIdentifier
+  **/
+  @Schema(description = "")
+  public String getExternalProviderUserIdentifier() {
+    return externalProviderUserIdentifier;
+  }
+
+  public void setExternalProviderUserIdentifier(String externalProviderUserIdentifier) {
+    this.externalProviderUserIdentifier = externalProviderUserIdentifier;
   }
 
   public CreateUserRequest familyName(String familyName) {
@@ -279,8 +354,7 @@ public class CreateUserRequest {
    * Get password
    * @return password
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPassword() {
     return password;
   }
@@ -463,8 +537,11 @@ public class CreateUserRequest {
     }
     CreateUserRequest createUserRequest = (CreateUserRequest) o;
     return Objects.equals(this.birthdate, createUserRequest.birthdate) &&
+        Objects.equals(this.customAttributesToUpsert, createUserRequest.customAttributesToUpsert) &&
         Objects.equals(this.email, createUserRequest.email) &&
         Objects.equals(this.emailVerified, createUserRequest.emailVerified) &&
+        Objects.equals(this.externalProviderConnectionUid, createUserRequest.externalProviderConnectionUid) &&
+        Objects.equals(this.externalProviderUserIdentifier, createUserRequest.externalProviderUserIdentifier) &&
         Objects.equals(this.familyName, createUserRequest.familyName) &&
         Objects.equals(this.gender, createUserRequest.gender) &&
         Objects.equals(this.givenName, createUserRequest.givenName) &&
@@ -486,7 +563,7 @@ public class CreateUserRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(birthdate, email, emailVerified, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, website, zoneinfo);
+    return Objects.hash(birthdate, customAttributesToUpsert, email, emailVerified, externalProviderConnectionUid, externalProviderUserIdentifier, familyName, gender, givenName, locale, middleName, name, nickname, password, phoneNumber, phoneNumberVerified, picture, preferredUsername, profile, userMetadata, userPoolUid, website, zoneinfo);
   }
 
 
@@ -496,8 +573,11 @@ public class CreateUserRequest {
     sb.append("class CreateUserRequest {\n");
     
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
+    sb.append("    customAttributesToUpsert: ").append(toIndentedString(customAttributesToUpsert)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+    sb.append("    externalProviderConnectionUid: ").append(toIndentedString(externalProviderConnectionUid)).append("\n");
+    sb.append("    externalProviderUserIdentifier: ").append(toIndentedString(externalProviderUserIdentifier)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");

@@ -14,14 +14,6 @@ package com.volcengine.i18nopenapi.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.DataForVideoProjectVideoDeleteOutput;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,28 +23,6 @@ import javax.validation.Valid;
 
 
 public class VideoProjectVideoDeleteResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("data")
-  private DataForVideoProjectVideoDeleteOutput data = null;
-
-  public VideoProjectVideoDeleteResponse data(DataForVideoProjectVideoDeleteOutput data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @Valid
-  @Schema(description = "")
-  public DataForVideoProjectVideoDeleteOutput getData() {
-    return data;
-  }
-
-  public void setData(DataForVideoProjectVideoDeleteOutput data) {
-    this.data = data;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,13 +32,12 @@ public class VideoProjectVideoDeleteResponse extends com.volcengine.model.Abstra
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VideoProjectVideoDeleteResponse videoProjectVideoDeleteResponse = (VideoProjectVideoDeleteResponse) o;
-    return Objects.equals(this.data, videoProjectVideoDeleteResponse.data);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash();
   }
 
 
@@ -77,7 +46,6 @@ public class VideoProjectVideoDeleteResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoProjectVideoDeleteResponse {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

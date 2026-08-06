@@ -50,6 +50,9 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
   @SerializedName("PoolName")
   private String poolName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecretTrn")
   private String secretTrn = null;
 
@@ -169,6 +172,24 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
     this.poolName = poolName;
   }
 
+  public GetOauth2CredentialProviderResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetOauth2CredentialProviderResponse secretTrn(String secretTrn) {
     this.secretTrn = secretTrn;
     return this;
@@ -239,6 +260,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
         Objects.equals(this.dcrClientInfo, getOauth2CredentialProviderResponse.dcrClientInfo) &&
         Objects.equals(this.name, getOauth2CredentialProviderResponse.name) &&
         Objects.equals(this.poolName, getOauth2CredentialProviderResponse.poolName) &&
+        Objects.equals(this.projectName, getOauth2CredentialProviderResponse.projectName) &&
         Objects.equals(this.secretTrn, getOauth2CredentialProviderResponse.secretTrn) &&
         Objects.equals(this.updatedAt, getOauth2CredentialProviderResponse.updatedAt) &&
         Objects.equals(this.vendor, getOauth2CredentialProviderResponse.vendor);
@@ -246,7 +268,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, createdAt, credentialProviderTrn, dcrClientInfo, name, poolName, secretTrn, updatedAt, vendor);
+    return Objects.hash(config, createdAt, credentialProviderTrn, dcrClientInfo, name, poolName, projectName, secretTrn, updatedAt, vendor);
   }
 
 
@@ -261,6 +283,7 @@ public class GetOauth2CredentialProviderResponse extends com.volcengine.model.Ab
     sb.append("    dcrClientInfo: ").append(toIndentedString(dcrClientInfo)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    secretTrn: ").append(toIndentedString(secretTrn)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");

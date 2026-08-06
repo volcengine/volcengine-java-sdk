@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.DataForVideoProjectTaskListOutput;
+import com.volcengine.i18nopenapi.model.PaginationForVideoProjectTaskListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,12 @@ import javax.validation.Valid;
 public class VideoProjectTaskListResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("data")
   private DataForVideoProjectTaskListOutput data = null;
+
+  @SerializedName("pagination")
+  private PaginationForVideoProjectTaskListOutput pagination = null;
+
+  @SerializedName("total")
+  private Integer total = null;
 
   public VideoProjectTaskListResponse data(DataForVideoProjectTaskListOutput data) {
     this.data = data;
@@ -53,6 +60,43 @@ public class VideoProjectTaskListResponse extends com.volcengine.model.AbstractR
     this.data = data;
   }
 
+  public VideoProjectTaskListResponse pagination(PaginationForVideoProjectTaskListOutput pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+   /**
+   * Get pagination
+   * @return pagination
+  **/
+  @Valid
+  @Schema(description = "")
+  public PaginationForVideoProjectTaskListOutput getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(PaginationForVideoProjectTaskListOutput pagination) {
+    this.pagination = pagination;
+  }
+
+  public VideoProjectTaskListResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +107,14 @@ public class VideoProjectTaskListResponse extends com.volcengine.model.AbstractR
       return false;
     }
     VideoProjectTaskListResponse videoProjectTaskListResponse = (VideoProjectTaskListResponse) o;
-    return Objects.equals(this.data, videoProjectTaskListResponse.data);
+    return Objects.equals(this.data, videoProjectTaskListResponse.data) &&
+        Objects.equals(this.pagination, videoProjectTaskListResponse.pagination) &&
+        Objects.equals(this.total, videoProjectTaskListResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, pagination, total);
   }
 
 
@@ -78,6 +124,8 @@ public class VideoProjectTaskListResponse extends com.volcengine.model.AbstractR
     sb.append("class VideoProjectTaskListResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

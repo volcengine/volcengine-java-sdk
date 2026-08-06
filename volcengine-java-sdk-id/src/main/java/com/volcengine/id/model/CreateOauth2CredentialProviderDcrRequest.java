@@ -44,6 +44,9 @@ public class CreateOauth2CredentialProviderDcrRequest {
   @SerializedName("PoolName")
   private String poolName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Vendor")
   private Integer vendor = null;
 
@@ -122,6 +125,24 @@ public class CreateOauth2CredentialProviderDcrRequest {
     this.poolName = poolName;
   }
 
+  public CreateOauth2CredentialProviderDcrRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateOauth2CredentialProviderDcrRequest vendor(Integer vendor) {
     this.vendor = vendor;
     return this;
@@ -156,12 +177,13 @@ public class CreateOauth2CredentialProviderDcrRequest {
         Objects.equals(this.config, createOauth2CredentialProviderDcrRequest.config) &&
         Objects.equals(this.name, createOauth2CredentialProviderDcrRequest.name) &&
         Objects.equals(this.poolName, createOauth2CredentialProviderDcrRequest.poolName) &&
+        Objects.equals(this.projectName, createOauth2CredentialProviderDcrRequest.projectName) &&
         Objects.equals(this.vendor, createOauth2CredentialProviderDcrRequest.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientMetadata, config, name, poolName, vendor);
+    return Objects.hash(clientMetadata, config, name, poolName, projectName, vendor);
   }
 
 
@@ -174,6 +196,7 @@ public class CreateOauth2CredentialProviderDcrRequest {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");
     return sb.toString();

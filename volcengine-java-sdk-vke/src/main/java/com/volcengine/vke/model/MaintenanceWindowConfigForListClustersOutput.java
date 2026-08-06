@@ -36,8 +36,11 @@ public class MaintenanceWindowConfigForListClustersOutput {
   @SerializedName("Duration")
   private Integer duration = null;
 
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
+  @SerializedName("ExemptEndDate")
+  private String exemptEndDate = null;
+
+  @SerializedName("ExemptStartDate")
+  private String exemptStartDate = null;
 
   @SerializedName("StartTime")
   private String startTime = null;
@@ -119,22 +122,40 @@ public class MaintenanceWindowConfigForListClustersOutput {
     this.duration = duration;
   }
 
-  public MaintenanceWindowConfigForListClustersOutput enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public MaintenanceWindowConfigForListClustersOutput exemptEndDate(String exemptEndDate) {
+    this.exemptEndDate = exemptEndDate;
     return this;
   }
 
    /**
-   * Get enabled
-   * @return enabled
+   * Get exemptEndDate
+   * @return exemptEndDate
   **/
   @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
+  public String getExemptEndDate() {
+    return exemptEndDate;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setExemptEndDate(String exemptEndDate) {
+    this.exemptEndDate = exemptEndDate;
+  }
+
+  public MaintenanceWindowConfigForListClustersOutput exemptStartDate(String exemptStartDate) {
+    this.exemptStartDate = exemptStartDate;
+    return this;
+  }
+
+   /**
+   * Get exemptStartDate
+   * @return exemptStartDate
+  **/
+  @Schema(description = "")
+  public String getExemptStartDate() {
+    return exemptStartDate;
+  }
+
+  public void setExemptStartDate(String exemptStartDate) {
+    this.exemptStartDate = exemptStartDate;
   }
 
   public MaintenanceWindowConfigForListClustersOutput startTime(String startTime) {
@@ -219,7 +240,8 @@ public class MaintenanceWindowConfigForListClustersOutput {
     }
     MaintenanceWindowConfigForListClustersOutput maintenanceWindowConfigForListClustersOutput = (MaintenanceWindowConfigForListClustersOutput) o;
     return Objects.equals(this.duration, maintenanceWindowConfigForListClustersOutput.duration) &&
-        Objects.equals(this.enabled, maintenanceWindowConfigForListClustersOutput.enabled) &&
+        Objects.equals(this.exemptEndDate, maintenanceWindowConfigForListClustersOutput.exemptEndDate) &&
+        Objects.equals(this.exemptStartDate, maintenanceWindowConfigForListClustersOutput.exemptStartDate) &&
         Objects.equals(this.startTime, maintenanceWindowConfigForListClustersOutput.startTime) &&
         Objects.equals(this.taskConfigs, maintenanceWindowConfigForListClustersOutput.taskConfigs) &&
         Objects.equals(this.weeklyCycle, maintenanceWindowConfigForListClustersOutput.weeklyCycle);
@@ -227,7 +249,7 @@ public class MaintenanceWindowConfigForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, enabled, startTime, taskConfigs, weeklyCycle);
+    return Objects.hash(duration, exemptEndDate, exemptStartDate, startTime, taskConfigs, weeklyCycle);
   }
 
 
@@ -237,7 +259,8 @@ public class MaintenanceWindowConfigForListClustersOutput {
     sb.append("class MaintenanceWindowConfigForListClustersOutput {\n");
     
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    exemptEndDate: ").append(toIndentedString(exemptEndDate)).append("\n");
+    sb.append("    exemptStartDate: ").append(toIndentedString(exemptStartDate)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    taskConfigs: ").append(toIndentedString(taskConfigs)).append("\n");
     sb.append("    weeklyCycle: ").append(toIndentedString(weeklyCycle)).append("\n");

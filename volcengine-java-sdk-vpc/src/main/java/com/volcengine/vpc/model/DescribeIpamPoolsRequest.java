@@ -42,6 +42,9 @@ public class DescribeIpamPoolsRequest {
   @SerializedName("IpamPoolName")
   private String ipamPoolName = null;
 
+  @SerializedName("IpamPoolOwnerId")
+  private String ipamPoolOwnerId = null;
+
   @SerializedName("IpamScopeId")
   private String ipamScopeId = null;
 
@@ -123,6 +126,24 @@ public class DescribeIpamPoolsRequest {
 
   public void setIpamPoolName(String ipamPoolName) {
     this.ipamPoolName = ipamPoolName;
+  }
+
+  public DescribeIpamPoolsRequest ipamPoolOwnerId(String ipamPoolOwnerId) {
+    this.ipamPoolOwnerId = ipamPoolOwnerId;
+    return this;
+  }
+
+   /**
+   * Get ipamPoolOwnerId
+   * @return ipamPoolOwnerId
+  **/
+  @Schema(description = "")
+  public String getIpamPoolOwnerId() {
+    return ipamPoolOwnerId;
+  }
+
+  public void setIpamPoolOwnerId(String ipamPoolOwnerId) {
+    this.ipamPoolOwnerId = ipamPoolOwnerId;
   }
 
   public DescribeIpamPoolsRequest ipamScopeId(String ipamScopeId) {
@@ -273,6 +294,7 @@ public class DescribeIpamPoolsRequest {
     return Objects.equals(this.ipVersion, describeIpamPoolsRequest.ipVersion) &&
         Objects.equals(this.ipamPoolIds, describeIpamPoolsRequest.ipamPoolIds) &&
         Objects.equals(this.ipamPoolName, describeIpamPoolsRequest.ipamPoolName) &&
+        Objects.equals(this.ipamPoolOwnerId, describeIpamPoolsRequest.ipamPoolOwnerId) &&
         Objects.equals(this.ipamScopeId, describeIpamPoolsRequest.ipamScopeId) &&
         Objects.equals(this.maxResults, describeIpamPoolsRequest.maxResults) &&
         Objects.equals(this.nextToken, describeIpamPoolsRequest.nextToken) &&
@@ -284,7 +306,7 @@ public class DescribeIpamPoolsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipVersion, ipamPoolIds, ipamPoolName, ipamScopeId, maxResults, nextToken, poolRegionId, projectName, sourceIpamPoolId, tagFilters);
+    return Objects.hash(ipVersion, ipamPoolIds, ipamPoolName, ipamPoolOwnerId, ipamScopeId, maxResults, nextToken, poolRegionId, projectName, sourceIpamPoolId, tagFilters);
   }
 
 
@@ -296,6 +318,7 @@ public class DescribeIpamPoolsRequest {
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    ipamPoolIds: ").append(toIndentedString(ipamPoolIds)).append("\n");
     sb.append("    ipamPoolName: ").append(toIndentedString(ipamPoolName)).append("\n");
+    sb.append("    ipamPoolOwnerId: ").append(toIndentedString(ipamPoolOwnerId)).append("\n");
     sb.append("    ipamScopeId: ").append(toIndentedString(ipamScopeId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

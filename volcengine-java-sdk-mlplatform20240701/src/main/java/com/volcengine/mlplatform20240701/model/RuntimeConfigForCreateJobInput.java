@@ -44,6 +44,12 @@ public class RuntimeConfigForCreateJobInput {
   @SerializedName("Command")
   private String command = null;
 
+  @SerializedName("EnablePostCommand")
+  private Boolean enablePostCommand = null;
+
+  @SerializedName("EnablePreCommand")
+  private Boolean enablePreCommand = null;
+
   @SerializedName("Envs")
   private List<EnvForCreateJobInput> envs = null;
 
@@ -102,6 +108,9 @@ public class RuntimeConfigForCreateJobInput {
   @SerializedName("Image")
   private ImageForCreateJobInput image = null;
 
+  @SerializedName("PreCommandFailedContinue")
+  private Boolean preCommandFailedContinue = null;
+
   public RuntimeConfigForCreateJobInput advanceArgs(String advanceArgs) {
     this.advanceArgs = advanceArgs;
     return this;
@@ -155,6 +164,42 @@ public class RuntimeConfigForCreateJobInput {
 
   public void setCommand(String command) {
     this.command = command;
+  }
+
+  public RuntimeConfigForCreateJobInput enablePostCommand(Boolean enablePostCommand) {
+    this.enablePostCommand = enablePostCommand;
+    return this;
+  }
+
+   /**
+   * Get enablePostCommand
+   * @return enablePostCommand
+  **/
+  @Schema(description = "")
+  public Boolean isEnablePostCommand() {
+    return enablePostCommand;
+  }
+
+  public void setEnablePostCommand(Boolean enablePostCommand) {
+    this.enablePostCommand = enablePostCommand;
+  }
+
+  public RuntimeConfigForCreateJobInput enablePreCommand(Boolean enablePreCommand) {
+    this.enablePreCommand = enablePreCommand;
+    return this;
+  }
+
+   /**
+   * Get enablePreCommand
+   * @return enablePreCommand
+  **/
+  @Schema(description = "")
+  public Boolean isEnablePreCommand() {
+    return enablePreCommand;
+  }
+
+  public void setEnablePreCommand(Boolean enablePreCommand) {
+    this.enablePreCommand = enablePreCommand;
   }
 
   public RuntimeConfigForCreateJobInput envs(List<EnvForCreateJobInput> envs) {
@@ -221,6 +266,24 @@ public class RuntimeConfigForCreateJobInput {
     this.image = image;
   }
 
+  public RuntimeConfigForCreateJobInput preCommandFailedContinue(Boolean preCommandFailedContinue) {
+    this.preCommandFailedContinue = preCommandFailedContinue;
+    return this;
+  }
+
+   /**
+   * Get preCommandFailedContinue
+   * @return preCommandFailedContinue
+  **/
+  @Schema(description = "")
+  public Boolean isPreCommandFailedContinue() {
+    return preCommandFailedContinue;
+  }
+
+  public void setPreCommandFailedContinue(Boolean preCommandFailedContinue) {
+    this.preCommandFailedContinue = preCommandFailedContinue;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -234,14 +297,17 @@ public class RuntimeConfigForCreateJobInput {
     return Objects.equals(this.advanceArgs, runtimeConfigForCreateJobInput.advanceArgs) &&
         Objects.equals(this.code, runtimeConfigForCreateJobInput.code) &&
         Objects.equals(this.command, runtimeConfigForCreateJobInput.command) &&
+        Objects.equals(this.enablePostCommand, runtimeConfigForCreateJobInput.enablePostCommand) &&
+        Objects.equals(this.enablePreCommand, runtimeConfigForCreateJobInput.enablePreCommand) &&
         Objects.equals(this.envs, runtimeConfigForCreateJobInput.envs) &&
         Objects.equals(this.framework, runtimeConfigForCreateJobInput.framework) &&
-        Objects.equals(this.image, runtimeConfigForCreateJobInput.image);
+        Objects.equals(this.image, runtimeConfigForCreateJobInput.image) &&
+        Objects.equals(this.preCommandFailedContinue, runtimeConfigForCreateJobInput.preCommandFailedContinue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advanceArgs, code, command, envs, framework, image);
+    return Objects.hash(advanceArgs, code, command, enablePostCommand, enablePreCommand, envs, framework, image, preCommandFailedContinue);
   }
 
 
@@ -253,9 +319,12 @@ public class RuntimeConfigForCreateJobInput {
     sb.append("    advanceArgs: ").append(toIndentedString(advanceArgs)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    enablePostCommand: ").append(toIndentedString(enablePostCommand)).append("\n");
+    sb.append("    enablePreCommand: ").append(toIndentedString(enablePreCommand)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    framework: ").append(toIndentedString(framework)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    preCommandFailedContinue: ").append(toIndentedString(preCommandFailedContinue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,7 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.AttributeMappingForGetIdentityProviderOAuthOutput;
 import com.volcengine.id.model.ClaimsPropagationConfigForGetIdentityProviderOAuthOutput;
+import com.volcengine.id.model.EipRecordForGetIdentityProviderOAuthOutput;
+import com.volcengine.id.model.ExtraProviderConfigurationForGetIdentityProviderOAuthOutput;
 import com.volcengine.id.model.ProviderOptionsForGetIdentityProviderOAuthOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class GetIdentityProviderOAuthResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AttributeMappings")
+  private List<AttributeMappingForGetIdentityProviderOAuthOutput> attributeMappings = null;
+
   @SerializedName("AuthorizationEndpoint")
   private String authorizationEndpoint = null;
 
@@ -46,8 +52,14 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
   @SerializedName("ClientSecret")
   private String clientSecret = null;
 
+  @SerializedName("EipRecord")
+  private EipRecordForGetIdentityProviderOAuthOutput eipRecord = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("ExtraProviderConfiguration")
+  private ExtraProviderConfigurationForGetIdentityProviderOAuthOutput extraProviderConfiguration = null;
 
   @SerializedName("IdAttribute")
   private String idAttribute = null;
@@ -64,6 +76,9 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
   @SerializedName("ScopesList")
   private List<String> scopesList = null;
 
+  @SerializedName("SoleProviderConnection")
+  private Boolean soleProviderConnection = null;
+
   @SerializedName("TokenEndpoint")
   private String tokenEndpoint = null;
 
@@ -75,6 +90,33 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
 
   @SerializedName("UserEndpoint")
   private String userEndpoint = null;
+
+  public GetIdentityProviderOAuthResponse attributeMappings(List<AttributeMappingForGetIdentityProviderOAuthOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+    return this;
+  }
+
+  public GetIdentityProviderOAuthResponse addAttributeMappingsItem(AttributeMappingForGetIdentityProviderOAuthOutput attributeMappingsItem) {
+    if (this.attributeMappings == null) {
+      this.attributeMappings = new ArrayList<AttributeMappingForGetIdentityProviderOAuthOutput>();
+    }
+    this.attributeMappings.add(attributeMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get attributeMappings
+   * @return attributeMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttributeMappingForGetIdentityProviderOAuthOutput> getAttributeMappings() {
+    return attributeMappings;
+  }
+
+  public void setAttributeMappings(List<AttributeMappingForGetIdentityProviderOAuthOutput> attributeMappings) {
+    this.attributeMappings = attributeMappings;
+  }
 
   public GetIdentityProviderOAuthResponse authorizationEndpoint(String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
@@ -149,6 +191,25 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
     this.clientSecret = clientSecret;
   }
 
+  public GetIdentityProviderOAuthResponse eipRecord(EipRecordForGetIdentityProviderOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
+    return this;
+  }
+
+   /**
+   * Get eipRecord
+   * @return eipRecord
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipRecordForGetIdentityProviderOAuthOutput getEipRecord() {
+    return eipRecord;
+  }
+
+  public void setEipRecord(EipRecordForGetIdentityProviderOAuthOutput eipRecord) {
+    this.eipRecord = eipRecord;
+  }
+
   public GetIdentityProviderOAuthResponse enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -165,6 +226,25 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public GetIdentityProviderOAuthResponse extraProviderConfiguration(ExtraProviderConfigurationForGetIdentityProviderOAuthOutput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
+    return this;
+  }
+
+   /**
+   * Get extraProviderConfiguration
+   * @return extraProviderConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraProviderConfigurationForGetIdentityProviderOAuthOutput getExtraProviderConfiguration() {
+    return extraProviderConfiguration;
+  }
+
+  public void setExtraProviderConfiguration(ExtraProviderConfigurationForGetIdentityProviderOAuthOutput extraProviderConfiguration) {
+    this.extraProviderConfiguration = extraProviderConfiguration;
   }
 
   public GetIdentityProviderOAuthResponse idAttribute(String idAttribute) {
@@ -266,6 +346,24 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
     this.scopesList = scopesList;
   }
 
+  public GetIdentityProviderOAuthResponse soleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
+    return this;
+  }
+
+   /**
+   * Get soleProviderConnection
+   * @return soleProviderConnection
+  **/
+  @Schema(description = "")
+  public Boolean isSoleProviderConnection() {
+    return soleProviderConnection;
+  }
+
+  public void setSoleProviderConnection(Boolean soleProviderConnection) {
+    this.soleProviderConnection = soleProviderConnection;
+  }
+
   public GetIdentityProviderOAuthResponse tokenEndpoint(String tokenEndpoint) {
     this.tokenEndpoint = tokenEndpoint;
     return this;
@@ -348,16 +446,20 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
       return false;
     }
     GetIdentityProviderOAuthResponse getIdentityProviderOAuthResponse = (GetIdentityProviderOAuthResponse) o;
-    return Objects.equals(this.authorizationEndpoint, getIdentityProviderOAuthResponse.authorizationEndpoint) &&
+    return Objects.equals(this.attributeMappings, getIdentityProviderOAuthResponse.attributeMappings) &&
+        Objects.equals(this.authorizationEndpoint, getIdentityProviderOAuthResponse.authorizationEndpoint) &&
         Objects.equals(this.claimsPropagationConfig, getIdentityProviderOAuthResponse.claimsPropagationConfig) &&
         Objects.equals(this.clientId, getIdentityProviderOAuthResponse.clientId) &&
         Objects.equals(this.clientSecret, getIdentityProviderOAuthResponse.clientSecret) &&
+        Objects.equals(this.eipRecord, getIdentityProviderOAuthResponse.eipRecord) &&
         Objects.equals(this.enabled, getIdentityProviderOAuthResponse.enabled) &&
+        Objects.equals(this.extraProviderConfiguration, getIdentityProviderOAuthResponse.extraProviderConfiguration) &&
         Objects.equals(this.idAttribute, getIdentityProviderOAuthResponse.idAttribute) &&
         Objects.equals(this.name, getIdentityProviderOAuthResponse.name) &&
         Objects.equals(this.provider, getIdentityProviderOAuthResponse.provider) &&
         Objects.equals(this.providerOptions, getIdentityProviderOAuthResponse.providerOptions) &&
         Objects.equals(this.scopesList, getIdentityProviderOAuthResponse.scopesList) &&
+        Objects.equals(this.soleProviderConnection, getIdentityProviderOAuthResponse.soleProviderConnection) &&
         Objects.equals(this.tokenEndpoint, getIdentityProviderOAuthResponse.tokenEndpoint) &&
         Objects.equals(this.uid, getIdentityProviderOAuthResponse.uid) &&
         Objects.equals(this.usePkce, getIdentityProviderOAuthResponse.usePkce) &&
@@ -366,7 +468,7 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, enabled, idAttribute, name, provider, providerOptions, scopesList, tokenEndpoint, uid, usePkce, userEndpoint);
+    return Objects.hash(attributeMappings, authorizationEndpoint, claimsPropagationConfig, clientId, clientSecret, eipRecord, enabled, extraProviderConfiguration, idAttribute, name, provider, providerOptions, scopesList, soleProviderConnection, tokenEndpoint, uid, usePkce, userEndpoint);
   }
 
 
@@ -375,16 +477,20 @@ public class GetIdentityProviderOAuthResponse extends com.volcengine.model.Abstr
     StringBuilder sb = new StringBuilder();
     sb.append("class GetIdentityProviderOAuthResponse {\n");
     
+    sb.append("    attributeMappings: ").append(toIndentedString(attributeMappings)).append("\n");
     sb.append("    authorizationEndpoint: ").append(toIndentedString(authorizationEndpoint)).append("\n");
     sb.append("    claimsPropagationConfig: ").append(toIndentedString(claimsPropagationConfig)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    eipRecord: ").append(toIndentedString(eipRecord)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    extraProviderConfiguration: ").append(toIndentedString(extraProviderConfiguration)).append("\n");
     sb.append("    idAttribute: ").append(toIndentedString(idAttribute)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    providerOptions: ").append(toIndentedString(providerOptions)).append("\n");
     sb.append("    scopesList: ").append(toIndentedString(scopesList)).append("\n");
+    sb.append("    soleProviderConnection: ").append(toIndentedString(soleProviderConnection)).append("\n");
     sb.append("    tokenEndpoint: ").append(toIndentedString(tokenEndpoint)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");

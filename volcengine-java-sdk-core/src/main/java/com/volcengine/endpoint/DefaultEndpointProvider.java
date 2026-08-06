@@ -685,7 +685,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
         DEFAULT_ENDPOINT_MAP.put("acep", new ServiceEndpointInfo(
                 "acep",
-                true,
+                false,
                 "",
                 ENDPOINT,
                 createRegionEndpointMap()
@@ -896,6 +896,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
         DEFAULT_ENDPOINT_MAP.put("volcsms", new ServiceEndpointInfo(
                 "volcsms",
                 true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+        // --------------------------- id ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("id", new ServiceEndpointInfo(
+                "id",
+                false,
                 "",
                 ENDPOINT,
                 createRegionEndpointMap()

@@ -48,6 +48,9 @@ public class DescribeEipAddressHighResolutionMonitorAttributeResponse extends co
   @SerializedName("LogTopicName")
   private String logTopicName = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   public DescribeEipAddressHighResolutionMonitorAttributeResponse allocationId(String allocationId) {
     this.allocationId = allocationId;
     return this;
@@ -156,6 +159,24 @@ public class DescribeEipAddressHighResolutionMonitorAttributeResponse extends co
     this.logTopicName = logTopicName;
   }
 
+  public DescribeEipAddressHighResolutionMonitorAttributeResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +192,13 @@ public class DescribeEipAddressHighResolutionMonitorAttributeResponse extends co
         Objects.equals(this.logProjectId, describeEipAddressHighResolutionMonitorAttributeResponse.logProjectId) &&
         Objects.equals(this.logProjectName, describeEipAddressHighResolutionMonitorAttributeResponse.logProjectName) &&
         Objects.equals(this.logTopicId, describeEipAddressHighResolutionMonitorAttributeResponse.logTopicId) &&
-        Objects.equals(this.logTopicName, describeEipAddressHighResolutionMonitorAttributeResponse.logTopicName);
+        Objects.equals(this.logTopicName, describeEipAddressHighResolutionMonitorAttributeResponse.logTopicName) &&
+        Objects.equals(this.requestId, describeEipAddressHighResolutionMonitorAttributeResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, eipAddress, logProjectId, logProjectName, logTopicId, logTopicName);
+    return Objects.hash(allocationId, eipAddress, logProjectId, logProjectName, logTopicId, logTopicName, requestId);
   }
 
 
@@ -191,6 +213,7 @@ public class DescribeEipAddressHighResolutionMonitorAttributeResponse extends co
     sb.append("    logProjectName: ").append(toIndentedString(logProjectName)).append("\n");
     sb.append("    logTopicId: ").append(toIndentedString(logTopicId)).append("\n");
     sb.append("    logTopicName: ").append(toIndentedString(logTopicName)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

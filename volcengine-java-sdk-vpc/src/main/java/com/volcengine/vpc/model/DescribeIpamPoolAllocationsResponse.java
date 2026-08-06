@@ -39,8 +39,17 @@ public class DescribeIpamPoolAllocationsResponse extends com.volcengine.model.Ab
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
 
   public DescribeIpamPoolAllocationsResponse ipamPoolAllocations(List<IpamPoolAllocationForDescribeIpamPoolAllocationsOutput> ipamPoolAllocations) {
     this.ipamPoolAllocations = ipamPoolAllocations;
@@ -87,6 +96,42 @@ public class DescribeIpamPoolAllocationsResponse extends com.volcengine.model.Ab
     this.nextToken = nextToken;
   }
 
+  public DescribeIpamPoolAllocationsResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeIpamPoolAllocationsResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeIpamPoolAllocationsResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -105,6 +150,24 @@ public class DescribeIpamPoolAllocationsResponse extends com.volcengine.model.Ab
     this.requestId = requestId;
   }
 
+  public DescribeIpamPoolAllocationsResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,12 +180,15 @@ public class DescribeIpamPoolAllocationsResponse extends com.volcengine.model.Ab
     DescribeIpamPoolAllocationsResponse describeIpamPoolAllocationsResponse = (DescribeIpamPoolAllocationsResponse) o;
     return Objects.equals(this.ipamPoolAllocations, describeIpamPoolAllocationsResponse.ipamPoolAllocations) &&
         Objects.equals(this.nextToken, describeIpamPoolAllocationsResponse.nextToken) &&
-        Objects.equals(this.requestId, describeIpamPoolAllocationsResponse.requestId);
+        Objects.equals(this.pageNumber, describeIpamPoolAllocationsResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeIpamPoolAllocationsResponse.pageSize) &&
+        Objects.equals(this.requestId, describeIpamPoolAllocationsResponse.requestId) &&
+        Objects.equals(this.totalCount, describeIpamPoolAllocationsResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamPoolAllocations, nextToken, requestId);
+    return Objects.hash(ipamPoolAllocations, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -133,7 +199,10 @@ public class DescribeIpamPoolAllocationsResponse extends com.volcengine.model.Ab
     
     sb.append("    ipamPoolAllocations: ").append(toIndentedString(ipamPoolAllocations)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

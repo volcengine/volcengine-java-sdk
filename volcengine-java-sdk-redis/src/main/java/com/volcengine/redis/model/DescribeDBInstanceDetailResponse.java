@@ -81,6 +81,9 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
   @SerializedName("MaxConnections")
   private Integer maxConnections = null;
 
+  @SerializedName("Modules")
+  private List<String> modules = null;
+
   @SerializedName("MultiAZ")
   private String multiAZ = null;
 
@@ -406,6 +409,32 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     this.maxConnections = maxConnections;
   }
 
+  public DescribeDBInstanceDetailResponse modules(List<String> modules) {
+    this.modules = modules;
+    return this;
+  }
+
+  public DescribeDBInstanceDetailResponse addModulesItem(String modulesItem) {
+    if (this.modules == null) {
+      this.modules = new ArrayList<String>();
+    }
+    this.modules.add(modulesItem);
+    return this;
+  }
+
+   /**
+   * Get modules
+   * @return modules
+  **/
+  @Schema(description = "")
+  public List<String> getModules() {
+    return modules;
+  }
+
+  public void setModules(List<String> modules) {
+    this.modules = modules;
+  }
+
   public DescribeDBInstanceDetailResponse multiAZ(String multiAZ) {
     this.multiAZ = multiAZ;
     return this;
@@ -727,6 +756,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
         Objects.equals(this.instanceName, describeDBInstanceDetailResponse.instanceName) &&
         Objects.equals(this.maintenanceTime, describeDBInstanceDetailResponse.maintenanceTime) &&
         Objects.equals(this.maxConnections, describeDBInstanceDetailResponse.maxConnections) &&
+        Objects.equals(this.modules, describeDBInstanceDetailResponse.modules) &&
         Objects.equals(this.multiAZ, describeDBInstanceDetailResponse.multiAZ) &&
         Objects.equals(this.nodeNumber, describeDBInstanceDetailResponse.nodeNumber) &&
         Objects.equals(this.projectName, describeDBInstanceDetailResponse.projectName) &&
@@ -746,7 +776,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, blueGreenRole, capacity, chargeType, configureNodes, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
+    return Objects.hash(autoRenew, blueGreenRole, capacity, chargeType, configureNodes, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, modules, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
   }
 
 
@@ -770,6 +800,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
+    sb.append("    modules: ").append(toIndentedString(modules)).append("\n");
     sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

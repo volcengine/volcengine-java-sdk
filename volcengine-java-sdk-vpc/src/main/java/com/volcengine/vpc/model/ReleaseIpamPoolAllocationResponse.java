@@ -30,29 +30,8 @@ import javax.validation.Valid;
 
 
 public class ReleaseIpamPoolAllocationResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("AsyncTaskId")
-  private String asyncTaskId = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  public ReleaseIpamPoolAllocationResponse asyncTaskId(String asyncTaskId) {
-    this.asyncTaskId = asyncTaskId;
-    return this;
-  }
-
-   /**
-   * Get asyncTaskId
-   * @return asyncTaskId
-  **/
-  @Schema(description = "")
-  public String getAsyncTaskId() {
-    return asyncTaskId;
-  }
-
-  public void setAsyncTaskId(String asyncTaskId) {
-    this.asyncTaskId = asyncTaskId;
-  }
 
   public ReleaseIpamPoolAllocationResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +61,12 @@ public class ReleaseIpamPoolAllocationResponse extends com.volcengine.model.Abst
       return false;
     }
     ReleaseIpamPoolAllocationResponse releaseIpamPoolAllocationResponse = (ReleaseIpamPoolAllocationResponse) o;
-    return Objects.equals(this.asyncTaskId, releaseIpamPoolAllocationResponse.asyncTaskId) &&
-        Objects.equals(this.requestId, releaseIpamPoolAllocationResponse.requestId);
+    return Objects.equals(this.requestId, releaseIpamPoolAllocationResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskId, requestId);
+    return Objects.hash(requestId);
   }
 
 
@@ -97,7 +75,6 @@ public class ReleaseIpamPoolAllocationResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class ReleaseIpamPoolAllocationResponse {\n");
     
-    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

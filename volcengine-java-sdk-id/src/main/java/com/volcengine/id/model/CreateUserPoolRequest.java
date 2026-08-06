@@ -34,11 +34,17 @@ import javax.validation.Valid;
 
 
 public class CreateUserPoolRequest {
+  @SerializedName("AuthenticationMethodOrder")
+  private List<String> authenticationMethodOrder = null;
+
   @SerializedName("Brand")
   private BrandForCreateUserPoolInput brand = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EmailAnonymousSignUpEnabled")
+  private Boolean emailAnonymousSignUpEnabled = null;
 
   @SerializedName("EmailPasswordlessSignInEnabled")
   private Boolean emailPasswordlessSignInEnabled = null;
@@ -58,6 +64,9 @@ public class CreateUserPoolRequest {
   @SerializedName("SelfAccountRecoveryEnabled")
   private Boolean selfAccountRecoveryEnabled = null;
 
+  @SerializedName("SelfAccountRecoveryVerificationAttributes")
+  private List<String> selfAccountRecoveryVerificationAttributes = null;
+
   @SerializedName("SelfSignUpEnabled")
   private Boolean selfSignUpEnabled = null;
 
@@ -68,7 +77,7 @@ public class CreateUserPoolRequest {
   private Boolean signUpAutoVerificationEnabled = null;
 
   @SerializedName("SmsAnonymousSignUpEnabled")
-  private String smsAnonymousSignUpEnabled = null;
+  private Boolean smsAnonymousSignUpEnabled = null;
 
   @SerializedName("SmsPasswordlessSignInEnabled")
   private Boolean smsPasswordlessSignInEnabled = null;
@@ -78,6 +87,32 @@ public class CreateUserPoolRequest {
 
   @SerializedName("UnconfirmedUserSignInEnabled")
   private Boolean unconfirmedUserSignInEnabled = null;
+
+  public CreateUserPoolRequest authenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+    return this;
+  }
+
+  public CreateUserPoolRequest addAuthenticationMethodOrderItem(String authenticationMethodOrderItem) {
+    if (this.authenticationMethodOrder == null) {
+      this.authenticationMethodOrder = new ArrayList<String>();
+    }
+    this.authenticationMethodOrder.add(authenticationMethodOrderItem);
+    return this;
+  }
+
+   /**
+   * Get authenticationMethodOrder
+   * @return authenticationMethodOrder
+  **/
+  @Schema(description = "")
+  public List<String> getAuthenticationMethodOrder() {
+    return authenticationMethodOrder;
+  }
+
+  public void setAuthenticationMethodOrder(List<String> authenticationMethodOrder) {
+    this.authenticationMethodOrder = authenticationMethodOrder;
+  }
 
   public CreateUserPoolRequest brand(BrandForCreateUserPoolInput brand) {
     this.brand = brand;
@@ -114,6 +149,24 @@ public class CreateUserPoolRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateUserPoolRequest emailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
+    return this;
+  }
+
+   /**
+   * Get emailAnonymousSignUpEnabled
+   * @return emailAnonymousSignUpEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isEmailAnonymousSignUpEnabled() {
+    return emailAnonymousSignUpEnabled;
+  }
+
+  public void setEmailAnonymousSignUpEnabled(Boolean emailAnonymousSignUpEnabled) {
+    this.emailAnonymousSignUpEnabled = emailAnonymousSignUpEnabled;
   }
 
   public CreateUserPoolRequest emailPasswordlessSignInEnabled(Boolean emailPasswordlessSignInEnabled) {
@@ -233,6 +286,32 @@ public class CreateUserPoolRequest {
     this.selfAccountRecoveryEnabled = selfAccountRecoveryEnabled;
   }
 
+  public CreateUserPoolRequest selfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
+    return this;
+  }
+
+  public CreateUserPoolRequest addSelfAccountRecoveryVerificationAttributesItem(String selfAccountRecoveryVerificationAttributesItem) {
+    if (this.selfAccountRecoveryVerificationAttributes == null) {
+      this.selfAccountRecoveryVerificationAttributes = new ArrayList<String>();
+    }
+    this.selfAccountRecoveryVerificationAttributes.add(selfAccountRecoveryVerificationAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get selfAccountRecoveryVerificationAttributes
+   * @return selfAccountRecoveryVerificationAttributes
+  **/
+  @Schema(description = "")
+  public List<String> getSelfAccountRecoveryVerificationAttributes() {
+    return selfAccountRecoveryVerificationAttributes;
+  }
+
+  public void setSelfAccountRecoveryVerificationAttributes(List<String> selfAccountRecoveryVerificationAttributes) {
+    this.selfAccountRecoveryVerificationAttributes = selfAccountRecoveryVerificationAttributes;
+  }
+
   public CreateUserPoolRequest selfSignUpEnabled(Boolean selfSignUpEnabled) {
     this.selfSignUpEnabled = selfSignUpEnabled;
     return this;
@@ -295,7 +374,7 @@ public class CreateUserPoolRequest {
     this.signUpAutoVerificationEnabled = signUpAutoVerificationEnabled;
   }
 
-  public CreateUserPoolRequest smsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+  public CreateUserPoolRequest smsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
     this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
     return this;
   }
@@ -305,11 +384,11 @@ public class CreateUserPoolRequest {
    * @return smsAnonymousSignUpEnabled
   **/
   @Schema(description = "")
-  public String getSmsAnonymousSignUpEnabled() {
+  public Boolean isSmsAnonymousSignUpEnabled() {
     return smsAnonymousSignUpEnabled;
   }
 
-  public void setSmsAnonymousSignUpEnabled(String smsAnonymousSignUpEnabled) {
+  public void setSmsAnonymousSignUpEnabled(Boolean smsAnonymousSignUpEnabled) {
     this.smsAnonymousSignUpEnabled = smsAnonymousSignUpEnabled;
   }
 
@@ -386,14 +465,17 @@ public class CreateUserPoolRequest {
       return false;
     }
     CreateUserPoolRequest createUserPoolRequest = (CreateUserPoolRequest) o;
-    return Objects.equals(this.brand, createUserPoolRequest.brand) &&
+    return Objects.equals(this.authenticationMethodOrder, createUserPoolRequest.authenticationMethodOrder) &&
+        Objects.equals(this.brand, createUserPoolRequest.brand) &&
         Objects.equals(this.description, createUserPoolRequest.description) &&
+        Objects.equals(this.emailAnonymousSignUpEnabled, createUserPoolRequest.emailAnonymousSignUpEnabled) &&
         Objects.equals(this.emailPasswordlessSignInEnabled, createUserPoolRequest.emailPasswordlessSignInEnabled) &&
         Objects.equals(this.name, createUserPoolRequest.name) &&
         Objects.equals(this.passwordSignInEnabled, createUserPoolRequest.passwordSignInEnabled) &&
         Objects.equals(this.projectName, createUserPoolRequest.projectName) &&
         Objects.equals(this.requiredSignUpAttributes, createUserPoolRequest.requiredSignUpAttributes) &&
         Objects.equals(this.selfAccountRecoveryEnabled, createUserPoolRequest.selfAccountRecoveryEnabled) &&
+        Objects.equals(this.selfAccountRecoveryVerificationAttributes, createUserPoolRequest.selfAccountRecoveryVerificationAttributes) &&
         Objects.equals(this.selfSignUpEnabled, createUserPoolRequest.selfSignUpEnabled) &&
         Objects.equals(this.signInAttributes, createUserPoolRequest.signInAttributes) &&
         Objects.equals(this.signUpAutoVerificationEnabled, createUserPoolRequest.signUpAutoVerificationEnabled) &&
@@ -405,7 +487,7 @@ public class CreateUserPoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, description, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfAccountRecoveryEnabled, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, unconfirmedUserSignInEnabled);
+    return Objects.hash(authenticationMethodOrder, brand, description, emailAnonymousSignUpEnabled, emailPasswordlessSignInEnabled, name, passwordSignInEnabled, projectName, requiredSignUpAttributes, selfAccountRecoveryEnabled, selfAccountRecoveryVerificationAttributes, selfSignUpEnabled, signInAttributes, signUpAutoVerificationEnabled, smsAnonymousSignUpEnabled, smsPasswordlessSignInEnabled, tags, unconfirmedUserSignInEnabled);
   }
 
 
@@ -414,14 +496,17 @@ public class CreateUserPoolRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserPoolRequest {\n");
     
+    sb.append("    authenticationMethodOrder: ").append(toIndentedString(authenticationMethodOrder)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    emailAnonymousSignUpEnabled: ").append(toIndentedString(emailAnonymousSignUpEnabled)).append("\n");
     sb.append("    emailPasswordlessSignInEnabled: ").append(toIndentedString(emailPasswordlessSignInEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordSignInEnabled: ").append(toIndentedString(passwordSignInEnabled)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requiredSignUpAttributes: ").append(toIndentedString(requiredSignUpAttributes)).append("\n");
     sb.append("    selfAccountRecoveryEnabled: ").append(toIndentedString(selfAccountRecoveryEnabled)).append("\n");
+    sb.append("    selfAccountRecoveryVerificationAttributes: ").append(toIndentedString(selfAccountRecoveryVerificationAttributes)).append("\n");
     sb.append("    selfSignUpEnabled: ").append(toIndentedString(selfSignUpEnabled)).append("\n");
     sb.append("    signInAttributes: ").append(toIndentedString(signInAttributes)).append("\n");
     sb.append("    signUpAutoVerificationEnabled: ").append(toIndentedString(signUpAutoVerificationEnabled)).append("\n");

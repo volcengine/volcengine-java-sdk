@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.id.model.ExtraForCheckPermissionInput;
 import com.volcengine.id.model.OperationForCheckPermissionInput;
 import com.volcengine.id.model.OriginalCallerForCheckPermissionInput;
 import com.volcengine.id.model.PrincipalForCheckPermissionInput;
@@ -37,6 +38,9 @@ import javax.validation.Valid;
 
 
 public class CheckPermissionRequest {
+  @SerializedName("Extra")
+  private ExtraForCheckPermissionInput extra = null;
+
   @SerializedName("NamespaceName")
   private String namespaceName = null;
 
@@ -46,6 +50,9 @@ public class CheckPermissionRequest {
   @SerializedName("OriginalCallers")
   private List<OriginalCallerForCheckPermissionInput> originalCallers = null;
 
+  @SerializedName("PermissionPointId")
+  private String permissionPointId = null;
+
   @SerializedName("Principal")
   private PrincipalForCheckPermissionInput principal = null;
 
@@ -54,6 +61,25 @@ public class CheckPermissionRequest {
 
   @SerializedName("Resource")
   private ResourceForCheckPermissionInput resource = null;
+
+  public CheckPermissionRequest extra(ExtraForCheckPermissionInput extra) {
+    this.extra = extra;
+    return this;
+  }
+
+   /**
+   * Get extra
+   * @return extra
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraForCheckPermissionInput getExtra() {
+    return extra;
+  }
+
+  public void setExtra(ExtraForCheckPermissionInput extra) {
+    this.extra = extra;
+  }
 
   public CheckPermissionRequest namespaceName(String namespaceName) {
     this.namespaceName = namespaceName;
@@ -118,6 +144,24 @@ public class CheckPermissionRequest {
 
   public void setOriginalCallers(List<OriginalCallerForCheckPermissionInput> originalCallers) {
     this.originalCallers = originalCallers;
+  }
+
+  public CheckPermissionRequest permissionPointId(String permissionPointId) {
+    this.permissionPointId = permissionPointId;
+    return this;
+  }
+
+   /**
+   * Get permissionPointId
+   * @return permissionPointId
+  **/
+  @Schema(description = "")
+  public String getPermissionPointId() {
+    return permissionPointId;
+  }
+
+  public void setPermissionPointId(String permissionPointId) {
+    this.permissionPointId = permissionPointId;
   }
 
   public CheckPermissionRequest principal(PrincipalForCheckPermissionInput principal) {
@@ -195,9 +239,11 @@ public class CheckPermissionRequest {
       return false;
     }
     CheckPermissionRequest checkPermissionRequest = (CheckPermissionRequest) o;
-    return Objects.equals(this.namespaceName, checkPermissionRequest.namespaceName) &&
+    return Objects.equals(this.extra, checkPermissionRequest.extra) &&
+        Objects.equals(this.namespaceName, checkPermissionRequest.namespaceName) &&
         Objects.equals(this.operation, checkPermissionRequest.operation) &&
         Objects.equals(this.originalCallers, checkPermissionRequest.originalCallers) &&
+        Objects.equals(this.permissionPointId, checkPermissionRequest.permissionPointId) &&
         Objects.equals(this.principal, checkPermissionRequest.principal) &&
         Objects.equals(this.references, checkPermissionRequest.references) &&
         Objects.equals(this.resource, checkPermissionRequest.resource);
@@ -205,7 +251,7 @@ public class CheckPermissionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaceName, operation, originalCallers, principal, references, resource);
+    return Objects.hash(extra, namespaceName, operation, originalCallers, permissionPointId, principal, references, resource);
   }
 
 
@@ -214,9 +260,11 @@ public class CheckPermissionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckPermissionRequest {\n");
     
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    originalCallers: ").append(toIndentedString(originalCallers)).append("\n");
+    sb.append("    permissionPointId: ").append(toIndentedString(permissionPointId)).append("\n");
     sb.append("    principal: ").append(toIndentedString(principal)).append("\n");
     sb.append("    references: ").append(toIndentedString(references)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");

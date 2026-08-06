@@ -43,7 +43,7 @@ public class GetSmsServiceRequest {
    * @return userPoolUid
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1)  @Schema(required = true, description = "")
   public String getUserPoolUid() {
     return userPoolUid;
   }
