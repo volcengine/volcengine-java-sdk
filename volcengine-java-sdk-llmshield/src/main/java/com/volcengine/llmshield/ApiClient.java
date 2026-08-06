@@ -335,6 +335,8 @@ public class ApiClient {
      */
     private <T> T execute(Request request, ResponseHandler<T> handler, long totalStartNs) throws Exception {
         long remainingTimeoutMs = resolveRemainingTimeoutMs(totalStartNs);
+        long httpStartNs = System.nanoTime();
+        long preHttpMs = elapsedMillis(totalStartNs);
         Call call = httpClient.newCall(request);
         if (remainingTimeoutMs > 0) {
             call.timeout().timeout(remainingTimeoutMs, TimeUnit.MILLISECONDS);
@@ -343,10 +345,11 @@ public class ApiClient {
         try (Response response = call.execute()) {
             return handler.apply(response);
         } catch (java.io.InterruptedIOException e) {
-            long elapsedMs = elapsedMillis(totalStartNs);
+            long totalElapsedMs = elapsedMillis(totalStartNs);
+            long httpElapsedMs = elapsedMillis(httpStartNs);
             TimeoutException te = new TimeoutException(timeout > 0
-                    ? "Request timed out after " + elapsedMs + "ms"
-                    : "Request was interrupted after " + elapsedMs + "ms");
+                    ? "Request timed out after " + totalElapsedMs + "ms (pre-HTTP: " + preHttpMs + "ms, HTTP: " + httpElapsedMs + "ms)"
+                    : "Request was interrupted after " + totalElapsedMs + "ms (pre-HTTP: " + preHttpMs + "ms, HTTP: " + httpElapsedMs + "ms)");
             te.initCause(e);
             throw te;
         }
