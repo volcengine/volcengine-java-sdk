@@ -39,6 +39,9 @@ public class VideoProjectListRequest {
   @SerializedName("projectName")
   private String projectName = null;
 
+  @SerializedName("projectType")
+  private Integer projectType = null;
+
   public VideoProjectListRequest limit(Integer limit) {
     this.limit = limit;
     return this;
@@ -95,6 +98,24 @@ public class VideoProjectListRequest {
     this.projectName = projectName;
   }
 
+  public VideoProjectListRequest projectType(Integer projectType) {
+    this.projectType = projectType;
+    return this;
+  }
+
+   /**
+   * Get projectType
+   * @return projectType
+  **/
+  @Schema(description = "")
+  public Integer getProjectType() {
+    return projectType;
+  }
+
+  public void setProjectType(Integer projectType) {
+    this.projectType = projectType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class VideoProjectListRequest {
     VideoProjectListRequest videoProjectListRequest = (VideoProjectListRequest) o;
     return Objects.equals(this.limit, videoProjectListRequest.limit) &&
         Objects.equals(this.offset, videoProjectListRequest.offset) &&
-        Objects.equals(this.projectName, videoProjectListRequest.projectName);
+        Objects.equals(this.projectName, videoProjectListRequest.projectName) &&
+        Objects.equals(this.projectType, videoProjectListRequest.projectType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, projectName);
+    return Objects.hash(limit, offset, projectName, projectType);
   }
 
 
@@ -124,6 +146,7 @@ public class VideoProjectListRequest {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    projectType: ").append(toIndentedString(projectType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

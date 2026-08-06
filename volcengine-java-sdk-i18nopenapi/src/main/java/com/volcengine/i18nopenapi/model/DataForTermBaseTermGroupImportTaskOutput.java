@@ -42,8 +42,8 @@ public class DataForTermBaseTermGroupImportTaskOutput {
   @SerializedName("status")
   private Integer status = null;
 
-  @SerializedName("termBaseld")
-  private String termBaseld = null;
+  @SerializedName("termBaseId")
+  private String termBaseId = null;
 
   @SerializedName("total")
   private Integer total = null;
@@ -126,22 +126,22 @@ public class DataForTermBaseTermGroupImportTaskOutput {
     this.status = status;
   }
 
-  public DataForTermBaseTermGroupImportTaskOutput termBaseld(String termBaseld) {
-    this.termBaseld = termBaseld;
+  public DataForTermBaseTermGroupImportTaskOutput termBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
     return this;
   }
 
    /**
-   * Get termBaseld
-   * @return termBaseld
+   * Get termBaseId
+   * @return termBaseId
   **/
   @Schema(description = "")
-  public String getTermBaseld() {
-    return termBaseld;
+  public String getTermBaseId() {
+    return termBaseId;
   }
 
-  public void setTermBaseld(String termBaseld) {
-    this.termBaseld = termBaseld;
+  public void setTermBaseId(String termBaseId) {
+    this.termBaseId = termBaseId;
   }
 
   public DataForTermBaseTermGroupImportTaskOutput total(Integer total) {
@@ -212,7 +212,7 @@ public class DataForTermBaseTermGroupImportTaskOutput {
         Objects.equals(this.id, dataForTermBaseTermGroupImportTaskOutput.id) &&
         Objects.equals(this.operator, dataForTermBaseTermGroupImportTaskOutput.operator) &&
         Objects.equals(this.status, dataForTermBaseTermGroupImportTaskOutput.status) &&
-        Objects.equals(this.termBaseld, dataForTermBaseTermGroupImportTaskOutput.termBaseld) &&
+        Objects.equals(this.termBaseId, dataForTermBaseTermGroupImportTaskOutput.termBaseId) &&
         Objects.equals(this.total, dataForTermBaseTermGroupImportTaskOutput.total) &&
         Objects.equals(this.updateTime, dataForTermBaseTermGroupImportTaskOutput.updateTime) &&
         Objects.equals(this.uploadedCount, dataForTermBaseTermGroupImportTaskOutput.uploadedCount);
@@ -220,7 +220,7 @@ public class DataForTermBaseTermGroupImportTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, id, operator, status, termBaseld, total, updateTime, uploadedCount);
+    return Objects.hash(createTime, id, operator, status, termBaseId, total, updateTime, uploadedCount);
   }
 
 
@@ -233,7 +233,7 @@ public class DataForTermBaseTermGroupImportTaskOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    termBaseld: ").append(toIndentedString(termBaseld)).append("\n");
+    sb.append("    termBaseId: ").append(toIndentedString(termBaseId)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    uploadedCount: ").append(toIndentedString(uploadedCount)).append("\n");

@@ -27,8 +27,6 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
-import com.volcengine.i18nopenapi.model.CreateVideoCreateRequest;
-import com.volcengine.i18nopenapi.model.CreateVideoCreateResponse;
 import com.volcengine.i18nopenapi.model.DocumentCreateRequest;
 import com.volcengine.i18nopenapi.model.DocumentCreateResponse;
 import com.volcengine.i18nopenapi.model.DocumentTaskCreateRequest;
@@ -197,8 +195,6 @@ import com.volcengine.i18nopenapi.model.VideoEditorDeleteSubtitleRequest;
 import com.volcengine.i18nopenapi.model.VideoEditorDeleteSubtitleResponse;
 import com.volcengine.i18nopenapi.model.VideoEditorDownloadSubtitleFileUrlRequest;
 import com.volcengine.i18nopenapi.model.VideoEditorDownloadSubtitleFileUrlResponse;
-import com.volcengine.i18nopenapi.model.VideoEditorGenDubbingRequest;
-import com.volcengine.i18nopenapi.model.VideoEditorGenDubbingResponse;
 import com.volcengine.i18nopenapi.model.VideoEditorGetEmotionTagsRequest;
 import com.volcengine.i18nopenapi.model.VideoEditorGetEmotionTagsResponse;
 import com.volcengine.i18nopenapi.model.VideoEditorGetSpeakersRequest;
@@ -265,8 +261,6 @@ import com.volcengine.i18nopenapi.model.VideoProjectVideoDeleteRequest;
 import com.volcengine.i18nopenapi.model.VideoProjectVideoDeleteResponse;
 import com.volcengine.i18nopenapi.model.VideoProjectVideoUploadRequest;
 import com.volcengine.i18nopenapi.model.VideoProjectVideoUploadResponse;
-import com.volcengine.i18nopenapi.model.VideoResourceUploadRequest;
-import com.volcengine.i18nopenapi.model.VideoResourceUploadResponse;
 import com.volcengine.i18nopenapi.model.VideoTermBasesRequest;
 import com.volcengine.i18nopenapi.model.VideoTermBasesResponse;
 import com.volcengine.i18nopenapi.model.WebhooksCreateRequest;
@@ -297,130 +291,6 @@ public class I18NOpenapiApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for createVideoCreate
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call createVideoCreateCall(CreateVideoCreateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/CreateVideoCreate/2021-05-21/i18n_openapi/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createVideoCreateValidateBeforeCall(CreateVideoCreateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createVideoCreate(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = createVideoCreateCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return CreateVideoCreateResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CreateVideoCreateResponse createVideoCreate(CreateVideoCreateRequest body) throws ApiException {
-        ApiResponse<CreateVideoCreateResponse> resp = createVideoCreateWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;CreateVideoCreateResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CreateVideoCreateResponse> createVideoCreateWithHttpInfo( @NotNull CreateVideoCreateRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = createVideoCreateValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateVideoCreateResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call createVideoCreateAsync(CreateVideoCreateRequest body, final ApiCallback<CreateVideoCreateResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = createVideoCreateValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateVideoCreateResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /**
      * Build call for documentCreate
      * @param body  (required)
@@ -10838,130 +10708,6 @@ public class I18NOpenapiApi {
         return call;
     }
     /**
-     * Build call for videoEditorGenDubbing
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call videoEditorGenDubbingCall(VideoEditorGenDubbingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/VideoEditorGenDubbing/2021-05-21/i18n_openapi/get/text_plain/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoEditorGenDubbingValidateBeforeCall(VideoEditorGenDubbingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling videoEditorGenDubbing(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = videoEditorGenDubbingCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return VideoEditorGenDubbingResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public VideoEditorGenDubbingResponse videoEditorGenDubbing(VideoEditorGenDubbingRequest body) throws ApiException {
-        ApiResponse<VideoEditorGenDubbingResponse> resp = videoEditorGenDubbingWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;VideoEditorGenDubbingResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<VideoEditorGenDubbingResponse> videoEditorGenDubbingWithHttpInfo( @NotNull VideoEditorGenDubbingRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = videoEditorGenDubbingValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<VideoEditorGenDubbingResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call videoEditorGenDubbingAsync(VideoEditorGenDubbingRequest body, final ApiCallback<VideoEditorGenDubbingResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = videoEditorGenDubbingValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VideoEditorGenDubbingResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for videoEditorGetEmotionTags
      * @param body  (required)
      * @param progressListener Progress listener
@@ -13949,7 +13695,7 @@ public class I18NOpenapiApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/VideoProjectSubmitTermValidation/2021-05-21/i18n_openapi/get/text_plain/";
+        String localVarPath = "/VideoProjectSubmitTermValidation/2021-05-21/i18n_openapi/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15050,130 +14796,6 @@ public class I18NOpenapiApi {
 
         com.squareup.okhttp.Call call = videoProjectVideoUploadValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VideoProjectVideoUploadResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for videoResourceUpload
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call videoResourceUploadCall(VideoResourceUploadRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/VideoResourceUpload/2021-05-21/i18n_openapi/post/application_x-www-form-urlencoded/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoResourceUploadValidateBeforeCall(VideoResourceUploadRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling videoResourceUpload(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = videoResourceUploadCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return VideoResourceUploadResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public VideoResourceUploadResponse videoResourceUpload(VideoResourceUploadRequest body) throws ApiException {
-        ApiResponse<VideoResourceUploadResponse> resp = videoResourceUploadWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;VideoResourceUploadResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<VideoResourceUploadResponse> videoResourceUploadWithHttpInfo( @NotNull VideoResourceUploadRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = videoResourceUploadValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<VideoResourceUploadResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call videoResourceUploadAsync(VideoResourceUploadRequest body, final ApiCallback<VideoResourceUploadResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = videoResourceUploadValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VideoResourceUploadResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

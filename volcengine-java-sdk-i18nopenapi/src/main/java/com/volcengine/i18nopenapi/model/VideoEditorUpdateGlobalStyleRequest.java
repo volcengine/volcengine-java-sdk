@@ -65,7 +65,8 @@ public class VideoEditorUpdateGlobalStyleRequest {
    * Get subtaskId
    * @return subtaskId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubtaskId() {
     return subtaskId;
   }

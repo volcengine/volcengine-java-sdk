@@ -19,15 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.i18nopenapi.model.ConvertsubtitleForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.EffectSubtitleForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.PureVideoForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.SubtitleForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.VideoForVideoProjectSerialTaskCreateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -48,9 +45,6 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
 
   @SerializedName("subtitle")
   private SubtitleForVideoProjectSerialTaskCreateInput subtitle = null;
-
-  @SerializedName("subtitles")
-  private List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles = null;
 
   @SerializedName("video")
   private VideoForVideoProjectSerialTaskCreateInput video = null;
@@ -130,33 +124,6 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
     this.subtitle = subtitle;
   }
 
-  public SerialInfoForVideoProjectSerialTaskCreateInput subtitles(List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles) {
-    this.subtitles = subtitles;
-    return this;
-  }
-
-  public SerialInfoForVideoProjectSerialTaskCreateInput addSubtitlesItem(ConvertsubtitleForVideoProjectSerialTaskCreateInput subtitlesItem) {
-    if (this.subtitles == null) {
-      this.subtitles = new ArrayList<ConvertsubtitleForVideoProjectSerialTaskCreateInput>();
-    }
-    this.subtitles.add(subtitlesItem);
-    return this;
-  }
-
-   /**
-   * Get subtitles
-   * @return subtitles
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> getSubtitles() {
-    return subtitles;
-  }
-
-  public void setSubtitles(List<ConvertsubtitleForVideoProjectSerialTaskCreateInput> subtitles) {
-    this.subtitles = subtitles;
-  }
-
   public SerialInfoForVideoProjectSerialTaskCreateInput video(VideoForVideoProjectSerialTaskCreateInput video) {
     this.video = video;
     return this;
@@ -190,13 +157,12 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
         Objects.equals(this.episode, serialInfoForVideoProjectSerialTaskCreateInput.episode) &&
         Objects.equals(this.pureVideo, serialInfoForVideoProjectSerialTaskCreateInput.pureVideo) &&
         Objects.equals(this.subtitle, serialInfoForVideoProjectSerialTaskCreateInput.subtitle) &&
-        Objects.equals(this.subtitles, serialInfoForVideoProjectSerialTaskCreateInput.subtitles) &&
         Objects.equals(this.video, serialInfoForVideoProjectSerialTaskCreateInput.video);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(effectSubtitle, episode, pureVideo, subtitle, subtitles, video);
+    return Objects.hash(effectSubtitle, episode, pureVideo, subtitle, video);
   }
 
 
@@ -209,7 +175,6 @@ public class SerialInfoForVideoProjectSerialTaskCreateInput {
     sb.append("    episode: ").append(toIndentedString(episode)).append("\n");
     sb.append("    pureVideo: ").append(toIndentedString(pureVideo)).append("\n");
     sb.append("    subtitle: ").append(toIndentedString(subtitle)).append("\n");
-    sb.append("    subtitles: ").append(toIndentedString(subtitles)).append("\n");
     sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("}");
     return sb.toString();
