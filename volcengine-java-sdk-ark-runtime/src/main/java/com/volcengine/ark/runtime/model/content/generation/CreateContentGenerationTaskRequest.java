@@ -53,6 +53,9 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("output_format")
     private String outputFormat;
 
+    @JsonProperty("omni_reference_task_type")
+    private String omniReferenceTaskType;
+
     @JsonProperty("duration")
     private Long duration;
 
@@ -221,6 +224,14 @@ public class CreateContentGenerationTaskRequest {
         this.outputFormat = outputFormat;
     }
 
+    public String getOmniReferenceTaskType() {
+        return omniReferenceTaskType;
+    }
+
+    public void setOmniReferenceTaskType(String omniReferenceTaskType) {
+        this.omniReferenceTaskType = omniReferenceTaskType;
+    }
+
      public Long getDuration() {
         return duration;
     }
@@ -269,6 +280,7 @@ public class CreateContentGenerationTaskRequest {
                 ", resolution='" + resolution + '\'' +
                 ", ratio='" + ratio + '\'' +
                 ", outputFormat='" + outputFormat + '\'' +
+                ", omniReferenceTaskType='" + omniReferenceTaskType + '\'' +
                 ", duration=" + duration +
                 ", frames=" + frames +
                 ", draft=" + draft +
@@ -296,6 +308,7 @@ public class CreateContentGenerationTaskRequest {
         private String resolution;
         private String ratio;
         private String outputFormat;
+        private String omniReferenceTaskType;
         private Long duration;
         private Long frames;
         private Boolean draft;
@@ -379,6 +392,11 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder omniReferenceTaskType(String omniReferenceTaskType) {
+            this.omniReferenceTaskType = omniReferenceTaskType;
+            return this;
+        }
+
         public Builder duration(Long duration) {
             this.duration = duration;
             return this;
@@ -416,6 +434,7 @@ public class CreateContentGenerationTaskRequest {
             createContentGenerationTaskRequest.setResolution(resolution);
             createContentGenerationTaskRequest.setRatio(ratio);
             createContentGenerationTaskRequest.setOutputFormat(outputFormat);
+            createContentGenerationTaskRequest.setOmniReferenceTaskType(omniReferenceTaskType);
             createContentGenerationTaskRequest.setDuration(duration);
             createContentGenerationTaskRequest.setFrames(frames);
             createContentGenerationTaskRequest.setDraft(draft);

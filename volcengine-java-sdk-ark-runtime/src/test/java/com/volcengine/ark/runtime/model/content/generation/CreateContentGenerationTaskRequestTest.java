@@ -33,4 +33,25 @@ public class CreateContentGenerationTaskRequestTest {
 
         assertFalse(json.has("output_format"));
     }
+
+    @Test
+    public void serializesOmniReferenceTaskTypeAsTopLevelString() throws Exception {
+        CreateContentGenerationTaskRequest request = CreateContentGenerationTaskRequest.builder()
+                .omniReferenceTaskType("reference")
+                .build();
+
+        JsonNode json = objectMapper.readTree(objectMapper.writeValueAsString(request));
+
+        assertTrue(json.get("omni_reference_task_type").isTextual());
+        assertEquals("reference", json.get("omni_reference_task_type").asText());
+    }
+
+    @Test
+    public void omitsOmniReferenceTaskTypeByDefault() throws Exception {
+        CreateContentGenerationTaskRequest request = CreateContentGenerationTaskRequest.builder().build();
+
+        JsonNode json = objectMapper.readTree(objectMapper.writeValueAsString(request));
+
+        assertFalse(json.has("omni_reference_task_type"));
+    }
 }
