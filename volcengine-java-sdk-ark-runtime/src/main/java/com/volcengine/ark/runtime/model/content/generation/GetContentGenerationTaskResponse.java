@@ -72,7 +72,7 @@ public class GetContentGenerationTaskResponse {
     private String outputFormat;
 
     @JsonProperty("duration")
-    private java.lang.Long duration;
+    private java.lang.Double duration;
 
     @JsonProperty("resolution")
     private String resolution;
@@ -254,11 +254,11 @@ public class GetContentGenerationTaskResponse {
         this.outputFormat = outputFormat;
     }
 
-    public java.lang.Long getDuration() {
+    public java.lang.Double getDuration() {
         return duration;
     }
 
-    public void setDuration(java.lang.Long duration) {
+    public void setDuration(java.lang.Double duration) {
         this.duration = duration;
     }
 
