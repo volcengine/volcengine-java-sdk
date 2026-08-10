@@ -82,9 +82,9 @@ public class ApiClient {
         // 建连超时始终受 timeout 约束；对流式接口而言，建连快慢本身不受 chunk 间隔影响。
         builder.connectTimeout(timeout, TimeUnit.MILLISECONDS);
         if (withCallTimeout) {
-            // 普通请求：写、读、端到端超时全部统一到 timeout
-            builder.writeTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .readTimeout(timeout, TimeUnit.MILLISECONDS)
+            // 普通请求：仅用 callTimeout 做端到端约束，read/write 置 0 避免叠加干扰
+            builder.writeTimeout(0, TimeUnit.MILLISECONDS)
+                   .readTimeout(0, TimeUnit.MILLISECONDS)
                    .callTimeout(timeout, TimeUnit.MILLISECONDS);
         } else {
             // 流式请求：仅保留 connectTimeout，其余置 0（无限），避免长流被中断
