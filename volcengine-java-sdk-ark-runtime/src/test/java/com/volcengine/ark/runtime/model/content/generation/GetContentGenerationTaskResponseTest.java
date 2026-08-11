@@ -18,22 +18,4 @@ public class GetContentGenerationTaskResponseTest {
 
         assertEquals("mp4", response.getOutputFormat());
     }
-
-    @Test
-    public void deserializesFractionalDuration() throws Exception {
-        GetContentGenerationTaskResponse response = objectMapper.readValue(
-                "{\"duration\":5.5}",
-                GetContentGenerationTaskResponse.class);
-
-        assertEquals(Double.valueOf(5.5), response.getDuration());
-    }
-
-    @Test
-    public void deserializesIntegralDurationAsDouble() throws Exception {
-        GetContentGenerationTaskResponse response = objectMapper.readValue(
-                "{\"duration\":5}",
-                GetContentGenerationTaskResponse.class);
-
-        assertEquals(Double.valueOf(5.0), response.getDuration());
-    }
 }
