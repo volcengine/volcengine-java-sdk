@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "VideoEditorBatchUpdateStyle",
+    "VideoEditorSaveSubtitle",
+    "VideoProjectTaskBatchStartAIFlow"
+  ],
+  "description": "I18N_OPENAPI: 修改 VideoEditorBatchUpdateStyle, VideoEditorSaveSubtitle, VideoProjectTaskBatchStartAIFlow",
+  "modules": "service/i18n_openapi",
+  "type": "breaking-change"
+}

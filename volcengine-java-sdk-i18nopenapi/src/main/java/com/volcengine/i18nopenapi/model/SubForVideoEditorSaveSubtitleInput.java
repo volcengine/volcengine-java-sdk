@@ -36,7 +36,7 @@ public class SubForVideoEditorSaveSubtitleInput {
   private String aiVoiceId = null;
 
   @SerializedName("effectType")
-  private String effectType = null;
+  private Integer effectType = null;
 
   @SerializedName("emotionTag")
   private String emotionTag = null;
@@ -86,7 +86,7 @@ public class SubForVideoEditorSaveSubtitleInput {
     this.aiVoiceId = aiVoiceId;
   }
 
-  public SubForVideoEditorSaveSubtitleInput effectType(String effectType) {
+  public SubForVideoEditorSaveSubtitleInput effectType(Integer effectType) {
     this.effectType = effectType;
     return this;
   }
@@ -96,11 +96,11 @@ public class SubForVideoEditorSaveSubtitleInput {
    * @return effectType
   **/
   @Schema(description = "")
-  public String getEffectType() {
+  public Integer getEffectType() {
     return effectType;
   }
 
-  public void setEffectType(String effectType) {
+  public void setEffectType(Integer effectType) {
     this.effectType = effectType;
   }
 

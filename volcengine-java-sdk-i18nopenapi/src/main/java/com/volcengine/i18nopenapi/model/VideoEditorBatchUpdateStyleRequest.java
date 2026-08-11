@@ -33,8 +33,30 @@ import javax.validation.Valid;
 
 
 public class VideoEditorBatchUpdateStyleRequest {
+  @SerializedName("subtaskId")
+  private String subtaskId = null;
+
   @SerializedName("subtitleStyles")
   private List<SubtitleStyleForVideoEditorBatchUpdateStyleInput> subtitleStyles = null;
+
+  public VideoEditorBatchUpdateStyleRequest subtaskId(String subtaskId) {
+    this.subtaskId = subtaskId;
+    return this;
+  }
+
+   /**
+   * Get subtaskId
+   * @return subtaskId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSubtaskId() {
+    return subtaskId;
+  }
+
+  public void setSubtaskId(String subtaskId) {
+    this.subtaskId = subtaskId;
+  }
 
   public VideoEditorBatchUpdateStyleRequest subtitleStyles(List<SubtitleStyleForVideoEditorBatchUpdateStyleInput> subtitleStyles) {
     this.subtitleStyles = subtitleStyles;
@@ -73,12 +95,13 @@ public class VideoEditorBatchUpdateStyleRequest {
       return false;
     }
     VideoEditorBatchUpdateStyleRequest videoEditorBatchUpdateStyleRequest = (VideoEditorBatchUpdateStyleRequest) o;
-    return Objects.equals(this.subtitleStyles, videoEditorBatchUpdateStyleRequest.subtitleStyles);
+    return Objects.equals(this.subtaskId, videoEditorBatchUpdateStyleRequest.subtaskId) &&
+        Objects.equals(this.subtitleStyles, videoEditorBatchUpdateStyleRequest.subtitleStyles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subtitleStyles);
+    return Objects.hash(subtaskId, subtitleStyles);
   }
 
 
@@ -87,6 +110,7 @@ public class VideoEditorBatchUpdateStyleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class VideoEditorBatchUpdateStyleRequest {\n");
     
+    sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");
     sb.append("    subtitleStyles: ").append(toIndentedString(subtitleStyles)).append("\n");
     sb.append("}");
     return sb.toString();
