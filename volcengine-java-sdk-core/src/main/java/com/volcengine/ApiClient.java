@@ -1090,12 +1090,14 @@ public class ApiClient extends BaseClient{
         context.setApiClient(this);
         logSdkConfig();
 
-        int numMaxRetries = retryer.getNumMaxRetries();
+        int numMaxRetries = autoRetry ? retryer.getNumMaxRetries() : 0;
         ApiException apiException;
         ApiResponse<T> apiResponse = null;
         for (int retryCount = 0; retryCount <= numMaxRetries; retryCount++) {
             apiException = null;
             apiResponse = null;
+            context.getRequestContext().setRetryCount(retryCount);
+            context.getRequestContext().setMaxAttempts(numMaxRetries + 1);
             try {
                 this.interceptorChain.executeRequest(context);
             } catch (ApiException e) {
@@ -1190,7 +1192,7 @@ public class ApiClient extends BaseClient{
         context.setApiClient(this);
         logSdkConfig();
 
-        final int maxRetries = retryer.getNumMaxRetries();
+        final int maxRetries = autoRetry ? retryer.getNumMaxRetries() : 0;
         final AtomicInteger retryCount = new AtomicInteger(0);
         attemptAsync(context, callback, retryCount, maxRetries);
     }
@@ -1201,6 +1203,8 @@ public class ApiClient extends BaseClient{
             final AtomicInteger retryCount,
             final int maxRetries
     ) {
+        context.getRequestContext().setRetryCount(retryCount.get());
+        context.getRequestContext().setMaxAttempts(maxRetries + 1);
         try {
             this.interceptorChain.executeRequest(context);
         } catch (ApiException e) {
