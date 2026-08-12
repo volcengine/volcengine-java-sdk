@@ -48,6 +48,9 @@ public class TargetForQueryDataMigrateTaskOutput {
   @SerializedName("SK")
   private String SK = null;
 
+  @SerializedName("SecurityToken")
+  private String securityToken = null;
+
   @SerializedName("Vendor")
   private String vendor = null;
 
@@ -159,6 +162,24 @@ public class TargetForQueryDataMigrateTaskOutput {
     this.SK = SK;
   }
 
+  public TargetForQueryDataMigrateTaskOutput securityToken(String securityToken) {
+    this.securityToken = securityToken;
+    return this;
+  }
+
+   /**
+   * Get securityToken
+   * @return securityToken
+  **/
+  @Schema(description = "")
+  public String getSecurityToken() {
+    return securityToken;
+  }
+
+  public void setSecurityToken(String securityToken) {
+    this.securityToken = securityToken;
+  }
+
   public TargetForQueryDataMigrateTaskOutput vendor(String vendor) {
     this.vendor = vendor;
     return this;
@@ -193,12 +214,13 @@ public class TargetForQueryDataMigrateTaskOutput {
         Objects.equals(this.region, targetForQueryDataMigrateTaskOutput.region) &&
         Objects.equals(this.roleTrn, targetForQueryDataMigrateTaskOutput.roleTrn) &&
         Objects.equals(this.SK, targetForQueryDataMigrateTaskOutput.SK) &&
+        Objects.equals(this.securityToken, targetForQueryDataMigrateTaskOutput.securityToken) &&
         Objects.equals(this.vendor, targetForQueryDataMigrateTaskOutput.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(AK, bucketName, endpoint, region, roleTrn, SK, vendor);
+    return Objects.hash(AK, bucketName, endpoint, region, roleTrn, SK, securityToken, vendor);
   }
 
 
@@ -213,6 +235,7 @@ public class TargetForQueryDataMigrateTaskOutput {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
     sb.append("    SK: ").append(toIndentedString(SK)).append("\n");
+    sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");
     return sb.toString();
