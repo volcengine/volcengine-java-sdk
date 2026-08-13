@@ -48,6 +48,9 @@ public class BucketAccessConfigForCreateDataMigrateTaskInput {
   @SerializedName("SK")
   private String SK = null;
 
+  @SerializedName("SecurityToken")
+  private String securityToken = null;
+
   @SerializedName("Vendor")
   private String vendor = null;
 
@@ -159,6 +162,24 @@ public class BucketAccessConfigForCreateDataMigrateTaskInput {
     this.SK = SK;
   }
 
+  public BucketAccessConfigForCreateDataMigrateTaskInput securityToken(String securityToken) {
+    this.securityToken = securityToken;
+    return this;
+  }
+
+   /**
+   * Get securityToken
+   * @return securityToken
+  **/
+  @Schema(description = "")
+  public String getSecurityToken() {
+    return securityToken;
+  }
+
+  public void setSecurityToken(String securityToken) {
+    this.securityToken = securityToken;
+  }
+
   public BucketAccessConfigForCreateDataMigrateTaskInput vendor(String vendor) {
     this.vendor = vendor;
     return this;
@@ -193,12 +214,13 @@ public class BucketAccessConfigForCreateDataMigrateTaskInput {
         Objects.equals(this.region, bucketAccessConfigForCreateDataMigrateTaskInput.region) &&
         Objects.equals(this.roleTrn, bucketAccessConfigForCreateDataMigrateTaskInput.roleTrn) &&
         Objects.equals(this.SK, bucketAccessConfigForCreateDataMigrateTaskInput.SK) &&
+        Objects.equals(this.securityToken, bucketAccessConfigForCreateDataMigrateTaskInput.securityToken) &&
         Objects.equals(this.vendor, bucketAccessConfigForCreateDataMigrateTaskInput.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(AK, bucketName, endpoint, region, roleTrn, SK, vendor);
+    return Objects.hash(AK, bucketName, endpoint, region, roleTrn, SK, securityToken, vendor);
   }
 
 
@@ -213,6 +235,7 @@ public class BucketAccessConfigForCreateDataMigrateTaskInput {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
     sb.append("    SK: ").append(toIndentedString(SK)).append("\n");
+    sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");
     return sb.toString();
