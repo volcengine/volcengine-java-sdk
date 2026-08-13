@@ -199,7 +199,7 @@ public class CpaasApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetTemplateV2/2026-04-30/cpaas/post/application_x-www-form-urlencoded/";
+        String localVarPath = "/GetTemplateV2/2026-04-30/cpaas/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
