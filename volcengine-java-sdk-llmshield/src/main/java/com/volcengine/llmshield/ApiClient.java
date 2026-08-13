@@ -82,9 +82,9 @@ public class ApiClient {
         // 建连超时始终受 timeout 约束；对流式接口而言，建连快慢本身不受 chunk 间隔影响。
         builder.connectTimeout(timeout, TimeUnit.MILLISECONDS);
         if (withCallTimeout) {
-            // 普通请求：写、读、端到端超时全部统一到 timeout
-            builder.writeTimeout(timeout, TimeUnit.MILLISECONDS)
-                   .readTimeout(timeout, TimeUnit.MILLISECONDS)
+            // 普通请求：仅用 callTimeout 做端到端约束，read/write 置 0 避免叠加干扰
+            builder.writeTimeout(0, TimeUnit.MILLISECONDS)
+                   .readTimeout(0, TimeUnit.MILLISECONDS)
                    .callTimeout(timeout, TimeUnit.MILLISECONDS);
         } else {
             // 流式请求：仅保留 connectTimeout，其余置 0（无限），避免长流被中断
@@ -292,6 +292,24 @@ public class ApiClient {
         T apply(Response response) throws Exception;
     }
 
+    private long elapsedMillis(long startNs) {
+        return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+    }
+
+    private long resolveRemainingTimeoutMs(long totalStartNs) throws TimeoutException {
+        long effectiveTimeoutMs = timeout;
+        if (effectiveTimeoutMs <= 0) {
+            return effectiveTimeoutMs;
+        }
+
+        long elapsedMs = elapsedMillis(totalStartNs);
+        long remainingMs = effectiveTimeoutMs - elapsedMs;
+        if (remainingMs <= 0) {
+            throw new TimeoutException("Request timed out before HTTP dispatch after " + elapsedMs + "ms");
+        }
+        return remainingMs;
+    }
+
     /**
      * 执行 HTTP 请求（使用 OkHttp 3.x 原生 callTimeout 实现端到端超时）
      *
@@ -302,12 +320,36 @@ public class ApiClient {
      * @throws Exception 如果请求超时或发生其他错误
      */
     private <T> T execute(Request request, ResponseHandler<T> handler) throws Exception {
-        try (Response response = httpClient.newCall(request).execute()) {
+        return execute(request, handler, System.nanoTime());
+    }
+
+    /**
+     * 执行 HTTP 请求（使用 OkHttp 3.x 原生 callTimeout 实现端到端超时）
+     *
+     * @param request      OkHttp Request 对象
+     * @param handler      响应处理器
+     * @param totalStartNs 整体调用起始时间，用于扣减 HTTP 发起前已消耗的预算
+     * @param <T>          返回值类型
+     * @return 处理后的响应结果
+     * @throws Exception 如果请求超时或发生其他错误
+     */
+    private <T> T execute(Request request, ResponseHandler<T> handler, long totalStartNs) throws Exception {
+        long remainingTimeoutMs = resolveRemainingTimeoutMs(totalStartNs);
+        long httpStartNs = System.nanoTime();
+        long preHttpMs = elapsedMillis(totalStartNs);
+        Call call = httpClient.newCall(request);
+        if (remainingTimeoutMs > 0) {
+            call.timeout().timeout(remainingTimeoutMs, TimeUnit.MILLISECONDS);
+        }
+
+        try (Response response = call.execute()) {
             return handler.apply(response);
         } catch (java.io.InterruptedIOException e) {
+            long totalElapsedMs = elapsedMillis(totalStartNs);
+            long httpElapsedMs = elapsedMillis(httpStartNs);
             TimeoutException te = new TimeoutException(timeout > 0
-                    ? "Request timed out after " + timeout + "ms"
-                    : "Request was interrupted");
+                    ? "Request timed out after " + totalElapsedMs + "ms (pre-HTTP: " + preHttpMs + "ms, HTTP: " + httpElapsedMs + "ms)"
+                    : "Request was interrupted after " + totalElapsedMs + "ms (pre-HTTP: " + preHttpMs + "ms, HTTP: " + httpElapsedMs + "ms)");
             te.initCause(e);
             throw te;
         }
@@ -519,6 +561,7 @@ public class ApiClient {
      * @throws Exception 网络请求或解析响应时发生错误
      */
     public ModerateV2Response Moderate(ModerateV2Request request) throws Exception {
+        long totalStartNs = System.nanoTime();
         if (request == null) {
             request = new ModerateV2Request();
         }
@@ -571,7 +614,7 @@ public class ApiClient {
 
                 return OBJECT_MAPPER.readValue(responseBody, ModerateV2Response.class);
             }
-        });
+        }, totalStartNs);
     }
 
     /**
