@@ -95,6 +95,12 @@ public class BasicConfigForQueryDataMigrateTaskOutput {
   }  @SerializedName("OverwritePolicy")
   private OverwritePolicyEnum overwritePolicy = null;
 
+  @SerializedName("ReportPathPrefix")
+  private String reportPathPrefix = null;
+
+  @SerializedName("SkipArchiveObject")
+  private Boolean skipArchiveObject = null;
+
   /**
    * Gets or Sets sourceType
    */
@@ -313,6 +319,42 @@ public class BasicConfigForQueryDataMigrateTaskOutput {
     this.overwritePolicy = overwritePolicy;
   }
 
+  public BasicConfigForQueryDataMigrateTaskOutput reportPathPrefix(String reportPathPrefix) {
+    this.reportPathPrefix = reportPathPrefix;
+    return this;
+  }
+
+   /**
+   * Get reportPathPrefix
+   * @return reportPathPrefix
+  **/
+  @Schema(description = "")
+  public String getReportPathPrefix() {
+    return reportPathPrefix;
+  }
+
+  public void setReportPathPrefix(String reportPathPrefix) {
+    this.reportPathPrefix = reportPathPrefix;
+  }
+
+  public BasicConfigForQueryDataMigrateTaskOutput skipArchiveObject(Boolean skipArchiveObject) {
+    this.skipArchiveObject = skipArchiveObject;
+    return this;
+  }
+
+   /**
+   * Get skipArchiveObject
+   * @return skipArchiveObject
+  **/
+  @Schema(description = "")
+  public Boolean isSkipArchiveObject() {
+    return skipArchiveObject;
+  }
+
+  public void setSkipArchiveObject(Boolean skipArchiveObject) {
+    this.skipArchiveObject = skipArchiveObject;
+  }
+
   public BasicConfigForQueryDataMigrateTaskOutput sourceType(SourceTypeEnum sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -383,6 +425,8 @@ public class BasicConfigForQueryDataMigrateTaskOutput {
         Objects.equals(this.objectMigrationPolicy, basicConfigForQueryDataMigrateTaskOutput.objectMigrationPolicy) &&
         Objects.equals(this.offlineMigrationPolicy, basicConfigForQueryDataMigrateTaskOutput.offlineMigrationPolicy) &&
         Objects.equals(this.overwritePolicy, basicConfigForQueryDataMigrateTaskOutput.overwritePolicy) &&
+        Objects.equals(this.reportPathPrefix, basicConfigForQueryDataMigrateTaskOutput.reportPathPrefix) &&
+        Objects.equals(this.skipArchiveObject, basicConfigForQueryDataMigrateTaskOutput.skipArchiveObject) &&
         Objects.equals(this.sourceType, basicConfigForQueryDataMigrateTaskOutput.sourceType) &&
         Objects.equals(this.storageClass, basicConfigForQueryDataMigrateTaskOutput.storageClass) &&
         Objects.equals(this.taskName, basicConfigForQueryDataMigrateTaskOutput.taskName);
@@ -390,7 +434,7 @@ public class BasicConfigForQueryDataMigrateTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, enableRangeCheck, failedNumToAbort, objectMigrationPolicy, offlineMigrationPolicy, overwritePolicy, sourceType, storageClass, taskName);
+    return Objects.hash(bandwidth, enableRangeCheck, failedNumToAbort, objectMigrationPolicy, offlineMigrationPolicy, overwritePolicy, reportPathPrefix, skipArchiveObject, sourceType, storageClass, taskName);
   }
 
 
@@ -405,6 +449,8 @@ public class BasicConfigForQueryDataMigrateTaskOutput {
     sb.append("    objectMigrationPolicy: ").append(toIndentedString(objectMigrationPolicy)).append("\n");
     sb.append("    offlineMigrationPolicy: ").append(toIndentedString(offlineMigrationPolicy)).append("\n");
     sb.append("    overwritePolicy: ").append(toIndentedString(overwritePolicy)).append("\n");
+    sb.append("    reportPathPrefix: ").append(toIndentedString(reportPathPrefix)).append("\n");
+    sb.append("    skipArchiveObject: ").append(toIndentedString(skipArchiveObject)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
