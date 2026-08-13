@@ -14,6 +14,16 @@ package com.volcengine.acep.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.acep.model.DetailForDeletePodOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +33,36 @@ import javax.validation.Valid;
 
 
 public class DeletePodResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Details")
+  private List<DetailForDeletePodOutput> details = null;
+
+  public DeletePodResponse details(List<DetailForDeletePodOutput> details) {
+    this.details = details;
+    return this;
+  }
+
+  public DeletePodResponse addDetailsItem(DetailForDeletePodOutput detailsItem) {
+    if (this.details == null) {
+      this.details = new ArrayList<DetailForDeletePodOutput>();
+    }
+    this.details.add(detailsItem);
+    return this;
+  }
+
+   /**
+   * Get details
+   * @return details
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DetailForDeletePodOutput> getDetails() {
+    return details;
+  }
+
+  public void setDetails(List<DetailForDeletePodOutput> details) {
+    this.details = details;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +72,13 @@ public class DeletePodResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeletePodResponse deletePodResponse = (DeletePodResponse) o;
+    return Objects.equals(this.details, deletePodResponse.details);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(details);
   }
 
 
@@ -46,6 +87,7 @@ public class DeletePodResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeletePodResponse {\n");
     
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("}");
     return sb.toString();
   }
