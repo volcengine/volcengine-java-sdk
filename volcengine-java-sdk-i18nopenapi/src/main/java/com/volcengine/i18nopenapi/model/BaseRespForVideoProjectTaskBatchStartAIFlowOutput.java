@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
   @SerializedName("statusCode")
-  private String statusCode = null;
+  private Integer statusCode = null;
 
   @SerializedName("statusMessage")
   private String statusMessage = null;
 
-  public BaseRespForVideoProjectTaskBatchStartAIFlowOutput statusCode(String statusCode) {
+  public BaseRespForVideoProjectTaskBatchStartAIFlowOutput statusCode(Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -46,11 +46,11 @@ public class BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
    * @return statusCode
   **/
   @Schema(description = "")
-  public String getStatusCode() {
+  public Integer getStatusCode() {
     return statusCode;
   }
 
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
 
