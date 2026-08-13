@@ -908,6 +908,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- tidb ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("tidb", new ServiceEndpointInfo(
+                "tidb",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
