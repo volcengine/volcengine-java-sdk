@@ -82,7 +82,7 @@ public class ModifyIpamRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -119,7 +119,7 @@ public class ModifyIpamRequest {
    * Get ipamName
    * @return ipamName
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamName() {
     return ipamName;
   }

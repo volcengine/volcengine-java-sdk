@@ -110,7 +110,7 @@ public class DescribeIpamScopesRequest {
    * Get ipamScopeName
    * @return ipamScopeName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamScopeName() {
     return ipamScopeName;
   }

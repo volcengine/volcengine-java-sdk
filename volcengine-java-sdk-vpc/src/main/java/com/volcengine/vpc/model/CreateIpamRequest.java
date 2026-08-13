@@ -57,7 +57,7 @@ public class CreateIpamRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
