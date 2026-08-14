@@ -60,6 +60,9 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("StorageType")
   private String storageType = null;
 
+  @SerializedName("SwitchType")
+  private String switchType = null;
+
   public ModifyDBInstanceSpecRequest estimateOnly(Boolean estimateOnly) {
     this.estimateOnly = estimateOnly;
     return this;
@@ -232,6 +235,24 @@ public class ModifyDBInstanceSpecRequest {
     this.storageType = storageType;
   }
 
+  public ModifyDBInstanceSpecRequest switchType(String switchType) {
+    this.switchType = switchType;
+    return this;
+  }
+
+   /**
+   * Get switchType
+   * @return switchType
+  **/
+  @Schema(description = "")
+  public String getSwitchType() {
+    return switchType;
+  }
+
+  public void setSwitchType(String switchType) {
+    this.switchType = switchType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,12 +271,13 @@ public class ModifyDBInstanceSpecRequest {
         Objects.equals(this.specifiedSwitchEndTime, modifyDBInstanceSpecRequest.specifiedSwitchEndTime) &&
         Objects.equals(this.specifiedSwitchStartTime, modifyDBInstanceSpecRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.storageSpace, modifyDBInstanceSpecRequest.storageSpace) &&
-        Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType);
+        Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType) &&
+        Objects.equals(this.switchType, modifyDBInstanceSpecRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(estimateOnly, instanceId, modifyType, nodeInfo, rollbackTime, specifiedSwitchEndTime, specifiedSwitchStartTime, storageSpace, storageType);
+    return Objects.hash(estimateOnly, instanceId, modifyType, nodeInfo, rollbackTime, specifiedSwitchEndTime, specifiedSwitchStartTime, storageSpace, storageType, switchType);
   }
 
 
@@ -273,6 +295,7 @@ public class ModifyDBInstanceSpecRequest {
     sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("KMSTrn")
+  private String kmSTrn = null;
+
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForCreateDBInstanceInput maintenanceWindow = null;
 
@@ -65,6 +68,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TDEEnable")
+  private Boolean tdEEnable = null;
 
   @SerializedName("Tags")
   private List<TagForCreateDBInstanceInput> tags = null;
@@ -152,6 +158,24 @@ public class CreateDBInstanceRequest {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public CreateDBInstanceRequest kmSTrn(String kmSTrn) {
+    this.kmSTrn = kmSTrn;
+    return this;
+  }
+
+   /**
+   * Get kmSTrn
+   * @return kmSTrn
+  **/
+  @Schema(description = "")
+  public String getKmSTrn() {
+    return kmSTrn;
+  }
+
+  public void setKmSTrn(String kmSTrn) {
+    this.kmSTrn = kmSTrn;
   }
 
   public CreateDBInstanceRequest maintenanceWindow(MaintenanceWindowForCreateDBInstanceInput maintenanceWindow) {
@@ -274,6 +298,24 @@ public class CreateDBInstanceRequest {
     this.subnetId = subnetId;
   }
 
+  public CreateDBInstanceRequest tdEEnable(Boolean tdEEnable) {
+    this.tdEEnable = tdEEnable;
+    return this;
+  }
+
+   /**
+   * Get tdEEnable
+   * @return tdEEnable
+  **/
+  @Schema(description = "")
+  public Boolean isTdEEnable() {
+    return tdEEnable;
+  }
+
+  public void setTdEEnable(Boolean tdEEnable) {
+    this.tdEEnable = tdEEnable;
+  }
+
   public CreateDBInstanceRequest tags(List<TagForCreateDBInstanceInput> tags) {
     this.tags = tags;
     return this;
@@ -334,19 +376,21 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
+        Objects.equals(this.kmSTrn, createDBInstanceRequest.kmSTrn) &&
         Objects.equals(this.maintenanceWindow, createDBInstanceRequest.maintenanceWindow) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageSpace, createDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
+        Objects.equals(this.tdEEnable, createDBInstanceRequest.tdEEnable) &&
         Objects.equals(this.tags, createDBInstanceRequest.tags) &&
         Objects.equals(this.vpcId, createDBInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, instanceName, maintenanceWindow, nodeInfo, projectName, storageSpace, storageType, subnetId, tags, vpcId);
+    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, instanceName, kmSTrn, maintenanceWindow, nodeInfo, projectName, storageSpace, storageType, subnetId, tdEEnable, tags, vpcId);
   }
 
 
@@ -359,12 +403,14 @@ public class CreateDBInstanceRequest {
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    kmSTrn: ").append(toIndentedString(kmSTrn)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tdEEnable: ").append(toIndentedString(tdEEnable)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
