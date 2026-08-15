@@ -12,4 +12,13 @@ public class DefaultRetryerSetting {
     public static final Set<String> DEFAULT_RETRY_ERROR_CODES = new HashSet<>();
     public static final DefaultRetryCondition DEFAULT_RETRY_CONDITION = new DefaultRetryCondition(DEFAULT_RETRY_ERROR_CODES);
     public static final Retryer DEFAULT_RETRYER = new Retryer(DEFAULT_MAX_RETRIES, DEFAULT_BACKOFF_STRATEGY, DEFAULT_RETRY_CONDITION);
+
+    public static Retryer newDefaultRetryer() {
+        BackoffStrategy backoffStrategy = new ExponentialWithRandomJitterBackoffStrategy(
+                DEFAULT_MIN_RETRY_DELAY_MS,
+                DEFAULT_MAX_RETRY_DELAY_MS
+        );
+        DefaultRetryCondition retryCondition = new DefaultRetryCondition(new HashSet<String>());
+        return new Retryer(DEFAULT_MAX_RETRIES, backoffStrategy, retryCondition);
+    }
 }

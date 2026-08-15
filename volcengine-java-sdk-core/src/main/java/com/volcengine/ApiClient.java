@@ -145,7 +145,7 @@ public class ApiClient extends BaseClient{
     private Boolean useDualStack;
 
     private boolean autoRetry = DefaultRetryerSetting.DEFAULT_AUTO_RETRY_ENABLED;
-    private final Retryer retryer = DefaultRetryerSetting.DEFAULT_RETRYER;
+    private final Retryer retryer = DefaultRetryerSetting.newDefaultRetryer();
 
     private String httpProxy;
     private String httpsProxy;
