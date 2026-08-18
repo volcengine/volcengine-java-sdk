@@ -169,7 +169,7 @@ public class ImageGenStreamEvent {
          * The number of reference images supplied by the client.
          */
         @JsonProperty("input_images")
-        private int inputImages;
+        private Integer inputImages;
 
         /**
          * The number of images generated.
@@ -186,11 +186,11 @@ public class ImageGenStreamEvent {
          */
         private int totalTokens;
 
-        public int getInputImages() {
+        public Integer getInputImages() {
             return inputImages;
         }
 
-        public void setInputImages(int inputImages) {
+        public void setInputImages(Integer inputImages) {
             this.inputImages = inputImages;
         }
 
