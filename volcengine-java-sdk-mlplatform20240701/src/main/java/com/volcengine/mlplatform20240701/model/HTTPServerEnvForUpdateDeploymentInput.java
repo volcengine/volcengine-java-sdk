@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TosForCreateDeploymentInput
+ * HTTPServerEnvForUpdateDeploymentInput
  */
 
 
 
-public class TosForCreateDeploymentInput {
-  @SerializedName("Bucket")
-  private String bucket = null;
+public class HTTPServerEnvForUpdateDeploymentInput {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("Prefix")
-  private String prefix = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public TosForCreateDeploymentInput bucket(String bucket) {
-    this.bucket = bucket;
+  public HTTPServerEnvForUpdateDeploymentInput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get bucket
-   * @return bucket
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getBucket() {
-    return bucket;
+  public String getName() {
+    return name;
   }
 
-  public void setBucket(String bucket) {
-    this.bucket = bucket;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public TosForCreateDeploymentInput prefix(String prefix) {
-    this.prefix = prefix;
+  public HTTPServerEnvForUpdateDeploymentInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get prefix
-   * @return prefix
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getPrefix() {
-    return prefix;
+  public String getValue() {
+    return value;
   }
 
-  public void setPrefix(String prefix) {
-    this.prefix = prefix;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class TosForCreateDeploymentInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TosForCreateDeploymentInput tosForCreateDeploymentInput = (TosForCreateDeploymentInput) o;
-    return Objects.equals(this.bucket, tosForCreateDeploymentInput.bucket) &&
-        Objects.equals(this.prefix, tosForCreateDeploymentInput.prefix);
+    HTTPServerEnvForUpdateDeploymentInput htTPServerEnvForUpdateDeploymentInput = (HTTPServerEnvForUpdateDeploymentInput) o;
+    return Objects.equals(this.name, htTPServerEnvForUpdateDeploymentInput.name) &&
+        Objects.equals(this.value, htTPServerEnvForUpdateDeploymentInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, prefix);
+    return Objects.hash(name, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TosForCreateDeploymentInput {\n");
+    sb.append("class HTTPServerEnvForUpdateDeploymentInput {\n");
     
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

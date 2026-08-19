@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.AsyncConfigForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.AutoscalerForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.CredentialForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EnvForUpdateDeploymentInput;
@@ -45,6 +46,9 @@ import javax.validation.Valid;
 
 
 public class RoleForUpdateDeploymentInput {
+  @SerializedName("AsyncConfig")
+  private AsyncConfigForUpdateDeploymentInput asyncConfig = null;
+
   @SerializedName("Autoscaler")
   private AutoscalerForUpdateDeploymentInput autoscaler = null;
 
@@ -107,6 +111,25 @@ public class RoleForUpdateDeploymentInput {
 
   @SerializedName("Storages")
   private List<StorageForUpdateDeploymentInput> storages = null;
+
+  public RoleForUpdateDeploymentInput asyncConfig(AsyncConfigForUpdateDeploymentInput asyncConfig) {
+    this.asyncConfig = asyncConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncConfig
+   * @return asyncConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncConfigForUpdateDeploymentInput getAsyncConfig() {
+    return asyncConfig;
+  }
+
+  public void setAsyncConfig(AsyncConfigForUpdateDeploymentInput asyncConfig) {
+    this.asyncConfig = asyncConfig;
+  }
 
   public RoleForUpdateDeploymentInput autoscaler(AutoscalerForUpdateDeploymentInput autoscaler) {
     this.autoscaler = autoscaler;
@@ -541,7 +564,8 @@ public class RoleForUpdateDeploymentInput {
       return false;
     }
     RoleForUpdateDeploymentInput roleForUpdateDeploymentInput = (RoleForUpdateDeploymentInput) o;
-    return Objects.equals(this.autoscaler, roleForUpdateDeploymentInput.autoscaler) &&
+    return Objects.equals(this.asyncConfig, roleForUpdateDeploymentInput.asyncConfig) &&
+        Objects.equals(this.autoscaler, roleForUpdateDeploymentInput.autoscaler) &&
         Objects.equals(this.command, roleForUpdateDeploymentInput.command) &&
         Objects.equals(this.credential, roleForUpdateDeploymentInput.credential) &&
         Objects.equals(this.envs, roleForUpdateDeploymentInput.envs) &&
@@ -566,7 +590,7 @@ public class RoleForUpdateDeploymentInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoscaler, command, credential, envs, expose, gracefulShutdownPeriod, id, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, storages);
+    return Objects.hash(asyncConfig, autoscaler, command, credential, envs, expose, gracefulShutdownPeriod, id, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, storages);
   }
 
 
@@ -575,6 +599,7 @@ public class RoleForUpdateDeploymentInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleForUpdateDeploymentInput {\n");
     
+    sb.append("    asyncConfig: ").append(toIndentedString(asyncConfig)).append("\n");
     sb.append("    autoscaler: ").append(toIndentedString(autoscaler)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");

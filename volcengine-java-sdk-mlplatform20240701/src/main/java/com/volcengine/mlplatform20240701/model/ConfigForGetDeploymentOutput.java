@@ -20,13 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForGetDeploymentOutput;
+import com.volcengine.mlplatform20240701.model.ConvertTosForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.EfsAPForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.EfsForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.NasAPForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.NasForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.SfcsForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.TosAPForGetDeploymentOutput;
-import com.volcengine.mlplatform20240701.model.TosForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.VepfsForGetDeploymentOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -59,7 +59,7 @@ public class ConfigForGetDeploymentOutput {
   private SfcsForGetDeploymentOutput sfcs = null;
 
   @SerializedName("Tos")
-  private TosForGetDeploymentOutput tos = null;
+  private ConvertTosForGetDeploymentOutput tos = null;
 
   @SerializedName("TosAP")
   private TosAPForGetDeploymentOutput tosAP = null;
@@ -184,7 +184,7 @@ public class ConfigForGetDeploymentOutput {
     this.sfcs = sfcs;
   }
 
-  public ConfigForGetDeploymentOutput tos(TosForGetDeploymentOutput tos) {
+  public ConfigForGetDeploymentOutput tos(ConvertTosForGetDeploymentOutput tos) {
     this.tos = tos;
     return this;
   }
@@ -195,11 +195,11 @@ public class ConfigForGetDeploymentOutput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForGetDeploymentOutput getTos() {
+  public ConvertTosForGetDeploymentOutput getTos() {
     return tos;
   }
 
-  public void setTos(TosForGetDeploymentOutput tos) {
+  public void setTos(ConvertTosForGetDeploymentOutput tos) {
     this.tos = tos;
   }
 

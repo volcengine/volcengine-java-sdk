@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.ConvertOptionsForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.TosForCreateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConvertTosForCreateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -42,7 +42,7 @@ public class SfcsForCreateDeploymentInput {
   private ConvertOptionsForCreateDeploymentInput options = null;
 
   @SerializedName("Tos")
-  private TosForCreateDeploymentInput tos = null;
+  private ConvertTosForCreateDeploymentInput tos = null;
 
   public SfcsForCreateDeploymentInput cachePolicyId(String cachePolicyId) {
     this.cachePolicyId = cachePolicyId;
@@ -99,7 +99,7 @@ public class SfcsForCreateDeploymentInput {
     this.options = options;
   }
 
-  public SfcsForCreateDeploymentInput tos(TosForCreateDeploymentInput tos) {
+  public SfcsForCreateDeploymentInput tos(ConvertTosForCreateDeploymentInput tos) {
     this.tos = tos;
     return this;
   }
@@ -110,11 +110,11 @@ public class SfcsForCreateDeploymentInput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForCreateDeploymentInput getTos() {
+  public ConvertTosForCreateDeploymentInput getTos() {
     return tos;
   }
 
-  public void setTos(TosForCreateDeploymentInput tos) {
+  public void setTos(ConvertTosForCreateDeploymentInput tos) {
     this.tos = tos;
   }
 
