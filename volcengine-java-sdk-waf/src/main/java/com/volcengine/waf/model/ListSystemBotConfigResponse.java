@@ -33,8 +33,59 @@ import javax.validation.Valid;
 
 
 public class ListSystemBotConfigResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Count")
+  private Integer count = null;
+
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListSystemBotConfigOutput> data = null;
+
+  @SerializedName("LastUpdateTime")
+  private String lastUpdateTime = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListSystemBotConfigResponse count(Integer count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Get count
+   * @return count
+  **/
+  @Schema(description = "")
+  public Integer getCount() {
+    return count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ListSystemBotConfigResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
 
   public ListSystemBotConfigResponse data(List<DataForListSystemBotConfigOutput> data) {
     this.data = data;
@@ -63,6 +114,60 @@ public class ListSystemBotConfigResponse extends com.volcengine.model.AbstractRe
     this.data = data;
   }
 
+  public ListSystemBotConfigResponse lastUpdateTime(String lastUpdateTime) {
+    this.lastUpdateTime = lastUpdateTime;
+    return this;
+  }
+
+   /**
+   * Get lastUpdateTime
+   * @return lastUpdateTime
+  **/
+  @Schema(description = "")
+  public String getLastUpdateTime() {
+    return lastUpdateTime;
+  }
+
+  public void setLastUpdateTime(String lastUpdateTime) {
+    this.lastUpdateTime = lastUpdateTime;
+  }
+
+  public ListSystemBotConfigResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListSystemBotConfigResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +178,17 @@ public class ListSystemBotConfigResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     ListSystemBotConfigResponse listSystemBotConfigResponse = (ListSystemBotConfigResponse) o;
-    return Objects.equals(this.data, listSystemBotConfigResponse.data);
+    return Objects.equals(this.count, listSystemBotConfigResponse.count) &&
+        Objects.equals(this.currentPage, listSystemBotConfigResponse.currentPage) &&
+        Objects.equals(this.data, listSystemBotConfigResponse.data) &&
+        Objects.equals(this.lastUpdateTime, listSystemBotConfigResponse.lastUpdateTime) &&
+        Objects.equals(this.pageSize, listSystemBotConfigResponse.pageSize) &&
+        Objects.equals(this.totalCount, listSystemBotConfigResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(count, currentPage, data, lastUpdateTime, pageSize, totalCount);
   }
 
 
@@ -87,7 +197,12 @@ public class ListSystemBotConfigResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSystemBotConfigResponse {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

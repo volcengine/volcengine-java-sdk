@@ -45,9 +45,6 @@ public class CloudAccessConfigForListDomainOutput {
   @SerializedName("ListenerID")
   private String listenerID = null;
 
-  @SerializedName("LostAssociationFromALB")
-  private Integer lostAssociationFromALB = null;
-
   @SerializedName("Port")
   private String port = null;
 
@@ -144,24 +141,6 @@ public class CloudAccessConfigForListDomainOutput {
     this.listenerID = listenerID;
   }
 
-  public CloudAccessConfigForListDomainOutput lostAssociationFromALB(Integer lostAssociationFromALB) {
-    this.lostAssociationFromALB = lostAssociationFromALB;
-    return this;
-  }
-
-   /**
-   * Get lostAssociationFromALB
-   * @return lostAssociationFromALB
-  **/
-  @Schema(description = "")
-  public Integer getLostAssociationFromALB() {
-    return lostAssociationFromALB;
-  }
-
-  public void setLostAssociationFromALB(Integer lostAssociationFromALB) {
-    this.lostAssociationFromALB = lostAssociationFromALB;
-  }
-
   public CloudAccessConfigForListDomainOutput port(String port) {
     this.port = port;
     return this;
@@ -213,14 +192,13 @@ public class CloudAccessConfigForListDomainOutput {
         Objects.equals(this.instanceID, cloudAccessConfigForListDomainOutput.instanceID) &&
         Objects.equals(this.instanceName, cloudAccessConfigForListDomainOutput.instanceName) &&
         Objects.equals(this.listenerID, cloudAccessConfigForListDomainOutput.listenerID) &&
-        Objects.equals(this.lostAssociationFromALB, cloudAccessConfigForListDomainOutput.lostAssociationFromALB) &&
         Objects.equals(this.port, cloudAccessConfigForListDomainOutput.port) &&
         Objects.equals(this.protocol, cloudAccessConfigForListDomainOutput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, lostAssociationFromALB, port, protocol);
+    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, port, protocol);
   }
 
 
@@ -234,7 +212,6 @@ public class CloudAccessConfigForListDomainOutput {
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    listenerID: ").append(toIndentedString(listenerID)).append("\n");
-    sb.append("    lostAssociationFromALB: ").append(toIndentedString(lostAssociationFromALB)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

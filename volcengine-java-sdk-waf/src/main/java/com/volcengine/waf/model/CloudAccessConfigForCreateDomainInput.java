@@ -45,9 +45,6 @@ public class CloudAccessConfigForCreateDomainInput {
   @SerializedName("ListenerID")
   private String listenerID = null;
 
-  @SerializedName("LostAssociationFromALB")
-  private Integer lostAssociationFromALB = null;
-
   @SerializedName("Port")
   private String port = null;
 
@@ -144,24 +141,6 @@ public class CloudAccessConfigForCreateDomainInput {
     this.listenerID = listenerID;
   }
 
-  public CloudAccessConfigForCreateDomainInput lostAssociationFromALB(Integer lostAssociationFromALB) {
-    this.lostAssociationFromALB = lostAssociationFromALB;
-    return this;
-  }
-
-   /**
-   * Get lostAssociationFromALB
-   * @return lostAssociationFromALB
-  **/
-  @Schema(description = "")
-  public Integer getLostAssociationFromALB() {
-    return lostAssociationFromALB;
-  }
-
-  public void setLostAssociationFromALB(Integer lostAssociationFromALB) {
-    this.lostAssociationFromALB = lostAssociationFromALB;
-  }
-
   public CloudAccessConfigForCreateDomainInput port(String port) {
     this.port = port;
     return this;
@@ -213,14 +192,13 @@ public class CloudAccessConfigForCreateDomainInput {
         Objects.equals(this.instanceID, cloudAccessConfigForCreateDomainInput.instanceID) &&
         Objects.equals(this.instanceName, cloudAccessConfigForCreateDomainInput.instanceName) &&
         Objects.equals(this.listenerID, cloudAccessConfigForCreateDomainInput.listenerID) &&
-        Objects.equals(this.lostAssociationFromALB, cloudAccessConfigForCreateDomainInput.lostAssociationFromALB) &&
         Objects.equals(this.port, cloudAccessConfigForCreateDomainInput.port) &&
         Objects.equals(this.protocol, cloudAccessConfigForCreateDomainInput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, lostAssociationFromALB, port, protocol);
+    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, port, protocol);
   }
 
 
@@ -234,7 +212,6 @@ public class CloudAccessConfigForCreateDomainInput {
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    listenerID: ").append(toIndentedString(listenerID)).append("\n");
-    sb.append("    lostAssociationFromALB: ").append(toIndentedString(lostAssociationFromALB)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

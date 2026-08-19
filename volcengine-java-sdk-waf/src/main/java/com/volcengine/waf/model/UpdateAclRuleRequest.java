@@ -36,11 +36,97 @@ public class UpdateAclRuleRequest {
   @SerializedName("AccurateGroup")
   private AccurateGroupForUpdateAclRuleInput accurateGroup = null;
 
-  @SerializedName("AclType")
-  private String aclType = null;
+  /**
+   * Gets or Sets aclType
+   */
+  @JsonAdapter(AclTypeEnum.Adapter.class)
+  public enum AclTypeEnum {
+    @SerializedName("Allow")
+    ALLOW("Allow"),
+    @SerializedName("Block")
+    BLOCK("Block");
 
-  @SerializedName("Action")
-  private String action = null;
+    private String value;
+
+    AclTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AclTypeEnum fromValue(String input) {
+      for (AclTypeEnum b : AclTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AclTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AclTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AclTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AclTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AclType")
+  private AclTypeEnum aclType = null;
+
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    @SerializedName("block")
+    BLOCK("block"),
+    @SerializedName("observe")
+    OBSERVE("observe");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ActionEnum fromValue(String input) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Action")
+  private ActionEnum action = null;
 
   @SerializedName("Advanced")
   private Integer advanced = null;
@@ -81,6 +167,82 @@ public class UpdateAclRuleRequest {
   @SerializedName("Name")
   private String name = null;
 
+  /**
+   * Gets or Sets permitFeature
+   */
+  @JsonAdapter(PermitFeatureEnum.Adapter.class)
+  public enum PermitFeatureEnum {
+    @SerializedName("allowlist")
+    ALLOWLIST("allowlist"),
+    @SerializedName("blocklist")
+    BLOCKLIST("blocklist"),
+    @SerializedName("geo_black")
+    GEO_BLACK("geo_black"),
+    @SerializedName("api_route")
+    API_ROUTE("api_route"),
+    @SerializedName("api_schema")
+    API_SCHEMA("api_schema"),
+    @SerializedName("api_sensitive")
+    API_SENSITIVE("api_sensitive"),
+    @SerializedName("bot_dytoken")
+    BOT_DYTOKEN("bot_dytoken"),
+    @SerializedName("bot_frequency")
+    BOT_FREQUENCY("bot_frequency"),
+    @SerializedName("bot_repeat")
+    BOT_REPEAT("bot_repeat"),
+    @SerializedName("bot_sequence")
+    BOT_SEQUENCE("bot_sequence"),
+    @SerializedName("user_ua_bot")
+    USER_UA_BOT("user_ua_bot"),
+    @SerializedName("bot_ua_system")
+    BOT_UA_SYSTEM("bot_ua_system"),
+    @SerializedName("httpflood")
+    HTTPFLOOD("httpflood"),
+    @SerializedName("vuln_signature")
+    VULN_SIGNATURE("vuln_signature"),
+    @SerializedName("scan_freqvuln")
+    SCAN_FREQVULN("scan_freqvuln"),
+    @SerializedName("scan_direnum")
+    SCAN_DIRENUM("scan_direnum"),
+    @SerializedName("bot_session_protection")
+    BOT_SESSION_PROTECTION("bot_session_protection");
+
+    private String value;
+
+    PermitFeatureEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PermitFeatureEnum fromValue(String input) {
+      for (PermitFeatureEnum b : PermitFeatureEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PermitFeatureEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PermitFeatureEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PermitFeatureEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PermitFeatureEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PermitFeature")
+  private List<PermitFeatureEnum> permitFeature = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -106,7 +268,7 @@ public class UpdateAclRuleRequest {
     this.accurateGroup = accurateGroup;
   }
 
-  public UpdateAclRuleRequest aclType(String aclType) {
+  public UpdateAclRuleRequest aclType(AclTypeEnum aclType) {
     this.aclType = aclType;
     return this;
   }
@@ -117,15 +279,15 @@ public class UpdateAclRuleRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getAclType() {
+  public AclTypeEnum getAclType() {
     return aclType;
   }
 
-  public void setAclType(String aclType) {
+  public void setAclType(AclTypeEnum aclType) {
     this.aclType = aclType;
   }
 
-  public UpdateAclRuleRequest action(String action) {
+  public UpdateAclRuleRequest action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -135,11 +297,11 @@ public class UpdateAclRuleRequest {
    * @return action
   **/
   @Schema(description = "")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
   }
 
@@ -430,6 +592,32 @@ public class UpdateAclRuleRequest {
     this.name = name;
   }
 
+  public UpdateAclRuleRequest permitFeature(List<PermitFeatureEnum> permitFeature) {
+    this.permitFeature = permitFeature;
+    return this;
+  }
+
+  public UpdateAclRuleRequest addPermitFeatureItem(PermitFeatureEnum permitFeatureItem) {
+    if (this.permitFeature == null) {
+      this.permitFeature = new ArrayList<PermitFeatureEnum>();
+    }
+    this.permitFeature.add(permitFeatureItem);
+    return this;
+  }
+
+   /**
+   * Get permitFeature
+   * @return permitFeature
+  **/
+  @Schema(description = "")
+  public List<PermitFeatureEnum> getPermitFeature() {
+    return permitFeature;
+  }
+
+  public void setPermitFeature(List<PermitFeatureEnum> permitFeature) {
+    this.permitFeature = permitFeature;
+  }
+
   public UpdateAclRuleRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -493,13 +681,14 @@ public class UpdateAclRuleRequest {
         Objects.equals(this.ipLocationCountry, updateAclRuleRequest.ipLocationCountry) &&
         Objects.equals(this.ipLocationSubregion, updateAclRuleRequest.ipLocationSubregion) &&
         Objects.equals(this.name, updateAclRuleRequest.name) &&
+        Objects.equals(this.permitFeature, updateAclRuleRequest.permitFeature) &&
         Objects.equals(this.projectName, updateAclRuleRequest.projectName) &&
         Objects.equals(this.url, updateAclRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ID, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, projectName, url);
+    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ID, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, permitFeature, projectName, url);
   }
 
 
@@ -524,6 +713,7 @@ public class UpdateAclRuleRequest {
     sb.append("    ipLocationCountry: ").append(toIndentedString(ipLocationCountry)).append("\n");
     sb.append("    ipLocationSubregion: ").append(toIndentedString(ipLocationSubregion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    permitFeature: ").append(toIndentedString(permitFeature)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

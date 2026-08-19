@@ -30,8 +30,51 @@ import javax.validation.Valid;
 
 
 public class DeleteAclRuleRequest {
-  @SerializedName("AclType")
-  private String aclType = null;
+  /**
+   * Gets or Sets aclType
+   */
+  @JsonAdapter(AclTypeEnum.Adapter.class)
+  public enum AclTypeEnum {
+    @SerializedName("Allow")
+    ALLOW("Allow"),
+    @SerializedName("Block")
+    BLOCK("Block");
+
+    private String value;
+
+    AclTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AclTypeEnum fromValue(String input) {
+      for (AclTypeEnum b : AclTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AclTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AclTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AclTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AclTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AclType")
+  private AclTypeEnum aclType = null;
 
   @SerializedName("ID")
   private Integer ID = null;
@@ -39,7 +82,7 @@ public class DeleteAclRuleRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public DeleteAclRuleRequest aclType(String aclType) {
+  public DeleteAclRuleRequest aclType(AclTypeEnum aclType) {
     this.aclType = aclType;
     return this;
   }
@@ -50,11 +93,11 @@ public class DeleteAclRuleRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getAclType() {
+  public AclTypeEnum getAclType() {
     return aclType;
   }
 
-  public void setAclType(String aclType) {
+  public void setAclType(AclTypeEnum aclType) {
     this.aclType = aclType;
   }
 

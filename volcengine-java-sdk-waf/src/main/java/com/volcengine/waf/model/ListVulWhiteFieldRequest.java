@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,12 @@ import javax.validation.Valid;
 public class ListVulWhiteFieldRequest {
   @SerializedName("Host")
   private String host = null;
+
+  @SerializedName("HostAddType")
+  private Integer hostAddType = null;
+
+  @SerializedName("HostList")
+  private List<String> hostList = null;
 
   @SerializedName("Page")
   private Integer page = null;
@@ -54,14 +62,57 @@ public class ListVulWhiteFieldRequest {
    * Get host
    * @return host
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getHost() {
     return host;
   }
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public ListVulWhiteFieldRequest hostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+    return this;
+  }
+
+   /**
+   * Get hostAddType
+   * @return hostAddType
+  **/
+  @Schema(description = "")
+  public Integer getHostAddType() {
+    return hostAddType;
+  }
+
+  public void setHostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+  }
+
+  public ListVulWhiteFieldRequest hostList(List<String> hostList) {
+    this.hostList = hostList;
+    return this;
+  }
+
+  public ListVulWhiteFieldRequest addHostListItem(String hostListItem) {
+    if (this.hostList == null) {
+      this.hostList = new ArrayList<String>();
+    }
+    this.hostList.add(hostListItem);
+    return this;
+  }
+
+   /**
+   * Get hostList
+   * @return hostList
+  **/
+  @Schema(description = "")
+  public List<String> getHostList() {
+    return hostList;
+  }
+
+  public void setHostList(List<String> hostList) {
+    this.hostList = hostList;
   }
 
   public ListVulWhiteFieldRequest page(Integer page) {
@@ -91,8 +142,7 @@ public class ListVulWhiteFieldRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -148,6 +198,8 @@ public class ListVulWhiteFieldRequest {
     }
     ListVulWhiteFieldRequest listVulWhiteFieldRequest = (ListVulWhiteFieldRequest) o;
     return Objects.equals(this.host, listVulWhiteFieldRequest.host) &&
+        Objects.equals(this.hostAddType, listVulWhiteFieldRequest.hostAddType) &&
+        Objects.equals(this.hostList, listVulWhiteFieldRequest.hostList) &&
         Objects.equals(this.page, listVulWhiteFieldRequest.page) &&
         Objects.equals(this.pageSize, listVulWhiteFieldRequest.pageSize) &&
         Objects.equals(this.projectName, listVulWhiteFieldRequest.projectName) &&
@@ -156,7 +208,7 @@ public class ListVulWhiteFieldRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName, ruleTag);
+    return Objects.hash(host, hostAddType, hostList, page, pageSize, projectName, ruleTag);
   }
 
 
@@ -166,6 +218,8 @@ public class ListVulWhiteFieldRequest {
     sb.append("class ListVulWhiteFieldRequest {\n");
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    hostAddType: ").append(toIndentedString(hostAddType)).append("\n");
+    sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

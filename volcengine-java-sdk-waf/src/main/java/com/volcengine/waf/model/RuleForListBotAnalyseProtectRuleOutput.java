@@ -65,7 +65,7 @@ public class RuleForListBotAnalyseProtectRuleOutput {
   private String name = null;
 
   @SerializedName("PassRatio")
-  private Float passRatio = null;
+  private Double passRatio = null;
 
   @SerializedName("Path")
   private String path = null;
@@ -293,7 +293,7 @@ public class RuleForListBotAnalyseProtectRuleOutput {
     this.name = name;
   }
 
-  public RuleForListBotAnalyseProtectRuleOutput passRatio(Float passRatio) {
+  public RuleForListBotAnalyseProtectRuleOutput passRatio(Double passRatio) {
     this.passRatio = passRatio;
     return this;
   }
@@ -303,11 +303,11 @@ public class RuleForListBotAnalyseProtectRuleOutput {
    * @return passRatio
   **/
   @Schema(description = "")
-  public Float getPassRatio() {
+  public Double getPassRatio() {
     return passRatio;
   }
 
-  public void setPassRatio(Float passRatio) {
+  public void setPassRatio(Double passRatio) {
     this.passRatio = passRatio;
   }
 

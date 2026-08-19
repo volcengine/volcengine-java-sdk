@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.waf.model.RuleGroupForListCCRuleOutput;
+import com.volcengine.waf.model.ConvertRuleGroupForListCCRuleOutput;
+import com.volcengine.waf.model.DataForListCCRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +40,9 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CurrentPage")
   private Integer currentPage = null;
 
+  @SerializedName("Data")
+  private List<DataForListCCRuleOutput> data = null;
+
   @SerializedName("EnableCount")
   private Integer enableCount = null;
 
@@ -49,7 +53,7 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
   private Integer pageSize = null;
 
   @SerializedName("RuleGroup")
-  private List<RuleGroupForListCCRuleOutput> ruleGroup = null;
+  private List<ConvertRuleGroupForListCCRuleOutput> ruleGroup = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -91,6 +95,33 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCurrentPage(Integer currentPage) {
     this.currentPage = currentPage;
+  }
+
+  public ListCCRuleResponse data(List<DataForListCCRuleOutput> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListCCRuleResponse addDataItem(DataForListCCRuleOutput dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<DataForListCCRuleOutput>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DataForListCCRuleOutput> getData() {
+    return data;
+  }
+
+  public void setData(List<DataForListCCRuleOutput> data) {
+    this.data = data;
   }
 
   public ListCCRuleResponse enableCount(Integer enableCount) {
@@ -147,14 +178,14 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
     this.pageSize = pageSize;
   }
 
-  public ListCCRuleResponse ruleGroup(List<RuleGroupForListCCRuleOutput> ruleGroup) {
+  public ListCCRuleResponse ruleGroup(List<ConvertRuleGroupForListCCRuleOutput> ruleGroup) {
     this.ruleGroup = ruleGroup;
     return this;
   }
 
-  public ListCCRuleResponse addRuleGroupItem(RuleGroupForListCCRuleOutput ruleGroupItem) {
+  public ListCCRuleResponse addRuleGroupItem(ConvertRuleGroupForListCCRuleOutput ruleGroupItem) {
     if (this.ruleGroup == null) {
-      this.ruleGroup = new ArrayList<RuleGroupForListCCRuleOutput>();
+      this.ruleGroup = new ArrayList<ConvertRuleGroupForListCCRuleOutput>();
     }
     this.ruleGroup.add(ruleGroupItem);
     return this;
@@ -166,11 +197,11 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<RuleGroupForListCCRuleOutput> getRuleGroup() {
+  public List<ConvertRuleGroupForListCCRuleOutput> getRuleGroup() {
     return ruleGroup;
   }
 
-  public void setRuleGroup(List<RuleGroupForListCCRuleOutput> ruleGroup) {
+  public void setRuleGroup(List<ConvertRuleGroupForListCCRuleOutput> ruleGroup) {
     this.ruleGroup = ruleGroup;
   }
 
@@ -222,6 +253,7 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
     ListCCRuleResponse listCCRuleResponse = (ListCCRuleResponse) o;
     return Objects.equals(this.count, listCCRuleResponse.count) &&
         Objects.equals(this.currentPage, listCCRuleResponse.currentPage) &&
+        Objects.equals(this.data, listCCRuleResponse.data) &&
         Objects.equals(this.enableCount, listCCRuleResponse.enableCount) &&
         Objects.equals(this.insertTime, listCCRuleResponse.insertTime) &&
         Objects.equals(this.pageSize, listCCRuleResponse.pageSize) &&
@@ -232,7 +264,7 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, currentPage, enableCount, insertTime, pageSize, ruleGroup, totalCount, url);
+    return Objects.hash(count, currentPage, data, enableCount, insertTime, pageSize, ruleGroup, totalCount, url);
   }
 
 
@@ -243,6 +275,7 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    enableCount: ").append(toIndentedString(enableCount)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

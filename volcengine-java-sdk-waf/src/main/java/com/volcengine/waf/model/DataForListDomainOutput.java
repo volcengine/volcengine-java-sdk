@@ -259,6 +259,9 @@ public class DataForListDomainOutput {
   @SerializedName("WhiteFieldEnable")
   private Integer whiteFieldEnable = null;
 
+  @SerializedName("XFFReset")
+  private Integer xfFReset = null;
+
   public DataForListDomainOutput accessMode(Integer accessMode) {
     this.accessMode = accessMode;
     return this;
@@ -1644,6 +1647,24 @@ public class DataForListDomainOutput {
     this.whiteFieldEnable = whiteFieldEnable;
   }
 
+  public DataForListDomainOutput xfFReset(Integer xfFReset) {
+    this.xfFReset = xfFReset;
+    return this;
+  }
+
+   /**
+   * Get xfFReset
+   * @return xfFReset
+  **/
+  @Schema(description = "")
+  public Integer getXfFReset() {
+    return xfFReset;
+  }
+
+  public void setXfFReset(Integer xfFReset) {
+    this.xfFReset = xfFReset;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1727,12 +1748,13 @@ public class DataForListDomainOutput {
         Objects.equals(this.wafEnable, dataForListDomainOutput.wafEnable) &&
         Objects.equals(this.wafWhiteReqEnable, dataForListDomainOutput.wafWhiteReqEnable) &&
         Objects.equals(this.whiteEnable, dataForListDomainOutput.whiteEnable) &&
-        Objects.equals(this.whiteFieldEnable, dataForListDomainOutput.whiteFieldEnable);
+        Objects.equals(this.whiteFieldEnable, dataForListDomainOutput.whiteFieldEnable) &&
+        Objects.equals(this.xfFReset, dataForListDomainOutput.xfFReset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, certificateID, certificateName, certificatePlatform, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, customSNI, defenceMode, dlpEnable, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tlSFieldsConfig, tamperProofEnable, updateTime, volcCertificateID, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, certificateID, certificateName, certificatePlatform, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, customSNI, defenceMode, dlpEnable, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tlSFieldsConfig, tamperProofEnable, updateTime, volcCertificateID, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable, xfFReset);
   }
 
 
@@ -1815,6 +1837,7 @@ public class DataForListDomainOutput {
     sb.append("    wafWhiteReqEnable: ").append(toIndentedString(wafWhiteReqEnable)).append("\n");
     sb.append("    whiteEnable: ").append(toIndentedString(whiteEnable)).append("\n");
     sb.append("    whiteFieldEnable: ").append(toIndentedString(whiteFieldEnable)).append("\n");
+    sb.append("    xfFReset: ").append(toIndentedString(xfFReset)).append("\n");
     sb.append("}");
     return sb.toString();
   }

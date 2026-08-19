@@ -45,8 +45,7 @@ public class ListAreaBlockRuleRequest {
    * Get host
    * @return host
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getHost() {
     return host;
   }

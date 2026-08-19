@@ -36,6 +36,9 @@ public class AccurateGroupForListAclRuleOutput {
   @SerializedName("AccurateRules")
   private List<AccurateRuleForListAclRuleOutput> accurateRules = null;
 
+  @SerializedName("Id")
+  private Integer id = null;
+
   @SerializedName("Logic")
   private Integer logic = null;
 
@@ -64,6 +67,24 @@ public class AccurateGroupForListAclRuleOutput {
 
   public void setAccurateRules(List<AccurateRuleForListAclRuleOutput> accurateRules) {
     this.accurateRules = accurateRules;
+  }
+
+  public AccurateGroupForListAclRuleOutput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public AccurateGroupForListAclRuleOutput logic(Integer logic) {
@@ -95,12 +116,13 @@ public class AccurateGroupForListAclRuleOutput {
     }
     AccurateGroupForListAclRuleOutput accurateGroupForListAclRuleOutput = (AccurateGroupForListAclRuleOutput) o;
     return Objects.equals(this.accurateRules, accurateGroupForListAclRuleOutput.accurateRules) &&
+        Objects.equals(this.id, accurateGroupForListAclRuleOutput.id) &&
         Objects.equals(this.logic, accurateGroupForListAclRuleOutput.logic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateRules, logic);
+    return Objects.hash(accurateRules, id, logic);
   }
 
 
@@ -110,6 +132,7 @@ public class AccurateGroupForListAclRuleOutput {
     sb.append("class AccurateGroupForListAclRuleOutput {\n");
     
     sb.append("    accurateRules: ").append(toIndentedString(accurateRules)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    logic: ").append(toIndentedString(logic)).append("\n");
     sb.append("}");
     return sb.toString();

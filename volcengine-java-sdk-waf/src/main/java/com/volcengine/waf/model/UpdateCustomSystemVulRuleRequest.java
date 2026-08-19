@@ -36,6 +36,12 @@ public class UpdateCustomSystemVulRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("HostAddType")
+  private Integer hostAddType = null;
+
+  @SerializedName("HostList")
+  private List<String> hostList = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -51,14 +57,57 @@ public class UpdateCustomSystemVulRuleRequest {
    * Get host
    * @return host
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getHost() {
     return host;
   }
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public UpdateCustomSystemVulRuleRequest hostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+    return this;
+  }
+
+   /**
+   * Get hostAddType
+   * @return hostAddType
+  **/
+  @Schema(description = "")
+  public Integer getHostAddType() {
+    return hostAddType;
+  }
+
+  public void setHostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+  }
+
+  public UpdateCustomSystemVulRuleRequest hostList(List<String> hostList) {
+    this.hostList = hostList;
+    return this;
+  }
+
+  public UpdateCustomSystemVulRuleRequest addHostListItem(String hostListItem) {
+    if (this.hostList == null) {
+      this.hostList = new ArrayList<String>();
+    }
+    this.hostList.add(hostListItem);
+    return this;
+  }
+
+   /**
+   * Get hostList
+   * @return hostList
+  **/
+  @Schema(description = "")
+  public List<String> getHostList() {
+    return hostList;
+  }
+
+  public void setHostList(List<String> hostList) {
+    this.hostList = hostList;
   }
 
   public UpdateCustomSystemVulRuleRequest projectName(String projectName) {
@@ -117,13 +166,15 @@ public class UpdateCustomSystemVulRuleRequest {
     }
     UpdateCustomSystemVulRuleRequest updateCustomSystemVulRuleRequest = (UpdateCustomSystemVulRuleRequest) o;
     return Objects.equals(this.host, updateCustomSystemVulRuleRequest.host) &&
+        Objects.equals(this.hostAddType, updateCustomSystemVulRuleRequest.hostAddType) &&
+        Objects.equals(this.hostList, updateCustomSystemVulRuleRequest.hostList) &&
         Objects.equals(this.projectName, updateCustomSystemVulRuleRequest.projectName) &&
         Objects.equals(this.systemRuleSwitch, updateCustomSystemVulRuleRequest.systemRuleSwitch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, projectName, systemRuleSwitch);
+    return Objects.hash(host, hostAddType, hostList, projectName, systemRuleSwitch);
   }
 
 
@@ -133,6 +184,8 @@ public class UpdateCustomSystemVulRuleRequest {
     sb.append("class UpdateCustomSystemVulRuleRequest {\n");
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    hostAddType: ").append(toIndentedString(hostAddType)).append("\n");
+    sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    systemRuleSwitch: ").append(toIndentedString(systemRuleSwitch)).append("\n");
     sb.append("}");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,8 +32,54 @@ import javax.validation.Valid;
 
 
 public class ListBotAnalyseProtectRuleRequest {
-  @SerializedName("BotSpace")
-  private String botSpace = null;
+  @SerializedName("ActionTypeKey")
+  private List<Integer> actionTypeKey = null;
+
+  /**
+   * Gets or Sets botSpace
+   */
+  @JsonAdapter(BotSpaceEnum.Adapter.class)
+  public enum BotSpaceEnum {
+    @SerializedName("BotFrequency")
+    BOTFREQUENCY("BotFrequency"),
+    @SerializedName("BotRepeat")
+    BOTREPEAT("BotRepeat");
+
+    private String value;
+
+    BotSpaceEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BotSpaceEnum fromValue(String input) {
+      for (BotSpaceEnum b : BotSpaceEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BotSpaceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BotSpaceEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BotSpaceEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BotSpaceEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BotSpace")
+  private BotSpaceEnum botSpace = null;
 
   @SerializedName("Host")
   private String host = null;
@@ -57,7 +105,33 @@ public class ListBotAnalyseProtectRuleRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
-  public ListBotAnalyseProtectRuleRequest botSpace(String botSpace) {
+  public ListBotAnalyseProtectRuleRequest actionTypeKey(List<Integer> actionTypeKey) {
+    this.actionTypeKey = actionTypeKey;
+    return this;
+  }
+
+  public ListBotAnalyseProtectRuleRequest addActionTypeKeyItem(Integer actionTypeKeyItem) {
+    if (this.actionTypeKey == null) {
+      this.actionTypeKey = new ArrayList<Integer>();
+    }
+    this.actionTypeKey.add(actionTypeKeyItem);
+    return this;
+  }
+
+   /**
+   * Get actionTypeKey
+   * @return actionTypeKey
+  **/
+  @Schema(description = "")
+  public List<Integer> getActionTypeKey() {
+    return actionTypeKey;
+  }
+
+  public void setActionTypeKey(List<Integer> actionTypeKey) {
+    this.actionTypeKey = actionTypeKey;
+  }
+
+  public ListBotAnalyseProtectRuleRequest botSpace(BotSpaceEnum botSpace) {
     this.botSpace = botSpace;
     return this;
   }
@@ -66,13 +140,12 @@ public class ListBotAnalyseProtectRuleRequest {
    * Get botSpace
    * @return botSpace
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getBotSpace() {
+  @Schema(description = "")
+  public BotSpaceEnum getBotSpace() {
     return botSpace;
   }
 
-  public void setBotSpace(String botSpace) {
+  public void setBotSpace(BotSpaceEnum botSpace) {
     this.botSpace = botSpace;
   }
 
@@ -232,7 +305,8 @@ public class ListBotAnalyseProtectRuleRequest {
       return false;
     }
     ListBotAnalyseProtectRuleRequest listBotAnalyseProtectRuleRequest = (ListBotAnalyseProtectRuleRequest) o;
-    return Objects.equals(this.botSpace, listBotAnalyseProtectRuleRequest.botSpace) &&
+    return Objects.equals(this.actionTypeKey, listBotAnalyseProtectRuleRequest.actionTypeKey) &&
+        Objects.equals(this.botSpace, listBotAnalyseProtectRuleRequest.botSpace) &&
         Objects.equals(this.host, listBotAnalyseProtectRuleRequest.host) &&
         Objects.equals(this.name, listBotAnalyseProtectRuleRequest.name) &&
         Objects.equals(this.page, listBotAnalyseProtectRuleRequest.page) &&
@@ -245,7 +319,7 @@ public class ListBotAnalyseProtectRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(botSpace, host, name, page, pageSize, path, projectName, region, ruleTag);
+    return Objects.hash(actionTypeKey, botSpace, host, name, page, pageSize, path, projectName, region, ruleTag);
   }
 
 
@@ -254,6 +328,7 @@ public class ListBotAnalyseProtectRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBotAnalyseProtectRuleRequest {\n");
     
+    sb.append("    actionTypeKey: ").append(toIndentedString(actionTypeKey)).append("\n");
     sb.append("    botSpace: ").append(toIndentedString(botSpace)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

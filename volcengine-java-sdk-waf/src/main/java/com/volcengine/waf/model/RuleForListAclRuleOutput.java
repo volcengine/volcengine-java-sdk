@@ -38,8 +38,54 @@ public class RuleForListAclRuleOutput {
   @SerializedName("AccurateGroup")
   private AccurateGroupForListAclRuleOutput accurateGroup = null;
 
-  @SerializedName("Action")
-  private String action = null;
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    @SerializedName("block")
+    BLOCK("block"),
+    @SerializedName("observe")
+    OBSERVE("observe");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ActionEnum fromValue(String input) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Action")
+  private ActionEnum action = null;
+
+  @SerializedName("AddSrc")
+  private Integer addSrc = null;
 
   @SerializedName("Advanced")
   private Integer advanced = null;
@@ -52,6 +98,9 @@ public class RuleForListAclRuleOutput {
 
   @SerializedName("Enable")
   private Integer enable = null;
+
+  @SerializedName("Host")
+  private String host = null;
 
   @SerializedName("HostAddType")
   private Integer hostAddType = null;
@@ -89,6 +138,85 @@ public class RuleForListAclRuleOutput {
   @SerializedName("Name")
   private String name = null;
 
+  /**
+   * Gets or Sets permitFeature
+   */
+  @JsonAdapter(PermitFeatureEnum.Adapter.class)
+  public enum PermitFeatureEnum {
+    @SerializedName("allowlist")
+    ALLOWLIST("allowlist"),
+    @SerializedName("blocklist")
+    BLOCKLIST("blocklist"),
+    @SerializedName("geo_black")
+    GEO_BLACK("geo_black"),
+    @SerializedName("api_route")
+    API_ROUTE("api_route"),
+    @SerializedName("api_schema")
+    API_SCHEMA("api_schema"),
+    @SerializedName("api_sensitive")
+    API_SENSITIVE("api_sensitive"),
+    @SerializedName("bot_dytoken")
+    BOT_DYTOKEN("bot_dytoken"),
+    @SerializedName("bot_frequency")
+    BOT_FREQUENCY("bot_frequency"),
+    @SerializedName("bot_repeat")
+    BOT_REPEAT("bot_repeat"),
+    @SerializedName("bot_sequence")
+    BOT_SEQUENCE("bot_sequence"),
+    @SerializedName("user_ua_bot")
+    USER_UA_BOT("user_ua_bot"),
+    @SerializedName("bot_ua_system")
+    BOT_UA_SYSTEM("bot_ua_system"),
+    @SerializedName("httpflood")
+    HTTPFLOOD("httpflood"),
+    @SerializedName("vuln_signature")
+    VULN_SIGNATURE("vuln_signature"),
+    @SerializedName("scan_freqvuln")
+    SCAN_FREQVULN("scan_freqvuln"),
+    @SerializedName("scan_direnum")
+    SCAN_DIRENUM("scan_direnum"),
+    @SerializedName("bot_session_protection")
+    BOT_SESSION_PROTECTION("bot_session_protection");
+
+    private String value;
+
+    PermitFeatureEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PermitFeatureEnum fromValue(String input) {
+      for (PermitFeatureEnum b : PermitFeatureEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PermitFeatureEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PermitFeatureEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PermitFeatureEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PermitFeatureEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PermitFeature")
+  private List<PermitFeatureEnum> permitFeature = null;
+
+  @SerializedName("PrefixSwitch")
+  private Integer prefixSwitch = null;
+
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
@@ -117,7 +245,7 @@ public class RuleForListAclRuleOutput {
     this.accurateGroup = accurateGroup;
   }
 
-  public RuleForListAclRuleOutput action(String action) {
+  public RuleForListAclRuleOutput action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -127,12 +255,30 @@ public class RuleForListAclRuleOutput {
    * @return action
   **/
   @Schema(description = "")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
+  }
+
+  public RuleForListAclRuleOutput addSrc(Integer addSrc) {
+    this.addSrc = addSrc;
+    return this;
+  }
+
+   /**
+   * Get addSrc
+   * @return addSrc
+  **/
+  @Schema(description = "")
+  public Integer getAddSrc() {
+    return addSrc;
+  }
+
+  public void setAddSrc(Integer addSrc) {
+    this.addSrc = addSrc;
   }
 
   public RuleForListAclRuleOutput advanced(Integer advanced) {
@@ -205,6 +351,24 @@ public class RuleForListAclRuleOutput {
 
   public void setEnable(Integer enable) {
     this.enable = enable;
+  }
+
+  public RuleForListAclRuleOutput host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public RuleForListAclRuleOutput hostAddType(Integer hostAddType) {
@@ -489,6 +653,50 @@ public class RuleForListAclRuleOutput {
     this.name = name;
   }
 
+  public RuleForListAclRuleOutput permitFeature(List<PermitFeatureEnum> permitFeature) {
+    this.permitFeature = permitFeature;
+    return this;
+  }
+
+  public RuleForListAclRuleOutput addPermitFeatureItem(PermitFeatureEnum permitFeatureItem) {
+    if (this.permitFeature == null) {
+      this.permitFeature = new ArrayList<PermitFeatureEnum>();
+    }
+    this.permitFeature.add(permitFeatureItem);
+    return this;
+  }
+
+   /**
+   * Get permitFeature
+   * @return permitFeature
+  **/
+  @Schema(description = "")
+  public List<PermitFeatureEnum> getPermitFeature() {
+    return permitFeature;
+  }
+
+  public void setPermitFeature(List<PermitFeatureEnum> permitFeature) {
+    this.permitFeature = permitFeature;
+  }
+
+  public RuleForListAclRuleOutput prefixSwitch(Integer prefixSwitch) {
+    this.prefixSwitch = prefixSwitch;
+    return this;
+  }
+
+   /**
+   * Get prefixSwitch
+   * @return prefixSwitch
+  **/
+  @Schema(description = "")
+  public Integer getPrefixSwitch() {
+    return prefixSwitch;
+  }
+
+  public void setPrefixSwitch(Integer prefixSwitch) {
+    this.prefixSwitch = prefixSwitch;
+  }
+
   public RuleForListAclRuleOutput ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
@@ -555,10 +763,12 @@ public class RuleForListAclRuleOutput {
     RuleForListAclRuleOutput ruleForListAclRuleOutput = (RuleForListAclRuleOutput) o;
     return Objects.equals(this.accurateGroup, ruleForListAclRuleOutput.accurateGroup) &&
         Objects.equals(this.action, ruleForListAclRuleOutput.action) &&
+        Objects.equals(this.addSrc, ruleForListAclRuleOutput.addSrc) &&
         Objects.equals(this.advanced, ruleForListAclRuleOutput.advanced) &&
         Objects.equals(this.clientIp, ruleForListAclRuleOutput.clientIp) &&
         Objects.equals(this.description, ruleForListAclRuleOutput.description) &&
         Objects.equals(this.enable, ruleForListAclRuleOutput.enable) &&
+        Objects.equals(this.host, ruleForListAclRuleOutput.host) &&
         Objects.equals(this.hostAddType, ruleForListAclRuleOutput.hostAddType) &&
         Objects.equals(this.hostGroupId, ruleForListAclRuleOutput.hostGroupId) &&
         Objects.equals(this.hostGroups, ruleForListAclRuleOutput.hostGroups) &&
@@ -571,6 +781,8 @@ public class RuleForListAclRuleOutput {
         Objects.equals(this.ipLocationCountry, ruleForListAclRuleOutput.ipLocationCountry) &&
         Objects.equals(this.ipLocationSubregion, ruleForListAclRuleOutput.ipLocationSubregion) &&
         Objects.equals(this.name, ruleForListAclRuleOutput.name) &&
+        Objects.equals(this.permitFeature, ruleForListAclRuleOutput.permitFeature) &&
+        Objects.equals(this.prefixSwitch, ruleForListAclRuleOutput.prefixSwitch) &&
         Objects.equals(this.ruleTag, ruleForListAclRuleOutput.ruleTag) &&
         Objects.equals(this.updateTime, ruleForListAclRuleOutput.updateTime) &&
         Objects.equals(this.url, ruleForListAclRuleOutput.url);
@@ -578,7 +790,7 @@ public class RuleForListAclRuleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, action, advanced, clientIp, description, enable, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, ruleTag, updateTime, url);
+    return Objects.hash(accurateGroup, action, addSrc, advanced, clientIp, description, enable, host, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, permitFeature, prefixSwitch, ruleTag, updateTime, url);
   }
 
 
@@ -589,10 +801,12 @@ public class RuleForListAclRuleOutput {
     
     sb.append("    accurateGroup: ").append(toIndentedString(accurateGroup)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    addSrc: ").append(toIndentedString(addSrc)).append("\n");
     sb.append("    advanced: ").append(toIndentedString(advanced)).append("\n");
     sb.append("    clientIp: ").append(toIndentedString(clientIp)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    hostAddType: ").append(toIndentedString(hostAddType)).append("\n");
     sb.append("    hostGroupId: ").append(toIndentedString(hostGroupId)).append("\n");
     sb.append("    hostGroups: ").append(toIndentedString(hostGroups)).append("\n");
@@ -605,6 +819,8 @@ public class RuleForListAclRuleOutput {
     sb.append("    ipLocationCountry: ").append(toIndentedString(ipLocationCountry)).append("\n");
     sb.append("    ipLocationSubregion: ").append(toIndentedString(ipLocationSubregion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    permitFeature: ").append(toIndentedString(permitFeature)).append("\n");
+    sb.append("    prefixSwitch: ").append(toIndentedString(prefixSwitch)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

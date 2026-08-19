@@ -37,7 +37,7 @@ public class ListIpGroupRequest {
   private Integer ipGroupId = null;
 
   @SerializedName("ListAll")
-  private String listAll = null;
+  private Boolean listAll = null;
 
   @SerializedName("Page")
   private Integer page = null;
@@ -85,7 +85,7 @@ public class ListIpGroupRequest {
     this.ipGroupId = ipGroupId;
   }
 
-  public ListIpGroupRequest listAll(String listAll) {
+  public ListIpGroupRequest listAll(Boolean listAll) {
     this.listAll = listAll;
     return this;
   }
@@ -95,11 +95,11 @@ public class ListIpGroupRequest {
    * @return listAll
   **/
   @Schema(description = "")
-  public String getListAll() {
+  public Boolean isListAll() {
     return listAll;
   }
 
-  public void setListAll(String listAll) {
+  public void setListAll(Boolean listAll) {
     this.listAll = listAll;
   }
 

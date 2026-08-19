@@ -42,6 +42,9 @@ public class ListCustomBotConfigRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("RuleTag")
+  private String ruleTag = null;
+
   public ListCustomBotConfigRequest host(String host) {
     this.host = host;
     return this;
@@ -115,6 +118,24 @@ public class ListCustomBotConfigRequest {
     this.projectName = projectName;
   }
 
+  public ListCustomBotConfigRequest ruleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+    return this;
+  }
+
+   /**
+   * Get ruleTag
+   * @return ruleTag
+  **/
+  @Schema(description = "")
+  public String getRuleTag() {
+    return ruleTag;
+  }
+
+  public void setRuleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +149,13 @@ public class ListCustomBotConfigRequest {
     return Objects.equals(this.host, listCustomBotConfigRequest.host) &&
         Objects.equals(this.page, listCustomBotConfigRequest.page) &&
         Objects.equals(this.pageSize, listCustomBotConfigRequest.pageSize) &&
-        Objects.equals(this.projectName, listCustomBotConfigRequest.projectName);
+        Objects.equals(this.projectName, listCustomBotConfigRequest.projectName) &&
+        Objects.equals(this.ruleTag, listCustomBotConfigRequest.ruleTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName);
+    return Objects.hash(host, page, pageSize, projectName, ruleTag);
   }
 
 
@@ -146,6 +168,7 @@ public class ListCustomBotConfigRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

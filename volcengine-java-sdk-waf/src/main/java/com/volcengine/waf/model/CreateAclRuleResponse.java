@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.PageInfoForCreateAclRuleOutput;
+import com.volcengine.waf.model.ResponseMetadataForCreateAclRuleOutput;
+import com.volcengine.waf.model.ResultForCreateAclRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +35,15 @@ import javax.validation.Valid;
 public class CreateAclRuleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private Integer id = null;
+
+  @SerializedName("PageInfo")
+  private PageInfoForCreateAclRuleOutput pageInfo = null;
+
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForCreateAclRuleOutput responseMetadata = null;
+
+  @SerializedName("Result")
+  private ResultForCreateAclRuleOutput result = null;
 
   public CreateAclRuleResponse id(Integer id) {
     this.id = id;
@@ -51,6 +63,63 @@ public class CreateAclRuleResponse extends com.volcengine.model.AbstractResponse
     this.id = id;
   }
 
+  public CreateAclRuleResponse pageInfo(PageInfoForCreateAclRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+    return this;
+  }
+
+   /**
+   * Get pageInfo
+   * @return pageInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public PageInfoForCreateAclRuleOutput getPageInfo() {
+    return pageInfo;
+  }
+
+  public void setPageInfo(PageInfoForCreateAclRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+  }
+
+  public CreateAclRuleResponse responseMetadata(ResponseMetadataForCreateAclRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForCreateAclRuleOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForCreateAclRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
+  public CreateAclRuleResponse result(ResultForCreateAclRuleOutput result) {
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultForCreateAclRuleOutput getResult() {
+    return result;
+  }
+
+  public void setResult(ResultForCreateAclRuleOutput result) {
+    this.result = result;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +130,15 @@ public class CreateAclRuleResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     CreateAclRuleResponse createAclRuleResponse = (CreateAclRuleResponse) o;
-    return Objects.equals(this.id, createAclRuleResponse.id);
+    return Objects.equals(this.id, createAclRuleResponse.id) &&
+        Objects.equals(this.pageInfo, createAclRuleResponse.pageInfo) &&
+        Objects.equals(this.responseMetadata, createAclRuleResponse.responseMetadata) &&
+        Objects.equals(this.result, createAclRuleResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, pageInfo, responseMetadata, result);
   }
 
 
@@ -76,6 +148,9 @@ public class CreateAclRuleResponse extends com.volcengine.model.AbstractResponse
     sb.append("class CreateAclRuleResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }

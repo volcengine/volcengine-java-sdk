@@ -32,11 +32,97 @@ import javax.validation.Valid;
 
 
 public class ListAclRuleRequest {
-  @SerializedName("AclType")
-  private String aclType = null;
+  /**
+   * Gets or Sets aclType
+   */
+  @JsonAdapter(AclTypeEnum.Adapter.class)
+  public enum AclTypeEnum {
+    @SerializedName("Allow")
+    ALLOW("Allow"),
+    @SerializedName("Block")
+    BLOCK("Block");
 
-  @SerializedName("Action")
-  private List<String> action = null;
+    private String value;
+
+    AclTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AclTypeEnum fromValue(String input) {
+      for (AclTypeEnum b : AclTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AclTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AclTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AclTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AclTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AclType")
+  private AclTypeEnum aclType = null;
+
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    @SerializedName("block")
+    BLOCK("block"),
+    @SerializedName("observe")
+    OBSERVE("observe");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ActionEnum fromValue(String input) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Action")
+  private List<ActionEnum> action = null;
 
   @SerializedName("DefenceHost")
   private List<String> defenceHost = null;
@@ -59,10 +145,53 @@ public class ListAclRuleRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
-  @SerializedName("TimeOrderBy")
-  private String timeOrderBy = null;
+  /**
+   * Gets or Sets timeOrderBy
+   */
+  @JsonAdapter(TimeOrderByEnum.Adapter.class)
+  public enum TimeOrderByEnum {
+    @SerializedName("ASC")
+    ASC("ASC"),
+    @SerializedName("DESC")
+    DESC("DESC");
 
-  public ListAclRuleRequest aclType(String aclType) {
+    private String value;
+
+    TimeOrderByEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TimeOrderByEnum fromValue(String input) {
+      for (TimeOrderByEnum b : TimeOrderByEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TimeOrderByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TimeOrderByEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TimeOrderByEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TimeOrderByEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TimeOrderBy")
+  private TimeOrderByEnum timeOrderBy = null;
+
+  public ListAclRuleRequest aclType(AclTypeEnum aclType) {
     this.aclType = aclType;
     return this;
   }
@@ -73,22 +202,22 @@ public class ListAclRuleRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getAclType() {
+  public AclTypeEnum getAclType() {
     return aclType;
   }
 
-  public void setAclType(String aclType) {
+  public void setAclType(AclTypeEnum aclType) {
     this.aclType = aclType;
   }
 
-  public ListAclRuleRequest action(List<String> action) {
+  public ListAclRuleRequest action(List<ActionEnum> action) {
     this.action = action;
     return this;
   }
 
-  public ListAclRuleRequest addActionItem(String actionItem) {
+  public ListAclRuleRequest addActionItem(ActionEnum actionItem) {
     if (this.action == null) {
-      this.action = new ArrayList<String>();
+      this.action = new ArrayList<ActionEnum>();
     }
     this.action.add(actionItem);
     return this;
@@ -99,11 +228,11 @@ public class ListAclRuleRequest {
    * @return action
   **/
   @Schema(description = "")
-  public List<String> getAction() {
+  public List<ActionEnum> getAction() {
     return action;
   }
 
-  public void setAction(List<String> action) {
+  public void setAction(List<ActionEnum> action) {
     this.action = action;
   }
 
@@ -249,7 +378,7 @@ public class ListAclRuleRequest {
     this.ruleTag = ruleTag;
   }
 
-  public ListAclRuleRequest timeOrderBy(String timeOrderBy) {
+  public ListAclRuleRequest timeOrderBy(TimeOrderByEnum timeOrderBy) {
     this.timeOrderBy = timeOrderBy;
     return this;
   }
@@ -259,11 +388,11 @@ public class ListAclRuleRequest {
    * @return timeOrderBy
   **/
   @Schema(description = "")
-  public String getTimeOrderBy() {
+  public TimeOrderByEnum getTimeOrderBy() {
     return timeOrderBy;
   }
 
-  public void setTimeOrderBy(String timeOrderBy) {
+  public void setTimeOrderBy(TimeOrderByEnum timeOrderBy) {
     this.timeOrderBy = timeOrderBy;
   }
 

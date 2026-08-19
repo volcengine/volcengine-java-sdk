@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.AccurateGroupForCreateBotAnalyseProtectRuleInput;
+import com.volcengine.waf.model.CronConfForCreateBotAnalyseProtectRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,13 +35,19 @@ import javax.validation.Valid;
 
 public class CreateBotAnalyseProtectRuleRequest {
   @SerializedName("AccurateGroup")
-  private List<AccurateGroupForCreateBotAnalyseProtectRuleInput> accurateGroup = null;
+  private AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroup = null;
 
-  @SerializedName("ActionAfterVerification")
-  private Integer actionAfterVerification = null;
+  @SerializedName("AccurateGroupPriority")
+  private Integer accurateGroupPriority = null;
 
   @SerializedName("ActionType")
   private Integer actionType = null;
+
+  @SerializedName("CronConfs")
+  private List<CronConfForCreateBotAnalyseProtectRuleInput> cronConfs = null;
+
+  @SerializedName("CronEnable")
+  private Integer cronEnable = null;
 
   @SerializedName("EffectTime")
   private Integer effectTime = null;
@@ -84,16 +91,8 @@ public class CreateBotAnalyseProtectRuleRequest {
   @SerializedName("StatisticalType")
   private Integer statisticalType = null;
 
-  public CreateBotAnalyseProtectRuleRequest accurateGroup(List<AccurateGroupForCreateBotAnalyseProtectRuleInput> accurateGroup) {
+  public CreateBotAnalyseProtectRuleRequest accurateGroup(AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
-    return this;
-  }
-
-  public CreateBotAnalyseProtectRuleRequest addAccurateGroupItem(AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroupItem) {
-    if (this.accurateGroup == null) {
-      this.accurateGroup = new ArrayList<AccurateGroupForCreateBotAnalyseProtectRuleInput>();
-    }
-    this.accurateGroup.add(accurateGroupItem);
     return this;
   }
 
@@ -103,30 +102,30 @@ public class CreateBotAnalyseProtectRuleRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<AccurateGroupForCreateBotAnalyseProtectRuleInput> getAccurateGroup() {
+  public AccurateGroupForCreateBotAnalyseProtectRuleInput getAccurateGroup() {
     return accurateGroup;
   }
 
-  public void setAccurateGroup(List<AccurateGroupForCreateBotAnalyseProtectRuleInput> accurateGroup) {
+  public void setAccurateGroup(AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
   }
 
-  public CreateBotAnalyseProtectRuleRequest actionAfterVerification(Integer actionAfterVerification) {
-    this.actionAfterVerification = actionAfterVerification;
+  public CreateBotAnalyseProtectRuleRequest accurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
     return this;
   }
 
    /**
-   * Get actionAfterVerification
-   * @return actionAfterVerification
+   * Get accurateGroupPriority
+   * @return accurateGroupPriority
   **/
   @Schema(description = "")
-  public Integer getActionAfterVerification() {
-    return actionAfterVerification;
+  public Integer getAccurateGroupPriority() {
+    return accurateGroupPriority;
   }
 
-  public void setActionAfterVerification(Integer actionAfterVerification) {
-    this.actionAfterVerification = actionAfterVerification;
+  public void setAccurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
   }
 
   public CreateBotAnalyseProtectRuleRequest actionType(Integer actionType) {
@@ -148,6 +147,51 @@ public class CreateBotAnalyseProtectRuleRequest {
     this.actionType = actionType;
   }
 
+  public CreateBotAnalyseProtectRuleRequest cronConfs(List<CronConfForCreateBotAnalyseProtectRuleInput> cronConfs) {
+    this.cronConfs = cronConfs;
+    return this;
+  }
+
+  public CreateBotAnalyseProtectRuleRequest addCronConfsItem(CronConfForCreateBotAnalyseProtectRuleInput cronConfsItem) {
+    if (this.cronConfs == null) {
+      this.cronConfs = new ArrayList<CronConfForCreateBotAnalyseProtectRuleInput>();
+    }
+    this.cronConfs.add(cronConfsItem);
+    return this;
+  }
+
+   /**
+   * Get cronConfs
+   * @return cronConfs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CronConfForCreateBotAnalyseProtectRuleInput> getCronConfs() {
+    return cronConfs;
+  }
+
+  public void setCronConfs(List<CronConfForCreateBotAnalyseProtectRuleInput> cronConfs) {
+    this.cronConfs = cronConfs;
+  }
+
+  public CreateBotAnalyseProtectRuleRequest cronEnable(Integer cronEnable) {
+    this.cronEnable = cronEnable;
+    return this;
+  }
+
+   /**
+   * Get cronEnable
+   * @return cronEnable
+  **/
+  @Schema(description = "")
+  public Integer getCronEnable() {
+    return cronEnable;
+  }
+
+  public void setCronEnable(Integer cronEnable) {
+    this.cronEnable = cronEnable;
+  }
+
   public CreateBotAnalyseProtectRuleRequest effectTime(Integer effectTime) {
     this.effectTime = effectTime;
     return this;
@@ -157,8 +201,7 @@ public class CreateBotAnalyseProtectRuleRequest {
    * Get effectTime
    * @return effectTime
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getEffectTime() {
     return effectTime;
   }
@@ -362,8 +405,7 @@ public class CreateBotAnalyseProtectRuleRequest {
    * Get singleThreshold
    * @return singleThreshold
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getSingleThreshold() {
     return singleThreshold;
   }
@@ -421,8 +463,10 @@ public class CreateBotAnalyseProtectRuleRequest {
     }
     CreateBotAnalyseProtectRuleRequest createBotAnalyseProtectRuleRequest = (CreateBotAnalyseProtectRuleRequest) o;
     return Objects.equals(this.accurateGroup, createBotAnalyseProtectRuleRequest.accurateGroup) &&
-        Objects.equals(this.actionAfterVerification, createBotAnalyseProtectRuleRequest.actionAfterVerification) &&
+        Objects.equals(this.accurateGroupPriority, createBotAnalyseProtectRuleRequest.accurateGroupPriority) &&
         Objects.equals(this.actionType, createBotAnalyseProtectRuleRequest.actionType) &&
+        Objects.equals(this.cronConfs, createBotAnalyseProtectRuleRequest.cronConfs) &&
+        Objects.equals(this.cronEnable, createBotAnalyseProtectRuleRequest.cronEnable) &&
         Objects.equals(this.effectTime, createBotAnalyseProtectRuleRequest.effectTime) &&
         Objects.equals(this.enable, createBotAnalyseProtectRuleRequest.enable) &&
         Objects.equals(this.exemptionTime, createBotAnalyseProtectRuleRequest.exemptionTime) &&
@@ -441,7 +485,7 @@ public class CreateBotAnalyseProtectRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, actionAfterVerification, actionType, effectTime, enable, exemptionTime, field, host, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType);
+    return Objects.hash(accurateGroup, accurateGroupPriority, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType);
   }
 
 
@@ -451,8 +495,10 @@ public class CreateBotAnalyseProtectRuleRequest {
     sb.append("class CreateBotAnalyseProtectRuleRequest {\n");
     
     sb.append("    accurateGroup: ").append(toIndentedString(accurateGroup)).append("\n");
-    sb.append("    actionAfterVerification: ").append(toIndentedString(actionAfterVerification)).append("\n");
+    sb.append("    accurateGroupPriority: ").append(toIndentedString(accurateGroupPriority)).append("\n");
     sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
+    sb.append("    cronConfs: ").append(toIndentedString(cronConfs)).append("\n");
+    sb.append("    cronEnable: ").append(toIndentedString(cronEnable)).append("\n");
     sb.append("    effectTime: ").append(toIndentedString(effectTime)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    exemptionTime: ").append(toIndentedString(exemptionTime)).append("\n");

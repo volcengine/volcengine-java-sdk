@@ -33,11 +33,35 @@ import javax.validation.Valid;
 
 
 public class AccurateGroupForCreateCCRuleInput {
+  @SerializedName("AccurateGroupPriority")
+  private Integer accurateGroupPriority = null;
+
   @SerializedName("AccurateRules")
   private List<AccurateRuleForCreateCCRuleInput> accurateRules = null;
 
+  @SerializedName("Id")
+  private Integer id = null;
+
   @SerializedName("Logic")
   private Integer logic = null;
+
+  public AccurateGroupForCreateCCRuleInput accurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
+    return this;
+  }
+
+   /**
+   * Get accurateGroupPriority
+   * @return accurateGroupPriority
+  **/
+  @Schema(description = "")
+  public Integer getAccurateGroupPriority() {
+    return accurateGroupPriority;
+  }
+
+  public void setAccurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
+  }
 
   public AccurateGroupForCreateCCRuleInput accurateRules(List<AccurateRuleForCreateCCRuleInput> accurateRules) {
     this.accurateRules = accurateRules;
@@ -64,6 +88,24 @@ public class AccurateGroupForCreateCCRuleInput {
 
   public void setAccurateRules(List<AccurateRuleForCreateCCRuleInput> accurateRules) {
     this.accurateRules = accurateRules;
+  }
+
+  public AccurateGroupForCreateCCRuleInput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public AccurateGroupForCreateCCRuleInput logic(Integer logic) {
@@ -94,13 +136,15 @@ public class AccurateGroupForCreateCCRuleInput {
       return false;
     }
     AccurateGroupForCreateCCRuleInput accurateGroupForCreateCCRuleInput = (AccurateGroupForCreateCCRuleInput) o;
-    return Objects.equals(this.accurateRules, accurateGroupForCreateCCRuleInput.accurateRules) &&
+    return Objects.equals(this.accurateGroupPriority, accurateGroupForCreateCCRuleInput.accurateGroupPriority) &&
+        Objects.equals(this.accurateRules, accurateGroupForCreateCCRuleInput.accurateRules) &&
+        Objects.equals(this.id, accurateGroupForCreateCCRuleInput.id) &&
         Objects.equals(this.logic, accurateGroupForCreateCCRuleInput.logic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateRules, logic);
+    return Objects.hash(accurateGroupPriority, accurateRules, id, logic);
   }
 
 
@@ -109,7 +153,9 @@ public class AccurateGroupForCreateCCRuleInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccurateGroupForCreateCCRuleInput {\n");
     
+    sb.append("    accurateGroupPriority: ").append(toIndentedString(accurateGroupPriority)).append("\n");
     sb.append("    accurateRules: ").append(toIndentedString(accurateRules)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    logic: ").append(toIndentedString(logic)).append("\n");
     sb.append("}");
     return sb.toString();

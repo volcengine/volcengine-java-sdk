@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.PageInfoForUpdateAclRuleOutput;
+import com.volcengine.waf.model.ResponseMetadataForUpdateAclRuleOutput;
+import com.volcengine.waf.model.ResultForUpdateAclRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +35,15 @@ import javax.validation.Valid;
 public class UpdateAclRuleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private Integer id = null;
+
+  @SerializedName("PageInfo")
+  private PageInfoForUpdateAclRuleOutput pageInfo = null;
+
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForUpdateAclRuleOutput responseMetadata = null;
+
+  @SerializedName("Result")
+  private ResultForUpdateAclRuleOutput result = null;
 
   public UpdateAclRuleResponse id(Integer id) {
     this.id = id;
@@ -51,6 +63,63 @@ public class UpdateAclRuleResponse extends com.volcengine.model.AbstractResponse
     this.id = id;
   }
 
+  public UpdateAclRuleResponse pageInfo(PageInfoForUpdateAclRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+    return this;
+  }
+
+   /**
+   * Get pageInfo
+   * @return pageInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public PageInfoForUpdateAclRuleOutput getPageInfo() {
+    return pageInfo;
+  }
+
+  public void setPageInfo(PageInfoForUpdateAclRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+  }
+
+  public UpdateAclRuleResponse responseMetadata(ResponseMetadataForUpdateAclRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForUpdateAclRuleOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForUpdateAclRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
+  public UpdateAclRuleResponse result(ResultForUpdateAclRuleOutput result) {
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultForUpdateAclRuleOutput getResult() {
+    return result;
+  }
+
+  public void setResult(ResultForUpdateAclRuleOutput result) {
+    this.result = result;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +130,15 @@ public class UpdateAclRuleResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     UpdateAclRuleResponse updateAclRuleResponse = (UpdateAclRuleResponse) o;
-    return Objects.equals(this.id, updateAclRuleResponse.id);
+    return Objects.equals(this.id, updateAclRuleResponse.id) &&
+        Objects.equals(this.pageInfo, updateAclRuleResponse.pageInfo) &&
+        Objects.equals(this.responseMetadata, updateAclRuleResponse.responseMetadata) &&
+        Objects.equals(this.result, updateAclRuleResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, pageInfo, responseMetadata, result);
   }
 
 
@@ -76,6 +148,9 @@ public class UpdateAclRuleResponse extends com.volcengine.model.AbstractResponse
     sb.append("class UpdateAclRuleResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }

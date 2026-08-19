@@ -33,11 +33,35 @@ import javax.validation.Valid;
 
 
 public class AccurateGroupForCreateBotAnalyseProtectRuleInput {
+  @SerializedName("AccurateGroupPriority")
+  private Integer accurateGroupPriority = null;
+
   @SerializedName("AccurateRules")
   private List<AccurateRuleForCreateBotAnalyseProtectRuleInput> accurateRules = null;
 
+  @SerializedName("Id")
+  private Integer id = null;
+
   @SerializedName("Logic")
   private Integer logic = null;
+
+  public AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
+    return this;
+  }
+
+   /**
+   * Get accurateGroupPriority
+   * @return accurateGroupPriority
+  **/
+  @Schema(description = "")
+  public Integer getAccurateGroupPriority() {
+    return accurateGroupPriority;
+  }
+
+  public void setAccurateGroupPriority(Integer accurateGroupPriority) {
+    this.accurateGroupPriority = accurateGroupPriority;
+  }
 
   public AccurateGroupForCreateBotAnalyseProtectRuleInput accurateRules(List<AccurateRuleForCreateBotAnalyseProtectRuleInput> accurateRules) {
     this.accurateRules = accurateRules;
@@ -64,6 +88,24 @@ public class AccurateGroupForCreateBotAnalyseProtectRuleInput {
 
   public void setAccurateRules(List<AccurateRuleForCreateBotAnalyseProtectRuleInput> accurateRules) {
     this.accurateRules = accurateRules;
+  }
+
+  public AccurateGroupForCreateBotAnalyseProtectRuleInput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public AccurateGroupForCreateBotAnalyseProtectRuleInput logic(Integer logic) {
@@ -94,13 +136,15 @@ public class AccurateGroupForCreateBotAnalyseProtectRuleInput {
       return false;
     }
     AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroupForCreateBotAnalyseProtectRuleInput = (AccurateGroupForCreateBotAnalyseProtectRuleInput) o;
-    return Objects.equals(this.accurateRules, accurateGroupForCreateBotAnalyseProtectRuleInput.accurateRules) &&
+    return Objects.equals(this.accurateGroupPriority, accurateGroupForCreateBotAnalyseProtectRuleInput.accurateGroupPriority) &&
+        Objects.equals(this.accurateRules, accurateGroupForCreateBotAnalyseProtectRuleInput.accurateRules) &&
+        Objects.equals(this.id, accurateGroupForCreateBotAnalyseProtectRuleInput.id) &&
         Objects.equals(this.logic, accurateGroupForCreateBotAnalyseProtectRuleInput.logic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateRules, logic);
+    return Objects.hash(accurateGroupPriority, accurateRules, id, logic);
   }
 
 
@@ -109,7 +153,9 @@ public class AccurateGroupForCreateBotAnalyseProtectRuleInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccurateGroupForCreateBotAnalyseProtectRuleInput {\n");
     
+    sb.append("    accurateGroupPriority: ").append(toIndentedString(accurateGroupPriority)).append("\n");
     sb.append("    accurateRules: ").append(toIndentedString(accurateRules)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    logic: ").append(toIndentedString(logic)).append("\n");
     sb.append("}");
     return sb.toString();
