@@ -20,13 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForUpdateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConvertTosForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EfsAPForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EfsForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasAPForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.SfcsForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.TosAPForUpdateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.TosForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsForUpdateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -59,7 +59,7 @@ public class ConfigForUpdateDeploymentInput {
   private SfcsForUpdateDeploymentInput sfcs = null;
 
   @SerializedName("Tos")
-  private TosForUpdateDeploymentInput tos = null;
+  private ConvertTosForUpdateDeploymentInput tos = null;
 
   @SerializedName("TosAP")
   private TosAPForUpdateDeploymentInput tosAP = null;
@@ -184,7 +184,7 @@ public class ConfigForUpdateDeploymentInput {
     this.sfcs = sfcs;
   }
 
-  public ConfigForUpdateDeploymentInput tos(TosForUpdateDeploymentInput tos) {
+  public ConfigForUpdateDeploymentInput tos(ConvertTosForUpdateDeploymentInput tos) {
     this.tos = tos;
     return this;
   }
@@ -195,11 +195,11 @@ public class ConfigForUpdateDeploymentInput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForUpdateDeploymentInput getTos() {
+  public ConvertTosForUpdateDeploymentInput getTos() {
     return tos;
   }
 
-  public void setTos(TosForUpdateDeploymentInput tos) {
+  public void setTos(ConvertTosForUpdateDeploymentInput tos) {
     this.tos = tos;
   }
 

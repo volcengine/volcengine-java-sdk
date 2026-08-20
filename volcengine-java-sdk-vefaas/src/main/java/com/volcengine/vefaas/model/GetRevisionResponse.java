@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.AsyncTaskConfigForGetRevisionOutput;
+import com.volcengine.vefaas.model.EfsMountConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.EnvForGetRevisionOutput;
 import com.volcengine.vefaas.model.HealthCheckConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.NasStorageForGetRevisionOutput;
@@ -53,6 +54,9 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EfsMountConfig")
+  private EfsMountConfigForGetRevisionOutput efsMountConfig = null;
 
   @SerializedName("Envs")
   private List<EnvForGetRevisionOutput> envs = null;
@@ -212,6 +216,25 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public GetRevisionResponse efsMountConfig(EfsMountConfigForGetRevisionOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get efsMountConfig
+   * @return efsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsMountConfigForGetRevisionOutput getEfsMountConfig() {
+    return efsMountConfig;
+  }
+
+  public void setEfsMountConfig(EfsMountConfigForGetRevisionOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
   }
 
   public GetRevisionResponse envs(List<EnvForGetRevisionOutput> envs) {
@@ -657,6 +680,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.codeSizeLimit, getRevisionResponse.codeSizeLimit) &&
         Objects.equals(this.creationTime, getRevisionResponse.creationTime) &&
         Objects.equals(this.description, getRevisionResponse.description) &&
+        Objects.equals(this.efsMountConfig, getRevisionResponse.efsMountConfig) &&
         Objects.equals(this.envs, getRevisionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getRevisionResponse.exclusiveMode) &&
         Objects.equals(this.healthCheckConfig, getRevisionResponse.healthCheckConfig) &&
@@ -684,7 +708,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, efsMountConfig, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -698,6 +722,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    healthCheckConfig: ").append(toIndentedString(healthCheckConfig)).append("\n");

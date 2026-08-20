@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.arkclaw.model.FieldMaskForUpdateScheduledJobInput;
+import com.volcengine.arkclaw.model.ResultDeliveryForUpdateScheduledJobInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -45,6 +46,9 @@ public class UpdateScheduledJobRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ResultDelivery")
+  private ResultDeliveryForUpdateScheduledJobInput resultDelivery = null;
 
   @SerializedName("ScheduleExpr")
   private String scheduleExpr = null;
@@ -153,6 +157,25 @@ public class UpdateScheduledJobRequest {
     this.projectName = projectName;
   }
 
+  public UpdateScheduledJobRequest resultDelivery(ResultDeliveryForUpdateScheduledJobInput resultDelivery) {
+    this.resultDelivery = resultDelivery;
+    return this;
+  }
+
+   /**
+   * Get resultDelivery
+   * @return resultDelivery
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultDeliveryForUpdateScheduledJobInput getResultDelivery() {
+    return resultDelivery;
+  }
+
+  public void setResultDelivery(ResultDeliveryForUpdateScheduledJobInput resultDelivery) {
+    this.resultDelivery = resultDelivery;
+  }
+
   public UpdateScheduledJobRequest scheduleExpr(String scheduleExpr) {
     this.scheduleExpr = scheduleExpr;
     return this;
@@ -259,6 +282,7 @@ public class UpdateScheduledJobRequest {
         Objects.equals(this.jobId, updateScheduledJobRequest.jobId) &&
         Objects.equals(this.name, updateScheduledJobRequest.name) &&
         Objects.equals(this.projectName, updateScheduledJobRequest.projectName) &&
+        Objects.equals(this.resultDelivery, updateScheduledJobRequest.resultDelivery) &&
         Objects.equals(this.scheduleExpr, updateScheduledJobRequest.scheduleExpr) &&
         Objects.equals(this.scheduleType, updateScheduledJobRequest.scheduleType) &&
         Objects.equals(this.spaceId, updateScheduledJobRequest.spaceId) &&
@@ -268,7 +292,7 @@ public class UpdateScheduledJobRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldMask, instructions, jobId, name, projectName, scheduleExpr, scheduleType, spaceId, timeoutMinutes, timezone);
+    return Objects.hash(fieldMask, instructions, jobId, name, projectName, resultDelivery, scheduleExpr, scheduleType, spaceId, timeoutMinutes, timezone);
   }
 
 
@@ -282,6 +306,7 @@ public class UpdateScheduledJobRequest {
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    resultDelivery: ").append(toIndentedString(resultDelivery)).append("\n");
     sb.append("    scheduleExpr: ").append(toIndentedString(scheduleExpr)).append("\n");
     sb.append("    scheduleType: ").append(toIndentedString(scheduleType)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +43,12 @@ public class DataForListVulWhiteFieldOutput {
 
   @SerializedName("Host")
   private String host = null;
+
+  @SerializedName("HostAddType")
+  private Integer hostAddType = null;
+
+  @SerializedName("HostList")
+  private List<String> hostList = null;
 
   @SerializedName("ID")
   private Integer ID = null;
@@ -124,6 +132,50 @@ public class DataForListVulWhiteFieldOutput {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public DataForListVulWhiteFieldOutput hostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+    return this;
+  }
+
+   /**
+   * Get hostAddType
+   * @return hostAddType
+  **/
+  @Schema(description = "")
+  public Integer getHostAddType() {
+    return hostAddType;
+  }
+
+  public void setHostAddType(Integer hostAddType) {
+    this.hostAddType = hostAddType;
+  }
+
+  public DataForListVulWhiteFieldOutput hostList(List<String> hostList) {
+    this.hostList = hostList;
+    return this;
+  }
+
+  public DataForListVulWhiteFieldOutput addHostListItem(String hostListItem) {
+    if (this.hostList == null) {
+      this.hostList = new ArrayList<String>();
+    }
+    this.hostList.add(hostListItem);
+    return this;
+  }
+
+   /**
+   * Get hostList
+   * @return hostList
+  **/
+  @Schema(description = "")
+  public List<String> getHostList() {
+    return hostList;
+  }
+
+  public void setHostList(List<String> hostList) {
+    this.hostList = hostList;
   }
 
   public DataForListVulWhiteFieldOutput ID(Integer ID) {
@@ -212,6 +264,8 @@ public class DataForListVulWhiteFieldOutput {
         Objects.equals(this.fieldArea, dataForListVulWhiteFieldOutput.fieldArea) &&
         Objects.equals(this.fieldList, dataForListVulWhiteFieldOutput.fieldList) &&
         Objects.equals(this.host, dataForListVulWhiteFieldOutput.host) &&
+        Objects.equals(this.hostAddType, dataForListVulWhiteFieldOutput.hostAddType) &&
+        Objects.equals(this.hostList, dataForListVulWhiteFieldOutput.hostList) &&
         Objects.equals(this.ID, dataForListVulWhiteFieldOutput.ID) &&
         Objects.equals(this.name, dataForListVulWhiteFieldOutput.name) &&
         Objects.equals(this.ruleTag, dataForListVulWhiteFieldOutput.ruleTag) &&
@@ -220,7 +274,7 @@ public class DataForListVulWhiteFieldOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, fieldArea, fieldList, host, ID, name, ruleTag, updateTime);
+    return Objects.hash(enable, fieldArea, fieldList, host, hostAddType, hostList, ID, name, ruleTag, updateTime);
   }
 
 
@@ -233,6 +287,8 @@ public class DataForListVulWhiteFieldOutput {
     sb.append("    fieldArea: ").append(toIndentedString(fieldArea)).append("\n");
     sb.append("    fieldList: ").append(toIndentedString(fieldList)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    hostAddType: ").append(toIndentedString(hostAddType)).append("\n");
+    sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");

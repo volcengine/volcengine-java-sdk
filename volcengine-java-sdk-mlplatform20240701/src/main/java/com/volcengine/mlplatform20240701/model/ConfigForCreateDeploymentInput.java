@@ -20,13 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mlplatform20240701.model.CfsForCreateDeploymentInput;
+import com.volcengine.mlplatform20240701.model.ConvertTosForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EfsAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.EfsForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.NasForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.SfcsForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.TosAPForCreateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.TosForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsAPForCreateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.VepfsForCreateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -59,7 +59,7 @@ public class ConfigForCreateDeploymentInput {
   private SfcsForCreateDeploymentInput sfcs = null;
 
   @SerializedName("Tos")
-  private TosForCreateDeploymentInput tos = null;
+  private ConvertTosForCreateDeploymentInput tos = null;
 
   @SerializedName("TosAP")
   private TosAPForCreateDeploymentInput tosAP = null;
@@ -184,7 +184,7 @@ public class ConfigForCreateDeploymentInput {
     this.sfcs = sfcs;
   }
 
-  public ConfigForCreateDeploymentInput tos(TosForCreateDeploymentInput tos) {
+  public ConfigForCreateDeploymentInput tos(ConvertTosForCreateDeploymentInput tos) {
     this.tos = tos;
     return this;
   }
@@ -195,11 +195,11 @@ public class ConfigForCreateDeploymentInput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForCreateDeploymentInput getTos() {
+  public ConvertTosForCreateDeploymentInput getTos() {
     return tos;
   }
 
-  public void setTos(TosForCreateDeploymentInput tos) {
+  public void setTos(ConvertTosForCreateDeploymentInput tos) {
     this.tos = tos;
   }
 

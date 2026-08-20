@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.EfsMountConfigForListFunctionsOutput;
 import com.volcengine.vefaas.model.EnvForListFunctionsOutput;
 import com.volcengine.vefaas.model.NasStorageForListFunctionsOutput;
 import com.volcengine.vefaas.model.TagForListFunctionsOutput;
@@ -61,6 +62,9 @@ public class ItemForListFunctionsOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EfsMountConfig")
+  private EfsMountConfigForListFunctionsOutput efsMountConfig = null;
 
   @SerializedName("EnableApmplus")
   private Boolean enableApmplus = null;
@@ -282,6 +286,25 @@ public class ItemForListFunctionsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ItemForListFunctionsOutput efsMountConfig(EfsMountConfigForListFunctionsOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get efsMountConfig
+   * @return efsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsMountConfigForListFunctionsOutput getEfsMountConfig() {
+    return efsMountConfig;
+  }
+
+  public void setEfsMountConfig(EfsMountConfigForListFunctionsOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
   }
 
   public ItemForListFunctionsOutput enableApmplus(Boolean enableApmplus) {
@@ -792,6 +815,7 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.cpuStrategy, itemForListFunctionsOutput.cpuStrategy) &&
         Objects.equals(this.creationTime, itemForListFunctionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
+        Objects.equals(this.efsMountConfig, itemForListFunctionsOutput.efsMountConfig) &&
         Objects.equals(this.enableApmplus, itemForListFunctionsOutput.enableApmplus) &&
         Objects.equals(this.envs, itemForListFunctionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListFunctionsOutput.exclusiveMode) &&
@@ -822,7 +846,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, efsMountConfig, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -839,6 +863,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");

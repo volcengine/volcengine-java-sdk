@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,12 @@ import javax.validation.Valid;
 public class ListAllIpGroupsRequest {
   @SerializedName("Ip")
   private String ip = null;
+
+  @SerializedName("IpGroupId")
+  private Integer ipGroupId = null;
+
+  @SerializedName("IpGroupIds")
+  private List<Integer> ipGroupIds = null;
 
   @SerializedName("Page")
   private Integer page = null;
@@ -64,6 +72,50 @@ public class ListAllIpGroupsRequest {
 
   public void setIp(String ip) {
     this.ip = ip;
+  }
+
+  public ListAllIpGroupsRequest ipGroupId(Integer ipGroupId) {
+    this.ipGroupId = ipGroupId;
+    return this;
+  }
+
+   /**
+   * Get ipGroupId
+   * @return ipGroupId
+  **/
+  @Schema(description = "")
+  public Integer getIpGroupId() {
+    return ipGroupId;
+  }
+
+  public void setIpGroupId(Integer ipGroupId) {
+    this.ipGroupId = ipGroupId;
+  }
+
+  public ListAllIpGroupsRequest ipGroupIds(List<Integer> ipGroupIds) {
+    this.ipGroupIds = ipGroupIds;
+    return this;
+  }
+
+  public ListAllIpGroupsRequest addIpGroupIdsItem(Integer ipGroupIdsItem) {
+    if (this.ipGroupIds == null) {
+      this.ipGroupIds = new ArrayList<Integer>();
+    }
+    this.ipGroupIds.add(ipGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get ipGroupIds
+   * @return ipGroupIds
+  **/
+  @Schema(description = "")
+  public List<Integer> getIpGroupIds() {
+    return ipGroupIds;
+  }
+
+  public void setIpGroupIds(List<Integer> ipGroupIds) {
+    this.ipGroupIds = ipGroupIds;
   }
 
   public ListAllIpGroupsRequest page(Integer page) {
@@ -168,6 +220,8 @@ public class ListAllIpGroupsRequest {
     }
     ListAllIpGroupsRequest listAllIpGroupsRequest = (ListAllIpGroupsRequest) o;
     return Objects.equals(this.ip, listAllIpGroupsRequest.ip) &&
+        Objects.equals(this.ipGroupId, listAllIpGroupsRequest.ipGroupId) &&
+        Objects.equals(this.ipGroupIds, listAllIpGroupsRequest.ipGroupIds) &&
         Objects.equals(this.page, listAllIpGroupsRequest.page) &&
         Objects.equals(this.pageSize, listAllIpGroupsRequest.pageSize) &&
         Objects.equals(this.projectName, listAllIpGroupsRequest.projectName) &&
@@ -177,7 +231,7 @@ public class ListAllIpGroupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ip, page, pageSize, projectName, ruleTag, timeOrderBy);
+    return Objects.hash(ip, ipGroupId, ipGroupIds, page, pageSize, projectName, ruleTag, timeOrderBy);
   }
 
 
@@ -187,6 +241,8 @@ public class ListAllIpGroupsRequest {
     sb.append("class ListAllIpGroupsRequest {\n");
     
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    ipGroupId: ").append(toIndentedString(ipGroupId)).append("\n");
+    sb.append("    ipGroupIds: ").append(toIndentedString(ipGroupIds)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

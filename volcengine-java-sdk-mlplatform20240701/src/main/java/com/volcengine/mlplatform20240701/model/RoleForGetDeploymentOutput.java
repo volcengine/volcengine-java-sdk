@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.AsyncConfigForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.AutoscalerForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.CredentialForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.EnvForGetDeploymentOutput;
@@ -46,6 +47,9 @@ import javax.validation.Valid;
 
 
 public class RoleForGetDeploymentOutput {
+  @SerializedName("AsyncConfig")
+  private AsyncConfigForGetDeploymentOutput asyncConfig = null;
+
   @SerializedName("Autoscaler")
   private AutoscalerForGetDeploymentOutput autoscaler = null;
 
@@ -111,6 +115,25 @@ public class RoleForGetDeploymentOutput {
 
   @SerializedName("Storages")
   private List<StorageForGetDeploymentOutput> storages = null;
+
+  public RoleForGetDeploymentOutput asyncConfig(AsyncConfigForGetDeploymentOutput asyncConfig) {
+    this.asyncConfig = asyncConfig;
+    return this;
+  }
+
+   /**
+   * Get asyncConfig
+   * @return asyncConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AsyncConfigForGetDeploymentOutput getAsyncConfig() {
+    return asyncConfig;
+  }
+
+  public void setAsyncConfig(AsyncConfigForGetDeploymentOutput asyncConfig) {
+    this.asyncConfig = asyncConfig;
+  }
 
   public RoleForGetDeploymentOutput autoscaler(AutoscalerForGetDeploymentOutput autoscaler) {
     this.autoscaler = autoscaler;
@@ -564,7 +587,8 @@ public class RoleForGetDeploymentOutput {
       return false;
     }
     RoleForGetDeploymentOutput roleForGetDeploymentOutput = (RoleForGetDeploymentOutput) o;
-    return Objects.equals(this.autoscaler, roleForGetDeploymentOutput.autoscaler) &&
+    return Objects.equals(this.asyncConfig, roleForGetDeploymentOutput.asyncConfig) &&
+        Objects.equals(this.autoscaler, roleForGetDeploymentOutput.autoscaler) &&
         Objects.equals(this.command, roleForGetDeploymentOutput.command) &&
         Objects.equals(this.credential, roleForGetDeploymentOutput.credential) &&
         Objects.equals(this.envs, roleForGetDeploymentOutput.envs) &&
@@ -590,7 +614,7 @@ public class RoleForGetDeploymentOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoscaler, command, credential, envs, expose, gracefulShutdownPeriod, id, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, status, storages);
+    return Objects.hash(asyncConfig, autoscaler, command, credential, envs, expose, gracefulShutdownPeriod, id, image, livenessProbe, model, name, nodeAffinitySpec, ports, readinessProbe, replicas, resource, rollingUpdateStrategy, securityGroupIds, shardNum, startupProbe, status, storages);
   }
 
 
@@ -599,6 +623,7 @@ public class RoleForGetDeploymentOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleForGetDeploymentOutput {\n");
     
+    sb.append("    asyncConfig: ").append(toIndentedString(asyncConfig)).append("\n");
     sb.append("    autoscaler: ").append(toIndentedString(autoscaler)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");

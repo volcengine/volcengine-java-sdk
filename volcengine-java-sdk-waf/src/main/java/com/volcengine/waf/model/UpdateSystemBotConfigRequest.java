@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +32,59 @@ import javax.validation.Valid;
 
 
 public class UpdateSystemBotConfigRequest {
-  @SerializedName("Action")
-  private String action = null;
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    @SerializedName("observe")
+    OBSERVE("observe"),
+    @SerializedName("block")
+    BLOCK("block"),
+    @SerializedName("js")
+    JS("js"),
+    @SerializedName("pow")
+    POW("pow"),
+    @SerializedName("captcha")
+    CAPTCHA("captcha"),
+    @SerializedName("permit")
+    PERMIT("permit");
 
-  @SerializedName("BotType")
-  private String botType = null;
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ActionEnum fromValue(String input) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Action")
+  private ActionEnum action = null;
 
   @SerializedName("Enable")
   private Integer enable = null;
@@ -45,7 +95,13 @@ public class UpdateSystemBotConfigRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public UpdateSystemBotConfigRequest action(String action) {
+  @SerializedName("RuleTagList")
+  private List<String> ruleTagList = null;
+
+  @SerializedName("VerificationExemptionTime")
+  private Integer verificationExemptionTime = null;
+
+  public UpdateSystemBotConfigRequest action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -55,31 +111,12 @@ public class UpdateSystemBotConfigRequest {
    * @return action
   **/
   @Schema(description = "")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
-  }
-
-  public UpdateSystemBotConfigRequest botType(String botType) {
-    this.botType = botType;
-    return this;
-  }
-
-   /**
-   * Get botType
-   * @return botType
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getBotType() {
-    return botType;
-  }
-
-  public void setBotType(String botType) {
-    this.botType = botType;
   }
 
   public UpdateSystemBotConfigRequest enable(Integer enable) {
@@ -137,6 +174,50 @@ public class UpdateSystemBotConfigRequest {
     this.projectName = projectName;
   }
 
+  public UpdateSystemBotConfigRequest ruleTagList(List<String> ruleTagList) {
+    this.ruleTagList = ruleTagList;
+    return this;
+  }
+
+  public UpdateSystemBotConfigRequest addRuleTagListItem(String ruleTagListItem) {
+    if (this.ruleTagList == null) {
+      this.ruleTagList = new ArrayList<String>();
+    }
+    this.ruleTagList.add(ruleTagListItem);
+    return this;
+  }
+
+   /**
+   * Get ruleTagList
+   * @return ruleTagList
+  **/
+  @Schema(description = "")
+  public List<String> getRuleTagList() {
+    return ruleTagList;
+  }
+
+  public void setRuleTagList(List<String> ruleTagList) {
+    this.ruleTagList = ruleTagList;
+  }
+
+  public UpdateSystemBotConfigRequest verificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+    return this;
+  }
+
+   /**
+   * Get verificationExemptionTime
+   * @return verificationExemptionTime
+  **/
+  @Schema(description = "")
+  public Integer getVerificationExemptionTime() {
+    return verificationExemptionTime;
+  }
+
+  public void setVerificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,15 +229,16 @@ public class UpdateSystemBotConfigRequest {
     }
     UpdateSystemBotConfigRequest updateSystemBotConfigRequest = (UpdateSystemBotConfigRequest) o;
     return Objects.equals(this.action, updateSystemBotConfigRequest.action) &&
-        Objects.equals(this.botType, updateSystemBotConfigRequest.botType) &&
         Objects.equals(this.enable, updateSystemBotConfigRequest.enable) &&
         Objects.equals(this.host, updateSystemBotConfigRequest.host) &&
-        Objects.equals(this.projectName, updateSystemBotConfigRequest.projectName);
+        Objects.equals(this.projectName, updateSystemBotConfigRequest.projectName) &&
+        Objects.equals(this.ruleTagList, updateSystemBotConfigRequest.ruleTagList) &&
+        Objects.equals(this.verificationExemptionTime, updateSystemBotConfigRequest.verificationExemptionTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, botType, enable, host, projectName);
+    return Objects.hash(action, enable, host, projectName, ruleTagList, verificationExemptionTime);
   }
 
 
@@ -166,10 +248,11 @@ public class UpdateSystemBotConfigRequest {
     sb.append("class UpdateSystemBotConfigRequest {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    botType: ").append(toIndentedString(botType)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    ruleTagList: ").append(toIndentedString(ruleTagList)).append("\n");
+    sb.append("    verificationExemptionTime: ").append(toIndentedString(verificationExemptionTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

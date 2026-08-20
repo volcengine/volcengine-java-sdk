@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.ConvertMountPointForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.CredentialsForUpdateFunctionOutput;
-import com.volcengine.vefaas.model.MountPointForUpdateFunctionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class TosMountConfigForUpdateFunctionOutput {
+  @SerializedName("AuthMode")
+  private String authMode = null;
+
   @SerializedName("Credentials")
   private CredentialsForUpdateFunctionOutput credentials = null;
 
@@ -41,7 +44,43 @@ public class TosMountConfigForUpdateFunctionOutput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<MountPointForUpdateFunctionOutput> mountPoints = null;
+  private List<ConvertMountPointForUpdateFunctionOutput> mountPoints = null;
+
+  public TosMountConfigForUpdateFunctionOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
+
+  public TosMountConfigForUpdateFunctionOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
 
   public TosMountConfigForUpdateFunctionOutput credentials(CredentialsForUpdateFunctionOutput credentials) {
     this.credentials = credentials;
@@ -80,14 +119,14 @@ public class TosMountConfigForUpdateFunctionOutput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForUpdateFunctionOutput mountPoints(List<MountPointForUpdateFunctionOutput> mountPoints) {
+  public TosMountConfigForUpdateFunctionOutput mountPoints(List<ConvertMountPointForUpdateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForUpdateFunctionOutput addMountPointsItem(MountPointForUpdateFunctionOutput mountPointsItem) {
+  public TosMountConfigForUpdateFunctionOutput addMountPointsItem(ConvertMountPointForUpdateFunctionOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForUpdateFunctionOutput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForUpdateFunctionOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -99,11 +138,11 @@ public class TosMountConfigForUpdateFunctionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForUpdateFunctionOutput> getMountPoints() {
+  public List<ConvertMountPointForUpdateFunctionOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForUpdateFunctionOutput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForUpdateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 
@@ -117,14 +156,15 @@ public class TosMountConfigForUpdateFunctionOutput {
       return false;
     }
     TosMountConfigForUpdateFunctionOutput tosMountConfigForUpdateFunctionOutput = (TosMountConfigForUpdateFunctionOutput) o;
-    return Objects.equals(this.credentials, tosMountConfigForUpdateFunctionOutput.credentials) &&
+    return Objects.equals(this.authMode, tosMountConfigForUpdateFunctionOutput.authMode) &&
+        Objects.equals(this.credentials, tosMountConfigForUpdateFunctionOutput.credentials) &&
         Objects.equals(this.enableTos, tosMountConfigForUpdateFunctionOutput.enableTos) &&
         Objects.equals(this.mountPoints, tosMountConfigForUpdateFunctionOutput.mountPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentials, enableTos, mountPoints);
+    return Objects.hash(authMode, credentials, enableTos, mountPoints);
   }
 
 
@@ -133,6 +173,7 @@ public class TosMountConfigForUpdateFunctionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TosMountConfigForUpdateFunctionOutput {\n");
     
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    enableTos: ").append(toIndentedString(enableTos)).append("\n");
     sb.append("    mountPoints: ").append(toIndentedString(mountPoints)).append("\n");

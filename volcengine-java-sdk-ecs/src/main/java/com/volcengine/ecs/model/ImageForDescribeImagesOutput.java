@@ -74,6 +74,9 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("LicenseType")
   private String licenseType = null;
 
+  @SerializedName("LifecycleStatus")
+  private String lifecycleStatus = null;
+
   @SerializedName("MarketplaceImageBillType")
   private Integer marketplaceImageBillType = null;
 
@@ -352,6 +355,24 @@ public class ImageForDescribeImagesOutput {
 
   public void setLicenseType(String licenseType) {
     this.licenseType = licenseType;
+  }
+
+  public ImageForDescribeImagesOutput lifecycleStatus(String lifecycleStatus) {
+    this.lifecycleStatus = lifecycleStatus;
+    return this;
+  }
+
+   /**
+   * Get lifecycleStatus
+   * @return lifecycleStatus
+  **/
+  @Schema(description = "")
+  public String getLifecycleStatus() {
+    return lifecycleStatus;
+  }
+
+  public void setLifecycleStatus(String lifecycleStatus) {
+    this.lifecycleStatus = lifecycleStatus;
   }
 
   public ImageForDescribeImagesOutput marketplaceImageBillType(Integer marketplaceImageBillType) {
@@ -665,6 +686,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.isSupportCloudInit, imageForDescribeImagesOutput.isSupportCloudInit) &&
         Objects.equals(this.kernel, imageForDescribeImagesOutput.kernel) &&
         Objects.equals(this.licenseType, imageForDescribeImagesOutput.licenseType) &&
+        Objects.equals(this.lifecycleStatus, imageForDescribeImagesOutput.lifecycleStatus) &&
         Objects.equals(this.marketplaceImageBillType, imageForDescribeImagesOutput.marketplaceImageBillType) &&
         Objects.equals(this.osName, imageForDescribeImagesOutput.osName) &&
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
@@ -684,7 +706,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isInstallRunCommandAgent, isLTS, isSupportCloudInit, kernel, licenseType, marketplaceImageBillType, osName, osType, platform, platformVersion, productCode, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isInstallRunCommandAgent, isLTS, isSupportCloudInit, kernel, licenseType, lifecycleStatus, marketplaceImageBillType, osName, osType, platform, platformVersion, productCode, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -706,6 +728,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
     sb.append("    kernel: ").append(toIndentedString(kernel)).append("\n");
     sb.append("    licenseType: ").append(toIndentedString(licenseType)).append("\n");
+    sb.append("    lifecycleStatus: ").append(toIndentedString(lifecycleStatus)).append("\n");
     sb.append("    marketplaceImageBillType: ").append(toIndentedString(marketplaceImageBillType)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");

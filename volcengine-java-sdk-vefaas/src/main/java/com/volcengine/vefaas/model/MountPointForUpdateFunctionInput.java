@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.EncryptionConfigForUpdateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -35,6 +36,9 @@ public class MountPointForUpdateFunctionInput {
 
   @SerializedName("BucketPath")
   private String bucketPath = null;
+
+  @SerializedName("EncryptionConfig")
+  private EncryptionConfigForUpdateFunctionInput encryptionConfig = null;
 
   @SerializedName("Endpoint")
   private String endpoint = null;
@@ -79,6 +83,25 @@ public class MountPointForUpdateFunctionInput {
 
   public void setBucketPath(String bucketPath) {
     this.bucketPath = bucketPath;
+  }
+
+  public MountPointForUpdateFunctionInput encryptionConfig(EncryptionConfigForUpdateFunctionInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
+    return this;
+  }
+
+   /**
+   * Get encryptionConfig
+   * @return encryptionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EncryptionConfigForUpdateFunctionInput getEncryptionConfig() {
+    return encryptionConfig;
+  }
+
+  public void setEncryptionConfig(EncryptionConfigForUpdateFunctionInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
   }
 
   public MountPointForUpdateFunctionInput endpoint(String endpoint) {
@@ -147,6 +170,7 @@ public class MountPointForUpdateFunctionInput {
     MountPointForUpdateFunctionInput mountPointForUpdateFunctionInput = (MountPointForUpdateFunctionInput) o;
     return Objects.equals(this.bucketName, mountPointForUpdateFunctionInput.bucketName) &&
         Objects.equals(this.bucketPath, mountPointForUpdateFunctionInput.bucketPath) &&
+        Objects.equals(this.encryptionConfig, mountPointForUpdateFunctionInput.encryptionConfig) &&
         Objects.equals(this.endpoint, mountPointForUpdateFunctionInput.endpoint) &&
         Objects.equals(this.localMountPath, mountPointForUpdateFunctionInput.localMountPath) &&
         Objects.equals(this.readOnly, mountPointForUpdateFunctionInput.readOnly);
@@ -154,7 +178,7 @@ public class MountPointForUpdateFunctionInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketPath, endpoint, localMountPath, readOnly);
+    return Objects.hash(bucketName, bucketPath, encryptionConfig, endpoint, localMountPath, readOnly);
   }
 
 
@@ -165,6 +189,7 @@ public class MountPointForUpdateFunctionInput {
     
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    bucketPath: ").append(toIndentedString(bucketPath)).append("\n");
+    sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");

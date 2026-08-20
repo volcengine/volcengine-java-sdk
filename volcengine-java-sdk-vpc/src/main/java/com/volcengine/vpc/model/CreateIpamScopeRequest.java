@@ -51,7 +51,7 @@ public class CreateIpamScopeRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -88,7 +88,7 @@ public class CreateIpamScopeRequest {
    * Get ipamScopeName
    * @return ipamScopeName
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamScopeName() {
     return ipamScopeName;
   }

@@ -32,8 +32,74 @@ import javax.validation.Valid;
 
 
 public class ListBotAnalyseProtectRulePriorityAvailableResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Count")
+  private Integer count = null;
+
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("RulePriority")
   private List<Integer> rulePriority = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListBotAnalyseProtectRulePriorityAvailableResponse count(Integer count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Get count
+   * @return count
+  **/
+  @Schema(description = "")
+  public Integer getCount() {
+    return count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ListBotAnalyseProtectRulePriorityAvailableResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
+
+  public ListBotAnalyseProtectRulePriorityAvailableResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
   public ListBotAnalyseProtectRulePriorityAvailableResponse rulePriority(List<Integer> rulePriority) {
     this.rulePriority = rulePriority;
@@ -61,6 +127,24 @@ public class ListBotAnalyseProtectRulePriorityAvailableResponse extends com.volc
     this.rulePriority = rulePriority;
   }
 
+  public ListBotAnalyseProtectRulePriorityAvailableResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +155,16 @@ public class ListBotAnalyseProtectRulePriorityAvailableResponse extends com.volc
       return false;
     }
     ListBotAnalyseProtectRulePriorityAvailableResponse listBotAnalyseProtectRulePriorityAvailableResponse = (ListBotAnalyseProtectRulePriorityAvailableResponse) o;
-    return Objects.equals(this.rulePriority, listBotAnalyseProtectRulePriorityAvailableResponse.rulePriority);
+    return Objects.equals(this.count, listBotAnalyseProtectRulePriorityAvailableResponse.count) &&
+        Objects.equals(this.currentPage, listBotAnalyseProtectRulePriorityAvailableResponse.currentPage) &&
+        Objects.equals(this.pageSize, listBotAnalyseProtectRulePriorityAvailableResponse.pageSize) &&
+        Objects.equals(this.rulePriority, listBotAnalyseProtectRulePriorityAvailableResponse.rulePriority) &&
+        Objects.equals(this.totalCount, listBotAnalyseProtectRulePriorityAvailableResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rulePriority);
+    return Objects.hash(count, currentPage, pageSize, rulePriority, totalCount);
   }
 
 
@@ -85,7 +173,11 @@ public class ListBotAnalyseProtectRulePriorityAvailableResponse extends com.volc
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBotAnalyseProtectRulePriorityAvailableResponse {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    rulePriority: ").append(toIndentedString(rulePriority)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.MetadataForDescribeSandboxSnapshotOutput;
+import com.volcengine.vefaas.model.SandboxInfoForDescribeSandboxSnapshotOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,8 +35,23 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("CreatedByJobId")
+  private String createdByJobId = null;
+
+  @SerializedName("Metadata")
+  private MetadataForDescribeSandboxSnapshotOutput metadata = null;
+
+  @SerializedName("RetentionDays")
+  private Integer retentionDays = null;
+
+  @SerializedName("RetentionExpiresAt")
+  private String retentionExpiresAt = null;
+
   @SerializedName("SandboxId")
   private String sandboxId = null;
+
+  @SerializedName("SandboxInfo")
+  private SandboxInfoForDescribeSandboxSnapshotOutput sandboxInfo = null;
 
   @SerializedName("SnapshotId")
   private String snapshotId = null;
@@ -66,6 +83,79 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
     this.createdAt = createdAt;
   }
 
+  public SnapshotForDescribeSandboxSnapshotOutput createdByJobId(String createdByJobId) {
+    this.createdByJobId = createdByJobId;
+    return this;
+  }
+
+   /**
+   * Get createdByJobId
+   * @return createdByJobId
+  **/
+  @Schema(description = "")
+  public String getCreatedByJobId() {
+    return createdByJobId;
+  }
+
+  public void setCreatedByJobId(String createdByJobId) {
+    this.createdByJobId = createdByJobId;
+  }
+
+  public SnapshotForDescribeSandboxSnapshotOutput metadata(MetadataForDescribeSandboxSnapshotOutput metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public MetadataForDescribeSandboxSnapshotOutput getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(MetadataForDescribeSandboxSnapshotOutput metadata) {
+    this.metadata = metadata;
+  }
+
+  public SnapshotForDescribeSandboxSnapshotOutput retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+    return this;
+  }
+
+   /**
+   * Get retentionDays
+   * @return retentionDays
+  **/
+  @Schema(description = "")
+  public Integer getRetentionDays() {
+    return retentionDays;
+  }
+
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+  }
+
+  public SnapshotForDescribeSandboxSnapshotOutput retentionExpiresAt(String retentionExpiresAt) {
+    this.retentionExpiresAt = retentionExpiresAt;
+    return this;
+  }
+
+   /**
+   * Get retentionExpiresAt
+   * @return retentionExpiresAt
+  **/
+  @Schema(description = "")
+  public String getRetentionExpiresAt() {
+    return retentionExpiresAt;
+  }
+
+  public void setRetentionExpiresAt(String retentionExpiresAt) {
+    this.retentionExpiresAt = retentionExpiresAt;
+  }
+
   public SnapshotForDescribeSandboxSnapshotOutput sandboxId(String sandboxId) {
     this.sandboxId = sandboxId;
     return this;
@@ -82,6 +172,25 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
 
   public void setSandboxId(String sandboxId) {
     this.sandboxId = sandboxId;
+  }
+
+  public SnapshotForDescribeSandboxSnapshotOutput sandboxInfo(SandboxInfoForDescribeSandboxSnapshotOutput sandboxInfo) {
+    this.sandboxInfo = sandboxInfo;
+    return this;
+  }
+
+   /**
+   * Get sandboxInfo
+   * @return sandboxInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public SandboxInfoForDescribeSandboxSnapshotOutput getSandboxInfo() {
+    return sandboxInfo;
+  }
+
+  public void setSandboxInfo(SandboxInfoForDescribeSandboxSnapshotOutput sandboxInfo) {
+    this.sandboxInfo = sandboxInfo;
   }
 
   public SnapshotForDescribeSandboxSnapshotOutput snapshotId(String snapshotId) {
@@ -167,7 +276,12 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
     }
     SnapshotForDescribeSandboxSnapshotOutput snapshotForDescribeSandboxSnapshotOutput = (SnapshotForDescribeSandboxSnapshotOutput) o;
     return Objects.equals(this.createdAt, snapshotForDescribeSandboxSnapshotOutput.createdAt) &&
+        Objects.equals(this.createdByJobId, snapshotForDescribeSandboxSnapshotOutput.createdByJobId) &&
+        Objects.equals(this.metadata, snapshotForDescribeSandboxSnapshotOutput.metadata) &&
+        Objects.equals(this.retentionDays, snapshotForDescribeSandboxSnapshotOutput.retentionDays) &&
+        Objects.equals(this.retentionExpiresAt, snapshotForDescribeSandboxSnapshotOutput.retentionExpiresAt) &&
         Objects.equals(this.sandboxId, snapshotForDescribeSandboxSnapshotOutput.sandboxId) &&
+        Objects.equals(this.sandboxInfo, snapshotForDescribeSandboxSnapshotOutput.sandboxInfo) &&
         Objects.equals(this.snapshotId, snapshotForDescribeSandboxSnapshotOutput.snapshotId) &&
         Objects.equals(this.snapshotType, snapshotForDescribeSandboxSnapshotOutput.snapshotType) &&
         Objects.equals(this.source, snapshotForDescribeSandboxSnapshotOutput.source) &&
@@ -176,7 +290,7 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, sandboxId, snapshotId, snapshotType, source, status);
+    return Objects.hash(createdAt, createdByJobId, metadata, retentionDays, retentionExpiresAt, sandboxId, sandboxInfo, snapshotId, snapshotType, source, status);
   }
 
 
@@ -186,7 +300,12 @@ public class SnapshotForDescribeSandboxSnapshotOutput {
     sb.append("class SnapshotForDescribeSandboxSnapshotOutput {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    createdByJobId: ").append(toIndentedString(createdByJobId)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
+    sb.append("    retentionExpiresAt: ").append(toIndentedString(retentionExpiresAt)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
+    sb.append("    sandboxInfo: ").append(toIndentedString(sandboxInfo)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    snapshotType: ").append(toIndentedString(snapshotType)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
