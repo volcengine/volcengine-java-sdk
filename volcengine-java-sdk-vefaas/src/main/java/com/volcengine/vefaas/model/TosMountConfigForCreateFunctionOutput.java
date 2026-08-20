@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class TosMountConfigForCreateFunctionOutput {
+  @SerializedName("AuthMode")
+  private String authMode = null;
+
   @SerializedName("Credentials")
   private CredentialsForCreateFunctionOutput credentials = null;
 
@@ -42,6 +45,24 @@ public class TosMountConfigForCreateFunctionOutput {
 
   @SerializedName("MountPoints")
   private List<MountPointForCreateFunctionOutput> mountPoints = null;
+
+  public TosMountConfigForCreateFunctionOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
 
   public TosMountConfigForCreateFunctionOutput credentials(CredentialsForCreateFunctionOutput credentials) {
     this.credentials = credentials;
@@ -117,14 +138,15 @@ public class TosMountConfigForCreateFunctionOutput {
       return false;
     }
     TosMountConfigForCreateFunctionOutput tosMountConfigForCreateFunctionOutput = (TosMountConfigForCreateFunctionOutput) o;
-    return Objects.equals(this.credentials, tosMountConfigForCreateFunctionOutput.credentials) &&
+    return Objects.equals(this.authMode, tosMountConfigForCreateFunctionOutput.authMode) &&
+        Objects.equals(this.credentials, tosMountConfigForCreateFunctionOutput.credentials) &&
         Objects.equals(this.enableTos, tosMountConfigForCreateFunctionOutput.enableTos) &&
         Objects.equals(this.mountPoints, tosMountConfigForCreateFunctionOutput.mountPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentials, enableTos, mountPoints);
+    return Objects.hash(authMode, credentials, enableTos, mountPoints);
   }
 
 
@@ -133,6 +155,7 @@ public class TosMountConfigForCreateFunctionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TosMountConfigForCreateFunctionOutput {\n");
     
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    enableTos: ").append(toIndentedString(enableTos)).append("\n");
     sb.append("    mountPoints: ").append(toIndentedString(mountPoints)).append("\n");
