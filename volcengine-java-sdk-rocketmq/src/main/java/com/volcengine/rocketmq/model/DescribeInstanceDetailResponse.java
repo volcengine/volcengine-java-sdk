@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.rocketmq.model.BasicInfoForDescribeInstanceDetailOutput;
 import com.volcengine.rocketmq.model.ChargeDetailForDescribeInstanceDetailOutput;
 import com.volcengine.rocketmq.model.ConnectionInfoForDescribeInstanceDetailOutput;
+import com.volcengine.rocketmq.model.QuotaObjectForDescribeInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class DescribeInstanceDetailResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("FileReservedTime")
   private Integer fileReservedTime = null;
+
+  @SerializedName("QuotaObjects")
+  private List<QuotaObjectForDescribeInstanceDetailOutput> quotaObjects = null;
 
   public DescribeInstanceDetailResponse basicInfo(BasicInfoForDescribeInstanceDetailOutput basicInfo) {
     this.basicInfo = basicInfo;
@@ -130,6 +134,33 @@ public class DescribeInstanceDetailResponse extends com.volcengine.model.Abstrac
     this.fileReservedTime = fileReservedTime;
   }
 
+  public DescribeInstanceDetailResponse quotaObjects(List<QuotaObjectForDescribeInstanceDetailOutput> quotaObjects) {
+    this.quotaObjects = quotaObjects;
+    return this;
+  }
+
+  public DescribeInstanceDetailResponse addQuotaObjectsItem(QuotaObjectForDescribeInstanceDetailOutput quotaObjectsItem) {
+    if (this.quotaObjects == null) {
+      this.quotaObjects = new ArrayList<QuotaObjectForDescribeInstanceDetailOutput>();
+    }
+    this.quotaObjects.add(quotaObjectsItem);
+    return this;
+  }
+
+   /**
+   * Get quotaObjects
+   * @return quotaObjects
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<QuotaObjectForDescribeInstanceDetailOutput> getQuotaObjects() {
+    return quotaObjects;
+  }
+
+  public void setQuotaObjects(List<QuotaObjectForDescribeInstanceDetailOutput> quotaObjects) {
+    this.quotaObjects = quotaObjects;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -143,12 +174,13 @@ public class DescribeInstanceDetailResponse extends com.volcengine.model.Abstrac
     return Objects.equals(this.basicInfo, describeInstanceDetailResponse.basicInfo) &&
         Objects.equals(this.chargeDetail, describeInstanceDetailResponse.chargeDetail) &&
         Objects.equals(this.connectionInfo, describeInstanceDetailResponse.connectionInfo) &&
-        Objects.equals(this.fileReservedTime, describeInstanceDetailResponse.fileReservedTime);
+        Objects.equals(this.fileReservedTime, describeInstanceDetailResponse.fileReservedTime) &&
+        Objects.equals(this.quotaObjects, describeInstanceDetailResponse.quotaObjects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicInfo, chargeDetail, connectionInfo, fileReservedTime);
+    return Objects.hash(basicInfo, chargeDetail, connectionInfo, fileReservedTime, quotaObjects);
   }
 
 
@@ -161,6 +193,7 @@ public class DescribeInstanceDetailResponse extends com.volcengine.model.Abstrac
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    fileReservedTime: ").append(toIndentedString(fileReservedTime)).append("\n");
+    sb.append("    quotaObjects: ").append(toIndentedString(quotaObjects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

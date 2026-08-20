@@ -45,8 +45,14 @@ public class CreateGroupAsyncRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("MessageModel")
+  private String messageModel = null;
+
   @SerializedName("RetryMaxTimes")
   private Integer retryMaxTimes = null;
+
+  @SerializedName("TopicName")
+  private String topicName = null;
 
   public CreateGroupAsyncRequest consumeMessageOrderly(Boolean consumeMessageOrderly) {
     this.consumeMessageOrderly = consumeMessageOrderly;
@@ -141,6 +147,24 @@ public class CreateGroupAsyncRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateGroupAsyncRequest messageModel(String messageModel) {
+    this.messageModel = messageModel;
+    return this;
+  }
+
+   /**
+   * Get messageModel
+   * @return messageModel
+  **/
+  @Schema(description = "")
+  public String getMessageModel() {
+    return messageModel;
+  }
+
+  public void setMessageModel(String messageModel) {
+    this.messageModel = messageModel;
+  }
+
   public CreateGroupAsyncRequest retryMaxTimes(Integer retryMaxTimes) {
     this.retryMaxTimes = retryMaxTimes;
     return this;
@@ -159,6 +183,24 @@ public class CreateGroupAsyncRequest {
     this.retryMaxTimes = retryMaxTimes;
   }
 
+  public CreateGroupAsyncRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @Schema(description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,12 +216,14 @@ public class CreateGroupAsyncRequest {
         Objects.equals(this.groupId, createGroupAsyncRequest.groupId) &&
         Objects.equals(this.groupType, createGroupAsyncRequest.groupType) &&
         Objects.equals(this.instanceId, createGroupAsyncRequest.instanceId) &&
-        Objects.equals(this.retryMaxTimes, createGroupAsyncRequest.retryMaxTimes);
+        Objects.equals(this.messageModel, createGroupAsyncRequest.messageModel) &&
+        Objects.equals(this.retryMaxTimes, createGroupAsyncRequest.retryMaxTimes) &&
+        Objects.equals(this.topicName, createGroupAsyncRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumeMessageOrderly, description, groupId, groupType, instanceId, retryMaxTimes);
+    return Objects.hash(consumeMessageOrderly, description, groupId, groupType, instanceId, messageModel, retryMaxTimes, topicName);
   }
 
 
@@ -193,7 +237,9 @@ public class CreateGroupAsyncRequest {
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    messageModel: ").append(toIndentedString(messageModel)).append("\n");
     sb.append("    retryMaxTimes: ").append(toIndentedString(retryMaxTimes)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

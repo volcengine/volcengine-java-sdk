@@ -33,6 +33,9 @@ public class QueryMessageByTimestampRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LiteTopic")
+  private String liteTopic = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -62,6 +65,24 @@ public class QueryMessageByTimestampRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public QueryMessageByTimestampRequest liteTopic(String liteTopic) {
+    this.liteTopic = liteTopic;
+    return this;
+  }
+
+   /**
+   * Get liteTopic
+   * @return liteTopic
+  **/
+  @Schema(description = "")
+  public String getLiteTopic() {
+    return liteTopic;
+  }
+
+  public void setLiteTopic(String liteTopic) {
+    this.liteTopic = liteTopic;
   }
 
   public QueryMessageByTimestampRequest pageNumber(Integer pageNumber) {
@@ -151,6 +172,7 @@ public class QueryMessageByTimestampRequest {
     }
     QueryMessageByTimestampRequest queryMessageByTimestampRequest = (QueryMessageByTimestampRequest) o;
     return Objects.equals(this.instanceId, queryMessageByTimestampRequest.instanceId) &&
+        Objects.equals(this.liteTopic, queryMessageByTimestampRequest.liteTopic) &&
         Objects.equals(this.pageNumber, queryMessageByTimestampRequest.pageNumber) &&
         Objects.equals(this.queryEndTimestamp, queryMessageByTimestampRequest.queryEndTimestamp) &&
         Objects.equals(this.queryStartTimestamp, queryMessageByTimestampRequest.queryStartTimestamp) &&
@@ -159,7 +181,7 @@ public class QueryMessageByTimestampRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, pageNumber, queryEndTimestamp, queryStartTimestamp, topicName);
+    return Objects.hash(instanceId, liteTopic, pageNumber, queryEndTimestamp, queryStartTimestamp, topicName);
   }
 
 
@@ -169,6 +191,7 @@ public class QueryMessageByTimestampRequest {
     sb.append("class QueryMessageByTimestampRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    liteTopic: ").append(toIndentedString(liteTopic)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    queryEndTimestamp: ").append(toIndentedString(queryEndTimestamp)).append("\n");
     sb.append("    queryStartTimestamp: ").append(toIndentedString(queryStartTimestamp)).append("\n");

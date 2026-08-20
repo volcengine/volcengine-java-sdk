@@ -42,6 +42,9 @@ public class CreateTopicRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LiteTopicTTLMinutes")
+  private Integer liteTopicTTLMinutes = null;
+
   @SerializedName("MessageType")
   private Integer messageType = null;
 
@@ -113,6 +116,24 @@ public class CreateTopicRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public CreateTopicRequest liteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
+    return this;
+  }
+
+   /**
+   * Get liteTopicTTLMinutes
+   * @return liteTopicTTLMinutes
+  **/
+  @Schema(description = "")
+  public Integer getLiteTopicTTLMinutes() {
+    return liteTopicTTLMinutes;
+  }
+
+  public void setLiteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
   }
 
   public CreateTopicRequest messageType(Integer messageType) {
@@ -189,6 +210,7 @@ public class CreateTopicRequest {
     return Objects.equals(this.accessPolicies, createTopicRequest.accessPolicies) &&
         Objects.equals(this.description, createTopicRequest.description) &&
         Objects.equals(this.instanceId, createTopicRequest.instanceId) &&
+        Objects.equals(this.liteTopicTTLMinutes, createTopicRequest.liteTopicTTLMinutes) &&
         Objects.equals(this.messageType, createTopicRequest.messageType) &&
         Objects.equals(this.queueNumber, createTopicRequest.queueNumber) &&
         Objects.equals(this.topicName, createTopicRequest.topicName);
@@ -196,7 +218,7 @@ public class CreateTopicRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPolicies, description, instanceId, messageType, queueNumber, topicName);
+    return Objects.hash(accessPolicies, description, instanceId, liteTopicTTLMinutes, messageType, queueNumber, topicName);
   }
 
 
@@ -208,6 +230,7 @@ public class CreateTopicRequest {
     sb.append("    accessPolicies: ").append(toIndentedString(accessPolicies)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    liteTopicTTLMinutes: ").append(toIndentedString(liteTopicTTLMinutes)).append("\n");
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    queueNumber: ").append(toIndentedString(queueNumber)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");

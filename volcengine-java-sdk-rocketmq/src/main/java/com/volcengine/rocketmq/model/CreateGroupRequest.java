@@ -45,8 +45,57 @@ public class CreateGroupRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  /**
+   * Gets or Sets messageModel
+   */
+  @JsonAdapter(MessageModelEnum.Adapter.class)
+  public enum MessageModelEnum {
+    @SerializedName("CLUSTERING")
+    CLUSTERING("CLUSTERING"),
+    @SerializedName("LITE_SELECTIVE")
+    LITE_SELECTIVE("LITE_SELECTIVE");
+
+    private String value;
+
+    MessageModelEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static MessageModelEnum fromValue(String input) {
+      for (MessageModelEnum b : MessageModelEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<MessageModelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MessageModelEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public MessageModelEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return MessageModelEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("MessageModel")
+  private MessageModelEnum messageModel = null;
+
   @SerializedName("RetryMaxTimes")
   private Integer retryMaxTimes = null;
+
+  @SerializedName("TopicName")
+  private String topicName = null;
 
   public CreateGroupRequest consumeMessageOrderly(Boolean consumeMessageOrderly) {
     this.consumeMessageOrderly = consumeMessageOrderly;
@@ -141,6 +190,24 @@ public class CreateGroupRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateGroupRequest messageModel(MessageModelEnum messageModel) {
+    this.messageModel = messageModel;
+    return this;
+  }
+
+   /**
+   * Get messageModel
+   * @return messageModel
+  **/
+  @Schema(description = "")
+  public MessageModelEnum getMessageModel() {
+    return messageModel;
+  }
+
+  public void setMessageModel(MessageModelEnum messageModel) {
+    this.messageModel = messageModel;
+  }
+
   public CreateGroupRequest retryMaxTimes(Integer retryMaxTimes) {
     this.retryMaxTimes = retryMaxTimes;
     return this;
@@ -159,6 +226,24 @@ public class CreateGroupRequest {
     this.retryMaxTimes = retryMaxTimes;
   }
 
+  public CreateGroupRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @Schema(description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,12 +259,14 @@ public class CreateGroupRequest {
         Objects.equals(this.groupId, createGroupRequest.groupId) &&
         Objects.equals(this.groupType, createGroupRequest.groupType) &&
         Objects.equals(this.instanceId, createGroupRequest.instanceId) &&
-        Objects.equals(this.retryMaxTimes, createGroupRequest.retryMaxTimes);
+        Objects.equals(this.messageModel, createGroupRequest.messageModel) &&
+        Objects.equals(this.retryMaxTimes, createGroupRequest.retryMaxTimes) &&
+        Objects.equals(this.topicName, createGroupRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumeMessageOrderly, description, groupId, groupType, instanceId, retryMaxTimes);
+    return Objects.hash(consumeMessageOrderly, description, groupId, groupType, instanceId, messageModel, retryMaxTimes, topicName);
   }
 
 
@@ -193,7 +280,9 @@ public class CreateGroupRequest {
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    messageModel: ").append(toIndentedString(messageModel)).append("\n");
     sb.append("    retryMaxTimes: ").append(toIndentedString(retryMaxTimes)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
