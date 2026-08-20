@@ -52,6 +52,9 @@ public class UpdateCCRuleRequest {
   @SerializedName("CronEnable")
   private Integer cronEnable = null;
 
+  @SerializedName("CustomResponsePageID")
+  private String customResponsePageID = null;
+
   @SerializedName("EffectTime")
   private Integer effectTime = null;
 
@@ -88,8 +91,68 @@ public class UpdateCCRuleRequest {
   @SerializedName("SingleThreshold")
   private Integer singleThreshold = null;
 
+  @SerializedName("UpdateTime")
+  private String updateTime = null;
+
   @SerializedName("Url")
   private String url = null;
+
+  @SerializedName("WSCdnByteThreshold")
+  private Integer wsCdnByteThreshold = null;
+
+  @SerializedName("WSCdnEnable")
+  private Integer wsCdnEnable = null;
+
+  @SerializedName("WSCdnFrameThreshold")
+  private Integer wsCdnFrameThreshold = null;
+
+  /**
+   * Gets or Sets wsCdnUnit
+   */
+  @JsonAdapter(WsCdnUnitEnum.Adapter.class)
+  public enum WsCdnUnitEnum {
+    @SerializedName("KB")
+    KB("KB"),
+    @SerializedName("MB")
+    MB("MB"),
+    @SerializedName("GB")
+    GB("GB");
+
+    private String value;
+
+    WsCdnUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static WsCdnUnitEnum fromValue(String input) {
+      for (WsCdnUnitEnum b : WsCdnUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<WsCdnUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WsCdnUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public WsCdnUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return WsCdnUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("WSCdnUnit")
+  private WsCdnUnitEnum wsCdnUnit = null;
 
   public UpdateCCRuleRequest accurateGroup(AccurateGroupForUpdateCCRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
@@ -207,6 +270,24 @@ public class UpdateCCRuleRequest {
 
   public void setCronEnable(Integer cronEnable) {
     this.cronEnable = cronEnable;
+  }
+
+  public UpdateCCRuleRequest customResponsePageID(String customResponsePageID) {
+    this.customResponsePageID = customResponsePageID;
+    return this;
+  }
+
+   /**
+   * Get customResponsePageID
+   * @return customResponsePageID
+  **/
+  @Schema(description = "")
+  public String getCustomResponsePageID() {
+    return customResponsePageID;
+  }
+
+  public void setCustomResponsePageID(String customResponsePageID) {
+    this.customResponsePageID = customResponsePageID;
   }
 
   public UpdateCCRuleRequest effectTime(Integer effectTime) {
@@ -432,6 +513,24 @@ public class UpdateCCRuleRequest {
     this.singleThreshold = singleThreshold;
   }
 
+  public UpdateCCRuleRequest updateTime(String updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
   public UpdateCCRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -451,6 +550,78 @@ public class UpdateCCRuleRequest {
     this.url = url;
   }
 
+  public UpdateCCRuleRequest wsCdnByteThreshold(Integer wsCdnByteThreshold) {
+    this.wsCdnByteThreshold = wsCdnByteThreshold;
+    return this;
+  }
+
+   /**
+   * Get wsCdnByteThreshold
+   * @return wsCdnByteThreshold
+  **/
+  @Schema(description = "")
+  public Integer getWsCdnByteThreshold() {
+    return wsCdnByteThreshold;
+  }
+
+  public void setWsCdnByteThreshold(Integer wsCdnByteThreshold) {
+    this.wsCdnByteThreshold = wsCdnByteThreshold;
+  }
+
+  public UpdateCCRuleRequest wsCdnEnable(Integer wsCdnEnable) {
+    this.wsCdnEnable = wsCdnEnable;
+    return this;
+  }
+
+   /**
+   * Get wsCdnEnable
+   * @return wsCdnEnable
+  **/
+  @Schema(description = "")
+  public Integer getWsCdnEnable() {
+    return wsCdnEnable;
+  }
+
+  public void setWsCdnEnable(Integer wsCdnEnable) {
+    this.wsCdnEnable = wsCdnEnable;
+  }
+
+  public UpdateCCRuleRequest wsCdnFrameThreshold(Integer wsCdnFrameThreshold) {
+    this.wsCdnFrameThreshold = wsCdnFrameThreshold;
+    return this;
+  }
+
+   /**
+   * Get wsCdnFrameThreshold
+   * @return wsCdnFrameThreshold
+  **/
+  @Schema(description = "")
+  public Integer getWsCdnFrameThreshold() {
+    return wsCdnFrameThreshold;
+  }
+
+  public void setWsCdnFrameThreshold(Integer wsCdnFrameThreshold) {
+    this.wsCdnFrameThreshold = wsCdnFrameThreshold;
+  }
+
+  public UpdateCCRuleRequest wsCdnUnit(WsCdnUnitEnum wsCdnUnit) {
+    this.wsCdnUnit = wsCdnUnit;
+    return this;
+  }
+
+   /**
+   * Get wsCdnUnit
+   * @return wsCdnUnit
+  **/
+  @Schema(description = "")
+  public WsCdnUnitEnum getWsCdnUnit() {
+    return wsCdnUnit;
+  }
+
+  public void setWsCdnUnit(WsCdnUnitEnum wsCdnUnit) {
+    this.wsCdnUnit = wsCdnUnit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -467,6 +638,7 @@ public class UpdateCCRuleRequest {
         Objects.equals(this.countTime, updateCCRuleRequest.countTime) &&
         Objects.equals(this.cronConfs, updateCCRuleRequest.cronConfs) &&
         Objects.equals(this.cronEnable, updateCCRuleRequest.cronEnable) &&
+        Objects.equals(this.customResponsePageID, updateCCRuleRequest.customResponsePageID) &&
         Objects.equals(this.effectTime, updateCCRuleRequest.effectTime) &&
         Objects.equals(this.enable, updateCCRuleRequest.enable) &&
         Objects.equals(this.exemptionTime, updateCCRuleRequest.exemptionTime) &&
@@ -479,12 +651,17 @@ public class UpdateCCRuleRequest {
         Objects.equals(this.rulePriority, updateCCRuleRequest.rulePriority) &&
         Objects.equals(this.ruleTag, updateCCRuleRequest.ruleTag) &&
         Objects.equals(this.singleThreshold, updateCCRuleRequest.singleThreshold) &&
-        Objects.equals(this.url, updateCCRuleRequest.url);
+        Objects.equals(this.updateTime, updateCCRuleRequest.updateTime) &&
+        Objects.equals(this.url, updateCCRuleRequest.url) &&
+        Objects.equals(this.wsCdnByteThreshold, updateCCRuleRequest.wsCdnByteThreshold) &&
+        Objects.equals(this.wsCdnEnable, updateCCRuleRequest.wsCdnEnable) &&
+        Objects.equals(this.wsCdnFrameThreshold, updateCCRuleRequest.wsCdnFrameThreshold) &&
+        Objects.equals(this.wsCdnUnit, updateCCRuleRequest.wsCdnUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, url);
+    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, customResponsePageID, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, updateTime, url, wsCdnByteThreshold, wsCdnEnable, wsCdnFrameThreshold, wsCdnUnit);
   }
 
 
@@ -499,6 +676,7 @@ public class UpdateCCRuleRequest {
     sb.append("    countTime: ").append(toIndentedString(countTime)).append("\n");
     sb.append("    cronConfs: ").append(toIndentedString(cronConfs)).append("\n");
     sb.append("    cronEnable: ").append(toIndentedString(cronEnable)).append("\n");
+    sb.append("    customResponsePageID: ").append(toIndentedString(customResponsePageID)).append("\n");
     sb.append("    effectTime: ").append(toIndentedString(effectTime)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    exemptionTime: ").append(toIndentedString(exemptionTime)).append("\n");
@@ -511,7 +689,12 @@ public class UpdateCCRuleRequest {
     sb.append("    rulePriority: ").append(toIndentedString(rulePriority)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    singleThreshold: ").append(toIndentedString(singleThreshold)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    wsCdnByteThreshold: ").append(toIndentedString(wsCdnByteThreshold)).append("\n");
+    sb.append("    wsCdnEnable: ").append(toIndentedString(wsCdnEnable)).append("\n");
+    sb.append("    wsCdnFrameThreshold: ").append(toIndentedString(wsCdnFrameThreshold)).append("\n");
+    sb.append("    wsCdnUnit: ").append(toIndentedString(wsCdnUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

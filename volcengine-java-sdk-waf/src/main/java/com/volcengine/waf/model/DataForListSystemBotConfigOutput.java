@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.SubRuleForListSystemBotConfigOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,8 +45,20 @@ public class DataForListSystemBotConfigOutput {
   @SerializedName("Enable")
   private Integer enable = null;
 
+  @SerializedName("IPMatch")
+  private Boolean ipMatch = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
   @SerializedName("RuleTag")
   private String ruleTag = null;
+
+  @SerializedName("SubRules")
+  private List<SubRuleForListSystemBotConfigOutput> subRules = null;
+
+  @SerializedName("VerificationExemptionTime")
+  private Integer verificationExemptionTime = null;
 
   public DataForListSystemBotConfigOutput action(String action) {
     this.action = action;
@@ -117,6 +132,42 @@ public class DataForListSystemBotConfigOutput {
     this.enable = enable;
   }
 
+  public DataForListSystemBotConfigOutput ipMatch(Boolean ipMatch) {
+    this.ipMatch = ipMatch;
+    return this;
+  }
+
+   /**
+   * Get ipMatch
+   * @return ipMatch
+  **/
+  @Schema(description = "")
+  public Boolean isIpMatch() {
+    return ipMatch;
+  }
+
+  public void setIpMatch(Boolean ipMatch) {
+    this.ipMatch = ipMatch;
+  }
+
+  public DataForListSystemBotConfigOutput name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public DataForListSystemBotConfigOutput ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
@@ -135,6 +186,51 @@ public class DataForListSystemBotConfigOutput {
     this.ruleTag = ruleTag;
   }
 
+  public DataForListSystemBotConfigOutput subRules(List<SubRuleForListSystemBotConfigOutput> subRules) {
+    this.subRules = subRules;
+    return this;
+  }
+
+  public DataForListSystemBotConfigOutput addSubRulesItem(SubRuleForListSystemBotConfigOutput subRulesItem) {
+    if (this.subRules == null) {
+      this.subRules = new ArrayList<SubRuleForListSystemBotConfigOutput>();
+    }
+    this.subRules.add(subRulesItem);
+    return this;
+  }
+
+   /**
+   * Get subRules
+   * @return subRules
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SubRuleForListSystemBotConfigOutput> getSubRules() {
+    return subRules;
+  }
+
+  public void setSubRules(List<SubRuleForListSystemBotConfigOutput> subRules) {
+    this.subRules = subRules;
+  }
+
+  public DataForListSystemBotConfigOutput verificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+    return this;
+  }
+
+   /**
+   * Get verificationExemptionTime
+   * @return verificationExemptionTime
+  **/
+  @Schema(description = "")
+  public Integer getVerificationExemptionTime() {
+    return verificationExemptionTime;
+  }
+
+  public void setVerificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +245,16 @@ public class DataForListSystemBotConfigOutput {
         Objects.equals(this.botType, dataForListSystemBotConfigOutput.botType) &&
         Objects.equals(this.description, dataForListSystemBotConfigOutput.description) &&
         Objects.equals(this.enable, dataForListSystemBotConfigOutput.enable) &&
-        Objects.equals(this.ruleTag, dataForListSystemBotConfigOutput.ruleTag);
+        Objects.equals(this.ipMatch, dataForListSystemBotConfigOutput.ipMatch) &&
+        Objects.equals(this.name, dataForListSystemBotConfigOutput.name) &&
+        Objects.equals(this.ruleTag, dataForListSystemBotConfigOutput.ruleTag) &&
+        Objects.equals(this.subRules, dataForListSystemBotConfigOutput.subRules) &&
+        Objects.equals(this.verificationExemptionTime, dataForListSystemBotConfigOutput.verificationExemptionTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, botType, description, enable, ruleTag);
+    return Objects.hash(action, botType, description, enable, ipMatch, name, ruleTag, subRules, verificationExemptionTime);
   }
 
 
@@ -167,7 +267,11 @@ public class DataForListSystemBotConfigOutput {
     sb.append("    botType: ").append(toIndentedString(botType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    ipMatch: ").append(toIndentedString(ipMatch)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
+    sb.append("    subRules: ").append(toIndentedString(subRules)).append("\n");
+    sb.append("    verificationExemptionTime: ").append(toIndentedString(verificationExemptionTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

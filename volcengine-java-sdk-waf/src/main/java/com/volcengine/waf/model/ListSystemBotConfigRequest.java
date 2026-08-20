@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.FilerByRuleMatchForListSystemBotConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,11 +31,48 @@ import javax.validation.Valid;
 
 
 public class ListSystemBotConfigRequest {
+  @SerializedName("FilerByRuleMatch")
+  private FilerByRuleMatchForListSystemBotConfigInput filerByRuleMatch = null;
+
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("IPMatch")
+  private Boolean ipMatch = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
+  @SerializedName("Page")
+  private Integer page = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("RuleTag")
+  private String ruleTag = null;
+
+  public ListSystemBotConfigRequest filerByRuleMatch(FilerByRuleMatchForListSystemBotConfigInput filerByRuleMatch) {
+    this.filerByRuleMatch = filerByRuleMatch;
+    return this;
+  }
+
+   /**
+   * Get filerByRuleMatch
+   * @return filerByRuleMatch
+  **/
+  @Valid
+  @Schema(description = "")
+  public FilerByRuleMatchForListSystemBotConfigInput getFilerByRuleMatch() {
+    return filerByRuleMatch;
+  }
+
+  public void setFilerByRuleMatch(FilerByRuleMatchForListSystemBotConfigInput filerByRuleMatch) {
+    this.filerByRuleMatch = filerByRuleMatch;
+  }
 
   public ListSystemBotConfigRequest host(String host) {
     this.host = host;
@@ -45,14 +83,85 @@ public class ListSystemBotConfigRequest {
    * Get host
    * @return host
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getHost() {
     return host;
   }
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public ListSystemBotConfigRequest ipMatch(Boolean ipMatch) {
+    this.ipMatch = ipMatch;
+    return this;
+  }
+
+   /**
+   * Get ipMatch
+   * @return ipMatch
+  **/
+  @Schema(description = "")
+  public Boolean isIpMatch() {
+    return ipMatch;
+  }
+
+  public void setIpMatch(Boolean ipMatch) {
+    this.ipMatch = ipMatch;
+  }
+
+  public ListSystemBotConfigRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ListSystemBotConfigRequest page(Integer page) {
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Get page
+   * @return page
+  **/
+  @Schema(description = "")
+  public Integer getPage() {
+    return page;
+  }
+
+  public void setPage(Integer page) {
+    this.page = page;
+  }
+
+  public ListSystemBotConfigRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
   public ListSystemBotConfigRequest projectName(String projectName) {
@@ -73,6 +182,24 @@ public class ListSystemBotConfigRequest {
     this.projectName = projectName;
   }
 
+  public ListSystemBotConfigRequest ruleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+    return this;
+  }
+
+   /**
+   * Get ruleTag
+   * @return ruleTag
+  **/
+  @Schema(description = "")
+  public String getRuleTag() {
+    return ruleTag;
+  }
+
+  public void setRuleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,13 +210,19 @@ public class ListSystemBotConfigRequest {
       return false;
     }
     ListSystemBotConfigRequest listSystemBotConfigRequest = (ListSystemBotConfigRequest) o;
-    return Objects.equals(this.host, listSystemBotConfigRequest.host) &&
-        Objects.equals(this.projectName, listSystemBotConfigRequest.projectName);
+    return Objects.equals(this.filerByRuleMatch, listSystemBotConfigRequest.filerByRuleMatch) &&
+        Objects.equals(this.host, listSystemBotConfigRequest.host) &&
+        Objects.equals(this.ipMatch, listSystemBotConfigRequest.ipMatch) &&
+        Objects.equals(this.name, listSystemBotConfigRequest.name) &&
+        Objects.equals(this.page, listSystemBotConfigRequest.page) &&
+        Objects.equals(this.pageSize, listSystemBotConfigRequest.pageSize) &&
+        Objects.equals(this.projectName, listSystemBotConfigRequest.projectName) &&
+        Objects.equals(this.ruleTag, listSystemBotConfigRequest.ruleTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, projectName);
+    return Objects.hash(filerByRuleMatch, host, ipMatch, name, page, pageSize, projectName, ruleTag);
   }
 
 
@@ -98,8 +231,14 @@ public class ListSystemBotConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSystemBotConfigRequest {\n");
     
+    sb.append("    filerByRuleMatch: ").append(toIndentedString(filerByRuleMatch)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    ipMatch: ").append(toIndentedString(ipMatch)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

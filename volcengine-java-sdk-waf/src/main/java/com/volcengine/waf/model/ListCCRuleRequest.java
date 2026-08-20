@@ -44,8 +44,51 @@ public class ListCCRuleRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("PathOrderBy")
-  private String pathOrderBy = null;
+  /**
+   * Gets or Sets pathOrderBy
+   */
+  @JsonAdapter(PathOrderByEnum.Adapter.class)
+  public enum PathOrderByEnum {
+    @SerializedName("ASC")
+    ASC("ASC"),
+    @SerializedName("DESC")
+    DESC("DESC");
+
+    private String value;
+
+    PathOrderByEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PathOrderByEnum fromValue(String input) {
+      for (PathOrderByEnum b : PathOrderByEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PathOrderByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PathOrderByEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PathOrderByEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PathOrderByEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PathOrderBy")
+  private PathOrderByEnum pathOrderBy = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -140,7 +183,7 @@ public class ListCCRuleRequest {
     this.pageSize = pageSize;
   }
 
-  public ListCCRuleRequest pathOrderBy(String pathOrderBy) {
+  public ListCCRuleRequest pathOrderBy(PathOrderByEnum pathOrderBy) {
     this.pathOrderBy = pathOrderBy;
     return this;
   }
@@ -150,11 +193,11 @@ public class ListCCRuleRequest {
    * @return pathOrderBy
   **/
   @Schema(description = "")
-  public String getPathOrderBy() {
+  public PathOrderByEnum getPathOrderBy() {
     return pathOrderBy;
   }
 
-  public void setPathOrderBy(String pathOrderBy) {
+  public void setPathOrderBy(PathOrderByEnum pathOrderBy) {
     this.pathOrderBy = pathOrderBy;
   }
 

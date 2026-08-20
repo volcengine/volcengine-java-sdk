@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,8 +31,54 @@ import javax.validation.Valid;
 
 
 public class ListBotAnalyseProtectRulePriorityAvailableRequest {
-  @SerializedName("BotSpace")
-  private String botSpace = null;
+  @SerializedName("AccurateGroup")
+  private AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput accurateGroup = null;
+
+  /**
+   * Gets or Sets botSpace
+   */
+  @JsonAdapter(BotSpaceEnum.Adapter.class)
+  public enum BotSpaceEnum {
+    @SerializedName("BotFrequency")
+    BOTFREQUENCY("BotFrequency"),
+    @SerializedName("BotRepeat")
+    BOTREPEAT("BotRepeat");
+
+    private String value;
+
+    BotSpaceEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BotSpaceEnum fromValue(String input) {
+      for (BotSpaceEnum b : BotSpaceEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BotSpaceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BotSpaceEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BotSpaceEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BotSpaceEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BotSpace")
+  private BotSpaceEnum botSpace = null;
 
   @SerializedName("Host")
   private String host = null;
@@ -48,7 +95,26 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListBotAnalyseProtectRulePriorityAvailableRequest botSpace(String botSpace) {
+  public ListBotAnalyseProtectRulePriorityAvailableRequest accurateGroup(AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput accurateGroup) {
+    this.accurateGroup = accurateGroup;
+    return this;
+  }
+
+   /**
+   * Get accurateGroup
+   * @return accurateGroup
+  **/
+  @Valid
+  @Schema(description = "")
+  public AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput getAccurateGroup() {
+    return accurateGroup;
+  }
+
+  public void setAccurateGroup(AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput accurateGroup) {
+    this.accurateGroup = accurateGroup;
+  }
+
+  public ListBotAnalyseProtectRulePriorityAvailableRequest botSpace(BotSpaceEnum botSpace) {
     this.botSpace = botSpace;
     return this;
   }
@@ -59,11 +125,11 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getBotSpace() {
+  public BotSpaceEnum getBotSpace() {
     return botSpace;
   }
 
-  public void setBotSpace(String botSpace) {
+  public void setBotSpace(BotSpaceEnum botSpace) {
     this.botSpace = botSpace;
   }
 
@@ -169,7 +235,8 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
       return false;
     }
     ListBotAnalyseProtectRulePriorityAvailableRequest listBotAnalyseProtectRulePriorityAvailableRequest = (ListBotAnalyseProtectRulePriorityAvailableRequest) o;
-    return Objects.equals(this.botSpace, listBotAnalyseProtectRulePriorityAvailableRequest.botSpace) &&
+    return Objects.equals(this.accurateGroup, listBotAnalyseProtectRulePriorityAvailableRequest.accurateGroup) &&
+        Objects.equals(this.botSpace, listBotAnalyseProtectRulePriorityAvailableRequest.botSpace) &&
         Objects.equals(this.host, listBotAnalyseProtectRulePriorityAvailableRequest.host) &&
         Objects.equals(this.page, listBotAnalyseProtectRulePriorityAvailableRequest.page) &&
         Objects.equals(this.pageSize, listBotAnalyseProtectRulePriorityAvailableRequest.pageSize) &&
@@ -179,7 +246,7 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(botSpace, host, page, pageSize, path, projectName);
+    return Objects.hash(accurateGroup, botSpace, host, page, pageSize, path, projectName);
   }
 
 
@@ -188,6 +255,7 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBotAnalyseProtectRulePriorityAvailableRequest {\n");
     
+    sb.append("    accurateGroup: ").append(toIndentedString(accurateGroup)).append("\n");
     sb.append("    botSpace: ").append(toIndentedString(botSpace)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");

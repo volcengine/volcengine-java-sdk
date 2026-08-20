@@ -32,8 +32,51 @@ import javax.validation.Valid;
 
 
 public class UpdateAreaBlockRuleRequest {
-  @SerializedName("Action")
-  private String action = null;
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    @SerializedName("observe")
+    OBSERVE("observe"),
+    @SerializedName("block")
+    BLOCK("block");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ActionEnum fromValue(String input) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Action")
+  private ActionEnum action = null;
 
   @SerializedName("Country")
   private List<String> country = null;
@@ -41,13 +84,16 @@ public class UpdateAreaBlockRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("Location")
+  private List<String> location = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("SubRegion")
   private List<String> subRegion = null;
 
-  public UpdateAreaBlockRuleRequest action(String action) {
+  public UpdateAreaBlockRuleRequest action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -58,11 +104,11 @@ public class UpdateAreaBlockRuleRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
   }
 
@@ -109,6 +155,32 @@ public class UpdateAreaBlockRuleRequest {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public UpdateAreaBlockRuleRequest location(List<String> location) {
+    this.location = location;
+    return this;
+  }
+
+  public UpdateAreaBlockRuleRequest addLocationItem(String locationItem) {
+    if (this.location == null) {
+      this.location = new ArrayList<String>();
+    }
+    this.location.add(locationItem);
+    return this;
+  }
+
+   /**
+   * Get location
+   * @return location
+  **/
+  @Schema(description = "")
+  public List<String> getLocation() {
+    return location;
+  }
+
+  public void setLocation(List<String> location) {
+    this.location = location;
   }
 
   public UpdateAreaBlockRuleRequest projectName(String projectName) {
@@ -168,13 +240,14 @@ public class UpdateAreaBlockRuleRequest {
     return Objects.equals(this.action, updateAreaBlockRuleRequest.action) &&
         Objects.equals(this.country, updateAreaBlockRuleRequest.country) &&
         Objects.equals(this.host, updateAreaBlockRuleRequest.host) &&
+        Objects.equals(this.location, updateAreaBlockRuleRequest.location) &&
         Objects.equals(this.projectName, updateAreaBlockRuleRequest.projectName) &&
         Objects.equals(this.subRegion, updateAreaBlockRuleRequest.subRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, country, host, projectName, subRegion);
+    return Objects.hash(action, country, host, location, projectName, subRegion);
   }
 
 
@@ -186,6 +259,7 @@ public class UpdateAreaBlockRuleRequest {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subRegion: ").append(toIndentedString(subRegion)).append("\n");
     sb.append("}");

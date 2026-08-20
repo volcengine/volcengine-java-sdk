@@ -14,6 +14,14 @@ package com.volcengine.waf.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.ResponseMetadataForDeleteCustomPageOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +31,28 @@ import javax.validation.Valid;
 
 
 public class DeleteCustomPageResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForDeleteCustomPageOutput responseMetadata = null;
+
+  public DeleteCustomPageResponse responseMetadata(ResponseMetadataForDeleteCustomPageOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForDeleteCustomPageOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForDeleteCustomPageOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +62,13 @@ public class DeleteCustomPageResponse extends com.volcengine.model.AbstractRespo
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeleteCustomPageResponse deleteCustomPageResponse = (DeleteCustomPageResponse) o;
+    return Objects.equals(this.responseMetadata, deleteCustomPageResponse.responseMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(responseMetadata);
   }
 
 
@@ -46,6 +77,7 @@ public class DeleteCustomPageResponse extends com.volcengine.model.AbstractRespo
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteCustomPageResponse {\n");
     
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

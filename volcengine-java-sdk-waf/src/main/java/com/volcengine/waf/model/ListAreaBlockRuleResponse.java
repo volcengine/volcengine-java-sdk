@@ -19,6 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.PageInfoForListAreaBlockRuleOutput;
+import com.volcengine.waf.model.ResponseMetadataForListAreaBlockRuleOutput;
+import com.volcengine.waf.model.ResultForListAreaBlockRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +40,15 @@ public class ListAreaBlockRuleResponse extends com.volcengine.model.AbstractResp
 
   @SerializedName("Country")
   private List<String> country = null;
+
+  @SerializedName("PageInfo")
+  private PageInfoForListAreaBlockRuleOutput pageInfo = null;
+
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForListAreaBlockRuleOutput responseMetadata = null;
+
+  @SerializedName("Result")
+  private ResultForListAreaBlockRuleOutput result = null;
 
   @SerializedName("RuleTag")
   private String ruleTag = null;
@@ -86,6 +98,63 @@ public class ListAreaBlockRuleResponse extends com.volcengine.model.AbstractResp
 
   public void setCountry(List<String> country) {
     this.country = country;
+  }
+
+  public ListAreaBlockRuleResponse pageInfo(PageInfoForListAreaBlockRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+    return this;
+  }
+
+   /**
+   * Get pageInfo
+   * @return pageInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public PageInfoForListAreaBlockRuleOutput getPageInfo() {
+    return pageInfo;
+  }
+
+  public void setPageInfo(PageInfoForListAreaBlockRuleOutput pageInfo) {
+    this.pageInfo = pageInfo;
+  }
+
+  public ListAreaBlockRuleResponse responseMetadata(ResponseMetadataForListAreaBlockRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForListAreaBlockRuleOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForListAreaBlockRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
+  public ListAreaBlockRuleResponse result(ResultForListAreaBlockRuleOutput result) {
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultForListAreaBlockRuleOutput getResult() {
+    return result;
+  }
+
+  public void setResult(ResultForListAreaBlockRuleOutput result) {
+    this.result = result;
   }
 
   public ListAreaBlockRuleResponse ruleTag(String ruleTag) {
@@ -144,13 +213,16 @@ public class ListAreaBlockRuleResponse extends com.volcengine.model.AbstractResp
     ListAreaBlockRuleResponse listAreaBlockRuleResponse = (ListAreaBlockRuleResponse) o;
     return Objects.equals(this.action, listAreaBlockRuleResponse.action) &&
         Objects.equals(this.country, listAreaBlockRuleResponse.country) &&
+        Objects.equals(this.pageInfo, listAreaBlockRuleResponse.pageInfo) &&
+        Objects.equals(this.responseMetadata, listAreaBlockRuleResponse.responseMetadata) &&
+        Objects.equals(this.result, listAreaBlockRuleResponse.result) &&
         Objects.equals(this.ruleTag, listAreaBlockRuleResponse.ruleTag) &&
         Objects.equals(this.subRegion, listAreaBlockRuleResponse.subRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, country, ruleTag, subRegion);
+    return Objects.hash(action, country, pageInfo, responseMetadata, result, ruleTag, subRegion);
   }
 
 
@@ -161,6 +233,9 @@ public class ListAreaBlockRuleResponse extends com.volcengine.model.AbstractResp
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    subRegion: ").append(toIndentedString(subRegion)).append("\n");
     sb.append("}");

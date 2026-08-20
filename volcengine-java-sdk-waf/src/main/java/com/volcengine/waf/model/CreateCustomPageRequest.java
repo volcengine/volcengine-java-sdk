@@ -44,7 +44,7 @@ public class CreateCustomPageRequest {
   private String clientIp = null;
 
   @SerializedName("Code")
-  private Integer code = null;
+  private String code = null;
 
   @SerializedName("ContentType")
   private String contentType = null;
@@ -66,6 +66,9 @@ public class CreateCustomPageRequest {
 
   @SerializedName("Policy")
   private Integer policy = null;
+
+  @SerializedName("PrefixSwitch")
+  private Integer prefixSwitch = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -150,7 +153,7 @@ public class CreateCustomPageRequest {
     this.clientIp = clientIp;
   }
 
-  public CreateCustomPageRequest code(Integer code) {
+  public CreateCustomPageRequest code(String code) {
     this.code = code;
     return this;
   }
@@ -159,13 +162,12 @@ public class CreateCustomPageRequest {
    * Get code
    * @return code
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getCode() {
+  @Schema(description = "")
+  public String getCode() {
     return code;
   }
 
-  public void setCode(Integer code) {
+  public void setCode(String code) {
     this.code = code;
   }
 
@@ -196,7 +198,8 @@ public class CreateCustomPageRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDescription() {
     return description;
   }
@@ -214,8 +217,7 @@ public class CreateCustomPageRequest {
    * Get enable
    * @return enable
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getEnable() {
     return enable;
   }
@@ -300,6 +302,24 @@ public class CreateCustomPageRequest {
     this.policy = policy;
   }
 
+  public CreateCustomPageRequest prefixSwitch(Integer prefixSwitch) {
+    this.prefixSwitch = prefixSwitch;
+    return this;
+  }
+
+   /**
+   * Get prefixSwitch
+   * @return prefixSwitch
+  **/
+  @Schema(description = "")
+  public Integer getPrefixSwitch() {
+    return prefixSwitch;
+  }
+
+  public void setPrefixSwitch(Integer prefixSwitch) {
+    this.prefixSwitch = prefixSwitch;
+  }
+
   public CreateCustomPageRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -377,6 +397,7 @@ public class CreateCustomPageRequest {
         Objects.equals(this.name, createCustomPageRequest.name) &&
         Objects.equals(this.pageMode, createCustomPageRequest.pageMode) &&
         Objects.equals(this.policy, createCustomPageRequest.policy) &&
+        Objects.equals(this.prefixSwitch, createCustomPageRequest.prefixSwitch) &&
         Objects.equals(this.projectName, createCustomPageRequest.projectName) &&
         Objects.equals(this.redirectUrl, createCustomPageRequest.redirectUrl) &&
         Objects.equals(this.url, createCustomPageRequest.url);
@@ -384,7 +405,7 @@ public class CreateCustomPageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, projectName, redirectUrl, url);
+    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, prefixSwitch, projectName, redirectUrl, url);
   }
 
 
@@ -405,6 +426,7 @@ public class CreateCustomPageRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageMode: ").append(toIndentedString(pageMode)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    prefixSwitch: ").append(toIndentedString(prefixSwitch)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
