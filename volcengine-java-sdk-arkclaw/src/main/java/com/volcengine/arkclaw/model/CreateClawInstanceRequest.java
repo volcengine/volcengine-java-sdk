@@ -45,6 +45,9 @@ public class CreateClawInstanceRequest {
   @SerializedName("DryRun")
   private Boolean dryRun = null;
 
+  @SerializedName("EnableHeadless")
+  private Boolean enableHeadless = null;
+
   @SerializedName("ModelApiKey")
   private String modelApiKey = null;
 
@@ -169,6 +172,24 @@ public class CreateClawInstanceRequest {
 
   public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
+  }
+
+  public CreateClawInstanceRequest enableHeadless(Boolean enableHeadless) {
+    this.enableHeadless = enableHeadless;
+    return this;
+  }
+
+   /**
+   * Get enableHeadless
+   * @return enableHeadless
+  **/
+  @Schema(description = "")
+  public Boolean isEnableHeadless() {
+    return enableHeadless;
+  }
+
+  public void setEnableHeadless(Boolean enableHeadless) {
+    this.enableHeadless = enableHeadless;
   }
 
   public CreateClawInstanceRequest modelApiKey(String modelApiKey) {
@@ -405,6 +426,7 @@ public class CreateClawInstanceRequest {
         Objects.equals(this.clientToken, createClawInstanceRequest.clientToken) &&
         Objects.equals(this.description, createClawInstanceRequest.description) &&
         Objects.equals(this.dryRun, createClawInstanceRequest.dryRun) &&
+        Objects.equals(this.enableHeadless, createClawInstanceRequest.enableHeadless) &&
         Objects.equals(this.modelApiKey, createClawInstanceRequest.modelApiKey) &&
         Objects.equals(this.modelBaseUrl, createClawInstanceRequest.modelBaseUrl) &&
         Objects.equals(this.modelName, createClawInstanceRequest.modelName) &&
@@ -421,7 +443,7 @@ public class CreateClawInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, billingType, clientToken, description, dryRun, modelApiKey, modelBaseUrl, modelName, modelSource, name, period, projectName, soul, spaceId, spec, templateId, userPoolUserUid);
+    return Objects.hash(autoRenew, billingType, clientToken, description, dryRun, enableHeadless, modelApiKey, modelBaseUrl, modelName, modelSource, name, period, projectName, soul, spaceId, spec, templateId, userPoolUserUid);
   }
 
 
@@ -435,6 +457,7 @@ public class CreateClawInstanceRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    enableHeadless: ").append(toIndentedString(enableHeadless)).append("\n");
     sb.append("    modelApiKey: ").append(toIndentedString(modelApiKey)).append("\n");
     sb.append("    modelBaseUrl: ").append(toIndentedString(modelBaseUrl)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");

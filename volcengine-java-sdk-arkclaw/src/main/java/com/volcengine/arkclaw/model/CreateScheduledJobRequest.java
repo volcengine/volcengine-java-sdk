@@ -42,6 +42,15 @@ public class CreateScheduledJobRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("ResultDelivery.Channel")
+  private String resultDeliveryChannel = null;
+
+  @SerializedName("ResultDelivery.ChatId")
+  private String resultDeliveryChatId = null;
+
+  @SerializedName("ResultDelivery.Target")
+  private String resultDeliveryTarget = null;
+
   @SerializedName("ScheduleExpr")
   private String scheduleExpr = null;
 
@@ -130,6 +139,60 @@ public class CreateScheduledJobRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateScheduledJobRequest resultDeliveryChannel(String resultDeliveryChannel) {
+    this.resultDeliveryChannel = resultDeliveryChannel;
+    return this;
+  }
+
+   /**
+   * Get resultDeliveryChannel
+   * @return resultDeliveryChannel
+  **/
+  @Schema(description = "")
+  public String getResultDeliveryChannel() {
+    return resultDeliveryChannel;
+  }
+
+  public void setResultDeliveryChannel(String resultDeliveryChannel) {
+    this.resultDeliveryChannel = resultDeliveryChannel;
+  }
+
+  public CreateScheduledJobRequest resultDeliveryChatId(String resultDeliveryChatId) {
+    this.resultDeliveryChatId = resultDeliveryChatId;
+    return this;
+  }
+
+   /**
+   * Get resultDeliveryChatId
+   * @return resultDeliveryChatId
+  **/
+  @Schema(description = "")
+  public String getResultDeliveryChatId() {
+    return resultDeliveryChatId;
+  }
+
+  public void setResultDeliveryChatId(String resultDeliveryChatId) {
+    this.resultDeliveryChatId = resultDeliveryChatId;
+  }
+
+  public CreateScheduledJobRequest resultDeliveryTarget(String resultDeliveryTarget) {
+    this.resultDeliveryTarget = resultDeliveryTarget;
+    return this;
+  }
+
+   /**
+   * Get resultDeliveryTarget
+   * @return resultDeliveryTarget
+  **/
+  @Schema(description = "")
+  public String getResultDeliveryTarget() {
+    return resultDeliveryTarget;
+  }
+
+  public void setResultDeliveryTarget(String resultDeliveryTarget) {
+    this.resultDeliveryTarget = resultDeliveryTarget;
   }
 
   public CreateScheduledJobRequest scheduleExpr(String scheduleExpr) {
@@ -238,6 +301,9 @@ public class CreateScheduledJobRequest {
         Objects.equals(this.instructions, createScheduledJobRequest.instructions) &&
         Objects.equals(this.name, createScheduledJobRequest.name) &&
         Objects.equals(this.projectName, createScheduledJobRequest.projectName) &&
+        Objects.equals(this.resultDeliveryChannel, createScheduledJobRequest.resultDeliveryChannel) &&
+        Objects.equals(this.resultDeliveryChatId, createScheduledJobRequest.resultDeliveryChatId) &&
+        Objects.equals(this.resultDeliveryTarget, createScheduledJobRequest.resultDeliveryTarget) &&
         Objects.equals(this.scheduleExpr, createScheduledJobRequest.scheduleExpr) &&
         Objects.equals(this.scheduleType, createScheduledJobRequest.scheduleType) &&
         Objects.equals(this.spaceId, createScheduledJobRequest.spaceId) &&
@@ -247,7 +313,7 @@ public class CreateScheduledJobRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instructions, name, projectName, scheduleExpr, scheduleType, spaceId, timeoutMinutes, timezone);
+    return Objects.hash(instanceId, instructions, name, projectName, resultDeliveryChannel, resultDeliveryChatId, resultDeliveryTarget, scheduleExpr, scheduleType, spaceId, timeoutMinutes, timezone);
   }
 
 
@@ -260,6 +326,9 @@ public class CreateScheduledJobRequest {
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    resultDeliveryChannel: ").append(toIndentedString(resultDeliveryChannel)).append("\n");
+    sb.append("    resultDeliveryChatId: ").append(toIndentedString(resultDeliveryChatId)).append("\n");
+    sb.append("    resultDeliveryTarget: ").append(toIndentedString(resultDeliveryTarget)).append("\n");
     sb.append("    scheduleExpr: ").append(toIndentedString(scheduleExpr)).append("\n");
     sb.append("    scheduleType: ").append(toIndentedString(scheduleType)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");

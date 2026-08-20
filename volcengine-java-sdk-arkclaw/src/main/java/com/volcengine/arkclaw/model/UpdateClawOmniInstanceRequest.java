@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.arkclaw.model.OperationLockForUpdateClawOmniInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -35,6 +36,15 @@ public class UpdateClawOmniInstanceRequest {
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
+  @SerializedName("OperationLock")
+  private OperationLockForUpdateClawOmniInstanceInput operationLock = null;
+
+  @SerializedName("Timeout")
+  private Integer timeout = null;
 
   @SerializedName("TokenLimitPerDay")
   private Integer tokenLimitPerDay = null;
@@ -83,6 +93,62 @@ public class UpdateClawOmniInstanceRequest {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public UpdateClawOmniInstanceRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public UpdateClawOmniInstanceRequest operationLock(OperationLockForUpdateClawOmniInstanceInput operationLock) {
+    this.operationLock = operationLock;
+    return this;
+  }
+
+   /**
+   * Get operationLock
+   * @return operationLock
+  **/
+  @Valid
+  @Schema(description = "")
+  public OperationLockForUpdateClawOmniInstanceInput getOperationLock() {
+    return operationLock;
+  }
+
+  public void setOperationLock(OperationLockForUpdateClawOmniInstanceInput operationLock) {
+    this.operationLock = operationLock;
+  }
+
+  public UpdateClawOmniInstanceRequest timeout(Integer timeout) {
+    this.timeout = timeout;
+    return this;
+  }
+
+   /**
+   * Get timeout
+   * @return timeout
+  **/
+  @Schema(description = "")
+  public Integer getTimeout() {
+    return timeout;
+  }
+
+  public void setTimeout(Integer timeout) {
+    this.timeout = timeout;
   }
 
   public UpdateClawOmniInstanceRequest tokenLimitPerDay(Integer tokenLimitPerDay) {
@@ -169,6 +235,9 @@ public class UpdateClawOmniInstanceRequest {
     UpdateClawOmniInstanceRequest updateClawOmniInstanceRequest = (UpdateClawOmniInstanceRequest) o;
     return Objects.equals(this.fieldMask, updateClawOmniInstanceRequest.fieldMask) &&
         Objects.equals(this.id, updateClawOmniInstanceRequest.id) &&
+        Objects.equals(this.name, updateClawOmniInstanceRequest.name) &&
+        Objects.equals(this.operationLock, updateClawOmniInstanceRequest.operationLock) &&
+        Objects.equals(this.timeout, updateClawOmniInstanceRequest.timeout) &&
         Objects.equals(this.tokenLimitPerDay, updateClawOmniInstanceRequest.tokenLimitPerDay) &&
         Objects.equals(this.tokenLimitPerMin, updateClawOmniInstanceRequest.tokenLimitPerMin) &&
         Objects.equals(this.tokenLimitPerWeek, updateClawOmniInstanceRequest.tokenLimitPerWeek) &&
@@ -177,7 +246,7 @@ public class UpdateClawOmniInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldMask, id, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek, tokenQuota);
+    return Objects.hash(fieldMask, id, name, operationLock, timeout, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek, tokenQuota);
   }
 
 
@@ -188,6 +257,9 @@ public class UpdateClawOmniInstanceRequest {
     
     sb.append("    fieldMask: ").append(toIndentedString(fieldMask)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    operationLock: ").append(toIndentedString(operationLock)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    tokenLimitPerDay: ").append(toIndentedString(tokenLimitPerDay)).append("\n");
     sb.append("    tokenLimitPerMin: ").append(toIndentedString(tokenLimitPerMin)).append("\n");
     sb.append("    tokenLimitPerWeek: ").append(toIndentedString(tokenLimitPerWeek)).append("\n");
