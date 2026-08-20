@@ -1,0 +1,18 @@
+{
+  "actions": [
+    "CreateExclusiveScheduleResourceGroup",
+    "DeleteExclusiveScheduleResourceGroup",
+    "ListExclusiveComputeResourceGroups",
+    "ListExclusiveScheduleResourceGroups",
+    "DeleteExclusiveComputeResourceGroup",
+    "GetBackfill",
+    "LaunchBackfill",
+    "CreateExclusiveComputeResourceGroup",
+    "GetBackfillInstances",
+    "GetExclusiveComputeResourceGroup",
+    "GetExclusiveScheduleResourceGroup"
+  ],
+  "description": "DATALEAP: 新增 LaunchBackfill, CreateExclusiveComputeResourceGroup, CreateExclusiveScheduleResourceGroup, DeleteExclusiveScheduleResourceGroup, GetExclusiveComputeResourceGroup, GetExclusiveScheduleResourceGroup, ListExclusiveComputeResourceGroups, ListExclusiveScheduleResourceGroups, DeleteExclusiveComputeResourceGroup, GetBackfill, GetBackfillInstances",
+  "modules": "service/dataleap",
+  "type": "feature"
+}
