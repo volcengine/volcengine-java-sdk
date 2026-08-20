@@ -159,7 +159,7 @@ public class ModifyIpamPoolRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -196,7 +196,7 @@ public class ModifyIpamPoolRequest {
    * Get ipamPoolName
    * @return ipamPoolName
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamPoolName() {
     return ipamPoolName;
   }

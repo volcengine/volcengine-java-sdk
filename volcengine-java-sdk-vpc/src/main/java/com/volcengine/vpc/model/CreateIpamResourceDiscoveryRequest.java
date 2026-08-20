@@ -54,7 +54,7 @@ public class CreateIpamResourceDiscoveryRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -72,7 +72,7 @@ public class CreateIpamResourceDiscoveryRequest {
    * Get ipamResourceDiscoveryName
    * @return ipamResourceDiscoveryName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamResourceDiscoveryName() {
     return ipamResourceDiscoveryName;
   }

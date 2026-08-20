@@ -119,7 +119,7 @@ public class DescribeIpamPoolsRequest {
    * Get ipamPoolName
    * @return ipamPoolName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getIpamPoolName() {
     return ipamPoolName;
   }
