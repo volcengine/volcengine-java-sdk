@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vikingdb.model.FieldForUpdateVikingdbCollectionInput;
+import com.volcengine.vikingdb.model.FullTextForUpdateVikingdbCollectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +45,9 @@ public class UpdateVikingdbCollectionRequest {
 
   @SerializedName("Fields")
   private List<FieldForUpdateVikingdbCollectionInput> fields = null;
+
+  @SerializedName("FullText")
+  private List<FullTextForUpdateVikingdbCollectionInput> fullText = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -132,6 +136,33 @@ public class UpdateVikingdbCollectionRequest {
     this.fields = fields;
   }
 
+  public UpdateVikingdbCollectionRequest fullText(List<FullTextForUpdateVikingdbCollectionInput> fullText) {
+    this.fullText = fullText;
+    return this;
+  }
+
+  public UpdateVikingdbCollectionRequest addFullTextItem(FullTextForUpdateVikingdbCollectionInput fullTextItem) {
+    if (this.fullText == null) {
+      this.fullText = new ArrayList<FullTextForUpdateVikingdbCollectionInput>();
+    }
+    this.fullText.add(fullTextItem);
+    return this;
+  }
+
+   /**
+   * Get fullText
+   * @return fullText
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FullTextForUpdateVikingdbCollectionInput> getFullText() {
+    return fullText;
+  }
+
+  public void setFullText(List<FullTextForUpdateVikingdbCollectionInput> fullText) {
+    this.fullText = fullText;
+  }
+
   public UpdateVikingdbCollectionRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -182,13 +213,14 @@ public class UpdateVikingdbCollectionRequest {
         Objects.equals(this.delProtection, updateVikingdbCollectionRequest.delProtection) &&
         Objects.equals(this.description, updateVikingdbCollectionRequest.description) &&
         Objects.equals(this.fields, updateVikingdbCollectionRequest.fields) &&
+        Objects.equals(this.fullText, updateVikingdbCollectionRequest.fullText) &&
         Objects.equals(this.projectName, updateVikingdbCollectionRequest.projectName) &&
         Objects.equals(this.resourceId, updateVikingdbCollectionRequest.resourceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, delProtection, description, fields, projectName, resourceId);
+    return Objects.hash(collectionName, delProtection, description, fields, fullText, projectName, resourceId);
   }
 
 
@@ -201,6 +233,7 @@ public class UpdateVikingdbCollectionRequest {
     sb.append("    delProtection: ").append(toIndentedString(delProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    fullText: ").append(toIndentedString(fullText)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("}");
