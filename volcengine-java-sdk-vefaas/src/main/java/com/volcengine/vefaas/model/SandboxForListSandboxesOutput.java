@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EBSVolumeForListSandboxesOutput;
+import com.volcengine.vefaas.model.InstanceEfsMountConfigForListSandboxesOutput;
+import com.volcengine.vefaas.model.NetworkRulesForListSandboxesOutput;
 import com.volcengine.vefaas.model.SidecarForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -69,6 +71,9 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("Image")
   private String image = null;
 
+  @SerializedName("InstanceEfsMountConfig")
+  private InstanceEfsMountConfigForListSandboxesOutput instanceEfsMountConfig = null;
+
   @SerializedName("InstanceType")
   private String instanceType = null;
 
@@ -78,6 +83,9 @@ public class SandboxForListSandboxesOutput {
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
 
+  @SerializedName("NetworkRules")
+  private NetworkRulesForListSandboxesOutput networkRules = null;
+
   @SerializedName("PausedAt")
   private String pausedAt = null;
 
@@ -86,6 +94,12 @@ public class SandboxForListSandboxesOutput {
 
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
+
+  @SerializedName("RoleChainTrn")
+  private List<String> roleChainTrn = null;
+
+  @SerializedName("RoleTrn")
+  private String roleTrn = null;
 
   @SerializedName("SessionId")
   private String sessionId = null;
@@ -303,6 +317,25 @@ public class SandboxForListSandboxesOutput {
     this.image = image;
   }
 
+  public SandboxForListSandboxesOutput instanceEfsMountConfig(InstanceEfsMountConfigForListSandboxesOutput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceEfsMountConfig
+   * @return instanceEfsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceEfsMountConfigForListSandboxesOutput getInstanceEfsMountConfig() {
+    return instanceEfsMountConfig;
+  }
+
+  public void setInstanceEfsMountConfig(InstanceEfsMountConfigForListSandboxesOutput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+  }
+
   public SandboxForListSandboxesOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
@@ -365,6 +398,25 @@ public class SandboxForListSandboxesOutput {
     this.metadata = metadata;
   }
 
+  public SandboxForListSandboxesOutput networkRules(NetworkRulesForListSandboxesOutput networkRules) {
+    this.networkRules = networkRules;
+    return this;
+  }
+
+   /**
+   * Get networkRules
+   * @return networkRules
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkRulesForListSandboxesOutput getNetworkRules() {
+    return networkRules;
+  }
+
+  public void setNetworkRules(NetworkRulesForListSandboxesOutput networkRules) {
+    this.networkRules = networkRules;
+  }
+
   public SandboxForListSandboxesOutput pausedAt(String pausedAt) {
     this.pausedAt = pausedAt;
     return this;
@@ -417,6 +469,50 @@ public class SandboxForListSandboxesOutput {
 
   public void setRevisionNumber(Integer revisionNumber) {
     this.revisionNumber = revisionNumber;
+  }
+
+  public SandboxForListSandboxesOutput roleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+    return this;
+  }
+
+  public SandboxForListSandboxesOutput addRoleChainTrnItem(String roleChainTrnItem) {
+    if (this.roleChainTrn == null) {
+      this.roleChainTrn = new ArrayList<String>();
+    }
+    this.roleChainTrn.add(roleChainTrnItem);
+    return this;
+  }
+
+   /**
+   * Get roleChainTrn
+   * @return roleChainTrn
+  **/
+  @Schema(description = "")
+  public List<String> getRoleChainTrn() {
+    return roleChainTrn;
+  }
+
+  public void setRoleChainTrn(List<String> roleChainTrn) {
+    this.roleChainTrn = roleChainTrn;
+  }
+
+  public SandboxForListSandboxesOutput roleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
+    return this;
+  }
+
+   /**
+   * Get roleTrn
+   * @return roleTrn
+  **/
+  @Schema(description = "")
+  public String getRoleTrn() {
+    return roleTrn;
+  }
+
+  public void setRoleTrn(String roleTrn) {
+    this.roleTrn = roleTrn;
   }
 
   public SandboxForListSandboxesOutput sessionId(String sessionId) {
@@ -503,12 +599,16 @@ public class SandboxForListSandboxesOutput {
         Objects.equals(this.functionId, sandboxForListSandboxesOutput.functionId) &&
         Objects.equals(this.id, sandboxForListSandboxesOutput.id) &&
         Objects.equals(this.image, sandboxForListSandboxesOutput.image) &&
+        Objects.equals(this.instanceEfsMountConfig, sandboxForListSandboxesOutput.instanceEfsMountConfig) &&
         Objects.equals(this.instanceType, sandboxForListSandboxesOutput.instanceType) &&
         Objects.equals(this.memoryMB, sandboxForListSandboxesOutput.memoryMB) &&
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
+        Objects.equals(this.networkRules, sandboxForListSandboxesOutput.networkRules) &&
         Objects.equals(this.pausedAt, sandboxForListSandboxesOutput.pausedAt) &&
         Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
+        Objects.equals(this.roleChainTrn, sandboxForListSandboxesOutput.roleChainTrn) &&
+        Objects.equals(this.roleTrn, sandboxForListSandboxesOutput.roleTrn) &&
         Objects.equals(this.sessionId, sandboxForListSandboxesOutput.sessionId) &&
         Objects.equals(this.sidecars, sandboxForListSandboxesOutput.sidecars) &&
         Objects.equals(this.status, sandboxForListSandboxesOutput.status);
@@ -516,7 +616,7 @@ public class SandboxForListSandboxesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, ebSVolumes, errorCode, errorMessage, expireAt, functionId, id, image, instanceType, memoryMB, metadata, pausedAt, pending, revisionNumber, sessionId, sidecars, status);
+    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, ebSVolumes, errorCode, errorMessage, expireAt, functionId, id, image, instanceEfsMountConfig, instanceType, memoryMB, metadata, networkRules, pausedAt, pending, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
   }
 
 
@@ -536,12 +636,16 @@ public class SandboxForListSandboxesOutput {
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    instanceEfsMountConfig: ").append(toIndentedString(instanceEfsMountConfig)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
     sb.append("    pausedAt: ").append(toIndentedString(pausedAt)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
+    sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

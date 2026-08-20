@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.ConvertMountPointForListFunctionsOutput;
 import com.volcengine.vefaas.model.CredentialsForListFunctionsOutput;
-import com.volcengine.vefaas.model.MountPointForListFunctionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class TosMountConfigForListFunctionsOutput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<MountPointForListFunctionsOutput> mountPoints = null;
+  private List<ConvertMountPointForListFunctionsOutput> mountPoints = null;
 
   public TosMountConfigForListFunctionsOutput credentials(CredentialsForListFunctionsOutput credentials) {
     this.credentials = credentials;
@@ -80,14 +80,14 @@ public class TosMountConfigForListFunctionsOutput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForListFunctionsOutput mountPoints(List<MountPointForListFunctionsOutput> mountPoints) {
+  public TosMountConfigForListFunctionsOutput mountPoints(List<ConvertMountPointForListFunctionsOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForListFunctionsOutput addMountPointsItem(MountPointForListFunctionsOutput mountPointsItem) {
+  public TosMountConfigForListFunctionsOutput addMountPointsItem(ConvertMountPointForListFunctionsOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForListFunctionsOutput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForListFunctionsOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -99,11 +99,11 @@ public class TosMountConfigForListFunctionsOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForListFunctionsOutput> getMountPoints() {
+  public List<ConvertMountPointForListFunctionsOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForListFunctionsOutput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForListFunctionsOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

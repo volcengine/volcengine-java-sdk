@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "ListSandboxes",
+    "CreateSandboxSnapshot",
+    "DescribeSandbox",
+    "DescribeSandboxSnapshot",
+    "CreateSandbox",
+    "UpdateFunction",
+    "ListSandboxSnapshots",
+    "GetFunction",
+    "GetRevision",
+    "ListFunctions",
+    "CreateFunction",
+    "ListRevisions"
+  ],
+  "description": "VEFAAS: 修改 ListSandboxes, CreateSandboxSnapshot, DescribeSandbox, DescribeSandboxSnapshot, GetFunction, GetRevision, ListFunctions, CreateFunction, CreateSandbox, UpdateFunction, ListRevisions, ListSandboxSnapshots",
+  "modules": "service/vefaas",
+  "type": "feature"
+}

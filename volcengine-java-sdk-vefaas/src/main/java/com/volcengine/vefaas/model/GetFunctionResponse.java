@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.AsyncTaskConfigForGetFunctionOutput;
+import com.volcengine.vefaas.model.EfsMountConfigForGetFunctionOutput;
 import com.volcengine.vefaas.model.EnvForGetFunctionOutput;
 import com.volcengine.vefaas.model.NasStorageForGetFunctionOutput;
 import com.volcengine.vefaas.model.TlsConfigForGetFunctionOutput;
@@ -61,6 +62,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EfsMountConfig")
+  private EfsMountConfigForGetFunctionOutput efsMountConfig = null;
 
   @SerializedName("EnableApmplus")
   private Boolean enableApmplus = null;
@@ -277,6 +281,25 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public GetFunctionResponse efsMountConfig(EfsMountConfigForGetFunctionOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get efsMountConfig
+   * @return efsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsMountConfigForGetFunctionOutput getEfsMountConfig() {
+    return efsMountConfig;
+  }
+
+  public void setEfsMountConfig(EfsMountConfigForGetFunctionOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
   }
 
   public GetFunctionResponse enableApmplus(Boolean enableApmplus) {
@@ -742,6 +765,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.cpuStrategy, getFunctionResponse.cpuStrategy) &&
         Objects.equals(this.creationTime, getFunctionResponse.creationTime) &&
         Objects.equals(this.description, getFunctionResponse.description) &&
+        Objects.equals(this.efsMountConfig, getFunctionResponse.efsMountConfig) &&
         Objects.equals(this.enableApmplus, getFunctionResponse.enableApmplus) &&
         Objects.equals(this.envs, getFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getFunctionResponse.exclusiveMode) &&
@@ -770,7 +794,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, enableApmplus, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, efsMountConfig, enableApmplus, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -787,6 +811,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");

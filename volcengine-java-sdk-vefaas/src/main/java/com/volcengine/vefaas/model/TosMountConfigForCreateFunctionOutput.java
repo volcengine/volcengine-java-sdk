@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.ConvertMountPointForCreateFunctionOutput;
 import com.volcengine.vefaas.model.CredentialsForCreateFunctionOutput;
-import com.volcengine.vefaas.model.MountPointForCreateFunctionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class TosMountConfigForCreateFunctionOutput {
+  @SerializedName("AuthMode")
+  private String authMode = null;
+
   @SerializedName("Credentials")
   private CredentialsForCreateFunctionOutput credentials = null;
 
@@ -41,7 +44,25 @@ public class TosMountConfigForCreateFunctionOutput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<MountPointForCreateFunctionOutput> mountPoints = null;
+  private List<ConvertMountPointForCreateFunctionOutput> mountPoints = null;
+
+  public TosMountConfigForCreateFunctionOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
 
   public TosMountConfigForCreateFunctionOutput credentials(CredentialsForCreateFunctionOutput credentials) {
     this.credentials = credentials;
@@ -80,14 +101,14 @@ public class TosMountConfigForCreateFunctionOutput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForCreateFunctionOutput mountPoints(List<MountPointForCreateFunctionOutput> mountPoints) {
+  public TosMountConfigForCreateFunctionOutput mountPoints(List<ConvertMountPointForCreateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForCreateFunctionOutput addMountPointsItem(MountPointForCreateFunctionOutput mountPointsItem) {
+  public TosMountConfigForCreateFunctionOutput addMountPointsItem(ConvertMountPointForCreateFunctionOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForCreateFunctionOutput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForCreateFunctionOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -99,11 +120,11 @@ public class TosMountConfigForCreateFunctionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForCreateFunctionOutput> getMountPoints() {
+  public List<ConvertMountPointForCreateFunctionOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForCreateFunctionOutput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForCreateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 
@@ -117,14 +138,15 @@ public class TosMountConfigForCreateFunctionOutput {
       return false;
     }
     TosMountConfigForCreateFunctionOutput tosMountConfigForCreateFunctionOutput = (TosMountConfigForCreateFunctionOutput) o;
-    return Objects.equals(this.credentials, tosMountConfigForCreateFunctionOutput.credentials) &&
+    return Objects.equals(this.authMode, tosMountConfigForCreateFunctionOutput.authMode) &&
+        Objects.equals(this.credentials, tosMountConfigForCreateFunctionOutput.credentials) &&
         Objects.equals(this.enableTos, tosMountConfigForCreateFunctionOutput.enableTos) &&
         Objects.equals(this.mountPoints, tosMountConfigForCreateFunctionOutput.mountPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentials, enableTos, mountPoints);
+    return Objects.hash(authMode, credentials, enableTos, mountPoints);
   }
 
 
@@ -133,6 +155,7 @@ public class TosMountConfigForCreateFunctionOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TosMountConfigForCreateFunctionOutput {\n");
     
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    enableTos: ").append(toIndentedString(enableTos)).append("\n");
     sb.append("    mountPoints: ").append(toIndentedString(mountPoints)).append("\n");

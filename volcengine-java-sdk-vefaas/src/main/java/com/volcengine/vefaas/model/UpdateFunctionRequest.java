@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.AsyncTaskConfigForUpdateFunctionInput;
+import com.volcengine.vefaas.model.EfsMountConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.EnvForUpdateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForUpdateFunctionInput;
@@ -51,6 +52,9 @@ public class UpdateFunctionRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EfsMountConfig")
+  private EfsMountConfigForUpdateFunctionInput efsMountConfig = null;
 
   @SerializedName("EnableApmplus")
   private Boolean enableApmplus = null;
@@ -183,6 +187,25 @@ public class UpdateFunctionRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateFunctionRequest efsMountConfig(EfsMountConfigForUpdateFunctionInput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get efsMountConfig
+   * @return efsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsMountConfigForUpdateFunctionInput getEfsMountConfig() {
+    return efsMountConfig;
+  }
+
+  public void setEfsMountConfig(EfsMountConfigForUpdateFunctionInput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
   }
 
   public UpdateFunctionRequest enableApmplus(Boolean enableApmplus) {
@@ -583,6 +606,7 @@ public class UpdateFunctionRequest {
         Objects.equals(this.command, updateFunctionRequest.command) &&
         Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
         Objects.equals(this.description, updateFunctionRequest.description) &&
+        Objects.equals(this.efsMountConfig, updateFunctionRequest.efsMountConfig) &&
         Objects.equals(this.enableApmplus, updateFunctionRequest.enableApmplus) &&
         Objects.equals(this.enableZTIToken, updateFunctionRequest.enableZTIToken) &&
         Objects.equals(this.envs, updateFunctionRequest.envs) &&
@@ -607,7 +631,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, enableApmplus, enableZTIToken, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, port, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, command, cpuMilli, description, efsMountConfig, enableApmplus, enableZTIToken, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, port, projectName, requestTimeout, role, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -620,6 +644,7 @@ public class UpdateFunctionRequest {
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    enableZTIToken: ").append(toIndentedString(enableZTIToken)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");

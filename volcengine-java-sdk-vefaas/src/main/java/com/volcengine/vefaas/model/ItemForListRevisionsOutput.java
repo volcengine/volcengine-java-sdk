@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.AsyncTaskConfigForListRevisionsOutput;
+import com.volcengine.vefaas.model.EfsMountConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.EnvForListRevisionsOutput;
 import com.volcengine.vefaas.model.HealthCheckConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.NasStorageForListRevisionsOutput;
@@ -53,6 +54,9 @@ public class ItemForListRevisionsOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EfsMountConfig")
+  private EfsMountConfigForListRevisionsOutput efsMountConfig = null;
 
   @SerializedName("Envs")
   private List<EnvForListRevisionsOutput> envs = null;
@@ -215,6 +219,25 @@ public class ItemForListRevisionsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ItemForListRevisionsOutput efsMountConfig(EfsMountConfigForListRevisionsOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get efsMountConfig
+   * @return efsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public EfsMountConfigForListRevisionsOutput getEfsMountConfig() {
+    return efsMountConfig;
+  }
+
+  public void setEfsMountConfig(EfsMountConfigForListRevisionsOutput efsMountConfig) {
+    this.efsMountConfig = efsMountConfig;
   }
 
   public ItemForListRevisionsOutput envs(List<EnvForListRevisionsOutput> envs) {
@@ -678,6 +701,7 @@ public class ItemForListRevisionsOutput {
         Objects.equals(this.codeSizeLimit, itemForListRevisionsOutput.codeSizeLimit) &&
         Objects.equals(this.creationTime, itemForListRevisionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListRevisionsOutput.description) &&
+        Objects.equals(this.efsMountConfig, itemForListRevisionsOutput.efsMountConfig) &&
         Objects.equals(this.envs, itemForListRevisionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListRevisionsOutput.exclusiveMode) &&
         Objects.equals(this.functionType, itemForListRevisionsOutput.functionType) &&
@@ -706,7 +730,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, efsMountConfig, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -720,6 +744,7 @@ public class ItemForListRevisionsOutput {
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");

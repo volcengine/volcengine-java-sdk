@@ -19,12 +19,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AutoPauseConfigForCreateSandboxInput;
+import com.volcengine.vefaas.model.AutoSnapshotConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.EBSVolumeForCreateSandboxInput;
 import com.volcengine.vefaas.model.EmptyDirVolumeForCreateSandboxInput;
 import com.volcengine.vefaas.model.EnvForCreateSandboxInput;
+import com.volcengine.vefaas.model.InstanceEfsMountConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceImageInfoForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceNasMountConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForCreateSandboxInput;
+import com.volcengine.vefaas.model.NetworkRulesForCreateSandboxInput;
 import com.volcengine.vefaas.model.SidecarForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -44,6 +48,12 @@ public class CreateSandboxRequest {
   @SerializedName("Async")
   private Boolean async = null;
 
+  @SerializedName("AutoPauseConfig")
+  private AutoPauseConfigForCreateSandboxInput autoPauseConfig = null;
+
+  @SerializedName("AutoSnapshotConfig")
+  private AutoSnapshotConfigForCreateSandboxInput autoSnapshotConfig = null;
+
   @SerializedName("CpuMilli")
   private Integer cpuMilli = null;
 
@@ -58,6 +68,9 @@ public class CreateSandboxRequest {
 
   @SerializedName("FunctionId")
   private String functionId = null;
+
+  @SerializedName("InstanceEfsMountConfig")
+  private InstanceEfsMountConfigForCreateSandboxInput instanceEfsMountConfig = null;
 
   @SerializedName("InstanceImageInfo")
   private InstanceImageInfoForCreateSandboxInput instanceImageInfo = null;
@@ -76,6 +89,9 @@ public class CreateSandboxRequest {
 
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
+
+  @SerializedName("NetworkRules")
+  private NetworkRulesForCreateSandboxInput networkRules = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
@@ -117,6 +133,44 @@ public class CreateSandboxRequest {
 
   public void setAsync(Boolean async) {
     this.async = async;
+  }
+
+  public CreateSandboxRequest autoPauseConfig(AutoPauseConfigForCreateSandboxInput autoPauseConfig) {
+    this.autoPauseConfig = autoPauseConfig;
+    return this;
+  }
+
+   /**
+   * Get autoPauseConfig
+   * @return autoPauseConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoPauseConfigForCreateSandboxInput getAutoPauseConfig() {
+    return autoPauseConfig;
+  }
+
+  public void setAutoPauseConfig(AutoPauseConfigForCreateSandboxInput autoPauseConfig) {
+    this.autoPauseConfig = autoPauseConfig;
+  }
+
+  public CreateSandboxRequest autoSnapshotConfig(AutoSnapshotConfigForCreateSandboxInput autoSnapshotConfig) {
+    this.autoSnapshotConfig = autoSnapshotConfig;
+    return this;
+  }
+
+   /**
+   * Get autoSnapshotConfig
+   * @return autoSnapshotConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoSnapshotConfigForCreateSandboxInput getAutoSnapshotConfig() {
+    return autoSnapshotConfig;
+  }
+
+  public void setAutoSnapshotConfig(AutoSnapshotConfigForCreateSandboxInput autoSnapshotConfig) {
+    this.autoSnapshotConfig = autoSnapshotConfig;
   }
 
   public CreateSandboxRequest cpuMilli(Integer cpuMilli) {
@@ -237,6 +291,25 @@ public class CreateSandboxRequest {
     this.functionId = functionId;
   }
 
+  public CreateSandboxRequest instanceEfsMountConfig(InstanceEfsMountConfigForCreateSandboxInput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceEfsMountConfig
+   * @return instanceEfsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceEfsMountConfigForCreateSandboxInput getInstanceEfsMountConfig() {
+    return instanceEfsMountConfig;
+  }
+
+  public void setInstanceEfsMountConfig(InstanceEfsMountConfigForCreateSandboxInput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+  }
+
   public CreateSandboxRequest instanceImageInfo(InstanceImageInfoForCreateSandboxInput instanceImageInfo) {
     this.instanceImageInfo = instanceImageInfo;
     return this;
@@ -354,6 +427,25 @@ public class CreateSandboxRequest {
 
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+  public CreateSandboxRequest networkRules(NetworkRulesForCreateSandboxInput networkRules) {
+    this.networkRules = networkRules;
+    return this;
+  }
+
+   /**
+   * Get networkRules
+   * @return networkRules
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkRulesForCreateSandboxInput getNetworkRules() {
+    return networkRules;
+  }
+
+  public void setNetworkRules(NetworkRulesForCreateSandboxInput networkRules) {
+    this.networkRules = networkRules;
   }
 
   public CreateSandboxRequest requestTimeout(Integer requestTimeout) {
@@ -528,17 +620,21 @@ public class CreateSandboxRequest {
     }
     CreateSandboxRequest createSandboxRequest = (CreateSandboxRequest) o;
     return Objects.equals(this.async, createSandboxRequest.async) &&
+        Objects.equals(this.autoPauseConfig, createSandboxRequest.autoPauseConfig) &&
+        Objects.equals(this.autoSnapshotConfig, createSandboxRequest.autoSnapshotConfig) &&
         Objects.equals(this.cpuMilli, createSandboxRequest.cpuMilli) &&
         Objects.equals(this.ebSVolumes, createSandboxRequest.ebSVolumes) &&
         Objects.equals(this.emptyDirVolume, createSandboxRequest.emptyDirVolume) &&
         Objects.equals(this.envs, createSandboxRequest.envs) &&
         Objects.equals(this.functionId, createSandboxRequest.functionId) &&
+        Objects.equals(this.instanceEfsMountConfig, createSandboxRequest.instanceEfsMountConfig) &&
         Objects.equals(this.instanceImageInfo, createSandboxRequest.instanceImageInfo) &&
         Objects.equals(this.instanceNasMountConfig, createSandboxRequest.instanceNasMountConfig) &&
         Objects.equals(this.instanceTosMountConfig, createSandboxRequest.instanceTosMountConfig) &&
         Objects.equals(this.maxConcurrency, createSandboxRequest.maxConcurrency) &&
         Objects.equals(this.memoryMB, createSandboxRequest.memoryMB) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
+        Objects.equals(this.networkRules, createSandboxRequest.networkRules) &&
         Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
         Objects.equals(this.roleChainTrn, createSandboxRequest.roleChainTrn) &&
         Objects.equals(this.roleTrn, createSandboxRequest.roleTrn) &&
@@ -551,7 +647,7 @@ public class CreateSandboxRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, roleTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
+    return Objects.hash(async, autoPauseConfig, autoSnapshotConfig, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceEfsMountConfig, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, networkRules, requestTimeout, roleChainTrn, roleTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
   }
 
 
@@ -561,17 +657,21 @@ public class CreateSandboxRequest {
     sb.append("class CreateSandboxRequest {\n");
     
     sb.append("    async: ").append(toIndentedString(async)).append("\n");
+    sb.append("    autoPauseConfig: ").append(toIndentedString(autoPauseConfig)).append("\n");
+    sb.append("    autoSnapshotConfig: ").append(toIndentedString(autoSnapshotConfig)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    ebSVolumes: ").append(toIndentedString(ebSVolumes)).append("\n");
     sb.append("    emptyDirVolume: ").append(toIndentedString(emptyDirVolume)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    instanceEfsMountConfig: ").append(toIndentedString(instanceEfsMountConfig)).append("\n");
     sb.append("    instanceImageInfo: ").append(toIndentedString(instanceImageInfo)).append("\n");
     sb.append("    instanceNasMountConfig: ").append(toIndentedString(instanceNasMountConfig)).append("\n");
     sb.append("    instanceTosMountConfig: ").append(toIndentedString(instanceTosMountConfig)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
     sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");

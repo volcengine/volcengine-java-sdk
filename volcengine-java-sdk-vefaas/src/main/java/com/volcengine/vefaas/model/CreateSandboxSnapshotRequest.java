@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.MetadataForCreateSandboxSnapshotInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -32,6 +33,12 @@ import javax.validation.Valid;
 public class CreateSandboxSnapshotRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
+
+  @SerializedName("Metadata")
+  private MetadataForCreateSandboxSnapshotInput metadata = null;
+
+  @SerializedName("RetentionDays")
+  private Integer retentionDays = null;
 
   @SerializedName("SandboxId")
   private String sandboxId = null;
@@ -56,6 +63,43 @@ public class CreateSandboxSnapshotRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public CreateSandboxSnapshotRequest metadata(MetadataForCreateSandboxSnapshotInput metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public MetadataForCreateSandboxSnapshotInput getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(MetadataForCreateSandboxSnapshotInput metadata) {
+    this.metadata = metadata;
+  }
+
+  public CreateSandboxSnapshotRequest retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+    return this;
+  }
+
+   /**
+   * Get retentionDays
+   * @return retentionDays
+  **/
+  @Schema(description = "")
+  public Integer getRetentionDays() {
+    return retentionDays;
+  }
+
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
   }
 
   public CreateSandboxSnapshotRequest sandboxId(String sandboxId) {
@@ -106,13 +150,15 @@ public class CreateSandboxSnapshotRequest {
     }
     CreateSandboxSnapshotRequest createSandboxSnapshotRequest = (CreateSandboxSnapshotRequest) o;
     return Objects.equals(this.functionId, createSandboxSnapshotRequest.functionId) &&
+        Objects.equals(this.metadata, createSandboxSnapshotRequest.metadata) &&
+        Objects.equals(this.retentionDays, createSandboxSnapshotRequest.retentionDays) &&
         Objects.equals(this.sandboxId, createSandboxSnapshotRequest.sandboxId) &&
         Objects.equals(this.type, createSandboxSnapshotRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, sandboxId, type);
+    return Objects.hash(functionId, metadata, retentionDays, sandboxId, type);
   }
 
 
@@ -122,6 +168,8 @@ public class CreateSandboxSnapshotRequest {
     sb.append("class CreateSandboxSnapshotRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

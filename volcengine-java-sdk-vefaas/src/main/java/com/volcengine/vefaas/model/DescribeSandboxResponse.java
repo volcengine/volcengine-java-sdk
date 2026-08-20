@@ -19,11 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.AutoPauseConfigForDescribeSandboxOutput;
+import com.volcengine.vefaas.model.AutoSnapshotConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.EnvForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.ImageInfoForDescribeSandboxOutput;
+import com.volcengine.vefaas.model.InstanceEfsMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceNasMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.MetadataListForDescribeSandboxOutput;
+import com.volcengine.vefaas.model.NetworkRulesForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.SidecarForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -40,6 +44,12 @@ import javax.validation.Valid;
 public class DescribeSandboxResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AssignStatus")
   private String assignStatus = null;
+
+  @SerializedName("AutoPauseConfig")
+  private AutoPauseConfigForDescribeSandboxOutput autoPauseConfig = null;
+
+  @SerializedName("AutoSnapshotConfig")
+  private AutoSnapshotConfigForDescribeSandboxOutput autoSnapshotConfig = null;
 
   @SerializedName("AvailabilityZone")
   private String availabilityZone = null;
@@ -71,6 +81,9 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("ImageInfo")
   private ImageInfoForDescribeSandboxOutput imageInfo = null;
 
+  @SerializedName("InstanceEfsMountConfig")
+  private InstanceEfsMountConfigForDescribeSandboxOutput instanceEfsMountConfig = null;
+
   @SerializedName("InstanceNasMountConfig")
   private InstanceNasMountConfigForDescribeSandboxOutput instanceNasMountConfig = null;
 
@@ -88,6 +101,12 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("MetadataList")
   private List<MetadataListForDescribeSandboxOutput> metadataList = null;
+
+  @SerializedName("NetworkRules")
+  private NetworkRulesForDescribeSandboxOutput networkRules = null;
+
+  @SerializedName("PausedAt")
+  private String pausedAt = null;
 
   @SerializedName("Pending")
   private Boolean pending = null;
@@ -129,6 +148,44 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   public void setAssignStatus(String assignStatus) {
     this.assignStatus = assignStatus;
+  }
+
+  public DescribeSandboxResponse autoPauseConfig(AutoPauseConfigForDescribeSandboxOutput autoPauseConfig) {
+    this.autoPauseConfig = autoPauseConfig;
+    return this;
+  }
+
+   /**
+   * Get autoPauseConfig
+   * @return autoPauseConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoPauseConfigForDescribeSandboxOutput getAutoPauseConfig() {
+    return autoPauseConfig;
+  }
+
+  public void setAutoPauseConfig(AutoPauseConfigForDescribeSandboxOutput autoPauseConfig) {
+    this.autoPauseConfig = autoPauseConfig;
+  }
+
+  public DescribeSandboxResponse autoSnapshotConfig(AutoSnapshotConfigForDescribeSandboxOutput autoSnapshotConfig) {
+    this.autoSnapshotConfig = autoSnapshotConfig;
+    return this;
+  }
+
+   /**
+   * Get autoSnapshotConfig
+   * @return autoSnapshotConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoSnapshotConfigForDescribeSandboxOutput getAutoSnapshotConfig() {
+    return autoSnapshotConfig;
+  }
+
+  public void setAutoSnapshotConfig(AutoSnapshotConfigForDescribeSandboxOutput autoSnapshotConfig) {
+    this.autoSnapshotConfig = autoSnapshotConfig;
   }
 
   public DescribeSandboxResponse availabilityZone(String availabilityZone) {
@@ -321,6 +378,25 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.imageInfo = imageInfo;
   }
 
+  public DescribeSandboxResponse instanceEfsMountConfig(InstanceEfsMountConfigForDescribeSandboxOutput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceEfsMountConfig
+   * @return instanceEfsMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceEfsMountConfigForDescribeSandboxOutput getInstanceEfsMountConfig() {
+    return instanceEfsMountConfig;
+  }
+
+  public void setInstanceEfsMountConfig(InstanceEfsMountConfigForDescribeSandboxOutput instanceEfsMountConfig) {
+    this.instanceEfsMountConfig = instanceEfsMountConfig;
+  }
+
   public DescribeSandboxResponse instanceNasMountConfig(InstanceNasMountConfigForDescribeSandboxOutput instanceNasMountConfig) {
     this.instanceNasMountConfig = instanceNasMountConfig;
     return this;
@@ -438,6 +514,43 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   public void setMetadataList(List<MetadataListForDescribeSandboxOutput> metadataList) {
     this.metadataList = metadataList;
+  }
+
+  public DescribeSandboxResponse networkRules(NetworkRulesForDescribeSandboxOutput networkRules) {
+    this.networkRules = networkRules;
+    return this;
+  }
+
+   /**
+   * Get networkRules
+   * @return networkRules
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkRulesForDescribeSandboxOutput getNetworkRules() {
+    return networkRules;
+  }
+
+  public void setNetworkRules(NetworkRulesForDescribeSandboxOutput networkRules) {
+    this.networkRules = networkRules;
+  }
+
+  public DescribeSandboxResponse pausedAt(String pausedAt) {
+    this.pausedAt = pausedAt;
+    return this;
+  }
+
+   /**
+   * Get pausedAt
+   * @return pausedAt
+  **/
+  @Schema(description = "")
+  public String getPausedAt() {
+    return pausedAt;
+  }
+
+  public void setPausedAt(String pausedAt) {
+    this.pausedAt = pausedAt;
   }
 
   public DescribeSandboxResponse pending(Boolean pending) {
@@ -612,6 +725,8 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     }
     DescribeSandboxResponse describeSandboxResponse = (DescribeSandboxResponse) o;
     return Objects.equals(this.assignStatus, describeSandboxResponse.assignStatus) &&
+        Objects.equals(this.autoPauseConfig, describeSandboxResponse.autoPauseConfig) &&
+        Objects.equals(this.autoSnapshotConfig, describeSandboxResponse.autoSnapshotConfig) &&
         Objects.equals(this.availabilityZone, describeSandboxResponse.availabilityZone) &&
         Objects.equals(this.cpuMilli, describeSandboxResponse.cpuMilli) &&
         Objects.equals(this.createdAt, describeSandboxResponse.createdAt) &&
@@ -622,12 +737,15 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.functionId, describeSandboxResponse.functionId) &&
         Objects.equals(this.id, describeSandboxResponse.id) &&
         Objects.equals(this.imageInfo, describeSandboxResponse.imageInfo) &&
+        Objects.equals(this.instanceEfsMountConfig, describeSandboxResponse.instanceEfsMountConfig) &&
         Objects.equals(this.instanceNasMountConfig, describeSandboxResponse.instanceNasMountConfig) &&
         Objects.equals(this.instanceTosMountConfig, describeSandboxResponse.instanceTosMountConfig) &&
         Objects.equals(this.instanceType, describeSandboxResponse.instanceType) &&
         Objects.equals(this.maxConcurrency, describeSandboxResponse.maxConcurrency) &&
         Objects.equals(this.memoryMB, describeSandboxResponse.memoryMB) &&
         Objects.equals(this.metadataList, describeSandboxResponse.metadataList) &&
+        Objects.equals(this.networkRules, describeSandboxResponse.networkRules) &&
+        Objects.equals(this.pausedAt, describeSandboxResponse.pausedAt) &&
         Objects.equals(this.pending, describeSandboxResponse.pending) &&
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
         Objects.equals(this.revisionNumber, describeSandboxResponse.revisionNumber) &&
@@ -640,7 +758,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pending, requestTimeout, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
+    return Objects.hash(assignStatus, autoPauseConfig, autoSnapshotConfig, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceEfsMountConfig, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, networkRules, pausedAt, pending, requestTimeout, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
   }
 
 
@@ -650,6 +768,8 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("class DescribeSandboxResponse {\n");
     
     sb.append("    assignStatus: ").append(toIndentedString(assignStatus)).append("\n");
+    sb.append("    autoPauseConfig: ").append(toIndentedString(autoPauseConfig)).append("\n");
+    sb.append("    autoSnapshotConfig: ").append(toIndentedString(autoSnapshotConfig)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -660,12 +780,15 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    imageInfo: ").append(toIndentedString(imageInfo)).append("\n");
+    sb.append("    instanceEfsMountConfig: ").append(toIndentedString(instanceEfsMountConfig)).append("\n");
     sb.append("    instanceNasMountConfig: ").append(toIndentedString(instanceNasMountConfig)).append("\n");
     sb.append("    instanceTosMountConfig: ").append(toIndentedString(instanceTosMountConfig)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadataList: ").append(toIndentedString(metadataList)).append("\n");
+    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
+    sb.append("    pausedAt: ").append(toIndentedString(pausedAt)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
