@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.EncryptionConfigForUpdateFunctionInput;
+import com.volcengine.vefaas.model.BackendForUpdateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,17 +31,8 @@ import javax.validation.Valid;
 
 
 public class ConvertMountPointForUpdateFunctionInput {
-  @SerializedName("BucketName")
-  private String bucketName = null;
-
-  @SerializedName("BucketPath")
-  private String bucketPath = null;
-
-  @SerializedName("EncryptionConfig")
-  private EncryptionConfigForUpdateFunctionInput encryptionConfig = null;
-
-  @SerializedName("Endpoint")
-  private String endpoint = null;
+  @SerializedName("Backend")
+  private BackendForUpdateFunctionInput backend = null;
 
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
@@ -49,77 +40,23 @@ public class ConvertMountPointForUpdateFunctionInput {
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
 
-  public ConvertMountPointForUpdateFunctionInput bucketName(String bucketName) {
-    this.bucketName = bucketName;
+  public ConvertMountPointForUpdateFunctionInput backend(BackendForUpdateFunctionInput backend) {
+    this.backend = backend;
     return this;
   }
 
    /**
-   * Get bucketName
-   * @return bucketName
-  **/
-  @Schema(description = "")
-  public String getBucketName() {
-    return bucketName;
-  }
-
-  public void setBucketName(String bucketName) {
-    this.bucketName = bucketName;
-  }
-
-  public ConvertMountPointForUpdateFunctionInput bucketPath(String bucketPath) {
-    this.bucketPath = bucketPath;
-    return this;
-  }
-
-   /**
-   * Get bucketPath
-   * @return bucketPath
-  **/
-  @Schema(description = "")
-  public String getBucketPath() {
-    return bucketPath;
-  }
-
-  public void setBucketPath(String bucketPath) {
-    this.bucketPath = bucketPath;
-  }
-
-  public ConvertMountPointForUpdateFunctionInput encryptionConfig(EncryptionConfigForUpdateFunctionInput encryptionConfig) {
-    this.encryptionConfig = encryptionConfig;
-    return this;
-  }
-
-   /**
-   * Get encryptionConfig
-   * @return encryptionConfig
+   * Get backend
+   * @return backend
   **/
   @Valid
   @Schema(description = "")
-  public EncryptionConfigForUpdateFunctionInput getEncryptionConfig() {
-    return encryptionConfig;
+  public BackendForUpdateFunctionInput getBackend() {
+    return backend;
   }
 
-  public void setEncryptionConfig(EncryptionConfigForUpdateFunctionInput encryptionConfig) {
-    this.encryptionConfig = encryptionConfig;
-  }
-
-  public ConvertMountPointForUpdateFunctionInput endpoint(String endpoint) {
-    this.endpoint = endpoint;
-    return this;
-  }
-
-   /**
-   * Get endpoint
-   * @return endpoint
-  **/
-  @Schema(description = "")
-  public String getEndpoint() {
-    return endpoint;
-  }
-
-  public void setEndpoint(String endpoint) {
-    this.endpoint = endpoint;
+  public void setBackend(BackendForUpdateFunctionInput backend) {
+    this.backend = backend;
   }
 
   public ConvertMountPointForUpdateFunctionInput localMountPath(String localMountPath) {
@@ -168,17 +105,14 @@ public class ConvertMountPointForUpdateFunctionInput {
       return false;
     }
     ConvertMountPointForUpdateFunctionInput convertMountPointForUpdateFunctionInput = (ConvertMountPointForUpdateFunctionInput) o;
-    return Objects.equals(this.bucketName, convertMountPointForUpdateFunctionInput.bucketName) &&
-        Objects.equals(this.bucketPath, convertMountPointForUpdateFunctionInput.bucketPath) &&
-        Objects.equals(this.encryptionConfig, convertMountPointForUpdateFunctionInput.encryptionConfig) &&
-        Objects.equals(this.endpoint, convertMountPointForUpdateFunctionInput.endpoint) &&
+    return Objects.equals(this.backend, convertMountPointForUpdateFunctionInput.backend) &&
         Objects.equals(this.localMountPath, convertMountPointForUpdateFunctionInput.localMountPath) &&
         Objects.equals(this.readOnly, convertMountPointForUpdateFunctionInput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketPath, encryptionConfig, endpoint, localMountPath, readOnly);
+    return Objects.hash(backend, localMountPath, readOnly);
   }
 
 
@@ -187,10 +121,7 @@ public class ConvertMountPointForUpdateFunctionInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertMountPointForUpdateFunctionInput {\n");
     
-    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
-    sb.append("    bucketPath: ").append(toIndentedString(bucketPath)).append("\n");
-    sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
-    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");

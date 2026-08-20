@@ -64,6 +64,24 @@ public class TosMountConfigForCreateFunctionOutput {
     this.authMode = authMode;
   }
 
+  public TosMountConfigForCreateFunctionOutput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
+
   public TosMountConfigForCreateFunctionOutput credentials(CredentialsForCreateFunctionOutput credentials) {
     this.credentials = credentials;
     return this;

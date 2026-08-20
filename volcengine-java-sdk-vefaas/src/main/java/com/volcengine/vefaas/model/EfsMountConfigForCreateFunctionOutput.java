@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.MountPointForCreateFunctionOutput;
+import com.volcengine.vefaas.model.ConvertMountPointForCreateFunctionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,16 +34,16 @@ import javax.validation.Valid;
 
 public class EfsMountConfigForCreateFunctionOutput {
   @SerializedName("MountPoints")
-  private List<MountPointForCreateFunctionOutput> mountPoints = null;
+  private List<ConvertMountPointForCreateFunctionOutput> mountPoints = null;
 
-  public EfsMountConfigForCreateFunctionOutput mountPoints(List<MountPointForCreateFunctionOutput> mountPoints) {
+  public EfsMountConfigForCreateFunctionOutput mountPoints(List<ConvertMountPointForCreateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public EfsMountConfigForCreateFunctionOutput addMountPointsItem(MountPointForCreateFunctionOutput mountPointsItem) {
+  public EfsMountConfigForCreateFunctionOutput addMountPointsItem(ConvertMountPointForCreateFunctionOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForCreateFunctionOutput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForCreateFunctionOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -55,11 +55,11 @@ public class EfsMountConfigForCreateFunctionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForCreateFunctionOutput> getMountPoints() {
+  public List<ConvertMountPointForCreateFunctionOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForCreateFunctionOutput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForCreateFunctionOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

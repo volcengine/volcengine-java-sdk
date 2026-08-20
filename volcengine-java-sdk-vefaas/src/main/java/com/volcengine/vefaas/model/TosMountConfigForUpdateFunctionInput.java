@@ -64,6 +64,24 @@ public class TosMountConfigForUpdateFunctionInput {
     this.authMode = authMode;
   }
 
+  public TosMountConfigForUpdateFunctionInput authMode(String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+   /**
+   * Get authMode
+   * @return authMode
+  **/
+  @Schema(description = "")
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(String authMode) {
+    this.authMode = authMode;
+  }
+
   public TosMountConfigForUpdateFunctionInput credentials(CredentialsForUpdateFunctionInput credentials) {
     this.credentials = credentials;
     return this;
