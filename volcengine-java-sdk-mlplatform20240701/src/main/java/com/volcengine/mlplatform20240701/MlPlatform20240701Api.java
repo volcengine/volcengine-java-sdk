@@ -71,6 +71,8 @@ import com.volcengine.mlplatform20240701.model.GetDeploymentRequest;
 import com.volcengine.mlplatform20240701.model.GetDeploymentResponse;
 import com.volcengine.mlplatform20240701.model.GetDevInstanceRequest;
 import com.volcengine.mlplatform20240701.model.GetDevInstanceResponse;
+import com.volcengine.mlplatform20240701.model.GetExecCommandHistoryRequest;
+import com.volcengine.mlplatform20240701.model.GetExecCommandHistoryResponse;
 import com.volcengine.mlplatform20240701.model.GetInstanceTypeRequest;
 import com.volcengine.mlplatform20240701.model.GetInstanceTypeResponse;
 import com.volcengine.mlplatform20240701.model.GetJobRequest;
@@ -87,6 +89,8 @@ import com.volcengine.mlplatform20240701.model.GetTeleOpTaskRequest;
 import com.volcengine.mlplatform20240701.model.GetTeleOpTaskResponse;
 import com.volcengine.mlplatform20240701.model.ListAvailabilityZonesRequest;
 import com.volcengine.mlplatform20240701.model.ListAvailabilityZonesResponse;
+import com.volcengine.mlplatform20240701.model.ListBorrowingWorkloadsInQueueRequest;
+import com.volcengine.mlplatform20240701.model.ListBorrowingWorkloadsInQueueResponse;
 import com.volcengine.mlplatform20240701.model.ListDeploymentsRequest;
 import com.volcengine.mlplatform20240701.model.ListDeploymentsResponse;
 import com.volcengine.mlplatform20240701.model.ListDevInstancesRequest;
@@ -141,6 +145,8 @@ import com.volcengine.mlplatform20240701.model.StartDeploymentRequest;
 import com.volcengine.mlplatform20240701.model.StartDeploymentResponse;
 import com.volcengine.mlplatform20240701.model.StartDevInstanceRequest;
 import com.volcengine.mlplatform20240701.model.StartDevInstanceResponse;
+import com.volcengine.mlplatform20240701.model.StartExecCommandRequest;
+import com.volcengine.mlplatform20240701.model.StartExecCommandResponse;
 import com.volcengine.mlplatform20240701.model.StartServiceRequest;
 import com.volcengine.mlplatform20240701.model.StartServiceResponse;
 import com.volcengine.mlplatform20240701.model.StartTeleOpTaskRequest;
@@ -159,6 +165,8 @@ import com.volcengine.mlplatform20240701.model.StopTeleOpTaskRequest;
 import com.volcengine.mlplatform20240701.model.StopTeleOpTaskResponse;
 import com.volcengine.mlplatform20240701.model.SubmitTeleOpTaskRequest;
 import com.volcengine.mlplatform20240701.model.SubmitTeleOpTaskResponse;
+import com.volcengine.mlplatform20240701.model.TriggerJobDiagnosisRequest;
+import com.volcengine.mlplatform20240701.model.TriggerJobDiagnosisResponse;
 import com.volcengine.mlplatform20240701.model.UpdateDeploymentRequest;
 import com.volcengine.mlplatform20240701.model.UpdateDeploymentResponse;
 import com.volcengine.mlplatform20240701.model.UpdateDevInstanceRequest;
@@ -2930,6 +2938,130 @@ public class MlPlatform20240701Api {
         return call;
     }
     /**
+     * Build call for getExecCommandHistory
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getExecCommandHistoryCall(GetExecCommandHistoryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetExecCommandHistory/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getExecCommandHistoryValidateBeforeCall(GetExecCommandHistoryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getExecCommandHistory(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getExecCommandHistoryCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetExecCommandHistoryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetExecCommandHistoryResponse getExecCommandHistory(GetExecCommandHistoryRequest body) throws ApiException {
+        ApiResponse<GetExecCommandHistoryResponse> resp = getExecCommandHistoryWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetExecCommandHistoryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetExecCommandHistoryResponse> getExecCommandHistoryWithHttpInfo( @NotNull GetExecCommandHistoryRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getExecCommandHistoryValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetExecCommandHistoryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getExecCommandHistoryAsync(GetExecCommandHistoryRequest body, final ApiCallback<GetExecCommandHistoryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getExecCommandHistoryValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetExecCommandHistoryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getInstanceType
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3918,6 +4050,130 @@ public class MlPlatform20240701Api {
 
         com.squareup.okhttp.Call call = listAvailabilityZonesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListAvailabilityZonesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listBorrowingWorkloadsInQueue
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listBorrowingWorkloadsInQueueCall(ListBorrowingWorkloadsInQueueRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListBorrowingWorkloadsInQueue/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listBorrowingWorkloadsInQueueValidateBeforeCall(ListBorrowingWorkloadsInQueueRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listBorrowingWorkloadsInQueue(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listBorrowingWorkloadsInQueueCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListBorrowingWorkloadsInQueueResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListBorrowingWorkloadsInQueueResponse listBorrowingWorkloadsInQueue(ListBorrowingWorkloadsInQueueRequest body) throws ApiException {
+        ApiResponse<ListBorrowingWorkloadsInQueueResponse> resp = listBorrowingWorkloadsInQueueWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListBorrowingWorkloadsInQueueResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListBorrowingWorkloadsInQueueResponse> listBorrowingWorkloadsInQueueWithHttpInfo( @NotNull ListBorrowingWorkloadsInQueueRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listBorrowingWorkloadsInQueueValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListBorrowingWorkloadsInQueueResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listBorrowingWorkloadsInQueueAsync(ListBorrowingWorkloadsInQueueRequest body, final ApiCallback<ListBorrowingWorkloadsInQueueResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listBorrowingWorkloadsInQueueValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListBorrowingWorkloadsInQueueResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7270,6 +7526,130 @@ public class MlPlatform20240701Api {
         return call;
     }
     /**
+     * Build call for startExecCommand
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startExecCommandCall(StartExecCommandRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/StartExecCommand/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call startExecCommandValidateBeforeCall(StartExecCommandRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling startExecCommand(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = startExecCommandCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return StartExecCommandResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public StartExecCommandResponse startExecCommand(StartExecCommandRequest body) throws ApiException {
+        ApiResponse<StartExecCommandResponse> resp = startExecCommandWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;StartExecCommandResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<StartExecCommandResponse> startExecCommandWithHttpInfo( @NotNull StartExecCommandRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = startExecCommandValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<StartExecCommandResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call startExecCommandAsync(StartExecCommandRequest body, final ApiCallback<StartExecCommandResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = startExecCommandValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<StartExecCommandResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for startService
      * @param body  (required)
      * @param progressListener Progress listener
@@ -8382,6 +8762,130 @@ public class MlPlatform20240701Api {
 
         com.squareup.okhttp.Call call = submitTeleOpTaskValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SubmitTeleOpTaskResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for triggerJobDiagnosis
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call triggerJobDiagnosisCall(TriggerJobDiagnosisRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/TriggerJobDiagnosis/2024-07-01/ml_platform/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call triggerJobDiagnosisValidateBeforeCall(TriggerJobDiagnosisRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling triggerJobDiagnosis(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = triggerJobDiagnosisCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return TriggerJobDiagnosisResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TriggerJobDiagnosisResponse triggerJobDiagnosis(TriggerJobDiagnosisRequest body) throws ApiException {
+        ApiResponse<TriggerJobDiagnosisResponse> resp = triggerJobDiagnosisWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;TriggerJobDiagnosisResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TriggerJobDiagnosisResponse> triggerJobDiagnosisWithHttpInfo( @NotNull TriggerJobDiagnosisRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = triggerJobDiagnosisValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<TriggerJobDiagnosisResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call triggerJobDiagnosisAsync(TriggerJobDiagnosisRequest body, final ApiCallback<TriggerJobDiagnosisResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = triggerJobDiagnosisValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TriggerJobDiagnosisResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

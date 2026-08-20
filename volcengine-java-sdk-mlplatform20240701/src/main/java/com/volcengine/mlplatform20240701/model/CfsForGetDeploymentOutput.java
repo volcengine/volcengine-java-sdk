@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.ConvertTosForGetDeploymentOutput;
 import com.volcengine.mlplatform20240701.model.OptionsForGetDeploymentOutput;
-import com.volcengine.mlplatform20240701.model.TosForGetDeploymentOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -42,7 +42,7 @@ public class CfsForGetDeploymentOutput {
   private OptionsForGetDeploymentOutput options = null;
 
   @SerializedName("Tos")
-  private TosForGetDeploymentOutput tos = null;
+  private ConvertTosForGetDeploymentOutput tos = null;
 
   public CfsForGetDeploymentOutput fileSystemName(String fileSystemName) {
     this.fileSystemName = fileSystemName;
@@ -99,7 +99,7 @@ public class CfsForGetDeploymentOutput {
     this.options = options;
   }
 
-  public CfsForGetDeploymentOutput tos(TosForGetDeploymentOutput tos) {
+  public CfsForGetDeploymentOutput tos(ConvertTosForGetDeploymentOutput tos) {
     this.tos = tos;
     return this;
   }
@@ -110,11 +110,11 @@ public class CfsForGetDeploymentOutput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForGetDeploymentOutput getTos() {
+  public ConvertTosForGetDeploymentOutput getTos() {
     return tos;
   }
 
-  public void setTos(TosForGetDeploymentOutput tos) {
+  public void setTos(ConvertTosForGetDeploymentOutput tos) {
     this.tos = tos;
   }
 

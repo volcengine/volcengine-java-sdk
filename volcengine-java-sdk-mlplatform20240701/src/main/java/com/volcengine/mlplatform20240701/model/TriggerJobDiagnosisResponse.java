@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TosForGetDeploymentOutput
+ * TriggerJobDiagnosisResponse
  */
 
 
 
-public class TosForGetDeploymentOutput {
-  @SerializedName("Bucket")
-  private String bucket = null;
+public class TriggerJobDiagnosisResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("DiagnosisTaskId")
+  private String diagnosisTaskId = null;
 
-  @SerializedName("Prefix")
-  private String prefix = null;
+  @SerializedName("Id")
+  private String id = null;
 
-  public TosForGetDeploymentOutput bucket(String bucket) {
-    this.bucket = bucket;
+  public TriggerJobDiagnosisResponse diagnosisTaskId(String diagnosisTaskId) {
+    this.diagnosisTaskId = diagnosisTaskId;
     return this;
   }
 
    /**
-   * Get bucket
-   * @return bucket
+   * Get diagnosisTaskId
+   * @return diagnosisTaskId
   **/
   @Schema(description = "")
-  public String getBucket() {
-    return bucket;
+  public String getDiagnosisTaskId() {
+    return diagnosisTaskId;
   }
 
-  public void setBucket(String bucket) {
-    this.bucket = bucket;
+  public void setDiagnosisTaskId(String diagnosisTaskId) {
+    this.diagnosisTaskId = diagnosisTaskId;
   }
 
-  public TosForGetDeploymentOutput prefix(String prefix) {
-    this.prefix = prefix;
+  public TriggerJobDiagnosisResponse id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get prefix
-   * @return prefix
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getPrefix() {
-    return prefix;
+  public String getId() {
+    return id;
   }
 
-  public void setPrefix(String prefix) {
-    this.prefix = prefix;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -81,24 +81,24 @@ public class TosForGetDeploymentOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TosForGetDeploymentOutput tosForGetDeploymentOutput = (TosForGetDeploymentOutput) o;
-    return Objects.equals(this.bucket, tosForGetDeploymentOutput.bucket) &&
-        Objects.equals(this.prefix, tosForGetDeploymentOutput.prefix);
+    TriggerJobDiagnosisResponse triggerJobDiagnosisResponse = (TriggerJobDiagnosisResponse) o;
+    return Objects.equals(this.diagnosisTaskId, triggerJobDiagnosisResponse.diagnosisTaskId) &&
+        Objects.equals(this.id, triggerJobDiagnosisResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, prefix);
+    return Objects.hash(diagnosisTaskId, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TosForGetDeploymentOutput {\n");
+    sb.append("class TriggerJobDiagnosisResponse {\n");
     
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    diagnosisTaskId: ").append(toIndentedString(diagnosisTaskId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

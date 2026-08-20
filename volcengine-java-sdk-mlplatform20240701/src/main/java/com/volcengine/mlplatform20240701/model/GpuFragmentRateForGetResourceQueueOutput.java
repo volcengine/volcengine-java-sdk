@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TosForUpdateDeploymentInput
+ * GpuFragmentRateForGetResourceQueueOutput
  */
 
 
 
-public class TosForUpdateDeploymentInput {
-  @SerializedName("Bucket")
-  private String bucket = null;
+public class GpuFragmentRateForGetResourceQueueOutput {
+  @SerializedName("GpuType")
+  private String gpuType = null;
 
-  @SerializedName("Prefix")
-  private String prefix = null;
+  @SerializedName("Rate")
+  private Double rate = null;
 
-  public TosForUpdateDeploymentInput bucket(String bucket) {
-    this.bucket = bucket;
+  public GpuFragmentRateForGetResourceQueueOutput gpuType(String gpuType) {
+    this.gpuType = gpuType;
     return this;
   }
 
    /**
-   * Get bucket
-   * @return bucket
+   * Get gpuType
+   * @return gpuType
   **/
   @Schema(description = "")
-  public String getBucket() {
-    return bucket;
+  public String getGpuType() {
+    return gpuType;
   }
 
-  public void setBucket(String bucket) {
-    this.bucket = bucket;
+  public void setGpuType(String gpuType) {
+    this.gpuType = gpuType;
   }
 
-  public TosForUpdateDeploymentInput prefix(String prefix) {
-    this.prefix = prefix;
+  public GpuFragmentRateForGetResourceQueueOutput rate(Double rate) {
+    this.rate = rate;
     return this;
   }
 
    /**
-   * Get prefix
-   * @return prefix
+   * Get rate
+   * @return rate
   **/
   @Schema(description = "")
-  public String getPrefix() {
-    return prefix;
+  public Double getRate() {
+    return rate;
   }
 
-  public void setPrefix(String prefix) {
-    this.prefix = prefix;
+  public void setRate(Double rate) {
+    this.rate = rate;
   }
 
 
@@ -81,24 +81,24 @@ public class TosForUpdateDeploymentInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TosForUpdateDeploymentInput tosForUpdateDeploymentInput = (TosForUpdateDeploymentInput) o;
-    return Objects.equals(this.bucket, tosForUpdateDeploymentInput.bucket) &&
-        Objects.equals(this.prefix, tosForUpdateDeploymentInput.prefix);
+    GpuFragmentRateForGetResourceQueueOutput gpuFragmentRateForGetResourceQueueOutput = (GpuFragmentRateForGetResourceQueueOutput) o;
+    return Objects.equals(this.gpuType, gpuFragmentRateForGetResourceQueueOutput.gpuType) &&
+        Objects.equals(this.rate, gpuFragmentRateForGetResourceQueueOutput.rate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, prefix);
+    return Objects.hash(gpuType, rate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TosForUpdateDeploymentInput {\n");
+    sb.append("class GpuFragmentRateForGetResourceQueueOutput {\n");
     
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
+    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

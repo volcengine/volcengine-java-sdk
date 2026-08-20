@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mlplatform20240701.model.ConvertTosForUpdateDeploymentInput;
 import com.volcengine.mlplatform20240701.model.OptionsForUpdateDeploymentInput;
-import com.volcengine.mlplatform20240701.model.TosForUpdateDeploymentInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -42,7 +42,7 @@ public class CfsForUpdateDeploymentInput {
   private OptionsForUpdateDeploymentInput options = null;
 
   @SerializedName("Tos")
-  private TosForUpdateDeploymentInput tos = null;
+  private ConvertTosForUpdateDeploymentInput tos = null;
 
   public CfsForUpdateDeploymentInput fileSystemName(String fileSystemName) {
     this.fileSystemName = fileSystemName;
@@ -99,7 +99,7 @@ public class CfsForUpdateDeploymentInput {
     this.options = options;
   }
 
-  public CfsForUpdateDeploymentInput tos(TosForUpdateDeploymentInput tos) {
+  public CfsForUpdateDeploymentInput tos(ConvertTosForUpdateDeploymentInput tos) {
     this.tos = tos;
     return this;
   }
@@ -110,11 +110,11 @@ public class CfsForUpdateDeploymentInput {
   **/
   @Valid
   @Schema(description = "")
-  public TosForUpdateDeploymentInput getTos() {
+  public ConvertTosForUpdateDeploymentInput getTos() {
     return tos;
   }
 
-  public void setTos(TosForUpdateDeploymentInput tos) {
+  public void setTos(ConvertTosForUpdateDeploymentInput tos) {
     this.tos = tos;
   }
 
