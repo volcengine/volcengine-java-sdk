@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.BackendForListFunctionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class MountPointForListFunctionsOutput {
-  @SerializedName("Backend")
-  private BackendForListFunctionsOutput backend = null;
+  @SerializedName("BucketName")
+  private String bucketName = null;
+
+  @SerializedName("BucketPath")
+  private String bucketPath = null;
+
+  @SerializedName("Endpoint")
+  private String endpoint = null;
 
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
@@ -40,23 +45,58 @@ public class MountPointForListFunctionsOutput {
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
 
-  public MountPointForListFunctionsOutput backend(BackendForListFunctionsOutput backend) {
-    this.backend = backend;
+  public MountPointForListFunctionsOutput bucketName(String bucketName) {
+    this.bucketName = bucketName;
     return this;
   }
 
    /**
-   * Get backend
-   * @return backend
+   * Get bucketName
+   * @return bucketName
   **/
-  @Valid
   @Schema(description = "")
-  public BackendForListFunctionsOutput getBackend() {
-    return backend;
+  public String getBucketName() {
+    return bucketName;
   }
 
-  public void setBackend(BackendForListFunctionsOutput backend) {
-    this.backend = backend;
+  public void setBucketName(String bucketName) {
+    this.bucketName = bucketName;
+  }
+
+  public MountPointForListFunctionsOutput bucketPath(String bucketPath) {
+    this.bucketPath = bucketPath;
+    return this;
+  }
+
+   /**
+   * Get bucketPath
+   * @return bucketPath
+  **/
+  @Schema(description = "")
+  public String getBucketPath() {
+    return bucketPath;
+  }
+
+  public void setBucketPath(String bucketPath) {
+    this.bucketPath = bucketPath;
+  }
+
+  public MountPointForListFunctionsOutput endpoint(String endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * Get endpoint
+   * @return endpoint
+  **/
+  @Schema(description = "")
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
   }
 
   public MountPointForListFunctionsOutput localMountPath(String localMountPath) {
@@ -105,14 +145,16 @@ public class MountPointForListFunctionsOutput {
       return false;
     }
     MountPointForListFunctionsOutput mountPointForListFunctionsOutput = (MountPointForListFunctionsOutput) o;
-    return Objects.equals(this.backend, mountPointForListFunctionsOutput.backend) &&
+    return Objects.equals(this.bucketName, mountPointForListFunctionsOutput.bucketName) &&
+        Objects.equals(this.bucketPath, mountPointForListFunctionsOutput.bucketPath) &&
+        Objects.equals(this.endpoint, mountPointForListFunctionsOutput.endpoint) &&
         Objects.equals(this.localMountPath, mountPointForListFunctionsOutput.localMountPath) &&
         Objects.equals(this.readOnly, mountPointForListFunctionsOutput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend, localMountPath, readOnly);
+    return Objects.hash(bucketName, bucketPath, endpoint, localMountPath, readOnly);
   }
 
 
@@ -121,7 +163,9 @@ public class MountPointForListFunctionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MountPointForListFunctionsOutput {\n");
     
-    sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
+    sb.append("    bucketPath: ").append(toIndentedString(bucketPath)).append("\n");
+    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");

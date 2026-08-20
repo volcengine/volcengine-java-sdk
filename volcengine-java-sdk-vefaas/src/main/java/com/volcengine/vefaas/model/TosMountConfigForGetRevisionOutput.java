@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.ConvertMountPointForGetRevisionOutput;
 import com.volcengine.vefaas.model.CredentialsForGetRevisionOutput;
+import com.volcengine.vefaas.model.MountPointForGetRevisionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class TosMountConfigForGetRevisionOutput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<ConvertMountPointForGetRevisionOutput> mountPoints = null;
+  private List<MountPointForGetRevisionOutput> mountPoints = null;
 
   public TosMountConfigForGetRevisionOutput credentials(CredentialsForGetRevisionOutput credentials) {
     this.credentials = credentials;
@@ -80,14 +80,14 @@ public class TosMountConfigForGetRevisionOutput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForGetRevisionOutput mountPoints(List<ConvertMountPointForGetRevisionOutput> mountPoints) {
+  public TosMountConfigForGetRevisionOutput mountPoints(List<MountPointForGetRevisionOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForGetRevisionOutput addMountPointsItem(ConvertMountPointForGetRevisionOutput mountPointsItem) {
+  public TosMountConfigForGetRevisionOutput addMountPointsItem(MountPointForGetRevisionOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<ConvertMountPointForGetRevisionOutput>();
+      this.mountPoints = new ArrayList<MountPointForGetRevisionOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -99,11 +99,11 @@ public class TosMountConfigForGetRevisionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertMountPointForGetRevisionOutput> getMountPoints() {
+  public List<MountPointForGetRevisionOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<ConvertMountPointForGetRevisionOutput> mountPoints) {
+  public void setMountPoints(List<MountPointForGetRevisionOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.PageInfoForDeleteAclRuleOutput;
-import com.volcengine.waf.model.ResponseMetadataForDeleteAclRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 public class DeleteAclRuleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageInfo")
   private PageInfoForDeleteAclRuleOutput pageInfo = null;
-
-  @SerializedName("ResponseMetadata")
-  private ResponseMetadataForDeleteAclRuleOutput responseMetadata = null;
 
   public DeleteAclRuleResponse pageInfo(PageInfoForDeleteAclRuleOutput pageInfo) {
     this.pageInfo = pageInfo;
@@ -57,25 +53,6 @@ public class DeleteAclRuleResponse extends com.volcengine.model.AbstractResponse
     this.pageInfo = pageInfo;
   }
 
-  public DeleteAclRuleResponse responseMetadata(ResponseMetadataForDeleteAclRuleOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-    return this;
-  }
-
-   /**
-   * Get responseMetadata
-   * @return responseMetadata
-  **/
-  @Valid
-  @Schema(description = "")
-  public ResponseMetadataForDeleteAclRuleOutput getResponseMetadata() {
-    return responseMetadata;
-  }
-
-  public void setResponseMetadata(ResponseMetadataForDeleteAclRuleOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,13 +63,12 @@ public class DeleteAclRuleResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     DeleteAclRuleResponse deleteAclRuleResponse = (DeleteAclRuleResponse) o;
-    return Objects.equals(this.pageInfo, deleteAclRuleResponse.pageInfo) &&
-        Objects.equals(this.responseMetadata, deleteAclRuleResponse.responseMetadata);
+    return Objects.equals(this.pageInfo, deleteAclRuleResponse.pageInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageInfo, responseMetadata);
+    return Objects.hash(pageInfo);
   }
 
 
@@ -102,7 +78,6 @@ public class DeleteAclRuleResponse extends com.volcengine.model.AbstractResponse
     sb.append("class DeleteAclRuleResponse {\n");
     
     sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
-    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
