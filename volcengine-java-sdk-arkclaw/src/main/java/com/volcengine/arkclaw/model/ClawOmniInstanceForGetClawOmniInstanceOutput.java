@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.arkclaw.model.ModelConfigForGetClawOmniInstanceOutput;
+import com.volcengine.arkclaw.model.OperationLockForGetClawOmniInstanceOutput;
 import com.volcengine.arkclaw.model.TagForGetClawOmniInstanceOutput;
+import com.volcengine.arkclaw.model.TokenQuotaForGetClawOmniInstanceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,6 +75,9 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("OperationLock")
+  private OperationLockForGetClawOmniInstanceOutput operationLock = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -90,6 +95,18 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
 
   @SerializedName("TemplateId")
   private String templateId = null;
+
+  @SerializedName("TokenLimitPerDay")
+  private String tokenLimitPerDay = null;
+
+  @SerializedName("TokenLimitPerMin")
+  private String tokenLimitPerMin = null;
+
+  @SerializedName("TokenLimitPerWeek")
+  private String tokenLimitPerWeek = null;
+
+  @SerializedName("TokenQuota")
+  private TokenQuotaForGetClawOmniInstanceOutput tokenQuota = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -329,6 +346,25 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
     this.name = name;
   }
 
+  public ClawOmniInstanceForGetClawOmniInstanceOutput operationLock(OperationLockForGetClawOmniInstanceOutput operationLock) {
+    this.operationLock = operationLock;
+    return this;
+  }
+
+   /**
+   * Get operationLock
+   * @return operationLock
+  **/
+  @Valid
+  @Schema(description = "")
+  public OperationLockForGetClawOmniInstanceOutput getOperationLock() {
+    return operationLock;
+  }
+
+  public void setOperationLock(OperationLockForGetClawOmniInstanceOutput operationLock) {
+    this.operationLock = operationLock;
+  }
+
   public ClawOmniInstanceForGetClawOmniInstanceOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -446,6 +482,79 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
     this.templateId = templateId;
   }
 
+  public ClawOmniInstanceForGetClawOmniInstanceOutput tokenLimitPerDay(String tokenLimitPerDay) {
+    this.tokenLimitPerDay = tokenLimitPerDay;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerDay
+   * @return tokenLimitPerDay
+  **/
+  @Schema(description = "")
+  public String getTokenLimitPerDay() {
+    return tokenLimitPerDay;
+  }
+
+  public void setTokenLimitPerDay(String tokenLimitPerDay) {
+    this.tokenLimitPerDay = tokenLimitPerDay;
+  }
+
+  public ClawOmniInstanceForGetClawOmniInstanceOutput tokenLimitPerMin(String tokenLimitPerMin) {
+    this.tokenLimitPerMin = tokenLimitPerMin;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerMin
+   * @return tokenLimitPerMin
+  **/
+  @Schema(description = "")
+  public String getTokenLimitPerMin() {
+    return tokenLimitPerMin;
+  }
+
+  public void setTokenLimitPerMin(String tokenLimitPerMin) {
+    this.tokenLimitPerMin = tokenLimitPerMin;
+  }
+
+  public ClawOmniInstanceForGetClawOmniInstanceOutput tokenLimitPerWeek(String tokenLimitPerWeek) {
+    this.tokenLimitPerWeek = tokenLimitPerWeek;
+    return this;
+  }
+
+   /**
+   * Get tokenLimitPerWeek
+   * @return tokenLimitPerWeek
+  **/
+  @Schema(description = "")
+  public String getTokenLimitPerWeek() {
+    return tokenLimitPerWeek;
+  }
+
+  public void setTokenLimitPerWeek(String tokenLimitPerWeek) {
+    this.tokenLimitPerWeek = tokenLimitPerWeek;
+  }
+
+  public ClawOmniInstanceForGetClawOmniInstanceOutput tokenQuota(TokenQuotaForGetClawOmniInstanceOutput tokenQuota) {
+    this.tokenQuota = tokenQuota;
+    return this;
+  }
+
+   /**
+   * Get tokenQuota
+   * @return tokenQuota
+  **/
+  @Valid
+  @Schema(description = "")
+  public TokenQuotaForGetClawOmniInstanceOutput getTokenQuota() {
+    return tokenQuota;
+  }
+
+  public void setTokenQuota(TokenQuotaForGetClawOmniInstanceOutput tokenQuota) {
+    this.tokenQuota = tokenQuota;
+  }
+
   public ClawOmniInstanceForGetClawOmniInstanceOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -487,18 +596,23 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
         Objects.equals(this.memoryMb, clawOmniInstanceForGetClawOmniInstanceOutput.memoryMb) &&
         Objects.equals(this.modelConfig, clawOmniInstanceForGetClawOmniInstanceOutput.modelConfig) &&
         Objects.equals(this.name, clawOmniInstanceForGetClawOmniInstanceOutput.name) &&
+        Objects.equals(this.operationLock, clawOmniInstanceForGetClawOmniInstanceOutput.operationLock) &&
         Objects.equals(this.projectName, clawOmniInstanceForGetClawOmniInstanceOutput.projectName) &&
         Objects.equals(this.soul, clawOmniInstanceForGetClawOmniInstanceOutput.soul) &&
         Objects.equals(this.spaceId, clawOmniInstanceForGetClawOmniInstanceOutput.spaceId) &&
         Objects.equals(this.status, clawOmniInstanceForGetClawOmniInstanceOutput.status) &&
         Objects.equals(this.tags, clawOmniInstanceForGetClawOmniInstanceOutput.tags) &&
         Objects.equals(this.templateId, clawOmniInstanceForGetClawOmniInstanceOutput.templateId) &&
+        Objects.equals(this.tokenLimitPerDay, clawOmniInstanceForGetClawOmniInstanceOutput.tokenLimitPerDay) &&
+        Objects.equals(this.tokenLimitPerMin, clawOmniInstanceForGetClawOmniInstanceOutput.tokenLimitPerMin) &&
+        Objects.equals(this.tokenLimitPerWeek, clawOmniInstanceForGetClawOmniInstanceOutput.tokenLimitPerWeek) &&
+        Objects.equals(this.tokenQuota, clawOmniInstanceForGetClawOmniInstanceOutput.tokenQuota) &&
         Objects.equals(this.updatedAt, clawOmniInstanceForGetClawOmniInstanceOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentMd, cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, projectName, soul, spaceId, status, tags, templateId, updatedAt);
+    return Objects.hash(agentMd, cpuMilli, createdAt, description, endpoint, expiredAction, expiredAt, id, image, internalEndpoint, memoryMb, modelConfig, name, operationLock, projectName, soul, spaceId, status, tags, templateId, tokenLimitPerDay, tokenLimitPerMin, tokenLimitPerWeek, tokenQuota, updatedAt);
   }
 
 
@@ -520,12 +634,17 @@ public class ClawOmniInstanceForGetClawOmniInstanceOutput {
     sb.append("    memoryMb: ").append(toIndentedString(memoryMb)).append("\n");
     sb.append("    modelConfig: ").append(toIndentedString(modelConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    operationLock: ").append(toIndentedString(operationLock)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    soul: ").append(toIndentedString(soul)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
+    sb.append("    tokenLimitPerDay: ").append(toIndentedString(tokenLimitPerDay)).append("\n");
+    sb.append("    tokenLimitPerMin: ").append(toIndentedString(tokenLimitPerMin)).append("\n");
+    sb.append("    tokenLimitPerWeek: ").append(toIndentedString(tokenLimitPerWeek)).append("\n");
+    sb.append("    tokenQuota: ").append(toIndentedString(tokenQuota)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.arkclaw.model.ResultDeliveryForGetScheduledJobOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -44,6 +45,9 @@ public class JobForGetScheduledJobOutput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("ResultDelivery")
+  private ResultDeliveryForGetScheduledJobOutput resultDelivery = null;
 
   @SerializedName("ScheduleExpr")
   private String scheduleExpr = null;
@@ -151,6 +155,25 @@ public class JobForGetScheduledJobOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public JobForGetScheduledJobOutput resultDelivery(ResultDeliveryForGetScheduledJobOutput resultDelivery) {
+    this.resultDelivery = resultDelivery;
+    return this;
+  }
+
+   /**
+   * Get resultDelivery
+   * @return resultDelivery
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResultDeliveryForGetScheduledJobOutput getResultDelivery() {
+    return resultDelivery;
+  }
+
+  public void setResultDelivery(ResultDeliveryForGetScheduledJobOutput resultDelivery) {
+    this.resultDelivery = resultDelivery;
   }
 
   public JobForGetScheduledJobOutput scheduleExpr(String scheduleExpr) {
@@ -276,6 +299,7 @@ public class JobForGetScheduledJobOutput {
         Objects.equals(this.instructions, jobForGetScheduledJobOutput.instructions) &&
         Objects.equals(this.jobId, jobForGetScheduledJobOutput.jobId) &&
         Objects.equals(this.name, jobForGetScheduledJobOutput.name) &&
+        Objects.equals(this.resultDelivery, jobForGetScheduledJobOutput.resultDelivery) &&
         Objects.equals(this.scheduleExpr, jobForGetScheduledJobOutput.scheduleExpr) &&
         Objects.equals(this.scheduleType, jobForGetScheduledJobOutput.scheduleType) &&
         Objects.equals(this.status, jobForGetScheduledJobOutput.status) &&
@@ -286,7 +310,7 @@ public class JobForGetScheduledJobOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, instanceId, instructions, jobId, name, scheduleExpr, scheduleType, status, timeoutMinutes, timezone, updatedAt);
+    return Objects.hash(createdAt, instanceId, instructions, jobId, name, resultDelivery, scheduleExpr, scheduleType, status, timeoutMinutes, timezone, updatedAt);
   }
 
 
@@ -300,6 +324,7 @@ public class JobForGetScheduledJobOutput {
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    resultDelivery: ").append(toIndentedString(resultDelivery)).append("\n");
     sb.append("    scheduleExpr: ").append(toIndentedString(scheduleExpr)).append("\n");
     sb.append("    scheduleType: ").append(toIndentedString(scheduleType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
