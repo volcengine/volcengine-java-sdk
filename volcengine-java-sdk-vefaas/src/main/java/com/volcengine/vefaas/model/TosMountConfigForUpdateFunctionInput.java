@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.ConvertMountPointForUpdateFunctionInput;
 import com.volcengine.vefaas.model.CredentialsForUpdateFunctionInput;
+import com.volcengine.vefaas.model.MountPointForUpdateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,25 +44,7 @@ public class TosMountConfigForUpdateFunctionInput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<ConvertMountPointForUpdateFunctionInput> mountPoints = null;
-
-  public TosMountConfigForUpdateFunctionInput authMode(String authMode) {
-    this.authMode = authMode;
-    return this;
-  }
-
-   /**
-   * Get authMode
-   * @return authMode
-  **/
-  @Schema(description = "")
-  public String getAuthMode() {
-    return authMode;
-  }
-
-  public void setAuthMode(String authMode) {
-    this.authMode = authMode;
-  }
+  private List<MountPointForUpdateFunctionInput> mountPoints = null;
 
   public TosMountConfigForUpdateFunctionInput authMode(String authMode) {
     this.authMode = authMode;
@@ -119,14 +101,14 @@ public class TosMountConfigForUpdateFunctionInput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForUpdateFunctionInput mountPoints(List<ConvertMountPointForUpdateFunctionInput> mountPoints) {
+  public TosMountConfigForUpdateFunctionInput mountPoints(List<MountPointForUpdateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForUpdateFunctionInput addMountPointsItem(ConvertMountPointForUpdateFunctionInput mountPointsItem) {
+  public TosMountConfigForUpdateFunctionInput addMountPointsItem(MountPointForUpdateFunctionInput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<ConvertMountPointForUpdateFunctionInput>();
+      this.mountPoints = new ArrayList<MountPointForUpdateFunctionInput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -138,11 +120,11 @@ public class TosMountConfigForUpdateFunctionInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertMountPointForUpdateFunctionInput> getMountPoints() {
+  public List<MountPointForUpdateFunctionInput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<ConvertMountPointForUpdateFunctionInput> mountPoints) {
+  public void setMountPoints(List<MountPointForUpdateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 
