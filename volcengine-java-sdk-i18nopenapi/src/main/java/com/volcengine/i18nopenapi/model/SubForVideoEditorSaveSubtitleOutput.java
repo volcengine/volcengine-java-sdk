@@ -47,6 +47,9 @@ public class SubForVideoEditorSaveSubtitleOutput {
   @SerializedName("effectType")
   private Integer effectType = null;
 
+  @SerializedName("emotionTag")
+  private String emotionTag = null;
+
   @SerializedName("endTime")
   private String endTime = null;
 
@@ -177,6 +180,24 @@ public class SubForVideoEditorSaveSubtitleOutput {
 
   public void setEffectType(Integer effectType) {
     this.effectType = effectType;
+  }
+
+  public SubForVideoEditorSaveSubtitleOutput emotionTag(String emotionTag) {
+    this.emotionTag = emotionTag;
+    return this;
+  }
+
+   /**
+   * Get emotionTag
+   * @return emotionTag
+  **/
+  @Schema(description = "")
+  public String getEmotionTag() {
+    return emotionTag;
+  }
+
+  public void setEmotionTag(String emotionTag) {
+    this.emotionTag = emotionTag;
   }
 
   public SubForVideoEditorSaveSubtitleOutput endTime(String endTime) {
@@ -448,6 +469,7 @@ public class SubForVideoEditorSaveSubtitleOutput {
         Objects.equals(this.assistTextType, subForVideoEditorSaveSubtitleOutput.assistTextType) &&
         Objects.equals(this.createTime, subForVideoEditorSaveSubtitleOutput.createTime) &&
         Objects.equals(this.effectType, subForVideoEditorSaveSubtitleOutput.effectType) &&
+        Objects.equals(this.emotionTag, subForVideoEditorSaveSubtitleOutput.emotionTag) &&
         Objects.equals(this.endTime, subForVideoEditorSaveSubtitleOutput.endTime) &&
         Objects.equals(this.extra, subForVideoEditorSaveSubtitleOutput.extra) &&
         Objects.equals(this.operator, subForVideoEditorSaveSubtitleOutput.operator) &&
@@ -466,7 +488,7 @@ public class SubForVideoEditorSaveSubtitleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiVoiceId, assistText, assistTextType, createTime, effectType, endTime, extra, operator, relatedSegmentId, segmentId, source, sourceStyle, speakerId, startTime, status, target, targetStyle, updateTime, voiceTosUrl);
+    return Objects.hash(aiVoiceId, assistText, assistTextType, createTime, effectType, emotionTag, endTime, extra, operator, relatedSegmentId, segmentId, source, sourceStyle, speakerId, startTime, status, target, targetStyle, updateTime, voiceTosUrl);
   }
 
 
@@ -480,6 +502,7 @@ public class SubForVideoEditorSaveSubtitleOutput {
     sb.append("    assistTextType: ").append(toIndentedString(assistTextType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
+    sb.append("    emotionTag: ").append(toIndentedString(emotionTag)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
