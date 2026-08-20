@@ -42,6 +42,9 @@ public class InstanceImageInfoForCreateSandboxInput {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("SourceImageUrl")
+  private String sourceImageUrl = null;
+
   public InstanceImageInfoForCreateSandboxInput command(String command) {
     this.command = command;
     return this;
@@ -114,6 +117,24 @@ public class InstanceImageInfoForCreateSandboxInput {
     this.port = port;
   }
 
+  public InstanceImageInfoForCreateSandboxInput sourceImageUrl(String sourceImageUrl) {
+    this.sourceImageUrl = sourceImageUrl;
+    return this;
+  }
+
+   /**
+   * Get sourceImageUrl
+   * @return sourceImageUrl
+  **/
+  @Schema(description = "")
+  public String getSourceImageUrl() {
+    return sourceImageUrl;
+  }
+
+  public void setSourceImageUrl(String sourceImageUrl) {
+    this.sourceImageUrl = sourceImageUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class InstanceImageInfoForCreateSandboxInput {
     return Objects.equals(this.command, instanceImageInfoForCreateSandboxInput.command) &&
         Objects.equals(this.id, instanceImageInfoForCreateSandboxInput.id) &&
         Objects.equals(this.image, instanceImageInfoForCreateSandboxInput.image) &&
-        Objects.equals(this.port, instanceImageInfoForCreateSandboxInput.port);
+        Objects.equals(this.port, instanceImageInfoForCreateSandboxInput.port) &&
+        Objects.equals(this.sourceImageUrl, instanceImageInfoForCreateSandboxInput.sourceImageUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, id, image, port);
+    return Objects.hash(command, id, image, port, sourceImageUrl);
   }
 
 
@@ -145,6 +167,7 @@ public class InstanceImageInfoForCreateSandboxInput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    sourceImageUrl: ").append(toIndentedString(sourceImageUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
