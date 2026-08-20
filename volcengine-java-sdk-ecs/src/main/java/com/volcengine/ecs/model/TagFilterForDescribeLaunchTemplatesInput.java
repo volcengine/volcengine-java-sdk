@@ -35,9 +35,6 @@ public class TagFilterForDescribeLaunchTemplatesInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("Value")
-  private List<String> value = null;
-
   @SerializedName("Values")
   private List<String> values = null;
 
@@ -57,32 +54,6 @@ public class TagFilterForDescribeLaunchTemplatesInput {
 
   public void setKey(String key) {
     this.key = key;
-  }
-
-  public TagFilterForDescribeLaunchTemplatesInput value(List<String> value) {
-    this.value = value;
-    return this;
-  }
-
-  public TagFilterForDescribeLaunchTemplatesInput addValueItem(String valueItem) {
-    if (this.value == null) {
-      this.value = new ArrayList<String>();
-    }
-    this.value.add(valueItem);
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public List<String> getValue() {
-    return value;
-  }
-
-  public void setValue(List<String> value) {
-    this.value = value;
   }
 
   public TagFilterForDescribeLaunchTemplatesInput values(List<String> values) {
@@ -122,13 +93,12 @@ public class TagFilterForDescribeLaunchTemplatesInput {
     }
     TagFilterForDescribeLaunchTemplatesInput tagFilterForDescribeLaunchTemplatesInput = (TagFilterForDescribeLaunchTemplatesInput) o;
     return Objects.equals(this.key, tagFilterForDescribeLaunchTemplatesInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeLaunchTemplatesInput.value) &&
         Objects.equals(this.values, tagFilterForDescribeLaunchTemplatesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value, values);
+    return Objects.hash(key, values);
   }
 
 
@@ -138,7 +108,6 @@ public class TagFilterForDescribeLaunchTemplatesInput {
     sb.append("class TagFilterForDescribeLaunchTemplatesInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
