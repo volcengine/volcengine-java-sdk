@@ -124,6 +124,12 @@ public class DataForGetOfflineNotificationListOutput {
   @SerializedName("StartTime")
   private Long startTime = null;
 
+  @SerializedName("State")
+  private String state = null;
+
+  @SerializedName("StateDetail")
+  private String stateDetail = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -684,6 +690,42 @@ public class DataForGetOfflineNotificationListOutput {
     this.startTime = startTime;
   }
 
+  public DataForGetOfflineNotificationListOutput state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @Schema(description = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public DataForGetOfflineNotificationListOutput stateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+    return this;
+  }
+
+   /**
+   * Get stateDetail
+   * @return stateDetail
+  **/
+  @Schema(description = "")
+  public String getStateDetail() {
+    return stateDetail;
+  }
+
+  public void setStateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+  }
+
   public DataForGetOfflineNotificationListOutput status(String status) {
     this.status = status;
     return this;
@@ -840,6 +882,8 @@ public class DataForGetOfflineNotificationListOutput {
         Objects.equals(this.risk, dataForGetOfflineNotificationListOutput.risk) &&
         Objects.equals(this.securityEnhancement, dataForGetOfflineNotificationListOutput.securityEnhancement) &&
         Objects.equals(this.startTime, dataForGetOfflineNotificationListOutput.startTime) &&
+        Objects.equals(this.state, dataForGetOfflineNotificationListOutput.state) &&
+        Objects.equals(this.stateDetail, dataForGetOfflineNotificationListOutput.stateDetail) &&
         Objects.equals(this.status, dataForGetOfflineNotificationListOutput.status) &&
         Objects.equals(this.tags, dataForGetOfflineNotificationListOutput.tags) &&
         Objects.equals(this.totalMem, dataForGetOfflineNotificationListOutput.totalMem) &&
@@ -850,7 +894,7 @@ public class DataForGetOfflineNotificationListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, accountID, agentID, agentOfflineTime, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, notificationThreshold, notificationTime, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentOfflineTime, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, notificationThreshold, notificationTime, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, state, stateDetail, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -889,6 +933,8 @@ public class DataForGetOfflineNotificationListOutput {
     sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
     sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateDetail: ").append(toIndentedString(stateDetail)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");

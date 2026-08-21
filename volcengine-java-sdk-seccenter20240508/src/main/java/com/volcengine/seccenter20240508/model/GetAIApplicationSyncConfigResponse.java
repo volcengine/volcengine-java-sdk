@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class GetAIApplicationSyncConfigResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Enable")
+  private Boolean enable = null;
+
   @SerializedName("Period")
   private Long period = null;
+
+  public GetAIApplicationSyncConfigResponse enable(Boolean enable) {
+    this.enable = enable;
+    return this;
+  }
+
+   /**
+   * Get enable
+   * @return enable
+  **/
+  @Schema(description = "")
+  public Boolean isEnable() {
+    return enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
 
   public GetAIApplicationSyncConfigResponse period(Long period) {
     this.period = period;
@@ -61,12 +82,13 @@ public class GetAIApplicationSyncConfigResponse extends com.volcengine.model.Abs
       return false;
     }
     GetAIApplicationSyncConfigResponse getAIApplicationSyncConfigResponse = (GetAIApplicationSyncConfigResponse) o;
-    return Objects.equals(this.period, getAIApplicationSyncConfigResponse.period);
+    return Objects.equals(this.enable, getAIApplicationSyncConfigResponse.enable) &&
+        Objects.equals(this.period, getAIApplicationSyncConfigResponse.period);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(period);
+    return Objects.hash(enable, period);
   }
 
 
@@ -75,6 +97,7 @@ public class GetAIApplicationSyncConfigResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAIApplicationSyncConfigResponse {\n");
     
+    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("}");
     return sb.toString();

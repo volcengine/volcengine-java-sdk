@@ -167,8 +167,14 @@ public class DataForListFileMonitorAlarmsOutput {
   @SerializedName("SecurityIntelligenceComplete")
   private Boolean securityIntelligenceComplete = null;
 
+  @SerializedName("SecurityIntelligenceError")
+  private String securityIntelligenceError = null;
+
   @SerializedName("SecurityIntelligenceResult")
   private String securityIntelligenceResult = null;
+
+  @SerializedName("SecurityIntelligenceStatus")
+  private String securityIntelligenceStatus = null;
 
   @SerializedName("Sid")
   private String sid = null;
@@ -1031,6 +1037,24 @@ public class DataForListFileMonitorAlarmsOutput {
     this.securityIntelligenceComplete = securityIntelligenceComplete;
   }
 
+  public DataForListFileMonitorAlarmsOutput securityIntelligenceError(String securityIntelligenceError) {
+    this.securityIntelligenceError = securityIntelligenceError;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceError
+   * @return securityIntelligenceError
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceError() {
+    return securityIntelligenceError;
+  }
+
+  public void setSecurityIntelligenceError(String securityIntelligenceError) {
+    this.securityIntelligenceError = securityIntelligenceError;
+  }
+
   public DataForListFileMonitorAlarmsOutput securityIntelligenceResult(String securityIntelligenceResult) {
     this.securityIntelligenceResult = securityIntelligenceResult;
     return this;
@@ -1047,6 +1071,24 @@ public class DataForListFileMonitorAlarmsOutput {
 
   public void setSecurityIntelligenceResult(String securityIntelligenceResult) {
     this.securityIntelligenceResult = securityIntelligenceResult;
+  }
+
+  public DataForListFileMonitorAlarmsOutput securityIntelligenceStatus(String securityIntelligenceStatus) {
+    this.securityIntelligenceStatus = securityIntelligenceStatus;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceStatus
+   * @return securityIntelligenceStatus
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceStatus() {
+    return securityIntelligenceStatus;
+  }
+
+  public void setSecurityIntelligenceStatus(String securityIntelligenceStatus) {
+    this.securityIntelligenceStatus = securityIntelligenceStatus;
   }
 
   public DataForListFileMonitorAlarmsOutput sid(String sid) {
@@ -1211,7 +1253,9 @@ public class DataForListFileMonitorAlarmsOutput {
         Objects.equals(this.probeHook, dataForListFileMonitorAlarmsOutput.probeHook) &&
         Objects.equals(this.region, dataForListFileMonitorAlarmsOutput.region) &&
         Objects.equals(this.securityIntelligenceComplete, dataForListFileMonitorAlarmsOutput.securityIntelligenceComplete) &&
+        Objects.equals(this.securityIntelligenceError, dataForListFileMonitorAlarmsOutput.securityIntelligenceError) &&
         Objects.equals(this.securityIntelligenceResult, dataForListFileMonitorAlarmsOutput.securityIntelligenceResult) &&
+        Objects.equals(this.securityIntelligenceStatus, dataForListFileMonitorAlarmsOutput.securityIntelligenceStatus) &&
         Objects.equals(this.sid, dataForListFileMonitorAlarmsOutput.sid) &&
         Objects.equals(this.stackTraceFormat, dataForListFileMonitorAlarmsOutput.stackTraceFormat) &&
         Objects.equals(this.stackTraceHash, dataForListFileMonitorAlarmsOutput.stackTraceHash) &&
@@ -1222,7 +1266,7 @@ public class DataForListFileMonitorAlarmsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentGroup, agentID, alarmCount, alarmHandleResult, alarmHostname, alarmID, alarmTime, alertTags, analysisRecordUUID, args, argsList, argvList, attributionList, propertyClass, cluster, confidence, dataType, errorReason, eventID, eventName, exe, fileDownloadable, fileHash, filePath, groupPath, handleFailReason, handleTime, host, imageName, inDocker, llMAnalysisResult, llMProcessed, lastAlarmTime, level, mlpInstanceID, mlpPrivateIP, name, nsPid, operationList, osType, pid, probeHook, region, securityIntelligenceComplete, securityIntelligenceResult, sid, stackTraceFormat, stackTraceHash, status, traceID, type);
+    return Objects.hash(agentGroup, agentID, alarmCount, alarmHandleResult, alarmHostname, alarmID, alarmTime, alertTags, analysisRecordUUID, args, argsList, argvList, attributionList, propertyClass, cluster, confidence, dataType, errorReason, eventID, eventName, exe, fileDownloadable, fileHash, filePath, groupPath, handleFailReason, handleTime, host, imageName, inDocker, llMAnalysisResult, llMProcessed, lastAlarmTime, level, mlpInstanceID, mlpPrivateIP, name, nsPid, operationList, osType, pid, probeHook, region, securityIntelligenceComplete, securityIntelligenceError, securityIntelligenceResult, securityIntelligenceStatus, sid, stackTraceFormat, stackTraceHash, status, traceID, type);
   }
 
 
@@ -1275,7 +1319,9 @@ public class DataForListFileMonitorAlarmsOutput {
     sb.append("    probeHook: ").append(toIndentedString(probeHook)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    securityIntelligenceComplete: ").append(toIndentedString(securityIntelligenceComplete)).append("\n");
+    sb.append("    securityIntelligenceError: ").append(toIndentedString(securityIntelligenceError)).append("\n");
     sb.append("    securityIntelligenceResult: ").append(toIndentedString(securityIntelligenceResult)).append("\n");
+    sb.append("    securityIntelligenceStatus: ").append(toIndentedString(securityIntelligenceStatus)).append("\n");
     sb.append("    sid: ").append(toIndentedString(sid)).append("\n");
     sb.append("    stackTraceFormat: ").append(toIndentedString(stackTraceFormat)).append("\n");
     sb.append("    stackTraceHash: ").append(toIndentedString(stackTraceHash)).append("\n");

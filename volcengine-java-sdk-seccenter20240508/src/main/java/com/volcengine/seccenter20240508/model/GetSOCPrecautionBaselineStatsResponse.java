@@ -31,13 +31,13 @@ import javax.validation.Valid;
 
 
 public class GetSOCPrecautionBaselineStatsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("passed")
+  @SerializedName("Passed")
   private Long passed = null;
 
-  @SerializedName("risky")
+  @SerializedName("Risky")
   private RiskyForGetSOCPrecautionBaselineStatsOutput risky = null;
 
-  @SerializedName("total")
+  @SerializedName("Total")
   private Long total = null;
 
   public GetSOCPrecautionBaselineStatsResponse passed(Long passed) {

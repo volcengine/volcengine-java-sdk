@@ -337,8 +337,14 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
   @SerializedName("SecurityIntelligenceComplete")
   private Boolean securityIntelligenceComplete = null;
 
+  @SerializedName("SecurityIntelligenceError")
+  private String securityIntelligenceError = null;
+
   @SerializedName("SecurityIntelligenceResult")
   private String securityIntelligenceResult = null;
+
+  @SerializedName("SecurityIntelligenceStatus")
+  private String securityIntelligenceStatus = null;
 
   @SerializedName("ServiceAccount")
   private String serviceAccount = null;
@@ -2338,6 +2344,24 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
     this.securityIntelligenceComplete = securityIntelligenceComplete;
   }
 
+  public KillChainNodeListForGetHidsAlarmSummaryInfoOutput securityIntelligenceError(String securityIntelligenceError) {
+    this.securityIntelligenceError = securityIntelligenceError;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceError
+   * @return securityIntelligenceError
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceError() {
+    return securityIntelligenceError;
+  }
+
+  public void setSecurityIntelligenceError(String securityIntelligenceError) {
+    this.securityIntelligenceError = securityIntelligenceError;
+  }
+
   public KillChainNodeListForGetHidsAlarmSummaryInfoOutput securityIntelligenceResult(String securityIntelligenceResult) {
     this.securityIntelligenceResult = securityIntelligenceResult;
     return this;
@@ -2354,6 +2378,24 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 
   public void setSecurityIntelligenceResult(String securityIntelligenceResult) {
     this.securityIntelligenceResult = securityIntelligenceResult;
+  }
+
+  public KillChainNodeListForGetHidsAlarmSummaryInfoOutput securityIntelligenceStatus(String securityIntelligenceStatus) {
+    this.securityIntelligenceStatus = securityIntelligenceStatus;
+    return this;
+  }
+
+   /**
+   * Get securityIntelligenceStatus
+   * @return securityIntelligenceStatus
+  **/
+  @Schema(description = "")
+  public String getSecurityIntelligenceStatus() {
+    return securityIntelligenceStatus;
+  }
+
+  public void setSecurityIntelligenceStatus(String securityIntelligenceStatus) {
+    this.securityIntelligenceStatus = securityIntelligenceStatus;
   }
 
   public KillChainNodeListForGetHidsAlarmSummaryInfoOutput serviceAccount(String serviceAccount) {
@@ -3358,7 +3400,9 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
         Objects.equals(this.runPath, killChainNodeListForGetHidsAlarmSummaryInfoOutput.runPath) &&
         Objects.equals(this.samAccountName, killChainNodeListForGetHidsAlarmSummaryInfoOutput.samAccountName) &&
         Objects.equals(this.securityIntelligenceComplete, killChainNodeListForGetHidsAlarmSummaryInfoOutput.securityIntelligenceComplete) &&
+        Objects.equals(this.securityIntelligenceError, killChainNodeListForGetHidsAlarmSummaryInfoOutput.securityIntelligenceError) &&
         Objects.equals(this.securityIntelligenceResult, killChainNodeListForGetHidsAlarmSummaryInfoOutput.securityIntelligenceResult) &&
+        Objects.equals(this.securityIntelligenceStatus, killChainNodeListForGetHidsAlarmSummaryInfoOutput.securityIntelligenceStatus) &&
         Objects.equals(this.serviceAccount, killChainNodeListForGetHidsAlarmSummaryInfoOutput.serviceAccount) &&
         Objects.equals(this.serviceFileName, killChainNodeListForGetHidsAlarmSummaryInfoOutput.serviceFileName) &&
         Objects.equals(this.serviceName, killChainNodeListForGetHidsAlarmSummaryInfoOutput.serviceName) &&
@@ -3412,7 +3456,7 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountExpires, additionalActionsString, analysisRecordUUID, argsArray, argv, backendAlarmTags, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, confidence, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, elkeidSaveData, enHanced, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, fileName, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, ipIntelligence, ipSource, ipSourceUs, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, isInnerAccount, koFile, ldPreload, loginCount, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, rootPns, runPath, samAccountName, securityIntelligenceComplete, securityIntelligenceResult, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
+    return Objects.hash(accountExpires, additionalActionsString, analysisRecordUUID, argsArray, argv, backendAlarmTags, bruteforceSip, categoryName, propertyClass, cmd, comm, commandLine, confidence, _configuration, configurationFileHash, connectInfo, contents, createAt, currentDirectory, dataType, description, destinationHostname, destinationIP, destinationPort, destinationPortName, details, detectionUser, dip, dport, dstList, elkeidSaveData, enHanced, eventType, exe, exeHash, externalConns, failureReason, fdName, fileDownloadable, fileName, filePath, flags, hash, hashes, highlightFields, hitArgvList, hitData, homeDirectory, ipIntelligence, ipSource, ipSourceUs, image, imageLoaded, interruptNumber, iocDetail, iocMeta, iocSeverity, iocSource, ipAddress, isInnerAccount, koFile, ldPreload, loginCount, logonType, md5Hash, modInfo, modifyAt, moduleName, name, newName, newThreadID, nspid, oldName, oldUid, oldUsername, originalFileName, parentCommandLine, parentImage, path, pgid, pgidArgv, pid, pidSet, pidTree, ppid, ppidArgv, privilegeList, probeHook, processGuid, processID, processName, protocol, ptraceRequest, query, queryName, queryResults, queryStatus, rootPns, runPath, samAccountName, securityIntelligenceComplete, securityIntelligenceError, securityIntelligenceResult, securityIntelligenceStatus, serviceAccount, serviceFileName, serviceName, serviceStartType, serviceType, severityName, sid, signature, signatureStatus, sip, socketArgv, socketPid, sourceIP, sourceImage, sourceName, sourcePort, sourceProcessGuid, sourceUser, sport, srcList, ssh, sshInfo, stackTraceFormat, stackTraceHash, startFunction, startModule, staticFile, stdin, stdout, subjectUserName, symbolHooked, symbolSo, syscallNumber, targetArgv, targetDomainName, targetFilename, targetObject, targetPid, targetUserName, taskContent, taskName, threatName, timestamp, types, uid, user, userPrincipalName, username, virusHitDataList);
   }
 
 
@@ -3522,7 +3566,9 @@ public class KillChainNodeListForGetHidsAlarmSummaryInfoOutput {
     sb.append("    runPath: ").append(toIndentedString(runPath)).append("\n");
     sb.append("    samAccountName: ").append(toIndentedString(samAccountName)).append("\n");
     sb.append("    securityIntelligenceComplete: ").append(toIndentedString(securityIntelligenceComplete)).append("\n");
+    sb.append("    securityIntelligenceError: ").append(toIndentedString(securityIntelligenceError)).append("\n");
     sb.append("    securityIntelligenceResult: ").append(toIndentedString(securityIntelligenceResult)).append("\n");
+    sb.append("    securityIntelligenceStatus: ").append(toIndentedString(securityIntelligenceStatus)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    serviceFileName: ").append(toIndentedString(serviceFileName)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");

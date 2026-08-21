@@ -30,19 +30,19 @@ import javax.validation.Valid;
 
 
 public class RiskyForGetSOCPrecautionBaselineStatsOutput {
-  @SerializedName("critical")
+  @SerializedName("Critical")
   private Long critical = null;
 
-  @SerializedName("high")
+  @SerializedName("High")
   private Long high = null;
 
-  @SerializedName("info")
+  @SerializedName("Info")
   private Long info = null;
 
-  @SerializedName("low")
+  @SerializedName("Low")
   private Long low = null;
 
-  @SerializedName("medium")
+  @SerializedName("Medium")
   private Long medium = null;
 
   public RiskyForGetSOCPrecautionBaselineStatsOutput critical(Long critical) {

@@ -45,6 +45,9 @@ public class DownloadVulnListRequest {
   @SerializedName("Conditions")
   private ConditionsForDownloadVulnListInput conditions = null;
 
+  @SerializedName("ExportJobType")
+  private String exportJobType = null;
+
   @SerializedName("IDList")
   private List<String> idList = null;
 
@@ -125,6 +128,24 @@ public class DownloadVulnListRequest {
 
   public void setConditions(ConditionsForDownloadVulnListInput conditions) {
     this.conditions = conditions;
+  }
+
+  public DownloadVulnListRequest exportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
+    return this;
+  }
+
+   /**
+   * Get exportJobType
+   * @return exportJobType
+  **/
+  @Schema(description = "")
+  public String getExportJobType() {
+    return exportJobType;
+  }
+
+  public void setExportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
   }
 
   public DownloadVulnListRequest idList(List<String> idList) {
@@ -219,6 +240,7 @@ public class DownloadVulnListRequest {
         Objects.equals(this.assetID, downloadVulnListRequest.assetID) &&
         Objects.equals(this.assetType, downloadVulnListRequest.assetType) &&
         Objects.equals(this.conditions, downloadVulnListRequest.conditions) &&
+        Objects.equals(this.exportJobType, downloadVulnListRequest.exportJobType) &&
         Objects.equals(this.idList, downloadVulnListRequest.idList) &&
         Objects.equals(this.status, downloadVulnListRequest.status) &&
         Objects.equals(this.vulnTypeList, downloadVulnListRequest.vulnTypeList);
@@ -226,7 +248,7 @@ public class DownloadVulnListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, conditions, idList, status, vulnTypeList);
+    return Objects.hash(agentID, assetID, assetType, conditions, exportJobType, idList, status, vulnTypeList);
   }
 
 
@@ -239,6 +261,7 @@ public class DownloadVulnListRequest {
     sb.append("    assetID: ").append(toIndentedString(assetID)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    exportJobType: ").append(toIndentedString(exportJobType)).append("\n");
     sb.append("    idList: ").append(toIndentedString(idList)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vulnTypeList: ").append(toIndentedString(vulnTypeList)).append("\n");

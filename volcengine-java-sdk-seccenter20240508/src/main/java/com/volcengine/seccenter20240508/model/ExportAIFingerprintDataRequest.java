@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.seccenter20240508.model.ConditionForExportAIFingerprintDataInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import javax.validation.Valid;
 
 public class ExportAIFingerprintDataRequest {
   @SerializedName("Conditions")
-  private List<Long> conditions = null;
+  private List<ConditionForExportAIFingerprintDataInput> conditions = null;
 
   @SerializedName("FingerprintType")
   private String fingerprintType = null;
@@ -41,14 +42,14 @@ public class ExportAIFingerprintDataRequest {
   @SerializedName("IDList")
   private List<String> idList = null;
 
-  public ExportAIFingerprintDataRequest conditions(List<Long> conditions) {
+  public ExportAIFingerprintDataRequest conditions(List<ConditionForExportAIFingerprintDataInput> conditions) {
     this.conditions = conditions;
     return this;
   }
 
-  public ExportAIFingerprintDataRequest addConditionsItem(Long conditionsItem) {
+  public ExportAIFingerprintDataRequest addConditionsItem(ConditionForExportAIFingerprintDataInput conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<Long>();
+      this.conditions = new ArrayList<ConditionForExportAIFingerprintDataInput>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -58,12 +59,13 @@ public class ExportAIFingerprintDataRequest {
    * Get conditions
    * @return conditions
   **/
+  @Valid
   @Schema(description = "")
-  public List<Long> getConditions() {
+  public List<ConditionForExportAIFingerprintDataInput> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<Long> conditions) {
+  public void setConditions(List<ConditionForExportAIFingerprintDataInput> conditions) {
     this.conditions = conditions;
   }
 

@@ -51,6 +51,9 @@ public class DownloadVulListByPodRequest {
   @SerializedName("Conditions")
   private ConditionsForDownloadVulListByPodInput conditions = null;
 
+  @SerializedName("ExportJobType")
+  private String exportJobType = null;
+
   @SerializedName("IDList")
   private List<String> idList = null;
 
@@ -178,6 +181,24 @@ public class DownloadVulListByPodRequest {
 
   public void setConditions(ConditionsForDownloadVulListByPodInput conditions) {
     this.conditions = conditions;
+  }
+
+  public DownloadVulListByPodRequest exportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
+    return this;
+  }
+
+   /**
+   * Get exportJobType
+   * @return exportJobType
+  **/
+  @Schema(description = "")
+  public String getExportJobType() {
+    return exportJobType;
+  }
+
+  public void setExportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
   }
 
   public DownloadVulListByPodRequest idList(List<String> idList) {
@@ -331,6 +352,7 @@ public class DownloadVulListByPodRequest {
         Objects.equals(this.clusterID, downloadVulListByPodRequest.clusterID) &&
         Objects.equals(this.clusterName, downloadVulListByPodRequest.clusterName) &&
         Objects.equals(this.conditions, downloadVulListByPodRequest.conditions) &&
+        Objects.equals(this.exportJobType, downloadVulListByPodRequest.exportJobType) &&
         Objects.equals(this.idList, downloadVulListByPodRequest.idList) &&
         Objects.equals(this.namespace, downloadVulListByPodRequest.namespace) &&
         Objects.equals(this.status, downloadVulListByPodRequest.status) &&
@@ -341,7 +363,7 @@ public class DownloadVulListByPodRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, clusterID, clusterName, conditions, idList, namespace, status, vulnTypeList, workloadID, workloadName);
+    return Objects.hash(agentID, assetID, assetType, clusterID, clusterName, conditions, exportJobType, idList, namespace, status, vulnTypeList, workloadID, workloadName);
   }
 
 
@@ -356,6 +378,7 @@ public class DownloadVulListByPodRequest {
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    exportJobType: ").append(toIndentedString(exportJobType)).append("\n");
     sb.append("    idList: ").append(toIndentedString(idList)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

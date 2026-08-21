@@ -44,6 +44,9 @@ public class ConditionsForListOrderedHostsBasicInfosInput {
   @SerializedName("Hostname")
   private String hostname = null;
 
+  @SerializedName("InstanceStatus")
+  private List<String> instanceStatus = null;
+
   @SerializedName("Ip")
   private String ip = null;
 
@@ -165,6 +168,32 @@ public class ConditionsForListOrderedHostsBasicInfosInput {
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
+  }
+
+  public ConditionsForListOrderedHostsBasicInfosInput instanceStatus(List<String> instanceStatus) {
+    this.instanceStatus = instanceStatus;
+    return this;
+  }
+
+  public ConditionsForListOrderedHostsBasicInfosInput addInstanceStatusItem(String instanceStatusItem) {
+    if (this.instanceStatus == null) {
+      this.instanceStatus = new ArrayList<String>();
+    }
+    this.instanceStatus.add(instanceStatusItem);
+    return this;
+  }
+
+   /**
+   * Get instanceStatus
+   * @return instanceStatus
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceStatus() {
+    return instanceStatus;
+  }
+
+  public void setInstanceStatus(List<String> instanceStatus) {
+    this.instanceStatus = instanceStatus;
   }
 
   public ConditionsForListOrderedHostsBasicInfosInput ip(String ip) {
@@ -399,6 +428,7 @@ public class ConditionsForListOrderedHostsBasicInfosInput {
         Objects.equals(this.agentStatus, conditionsForListOrderedHostsBasicInfosInput.agentStatus) &&
         Objects.equals(this.cloudProviders, conditionsForListOrderedHostsBasicInfosInput.cloudProviders) &&
         Objects.equals(this.hostname, conditionsForListOrderedHostsBasicInfosInput.hostname) &&
+        Objects.equals(this.instanceStatus, conditionsForListOrderedHostsBasicInfosInput.instanceStatus) &&
         Objects.equals(this.ip, conditionsForListOrderedHostsBasicInfosInput.ip) &&
         Objects.equals(this.leafGroupIDs, conditionsForListOrderedHostsBasicInfosInput.leafGroupIDs) &&
         Objects.equals(this.platforms, conditionsForListOrderedHostsBasicInfosInput.platforms) &&
@@ -412,7 +442,7 @@ public class ConditionsForListOrderedHostsBasicInfosInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentIDList, agentStatus, cloudProviders, hostname, ip, leafGroupIDs, platforms, regions, status, tags, topGroupID, visibility, vpcIds);
+    return Objects.hash(agentIDList, agentStatus, cloudProviders, hostname, instanceStatus, ip, leafGroupIDs, platforms, regions, status, tags, topGroupID, visibility, vpcIds);
   }
 
 
@@ -425,6 +455,7 @@ public class ConditionsForListOrderedHostsBasicInfosInput {
     sb.append("    agentStatus: ").append(toIndentedString(agentStatus)).append("\n");
     sb.append("    cloudProviders: ").append(toIndentedString(cloudProviders)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    leafGroupIDs: ").append(toIndentedString(leafGroupIDs)).append("\n");
     sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");

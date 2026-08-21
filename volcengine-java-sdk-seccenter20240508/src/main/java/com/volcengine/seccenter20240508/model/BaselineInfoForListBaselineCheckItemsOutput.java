@@ -75,6 +75,9 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
   @SerializedName("UpdateTime")
   private Long updateTime = null;
 
+  @SerializedName("WhitelistStatus")
+  private Boolean whitelistStatus = null;
+
   public BaselineInfoForListBaselineCheckItemsOutput baselineCheck(String baselineCheck) {
     this.baselineCheck = baselineCheck;
     return this;
@@ -345,6 +348,24 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
     this.updateTime = updateTime;
   }
 
+  public BaselineInfoForListBaselineCheckItemsOutput whitelistStatus(Boolean whitelistStatus) {
+    this.whitelistStatus = whitelistStatus;
+    return this;
+  }
+
+   /**
+   * Get whitelistStatus
+   * @return whitelistStatus
+  **/
+  @Schema(description = "")
+  public Boolean isWhitelistStatus() {
+    return whitelistStatus;
+  }
+
+  public void setWhitelistStatus(Boolean whitelistStatus) {
+    this.whitelistStatus = whitelistStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -369,12 +390,13 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
         Objects.equals(this.titleCn, baselineInfoForListBaselineCheckItemsOutput.titleCn) &&
         Objects.equals(this.type, baselineInfoForListBaselineCheckItemsOutput.type) &&
         Objects.equals(this.typeCn, baselineInfoForListBaselineCheckItemsOutput.typeCn) &&
-        Objects.equals(this.updateTime, baselineInfoForListBaselineCheckItemsOutput.updateTime);
+        Objects.equals(this.updateTime, baselineInfoForListBaselineCheckItemsOutput.updateTime) &&
+        Objects.equals(this.whitelistStatus, baselineInfoForListBaselineCheckItemsOutput.whitelistStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baselineCheck, baselineID, checkID, description, descriptionCn, passRate, security, solution, solutionCn, status, title, titleCn, type, typeCn, updateTime);
+    return Objects.hash(baselineCheck, baselineID, checkID, description, descriptionCn, passRate, security, solution, solutionCn, status, title, titleCn, type, typeCn, updateTime, whitelistStatus);
   }
 
 
@@ -398,6 +420,7 @@ public class BaselineInfoForListBaselineCheckItemsOutput {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    typeCn: ").append(toIndentedString(typeCn)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    whitelistStatus: ").append(toIndentedString(whitelistStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

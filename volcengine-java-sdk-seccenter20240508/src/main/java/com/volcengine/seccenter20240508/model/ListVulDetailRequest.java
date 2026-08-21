@@ -45,6 +45,9 @@ public class ListVulDetailRequest {
   @SerializedName("Conditions")
   private ConditionsForListVulDetailInput conditions = null;
 
+  @SerializedName("ExportJobType")
+  private String exportJobType = null;
+
   @SerializedName("IDList")
   private List<String> idList = null;
 
@@ -125,6 +128,24 @@ public class ListVulDetailRequest {
 
   public void setConditions(ConditionsForListVulDetailInput conditions) {
     this.conditions = conditions;
+  }
+
+  public ListVulDetailRequest exportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
+    return this;
+  }
+
+   /**
+   * Get exportJobType
+   * @return exportJobType
+  **/
+  @Schema(description = "")
+  public String getExportJobType() {
+    return exportJobType;
+  }
+
+  public void setExportJobType(String exportJobType) {
+    this.exportJobType = exportJobType;
   }
 
   public ListVulDetailRequest idList(List<String> idList) {
@@ -219,6 +240,7 @@ public class ListVulDetailRequest {
         Objects.equals(this.assetID, listVulDetailRequest.assetID) &&
         Objects.equals(this.assetType, listVulDetailRequest.assetType) &&
         Objects.equals(this.conditions, listVulDetailRequest.conditions) &&
+        Objects.equals(this.exportJobType, listVulDetailRequest.exportJobType) &&
         Objects.equals(this.idList, listVulDetailRequest.idList) &&
         Objects.equals(this.status, listVulDetailRequest.status) &&
         Objects.equals(this.vulnTypeList, listVulDetailRequest.vulnTypeList);
@@ -226,7 +248,7 @@ public class ListVulDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, assetID, assetType, conditions, idList, status, vulnTypeList);
+    return Objects.hash(agentID, assetID, assetType, conditions, exportJobType, idList, status, vulnTypeList);
   }
 
 
@@ -239,6 +261,7 @@ public class ListVulDetailRequest {
     sb.append("    assetID: ").append(toIndentedString(assetID)).append("\n");
     sb.append("    assetType: ").append(toIndentedString(assetType)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    exportJobType: ").append(toIndentedString(exportJobType)).append("\n");
     sb.append("    idList: ").append(toIndentedString(idList)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vulnTypeList: ").append(toIndentedString(vulnTypeList)).append("\n");
