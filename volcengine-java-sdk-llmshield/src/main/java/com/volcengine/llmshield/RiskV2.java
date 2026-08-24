@@ -18,6 +18,9 @@ public class RiskV2 {
     @JsonProperty("Matches")
     private List<RiskMatchV2> matches;  // 命中词表信息
 
+    @JsonProperty("SourceInfos")
+    private List<SourceInfoV2> sourceInfos;  // 来源信息
+
     // Getters and Setters
     public String getCategory() {
         return category;
@@ -49,5 +52,13 @@ public class RiskV2 {
 
     public void setMatches(List<RiskMatchV2> matches) {
         this.matches = matches;
+    }
+
+    public List<SourceInfoV2> getSourceInfos() {
+        return sourceInfos;
+    }
+
+    public void setSourceInfos(List<SourceInfoV2> sourceInfos) {
+        this.sourceInfos = sourceInfos;
     }
 }
