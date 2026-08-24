@@ -33,51 +33,8 @@ public class InstanceForDescribeCrossRegionBackupDBInstancesOutput {
   @SerializedName("CrossRegionBackup")
   private Boolean crossRegionBackup = null;
 
-  /**
-   * Gets or Sets dbEngineVersion
-   */
-  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
-  public enum DbEngineVersionEnum {
-    @SerializedName("MySQL_5_7")
-    MYSQL_5_7("MySQL_5_7"),
-    @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0");
-
-    private String value;
-
-    DbEngineVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DbEngineVersionEnum fromValue(String input) {
-      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DbEngineVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DBEngineVersion")
-  private DbEngineVersionEnum dbEngineVersion = null;
+  @SerializedName("DBEngineVersion")
+  private String dbEngineVersion = null;
 
   @SerializedName("DBRevisionVersion")
   private String dbRevisionVersion = null;
@@ -121,7 +78,7 @@ public class InstanceForDescribeCrossRegionBackupDBInstancesOutput {
     this.crossRegionBackup = crossRegionBackup;
   }
 
-  public InstanceForDescribeCrossRegionBackupDBInstancesOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public InstanceForDescribeCrossRegionBackupDBInstancesOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -131,11 +88,11 @@ public class InstanceForDescribeCrossRegionBackupDBInstancesOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public DbEngineVersionEnum getDbEngineVersion() {
+  public String getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 

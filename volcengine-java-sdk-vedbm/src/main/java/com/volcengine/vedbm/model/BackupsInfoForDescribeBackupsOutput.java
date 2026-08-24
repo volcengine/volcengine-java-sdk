@@ -45,53 +45,8 @@ public class BackupsInfoForDescribeBackupsOutput {
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
 
-  /**
-   * Gets or Sets backupStatus
-   */
-  @JsonAdapter(BackupStatusEnum.Adapter.class)
-  public enum BackupStatusEnum {
-    @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Success")
-    SUCCESS("Success");
-
-    private String value;
-
-    BackupStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BackupStatusEnum fromValue(String input) {
-      for (BackupStatusEnum b : BackupStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BackupStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BackupStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BackupStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BackupStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BackupStatus")
-  private BackupStatusEnum backupStatus = null;
+  @SerializedName("BackupStatus")
+  private String backupStatus = null;
 
   @SerializedName("BackupType")
   private String backupType = null;
@@ -192,7 +147,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupStartTime = backupStartTime;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupStatus(BackupStatusEnum backupStatus) {
+  public BackupsInfoForDescribeBackupsOutput backupStatus(String backupStatus) {
     this.backupStatus = backupStatus;
     return this;
   }
@@ -202,11 +157,11 @@ public class BackupsInfoForDescribeBackupsOutput {
    * @return backupStatus
   **/
   @Schema(description = "")
-  public BackupStatusEnum getBackupStatus() {
+  public String getBackupStatus() {
     return backupStatus;
   }
 
-  public void setBackupStatus(BackupStatusEnum backupStatus) {
+  public void setBackupStatus(String backupStatus) {
     this.backupStatus = backupStatus;
   }
 

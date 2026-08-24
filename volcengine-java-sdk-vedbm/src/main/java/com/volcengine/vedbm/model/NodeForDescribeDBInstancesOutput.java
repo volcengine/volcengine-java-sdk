@@ -39,125 +39,14 @@ public class NodeForDescribeDBInstancesOutput {
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  /**
-   * Gets or Sets nodeSpec
-   */
-  @JsonAdapter(NodeSpecEnum.Adapter.class)
-  public enum NodeSpecEnum {
-    @SerializedName("vedb.mysql.g4.2xlarge")
-    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
-    @SerializedName("vedb.mysql.g4.4xlarge")
-    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge"),
-    @SerializedName("vedb.mysql.g4.large")
-    VEDB_MYSQL_G4_LARGE("vedb.mysql.g4.large"),
-    @SerializedName("vedb.mysql.g4.xlarge")
-    VEDB_MYSQL_G4_XLARGE("vedb.mysql.g4.xlarge"),
-    @SerializedName("vedb.mysql.g8.2xlarge")
-    VEDB_MYSQL_G8_2XLARGE("vedb.mysql.g8.2xlarge"),
-    @SerializedName("vedb.mysql.x4.2xlarge")
-    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
-    @SerializedName("vedb.mysql.x4.4xlarge")
-    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
-    @SerializedName("vedb.mysql.x4.8xlarge")
-    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
-    @SerializedName("vedb.mysql.x4.large")
-    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
-    @SerializedName("vedb.mysql.x4.xlarge")
-    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
-    @SerializedName("vedb.mysql.x8.2xlarge")
-    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
-    @SerializedName("vedb.mysql.x8.4xlarge")
-    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
-    @SerializedName("vedb.mysql.x8.6xlarge")
-    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
-    @SerializedName("vedb.mysql.x8.8xlarge")
-    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
-    @SerializedName("vedb.mysql.x8.large")
-    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
-    @SerializedName("vedb.mysql.x8.xlarge")
-    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge");
+  @SerializedName("NodeSpec")
+  private String nodeSpec = null;
 
-    private String value;
+  @SerializedName("NodeType")
+  private String nodeType = null;
 
-    NodeSpecEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NodeSpecEnum fromValue(String input) {
-      for (NodeSpecEnum b : NodeSpecEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NodeSpecEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NodeSpec")
-  private NodeSpecEnum nodeSpec = null;
-
-  /**
-   * Gets or Sets nodeType
-   */
-  @JsonAdapter(NodeTypeEnum.Adapter.class)
-  public enum NodeTypeEnum {
-    @SerializedName("Primary")
-    PRIMARY("Primary"),
-    @SerializedName("ReadOnly")
-    READONLY("ReadOnly");
-
-    private String value;
-
-    NodeTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NodeTypeEnum fromValue(String input) {
-      for (NodeTypeEnum b : NodeTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NodeTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodeTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NodeTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NodeTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NodeType")
-  private NodeTypeEnum nodeType = null;
+  @SerializedName("SubInstanceType")
+  private String subInstanceType = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -219,7 +108,7 @@ public class NodeForDescribeDBInstancesOutput {
     this.nodeId = nodeId;
   }
 
-  public NodeForDescribeDBInstancesOutput nodeSpec(NodeSpecEnum nodeSpec) {
+  public NodeForDescribeDBInstancesOutput nodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -229,15 +118,15 @@ public class NodeForDescribeDBInstancesOutput {
    * @return nodeSpec
   **/
   @Schema(description = "")
-  public NodeSpecEnum getNodeSpec() {
+  public String getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(NodeSpecEnum nodeSpec) {
+  public void setNodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
   }
 
-  public NodeForDescribeDBInstancesOutput nodeType(NodeTypeEnum nodeType) {
+  public NodeForDescribeDBInstancesOutput nodeType(String nodeType) {
     this.nodeType = nodeType;
     return this;
   }
@@ -247,12 +136,30 @@ public class NodeForDescribeDBInstancesOutput {
    * @return nodeType
   **/
   @Schema(description = "")
-  public NodeTypeEnum getNodeType() {
+  public String getNodeType() {
     return nodeType;
   }
 
-  public void setNodeType(NodeTypeEnum nodeType) {
+  public void setNodeType(String nodeType) {
     this.nodeType = nodeType;
+  }
+
+  public NodeForDescribeDBInstancesOutput subInstanceType(String subInstanceType) {
+    this.subInstanceType = subInstanceType;
+    return this;
+  }
+
+   /**
+   * Get subInstanceType
+   * @return subInstanceType
+  **/
+  @Schema(description = "")
+  public String getSubInstanceType() {
+    return subInstanceType;
+  }
+
+  public void setSubInstanceType(String subInstanceType) {
+    this.subInstanceType = subInstanceType;
   }
 
   public NodeForDescribeDBInstancesOutput zoneId(String zoneId) {
@@ -306,13 +213,14 @@ public class NodeForDescribeDBInstancesOutput {
         Objects.equals(this.nodeId, nodeForDescribeDBInstancesOutput.nodeId) &&
         Objects.equals(this.nodeSpec, nodeForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.nodeType, nodeForDescribeDBInstancesOutput.nodeType) &&
+        Objects.equals(this.subInstanceType, nodeForDescribeDBInstancesOutput.subInstanceType) &&
         Objects.equals(this.zoneId, nodeForDescribeDBInstancesOutput.zoneId) &&
         Objects.equals(this.vCPU, nodeForDescribeDBInstancesOutput.vCPU);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failoverPriority, memory, nodeId, nodeSpec, nodeType, zoneId, vCPU);
+    return Objects.hash(failoverPriority, memory, nodeId, nodeSpec, nodeType, subInstanceType, zoneId, vCPU);
   }
 
 
@@ -326,6 +234,7 @@ public class NodeForDescribeDBInstancesOutput {
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    subInstanceType: ").append(toIndentedString(subInstanceType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    vCPU: ").append(toIndentedString(vCPU)).append("\n");
     sb.append("}");

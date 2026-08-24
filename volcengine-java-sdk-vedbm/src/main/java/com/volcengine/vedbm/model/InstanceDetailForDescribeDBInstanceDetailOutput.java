@@ -34,100 +34,17 @@ import javax.validation.Valid;
 
 
 public class InstanceDetailForDescribeDBInstanceDetailOutput {
+  @SerializedName("CompressedStorageUsedGiB")
+  private Double compressedStorageUsedGiB = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  /**
-   * Gets or Sets dbEngineVersion
-   */
-  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
-  public enum DbEngineVersionEnum {
-    @SerializedName("MySQL_5_7")
-    MYSQL_5_7("MySQL_5_7"),
-    @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0");
+  @SerializedName("DBEngineVersion")
+  private String dbEngineVersion = null;
 
-    private String value;
-
-    DbEngineVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DbEngineVersionEnum fromValue(String input) {
-      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DbEngineVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DBEngineVersion")
-  private DbEngineVersionEnum dbEngineVersion = null;
-
-  /**
-   * Gets or Sets deletionProtection
-   */
-  @JsonAdapter(DeletionProtectionEnum.Adapter.class)
-  public enum DeletionProtectionEnum {
-    @SerializedName("disabled")
-    DISABLED("disabled"),
-    @SerializedName("enabled")
-    ENABLED("enabled");
-
-    private String value;
-
-    DeletionProtectionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DeletionProtectionEnum fromValue(String input) {
-      for (DeletionProtectionEnum b : DeletionProtectionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DeletionProtectionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeletionProtectionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DeletionProtectionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DeletionProtectionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DeletionProtection")
-  private DeletionProtectionEnum deletionProtection = null;
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -135,81 +52,8 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  /**
-   * Gets or Sets instanceStatus
-   */
-  @JsonAdapter(InstanceStatusEnum.Adapter.class)
-  public enum InstanceStatusEnum {
-    @SerializedName("AddressModifying")
-    ADDRESSMODIFYING("AddressModifying"),
-    @SerializedName("AllowListMaintaining")
-    ALLOWLISTMAINTAINING("AllowListMaintaining"),
-    @SerializedName("CreateFailed")
-    CREATEFAILED("CreateFailed"),
-    @SerializedName("Creating")
-    CREATING("Creating"),
-    @SerializedName("Deleting")
-    DELETING("Deleting"),
-    @SerializedName("Error")
-    ERROR("Error"),
-    @SerializedName("Expired")
-    EXPIRED("Expired"),
-    @SerializedName("Owing")
-    OWING("Owing"),
-    @SerializedName("PrimaryChanging")
-    PRIMARYCHANGING("PrimaryChanging"),
-    @SerializedName("Reclaiming")
-    RECLAIMING("Reclaiming"),
-    @SerializedName("Restarting")
-    RESTARTING("Restarting"),
-    @SerializedName("Restoring")
-    RESTORING("Restoring"),
-    @SerializedName("Resuming")
-    RESUMING("Resuming"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Scaling")
-    SCALING("Scaling"),
-    @SerializedName("Upgrading")
-    UPGRADING("Upgrading"),
-    @SerializedName("WaitingPaid")
-    WAITINGPAID("WaitingPaid");
-
-    private String value;
-
-    InstanceStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static InstanceStatusEnum fromValue(String input) {
-      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return InstanceStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("InstanceStatus")
-  private InstanceStatusEnum instanceStatus = null;
+  @SerializedName("InstanceStatus")
+  private String instanceStatus = null;
 
   @SerializedName("InstanceStructures")
   private List<InstanceStructureForDescribeDBInstanceDetailOutput> instanceStructures = null;
@@ -229,97 +73,14 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
-  /**
-   * Gets or Sets specFamily
-   */
-  @JsonAdapter(SpecFamilyEnum.Adapter.class)
-  public enum SpecFamilyEnum {
-    @SerializedName("Exclusive")
-    EXCLUSIVE("Exclusive"),
-    @SerializedName("General")
-    GENERAL("General");
+  @SerializedName("SpecFamily")
+  private String specFamily = null;
 
-    private String value;
+  @SerializedName("StorageChargeType")
+  private String storageChargeType = null;
 
-    SpecFamilyEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SpecFamilyEnum fromValue(String input) {
-      for (SpecFamilyEnum b : SpecFamilyEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SpecFamilyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SpecFamilyEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SpecFamilyEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SpecFamilyEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("SpecFamily")
-  private SpecFamilyEnum specFamily = null;
-
-  /**
-   * Gets or Sets storageChargeType
-   */
-  @JsonAdapter(StorageChargeTypeEnum.Adapter.class)
-  public enum StorageChargeTypeEnum {
-    @SerializedName("PostPaid")
-    POSTPAID("PostPaid"),
-    @SerializedName("PrePaid")
-    PREPAID("PrePaid");
-
-    private String value;
-
-    StorageChargeTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StorageChargeTypeEnum fromValue(String input) {
-      for (StorageChargeTypeEnum b : StorageChargeTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StorageChargeTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StorageChargeTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StorageChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StorageChargeTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("StorageChargeType")
-  private StorageChargeTypeEnum storageChargeType = null;
+  @SerializedName("StorageType")
+  private String storageType = null;
 
   @SerializedName("StorageUsedGiB")
   private Double storageUsedGiB = null;
@@ -335,6 +96,24 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   @SerializedName("ZoneIds")
   private String zoneIds = null;
+
+  public InstanceDetailForDescribeDBInstanceDetailOutput compressedStorageUsedGiB(Double compressedStorageUsedGiB) {
+    this.compressedStorageUsedGiB = compressedStorageUsedGiB;
+    return this;
+  }
+
+   /**
+   * Get compressedStorageUsedGiB
+   * @return compressedStorageUsedGiB
+  **/
+  @Schema(description = "")
+  public Double getCompressedStorageUsedGiB() {
+    return compressedStorageUsedGiB;
+  }
+
+  public void setCompressedStorageUsedGiB(Double compressedStorageUsedGiB) {
+    this.compressedStorageUsedGiB = compressedStorageUsedGiB;
+  }
 
   public InstanceDetailForDescribeDBInstanceDetailOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -354,7 +133,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.createTime = createTime;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -364,15 +143,15 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public DbEngineVersionEnum getDbEngineVersion() {
+  public String getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput deletionProtection(DeletionProtectionEnum deletionProtection) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput deletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
     return this;
   }
@@ -382,11 +161,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return deletionProtection
   **/
   @Schema(description = "")
-  public DeletionProtectionEnum getDeletionProtection() {
+  public String getDeletionProtection() {
     return deletionProtection;
   }
 
-  public void setDeletionProtection(DeletionProtectionEnum deletionProtection) {
+  public void setDeletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
   }
 
@@ -426,7 +205,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.instanceName = instanceName;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput instanceStatus(InstanceStatusEnum instanceStatus) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput instanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -436,11 +215,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public InstanceStatusEnum getInstanceStatus() {
+  public String getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
+  public void setInstanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
@@ -562,7 +341,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput specFamily(SpecFamilyEnum specFamily) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput specFamily(String specFamily) {
     this.specFamily = specFamily;
     return this;
   }
@@ -572,15 +351,15 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return specFamily
   **/
   @Schema(description = "")
-  public SpecFamilyEnum getSpecFamily() {
+  public String getSpecFamily() {
     return specFamily;
   }
 
-  public void setSpecFamily(SpecFamilyEnum specFamily) {
+  public void setSpecFamily(String specFamily) {
     this.specFamily = specFamily;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput storageChargeType(StorageChargeTypeEnum storageChargeType) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput storageChargeType(String storageChargeType) {
     this.storageChargeType = storageChargeType;
     return this;
   }
@@ -590,12 +369,30 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return storageChargeType
   **/
   @Schema(description = "")
-  public StorageChargeTypeEnum getStorageChargeType() {
+  public String getStorageChargeType() {
     return storageChargeType;
   }
 
-  public void setStorageChargeType(StorageChargeTypeEnum storageChargeType) {
+  public void setStorageChargeType(String storageChargeType) {
     this.storageChargeType = storageChargeType;
+  }
+
+  public InstanceDetailForDescribeDBInstanceDetailOutput storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
   }
 
   public InstanceDetailForDescribeDBInstanceDetailOutput storageUsedGiB(Double storageUsedGiB) {
@@ -698,7 +495,8 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
       return false;
     }
     InstanceDetailForDescribeDBInstanceDetailOutput instanceDetailForDescribeDBInstanceDetailOutput = (InstanceDetailForDescribeDBInstanceDetailOutput) o;
-    return Objects.equals(this.createTime, instanceDetailForDescribeDBInstanceDetailOutput.createTime) &&
+    return Objects.equals(this.compressedStorageUsedGiB, instanceDetailForDescribeDBInstanceDetailOutput.compressedStorageUsedGiB) &&
+        Objects.equals(this.createTime, instanceDetailForDescribeDBInstanceDetailOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, instanceDetailForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
         Objects.equals(this.deletionProtection, instanceDetailForDescribeDBInstanceDetailOutput.deletionProtection) &&
         Objects.equals(this.instanceId, instanceDetailForDescribeDBInstanceDetailOutput.instanceId) &&
@@ -712,6 +510,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
         Objects.equals(this.regionId, instanceDetailForDescribeDBInstanceDetailOutput.regionId) &&
         Objects.equals(this.specFamily, instanceDetailForDescribeDBInstanceDetailOutput.specFamily) &&
         Objects.equals(this.storageChargeType, instanceDetailForDescribeDBInstanceDetailOutput.storageChargeType) &&
+        Objects.equals(this.storageType, instanceDetailForDescribeDBInstanceDetailOutput.storageType) &&
         Objects.equals(this.storageUsedGiB, instanceDetailForDescribeDBInstanceDetailOutput.storageUsedGiB) &&
         Objects.equals(this.subnetId, instanceDetailForDescribeDBInstanceDetailOutput.subnetId) &&
         Objects.equals(this.timeZone, instanceDetailForDescribeDBInstanceDetailOutput.timeZone) &&
@@ -721,7 +520,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbEngineVersion, deletionProtection, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
+    return Objects.hash(compressedStorageUsedGiB, createTime, dbEngineVersion, deletionProtection, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageType, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
   }
 
 
@@ -730,6 +529,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceDetailForDescribeDBInstanceDetailOutput {\n");
     
+    sb.append("    compressedStorageUsedGiB: ").append(toIndentedString(compressedStorageUsedGiB)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
@@ -744,6 +544,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    storageUsedGiB: ").append(toIndentedString(storageUsedGiB)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");

@@ -34,6 +34,50 @@ public class ModifyDBEndpointRequest {
   private Boolean autoAddNewNodes = null;
 
   /**
+   * Gets or Sets connectionPool
+   */
+  @JsonAdapter(ConnectionPoolEnum.Adapter.class)
+  public enum ConnectionPoolEnum {
+    @SerializedName("Off")
+    OFF("Off");
+
+    private String value;
+
+    ConnectionPoolEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ConnectionPoolEnum fromValue(String input) {
+      for (ConnectionPoolEnum b : ConnectionPoolEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ConnectionPoolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConnectionPoolEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ConnectionPoolEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ConnectionPoolEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ConnectionPool")
+  private ConnectionPoolEnum connectionPool = null;
+
+  /**
    * Gets or Sets consistLevel
    */
   @JsonAdapter(ConsistLevelEnum.Adapter.class)
@@ -213,6 +257,24 @@ public class ModifyDBEndpointRequest {
 
   public void setAutoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
+  }
+
+  public ModifyDBEndpointRequest connectionPool(ConnectionPoolEnum connectionPool) {
+    this.connectionPool = connectionPool;
+    return this;
+  }
+
+   /**
+   * Get connectionPool
+   * @return connectionPool
+  **/
+  @Schema(description = "")
+  public ConnectionPoolEnum getConnectionPool() {
+    return connectionPool;
+  }
+
+  public void setConnectionPool(ConnectionPoolEnum connectionPool) {
+    this.connectionPool = connectionPool;
   }
 
   public ModifyDBEndpointRequest consistLevel(ConsistLevelEnum consistLevel) {
@@ -426,6 +488,7 @@ public class ModifyDBEndpointRequest {
     }
     ModifyDBEndpointRequest modifyDBEndpointRequest = (ModifyDBEndpointRequest) o;
     return Objects.equals(this.autoAddNewNodes, modifyDBEndpointRequest.autoAddNewNodes) &&
+        Objects.equals(this.connectionPool, modifyDBEndpointRequest.connectionPool) &&
         Objects.equals(this.consistLevel, modifyDBEndpointRequest.consistLevel) &&
         Objects.equals(this.consistTimeout, modifyDBEndpointRequest.consistTimeout) &&
         Objects.equals(this.consistTimeoutAction, modifyDBEndpointRequest.consistTimeoutAction) &&
@@ -441,7 +504,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, instanceId, masterAcceptReadRequests, nodes, readWriteMode);
+    return Objects.hash(autoAddNewNodes, connectionPool, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, instanceId, masterAcceptReadRequests, nodes, readWriteMode);
   }
 
 
@@ -451,6 +514,7 @@ public class ModifyDBEndpointRequest {
     sb.append("class ModifyDBEndpointRequest {\n");
     
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionPool: ").append(toIndentedString(connectionPool)).append("\n");
     sb.append("    consistLevel: ").append(toIndentedString(consistLevel)).append("\n");
     sb.append("    consistTimeout: ").append(toIndentedString(consistTimeout)).append("\n");
     sb.append("    consistTimeoutAction: ").append(toIndentedString(consistTimeoutAction)).append("\n");

@@ -48,51 +48,8 @@ public class NodeSpecForDescribeDBInstanceSpecsOutput {
   @SerializedName("PrePaidMinStorage")
   private Integer prePaidMinStorage = null;
 
-  /**
-   * Gets or Sets specFamily
-   */
-  @JsonAdapter(SpecFamilyEnum.Adapter.class)
-  public enum SpecFamilyEnum {
-    @SerializedName("Exclusive")
-    EXCLUSIVE("Exclusive"),
-    @SerializedName("General")
-    GENERAL("General");
-
-    private String value;
-
-    SpecFamilyEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SpecFamilyEnum fromValue(String input) {
-      for (SpecFamilyEnum b : SpecFamilyEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SpecFamilyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SpecFamilyEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SpecFamilyEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SpecFamilyEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("SpecFamily")
-  private SpecFamilyEnum specFamily = null;
+  @SerializedName("SpecFamily")
+  private String specFamily = null;
 
   @SerializedName("vCPU")
   private Integer vCPU = null;
@@ -205,7 +162,7 @@ public class NodeSpecForDescribeDBInstanceSpecsOutput {
     this.prePaidMinStorage = prePaidMinStorage;
   }
 
-  public NodeSpecForDescribeDBInstanceSpecsOutput specFamily(SpecFamilyEnum specFamily) {
+  public NodeSpecForDescribeDBInstanceSpecsOutput specFamily(String specFamily) {
     this.specFamily = specFamily;
     return this;
   }
@@ -215,11 +172,11 @@ public class NodeSpecForDescribeDBInstanceSpecsOutput {
    * @return specFamily
   **/
   @Schema(description = "")
-  public SpecFamilyEnum getSpecFamily() {
+  public String getSpecFamily() {
     return specFamily;
   }
 
-  public void setSpecFamily(SpecFamilyEnum specFamily) {
+  public void setSpecFamily(String specFamily) {
     this.specFamily = specFamily;
   }
 

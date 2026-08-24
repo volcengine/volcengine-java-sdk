@@ -219,6 +219,52 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("StorageChargeType")
   private String storageChargeType = null;
 
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("IOOptimizedStorage")
+    IOOPTIMIZEDSTORAGE("IOOptimizedStorage"),
+    @SerializedName("SmartCompressedStorage")
+    SMARTCOMPRESSEDSTORAGE("SmartCompressedStorage");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -544,6 +590,24 @@ public class RestoreToNewInstanceRequest {
     this.storageChargeType = storageChargeType;
   }
 
+  public RestoreToNewInstanceRequest storageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public StorageTypeEnum getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+  }
+
   public RestoreToNewInstanceRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -673,6 +737,7 @@ public class RestoreToNewInstanceRequest {
         Objects.equals(this.srcInstanceId, restoreToNewInstanceRequest.srcInstanceId) &&
         Objects.equals(this.srcProjectName, restoreToNewInstanceRequest.srcProjectName) &&
         Objects.equals(this.storageChargeType, restoreToNewInstanceRequest.storageChargeType) &&
+        Objects.equals(this.storageType, restoreToNewInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, restoreToNewInstanceRequest.subnetId) &&
         Objects.equals(this.tags, restoreToNewInstanceRequest.tags) &&
         Objects.equals(this.templateId, restoreToNewInstanceRequest.templateId) &&
@@ -682,7 +747,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, backupId, chargeType, dbMinorVersion, deletionProtection, instanceName, nodeNumber, nodeSpec, period, periodUnit, port, prePaidStorageInGB, projectName, restoreTime, srcInstanceId, srcProjectName, storageChargeType, subnetId, tags, templateId, vpcId, zoneIds);
+    return Objects.hash(autoRenew, backupId, chargeType, dbMinorVersion, deletionProtection, instanceName, nodeNumber, nodeSpec, period, periodUnit, port, prePaidStorageInGB, projectName, restoreTime, srcInstanceId, srcProjectName, storageChargeType, storageType, subnetId, tags, templateId, vpcId, zoneIds);
   }
 
 
@@ -708,6 +773,7 @@ public class RestoreToNewInstanceRequest {
     sb.append("    srcInstanceId: ").append(toIndentedString(srcInstanceId)).append("\n");
     sb.append("    srcProjectName: ").append(toIndentedString(srcProjectName)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");

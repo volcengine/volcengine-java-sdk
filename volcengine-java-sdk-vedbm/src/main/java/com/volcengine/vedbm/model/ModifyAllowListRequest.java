@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vedbm.model.SecurityGroupBindInfoForModifyAllowListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -92,6 +95,12 @@ public class ModifyAllowListRequest {
     }
   }  @SerializedName("ModifyMode")
   private ModifyModeEnum modifyMode = null;
+
+  @SerializedName("SecurityGroupBindInfos")
+  private List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos = null;
+
+  @SerializedName("UserAllowList")
+  private String userAllowList = null;
 
   public ModifyAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
@@ -203,6 +212,51 @@ public class ModifyAllowListRequest {
     this.modifyMode = modifyMode;
   }
 
+  public ModifyAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+    return this;
+  }
+
+  public ModifyAllowListRequest addSecurityGroupBindInfosItem(SecurityGroupBindInfoForModifyAllowListInput securityGroupBindInfosItem) {
+    if (this.securityGroupBindInfos == null) {
+      this.securityGroupBindInfos = new ArrayList<SecurityGroupBindInfoForModifyAllowListInput>();
+    }
+    this.securityGroupBindInfos.add(securityGroupBindInfosItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupBindInfos
+   * @return securityGroupBindInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SecurityGroupBindInfoForModifyAllowListInput> getSecurityGroupBindInfos() {
+    return securityGroupBindInfos;
+  }
+
+  public void setSecurityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+  }
+
+  public ModifyAllowListRequest userAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+    return this;
+  }
+
+   /**
+   * Get userAllowList
+   * @return userAllowList
+  **/
+  @Schema(description = "")
+  public String getUserAllowList() {
+    return userAllowList;
+  }
+
+  public void setUserAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -218,12 +272,14 @@ public class ModifyAllowListRequest {
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
         Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
-        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode);
+        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
+        Objects.equals(this.securityGroupBindInfos, modifyAllowListRequest.securityGroupBindInfos) &&
+        Objects.equals(this.userAllowList, modifyAllowListRequest.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
+    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupBindInfos, userAllowList);
   }
 
 
@@ -238,6 +294,8 @@ public class ModifyAllowListRequest {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
+    sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
+    sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

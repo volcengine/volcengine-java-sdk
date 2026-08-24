@@ -39,49 +39,8 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
   @SerializedName("ParameterNumber")
   private Integer parameterNumber = null;
 
-  /**
-   * Gets or Sets templateCategory
-   */
-  @JsonAdapter(TemplateCategoryEnum.Adapter.class)
-  public enum TemplateCategoryEnum {
-    @SerializedName("DBEngine")
-    DBENGINE("DBEngine");
-
-    private String value;
-
-    TemplateCategoryEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateCategoryEnum fromValue(String input) {
-      for (TemplateCategoryEnum b : TemplateCategoryEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateCategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateCategoryEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TemplateCategoryEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateCategoryEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateCategory")
-  private TemplateCategoryEnum templateCategory = null;
+  @SerializedName("TemplateCategory")
+  private String templateCategory = null;
 
   @SerializedName("TemplateDescription")
   private String templateDescription = null;
@@ -92,141 +51,14 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
   @SerializedName("TemplateName")
   private String templateName = null;
 
-  /**
-   * Gets or Sets templateSource
-   */
-  @JsonAdapter(TemplateSourceEnum.Adapter.class)
-  public enum TemplateSourceEnum {
-    @SerializedName("System")
-    SYSTEM("System"),
-    @SerializedName("User")
-    USER("User");
+  @SerializedName("TemplateSource")
+  private String templateSource = null;
 
-    private String value;
+  @SerializedName("TemplateType")
+  private String templateType = null;
 
-    TemplateSourceEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateSourceEnum fromValue(String input) {
-      for (TemplateSourceEnum b : TemplateSourceEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateSourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateSourceEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TemplateSourceEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateSourceEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateSource")
-  private TemplateSourceEnum templateSource = null;
-
-  /**
-   * Gets or Sets templateType
-   */
-  @JsonAdapter(TemplateTypeEnum.Adapter.class)
-  public enum TemplateTypeEnum {
-    @SerializedName("MySQL")
-    MYSQL("MySQL");
-
-    private String value;
-
-    TemplateTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateTypeEnum fromValue(String input) {
-      for (TemplateTypeEnum b : TemplateTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TemplateTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateType")
-  private TemplateTypeEnum templateType = null;
-
-  /**
-   * Gets or Sets templateTypeVersion
-   */
-  @JsonAdapter(TemplateTypeVersionEnum.Adapter.class)
-  public enum TemplateTypeVersionEnum {
-    @SerializedName("MySQL_5_7")
-    MYSQL_5_7("MySQL_5_7"),
-    @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0");
-
-    private String value;
-
-    TemplateTypeVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateTypeVersionEnum fromValue(String input) {
-      for (TemplateTypeVersionEnum b : TemplateTypeVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateTypeVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateTypeVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TemplateTypeVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateTypeVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateTypeVersion")
-  private TemplateTypeVersionEnum templateTypeVersion = null;
+  @SerializedName("TemplateTypeVersion")
+  private String templateTypeVersion = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -285,7 +117,7 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
     this.parameterNumber = parameterNumber;
   }
 
-  public TemplateInfoForDescribeParameterTemplatesOutput templateCategory(TemplateCategoryEnum templateCategory) {
+  public TemplateInfoForDescribeParameterTemplatesOutput templateCategory(String templateCategory) {
     this.templateCategory = templateCategory;
     return this;
   }
@@ -295,11 +127,11 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
    * @return templateCategory
   **/
   @Schema(description = "")
-  public TemplateCategoryEnum getTemplateCategory() {
+  public String getTemplateCategory() {
     return templateCategory;
   }
 
-  public void setTemplateCategory(TemplateCategoryEnum templateCategory) {
+  public void setTemplateCategory(String templateCategory) {
     this.templateCategory = templateCategory;
   }
 
@@ -357,7 +189,7 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
     this.templateName = templateName;
   }
 
-  public TemplateInfoForDescribeParameterTemplatesOutput templateSource(TemplateSourceEnum templateSource) {
+  public TemplateInfoForDescribeParameterTemplatesOutput templateSource(String templateSource) {
     this.templateSource = templateSource;
     return this;
   }
@@ -367,15 +199,15 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
    * @return templateSource
   **/
   @Schema(description = "")
-  public TemplateSourceEnum getTemplateSource() {
+  public String getTemplateSource() {
     return templateSource;
   }
 
-  public void setTemplateSource(TemplateSourceEnum templateSource) {
+  public void setTemplateSource(String templateSource) {
     this.templateSource = templateSource;
   }
 
-  public TemplateInfoForDescribeParameterTemplatesOutput templateType(TemplateTypeEnum templateType) {
+  public TemplateInfoForDescribeParameterTemplatesOutput templateType(String templateType) {
     this.templateType = templateType;
     return this;
   }
@@ -385,15 +217,15 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
    * @return templateType
   **/
   @Schema(description = "")
-  public TemplateTypeEnum getTemplateType() {
+  public String getTemplateType() {
     return templateType;
   }
 
-  public void setTemplateType(TemplateTypeEnum templateType) {
+  public void setTemplateType(String templateType) {
     this.templateType = templateType;
   }
 
-  public TemplateInfoForDescribeParameterTemplatesOutput templateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
+  public TemplateInfoForDescribeParameterTemplatesOutput templateTypeVersion(String templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
     return this;
   }
@@ -403,11 +235,11 @@ public class TemplateInfoForDescribeParameterTemplatesOutput {
    * @return templateTypeVersion
   **/
   @Schema(description = "")
-  public TemplateTypeVersionEnum getTemplateTypeVersion() {
+  public String getTemplateTypeVersion() {
     return templateTypeVersion;
   }
 
-  public void setTemplateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
+  public void setTemplateTypeVersion(String templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
   }
 
