@@ -1,5 +1,6 @@
 package com.volcengine.llmshield;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ public class ModerateV2Request {
     @JsonProperty("Extensions")
     private Map<String, String> extensions;  // 扩展字段，如HookName
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("CallGenerateOnOptimize")
+    private Boolean callGenerateOnOptimize;  // 命中优化回答时是否同步触发代答
+
     // 深拷贝构造方法：接收另一个ModerateV2Request实例，复制所有内容（包括引用类型的深度拷贝）
     public ModerateV2Request(ModerateV2Request other) {
         // 基本类型/字符串：直接赋值（字符串是不可变的，无需深拷贝）
@@ -51,6 +56,8 @@ public class ModerateV2Request {
         if (other.extensions != null) {
             this.extensions = new HashMap<>(other.extensions);
         }
+
+        this.callGenerateOnOptimize = other.callGenerateOnOptimize;
     }
 
     // 无参构造方法（保留，方便JSON反序列化等场景）
@@ -103,6 +110,15 @@ public class ModerateV2Request {
     public void setExtensions(Map<String, String> extensions) {
         this.extensions = extensions;
     }
+
+    public Boolean getCallGenerateOnOptimize() {
+        return callGenerateOnOptimize;
+    }
+
+    public void setCallGenerateOnOptimize(Boolean callGenerateOnOptimize) {
+        this.callGenerateOnOptimize = callGenerateOnOptimize;
+    }
+
     // 追加单条历史消息
     public ModerateV2Request appendHistory(MessageV2 message) {
         if (this.history == null) {

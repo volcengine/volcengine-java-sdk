@@ -104,6 +104,7 @@ public class ModerateV2StreamSession {
         currentMessage.setContent(currentContent + requestContent);
         this.streamSendLen += requestContent.length();
         this.request.setUseStream(request.getUseStream());
+        this.request.setCallGenerateOnOptimize(request.getCallGenerateOnOptimize());
     }
 }
 
