@@ -115,20 +115,6 @@ public class ApiClient {
         // 禁用所有重试：POST 是非幂等请求，任何重试都可能导致重复提交
         builder.retryOnConnectionFailure(false);
 
-        // 反向代理场景下，统一在 client 初始化时覆写 Host 头，
-        // 与 Go SDK 的 RewriteUrl 行为保持一致。
-        if (rewriteHost != null && !rewriteHost.isEmpty()) {
-            builder.addInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request request = chain.request().newBuilder()
-                            .header("Host", rewriteHost)
-                            .build();
-                    return chain.proceed(request);
-                }
-            });
-        }
-
         // 代理配置
         if (proxy != null && !proxy.isEmpty()) {
             try {
@@ -185,7 +171,7 @@ public class ApiClient {
      *   <li>ProxyAddr (String): 代理地址，如 "http://proxy.example.com:8080"</li>
      *   <li>ConnMax (Integer): 最大连接数，设置后会同时设置 MaxConnTotal 和 MaxConnPerRoute</li>
      *   <li>Timeout (Long): HTTP 客户端超时时间（毫秒），默认为 0（不超时）</li>
-     *   <li>RewriteUrl (String): 反向代理签名地址，使用其 host 参与签名并覆写实际请求 Host 头</li>
+     *   <li>RewriteUrl (String): 反向代理签名地址，仅使用其 host 参与签名，不覆写实际请求 Host 头</li>
      * </ul>
      *
      * @param url        API 请求的基础 URL
