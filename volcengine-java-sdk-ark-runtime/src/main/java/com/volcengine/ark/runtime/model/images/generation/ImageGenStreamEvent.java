@@ -166,6 +166,12 @@ public class ImageGenStreamEvent {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Usage {
         /**
+         * The number of reference images supplied by the client.
+         */
+        @JsonProperty("input_images")
+        private Integer inputImages;
+
+        /**
          * The number of images generated.
          */
         private int generatedImages;
@@ -179,6 +185,14 @@ public class ImageGenStreamEvent {
          * The total number of tokens.
          */
         private int totalTokens;
+
+        public Integer getInputImages() {
+            return inputImages;
+        }
+
+        public void setInputImages(Integer inputImages) {
+            this.inputImages = inputImages;
+        }
 
         public int getGeneratedImages() {
             return generatedImages;
@@ -218,6 +232,7 @@ public class ImageGenStreamEvent {
         @Override
         public String toString() {
             return "Usage{" +
+                    "inputImages=" + inputImages +
                     "generatedImages=" + generatedImages +
                     "outputTokens=" + outputTokens +
                     "totalTokens=" + totalTokens +
@@ -263,4 +278,3 @@ public class ImageGenStreamEvent {
         }
     }
 }
-

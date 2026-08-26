@@ -85,6 +85,21 @@ public class ImagesResponse {
         @JsonProperty("size")
         private String size;
 
+        @JsonProperty("output_format")
+        private String outputFormat;
+
+        @JsonProperty("z_index")
+        private Integer zIndex;
+
+        @JsonProperty("bounding_box")
+        private BoundingBox boundingBox;
+
+        @JsonProperty("name")
+        private String name;
+
+        @JsonProperty("description")
+        private String description;
+
         public String getUrl() {
             return url;
         }
@@ -109,12 +124,91 @@ public class ImagesResponse {
             this.size = size;
         }
 
+        public String getOutputFormat() {
+            return outputFormat;
+        }
+
+        public void setOutputFormat(String outputFormat) {
+            this.outputFormat = outputFormat;
+        }
+
+        public Integer getZIndex() {
+            return zIndex;
+        }
+
+        public void setZIndex(Integer zIndex) {
+            this.zIndex = zIndex;
+        }
+
+        public BoundingBox getBoundingBox() {
+            return boundingBox;
+        }
+
+        public void setBoundingBox(BoundingBox boundingBox) {
+            this.boundingBox = boundingBox;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
         @Override
         public String toString() {
             return "Image{" +
                     "url=" + url +
                     "b64Json=" + b64Json +
                     "size=" + size +
+                    "outputFormat=" + outputFormat +
+                    "zIndex=" + zIndex +
+                    "boundingBox=" + boundingBox +
+                    "name=" + name +
+                    "description=" + description +
+                    '}';
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class BoundingBox {
+
+        @JsonProperty("absolute")
+        private List<Integer> absolute;
+
+        @JsonProperty("normalized")
+        private List<Integer> normalized;
+
+        public List<Integer> getAbsolute() {
+            return absolute;
+        }
+
+        public void setAbsolute(List<Integer> absolute) {
+            this.absolute = absolute;
+        }
+
+        public List<Integer> getNormalized() {
+            return normalized;
+        }
+
+        public void setNormalized(List<Integer> normalized) {
+            this.normalized = normalized;
+        }
+
+        @Override
+        public String toString() {
+            return "BoundingBox{" +
+                    "absolute=" + absolute +
+                    ", normalized=" + normalized +
                     '}';
         }
     }
@@ -146,6 +240,17 @@ public class ImagesResponse {
 
         @JsonProperty("generated_images")
         private Integer generatedImages;
+
+        @JsonProperty("input_images")
+        private Integer inputImages;
+
+        public Integer getInputImages() {
+            return inputImages;
+        }
+
+        public void setInputImages(Integer inputImages) {
+            this.inputImages = inputImages;
+        }
 
         public Integer getGeneratedImages() {
             return generatedImages;
@@ -191,6 +296,7 @@ public class ImagesResponse {
         @Override
         public String toString() {
             return "Usage{" +
+                    "inputImages=" + inputImages +
                     "generatedImages=" + generatedImages +
                     "outputTokens=" + outputTokens +
                     "totalTokens=" + totalTokens +
