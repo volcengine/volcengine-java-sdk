@@ -45,8 +45,8 @@ public class DeleteClusterRequest {
     NODEPOOLRESOURCE("NodePoolResource"),
     @SerializedName("DefaultNodePoolResource")
     DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
-    @SerializedName("TryBest")
-    TRYBEST("TryBest");
+    @SerializedName("All")
+    ALL("All");
 
     private String value;
 
