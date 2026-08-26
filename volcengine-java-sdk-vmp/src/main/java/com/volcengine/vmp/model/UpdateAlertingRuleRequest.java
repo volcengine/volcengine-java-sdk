@@ -57,8 +57,14 @@ public class UpdateAlertingRuleRequest {
   @SerializedName("NotifyGroupPolicyId")
   private String notifyGroupPolicyId = null;
 
+  @SerializedName("NotifyGroupPolicySource")
+  private String notifyGroupPolicySource = null;
+
   @SerializedName("NotifyPolicyId")
   private String notifyPolicyId = null;
+
+  @SerializedName("NotifyPolicySource")
+  private String notifyPolicySource = null;
 
   @SerializedName("Query")
   private QueryForUpdateAlertingRuleInput query = null;
@@ -220,6 +226,24 @@ public class UpdateAlertingRuleRequest {
     this.notifyGroupPolicyId = notifyGroupPolicyId;
   }
 
+  public UpdateAlertingRuleRequest notifyGroupPolicySource(String notifyGroupPolicySource) {
+    this.notifyGroupPolicySource = notifyGroupPolicySource;
+    return this;
+  }
+
+   /**
+   * Get notifyGroupPolicySource
+   * @return notifyGroupPolicySource
+  **/
+  @Schema(description = "")
+  public String getNotifyGroupPolicySource() {
+    return notifyGroupPolicySource;
+  }
+
+  public void setNotifyGroupPolicySource(String notifyGroupPolicySource) {
+    this.notifyGroupPolicySource = notifyGroupPolicySource;
+  }
+
   public UpdateAlertingRuleRequest notifyPolicyId(String notifyPolicyId) {
     this.notifyPolicyId = notifyPolicyId;
     return this;
@@ -236,6 +260,24 @@ public class UpdateAlertingRuleRequest {
 
   public void setNotifyPolicyId(String notifyPolicyId) {
     this.notifyPolicyId = notifyPolicyId;
+  }
+
+  public UpdateAlertingRuleRequest notifyPolicySource(String notifyPolicySource) {
+    this.notifyPolicySource = notifyPolicySource;
+    return this;
+  }
+
+   /**
+   * Get notifyPolicySource
+   * @return notifyPolicySource
+  **/
+  @Schema(description = "")
+  public String getNotifyPolicySource() {
+    return notifyPolicySource;
+  }
+
+  public void setNotifyPolicySource(String notifyPolicySource) {
+    this.notifyPolicySource = notifyPolicySource;
   }
 
   public UpdateAlertingRuleRequest query(QueryForUpdateAlertingRuleInput query) {
@@ -292,14 +334,16 @@ public class UpdateAlertingRuleRequest {
         Objects.equals(this.levels, updateAlertingRuleRequest.levels) &&
         Objects.equals(this.name, updateAlertingRuleRequest.name) &&
         Objects.equals(this.notifyGroupPolicyId, updateAlertingRuleRequest.notifyGroupPolicyId) &&
+        Objects.equals(this.notifyGroupPolicySource, updateAlertingRuleRequest.notifyGroupPolicySource) &&
         Objects.equals(this.notifyPolicyId, updateAlertingRuleRequest.notifyPolicyId) &&
+        Objects.equals(this.notifyPolicySource, updateAlertingRuleRequest.notifyPolicySource) &&
         Objects.equals(this.query, updateAlertingRuleRequest.query) &&
         Objects.equals(this.type, updateAlertingRuleRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, description, id, labels, levels, name, notifyGroupPolicyId, notifyPolicyId, query, type);
+    return Objects.hash(annotations, description, id, labels, levels, name, notifyGroupPolicyId, notifyGroupPolicySource, notifyPolicyId, notifyPolicySource, query, type);
   }
 
 
@@ -315,7 +359,9 @@ public class UpdateAlertingRuleRequest {
     sb.append("    levels: ").append(toIndentedString(levels)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyGroupPolicyId: ").append(toIndentedString(notifyGroupPolicyId)).append("\n");
+    sb.append("    notifyGroupPolicySource: ").append(toIndentedString(notifyGroupPolicySource)).append("\n");
     sb.append("    notifyPolicyId: ").append(toIndentedString(notifyPolicyId)).append("\n");
+    sb.append("    notifyPolicySource: ").append(toIndentedString(notifyPolicySource)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
