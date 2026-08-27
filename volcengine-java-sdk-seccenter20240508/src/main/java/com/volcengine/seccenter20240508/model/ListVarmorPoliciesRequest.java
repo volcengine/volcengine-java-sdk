@@ -50,6 +50,9 @@ public class ListVarmorPoliciesRequest {
   @SerializedName("PageSize")
   private Long pageSize = null;
 
+  @SerializedName("PolicyIds")
+  private List<String> policyIds = null;
+
   @SerializedName("PolicyMode")
   private String policyMode = null;
 
@@ -182,6 +185,32 @@ public class ListVarmorPoliciesRequest {
 
   public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public ListVarmorPoliciesRequest policyIds(List<String> policyIds) {
+    this.policyIds = policyIds;
+    return this;
+  }
+
+  public ListVarmorPoliciesRequest addPolicyIdsItem(String policyIdsItem) {
+    if (this.policyIds == null) {
+      this.policyIds = new ArrayList<String>();
+    }
+    this.policyIds.add(policyIdsItem);
+    return this;
+  }
+
+   /**
+   * Get policyIds
+   * @return policyIds
+  **/
+  @Schema(description = "")
+  public List<String> getPolicyIds() {
+    return policyIds;
+  }
+
+  public void setPolicyIds(List<String> policyIds) {
+    this.policyIds = policyIds;
   }
 
   public ListVarmorPoliciesRequest policyMode(String policyMode) {
@@ -352,6 +381,7 @@ public class ListVarmorPoliciesRequest {
         Objects.equals(this.namespace, listVarmorPoliciesRequest.namespace) &&
         Objects.equals(this.pageNumber, listVarmorPoliciesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listVarmorPoliciesRequest.pageSize) &&
+        Objects.equals(this.policyIds, listVarmorPoliciesRequest.policyIds) &&
         Objects.equals(this.policyMode, listVarmorPoliciesRequest.policyMode) &&
         Objects.equals(this.policyName, listVarmorPoliciesRequest.policyName) &&
         Objects.equals(this.policyType, listVarmorPoliciesRequest.policyType) &&
@@ -364,7 +394,7 @@ public class ListVarmorPoliciesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterID, clusterName, enforcer, namespace, pageNumber, pageSize, policyMode, policyName, policyType, region, sortBy, sortOrder, status, targetWorkload);
+    return Objects.hash(clusterID, clusterName, enforcer, namespace, pageNumber, pageSize, policyIds, policyMode, policyName, policyType, region, sortBy, sortOrder, status, targetWorkload);
   }
 
 
@@ -379,6 +409,7 @@ public class ListVarmorPoliciesRequest {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    policyIds: ").append(toIndentedString(policyIds)).append("\n");
     sb.append("    policyMode: ").append(toIndentedString(policyMode)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
     sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");

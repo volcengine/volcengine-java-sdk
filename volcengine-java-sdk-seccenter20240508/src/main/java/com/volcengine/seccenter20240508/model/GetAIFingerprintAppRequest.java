@@ -33,6 +33,9 @@ public class GetAIFingerprintAppRequest {
   @SerializedName("AppID")
   private String appID = null;
 
+  @SerializedName("Name")
+  private String name = null;
+
   @SerializedName("OnlyAIApplicationAsset")
   private Boolean onlyAIApplicationAsset = null;
 
@@ -70,6 +73,24 @@ public class GetAIFingerprintAppRequest {
 
   public void setAppID(String appID) {
     this.appID = appID;
+  }
+
+  public GetAIFingerprintAppRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public GetAIFingerprintAppRequest onlyAIApplicationAsset(Boolean onlyAIApplicationAsset) {
@@ -211,6 +232,7 @@ public class GetAIFingerprintAppRequest {
     }
     GetAIFingerprintAppRequest getAIFingerprintAppRequest = (GetAIFingerprintAppRequest) o;
     return Objects.equals(this.appID, getAIFingerprintAppRequest.appID) &&
+        Objects.equals(this.name, getAIFingerprintAppRequest.name) &&
         Objects.equals(this.onlyAIApplicationAsset, getAIFingerprintAppRequest.onlyAIApplicationAsset) &&
         Objects.equals(this.pageNumber, getAIFingerprintAppRequest.pageNumber) &&
         Objects.equals(this.pageSize, getAIFingerprintAppRequest.pageSize) &&
@@ -222,7 +244,7 @@ public class GetAIFingerprintAppRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appID, onlyAIApplicationAsset, pageNumber, pageSize, sessionID, sortBy, sortOrder, version);
+    return Objects.hash(appID, name, onlyAIApplicationAsset, pageNumber, pageSize, sessionID, sortBy, sortOrder, version);
   }
 
 
@@ -232,6 +254,7 @@ public class GetAIFingerprintAppRequest {
     sb.append("class GetAIFingerprintAppRequest {\n");
     
     sb.append("    appID: ").append(toIndentedString(appID)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    onlyAIApplicationAsset: ").append(toIndentedString(onlyAIApplicationAsset)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

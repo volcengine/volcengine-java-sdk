@@ -76,7 +76,8 @@ public class BatchAddHostToGroupRequest {
    * Get groupID
    * @return groupID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getGroupID() {
     return groupID;
   }

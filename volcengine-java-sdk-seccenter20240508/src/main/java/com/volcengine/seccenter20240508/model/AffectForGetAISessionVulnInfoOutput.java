@@ -114,6 +114,12 @@ public class AffectForGetAISessionVulnInfoOutput {
   @SerializedName("VulnAffectVersion")
   private String vulnAffectVersion = null;
 
+  @SerializedName("VulnName")
+  private String vulnName = null;
+
+  @SerializedName("VulnNameEn")
+  private String vulnNameEn = null;
+
   @SerializedName("WorkloadID")
   private String workloadID = null;
 
@@ -615,6 +621,42 @@ public class AffectForGetAISessionVulnInfoOutput {
     this.vulnAffectVersion = vulnAffectVersion;
   }
 
+  public AffectForGetAISessionVulnInfoOutput vulnName(String vulnName) {
+    this.vulnName = vulnName;
+    return this;
+  }
+
+   /**
+   * Get vulnName
+   * @return vulnName
+  **/
+  @Schema(description = "")
+  public String getVulnName() {
+    return vulnName;
+  }
+
+  public void setVulnName(String vulnName) {
+    this.vulnName = vulnName;
+  }
+
+  public AffectForGetAISessionVulnInfoOutput vulnNameEn(String vulnNameEn) {
+    this.vulnNameEn = vulnNameEn;
+    return this;
+  }
+
+   /**
+   * Get vulnNameEn
+   * @return vulnNameEn
+  **/
+  @Schema(description = "")
+  public String getVulnNameEn() {
+    return vulnNameEn;
+  }
+
+  public void setVulnNameEn(String vulnNameEn) {
+    this.vulnNameEn = vulnNameEn;
+  }
+
   public AffectForGetAISessionVulnInfoOutput workloadID(String workloadID) {
     this.workloadID = workloadID;
     return this;
@@ -688,13 +730,15 @@ public class AffectForGetAISessionVulnInfoOutput {
         Objects.equals(this.state, affectForGetAISessionVulnInfoOutput.state) &&
         Objects.equals(this.type, affectForGetAISessionVulnInfoOutput.type) &&
         Objects.equals(this.vulnAffectVersion, affectForGetAISessionVulnInfoOutput.vulnAffectVersion) &&
+        Objects.equals(this.vulnName, affectForGetAISessionVulnInfoOutput.vulnName) &&
+        Objects.equals(this.vulnNameEn, affectForGetAISessionVulnInfoOutput.vulnNameEn) &&
         Objects.equals(this.workloadID, affectForGetAISessionVulnInfoOutput.workloadID) &&
         Objects.equals(this.workloadName, affectForGetAISessionVulnInfoOutput.workloadName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterID, clusterName, cmdline, containerCreateTime, containerHostName, containerID, containerIP, containerName, containerNetMode, containerQueryResult, containerRunTime, containerState, fixCommand, fixVersion, imageID, imageName, namespace, pidList, podID, podName, softwareName, softwarePath, softwareSource, softwareVersion, state, type, vulnAffectVersion, workloadID, workloadName);
+    return Objects.hash(clusterID, clusterName, cmdline, containerCreateTime, containerHostName, containerID, containerIP, containerName, containerNetMode, containerQueryResult, containerRunTime, containerState, fixCommand, fixVersion, imageID, imageName, namespace, pidList, podID, podName, softwareName, softwarePath, softwareSource, softwareVersion, state, type, vulnAffectVersion, vulnName, vulnNameEn, workloadID, workloadName);
   }
 
 
@@ -730,6 +774,8 @@ public class AffectForGetAISessionVulnInfoOutput {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vulnAffectVersion: ").append(toIndentedString(vulnAffectVersion)).append("\n");
+    sb.append("    vulnName: ").append(toIndentedString(vulnName)).append("\n");
+    sb.append("    vulnNameEn: ").append(toIndentedString(vulnNameEn)).append("\n");
     sb.append("    workloadID: ").append(toIndentedString(workloadID)).append("\n");
     sb.append("    workloadName: ").append(toIndentedString(workloadName)).append("\n");
     sb.append("}");

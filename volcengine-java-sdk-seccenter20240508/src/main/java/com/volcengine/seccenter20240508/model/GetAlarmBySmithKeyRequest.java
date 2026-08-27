@@ -48,7 +48,8 @@ public class GetAlarmBySmithKeyRequest {
    * Get alarmCategory
    * @return alarmCategory
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAlarmCategory() {
     return alarmCategory;
   }
@@ -66,7 +67,8 @@ public class GetAlarmBySmithKeyRequest {
    * Get smithKey
    * @return smithKey
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSmithKey() {
     return smithKey;
   }

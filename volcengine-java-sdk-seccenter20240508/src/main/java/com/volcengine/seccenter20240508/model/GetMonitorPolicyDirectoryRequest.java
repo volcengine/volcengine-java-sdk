@@ -42,7 +42,8 @@ public class GetMonitorPolicyDirectoryRequest {
    * Get ID
    * @return ID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getID() {
     return ID;
   }

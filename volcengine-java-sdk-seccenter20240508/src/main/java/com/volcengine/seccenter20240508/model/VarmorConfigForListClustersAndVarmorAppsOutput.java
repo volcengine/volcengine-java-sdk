@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class VarmorConfigForListClustersAndVarmorAppsOutput {
+  @SerializedName("AddonJsonConfig")
+  private String addonJsonConfig = null;
+
   @SerializedName("ConfigType")
   private String configType = null;
 
@@ -39,6 +42,24 @@ public class VarmorConfigForListClustersAndVarmorAppsOutput {
 
   @SerializedName("YAMLConfig")
   private String yaMLConfig = null;
+
+  public VarmorConfigForListClustersAndVarmorAppsOutput addonJsonConfig(String addonJsonConfig) {
+    this.addonJsonConfig = addonJsonConfig;
+    return this;
+  }
+
+   /**
+   * Get addonJsonConfig
+   * @return addonJsonConfig
+  **/
+  @Schema(description = "")
+  public String getAddonJsonConfig() {
+    return addonJsonConfig;
+  }
+
+  public void setAddonJsonConfig(String addonJsonConfig) {
+    this.addonJsonConfig = addonJsonConfig;
+  }
 
   public VarmorConfigForListClustersAndVarmorAppsOutput configType(String configType) {
     this.configType = configType;
@@ -105,14 +126,15 @@ public class VarmorConfigForListClustersAndVarmorAppsOutput {
       return false;
     }
     VarmorConfigForListClustersAndVarmorAppsOutput varmorConfigForListClustersAndVarmorAppsOutput = (VarmorConfigForListClustersAndVarmorAppsOutput) o;
-    return Objects.equals(this.configType, varmorConfigForListClustersAndVarmorAppsOutput.configType) &&
+    return Objects.equals(this.addonJsonConfig, varmorConfigForListClustersAndVarmorAppsOutput.addonJsonConfig) &&
+        Objects.equals(this.configType, varmorConfigForListClustersAndVarmorAppsOutput.configType) &&
         Objects.equals(this.varmorSimpleConfig, varmorConfigForListClustersAndVarmorAppsOutput.varmorSimpleConfig) &&
         Objects.equals(this.yaMLConfig, varmorConfigForListClustersAndVarmorAppsOutput.yaMLConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configType, varmorSimpleConfig, yaMLConfig);
+    return Objects.hash(addonJsonConfig, configType, varmorSimpleConfig, yaMLConfig);
   }
 
 
@@ -121,6 +143,7 @@ public class VarmorConfigForListClustersAndVarmorAppsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VarmorConfigForListClustersAndVarmorAppsOutput {\n");
     
+    sb.append("    addonJsonConfig: ").append(toIndentedString(addonJsonConfig)).append("\n");
     sb.append("    configType: ").append(toIndentedString(configType)).append("\n");
     sb.append("    varmorSimpleConfig: ").append(toIndentedString(varmorSimpleConfig)).append("\n");
     sb.append("    yaMLConfig: ").append(toIndentedString(yaMLConfig)).append("\n");

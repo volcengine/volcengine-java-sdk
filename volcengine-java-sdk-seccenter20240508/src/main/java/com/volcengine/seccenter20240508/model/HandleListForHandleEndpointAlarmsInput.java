@@ -46,6 +46,12 @@ public class HandleListForHandleEndpointAlarmsInput {
   @SerializedName("Processes")
   private List<ProcessForHandleEndpointAlarmsInput> processes = null;
 
+  @SerializedName("SpanTraceID")
+  private List<Long> spanTraceID = null;
+
+  @SerializedName("SpanUniqueID")
+  private List<Long> spanUniqueID = null;
+
   public HandleListForHandleEndpointAlarmsInput agentID(String agentID) {
     this.agentID = agentID;
     return this;
@@ -144,6 +150,58 @@ public class HandleListForHandleEndpointAlarmsInput {
     this.processes = processes;
   }
 
+  public HandleListForHandleEndpointAlarmsInput spanTraceID(List<Long> spanTraceID) {
+    this.spanTraceID = spanTraceID;
+    return this;
+  }
+
+  public HandleListForHandleEndpointAlarmsInput addSpanTraceIDItem(Long spanTraceIDItem) {
+    if (this.spanTraceID == null) {
+      this.spanTraceID = new ArrayList<Long>();
+    }
+    this.spanTraceID.add(spanTraceIDItem);
+    return this;
+  }
+
+   /**
+   * Get spanTraceID
+   * @return spanTraceID
+  **/
+  @Schema(description = "")
+  public List<Long> getSpanTraceID() {
+    return spanTraceID;
+  }
+
+  public void setSpanTraceID(List<Long> spanTraceID) {
+    this.spanTraceID = spanTraceID;
+  }
+
+  public HandleListForHandleEndpointAlarmsInput spanUniqueID(List<Long> spanUniqueID) {
+    this.spanUniqueID = spanUniqueID;
+    return this;
+  }
+
+  public HandleListForHandleEndpointAlarmsInput addSpanUniqueIDItem(Long spanUniqueIDItem) {
+    if (this.spanUniqueID == null) {
+      this.spanUniqueID = new ArrayList<Long>();
+    }
+    this.spanUniqueID.add(spanUniqueIDItem);
+    return this;
+  }
+
+   /**
+   * Get spanUniqueID
+   * @return spanUniqueID
+  **/
+  @Schema(description = "")
+  public List<Long> getSpanUniqueID() {
+    return spanUniqueID;
+  }
+
+  public void setSpanUniqueID(List<Long> spanUniqueID) {
+    this.spanUniqueID = spanUniqueID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,12 +215,14 @@ public class HandleListForHandleEndpointAlarmsInput {
     return Objects.equals(this.agentID, handleListForHandleEndpointAlarmsInput.agentID) &&
         Objects.equals(this.alarmIDList, handleListForHandleEndpointAlarmsInput.alarmIDList) &&
         Objects.equals(this.files, handleListForHandleEndpointAlarmsInput.files) &&
-        Objects.equals(this.processes, handleListForHandleEndpointAlarmsInput.processes);
+        Objects.equals(this.processes, handleListForHandleEndpointAlarmsInput.processes) &&
+        Objects.equals(this.spanTraceID, handleListForHandleEndpointAlarmsInput.spanTraceID) &&
+        Objects.equals(this.spanUniqueID, handleListForHandleEndpointAlarmsInput.spanUniqueID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentID, alarmIDList, files, processes);
+    return Objects.hash(agentID, alarmIDList, files, processes, spanTraceID, spanUniqueID);
   }
 
 
@@ -175,6 +235,8 @@ public class HandleListForHandleEndpointAlarmsInput {
     sb.append("    alarmIDList: ").append(toIndentedString(alarmIDList)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
+    sb.append("    spanTraceID: ").append(toIndentedString(spanTraceID)).append("\n");
+    sb.append("    spanUniqueID: ").append(toIndentedString(spanUniqueID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

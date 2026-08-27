@@ -44,17 +44,17 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
   @SerializedName("BaseInfo")
   private BaseInfoForGetMultiLevelInstitutionDetailOutput baseInfo = null;
 
+  @SerializedName("HostOverview")
+  private HostOverviewForGetMultiLevelInstitutionDetailOutput hostOverview = null;
+
   @SerializedName("ID")
   private String ID = null;
 
+  @SerializedName("Threaten")
+  private ThreatenForGetMultiLevelInstitutionDetailOutput threaten = null;
+
   @SerializedName("configuration")
   private ConfigurationForGetMultiLevelInstitutionDetailOutput _configuration = null;
-
-  @SerializedName("hostOverview")
-  private HostOverviewForGetMultiLevelInstitutionDetailOutput hostOverview = null;
-
-  @SerializedName("threaten")
-  private ThreatenForGetMultiLevelInstitutionDetailOutput threaten = null;
 
   public GetMultiLevelInstitutionDetailResponse accountID(String accountID) {
     this.accountID = accountID;
@@ -112,43 +112,6 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
     this.baseInfo = baseInfo;
   }
 
-  public GetMultiLevelInstitutionDetailResponse ID(String ID) {
-    this.ID = ID;
-    return this;
-  }
-
-   /**
-   * Get ID
-   * @return ID
-  **/
-  @Schema(description = "")
-  public String getID() {
-    return ID;
-  }
-
-  public void setID(String ID) {
-    this.ID = ID;
-  }
-
-  public GetMultiLevelInstitutionDetailResponse _configuration(ConfigurationForGetMultiLevelInstitutionDetailOutput _configuration) {
-    this._configuration = _configuration;
-    return this;
-  }
-
-   /**
-   * Get _configuration
-   * @return _configuration
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConfigurationForGetMultiLevelInstitutionDetailOutput getConfiguration() {
-    return _configuration;
-  }
-
-  public void setConfiguration(ConfigurationForGetMultiLevelInstitutionDetailOutput _configuration) {
-    this._configuration = _configuration;
-  }
-
   public GetMultiLevelInstitutionDetailResponse hostOverview(HostOverviewForGetMultiLevelInstitutionDetailOutput hostOverview) {
     this.hostOverview = hostOverview;
     return this;
@@ -166,6 +129,24 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
 
   public void setHostOverview(HostOverviewForGetMultiLevelInstitutionDetailOutput hostOverview) {
     this.hostOverview = hostOverview;
+  }
+
+  public GetMultiLevelInstitutionDetailResponse ID(String ID) {
+    this.ID = ID;
+    return this;
+  }
+
+   /**
+   * Get ID
+   * @return ID
+  **/
+  @Schema(description = "")
+  public String getID() {
+    return ID;
+  }
+
+  public void setID(String ID) {
+    this.ID = ID;
   }
 
   public GetMultiLevelInstitutionDetailResponse threaten(ThreatenForGetMultiLevelInstitutionDetailOutput threaten) {
@@ -187,6 +168,25 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
     this.threaten = threaten;
   }
 
+  public GetMultiLevelInstitutionDetailResponse _configuration(ConfigurationForGetMultiLevelInstitutionDetailOutput _configuration) {
+    this._configuration = _configuration;
+    return this;
+  }
+
+   /**
+   * Get _configuration
+   * @return _configuration
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConfigurationForGetMultiLevelInstitutionDetailOutput getConfiguration() {
+    return _configuration;
+  }
+
+  public void setConfiguration(ConfigurationForGetMultiLevelInstitutionDetailOutput _configuration) {
+    this._configuration = _configuration;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -200,15 +200,15 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
     return Objects.equals(this.accountID, getMultiLevelInstitutionDetailResponse.accountID) &&
         Objects.equals(this.authInfo, getMultiLevelInstitutionDetailResponse.authInfo) &&
         Objects.equals(this.baseInfo, getMultiLevelInstitutionDetailResponse.baseInfo) &&
-        Objects.equals(this.ID, getMultiLevelInstitutionDetailResponse.ID) &&
-        Objects.equals(this._configuration, getMultiLevelInstitutionDetailResponse._configuration) &&
         Objects.equals(this.hostOverview, getMultiLevelInstitutionDetailResponse.hostOverview) &&
-        Objects.equals(this.threaten, getMultiLevelInstitutionDetailResponse.threaten);
+        Objects.equals(this.ID, getMultiLevelInstitutionDetailResponse.ID) &&
+        Objects.equals(this.threaten, getMultiLevelInstitutionDetailResponse.threaten) &&
+        Objects.equals(this._configuration, getMultiLevelInstitutionDetailResponse._configuration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, authInfo, baseInfo, ID, _configuration, hostOverview, threaten);
+    return Objects.hash(accountID, authInfo, baseInfo, hostOverview, ID, threaten, _configuration);
   }
 
 
@@ -220,10 +220,10 @@ public class GetMultiLevelInstitutionDetailResponse extends com.volcengine.model
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    authInfo: ").append(toIndentedString(authInfo)).append("\n");
     sb.append("    baseInfo: ").append(toIndentedString(baseInfo)).append("\n");
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    hostOverview: ").append(toIndentedString(hostOverview)).append("\n");
+    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    threaten: ").append(toIndentedString(threaten)).append("\n");
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -70,63 +70,8 @@ public class DataForListVarmorPoliciesOutput {
   @SerializedName("Region")
   private String region = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Pending")
-    PENDING("Pending"),
-    @SerializedName("Protecting")
-    PROTECTING("Protecting"),
-    @SerializedName("Modeling")
-    MODELING("Modeling"),
-    @SerializedName("Completed")
-    COMPLETED("Completed"),
-    @SerializedName("Error")
-    ERROR("Error"),
-    @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Unknown")
-    UNKNOWN("Unknown"),
-    @SerializedName("Unchanged")
-    UNCHANGED("Unchanged");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   public DataForListVarmorPoliciesOutput armorProfileInfo(ArmorProfileInfoForListVarmorPoliciesOutput armorProfileInfo) {
     this.armorProfileInfo = armorProfileInfo;
@@ -363,7 +308,7 @@ public class DataForListVarmorPoliciesOutput {
     this.region = region;
   }
 
-  public DataForListVarmorPoliciesOutput status(StatusEnum status) {
+  public DataForListVarmorPoliciesOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -373,11 +318,11 @@ public class DataForListVarmorPoliciesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

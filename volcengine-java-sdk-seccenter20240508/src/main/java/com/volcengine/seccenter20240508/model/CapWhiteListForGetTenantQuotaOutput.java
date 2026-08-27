@@ -45,6 +45,9 @@ public class CapWhiteListForGetTenantQuotaOutput {
   @SerializedName("SecurityAgentCap")
   private Long securityAgentCap = null;
 
+  @SerializedName("UserAutoDefenseCap")
+  private Long userAutoDefenseCap = null;
+
   public CapWhiteListForGetTenantQuotaOutput bashAuditCap(Long bashAuditCap) {
     this.bashAuditCap = bashAuditCap;
     return this;
@@ -135,6 +138,24 @@ public class CapWhiteListForGetTenantQuotaOutput {
     this.securityAgentCap = securityAgentCap;
   }
 
+  public CapWhiteListForGetTenantQuotaOutput userAutoDefenseCap(Long userAutoDefenseCap) {
+    this.userAutoDefenseCap = userAutoDefenseCap;
+    return this;
+  }
+
+   /**
+   * Get userAutoDefenseCap
+   * @return userAutoDefenseCap
+  **/
+  @Schema(description = "")
+  public Long getUserAutoDefenseCap() {
+    return userAutoDefenseCap;
+  }
+
+  public void setUserAutoDefenseCap(Long userAutoDefenseCap) {
+    this.userAutoDefenseCap = userAutoDefenseCap;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class CapWhiteListForGetTenantQuotaOutput {
         Objects.equals(this.clientBruteforceBanCap, capWhiteListForGetTenantQuotaOutput.clientBruteforceBanCap) &&
         Objects.equals(this.collectorV140Cap, capWhiteListForGetTenantQuotaOutput.collectorV140Cap) &&
         Objects.equals(this.fileMonitorCap, capWhiteListForGetTenantQuotaOutput.fileMonitorCap) &&
-        Objects.equals(this.securityAgentCap, capWhiteListForGetTenantQuotaOutput.securityAgentCap);
+        Objects.equals(this.securityAgentCap, capWhiteListForGetTenantQuotaOutput.securityAgentCap) &&
+        Objects.equals(this.userAutoDefenseCap, capWhiteListForGetTenantQuotaOutput.userAutoDefenseCap);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bashAuditCap, clientBruteforceBanCap, collectorV140Cap, fileMonitorCap, securityAgentCap);
+    return Objects.hash(bashAuditCap, clientBruteforceBanCap, collectorV140Cap, fileMonitorCap, securityAgentCap, userAutoDefenseCap);
   }
 
 
@@ -168,6 +190,7 @@ public class CapWhiteListForGetTenantQuotaOutput {
     sb.append("    collectorV140Cap: ").append(toIndentedString(collectorV140Cap)).append("\n");
     sb.append("    fileMonitorCap: ").append(toIndentedString(fileMonitorCap)).append("\n");
     sb.append("    securityAgentCap: ").append(toIndentedString(securityAgentCap)).append("\n");
+    sb.append("    userAutoDefenseCap: ").append(toIndentedString(userAutoDefenseCap)).append("\n");
     sb.append("}");
     return sb.toString();
   }

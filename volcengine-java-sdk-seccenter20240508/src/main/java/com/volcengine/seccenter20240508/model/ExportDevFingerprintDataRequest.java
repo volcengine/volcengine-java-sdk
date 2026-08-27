@@ -36,53 +36,8 @@ public class ExportDevFingerprintDataRequest {
   @SerializedName("Conditions")
   private ConditionsForExportDevFingerprintDataInput conditions = null;
 
-  /**
-   * Gets or Sets fingerprintType
-   */
-  @JsonAdapter(FingerprintTypeEnum.Adapter.class)
-  public enum FingerprintTypeEnum {
-    @SerializedName("process")
-    PROCESS("process"),
-    @SerializedName("port")
-    PORT("port"),
-    @SerializedName("software")
-    SOFTWARE("software");
-
-    private String value;
-
-    FingerprintTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static FingerprintTypeEnum fromValue(String input) {
-      for (FingerprintTypeEnum b : FingerprintTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<FingerprintTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FingerprintTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public FingerprintTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return FingerprintTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("FingerprintType")
-  private FingerprintTypeEnum fingerprintType = null;
+  @SerializedName("FingerprintType")
+  private String fingerprintType = null;
 
   @SerializedName("IDList")
   private List<String> idList = null;
@@ -106,7 +61,7 @@ public class ExportDevFingerprintDataRequest {
     this.conditions = conditions;
   }
 
-  public ExportDevFingerprintDataRequest fingerprintType(FingerprintTypeEnum fingerprintType) {
+  public ExportDevFingerprintDataRequest fingerprintType(String fingerprintType) {
     this.fingerprintType = fingerprintType;
     return this;
   }
@@ -116,11 +71,11 @@ public class ExportDevFingerprintDataRequest {
    * @return fingerprintType
   **/
   @Schema(description = "")
-  public FingerprintTypeEnum getFingerprintType() {
+  public String getFingerprintType() {
     return fingerprintType;
   }
 
-  public void setFingerprintType(FingerprintTypeEnum fingerprintType) {
+  public void setFingerprintType(String fingerprintType) {
     this.fingerprintType = fingerprintType;
   }
 

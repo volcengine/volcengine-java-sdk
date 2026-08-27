@@ -129,6 +129,21 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("cwpp_id")
   private String cwppId = null;
 
+  @SerializedName("is_important_vul")
+  private String isImportantVul = null;
+
+  @SerializedName("is_llm_vul")
+  private String isLlmVul = null;
+
+  @SerializedName("need_quick_follow")
+  private String needQuickFollow = null;
+
+  @SerializedName("need_rasp")
+  private String needRasp = null;
+
+  @SerializedName("need_varmor")
+  private String needVarmor = null;
+
   public GetVulnInfoResponse action(String action) {
     this.action = action;
     return this;
@@ -738,6 +753,96 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     this.cwppId = cwppId;
   }
 
+  public GetVulnInfoResponse isImportantVul(String isImportantVul) {
+    this.isImportantVul = isImportantVul;
+    return this;
+  }
+
+   /**
+   * Get isImportantVul
+   * @return isImportantVul
+  **/
+  @Schema(description = "")
+  public String getIsImportantVul() {
+    return isImportantVul;
+  }
+
+  public void setIsImportantVul(String isImportantVul) {
+    this.isImportantVul = isImportantVul;
+  }
+
+  public GetVulnInfoResponse isLlmVul(String isLlmVul) {
+    this.isLlmVul = isLlmVul;
+    return this;
+  }
+
+   /**
+   * Get isLlmVul
+   * @return isLlmVul
+  **/
+  @Schema(description = "")
+  public String getIsLlmVul() {
+    return isLlmVul;
+  }
+
+  public void setIsLlmVul(String isLlmVul) {
+    this.isLlmVul = isLlmVul;
+  }
+
+  public GetVulnInfoResponse needQuickFollow(String needQuickFollow) {
+    this.needQuickFollow = needQuickFollow;
+    return this;
+  }
+
+   /**
+   * Get needQuickFollow
+   * @return needQuickFollow
+  **/
+  @Schema(description = "")
+  public String getNeedQuickFollow() {
+    return needQuickFollow;
+  }
+
+  public void setNeedQuickFollow(String needQuickFollow) {
+    this.needQuickFollow = needQuickFollow;
+  }
+
+  public GetVulnInfoResponse needRasp(String needRasp) {
+    this.needRasp = needRasp;
+    return this;
+  }
+
+   /**
+   * Get needRasp
+   * @return needRasp
+  **/
+  @Schema(description = "")
+  public String getNeedRasp() {
+    return needRasp;
+  }
+
+  public void setNeedRasp(String needRasp) {
+    this.needRasp = needRasp;
+  }
+
+  public GetVulnInfoResponse needVarmor(String needVarmor) {
+    this.needVarmor = needVarmor;
+    return this;
+  }
+
+   /**
+   * Get needVarmor
+   * @return needVarmor
+  **/
+  @Schema(description = "")
+  public String getNeedVarmor() {
+    return needVarmor;
+  }
+
+  public void setNeedVarmor(String needVarmor) {
+    this.needVarmor = needVarmor;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -779,12 +884,17 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.uploadName, getVulnInfoResponse.uploadName) &&
         Objects.equals(this.vulnName, getVulnInfoResponse.vulnName) &&
         Objects.equals(this.vulnNameEn, getVulnInfoResponse.vulnNameEn) &&
-        Objects.equals(this.cwppId, getVulnInfoResponse.cwppId);
+        Objects.equals(this.cwppId, getVulnInfoResponse.cwppId) &&
+        Objects.equals(this.isImportantVul, getVulnInfoResponse.isImportantVul) &&
+        Objects.equals(this.isLlmVul, getVulnInfoResponse.isLlmVul) &&
+        Objects.equals(this.needQuickFollow, getVulnInfoResponse.needQuickFollow) &&
+        Objects.equals(this.needRasp, getVulnInfoResponse.needRasp) &&
+        Objects.equals(this.needVarmor, getVulnInfoResponse.needVarmor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, cnnvd, cpeName, cpeVersion, cveID, cveList, cves, cvss, cvssVector, cwe, cweIds, descript, descriptEn, exploitLink, hasExploit, hasPayload, ifEmg, ifExp, ifRasp, level, md5, patchUrl, referUrls, storageName, suggest, suggestEn, updateTime, uploadAt, uploadName, vulnName, vulnNameEn, cwppId);
+    return Objects.hash(action, cnnvd, cpeName, cpeVersion, cveID, cveList, cves, cvss, cvssVector, cwe, cweIds, descript, descriptEn, exploitLink, hasExploit, hasPayload, ifEmg, ifExp, ifRasp, level, md5, patchUrl, referUrls, storageName, suggest, suggestEn, updateTime, uploadAt, uploadName, vulnName, vulnNameEn, cwppId, isImportantVul, isLlmVul, needQuickFollow, needRasp, needVarmor);
   }
 
 
@@ -825,6 +935,11 @@ public class GetVulnInfoResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    vulnName: ").append(toIndentedString(vulnName)).append("\n");
     sb.append("    vulnNameEn: ").append(toIndentedString(vulnNameEn)).append("\n");
     sb.append("    cwppId: ").append(toIndentedString(cwppId)).append("\n");
+    sb.append("    isImportantVul: ").append(toIndentedString(isImportantVul)).append("\n");
+    sb.append("    isLlmVul: ").append(toIndentedString(isLlmVul)).append("\n");
+    sb.append("    needQuickFollow: ").append(toIndentedString(needQuickFollow)).append("\n");
+    sb.append("    needRasp: ").append(toIndentedString(needRasp)).append("\n");
+    sb.append("    needVarmor: ").append(toIndentedString(needVarmor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

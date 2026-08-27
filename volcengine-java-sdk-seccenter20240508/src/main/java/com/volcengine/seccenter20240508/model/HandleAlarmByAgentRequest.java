@@ -37,57 +37,20 @@ public class HandleAlarmByAgentRequest {
   @SerializedName("AlarmID")
   private String alarmID = null;
 
-  /**
-   * Gets or Sets alarmType
-   */
-  @JsonAdapter(AlarmTypeEnum.Adapter.class)
-  public enum AlarmTypeEnum {
-    @SerializedName("hids")
-    HIDS("hids"),
-    @SerializedName("virus")
-    VIRUS("virus");
-
-    private String value;
-
-    AlarmTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AlarmTypeEnum fromValue(String input) {
-      for (AlarmTypeEnum b : AlarmTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AlarmTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AlarmTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AlarmTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AlarmTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AlarmType")
-  private AlarmTypeEnum alarmType = null;
+  @SerializedName("AlarmType")
+  private String alarmType = null;
 
   @SerializedName("Files")
   private List<FileForHandleAlarmByAgentInput> files = null;
 
   @SerializedName("Processes")
   private List<ProcessForHandleAlarmByAgentInput> processes = null;
+
+  @SerializedName("SpanTraceID")
+  private List<Long> spanTraceID = null;
+
+  @SerializedName("SpanUniqueID")
+  private List<Long> spanUniqueID = null;
 
   public HandleAlarmByAgentRequest alarmID(String alarmID) {
     this.alarmID = alarmID;
@@ -107,7 +70,7 @@ public class HandleAlarmByAgentRequest {
     this.alarmID = alarmID;
   }
 
-  public HandleAlarmByAgentRequest alarmType(AlarmTypeEnum alarmType) {
+  public HandleAlarmByAgentRequest alarmType(String alarmType) {
     this.alarmType = alarmType;
     return this;
   }
@@ -118,11 +81,11 @@ public class HandleAlarmByAgentRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public AlarmTypeEnum getAlarmType() {
+  public String getAlarmType() {
     return alarmType;
   }
 
-  public void setAlarmType(AlarmTypeEnum alarmType) {
+  public void setAlarmType(String alarmType) {
     this.alarmType = alarmType;
   }
 
@@ -180,6 +143,58 @@ public class HandleAlarmByAgentRequest {
     this.processes = processes;
   }
 
+  public HandleAlarmByAgentRequest spanTraceID(List<Long> spanTraceID) {
+    this.spanTraceID = spanTraceID;
+    return this;
+  }
+
+  public HandleAlarmByAgentRequest addSpanTraceIDItem(Long spanTraceIDItem) {
+    if (this.spanTraceID == null) {
+      this.spanTraceID = new ArrayList<Long>();
+    }
+    this.spanTraceID.add(spanTraceIDItem);
+    return this;
+  }
+
+   /**
+   * Get spanTraceID
+   * @return spanTraceID
+  **/
+  @Schema(description = "")
+  public List<Long> getSpanTraceID() {
+    return spanTraceID;
+  }
+
+  public void setSpanTraceID(List<Long> spanTraceID) {
+    this.spanTraceID = spanTraceID;
+  }
+
+  public HandleAlarmByAgentRequest spanUniqueID(List<Long> spanUniqueID) {
+    this.spanUniqueID = spanUniqueID;
+    return this;
+  }
+
+  public HandleAlarmByAgentRequest addSpanUniqueIDItem(Long spanUniqueIDItem) {
+    if (this.spanUniqueID == null) {
+      this.spanUniqueID = new ArrayList<Long>();
+    }
+    this.spanUniqueID.add(spanUniqueIDItem);
+    return this;
+  }
+
+   /**
+   * Get spanUniqueID
+   * @return spanUniqueID
+  **/
+  @Schema(description = "")
+  public List<Long> getSpanUniqueID() {
+    return spanUniqueID;
+  }
+
+  public void setSpanUniqueID(List<Long> spanUniqueID) {
+    this.spanUniqueID = spanUniqueID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,12 +208,14 @@ public class HandleAlarmByAgentRequest {
     return Objects.equals(this.alarmID, handleAlarmByAgentRequest.alarmID) &&
         Objects.equals(this.alarmType, handleAlarmByAgentRequest.alarmType) &&
         Objects.equals(this.files, handleAlarmByAgentRequest.files) &&
-        Objects.equals(this.processes, handleAlarmByAgentRequest.processes);
+        Objects.equals(this.processes, handleAlarmByAgentRequest.processes) &&
+        Objects.equals(this.spanTraceID, handleAlarmByAgentRequest.spanTraceID) &&
+        Objects.equals(this.spanUniqueID, handleAlarmByAgentRequest.spanUniqueID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmID, alarmType, files, processes);
+    return Objects.hash(alarmID, alarmType, files, processes, spanTraceID, spanUniqueID);
   }
 
 
@@ -211,6 +228,8 @@ public class HandleAlarmByAgentRequest {
     sb.append("    alarmType: ").append(toIndentedString(alarmType)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
+    sb.append("    spanTraceID: ").append(toIndentedString(spanTraceID)).append("\n");
+    sb.append("    spanUniqueID: ").append(toIndentedString(spanUniqueID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
