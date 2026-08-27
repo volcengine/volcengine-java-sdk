@@ -131,6 +131,8 @@ import com.volcengine.vedbm.model.ModifyAllowListRequest;
 import com.volcengine.vedbm.model.ModifyAllowListResponse;
 import com.volcengine.vedbm.model.ModifyBackupPolicyRequest;
 import com.volcengine.vedbm.model.ModifyBackupPolicyResponse;
+import com.volcengine.vedbm.model.ModifyConnectionPersistenceRequest;
+import com.volcengine.vedbm.model.ModifyConnectionPersistenceResponse;
 import com.volcengine.vedbm.model.ModifyCrossRegionBackupPolicyRequest;
 import com.volcengine.vedbm.model.ModifyCrossRegionBackupPolicyResponse;
 import com.volcengine.vedbm.model.ModifyDBAccountDescriptionRequest;
@@ -153,6 +155,8 @@ import com.volcengine.vedbm.model.ModifyDBInstanceParametersRequest;
 import com.volcengine.vedbm.model.ModifyDBInstanceParametersResponse;
 import com.volcengine.vedbm.model.ModifyDBInstanceSpecRequest;
 import com.volcengine.vedbm.model.ModifyDBInstanceSpecResponse;
+import com.volcengine.vedbm.model.ModifyDBInstanceStorageTypeRequest;
+import com.volcengine.vedbm.model.ModifyDBInstanceStorageTypeResponse;
 import com.volcengine.vedbm.model.ModifyDBNodeConfigRequest;
 import com.volcengine.vedbm.model.ModifyDBNodeConfigResponse;
 import com.volcengine.vedbm.model.ModifyDatabaseDescriptionRequest;
@@ -6652,6 +6656,130 @@ public class VedbmApi {
         return call;
     }
     /**
+     * Build call for modifyConnectionPersistence
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyConnectionPersistenceCall(ModifyConnectionPersistenceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyConnectionPersistence/2022-01-01/vedbm/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyConnectionPersistenceValidateBeforeCall(ModifyConnectionPersistenceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyConnectionPersistence(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyConnectionPersistenceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyConnectionPersistenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyConnectionPersistenceResponse modifyConnectionPersistence(ModifyConnectionPersistenceRequest body) throws ApiException {
+        ApiResponse<ModifyConnectionPersistenceResponse> resp = modifyConnectionPersistenceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyConnectionPersistenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyConnectionPersistenceResponse> modifyConnectionPersistenceWithHttpInfo( @NotNull ModifyConnectionPersistenceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyConnectionPersistenceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyConnectionPersistenceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyConnectionPersistenceAsync(ModifyConnectionPersistenceRequest body, final ApiCallback<ModifyConnectionPersistenceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyConnectionPersistenceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyConnectionPersistenceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyCrossRegionBackupPolicy
      * @param body  (required)
      * @param progressListener Progress listener
@@ -8012,6 +8140,130 @@ public class VedbmApi {
 
         com.squareup.okhttp.Call call = modifyDBInstanceSpecValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyDBInstanceSpecResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyDBInstanceStorageType
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyDBInstanceStorageTypeCall(ModifyDBInstanceStorageTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyDBInstanceStorageType/2022-01-01/vedbm/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyDBInstanceStorageTypeValidateBeforeCall(ModifyDBInstanceStorageTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyDBInstanceStorageType(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyDBInstanceStorageTypeCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyDBInstanceStorageTypeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyDBInstanceStorageTypeResponse modifyDBInstanceStorageType(ModifyDBInstanceStorageTypeRequest body) throws ApiException {
+        ApiResponse<ModifyDBInstanceStorageTypeResponse> resp = modifyDBInstanceStorageTypeWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyDBInstanceStorageTypeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyDBInstanceStorageTypeResponse> modifyDBInstanceStorageTypeWithHttpInfo( @NotNull ModifyDBInstanceStorageTypeRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyDBInstanceStorageTypeValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyDBInstanceStorageTypeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyDBInstanceStorageTypeAsync(ModifyDBInstanceStorageTypeRequest body, final ApiCallback<ModifyDBInstanceStorageTypeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyDBInstanceStorageTypeValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyDBInstanceStorageTypeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

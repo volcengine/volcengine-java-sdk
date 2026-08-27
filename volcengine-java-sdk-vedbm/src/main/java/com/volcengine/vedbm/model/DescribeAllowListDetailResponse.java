@@ -57,6 +57,9 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("UserAllowList")
+  private String userAllowList = null;
+
   public DescribeAllowListDetailResponse allowList(String allowList) {
     this.allowList = allowList;
     return this;
@@ -210,6 +213,24 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     this.projectName = projectName;
   }
 
+  public DescribeAllowListDetailResponse userAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+    return this;
+  }
+
+   /**
+   * Get userAllowList
+   * @return userAllowList
+  **/
+  @Schema(description = "")
+  public String getUserAllowList() {
+    return userAllowList;
+  }
+
+  public void setUserAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -227,12 +248,13 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
         Objects.equals(this.allowListType, describeAllowListDetailResponse.allowListType) &&
         Objects.equals(this.associatedInstanceNum, describeAllowListDetailResponse.associatedInstanceNum) &&
         Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances) &&
-        Objects.equals(this.projectName, describeAllowListDetailResponse.projectName);
+        Objects.equals(this.projectName, describeAllowListDetailResponse.projectName) &&
+        Objects.equals(this.userAllowList, describeAllowListDetailResponse.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstanceNum, associatedInstances, projectName);
+    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstanceNum, associatedInstances, projectName, userAllowList);
   }
 
 
@@ -249,6 +271,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     sb.append("    associatedInstanceNum: ").append(toIndentedString(associatedInstanceNum)).append("\n");
     sb.append("    associatedInstances: ").append(toIndentedString(associatedInstances)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

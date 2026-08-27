@@ -39,102 +39,17 @@ public class EndpointForDescribeDBEndpointOutput {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
-  /**
-   * Gets or Sets consistLevel
-   */
-  @JsonAdapter(ConsistLevelEnum.Adapter.class)
-  public enum ConsistLevelEnum {
-    @SerializedName("Eventual")
-    EVENTUAL("Eventual"),
-    @SerializedName("Global")
-    GLOBAL("Global"),
-    @SerializedName("Session")
-    SESSION("Session");
+  @SerializedName("ConnectionPool")
+  private String connectionPool = null;
 
-    private String value;
-
-    ConsistLevelEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ConsistLevelEnum fromValue(String input) {
-      for (ConsistLevelEnum b : ConsistLevelEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ConsistLevelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ConsistLevelEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ConsistLevelEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ConsistLevelEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ConsistLevel")
-  private ConsistLevelEnum consistLevel = null;
+  @SerializedName("ConsistLevel")
+  private String consistLevel = null;
 
   @SerializedName("ConsistTimeout")
   private Integer consistTimeout = null;
 
-  /**
-   * Gets or Sets consistTimeoutAction
-   */
-  @JsonAdapter(ConsistTimeoutActionEnum.Adapter.class)
-  public enum ConsistTimeoutActionEnum {
-    @SerializedName("ReadMaster")
-    READMASTER("ReadMaster"),
-    @SerializedName("ReturnError")
-    RETURNERROR("ReturnError");
-
-    private String value;
-
-    ConsistTimeoutActionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ConsistTimeoutActionEnum fromValue(String input) {
-      for (ConsistTimeoutActionEnum b : ConsistTimeoutActionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ConsistTimeoutActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ConsistTimeoutActionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ConsistTimeoutActionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ConsistTimeoutActionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ConsistTimeoutAction")
-  private ConsistTimeoutActionEnum consistTimeoutAction = null;
+  @SerializedName("ConsistTimeoutAction")
+  private String consistTimeoutAction = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -148,53 +63,8 @@ public class EndpointForDescribeDBEndpointOutput {
   @SerializedName("EndpointName")
   private String endpointName = null;
 
-  /**
-   * Gets or Sets endpointType
-   */
-  @JsonAdapter(EndpointTypeEnum.Adapter.class)
-  public enum EndpointTypeEnum {
-    @SerializedName("Cluster")
-    CLUSTER("Cluster"),
-    @SerializedName("Custom")
-    CUSTOM("Custom"),
-    @SerializedName("Primary")
-    PRIMARY("Primary");
-
-    private String value;
-
-    EndpointTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static EndpointTypeEnum fromValue(String input) {
-      for (EndpointTypeEnum b : EndpointTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<EndpointTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EndpointTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public EndpointTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EndpointTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("EndpointType")
-  private EndpointTypeEnum endpointType = null;
+  @SerializedName("EndpointType")
+  private String endpointType = null;
 
   @SerializedName("MasterAcceptReadRequests")
   private Boolean masterAcceptReadRequests = null;
@@ -202,51 +72,8 @@ public class EndpointForDescribeDBEndpointOutput {
   @SerializedName("NodeIds")
   private List<String> nodeIds = null;
 
-  /**
-   * Gets or Sets readWriteMode
-   */
-  @JsonAdapter(ReadWriteModeEnum.Adapter.class)
-  public enum ReadWriteModeEnum {
-    @SerializedName("ReadOnly")
-    READONLY("ReadOnly"),
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite");
-
-    private String value;
-
-    ReadWriteModeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ReadWriteModeEnum fromValue(String input) {
-      for (ReadWriteModeEnum b : ReadWriteModeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ReadWriteModeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ReadWriteModeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ReadWriteModeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ReadWriteModeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ReadWriteMode")
-  private ReadWriteModeEnum readWriteMode = null;
+  @SerializedName("ReadWriteMode")
+  private String readWriteMode = null;
 
   public EndpointForDescribeDBEndpointOutput addresses(List<AddressForDescribeDBEndpointOutput> addresses) {
     this.addresses = addresses;
@@ -293,7 +120,25 @@ public class EndpointForDescribeDBEndpointOutput {
     this.autoAddNewNodes = autoAddNewNodes;
   }
 
-  public EndpointForDescribeDBEndpointOutput consistLevel(ConsistLevelEnum consistLevel) {
+  public EndpointForDescribeDBEndpointOutput connectionPool(String connectionPool) {
+    this.connectionPool = connectionPool;
+    return this;
+  }
+
+   /**
+   * Get connectionPool
+   * @return connectionPool
+  **/
+  @Schema(description = "")
+  public String getConnectionPool() {
+    return connectionPool;
+  }
+
+  public void setConnectionPool(String connectionPool) {
+    this.connectionPool = connectionPool;
+  }
+
+  public EndpointForDescribeDBEndpointOutput consistLevel(String consistLevel) {
     this.consistLevel = consistLevel;
     return this;
   }
@@ -303,11 +148,11 @@ public class EndpointForDescribeDBEndpointOutput {
    * @return consistLevel
   **/
   @Schema(description = "")
-  public ConsistLevelEnum getConsistLevel() {
+  public String getConsistLevel() {
     return consistLevel;
   }
 
-  public void setConsistLevel(ConsistLevelEnum consistLevel) {
+  public void setConsistLevel(String consistLevel) {
     this.consistLevel = consistLevel;
   }
 
@@ -329,7 +174,7 @@ public class EndpointForDescribeDBEndpointOutput {
     this.consistTimeout = consistTimeout;
   }
 
-  public EndpointForDescribeDBEndpointOutput consistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
+  public EndpointForDescribeDBEndpointOutput consistTimeoutAction(String consistTimeoutAction) {
     this.consistTimeoutAction = consistTimeoutAction;
     return this;
   }
@@ -339,11 +184,11 @@ public class EndpointForDescribeDBEndpointOutput {
    * @return consistTimeoutAction
   **/
   @Schema(description = "")
-  public ConsistTimeoutActionEnum getConsistTimeoutAction() {
+  public String getConsistTimeoutAction() {
     return consistTimeoutAction;
   }
 
-  public void setConsistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
+  public void setConsistTimeoutAction(String consistTimeoutAction) {
     this.consistTimeoutAction = consistTimeoutAction;
   }
 
@@ -419,7 +264,7 @@ public class EndpointForDescribeDBEndpointOutput {
     this.endpointName = endpointName;
   }
 
-  public EndpointForDescribeDBEndpointOutput endpointType(EndpointTypeEnum endpointType) {
+  public EndpointForDescribeDBEndpointOutput endpointType(String endpointType) {
     this.endpointType = endpointType;
     return this;
   }
@@ -429,11 +274,11 @@ public class EndpointForDescribeDBEndpointOutput {
    * @return endpointType
   **/
   @Schema(description = "")
-  public EndpointTypeEnum getEndpointType() {
+  public String getEndpointType() {
     return endpointType;
   }
 
-  public void setEndpointType(EndpointTypeEnum endpointType) {
+  public void setEndpointType(String endpointType) {
     this.endpointType = endpointType;
   }
 
@@ -481,7 +326,7 @@ public class EndpointForDescribeDBEndpointOutput {
     this.nodeIds = nodeIds;
   }
 
-  public EndpointForDescribeDBEndpointOutput readWriteMode(ReadWriteModeEnum readWriteMode) {
+  public EndpointForDescribeDBEndpointOutput readWriteMode(String readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
   }
@@ -491,11 +336,11 @@ public class EndpointForDescribeDBEndpointOutput {
    * @return readWriteMode
   **/
   @Schema(description = "")
-  public ReadWriteModeEnum getReadWriteMode() {
+  public String getReadWriteMode() {
     return readWriteMode;
   }
 
-  public void setReadWriteMode(ReadWriteModeEnum readWriteMode) {
+  public void setReadWriteMode(String readWriteMode) {
     this.readWriteMode = readWriteMode;
   }
 
@@ -511,6 +356,7 @@ public class EndpointForDescribeDBEndpointOutput {
     EndpointForDescribeDBEndpointOutput endpointForDescribeDBEndpointOutput = (EndpointForDescribeDBEndpointOutput) o;
     return Objects.equals(this.addresses, endpointForDescribeDBEndpointOutput.addresses) &&
         Objects.equals(this.autoAddNewNodes, endpointForDescribeDBEndpointOutput.autoAddNewNodes) &&
+        Objects.equals(this.connectionPool, endpointForDescribeDBEndpointOutput.connectionPool) &&
         Objects.equals(this.consistLevel, endpointForDescribeDBEndpointOutput.consistLevel) &&
         Objects.equals(this.consistTimeout, endpointForDescribeDBEndpointOutput.consistTimeout) &&
         Objects.equals(this.consistTimeoutAction, endpointForDescribeDBEndpointOutput.consistTimeoutAction) &&
@@ -526,7 +372,7 @@ public class EndpointForDescribeDBEndpointOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, endpointType, masterAcceptReadRequests, nodeIds, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, connectionPool, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, endpointType, masterAcceptReadRequests, nodeIds, readWriteMode);
   }
 
 
@@ -537,6 +383,7 @@ public class EndpointForDescribeDBEndpointOutput {
     
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionPool: ").append(toIndentedString(connectionPool)).append("\n");
     sb.append("    consistLevel: ").append(toIndentedString(consistLevel)).append("\n");
     sb.append("    consistTimeout: ").append(toIndentedString(consistTimeout)).append("\n");
     sb.append("    consistTimeoutAction: ").append(toIndentedString(consistTimeoutAction)).append("\n");

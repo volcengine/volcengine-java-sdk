@@ -40,7 +40,9 @@ public class DescribeStoragePayablePriceRequest {
     @SerializedName("Clusterpool")
     CLUSTERPOOL("Clusterpool"),
     @SerializedName("ColdDataArchive")
-    COLDDATAARCHIVE("ColdDataArchive");
+    COLDDATAARCHIVE("ColdDataArchive"),
+    @SerializedName("CompressClusterpool")
+    COMPRESSCLUSTERPOOL("CompressClusterpool");
 
     private String value;
 

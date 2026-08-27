@@ -183,6 +183,52 @@ public class DescribeDBInstancePriceDetailRequest {
   }  @SerializedName("StorageChargeType")
   private StorageChargeTypeEnum storageChargeType = null;
 
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("IOOptimizedStorage")
+    IOOPTIMIZEDSTORAGE("IOOptimizedStorage"),
+    @SerializedName("SmartCompressedStorage")
+    SMARTCOMPRESSEDSTORAGE("SmartCompressedStorage");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
   public DescribeDBInstancePriceDetailRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
@@ -329,6 +375,24 @@ public class DescribeDBInstancePriceDetailRequest {
     this.storageChargeType = storageChargeType;
   }
 
+  public DescribeDBInstancePriceDetailRequest storageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public StorageTypeEnum getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -346,12 +410,13 @@ public class DescribeDBInstancePriceDetailRequest {
         Objects.equals(this.period, describeDBInstancePriceDetailRequest.period) &&
         Objects.equals(this.periodUnit, describeDBInstancePriceDetailRequest.periodUnit) &&
         Objects.equals(this.prePaidStorageInGB, describeDBInstancePriceDetailRequest.prePaidStorageInGB) &&
-        Objects.equals(this.storageChargeType, describeDBInstancePriceDetailRequest.storageChargeType);
+        Objects.equals(this.storageChargeType, describeDBInstancePriceDetailRequest.storageChargeType) &&
+        Objects.equals(this.storageType, describeDBInstancePriceDetailRequest.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, nodeNumber, nodeSpec, number, period, periodUnit, prePaidStorageInGB, storageChargeType);
+    return Objects.hash(chargeType, nodeNumber, nodeSpec, number, period, periodUnit, prePaidStorageInGB, storageChargeType, storageType);
   }
 
 
@@ -368,6 +433,7 @@ public class DescribeDBInstancePriceDetailRequest {
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
