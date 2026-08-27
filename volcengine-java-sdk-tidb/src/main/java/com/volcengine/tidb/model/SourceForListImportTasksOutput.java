@@ -19,12 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForListImportTasksOutput;
-import com.volcengine.tidb.model.GcsForListImportTasksOutput;
 import com.volcengine.tidb.model.LocalForListImportTasksOutput;
-import com.volcengine.tidb.model.OssForListImportTasksOutput;
-import com.volcengine.tidb.model.S3CompatibleForListImportTasksOutput;
-import com.volcengine.tidb.model.S3ForListImportTasksOutput;
 import com.volcengine.tidb.model.TargetTableInfoForListImportTasksOutput;
 import com.volcengine.tidb.model.TosForListImportTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,23 +35,8 @@ import javax.validation.Valid;
 
 
 public class SourceForListImportTasksOutput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForListImportTasksOutput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForListImportTasksOutput gcs = null;
-
   @SerializedName("Local")
   private LocalForListImportTasksOutput local = null;
-
-  @SerializedName("Oss")
-  private OssForListImportTasksOutput oss = null;
-
-  @SerializedName("S3")
-  private S3ForListImportTasksOutput s3 = null;
-
-  @SerializedName("S3Compatible")
-  private S3CompatibleForListImportTasksOutput s3Compatible = null;
 
   @SerializedName("TargetTableInfos")
   private List<TargetTableInfoForListImportTasksOutput> targetTableInfos = null;
@@ -110,44 +90,6 @@ public class SourceForListImportTasksOutput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
-  public SourceForListImportTasksOutput azureBlob(AzureBlobForListImportTasksOutput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForListImportTasksOutput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForListImportTasksOutput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public SourceForListImportTasksOutput gcs(GcsForListImportTasksOutput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForListImportTasksOutput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForListImportTasksOutput gcs) {
-    this.gcs = gcs;
-  }
-
   public SourceForListImportTasksOutput local(LocalForListImportTasksOutput local) {
     this.local = local;
     return this;
@@ -165,63 +107,6 @@ public class SourceForListImportTasksOutput {
 
   public void setLocal(LocalForListImportTasksOutput local) {
     this.local = local;
-  }
-
-  public SourceForListImportTasksOutput oss(OssForListImportTasksOutput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForListImportTasksOutput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForListImportTasksOutput oss) {
-    this.oss = oss;
-  }
-
-  public SourceForListImportTasksOutput s3(S3ForListImportTasksOutput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForListImportTasksOutput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForListImportTasksOutput s3) {
-    this.s3 = s3;
-  }
-
-  public SourceForListImportTasksOutput s3Compatible(S3CompatibleForListImportTasksOutput s3Compatible) {
-    this.s3Compatible = s3Compatible;
-    return this;
-  }
-
-   /**
-   * Get s3Compatible
-   * @return s3Compatible
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3CompatibleForListImportTasksOutput getS3Compatible() {
-    return s3Compatible;
-  }
-
-  public void setS3Compatible(S3CompatibleForListImportTasksOutput s3Compatible) {
-    this.s3Compatible = s3Compatible;
   }
 
   public SourceForListImportTasksOutput targetTableInfos(List<TargetTableInfoForListImportTasksOutput> targetTableInfos) {
@@ -298,12 +183,7 @@ public class SourceForListImportTasksOutput {
       return false;
     }
     SourceForListImportTasksOutput sourceForListImportTasksOutput = (SourceForListImportTasksOutput) o;
-    return Objects.equals(this.azureBlob, sourceForListImportTasksOutput.azureBlob) &&
-        Objects.equals(this.gcs, sourceForListImportTasksOutput.gcs) &&
-        Objects.equals(this.local, sourceForListImportTasksOutput.local) &&
-        Objects.equals(this.oss, sourceForListImportTasksOutput.oss) &&
-        Objects.equals(this.s3, sourceForListImportTasksOutput.s3) &&
-        Objects.equals(this.s3Compatible, sourceForListImportTasksOutput.s3Compatible) &&
+    return Objects.equals(this.local, sourceForListImportTasksOutput.local) &&
         Objects.equals(this.targetTableInfos, sourceForListImportTasksOutput.targetTableInfos) &&
         Objects.equals(this.tos, sourceForListImportTasksOutput.tos) &&
         Objects.equals(this.type, sourceForListImportTasksOutput.type);
@@ -311,7 +191,7 @@ public class SourceForListImportTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, local, oss, s3, s3Compatible, targetTableInfos, tos, type);
+    return Objects.hash(local, targetTableInfos, tos, type);
   }
 
 
@@ -320,12 +200,7 @@ public class SourceForListImportTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceForListImportTasksOutput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
     sb.append("    local: ").append(toIndentedString(local)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
-    sb.append("    s3Compatible: ").append(toIndentedString(s3Compatible)).append("\n");
     sb.append("    targetTableInfos: ").append(toIndentedString(targetTableInfos)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

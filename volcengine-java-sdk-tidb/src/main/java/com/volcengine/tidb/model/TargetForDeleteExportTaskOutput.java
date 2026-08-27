@@ -19,10 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForDeleteExportTaskOutput;
-import com.volcengine.tidb.model.GcsForDeleteExportTaskOutput;
-import com.volcengine.tidb.model.OssForDeleteExportTaskOutput;
-import com.volcengine.tidb.model.S3ForDeleteExportTaskOutput;
 import com.volcengine.tidb.model.TosForDeleteExportTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,18 +31,6 @@ import javax.validation.Valid;
 
 
 public class TargetForDeleteExportTaskOutput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForDeleteExportTaskOutput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForDeleteExportTaskOutput gcs = null;
-
-  @SerializedName("Oss")
-  private OssForDeleteExportTaskOutput oss = null;
-
-  @SerializedName("S3")
-  private S3ForDeleteExportTaskOutput s3 = null;
-
   @SerializedName("Tos")
   private TosForDeleteExportTaskOutput tos = null;
 
@@ -55,18 +39,8 @@ public class TargetForDeleteExportTaskOutput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("LOCAL")
-    LOCAL("LOCAL"),
-    @SerializedName("S3")
-    S3("S3"),
-    @SerializedName("GCS")
-    GCS("GCS"),
-    @SerializedName("AZURE_BLOB")
-    AZURE_BLOB("AZURE_BLOB"),
-    @SerializedName("OSS")
-    OSS("OSS"),
-    @SerializedName("TOS")
-    TOS("TOS");
+    @SerializedName("6")
+    _6("6");
 
     private String value;
 
@@ -103,82 +77,6 @@ public class TargetForDeleteExportTaskOutput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
-
-  public TargetForDeleteExportTaskOutput azureBlob(AzureBlobForDeleteExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForDeleteExportTaskOutput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForDeleteExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public TargetForDeleteExportTaskOutput gcs(GcsForDeleteExportTaskOutput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForDeleteExportTaskOutput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForDeleteExportTaskOutput gcs) {
-    this.gcs = gcs;
-  }
-
-  public TargetForDeleteExportTaskOutput oss(OssForDeleteExportTaskOutput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForDeleteExportTaskOutput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForDeleteExportTaskOutput oss) {
-    this.oss = oss;
-  }
-
-  public TargetForDeleteExportTaskOutput s3(S3ForDeleteExportTaskOutput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForDeleteExportTaskOutput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForDeleteExportTaskOutput s3) {
-    this.s3 = s3;
-  }
 
   public TargetForDeleteExportTaskOutput tos(TosForDeleteExportTaskOutput tos) {
     this.tos = tos;
@@ -227,17 +125,13 @@ public class TargetForDeleteExportTaskOutput {
       return false;
     }
     TargetForDeleteExportTaskOutput targetForDeleteExportTaskOutput = (TargetForDeleteExportTaskOutput) o;
-    return Objects.equals(this.azureBlob, targetForDeleteExportTaskOutput.azureBlob) &&
-        Objects.equals(this.gcs, targetForDeleteExportTaskOutput.gcs) &&
-        Objects.equals(this.oss, targetForDeleteExportTaskOutput.oss) &&
-        Objects.equals(this.s3, targetForDeleteExportTaskOutput.s3) &&
-        Objects.equals(this.tos, targetForDeleteExportTaskOutput.tos) &&
+    return Objects.equals(this.tos, targetForDeleteExportTaskOutput.tos) &&
         Objects.equals(this.type, targetForDeleteExportTaskOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, oss, s3, tos, type);
+    return Objects.hash(tos, type);
   }
 
 
@@ -246,10 +140,6 @@ public class TargetForDeleteExportTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetForDeleteExportTaskOutput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
