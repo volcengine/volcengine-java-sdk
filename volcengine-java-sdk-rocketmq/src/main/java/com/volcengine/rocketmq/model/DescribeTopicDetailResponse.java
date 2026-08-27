@@ -45,6 +45,9 @@ public class DescribeTopicDetailResponse extends com.volcengine.model.AbstractRe
   @SerializedName("InstanceRegion")
   private String instanceRegion = null;
 
+  @SerializedName("LiteTopicTTLMinutes")
+  private Integer liteTopicTTLMinutes = null;
+
   @SerializedName("MessageType")
   private String messageType = null;
 
@@ -147,6 +150,24 @@ public class DescribeTopicDetailResponse extends com.volcengine.model.AbstractRe
     this.instanceRegion = instanceRegion;
   }
 
+  public DescribeTopicDetailResponse liteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
+    return this;
+  }
+
+   /**
+   * Get liteTopicTTLMinutes
+   * @return liteTopicTTLMinutes
+  **/
+  @Schema(description = "")
+  public Integer getLiteTopicTTLMinutes() {
+    return liteTopicTTLMinutes;
+  }
+
+  public void setLiteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
+  }
+
   public DescribeTopicDetailResponse messageType(String messageType) {
     this.messageType = messageType;
     return this;
@@ -234,6 +255,7 @@ public class DescribeTopicDetailResponse extends com.volcengine.model.AbstractRe
         Objects.equals(this.instanceId, describeTopicDetailResponse.instanceId) &&
         Objects.equals(this.instanceName, describeTopicDetailResponse.instanceName) &&
         Objects.equals(this.instanceRegion, describeTopicDetailResponse.instanceRegion) &&
+        Objects.equals(this.liteTopicTTLMinutes, describeTopicDetailResponse.liteTopicTTLMinutes) &&
         Objects.equals(this.messageType, describeTopicDetailResponse.messageType) &&
         Objects.equals(this.serviceStatus, describeTopicDetailResponse.serviceStatus) &&
         Objects.equals(this.topicName, describeTopicDetailResponse.topicName) &&
@@ -242,7 +264,7 @@ public class DescribeTopicDetailResponse extends com.volcengine.model.AbstractRe
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdTime, description, instanceId, instanceName, instanceRegion, messageType, serviceStatus, topicName, topicQueueNumber);
+    return Objects.hash(createdTime, description, instanceId, instanceName, instanceRegion, liteTopicTTLMinutes, messageType, serviceStatus, topicName, topicQueueNumber);
   }
 
 
@@ -256,6 +278,7 @@ public class DescribeTopicDetailResponse extends com.volcengine.model.AbstractRe
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceRegion: ").append(toIndentedString(instanceRegion)).append("\n");
+    sb.append("    liteTopicTTLMinutes: ").append(toIndentedString(liteTopicTTLMinutes)).append("\n");
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
