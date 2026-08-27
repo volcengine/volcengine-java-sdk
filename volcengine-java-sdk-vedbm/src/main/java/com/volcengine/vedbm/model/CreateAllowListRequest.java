@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vedbm.model.SecurityGroupBindInfoForCreateAllowListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -45,6 +48,12 @@ public class CreateAllowListRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SecurityGroupBindInfos")
+  private List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos = null;
+
+  @SerializedName("UserAllowList")
+  private String userAllowList = null;
+
   public CreateAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
     return this;
@@ -54,8 +63,7 @@ public class CreateAllowListRequest {
    * Get allowList
    * @return allowList
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAllowList() {
     return allowList;
   }
@@ -137,6 +145,51 @@ public class CreateAllowListRequest {
     this.projectName = projectName;
   }
 
+  public CreateAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+    return this;
+  }
+
+  public CreateAllowListRequest addSecurityGroupBindInfosItem(SecurityGroupBindInfoForCreateAllowListInput securityGroupBindInfosItem) {
+    if (this.securityGroupBindInfos == null) {
+      this.securityGroupBindInfos = new ArrayList<SecurityGroupBindInfoForCreateAllowListInput>();
+    }
+    this.securityGroupBindInfos.add(securityGroupBindInfosItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupBindInfos
+   * @return securityGroupBindInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SecurityGroupBindInfoForCreateAllowListInput> getSecurityGroupBindInfos() {
+    return securityGroupBindInfos;
+  }
+
+  public void setSecurityGroupBindInfos(List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+  }
+
+  public CreateAllowListRequest userAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+    return this;
+  }
+
+   /**
+   * Get userAllowList
+   * @return userAllowList
+  **/
+  @Schema(description = "")
+  public String getUserAllowList() {
+    return userAllowList;
+  }
+
+  public void setUserAllowList(String userAllowList) {
+    this.userAllowList = userAllowList;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +204,14 @@ public class CreateAllowListRequest {
         Objects.equals(this.allowListDesc, createAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
         Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
-        Objects.equals(this.projectName, createAllowListRequest.projectName);
+        Objects.equals(this.projectName, createAllowListRequest.projectName) &&
+        Objects.equals(this.securityGroupBindInfos, createAllowListRequest.securityGroupBindInfos) &&
+        Objects.equals(this.userAllowList, createAllowListRequest.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListName, allowListType, projectName);
+    return Objects.hash(allowList, allowListDesc, allowListName, allowListType, projectName, securityGroupBindInfos, userAllowList);
   }
 
 
@@ -170,6 +225,8 @@ public class CreateAllowListRequest {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
+    sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -115,6 +115,12 @@ public class DataForListAssetCenterHostsOutput {
   @SerializedName("StartTime")
   private Long startTime = null;
 
+  @SerializedName("State")
+  private String state = null;
+
+  @SerializedName("StateDetail")
+  private String stateDetail = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -621,6 +627,42 @@ public class DataForListAssetCenterHostsOutput {
     this.startTime = startTime;
   }
 
+  public DataForListAssetCenterHostsOutput state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @Schema(description = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public DataForListAssetCenterHostsOutput stateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+    return this;
+  }
+
+   /**
+   * Get stateDetail
+   * @return stateDetail
+  **/
+  @Schema(description = "")
+  public String getStateDetail() {
+    return stateDetail;
+  }
+
+  public void setStateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+  }
+
   public DataForListAssetCenterHostsOutput status(String status) {
     this.status = status;
     return this;
@@ -774,6 +816,8 @@ public class DataForListAssetCenterHostsOutput {
         Objects.equals(this.risk, dataForListAssetCenterHostsOutput.risk) &&
         Objects.equals(this.securityEnhancement, dataForListAssetCenterHostsOutput.securityEnhancement) &&
         Objects.equals(this.startTime, dataForListAssetCenterHostsOutput.startTime) &&
+        Objects.equals(this.state, dataForListAssetCenterHostsOutput.state) &&
+        Objects.equals(this.stateDetail, dataForListAssetCenterHostsOutput.stateDetail) &&
         Objects.equals(this.status, dataForListAssetCenterHostsOutput.status) &&
         Objects.equals(this.tags, dataForListAssetCenterHostsOutput.tags) &&
         Objects.equals(this.totalMem, dataForListAssetCenterHostsOutput.totalMem) &&
@@ -784,7 +828,7 @@ public class DataForListAssetCenterHostsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, agentStatus, clientPublicIP, cloudProvider, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, reason, risk, securityEnhancement, startTime, state, stateDetail, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode);
   }
 
 
@@ -820,6 +864,8 @@ public class DataForListAssetCenterHostsOutput {
     sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
     sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateDetail: ").append(toIndentedString(stateDetail)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");

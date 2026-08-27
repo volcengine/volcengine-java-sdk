@@ -88,7 +88,8 @@ public class ModifyLayeredGroupRequest {
    * Get groupID
    * @return groupID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getGroupID() {
     return groupID;
   }

@@ -19,12 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForValidateImportTaskInput;
-import com.volcengine.tidb.model.GcsForValidateImportTaskInput;
 import com.volcengine.tidb.model.LocalForValidateImportTaskInput;
-import com.volcengine.tidb.model.OssForValidateImportTaskInput;
-import com.volcengine.tidb.model.S3CompatibleForValidateImportTaskInput;
-import com.volcengine.tidb.model.S3ForValidateImportTaskInput;
 import com.volcengine.tidb.model.TargetTableInfoForValidateImportTaskInput;
 import com.volcengine.tidb.model.TosForValidateImportTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,23 +35,8 @@ import javax.validation.Valid;
 
 
 public class SourceForValidateImportTaskInput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForValidateImportTaskInput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForValidateImportTaskInput gcs = null;
-
   @SerializedName("Local")
   private LocalForValidateImportTaskInput local = null;
-
-  @SerializedName("Oss")
-  private OssForValidateImportTaskInput oss = null;
-
-  @SerializedName("S3")
-  private S3ForValidateImportTaskInput s3 = null;
-
-  @SerializedName("S3Compatible")
-  private S3CompatibleForValidateImportTaskInput s3Compatible = null;
 
   @SerializedName("TargetTableInfos")
   private List<TargetTableInfoForValidateImportTaskInput> targetTableInfos = null;
@@ -110,44 +90,6 @@ public class SourceForValidateImportTaskInput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
-  public SourceForValidateImportTaskInput azureBlob(AzureBlobForValidateImportTaskInput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForValidateImportTaskInput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForValidateImportTaskInput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public SourceForValidateImportTaskInput gcs(GcsForValidateImportTaskInput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForValidateImportTaskInput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForValidateImportTaskInput gcs) {
-    this.gcs = gcs;
-  }
-
   public SourceForValidateImportTaskInput local(LocalForValidateImportTaskInput local) {
     this.local = local;
     return this;
@@ -165,63 +107,6 @@ public class SourceForValidateImportTaskInput {
 
   public void setLocal(LocalForValidateImportTaskInput local) {
     this.local = local;
-  }
-
-  public SourceForValidateImportTaskInput oss(OssForValidateImportTaskInput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForValidateImportTaskInput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForValidateImportTaskInput oss) {
-    this.oss = oss;
-  }
-
-  public SourceForValidateImportTaskInput s3(S3ForValidateImportTaskInput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForValidateImportTaskInput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForValidateImportTaskInput s3) {
-    this.s3 = s3;
-  }
-
-  public SourceForValidateImportTaskInput s3Compatible(S3CompatibleForValidateImportTaskInput s3Compatible) {
-    this.s3Compatible = s3Compatible;
-    return this;
-  }
-
-   /**
-   * Get s3Compatible
-   * @return s3Compatible
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3CompatibleForValidateImportTaskInput getS3Compatible() {
-    return s3Compatible;
-  }
-
-  public void setS3Compatible(S3CompatibleForValidateImportTaskInput s3Compatible) {
-    this.s3Compatible = s3Compatible;
   }
 
   public SourceForValidateImportTaskInput targetTableInfos(List<TargetTableInfoForValidateImportTaskInput> targetTableInfos) {
@@ -298,12 +183,7 @@ public class SourceForValidateImportTaskInput {
       return false;
     }
     SourceForValidateImportTaskInput sourceForValidateImportTaskInput = (SourceForValidateImportTaskInput) o;
-    return Objects.equals(this.azureBlob, sourceForValidateImportTaskInput.azureBlob) &&
-        Objects.equals(this.gcs, sourceForValidateImportTaskInput.gcs) &&
-        Objects.equals(this.local, sourceForValidateImportTaskInput.local) &&
-        Objects.equals(this.oss, sourceForValidateImportTaskInput.oss) &&
-        Objects.equals(this.s3, sourceForValidateImportTaskInput.s3) &&
-        Objects.equals(this.s3Compatible, sourceForValidateImportTaskInput.s3Compatible) &&
+    return Objects.equals(this.local, sourceForValidateImportTaskInput.local) &&
         Objects.equals(this.targetTableInfos, sourceForValidateImportTaskInput.targetTableInfos) &&
         Objects.equals(this.tos, sourceForValidateImportTaskInput.tos) &&
         Objects.equals(this.type, sourceForValidateImportTaskInput.type);
@@ -311,7 +191,7 @@ public class SourceForValidateImportTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, local, oss, s3, s3Compatible, targetTableInfos, tos, type);
+    return Objects.hash(local, targetTableInfos, tos, type);
   }
 
 
@@ -320,12 +200,7 @@ public class SourceForValidateImportTaskInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceForValidateImportTaskInput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
     sb.append("    local: ").append(toIndentedString(local)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
-    sb.append("    s3Compatible: ").append(toIndentedString(s3Compatible)).append("\n");
     sb.append("    targetTableInfos: ").append(toIndentedString(targetTableInfos)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

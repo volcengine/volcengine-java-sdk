@@ -42,59 +42,8 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
   @SerializedName("EventId")
   private String eventId = null;
 
-  /**
-   * Gets or Sets eventKind
-   */
-  @JsonAdapter(EventKindEnum.Adapter.class)
-  public enum EventKindEnum {
-    @SerializedName("Inspection")
-    INSPECTION("Inspection"),
-    @SerializedName("ModifyClusterParams")
-    MODIFYCLUSTERPARAMS("ModifyClusterParams"),
-    @SerializedName("ModifyDBInstanceParameters")
-    MODIFYDBINSTANCEPARAMETERS("ModifyDBInstanceParameters"),
-    @SerializedName("ModifyDBInstanceSpec")
-    MODIFYDBINSTANCESPEC("ModifyDBInstanceSpec"),
-    @SerializedName("RestartDBInstance")
-    RESTARTDBINSTANCE("RestartDBInstance"),
-    @SerializedName("UpgradeInstance")
-    UPGRADEINSTANCE("UpgradeInstance");
-
-    private String value;
-
-    EventKindEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static EventKindEnum fromValue(String input) {
-      for (EventKindEnum b : EventKindEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<EventKindEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EventKindEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public EventKindEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EventKindEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("EventKind")
-  private EventKindEnum eventKind = null;
+  @SerializedName("EventKind")
+  private String eventKind = null;
 
   @SerializedName("InstanceID")
   private String instanceID = null;
@@ -114,105 +63,11 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
   @SerializedName("RequestId")
   private String requestId = null;
 
-  /**
-   * Gets or Sets scheduleType
-   */
-  @JsonAdapter(ScheduleTypeEnum.Adapter.class)
-  public enum ScheduleTypeEnum {
-    @SerializedName("Immediate")
-    IMMEDIATE("Immediate"),
-    @SerializedName("MaintainTime")
-    MAINTAINTIME("MaintainTime"),
-    @SerializedName("SpecifiedTime")
-    SPECIFIEDTIME("SpecifiedTime");
+  @SerializedName("ScheduleType")
+  private String scheduleType = null;
 
-    private String value;
-
-    ScheduleTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ScheduleTypeEnum fromValue(String input) {
-      for (ScheduleTypeEnum b : ScheduleTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ScheduleTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ScheduleTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ScheduleTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ScheduleTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ScheduleType")
-  private ScheduleTypeEnum scheduleType = null;
-
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("cancel")
-    CANCEL("cancel"),
-    @SerializedName("executing")
-    EXECUTING("executing"),
-    @SerializedName("failure")
-    FAILURE("failure"),
-    @SerializedName("finish")
-    FINISH("finish"),
-    @SerializedName("pending")
-    PENDING("pending");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   public ScheduleTasksInfoForDescribeScheduleEventsOutput accountID(Integer accountID) {
     this.accountID = accountID;
@@ -286,7 +141,7 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
     this.eventId = eventId;
   }
 
-  public ScheduleTasksInfoForDescribeScheduleEventsOutput eventKind(EventKindEnum eventKind) {
+  public ScheduleTasksInfoForDescribeScheduleEventsOutput eventKind(String eventKind) {
     this.eventKind = eventKind;
     return this;
   }
@@ -296,11 +151,11 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
    * @return eventKind
   **/
   @Schema(description = "")
-  public EventKindEnum getEventKind() {
+  public String getEventKind() {
     return eventKind;
   }
 
-  public void setEventKind(EventKindEnum eventKind) {
+  public void setEventKind(String eventKind) {
     this.eventKind = eventKind;
   }
 
@@ -412,7 +267,7 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
     this.requestId = requestId;
   }
 
-  public ScheduleTasksInfoForDescribeScheduleEventsOutput scheduleType(ScheduleTypeEnum scheduleType) {
+  public ScheduleTasksInfoForDescribeScheduleEventsOutput scheduleType(String scheduleType) {
     this.scheduleType = scheduleType;
     return this;
   }
@@ -422,15 +277,15 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
    * @return scheduleType
   **/
   @Schema(description = "")
-  public ScheduleTypeEnum getScheduleType() {
+  public String getScheduleType() {
     return scheduleType;
   }
 
-  public void setScheduleType(ScheduleTypeEnum scheduleType) {
+  public void setScheduleType(String scheduleType) {
     this.scheduleType = scheduleType;
   }
 
-  public ScheduleTasksInfoForDescribeScheduleEventsOutput status(StatusEnum status) {
+  public ScheduleTasksInfoForDescribeScheduleEventsOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -440,11 +295,11 @@ public class ScheduleTasksInfoForDescribeScheduleEventsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

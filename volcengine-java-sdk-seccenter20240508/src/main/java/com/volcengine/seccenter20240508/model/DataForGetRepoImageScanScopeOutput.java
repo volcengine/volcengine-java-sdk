@@ -33,10 +33,10 @@ import javax.validation.Valid;
 
 public class DataForGetRepoImageScanScopeOutput {
   @SerializedName("ImageSizeLimit")
-  private Integer imageSizeLimit = null;
+  private Long imageSizeLimit = null;
 
   @SerializedName("LatestPush")
-  private Integer latestPush = null;
+  private Long latestPush = null;
 
   @SerializedName("NamespaceIDs")
   private List<String> namespaceIDs = null;
@@ -45,9 +45,9 @@ public class DataForGetRepoImageScanScopeOutput {
   private List<String> scanItems = null;
 
   @SerializedName("Timeout")
-  private Integer timeout = null;
+  private Long timeout = null;
 
-  public DataForGetRepoImageScanScopeOutput imageSizeLimit(Integer imageSizeLimit) {
+  public DataForGetRepoImageScanScopeOutput imageSizeLimit(Long imageSizeLimit) {
     this.imageSizeLimit = imageSizeLimit;
     return this;
   }
@@ -57,15 +57,15 @@ public class DataForGetRepoImageScanScopeOutput {
    * @return imageSizeLimit
   **/
   @Schema(description = "")
-  public Integer getImageSizeLimit() {
+  public Long getImageSizeLimit() {
     return imageSizeLimit;
   }
 
-  public void setImageSizeLimit(Integer imageSizeLimit) {
+  public void setImageSizeLimit(Long imageSizeLimit) {
     this.imageSizeLimit = imageSizeLimit;
   }
 
-  public DataForGetRepoImageScanScopeOutput latestPush(Integer latestPush) {
+  public DataForGetRepoImageScanScopeOutput latestPush(Long latestPush) {
     this.latestPush = latestPush;
     return this;
   }
@@ -75,11 +75,11 @@ public class DataForGetRepoImageScanScopeOutput {
    * @return latestPush
   **/
   @Schema(description = "")
-  public Integer getLatestPush() {
+  public Long getLatestPush() {
     return latestPush;
   }
 
-  public void setLatestPush(Integer latestPush) {
+  public void setLatestPush(Long latestPush) {
     this.latestPush = latestPush;
   }
 
@@ -135,7 +135,7 @@ public class DataForGetRepoImageScanScopeOutput {
     this.scanItems = scanItems;
   }
 
-  public DataForGetRepoImageScanScopeOutput timeout(Integer timeout) {
+  public DataForGetRepoImageScanScopeOutput timeout(Long timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -145,11 +145,11 @@ public class DataForGetRepoImageScanScopeOutput {
    * @return timeout
   **/
   @Schema(description = "")
-  public Integer getTimeout() {
+  public Long getTimeout() {
     return timeout;
   }
 
-  public void setTimeout(Integer timeout) {
+  public void setTimeout(Long timeout) {
     this.timeout = timeout;
   }
 

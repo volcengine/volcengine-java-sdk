@@ -42,6 +42,9 @@ public class CreateTopicAsyncRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LiteTopicTTLMinutes")
+  private Integer liteTopicTTLMinutes = null;
+
   @SerializedName("MessageType")
   private Integer messageType = null;
 
@@ -115,6 +118,24 @@ public class CreateTopicAsyncRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateTopicAsyncRequest liteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
+    return this;
+  }
+
+   /**
+   * Get liteTopicTTLMinutes
+   * @return liteTopicTTLMinutes
+  **/
+  @Schema(description = "")
+  public Integer getLiteTopicTTLMinutes() {
+    return liteTopicTTLMinutes;
+  }
+
+  public void setLiteTopicTTLMinutes(Integer liteTopicTTLMinutes) {
+    this.liteTopicTTLMinutes = liteTopicTTLMinutes;
+  }
+
   public CreateTopicAsyncRequest messageType(Integer messageType) {
     this.messageType = messageType;
     return this;
@@ -185,6 +206,7 @@ public class CreateTopicAsyncRequest {
     return Objects.equals(this.accessPolicies, createTopicAsyncRequest.accessPolicies) &&
         Objects.equals(this.description, createTopicAsyncRequest.description) &&
         Objects.equals(this.instanceId, createTopicAsyncRequest.instanceId) &&
+        Objects.equals(this.liteTopicTTLMinutes, createTopicAsyncRequest.liteTopicTTLMinutes) &&
         Objects.equals(this.messageType, createTopicAsyncRequest.messageType) &&
         Objects.equals(this.queueNumber, createTopicAsyncRequest.queueNumber) &&
         Objects.equals(this.topicName, createTopicAsyncRequest.topicName);
@@ -192,7 +214,7 @@ public class CreateTopicAsyncRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPolicies, description, instanceId, messageType, queueNumber, topicName);
+    return Objects.hash(accessPolicies, description, instanceId, liteTopicTTLMinutes, messageType, queueNumber, topicName);
   }
 
 
@@ -204,6 +226,7 @@ public class CreateTopicAsyncRequest {
     sb.append("    accessPolicies: ").append(toIndentedString(accessPolicies)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    liteTopicTTLMinutes: ").append(toIndentedString(liteTopicTTLMinutes)).append("\n");
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    queueNumber: ").append(toIndentedString(queueNumber)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");

@@ -42,7 +42,8 @@ public class GetAlarmTraceRequest {
    * Get traceID
    * @return traceID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTraceID() {
     return traceID;
   }

@@ -33,57 +33,8 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
   @SerializedName("AccountName")
   private String accountName = null;
 
-  /**
-   * Gets or Sets accountPrivilege
-   */
-  @JsonAdapter(AccountPrivilegeEnum.Adapter.class)
-  public enum AccountPrivilegeEnum {
-    @SerializedName("Custom")
-    CUSTOM("Custom"),
-    @SerializedName("DDLOnly")
-    DDLONLY("DDLOnly"),
-    @SerializedName("DMLOnly")
-    DMLONLY("DMLOnly"),
-    @SerializedName("ReadOnly")
-    READONLY("ReadOnly"),
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite");
-
-    private String value;
-
-    AccountPrivilegeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AccountPrivilegeEnum fromValue(String input) {
-      for (AccountPrivilegeEnum b : AccountPrivilegeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AccountPrivilegeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AccountPrivilegeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AccountPrivilegeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AccountPrivilegeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AccountPrivilege")
-  private AccountPrivilegeEnum accountPrivilege = null;
+  @SerializedName("AccountPrivilege")
+  private String accountPrivilege = null;
 
   @SerializedName("AccountPrivilegeDetail")
   private String accountPrivilegeDetail = null;
@@ -106,7 +57,7 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
     this.accountName = accountName;
   }
 
-  public DatabasesPrivilegeForDescribeDatabasesOutput accountPrivilege(AccountPrivilegeEnum accountPrivilege) {
+  public DatabasesPrivilegeForDescribeDatabasesOutput accountPrivilege(String accountPrivilege) {
     this.accountPrivilege = accountPrivilege;
     return this;
   }
@@ -116,11 +67,11 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
    * @return accountPrivilege
   **/
   @Schema(description = "")
-  public AccountPrivilegeEnum getAccountPrivilege() {
+  public String getAccountPrivilege() {
     return accountPrivilege;
   }
 
-  public void setAccountPrivilege(AccountPrivilegeEnum accountPrivilege) {
+  public void setAccountPrivilege(String accountPrivilege) {
     this.accountPrivilege = accountPrivilege;
   }
 

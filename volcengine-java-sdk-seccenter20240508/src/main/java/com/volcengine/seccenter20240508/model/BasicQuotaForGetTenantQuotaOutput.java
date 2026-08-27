@@ -42,6 +42,9 @@ public class BasicQuotaForGetTenantQuotaOutput {
   @SerializedName("PaidType")
   private String paidType = null;
 
+  @SerializedName("RunningUsedCount")
+  private Long runningUsedCount = null;
+
   @SerializedName("TotalCount")
   private Long totalCount = null;
 
@@ -123,6 +126,24 @@ public class BasicQuotaForGetTenantQuotaOutput {
     this.paidType = paidType;
   }
 
+  public BasicQuotaForGetTenantQuotaOutput runningUsedCount(Long runningUsedCount) {
+    this.runningUsedCount = runningUsedCount;
+    return this;
+  }
+
+   /**
+   * Get runningUsedCount
+   * @return runningUsedCount
+  **/
+  @Schema(description = "")
+  public Long getRunningUsedCount() {
+    return runningUsedCount;
+  }
+
+  public void setRunningUsedCount(Long runningUsedCount) {
+    this.runningUsedCount = runningUsedCount;
+  }
+
   public BasicQuotaForGetTenantQuotaOutput totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -191,6 +212,7 @@ public class BasicQuotaForGetTenantQuotaOutput {
         Objects.equals(this.expireTime, basicQuotaForGetTenantQuotaOutput.expireTime) &&
         Objects.equals(this.needRemove, basicQuotaForGetTenantQuotaOutput.needRemove) &&
         Objects.equals(this.paidType, basicQuotaForGetTenantQuotaOutput.paidType) &&
+        Objects.equals(this.runningUsedCount, basicQuotaForGetTenantQuotaOutput.runningUsedCount) &&
         Objects.equals(this.totalCount, basicQuotaForGetTenantQuotaOutput.totalCount) &&
         Objects.equals(this.usedCount, basicQuotaForGetTenantQuotaOutput.usedCount) &&
         Objects.equals(this.version, basicQuotaForGetTenantQuotaOutput.version);
@@ -198,7 +220,7 @@ public class BasicQuotaForGetTenantQuotaOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, expireTime, needRemove, paidType, totalCount, usedCount, version);
+    return Objects.hash(action, expireTime, needRemove, paidType, runningUsedCount, totalCount, usedCount, version);
   }
 
 
@@ -211,6 +233,7 @@ public class BasicQuotaForGetTenantQuotaOutput {
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    needRemove: ").append(toIndentedString(needRemove)).append("\n");
     sb.append("    paidType: ").append(toIndentedString(paidType)).append("\n");
+    sb.append("    runningUsedCount: ").append(toIndentedString(runningUsedCount)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    usedCount: ").append(toIndentedString(usedCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class EditAIApplicationSyncConfigRequest {
+  @SerializedName("Enable")
+  private Boolean enable = null;
+
   @SerializedName("Period")
   private Long period = null;
+
+  public EditAIApplicationSyncConfigRequest enable(Boolean enable) {
+    this.enable = enable;
+    return this;
+  }
+
+   /**
+   * Get enable
+   * @return enable
+  **/
+  @Schema(description = "")
+  public Boolean isEnable() {
+    return enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
 
   public EditAIApplicationSyncConfigRequest period(Long period) {
     this.period = period;
@@ -61,12 +82,13 @@ public class EditAIApplicationSyncConfigRequest {
       return false;
     }
     EditAIApplicationSyncConfigRequest editAIApplicationSyncConfigRequest = (EditAIApplicationSyncConfigRequest) o;
-    return Objects.equals(this.period, editAIApplicationSyncConfigRequest.period);
+    return Objects.equals(this.enable, editAIApplicationSyncConfigRequest.enable) &&
+        Objects.equals(this.period, editAIApplicationSyncConfigRequest.period);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(period);
+    return Objects.hash(enable, period);
   }
 
 
@@ -75,6 +97,7 @@ public class EditAIApplicationSyncConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class EditAIApplicationSyncConfigRequest {\n");
     
+    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("}");
     return sb.toString();

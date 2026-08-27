@@ -462,6 +462,52 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("StorageChargeType")
   private StorageChargeTypeEnum storageChargeType = null;
 
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("IOOptimizedStorage")
+    IOOPTIMIZEDSTORAGE("IOOptimizedStorage"),
+    @SerializedName("SmartCompressedStorage")
+    SMARTCOMPRESSEDSTORAGE("SmartCompressedStorage");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -793,6 +839,24 @@ public class CreateDBInstanceRequest {
     this.storageChargeType = storageChargeType;
   }
 
+  public CreateDBInstanceRequest storageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public StorageTypeEnum getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+  }
+
   public CreateDBInstanceRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -958,6 +1022,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.prePaidStorageInGB, createDBInstanceRequest.prePaidStorageInGB) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageChargeType, createDBInstanceRequest.storageChargeType) &&
+        Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
@@ -969,7 +1034,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, deletionProtection, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, templateId, vpcId, zoneIds);
+    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, deletionProtection, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, storageType, subnetId, superAccountName, superAccountPassword, tags, templateId, vpcId, zoneIds);
   }
 
 
@@ -995,6 +1060,7 @@ public class CreateDBInstanceRequest {
     sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");

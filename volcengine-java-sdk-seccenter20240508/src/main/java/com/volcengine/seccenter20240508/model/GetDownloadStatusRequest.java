@@ -42,7 +42,8 @@ public class GetDownloadStatusRequest {
    * Get fileName
    * @return fileName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileName() {
     return fileName;
   }

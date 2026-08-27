@@ -125,6 +125,12 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("StartTime")
   private Long startTime = null;
 
+  @SerializedName("State")
+  private String state = null;
+
+  @SerializedName("StateDetail")
+  private String stateDetail = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -675,6 +681,42 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     this.startTime = startTime;
   }
 
+  public GetHostBasicInfoResponse state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @Schema(description = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public GetHostBasicInfoResponse stateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+    return this;
+  }
+
+   /**
+   * Get stateDetail
+   * @return stateDetail
+  **/
+  @Schema(description = "")
+  public String getStateDetail() {
+    return stateDetail;
+  }
+
+  public void setStateDetail(String stateDetail) {
+    this.stateDetail = stateDetail;
+  }
+
   public GetHostBasicInfoResponse status(String status) {
     this.status = status;
     return this;
@@ -868,6 +910,8 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.reason, getHostBasicInfoResponse.reason) &&
         Objects.equals(this.securityEnhancement, getHostBasicInfoResponse.securityEnhancement) &&
         Objects.equals(this.startTime, getHostBasicInfoResponse.startTime) &&
+        Objects.equals(this.state, getHostBasicInfoResponse.state) &&
+        Objects.equals(this.stateDetail, getHostBasicInfoResponse.stateDetail) &&
         Objects.equals(this.status, getHostBasicInfoResponse.status) &&
         Objects.equals(this.tags, getHostBasicInfoResponse.tags) &&
         Objects.equals(this.totalMem, getHostBasicInfoResponse.totalMem) &&
@@ -880,7 +924,7 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
 
   @Override
   public int hashCode() {
-    return Objects.hash(abnormalPluginsList, accountID, agentID, alarm, baseline, clientPublicIP, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, realRiskVul, reason, securityEnhancement, startTime, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode, virus, vuln);
+    return Objects.hash(abnormalPluginsList, accountID, agentID, alarm, baseline, clientPublicIP, cloudProvider, collectStatus, cpuUsage, dns, ecsInstance, firstHeartbeatTime, gateway, group, groupPath, groupPathEn, kernelVersion, lastHeartbeatTime, memUsage, oldValidCode, online, platform, platformVersion, pluginsBriefInfo, pluginsStatus, realRiskVul, reason, securityEnhancement, startTime, state, stateDetail, status, tags, totalMem, userStatus, userStatusReason, userStatusReasonCode, virus, vuln);
   }
 
 
@@ -918,6 +962,8 @@ public class GetHostBasicInfoResponse extends com.volcengine.model.AbstractRespo
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    securityEnhancement: ").append(toIndentedString(securityEnhancement)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateDetail: ").append(toIndentedString(stateDetail)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");

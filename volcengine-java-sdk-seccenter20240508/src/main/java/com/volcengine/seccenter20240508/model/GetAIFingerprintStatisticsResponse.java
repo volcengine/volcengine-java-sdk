@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class GetAIFingerprintStatisticsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AIApp")
+  private Long aiApp = null;
+
   @SerializedName("App")
   private Long app = null;
 
@@ -65,6 +68,24 @@ public class GetAIFingerprintStatisticsResponse extends com.volcengine.model.Abs
 
   @SerializedName("Web")
   private Long web = null;
+
+  public GetAIFingerprintStatisticsResponse aiApp(Long aiApp) {
+    this.aiApp = aiApp;
+    return this;
+  }
+
+   /**
+   * Get aiApp
+   * @return aiApp
+  **/
+  @Schema(description = "")
+  public Long getAiApp() {
+    return aiApp;
+  }
+
+  public void setAiApp(Long aiApp) {
+    this.aiApp = aiApp;
+  }
 
   public GetAIFingerprintStatisticsResponse app(Long app) {
     this.app = app;
@@ -292,7 +313,8 @@ public class GetAIFingerprintStatisticsResponse extends com.volcengine.model.Abs
       return false;
     }
     GetAIFingerprintStatisticsResponse getAIFingerprintStatisticsResponse = (GetAIFingerprintStatisticsResponse) o;
-    return Objects.equals(this.app, getAIFingerprintStatisticsResponse.app) &&
+    return Objects.equals(this.aiApp, getAIFingerprintStatisticsResponse.aiApp) &&
+        Objects.equals(this.app, getAIFingerprintStatisticsResponse.app) &&
         Objects.equals(this.container, getAIFingerprintStatisticsResponse.container) &&
         Objects.equals(this.cron, getAIFingerprintStatisticsResponse.cron) &&
         Objects.equals(this.env, getAIFingerprintStatisticsResponse.env) &&
@@ -308,7 +330,7 @@ public class GetAIFingerprintStatisticsResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, container, cron, env, integrity, kmod, port, process, service, software, user, web);
+    return Objects.hash(aiApp, app, container, cron, env, integrity, kmod, port, process, service, software, user, web);
   }
 
 
@@ -317,6 +339,7 @@ public class GetAIFingerprintStatisticsResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAIFingerprintStatisticsResponse {\n");
     
+    sb.append("    aiApp: ").append(toIndentedString(aiApp)).append("\n");
     sb.append("    app: ").append(toIndentedString(app)).append("\n");
     sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("    cron: ").append(toIndentedString(cron)).append("\n");

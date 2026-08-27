@@ -19,10 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForCreateExportTaskOutput;
-import com.volcengine.tidb.model.GcsForCreateExportTaskOutput;
-import com.volcengine.tidb.model.OssForCreateExportTaskOutput;
-import com.volcengine.tidb.model.S3ForCreateExportTaskOutput;
 import com.volcengine.tidb.model.TosForCreateExportTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,18 +31,6 @@ import javax.validation.Valid;
 
 
 public class TargetForCreateExportTaskOutput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForCreateExportTaskOutput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForCreateExportTaskOutput gcs = null;
-
-  @SerializedName("Oss")
-  private OssForCreateExportTaskOutput oss = null;
-
-  @SerializedName("S3")
-  private S3ForCreateExportTaskOutput s3 = null;
-
   @SerializedName("Tos")
   private TosForCreateExportTaskOutput tos = null;
 
@@ -55,18 +39,8 @@ public class TargetForCreateExportTaskOutput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("LOCAL")
-    LOCAL("LOCAL"),
-    @SerializedName("S3")
-    S3("S3"),
-    @SerializedName("GCS")
-    GCS("GCS"),
-    @SerializedName("AZURE_BLOB")
-    AZURE_BLOB("AZURE_BLOB"),
-    @SerializedName("OSS")
-    OSS("OSS"),
-    @SerializedName("TOS")
-    TOS("TOS");
+    @SerializedName("6")
+    _6("6");
 
     private String value;
 
@@ -103,82 +77,6 @@ public class TargetForCreateExportTaskOutput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
-
-  public TargetForCreateExportTaskOutput azureBlob(AzureBlobForCreateExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForCreateExportTaskOutput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForCreateExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public TargetForCreateExportTaskOutput gcs(GcsForCreateExportTaskOutput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForCreateExportTaskOutput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForCreateExportTaskOutput gcs) {
-    this.gcs = gcs;
-  }
-
-  public TargetForCreateExportTaskOutput oss(OssForCreateExportTaskOutput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForCreateExportTaskOutput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForCreateExportTaskOutput oss) {
-    this.oss = oss;
-  }
-
-  public TargetForCreateExportTaskOutput s3(S3ForCreateExportTaskOutput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForCreateExportTaskOutput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForCreateExportTaskOutput s3) {
-    this.s3 = s3;
-  }
 
   public TargetForCreateExportTaskOutput tos(TosForCreateExportTaskOutput tos) {
     this.tos = tos;
@@ -227,17 +125,13 @@ public class TargetForCreateExportTaskOutput {
       return false;
     }
     TargetForCreateExportTaskOutput targetForCreateExportTaskOutput = (TargetForCreateExportTaskOutput) o;
-    return Objects.equals(this.azureBlob, targetForCreateExportTaskOutput.azureBlob) &&
-        Objects.equals(this.gcs, targetForCreateExportTaskOutput.gcs) &&
-        Objects.equals(this.oss, targetForCreateExportTaskOutput.oss) &&
-        Objects.equals(this.s3, targetForCreateExportTaskOutput.s3) &&
-        Objects.equals(this.tos, targetForCreateExportTaskOutput.tos) &&
+    return Objects.equals(this.tos, targetForCreateExportTaskOutput.tos) &&
         Objects.equals(this.type, targetForCreateExportTaskOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, oss, s3, tos, type);
+    return Objects.hash(tos, type);
   }
 
 
@@ -246,10 +140,6 @@ public class TargetForCreateExportTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetForCreateExportTaskOutput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

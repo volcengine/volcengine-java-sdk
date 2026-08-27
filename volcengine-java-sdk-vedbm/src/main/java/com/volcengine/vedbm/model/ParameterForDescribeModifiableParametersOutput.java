@@ -33,53 +33,8 @@ public class ParameterForDescribeModifiableParametersOutput {
   @SerializedName("CheckingCode")
   private String checkingCode = null;
 
-  /**
-   * Gets or Sets dataType
-   */
-  @JsonAdapter(DataTypeEnum.Adapter.class)
-  public enum DataTypeEnum {
-    @SerializedName("FLOAT")
-    FLOAT("FLOAT"),
-    @SerializedName("INT")
-    INT("INT"),
-    @SerializedName("STRING")
-    STRING("STRING");
-
-    private String value;
-
-    DataTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DataTypeEnum fromValue(String input) {
-      for (DataTypeEnum b : DataTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DataTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DataTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DataTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DataTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DataType")
-  private DataTypeEnum dataType = null;
+  @SerializedName("DataType")
+  private String dataType = null;
 
   @SerializedName("Modifiable")
   private Boolean modifiable = null;
@@ -102,51 +57,8 @@ public class ParameterForDescribeModifiableParametersOutput {
   @SerializedName("ParameterValue")
   private String parameterValue = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Applied")
-    APPLIED("Applied"),
-    @SerializedName("Syncing")
-    SYNCING("Syncing");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   public ParameterForDescribeModifiableParametersOutput checkingCode(String checkingCode) {
     this.checkingCode = checkingCode;
@@ -166,7 +78,7 @@ public class ParameterForDescribeModifiableParametersOutput {
     this.checkingCode = checkingCode;
   }
 
-  public ParameterForDescribeModifiableParametersOutput dataType(DataTypeEnum dataType) {
+  public ParameterForDescribeModifiableParametersOutput dataType(String dataType) {
     this.dataType = dataType;
     return this;
   }
@@ -176,11 +88,11 @@ public class ParameterForDescribeModifiableParametersOutput {
    * @return dataType
   **/
   @Schema(description = "")
-  public DataTypeEnum getDataType() {
+  public String getDataType() {
     return dataType;
   }
 
-  public void setDataType(DataTypeEnum dataType) {
+  public void setDataType(String dataType) {
     this.dataType = dataType;
   }
 
@@ -310,7 +222,7 @@ public class ParameterForDescribeModifiableParametersOutput {
     this.parameterValue = parameterValue;
   }
 
-  public ParameterForDescribeModifiableParametersOutput status(StatusEnum status) {
+  public ParameterForDescribeModifiableParametersOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -320,11 +232,11 @@ public class ParameterForDescribeModifiableParametersOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

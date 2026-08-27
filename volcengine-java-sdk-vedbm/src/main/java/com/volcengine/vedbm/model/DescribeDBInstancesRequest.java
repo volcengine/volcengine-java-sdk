@@ -342,6 +342,52 @@ public class DescribeDBInstancesRequest {
   }  @SerializedName("StorageChargeType")
   private StorageChargeTypeEnum storageChargeType = null;
 
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("IOOptimizedStorage")
+    IOOPTIMIZEDSTORAGE("IOOptimizedStorage"),
+    @SerializedName("SmartCompressedStorage")
+    SMARTCOMPRESSEDSTORAGE("SmartCompressedStorage");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
 
@@ -564,6 +610,24 @@ public class DescribeDBInstancesRequest {
     this.storageChargeType = storageChargeType;
   }
 
+  public DescribeDBInstancesRequest storageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public StorageTypeEnum getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+  }
+
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -631,13 +695,14 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
         Objects.equals(this.storageChargeType, describeDBInstancesRequest.storageChargeType) &&
+        Objects.equals(this.storageType, describeDBInstancesRequest.storageType) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, nodeSpec, pageNumber, pageSize, projectName, storageChargeType, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, nodeSpec, pageNumber, pageSize, projectName, storageChargeType, storageType, tagFilters, zoneId);
   }
 
 
@@ -658,6 +723,7 @@ public class DescribeDBInstancesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

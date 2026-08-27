@@ -113,10 +113,12 @@ public class ListRepoImageVirusRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 100
    * @return pageSize
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Min(1) @Max(100)  @Schema(required = true, description = "")
   public Integer getPageSize() {
     return pageSize;
   }

@@ -139,7 +139,9 @@ public class DescribeExistDBInstancePriceRequest {
     @SerializedName("ModifyDBInstanceChargeType")
     MODIFYDBINSTANCECHARGETYPE("ModifyDBInstanceChargeType"),
     @SerializedName("ModifyDBInstanceSpec")
-    MODIFYDBINSTANCESPEC("ModifyDBInstanceSpec");
+    MODIFYDBINSTANCESPEC("ModifyDBInstanceSpec"),
+    @SerializedName("ModifyDBInstanceStorageType")
+    MODIFYDBINSTANCESTORAGETYPE("ModifyDBInstanceStorageType");
 
     private String value;
 

@@ -33,55 +33,8 @@ import javax.validation.Valid;
 
 
 public class DatabaseForDescribeDatabasesOutput {
-  /**
-   * Gets or Sets characterSetName
-   */
-  @JsonAdapter(CharacterSetNameEnum.Adapter.class)
-  public enum CharacterSetNameEnum {
-    @SerializedName("ascii")
-    ASCII("ascii"),
-    @SerializedName("latin1")
-    LATIN1("latin1"),
-    @SerializedName("utf8")
-    UTF8("utf8"),
-    @SerializedName("utf8mb4")
-    UTF8MB4("utf8mb4");
-
-    private String value;
-
-    CharacterSetNameEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static CharacterSetNameEnum fromValue(String input) {
-      for (CharacterSetNameEnum b : CharacterSetNameEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<CharacterSetNameEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CharacterSetNameEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public CharacterSetNameEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return CharacterSetNameEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("CharacterSetName")
-  private CharacterSetNameEnum characterSetName = null;
+  @SerializedName("CharacterSetName")
+  private String characterSetName = null;
 
   @SerializedName("DBDesc")
   private String dbDesc = null;
@@ -92,7 +45,7 @@ public class DatabaseForDescribeDatabasesOutput {
   @SerializedName("DatabasesPrivileges")
   private List<DatabasesPrivilegeForDescribeDatabasesOutput> databasesPrivileges = null;
 
-  public DatabaseForDescribeDatabasesOutput characterSetName(CharacterSetNameEnum characterSetName) {
+  public DatabaseForDescribeDatabasesOutput characterSetName(String characterSetName) {
     this.characterSetName = characterSetName;
     return this;
   }
@@ -102,11 +55,11 @@ public class DatabaseForDescribeDatabasesOutput {
    * @return characterSetName
   **/
   @Schema(description = "")
-  public CharacterSetNameEnum getCharacterSetName() {
+  public String getCharacterSetName() {
     return characterSetName;
   }
 
-  public void setCharacterSetName(CharacterSetNameEnum characterSetName) {
+  public void setCharacterSetName(String characterSetName) {
     this.characterSetName = characterSetName;
   }
 

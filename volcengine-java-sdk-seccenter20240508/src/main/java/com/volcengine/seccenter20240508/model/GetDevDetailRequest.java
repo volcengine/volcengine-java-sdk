@@ -42,7 +42,8 @@ public class GetDevDetailRequest {
    * Get assetID
    * @return assetID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAssetID() {
     return assetID;
   }

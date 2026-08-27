@@ -36,7 +36,7 @@ public class DeleteAutoIsolateAgentListRequest {
   @SerializedName("AgentIDList")
   private List<String> agentIDList = null;
 
-  @SerializedName("basicQuery")
+  @SerializedName("BasicQuery")
   private BasicQueryForDeleteAutoIsolateAgentListInput basicQuery = null;
 
   public DeleteAutoIsolateAgentListRequest agentIDList(List<String> agentIDList) {

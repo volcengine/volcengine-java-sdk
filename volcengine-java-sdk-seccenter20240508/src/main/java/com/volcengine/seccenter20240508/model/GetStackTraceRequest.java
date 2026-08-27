@@ -42,7 +42,8 @@ public class GetStackTraceRequest {
    * Get stackTraceHash
    * @return stackTraceHash
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStackTraceHash() {
     return stackTraceHash;
   }

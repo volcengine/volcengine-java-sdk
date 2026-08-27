@@ -42,51 +42,8 @@ public class AddressForDescribeDBEndpointOutput {
   @SerializedName("IPAddress")
   private String ipAddress = null;
 
-  /**
-   * Gets or Sets networkType
-   */
-  @JsonAdapter(NetworkTypeEnum.Adapter.class)
-  public enum NetworkTypeEnum {
-    @SerializedName("Private")
-    PRIVATE("Private"),
-    @SerializedName("Public")
-    PUBLIC("Public");
-
-    private String value;
-
-    NetworkTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NetworkTypeEnum fromValue(String input) {
-      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NetworkTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NetworkType")
-  private NetworkTypeEnum networkType = null;
+  @SerializedName("NetworkType")
+  private String networkType = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -166,7 +123,7 @@ public class AddressForDescribeDBEndpointOutput {
     this.ipAddress = ipAddress;
   }
 
-  public AddressForDescribeDBEndpointOutput networkType(NetworkTypeEnum networkType) {
+  public AddressForDescribeDBEndpointOutput networkType(String networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -176,11 +133,11 @@ public class AddressForDescribeDBEndpointOutput {
    * @return networkType
   **/
   @Schema(description = "")
-  public NetworkTypeEnum getNetworkType() {
+  public String getNetworkType() {
     return networkType;
   }
 
-  public void setNetworkType(NetworkTypeEnum networkType) {
+  public void setNetworkType(String networkType) {
     this.networkType = networkType;
   }
 

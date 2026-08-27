@@ -63,57 +63,8 @@ public class DataForListClustersAndVarmorAppsOutput {
   @SerializedName("VarmorConfig")
   private VarmorConfigForListClustersAndVarmorAppsOutput varmorConfig = null;
 
-  /**
-   * Gets or Sets varmorInstallStatus
-   */
-  @JsonAdapter(VarmorInstallStatusEnum.Adapter.class)
-  public enum VarmorInstallStatusEnum {
-    @SerializedName("NotInstalled")
-    NOTINSTALLED("NotInstalled"),
-    @SerializedName("Installed")
-    INSTALLED("Installed"),
-    @SerializedName("Changing")
-    CHANGING("Changing"),
-    @SerializedName("InstallFailed")
-    INSTALLFAILED("InstallFailed"),
-    @SerializedName("UninstallFailed")
-    UNINSTALLFAILED("UninstallFailed");
-
-    private String value;
-
-    VarmorInstallStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static VarmorInstallStatusEnum fromValue(String input) {
-      for (VarmorInstallStatusEnum b : VarmorInstallStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<VarmorInstallStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VarmorInstallStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public VarmorInstallStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return VarmorInstallStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("VarmorInstallStatus")
-  private VarmorInstallStatusEnum varmorInstallStatus = null;
+  @SerializedName("VarmorInstallStatus")
+  private String varmorInstallStatus = null;
 
   @SerializedName("VarmorNamespace")
   private String varmorNamespace = null;
@@ -121,55 +72,8 @@ public class DataForListClustersAndVarmorAppsOutput {
   @SerializedName("VarmorVersion")
   private String varmorVersion = null;
 
-  /**
-   * Gets or Sets varmorVersionStatus
-   */
-  @JsonAdapter(VarmorVersionStatusEnum.Adapter.class)
-  public enum VarmorVersionStatusEnum {
-    @SerializedName("NotInstalled")
-    NOTINSTALLED("NotInstalled"),
-    @SerializedName("Upgradable")
-    UPGRADABLE("Upgradable"),
-    @SerializedName("UpgradeFailed")
-    UPGRADEFAILED("UpgradeFailed"),
-    @SerializedName("Latest")
-    LATEST("Latest");
-
-    private String value;
-
-    VarmorVersionStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static VarmorVersionStatusEnum fromValue(String input) {
-      for (VarmorVersionStatusEnum b : VarmorVersionStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<VarmorVersionStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VarmorVersionStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public VarmorVersionStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return VarmorVersionStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("VarmorVersionStatus")
-  private VarmorVersionStatusEnum varmorVersionStatus = null;
+  @SerializedName("VarmorVersionStatus")
+  private String varmorVersionStatus = null;
 
   public DataForListClustersAndVarmorAppsOutput clusterID(String clusterID) {
     this.clusterID = clusterID;
@@ -360,7 +264,7 @@ public class DataForListClustersAndVarmorAppsOutput {
     this.varmorConfig = varmorConfig;
   }
 
-  public DataForListClustersAndVarmorAppsOutput varmorInstallStatus(VarmorInstallStatusEnum varmorInstallStatus) {
+  public DataForListClustersAndVarmorAppsOutput varmorInstallStatus(String varmorInstallStatus) {
     this.varmorInstallStatus = varmorInstallStatus;
     return this;
   }
@@ -370,11 +274,11 @@ public class DataForListClustersAndVarmorAppsOutput {
    * @return varmorInstallStatus
   **/
   @Schema(description = "")
-  public VarmorInstallStatusEnum getVarmorInstallStatus() {
+  public String getVarmorInstallStatus() {
     return varmorInstallStatus;
   }
 
-  public void setVarmorInstallStatus(VarmorInstallStatusEnum varmorInstallStatus) {
+  public void setVarmorInstallStatus(String varmorInstallStatus) {
     this.varmorInstallStatus = varmorInstallStatus;
   }
 
@@ -414,7 +318,7 @@ public class DataForListClustersAndVarmorAppsOutput {
     this.varmorVersion = varmorVersion;
   }
 
-  public DataForListClustersAndVarmorAppsOutput varmorVersionStatus(VarmorVersionStatusEnum varmorVersionStatus) {
+  public DataForListClustersAndVarmorAppsOutput varmorVersionStatus(String varmorVersionStatus) {
     this.varmorVersionStatus = varmorVersionStatus;
     return this;
   }
@@ -424,11 +328,11 @@ public class DataForListClustersAndVarmorAppsOutput {
    * @return varmorVersionStatus
   **/
   @Schema(description = "")
-  public VarmorVersionStatusEnum getVarmorVersionStatus() {
+  public String getVarmorVersionStatus() {
     return varmorVersionStatus;
   }
 
-  public void setVarmorVersionStatus(VarmorVersionStatusEnum varmorVersionStatus) {
+  public void setVarmorVersionStatus(String varmorVersionStatus) {
     this.varmorVersionStatus = varmorVersionStatus;
   }
 

@@ -44,6 +44,9 @@ public class GetAIAlarmJudgeConfigResponse extends com.volcengine.model.Abstract
   @SerializedName("ManagerID")
   private String managerID = null;
 
+  @SerializedName("RemainQuota")
+  private Long remainQuota = null;
+
   public GetAIAlarmJudgeConfigResponse autoAIJudgeAlarm(Boolean autoAIJudgeAlarm) {
     this.autoAIJudgeAlarm = autoAIJudgeAlarm;
     return this;
@@ -124,6 +127,24 @@ public class GetAIAlarmJudgeConfigResponse extends com.volcengine.model.Abstract
     this.managerID = managerID;
   }
 
+  public GetAIAlarmJudgeConfigResponse remainQuota(Long remainQuota) {
+    this.remainQuota = remainQuota;
+    return this;
+  }
+
+   /**
+   * Get remainQuota
+   * @return remainQuota
+  **/
+  @Schema(description = "")
+  public Long getRemainQuota() {
+    return remainQuota;
+  }
+
+  public void setRemainQuota(Long remainQuota) {
+    this.remainQuota = remainQuota;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,12 +158,13 @@ public class GetAIAlarmJudgeConfigResponse extends com.volcengine.model.Abstract
     return Objects.equals(this.autoAIJudgeAlarm, getAIAlarmJudgeConfigResponse.autoAIJudgeAlarm) &&
         Objects.equals(this.autoHandle, getAIAlarmJudgeConfigResponse.autoHandle) &&
         Objects.equals(this.autoHandleList, getAIAlarmJudgeConfigResponse.autoHandleList) &&
-        Objects.equals(this.managerID, getAIAlarmJudgeConfigResponse.managerID);
+        Objects.equals(this.managerID, getAIAlarmJudgeConfigResponse.managerID) &&
+        Objects.equals(this.remainQuota, getAIAlarmJudgeConfigResponse.remainQuota);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAIJudgeAlarm, autoHandle, autoHandleList, managerID);
+    return Objects.hash(autoAIJudgeAlarm, autoHandle, autoHandleList, managerID, remainQuota);
   }
 
 
@@ -155,6 +177,7 @@ public class GetAIAlarmJudgeConfigResponse extends com.volcengine.model.Abstract
     sb.append("    autoHandle: ").append(toIndentedString(autoHandle)).append("\n");
     sb.append("    autoHandleList: ").append(toIndentedString(autoHandleList)).append("\n");
     sb.append("    managerID: ").append(toIndentedString(managerID)).append("\n");
+    sb.append("    remainQuota: ").append(toIndentedString(remainQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

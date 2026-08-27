@@ -54,6 +54,12 @@ public class GetAISessionVulnInfoResponse extends com.volcengine.model.AbstractR
   @SerializedName("Suggest")
   private String suggest = null;
 
+  @SerializedName("ToolID")
+  private String toolID = null;
+
+  @SerializedName("ToolName")
+  private String toolName = null;
+
   public GetAISessionVulnInfoResponse affect(List<AffectForGetAISessionVulnInfoOutput> affect) {
     this.affect = affect;
     return this;
@@ -197,6 +203,42 @@ public class GetAISessionVulnInfoResponse extends com.volcengine.model.AbstractR
     this.suggest = suggest;
   }
 
+  public GetAISessionVulnInfoResponse toolID(String toolID) {
+    this.toolID = toolID;
+    return this;
+  }
+
+   /**
+   * Get toolID
+   * @return toolID
+  **/
+  @Schema(description = "")
+  public String getToolID() {
+    return toolID;
+  }
+
+  public void setToolID(String toolID) {
+    this.toolID = toolID;
+  }
+
+  public GetAISessionVulnInfoResponse toolName(String toolName) {
+    this.toolName = toolName;
+    return this;
+  }
+
+   /**
+   * Get toolName
+   * @return toolName
+  **/
+  @Schema(description = "")
+  public String getToolName() {
+    return toolName;
+  }
+
+  public void setToolName(String toolName) {
+    this.toolName = toolName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -213,12 +255,14 @@ public class GetAISessionVulnInfoResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.platform, getAISessionVulnInfoResponse.platform) &&
         Objects.equals(this.primaryIpAddress, getAISessionVulnInfoResponse.primaryIpAddress) &&
         Objects.equals(this.sessionName, getAISessionVulnInfoResponse.sessionName) &&
-        Objects.equals(this.suggest, getAISessionVulnInfoResponse.suggest);
+        Objects.equals(this.suggest, getAISessionVulnInfoResponse.suggest) &&
+        Objects.equals(this.toolID, getAISessionVulnInfoResponse.toolID) &&
+        Objects.equals(this.toolName, getAISessionVulnInfoResponse.toolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affect, eipAddress, fixCommandList, platform, primaryIpAddress, sessionName, suggest);
+    return Objects.hash(affect, eipAddress, fixCommandList, platform, primaryIpAddress, sessionName, suggest, toolID, toolName);
   }
 
 
@@ -234,6 +278,8 @@ public class GetAISessionVulnInfoResponse extends com.volcengine.model.AbstractR
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    sessionName: ").append(toIndentedString(sessionName)).append("\n");
     sb.append("    suggest: ").append(toIndentedString(suggest)).append("\n");
+    sb.append("    toolID: ").append(toIndentedString(toolID)).append("\n");
+    sb.append("    toolName: ").append(toIndentedString(toolName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

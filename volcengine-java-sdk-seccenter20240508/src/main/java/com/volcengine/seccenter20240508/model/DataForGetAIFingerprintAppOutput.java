@@ -37,7 +37,7 @@ public class DataForGetAIFingerprintAppOutput {
   private String description = null;
 
   @SerializedName("Enabled")
-  private Boolean enabled = null;
+  private String enabled = null;
 
   @SerializedName("ID")
   private String ID = null;
@@ -108,7 +108,7 @@ public class DataForGetAIFingerprintAppOutput {
     this.description = description;
   }
 
-  public DataForGetAIFingerprintAppOutput enabled(Boolean enabled) {
+  public DataForGetAIFingerprintAppOutput enabled(String enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -118,11 +118,11 @@ public class DataForGetAIFingerprintAppOutput {
    * @return enabled
   **/
   @Schema(description = "")
-  public Boolean isEnabled() {
+  public String getEnabled() {
     return enabled;
   }
 
-  public void setEnabled(Boolean enabled) {
+  public void setEnabled(String enabled) {
     this.enabled = enabled;
   }
 
