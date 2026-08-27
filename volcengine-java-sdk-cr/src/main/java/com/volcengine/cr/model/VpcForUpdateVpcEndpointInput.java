@@ -33,6 +33,9 @@ public class VpcForUpdateVpcEndpointInput {
   @SerializedName("AccountId")
   private Long accountId = null;
 
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -55,6 +58,24 @@ public class VpcForUpdateVpcEndpointInput {
 
   public void setAccountId(Long accountId) {
     this.accountId = accountId;
+  }
+
+  public VpcForUpdateVpcEndpointInput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+ @Size(max=50)  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public VpcForUpdateVpcEndpointInput subnetId(String subnetId) {
@@ -104,13 +125,14 @@ public class VpcForUpdateVpcEndpointInput {
     }
     VpcForUpdateVpcEndpointInput vpcForUpdateVpcEndpointInput = (VpcForUpdateVpcEndpointInput) o;
     return Objects.equals(this.accountId, vpcForUpdateVpcEndpointInput.accountId) &&
+        Objects.equals(this.description, vpcForUpdateVpcEndpointInput.description) &&
         Objects.equals(this.subnetId, vpcForUpdateVpcEndpointInput.subnetId) &&
         Objects.equals(this.vpcId, vpcForUpdateVpcEndpointInput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, subnetId, vpcId);
+    return Objects.hash(accountId, description, subnetId, vpcId);
   }
 
 
@@ -120,6 +142,7 @@ public class VpcForUpdateVpcEndpointInput {
     sb.append("class VpcForUpdateVpcEndpointInput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
