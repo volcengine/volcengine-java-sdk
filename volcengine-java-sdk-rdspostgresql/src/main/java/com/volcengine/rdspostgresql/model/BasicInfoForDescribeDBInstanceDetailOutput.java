@@ -58,6 +58,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("KMSTrn")
+  private String kmSTrn = null;
+
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
 
@@ -99,6 +102,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TDEEnable")
+  private Boolean tdEEnable = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -263,6 +269,24 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput kmSTrn(String kmSTrn) {
+    this.kmSTrn = kmSTrn;
+    return this;
+  }
+
+   /**
+   * Get kmSTrn
+   * @return kmSTrn
+  **/
+  @Schema(description = "")
+  public String getKmSTrn() {
+    return kmSTrn;
+  }
+
+  public void setKmSTrn(String kmSTrn) {
+    this.kmSTrn = kmSTrn;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
@@ -518,6 +542,24 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.subnetId = subnetId;
   }
 
+  public BasicInfoForDescribeDBInstanceDetailOutput tdEEnable(Boolean tdEEnable) {
+    this.tdEEnable = tdEEnable;
+    return this;
+  }
+
+   /**
+   * Get tdEEnable
+   * @return tdEEnable
+  **/
+  @Schema(description = "")
+  public Boolean isTdEEnable() {
+    return tdEEnable;
+  }
+
+  public void setTdEEnable(Boolean tdEEnable) {
+    this.tdEEnable = tdEEnable;
+  }
+
   public BasicInfoForDescribeDBInstanceDetailOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -608,6 +650,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceTag, basicInfoForDescribeDBInstanceDetailOutput.instanceTag) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
+        Objects.equals(this.kmSTrn, basicInfoForDescribeDBInstanceDetailOutput.kmSTrn) &&
         Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
@@ -622,6 +665,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.storageUse, basicInfoForDescribeDBInstanceDetailOutput.storageUse) &&
         Objects.equals(this.storageWALUse, basicInfoForDescribeDBInstanceDetailOutput.storageWALUse) &&
         Objects.equals(this.subnetId, basicInfoForDescribeDBInstanceDetailOutput.subnetId) &&
+        Objects.equals(this.tdEEnable, basicInfoForDescribeDBInstanceDetailOutput.tdEEnable) &&
         Objects.equals(this.updateTime, basicInfoForDescribeDBInstanceDetailOutput.updateTime) &&
         Objects.equals(this.VCPU, basicInfoForDescribeDBInstanceDetailOutput.VCPU) &&
         Objects.equals(this.vpcID, basicInfoForDescribeDBInstanceDetailOutput.vpcID) &&
@@ -630,7 +674,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceTag, instanceType, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageDataUse, storageLogUse, storageSpace, storageTempUse, storageType, storageUse, storageWALUse, subnetId, updateTime, VCPU, vpcID, zoneId);
+    return Objects.hash(createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceTag, instanceType, kmSTrn, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageDataUse, storageLogUse, storageSpace, storageTempUse, storageType, storageUse, storageWALUse, subnetId, tdEEnable, updateTime, VCPU, vpcID, zoneId);
   }
 
 
@@ -647,6 +691,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceTag: ").append(toIndentedString(instanceTag)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    kmSTrn: ").append(toIndentedString(kmSTrn)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
@@ -661,6 +706,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    storageUse: ").append(toIndentedString(storageUse)).append("\n");
     sb.append("    storageWALUse: ").append(toIndentedString(storageWALUse)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tdEEnable: ").append(toIndentedString(tdEEnable)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    VCPU: ").append(toIndentedString(VCPU)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
