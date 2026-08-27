@@ -19,12 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForGetImportTaskDetailsOutput;
-import com.volcengine.tidb.model.GcsForGetImportTaskDetailsOutput;
 import com.volcengine.tidb.model.LocalForGetImportTaskDetailsOutput;
-import com.volcengine.tidb.model.OssForGetImportTaskDetailsOutput;
-import com.volcengine.tidb.model.S3CompatibleForGetImportTaskDetailsOutput;
-import com.volcengine.tidb.model.S3ForGetImportTaskDetailsOutput;
 import com.volcengine.tidb.model.TargetTableInfoForGetImportTaskDetailsOutput;
 import com.volcengine.tidb.model.TosForGetImportTaskDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,23 +35,8 @@ import javax.validation.Valid;
 
 
 public class SourceForGetImportTaskDetailsOutput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForGetImportTaskDetailsOutput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForGetImportTaskDetailsOutput gcs = null;
-
   @SerializedName("Local")
   private LocalForGetImportTaskDetailsOutput local = null;
-
-  @SerializedName("Oss")
-  private OssForGetImportTaskDetailsOutput oss = null;
-
-  @SerializedName("S3")
-  private S3ForGetImportTaskDetailsOutput s3 = null;
-
-  @SerializedName("S3Compatible")
-  private S3CompatibleForGetImportTaskDetailsOutput s3Compatible = null;
 
   @SerializedName("TargetTableInfos")
   private List<TargetTableInfoForGetImportTaskDetailsOutput> targetTableInfos = null;
@@ -110,44 +90,6 @@ public class SourceForGetImportTaskDetailsOutput {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
-  public SourceForGetImportTaskDetailsOutput azureBlob(AzureBlobForGetImportTaskDetailsOutput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForGetImportTaskDetailsOutput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForGetImportTaskDetailsOutput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public SourceForGetImportTaskDetailsOutput gcs(GcsForGetImportTaskDetailsOutput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForGetImportTaskDetailsOutput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForGetImportTaskDetailsOutput gcs) {
-    this.gcs = gcs;
-  }
-
   public SourceForGetImportTaskDetailsOutput local(LocalForGetImportTaskDetailsOutput local) {
     this.local = local;
     return this;
@@ -165,63 +107,6 @@ public class SourceForGetImportTaskDetailsOutput {
 
   public void setLocal(LocalForGetImportTaskDetailsOutput local) {
     this.local = local;
-  }
-
-  public SourceForGetImportTaskDetailsOutput oss(OssForGetImportTaskDetailsOutput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForGetImportTaskDetailsOutput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForGetImportTaskDetailsOutput oss) {
-    this.oss = oss;
-  }
-
-  public SourceForGetImportTaskDetailsOutput s3(S3ForGetImportTaskDetailsOutput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForGetImportTaskDetailsOutput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForGetImportTaskDetailsOutput s3) {
-    this.s3 = s3;
-  }
-
-  public SourceForGetImportTaskDetailsOutput s3Compatible(S3CompatibleForGetImportTaskDetailsOutput s3Compatible) {
-    this.s3Compatible = s3Compatible;
-    return this;
-  }
-
-   /**
-   * Get s3Compatible
-   * @return s3Compatible
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3CompatibleForGetImportTaskDetailsOutput getS3Compatible() {
-    return s3Compatible;
-  }
-
-  public void setS3Compatible(S3CompatibleForGetImportTaskDetailsOutput s3Compatible) {
-    this.s3Compatible = s3Compatible;
   }
 
   public SourceForGetImportTaskDetailsOutput targetTableInfos(List<TargetTableInfoForGetImportTaskDetailsOutput> targetTableInfos) {
@@ -298,12 +183,7 @@ public class SourceForGetImportTaskDetailsOutput {
       return false;
     }
     SourceForGetImportTaskDetailsOutput sourceForGetImportTaskDetailsOutput = (SourceForGetImportTaskDetailsOutput) o;
-    return Objects.equals(this.azureBlob, sourceForGetImportTaskDetailsOutput.azureBlob) &&
-        Objects.equals(this.gcs, sourceForGetImportTaskDetailsOutput.gcs) &&
-        Objects.equals(this.local, sourceForGetImportTaskDetailsOutput.local) &&
-        Objects.equals(this.oss, sourceForGetImportTaskDetailsOutput.oss) &&
-        Objects.equals(this.s3, sourceForGetImportTaskDetailsOutput.s3) &&
-        Objects.equals(this.s3Compatible, sourceForGetImportTaskDetailsOutput.s3Compatible) &&
+    return Objects.equals(this.local, sourceForGetImportTaskDetailsOutput.local) &&
         Objects.equals(this.targetTableInfos, sourceForGetImportTaskDetailsOutput.targetTableInfos) &&
         Objects.equals(this.tos, sourceForGetImportTaskDetailsOutput.tos) &&
         Objects.equals(this.type, sourceForGetImportTaskDetailsOutput.type);
@@ -311,7 +191,7 @@ public class SourceForGetImportTaskDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, local, oss, s3, s3Compatible, targetTableInfos, tos, type);
+    return Objects.hash(local, targetTableInfos, tos, type);
   }
 
 
@@ -320,12 +200,7 @@ public class SourceForGetImportTaskDetailsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceForGetImportTaskDetailsOutput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
     sb.append("    local: ").append(toIndentedString(local)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
-    sb.append("    s3Compatible: ").append(toIndentedString(s3Compatible)).append("\n");
     sb.append("    targetTableInfos: ").append(toIndentedString(targetTableInfos)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

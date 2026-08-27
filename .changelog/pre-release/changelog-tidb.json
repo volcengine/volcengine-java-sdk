@@ -1,0 +1,24 @@
+{
+  "actions": [
+    "CancelExportTask",
+    "ListImportTasks",
+    "UpdatePrivateEndpointAllowlistRule",
+    "UntagResources",
+    "CreatePrivateEndpointAllowlistRule",
+    "ListTagsForResources",
+    "DeleteExportTask",
+    "GetExportTaskDetails",
+    "GetImportTaskDetails",
+    "ListExportTasks",
+    "TagResources",
+    "PrecheckImportTask",
+    "CreateExportTask",
+    "ValidateImportTask",
+    "DeletePrivateEndpointAllowlistRule",
+    "CreateImportTask",
+    "ListPrivateEndpointAllowlist"
+  ],
+  "description": "TIDB: 新增 TagResources, UntagResources, UpdatePrivateEndpointAllowlistRule, CreatePrivateEndpointAllowlistRule, DeletePrivateEndpointAllowlistRule, ListPrivateEndpointAllowlist, ListTagsForResources；修改 PrecheckImportTask, CancelExportTask, DeleteExportTask, GetExportTaskDetails, GetImportTaskDetails, ListImportTasks, CreateExportTask, CreateImportTask, ValidateImportTask, ListExportTasks",
+  "modules": "service/tidb",
+  "type": "breaking-change"
+}

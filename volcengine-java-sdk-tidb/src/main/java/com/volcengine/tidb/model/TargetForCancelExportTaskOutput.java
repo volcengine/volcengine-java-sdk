@@ -19,10 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AzureBlobForCancelExportTaskOutput;
-import com.volcengine.tidb.model.GcsForCancelExportTaskOutput;
-import com.volcengine.tidb.model.OssForCancelExportTaskOutput;
-import com.volcengine.tidb.model.S3ForCancelExportTaskOutput;
 import com.volcengine.tidb.model.TosForCancelExportTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,18 +31,6 @@ import javax.validation.Valid;
 
 
 public class TargetForCancelExportTaskOutput {
-  @SerializedName("AzureBlob")
-  private AzureBlobForCancelExportTaskOutput azureBlob = null;
-
-  @SerializedName("Gcs")
-  private GcsForCancelExportTaskOutput gcs = null;
-
-  @SerializedName("Oss")
-  private OssForCancelExportTaskOutput oss = null;
-
-  @SerializedName("S3")
-  private S3ForCancelExportTaskOutput s3 = null;
-
   @SerializedName("Tos")
   private TosForCancelExportTaskOutput tos = null;
 
@@ -55,18 +39,8 @@ public class TargetForCancelExportTaskOutput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("LOCAL")
-    LOCAL("LOCAL"),
-    @SerializedName("S3")
-    S3("S3"),
-    @SerializedName("GCS")
-    GCS("GCS"),
-    @SerializedName("AZURE_BLOB")
-    AZURE_BLOB("AZURE_BLOB"),
-    @SerializedName("OSS")
-    OSS("OSS"),
-    @SerializedName("TOS")
-    TOS("TOS");
+    @SerializedName("6")
+    _6("6");
 
     private String value;
 
@@ -103,82 +77,6 @@ public class TargetForCancelExportTaskOutput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
-
-  public TargetForCancelExportTaskOutput azureBlob(AzureBlobForCancelExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-    return this;
-  }
-
-   /**
-   * Get azureBlob
-   * @return azureBlob
-  **/
-  @Valid
-  @Schema(description = "")
-  public AzureBlobForCancelExportTaskOutput getAzureBlob() {
-    return azureBlob;
-  }
-
-  public void setAzureBlob(AzureBlobForCancelExportTaskOutput azureBlob) {
-    this.azureBlob = azureBlob;
-  }
-
-  public TargetForCancelExportTaskOutput gcs(GcsForCancelExportTaskOutput gcs) {
-    this.gcs = gcs;
-    return this;
-  }
-
-   /**
-   * Get gcs
-   * @return gcs
-  **/
-  @Valid
-  @Schema(description = "")
-  public GcsForCancelExportTaskOutput getGcs() {
-    return gcs;
-  }
-
-  public void setGcs(GcsForCancelExportTaskOutput gcs) {
-    this.gcs = gcs;
-  }
-
-  public TargetForCancelExportTaskOutput oss(OssForCancelExportTaskOutput oss) {
-    this.oss = oss;
-    return this;
-  }
-
-   /**
-   * Get oss
-   * @return oss
-  **/
-  @Valid
-  @Schema(description = "")
-  public OssForCancelExportTaskOutput getOss() {
-    return oss;
-  }
-
-  public void setOss(OssForCancelExportTaskOutput oss) {
-    this.oss = oss;
-  }
-
-  public TargetForCancelExportTaskOutput s3(S3ForCancelExportTaskOutput s3) {
-    this.s3 = s3;
-    return this;
-  }
-
-   /**
-   * Get s3
-   * @return s3
-  **/
-  @Valid
-  @Schema(description = "")
-  public S3ForCancelExportTaskOutput getS3() {
-    return s3;
-  }
-
-  public void setS3(S3ForCancelExportTaskOutput s3) {
-    this.s3 = s3;
-  }
 
   public TargetForCancelExportTaskOutput tos(TosForCancelExportTaskOutput tos) {
     this.tos = tos;
@@ -227,17 +125,13 @@ public class TargetForCancelExportTaskOutput {
       return false;
     }
     TargetForCancelExportTaskOutput targetForCancelExportTaskOutput = (TargetForCancelExportTaskOutput) o;
-    return Objects.equals(this.azureBlob, targetForCancelExportTaskOutput.azureBlob) &&
-        Objects.equals(this.gcs, targetForCancelExportTaskOutput.gcs) &&
-        Objects.equals(this.oss, targetForCancelExportTaskOutput.oss) &&
-        Objects.equals(this.s3, targetForCancelExportTaskOutput.s3) &&
-        Objects.equals(this.tos, targetForCancelExportTaskOutput.tos) &&
+    return Objects.equals(this.tos, targetForCancelExportTaskOutput.tos) &&
         Objects.equals(this.type, targetForCancelExportTaskOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlob, gcs, oss, s3, tos, type);
+    return Objects.hash(tos, type);
   }
 
 
@@ -246,10 +140,6 @@ public class TargetForCancelExportTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetForCancelExportTaskOutput {\n");
     
-    sb.append("    azureBlob: ").append(toIndentedString(azureBlob)).append("\n");
-    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
-    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
-    sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

@@ -39,14 +39,8 @@ public class TosForDeleteExportTaskOutput {
    */
   @JsonAdapter(AuthTypeEnum.Adapter.class)
   public enum AuthTypeEnum {
-    @SerializedName("ROLE_ARN")
-    ROLE_ARN("ROLE_ARN"),
-    @SerializedName("ACCESS_KEY")
-    ACCESS_KEY("ACCESS_KEY"),
-    @SerializedName("SERVICE_ACCOUNT_KEY")
-    SERVICE_ACCOUNT_KEY("SERVICE_ACCOUNT_KEY"),
-    @SerializedName("SAS_TOKEN")
-    SAS_TOKEN("SAS_TOKEN");
+    @SerializedName("2")
+    _2("2");
 
     private String value;
 
