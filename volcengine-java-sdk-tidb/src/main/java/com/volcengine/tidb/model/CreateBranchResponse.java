@@ -33,6 +33,9 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("BranchId")
   private String branchId = null;
 
+  @SerializedName("ClusterId")
+  private String clusterId = null;
+
   public CreateBranchResponse branchId(String branchId) {
     this.branchId = branchId;
     return this;
@@ -51,6 +54,24 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
     this.branchId = branchId;
   }
 
+  public CreateBranchResponse clusterId(String clusterId) {
+    this.clusterId = clusterId;
+    return this;
+  }
+
+   /**
+   * Get clusterId
+   * @return clusterId
+  **/
+  @Schema(description = "")
+  public String getClusterId() {
+    return clusterId;
+  }
+
+  public void setClusterId(String clusterId) {
+    this.clusterId = clusterId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     CreateBranchResponse createBranchResponse = (CreateBranchResponse) o;
-    return Objects.equals(this.branchId, createBranchResponse.branchId);
+    return Objects.equals(this.branchId, createBranchResponse.branchId) &&
+        Objects.equals(this.clusterId, createBranchResponse.clusterId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branchId);
+    return Objects.hash(branchId, clusterId);
   }
 
 
@@ -76,6 +98,7 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
     sb.append("class CreateBranchResponse {\n");
     
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
