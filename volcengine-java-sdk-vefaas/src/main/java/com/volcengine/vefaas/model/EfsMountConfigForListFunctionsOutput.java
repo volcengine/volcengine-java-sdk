@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.ConvertMountPointForListFunctionsOutput;
+import com.volcengine.vefaas.model.MountPointForListFunctionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,16 +34,16 @@ import javax.validation.Valid;
 
 public class EfsMountConfigForListFunctionsOutput {
   @SerializedName("MountPoints")
-  private List<ConvertMountPointForListFunctionsOutput> mountPoints = null;
+  private List<MountPointForListFunctionsOutput> mountPoints = null;
 
-  public EfsMountConfigForListFunctionsOutput mountPoints(List<ConvertMountPointForListFunctionsOutput> mountPoints) {
+  public EfsMountConfigForListFunctionsOutput mountPoints(List<MountPointForListFunctionsOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public EfsMountConfigForListFunctionsOutput addMountPointsItem(ConvertMountPointForListFunctionsOutput mountPointsItem) {
+  public EfsMountConfigForListFunctionsOutput addMountPointsItem(MountPointForListFunctionsOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<ConvertMountPointForListFunctionsOutput>();
+      this.mountPoints = new ArrayList<MountPointForListFunctionsOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -55,11 +55,11 @@ public class EfsMountConfigForListFunctionsOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertMountPointForListFunctionsOutput> getMountPoints() {
+  public List<MountPointForListFunctionsOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<ConvertMountPointForListFunctionsOutput> mountPoints) {
+  public void setMountPoints(List<MountPointForListFunctionsOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

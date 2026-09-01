@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.ConvertMountPointForGetRevisionOutput;
+import com.volcengine.vefaas.model.MountPointForGetRevisionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,16 +34,16 @@ import javax.validation.Valid;
 
 public class EfsMountConfigForGetRevisionOutput {
   @SerializedName("MountPoints")
-  private List<ConvertMountPointForGetRevisionOutput> mountPoints = null;
+  private List<MountPointForGetRevisionOutput> mountPoints = null;
 
-  public EfsMountConfigForGetRevisionOutput mountPoints(List<ConvertMountPointForGetRevisionOutput> mountPoints) {
+  public EfsMountConfigForGetRevisionOutput mountPoints(List<MountPointForGetRevisionOutput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public EfsMountConfigForGetRevisionOutput addMountPointsItem(ConvertMountPointForGetRevisionOutput mountPointsItem) {
+  public EfsMountConfigForGetRevisionOutput addMountPointsItem(MountPointForGetRevisionOutput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<ConvertMountPointForGetRevisionOutput>();
+      this.mountPoints = new ArrayList<MountPointForGetRevisionOutput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -55,11 +55,11 @@ public class EfsMountConfigForGetRevisionOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertMountPointForGetRevisionOutput> getMountPoints() {
+  public List<MountPointForGetRevisionOutput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<ConvertMountPointForGetRevisionOutput> mountPoints) {
+  public void setMountPoints(List<MountPointForGetRevisionOutput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

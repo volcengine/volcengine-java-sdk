@@ -27,7 +27,6 @@ import com.volcengine.vefaas.model.InstanceEfsMountConfigForDescribeSandboxOutpu
 import com.volcengine.vefaas.model.InstanceNasMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.MetadataListForDescribeSandboxOutput;
-import com.volcengine.vefaas.model.NetworkRulesForDescribeSandboxOutput;
 import com.volcengine.vefaas.model.SidecarForDescribeSandboxOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -101,9 +100,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("MetadataList")
   private List<MetadataListForDescribeSandboxOutput> metadataList = null;
-
-  @SerializedName("NetworkRules")
-  private NetworkRulesForDescribeSandboxOutput networkRules = null;
 
   @SerializedName("PausedAt")
   private String pausedAt = null;
@@ -516,25 +512,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     this.metadataList = metadataList;
   }
 
-  public DescribeSandboxResponse networkRules(NetworkRulesForDescribeSandboxOutput networkRules) {
-    this.networkRules = networkRules;
-    return this;
-  }
-
-   /**
-   * Get networkRules
-   * @return networkRules
-  **/
-  @Valid
-  @Schema(description = "")
-  public NetworkRulesForDescribeSandboxOutput getNetworkRules() {
-    return networkRules;
-  }
-
-  public void setNetworkRules(NetworkRulesForDescribeSandboxOutput networkRules) {
-    this.networkRules = networkRules;
-  }
-
   public DescribeSandboxResponse pausedAt(String pausedAt) {
     this.pausedAt = pausedAt;
     return this;
@@ -744,7 +721,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.maxConcurrency, describeSandboxResponse.maxConcurrency) &&
         Objects.equals(this.memoryMB, describeSandboxResponse.memoryMB) &&
         Objects.equals(this.metadataList, describeSandboxResponse.metadataList) &&
-        Objects.equals(this.networkRules, describeSandboxResponse.networkRules) &&
         Objects.equals(this.pausedAt, describeSandboxResponse.pausedAt) &&
         Objects.equals(this.pending, describeSandboxResponse.pending) &&
         Objects.equals(this.requestTimeout, describeSandboxResponse.requestTimeout) &&
@@ -758,7 +734,7 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignStatus, autoPauseConfig, autoSnapshotConfig, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceEfsMountConfig, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, networkRules, pausedAt, pending, requestTimeout, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
+    return Objects.hash(assignStatus, autoPauseConfig, autoSnapshotConfig, availabilityZone, cpuMilli, createdAt, envs, errorCode, errorMessage, expireAt, functionId, id, imageInfo, instanceEfsMountConfig, instanceNasMountConfig, instanceTosMountConfig, instanceType, maxConcurrency, memoryMB, metadataList, pausedAt, pending, requestTimeout, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
   }
 
 
@@ -787,7 +763,6 @@ public class DescribeSandboxResponse extends com.volcengine.model.AbstractRespon
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadataList: ").append(toIndentedString(metadataList)).append("\n");
-    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
     sb.append("    pausedAt: ").append(toIndentedString(pausedAt)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");

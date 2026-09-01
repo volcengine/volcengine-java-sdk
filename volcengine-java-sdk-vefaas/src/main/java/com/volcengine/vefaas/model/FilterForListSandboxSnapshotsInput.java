@@ -26,39 +26,60 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DomainRuleForDescribeSandboxOutput
+ * FilterForListSandboxSnapshotsInput
  */
 
 
 
-public class DomainRuleForDescribeSandboxOutput {
-  @SerializedName("Domains")
-  private List<String> domains = null;
+public class FilterForListSandboxSnapshotsInput {
+  @SerializedName("Name")
+  private String name = null;
 
-  public DomainRuleForDescribeSandboxOutput domains(List<String> domains) {
-    this.domains = domains;
-    return this;
-  }
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public DomainRuleForDescribeSandboxOutput addDomainsItem(String domainsItem) {
-    if (this.domains == null) {
-      this.domains = new ArrayList<String>();
-    }
-    this.domains.add(domainsItem);
+  public FilterForListSandboxSnapshotsInput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get domains
-   * @return domains
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public List<String> getDomains() {
-    return domains;
+  public String getName() {
+    return name;
   }
 
-  public void setDomains(List<String> domains) {
-    this.domains = domains;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FilterForListSandboxSnapshotsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public FilterForListSandboxSnapshotsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -70,22 +91,24 @@ public class DomainRuleForDescribeSandboxOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DomainRuleForDescribeSandboxOutput domainRuleForDescribeSandboxOutput = (DomainRuleForDescribeSandboxOutput) o;
-    return Objects.equals(this.domains, domainRuleForDescribeSandboxOutput.domains);
+    FilterForListSandboxSnapshotsInput filterForListSandboxSnapshotsInput = (FilterForListSandboxSnapshotsInput) o;
+    return Objects.equals(this.name, filterForListSandboxSnapshotsInput.name) &&
+        Objects.equals(this.values, filterForListSandboxSnapshotsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domains);
+    return Objects.hash(name, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DomainRuleForDescribeSandboxOutput {\n");
+    sb.append("class FilterForListSandboxSnapshotsInput {\n");
     
-    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
