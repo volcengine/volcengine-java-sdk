@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResetDBAccountRequest {
   @SerializedName("AccountName")
   private String accountName = null;
@@ -35,8 +36,14 @@ public class ResetDBAccountRequest {
   @SerializedName("AccountPassword")
   private String accountPassword = null;
 
+  @SerializedName("AuthDB")
+  private String authDB = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("ResetDBAccount")
+  private Boolean resetDBAccount = null;
 
   public ResetDBAccountRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -47,7 +54,8 @@ public class ResetDBAccountRequest {
    * Get accountName
    * @return accountName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
@@ -65,13 +73,32 @@ public class ResetDBAccountRequest {
    * Get accountPassword
    * @return accountPassword
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountPassword() {
     return accountPassword;
   }
 
   public void setAccountPassword(String accountPassword) {
     this.accountPassword = accountPassword;
+  }
+
+  public ResetDBAccountRequest authDB(String authDB) {
+    this.authDB = authDB;
+    return this;
+  }
+
+   /**
+   * Get authDB
+   * @return authDB
+  **/
+  @Schema(description = "")
+  public String getAuthDB() {
+    return authDB;
+  }
+
+  public void setAuthDB(String authDB) {
+    this.authDB = authDB;
   }
 
   public ResetDBAccountRequest instanceId(String instanceId) {
@@ -93,6 +120,24 @@ public class ResetDBAccountRequest {
     this.instanceId = instanceId;
   }
 
+  public ResetDBAccountRequest resetDBAccount(Boolean resetDBAccount) {
+    this.resetDBAccount = resetDBAccount;
+    return this;
+  }
+
+   /**
+   * Get resetDBAccount
+   * @return resetDBAccount
+  **/
+  @Schema(description = "")
+  public Boolean isResetDBAccount() {
+    return resetDBAccount;
+  }
+
+  public void setResetDBAccount(Boolean resetDBAccount) {
+    this.resetDBAccount = resetDBAccount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +150,14 @@ public class ResetDBAccountRequest {
     ResetDBAccountRequest resetDBAccountRequest = (ResetDBAccountRequest) o;
     return Objects.equals(this.accountName, resetDBAccountRequest.accountName) &&
         Objects.equals(this.accountPassword, resetDBAccountRequest.accountPassword) &&
-        Objects.equals(this.instanceId, resetDBAccountRequest.instanceId);
+        Objects.equals(this.authDB, resetDBAccountRequest.authDB) &&
+        Objects.equals(this.instanceId, resetDBAccountRequest.instanceId) &&
+        Objects.equals(this.resetDBAccount, resetDBAccountRequest.resetDBAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPassword, instanceId);
+    return Objects.hash(accountName, accountPassword, authDB, instanceId, resetDBAccount);
   }
 
 
@@ -121,7 +168,9 @@ public class ResetDBAccountRequest {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
+    sb.append("    authDB: ").append(toIndentedString(authDB)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    resetDBAccount: ").append(toIndentedString(resetDBAccount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

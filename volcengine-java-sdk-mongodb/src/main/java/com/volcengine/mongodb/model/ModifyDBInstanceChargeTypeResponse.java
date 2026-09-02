@@ -30,7 +30,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyDBInstanceChargeTypeResponse {
+
+public class ModifyDBInstanceChargeTypeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 

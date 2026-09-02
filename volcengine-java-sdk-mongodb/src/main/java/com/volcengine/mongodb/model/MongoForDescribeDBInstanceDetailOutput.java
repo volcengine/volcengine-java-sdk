@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class MongoForDescribeDBInstanceDetailOutput {
   @SerializedName("MongosNodeId")
   private String mongosNodeId = null;
@@ -35,8 +36,51 @@ public class MongoForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  @SerializedName("NodeStatus")
-  private String nodeStatus = null;
+  /**
+   * Gets or Sets nodeStatus
+   */
+  @JsonAdapter(NodeStatusEnum.Adapter.class)
+  public enum NodeStatusEnum {
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    NodeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeStatusEnum fromValue(String input) {
+      for (NodeStatusEnum b : NodeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeStatus")
+  private NodeStatusEnum nodeStatus = null;
 
   @SerializedName("TotalMemoryGB")
   private Double totalMemoryGB = null;
@@ -49,6 +93,9 @@ public class MongoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("UsedvCPU")
   private Double usedvCPU = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public MongoForDescribeDBInstanceDetailOutput mongosNodeId(String mongosNodeId) {
     this.mongosNodeId = mongosNodeId;
@@ -86,7 +133,7 @@ public class MongoForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public MongoForDescribeDBInstanceDetailOutput nodeStatus(String nodeStatus) {
+  public MongoForDescribeDBInstanceDetailOutput nodeStatus(NodeStatusEnum nodeStatus) {
     this.nodeStatus = nodeStatus;
     return this;
   }
@@ -96,11 +143,11 @@ public class MongoForDescribeDBInstanceDetailOutput {
    * @return nodeStatus
   **/
   @Schema(description = "")
-  public String getNodeStatus() {
+  public NodeStatusEnum getNodeStatus() {
     return nodeStatus;
   }
 
-  public void setNodeStatus(String nodeStatus) {
+  public void setNodeStatus(NodeStatusEnum nodeStatus) {
     this.nodeStatus = nodeStatus;
   }
 
@@ -176,6 +223,24 @@ public class MongoForDescribeDBInstanceDetailOutput {
     this.usedvCPU = usedvCPU;
   }
 
+  public MongoForDescribeDBInstanceDetailOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +257,13 @@ public class MongoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.totalMemoryGB, mongoForDescribeDBInstanceDetailOutput.totalMemoryGB) &&
         Objects.equals(this.totalvCPU, mongoForDescribeDBInstanceDetailOutput.totalvCPU) &&
         Objects.equals(this.usedMemoryGB, mongoForDescribeDBInstanceDetailOutput.usedMemoryGB) &&
-        Objects.equals(this.usedvCPU, mongoForDescribeDBInstanceDetailOutput.usedvCPU);
+        Objects.equals(this.usedvCPU, mongoForDescribeDBInstanceDetailOutput.usedvCPU) &&
+        Objects.equals(this.zoneId, mongoForDescribeDBInstanceDetailOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongosNodeId, nodeSpec, nodeStatus, totalMemoryGB, totalvCPU, usedMemoryGB, usedvCPU);
+    return Objects.hash(mongosNodeId, nodeSpec, nodeStatus, totalMemoryGB, totalvCPU, usedMemoryGB, usedvCPU, zoneId);
   }
 
 
@@ -213,6 +279,7 @@ public class MongoForDescribeDBInstanceDetailOutput {
     sb.append("    totalvCPU: ").append(toIndentedString(totalvCPU)).append("\n");
     sb.append("    usedMemoryGB: ").append(toIndentedString(usedMemoryGB)).append("\n");
     sb.append("    usedvCPU: ").append(toIndentedString(usedvCPU)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

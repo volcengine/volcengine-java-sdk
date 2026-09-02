@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteAllowListRequest {
   @SerializedName("AllowListId")
   private String allowListId = null;
@@ -41,7 +42,8 @@ public class DeleteAllowListRequest {
    * Get allowListId
    * @return allowListId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAllowListId() {
     return allowListId;
   }

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.NodeAvailabilityZoneForCreateDBInstanceInput;
 import com.volcengine.mongodb.model.TagForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,7 +32,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
@@ -40,8 +45,11 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
+    @SerializedName("NotEnabled")
     NOTENABLED("NotEnabled"),
+    @SerializedName("PostPaid")
     POSTPAID("PostPaid"),
+    @SerializedName("Prepaid")
     PREPAID("Prepaid");
 
     private String value;
@@ -80,6 +88,12 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("ChargeType")
   private ChargeTypeEnum chargeType = null;
 
+  @SerializedName("ConfigServerNodeSpec")
+  private String configServerNodeSpec = null;
+
+  @SerializedName("ConfigServerStorageSpaceGB")
+  private Integer configServerStorageSpaceGB = null;
+
   @SerializedName("Count")
   private Integer count = null;
 
@@ -88,6 +102,7 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbEngineEnum.Adapter.class)
   public enum DbEngineEnum {
+    @SerializedName("MongoDB")
     MONGODB("MongoDB");
 
     private String value;
@@ -131,8 +146,22 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
-    _4_0("MongoDB_4_0"),
-    _5_0("MongoDB_5_0");
+    @SerializedName("MongoDB_4_0")
+    MONGODB_4_0("MongoDB_4_0"),
+    @SerializedName("MongoDB_4_2")
+    MONGODB_4_2("MongoDB_4_2"),
+    @SerializedName("MongoDB_4_4")
+    MONGODB_4_4("MongoDB_4_4"),
+    @SerializedName("MongoDB_5_0")
+    MONGODB_5_0("MongoDB_5_0"),
+    @SerializedName("MongoDB_6_0")
+    MONGODB_6_0("MongoDB_6_0"),
+    @SerializedName("MongoDB_Inner_4_0")
+    MONGODB_INNER_4_0("MongoDB_Inner_4_0"),
+    @SerializedName("MongoDB_7_0")
+    MONGODB_7_0("MongoDB_7_0"),
+    @SerializedName("MongoDB_8_0")
+    MONGODB_8_0("MongoDB_8_0");
 
     private String value;
 
@@ -178,7 +207,9 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("ReplicaSet")
     REPLICASET("ReplicaSet"),
+    @SerializedName("ShardedCluster")
     SHARDEDCLUSTER("ShardedCluster");
 
     private String value;
@@ -223,6 +254,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("MongosNodeSpec")
   private String mongosNodeSpec = null;
 
+  @SerializedName("NodeAvailabilityZone")
+  private List<NodeAvailabilityZoneForCreateDBInstanceInput> nodeAvailabilityZone = null;
+
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
 
@@ -237,8 +271,10 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
-    MONTH("Month"),
-    YEAR("Year");
+    @SerializedName("Year")
+    YEAR("Year"),
+    @SerializedName("Month")
+    MONTH("Month");
 
     private String value;
 
@@ -276,6 +312,9 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
+  @SerializedName("Port")
+  private String port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -302,6 +341,32 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public CreateDBInstanceRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
@@ -337,6 +402,42 @@ public class CreateDBInstanceRequest {
 
   public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public CreateDBInstanceRequest configServerNodeSpec(String configServerNodeSpec) {
+    this.configServerNodeSpec = configServerNodeSpec;
+    return this;
+  }
+
+   /**
+   * Get configServerNodeSpec
+   * @return configServerNodeSpec
+  **/
+  @Schema(description = "")
+  public String getConfigServerNodeSpec() {
+    return configServerNodeSpec;
+  }
+
+  public void setConfigServerNodeSpec(String configServerNodeSpec) {
+    this.configServerNodeSpec = configServerNodeSpec;
+  }
+
+  public CreateDBInstanceRequest configServerStorageSpaceGB(Integer configServerStorageSpaceGB) {
+    this.configServerStorageSpaceGB = configServerStorageSpaceGB;
+    return this;
+  }
+
+   /**
+   * Get configServerStorageSpaceGB
+   * @return configServerStorageSpaceGB
+  **/
+  @Schema(description = "")
+  public Integer getConfigServerStorageSpaceGB() {
+    return configServerStorageSpaceGB;
+  }
+
+  public void setConfigServerStorageSpaceGB(Integer configServerStorageSpaceGB) {
+    this.configServerStorageSpaceGB = configServerStorageSpaceGB;
   }
 
   public CreateDBInstanceRequest count(Integer count) {
@@ -402,7 +503,7 @@ public class CreateDBInstanceRequest {
    * Get instanceName
    * @return instanceName
   **/
- @Size(max=64)  @Schema(description = "")
+  @Schema(description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -465,6 +566,33 @@ public class CreateDBInstanceRequest {
     this.mongosNodeSpec = mongosNodeSpec;
   }
 
+  public CreateDBInstanceRequest nodeAvailabilityZone(List<NodeAvailabilityZoneForCreateDBInstanceInput> nodeAvailabilityZone) {
+    this.nodeAvailabilityZone = nodeAvailabilityZone;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addNodeAvailabilityZoneItem(NodeAvailabilityZoneForCreateDBInstanceInput nodeAvailabilityZoneItem) {
+    if (this.nodeAvailabilityZone == null) {
+      this.nodeAvailabilityZone = new ArrayList<NodeAvailabilityZoneForCreateDBInstanceInput>();
+    }
+    this.nodeAvailabilityZone.add(nodeAvailabilityZoneItem);
+    return this;
+  }
+
+   /**
+   * Get nodeAvailabilityZone
+   * @return nodeAvailabilityZone
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NodeAvailabilityZoneForCreateDBInstanceInput> getNodeAvailabilityZone() {
+    return nodeAvailabilityZone;
+  }
+
+  public void setNodeAvailabilityZone(List<NodeAvailabilityZoneForCreateDBInstanceInput> nodeAvailabilityZone) {
+    this.nodeAvailabilityZone = nodeAvailabilityZone;
+  }
+
   public CreateDBInstanceRequest nodeNumber(Integer nodeNumber) {
     this.nodeNumber = nodeNumber;
     return this;
@@ -492,7 +620,8 @@ public class CreateDBInstanceRequest {
    * Get nodeSpec
    * @return nodeSpec
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNodeSpec() {
     return nodeSpec;
   }
@@ -535,6 +664,24 @@ public class CreateDBInstanceRequest {
 
   public void setPeriodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
+  }
+
+  public CreateDBInstanceRequest port(String port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public String getPort() {
+    return port;
+  }
+
+  public void setPort(String port) {
+    this.port = port;
   }
 
   public CreateDBInstanceRequest projectName(String projectName) {
@@ -582,7 +729,8 @@ public class CreateDBInstanceRequest {
    * Get storageSpaceGB
    * @return storageSpaceGB
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getStorageSpaceGB() {
     return storageSpaceGB;
   }
@@ -600,7 +748,8 @@ public class CreateDBInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -681,7 +830,8 @@ public class CreateDBInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -699,7 +849,8 @@ public class CreateDBInstanceRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -718,8 +869,11 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
+    return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
         Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
+        Objects.equals(this.configServerNodeSpec, createDBInstanceRequest.configServerNodeSpec) &&
+        Objects.equals(this.configServerStorageSpaceGB, createDBInstanceRequest.configServerStorageSpaceGB) &&
         Objects.equals(this.count, createDBInstanceRequest.count) &&
         Objects.equals(this.dbEngine, createDBInstanceRequest.dbEngine) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
@@ -727,10 +881,12 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.mongosNodeNumber, createDBInstanceRequest.mongosNodeNumber) &&
         Objects.equals(this.mongosNodeSpec, createDBInstanceRequest.mongosNodeSpec) &&
+        Objects.equals(this.nodeAvailabilityZone, createDBInstanceRequest.nodeAvailabilityZone) &&
         Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
         Objects.equals(this.nodeSpec, createDBInstanceRequest.nodeSpec) &&
         Objects.equals(this.period, createDBInstanceRequest.period) &&
         Objects.equals(this.periodUnit, createDBInstanceRequest.periodUnit) &&
+        Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.shardNumber, createDBInstanceRequest.shardNumber) &&
         Objects.equals(this.storageSpaceGB, createDBInstanceRequest.storageSpaceGB) &&
@@ -744,7 +900,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, count, dbEngine, dbEngineVersion, instanceName, instanceType, mongosNodeNumber, mongosNodeSpec, nodeNumber, nodeSpec, period, periodUnit, projectName, shardNumber, storageSpaceGB, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneId);
+    return Objects.hash(allowListIds, autoRenew, chargeType, configServerNodeSpec, configServerStorageSpaceGB, count, dbEngine, dbEngineVersion, instanceName, instanceType, mongosNodeNumber, mongosNodeSpec, nodeAvailabilityZone, nodeNumber, nodeSpec, period, periodUnit, port, projectName, shardNumber, storageSpaceGB, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneId);
   }
 
 
@@ -753,8 +909,11 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    configServerNodeSpec: ").append(toIndentedString(configServerNodeSpec)).append("\n");
+    sb.append("    configServerStorageSpaceGB: ").append(toIndentedString(configServerStorageSpaceGB)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
@@ -762,10 +921,12 @@ public class CreateDBInstanceRequest {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    mongosNodeNumber: ").append(toIndentedString(mongosNodeNumber)).append("\n");
     sb.append("    mongosNodeSpec: ").append(toIndentedString(mongosNodeSpec)).append("\n");
+    sb.append("    nodeAvailabilityZone: ").append(toIndentedString(nodeAvailabilityZone)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    storageSpaceGB: ").append(toIndentedString(storageSpaceGB)).append("\n");

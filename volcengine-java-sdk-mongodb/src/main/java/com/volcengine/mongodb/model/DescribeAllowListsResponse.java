@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeAllowListsResponse {
+
+public class DescribeAllowListsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllowLists")
   private List<AllowListForDescribeAllowListsOutput> allowLists = null;
+
+  @SerializedName("Total")
+  private Long total = null;
 
   public DescribeAllowListsResponse allowLists(List<AllowListForDescribeAllowListsOutput> allowLists) {
     this.allowLists = allowLists;
@@ -62,6 +66,24 @@ public class DescribeAllowListsResponse {
     this.allowLists = allowLists;
   }
 
+  public DescribeAllowListsResponse total(Long total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Long getTotal() {
+    return total;
+  }
+
+  public void setTotal(Long total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +94,13 @@ public class DescribeAllowListsResponse {
       return false;
     }
     DescribeAllowListsResponse describeAllowListsResponse = (DescribeAllowListsResponse) o;
-    return Objects.equals(this.allowLists, describeAllowListsResponse.allowLists);
+    return Objects.equals(this.allowLists, describeAllowListsResponse.allowLists) &&
+        Objects.equals(this.total, describeAllowListsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowLists);
+    return Objects.hash(allowLists, total);
   }
 
 
@@ -87,6 +110,7 @@ public class DescribeAllowListsResponse {
     sb.append("class DescribeAllowListsResponse {\n");
     
     sb.append("    allowLists: ").append(toIndentedString(allowLists)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

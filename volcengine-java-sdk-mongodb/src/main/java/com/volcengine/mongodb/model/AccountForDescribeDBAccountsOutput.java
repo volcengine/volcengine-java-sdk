@@ -31,15 +31,91 @@ import javax.validation.Valid;
  */
 
 
+
 public class AccountForDescribeDBAccountsOutput {
+  @SerializedName("AccountDesc")
+  private String accountDesc = null;
+
   @SerializedName("AccountName")
   private String accountName = null;
 
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForDescribeDBAccountsOutput> accountPrivileges = null;
 
-  @SerializedName("AccountType")
-  private String accountType = null;
+  /**
+   * Gets or Sets accountType
+   */
+  @JsonAdapter(AccountTypeEnum.Adapter.class)
+  public enum AccountTypeEnum {
+    @SerializedName("Super")
+    SUPER("Super"),
+    @SerializedName("UserAdmin")
+    USERADMIN("UserAdmin"),
+    @SerializedName("Normal")
+    NORMAL("Normal");
+
+    private String value;
+
+    AccountTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AccountTypeEnum fromValue(String input) {
+      for (AccountTypeEnum b : AccountTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AccountTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AccountType")
+  private AccountTypeEnum accountType = null;
+
+  @SerializedName("AuthDB")
+  private String authDB = null;
+
+  @SerializedName("CreateTime")
+  private String createTime = null;
+
+  @SerializedName("ModifyTime")
+  private String modifyTime = null;
+
+  public AccountForDescribeDBAccountsOutput accountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+    return this;
+  }
+
+   /**
+   * Get accountDesc
+   * @return accountDesc
+  **/
+  @Schema(description = "")
+  public String getAccountDesc() {
+    return accountDesc;
+  }
+
+  public void setAccountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+  }
 
   public AccountForDescribeDBAccountsOutput accountName(String accountName) {
     this.accountName = accountName;
@@ -86,7 +162,7 @@ public class AccountForDescribeDBAccountsOutput {
     this.accountPrivileges = accountPrivileges;
   }
 
-  public AccountForDescribeDBAccountsOutput accountType(String accountType) {
+  public AccountForDescribeDBAccountsOutput accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
     return this;
   }
@@ -96,12 +172,66 @@ public class AccountForDescribeDBAccountsOutput {
    * @return accountType
   **/
   @Schema(description = "")
-  public String getAccountType() {
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
-  public void setAccountType(String accountType) {
+  public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+  }
+
+  public AccountForDescribeDBAccountsOutput authDB(String authDB) {
+    this.authDB = authDB;
+    return this;
+  }
+
+   /**
+   * Get authDB
+   * @return authDB
+  **/
+  @Schema(description = "")
+  public String getAuthDB() {
+    return authDB;
+  }
+
+  public void setAuthDB(String authDB) {
+    this.authDB = authDB;
+  }
+
+  public AccountForDescribeDBAccountsOutput createTime(String createTime) {
+    this.createTime = createTime;
+    return this;
+  }
+
+   /**
+   * Get createTime
+   * @return createTime
+  **/
+  @Schema(description = "")
+  public String getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public AccountForDescribeDBAccountsOutput modifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+    return this;
+  }
+
+   /**
+   * Get modifyTime
+   * @return modifyTime
+  **/
+  @Schema(description = "")
+  public String getModifyTime() {
+    return modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
   }
 
 
@@ -114,14 +244,18 @@ public class AccountForDescribeDBAccountsOutput {
       return false;
     }
     AccountForDescribeDBAccountsOutput accountForDescribeDBAccountsOutput = (AccountForDescribeDBAccountsOutput) o;
-    return Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
+    return Objects.equals(this.accountDesc, accountForDescribeDBAccountsOutput.accountDesc) &&
+        Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
         Objects.equals(this.accountPrivileges, accountForDescribeDBAccountsOutput.accountPrivileges) &&
-        Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType);
+        Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType) &&
+        Objects.equals(this.authDB, accountForDescribeDBAccountsOutput.authDB) &&
+        Objects.equals(this.createTime, accountForDescribeDBAccountsOutput.createTime) &&
+        Objects.equals(this.modifyTime, accountForDescribeDBAccountsOutput.modifyTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivileges, accountType);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountType, authDB, createTime, modifyTime);
   }
 
 
@@ -130,9 +264,13 @@ public class AccountForDescribeDBAccountsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountForDescribeDBAccountsOutput {\n");
     
+    sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    authDB: ").append(toIndentedString(authDB)).append("\n");
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    modifyTime: ").append(toIndentedString(modifyTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

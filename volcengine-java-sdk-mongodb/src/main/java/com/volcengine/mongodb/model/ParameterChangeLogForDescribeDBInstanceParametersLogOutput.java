@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
   @SerializedName("ModifyTime")
   private String modifyTime = null;
@@ -41,11 +42,105 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
   @SerializedName("ParameterName")
   private String parameterName = null;
 
-  @SerializedName("ParameterRole")
-  private String parameterRole = null;
+  /**
+   * Gets or Sets parameterRole
+   */
+  @JsonAdapter(ParameterRoleEnum.Adapter.class)
+  public enum ParameterRoleEnum {
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Node")
+    NODE("Node"),
+    @SerializedName("Shard")
+    SHARD("Shard"),
+    @SerializedName("ConfigServer")
+    CONFIGSERVER("ConfigServer"),
+    @SerializedName("Mongos")
+    MONGOS("Mongos");
 
-  @SerializedName("ParameterStatus")
-  private String parameterStatus = null;
+    private String value;
+
+    ParameterRoleEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParameterRoleEnum fromValue(String input) {
+      for (ParameterRoleEnum b : ParameterRoleEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParameterRoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParameterRoleEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParameterRoleEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParameterRoleEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParameterRole")
+  private ParameterRoleEnum parameterRole = null;
+
+  /**
+   * Gets or Sets parameterStatus
+   */
+  @JsonAdapter(ParameterStatusEnum.Adapter.class)
+  public enum ParameterStatusEnum {
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Applied")
+    APPLIED("Applied"),
+    @SerializedName("Invalid")
+    INVALID("Invalid");
+
+    private String value;
+
+    ParameterStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParameterStatusEnum fromValue(String input) {
+      for (ParameterStatusEnum b : ParameterStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParameterStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParameterStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParameterStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParameterStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParameterStatus")
+  private ParameterStatusEnum parameterStatus = null;
 
   public ParameterChangeLogForDescribeDBInstanceParametersLogOutput modifyTime(String modifyTime) {
     this.modifyTime = modifyTime;
@@ -119,7 +214,7 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
     this.parameterName = parameterName;
   }
 
-  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput parameterRole(String parameterRole) {
+  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput parameterRole(ParameterRoleEnum parameterRole) {
     this.parameterRole = parameterRole;
     return this;
   }
@@ -129,15 +224,15 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
    * @return parameterRole
   **/
   @Schema(description = "")
-  public String getParameterRole() {
+  public ParameterRoleEnum getParameterRole() {
     return parameterRole;
   }
 
-  public void setParameterRole(String parameterRole) {
+  public void setParameterRole(ParameterRoleEnum parameterRole) {
     this.parameterRole = parameterRole;
   }
 
-  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput parameterStatus(String parameterStatus) {
+  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput parameterStatus(ParameterStatusEnum parameterStatus) {
     this.parameterStatus = parameterStatus;
     return this;
   }
@@ -147,11 +242,11 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
    * @return parameterStatus
   **/
   @Schema(description = "")
-  public String getParameterStatus() {
+  public ParameterStatusEnum getParameterStatus() {
     return parameterStatus;
   }
 
-  public void setParameterStatus(String parameterStatus) {
+  public void setParameterStatus(ParameterStatusEnum parameterStatus) {
     this.parameterStatus = parameterStatus;
   }
 

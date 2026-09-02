@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ParametersObjectForModifyDBInstanceParametersInput {
   @SerializedName("ParameterName")
   private String parameterName = null;
@@ -37,11 +38,16 @@ public class ParametersObjectForModifyDBInstanceParametersInput {
    */
   @JsonAdapter(ParameterRoleEnum.Adapter.class)
   public enum ParameterRoleEnum {
-    CONFIGSERVER("ConfigServer"),
-    MONGOS("Mongos"),
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Node")
     NODE("Node"),
+    @SerializedName("Shard")
     SHARD("Shard"),
-    UNKNOWN("Unknown");
+    @SerializedName("ConfigServer")
+    CONFIGSERVER("ConfigServer"),
+    @SerializedName("Mongos")
+    MONGOS("Mongos");
 
     private String value;
 

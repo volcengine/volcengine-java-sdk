@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeSpecForDescribeNodeSpecsOutput {
   @SerializedName("CpuNum")
   private Double cpuNum = null;
@@ -40,6 +41,9 @@ public class NodeSpecForDescribeNodeSpecsOutput {
 
   @SerializedName("MemInGb")
   private Double memInGb = null;
+
+  @SerializedName("MinStorage")
+  private Long minStorage = null;
 
   @SerializedName("SpecName")
   private String specName = null;
@@ -116,6 +120,24 @@ public class NodeSpecForDescribeNodeSpecsOutput {
     this.memInGb = memInGb;
   }
 
+  public NodeSpecForDescribeNodeSpecsOutput minStorage(Long minStorage) {
+    this.minStorage = minStorage;
+    return this;
+  }
+
+   /**
+   * Get minStorage
+   * @return minStorage
+  **/
+  @Schema(description = "")
+  public Long getMinStorage() {
+    return minStorage;
+  }
+
+  public void setMinStorage(Long minStorage) {
+    this.minStorage = minStorage;
+  }
+
   public NodeSpecForDescribeNodeSpecsOutput specName(String specName) {
     this.specName = specName;
     return this;
@@ -148,12 +170,13 @@ public class NodeSpecForDescribeNodeSpecsOutput {
         Objects.equals(this.maxConn, nodeSpecForDescribeNodeSpecsOutput.maxConn) &&
         Objects.equals(this.maxStorage, nodeSpecForDescribeNodeSpecsOutput.maxStorage) &&
         Objects.equals(this.memInGb, nodeSpecForDescribeNodeSpecsOutput.memInGb) &&
+        Objects.equals(this.minStorage, nodeSpecForDescribeNodeSpecsOutput.minStorage) &&
         Objects.equals(this.specName, nodeSpecForDescribeNodeSpecsOutput.specName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuNum, maxConn, maxStorage, memInGb, specName);
+    return Objects.hash(cpuNum, maxConn, maxStorage, memInGb, minStorage, specName);
   }
 
 
@@ -166,6 +189,7 @@ public class NodeSpecForDescribeNodeSpecsOutput {
     sb.append("    maxConn: ").append(toIndentedString(maxConn)).append("\n");
     sb.append("    maxStorage: ").append(toIndentedString(maxStorage)).append("\n");
     sb.append("    memInGb: ").append(toIndentedString(memInGb)).append("\n");
+    sb.append("    minStorage: ").append(toIndentedString(minStorage)).append("\n");
     sb.append("    specName: ").append(toIndentedString(specName)).append("\n");
     sb.append("}");
     return sb.toString();

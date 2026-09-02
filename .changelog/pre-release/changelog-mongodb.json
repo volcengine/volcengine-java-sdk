@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "DescribeDBInstanceBackupPolicy",
+    "DescribeDBInstanceBackupURL",
+    "RestoreToNewInstance",
+    "CreateDBInstance"
+  ],
+  "description": "MONGODB: 修改 CreateDBInstance, DescribeDBInstanceBackupPolicy, DescribeDBInstanceBackupURL, RestoreToNewInstance",
+  "modules": "service/mongodb",
+  "type": "feature"
+}

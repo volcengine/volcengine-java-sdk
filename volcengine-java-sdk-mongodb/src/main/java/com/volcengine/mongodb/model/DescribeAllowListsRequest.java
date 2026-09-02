@@ -28,12 +28,86 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAllowListsRequest {
+  /**
+   * Gets or Sets allowListCategory
+   */
+  @JsonAdapter(AllowListCategoryEnum.Adapter.class)
+  public enum AllowListCategoryEnum {
+    @SerializedName("Ordinary")
+    ORDINARY("Ordinary"),
+    @SerializedName("Default")
+    DEFAULT("Default");
+
+    private String value;
+
+    AllowListCategoryEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AllowListCategoryEnum fromValue(String input) {
+      for (AllowListCategoryEnum b : AllowListCategoryEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AllowListCategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowListCategoryEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AllowListCategoryEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AllowListCategoryEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AllowListCategory")
+  private AllowListCategoryEnum allowListCategory = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("PageNumber")
+  private Long pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Long pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
+
+  public DescribeAllowListsRequest allowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public AllowListCategoryEnum getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
+  }
 
   public DescribeAllowListsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -53,6 +127,60 @@ public class DescribeAllowListsRequest {
     this.instanceId = instanceId;
   }
 
+  public DescribeAllowListsRequest pageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Long getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeAllowListsRequest pageSize(Long pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Long getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Long pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public DescribeAllowListsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeAllowListsRequest regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -62,7 +190,8 @@ public class DescribeAllowListsRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }
@@ -81,13 +210,17 @@ public class DescribeAllowListsRequest {
       return false;
     }
     DescribeAllowListsRequest describeAllowListsRequest = (DescribeAllowListsRequest) o;
-    return Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
+    return Objects.equals(this.allowListCategory, describeAllowListsRequest.allowListCategory) &&
+        Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeAllowListsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeAllowListsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeAllowListsRequest.projectName) &&
         Objects.equals(this.regionId, describeAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, regionId);
+    return Objects.hash(allowListCategory, instanceId, pageNumber, pageSize, projectName, regionId);
   }
 
 
@@ -96,7 +229,11 @@ public class DescribeAllowListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAllowListsRequest {\n");
     
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();

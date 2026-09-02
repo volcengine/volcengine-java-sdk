@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDBEndpointRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;
@@ -49,7 +50,8 @@ public class DeleteDBEndpointRequest {
    * Get endpointId
    * @return endpointId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEndpointId() {
     return endpointId;
   }

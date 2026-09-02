@@ -23,6 +23,7 @@ import com.volcengine.mongodb.model.ConfigServerForDescribeDBInstanceDetailOutpu
 import com.volcengine.mongodb.model.MongoForDescribeDBInstanceDetailOutput;
 import com.volcengine.mongodb.model.NodeForDescribeDBInstanceDetailOutput;
 import com.volcengine.mongodb.model.ShardForDescribeDBInstanceDetailOutput;
+import com.volcengine.mongodb.model.TagForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,15 +35,114 @@ import javax.validation.Valid;
  */
 
 
+
 public class DBInstanceForDescribeDBInstanceDetailOutput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
-  @SerializedName("ChargeStatus")
-  private String chargeStatus = null;
+  /**
+   * Gets or Sets chargeStatus
+   */
+  @JsonAdapter(ChargeStatusEnum.Adapter.class)
+  public enum ChargeStatusEnum {
+    @SerializedName("Normal")
+    NORMAL("Normal"),
+    @SerializedName("Overdue")
+    OVERDUE("Overdue"),
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("UnDeploy")
+    UNDEPLOY("UnDeploy"),
+    @SerializedName("Renewing")
+    RENEWING("Renewing"),
+    @SerializedName("Owing")
+    OWING("Owing"),
+    @SerializedName("Unsubscribing")
+    UNSUBSCRIBING("Unsubscribing");
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+    private String value;
+
+    ChargeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeStatusEnum fromValue(String input) {
+      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeStatus")
+  private ChargeStatusEnum chargeStatus = null;
+
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("NotEnabled")
+    NOTENABLED("NotEnabled"),
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("Prepaid")
+    PREPAID("Prepaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("ClosedTime")
   private String closedTime = null;
@@ -56,11 +156,103 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DBEngine")
-  private String dbEngine = null;
+  /**
+   * Gets or Sets dbEngine
+   */
+  @JsonAdapter(DbEngineEnum.Adapter.class)
+  public enum DbEngineEnum {
+    @SerializedName("MongoDB")
+    MONGODB("MongoDB");
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+    private String value;
+
+    DbEngineEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineEnum fromValue(String input) {
+      for (DbEngineEnum b : DbEngineEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngine")
+  private DbEngineEnum dbEngine = null;
+
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MongoDB_4_0")
+    MONGODB_4_0("MongoDB_4_0"),
+    @SerializedName("MongoDB_4_2")
+    MONGODB_4_2("MongoDB_4_2"),
+    @SerializedName("MongoDB_4_4")
+    MONGODB_4_4("MongoDB_4_4"),
+    @SerializedName("MongoDB_5_0")
+    MONGODB_5_0("MongoDB_5_0"),
+    @SerializedName("MongoDB_6_0")
+    MONGODB_6_0("MongoDB_6_0"),
+    @SerializedName("MongoDB_Inner_4_0")
+    MONGODB_INNER_4_0("MongoDB_Inner_4_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("DBEngineVersionStr")
   private String dbEngineVersionStr = null;
@@ -74,11 +266,167 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Destroying")
+    DESTROYING("Destroying"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Rebuilding")
+    REBUILDING("Rebuilding"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Migrating")
+    MIGRATING("Migrating"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Importing")
+    IMPORTING("Importing"),
+    @SerializedName("Error")
+    ERROR("Error"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Recycled")
+    RECYCLED("Recycled"),
+    @SerializedName("Closed")
+    CLOSED("Closed"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("NetCreating")
+    NETCREATING("NetCreating"),
+    @SerializedName("NetReleasing")
+    NETRELEASING("NetReleasing"),
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Released")
+    RELEASED("Released"),
+    @SerializedName("Destroyed")
+    DESTROYED("Destroyed"),
+    @SerializedName("Reclaiming")
+    RECLAIMING("Reclaiming"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    @SerializedName("TaskFailed_Available")
+    TASKFAILED_AVAILABLE("TaskFailed_Available"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("NetworkMaintaining")
+    NETWORKMAINTAINING("NetworkMaintaining"),
+    @SerializedName("TDEMaintaining")
+    TDEMAINTAINING("TDEMaintaining"),
+    @SerializedName("SSLUpdating")
+    SSLUPDATING("SSLUpdating"),
+    @SerializedName("SwitchMastering")
+    SWITCHMASTERING("SwitchMastering"),
+    @SerializedName("Temporary")
+    TEMPORARY("Temporary"),
+    @SerializedName("RoleChanging")
+    ROLECHANGING("RoleChanging"),
+    @SerializedName("CrossClusterMigrating")
+    CROSSCLUSTERMIGRATING("CrossClusterMigrating"),
+    @SerializedName("CrossNodeMigrating")
+    CROSSNODEMIGRATING("CrossNodeMigrating"),
+    @SerializedName("MultiAzMigrating")
+    MULTIAZMIGRATING("MultiAzMigrating");
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
+
+  /**
+   * Gets or Sets instanceType
+   */
+  @JsonAdapter(InstanceTypeEnum.Adapter.class)
+  public enum InstanceTypeEnum {
+    @SerializedName("ReplicaSet")
+    REPLICASET("ReplicaSet"),
+    @SerializedName("ShardedCluster")
+    SHARDEDCLUSTER("ShardedCluster");
+
+    private String value;
+
+    InstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceTypeEnum fromValue(String input) {
+      for (InstanceTypeEnum b : InstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceType")
+  private InstanceTypeEnum instanceType = null;
 
   @SerializedName("Mongos")
   private List<MongoForDescribeDBInstanceDetailOutput> mongos = null;
@@ -89,8 +437,14 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceDetailOutput> nodes = null;
 
+  @SerializedName("PrivateEndpoint")
+  private String privateEndpoint = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ReadOnlyNodeNumber")
+  private Integer readOnlyNodeNumber = null;
 
   @SerializedName("ReclaimTime")
   private String reclaimTime = null;
@@ -98,8 +452,67 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
   @SerializedName("Shards")
   private List<ShardForDescribeDBInstanceDetailOutput> shards = null;
 
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("LocalSSD")
+    LOCALSSD("LocalSSD"),
+    @SerializedName("LocalHDD")
+    LOCALHDD("LocalHDD"),
+    @SerializedName("ESSD_FlexPL")
+    ESSD_FLEXPL("ESSD_FlexPL"),
+    @SerializedName("ESSD_PL0")
+    ESSD_PL0("ESSD_PL0"),
+    @SerializedName("ESSD_PL1")
+    ESSD_PL1("ESSD_PL1"),
+    @SerializedName("ESSD_PL2")
+    ESSD_PL2("ESSD_PL2"),
+    @SerializedName("ESSD")
+    ESSD("ESSD");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeDBInstanceDetailOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -128,7 +541,7 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     this.autoRenew = autoRenew;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput chargeStatus(String chargeStatus) {
+  public DBInstanceForDescribeDBInstanceDetailOutput chargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -138,15 +551,15 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public String getChargeStatus() {
+  public ChargeStatusEnum getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(String chargeStatus) {
+  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput chargeType(String chargeType) {
+  public DBInstanceForDescribeDBInstanceDetailOutput chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -156,11 +569,11 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -245,7 +658,7 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     this.createTime = createTime;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput dbEngine(String dbEngine) {
+  public DBInstanceForDescribeDBInstanceDetailOutput dbEngine(DbEngineEnum dbEngine) {
     this.dbEngine = dbEngine;
     return this;
   }
@@ -255,15 +668,15 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return dbEngine
   **/
   @Schema(description = "")
-  public String getDbEngine() {
+  public DbEngineEnum getDbEngine() {
     return dbEngine;
   }
 
-  public void setDbEngine(String dbEngine) {
+  public void setDbEngine(DbEngineEnum dbEngine) {
     this.dbEngine = dbEngine;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput dbEngineVersion(String dbEngineVersion) {
+  public DBInstanceForDescribeDBInstanceDetailOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -273,11 +686,11 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -353,7 +766,7 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     this.instanceName = instanceName;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput instanceStatus(String instanceStatus) {
+  public DBInstanceForDescribeDBInstanceDetailOutput instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -363,15 +776,15 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
-  public DBInstanceForDescribeDBInstanceDetailOutput instanceType(String instanceType) {
+  public DBInstanceForDescribeDBInstanceDetailOutput instanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -381,11 +794,11 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
    * @return instanceType
   **/
   @Schema(description = "")
-  public String getInstanceType() {
+  public InstanceTypeEnum getInstanceType() {
     return instanceType;
   }
 
-  public void setInstanceType(String instanceType) {
+  public void setInstanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
   }
 
@@ -461,6 +874,24 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     this.nodes = nodes;
   }
 
+  public DBInstanceForDescribeDBInstanceDetailOutput privateEndpoint(String privateEndpoint) {
+    this.privateEndpoint = privateEndpoint;
+    return this;
+  }
+
+   /**
+   * Get privateEndpoint
+   * @return privateEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrivateEndpoint() {
+    return privateEndpoint;
+  }
+
+  public void setPrivateEndpoint(String privateEndpoint) {
+    this.privateEndpoint = privateEndpoint;
+  }
+
   public DBInstanceForDescribeDBInstanceDetailOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -477,6 +908,24 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public DBInstanceForDescribeDBInstanceDetailOutput readOnlyNodeNumber(Integer readOnlyNodeNumber) {
+    this.readOnlyNodeNumber = readOnlyNodeNumber;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeNumber
+   * @return readOnlyNodeNumber
+  **/
+  @Schema(description = "")
+  public Integer getReadOnlyNodeNumber() {
+    return readOnlyNodeNumber;
+  }
+
+  public void setReadOnlyNodeNumber(Integer readOnlyNodeNumber) {
+    this.readOnlyNodeNumber = readOnlyNodeNumber;
   }
 
   public DBInstanceForDescribeDBInstanceDetailOutput reclaimTime(String reclaimTime) {
@@ -524,6 +973,24 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     this.shards = shards;
   }
 
+  public DBInstanceForDescribeDBInstanceDetailOutput storageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public StorageTypeEnum getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(StorageTypeEnum storageType) {
+    this.storageType = storageType;
+  }
+
   public DBInstanceForDescribeDBInstanceDetailOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -540,6 +1007,33 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public DBInstanceForDescribeDBInstanceDetailOutput tags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DBInstanceForDescribeDBInstanceDetailOutput addTagsItem(TagForDescribeDBInstanceDetailOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeDBInstanceDetailOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeDBInstanceDetailOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+    this.tags = tags;
   }
 
   public DBInstanceForDescribeDBInstanceDetailOutput updateTime(String updateTime) {
@@ -624,10 +1118,14 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
         Objects.equals(this.mongos, dbInstanceForDescribeDBInstanceDetailOutput.mongos) &&
         Objects.equals(this.mongosId, dbInstanceForDescribeDBInstanceDetailOutput.mongosId) &&
         Objects.equals(this.nodes, dbInstanceForDescribeDBInstanceDetailOutput.nodes) &&
+        Objects.equals(this.privateEndpoint, dbInstanceForDescribeDBInstanceDetailOutput.privateEndpoint) &&
         Objects.equals(this.projectName, dbInstanceForDescribeDBInstanceDetailOutput.projectName) &&
+        Objects.equals(this.readOnlyNodeNumber, dbInstanceForDescribeDBInstanceDetailOutput.readOnlyNodeNumber) &&
         Objects.equals(this.reclaimTime, dbInstanceForDescribeDBInstanceDetailOutput.reclaimTime) &&
         Objects.equals(this.shards, dbInstanceForDescribeDBInstanceDetailOutput.shards) &&
+        Objects.equals(this.storageType, dbInstanceForDescribeDBInstanceDetailOutput.storageType) &&
         Objects.equals(this.subnetId, dbInstanceForDescribeDBInstanceDetailOutput.subnetId) &&
+        Objects.equals(this.tags, dbInstanceForDescribeDBInstanceDetailOutput.tags) &&
         Objects.equals(this.updateTime, dbInstanceForDescribeDBInstanceDetailOutput.updateTime) &&
         Objects.equals(this.vpcId, dbInstanceForDescribeDBInstanceDetailOutput.vpcId) &&
         Objects.equals(this.zoneId, dbInstanceForDescribeDBInstanceDetailOutput.zoneId);
@@ -635,7 +1133,7 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeStatus, chargeType, closedTime, configServers, configServersId, createTime, dbEngine, dbEngineVersion, dbEngineVersionStr, expiredTime, instanceId, instanceName, instanceStatus, instanceType, mongos, mongosId, nodes, projectName, reclaimTime, shards, subnetId, updateTime, vpcId, zoneId);
+    return Objects.hash(autoRenew, chargeStatus, chargeType, closedTime, configServers, configServersId, createTime, dbEngine, dbEngineVersion, dbEngineVersionStr, expiredTime, instanceId, instanceName, instanceStatus, instanceType, mongos, mongosId, nodes, privateEndpoint, projectName, readOnlyNodeNumber, reclaimTime, shards, storageType, subnetId, tags, updateTime, vpcId, zoneId);
   }
 
 
@@ -662,10 +1160,14 @@ public class DBInstanceForDescribeDBInstanceDetailOutput {
     sb.append("    mongos: ").append(toIndentedString(mongos)).append("\n");
     sb.append("    mongosId: ").append(toIndentedString(mongosId)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    privateEndpoint: ").append(toIndentedString(privateEndpoint)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    readOnlyNodeNumber: ").append(toIndentedString(readOnlyNodeNumber)).append("\n");
     sb.append("    reclaimTime: ").append(toIndentedString(reclaimTime)).append("\n");
     sb.append("    shards: ").append(toIndentedString(shards)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

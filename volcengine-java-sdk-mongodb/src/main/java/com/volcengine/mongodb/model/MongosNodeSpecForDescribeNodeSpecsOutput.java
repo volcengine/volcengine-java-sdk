@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class MongosNodeSpecForDescribeNodeSpecsOutput {
   @SerializedName("CpuNum")
   private Double cpuNum = null;
