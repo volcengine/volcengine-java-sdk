@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EBSVolumeForListSandboxesOutput;
 import com.volcengine.vefaas.model.InstanceEfsMountConfigForListSandboxesOutput;
-import com.volcengine.vefaas.model.NetworkRulesForListSandboxesOutput;
 import com.volcengine.vefaas.model.SidecarForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -82,9 +81,6 @@ public class SandboxForListSandboxesOutput {
 
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
-
-  @SerializedName("NetworkRules")
-  private NetworkRulesForListSandboxesOutput networkRules = null;
 
   @SerializedName("PausedAt")
   private String pausedAt = null;
@@ -398,25 +394,6 @@ public class SandboxForListSandboxesOutput {
     this.metadata = metadata;
   }
 
-  public SandboxForListSandboxesOutput networkRules(NetworkRulesForListSandboxesOutput networkRules) {
-    this.networkRules = networkRules;
-    return this;
-  }
-
-   /**
-   * Get networkRules
-   * @return networkRules
-  **/
-  @Valid
-  @Schema(description = "")
-  public NetworkRulesForListSandboxesOutput getNetworkRules() {
-    return networkRules;
-  }
-
-  public void setNetworkRules(NetworkRulesForListSandboxesOutput networkRules) {
-    this.networkRules = networkRules;
-  }
-
   public SandboxForListSandboxesOutput pausedAt(String pausedAt) {
     this.pausedAt = pausedAt;
     return this;
@@ -603,7 +580,6 @@ public class SandboxForListSandboxesOutput {
         Objects.equals(this.instanceType, sandboxForListSandboxesOutput.instanceType) &&
         Objects.equals(this.memoryMB, sandboxForListSandboxesOutput.memoryMB) &&
         Objects.equals(this.metadata, sandboxForListSandboxesOutput.metadata) &&
-        Objects.equals(this.networkRules, sandboxForListSandboxesOutput.networkRules) &&
         Objects.equals(this.pausedAt, sandboxForListSandboxesOutput.pausedAt) &&
         Objects.equals(this.pending, sandboxForListSandboxesOutput.pending) &&
         Objects.equals(this.revisionNumber, sandboxForListSandboxesOutput.revisionNumber) &&
@@ -616,7 +592,7 @@ public class SandboxForListSandboxesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, ebSVolumes, errorCode, errorMessage, expireAt, functionId, id, image, instanceEfsMountConfig, instanceType, memoryMB, metadata, networkRules, pausedAt, pending, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
+    return Objects.hash(assignStatus, availabilityZone, cpuMilli, createdAt, ebSVolumes, errorCode, errorMessage, expireAt, functionId, id, image, instanceEfsMountConfig, instanceType, memoryMB, metadata, pausedAt, pending, revisionNumber, roleChainTrn, roleTrn, sessionId, sidecars, status);
   }
 
 
@@ -640,7 +616,6 @@ public class SandboxForListSandboxesOutput {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
     sb.append("    pausedAt: ").append(toIndentedString(pausedAt)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");

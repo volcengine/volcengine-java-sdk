@@ -30,19 +30,19 @@ import javax.validation.Valid;
 
 
 public class QuotaInfoListForGetPoolQuotaInfoOutput {
-  @SerializedName("availableAmount")
-  private Integer availableAmount = null;
+  @SerializedName("AvailableAmount")
+  private Long availableAmount = null;
 
-  @SerializedName("configurationCode")
+  @SerializedName("ConfigurationCode")
   private String configurationCode = null;
 
-  @SerializedName("packageName")
+  @SerializedName("PackageName")
   private String packageName = null;
 
-  @SerializedName("totalAmount")
-  private Integer totalAmount = null;
+  @SerializedName("TotalAmount")
+  private Long totalAmount = null;
 
-  public QuotaInfoListForGetPoolQuotaInfoOutput availableAmount(Integer availableAmount) {
+  public QuotaInfoListForGetPoolQuotaInfoOutput availableAmount(Long availableAmount) {
     this.availableAmount = availableAmount;
     return this;
   }
@@ -52,11 +52,11 @@ public class QuotaInfoListForGetPoolQuotaInfoOutput {
    * @return availableAmount
   **/
   @Schema(description = "")
-  public Integer getAvailableAmount() {
+  public Long getAvailableAmount() {
     return availableAmount;
   }
 
-  public void setAvailableAmount(Integer availableAmount) {
+  public void setAvailableAmount(Long availableAmount) {
     this.availableAmount = availableAmount;
   }
 
@@ -96,7 +96,7 @@ public class QuotaInfoListForGetPoolQuotaInfoOutput {
     this.packageName = packageName;
   }
 
-  public QuotaInfoListForGetPoolQuotaInfoOutput totalAmount(Integer totalAmount) {
+  public QuotaInfoListForGetPoolQuotaInfoOutput totalAmount(Long totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
@@ -106,11 +106,11 @@ public class QuotaInfoListForGetPoolQuotaInfoOutput {
    * @return totalAmount
   **/
   @Schema(description = "")
-  public Integer getTotalAmount() {
+  public Long getTotalAmount() {
     return totalAmount;
   }
 
-  public void setTotalAmount(Integer totalAmount) {
+  public void setTotalAmount(Long totalAmount) {
     this.totalAmount = totalAmount;
   }
 

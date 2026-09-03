@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.BackendForListRevisionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,8 +30,14 @@ import javax.validation.Valid;
 
 
 public class ConvertMountPointForListRevisionsOutput {
-  @SerializedName("Backend")
-  private BackendForListRevisionsOutput backend = null;
+  @SerializedName("BucketName")
+  private String bucketName = null;
+
+  @SerializedName("BucketPath")
+  private String bucketPath = null;
+
+  @SerializedName("Endpoint")
+  private String endpoint = null;
 
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
@@ -40,23 +45,58 @@ public class ConvertMountPointForListRevisionsOutput {
   @SerializedName("ReadOnly")
   private Boolean readOnly = null;
 
-  public ConvertMountPointForListRevisionsOutput backend(BackendForListRevisionsOutput backend) {
-    this.backend = backend;
+  public ConvertMountPointForListRevisionsOutput bucketName(String bucketName) {
+    this.bucketName = bucketName;
     return this;
   }
 
    /**
-   * Get backend
-   * @return backend
+   * Get bucketName
+   * @return bucketName
   **/
-  @Valid
   @Schema(description = "")
-  public BackendForListRevisionsOutput getBackend() {
-    return backend;
+  public String getBucketName() {
+    return bucketName;
   }
 
-  public void setBackend(BackendForListRevisionsOutput backend) {
-    this.backend = backend;
+  public void setBucketName(String bucketName) {
+    this.bucketName = bucketName;
+  }
+
+  public ConvertMountPointForListRevisionsOutput bucketPath(String bucketPath) {
+    this.bucketPath = bucketPath;
+    return this;
+  }
+
+   /**
+   * Get bucketPath
+   * @return bucketPath
+  **/
+  @Schema(description = "")
+  public String getBucketPath() {
+    return bucketPath;
+  }
+
+  public void setBucketPath(String bucketPath) {
+    this.bucketPath = bucketPath;
+  }
+
+  public ConvertMountPointForListRevisionsOutput endpoint(String endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * Get endpoint
+   * @return endpoint
+  **/
+  @Schema(description = "")
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
   }
 
   public ConvertMountPointForListRevisionsOutput localMountPath(String localMountPath) {
@@ -105,14 +145,16 @@ public class ConvertMountPointForListRevisionsOutput {
       return false;
     }
     ConvertMountPointForListRevisionsOutput convertMountPointForListRevisionsOutput = (ConvertMountPointForListRevisionsOutput) o;
-    return Objects.equals(this.backend, convertMountPointForListRevisionsOutput.backend) &&
+    return Objects.equals(this.bucketName, convertMountPointForListRevisionsOutput.bucketName) &&
+        Objects.equals(this.bucketPath, convertMountPointForListRevisionsOutput.bucketPath) &&
+        Objects.equals(this.endpoint, convertMountPointForListRevisionsOutput.endpoint) &&
         Objects.equals(this.localMountPath, convertMountPointForListRevisionsOutput.localMountPath) &&
         Objects.equals(this.readOnly, convertMountPointForListRevisionsOutput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend, localMountPath, readOnly);
+    return Objects.hash(bucketName, bucketPath, endpoint, localMountPath, readOnly);
   }
 
 
@@ -121,7 +163,9 @@ public class ConvertMountPointForListRevisionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertMountPointForListRevisionsOutput {\n");
     
-    sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
+    sb.append("    bucketPath: ").append(toIndentedString(bucketPath)).append("\n");
+    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");

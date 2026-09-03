@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class PoolListForGetPoolDetailListOutput {
   @SerializedName("AvailableAmount")
-  private Integer availableAmount = null;
+  private Long availableAmount = null;
 
   @SerializedName("BeginTime")
   private Long beginTime = null;
@@ -61,9 +61,9 @@ public class PoolListForGetPoolDetailListOutput {
   private String tcOrderID = null;
 
   @SerializedName("TotalAmount")
-  private Integer totalAmount = null;
+  private Long totalAmount = null;
 
-  public PoolListForGetPoolDetailListOutput availableAmount(Integer availableAmount) {
+  public PoolListForGetPoolDetailListOutput availableAmount(Long availableAmount) {
     this.availableAmount = availableAmount;
     return this;
   }
@@ -73,11 +73,11 @@ public class PoolListForGetPoolDetailListOutput {
    * @return availableAmount
   **/
   @Schema(description = "")
-  public Integer getAvailableAmount() {
+  public Long getAvailableAmount() {
     return availableAmount;
   }
 
-  public void setAvailableAmount(Integer availableAmount) {
+  public void setAvailableAmount(Long availableAmount) {
     this.availableAmount = availableAmount;
   }
 
@@ -243,7 +243,7 @@ public class PoolListForGetPoolDetailListOutput {
     this.tcOrderID = tcOrderID;
   }
 
-  public PoolListForGetPoolDetailListOutput totalAmount(Integer totalAmount) {
+  public PoolListForGetPoolDetailListOutput totalAmount(Long totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
@@ -253,11 +253,11 @@ public class PoolListForGetPoolDetailListOutput {
    * @return totalAmount
   **/
   @Schema(description = "")
-  public Integer getTotalAmount() {
+  public Long getTotalAmount() {
     return totalAmount;
   }
 
-  public void setTotalAmount(Integer totalAmount) {
+  public void setTotalAmount(Long totalAmount) {
     this.totalAmount = totalAmount;
   }
 

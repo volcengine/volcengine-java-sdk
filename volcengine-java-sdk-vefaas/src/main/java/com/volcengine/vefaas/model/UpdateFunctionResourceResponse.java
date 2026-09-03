@@ -33,6 +33,9 @@ public class UpdateFunctionResourceResponse extends com.volcengine.model.Abstrac
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("IdleInstance")
+  private Integer idleInstance = null;
+
   @SerializedName("MaxInstance")
   private Integer maxInstance = null;
 
@@ -58,6 +61,24 @@ public class UpdateFunctionResourceResponse extends com.volcengine.model.Abstrac
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public UpdateFunctionResourceResponse idleInstance(Integer idleInstance) {
+    this.idleInstance = idleInstance;
+    return this;
+  }
+
+   /**
+   * Get idleInstance
+   * @return idleInstance
+  **/
+  @Schema(description = "")
+  public Integer getIdleInstance() {
+    return idleInstance;
+  }
+
+  public void setIdleInstance(Integer idleInstance) {
+    this.idleInstance = idleInstance;
   }
 
   public UpdateFunctionResourceResponse maxInstance(Integer maxInstance) {
@@ -125,6 +146,7 @@ public class UpdateFunctionResourceResponse extends com.volcengine.model.Abstrac
     }
     UpdateFunctionResourceResponse updateFunctionResourceResponse = (UpdateFunctionResourceResponse) o;
     return Objects.equals(this.id, updateFunctionResourceResponse.id) &&
+        Objects.equals(this.idleInstance, updateFunctionResourceResponse.idleInstance) &&
         Objects.equals(this.maxInstance, updateFunctionResourceResponse.maxInstance) &&
         Objects.equals(this.minInstance, updateFunctionResourceResponse.minInstance) &&
         Objects.equals(this.reservedFrozenInstance, updateFunctionResourceResponse.reservedFrozenInstance);
@@ -132,7 +154,7 @@ public class UpdateFunctionResourceResponse extends com.volcengine.model.Abstrac
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, maxInstance, minInstance, reservedFrozenInstance);
+    return Objects.hash(id, idleInstance, maxInstance, minInstance, reservedFrozenInstance);
   }
 
 
@@ -142,6 +164,7 @@ public class UpdateFunctionResourceResponse extends com.volcengine.model.Abstrac
     sb.append("class UpdateFunctionResourceResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    idleInstance: ").append(toIndentedString(idleInstance)).append("\n");
     sb.append("    maxInstance: ").append(toIndentedString(maxInstance)).append("\n");
     sb.append("    minInstance: ").append(toIndentedString(minInstance)).append("\n");
     sb.append("    reservedFrozenInstance: ").append(toIndentedString(reservedFrozenInstance)).append("\n");

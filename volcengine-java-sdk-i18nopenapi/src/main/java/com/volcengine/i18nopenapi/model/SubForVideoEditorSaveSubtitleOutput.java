@@ -35,12 +35,6 @@ public class SubForVideoEditorSaveSubtitleOutput {
   @SerializedName("aiVoiceId")
   private String aiVoiceId = null;
 
-  @SerializedName("assistText")
-  private String assistText = null;
-
-  @SerializedName("assistTextType")
-  private Integer assistTextType = null;
-
   @SerializedName("createTime")
   private String createTime = null;
 
@@ -53,14 +47,8 @@ public class SubForVideoEditorSaveSubtitleOutput {
   @SerializedName("endTime")
   private String endTime = null;
 
-  @SerializedName("extra")
-  private String extra = null;
-
   @SerializedName("operator")
   private String operator = null;
-
-  @SerializedName("relatedSegmentId")
-  private String relatedSegmentId = null;
 
   @SerializedName("segmentId")
   private String segmentId = null;
@@ -108,42 +96,6 @@ public class SubForVideoEditorSaveSubtitleOutput {
 
   public void setAiVoiceId(String aiVoiceId) {
     this.aiVoiceId = aiVoiceId;
-  }
-
-  public SubForVideoEditorSaveSubtitleOutput assistText(String assistText) {
-    this.assistText = assistText;
-    return this;
-  }
-
-   /**
-   * Get assistText
-   * @return assistText
-  **/
-  @Schema(description = "")
-  public String getAssistText() {
-    return assistText;
-  }
-
-  public void setAssistText(String assistText) {
-    this.assistText = assistText;
-  }
-
-  public SubForVideoEditorSaveSubtitleOutput assistTextType(Integer assistTextType) {
-    this.assistTextType = assistTextType;
-    return this;
-  }
-
-   /**
-   * Get assistTextType
-   * @return assistTextType
-  **/
-  @Schema(description = "")
-  public Integer getAssistTextType() {
-    return assistTextType;
-  }
-
-  public void setAssistTextType(Integer assistTextType) {
-    this.assistTextType = assistTextType;
   }
 
   public SubForVideoEditorSaveSubtitleOutput createTime(String createTime) {
@@ -218,24 +170,6 @@ public class SubForVideoEditorSaveSubtitleOutput {
     this.endTime = endTime;
   }
 
-  public SubForVideoEditorSaveSubtitleOutput extra(String extra) {
-    this.extra = extra;
-    return this;
-  }
-
-   /**
-   * Get extra
-   * @return extra
-  **/
-  @Schema(description = "")
-  public String getExtra() {
-    return extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
   public SubForVideoEditorSaveSubtitleOutput operator(String operator) {
     this.operator = operator;
     return this;
@@ -252,24 +186,6 @@ public class SubForVideoEditorSaveSubtitleOutput {
 
   public void setOperator(String operator) {
     this.operator = operator;
-  }
-
-  public SubForVideoEditorSaveSubtitleOutput relatedSegmentId(String relatedSegmentId) {
-    this.relatedSegmentId = relatedSegmentId;
-    return this;
-  }
-
-   /**
-   * Get relatedSegmentId
-   * @return relatedSegmentId
-  **/
-  @Schema(description = "")
-  public String getRelatedSegmentId() {
-    return relatedSegmentId;
-  }
-
-  public void setRelatedSegmentId(String relatedSegmentId) {
-    this.relatedSegmentId = relatedSegmentId;
   }
 
   public SubForVideoEditorSaveSubtitleOutput segmentId(String segmentId) {
@@ -465,15 +381,11 @@ public class SubForVideoEditorSaveSubtitleOutput {
     }
     SubForVideoEditorSaveSubtitleOutput subForVideoEditorSaveSubtitleOutput = (SubForVideoEditorSaveSubtitleOutput) o;
     return Objects.equals(this.aiVoiceId, subForVideoEditorSaveSubtitleOutput.aiVoiceId) &&
-        Objects.equals(this.assistText, subForVideoEditorSaveSubtitleOutput.assistText) &&
-        Objects.equals(this.assistTextType, subForVideoEditorSaveSubtitleOutput.assistTextType) &&
         Objects.equals(this.createTime, subForVideoEditorSaveSubtitleOutput.createTime) &&
         Objects.equals(this.effectType, subForVideoEditorSaveSubtitleOutput.effectType) &&
         Objects.equals(this.emotionTag, subForVideoEditorSaveSubtitleOutput.emotionTag) &&
         Objects.equals(this.endTime, subForVideoEditorSaveSubtitleOutput.endTime) &&
-        Objects.equals(this.extra, subForVideoEditorSaveSubtitleOutput.extra) &&
         Objects.equals(this.operator, subForVideoEditorSaveSubtitleOutput.operator) &&
-        Objects.equals(this.relatedSegmentId, subForVideoEditorSaveSubtitleOutput.relatedSegmentId) &&
         Objects.equals(this.segmentId, subForVideoEditorSaveSubtitleOutput.segmentId) &&
         Objects.equals(this.source, subForVideoEditorSaveSubtitleOutput.source) &&
         Objects.equals(this.sourceStyle, subForVideoEditorSaveSubtitleOutput.sourceStyle) &&
@@ -488,7 +400,7 @@ public class SubForVideoEditorSaveSubtitleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiVoiceId, assistText, assistTextType, createTime, effectType, emotionTag, endTime, extra, operator, relatedSegmentId, segmentId, source, sourceStyle, speakerId, startTime, status, target, targetStyle, updateTime, voiceTosUrl);
+    return Objects.hash(aiVoiceId, createTime, effectType, emotionTag, endTime, operator, segmentId, source, sourceStyle, speakerId, startTime, status, target, targetStyle, updateTime, voiceTosUrl);
   }
 
 
@@ -498,15 +410,11 @@ public class SubForVideoEditorSaveSubtitleOutput {
     sb.append("class SubForVideoEditorSaveSubtitleOutput {\n");
     
     sb.append("    aiVoiceId: ").append(toIndentedString(aiVoiceId)).append("\n");
-    sb.append("    assistText: ").append(toIndentedString(assistText)).append("\n");
-    sb.append("    assistTextType: ").append(toIndentedString(assistTextType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
     sb.append("    emotionTag: ").append(toIndentedString(emotionTag)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    relatedSegmentId: ").append(toIndentedString(relatedSegmentId)).append("\n");
     sb.append("    segmentId: ").append(toIndentedString(segmentId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceStyle: ").append(toIndentedString(sourceStyle)).append("\n");
