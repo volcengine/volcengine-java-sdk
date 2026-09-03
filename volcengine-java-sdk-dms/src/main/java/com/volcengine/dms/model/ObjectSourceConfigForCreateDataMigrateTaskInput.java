@@ -42,6 +42,12 @@ public class ObjectSourceConfigForCreateDataMigrateTaskInput {
   @SerializedName("KeyListFile")
   private String keyListFile = null;
 
+  @SerializedName("ListEndTime")
+  private Long listEndTime = null;
+
+  @SerializedName("ListStartTime")
+  private Long listStartTime = null;
+
   @SerializedName("PrefixList")
   private List<String> prefixList = null;
 
@@ -107,6 +113,42 @@ public class ObjectSourceConfigForCreateDataMigrateTaskInput {
 
   public void setKeyListFile(String keyListFile) {
     this.keyListFile = keyListFile;
+  }
+
+  public ObjectSourceConfigForCreateDataMigrateTaskInput listEndTime(Long listEndTime) {
+    this.listEndTime = listEndTime;
+    return this;
+  }
+
+   /**
+   * Get listEndTime
+   * @return listEndTime
+  **/
+  @Schema(description = "")
+  public Long getListEndTime() {
+    return listEndTime;
+  }
+
+  public void setListEndTime(Long listEndTime) {
+    this.listEndTime = listEndTime;
+  }
+
+  public ObjectSourceConfigForCreateDataMigrateTaskInput listStartTime(Long listStartTime) {
+    this.listStartTime = listStartTime;
+    return this;
+  }
+
+   /**
+   * Get listStartTime
+   * @return listStartTime
+  **/
+  @Schema(description = "")
+  public Long getListStartTime() {
+    return listStartTime;
+  }
+
+  public void setListStartTime(Long listStartTime) {
+    this.listStartTime = listStartTime;
   }
 
   public ObjectSourceConfigForCreateDataMigrateTaskInput prefixList(List<String> prefixList) {
@@ -202,6 +244,8 @@ public class ObjectSourceConfigForCreateDataMigrateTaskInput {
     return Objects.equals(this.bucketAccessConfig, objectSourceConfigForCreateDataMigrateTaskInput.bucketAccessConfig) &&
         Objects.equals(this.isExcluded, objectSourceConfigForCreateDataMigrateTaskInput.isExcluded) &&
         Objects.equals(this.keyListFile, objectSourceConfigForCreateDataMigrateTaskInput.keyListFile) &&
+        Objects.equals(this.listEndTime, objectSourceConfigForCreateDataMigrateTaskInput.listEndTime) &&
+        Objects.equals(this.listStartTime, objectSourceConfigForCreateDataMigrateTaskInput.listStartTime) &&
         Objects.equals(this.prefixList, objectSourceConfigForCreateDataMigrateTaskInput.prefixList) &&
         Objects.equals(this.prefixListFile, objectSourceConfigForCreateDataMigrateTaskInput.prefixListFile) &&
         Objects.equals(this.scanWithDelimiter, objectSourceConfigForCreateDataMigrateTaskInput.scanWithDelimiter) &&
@@ -210,7 +254,7 @@ public class ObjectSourceConfigForCreateDataMigrateTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketAccessConfig, isExcluded, keyListFile, prefixList, prefixListFile, scanWithDelimiter, startTime);
+    return Objects.hash(bucketAccessConfig, isExcluded, keyListFile, listEndTime, listStartTime, prefixList, prefixListFile, scanWithDelimiter, startTime);
   }
 
 
@@ -222,6 +266,8 @@ public class ObjectSourceConfigForCreateDataMigrateTaskInput {
     sb.append("    bucketAccessConfig: ").append(toIndentedString(bucketAccessConfig)).append("\n");
     sb.append("    isExcluded: ").append(toIndentedString(isExcluded)).append("\n");
     sb.append("    keyListFile: ").append(toIndentedString(keyListFile)).append("\n");
+    sb.append("    listEndTime: ").append(toIndentedString(listEndTime)).append("\n");
+    sb.append("    listStartTime: ").append(toIndentedString(listStartTime)).append("\n");
     sb.append("    prefixList: ").append(toIndentedString(prefixList)).append("\n");
     sb.append("    prefixListFile: ").append(toIndentedString(prefixListFile)).append("\n");
     sb.append("    scanWithDelimiter: ").append(toIndentedString(scanWithDelimiter)).append("\n");

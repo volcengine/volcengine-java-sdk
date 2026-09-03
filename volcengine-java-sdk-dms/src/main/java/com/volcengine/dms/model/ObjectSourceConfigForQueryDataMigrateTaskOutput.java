@@ -42,6 +42,12 @@ public class ObjectSourceConfigForQueryDataMigrateTaskOutput {
   @SerializedName("KeyListFile")
   private String keyListFile = null;
 
+  @SerializedName("ListEndTime")
+  private Long listEndTime = null;
+
+  @SerializedName("ListStartTime")
+  private Long listStartTime = null;
+
   @SerializedName("PrefixList")
   private List<String> prefixList = null;
 
@@ -107,6 +113,42 @@ public class ObjectSourceConfigForQueryDataMigrateTaskOutput {
 
   public void setKeyListFile(String keyListFile) {
     this.keyListFile = keyListFile;
+  }
+
+  public ObjectSourceConfigForQueryDataMigrateTaskOutput listEndTime(Long listEndTime) {
+    this.listEndTime = listEndTime;
+    return this;
+  }
+
+   /**
+   * Get listEndTime
+   * @return listEndTime
+  **/
+  @Schema(description = "")
+  public Long getListEndTime() {
+    return listEndTime;
+  }
+
+  public void setListEndTime(Long listEndTime) {
+    this.listEndTime = listEndTime;
+  }
+
+  public ObjectSourceConfigForQueryDataMigrateTaskOutput listStartTime(Long listStartTime) {
+    this.listStartTime = listStartTime;
+    return this;
+  }
+
+   /**
+   * Get listStartTime
+   * @return listStartTime
+  **/
+  @Schema(description = "")
+  public Long getListStartTime() {
+    return listStartTime;
+  }
+
+  public void setListStartTime(Long listStartTime) {
+    this.listStartTime = listStartTime;
   }
 
   public ObjectSourceConfigForQueryDataMigrateTaskOutput prefixList(List<String> prefixList) {
@@ -202,6 +244,8 @@ public class ObjectSourceConfigForQueryDataMigrateTaskOutput {
     return Objects.equals(this.bucketAccessConfig, objectSourceConfigForQueryDataMigrateTaskOutput.bucketAccessConfig) &&
         Objects.equals(this.isExcluded, objectSourceConfigForQueryDataMigrateTaskOutput.isExcluded) &&
         Objects.equals(this.keyListFile, objectSourceConfigForQueryDataMigrateTaskOutput.keyListFile) &&
+        Objects.equals(this.listEndTime, objectSourceConfigForQueryDataMigrateTaskOutput.listEndTime) &&
+        Objects.equals(this.listStartTime, objectSourceConfigForQueryDataMigrateTaskOutput.listStartTime) &&
         Objects.equals(this.prefixList, objectSourceConfigForQueryDataMigrateTaskOutput.prefixList) &&
         Objects.equals(this.prefixListFile, objectSourceConfigForQueryDataMigrateTaskOutput.prefixListFile) &&
         Objects.equals(this.scanWithDelimiter, objectSourceConfigForQueryDataMigrateTaskOutput.scanWithDelimiter) &&
@@ -210,7 +254,7 @@ public class ObjectSourceConfigForQueryDataMigrateTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketAccessConfig, isExcluded, keyListFile, prefixList, prefixListFile, scanWithDelimiter, startTime);
+    return Objects.hash(bucketAccessConfig, isExcluded, keyListFile, listEndTime, listStartTime, prefixList, prefixListFile, scanWithDelimiter, startTime);
   }
 
 
@@ -222,6 +266,8 @@ public class ObjectSourceConfigForQueryDataMigrateTaskOutput {
     sb.append("    bucketAccessConfig: ").append(toIndentedString(bucketAccessConfig)).append("\n");
     sb.append("    isExcluded: ").append(toIndentedString(isExcluded)).append("\n");
     sb.append("    keyListFile: ").append(toIndentedString(keyListFile)).append("\n");
+    sb.append("    listEndTime: ").append(toIndentedString(listEndTime)).append("\n");
+    sb.append("    listStartTime: ").append(toIndentedString(listStartTime)).append("\n");
     sb.append("    prefixList: ").append(toIndentedString(prefixList)).append("\n");
     sb.append("    prefixListFile: ").append(toIndentedString(prefixListFile)).append("\n");
     sb.append("    scanWithDelimiter: ").append(toIndentedString(scanWithDelimiter)).append("\n");
