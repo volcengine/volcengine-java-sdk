@@ -30,25 +30,25 @@ import javax.validation.Valid;
 
 
 public class DataForVideoProjectCreateToolTaskOutput {
-  @SerializedName("taskID")
-  private String taskID = null;
+  @SerializedName("taskId")
+  private String taskId = null;
 
-  public DataForVideoProjectCreateToolTaskOutput taskID(String taskID) {
-    this.taskID = taskID;
+  public DataForVideoProjectCreateToolTaskOutput taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get taskID
-   * @return taskID
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public String getTaskID() {
-    return taskID;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setTaskID(String taskID) {
-    this.taskID = taskID;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -61,12 +61,12 @@ public class DataForVideoProjectCreateToolTaskOutput {
       return false;
     }
     DataForVideoProjectCreateToolTaskOutput dataForVideoProjectCreateToolTaskOutput = (DataForVideoProjectCreateToolTaskOutput) o;
-    return Objects.equals(this.taskID, dataForVideoProjectCreateToolTaskOutput.taskID);
+    return Objects.equals(this.taskId, dataForVideoProjectCreateToolTaskOutput.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskID);
+    return Objects.hash(taskId);
   }
 
 
@@ -75,7 +75,7 @@ public class DataForVideoProjectCreateToolTaskOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForVideoProjectCreateToolTaskOutput {\n");
     
-    sb.append("    taskID: ").append(toIndentedString(taskID)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

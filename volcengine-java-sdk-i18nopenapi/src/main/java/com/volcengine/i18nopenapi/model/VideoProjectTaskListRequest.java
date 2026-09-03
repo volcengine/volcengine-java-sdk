@@ -36,6 +36,9 @@ public class VideoProjectTaskListRequest {
   @SerializedName("endTime")
   private Integer endTime = null;
 
+  @SerializedName("isExpedited")
+  private String isExpedited = null;
+
   @SerializedName("limit")
   private Integer limit = null;
 
@@ -106,6 +109,24 @@ public class VideoProjectTaskListRequest {
 
   public void setEndTime(Integer endTime) {
     this.endTime = endTime;
+  }
+
+  public VideoProjectTaskListRequest isExpedited(String isExpedited) {
+    this.isExpedited = isExpedited;
+    return this;
+  }
+
+   /**
+   * Get isExpedited
+   * @return isExpedited
+  **/
+  @Schema(description = "")
+  public String getIsExpedited() {
+    return isExpedited;
+  }
+
+  public void setIsExpedited(String isExpedited) {
+    this.isExpedited = isExpedited;
   }
 
   public VideoProjectTaskListRequest limit(Integer limit) {
@@ -337,6 +358,7 @@ public class VideoProjectTaskListRequest {
     VideoProjectTaskListRequest videoProjectTaskListRequest = (VideoProjectTaskListRequest) o;
     return Objects.equals(this.dramaId, videoProjectTaskListRequest.dramaId) &&
         Objects.equals(this.endTime, videoProjectTaskListRequest.endTime) &&
+        Objects.equals(this.isExpedited, videoProjectTaskListRequest.isExpedited) &&
         Objects.equals(this.limit, videoProjectTaskListRequest.limit) &&
         Objects.equals(this.offset, videoProjectTaskListRequest.offset) &&
         Objects.equals(this.projectId, videoProjectTaskListRequest.projectId) &&
@@ -353,7 +375,7 @@ public class VideoProjectTaskListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dramaId, endTime, limit, offset, projectId, sourceLanguages, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
+    return Objects.hash(dramaId, endTime, isExpedited, limit, offset, projectId, sourceLanguages, startTime, status, subtaskId, targetLanguages, taskIds, taskName, taskType, taskTypes);
   }
 
 
@@ -364,6 +386,7 @@ public class VideoProjectTaskListRequest {
     
     sb.append("    dramaId: ").append(toIndentedString(dramaId)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    isExpedited: ").append(toIndentedString(isExpedited)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");

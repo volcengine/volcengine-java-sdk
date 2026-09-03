@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class TaskForVideoProjectTaskListOutput {
+  @SerializedName("canExpedite")
+  private Boolean canExpedite = null;
+
   @SerializedName("comment")
   private String comment = null;
 
@@ -47,6 +50,9 @@ public class TaskForVideoProjectTaskListOutput {
 
   @SerializedName("dramaTaskWorkflow")
   private Integer dramaTaskWorkflow = null;
+
+  @SerializedName("isExpedited")
+  private Boolean isExpedited = null;
 
   @SerializedName("name")
   private String name = null;
@@ -68,6 +74,24 @@ public class TaskForVideoProjectTaskListOutput {
 
   @SerializedName("workflowType")
   private Integer workflowType = null;
+
+  public TaskForVideoProjectTaskListOutput canExpedite(Boolean canExpedite) {
+    this.canExpedite = canExpedite;
+    return this;
+  }
+
+   /**
+   * Get canExpedite
+   * @return canExpedite
+  **/
+  @Schema(description = "")
+  public Boolean isCanExpedite() {
+    return canExpedite;
+  }
+
+  public void setCanExpedite(Boolean canExpedite) {
+    this.canExpedite = canExpedite;
+  }
 
   public TaskForVideoProjectTaskListOutput comment(String comment) {
     this.comment = comment;
@@ -158,6 +182,24 @@ public class TaskForVideoProjectTaskListOutput {
 
   public void setDramaTaskWorkflow(Integer dramaTaskWorkflow) {
     this.dramaTaskWorkflow = dramaTaskWorkflow;
+  }
+
+  public TaskForVideoProjectTaskListOutput isExpedited(Boolean isExpedited) {
+    this.isExpedited = isExpedited;
+    return this;
+  }
+
+   /**
+   * Get isExpedited
+   * @return isExpedited
+  **/
+  @Schema(description = "")
+  public Boolean isIsExpedited() {
+    return isExpedited;
+  }
+
+  public void setIsExpedited(Boolean isExpedited) {
+    this.isExpedited = isExpedited;
   }
 
   public TaskForVideoProjectTaskListOutput name(String name) {
@@ -304,11 +346,13 @@ public class TaskForVideoProjectTaskListOutput {
       return false;
     }
     TaskForVideoProjectTaskListOutput taskForVideoProjectTaskListOutput = (TaskForVideoProjectTaskListOutput) o;
-    return Objects.equals(this.comment, taskForVideoProjectTaskListOutput.comment) &&
+    return Objects.equals(this.canExpedite, taskForVideoProjectTaskListOutput.canExpedite) &&
+        Objects.equals(this.comment, taskForVideoProjectTaskListOutput.comment) &&
         Objects.equals(this.createdAt, taskForVideoProjectTaskListOutput.createdAt) &&
         Objects.equals(this.creator, taskForVideoProjectTaskListOutput.creator) &&
         Objects.equals(this.deadline, taskForVideoProjectTaskListOutput.deadline) &&
         Objects.equals(this.dramaTaskWorkflow, taskForVideoProjectTaskListOutput.dramaTaskWorkflow) &&
+        Objects.equals(this.isExpedited, taskForVideoProjectTaskListOutput.isExpedited) &&
         Objects.equals(this.name, taskForVideoProjectTaskListOutput.name) &&
         Objects.equals(this.projectName, taskForVideoProjectTaskListOutput.projectName) &&
         Objects.equals(this.sourceLanguage, taskForVideoProjectTaskListOutput.sourceLanguage) &&
@@ -320,7 +364,7 @@ public class TaskForVideoProjectTaskListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, createdAt, creator, deadline, dramaTaskWorkflow, name, projectName, sourceLanguage, status, targetLanguages, taskType, workflowType);
+    return Objects.hash(canExpedite, comment, createdAt, creator, deadline, dramaTaskWorkflow, isExpedited, name, projectName, sourceLanguage, status, targetLanguages, taskType, workflowType);
   }
 
 
@@ -329,11 +373,13 @@ public class TaskForVideoProjectTaskListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskForVideoProjectTaskListOutput {\n");
     
+    sb.append("    canExpedite: ").append(toIndentedString(canExpedite)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    dramaTaskWorkflow: ").append(toIndentedString(dramaTaskWorkflow)).append("\n");
+    sb.append("    isExpedited: ").append(toIndentedString(isExpedited)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sourceLanguage: ").append(toIndentedString(sourceLanguage)).append("\n");
