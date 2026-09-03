@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 
 public class GetPoolQuotaInfoResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("QuotaInfoList")
+  @SerializedName("quotaInfoList")
   private List<QuotaInfoListForGetPoolQuotaInfoOutput> quotaInfoList = null;
 
   public GetPoolQuotaInfoResponse quotaInfoList(List<QuotaInfoListForGetPoolQuotaInfoOutput> quotaInfoList) {
