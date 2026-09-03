@@ -21,44 +21,35 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DomainRuleForListSandboxesOutput
+ * DeleteE2BAPIKeyRequest
  */
 
 
 
-public class DomainRuleForListSandboxesOutput {
-  @SerializedName("Domains")
-  private List<String> domains = null;
+public class DeleteE2BAPIKeyRequest {
+  @SerializedName("Id")
+  private String id = null;
 
-  public DomainRuleForListSandboxesOutput domains(List<String> domains) {
-    this.domains = domains;
-    return this;
-  }
-
-  public DomainRuleForListSandboxesOutput addDomainsItem(String domainsItem) {
-    if (this.domains == null) {
-      this.domains = new ArrayList<String>();
-    }
-    this.domains.add(domainsItem);
+  public DeleteE2BAPIKeyRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get domains
-   * @return domains
+   * Get id
+   * @return id
   **/
-  @Schema(description = "")
-  public List<String> getDomains() {
-    return domains;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getId() {
+    return id;
   }
 
-  public void setDomains(List<String> domains) {
-    this.domains = domains;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -70,22 +61,22 @@ public class DomainRuleForListSandboxesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DomainRuleForListSandboxesOutput domainRuleForListSandboxesOutput = (DomainRuleForListSandboxesOutput) o;
-    return Objects.equals(this.domains, domainRuleForListSandboxesOutput.domains);
+    DeleteE2BAPIKeyRequest deleteE2BAPIKeyRequest = (DeleteE2BAPIKeyRequest) o;
+    return Objects.equals(this.id, deleteE2BAPIKeyRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domains);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DomainRuleForListSandboxesOutput {\n");
+    sb.append("class DeleteE2BAPIKeyRequest {\n");
     
-    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

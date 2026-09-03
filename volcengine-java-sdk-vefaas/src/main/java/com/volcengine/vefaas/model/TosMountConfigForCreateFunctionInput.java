@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.ConvertMountPointForCreateFunctionInput;
 import com.volcengine.vefaas.model.CredentialsForCreateFunctionInput;
-import com.volcengine.vefaas.model.MountPointForCreateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class TosMountConfigForCreateFunctionInput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<MountPointForCreateFunctionInput> mountPoints = null;
+  private List<ConvertMountPointForCreateFunctionInput> mountPoints = null;
 
   public TosMountConfigForCreateFunctionInput authMode(String authMode) {
     this.authMode = authMode;
@@ -101,14 +101,14 @@ public class TosMountConfigForCreateFunctionInput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForCreateFunctionInput mountPoints(List<MountPointForCreateFunctionInput> mountPoints) {
+  public TosMountConfigForCreateFunctionInput mountPoints(List<ConvertMountPointForCreateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForCreateFunctionInput addMountPointsItem(MountPointForCreateFunctionInput mountPointsItem) {
+  public TosMountConfigForCreateFunctionInput addMountPointsItem(ConvertMountPointForCreateFunctionInput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForCreateFunctionInput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForCreateFunctionInput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -120,11 +120,11 @@ public class TosMountConfigForCreateFunctionInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForCreateFunctionInput> getMountPoints() {
+  public List<ConvertMountPointForCreateFunctionInput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForCreateFunctionInput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForCreateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

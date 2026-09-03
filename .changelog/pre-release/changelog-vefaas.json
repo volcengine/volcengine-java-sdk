@@ -1,0 +1,13 @@
+{
+  "actions": [
+    "ListSandboxes",
+    "ListSandboxSnapshots",
+    "DeleteE2BAPIKey",
+    "UpdateFunctionResource",
+    "CreateSandbox",
+    "DescribeSandbox"
+  ],
+  "description": "VEFAAS: 新增 DeleteE2BAPIKey；修改 UpdateFunctionResource, CreateSandbox, DescribeSandbox, ListSandboxes, ListSandboxSnapshots",
+  "modules": "service/vefaas",
+  "type": "breaking-change"
+}

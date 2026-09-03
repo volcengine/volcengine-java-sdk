@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.FilterForListSandboxSnapshotsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +33,47 @@ import javax.validation.Valid;
 
 
 public class ListSandboxSnapshotsRequest {
+  @SerializedName("Filters")
+  private List<FilterForListSandboxSnapshotsInput> filters = null;
+
   @SerializedName("FunctionId")
   private String functionId = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("SandboxId")
   private String sandboxId = null;
+
+  public ListSandboxSnapshotsRequest filters(List<FilterForListSandboxSnapshotsInput> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public ListSandboxSnapshotsRequest addFiltersItem(FilterForListSandboxSnapshotsInput filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<FilterForListSandboxSnapshotsInput>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterForListSandboxSnapshotsInput> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<FilterForListSandboxSnapshotsInput> filters) {
+    this.filters = filters;
+  }
 
   public ListSandboxSnapshotsRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -53,6 +92,42 @@ public class ListSandboxSnapshotsRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public ListSandboxSnapshotsRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public ListSandboxSnapshotsRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
   public ListSandboxSnapshotsRequest sandboxId(String sandboxId) {
@@ -83,13 +158,16 @@ public class ListSandboxSnapshotsRequest {
       return false;
     }
     ListSandboxSnapshotsRequest listSandboxSnapshotsRequest = (ListSandboxSnapshotsRequest) o;
-    return Objects.equals(this.functionId, listSandboxSnapshotsRequest.functionId) &&
+    return Objects.equals(this.filters, listSandboxSnapshotsRequest.filters) &&
+        Objects.equals(this.functionId, listSandboxSnapshotsRequest.functionId) &&
+        Objects.equals(this.pageNumber, listSandboxSnapshotsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listSandboxSnapshotsRequest.pageSize) &&
         Objects.equals(this.sandboxId, listSandboxSnapshotsRequest.sandboxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, sandboxId);
+    return Objects.hash(filters, functionId, pageNumber, pageSize, sandboxId);
   }
 
 
@@ -98,7 +176,10 @@ public class ListSandboxSnapshotsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSandboxSnapshotsRequest {\n");
     
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("}");
     return sb.toString();

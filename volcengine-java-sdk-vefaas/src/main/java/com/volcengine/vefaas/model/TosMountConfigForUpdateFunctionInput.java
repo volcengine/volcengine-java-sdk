@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.ConvertMountPointForUpdateFunctionInput;
 import com.volcengine.vefaas.model.CredentialsForUpdateFunctionInput;
-import com.volcengine.vefaas.model.MountPointForUpdateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class TosMountConfigForUpdateFunctionInput {
   private Boolean enableTos = null;
 
   @SerializedName("MountPoints")
-  private List<MountPointForUpdateFunctionInput> mountPoints = null;
+  private List<ConvertMountPointForUpdateFunctionInput> mountPoints = null;
 
   public TosMountConfigForUpdateFunctionInput authMode(String authMode) {
     this.authMode = authMode;
@@ -101,14 +101,14 @@ public class TosMountConfigForUpdateFunctionInput {
     this.enableTos = enableTos;
   }
 
-  public TosMountConfigForUpdateFunctionInput mountPoints(List<MountPointForUpdateFunctionInput> mountPoints) {
+  public TosMountConfigForUpdateFunctionInput mountPoints(List<ConvertMountPointForUpdateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
     return this;
   }
 
-  public TosMountConfigForUpdateFunctionInput addMountPointsItem(MountPointForUpdateFunctionInput mountPointsItem) {
+  public TosMountConfigForUpdateFunctionInput addMountPointsItem(ConvertMountPointForUpdateFunctionInput mountPointsItem) {
     if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForUpdateFunctionInput>();
+      this.mountPoints = new ArrayList<ConvertMountPointForUpdateFunctionInput>();
     }
     this.mountPoints.add(mountPointsItem);
     return this;
@@ -120,11 +120,11 @@ public class TosMountConfigForUpdateFunctionInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<MountPointForUpdateFunctionInput> getMountPoints() {
+  public List<ConvertMountPointForUpdateFunctionInput> getMountPoints() {
     return mountPoints;
   }
 
-  public void setMountPoints(List<MountPointForUpdateFunctionInput> mountPoints) {
+  public void setMountPoints(List<ConvertMountPointForUpdateFunctionInput> mountPoints) {
     this.mountPoints = mountPoints;
   }
 

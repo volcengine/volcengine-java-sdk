@@ -33,6 +33,9 @@ public class UpdateFunctionResourceRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
+  @SerializedName("IdleInstance")
+  private Integer idleInstance = null;
+
   @SerializedName("MaxInstance")
   private Integer maxInstance = null;
 
@@ -59,6 +62,24 @@ public class UpdateFunctionResourceRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public UpdateFunctionResourceRequest idleInstance(Integer idleInstance) {
+    this.idleInstance = idleInstance;
+    return this;
+  }
+
+   /**
+   * Get idleInstance
+   * @return idleInstance
+  **/
+  @Schema(description = "")
+  public Integer getIdleInstance() {
+    return idleInstance;
+  }
+
+  public void setIdleInstance(Integer idleInstance) {
+    this.idleInstance = idleInstance;
   }
 
   public UpdateFunctionResourceRequest maxInstance(Integer maxInstance) {
@@ -126,6 +147,7 @@ public class UpdateFunctionResourceRequest {
     }
     UpdateFunctionResourceRequest updateFunctionResourceRequest = (UpdateFunctionResourceRequest) o;
     return Objects.equals(this.functionId, updateFunctionResourceRequest.functionId) &&
+        Objects.equals(this.idleInstance, updateFunctionResourceRequest.idleInstance) &&
         Objects.equals(this.maxInstance, updateFunctionResourceRequest.maxInstance) &&
         Objects.equals(this.minInstance, updateFunctionResourceRequest.minInstance) &&
         Objects.equals(this.reservedFrozenInstance, updateFunctionResourceRequest.reservedFrozenInstance);
@@ -133,7 +155,7 @@ public class UpdateFunctionResourceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, maxInstance, minInstance, reservedFrozenInstance);
+    return Objects.hash(functionId, idleInstance, maxInstance, minInstance, reservedFrozenInstance);
   }
 
 
@@ -143,6 +165,7 @@ public class UpdateFunctionResourceRequest {
     sb.append("class UpdateFunctionResourceRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    idleInstance: ").append(toIndentedString(idleInstance)).append("\n");
     sb.append("    maxInstance: ").append(toIndentedString(maxInstance)).append("\n");
     sb.append("    minInstance: ").append(toIndentedString(minInstance)).append("\n");
     sb.append("    reservedFrozenInstance: ").append(toIndentedString(reservedFrozenInstance)).append("\n");
