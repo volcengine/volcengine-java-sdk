@@ -36,8 +36,8 @@ public class ToolResourceForVideoProjectGetToolTaskOutput {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("resourceID")
-  private String resourceID = null;
+  @SerializedName("resourceId")
+  private String resourceId = null;
 
   @SerializedName("resourceType")
   private Integer resourceType = null;
@@ -84,22 +84,22 @@ public class ToolResourceForVideoProjectGetToolTaskOutput {
     this.name = name;
   }
 
-  public ToolResourceForVideoProjectGetToolTaskOutput resourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public ToolResourceForVideoProjectGetToolTaskOutput resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get resourceID
-   * @return resourceID
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public String getResourceID() {
-    return resourceID;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setResourceID(String resourceID) {
-    this.resourceID = resourceID;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
   }
 
   public ToolResourceForVideoProjectGetToolTaskOutput resourceType(Integer resourceType) {
@@ -168,7 +168,7 @@ public class ToolResourceForVideoProjectGetToolTaskOutput {
     ToolResourceForVideoProjectGetToolTaskOutput toolResourceForVideoProjectGetToolTaskOutput = (ToolResourceForVideoProjectGetToolTaskOutput) o;
     return Objects.equals(this.createTime, toolResourceForVideoProjectGetToolTaskOutput.createTime) &&
         Objects.equals(this.name, toolResourceForVideoProjectGetToolTaskOutput.name) &&
-        Objects.equals(this.resourceID, toolResourceForVideoProjectGetToolTaskOutput.resourceID) &&
+        Objects.equals(this.resourceId, toolResourceForVideoProjectGetToolTaskOutput.resourceId) &&
         Objects.equals(this.resourceType, toolResourceForVideoProjectGetToolTaskOutput.resourceType) &&
         Objects.equals(this.updateTime, toolResourceForVideoProjectGetToolTaskOutput.updateTime) &&
         Objects.equals(this.url, toolResourceForVideoProjectGetToolTaskOutput.url);
@@ -176,7 +176,7 @@ public class ToolResourceForVideoProjectGetToolTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, name, resourceID, resourceType, updateTime, url);
+    return Objects.hash(createTime, name, resourceId, resourceType, updateTime, url);
   }
 
 
@@ -187,7 +187,7 @@ public class ToolResourceForVideoProjectGetToolTaskOutput {
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
