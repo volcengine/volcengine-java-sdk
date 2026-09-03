@@ -21,6 +21,8 @@ import java.util.*;
 public class SignRequestInterceptor implements RequestInterceptor {
 
     public static String name = "volcengine-sign-request-interceptor";
+    private static final String RETRY_INVOCATION_ID_HEADER = "X-Sdk-Invocation-Id";
+    private static final String RETRY_ATTEMPT_HEADER = "X-Sdk-Request";
 
     @Override
     public String name() {
@@ -36,6 +38,12 @@ public class SignRequestInterceptor implements RequestInterceptor {
         ServiceInfo serviceInfo = context.getRequestContext().getServiceInfo();
         String[] authNames = context.getRequestContext().getAuthNames();
         RequestBody reqBody = context.getRequestContext().getRequestBody();
+
+        setHeader(headerParams, RETRY_INVOCATION_ID_HEADER, context.getRequestContext().getInvocationId());
+        setHeader(headerParams, RETRY_ATTEMPT_HEADER, String.format(
+                "attempt=%d; max=%d",
+                context.getRequestContext().getRetryCount() + 1,
+                context.getRequestContext().getMaxAttempts()));
 
         //sign
         VolcstackSign volcengineSign = new VolcstackSign();
@@ -126,6 +134,15 @@ public class SignRequestInterceptor implements RequestInterceptor {
         }
         context.getRequestContext().setRequest(request);
         return context;
+    }
+
+    private static void setHeader(Map<String, String> headers, String name, String value) {
+        for (String key : new ArrayList<>(headers.keySet())) {
+            if (key.equalsIgnoreCase(name)) {
+                headers.remove(key);
+            }
+        }
+        headers.put(name, value);
     }
 
     private static String buildPresignedUrl(String scheme, String host, Map<String, String> presignedParams) {
