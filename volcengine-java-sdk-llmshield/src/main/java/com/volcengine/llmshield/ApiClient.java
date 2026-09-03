@@ -26,6 +26,7 @@ public class ApiClient {
     public static final String OPTION_PROXY_ADDR = "ProxyAddr";
     public static final String OPTION_CONN_MAX = "ConnMax";
     public static final String OPTION_TIMEOUT = "Timeout";
+    public static final String OPTION_REWRITE_URL = "RewriteUrl";
 
     private static final String CONTENT_TYPE_HEADER = "application/json";
     private static final long FIVE_MINUTES_MS = 5 * 60 * 1000;
@@ -45,20 +46,30 @@ public class ApiClient {
     private final String sk;
     private final String region;
     private final long timeout;
+    private final String rewriteHost;
     private final OkHttpClient httpClient;
     private final OkHttpClient streamingHttpClient;  // 流式请求专用，无 callTimeout
 
     private Client aiccClient;
 
     private ApiClient(String url, String ak, String sk, String region, long timeout) {
+        this(url, ak, sk, region, timeout, null, 0, null);
+    }
+
+    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
+        this(url, ak, sk, region, timeout, proxy, connMax, null);
+    }
+
+    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy, int connMax, String rewriteHost) {
         this.url = url;
         this.ak = ak;
         this.sk = sk;
         this.region = region;
         this.timeout = timeout;
+        this.rewriteHost = rewriteHost;
 
-        this.httpClient = buildHttpClient(timeout, null, 0, true);
-        this.streamingHttpClient = buildHttpClient(timeout, null, 0, false);
+        this.httpClient = buildHttpClient(timeout, proxy, connMax, true, rewriteHost);
+        this.streamingHttpClient = buildHttpClient(timeout, proxy, connMax, false, rewriteHost);
     }
 
     /**
@@ -73,7 +84,7 @@ public class ApiClient {
      *                                  避免服务端两个 chunk 之间的思考空档（SSE / TTFT + token 生成间隔）
      *                                  被读超时中断
      */
-    private OkHttpClient buildHttpClient(long timeout, String proxy, int connMax, boolean withCallTimeout) {
+    private OkHttpClient buildHttpClient(long timeout, String proxy, int connMax, boolean withCallTimeout, final String rewriteHost) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         if (timeout < 0) {
@@ -118,18 +129,6 @@ public class ApiClient {
 
         return builder.build();
     }
-
-    private ApiClient(String url, String ak, String sk, String region, long timeout, String proxy, int connMax) throws MalformedURLException {
-        this.url = url;
-        this.ak = ak;
-        this.sk = sk;
-        this.region = region;
-        this.timeout = timeout;
-
-        this.httpClient = buildHttpClient(timeout, proxy, connMax, true);
-        this.streamingHttpClient = buildHttpClient(timeout, proxy, connMax, false);
-    }
-
     /**
      * 创建新的客户端实例
      *
@@ -172,13 +171,14 @@ public class ApiClient {
      *   <li>ProxyAddr (String): 代理地址，如 "http://proxy.example.com:8080"</li>
      *   <li>ConnMax (Integer): 最大连接数，设置后会同时设置 MaxConnTotal 和 MaxConnPerRoute</li>
      *   <li>Timeout (Long): HTTP 客户端超时时间（毫秒），默认为 0（不超时）</li>
+     *   <li>RewriteUrl (String): 反向代理签名地址，仅使用其 host 参与签名，不覆写实际请求 Host 头</li>
      * </ul>
      *
      * @param url        API 请求的基础 URL
      * @param ak         访问密钥
      * @param sk         密钥
      * @param region     区域
-     * @param jsonConfig JSON 配置字符串，支持 EnableAicc、LogLevel、ProxyAddr、ConnMax、Timeout 字段
+     * @param jsonConfig JSON 配置字符串，支持 EnableAicc、LogLevel、ProxyAddr、ConnMax、Timeout、RewriteUrl 字段
      * @return 客户端实例
      * @throws Exception 如果 JSON 解析失败或 AICC 初始化失败
      */
@@ -219,10 +219,30 @@ public class ApiClient {
             }
         }
 
-        // 创建客户端实例
-        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax);
+        // 4. 配置反向代理签名 Host
+        String rewriteHost = null;
+        if (config != null && config.containsKey(OPTION_REWRITE_URL)) {
+            Object rewriteUrlVal = config.get(OPTION_REWRITE_URL);
+            if (rewriteUrlVal instanceof String && !((String) rewriteUrlVal).isEmpty()) {
+                try {
+                    URI rewriteUri = URI.create((String) rewriteUrlVal);
+                    rewriteHost = rewriteUri.getHost();
+                    if (rewriteHost == null || rewriteHost.isEmpty()) {
+                        throw new IllegalArgumentException("RewriteUrl must include a valid host");
+                    }
+                    if (rewriteUri.getPort() >= 0) {
+                        rewriteHost = rewriteHost + ":" + rewriteUri.getPort();
+                    }
+                } catch (IllegalArgumentException e) {
+                    throw new IllegalArgumentException("Invalid RewriteUrl: " + rewriteUrlVal, e);
+                }
+            }
+        }
 
-        // 4. 配置 AICC
+        // 创建客户端实例
+        ApiClient client = new ApiClient(url, ak, sk, region, timeout, proxy, connMax, rewriteHost);
+
+        // 5. 配置 AICC
         if (config != null && Boolean.TRUE.equals(config.get(OPTION_ENABLE_AICC))) {
             String logLevel = "ERROR";
             if (config.containsKey(OPTION_LOG_LEVEL)) {
@@ -363,6 +383,11 @@ public class ApiClient {
         return url + path + "?Action=" + action + "&Version=" + version;
     }
 
+    private Request signRequest(Request request, URI uri, String action) throws Exception {
+        Sign sign = new Sign();
+        return sign.DoSignRequest(request, uri, action, ak, sk, region, rewriteHost);
+    }
+
     /**
      * 请求 AiccModuleConf 接口，获取 AICC 配置信息
      *
@@ -387,8 +412,7 @@ public class ApiClient {
                 .addHeader("Content-Type", CONTENT_TYPE_HEADER)
                 .build();
 
-        Sign sign = new Sign();
-        Request signedRequest = sign.DoSignRequest(httpRequest, uri, action, ak, sk, region);
+        Request signedRequest = signRequest(httpRequest, uri, action);
 
         try (Response response = httpClient.newCall(signedRequest).execute()) {
             int statusCode = response.code();
@@ -579,8 +603,7 @@ public class ApiClient {
                 .addHeader("Content-Type", CONTENT_TYPE_HEADER)
                 .build();
 
-        Sign sign = new Sign();
-        Request signedRequest = sign.DoSignRequest(plainRequest, uri, "Moderate", ak, sk, region);
+        Request signedRequest = signRequest(plainRequest, uri, "Moderate");
 
         // 签名完成后，再加密body（AICC模式下发送加密body）
         ResponseKey encReqKey = null;
@@ -657,8 +680,7 @@ public class ApiClient {
                 .addHeader("Content-Type", CONTENT_TYPE_HEADER)
                 .build();
 
-        Sign sign = new Sign();
-        Request signedRequest = sign.DoSignRequest(httpRequest, uri, "Moderate", ak, sk, region);
+        Request signedRequest = signRequest(httpRequest, uri, "Moderate");
 
         final ModerateV2StreamSession finalSession = session;
         return execute(signedRequest, new ResponseHandler<ModerateV2Response>() {
@@ -709,8 +731,7 @@ public class ApiClient {
                 .addHeader("Content-Type", CONTENT_TYPE_HEADER)
                 .build();
 
-        Sign sign = new Sign();
-        Request signedRequest = sign.DoSignRequest(httpRequest, uri, "Generate", ak, sk, region);
+        Request signedRequest = signRequest(httpRequest, uri, "Generate");
 
         // 流式请求使用无 callTimeout 的专用客户端，避免长连接被中断
         Response response = streamingHttpClient.newCall(signedRequest).execute();

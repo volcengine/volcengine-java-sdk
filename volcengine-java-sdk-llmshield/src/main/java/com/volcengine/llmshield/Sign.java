@@ -97,9 +97,19 @@ public class Sign {
      */
     public Request DoSignRequest(Request request, URI uri, String action, String ak, String sk,
                               String region) throws Exception{
+        return DoSignRequest(request, uri, action, ak, sk, region, null);
+    }
+
+    /**
+     * 核心加签方法：支持在反向代理场景下覆写用于签名的 Host。
+     *
+     * @param rewriteHost 若非空，则使用该 host 参与 canonical request；实际请求仍沿用 URL 对应的 Host
+     */
+    public Request DoSignRequest(Request request, URI uri, String action, String ak, String sk,
+                              String region, String rewriteHost) throws Exception{
         String method = request.method();
         String path = uri.getPath();
-        String host = uri.getHost();
+        String host = (rewriteHost != null && !rewriteHost.isEmpty()) ? rewriteHost : uri.getHost();
 
         byte[] body = readRequestBody(request.body());
         Calendar date = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
@@ -150,7 +160,6 @@ public class Sign {
                 .method(method, ("GET".equalsIgnoreCase(method) || "HEAD".equalsIgnoreCase(method)) ? null : newBody)
                 .header("X-Top-Service", SERVICE)
                 .header("X-Top-Region", region)
-                .header("Host", host)
                 .header("X-Date", xDate)
                 .header("X-Content-Sha256", xContentSha256)
                 .header("Content-Type", contentType)

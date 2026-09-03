@@ -16,6 +16,9 @@ public class RiskMatchV2 {
     @JsonProperty("RuleID")
     private String ruleID;    // 规则ID
 
+    @JsonProperty("Position")
+    private PositionInfo position; // 命中位置
+
     // Getters and Setters
     public String getWord() {
         return word;
@@ -47,5 +50,13 @@ public class RiskMatchV2 {
 
     public void setRuleID(String ruleID) {
         this.ruleID = ruleID;
+    }
+
+    public PositionInfo getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionInfo position) {
+        this.position = position;
     }
 }
