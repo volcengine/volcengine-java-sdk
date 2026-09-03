@@ -916,6 +916,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- origin_defence ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("origin_defence", new ServiceEndpointInfo(
+                "origin_defence",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
