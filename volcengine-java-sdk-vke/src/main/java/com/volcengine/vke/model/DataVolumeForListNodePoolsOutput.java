@@ -33,6 +33,9 @@ public class DataVolumeForListNodePoolsOutput {
   @SerializedName("BurstEnabled")
   private Boolean burstEnabled = null;
 
+  @SerializedName("Encrypted")
+  private Boolean encrypted = null;
+
   @SerializedName("ExtraPerformanceIops")
   private Integer extraPerformanceIops = null;
 
@@ -133,6 +136,9 @@ public class DataVolumeForListNodePoolsOutput {
   }  @SerializedName("FileSystem")
   private FileSystemEnum fileSystem = null;
 
+  @SerializedName("KmsKeyId")
+  private String kmsKeyId = null;
+
   @SerializedName("MountPoint")
   private String mountPoint = null;
 
@@ -228,6 +234,24 @@ public class DataVolumeForListNodePoolsOutput {
     this.burstEnabled = burstEnabled;
   }
 
+  public DataVolumeForListNodePoolsOutput encrypted(Boolean encrypted) {
+    this.encrypted = encrypted;
+    return this;
+  }
+
+   /**
+   * Get encrypted
+   * @return encrypted
+  **/
+  @Schema(description = "")
+  public Boolean isEncrypted() {
+    return encrypted;
+  }
+
+  public void setEncrypted(Boolean encrypted) {
+    this.encrypted = encrypted;
+  }
+
   public DataVolumeForListNodePoolsOutput extraPerformanceIops(Integer extraPerformanceIops) {
     this.extraPerformanceIops = extraPerformanceIops;
     return this;
@@ -298,6 +322,24 @@ public class DataVolumeForListNodePoolsOutput {
 
   public void setFileSystem(FileSystemEnum fileSystem) {
     this.fileSystem = fileSystem;
+  }
+
+  public DataVolumeForListNodePoolsOutput kmsKeyId(String kmsKeyId) {
+    this.kmsKeyId = kmsKeyId;
+    return this;
+  }
+
+   /**
+   * Get kmsKeyId
+   * @return kmsKeyId
+  **/
+  @Schema(description = "")
+  public String getKmsKeyId() {
+    return kmsKeyId;
+  }
+
+  public void setKmsKeyId(String kmsKeyId) {
+    this.kmsKeyId = kmsKeyId;
   }
 
   public DataVolumeForListNodePoolsOutput mountPoint(String mountPoint) {
@@ -419,10 +461,12 @@ public class DataVolumeForListNodePoolsOutput {
     }
     DataVolumeForListNodePoolsOutput dataVolumeForListNodePoolsOutput = (DataVolumeForListNodePoolsOutput) o;
     return Objects.equals(this.burstEnabled, dataVolumeForListNodePoolsOutput.burstEnabled) &&
+        Objects.equals(this.encrypted, dataVolumeForListNodePoolsOutput.encrypted) &&
         Objects.equals(this.extraPerformanceIops, dataVolumeForListNodePoolsOutput.extraPerformanceIops) &&
         Objects.equals(this.extraPerformanceThroughputMb, dataVolumeForListNodePoolsOutput.extraPerformanceThroughputMb) &&
         Objects.equals(this.extraPerformanceTypeId, dataVolumeForListNodePoolsOutput.extraPerformanceTypeId) &&
         Objects.equals(this.fileSystem, dataVolumeForListNodePoolsOutput.fileSystem) &&
+        Objects.equals(this.kmsKeyId, dataVolumeForListNodePoolsOutput.kmsKeyId) &&
         Objects.equals(this.mountPoint, dataVolumeForListNodePoolsOutput.mountPoint) &&
         Objects.equals(this.placementGroupId, dataVolumeForListNodePoolsOutput.placementGroupId) &&
         Objects.equals(this.size, dataVolumeForListNodePoolsOutput.size) &&
@@ -433,7 +477,7 @@ public class DataVolumeForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(burstEnabled, extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, fileSystem, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
+    return Objects.hash(burstEnabled, encrypted, extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, fileSystem, kmsKeyId, mountPoint, placementGroupId, size, snapshotId, subgroupNumber, type);
   }
 
 
@@ -443,10 +487,12 @@ public class DataVolumeForListNodePoolsOutput {
     sb.append("class DataVolumeForListNodePoolsOutput {\n");
     
     sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
+    sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
     sb.append("    extraPerformanceIops: ").append(toIndentedString(extraPerformanceIops)).append("\n");
     sb.append("    extraPerformanceThroughputMb: ").append(toIndentedString(extraPerformanceThroughputMb)).append("\n");
     sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
+    sb.append("    kmsKeyId: ").append(toIndentedString(kmsKeyId)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
