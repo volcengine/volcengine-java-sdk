@@ -205,6 +205,10 @@ public class SampleCode {
         stsAssumeRoleProvider.setDurationSeconds(3600); // STS临时凭证过期时长，单位为秒，默认: 3600秒
         stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
         stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
+        // 访问 STS 的代理 / TLS（选填）
+        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
+        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
         CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
         ApiClient apiClient = new ApiClient()
@@ -245,6 +249,10 @@ public class SampleCode {
         oidcProvider.setSchema("https");                // STS 协议，默认: https
         oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
+        // 访问 STS 的代理 / TLS（选填）
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
+        // oidcProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // oidcProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
         ApiClient apiClient = new ApiClient()
@@ -306,6 +314,10 @@ public class SampleCode {
         samlProvider.setSchema("https");                // STS 协议，默认: https
         samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
+        // 访问 STS 的代理 / TLS（选填）
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
+        // samlProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // samlProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
         ApiClient apiClient = new ApiClient()

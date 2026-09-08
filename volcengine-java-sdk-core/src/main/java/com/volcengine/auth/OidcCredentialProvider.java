@@ -50,6 +50,12 @@ public class OidcCredentialProvider implements Provider {
     private int maxRetries = StsFormRequest.DEFAULT_MAX_RETRIES;
     private int retryIntervalMs = StsFormRequest.DEFAULT_RETRY_INTERVAL_MS;
 
+    // Proxy / TLS customization for the STS endpoint. Empty by default: JVM
+    // defaults (including standard proxy system properties) apply.
+    private String proxyUrl;
+    private String caFile;
+    private boolean insecureSkipVerify;
+
     private CredentialValue credentialValue;
     private long expirationTime;
 
@@ -107,7 +113,7 @@ public class OidcCredentialProvider implements Provider {
         long now = System.currentTimeMillis() / 1000;
         String responseBody = StsFormRequest.doPostWithRetry(
                 stsEndpoint, schema, ASSUME_ROLE_ACTION,
-                buildRequestBody(oidcToken), maxRetries, retryIntervalMs, PROVIDER_NAME);
+                buildRequestBody(oidcToken), maxRetries, retryIntervalMs, PROVIDER_NAME, buildHttpConfig());
         Map<String, Object> responseData = parseResponse(responseBody);
 
         Map<String, Object> responseMetadata = asMap(responseData.get("ResponseMetadata"));
@@ -182,6 +188,36 @@ public class OidcCredentialProvider implements Provider {
             throw new IllegalArgumentException("retryIntervalMs must be >= 0");
         }
         this.retryIntervalMs = retryIntervalMs;
+    }
+
+    /**
+     * Set the forward proxy for reaching the STS endpoint, format
+     * {@code scheme://[user:password@]host:port}. When empty, JVM default proxy
+     * selection applies (including HTTP_PROXY / HTTPS_PROXY).
+     */
+    public void setProxyUrl(String proxyUrl) {
+        this.proxyUrl = proxyUrl;
+    }
+
+    /**
+     * Set a custom PEM CA bundle used to verify the STS server certificate.
+     * When empty, the JVM default trust store is used.
+     */
+    public void setCaFile(String caFile) {
+        this.caFile = caFile;
+    }
+
+    /**
+     * When {@code true}, skip STS TLS certificate and hostname verification.
+     * For debugging only; never enable in production.
+     */
+    public void setInsecureSkipVerify(boolean insecureSkipVerify) {
+        this.insecureSkipVerify = insecureSkipVerify;
+    }
+
+    private StsHttpConfig buildHttpConfig() {
+        StsHttpConfig config = new StsHttpConfig(proxyUrl, caFile, insecureSkipVerify);
+        return config.isEmpty() ? null : config;
     }
 
     private static boolean isNullOrEmpty(String s) {

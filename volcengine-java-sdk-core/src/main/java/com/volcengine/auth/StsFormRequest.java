@@ -2,15 +2,23 @@ package com.volcengine.auth;
 
 import com.volcengine.ApiException;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 /**
  * Shared HTTP helper for STS form-encoded POST requests (AssumeRoleWithOIDC,
@@ -18,6 +26,11 @@ import java.nio.charset.StandardCharsets;
  * <p>
  * Only retries on transient failures: {@link IOException} (network errors) and
  * HTTP 5xx / 429 responses. Deterministic 4xx errors are not retried.
+ * <p>
+ * Proxy and TLS customization (ProxyURL / CAFile / InsecureSkipVerify) are
+ * supplied via {@link StsHttpConfig}. This is the single choke point that
+ * gives OIDC and SAML providers the same proxy/TLS capabilities as the OkHttp
+ * based AssumeRole path.
  */
 class StsFormRequest {
 
@@ -34,6 +47,14 @@ class StsFormRequest {
     }
 
     /**
+     * Send a form-encoded POST to the STS endpoint with retry, without any
+     * proxy or TLS customization. Kept for backward compatibility.
+     */
+    static String doPostWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName) throws ApiException {
+        return doPostWithRetry(endpoint, schema, action, formBody, maxRetries, retryIntervalMs, providerName, null);
+    }
+
+    /**
      * Send a form-encoded POST to the STS endpoint with retry.
      *
      * @param endpoint        STS endpoint (may include scheme, or bare host)
@@ -43,15 +64,16 @@ class StsFormRequest {
      * @param maxRetries      max retry attempts; 0 means no retry (single attempt only)
      * @param retryIntervalMs sleep between retries in milliseconds
      * @param providerName    provider name for error messages
+     * @param httpConfig      proxy/TLS configuration; may be null (no customization)
      * @return response body string
      * @throws ApiException on failure after all attempts exhausted
      */
-    static String doPostWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName) throws ApiException {
+    static String doPostWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName, StsHttpConfig httpConfig) throws ApiException {
         String requestUrl = buildRequestUrl(endpoint, schema, action);
         ApiException lastException = null;
         for (int attempt = 0; attempt <= maxRetries; attempt++) {
             try {
-                return doPost(requestUrl, formBody, providerName, action);
+                return doPost(requestUrl, formBody, providerName, action, httpConfig);
             } catch (ApiException e) {
                 if (!isRetryable(e)) {
                     throw e;
@@ -68,10 +90,10 @@ class StsFormRequest {
         throw new ApiException(providerName + ": " + action + " request failed after " + (maxRetries + 1) + " attempts");
     }
 
-    private static String doPost(String requestUrl, String formBody, String providerName, String action) throws ApiException {
+    private static String doPost(String requestUrl, String formBody, String providerName, String action, StsHttpConfig httpConfig) throws ApiException {
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(requestUrl).openConnection();
+            connection = openConnection(requestUrl, httpConfig);
             connection.setRequestMethod("POST");
             connection.setConnectTimeout(DEFAULT_CONNECT_TIMEOUT_MS);
             connection.setReadTimeout(DEFAULT_READ_TIMEOUT_MS);
@@ -108,6 +130,91 @@ class StsFormRequest {
                 connection.disconnect();
             }
         }
+    }
+
+    /**
+     * Open a connection to the request URL, applying proxy and TLS settings
+     * from {@code httpConfig} when provided.
+     * <p>
+     * Behaviour mirrors the Go SDK's buildProxyTransport:
+     * <ul>
+     *   <li>When {@code httpConfig} is null or empty, no customization is
+     *       applied and the JVM default (including standard proxy system
+     *       properties) is used.</li>
+     *   <li>A non-empty ProxyURL routes the request through that proxy;
+     *       otherwise the JVM default proxy selection applies.</li>
+     *   <li>CAFile / InsecureSkipVerify only take effect for https requests
+     *       (the connection is an {@link HttpsURLConnection}).</li>
+     * </ul>
+     */
+    private static HttpURLConnection openConnection(String requestUrl, StsHttpConfig httpConfig) throws ApiException, IOException {
+        URL url = new URL(requestUrl);
+        URLConnection raw;
+        String proxyAuthHeader = null;
+        if (httpConfig != null && !isNullOrEmpty(httpConfig.getProxyUrl())) {
+            String proxyUrl = httpConfig.getProxyUrl();
+            raw = url.openConnection(parseProxy(proxyUrl));
+            proxyAuthHeader = proxyAuthorizationHeader(proxyUrl);
+        } else {
+            raw = url.openConnection();
+        }
+        if (!(raw instanceof HttpURLConnection)) {
+            throw new ApiException("STS request failed: unexpected connection type " + raw.getClass().getName());
+        }
+        HttpURLConnection connection = (HttpURLConnection) raw;
+
+        // Forward proxy Basic auth (proxy url with user:password@), mirroring the
+        // Go SDK's http.ProxyURL which carries proxy credentials automatically.
+        if (proxyAuthHeader != null) {
+            connection.setRequestProperty("Proxy-Authorization", proxyAuthHeader);
+        }
+
+        // TLS customization only applies to https connections.
+        if (connection instanceof HttpsURLConnection && httpConfig != null
+                && (httpConfig.isInsecureSkipVerify() || !isNullOrEmpty(httpConfig.getCaFile()))) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
+            SSLContext sslContext = StsTlsSupport.buildSslContext(httpConfig);
+            httpsConnection.setSSLSocketFactory(sslContext.getSocketFactory());
+            if (httpConfig.isInsecureSkipVerify()) {
+                httpsConnection.setHostnameVerifier(StsTlsSupport.trustAllHostnameVerifier());
+            }
+        }
+        return connection;
+    }
+
+    private static Proxy parseProxy(String proxyUrl) throws ApiException {
+        try {
+            URI uri = new URI(proxyUrl);
+            if (uri.getHost() == null || uri.getPort() < 0) {
+                throw new ApiException("invalid proxy url \"" + proxyUrl + "\": missing host or port");
+            }
+            return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(uri.getHost(), uri.getPort()));
+        } catch (URISyntaxException e) {
+            throw new ApiException("invalid proxy url \"" + proxyUrl + "\": " + e.getMessage());
+        }
+    }
+
+    /**
+     * Build a {@code Proxy-Authorization: Basic ...} header value from the
+     * userinfo part of a proxy url, or {@code null} when the proxy url carries
+     * no credentials.
+     */
+    static String proxyAuthorizationHeader(String proxyUrl) throws ApiException {
+        try {
+            URI uri = new URI(proxyUrl);
+            String userInfo = uri.getUserInfo();
+            if (isNullOrEmpty(userInfo)) {
+                return null;
+            }
+            byte[] raw = userInfo.getBytes(StandardCharsets.UTF_8);
+            return "Basic " + Base64.getEncoder().encodeToString(raw);
+        } catch (URISyntaxException e) {
+            throw new ApiException("invalid proxy url \"" + proxyUrl + "\": " + e.getMessage());
+        }
+    }
+
+    private static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
     }
 
     /**

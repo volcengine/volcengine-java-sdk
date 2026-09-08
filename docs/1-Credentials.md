@@ -203,6 +203,10 @@ public class SampleCode {
         stsAssumeRoleProvider.setDurationSeconds(3600);
         stsAssumeRoleProvider.setExpireBufferSeconds(60);
         stsAssumeRoleProvider.setSchema("https");
+        // Proxy / TLS for reaching STS (optional)
+        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
+        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // Skip STS TLS verification; debugging only (self-signed / intercepting proxy), never in production
         CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
         ApiClient apiClient = new ApiClient()
@@ -242,6 +246,10 @@ public class SampleCode {
         oidcProvider.setSchema("https");                // STS scheme, default: https
         oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
+        // Proxy / TLS for reaching STS (optional)
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
+        // oidcProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // oidcProvider.setInsecureSkipVerify(false);                  // Skip STS TLS verification; debugging only, never in production
 
         CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
         ApiClient apiClient = new ApiClient()
@@ -303,6 +311,10 @@ public class SampleCode {
         samlProvider.setSchema("https");                // STS scheme, default: https
         samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
+        // Proxy / TLS for reaching STS (optional)
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
+        // samlProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // samlProvider.setInsecureSkipVerify(false);                  // Skip STS TLS verification; debugging only, never in production
 
         CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
         ApiClient apiClient = new ApiClient()

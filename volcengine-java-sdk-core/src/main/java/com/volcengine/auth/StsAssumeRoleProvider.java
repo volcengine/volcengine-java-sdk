@@ -1,8 +1,15 @@
 package com.volcengine.auth;
 
+import com.squareup.okhttp.Authenticator;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import com.volcengine.*;
 import com.volcengine.sign.Credentials;
 
+import java.io.IOException;
+import java.net.Proxy;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -23,6 +30,12 @@ public class StsAssumeRoleProvider implements Provider {
     private int durationSeconds = 3600;
 
     private int expireBufferSeconds = 60;
+
+    // Proxy / TLS customization for the STS endpoint. Empty by default: JVM /
+    // OkHttp defaults (including standard proxy environment variables) apply.
+    private String proxyUrl;
+    private String caFile;
+    private boolean insecureSkipVerify;
 
     private CredentialValue credentialValue;
 
@@ -143,6 +156,105 @@ public class StsAssumeRoleProvider implements Provider {
         this.expireBufferSeconds = expireBufferSeconds;
     }
 
+    public String getProxyUrl() {
+        return proxyUrl;
+    }
+
+    /**
+     * Set the forward proxy for reaching the STS endpoint, format
+     * {@code scheme://[user:password@]host:port}. When empty, OkHttp / JVM
+     * default proxy selection applies (including HTTP_PROXY / HTTPS_PROXY).
+     */
+    public void setProxyUrl(String proxyUrl) {
+        this.proxyUrl = proxyUrl;
+    }
+
+    public String getCaFile() {
+        return caFile;
+    }
+
+    /**
+     * Set a custom PEM CA bundle used to verify the STS server certificate.
+     * When empty, the JVM default trust store is used.
+     */
+    public void setCaFile(String caFile) {
+        this.caFile = caFile;
+    }
+
+    public boolean isInsecureSkipVerify() {
+        return insecureSkipVerify;
+    }
+
+    /**
+     * When {@code true}, skip STS TLS certificate and hostname verification.
+     * For debugging only; never enable in production.
+     */
+    public void setInsecureSkipVerify(boolean insecureSkipVerify) {
+        this.insecureSkipVerify = insecureSkipVerify;
+    }
+
+    /**
+     * Apply the proxy/TLS options to the underlying {@link ApiClient} before a
+     * request. Only touches the settings the caller explicitly configured, so
+     * host / region / credentials / timeout set elsewhere are preserved.
+     */
+    void applyHttpConfig() throws ApiException {
+        StsHttpConfig config = new StsHttpConfig(proxyUrl, caFile, insecureSkipVerify);
+        if (config.isEmpty()) {
+            return;
+        }
+
+        if (!isNullOrEmpty(proxyUrl)) {
+            // ApiClient.updateClientProxy() selects httpProxy when disableSSL,
+            // otherwise httpsProxy; set both so the proxy applies regardless of
+            // the schema. Proxy credentials (user:password@) are carried via an
+            // OkHttp proxy Authenticator.
+            apiClient.setHttpProxy(proxyUrl);
+            apiClient.setHttpsProxy(proxyUrl);
+            String proxyAuthHeader = StsFormRequest.proxyAuthorizationHeader(proxyUrl);
+            if (proxyAuthHeader != null) {
+                applyProxyAuthenticator(proxyAuthHeader);
+            }
+        }
+
+        if (insecureSkipVerify) {
+            // verifyingSsl = false trusts all certificates and disables hostname
+            // verification, matching InsecureSkipVerify in the Go SDK.
+            apiClient.setVerifyingSsl(false);
+        } else if (!isNullOrEmpty(caFile)) {
+            try {
+                apiClient.setSslCaCert(Files.newInputStream(Paths.get(caFile)));
+            } catch (IOException e) {
+                throw new ApiException("StsAssumeRoleProvider: unable to read CAFile \"" + caFile + "\" - " + e.getMessage());
+            }
+        }
+    }
+
+    private void applyProxyAuthenticator(final String proxyAuthHeader) {
+        apiClient.getHttpClient().setAuthenticator(new Authenticator() {
+            @Override
+            public Request authenticate(Proxy proxy, Response response) throws IOException {
+                return null;
+            }
+
+            @Override
+            public Request authenticateProxy(Proxy proxy, Response response) throws IOException {
+                return response.request().newBuilder()
+                        .header("Proxy-Authorization", proxyAuthHeader)
+                        .build();
+            }
+        });
+    }
+
+    private static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
+    // Package-private accessor used by tests to assert proxy/TLS propagation.
+    ApiClient getApiClient() {
+        return apiClient;
+    }
+
     public CredentialValue getCredentialValue() {
         return credentialValue;
     }
@@ -172,6 +284,7 @@ public class StsAssumeRoleProvider implements Provider {
     }
 
     public void refresh() throws ApiException {
+        applyHttpConfig();
         UniversalApi api = new UniversalApi(apiClient);
         UniversalRequest request = new UniversalRequest("sts", "AssumeRole", "2018-01-01", HttpMethod.GET, ContentType.Default);
         Map<String, Object> requestMap = new HashMap<>();
