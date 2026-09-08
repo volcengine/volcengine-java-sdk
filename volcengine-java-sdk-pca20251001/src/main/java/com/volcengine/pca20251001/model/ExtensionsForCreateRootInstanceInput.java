@@ -19,11 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.pca20251001.model.CustomExtensionsForCreateRootInstanceInput;
+import com.volcengine.pca20251001.model.CustomExtensionForCreateRootInstanceInput;
 import com.volcengine.pca20251001.model.ExtendedKeyUsagesForCreateRootInstanceInput;
 import com.volcengine.pca20251001.model.KeyUsagesForCreateRootInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +36,7 @@ import javax.validation.Valid;
 
 public class ExtensionsForCreateRootInstanceInput {
   @SerializedName("CustomExtensions")
-  private CustomExtensionsForCreateRootInstanceInput customExtensions = null;
+  private List<CustomExtensionForCreateRootInstanceInput> customExtensions = null;
 
   @SerializedName("ExtendedKeyUsages")
   private ExtendedKeyUsagesForCreateRootInstanceInput extendedKeyUsages = null;
@@ -42,8 +44,16 @@ public class ExtensionsForCreateRootInstanceInput {
   @SerializedName("KeyUsages")
   private KeyUsagesForCreateRootInstanceInput keyUsages = null;
 
-  public ExtensionsForCreateRootInstanceInput customExtensions(CustomExtensionsForCreateRootInstanceInput customExtensions) {
+  public ExtensionsForCreateRootInstanceInput customExtensions(List<CustomExtensionForCreateRootInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
+    return this;
+  }
+
+  public ExtensionsForCreateRootInstanceInput addCustomExtensionsItem(CustomExtensionForCreateRootInstanceInput customExtensionsItem) {
+    if (this.customExtensions == null) {
+      this.customExtensions = new ArrayList<CustomExtensionForCreateRootInstanceInput>();
+    }
+    this.customExtensions.add(customExtensionsItem);
     return this;
   }
 
@@ -53,11 +63,11 @@ public class ExtensionsForCreateRootInstanceInput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomExtensionsForCreateRootInstanceInput getCustomExtensions() {
+  public List<CustomExtensionForCreateRootInstanceInput> getCustomExtensions() {
     return customExtensions;
   }
 
-  public void setCustomExtensions(CustomExtensionsForCreateRootInstanceInput customExtensions) {
+  public void setCustomExtensions(List<CustomExtensionForCreateRootInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
   }
 
