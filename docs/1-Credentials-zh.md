@@ -208,7 +208,7 @@ public class SampleCode {
         // 访问 STS 的代理 / TLS（选填）
         // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
         // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
-        // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
+        // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截）；默认 false，生产禁用
         CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
         ApiClient apiClient = new ApiClient()
@@ -252,7 +252,7 @@ public class SampleCode {
         // 访问 STS 的代理 / TLS（选填）
         // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
         // oidcProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
-        // oidcProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调，生产禁用
+        // oidcProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
         ApiClient apiClient = new ApiClient()
@@ -317,7 +317,7 @@ public class SampleCode {
         // 访问 STS 的代理 / TLS（选填）
         // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
         // samlProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
-        // samlProvider.setInsecureSkipVerify(false);                  // 跳过 STS TLS 证书校验，仅限联调，生产禁用
+        // samlProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(samlProvider);
         ApiClient apiClient = new ApiClient()

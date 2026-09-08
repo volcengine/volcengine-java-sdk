@@ -6,6 +6,7 @@ import com.squareup.okhttp.Response;
 import com.volcengine.*;
 import com.volcengine.sign.Credentials;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.Proxy;
 import java.nio.file.Files;
@@ -222,8 +223,13 @@ public class StsAssumeRoleProvider implements Provider {
             // verification, matching InsecureSkipVerify in the Go SDK.
             apiClient.setVerifyingSsl(false);
         } else if (!isNullOrEmpty(caFile)) {
+            // Read the CA bundle into memory and hand a detached ByteArrayInputStream
+            // to the ApiClient. Using Files.newInputStream(...) directly would leak a
+            // file descriptor on every refresh(), since applySslSettings() never closes
+            // the stream and refresh() re-opens it each time.
             try {
-                apiClient.setSslCaCert(Files.newInputStream(Paths.get(caFile)));
+                byte[] caBytes = Files.readAllBytes(Paths.get(caFile));
+                apiClient.setSslCaCert(new ByteArrayInputStream(caBytes));
             } catch (IOException e) {
                 throw new ApiException("StsAssumeRoleProvider: unable to read CAFile \"" + caFile + "\" - " + e.getMessage());
             }
@@ -239,6 +245,13 @@ public class StsAssumeRoleProvider implements Provider {
 
             @Override
             public Request authenticateProxy(Proxy proxy, Response response) throws IOException {
+                // Idempotent guard: if the request already carries a Proxy-Authorization
+                // header, our credentials were already tried and rejected. Return null so
+                // OkHttp stops retrying instead of resubmitting the same header until it
+                // hits the follow-up cap. Only inject on the first (unauthenticated) attempt.
+                if (response.request().header("Proxy-Authorization") != null) {
+                    return null;
+                }
                 return response.request().newBuilder()
                         .header("Proxy-Authorization", proxyAuthHeader)
                         .build();
